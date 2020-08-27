@@ -23,13 +23,13 @@ If you need to move your Azure Digital Twins instance from one region to another
 This article provides guidance on how to do a complete move, copying over everything you'll need to make the new instance match the original.
 
 This process includes the following steps:
-* Prepare: Download your original models, twins, and graph
-* Move: Create a new Azure Digital Twins instance, in a new region
-* Move: Repopulate the new Azure Digital Twins instance
+1. Prepare: Download your original models, twins, and graph
+2. Move: Create a new Azure Digital Twins instance, in a new region
+3. Move: Repopulate the new Azure Digital Twins instance
     - Upload original models, twins, and graph
     - Recreate endpoints and routes
     - Re-link connected resources
-* Clean up source resources (optional): Delete original instance
+4. Clean up source resources (optional): Delete original instance
 
 ## Prerequisites
 
@@ -100,13 +100,7 @@ To download your **twins and graph**, make sure the full graph is showing in the
  
 Then, hit the *Export graph* icon in the *GRAPH VIEW* box.
 
-:::row:::
-    :::column:::
-        :::image type="content" source="media/how-to-move-regions/export-graph.png" alt-text="In the Graph View box, an icon is highlighted. It shows an arrow pointing down out of a cloud." lightbox="media/how-to-move-regions/export-graph.png":::
-    :::column-end:::
-    :::column:::
-    :::column-end:::
-:::row-end:::
+:::image type="content" source="media/how-to-move-regions/export-graph.png" alt-text="In the Graph View box, an icon is highlighted. It shows an arrow pointing down out of a cloud." lightbox="media/how-to-move-regions/export-graph.png":::
 
 This will enable a *Download* link in the *GRAPH VIEW*. Select it to download a JSON-based representation of the query result, including your models, twins, and relationships.
 
@@ -145,7 +139,7 @@ Currently, ADT Explorer is connected to your original Azure Digital Twins instan
 
 :::image type="content" source="media/how-to-move-regions/sign-in.png" alt-text="ADT Explorer highlighting the Sign In icon near the top of the window. The icon shows a simple silhouette of a person overlaid with a silhouette of a key." lightbox="media/how-to-move-regions/sign-in.png":::
 
-Since you're reusing the app registration, you only need to replace the *ADT URL*. Change this value to that it reads *https://<new instance hostname>*.
+Since you're reusing the app registration, you only need to replace the *ADT URL*. Change this value to that it reads *https://{new instance hostname}*.
 
 Hit *Connect*. You may be asked to log in again with your Azure credentials, and/or grant this application consent for your instance.
 
