@@ -197,7 +197,7 @@ Follow these steps once the data backup to the Azure Data Box Disk is successful
 
 ## Troubleshooting
 
-The Microsoft Azure Backup (MAB) agent on the DPM server creates an Azure AD application for you, in your tenant. This application requires a certificate for authentication that is created and uploaded when configuring offline seeding policy.
+The Microsoft Azure Backup (MAB) agent on the DPM server creates an Azure AD application for you, in your tenant. This application requires a certificate for authentication that's created and uploaded when configuring offline seeding policy.
 
 We use Azure PowerShell for creating and uploading the certificate to the Azure AD Application.
 

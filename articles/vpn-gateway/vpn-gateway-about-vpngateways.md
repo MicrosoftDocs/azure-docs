@@ -7,15 +7,14 @@ Customer intent: As someone with a basic network background, but is new to Azure
 
 ms.service: vpn-gateway
 ms.topic: overview
-ms.date: 08/25/2020
+ms.date: 08/27/2020
 ms.author: cherylmc
+ms.custom: contperfq1
 
 ---
 # What is VPN Gateway?
 
 A VPN gateway is a specific type of virtual network gateway that is used to send encrypted traffic between an Azure virtual network and an on-premises location over the public Internet. You can also use a VPN gateway to send encrypted traffic between Azure virtual networks over the Microsoft network. Each virtual network can have only one VPN gateway. However, you can create multiple connections to the same VPN gateway. When you create multiple connections to the same VPN gateway, all VPN tunnels share the available gateway bandwidth.
-
-VPN gateways can be deployed in Azure Availability Zones. This brings resiliency, scalability, and higher availability to virtual network gateways. Deploying gateways in Azure Availability Zones physically and logically separates gateways within a region, while protecting your on-premises network connectivity to Azure from zone-level failures. see [About zone-redundant virtual network gateways in Azure Availability Zones](about-zone-redundant-vnet-gateways.md).
 
 ## <a name="whatis"></a>What is a virtual network gateway?
 
@@ -57,6 +56,10 @@ When you create a virtual network gateway, you specify the gateway SKU that you 
 ### <a name="benchmark"></a>Gateway SKUs by tunnel, connection, and throughput
 
 [!INCLUDE [Aggregated throughput by SKU](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)]
+
+## <a name="availability"></a>Availability Zones
+
+VPN gateways can be deployed in Azure Availability Zones. This brings resiliency, scalability, and higher availability to virtual network gateways. Deploying gateways in Azure Availability Zones physically and logically separates gateways within a region, while protecting your on-premises network connectivity to Azure from zone-level failures. see [About zone-redundant virtual network gateways in Azure Availability Zones](about-zone-redundant-vnet-gateways.md).
 
 ## <a name="pricing"></a>Pricing
 

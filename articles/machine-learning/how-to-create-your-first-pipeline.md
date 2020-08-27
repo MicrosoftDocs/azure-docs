@@ -49,12 +49,13 @@ Create the resources required to run an ML pipeline:
 
 * Set up a datastore used to access the data needed in the pipeline steps.
 
-* Configure a `Dataset` object to point to persistent data that lives in, or is accessible in, a datastore. Configure a `OutputFileDatasetConfig` object for temporary data passed between pipeline steps or to create outputs. 	* Configure a `Dataset` object to point to persistent data that lives in, or is accessible in, a datastore. Configure a `PipelineData` object for temporary data passed between pipeline steps. 
-> [!NOTE]	
->The `OutputFileDatasetConfig` class is an experimental preview feature, and may change at any time.	
->	
->For more information, see https://aka.ms/azuremlexperimental.
+* Configure a `Dataset` object to point to persistent data that lives in, or is accessible in, a datastore. Configure a `PipelineData` object for temporary data passed between pipeline steps. 
 
+    > [!TIP]
+    > An improved experience for passing temporary data between pipeline steps is available in the public preview class,  `OutputFileDatasetConfig`.  This class is an experimental preview feature, and may change at any time.
+    > 
+    >For more information about experimental features, see https://aka.ms/azuremlexperimental.
+    
 * Set up the [compute targets](concept-azure-machine-learning-architecture.md#compute-targets) on which your pipeline steps will run.
 
 ### Set up a datastore
@@ -77,7 +78,7 @@ def_file_store = Datastore(ws, "workspacefilestore")
 
 Steps generally consume data and produce output data. A step can create data such as a model, a directory with model and dependent files, or temporary data. This data is then available for other steps later in the pipeline. To learn more about connecting your pipeline to your data, see the articles [How to Access Data](how-to-access-data.md) and [How to Register Datasets](how-to-create-register-datasets.md). 
 
-### Configure data using `Dataset` and `OutputFileDatasetConfig` objects
+### Configure data with `Dataset` and `PipelineData` objects
 
 The preferred way to provide data to a pipeline is a [Dataset](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.Dataset) object. The `Dataset` object points to data that lives in or is accessible from a datastore or at a Web URL. The `Dataset` class is abstract, so you will create an instance of either a `FileDataset` (referring to one or more files) or a `TabularDataset` that's created by from one or more files with delimited columns of data.
 
@@ -89,18 +90,20 @@ from azureml.core import Dataset
 
 my_dataset = Dataset.File.from_files([(def_blob_store, 'train-images/')])
 ```
-
-Intermediate data (or output of a step) is represented by an [OutputFileDatasetConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py) object. `output_data1` is produced as the output of a step, and used as the input of one or more future steps. `OutputFileDatasetConfig` introduces a data dependency between steps, and creates an implicit execution order in the pipeline. This object will be used later when creating pipeline steps.	Intermediate data (or output of a step) is represented by a [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py) object. `output_data1` is produced as the output of a step, and used as the input of one or more future steps. `PipelineData` introduces a data dependency between steps, and creates an implicit execution order in the pipeline. This object will be used later when creating pipeline steps.
-
-`OutputFileDatasetConfig` objects return a directory, and by default writes output to the default datastore of the workspace.
+Intermediate data (or output of a step) is represented by a [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py) object. `output_data1` is produced as the output of a step, and used as the input of one or more future steps. `PipelineData` introduces a data dependency between steps, and creates an implicit execution order in the pipeline. This object will be used later when creating pipeline steps.
 
 ```python
-from azureml.pipeline.core import OutputFileDatasetConfig
+from azureml.pipeline.core import PipelineData
 
-output_data1 = OutputFileDatasetConfig()
+output_data1 = PipelineData(
+    "output_data1",
+    datastore=def_blob_store,
+    output_name="output_data1")
+
 ```
 
-More details and sample code for working with datasets and OutputFileConfig objects are in [Moving data into and between ML pipeline steps (Python)](how-to-move-data-in-out-of-pipelines.md).
+> [!TIP]
+> Persisting intermediate data between pipeline steps is also possible with the public preview class, `OutputFileDatasetConfig`. Learn more about `OutputFileDatasetConfig` design patterns and methods in [the SDK reference documentation](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py).
 
 ## Set up a compute target
 
@@ -177,10 +180,8 @@ Once you have the compute resource and environment created, you are ready to def
 
 ```python
 from azureml.pipeline.steps import PythonScriptStep
-
 dataprep_source_dir = "./dataprep_src"
 entry_point = "prepare.py"
-
 # `my_dataset` as defined above
 ds_input = my_dataset.as_named_input('input1')
 
@@ -189,6 +190,8 @@ data_prep_step = PythonScriptStep(
     script_name=entry_point,
     source_directory=dataprep_source_dir,
     arguments=["--input", ds_input.as_download(), "--output", output_data1],
+    inputs=[ds_input],
+    outputs=[output_data1],
     compute_target=compute_target,
     runconfig=aml_run_config,
     allow_reuse=True
@@ -197,7 +200,7 @@ data_prep_step = PythonScriptStep(
 
 The above code shows a typical initial pipeline step. Your data preparation code is in a subdirectory (in this example, `"prepare.py"` in the directory `"./dataprep.src"`). As part of the pipeline creation process, this directory is zipped and uploaded to the `compute_target` and the step runs the script specified as the value for `script_name`.
 
-The `arguments` values specify the inputs and outputs of the step. In the example above, the baseline data is the `my_dataset` dataset. The corresponding data will be downloaded to the compute resource since the code specifies it as `as_download()`. The script `prepare.py` does whatever data-transformation tasks are appropriate to the task at hand and outputs the data to `output_data1`, of type `OutputFileDatasetConfig`. For more information, see [Moving data into and between ML pipeline steps (Python)](how-to-move-data-in-out-of-pipelines.md). 
+The `arguments`, `inputs`, and `outputs` values specify the inputs and outputs of the step. In the example above, the baseline data is the `my_dataset` dataset. The corresponding data will be downloaded to the compute resource since the code specifies it as `as_download()`. The script `prepare.py` does whatever data-transformation tasks are appropriate to the task at hand and outputs the data to `output_data1`, of type `PipelineData`. For more information, see [Moving data into and between ML pipeline steps (Python)](how-to-move-data-in-out-of-pipelines.md). 
 
 The step will run on the machine defined by `compute_target`, using the configuration `aml_run_config`. 
 
@@ -209,9 +212,11 @@ It's possible to create a pipeline with a single step, but almost always you'll 
 train_source_dir = "./train_src"
 train_entry_point = "train.py"
 
-training_results = OutputFileDatasetConfig(name = "training_results", 
-                                           destination=def_blob_store)
+training_results = PipelineData(name = "training_results", 
+                                datastore=def_blob_store,
+                                output_name="training_results")
 
+    
 train_step = PythonScriptStep(
     script_name=train_entry_point,
     source_directory=train_source_dir,
@@ -222,7 +227,11 @@ train_step = PythonScriptStep(
 )
 ```
 
-The above code is very similar to that for the data preparation step. The training code is in a directory separate from that of the data preparation code. The `OutputFileDatasetConfig` output of the data preparation step, `output_data1` is used as the _input_ to the training step. A new `OutputFileDatasetConfig` object, `training_results` is created to hold the results for a subsequent comparison or deployment step. 
+The above code is very similar to that for the data preparation step. The training code is in a directory separate from that of the data preparation code. The `PipelineData` output of the data preparation step, `output_data1` is used as the _input_ to the training step. A new `PipelineData` object, `training_results` is created to hold the results for a subsequent comparison or deployment step. 
+
+
+> [!TIP]
+> For an improved experience, and the ability to write intermediate data back to your datastores at the end of your pipeline run, use the public preview class, `OutputFileDatasetConfig`. Learn more about `OutputFileDatasetConfig` design patterns and methods in [the SDK reference documentation](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py).
 
 After you define your steps, you build the pipeline by using some or all of those steps.
 
@@ -241,10 +250,12 @@ pipeline1 = Pipeline(workspace=ws, steps=[compare_models])
 
 ### Use a dataset 
 
-Datasets created from Azure Blob storage, Azure Files, Azure Data Lake Storage Gen1,  Azure Data Lake Storage Gen2, Azure SQL Database, and Azure Database for PostgreSQL can be used as input to any pipeline step. You can write output to a [DataTransferStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep?view=azure-ml-py), [DatabricksStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricks_step.databricksstep?view=azure-ml-py), or if you want to write data to a specific datastore use [OutputFileDatasetConfig](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py). 
+Datasets created from Azure Blob storage, Azure Files, Azure Data Lake Storage Gen1,  Azure Data Lake Storage Gen2, Azure SQL Database, and Azure Database for PostgreSQL can be used as input to any pipeline step. You can write output to a [DataTransferStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep?view=azure-ml-py), [DatabricksStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricks_step.databricksstep?view=azure-ml-py), or if you want to write data to a specific datastore use [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py). 
 
 > [!IMPORTANT]
-> Writing output data back to a datastore using `OutputFileDatasetConfig` is only supported for Azure Blob, Azure File share, ADLS Gen 1 and ADLS Gen 2 datastores. This functionality is not supported for [ADLS Gen 2 datastores](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_data_lake_datastore.azuredatalakegen2datastore?view=azure-ml-py) at this time.
+> Writing output data back to a datastore using PipelineData is only supported for Azure Blob and Azure File share datastores. 
+>
+> To write output data back to Azure Blob, Azure File share, ADLS Gen 1 and ADLS Gen 2 datastores use the public preview class, [`OutputFileDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.output_dataset_config.outputfiledatasetconfig?view=azure-ml-py).
 
 ```python
 dataset_consuming_step = PythonScriptStep(
@@ -315,7 +326,8 @@ When you first run a pipeline, Azure Machine Learning:
 * Downloads the project snapshot to the compute target from the Blob storage associated with the workspace.
 * Builds a Docker image corresponding to each step in the pipeline.
 * Downloads the Docker image for each step to the compute target from the container registry.
-* Configures access to `Dataset` and `OutputFileDatasetConfig` objects. For `as_mount()` access mode, FUSE is used to provide virtual access. If mount is not supported or if the user specified access as `as_download()`, the data is instead copied to the compute target.
+* Configures access to `Dataset` and `PipelineData` objects. For as `as_mount()` access mode, FUSE is used to provide virtual access. If mount is not supported or if the user specified access as `as_download()`, the data is instead copied to the compute target.
+
 * Runs the step in the compute target specified in the step definition. 
 * Creates artifacts, such as logs, stdout and stderr, metrics, and output specified by the step. These artifacts are then uploaded and kept in the user's default datastore.
 
