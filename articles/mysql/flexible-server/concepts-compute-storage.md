@@ -95,7 +95,11 @@ Storage auto-grow is not yet available for Azure Database for MySQL Flexible Ser
 
 ## IOPS
 
-In all compute tiers, the IOPS scale with the provisioned storage size in a 3:1 ratio. You can scale IOPS by increasing the provisioned storage. The minimum IOPS supported is 100. The maximum effective IOPS may be limited by the maximum available IOPS of the selected compute size and is shown in the table below. In preview, the max IOPS supported is 20,000 IOPS.
+In all compute tiers, the IOPS scale with the provisioned storage size in a 3:1 ratio. You can scale IOPS by increasing the provisioned storage. The minimum IOPS supported is 100. The maximum effective IOPS may be limited by the maximum available IOPS of the selected compute size and can be calculated using the below formula. You can refer to the column *Max uncached disk throughput: IOPS/MBps* in the [B-series](../../virtual-machines/sizes-b-series-burstable.md), [Ddsv4-series](../../virtual-machines/ddv4-ddsv4-series.md), and [Edsv4-series](../../virtual-machines/edv4-edsv4-series.md) documentation for the maximum IOPS available for each compute size. In preview, the max IOPS supported is 20,000 IOPS.
+
+**Max effective IOPS** = MINIMUM(maximum IOPS of compute size, storage provisioned in GiB * 3)
+
+The table below shows the calculated maximum effective IOPS by compute size. 
 
 | SKU Name             | Max effective IOPS  | 
 |----------------------|---------------------|
@@ -119,18 +123,6 @@ In all compute tiers, the IOPS scale with the provisioned storage size in a 3:1 
 | E32ds_v4             | 20000               | 
 | E48ds_v4             | 20000               | 
 | E64ds_v4             | 20000               |  
-
-The maximum effective IOPS can be calculated using the below formula. You can refer to the column "Max uncached disk throughput: IOPS/MBps" in the [B-series](../../virtual-machines/sizes-b-series-burstable.md), [Ddsv4-series](../../virtual-machines/ddv4-ddsv4-series.md), and [Edsv4-series](../../virtual-machines/edv4-edsv4-series.md) documentation for the maximum IOPS available for each compute size.  
-
-**Max effective IOPS** = MINIMUM(maximum IOPS of compute size, storage provisioned in GiB * 3)
-
-<!--In the above, the maximum available IOPS of a compute VM can be estimated by the network bandwidth supported on the VM and IO size for MySQL engine. The following formula shows the relationship between IOPS, IO size, and Bandwidth/Throughput.
-
-**Maximum IOPS of compute size** = (Maximum Bandwidth of compute / IO size)
-
-The IO size for MySQL is 16 KB. Refer to the [B-series](../../virtual-machines/sizes-b-series-burstable.md), [Ddsv4-series](../../virtual-machines/ddv4-ddsv4-series.md), and [Edsv4-series](../../virtual-machines/edv4-edsv4-series.md) documentation for the maximum bandwidth for each VM size. 
-
-For example, the D2ds_v4 (General Purpose 2 vCore), the maximum available IOPS using the above calculation is around 8000 IOPS.-->
 
 You can monitor your I/O consumption in the Azure portal (with Azure Monitor) using IO percent metric. <!-- add link to metrics doc-->
 
