@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/20/2020
+ms.date: 08/26/2020
 ---
 
 # API versions in Azure Cognitive Search
@@ -20,7 +20,24 @@ As a rule, the Azure Cognitive Search team publishes new versions only when nece
 The same rule applies for SDK updates. The Azure Cognitive Search SDK follows the [semantic versioning](https://semver.org/) rules, which means that its version has three parts: major, minor, and build number (for example, 1.1.0). A new major version of the SDK is released only for changes that break backward compatibility. Non-breaking feature updates will increment the minor version, and bug fixes will only increase the build version.
 
 > [!Important]
-> The Azure SDKs for .NET, Java, Python and JavaScript are rolling out new client libraries for Azure Cognitive Search. Currently, none of the Azure SDK libraries fully support the most recent Search REST APIs (2020-06-30) or Management REST APIs (2020-03-13) but this will change over time. You can periodically check this page or the [What's New](whats-new.md) for announcements on functional enhancements. 
+> The Azure SDKs for .NET, Java, Python and JavaScript are rolling out new client libraries for Azure Cognitive Search. Currently, none of the Azure SDK libraries fully support the most recent Search REST APIs (2020-06-30) or Management REST APIs (2020-03-13) but this will change over time. You can periodically check this page or the [What's New](whats-new.md) for announcements on functional enhancements.
+
+<a name="unsupported-versions"></a>
+
+## Unsupported versions
+
+Upgrade existing search solutions to the latest version of the REST API by October 15, 2020. At that time, the following versions of the Azure Cognitive Search REST API will be retired and no longer supported:
+
++ **2015-02-28**
++ **2015-02-28-Preview**
++ **2014-07-31-Preview**
++ **2014-10-20-Preview**
+
+In addition, versions of the Azure Cognitive Search .NET SDK older than [**3.0.0-rc**](https://www.nuget.org/packages/Microsoft.Azure.Search/3.0.0-rc) will also be retired since they target one of these REST API versions. 
+
+After this date, applications that use any of the deprecated REST API or SDK versions will no longer work and must be upgraded. As with any change of this type, we are giving 12 months' notice, so you have adequate time to adjust.
+
+To continue using Azure Cognitive Search, please migrate existing code that targets the [REST API](search-api-migration.md) to [REST API version 2020-06-30](https://docs.microsoft.com/rest/api/searchservice/) or to a newer SDK by October 15, 2020.  If you have any questions about updating to the latest version, please send mail to azuresearch_contact@microsoft.com by May 15, 2020 to ensure you have enough time to update your code.
 
 ## REST APIs
 
@@ -36,16 +53,16 @@ Create and manage content on a search service.
 |-------------------------|--------|------------------------------|
 | [Search 2020-06-30](/rest/api/searchservice/index)| Stable | Newest stable release of the Search REST APIs, with advancements in relevance scoring and generally availability for knowledge store.|
 | [Search 2020-06-30-Preview](/rest/api/searchservice/index-preview)| Preview | Preview version associated with stable version. Includes multiple [preview features](search-api-preview.md). |
-| Search 2019-05-06 | Stable | Adds [complex types](search-howto-complex-data-types.md). |
+| Search 2019-05-06 | Stable  | Adds [complex types](search-howto-complex-data-types.md). |
 | Search 2019-05-06-Preview | Preview | Preview version associated with stable version. |
-| Search 2017-11-11 | Stable  | Adds skillsets and [AI enrichment](cognitive-search-concept-intro.md). |
+| Search 2017-11-11 | Stable | Adds skillsets and [AI enrichment](cognitive-search-concept-intro.md). |
 | Search 2017-11-11-Preview | Preview | Preview version associated with stable version. |
 | Search 2016-09-01 |Stable | Adds [indexers](search-indexer-overview.md). |
 | Search 2016-09-01-Preview | Preview | Preview version associated with stable version.|
-| Search 2015-02-28 | Stable  | First generally available release.  |
-| Search 2015-02-28-Preview | Preview | Preview version associated with stable version. |
-| Search 2014-10-20-Preview | Preview | Second public preview. |
-| Search 2014-07-31-Preview | Preview | First public preview. |
+| Search 2015-02-28 | Unsupported after 10-10-2020   | First generally available release.  |
+| Search 2015-02-28-Preview | Unsupported after 10-10-2020  | Preview version associated with stable version. |
+| Search 2014-10-20-Preview | Unsupported after 10-10-2020 | Second public preview. |
+| Search 2014-07-31-Preview | Unsupported after 10-10-2020  | First public preview. |
 
 ### Management REST APIs
 
@@ -60,8 +77,7 @@ Create and configure a search service, and manage API keys.
 
 ## Azure SDK for .NET
 
-Package version history is available on NuGet.org. This table provides links to each package page.
-
+The following  table provides links to more recent SDK versions. 
 
 | SDK version | Status | Description |
 |-------------|--------|------------------------------|
@@ -69,6 +85,8 @@ Package version history is available on NuGet.org. This table provides links to 
 | [Microsoft.Azure.Search 10.0](https://www.nuget.org/packages/Microsoft.Azure.Search/) | Stable | Released May 2019. Targets the Search REST api-version=2019-05-06.|
 | [Microsoft.Azure.Search 8.0-preview](https://www.nuget.org/packages/Microsoft.Azure.Search/8.0.0-preview) | Preview | released April 2019. Targets the Search REST api-version=2019-05-06-Preview.|
 | [Microsoft.Azure.Management.Search 3.0.0](/dotnet/api/overview/azure/search/management?view=azure-dotnet) | Stable | Targets the Management REST api-version=2015-08-19.  |
+
+For more information about any release not listed here, go the Nuget package for any release, scroll down to **Version History**, and expand the section to view the full list.
 
 ## Azure SDK for Java
 
