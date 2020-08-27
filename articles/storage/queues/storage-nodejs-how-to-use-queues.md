@@ -60,7 +60,7 @@ communicate with the storage REST services.
 
 # [JavaScript v12](#tab/javascript)
 
-:::code language="javascript" source="~/azure-storage-snippets/queues/howto/JavaScript/JavaScript-v12/javascript-how-to-v12.js" id="Snippet_ImportStatements":::
+:::code language="javascript" source="~/azure-storage-snippets/queues/howto/JavaScript/JavaScript-v12/javascript-queues-v12.js" id="Snippet_ImportStatements":::
 
 # [JavaScript v2](#tab/javascript2)
 
@@ -79,7 +79,7 @@ The Azure module will read the environment variables `AZURE_STORAGE_ACCOUNT` and
 
 # [JavaScript v12](#tab/javascript)
 
-:::code language="javascript" source="~/azure-storage-snippets/queues/howto/JavaScript/JavaScript-v12/javascript-how-to-v12.js" id="Snippet_CreateQueue":::
+:::code language="javascript" source="~/azure-storage-snippets/queues/howto/JavaScript/JavaScript-v12/javascript-queues-v12.js" id="Snippet_CreateQueue":::
 
 # [JavaScript v2](#tab/javascript2)
 
@@ -130,7 +130,7 @@ var queueSvc = azure.createQueueService().withFilter(retryOperations);
 
 # [JavaScript v12](#tab/javascript)
 
-:::code language="javascript" source="~/azure-storage-snippets/queues/howto/JavaScript/JavaScript-v12/javascript-how-to-v12.js" id="Snippet_AddMessage":::
+:::code language="javascript" source="~/azure-storage-snippets/queues/howto/JavaScript/JavaScript-v12/javascript-queues-v12.js" id="Snippet_AddMessage":::
 
 # [JavaScript v2](#tab/javascript2)
 
@@ -151,7 +151,7 @@ You can peek at the message in the front of a queue without removing it from the
 
 # [JavaScript v12](#tab/javascript)
 
-:::code language="javascript" source="~/azure-storage-snippets/queues/howto/JavaScript/JavaScript-v12/javascript-how-to-v12.js" id="Snippet_PeekMessage":::
+:::code language="javascript" source="~/azure-storage-snippets/queues/howto/JavaScript/JavaScript-v12/javascript-queues-v12.js" id="Snippet_PeekMessage":::
 
 # [JavaScript v2](#tab/javascript2)
 
@@ -180,7 +180,7 @@ Processing a message is a two-stage process:
 
 # [JavaScript v12](#tab/javascript)
 
-:::code language="javascript" source="~/azure-storage-snippets/queues/howto/JavaScript/JavaScript-v12/javascript-how-to-v12.js" id="Snippet_DequeueMessage":::
+:::code language="javascript" source="~/azure-storage-snippets/queues/howto/JavaScript/JavaScript-v12/javascript-queues-v12.js" id="Snippet_DequeueMessage":::
 
 # [JavaScript v2](#tab/javascript2)
 
@@ -215,7 +215,7 @@ You can change the contents of a message in-place in the queue using **updateMes
 
 # [JavaScript v12](#tab/javascript)
 
-:::code language="javascript" source="~/azure-storage-snippets/queues/howto/JavaScript/JavaScript-v12/javascript-how-to-v12.js" id="Snippet_UpdateMessage":::
+:::code language="javascript" source="~/azure-storage-snippets/queues/howto/JavaScript/JavaScript-v12/javascript-queues-v12.js" id="Snippet_UpdateMessage":::
 
 # [JavaScript v2](#tab/javascript2)
 
@@ -238,7 +238,7 @@ queueSvc.getMessages('myqueue', function(error, getResults, getResponse){
 
 # [JavaScript v12](#tab/javascript)
 
-:::code language="javascript" source="~/azure-storage-snippets/queues/howto/JavaScript/JavaScript-v12/javascript-how-to-v12.js" id="Snippet_DequeueMessages":::
+:::code language="javascript" source="~/azure-storage-snippets/queues/howto/JavaScript/JavaScript-v12/javascript-queues-v12.js" id="Snippet_DequeueMessages":::
 
 # [JavaScript v2](#tab/javascript2)
 
@@ -271,7 +271,7 @@ queueSvc.getMessages('myqueue', {numOfMessages: 15, visibilityTimeout: 5 * 60}, 
 
 # [JavaScript v12](#tab/javascript)
 
-:::code language="javascript" source="~/azure-storage-snippets/queues/howto/JavaScript/JavaScript-v12/javascript-how-to-v12.js" id="Snippet_QueueLength":::
+:::code language="javascript" source="~/azure-storage-snippets/queues/howto/JavaScript/JavaScript-v12/javascript-queues-v12.js" id="Snippet_QueueLength":::
 
 # [JavaScript v2](#tab/javascript2)
 
@@ -290,7 +290,7 @@ queueSvc.getQueueMetadata('myqueue', function(error, results, response){
 
 # [JavaScript v12](#tab/javascript)
 
-:::code language="javascript" source="~/azure-storage-snippets/queues/howto/JavaScript/JavaScript-v12/javascript-how-to-v12.js" id="Snippet_ListQueues":::
+:::code language="javascript" source="~/azure-storage-snippets/queues/howto/JavaScript/JavaScript-v12/javascript-queues-v12.js" id="Snippet_ListQueues":::
 
 # [JavaScript v2](#tab/javascript2)
 
@@ -313,7 +313,7 @@ To delete a queue and all the messages contained in it, call the **deleteQueue**
 
 # [JavaScript v12](#tab/javascript)
 
-:::code language="javascript" source="~/azure-storage-snippets/queues/howto/JavaScript/JavaScript-v12/javascript-how-to-v12.js" id="Snippet_DeleteQueue":::
+:::code language="javascript" source="~/azure-storage-snippets/queues/howto/JavaScript/JavaScript-v12/javascript-queues-v12.js" id="Snippet_DeleteQueue":::
 
 # [JavaScript v2](#tab/javascript2)
 
