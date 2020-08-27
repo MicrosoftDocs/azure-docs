@@ -289,7 +289,7 @@ The Service Fabric nodeType must be enabled to support multiple availability zon
     ],
     "properties": {
         "clusterCodeVersion": "7.1.417.9590",
-        "hierarchicalUpgradeDomain": false/true,
+        "hierarchicalUpgradeDomain": true,
         "nodeTypes": [
           {
                 "name": "[parameters('vmNodeType0Name')]",
