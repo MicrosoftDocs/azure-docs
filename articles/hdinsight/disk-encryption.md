@@ -27,13 +27,10 @@ HDInsight supports multiple types of encryption in two different layers:
 
 These types are summarized in the following table.
 
-Encryption layer |Cluster type |OS Disk (Managed disk) |Data disk (Managed disk) |Temp data disk (Local SSD) |
-|---|---|---|---|---|
-| Layer1: [SSE Encryption](../virtual-machines/windows/managed-disks-overview.md#encryption)  | Kafka, HBase with Accelerated writes | X | X | - |
-| Layer1: [SSE Encryption](../virtual-machines/windows/managed-disks-overview.md#encryption)  | All other clusters (Spark, Interactive, Hadoop, HBase without Accelerated writes) | X | N/A | - |
-| Layer1: Optional Encryption at host using PMK  | All | - | - | X |
-| Layer2: Optional encryption at rest using CMK  | Kafka, HBase with Accelerated writes|by default | - | X | X |
-| Layer2: Optional encryption at rest using CMK  | All other clusters (Spark, Interactive, Hadoop, HBase without Accelerated writes) | - | - | X |
+|Cluster type |OS Disk (Managed disk) |Data disk (Managed disk) |Temp data disk (Local SSD) |
+|---|---|---|---|
+|Kafka, HBase with Accelerated writes|Layer1: [SSE Encryption](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#encryption) by default|Layer1: [SSE Encryption](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#encryption) by default, Layer2: Optional encryption at rest using CMK|Layer1: Optional Encryption at host using PMK, Layer2: Optional encryption at rest using CMK|
+|All other clusters (Spark, Interactive, Hadoop, HBase without Accelerated writes)|Layer1: [SSE Encryption](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#encryption) by default|N/A|Layer1: Optional Encryption at host using PMK, Layer2: Optional encryption at rest using CMK|
 
 ## Encryption at rest using Customer-managed keys
 
@@ -408,6 +405,8 @@ HDInsight customer-managed keys are available in all public clouds and national 
 
 ## Encryption at host using platform-managed keys
 
+### Enable in the Azure portal
+
 Encryption at host can be enabled during cluster creation in the Azure portal.
 
 > [!Note]
@@ -415,9 +414,52 @@ Encryption at host can be enabled during cluster creation in the Azure portal.
 
 :::image type="content" source="media/disk-encryption/encryption-at-host.png" alt-text="Enable encryption at host.":::
 
-This option enables [encryption at host](../virtual-machines/linux/disks-enable-host-based-encryption-portal.md) for HDInsight VMs temp data disks using PMK. Encryption at host is only [supported on certain VM SKUs in limited regions](../virtual-machines/linux/disks-enable-host-based-encryption-portal.md) and HDInsight supports the [following node configuration and SKUs](./hdinsight-supported-node-configuration.md). 
+This option enables [encryption at host](../virtual-machines/linux/disks-enable-host-based-encryption-portal.md) for HDInsight VMs temp data disks using PMK. Encryption at host is only [supported on certain VM SKUs in limited regions](../virtual-machines/linux/disks-enable-host-based-encryption-portal.md) and HDInsight supports the [following node configuration and SKUs](./hdinsight-supported-node-configuration.md).
 
 To understand the right VM size for your HDInsight cluster see [Selecting the right VM size for your Azure HDInsight cluster](hdinsight-selecting-vm-size.md). The default VM SKU for Zookeeper node when encryption at host is enabled will be DS2V2.
+
+### Enable using PowerShell
+
+The following code snippet shows how you can create a new Azure HDInsight cluster that has encryption at host enabled using PowerShell. It uses the parameter `-EncryptionAtHost $true` to enable the feature.
+
+```powershell
+$storageAccountResourceGroupName = "Group"
+$storageAccountName = "yourstorageacct001"
+$storageAccountKey = Get-AzStorageAccountKey `
+    -ResourceGroupName $storageAccountResourceGroupName `
+    -Name $storageAccountName | %{ $_.Key1 }
+$storageContainer = "container002"
+# Cluster configuration info
+$location = "East US 2"
+$clusterResourceGroupName = "Group"
+$clusterName = "your-hadoop-002"
+$clusterCreds = Get-Credential
+# If the cluster's resource group doesn't exist yet, run:
+# New-AzResourceGroup -Name $clusterResourceGroupName -Location $location
+# Create the cluster
+New-AzHDInsightCluster `
+    -ClusterType Hadoop `
+    -ClusterSizeInNodes 4 `
+    -ResourceGroupName $clusterResourceGroupName `
+    -ClusterName $clusterName `
+    -HttpCredential $clusterCreds `
+    -Location $location `
+    -DefaultStorageAccountName "$storageAccountName.blob.core.contoso.net" `
+    -DefaultStorageAccountKey $storageAccountKey `
+    -DefaultStorageContainer $storageContainer `
+    -SshCredential $clusterCreds `
+    -EncryptionAtHost $true `
+```
+
+### Enable using Azure CLI
+
+The following code snippet shows how you can create a new Azure HDInsight cluster that has encryption at host enabled, using Azure CLI. It uses the parameter `--encryption-at-host true` to enable the feature.
+
+```azurecli
+az hdinsight create -t spark -g MyResourceGroup -n MyCluster \\
+-p "HttpPassword1234!" \\
+--storage-account MyStorageAccount --encryption-at-host true
+```
 
 ## Next steps
 
