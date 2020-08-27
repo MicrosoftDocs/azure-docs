@@ -2,7 +2,7 @@
 title: What is Personalizer?
 description: Personalizer is a cloud-based service that allows you to choose the best experience to show to your users, learning from their real-time behavior.
 ms.topic: overview
-ms.date: 08/25/2020
+ms.date: 08/27/2020
 ms.custom: cog-serv-seo-aug-2020
 keywords: personalizer, Azure personalizer, machine learning 
 ---
