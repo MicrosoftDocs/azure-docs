@@ -17,7 +17,7 @@ ms.date: 08/27/2020
 
 In this article, you'll learn how to connect to an Azure Machine Learning compute instance using Visual Studio Code.
 
-* An [Azure Machine Learning Compute Instance](concept-compute-instance.md) is a fully managed cloud-based workstation for data scientists and provides management and enterprise readiness capabilities for IT administrators.
+An [Azure Machine Learning Compute Instance](concept-compute-instance.md) is a fully managed cloud-based workstation for data scientists and provides management and enterprise readiness capabilities for IT administrators.
 
 There are two ways you can connect to a compute instance from Visual Studio Code:
 
@@ -26,8 +26,9 @@ There are two ways you can connect to a compute instance from Visual Studio Code
 
 ## Prerequisite  
 
-* SSH-enabled compute instance. For more information, [see the Create a compute instance guide.](https://docs.microsoft.com/azure/machine-learning/concept-compute-instance#create).
-* On Windows platforms, you must [install an OpenSSH compatible SSH client](https://code.visualstudio.com/docs/remote/troubleshooting#_installing-a-supported-ssh-client) if one is not already present. 
+* [Visual Studio Code](https://code.visualstudio.com/).
+* SSH-enabled compute instance. For more information, [see the Create a compute instance guide.](https://docs.microsoft.com/azure/machine-learning/concept-compute-instance#create)
+* On Windows platforms, you must [install an OpenSSH compatible SSH client](https://code.visualstudio.com/docs/remote/troubleshooting#_installing-a-supported-ssh-client) if one is not already present.
 
 > [!Note]
 > PuTTY is not supported on Windows since the ssh command must be in the path. 
@@ -50,16 +51,14 @@ To connect to a compute instance:
 1. For the changes to take effect, you have to reload Visual Studio Code.
 1. Open a Jupyter Notebook and run a cell to establish the connection with the compute instance
 
-At this point, you can continue working with your Jupyter notebook
+At this point, you can continue to run cells in your Jupyter notebook.
 
 > [!TIP]
 > You can also work with Python script files containing Jupyter-like code cells. For more information, visit the [Visual Studio Code Python interactive documentation](https://code.visualstudio.com/docs/python/jupyter-support-py).
 
 ## Configure Visual Studio Code Remote
 
-For a full-featured development experience, you'll need a few additional things:
-
-* Visual Studio Code Remote Development Extension Pack
+For a full-featured development experience, you'll need to have the [Remote SSH Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh) installed:
 
 ### Get the IP and SSH port for your compute instance
 
@@ -131,9 +130,9 @@ Now, you should be able to ssh to your compute instance using the shorthand you 
 
 ### Connect VS Code to the instance
 
-1. [Install Visual Studio Code](https://code.visualstudio.com/).
+1. [Install Visual Studio Code]().
 
-1. [Install the Remote SSH Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh).
+1. [Install the 
 
 1. Click the Remote-SSH icon on the left to show your SSH configurations.
 
