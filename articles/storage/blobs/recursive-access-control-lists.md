@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 08/26/2020
 ms.author: normesta
 ms.reviewer: prishet
+ms.custom: devx-track-csharp
 ---
 
 # Set access control lists (ACLs) recursively for Azure Data Lake Storage Gen2
