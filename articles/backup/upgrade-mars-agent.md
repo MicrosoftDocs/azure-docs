@@ -27,7 +27,7 @@ For Installations of Azure Backup agent and Azure backup server:
 
     ![List of servers with the MARS agent installed](./media/upgrade-mars-agent/protected-servers.png)
 
-1. Sort the Azure Backup Agent version column by clicking on the **Agent Version** column for MARS Agent installations or the **Azure Backup Agent Version** column for Azure backup server installations.
+1. Sort the Azure Backup Agent version column by selecting the **Agent Version** column for MARS Agent installations or the **Azure Backup Agent Version** column for Azure backup server installations.
 
 1. The previous step will give you the list of servers with Azure Backup agents that have versions lower than 2.0.9083.0 or agent versions listed as blanks. These are the servers where Azure Backup agents need to be updated.
 
@@ -35,13 +35,13 @@ For Installations of Azure Backup agent and Azure backup server:
 
 Once you've identified the servers that need an Azure Backup agent update, perform the following steps for each identified server (using Azure backup server or the MARS Agent). [Download the latest version of the Azure backup agent](https://aka.ms/azurebackup_agent) before following the steps below.
 
-1. Click on a row that has Azure Backup agent lower than 2.0.9083.0 or blank. This will open the server detail screen.
+1. Select a row that has Azure Backup agent lower than 2.0.9083.0 or blank. This will open the server detail screen.
 
     ![Protected servers with out-of-date agent versions](./media/upgrade-mars-agent/old-agent-version.png)
 
     ![Azure backup servers with out-of-date agent versions](./media/upgrade-mars-agent/backup-management-servers-old-versions.png)
 
-1. Click on **Connect** to receive a remote desktop connection file to connect with the server or directly connect to the server via the Remote Desktop connection on your server.
+1. Select **Connect** to receive a remote desktop connection file to connect with the server or directly connect to the server via the Remote Desktop connection on your server.
 
     ![Connect to server via remote desktop connection](./media/upgrade-mars-agent/connect-to-server.png)
 
@@ -53,7 +53,7 @@ Once you've identified the servers that need an Azure Backup agent update, perfo
 1. If your server or server's proxy has limited internet access, ensure that firewall settings on the server/proxy are configured to allow the URL appropriate to the Azure cloud you're using:
 
     Azure Cloud | URL
-    -- | ---
+    --- | ---
     Azure Cloud (Public) |   `https://login.windows.net`
     Azure China 21Vianet Cloud   | `https://login.chinacloudapi.cn`
     Azure US Government Cloud |   `https://login.microsoftonline.us`
@@ -67,9 +67,9 @@ Once you've identified the servers that need an Azure Backup agent update, perfo
 
     ![The Microsoft Azure Recovery Services Agent Upgrade Wizard](./media/upgrade-mars-agent/agent-upgrade-wizard.png)
 
-1. Click **Next**.
+1. Select **Next**.
 
-1. Click **Upgrade**.
+1. Select **Upgrade**.
 
     ![Installation of the  Microsoft Azure Recovery Services Agent](./media/upgrade-mars-agent/upgrade-installation.png)
 
@@ -81,7 +81,7 @@ If you have installed Azure backup agents on the System Center Data Protection M
 
 1. Sign in to your SC DPM server as an Administrator.
 2. Open the DPM Console.
-3. Click on **Management** in the lower left navigation of the console.
+3. Select **Management** in the lower left navigation of the console.
 4. Within the information that appears on the left navigation, look for the Azure Backup agent version information.
 5. If the version is lower than 2.0.9083.0, download the latest Azure backup agent installer and run the installer on the DPM server to update the Azure Backup agent.
 

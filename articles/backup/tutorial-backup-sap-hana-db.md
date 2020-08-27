@@ -31,7 +31,9 @@ Make sure you do the following before configuring backups:
   * It should be present in the default **hdbuserstore**. The default is the `<sid>adm` account under which SAP HANA is installed.
   * For MDC, the key should point to the SQL port of **NAMESERVER**. In the case of SDC, it should point to the SQL port of **INDEXSERVER**
   * It should have credentials to add and delete users
+  * Note that this key can be deleted after running the pre-registration script successfully
 * Run the SAP HANA backup configuration script (pre-registration script) in the virtual machine where HANA is installed, as the root user. [This script](https://aka.ms/scriptforpermsonhana) gets the HANA system ready for backup. Refer to the [What the pre-registration script does](#what-the-pre-registration-script-does) section to understand more about the pre-registration script.
+* If your HANA setup uses Private Endpoints, run the [pre-registration script](https://aka.ms/scriptforpermsonhana) with the *-sn* or *--skip-network-checks* parameter.
 
 >[!NOTE]
 >The preregistration script installs the **compat-unixODBC234** for SAP HANA workloads running on RHEL (7.4, 7.6 and 7.7) and **unixODBC** for RHEL 8.1. [This package is located in the RHEL for SAP HANA (for RHEL 7 Server) Update Services for SAP Solutions (RPMs) repo](https://access.redhat.com/solutions/5094721).  For an Azure Marketplace RHEL image the repo would be **rhui-rhel-sap-hana-for-rhel-7-server-rhui-e4s-rpms**.
@@ -98,9 +100,9 @@ Running the pre-registration script performs the following functions:
 
 * Based on your Linux distribution, the script installs or updates any necessary packages required by the Azure Backup agent.
 * It performs outbound network connectivity checks with Azure Backup servers and dependent services like Azure Active Directory and Azure Storage.
-* It logs into your HANA system using the user key listed as part of the [prerequisites](#prerequisites). The user key is used to create a backup user (AZUREWLBACKUPHANAUSER) in the HANA system and the user key can be deleted after the pre-registration script runs successfully.
+* It logs into your HANA system using the user key listed as part of the [prerequisites](#prerequisites). The user key is used to create a backup user (AZUREWLBACKUPHANAUSER) in the HANA system and **the user key can be deleted after the pre-registration script runs successfully**.
 * AZUREWLBACKUPHANAUSER is assigned these required roles and permissions:
-  * DATABASE ADMIN (in case of MDC) and BACKUP ADMIN (in case of SDC): to create new databases during restore.
+  * DATABASE ADMIN (in the case of MDC) and BACKUP ADMIN (in the case of SDC): to create new databases during restore.
   * CATALOG READ: to read the backup catalog.
   * SAP_INTERNAL_HANA_SUPPORT: to access a few private tables.
 * The script adds a key to **hdbuserstore** for AZUREWLBACKUPHANAUSER for the HANA backup plug-in to handle all operations (database queries, restore operations, configuring and running backup).
