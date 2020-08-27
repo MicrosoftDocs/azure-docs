@@ -16,14 +16,17 @@ In this article, we'll give you a brief overview of what kinds of authentication
 
 ## Session host authentication
 
-Windows Virtual Desktop supports both NT LAN Manager (NTLM) and Kerberos for authentication to the session host. However, in order to use Kerberos, the client needs to get Kerberos security tickets from a Key Distribution Center (KDC) service running on a domain controller. In order to get tickets, the client needs a direct line of sight to the domain controller. This is generally achieved by being on the corporate network or having a VPN connection to the corporate network.
+Windows Virtual Desktop supports both NT LAN Manager (NTLM) and Kerberos for authentication to the session host. However, in order to use Kerberos, the client needs to get Kerberos security tickets from a Key Distribution Center (KDC) service running on a domain controller. In order to get tickets, the client needs a direct line of sight to the domain controller. You can get a direct line of sight by using your corporate network or having a VPN connection to your corporate network.
 
-Supported sign-in methods:
+These are the currently supported sign-in methods:
+
 - Windows Desktop client
     - Username and password
     - Smartcard
     - Windows Hello
 - Web client
+    - Username and password
+- Windows Store client
     - Username and password
 - Android
     - Username and password
@@ -33,16 +36,13 @@ Supported sign-in methods:
     - Username and password
 
 >[!NOTE]
->Smartcard and Windows Hello can only use Kerberos to sign in and so require line of sight to the domain controller.
+>Smartcard and Windows Hello can only use Kerberos to sign in. Signing in with Kerberos requires line of sight to the domain controller.
 
 ## Single sign-on (SSO)
 
 Windows Virtual Desktop currently doesn't support Active Directory Federation Services (ADFS) for authentication or SSO.
 
-- Active Directory Federation Services (ADFS)
-- Single sign-on (SSO)
-
-The only way to avoid being prompted for your credentials for the session host is to save them is the client. This is only recommended for secure devices to avoid other users from accessing your resources.
+The only way to avoid being prompted for your credentials for the session host is to save them in the client. We recommend you only do this with secure devices to prevent other users from accessing your resources.
 
 ## Next steps
 
