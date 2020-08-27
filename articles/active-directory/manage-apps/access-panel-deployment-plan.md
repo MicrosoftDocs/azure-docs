@@ -87,7 +87,7 @@ The following table outlines the key use cases for a My Apps deployment:
 
 
 > [!TIP]
-> My Apps can be used with internal company URLs while remote using Application Proxy. To learn how to do this, see [Tutorial: Add an on-premises application for remote access through Application Proxy in Azure Active Directory](application-proxy-add-on-premises-application.md).
+> My Apps can be used with internal company URLs while remote using Application Proxy. To learn more, see [Tutorial: Add an on-premises application for remote access through Application Proxy in Azure Active Directory](application-proxy-add-on-premises-application.md).
 
 ### Best practices for deploying Azure AD My Apps
 
