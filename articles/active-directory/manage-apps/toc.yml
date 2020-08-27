@@ -234,10 +234,6 @@
           href: configure-federated-single-sign-on-gallery-applications-problems.md
         - name: Configure federated common problems - non-gallery apps
           href: configure-federated-single-sign-on-non-gallery-applications-problems.md
-        - name: Configure password common problems - gallery apps
-          href: configure-password-single-sign-on-gallery-applications-problems.md
-        - name: Configure password common problems - non-gallery apps
-          href: configure-password-single-sign-on-non-gallery-applications-problems.md
       - name: Troubleshoot app list and assignment
         items:
         - name: Manage the applications list for your tenant

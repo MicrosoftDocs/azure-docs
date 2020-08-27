@@ -37388,16 +37388,6 @@
       "redirect_document_id": true
     },
     {
-      "source_path": "articles/active-directory/application-config-sso-problem-configure-password-sso-gallery.md",
-      "redirect_url": "/azure/active-directory/manage-apps/configure-password-single-sign-on-gallery-applications-problems",
-      "redirect_document_id": true
-    },
-    {
-      "source_path": "articles/active-directory/application-config-sso-problem-configure-password-sso-non-gallery.md",
-      "redirect_url": "/azure/active-directory/manage-apps/configure-password-single-sign-on-non-gallery-applications-problems",
-      "redirect_document_id": true
-    },
-    {
       "source_path": "articles/active-directory/application-provisioning-config-how-to.md",
       "redirect_url": "/azure/active-directory/app-provisioning/configure-automatic-user-provisioning-portal",
       "redirect_document_id": false
@@ -37577,7 +37567,6 @@
       "redirect_url": "/azure/active-directory/manage-apps/troubleshoot-password-based-sso",
       "redirect_document_id": false
     },
-
     {
       "source_path": "articles/active-directory/manage-apps/application-sign-in-problem-password-sso-gallery.md",
       "redirect_url": "/azure/active-directory/manage-apps/troubleshoot-password-based-sso",
@@ -37588,8 +37577,26 @@
       "redirect_url": "/azure/active-directory/manage-apps/troubleshoot-password-based-sso",
       "redirect_document_id": false
     },
-
-
+    {
+      "source_path": "articles/active-directory/application-config-sso-problem-configure-password-sso-gallery.md",
+      "redirect_url": "/azure/active-directory/manage-apps/troubleshoot-password-based-sso",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/application-config-sso-problem-configure-password-sso-non-gallery.md",
+      "redirect_url": "/azure/active-directory/manage-apps/troubleshoot-password-based-sso",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/manage-apps/configure-password-single-sign-on-gallery-applications-problems.md",
+      "redirect_url": "/azure/active-directory/manage-apps/troubleshoot-password-based-sso",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/manage-apps/configure-password-single-sign-on-non-gallery-applications-problems.md",
+      "redirect_url": "/azure/active-directory/manage-apps/troubleshoot-password-based-sso",
+      "redirect_document_id": false
+    },
     {
       "source_path": "articles/active-directory/active-directory-applications-guiding-developers-requiring-user-assignment.md",
       "redirect_url": "/azure/active-directory/manage-apps/assign-user-or-group-access-portal",
