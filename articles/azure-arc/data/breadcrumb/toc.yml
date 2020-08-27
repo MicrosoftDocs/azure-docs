@@ -7,5 +7,5 @@
     topicHref: /azure-arc/index
     items:
     - name: Data
-      tocHref: /sql/big-data-cluster/
+      tocHref: /sql/azdata/
       topicHref: /azure-arc/data/index
