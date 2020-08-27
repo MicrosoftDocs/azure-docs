@@ -1,6 +1,6 @@
 ---
 title: Azure Attestation Claim sets
-description: XXX
+description: The claim sets of Azure Attestation.
 services: attestation
 author: msmbaldwin
 ms.service: attestation

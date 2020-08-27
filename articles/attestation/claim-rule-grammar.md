@@ -1,6 +1,6 @@
 ---
 title: Azure Attestation claim rule grammar
-description: XXX
+description: Details on Azure Attestation policy claims and claim rules.
 services: attestation
 author: msmbaldwin
 ms.service: attestation
