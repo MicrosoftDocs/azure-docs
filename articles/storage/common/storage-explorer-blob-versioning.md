@@ -100,7 +100,7 @@ Blob versions are subject to your soft-delete policy. If soft-delete is enabled,
 
 You can restore the contents of a blob by promoting a previous version to become the current version. Select the blob version you want to promote and select **Promote Version** from the toolbar or the context menu.
 
-Non-version blobs will be overwritten by the promoted blob version. Make sure you no longer need that data or back up the data yourself before confirming the operation. Current versions will automatically become a previous version instead so Storage Explorer don't prompt for a confirmation. Current versions automatically become previous versions, so Storage Explorer won't prompt for confirmation.
+Non-version blobs will be overwritten by the promoted blob version. Make sure you no longer need that data or back up the data yourself before confirming the operation. Current versions automatically become previous versions, so Storage Explorer won't prompt for confirmation.
 
 ### Undelete blob version
 
