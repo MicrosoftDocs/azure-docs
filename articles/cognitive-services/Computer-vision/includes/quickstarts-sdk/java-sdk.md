@@ -229,6 +229,10 @@ The rest of the method parses the OCR results and prints them to the console.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_read_result_helper_print)]
 
+Finally, add the other helper method used above, which extracts the operation ID from the initial response.
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_opid_extract)]
+
 ## Run the application
 
 You can build the app with:
