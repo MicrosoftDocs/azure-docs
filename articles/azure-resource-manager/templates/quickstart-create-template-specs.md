@@ -252,7 +252,7 @@ You can now deploy the template spec. Deploying the template spec is just like d
     ```
 
     > [!NOTE]
-    > There is a known issue with getting template spec id and then assign it to a variable in Windows PowerShell. The command hangs.
+    > There is a known issue with getting template spec id and then assign it to a variable in Windows PowerShell.
 
 1. Deploy the template spec.
 
