@@ -35,16 +35,13 @@ There are two ways you can connect to a compute instance from Visual Studio Code
 
 ## Configure compute instance as remote Jupyter Notebook server
 
-In order to configure a compute instance as a remote Jupyter Notebook server, there are a few additional things you'll need:
-
-* Azure Account Visual Studio Code Extension
-* Azure Machine Learning Visual Studio Code Extension. For more information, see the [Azure Machine Learning Visual Studio Code Extension setup guide](tutorial-setup-vscode-extension.md).
+In order to configure a compute instance as a remote Jupyter Notebook server you'll need to have the Azure Machine Learning Visual Studio Code extension installed. For more information, see the [Azure Machine Learning Visual Studio Code Extension setup guide](tutorial-setup-vscode-extension.md).
 
 To connect to a compute instance:
 
 1. Open the command palette.
 1. Enter into the text box `Python: Specify local or remote Jupyter Server for connections`.
-1. Choose `Azure ML compute instance` from the list of Jupyter server options.
+1. Choose `Azure ML Compute Instances` from the list of Jupyter server options.
 1. Select your subscription the list of subscriptions.
 1. Select the workspace that contains the compute instance you want to use.
 1. Select your compute instance from the list.
@@ -58,12 +55,11 @@ At this point, you can continue to run cells in your Jupyter notebook.
 
 ## Configure Visual Studio Code Remote
 
-For a full-featured development experience, you'll need to have the [Remote SSH Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh) installed:
+For a full-featured remote development experience, you'll need to have the [Remote SSH Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh) installed:
 
 ### Get the IP and SSH port for your compute instance
 
 1. Go to the Azure Machine Learning studio at https://ml.azure.com/.
-
 2. Select your [workspace](concept-workspace.md).
 1. Click the **Compute Instances** tab.
 1. In the **Application URI** column, click the **SSH** link of the compute instance you want to use as a remote compute. 
