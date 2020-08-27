@@ -47,31 +47,21 @@ Create an [Azure resource group](https://docs.microsoft.com/azure/azure-resource
 az group create --name myresourcegroup --location westus
 ```
 
-Create a flexible server with the `az mysql flexible-server create` command. A server can contain multiple databases. The following command to create a server using service defaults and values from values from your Azure CLI's [local context](https://docs.microsoft.com/cli/azure/local-context?view=azure-cli-latest). The server is created with an auto-generated server name, admin username, admin password, resource group name (if not already specified in local context), and in the same location as your resource group. Additionally, service defaults will be selected for remaining server configurations such as tier (Burstable), SKU (B1MS) and backup retention period (7 days). The default connectivity method is Private access (VNet Integration) with an auto-generated virtual network and subnet.  
-
-> [!NOTE] 
-> The connectivity method cannot be changed after creating the server. For example, if you selected *Private access (VNet Integration)* during create then you cannot change to *Public access (allowed IP addresses)* after create. We highly recommend creating a server with Private access to securely access your server using VNet Integration. <!--Learn more about Private access in the [concepts article](./concepts-networking.md).-->
+Create a flexible server with the `az mysql flexible-server create` command. A server can contain multiple databases. The following command creates a server using service defaults and values from your Azure CLI's [local context](https://docs.microsoft.com/cli/azure/local-context?view=azure-cli-latest): 
 
 ```azurecli
 az mysql flexible-server create
 ```
 
-If you'd like to change any defaults, you can specify server configurations yourself using the following Azure CLI parameters:
+The server created has the below attributes: 
+- Auto-generated server name, admin username, admin password, resource group name (if not already specified in local context), and in the same location as your resource group 
+- Service defaults for remaining server configurations: compute tier (Burstable), SKU (B1MS), backup retention period (7 days), and MySQL version (5.7)
+- The default connectivity method is Private access (VNet Integration) with an auto-generated virtual network and subnet
 
-**Azure CLI Parameter** | **Sample value** | **Description**
----|---|---
-name | mydemoserver | Enter a unique name for your flexible server. The server name can contain only lowercase letters, numbers, and the hyphen (-) character. It must contain from 3 to 63 characters.
-resource-group | myresourcegroup | Provide the name of the Azure resource group.
-location | westus | The Azure location for the server.
-admin-user | myadmin | The username for the administrator login. It cannot be **azure_superuser**, **admin**, **administrator**, **root**, **guest**, or **public**.
-admin-password | *secure password* | The password of the administrator user. It must contain between 8 and 128 characters. Your password must contain characters from three of the following categories: English uppercase letters, English lowercase letters, numbers, and non-alphanumeric characters.
-tier|Burstable|The compute tier of the server. Either "Burstable", "GeneralPurpose", or "MemoryOptimized".
-sku-name|Standard_B1ms|Enter the compute configuration. Follows the convention Standard_{VM name} in shorthand. See the compute and storage<!--[compute and storage](./concepts-compute-storage.md)--> for more information.
+> [!NOTE] 
+> The connectivity method cannot be changed after creating the server. For example, if you selected *Private access (VNet Integration)* during create then you cannot change to *Public access (allowed IP addresses)* after create. We highly recommend creating a server with Private access to securely access your server using VNet Integration. <!--Learn more about Private access in the [concepts article](./concepts-networking.md).-->
 
-Refer to the Azure CLI reference documentation <!--FIXME --> for the complete list of configurable CLI parameters. 
-
->[!IMPORTANT]
-> The default MySQL version on your server is 5.7
+If you'd like to change any defaults, please refer to the Azure CLI reference documentation <!--FIXME --> for the complete list of configurable CLI parameters. 
 
 > [!NOTE]
 > Connections to Azure Database for MySQL communicate over port 3306. If you try to connect from within a corporate network, outbound traffic over port 3306 might not be allowed. If this is the case, you can't connect to your server unless your IT department opens port 3306.
@@ -115,18 +105,13 @@ The result is in JSON format. Make a note of the **fullyQualifiedDomainName** an
 }
 ```
 
-## Connect to Azure Database for MySQL server using mysql command-line client
+## Connect to Azure Database for MySQL Flexible Server using mysql command-line client
 
 As the flexible server was created with *Private access (VNet Integration)*, you will need to connect to your server from a resource within the same VNet as your server. You can create a virtual machine and add it to the virtual network created. 
 
-Below is a sample of how to create an Ubuntu Linux virtual machine that is added to the same virtual network and subnet as the flexible server created.  
+Once your VM is created, you can SSH into the machine and install the popular client tool, **[mysql.exe](https://dev.mysql.com/downloads/)** command-line tool.
 
-`az vm create --name <yourvirtualmachinename> --vnet-name <created with your flexible server> --subnet-name <created with your flexible server> --image UbuntuLTS --admin-username <yourVMusername> --admin-password <your VM password>`
-
-
-You can connect to your server using a popular client tool, **[mysql.exe](https://dev.mysql.com/downloads/)** command-line tool with [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview). Alternatively, you can use mysql command line on your local environment.
-
-<!-- need to decide how to connect based on connectivity method. If private access, requires a resource within the VNet to connect. May be more complicated for a quickstart? -->
+With mysql.exe, connect using the below command. Replace values with your actual server name and password. 
 
 ```bash
  mysql -h mydemoserver.mysql.database.azure.com -u myadmin -p

@@ -78,65 +78,17 @@ By default, the following databases are created under your server: **information
 
 ## Connect to Azure Database for MySQL Flexible Server using mysql command-line client
 
-If you created your flexible server with *Private access (VNet Integration)*, you will need to connect to your server from a resource within the same VNet as your server. You can create a virtual machine and add it to the VNet created 
+If you created your flexible server with *Private access (VNet Integration)*, you will need to connect to your server from a resource within the same VNet as your server. You can create a virtual machine and add it to the VNet created with your flexible server.
 
-You can choose either [mysql.exe](https://dev.mysql.com/doc/refman/8.0/en/mysql.html) or MySQL Workbench <!-- [MySQL Workbench](./connect-workbench.md)--> to connect to the server from your local environment. In this quickstart, we will run **mysql.exe** in [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) to connect to the server.
+If you created your flexible server with *Public access (allowed IP addresses)*, you can add your local IP address to the list of firewall rules on your server.
 
-<!-- need to decide how to connect based on connectivity method. If private access, requires a resource within the VNet to connect. May be more complicated for a quickstart? -->
+You can choose either [mysql.exe](https://dev.mysql.com/doc/refman/8.0/en/mysql.html) or MySQL Workbench <!-- [MySQL Workbench](./connect-workbench.md)--> to connect to the server from your local environment. 
 
-1. Launch Azure Cloud Shell in the portal by clicking the highlighted icon on the top-left side. Make a note of your server name, server admin login name, password, and subscription for your newly created server from the **Overview** section as shown in the image below.
+With mysql.exe, connect using the below command. Replace values with your actual server name and password. 
 
-    > [!NOTE]
-    > If you are launching Cloud Shell for the first time, you will see a prompt to create a resource group, storage account. This is a one-time step and will be automatically attached for all sessions.
-
-    <!--
-   >[!div class="mx-imgBorder"]
-   > ![Portal Full View Cloud Shell](./media/quickstart-create-mysql-server-database-using-azure-portal/use-in-cloud-shell.png) -->
-
-1. Run this command on Azure Cloud Shell terminal. Replace values with your actual server name and admin user login name.
-
-    ```azurecli-interactive
-    mysql --host=mydemoserver.mysql.database.azure.com --user=myadmin -p
-    ```
-
-    Here is how the experience looks like in the Cloud Shell terminal
-    ```
-    Requesting a Cloud Shell.Succeeded.
-    Connecting terminal...
-    
-    Welcome to Azure Cloud Shell
-    
-    Type "az" to use Azure CLI
-    Type "help" to learn about Cloud Shell
-    
-    user@Azure:~$mysql -h mydemoserver.mysql.database.azure.com -u myadmin -p
-    Enter password:
-    Welcome to the MySQL monitor.  Commands end with ; or \g.
-    Your MySQL connection id is 64796
-    Server version: 5.7.29.0 Source distribution
-    
-    Copyright (c) 2000, 2020, Oracle and/or its affiliates. All rights reserved.
-    
-    Oracle is a registered trademark of Oracle Corporation and/or its
-    affiliates. Other names may be trademarks of their respective
-    owners.
-    
-    Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
-    mysql>
-    ```
-
-1. In the same Azure Cloud Shell terminal, create a database **guest**
-    ```
-    mysql> CREATE DATABASE guest;
-    Query OK, 1 row affected (0.27 sec)
-    ```
-1. Change to database **guest**
-    ```
-    mysql> USE guest;
-    Database changed
-    ```
-1. Type ```quit```, and then select the Enter key to quit mysql.
-
+```bash
+ mysql -h mydemoserver.mysql.database.azure.com -u myadmin -p
+```
 ## Clean up resources
 You have successfully created an Azure Database for MySQL Flexible Server in a resource group.  If you don't expect to need these resources in the future, you can delete them by deleting the resource group or just delete the MySQL server. To delete the resource group, follow these steps:
 

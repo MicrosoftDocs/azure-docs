@@ -392,9 +392,9 @@
       - name: Create Server
         items:
         - name: Azure portal
-          href: flexible-server/quickstart-create-flexible-server-portal.md
+          href: flexible-server/quickstart-create-server-portal.md
         - name: Azure CLI
-          href: flexible-server/quickstart-create-flexible-server-cli.md
+          href: flexible-server/quickstart-create-server-cli.md
 - name: Reference
   items:
   - name: Azure CLI
