@@ -47,11 +47,11 @@ Including the --no-owner parameter causes all objects created during the restore
 
 In this example, restore the data from the dump file **testdb.dump** into the database **mypgsqldb** on target server **mydemoserver.postgres.database.azure.com**.
 
-# [Single Server](#tab/single-server)
+# [Single Server](#tab/single-server-1)
 ```bash
 pg_restore -v --no-owner --host=mydemoserver.postgres.database.azure.com --port=5432 --username=mylogin@mydemoserver --dbname=mypgsqldb testdb.dump
 ```
-# [Flexible Server (Preview)](#tab/flexible-server)
+# [Flexible Server (Preview)](#tab/flexible-server-1)
 ```bash
 pg_restore -v --no-owner --host=mydemoserver.postgres.database.azure.com --port=5432 --username=mylogin --dbname=mypgsqldb testdb.dump
 ```
