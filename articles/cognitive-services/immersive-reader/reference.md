@@ -21,13 +21,13 @@ The Immersive Reader SDK contains a JavaScript library that allows you to integr
 
 The SDK exposes the functions:
 
-- [`ImmersiveReader.launchAsync(token, subdomain, content, options)`](#launchasync)
+- [`ImmersiveReader.launchAsync(token, subdomain, content, options)`](#launchasync())
 
-- [`ImmersiveReader.close()`](#close)
+- [`ImmersiveReader.close()`](#close())
 
-- [`ImmersiveReader.renderButtons(options)`](#renderbuttons)
+- [`ImmersiveReader.renderButtons(options)`](#renderbuttons())
 
-## launchAsync
+## launchAsync()
 
 Launches the Immersive Reader within an `iframe` in your web application. Note that the size of your content is limited to a maximum of 50 MB.
 
@@ -35,7 +35,7 @@ Launches the Immersive Reader within an `iframe` in your web application. Note t
 launchAsync(token: string, subdomain: string, content: Content, options?: Options): Promise<LaunchResponse>;
 ```
 
-### launchAsync Parameters
+### launchAsync() Parameters
 
 | Name | Type | Description |
 | ---- | ---- |------------ |
@@ -52,7 +52,9 @@ Returns a `Promise<LaunchResponse>`, which resolves when the Immersive Reader is
 
 The returned `Promise` will be rejected with an [`Error`](#error) object if the Immersive Reader fails to load. For more information, see the [error codes](#error-codes).
 
-## close
+---
+
+## close()
 
 Closes the Immersive Reader.
 
@@ -61,6 +63,8 @@ An example use case for this function is if the exit button is hidden by setting
 ```typescript
 close(): void;
 ```
+
+---
 
 ## Launching the Immersive Reader
 
@@ -80,17 +84,17 @@ Use the following attributes to configure the look and feel of the button.
 | `data-locale` | Sets the locale. For example, `en-US` or `fr-FR`. Defaults to English `en`. |
 | `data-icon-px-size` | Sets the size of the icon in pixels. Defaults to 20px. |
 
-## renderButtons
+## renderButtons()
 
 The ```renderButtons``` function isn't necessary if you are using the [How-To Customize the Immersive Reader button](./how-to-customize-launch-button.md) guidance above.
 
-This function styles and updates the document's Immersive Reader button elements. If ```options.elements``` is provided, then this function will render buttons within ```options.elements```. Otherwise, the buttons will be rendered within the document's elements which have the class ```immersive-reader-button```. To use this function, call ```ImmersiveReader.renderButtons(options: RenderButtonsOptions);``` on page load as demonstrated in the below code snippet.
+This function styles and updates the document's Immersive Reader button elements. If ```options.elements``` is provided, then the buttons will be rendered within each element provided in ```options.elements```. Using the ```options.elements``` parameter is useful when you have multiple sections in your document on which to launch the Immersive Reader, and want a simplified way to render multiple buttons with the same styling, or want to render the buttons with a simple and consistent design pattern. To use this function with the [RenderButtonOptions](#RenderButtonOptions) parameter, call ```ImmersiveReader.renderButtons(options: RenderButtonsOptions);``` on page load as demonstrated in the below code snippet. Otherwise, the buttons will be rendered within the document's elements which have the class ```immersive-reader-button``` as shown in [How-To Customize the Immersive Reader button](./how-to-customize-launch-button.md) .
 
 ```typescript
 // This snippet assumes there are two empty div elements in
-// the page HTML, theButton1 and theButton2.
-const btn1: HTMLDivElement = document.getElementById('theButton1');
-const btn2: HTMLDivElement = document.getElementById('theButton2');
+// the page HTML, button1 and button2.
+const btn1: HTMLDivElement = document.getElementById('button1');
+const btn2: HTMLDivElement = document.getElementById('button2');
 const btns: HTMLDivElement[] = [btn1, btn2];
 ImmersiveReader.renderButtons({elements: btns});
 ```
@@ -101,7 +105,7 @@ See the above [Optional Attributes](#optional-attributes) for more rendering opt
 renderButtons(options?: RenderButtonsOptions): void;
 ```
 
-### renderButtons Parameters
+### renderButtons() Parameters
 
 | Name | Type | Description |
 | ---- | ---- |------------ |
@@ -126,510 +130,10 @@ Options for rendering the Immersive Reader buttons.
 ### -elements
 ```Parameters
 Type: HTMLDivElement[]
-Required: true
-```
-
-# Types
-
-### Content
-
-Contains the content to be shown in the Immersive Reader.
-
-```typescript
-{
-    title?: string;
-    chunks: Chunk[];
-}
-```
-
-### Content Parameters
-
-| Name | Type | Description |
-| ---- | ---- |------------ |
-| title | String | Title text shown at the top of the Immersive Reader (optional) |
-| chunks | Chunk[] | Array of chunks |
-
-### -title
-```Parameters
-Type: String
 Required: false
-Default value: "Immersive Reader" 
 ```
 
-### -chunks
-```Parameters
-Type: Chunk[]
-Required: true
-Default value: null 
-```
-
-### Chunk
-
-A single chunk of data, which will be passed into the Content of the Immersive Reader.
-
-```typescript
-{
-    content: string;
-    lang?: string;
-    mimeType?: string;
-}
-```
-
-### Chunk Parameters
-
-| Name | Type | Description |
-| ---- | ---- |------------ |
-| content | String | The string that contains the content sent to the Immersive Reader. |
-| lang | String | Language of the text, the value is in IETF BCP 47 language tag format, e.g. en, es-ES. Language will be detected automatically if not specified. See [Supported Languages](#supported-languages). |
-| mimeType | string | Plain text, MathML, HTML & Microsoft Word DocX formats are supported. See [Supported MIME types](#supported-mime-types) for more details. |
-
-### -content
-```Parameters
-Type: String
-Required: true
-Default value: null 
-```
-
-### -lang
-```Parameters
-Type: String
-Required: false
-Default value: Automatically detected 
-```
-
-### -mimeType
-```Parameters
-Type: String
-Required: false
-Default value: "text/plain"
-```
-
-#### Supported MIME types
-
-| MIME Type | Description |
-| --------- | ----------- |
-| text/plain | Plain text. |
-| text/html | HTML content. [Learn more](#html-support)|
-| application/mathml+xml | Mathematical Markup Language (MathML). [Learn more](./how-to/display-math.md).
-| application/vnd.openxmlformats-officedocument.wordprocessingml.document | Microsoft Word .docx format document.
-
-## Options
-
-Contains properties that configure certain behaviors of the Immersive Reader.
-
-```typescript
-{
-    uiLang?: string;
-    timeout?: number;
-    uiZIndex?: number;
-    useWebview?: boolean;
-    onExit?: () => any;
-    customDomain?: string;
-    allowFullscreen?: boolean;
-    hideExitButton?: boolean;
-    cookiePolicy?: CookiePolicy;
-    disableFirstRun?: boolean;
-    readAloudOptions?: ReadAloudOptions;
-    translationOptions?: TranslationOptions;
-    displayOptions?: DisplayOptions;
-    preferences?: string;
-    onPreferencesChanged?: (value: string) => any;
-}
-```
-
-### Options Parameters
-
-| Name | Type | Description |
-| ---- | ---- |------------ |
-| uiLang | String | Language of the UI, the value is in IETF BCP 47 language tag format, e.g. en, es-ES. Defaults to browser language if not specified. |
-| timeout | Number | Duration (in milliseconds) before launchAsync fails with a timeout error (default is 15000 ms). This timeout only applies to the initial launch of the Reader page, where success is observed when the Reader page opens and the spinner starts. Adjustment of the timeout should not be necessary. |
-| uiZIndex | Number | Z-index of the iframe that will be created (default is 1000). |
-| useWebview | Boolean| Use a webview tag instead of an iframe, for compatibility with Chrome Apps (default is false). |
-| onExit | Function | Executes when the Immersive Reader exits. |
-| allowFullscreen | Boolean | The ability to toggle fullscreen (default is true). |
-| hideExitButton | Boolean | Whether or not to hide the Immersive Reader's exit button arrow (default is false). This should only be true if there is an alternative mechanism provided to exit the Immersive Reader (e.g a mobile toolbar's back arrow). |
-| cookiePolicy | [CookiePolicy](#cookie-policy-options) | Setting for the Immersive Reader's cookie usage (default is *CookiePolicy.Disable*). It's the responsibility of the host application to obtain any necessary user consent in accordance with EU Cookie Compliance Policy. See [Cookie Policy Options](#cookie-policy-options). |
-| disableFirstRun | Boolean | Disable the first run experience. |
-| readAloudOptions | [ReadAloudOptions](#read-aloud-options) | Options to configure Read Aloud. |
-| translationOptions | [TranslationOptions](#translation-options) | Options to configure translation. |
-| displayOptions | [DisplayOptions](#display-options) | Options to configure text size, font, etc. |
-| preferences | String | String returned from onPreferencesChanged representing the user's preferences in the Immersive Reader. See [Settings Parameters](#settings-parameters) and [How-To Store User Preferences](./how-to-store-user-preferences.md) for more information. |
-| onPreferencesChanged | Function | Executes when the user's preferences have changed. See [How-To Store User Preferences](./how-to-store-user-preferences.md) for more information. |
-| customDomain | String | Reserved for internal use. Custom domain where the Immersive Reader webapp is hosted (default is null). |
-
-### -uiLang
-```Parameters
-Type: String
-Required: false
-Default value: User's browser language 
-```
-
-### -timeout
-```Parameters
-Type: Number
-Required: false
-Default value: 15000
-```
-
-### -uiZIndex
-```Parameters
-Type: Number
-Required: false
-Default value: 1000
-```
-
-### -useWebview
-```Parameters
-Type: Boolean
-Required: false
-Default value: false
-Values available: true, false
-```
-
-### -onExit
-```Parameters
-Type: Function
-Required: false
-Default value: null
-```
-
-### -allowFullscreen
-```Parameters
-Type: Boolean
-Required: false
-Default value: true
-Values available: true, false
-```
-
-### -hideExitButton
-```Parameters
-Type: Boolean
-Required: false
-Default value: false
-Values available: true, false
-```
-
-### -disableFirstRun
-```Parameters
-Type: Boolean
-Required: false
-Default value: false
-Values available: true, false
-```
-
-### -preferences
-```Parameters
-Type: String
-Required: false
-Default value: null
-```
-
-### -onPreferencesChanged
-```Parameters
-Type: Function
-Required: false
-Default value: null
-```
-
-## Read Aloud Options
-
-```typescript
-type ReadAloudOptions = {
-    voice?: string;
-    speed?: number;
-    autoplay?: boolean;
-};
-```
-
-### -customDomain
-```Parameters
-Type: String
-Required: false
-Default value: null
-```
-
-### Read Aloud Options Parameters
-
-| Name | Type | Description |
-| ---- | ---- |------------ |
-| voice | String | Voice, either "Female" or "Male". Note that not all languages support both genders. |
-| speed | Number | Playback speed, must be between 0.5 and 2.5, inclusive. |
-| autoPlay | Boolean | Automatically start Read Aloud when the Immersive Reader loads. |
-
-### -voice
-```Parameters
-Type: String
-Required: false
-Default value: "Female" or "Male" (determined by language) 
-Values available: "Female", "Male"
-```
-
-### -speed
-```Parameters
-Type: Number
-Required: false
-Default value: 1
-Values available: 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 2.25, 2.5
-```
-
-### -autoPlay
-```Parameters
-Type: Boolean
-Required: false
-Default value: false
-Values available: true, false
-```
-
-> [!NOTE]
-> Due to browser limitations, autoplay is not supported in Safari.
-
-## Translation Options
-
-```typescript
-type TranslationOptions = {
-    language: string;
-    autoEnableDocumentTranslation?: boolean;
-    autoEnableWordTranslation?: boolean;
-};
-```
-
-### Translation Options Parameters
-
-| Name | Type | Description |
-| ---- | ---- |------------ |
-| language | String | Sets the translation language, e.g. fr-FR, es-MX, zh-Hans-CN. Required to automatically enable word or document translation. |
-| autoEnableDocumentTranslation | Boolean | Automatically translate the entire document. |
-| autoEnableWordTranslation | Boolean | Automatically enable word translation. |
-
-### -language
-```Parameters
-Type: String
-Required: true
-Default value: null 
-Values available: See the Supported Languages section
-```
-
-### -autoEnableDocumentTranslation
-```Parameters
-Type: Boolean
-Required: false
-Default value: false
-Values available: true, false
-```
-
-### -autoEnableWordTranslation
-```Parameters
-Type: Boolean
-Required: false
-Default value: false
-Values available: true, false
-```
-
-## Display Options
-
-```typescript
-type DisplayOptions = {
-    textSize?: number;
-    increaseSpacing?: boolean;
-    fontFamily?: string;
-};
-```
-
-### Display Options Parameters
-
-| Name | Type | Description |
-| ---- | ---- |------------ |
-| textSize | Number | Sets the chosen text size. |
-| increaseSpacing | Boolean | Sets whether text spacing is toggled on or off. |
-| fontFamily | String | Sets the chosen font ("Calibri", "ComicSans", or "Sitka"). |
-
-### -textSize
-```Parameters
-Type: Number
-Required: false
-Default value: 20, 36 or 42 (Determined by screen size)
-Values available: 14, 20, 28, 36, 42, 48, 56, 64, 72, 84, 96
-```
-
-### -increaseSpacing
-```Parameters
-Type: Boolean
-Required: false
-Default value: true
-Values available: true, false
-```
-
-### -fontFamily
-```Parameters
-Type: String
-Required: false
-Default value: "Calibri"
-Values available: "Calibri", "Sitka", "ComicSans"
-```
-
-## Cookie Policy Options
-
-```typescript
-enum CookiePolicy { Disable, Enable }
-```
-
-The Immersive Reader stores its settings, or user preferences, in cookies. This *cookiePolicy* option **disables** the use of cookies by default in order to comply with EU Cookie Compliance laws. Should you want to re-enable cookies and restore the default functionality for Immersive Reader user preferences, you will need to ensure that your website or application obtains the proper consent from the user to enable cookies. Then, to re-enable cookies in the Immersive Reader, you must explicitly set the *cookiePolicy* option to *CookiePolicy.Enable* when launching the Immersive Reader. The table below describes what settings the Immersive Reader stores in its cookie when the *cookiePolicy* option is enabled.
-
-> [!NOTE]
-> **IMPORTANT** Do not attempt to programmatically change the values of the preferences string sent to and from the Immersive Reader application as this may cause unexpected behavior resulting in a degraded user experience for your customers. Instead, to override user preferences with custom values, use the *DisplayOptions* exposed by the Immersive Reader SDK in the above sections. The settings listed below are for informational purposes only.
-
-### Settings Parameters
-
-| Setting | Type | Description |
-| ------- | ---- | ----------- |
-| textSize | Number | Sets the chosen text size. |
-| fontFamily | String | Sets the chosen font ("Calibri", "ComicSans", or "Sitka"). |
-| textSpacing | Number | Sets whether text spacing is toggled on or off. |
-| formattingEnabled | Boolean | Sets whether HTML formatting is toggled on or off. |
-| theme | String | Sets the chosen theme (e.g "Light", "Dark"...). |
-| syllabificationEnabled | Boolean | Sets whether syllabification toggled on or off. |
-| nounHighlightingEnabled | Boolean | that sets whether noun highlighting is toggled on or off. |
-| nounHighlightingColor | String | Sets the chosen noun highlighting color. |
-| verbHighlightingEnabled | Boolean | Sets whether verb highlighting is toggled on or off. |
-| verbHighlightingColor | String | Sets the chosen verb highlighting color. |
-| adjectiveHighlightingEnabled | Boolean | Sets whether adjective highlighting is toggled on or off. |
-| adjectiveHighlightingColor | String | Sets the chosen adjective highlighting color. |
-| adverbHighlightingEnabled | Boolean | Sets whether adverb highlighting is toggled on or off. |
-| adverbHighlightingColor | String | Sets the chosen adverb highlighting color. |
-| pictureDictionaryEnabled | Boolean | Sets whether Picture Dictionary is toggled on or off. |
-| posLabelsEnabled | Boolean | Sets whether the superscript text label of each highlighted Part of Speech is toggled on or off.  |
-
-### -textSize
-```Parameters
-Type: Number
-Required: false
-Default value: 20, 36 or 42 (Determined by screen size)
-Values available: 14, 20, 28, 36, 42, 48, 56, 64, 72, 84, 96
-```
-
-### -fontFamily
-```Parameters
-Type: String
-Required: false
-Default value: "Calibri"
-Values available: "Calibri", "ComicSans", "Sitka"
-```
-
-### -textSpacing
-```Parameters
-Type: Number
-Required: false
-Default value: 40
-Values available: 24, 40
-```
-
-### -formattingEnabled
-```Parameters
-Type: Boolean
-Required: false
-Default value: true
-Values available: true, false
-```
-
-### -theme
-```Parameters
-Type: String
-Required: false
-Default value: "Light"
-Values available: "Light", "Dark", "Sepia", "Yellow", "Blue", "Green", "Rose", "Apricot", "LightOrange", "LightYellow", "Lime", "LightGreen", "LightTeal", "Turquoise", "Teal", "SkyBlue", "LightBlue", "Lavender", "Orchid", "Pink", "Carnation"
-```
-
-### -syllabificationEnabled
-```Parameters
-Type: Boolean
-Required: false
-Default value: false
-Values available: true, false
-```
-
-### -nounHighlightingEnabled
-```Parameters
-Type: Boolean
-Required: false
-Default value: false
-Values available: true, false
-```
-
-### -nounHighlightingColor
-```Parameters
-Type: String
-Required: false
-Default value: "MiddleMagenta"
-Values available: "AccessibleBlue", "AccessibleGreen", "AccessibleYellow", "AccessibleOrange", "AccessibleRed", "AccessibleMagenta", "MiddleBlue", "MiddleGreen", "MiddleYellow", "MiddleOrange", "MiddleRed", "MiddleMagenta"
-```
-
-### -verbHighlightingEnabled
-```Parameters
-Type: Boolean
-Required: false
-Default value: false
-Values available: true, false
-```
-
-### -verbHighlightingColor
-```Parameters
-Type: String
-Required: false
-Default value: "MiddleRed"
-Values available: "AccessibleBlue", "AccessibleGreen", "AccessibleYellow", "AccessibleOrange", "AccessibleRed", "AccessibleMagenta", "MiddleBlue", "MiddleGreen", "MiddleYellow", "MiddleOrange", "MiddleRed", "MiddleMagenta"
-```
-
-### -adjectiveHighlightingEnabled
-```Parameters
-Type: Boolean
-Required: false
-Default value: false
-Values available: true, false
-```
-
-### -adjectiveHighlightingColor
-```Parameters
-Type: String
-Required: false
-Default value: "MiddleGreen"
-Values available: "AccessibleBlue", "AccessibleGreen", "AccessibleYellow", "AccessibleOrange", "AccessibleRed", "AccessibleMagenta", "MiddleBlue", "MiddleGreen", "MiddleYellow", "MiddleOrange", "MiddleRed", "MiddleMagenta"
-```
-
-### -adverbHighlightingEnabled
-```Parameters
-Type: Boolean
-Required: false
-Default value: false
-Values available: true, false
-```
-
-### -adverbHighlightingColor
-```Parameters
-Type: String
-Required: false
-Default value: "MiddleYellow"
-Values available: "AccessibleBlue", "AccessibleGreen", "AccessibleYellow", "AccessibleOrange", "AccessibleRed", "AccessibleMagenta", "MiddleBlue", "MiddleGreen", "MiddleYellow", "MiddleOrange", "MiddleRed", "MiddleMagenta"
-```
-
-### -pictureDictionaryEnabled
-```Parameters
-Type: Boolean
-Required: false
-Default value: true
-Values available: true, false
-```
-
-### -posLabelsEnabled
-```Parameters
-Type: Boolean
-Required: false
-Default value: true
-Values available: true, false
-```
-
-## Supported Languages
-
-The translation feature of Immersive Reader supports many languages. See [this article](https://www.onenote.com/learningtools/languagesupport) for more details.
+---
 
 ## LaunchResponse
 
@@ -698,6 +202,396 @@ Required: true
 | TokenExpired | The supplied token is expired. |
 | Throttled | The call rate limit has been exceeded. |
 
+---
+
+## Types
+
+### Content
+
+Contains the content to be shown in the Immersive Reader.
+
+```typescript
+{
+    title?: string;
+    chunks: Chunk[];
+}
+```
+
+### Content Parameters
+
+| Name | Type | Description |
+| ---- | ---- |------------ |
+| title | String | Title text shown at the top of the Immersive Reader (optional) |
+| chunks | Chunk[] | Array of chunks |
+
+### -title
+```Parameters
+Type: String
+Required: false
+Default value: "Immersive Reader" 
+```
+
+### -chunks
+```Parameters
+Type: Chunk[]
+Required: true
+Default value: null 
+```
+
+---
+
+### Chunk
+
+A single chunk of data, which will be passed into the Content of the Immersive Reader.
+
+```typescript
+{
+    content: string;
+    lang?: string;
+    mimeType?: string;
+}
+```
+
+### Chunk Parameters
+
+| Name | Type | Description |
+| ---- | ---- |------------ |
+| content | String | The string that contains the content sent to the Immersive Reader. |
+| lang | String | Language of the text, the value is in IETF BCP 47 language tag format, e.g. en, es-ES. Language will be detected automatically if not specified. See [Supported Languages](#supported-languages). |
+| mimeType | string | Plain text, MathML, HTML & Microsoft Word DocX formats are supported. See [Supported MIME types](#supported-mime-types) for more details. |
+
+### -content
+```Parameters
+Type: String
+Required: true
+Default value: null 
+```
+
+### -lang
+```Parameters
+Type: String
+Required: false
+Default value: Automatically detected 
+```
+
+### -mimeType
+```Parameters
+Type: String
+Required: false
+Default value: "text/plain"
+```
+
+#### Supported MIME types
+
+| MIME Type | Description |
+| --------- | ----------- |
+| text/plain | Plain text. |
+| text/html | HTML content. [Learn more](#html-support)|
+| application/mathml+xml | Mathematical Markup Language (MathML). [Learn more](./how-to/display-math.md).
+| application/vnd.openxmlformats-officedocument.wordprocessingml.document | Microsoft Word .docx format document.
+
+---
+
+## Options
+
+Contains properties that configure certain behaviors of the Immersive Reader.
+
+```typescript
+{
+    uiLang?: string;
+    timeout?: number;
+    uiZIndex?: number;
+    useWebview?: boolean;
+    onExit?: () => any;
+    customDomain?: string;
+    allowFullscreen?: boolean;
+    hideExitButton?: boolean;
+    cookiePolicy?: CookiePolicy;
+    disableFirstRun?: boolean;
+    readAloudOptions?: ReadAloudOptions;
+    translationOptions?: TranslationOptions;
+    displayOptions?: DisplayOptions;
+    preferences?: string;
+    onPreferencesChanged?: (value: string) => any;
+}
+```
+
+### Options Parameters
+
+| Name | Type | Description |
+| ---- | ---- |------------ |
+| uiLang | String | Language of the UI, the value is in IETF BCP 47 language tag format, e.g. en, es-ES. Defaults to browser language if not specified. |
+| timeout | Number | Duration (in milliseconds) before launchAsync fails with a timeout error (default is 15000 ms). This timeout only applies to the initial launch of the Reader page, where success is observed when the Reader page opens and the spinner starts. Adjustment of the timeout should not be necessary. |
+| uiZIndex | Number | Z-index of the iframe that will be created (default is 1000). |
+| useWebview | Boolean| Use a webview tag instead of an iframe, for compatibility with Chrome Apps (default is false). |
+| onExit | Function | Executes when the Immersive Reader exits. |
+| allowFullscreen | Boolean | The ability to toggle fullscreen (default is true). |
+| hideExitButton | Boolean | Whether or not to hide the Immersive Reader's exit button arrow (default is false). This should only be true if there is an alternative mechanism provided to exit the Immersive Reader (e.g a mobile toolbar's back arrow). |
+| cookiePolicy | [CookiePolicy](#cookie-policy-options) | Setting for the Immersive Reader's cookie usage (default is *CookiePolicy.Disable*). It's the responsibility of the host application to obtain any necessary user consent in accordance with EU Cookie Compliance Policy. See [Cookie Policy Options](#cookie-policy-options). |
+| disableFirstRun | Boolean | Disable the first run experience. |
+| readAloudOptions | [ReadAloudOptions](#read-aloud-options) | Options to configure Read Aloud. |
+| translationOptions | [TranslationOptions](#translation-options) | Options to configure translation. |
+| displayOptions | [DisplayOptions](#display-options) | Options to configure text size, font, etc. |
+| preferences | String | String returned from onPreferencesChanged representing the user's preferences in the Immersive Reader. See [Settings Parameters](#settings-parameters) and [How-To Store User Preferences](./how-to-store-user-preferences.md) for more information. |
+| onPreferencesChanged | Function | Executes when the user's preferences have changed. See [How-To Store User Preferences](./how-to-store-user-preferences.md) for more information. |
+| customDomain | String | Reserved for internal use. Custom domain where the Immersive Reader webapp is hosted (default is null). |
+
+### -uiLang
+```Parameters
+Type: String
+Required: false
+Default value: User's browser language 
+```
+
+### -timeout
+```Parameters
+Type: Number
+Required: false
+Default value: 15000
+```
+
+### -uiZIndex
+```Parameters
+Type: Number
+Required: false
+Default value: 1000
+```
+
+### -onExit
+```Parameters
+Type: Function
+Required: false
+Default value: null
+```
+
+### -preferences
+```Parameters
+Type: String
+Required: false
+Default value: null
+```
+
+### -onPreferencesChanged
+```Parameters
+Type: Function
+Required: false
+Default value: null
+```
+
+## Read Aloud Options
+
+```typescript
+type ReadAloudOptions = {
+    voice?: string;
+    speed?: number;
+    autoplay?: boolean;
+};
+```
+
+### -customDomain
+```Parameters
+Type: String
+Required: false
+Default value: null
+```
+
+---
+
+### Read Aloud Options Parameters
+
+| Name | Type | Description |
+| ---- | ---- |------------ |
+| voice | String | Voice, either "Female" or "Male". Note that not all languages support both genders. |
+| speed | Number | Playback speed, must be between 0.5 and 2.5, inclusive. |
+| autoPlay | Boolean | Automatically start Read Aloud when the Immersive Reader loads. |
+
+### -voice
+```Parameters
+Type: String
+Required: false
+Default value: "Female" or "Male" (determined by language) 
+Values available: "Female", "Male"
+```
+
+### -speed
+```Parameters
+Type: Number
+Required: false
+Default value: 1
+Values available: 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 2.25, 2.5
+```
+
+> [!NOTE]
+> Due to browser limitations, autoplay is not supported in Safari.
+
+## Translation Options
+
+```typescript
+type TranslationOptions = {
+    language: string;
+    autoEnableDocumentTranslation?: boolean;
+    autoEnableWordTranslation?: boolean;
+};
+```
+
+### Translation Options Parameters
+
+| Name | Type | Description |
+| ---- | ---- |------------ |
+| language | String | Sets the translation language, the value is in IETF BCP 47 language tag format, e.g. fr-FR, es-MX, zh-Hans-CN. Required to automatically enable word or document translation. |
+| autoEnableDocumentTranslation | Boolean | Automatically translate the entire document. |
+| autoEnableWordTranslation | Boolean | Automatically enable word translation. |
+
+### -language
+```Parameters
+Type: String
+Required: true
+Default value: null 
+Values available: See the Supported Languages section
+```
+
+---
+
+## Display Options
+
+```typescript
+type DisplayOptions = {
+    textSize?: number;
+    increaseSpacing?: boolean;
+    fontFamily?: string;
+};
+```
+
+### Display Options Parameters
+
+| Name | Type | Description |
+| ---- | ---- |------------ |
+| textSize | Number | Sets the chosen text size. |
+| increaseSpacing | Boolean | Sets whether text spacing is toggled on or off. |
+| fontFamily | String | Sets the chosen font ("Calibri", "ComicSans", or "Sitka"). |
+
+### -textSize
+```Parameters
+Type: Number
+Required: false
+Default value: 20, 36 or 42 (Determined by screen size)
+Values available: 14, 20, 28, 36, 42, 48, 56, 64, 72, 84, 96
+```
+
+### -fontFamily
+```Parameters
+Type: String
+Required: false
+Default value: "Calibri"
+Values available: "Calibri", "Sitka", "ComicSans"
+```
+
+---
+
+## Cookie Policy Options
+
+```typescript
+enum CookiePolicy { Disable, Enable }
+```
+
+The Immersive Reader stores its settings, or user preferences, in cookies. This *cookiePolicy* option **disables** the use of cookies by default in order to comply with EU Cookie Compliance laws. Should you want to re-enable cookies and restore the default functionality for Immersive Reader user preferences, you will need to ensure that your website or application obtains the proper consent from the user to enable cookies. Then, to re-enable cookies in the Immersive Reader, you must explicitly set the *cookiePolicy* option to *CookiePolicy.Enable* when launching the Immersive Reader. The table below describes what settings the Immersive Reader stores in its cookie when the *cookiePolicy* option is enabled.
+
+> [!NOTE]
+> **IMPORTANT** Do not attempt to programmatically change the values of the preferences string sent to and from the Immersive Reader application as this may cause unexpected behavior resulting in a degraded user experience for your customers. Instead, to override user preferences with custom values, use the *DisplayOptions* exposed by the Immersive Reader SDK in the above sections. The settings listed below are for informational purposes only.
+
+### Settings Parameters
+
+| Setting | Type | Description |
+| ------- | ---- | ----------- |
+| textSize | Number | Sets the chosen text size. |
+| fontFamily | String | Sets the chosen font ("Calibri", "ComicSans", or "Sitka"). |
+| textSpacing | Number | Sets whether text spacing is toggled on or off. |
+| formattingEnabled | Boolean | Sets whether HTML formatting is toggled on or off. |
+| theme | String | Sets the chosen theme (e.g "Light", "Dark"...). |
+| syllabificationEnabled | Boolean | Sets whether syllabification toggled on or off. |
+| nounHighlightingEnabled | Boolean | that sets whether noun highlighting is toggled on or off. |
+| nounHighlightingColor | String | Sets the chosen noun highlighting color. |
+| verbHighlightingEnabled | Boolean | Sets whether verb highlighting is toggled on or off. |
+| verbHighlightingColor | String | Sets the chosen verb highlighting color. |
+| adjectiveHighlightingEnabled | Boolean | Sets whether adjective highlighting is toggled on or off. |
+| adjectiveHighlightingColor | String | Sets the chosen adjective highlighting color. |
+| adverbHighlightingEnabled | Boolean | Sets whether adverb highlighting is toggled on or off. |
+| adverbHighlightingColor | String | Sets the chosen adverb highlighting color. |
+| pictureDictionaryEnabled | Boolean | Sets whether Picture Dictionary is toggled on or off. |
+| posLabelsEnabled | Boolean | Sets whether the superscript text label of each highlighted Part of Speech is toggled on or off.  |
+
+### -textSize
+```Parameters
+Type: Number
+Required: false
+Default value: 20, 36 or 42 (Determined by screen size)
+Values available: 14, 20, 28, 36, 42, 48, 56, 64, 72, 84, 96
+```
+
+### -fontFamily
+```Parameters
+Type: String
+Required: false
+Default value: "Calibri"
+Values available: "Calibri", "ComicSans", "Sitka"
+```
+
+### -textSpacing
+```Parameters
+Type: Number
+Required: false
+Default value: 40
+Values available: 24, 40
+```
+
+### -theme
+```Parameters
+Type: String
+Required: false
+Default value: "Light"
+Values available: "Light", "Dark", "Sepia", "Yellow", "Blue", "Green", "Rose", "Apricot", "LightOrange", "LightYellow", "Lime", "LightGreen", "LightTeal", "Turquoise", "Teal", "SkyBlue", "LightBlue", "Lavender", "Orchid", "Pink", "Carnation"
+```
+
+### -nounHighlightingColor
+```Parameters
+Type: String
+Required: false
+Default value: "MiddleMagenta"
+Values available: "AccessibleBlue", "AccessibleGreen", "AccessibleYellow", "AccessibleOrange", "AccessibleRed", "AccessibleMagenta", "MiddleBlue", "MiddleGreen", "MiddleYellow", "MiddleOrange", "MiddleRed", "MiddleMagenta"
+```
+
+### -verbHighlightingColor
+```Parameters
+Type: String
+Required: false
+Default value: "MiddleRed"
+Values available: "AccessibleBlue", "AccessibleGreen", "AccessibleYellow", "AccessibleOrange", "AccessibleRed", "AccessibleMagenta", "MiddleBlue", "MiddleGreen", "MiddleYellow", "MiddleOrange", "MiddleRed", "MiddleMagenta"
+```
+
+### -adjectiveHighlightingColor
+```Parameters
+Type: String
+Required: false
+Default value: "MiddleGreen"
+Values available: "AccessibleBlue", "AccessibleGreen", "AccessibleYellow", "AccessibleOrange", "AccessibleRed", "AccessibleMagenta", "MiddleBlue", "MiddleGreen", "MiddleYellow", "MiddleOrange", "MiddleRed", "MiddleMagenta"
+```
+
+### -adverbHighlightingColor
+```Parameters
+Type: String
+Required: false
+Default value: "MiddleYellow"
+Values available: "AccessibleBlue", "AccessibleGreen", "AccessibleYellow", "AccessibleOrange", "AccessibleRed", "AccessibleMagenta", "MiddleBlue", "MiddleGreen", "MiddleYellow", "MiddleOrange", "MiddleRed", "MiddleMagenta"
+```
+
+---
+
+## Supported Languages
+
+The translation feature of Immersive Reader supports many languages. See [this article](https://www.onenote.com/learningtools/languagesupport) for more details.
+
+---
+
 ## HTML support
 
 When formatting is enabled, the following content will be rendered as HTML in the Immersive Reader.
@@ -710,6 +604,8 @@ When formatting is enabled, the following content will be rendered as HTML in th
 
 Unsupported tags will be rendered comparably. Images and tables are currently not supported.
 
+---
+
 ## Browser support
 
 Use the most recent versions of the following browsers for the best experience with the Immersive Reader.
@@ -719,6 +615,8 @@ Use the most recent versions of the following browsers for the best experience w
 * Google Chrome
 * Mozilla Firefox
 * Apple Safari
+
+---
 
 ## Next steps
 
