@@ -1,6 +1,6 @@
 ---
 title: Understand Azure App Configuration key-value store
-description: Understand how configuration data is stored in Azure App Configuration.
+description: Understand key-value storage in Azure App Configuration, which stores configuration data as key-values. Key-values are a representation of application settings.
 author: lisaguthrie
 ms.author: lcozzens
 ms.service: azure-app-configuration

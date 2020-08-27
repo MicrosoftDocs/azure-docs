@@ -1,6 +1,6 @@
 ---
 title: Authentication, requests and responses
-description: Authenticate to AD for using Key Vault
+description: Learn how Azure Key Vault uses JSON-formatted requests and responses and about required authentication for using a key vault.
 services: key-vault
 author: amitbapat
 manager: msmbaldwin

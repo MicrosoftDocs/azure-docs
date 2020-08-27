@@ -9,7 +9,7 @@ ms.topic: quickstart
 ms.date: 3/19/2020
 ---
 
-# Create an Azure Database for MariaDB server by using the Azure portal
+# Quickstart: Create an Azure Database for MariaDB server by using the Azure portal
 
 Azure Database for MariaDB is a managed service you can use to run, manage, and scale highly available MariaDB databases in the cloud. This quickstart shows you how to create an Azure Database for MariaDB server in about five minutes by using the Azure portal.  
 

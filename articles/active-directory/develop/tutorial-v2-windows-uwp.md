@@ -11,7 +11,7 @@ ms.topic: tutorial
 ms.workload: identity
 ms.date: 12/13/2019
 ms.author: jmprieur
-ms.custom: aaddev, identityplatformtop40
+ms.custom: "devx-track-csharp, aaddev, identityplatformtop40"
 ---
 
 # Call the Microsoft Graph API from a Universal Windows Platform application (XAML)

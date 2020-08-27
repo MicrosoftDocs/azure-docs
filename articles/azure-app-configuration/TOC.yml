@@ -62,8 +62,14 @@
           href: use-key-vault-references-dotnet-core.md
         - name: Spring Boot
           href: use-key-vault-references-spring-boot.md
-    - name: Integrate with a CI/CD pipeline
-      href: integrate-ci-cd-pipeline.md
+    - name: CI/CD pipeline integration
+      items:
+        - name: Push using Azure Pipelines
+          href: push-kv-devops-pipeline.md
+        - name: Push using GitHub Actions
+          href: concept-github-action.md
+        - name: Build project using exported configuration
+          href: integrate-ci-cd-pipeline.md
     - name: Integrate with Kubernetes deployment using Helm
       href: integrate-kubernetes-deployment-helm.md
 - name: Samples
@@ -81,8 +87,6 @@
       href: concept-point-time-snapshot.md
     - name: Feature management
       href: concept-feature-management.md
-    - name: Sync using GitHub Actions
-      href: concept-github-action.md
     - name: Event handling
       href: concept-app-configuration-event.md
     - name: Security
@@ -153,7 +157,7 @@
       href: https://azure.microsoft.com/pricing/details/app-configuration/
     - name: Videos
       items:
-        - name: Getting started
+        - name: Getting started with App Configuration
           href: https://channel9.msdn.com/Shows/Azure-Friday/Getting-started-with-Azure-App-Configuration
         - name: Feature management
           href: https://channel9.msdn.com/Shows/NET-Community-Standups/ASPNET-Community-Standup-May-21st-2019-Introducing-MicrosoftFeatureManagement
@@ -161,5 +165,7 @@
           href: https://channel9.msdn.com/Events/dotnetConf/NET-Conf-2019/B210
         - name: Azure App Configuration on Cloud Native Show
           href: https://www.youtube.com/watch?v=DJqmA5PcfzE
+        - name: Feature filtering at Azure Friday 
+          url: https://channel9.msdn.com/Shows/Azure-Friday/How-Azure-App-Configuration-helps-developers-roll-out-new-features?ocid=AID747781&wt.mc_id=azfr-c9-scottha&wt.mc_id=CFID0553 
     - name: Provide product feedback
       href: https://github.com/Azure/AppConfiguration/issues

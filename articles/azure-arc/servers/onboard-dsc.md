@@ -1,13 +1,13 @@
 ---
 title: Install Connected Machine agent using Windows PowerShell DSC
-description: In this article, you learn how to connect machines to Azure using Azure Arc for servers (preview) using Windows PowerShell DSC.
+description: In this article, you learn how to connect machines to Azure using Azure Arc enabled servers (preview) using Windows PowerShell DSC.
 ms.date: 03/12/2020
 ms.topic: conceptual
 ---
 
 # How to install the Connected Machine agent using Windows PowerShell DSC
 
-Using [Windows PowerShell Desired State Configuration](/powershell/scripting/dsc/getting-started/winGettingStarted?view=powershell-7) (DSC), you can automate software installation and configuration for a Windows computer. This article describes how to use DSC to install the Azure Arc for servers Connected Machine agent on hybrid Windows machines.
+Using [Windows PowerShell Desired State Configuration](/powershell/scripting/dsc/getting-started/winGettingStarted?view=powershell-7) (DSC), you can automate software installation and configuration for a Windows computer. This article describes how to use DSC to install the Azure Arc enabled servers (preview) Connected Machine agent on hybrid Windows machines.
 
 ## Requirements
 
@@ -15,7 +15,7 @@ Using [Windows PowerShell Desired State Configuration](/powershell/scripting/dsc
 
 - The [AzureConnectedMachineDsc](https://www.powershellgallery.com/packages/AzureConnectedMachineDsc/1.0.1.0) DSC module
 
-- A service principal to connect the machines to Azure Arc for servers non-interactively. Follow the steps under the section [Create a Service Principal for onboarding at scale](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) if you have not created a service principal for Arc for servers already.
+- A service principal to connect the machines to Azure Arc enabled servers (preview) non-interactively. Follow the steps under the section [Create a Service Principal for onboarding at scale](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) if you have not created a service principal for Arc enabled servers (preview) already.
 
 ## Install the ConnectedMachine DSC module
 
@@ -72,7 +72,7 @@ The following are the parameters you pass to the PowerShell script to use.
 
 3. This will create a `localhost.mof file` in a new folder named `C:\dsc`.
 
-After you install the agent and configure it to connect to Azure Arc for servers (preview), go to the Azure portal to verify that the server has been successfully connected. View your machines in the [Azure portal](https://aka.ms/hybridmachineportal).
+After you install the agent and configure it to connect to Azure Arc enabled servers (preview), go to the Azure portal to verify that the server has been successfully connected. View your machines in the [Azure portal](https://aka.ms/hybridmachineportal).
 
 ## Adding to existing configurations
 

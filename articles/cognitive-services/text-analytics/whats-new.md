@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 08/06/2020
+ms.date: 08/26/2020
 ms.author: aahi
 ---
 
@@ -22,14 +22,16 @@ The Text Analytics API is updated on an ongoing basis. To stay up-to-date with r
 
 * Model version `2020-07-01` for the v3 `/keyphrases`, `/pii` and `/languages` endpoints, which adds:
     * Additional government and country specific [entity categories](named-entity-types.md?tabs=personal) for Named Entity Recognition.
+    * Norwegian and Turkish support in Sentiment Analysis v3.
 * An HTTP 400 error will now be returned for v3 API requests that exceed the published [data limits](concepts/data-limits.md). 
+* Endpoints that return an offset now support the optional `stringIndexType` parameter, which adjusts the returned `offset` and `length` values to match a supported [string index scheme](concepts/text-offsets.md).
 
 ### Text Analytics for health container August updates
 
 The following updates are specific to the August release of the Text Analytics for health container only.
 
 * New model-version for Text Analytics for health: `2020-07-24`
-* New URL for sending Text Analytics for health requests: `http://<serverURL>:5000/text/analytics/v3.2-preview.1/entities/health` 
+* New URL for sending Text Analytics for health requests: `http://<serverURL>:5000/text/analytics/v3.2-preview.1/entities/health` (Please note that a browser cache clearing will be needed in order to use the demo web app included in this new container image)
 
 The following properties in the JSON response have changed:
 

@@ -95,7 +95,6 @@ Before you start manipulating AMS v3 resources you need to get and set Azure AD 
 
 ## See also
 
-- [Upload files into a Media Services account - REST](upload-files-rest-how-to.md)
 - [Create filters with Media Services - REST](filters-dynamic-manifest-rest-howto.md)
 - [Azure Resource Manager based REST API](https://github.com/Azure-Samples/media-services-v3-arm-templates)
 

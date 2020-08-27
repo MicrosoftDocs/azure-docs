@@ -2,7 +2,7 @@
 title: Use Azure Deployment Manager to deploy templates
 description: Learn how to use Resource Manager templates with Azure Deployment Manager to deploy Azure resources.
 author: mumian
-ms.date: 12/04/2019
+ms.date: 08/25/2020
 ms.topic: tutorial
 ms.author: jgao
 
@@ -57,7 +57,7 @@ To complete this article, you need:
 
 ## Understand the scenario
 
-The service topology template describes the Azure resources the make up your service and where to deploy them. The service topology definition has the following hierarchy:
+The service topology template describes the Azure resources that make up your service and where to deploy them. The service topology definition has the following hierarchy:
 
 * Service topology
   * Services

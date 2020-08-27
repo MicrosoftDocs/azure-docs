@@ -150,7 +150,7 @@ You can use our new unified **App registrations** experience or our legacy  **Ap
 1. Under **Access management for Azure resources**, select **Yes**, and then select **Save**.
 1. Sign out of the Azure portal and then sign back in to refresh your access.
 1. Select **Azure Active Directory** on the left-hand menu.
-1. On the **Overview** page, select **Delete directory**. Follow the on-screen instructions to complete the process.
+1. On the **Overview** page, select **Delete tenant**. Follow the on-screen instructions to complete the process.
 
 #### [Applications (Legacy)](#tab/applications-legacy/)
 
