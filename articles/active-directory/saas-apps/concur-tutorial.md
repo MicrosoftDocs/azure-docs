@@ -4,8 +4,8 @@ description: Learn how to configure single sign-on between Azure Active Director
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
+manager: CelesteDG
+ms.reviewer: celested
 
 ms.assetid: 1eee0a5d-24fa-4986-9aef-3c543cfe3296
 ms.service: active-directory
@@ -13,7 +13,7 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 01/31/2020
+ms.date: 08/27/2020
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -42,7 +42,7 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Concur supports **SP** initiated SSO
 * Concur supports **Just In Time** user provisioning
-* Once you configure Concur you can enforce Session control, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session control extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+* Once you configure Concur you can enforce Session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 ## Adding Concur from the gallery
 

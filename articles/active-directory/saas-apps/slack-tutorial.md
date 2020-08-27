@@ -4,8 +4,8 @@ description: Learn how to configure single sign-on between Azure Active Director
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
+manager: CelesteDG
+ms.reviewer: celested
 
 ms.assetid: ffc5e73f-6c38-4bbb-876a-a7dd269d4e1c
 ms.service: active-directory
@@ -13,7 +13,7 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 07/28/2020
+ms.date: 08/27/2020
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management

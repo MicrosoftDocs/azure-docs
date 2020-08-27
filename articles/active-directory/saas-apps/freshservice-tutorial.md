@@ -4,8 +4,8 @@ description: Learn how to configure single sign-on between Azure Active Director
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
+manager: CelesteDG
+ms.reviewer: celested
 
 ms.assetid: 3dd22b1f-445d-45c6-8eda-30207eb9a1a8
 ms.service: active-directory
@@ -13,7 +13,7 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 07/29/2020
+ms.date: 08/27/2020
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -83,13 +83,13 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Basic SAML Configuration** section, enter the values for the following fields:
 
 	a. In the **Sign-on URL** text box, type a URL using the following pattern:
-    `https://<democompany>.freshservice.com`
+    `https://<company-name>.freshservice.com`
 
     b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
-    `https://<democompany>.freshservice.com`
+    `https://<company-name>.freshservice.com`
 
     c. In the **Reply URL** text box, type a URL using the following pattern:
-    `https://<tenant-name>.freshservice.com/login/saml`
+    `https://<company-name>.freshservice.com/login/saml`
 	
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Sign on URL, Identifier and Reply URL. Contact [Freshservice Client support team](https://support.freshservice.com/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
