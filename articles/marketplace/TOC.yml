@@ -17,6 +17,8 @@
         href: ./lead-management-for-cloud-marketplace.md
       - name: Transacting in the commercial marketplace
         href: ./marketplace-commercial-transaction-capabilities-and-considerations.md
+      - name: Plans and Pricing
+        href: plans-pricing.md
       - name: Private offers
         href: ./private-offers.md
       - name: Standard Contract
@@ -165,24 +167,24 @@
         href: ./partner-center-portal/create-power-bi-app-offer.md
     - name: SaaS offers
       items:
-      - name: SaaS offer creation checklist
-        href: ./partner-center-portal/offer-creation-checklist.md
       - name: Plan a SaaS offer
         href: plan-saas-offer.md
       - name: Create a SaaS offer
         items:
         - name: Create the SaaS offer 
           href: create-new-saas-offer.md
+        - name: Configure your SaaS offer properties
+          href: create-new-saas-offer-properties.md  
         - name: Configure offer listing
           href: create-new-saas-offer-listing.md
-        - name: Preview audience and technical details
+        - name: Add a preview audience
           href: create-new-saas-offer-preview.md
+        - name: Provide technical details
+          href: create-new-saas-offer-technical.md  
         - name: Create plans
           href: create-new-saas-offer-plans.md
         - name: Marketing options
           href: create-new-saas-offer-marketing.md      
-      - name: SaaS metered billing
-        href: ./partner-center-portal/saas-metered-billing.md
       - name: Azure AD auth for SaaS
         items:
           - name: Azure AD and SaaS overview
@@ -191,6 +193,8 @@
             href: ./azure-ad-transactable-saas-landing-page.md
           - name: Landing page for free or trial offers
             href: ./azure-ad-free-or-trial-landing-page.md
+      - name: SaaS metered billing
+        href: ./partner-center-portal/saas-metered-billing.md           
       - name: SaaS Fulfillment APIs
         href: ./partner-center-portal/pc-saas-fulfillment-apis.md
         items:
@@ -314,7 +318,7 @@
       href: ./cloud-partner-portal-api-troubleshooting-authentication-errors.md
   - name: Support options
     href: ./partner-center-portal/support.md
-  - name: Reference
+  - name: Resources
     items:
     - name: Supported HTML tags
       href: supported-html-tags.md
