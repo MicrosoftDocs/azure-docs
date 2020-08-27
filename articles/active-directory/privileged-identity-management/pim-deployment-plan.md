@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 08/26/2020
+ms.date: 08/27/2020
 ms.author: curtand
 ms.custom: 
 ms.collection: M365-identity-device-management
@@ -190,14 +190,14 @@ Whether to assign a role to a group instead of to individual users is a strategi
 
 #### A lot of users are assigned to a role
 
-Keeping track of who is assigned to a role and managing their assignments based on when they need it can take time when done manually. PIM gives you additional tools such as activation approvals and elevation event audits to efficiently manage a large number of just-in-time activations. Group members activate their assignments to the group individually using the Privileged Identity Management activation request and approval process. The group isn't activated, just the user's group membership.
+Keeping track of who is assigned to a role and managing their assignments based on when they need it can take time when done manually. To assign a group to a role, first [create a role assignable group](../users-groups-roles/roles-groups-create-eligible.md) and then assign the group as eligible for a role. This action subjects everyone in the group to the same activation process as individual users who are eligible to elevate into the role. Group members activate their assignments to the group individually using the Privileged Identity Management activation request and approval process. The group isn't activated, just the user's group membership.
 
 #### You want to delegate assigning the role
 
-A group owner can manage membership for a group. In PIM, only the Privileged Role Administrator, the Global Administrator, and group Owner roles can manage group membership. Use group owners to delegate the management of group membership for an assigned role to reduce the breadth of privilege required. For more information about assigning an owner to a group when creating the group, see [Create a role-assignable group in Azure AD](../users-groups-roles/roles-groups-create-eligible.md).
+A group owner can manage membership for a group. For privileged access groups, only the Privileged Role Administrator, the Global Administrator, and the group owners can manage group membership. By adding new members to the group, the member gets access to the roles to which the group is assigned whether the assignment is eligible or active. Use group owners to delegate the management of group membership for an assigned role to reduce the breadth of privilege required. For more information about assigning an owner to a group when creating the group, see [Create a role-assignable group in Azure AD](../users-groups-roles/roles-groups-create-eligible.md).
 
 > [!TIP]
-> :heavy_check_mark: **Microsoft recommends** that you bring Azure AD role-assignable groups under management by Privileged Identity Management. Use PIM to require group owners to activate their Owner role assignment before they can manage group membership. For more information about bringing groups under PIM management, see [Bring privileged access groups (preview) into Privileged Identity Management](groups-discover-groups.md).
+> :heavy_check_mark: **Microsoft recommends** that you bring Azure AD role-assignable groups under management by Privileged Identity Management. Once a group is under management by PIM, you can make the group owners eligible and require them to activate their owner role before they can manage group membership. For more information about bringing groups under PIM management, see [Bring privileged access groups (preview) into Privileged Identity Management](groups-discover-groups.md).
 
 ### Decide which role assignments should be permanent or eligible
 
