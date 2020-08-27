@@ -42,7 +42,7 @@ Windows Virtual Desktop currently doesn't support Active Directory Federation Se
 - Active Directory Federation Services (ADFS)
 - Single sign-on (SSO)
 
-The only way to avoid being prompted for your password is to select the **Remember Me** check box on the prompt window, which will save your username and password to the credential manager.
+The only way to avoid being prompted for your credentials for the session host is to save them is the client. This is only recommended for secure devices to avoid other users from accessing your resources.
 
 ## Next steps
 
