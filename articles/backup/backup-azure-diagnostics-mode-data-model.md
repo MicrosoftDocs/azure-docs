@@ -154,8 +154,8 @@ This table provides details about job-related fields.
 | DataTransferredInMB_s | Number |Data transferred in MB for this job|
 | JobUniqueId_g |Text |Unique ID to identify the job |
 | RecoveryJobDestination_s |Text | Destination of a recovery job, where the data is recovered |
-| RecoveryJobRPDateTime_s |DateTime | The date, Time when the recovery point that is being recovered was created |
-| RecoveryJobRPLocation_s |Text | The location where the recovery point that is being recovered was stored|
+| RecoveryJobRPDateTime_s |DateTime | The date, time when the recovery point that's being recovered was created |
+| RecoveryJobRPLocation_s |Text | The location where the recovery point that's being recovered was stored|
 | SourceSystem |Text |Source system of the current data - Azure |
 | ResourceId |Text |Resource identifier for data being collected. For example, Recovery Services vault resource ID|
 | SubscriptionId |Text |Subscription identifier of the resource (ex. Recovery Services vault) for which data is collected |
@@ -467,7 +467,7 @@ Refer to the third column 'Description' in the [data model](#using-azure-backup-
 
 As the V1 schema is on a deprecation path, it's recommended to use only the V2 schema in all your custom queries on Azure Backup diagnostic data. Below is an example of how to update your queries to remove dependency on V1 schema:
 
-1. Identify if your query is using any field that is only applicable to V1 schema. Assume you have a query to list all the backup items and their associated protected servers as follows:
+1. Identify if your query is using any field that's only applicable to the V1 schema. Assume you have a query to list all the backup items and their associated protected servers as follows:
 
     ````Kusto
     AzureDiagnostics
