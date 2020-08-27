@@ -28,7 +28,7 @@ Select the specific subscription under your account using [az account set](/cli/
 az account set --subscription <subscription id>
 ```
 
-If you have not already created a sever , refer to this [quickstart](quickstart-create-mysql-server-database-using-azure-cli.md) to create one.
+If you have not already created a sever , refer to this [quickstart](quickstart-create-server-database-azure-cli.md) to create one.
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
