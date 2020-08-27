@@ -227,7 +227,7 @@ When you create a key vault, it is automatically tied to the default Azure Activ
 
 ### List Azure SQL databases with Azure AD authentication
 
-- Use [az sql server ad-admin list](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-list) and the [az graph](https://docs.microsoft.com/cli/azure/ext/resource-graph/graph) extension to see if you are using Azure SQL databases with Azure AD authentication. For more information, see [Configure and manage Azure Active Directory authentication with SQL](../azure-sql/database/authentication-aad-configure.md).
+- Use [az sql server ad-admin list](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-list) and the [az graph](https://docs.microsoft.com/cli/azure/ext/resource-graph/graph) extension to see if you are using Azure SQL databases with Azure AD authentication integration enabled. For more information, see [Configure and manage Azure Active Directory authentication with SQL](../azure-sql/database/authentication-aad-configure.md).
 
     ```azurecli
     az sql server ad-admin list --ids $(az graph query -q 'resources | where type == "microsoft.sql/servers" | project id' -o tsv | cut -f1)
@@ -269,7 +269,7 @@ In this step, you transfer the subscription from the source directory to the tar
 1. Transfer the subscription to a different directory.
 
     - If you want to keep the current billing ownership, follow the steps in [Associate or add an Azure subscription to your Azure Active Directory tenant](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
-    - If you want to transfer the billing ownership, follow the steps in [Transfer billing ownership of an Azure subscription to another account](../cost-management-billing/manage/billing-subscription-transfer.md). To transfer the subscription to a different Azure AD directory, you must check the **Subscription Azure AD tenant** check box.
+    - If you want to also transfer the billing ownership, follow the steps in [Transfer billing ownership of an Azure subscription to another account](../cost-management-billing/manage/billing-subscription-transfer.md). To transfer the subscription to a different directory, you must check the **Subscription Azure AD tenant** check box.
 
 1. Once you finish transferring the subscription, return back to this article to re-create the resources in the target directory.
 
