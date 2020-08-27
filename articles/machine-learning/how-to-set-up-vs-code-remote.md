@@ -39,7 +39,7 @@ In order to configure a compute instance as a remote Jupyter Notebook server you
 
 To connect to a compute instance:
 
-1. Open the command palette.
+1. Open the command palette by selecting **View > Command Palette** from the menu bar.
 1. Enter into the text box `Python: Specify local or remote Jupyter Server for connections`.
 1. Choose `Azure ML Compute Instances` from the list of Jupyter server options.
 1. Select your subscription the list of subscriptions. If you have have previously configured your default Azure Machine Learning workspace, this step is skipped.
@@ -126,11 +126,7 @@ Now, you should be able to ssh to your compute instance using the shorthand you 
 
 ### Connect VS Code to the instance
 
-1. [Install Visual Studio Code]().
-
-1. [Install the 
-
-1. Click the Remote-SSH icon on the left to show your SSH configurations.
+1. Click the Remote-SSH icon from the Visual Studio Code activity bar to show your SSH configurations.
 
 1. Right-click the SSH host configuration you just created.
 
