@@ -116,6 +116,8 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
     ::: zone pivot="programming-language-java"  
     + **Select a language for your function project**: Choose `Java`.
 
+    + **Select a version of Java**: Choose the Java version on which to run your functions. Java 11 support is in preview.
+
     + **Provide a group ID**: Choose `com.function`.
 
     + **Provide an artifact ID**: Choose `myFunction`.
