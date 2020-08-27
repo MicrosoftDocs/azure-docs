@@ -18,7 +18,12 @@ To protect your virtual machine scale sets from datacenter-level failures, you c
 
 ## Availability considerations
 
-When you deploy a scale set into one or more zones as of API version *2017-12-01*, you have the option to deploy with "max spreading" or "static 5 fault domain spreading". With max spreading, the scale set spreads your VMs across as many fault domains as possible within each zone. This spreading could be across greater or fewer than five fault domains per zone. With "static 5 fault domain spreading", the scale set spreads your VMs across exactly five fault domains per zone. If the scale set cannot find five distinct fault domains per zone to satisfy the allocation request, the request fails.
+When you deploy a regional (non-zonal) scale set into one or more zones as of API version *2017-12-01*, you have the following availability options:
+- Max spreading (platformFaultDomainCount = 1)
+- Static fixed spreading (platformDomainCount = 5)
+- Spreading aligned with storage disk fault domains (platformDomainCount = 2 or 3)
+
+With max spreading, the scale set spreads your VMs across as many fault domains as possible within each zone. This spreading could be across greater or fewer than five fault domains per zone. With static fixed spreading, the scale set spreads your VMs across exactly five fault domains per zone. If the scale set cannot find five distinct fault domains per zone to satisfy the allocation request, the request fails.
 
 **We recommend deploying with max spreading for most workloads**, as this approach provides the best spreading in most cases. If you need replicas to be spread across distinct hardware isolation units, we recommend spreading across Availability Zones and utilize max spreading within each zone.
 
