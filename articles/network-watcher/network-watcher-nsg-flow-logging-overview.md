@@ -291,7 +291,7 @@ The text that follows is an example of a flow log. As you can see, there are mul
 ```
 **Log tuple explained**
 
-![flow logs overview](./media/network-watcher-nsg-flow-logging-overview/tuple.png)
+![flow logs tuple](./media/network-watcher-nsg-flow-logging-overview/tuple.png)
 
 **Sample bandwidth calculation**
 
@@ -364,7 +364,7 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 
 **Enable on critical VNETs/Subnets**: Flow Logs should be enabled on all critical VNETs/subnets in your subscription as an auditability and security best practice. 
 
-**Enable NSG Flow Logging on all NSGs attached to a resource**: Flow logging in Azure is configured on the NSG resource. A flow will only be associated to one NSG Rule. In scenarios where multiple NSGs are utilized, we recommend enabling NSG flow logs on all NSGs applied a resource's subnet or network interface to ensure that all traffic is recorded. For more information, see [how traffic is evaluated](../virtual-network/security-overview.md#how-traffic-is-evaluated) in Network Security Groups.
+**Enable NSG Flow Logging on all NSGs attached to a resource**: Flow logging in Azure is configured on the NSG resource. A flow will only be associated to one NSG Rule. In scenarios where multiple NSGs are utilized, we recommend enabling NSG flow logs on all NSGs applied a resource's subnet or network interface to ensure that all traffic is recorded. For more information, see [how traffic is evaluated](../virtual-network/network-security-group-how-it-works.md) in Network Security Groups.
 
 **Storage provisioning**: Storage should be provisioned in tune with expected Flow Log volume.
 
