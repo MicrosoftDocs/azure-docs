@@ -309,15 +309,15 @@ Determine what operations were taken on the resources in your subscription with 
 who started the operationwhen the operation occurredthe status of the operationthe values of other properties that might help you research the operation
 Retrieve information from the activity log through Azure PowerShell, the Azure Command Line Interface (CLI), the Azure REST API, or the Azure portal. 
 
-- [Review this article with step-by-step instructions for each method detailed in the Audit operations with Resource Manager](../azure-resource-manager/management/view-activity-logs.md)
-
-Use the Azure Audit Logs content pack with Microsoft Power BI to analyze your data with pre-configured dashboards, or to customize the views based on your requirements.
-
 Implement Multi-dimensional diagnostic for the Standard Load Balancer configurations capabilities with Azure Monitor.  These include available metrics for security include information on Source Network Address Translation (SNAT) connections, ports. Additional metrics on SYN (synchronize) packets and packet counters are also available. 
 
 Retrieve multi-dimensional metrics programmatically via APIs and write them to a storage account via the 'All Metrics' option.
 
-Streamed logs to an event hub or a Log Analytics workspace. They can also be extracted from Azure blob storage, and viewed in different tools, such as Excel and Power BI. 
+Use the Azure Audit Logs content pack with Microsoft Power BI to analyze your data with pre-configured dashboards, or to customize the views based on your requirements.
+
+Stream logs to an event hub or a Log Analytics workspace. They can also be extracted from Azure blob storage, and viewed in different tools, such as Excel and Power BI. 
+
+- [Review this article with step-by-step instructions for each method detailed in the Audit operations with Resource Manager](../azure-resource-manager/management/view-activity-logs.md)
 
 Enable and on-board data to Azure Sentinel or a third-party SIEM based on your business requirements.
 
