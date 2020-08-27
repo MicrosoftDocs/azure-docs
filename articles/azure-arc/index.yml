@@ -38,7 +38,7 @@ highlightedContent:
     # Card
     - title: About Azure Arc
       itemType: overview
-      url:  https://azure.microsoft.com/en-us/services/azure-arc #https://aka.ms/Azure-Arc-Info
+      url:  arc-overview.md
 
 # productDirectory section (optional)
 productDirectory:
