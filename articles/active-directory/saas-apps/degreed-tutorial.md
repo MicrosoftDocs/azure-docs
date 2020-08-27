@@ -2,7 +2,6 @@
 title: 'Tutorial: Azure Active Directory integration with Degreed | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Degreed.
 services: active-directory
-documentationCenter: na
 author: jeevansd
 manager: CelesteDG
 ms.reviewer: celested
@@ -11,13 +10,9 @@ ms.assetid: 1eda2d1c-b5e2-4c53-ad46-bbeb91cd119a
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 08/27/2020
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Degreed
 

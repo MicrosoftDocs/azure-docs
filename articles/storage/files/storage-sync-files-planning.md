@@ -7,6 +7,7 @@ ms.topic: conceptual
 ms.date: 01/15/2020
 ms.author: rogarana
 ms.subservice: files
+ms.custom: references_regions
 ---
 
 # Planning for an Azure File Sync deployment

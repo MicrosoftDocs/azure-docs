@@ -149,6 +149,7 @@ Within the [SCIM 2.0 protocol specification](http://www.simplecloud.info/#Specif
 * Supports querying user by ID and by manager, as per section 3.4.2 of the SCIM protocol.  
 * Supports querying groups by ID and by member, as per section 3.4.2 of the SCIM protocol.  
 * Accepts a single bearer token for authentication and authorization of Azure AD to your application.
+* Supports soft-deleting a user `active=false` and restoring the user `active=true`.
 
 Follow these general guidelines when implementing a SCIM endpoint to ensure compatibility with Azure AD:
 

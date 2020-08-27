@@ -185,7 +185,7 @@ Starting with version 3.x, you must explicitly install the Storage binding exten
 
 ## Create a storage account
 
-The Azure Storage emulator that runs locally doesn't have all of the features that the WebJobs SDK needs. So in this section you create a storage account in Azure and configure the project to use it. If you already have a storage account, skip down to step 6.
+The Azure Storage Emulator that runs locally doesn't have all of the features that the WebJobs SDK needs. So in this section you create a storage account in Azure and configure the project to use it. If you already have a storage account, skip down to step 6.
 
 1. Open **Server Explorer** in Visual studio and sign in to Azure. Right-click the **Azure** node, and then select **Connect to Microsoft Azure Subscription**.
 

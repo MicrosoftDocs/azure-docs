@@ -107,4 +107,4 @@ If you are using a free service, remember that you are limited to three indexes,
 While the default app is useful for initial exploration and small tasks, reviewing the APIs early on will help you understand the concepts and workflow on a deeper level:
 
 > [!div class="nextstepaction"]
-> [Create an index using .NET SDK](https://docs.microsoft.com/azure/search/search-create-index-dotnet)
+> [Create an index using .NET SDK](./search-get-started-dotnet.md)

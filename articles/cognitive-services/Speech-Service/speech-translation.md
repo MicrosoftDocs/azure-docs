@@ -10,6 +10,7 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: erhopf
+ms.custom: devx-track-csharp
 ---
 
 # What is speech translation?

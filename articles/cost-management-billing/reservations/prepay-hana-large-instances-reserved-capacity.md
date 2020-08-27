@@ -4,6 +4,7 @@ description: Understand the things you need to know before you buy a HANA Large 
 author: yashesvi
 ms.reviewer: yashar
 ms.service: cost-management-billing
+ms.subservice: reservations
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: banders
