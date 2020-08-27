@@ -1,11 +1,11 @@
-- name: Azure Digital Twins documentation
+- name: Azure Digital Twins
   href: index.yml
 - name: Overview
   items:
   - name: About Azure Digital Twins
     href: overview.md
-  - name: Comparison to previous release
-    href: comparison.md
+  - name: Differences from previous release
+    href: overview-differences.md
 - name: Tutorials
   items:
   - name: Code a client app
