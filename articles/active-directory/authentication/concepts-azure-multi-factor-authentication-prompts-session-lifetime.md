@@ -18,6 +18,10 @@ ms.collection: M365-identity-device-management
 
 Azure Active Directory (Azure AD) has multiple settings that determine how often users need to reauthenticate. This reauthentication could be with a first factor such as password, FIDO, or passwordless Microsoft Authenticator, or to perform multi-factor authentication (MFA). You can configure these reauthentication settings as needed for your own environment and the user experience you want.
 
+The Azure AD default configuration for user sign-in frequency is a rolling window of 90 days. Asking users for credentials often seems like a sensible thing to do, but it can backfire. If users are trained to enter their credentials without thinking, they can unintentionally supply them to a malicious credential prompt.
+
+It might sound alarming to not ask for a user to sign back in, though any violation of IT policies revokes the session. Some examples include a password change, an incompliant device, or an account disable operation. You can also explicitly [revoke users' sessions using PowerShell](/powershell/module/azuread/revoke-azureaduserallrefreshtoken).
+
 This article details recommended configurations and how different settings work and interact with each other.
 
 ## Recommended settings
@@ -67,11 +71,11 @@ For more information on configuring the option to let users remain signed-in, se
 
 ### Remember Multi-Factor Authentication  
 
-This setting lets you configure values between 1-60 days and sets a persistent cookie on the browser when a user selects the **Don't ask again for X days** option at sign-in.
+This setting lets you configure values between 1-365 days and sets a persistent cookie on the browser when a user selects the **Don't ask again for X days** option at sign-in.
 
 ![Screenshot of example prompt to approve a sign-in request](./media/concepts-azure-multi-factor-authentication-prompts-session-lifetime/approve-sign-in-request.png)
 
-While this setting reduces the number of authentications on web apps, it increases the number of authentications for modern authentication clients, such as Office clients. These clients normally prompt only after password reset or inactivity of 90 days. However, the maximum value of *Remember MFA* is 60 days. When used in combined with **Remain signed-in** or Conditional Access policies, it may increase the number of authentication requests.
+While this setting reduces the number of authentications on web apps, it increases the number of authentications for modern authentication clients, such as Office clients. These clients normally prompt only after password reset or inactivity of 90 days. However, setting this value to less than 90 days shortens the default MFA prompts for Office clients, and increases reauthentication frequency. When used in combined with **Remain signed-in** or Conditional Access policies, it may increase the number of authentication requests.
 
 If you use *Remember MFA* and have Azure AD Premium 1 licenses, consider migrating these settings to Conditional Access Sign-in Frequency. Otherwise, consider using *Keep me signed in?* instead.
 
