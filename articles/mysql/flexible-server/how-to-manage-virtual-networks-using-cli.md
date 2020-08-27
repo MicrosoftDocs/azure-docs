@@ -15,7 +15,7 @@ Azure Database for MySQL Flexible Server supports two type of mutually exclusive
 1. Public access (allowed IP addresses)
 2. Private access (VNet Integration)
 
-With *Private access (VNet Integration)*, you can deploy your flexible server into your own [Azure Virtual Network](../../virtual-network/virtual-networks-overview.md). Azure virtual networks provide private and secure network communication. In Private access, the connections to the MySQL server is restricted to within your virtual network only. To learn more about it, refer to [Private access (VNet Integration)](./concept-networking-flexible-server-private-access.md)
+With *Private access (VNet Integration)*, you can deploy your flexible server into your own [Azure Virtual Network](../../virtual-network/virtual-networks-overview.md). Azure virtual networks provide private and secure network communication. In Private access, the connections to the MySQL server is restricted to within your virtual network only. To learn more about it, refer to [Private access (VNet Integration)](./concepts-virtual-network.md)
 
 In Azure database for MySQL Flexible server, you can only deploy the server to a virtual network and subnet during creation of the server. After the flexible server is deployed to a virtual network and subnet, you cannot move it to another virtual network or subnet. You cannot move that virtual network into another resource group or subscription also.
 
@@ -73,6 +73,6 @@ Refer to the Azure CLI reference documentation <!--FIXME --> for the complete li
 
 
 ## Next steps
-- Learn more about [Networking in Azure Database for MySQL Flexible Server](./concepts-networking-overview.md)
-- Similarly, you can [Create and manage Azure Database for MySQL Flexible Server Virtual Network using Azure Portal](howto-manage-flexible-server-virtual-network-using-portal.md).
+- Learn more about [networking in Azure Database for MySQL Flexible Server](./concepts-networking-overview.md)
+- Similarly, you can [create and manage Azure Database for MySQL Flexible Server Virtual Network using Azure Portal](howto-manage-virtual-networks-using-portal.md).
 - Understand more about [Azure Database for MySQL Flexible Server Virtual Network](./concepts-virtual-network.md).

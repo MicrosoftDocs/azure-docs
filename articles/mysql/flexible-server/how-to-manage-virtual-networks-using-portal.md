@@ -15,7 +15,7 @@ Azure Database for MySQL Flexible Server supports two type of mutually exclusive
 1. Public access (allowed IP addresses)
 2. Private access (VNet Integration)
 
-With *Private access (VNet Integration)*, you can deploy your flexible server into your own [Azure Virtual Network](../../virtual-network/virtual-networks-overview.md). Azure virtual networks provide private and secure network communication. In Private access, the connections to the MySQL server is restricted to within your virtual network only. To learn more about it, refer to [Private access (VNet Integration)](./concept-networking-flexible-server-private-access.md)
+With *Private access (VNet Integration)*, you can deploy your flexible server into your own [Azure Virtual Network](../../virtual-network/virtual-networks-overview.md). Azure virtual networks provide private and secure network communication. In Private access, the connections to the MySQL server is restricted to within your virtual network only. To learn more about it, refer to [Private access (VNet Integration)](./concepts-virtual-network.md)
 
 In Azure database for MySQL Flexible server, you can only deploy the server to a virtual network and subnet during creation of the server. After the flexible server is deployed to a virtual network and subnet, you cannot move it to another virtual network or subnet. You cannot move that virtual network into another resource group or subscription also.
 
@@ -29,7 +29,7 @@ To create a flexible server in Virtual Network, you need:
 
 ## Create Azure Database for MySQL -Flexible Server in already existing Virtual Network
 
-1. Follow [use the Azure Portal to create an Azure Database for MySQL Flexible Server](./quickstart-create-flexible-server-portal.md) to create the server.
+1. Follow [use the Azure Portal to create an Azure Database for MySQL Flexible Server](./quickstart-create-server-portal.md) to create the server.
 2. Go to the **Networking** tab to configure how you want to connect to your server.
 
    On the Networking tab, you can choose how your server will be reachable. Choose *Private access (VNet Integration)* to have a private and secure network communication.
@@ -43,6 +43,6 @@ To create a flexible server in Virtual Network, you need:
 
 
 ## Next steps
-- Similarly, you can script to [Create and manage Azure Database for MySQL Flexible Server Virtual Network using Azure CLI](howto-manage-flexible-server-virtual-network-using-cli.md).
-- [Use MySQL Workbench to connect and query data in Azure Database for MySQL Flexible Server](./connect-flexible-server-workbench.md)
-- [Use PHP to connect and query data in Azure Database for MySQL Flexible Server](./connect-flexible-server-php.md)
+- Similarly, you can script to [Create and manage Azure Database for MySQL Flexible Server Virtual Network using Azure CLI](howto-manage-virtual-network-using-cli.md).
+- Learn more about [networking in Azure Database for MySQL Flexible Server](./concepts-networking-overview.md)
+- Understand more about [Azure Database for MySQL Flexible Server Virtual Network](./concepts-virtual-network.md).
