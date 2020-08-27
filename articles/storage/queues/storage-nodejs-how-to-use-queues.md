@@ -4,7 +4,7 @@ description: Learn how to use the Azure Queue service to create and delete queue
 author: mhopkins-msft
 
 ms.author: mhopkins
-ms.date: 12/08/2016
+ms.date: 08/27/2020
 ms.service: storage
 ms.subservice: queues
 ms.topic: how-to
@@ -12,17 +12,13 @@ ms.reviewer: dineshm
 ms.custom: seo-javascript-september2019, devx-track-javascript
 ---
 
-# Use Azure Queue Service to create and delete queues from Node.js
+# Use Azure Queue storage to create and delete queues by using Node.js
+
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
 
-[!INCLUDE [storage-check-out-samples-all](../../../includes/storage-check-out-samples-all.md)]
-
 ## Overview
-This guide shows you how to perform common scenarios using the Microsoft
-Azure Queue service. The samples are written using the Node.js
-API. The scenarios covered include **inserting**, **peeking**,
-**getting**, and **deleting** queue messages, as well as **creating and
-deleting queues**.
+
+This guide shows you how to perform common scenarios using the Microsoft Azure Queue service. The samples are written using the Node.js API. The scenarios covered include **inserting**, **peeking**, **getting**, and **deleting** queue messages, as well as **creating and deleting queues**.
 
 > [!IMPORTANT]
 > This article refers to the legacy version of the Azure Storage client library for JavaScript. To get started with the latest version, please see [Quickstart: Azure Queue storage client library for JavaScript](storage-quickstart-queues-nodejs.md)
@@ -31,17 +27,20 @@ deleting queues**.
 
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
-## Create a Node.js Application
+## Create a Node.js application
+
 Create a blank Node.js application. For instructions creating a Node.js application, see [Create a Node.js web app in Azure App Service](../../app-service/quickstart-nodejs.md), [Build and deploy a Node.js application to an Azure Cloud Service](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md) using Windows PowerShell, or [Visual Studio Code](https://code.visualstudio.com/docs/nodejs/nodejs-tutorial).
 
-## Configure Your Application to Access Storage
+## Configure your application to access storage
+
 To use Azure storage, you need the Azure Storage SDK for Node.js, which includes a set of convenience libraries that
 communicate with the storage REST services.
 
 ### Use Node Package Manager (NPM) to obtain the package
+
 1. Use a command-line interface such as **PowerShell** (Windows,) **Terminal** (Mac,) or **Bash** (Unix), navigate to the folder where you created your sample application.
-2. Type **npm install azure-storage** in the command window. Output from the command is similar to the following example.
- 
+1. Type **npm install azure-storage** in the command window. Output from the command is similar to the following example.
+
     ```bash
     azure-storage@0.5.0 node_modules\azure-storage
     +-- extend@1.2.1
@@ -55,32 +54,42 @@ communicate with the storage REST services.
     +-- request@2.57.0 (caseless@0.10.0, aws-sign2@0.5.0, forever-agent@0.6.1, stringstream@0.0.4, oauth-sign@0.8.0, tunnel-agent@0.4.1, isstream@0.1.2, json-stringify-safe@5.0.1, bl@0.9.4, combined-stream@1.0.5, qs@3.1.0, mime-types@2.0.14, form-data@0.2.0, http-signature@0.11.0, tough-cookie@2.0.0, hawk@2.3.1, har-validator@1.8.0)
     ```
 
-3. You can manually run the **ls** command to verify that a
-   **node\_modules** folder was created. Inside that folder you will
-   find the **azure-storage** package, which contains the libraries you need to
-   access storage.
+1. You can manually run the **ls** command to verify that a **node\_modules** folder was created. Inside that folder you will find the **azure-storage** package, which contains the libraries you need to access storage.
 
 ### Import the package
-Using Notepad or another text editor, add the following to the top the
-**server.js** file of the application where you intend to use storage:
+
+# [JavaScript v12](#tab/javascript)
+
+:::code language="javascript" source="~/azure-storage-snippets/queues/howto/JavaScript/JavaScript-v12/javascript-how-to-v12.js" id="Snippet_ImportStatements":::
+
+# [JavaScript v2](#tab/javascript2)
+
+Using Notepad or another text editor, add the following to the top the **server.js** file of the application where you intend to use storage:
 
 ```javascript
 var azure = require('azure-storage');
 ```
+---
 
-## Setup an Azure Storage Connection
-The azure module will read the environment variables AZURE\_STORAGE\_ACCOUNT and AZURE\_STORAGE\_ACCESS\_KEY, or AZURE\_STORAGE\_CONNECTION\_STRING for information required to connect to your Azure storage account. If these environment variables are not set, you must specify the account information when calling **createQueueService**.
+## Setup an Azure Storage connection
 
-## How To: Create a Queue
-The following code creates a **QueueService** object, which enables you
-to work with queues.
+The Azure module will read the environment variables `AZURE_STORAGE_ACCOUNT` and `AZURE_STORAGE_ACCESS_KEY`, or `AZURE_STORAGE_CONNECTION_STRING` for information required to connect to your Azure storage account. If these environment variables are not set, you must specify the account information when calling **createQueueService**.
+
+## How to create a queue
+
+# [JavaScript v12](#tab/javascript)
+
+:::code language="javascript" source="~/azure-storage-snippets/queues/howto/JavaScript/JavaScript-v12/javascript-how-to-v12.js" id="Snippet_CreateQueue":::
+
+# [JavaScript v2](#tab/javascript2)
+
+The following code creates a **QueueService** object, which enables you to work with queues.
 
 ```javascript
 var queueSvc = azure.createQueueService();
 ```
 
-Use the **createQueueIfNotExists** method, which returns the specified
-queue if it already exists or creates a new queue with the specified
+Use the **createQueueIfNotExists** method, which returns the specified queue if it already exists or creates a new queue with the specified
 name if it does not already exist.
 
 ```javascript
@@ -90,10 +99,12 @@ queueSvc.createQueueIfNotExists('myqueue', function(error, results, response){
   }
 });
 ```
+---
 
 If the queue is created, `result.created` is true. If the queue exists, `result.created` is false.
 
 ### Filters
+
 Optional filtering operations can be applied to operations performed using **QueueService**. Filtering operations can include logging, automatically retrying, etc. Filters are objects that implement a method with the signature:
 
 ```javascript
@@ -115,9 +126,15 @@ var retryOperations = new azure.ExponentialRetryPolicyFilter();
 var queueSvc = azure.createQueueService().withFilter(retryOperations);
 ```
 
-## How To: Insert a Message into a Queue
-To insert a message into a queue, use the **createMessage** method to
-create a new message and add it to the queue.
+## How to insert a message into a queue
+
+# [JavaScript v12](#tab/javascript)
+
+:::code language="javascript" source="~/azure-storage-snippets/queues/howto/JavaScript/JavaScript-v12/javascript-how-to-v12.js" id="Snippet_AddMessage":::
+
+# [JavaScript v2](#tab/javascript2)
+
+To insert a message into a queue, use the **createMessage** method to create a new message and add it to the queue.
 
 ```javascript
 queueSvc.createMessage('myqueue', "Hello world!", function(error, results, response){
@@ -126,11 +143,17 @@ queueSvc.createMessage('myqueue', "Hello world!", function(error, results, respo
   }
 });
 ```
+---
 
-## How To: Peek at the Next Message
-You can peek at the message in the front of a queue without removing it
-from the queue by calling the **peekMessages** method. By default,
-**peekMessages** peeks at a single message.
+## How to peek at the next message
+
+You can peek at the message in the front of a queue without removing it from the queue by calling the **peekMessages** method. By default, **peekMessages** peeks at a single message.
+
+# [JavaScript v12](#tab/javascript)
+
+:::code language="javascript" source="~/azure-storage-snippets/queues/howto/JavaScript/JavaScript-v12/javascript-how-to-v12.js" id="Snippet_PeekMessage":::
+
+# [JavaScript v2](#tab/javascript2)
 
 ```javascript
 queueSvc.peekMessages('myqueue', function(error, results, response){
@@ -141,17 +164,25 @@ queueSvc.peekMessages('myqueue', function(error, results, response){
 ```
 
 The `result` contains the message.
+---
 
 > [!NOTE]
 > Using **peekMessages** when there are no messages in the queue will not return an error, however no messages will be returned.
 > 
 > 
 
-## How To: Dequeue the Next Message
+## How to dequeue the next message
+
 Processing a message is a two-stage process:
 
 1. Dequeue the message.
 2. Delete the message.
+
+# [JavaScript v12](#tab/javascript)
+
+:::code language="javascript" source="~/azure-storage-snippets/queues/howto/JavaScript/JavaScript-v12/javascript-how-to-v12.js" id="Snippet_DequeueMessage":::
+
+# [JavaScript v2](#tab/javascript2)
 
 To dequeue a message, use **getMessages**. This makes the messages invisible in the queue, so no other clients can process them. Once your application has processed a message, call **deleteMessage** to delete it from the queue. The following example gets a message, then deletes it:
 
@@ -171,14 +202,22 @@ queueSvc.getMessages('myqueue', function(error, results, response){
 
 > [!NOTE]
 > By default, a message is only hidden for 30 seconds, after which it is visible to other clients. You can specify a different value by using `options.visibilityTimeout` with **getMessages**.
-> 
+
 > [!NOTE]
 > Using **getMessages** when there are no messages in the queue will not return an error, however no messages will be returned.
-> 
-> 
 
-## How To: Change the Contents of a Queued Message
+---
+
+
+## How to change the contents of a queued message
+
 You can change the contents of a message in-place in the queue using **updateMessage**. The following example updates the text of a message:
+
+# [JavaScript v12](#tab/javascript)
+
+:::code language="javascript" source="~/azure-storage-snippets/queues/howto/JavaScript/JavaScript-v12/javascript-how-to-v12.js" id="Snippet_UpdateMessage":::
+
+# [JavaScript v2](#tab/javascript2)
 
 ```javascript
 queueSvc.getMessages('myqueue', function(error, getResults, getResponse){
@@ -193,15 +232,22 @@ queueSvc.getMessages('myqueue', function(error, getResults, getResponse){
   }
 });
 ```
+---
 
-## How To: Additional Options for Dequeuing Messages
+## Additional options for dequeuing messages
+
+# [JavaScript v12](#tab/javascript)
+
+:::code language="javascript" source="~/azure-storage-snippets/queues/howto/JavaScript/JavaScript-v12/javascript-how-to-v12.js" id="Snippet_DequeueMessages":::
+
+# [JavaScript v2](#tab/javascript2)
+
 There are two ways you can customize message retrieval from a queue:
 
 * `options.numOfMessages` - Retrieve a batch of messages (up to 32.)
 * `options.visibilityTimeout` - Set a longer or shorter invisibility timeout.
 
-The following example uses the **getMessages** method to get 15 messages in one call. Then it processes
-each message using a for loop. It also sets the invisibility timeout to five minutes for all messages returned by this method.
+The following example uses the **getMessages** method to get 15 messages in one call. Then it processes each message using a for loop. It also sets the invisibility timeout to five minutes for all messages returned by this method.
 
 ```javascript
 queueSvc.getMessages('myqueue', {numOfMessages: 15, visibilityTimeout: 5 * 60}, function(error, results, getResponse){
@@ -219,8 +265,16 @@ queueSvc.getMessages('myqueue', {numOfMessages: 15, visibilityTimeout: 5 * 60}, 
   }
 });
 ```
+---
 
-## How To: Get the Queue Length
+## How to get the queue length
+
+# [JavaScript v12](#tab/javascript)
+
+:::code language="javascript" source="~/azure-storage-snippets/queues/howto/JavaScript/JavaScript-v12/javascript-how-to-v12.js" id="Snippet_QueueLength":::
+
+# [JavaScript v2](#tab/javascript2)
+
 The **getQueueMetadata** returns metadata about the queue, including the approximate number of messages waiting in the queue.
 
 ```javascript
@@ -230,8 +284,16 @@ queueSvc.getQueueMetadata('myqueue', function(error, results, response){
   }
 });
 ```
+---
 
-## How To: List Queues
+## How to list queues
+
+# [JavaScript v12](#tab/javascript)
+
+:::code language="javascript" source="~/azure-storage-snippets/queues/howto/JavaScript/JavaScript-v12/javascript-how-to-v12.js" id="Snippet_ListQueues":::
+
+# [JavaScript v2](#tab/javascript2)
+
 To retrieve a list of queues, use **listQueuesSegmented**. To retrieve a list filtered by a specific prefix, use **listQueuesSegmentedWithPrefix**.
 
 ```javascript
@@ -243,10 +305,17 @@ queueSvc.listQueuesSegmented(null, function(error, results, response){
 ```
 
 If all queues cannot be returned, `result.continuationToken` can be used as the first parameter of **listQueuesSegmented** or the second parameter of **listQueuesSegmentedWithPrefix** to retrieve more results.
+---
 
-## How To: Delete a Queue
-To delete a queue and all the messages contained in it, call the
-**deleteQueue** method on the queue object.
+## How to Delete a Queue
+
+To delete a queue and all the messages contained in it, call the **deleteQueue** method on the queue object.
+
+# [JavaScript v12](#tab/javascript)
+
+:::code language="javascript" source="~/azure-storage-snippets/queues/howto/JavaScript/JavaScript-v12/javascript-how-to-v12.js" id="Snippet_DeleteQueue":::
+
+# [JavaScript v2](#tab/javascript2)
 
 ```javascript
 queueSvc.deleteQueue(queueName, function(error, response){
@@ -255,10 +324,12 @@ queueSvc.deleteQueue(queueName, function(error, response){
   }
 });
 ```
+---
 
 To clear all messages from a queue without deleting it, use **clearMessages**.
 
-## How to: Work with Shared Access Signatures
+## How to Work with Shared Access Signatures
+
 Shared Access Signatures (SAS) are a secure way to provide granular access to queues without providing your storage account name or keys. SAS are often used to provide limited access to your queues, such as allowing a mobile app to submit messages.
 
 A trusted application such as a cloud-based service generates a SAS using the **generateSharedAccessSignature** of the **QueueService**, and provides it to an untrusted or semi-trusted application. For example, a mobile app. The SAS is generated using a policy, which describes the start and end dates during which the SAS is valid, as well as the access level granted to the SAS holder.
@@ -299,6 +370,7 @@ sharedQueueService.createMessage('myqueue', 'Hello world from SAS!', function(er
 Since the SAS was generated with add access, if an attempt were made to read, update or delete messages, an error would be returned.
 
 ### Access control lists
+
 You can also use an Access Control List (ACL) to set the access policy for a SAS. This is useful if you wish to allow multiple clients to access the queue, but provide different access policies for each client.
 
 An ACL is implemented using an array of access policies, with an ID associated with each policy. The  following example defines two policies; one for 'user1' and one for 'user2':
@@ -340,25 +412,20 @@ Once the ACL has been set, you can then create a SAS based on the ID for a polic
 queueSAS = queueSvc.generateSharedAccessSignature('myqueue', { Id: 'user2' });
 ```
 
+[!INCLUDE [storage-check-out-samples-all](../../../includes/storage-check-out-samples-all.md)]
+
 ## Next Steps
+
 Now that you've learned the basics of queue storage, follow these links
 to learn about more complex storage tasks.
 
 * Visit the [Azure Storage Team Blog][Azure Storage Team Blog].
 * Visit the [Azure Storage SDK for Node][Azure Storage SDK for Node] repository on GitHub.
 
-
-
 [Azure Storage SDK for Node]: https://github.com/Azure/azure-storage-node
-
 [using the REST API]: https://msdn.microsoft.com/library/azure/hh264518.aspx
-
 [Azure Portal]: https://portal.azure.com
-
 [Create a Node.js web app in Azure App Service](../../app-service/quickstart-nodejs.md)
-
 [Build and deploy a Node.js application to an Azure Cloud Service](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md)
-
 [Azure Storage Team Blog]: https://blogs.msdn.com/b/windowsazurestorage/
-
 [Build and deploy a Node.js web app to Azure using Web Matrix]: https://www.microsoft.com/web/webmatrix/
