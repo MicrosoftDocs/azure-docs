@@ -4,8 +4,8 @@ description: Learn how to configure single sign-on between Azure Active Director
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
+manager: CelesteDG
+ms.reviewer: celested
 
 ms.assetid: 93ad629a-f516-4cac-bfe2-a77257e3a797
 ms.service: active-directory
@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/07/2019
+ms.date: 08/27/2020
 ms.author: jeedes
 
 ---
@@ -43,7 +43,7 @@ In this tutorial, you configure and test Azure AD single sign-on in a test envir
 
 * SumTotalCentral supports **SP** initiated SSO
 
-* Once you configure SumTotalCentral you can enforce Session control, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session control extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+* Once you configure SumTotalCentral you can enforce Session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 ## Adding SumTotalCentral from the gallery
 
