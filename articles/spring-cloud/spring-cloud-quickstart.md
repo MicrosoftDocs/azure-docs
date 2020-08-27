@@ -166,9 +166,9 @@ Once deployment has completed, you can access the app at `https://<service insta
 
 Use the following command to get real time logs from the App.
 
-    ```azurecli
-    az spring-cloud app logs -n hellospring -s <service instance name> -g <resource group name> --lines 100 -f
-    ```
+```azurecli
+az spring-cloud app logs -n hellospring -s <service instance name> -g <resource group name> --lines 100 -f
+```
     
     [ ![Streaming Logs](media/spring-cloud-quickstart-java/streaming-logs.png) ](media/spring-cloud-quickstart-java/streaming-logs.png#lightbox)
 
