@@ -3,13 +3,11 @@ title: Security controls
 description: A checklist of security controls for evaluating Azure SQL Database
 services: sql-database
 author: msmbaldwin
-manager: rkalrin
+manager: rkarlin
 ms.service: load-balancer
-
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: mbaldwin
-
 ---
 # Security controls for Azure SQL Database and SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -65,7 +63,7 @@ This article documents the security controls that are built into Azure SQL Datab
 | Security control | Yes/No | Notes|
 |---|---|--|
 | Preventative: vulnerability assessment | Yes | See [SQL Vulnerability Assessment service helps you identify database vulnerabilities](sql-vulnerability-assessment.md). |
-| Preventative: data discovery and classification  | Yes | See [Azure SQL Database and SQL Data Warehouse data discovery & classification](data-discovery-and-classification-overview.md). |
+| Preventative: data discovery and classification  | Yes | See [Azure SQL Database and Azure Synapse Analytics data discovery & classification](data-discovery-and-classification-overview.md). |
 | Detection: threat detection | Yes | See [Advanced Threat Protection for Azure SQL Database](threat-detection-overview.md). |
 
 ## Next steps

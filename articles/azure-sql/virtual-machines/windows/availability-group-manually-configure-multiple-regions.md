@@ -1,10 +1,9 @@
 ---
-title: Configure availability group across different regions
-description: "This article explains how to configure a SQL Server availability group on Azure virtual machines with a replica in a different region."
+title: Configure a SQL Server Always On availability group across different regions
+description: This article explains how to configure a SQL Server Always On availability group on Azure virtual machines with a replica in a different region.
 services: virtual-machines
 documentationCenter: na
-author: MikeRayMSFT
-manager: craigg
+author: MashaMSFT
 editor: monicar
 tags: azure-service-management
 
@@ -15,12 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: "05/02/2017"
-ms.author: mikeray
+ms.author: mathoma
 ms.custom: "seo-lt-2019"
 
 ---
 
-# Configure an availability group on Azure SQL Server virtual machines in different regions
+# Configure a SQL Server Always On availability group across different Azure regions
+
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 This article explains how to configure a SQL Server Always On availability group replica on Azure virtual machines in a remote Azure location. Use this configuration to support disaster recovery.
@@ -98,20 +98,20 @@ To create a replica in a remote data center, do the following steps:
 
    ![Cluster properties](./media/availability-group-manually-configure-multiple-regions/cluster-name-properties.png)
 
-   On the **Properties** dialog box, select **Add** under **IP Address**, and then add the IP address of the cluster name from the remote network region. Select **OK** on the **IP Address** dialog box, and then select **OK** again on the **Cluster Properties** dialog box to save the new IP address.. 
+   On the **Properties** dialog box, select **Add** under **IP Address**, and then add the IP address of the cluster name from the remote network region. Select **OK** on the **IP Address** dialog box, and then select **OK** again on the **Cluster Properties** dialog box to save the new IP address. 
 
    ![Add cluster IP](./media/availability-group-manually-configure-multiple-regions/add-cluster-ip-address.png)
 
 
 1. Add the IP address as a dependency for the core cluster name.
 
-   Open the cluster properties once more, and select the **Dependencies** tab. Configure an OR dependency for the two IP addresses: 
+   Open the cluster properties once more and select the **Dependencies** tab. Configure an OR dependency for the two IP addresses: 
 
    ![Cluster properties](./media/availability-group-manually-configure-multiple-regions/cluster-ip-dependencies.png)
 
 1. Add an IP address resource to the availability group role in the cluster. 
 
-   Right-click the availability group role in Failover Cluster Manager, select **Add Resource**, **More Resources**, and select **IP Address**.
+   Right-click the availability group role in Failover Cluster Manager, choose **Add Resource**, **More Resources**, and select **IP Address**.
 
    ![Create IP Address](./media/availability-group-manually-configure-multiple-regions/20-add-ip-resource.png)
 
@@ -131,7 +131,7 @@ To create a replica in a remote data center, do the following steps:
 
 1. [Set the cluster parameters in PowerShell](availability-group-manually-configure-tutorial.md#setparam).
 
-Run the PowerShell script with the cluster network name, IP address, and probe port that you configured on the load balancer in the new region.
+   Run the PowerShell script with the cluster network name, IP address, and probe port that you configured on the load balancer in the new region.
 
    ```powershell
    $ClusterNetworkName = "<MyClusterNetworkName>" # The cluster name for the network in the new region (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name).
@@ -168,16 +168,16 @@ If you cannot modify the connection strings, you can configure name resolution c
 To test listener connectivity to the remote region, you can fail over the replica to the remote region. While the replica is asynchronous, failover is vulnerable to potential data loss. To fail over without data loss, change the availability mode to synchronous and set the failover mode to automatic. Use the following steps:
 
 1. In **Object Explorer**, connect to the instance of SQL Server that hosts the primary replica.
-1. Under **AlwaysOn Availability Groups**, **Availability Groups**, right-click your availability group and click **Properties**.
+1. Under **AlwaysOn Availability Groups**, **Availability Groups**, right-click your availability group and select **Properties**.
 1. On the **General** page, under **Availability Replicas**, set the secondary replica in the DR site to use **Synchronous Commit** availability mode and **Automatic** failover mode.
 1. If you have a secondary replica in same site as your primary replica for high availability, set this replica to **Asynchronous Commit** and **Manual**.
-1. Click OK.
-1. In **Object Explorer**, right-click the availability group, and click **Show Dashboard**.
+1. Select OK.
+1. In **Object Explorer**, right-click the availability group, and select **Show Dashboard**.
 1. On the dashboard, verify that the replica on the DR site is synchronized.
-1. In **Object Explorer**, right-click the availability group, and click **Failover...**. SQL Server Management Studios opens a wizard to fail over SQL Server.  
-1. Click **Next**, and select the SQL Server instance in the DR site. Click **Next** again.
-1. Connect to the SQL Server instance in the DR site and click **Next**.
-1. On the **Summary** page, verify the settings and click **Finish**.
+1. In **Object Explorer**, right-click the availability group, and select **Failover...**. SQL Server Management Studios opens a wizard to fail over SQL Server.  
+1. Select **Next**, and select the SQL Server instance in the DR site. Select **Next** again.
+1. Connect to the SQL Server instance in the DR site and select **Next**.
+1. On the **Summary** page, verify the settings and select **Finish**.
 
 After testing connectivity, move the primary replica back to your primary data center and set the availability mode back to their normal operating settings. The following table shows the normal operational settings for the architecture described in this document:
 
@@ -195,7 +195,7 @@ For more information, see the following topics:
 - [Perform a Planned Manual Failover of an Availability Group (SQL Server)](https://msdn.microsoft.com/library/hh231018.aspx)
 - [Perform a Forced Manual Failover of an Availability Group (SQL Server)](https://msdn.microsoft.com/library/ff877957.aspx)
 
-## Additional Links
+## Next steps
 
 * [Always On Availability Groups](https://msdn.microsoft.com/library/hh510230.aspx)
 * [Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/windows/)

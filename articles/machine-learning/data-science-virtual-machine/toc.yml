@@ -15,6 +15,9 @@
     href: provision-vm.md
   - name: Create an Ubuntu Data Science Virtual Machine
     href: dsvm-ubuntu-intro.md
+  - name: Create a DSVM with an ARM template
+    displayName: Resource Manager
+    href: dsvm-tutorial-resource-manager.md
 - name: Concepts
   items:
   - name: Deep Learning and AI frameworks
@@ -41,12 +44,18 @@
     href: vm-do-ten-things.md
   - name: Use a Linux Data Science Virtual Machine
     href: linux-dsvm-walkthrough.md
-  - name: Create an autoscaled Data Science Virtual Machine pool 
-    href: dsvm-pools.md
-  - name: Integrate with Active Directory
-    href: dsvm-common-identity.md
-  - name: Secure resource access credentials
-    href: dsvm-secure-access-keys.md            
+  - name: Integrate with Azure Machine Learning
+    items:
+        - name: Track Experiments
+          href: how-to-track-experiments.md
+  - name: Enterprise guidance
+    items:
+      - name: Create an autoscaled Data Science Virtual Machine pool 
+        href: dsvm-pools.md
+      - name: Integrate with Active Directory
+        href: dsvm-common-identity.md
+      - name: Secure resource access credentials
+        href: dsvm-secure-access-keys.md            
 - name: Resources
   items:
   - name: Microsoft Q&A question page

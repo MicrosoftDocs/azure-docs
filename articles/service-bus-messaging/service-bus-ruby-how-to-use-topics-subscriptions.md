@@ -3,20 +3,11 @@ title: 'Quickstart: How to use Service Bus topics (Ruby)'
 description: 'Quickstart: Learn how to use Service Bus topics and subscriptions in Azure. Code samples are written for Ruby applications.'
 services: service-bus-messaging
 documentationcenter: ruby
-author: axisc
-manager: timlt
-editor: ''
-
-ms.assetid: 3ef2295e-7c5f-4c54-a13b-a69c8045d4b6
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: quickstart
-ms.date: 11/05/2019
-ms.author: aschhab
-
+ms.date: 06/23/2020
 ---
+
 # Quickstart: How to use Service Bus topics and subscriptions with Ruby
  
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
@@ -66,7 +57,7 @@ Topic subscriptions are also created with the **Azure::ServiceBusService** objec
 
 By default, subscriptions are persistent. They continue to exist until either they, or the topic they are associated with, are deleted. If your application contains logic to create a subscription, it should first check if the subscription already exists by using the getSubscription method.
 
-You can have the subscriptions automatically deleted by setting the [AutoDeleteOnIdle property](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription.autodeleteonidle).
+You can have the subscriptions automatically deleted by setting the [AutoDeleteOnIdle property](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription.autodeleteonidle).
 
 ### Create a subscription with the default (MatchAll) filter
 If no filter is specified when a new subscription is created, the **MatchAll** filter (default) is used. When the **MatchAll** filter is used, all messages published to the topic are placed in the subscription's virtual queue. The following example creates a subscription named "all-messages" and uses the default **MatchAll** filter.
@@ -155,7 +146,7 @@ There is also a timeout associated with a message locked within the subscription
 In the event that the application crashes after processing the message but before the `delete_subscription_message()` method is called, then the message is redelivered to the application when it restarts. It is often called *at least once processing*; that is, each message is processed at least once but in certain situations the same message may be redelivered. If the scenario cannot tolerate duplicate processing, then application developers should add additional logic to their application to handle duplicate message delivery. This logic is often achieved using the `message_id` property of the message, which remains constant across delivery attempts.
 
 ## Delete topics and subscriptions
-Topics and subscriptions are persistent unless the [AutoDeleteOnIdle property](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription.autodeleteonidle) is set. They can be deleted either through the [Azure portal][Azure portal] or programmatically. The following example demonstrates how to delete the topic named `test-topic`.
+Topics and subscriptions are persistent unless the [AutoDeleteOnIdle property](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription.autodeleteonidle) is set. They can be deleted either through the [Azure portal][Azure portal] or programmatically. The following example demonstrates how to delete the topic named `test-topic`.
 
 ```ruby
 azure_service_bus_service.delete_topic("test-topic")

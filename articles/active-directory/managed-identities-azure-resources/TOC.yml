@@ -54,6 +54,10 @@
     href: /azure/event-hubs/authenticate-managed-identity?context=azure/active-directory/managed-identities-azure-resources/context/msi-context
   - name: Azure Container Instances
     href: /azure/container-instances/container-instances-managed-identity?context=azure/active-directory/managed-identities-azure-resources/context/msi-context
+- name: Concepts
+  items:
+    - name: Managed identities and Azure VMs
+      href: how-managed-identities-work-vm.md
 - name: How-to guides
   items:
   - name: Configure managed identities on VMs
@@ -127,23 +131,16 @@
 
 - name: Reference
   items:
-  - name: CLI
-    href: /cli/azure/identity
-  - name: PowerShell
-    href: /powershell/module/az.managedserviceidentity#managed_service_identity
   - name: .NET
-    href: /dotnet/api/microsoft.azure.management.resourcemanager.fluent.authentication#azure-dotnet
+    href: https://docs.microsoft.com/dotnet/api/overview/azure/identity-readme?view=azure-dotnet
   - name: Java
-    href: https://github.com/Azure/azure-libraries-for-java#ready-to-run-code-samples-for-virtual-machines
+    href: https://docs.microsoft.com/java/api/overview/azure/identity-readme?view=azure-java-stable
+  - name: JavaScript
+    href: https://docs.microsoft.com/javascript/api/overview/azure/identity-readme?view=azure-node-latest
   - name: Python
-    href: https://docs.microsoft.com/windows/python/
-  - name: Ruby
-    href: https://rubygems.org/gems/azure_mgmt_msi
-  - name: Node.js
-    href: https://nodejs.org/en/docs/
+    href: https://docs.microsoft.com/python/api/overview/azure/identity-readme?view=azure-python
   - name: Go
     href: https://golang.org/doc/
-
 - name: Resources
   items:
   - name: FAQs and known issues
@@ -152,5 +149,5 @@
     href: services-support-managed-identities.md
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-msi
-  - name: AAD Developers forum
+  - name: Azure AD Developers forum
     href: https://feedback.azure.com/forums/169401-azure-active-directory/category/164757-developer-experiences

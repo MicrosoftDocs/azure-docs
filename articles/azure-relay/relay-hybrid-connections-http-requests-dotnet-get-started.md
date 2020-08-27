@@ -1,21 +1,8 @@
 ---
 title: Azure Relay Hybrid Connections - HTTP requests in .NET
 description: Write a C# console application for Azure Relay Hybrid Connections HTTP requests in .NET.
-services: service-bus-relay
-documentationcenter: .net
-author: spelluru
-manager: timlt
-editor: ''
-
-ms.assetid: d1386900-b942-4abf-acfc-38d2ef826253
-ms.service: service-bus-relay
-ms.devlang: tbd
 ms.topic: conceptual
-ms.tgt_pltfrm: dotnet
-ms.workload: na
-ms.date: 11/01/2018
-ms.author: spelluru
-
+ms.date: 06/23/2020
 ---
 
 # Get started with Relay Hybrid Connections HTTP requests in .NET

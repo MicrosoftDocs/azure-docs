@@ -1,13 +1,8 @@
 ---
 title: Integrate Azure Relay with Azure Private Link Service
 description: Learn how to integrate Azure Relay with Azure Private Link Service
-services: service-bus-relay
-author: spelluru
-ms.author: spelluru
-ms.date: 05/13/2020
-ms.service: service-bus-relay
+ms.date: 06/23/2020
 ms.topic: article
-
 ---
 
 # Integrate Azure Relay with Azure Private Link (Preview)
@@ -207,7 +202,7 @@ There are four provisioning states:
 3. You should see the status changed to **Disconnected**. Then, you will see the endpoint disappear from the list. 
 
 ## Validate that the private link connection works
-You should validate that resources within the same subnet of the private endpoint are connecting to your Azure Relay namespace over its private IP address.
+You should validate that resources within the virtual network of the private endpoint are connecting to your Azure Relay namespace over its private IP address.
 
 For this test, create a virtual machine by following the steps in the [Create a Windows virtual machine in the Azure portal](../virtual-machines/windows/quick-create-portal.md)
 

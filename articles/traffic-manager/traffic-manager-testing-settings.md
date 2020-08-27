@@ -5,7 +5,7 @@ services: traffic-manager
 author: rohinkoul
 ms.service: traffic-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
@@ -30,7 +30,9 @@ The following examples help you test your Traffic Manager profile.
 2. Type `ipconfig /flushdns` to flush the DNS resolver cache.
 3. Type `nslookup <your Traffic Manager domain name>`. For example, the following command checks the domain name with the prefix *myapp.contoso*
 
-        nslookup myapp.contoso.trafficmanager.net
+    ```powershell
+    nslookup myapp.contoso.trafficmanager.net
+    ```
 
     A typical result shows the following information:
 

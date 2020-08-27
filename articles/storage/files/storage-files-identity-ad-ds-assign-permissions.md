@@ -4,8 +4,8 @@ description: Learn how to assign permissions to an Active Directory Domain Servi
 author: roygara
 ms.service: storage
 ms.subservice: files
-ms.topic: conceptual
-ms.date: 05/29/2020
+ms.topic: how-to
+ms.date: 06/22/2020
 ms.author: rogarana
 ---
 
@@ -33,11 +33,11 @@ There are three Azure built-in roles for granting share-level permissions to use
 
 You can use the Azure portal, Azure PowerShell, or Azure CLI to assign the built-in roles to the Azure AD identity of a user for granting share-level permissions.
 
-## Assign an RBAC role
+## Assign an Azure role
 
 ### Azure portal
 
-To assign an RBAC role to an Azure AD identity, using the [Azure portal](https://portal.azure.com), follow these steps:
+To assign an Azure role to an Azure AD identity, using the [Azure portal](https://portal.azure.com), follow these steps:
 
 1. In the Azure portal, go to your file share, or [create a file share](storage-how-to-create-file-share.md).
 1. Select **Access Control (IAM)**.
@@ -47,7 +47,7 @@ To assign an RBAC role to an Azure AD identity, using the [Azure portal](https:/
 
 ### PowerShell
 
-The following PowerShell sample shows how to assign an RBAC role to an Azure AD identity, based on sign-in name. For more information about assigning RBAC roles with PowerShell, see [Manage access using RBAC and Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
+The following PowerShell sample shows how to assign an Azure role to an Azure AD identity, based on sign-in name. For more information about assigning Azure roles with PowerShell, see [Manage access using RBAC and Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
 
 Before you run the following sample script, replace placeholder values, including brackets, with your values.
 
@@ -62,7 +62,7 @@ New-AzRoleAssignment -SignInName <user-principal-name> -RoleDefinitionName $File
 
 ### CLI
   
-The following CLI 2.0 command assigns an RBAC role to an Azure AD identity, based on sign-in name. For more information about assigning RBAC roles with Azure CLI, see [Manage access by using RBAC and Azure CLI](../../role-based-access-control/role-assignments-cli.md). 
+The following CLI 2.0 command assigns an Azure role to an Azure AD identity, based on sign-in name. For more information about assigning Azure roles with Azure CLI, see [Manage access by using RBAC and Azure CLI](../../role-based-access-control/role-assignments-cli.md). 
 
 Before you run the following sample script, remember to replace placeholder values, including brackets, with your own values.
 
@@ -72,5 +72,7 @@ az role assignment create --role "<role-name>" --assignee <user-principal-name> 
 ```
 
 ## Next steps
+
+Now that you've assigned share-level permissions, you must configure directory and file-level permissions. Continue to the next article.
 
 [Part three: configure directory and file level permissions over SMB](storage-files-identity-ad-ds-configure-permissions.md)

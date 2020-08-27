@@ -1,15 +1,16 @@
 ---
 title: "Tutorial: Register an application"
 titleSuffix: Azure AD B2C
-description: Learn how to register a web application in Azure Active Directory B2C using the Azure portal.
+description: Follow this tutorial to learn how to register a web application in Azure Active Directory B2C using the Azure portal.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 04/10/2020
+ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -43,7 +44,7 @@ To register an application in your Azure AD B2C tenant, you can use our new unif
 1. In the Azure portal, search for and select **Azure AD B2C**.
 1. Select **App registrations**, and then select **New registration**.
 1. Enter a **Name** for the application. For example, *webapp1*.
-1. Under **Supported account types**, select **Accounts in any organizational directory (Any Azure AD directory - Multitenant) and personal Microsoft accounts (e.g. Skype, Xbox)**.
+1. Under **Supported account types**, select **Accounts in any organizational directory or any identity provider. For authenticating users with Azure AD B2C**.
 1. Under **Redirect URI**, select **Web**, and then enter `https://jwt.ms` in the URL text box.
 
     The redirect URI is the endpoint to which the user is sent by the authorization server (Azure AD B2C, in this case) after completing its interaction with the user, and to which an access token or authorization code is sent upon successful authorization. In a production application, it's typically a publicly accessible endpoint where your app is running, like `https://contoso.com/auth-response`. For testing purposes like this tutorial, you can set it to `https://jwt.ms`, a Microsoft-owned web application that displays the decoded contents of a token (the contents of the token never leave your browser). During app development, you might add the endpoint where your application listens locally, like `https://localhost:5000`. You can add and modify redirect URIs in your registered applications at any time.
@@ -58,7 +59,7 @@ To register an application in your Azure AD B2C tenant, you can use our new unif
 
 Once the application registration is complete, enable the implicit grant flow:
 
-1. Under **Manage**, select **Authentication**.
+1. In the left menu, under **Manage**, select **Authentication**.
 1. Under **Implicit grant**, select both the **Access tokens** and **ID tokens** check boxes.
 1. Select **Save**.
 
@@ -91,7 +92,7 @@ If your application exchanges an authorization code for an access token, you nee
 #### [App registrations](#tab/app-reg-ga/)
 
 1. In the **Azure AD B2C - App registrations** page, select the application you created, for example *webapp1*.
-1. Under **Manage**, select **Certificates & secrets**.
+1. In the left menu, under **Manage**, select **Certificates & secrets**.
 1. Select **New client secret**.
 1. Enter a description for the client secret in the **Description** box. For example, *clientsecret1*.
 1. Under **Expires**, select a duration for which the secret is valid, and then select **Add**.

@@ -7,7 +7,7 @@ documentationcenter: na
 author: damendo
 ms.service: network-watcher
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 06/19/2017
@@ -77,7 +77,7 @@ The following tables show the different fault types (id under results from the p
 
 The following table lists which gateways and connections are supported with Network Watcher troubleshooting:
 
-|  |  |
+| Gateway or connection | Supported  |
 |---------|---------|
 |**Gateway types**   |         |
 |VPN      | Supported        |

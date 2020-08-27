@@ -8,7 +8,7 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.custom: amqp
+ms.custom: [amqp, 'Role: Cloud Development','Role: IoT Device']
 ---
 
 # Set up X.509 security in your Azure IoT hub
@@ -41,6 +41,9 @@ You may choose any of the following ways to get your certificates:
 ## Register X.509 CA certificates to your IoT hub
 
 These steps show you how to add a new Certificate Authority to your IoT hub through the portal.
+
+> [!NOTE]
+> The maximum number of X.509 CA certificates that can be registered to an IoT hub is 25. For more information, see [Azure IoT Hub quotas and throttling](iot-hub-devguide-quotas-throttling.md).
 
 1. In the Azure portal, navigate to your IoT hub and select **Settings** > **Certificates** for the hub.
 

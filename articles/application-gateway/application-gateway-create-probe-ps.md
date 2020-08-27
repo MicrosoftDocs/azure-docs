@@ -5,8 +5,8 @@ description: Learn how to create a custom probe for Application Gateway by using
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
-ms.date: 11/14/2019
+ms.topic: how-to
+ms.date: 07/09/2020
 ms.author: victorh
 
 ---

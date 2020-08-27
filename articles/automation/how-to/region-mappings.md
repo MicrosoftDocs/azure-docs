@@ -6,7 +6,7 @@ ms.service: automation
 ms.subservice: process-automation
 author: mgoedtel
 ms.author: magoedte
-ms.date: 04/23/2020
+ms.date: 06/12/2020
 ms.topic: conceptual
 manager: carmonm
 ms.custom: references_regions
@@ -25,23 +25,25 @@ The following table shows the supported mappings:
 |**US**||
 |EastUS<sup>1</sup>|EastUS2|
 |WestUS2|WestUS2|
-|WestCentralUS<sup>2</sup>|WestCentralUS<sup>2</sup>|
+|WestCentralUS|WestCentralUS|
 |**Canada**||
 |CanadaCentral|CanadaCentral|
 |**Asia Pacific**||
 |AustraliaSoutheast|AustraliaSoutheast|
 |SoutheastAsia|SoutheastAsia|
 |CentralIndia|CentralIndia|
+|ChinaEast2<sup>2</sup>|ChinaEast2|
 |JapanEast|JapanEast|
 |**Europe**||
 |UKSouth|UKSouth|
 |WestEurope|WestEurope|
 |**US Gov**||
 |USGovVirginia|USGovVirginia|
+|USGovArizona<sup>2</sup>|USGovArizona|
 
 <sup>1</sup> EastUS mapping for Log Analytics workspaces to Automation accounts isn't an exact region-to-region mapping, but is the correct mapping.
 
-<sup>2</sup> Due to capacity restraints, the region isn't available when you're creating new resources. This includes Automation accounts and Log Analytics workspaces. However, pre-existing linked resources in the region should continue to work.
+<sup>2</sup> In this region, only Update Management is supported, and other features like Change Tracking and Inventory are not available at this time.
 
 ## Unlink a workspace
 
@@ -71,11 +73,11 @@ With the features removed, you can follow the steps below to unlink your Automat
 
 Alternatively, you can unlink your workspace from your Automation account within the workspace.
 
-1. In the workspace, select **Automation Account** under **Related Resources**. 
+1. In the workspace, select **Automation Account** under **Related Resources**.
 2. On the Automation Account page, select **Unlink account**.
 
 ## Next steps
 
-* Learn about Update Management in [Update Management overview](../automation-update-management.md).
+* Learn about Update Management in [Update Management overview](../update-management/update-mgmt-overview.md).
 * Learn about Change Tracking and Inventory in [Change Tracking and Inventory overview](../change-tracking.md).
 * Learn about Start/Stop VMs during off-hours in [Start/Stop VMs during off-hours overview](../automation-solution-vm-management.md).

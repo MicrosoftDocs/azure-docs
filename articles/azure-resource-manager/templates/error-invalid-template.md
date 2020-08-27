@@ -23,7 +23,7 @@ The error message depends on the type of error.
 
 This error can result from several different types of errors. They usually involve a syntax or structural error in the template.
 
-<a id="syntax-error" />
+<a id="syntax-error"></a>
 
 ## Solution 1 - syntax error
 
@@ -42,9 +42,9 @@ This error is easy to make because template expressions can be intricate. For ex
 
 If you don't provide the matching syntax, the template produces a value that is different than your intention.
 
-When you receive this type of error, carefully review the expression syntax. Consider using a JSON editor like [Visual Studio](create-visual-studio-deployment-project.md) or [Visual Studio Code](use-vs-code-to-create-template.md), which can warn you about syntax errors.
+When you receive this type of error, carefully review the expression syntax. Consider using a JSON editor like [Visual Studio](create-visual-studio-deployment-project.md) or [Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md), which can warn you about syntax errors.
 
-<a id="incorrect-segment-lengths" />
+<a id="incorrect-segment-lengths"></a>
 
 ## Solution 2 - incorrect segment lengths
 
@@ -105,7 +105,7 @@ Getting the segments right can be tricky with Resource Manager types that are ap
 }
 ```
 
-<a id="parameter-not-valid" />
+<a id="parameter-not-valid"></a>
 
 ## Solution 3 - parameter is not valid
 
@@ -120,13 +120,13 @@ part of the allowed values
 
 Double check the allowed values in the template, and provide one during deployment. For more information about allowed parameter values, see [Parameters section of Azure Resource Manager templates](template-syntax.md#parameters).
 
-<a id="too-many-resource-groups" />
+<a id="too-many-resource-groups"></a>
 
 ## Solution 4 - Too many target resource groups
 
-You may see this error in earlier deployments because you were limited to five target resource groups in a single deployment. In May 2020, that limit was increased to 800 resource groups. For more information, see [Deploy Azure resources to more than one subscription or resource group](cross-resource-group-deployment.md).
+You may see this error in earlier deployments because you were limited to five target resource groups in a single deployment. In May 2020, that limit was increased to 800 resource groups. For more information, see [Deploy Azure resources to more than one subscription or resource group](cross-scope-deployment.md).
 
-<a id="circular-dependency" />
+<a id="circular-dependency"></a>
 
 ## Solution 5 - circular dependency detected
 

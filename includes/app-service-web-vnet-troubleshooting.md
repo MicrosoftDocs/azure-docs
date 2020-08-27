@@ -11,13 +11,17 @@ The feature is easy to set up, but that doesn't mean your experience will be pro
 #### Tools
 The tools **ping**, **nslookup**, and **tracert** won't work through the console because of security constraints. To fill the void, two separate tools are added. To test DNS functionality, we added a tool named **nameresolver.exe**. The syntax is:
 
-    nameresolver.exe hostname [optional: DNS Server]
+```console
+nameresolver.exe hostname [optional: DNS Server]
+```
 
 You can use nameresolver to check the hostnames that your app depends on. This way you can test if you have anything misconfigured with your DNS or perhaps don't have access to your DNS server. You can see the DNS server that your app uses in the console by looking at the environmental variables WEBSITE_DNS_SERVER and WEBSITE_DNS_ALT_SERVER.
 
 You can use the next tool to test for TCP connectivity to a host and port combination. This tool is called **tcpping** and the syntax is:
 
-    tcpping.exe hostname [optional: port]
+```console
+tcpping.exe hostname [optional: port]
+```
 
 The **tcpping** utility tells you if you can reach a specific host and port. It can show success only if there's an application listening at the host and port combination, and there's network access from your app to the specified host and port.
 
@@ -57,7 +61,9 @@ Additional debug steps include:
 
 * Connect to a VM in your virtual network and attempt to reach your resource host:port from there. To test for TCP access, use the PowerShell command **test-netconnection**. The syntax is:
 
-      test-netconnection hostname [optional: -Port]
+```powershell
+test-netconnection hostname [optional: -Port]
+```
 
 * Bring up an application on a VM and test access to that host and port from the console from your app by using **tcpping**.
 

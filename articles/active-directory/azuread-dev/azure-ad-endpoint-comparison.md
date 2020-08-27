@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: azuread-dev
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/26/2019
+ms.date: 07/17/2020
 ms.author: ryanwi
 ms.reviewer: saeeda, hirsin, jmprieur, sureshja, jesakowi, lenalepa, kkrishna, negoe
 ms.custom: aaddev
@@ -29,9 +29,9 @@ When developing a new application, it's important to know the differences betwee
 
 * The v1.0 endpoint allows only work and school accounts to sign in to your application (Azure AD)
 * The Microsoft identity platform endpoint allows work and school accounts from Azure AD and personal Microsoft accounts (MSA), such as hotmail.com, outlook.com, and msn.com, to sign in.
-* Both endpoints also accept sign-ins of *[guest users](https://docs.microsoft.com/azure/active-directory/b2b/what-is-b2b)* of an Azure AD directory for applications configured as *[single-tenant](../develop/single-and-multi-tenant-apps.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)* or for *multi-tenant* applications configured to point to the tenant-specific endpoint (`https://login.microsoftonline.com/{TenantId_or_Name}`).
+* Both endpoints also accept sign-ins of *[guest users](../external-identities/what-is-b2b.md)* of an Azure AD directory for applications configured as *[single-tenant](../develop/single-and-multi-tenant-apps.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)* or for *multi-tenant* applications configured to point to the tenant-specific endpoint (`https://login.microsoftonline.com/{TenantId_or_Name}`).
 
-The Microsoft identity platform endpoint allows you to write apps that accept sign-ins from personal Microsoft accounts, and work and school accounts. This gives you the ability to write your app completely account-agnostic. For example, if your app calls the [Microsoft Graph](https://graph.microsoft.io), some additional functionality and data will be available to work accounts, such as their SharePoint sites or directory data. But for many actions, such as [Reading a user's mail](https://docs.microsoft.com/graph/api/user-list-messages?view=graph-rest-1.0), the same code can access the email for both personal and work and school accounts.
+The Microsoft identity platform endpoint allows you to write apps that accept sign-ins from personal Microsoft accounts, and work and school accounts. This gives you the ability to write your app completely account-agnostic. For example, if your app calls the [Microsoft Graph](https://graph.microsoft.io), some additional functionality and data will be available to work accounts, such as their SharePoint sites or directory data. But for many actions, such as [Reading a user's mail](/graph/api/user-list-messages?view=graph-rest-1.0), the same code can access the email for both personal and work and school accounts.
 
 For Microsoft identity platform endpoint, you can use the Microsoft Authentication Library (MSAL) to gain access to the consumer, educational, and enterprise worlds. The Azure AD v1.0 endpoint accepts sign-ins from work and school accounts only.
 
@@ -137,34 +137,7 @@ App registrations that support work and school accounts and personal accounts ha
 
 ### Restrictions on redirect URLs
 
-Apps that are registered for Microsoft identity platform are restricted to a limited set of redirect URL values. The redirect URL for web apps and services must begin with the scheme `https`, and all redirect URL values must share a single DNS domain.  The registration system compares the whole DNS name of the existing redirect URL to the DNS name of the redirect URL that you're adding. `http://localhost` is also supported as a redirect URL.  
-
-The request to add the DNS name will fail if either of the following conditions is true:  
-
-* The whole DNS name of the new redirect URL doesn't match the DNS name of the existing redirect URL.
-* The whole DNS name of the new redirect URL isn't a subdomain of the existing redirect URL.
-
-#### Example 1
-
-If the app has a redirect URL of `https://login.contoso.com`, you can add a redirect URL where the DNS name matches exactly, as shown in the following example:
-
-`https://login.contoso.com/new`
-
-Or, you can refer to a DNS subdomain of login.contoso.com, as shown in the following example:
-
-`https://new.login.contoso.com`
-
-#### Example 2
-
-If you want to have an app that has `login-east.contoso.com` and `login-west.contoso.com` as redirect URLs, you must add those redirect URLs in the following order:
-
-`https://contoso.com`  
-`https://login-east.contoso.com`  
-`https://login-west.contoso.com`  
-
-You can add the latter two because they're subdomains of the first redirect URL, contoso.com.
-
-You can have only 20 reply URLs for a particular application - this limit applies across all app types that the registration supports (single-page application (SPA), native client, web app, and service).  
+For the most up-to-date information about restrictions on redirect URLs for apps that are registered for Microsoft identity platform, see [Redirect URI/reply URL restrictions and limitations](../develop/reply-url.md) in the Microsoft identity platform documentation.
 
 To learn how to register an app for use with Microsoft identity platform, see [Register an app using the new App registrations experience](../develop/quickstart-register-app.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).
 

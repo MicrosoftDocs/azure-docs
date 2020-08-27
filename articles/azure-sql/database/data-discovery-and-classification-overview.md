@@ -2,7 +2,7 @@
 title: Data Discovery & Classification 
 description: Data Discovery & Classification for Azure SQL Database, Azure SQL Managed Instance, and Azure Synapse Analytics
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: security
 ms.custom: sqldbrb=1
 titleSuffix: Azure SQL Database, Azure SQL Managed Instance, and Azure Synapse
@@ -131,7 +131,7 @@ These built-in roles can modify the data classification of a database:
 - Contributor
 - SQL Security Manager
 
-Learn more about role-based permissions in [RBAC for Azure resources](https://docs.microsoft.com/azure/role-based-access-control/overview).
+Learn more about role-based permissions in [Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview).
 
 ## <a id="manage-classification"></a>Manage classifications
 

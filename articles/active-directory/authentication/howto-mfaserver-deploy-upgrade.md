@@ -38,7 +38,7 @@ Upgrade steps at a glance:
 4. Run the new installer on each MFA Server. Upgrade subordinate servers first because they can read the old data file being replicated by the master.
 
    > [!NOTE]
-   > When upgrading a server it should be removed from any loadbalancing or traffic sharing with other MFA Servers.
+   > When upgrading a server it should be removed from any load balancing or traffic sharing with other MFA Servers.
    >
    > You do not need to uninstall your current MFA Server before running the installer. The installer performs an in-place upgrade. The installation path is picked up from the registry from the previous installation, so it installs in the same location (for example, C:\Program Files\Multi-Factor Authentication Server).
   

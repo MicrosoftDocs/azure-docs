@@ -13,7 +13,7 @@ Use the Log Analytics data model to create custom alerts from Log Analytics.
 > [!NOTE]
 >
 > This data model is in reference to the Azure Diagnostics Mode of sending diagnostic
-> events to Log Analytics (LA). To learn the data model for the new Resource Specific Mode, you can refer to the following article: [Data Model for Azure Backup Diagnostic Events](https://docs.microsoft.com/azure/backup/backup-azure-reports-data-model)
+> events to Log Analytics (LA). To learn the data model for the new Resource Specific Mode, you can refer to the following article: [Data Model for Azure Backup Diagnostic Events](./backup-azure-reports-data-model.md)
 
 ## Using Azure Backup data model
 
@@ -456,11 +456,37 @@ Below are a few samples to help you write queries on Azure Backup data that resi
     ````
 
 ## V1 schema vs V2 schema
-Earlier, diagnostics data for Azure Backup Agent and Azure VM backup was sent to Azure Diagnostics table in a schema referred to as ***V1 schema***. Subsequently, new columns were added to support other scenarios and workloads, and diagnostics data was pushed in a new schema referred to as ***V2 schema***. 
 
-For reasons of backward-compatibility, diagnostics data for Azure Backup Agent and Azure VM backup is currently sent to Azure Diagnostics table in both V1 and V2 schema (with V1 schema now on a deprecation path). You can identify which records in Log Analytics are of V1 schema by filtering records for SchemaVersion_s=="V1" in your log queries. 
+Earlier, diagnostics data for Azure Backup Agent and Azure VM backup was sent to Azure Diagnostics table in a schema referred to as ***V1 schema***. Subsequently, new columns were added to support other scenarios and workloads, and diagnostics data was pushed in a new schema referred to as ***V2 schema***.  
 
-Refer to the third column 'Description' in the [data model](https://docs.microsoft.com/azure/backup/backup-azure-diagnostics-mode-data-model#using-azure-backup-data-model) described above to identify which columns belong to V1 schema only.
+For reasons of backward-compatibility, diagnostics data for Azure Backup Agent and Azure VM backup is currently sent to Azure Diagnostics table in both V1 and V2 schema (with V1 schema now on a deprecation path). You can identify which records in Log Analytics are of V1 schema by filtering records for SchemaVersion_s=="V1" in your log queries.
+
+Refer to the third column 'Description' in the [data model](#using-azure-backup-data-model) described above to identify which columns belong to V1 schema only.
+
+### Modifying your queries to use the V2 schema
+
+As the V1 schema is on a deprecation path, it is recommended to use only the V2 schema in all your custom queries on Azure Backup diagnostic data. Below is an example of how to update your queries to remove dependency on V1 schema:
+
+1. Identify if your query is using any field that is only applicable to V1 schema. Assume you have a query to list all the backup items and their associated protected servers as follows:
+
+    ````Kusto
+    AzureDiagnostics
+    | where Category=="AzureBackupReport"
+    | where OperationName=="BackupItemAssociation"
+    | distinct BackupItemUniqueId_s, ProtectedServerUniqueId_s
+    ````
+
+    The above query uses the field ProtectedServerUniqueId_s which is only applicable to V1 schema. The V2 schema equivalent of this field is ProtectedContainerUniqueId_s (refer tables above). The field BackupItemUniqueId_s is applicable even to V2 schema and the same field can be used in this query.
+
+2. Update the query to use the V2 schema field names. It is a recommended practice to use the filter 'where SchemaVersion_s=="V2"' in all your queries, so that only records corresponding to V2 schema are parsed by the query:
+
+    ````Kusto
+    AzureDiagnostics
+    | where Category=="AzureBackupReport"
+    | where OperationName=="BackupItemAssociation"
+    | where SchemaVersion_s=="V2"
+    | distinct BackupItemUniqueId_s, ProtectedContainerUniqueId_s
+    ````
 
 ## Next steps
 

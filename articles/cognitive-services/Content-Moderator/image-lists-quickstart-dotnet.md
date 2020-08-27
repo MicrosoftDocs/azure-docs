@@ -33,7 +33,7 @@ the [Content Moderator SDK for .NET](https://www.nuget.org/packages/Microsoft.Az
 The console application for this guide simulates some of the tasks you
 can perform with the image list API.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin. 
 
 ## Sign up for Content Moderator services
 

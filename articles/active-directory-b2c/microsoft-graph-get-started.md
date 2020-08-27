@@ -8,7 +8,7 @@ manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/14/2020
 ms.author: mimart
 ms.subservice: B2C
@@ -42,7 +42,15 @@ Although the OAuth 2.0 client credentials grant flow is not currently directly s
 
 Before your scripts and applications can interact with the [Microsoft Graph API][ms-graph-api] to manage Azure AD B2C resources, you need to create an application registration in your Azure AD B2C tenant that grants the required API permissions.
 
-[!INCLUDE [active-directory-b2c-appreg-mgmt](../../includes/active-directory-b2c-appreg-mgmt.md)]
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Select the **Directory + Subscription** icon in the portal toolbar, and then select the directory that contains your Azure AD B2C tenant.
+1. In the Azure portal, search for and select **Azure AD B2C**.
+1. Select **App registrations**, and then select **New registration**.
+1. Enter a **Name** for the application. For example, *managementapp1*.
+1. Select **Accounts in this organizational directory only**.
+1. Under **Permissions**, clear the *Grant admin consent to openid and offline_access permissions* check box.
+1. Select **Register**.
+1. Record the **Application (client) ID** that appears on the application overview page. You use this value in a later step.
 
 ### Grant API access
 

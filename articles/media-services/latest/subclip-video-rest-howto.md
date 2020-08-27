@@ -18,7 +18,7 @@ ms.author: juliako
 ---
 # Subclip a video when encoding with Media Services - REST
 
-You can trim or subclip a video when encoding it using a [Job](https://docs.microsoft.com/rest/api/media/jobs). This functionality works with any [Transform](https://docs.microsoft.com/rest/api/media/transforms) that is built using either the [BuiltInStandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) presets, or the [StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset) presets. 
+You can trim or subclip a video when encoding it using a [Job](/rest/api/media/jobs). This functionality works with any [Transform](/rest/api/media/transforms) that is built using either the [BuiltInStandardEncoderPreset](/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) presets, or the [StandardEncoderPreset](/rest/api/media/transforms/createorupdate#standardencoderpreset) presets. 
 
 The REST example in this topic creates a job that trims a video as it submits an encoding job. 
 
@@ -26,7 +26,7 @@ The REST example in this topic creates a job that trims a video as it submits an
 
 To complete the steps described in this topic, you have to:
 
-- [Create an Azure Media Services account](create-account-cli-how-to.md).
+- [Create an Azure Media Services account](./create-account-howto.md).
 - [Configure Postman for Azure Media Services REST API calls](media-rest-apis-with-postman.md).
     
     Make sure to follow the last step in the topic [Get Azure AD Token](media-rest-apis-with-postman.md#get-azure-ad-token). 

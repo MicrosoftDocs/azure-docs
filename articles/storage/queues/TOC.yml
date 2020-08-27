@@ -37,6 +37,8 @@
     href: ../common/storage-samples-python.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
   - name: JavaScript
     href: ../common/storage-samples-javascript.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+  - name: Other languages
+    href: ../common/storage-samples.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
 - name: Concepts
   items:
   - name: Storage accounts
@@ -71,8 +73,18 @@
     href: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
   - name: Disaster recovery and failover
     href: ../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-  - name: Performance and scalability checklist
-    href: storage-performance-checklist.md
+  - name: Performance, scaling, and cost optimization
+    items:
+    - name: Scalability and performance targets
+      items:
+      - name: Queue storage
+        href: scalability-targets.md
+      - name: Standard storage accounts
+        href: ../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+      - name: Storage resource provider
+        href: ../common/scalability-targets-resource-provider.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+    - name: Performance and scalability checklist
+      href: storage-performance-checklist.md
   - name: Concurrency
     href: ../common/storage-concurrency.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
   - name: Monitor and troubleshoot
@@ -152,6 +164,8 @@
           href: ../common/storage-encryption-keys-cli.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
       - name: Check the encryption key model for the account
         href: ../common/storage-encryption-key-model-get.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+      - name: Enable infrastructure encryption for a storage account
+        href: ../common/infrastructure-encryption-enable.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Configure client-side encryption
       items:
       - name: .NET
@@ -166,8 +180,12 @@
         href: ../common/storage-network-security.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
       - name: Require secure transfer
         href: ../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-      - name: Enable Transport Layer Security
-        href: ../common/storage-security-tls.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+      - name: Manage Transport Layer Security (TLS)
+        items:
+        - name: Enforce minimum TLS version for incoming requests
+          href: ../common/transport-layer-security-configure-minimum-version.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json 
+        - name: Configure TLS version for a client application
+          href: ../common/transport-layer-security-configure-client-version.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
   - name: Manage data redundancy
     items:
     - name: Change how data is replicated
@@ -192,14 +210,14 @@
       href: storage-dotnet-how-to-use-queues.md
     - name: Java
       href: storage-java-how-to-use-queue-storage.md
+    - name: Python
+      href: storage-python-how-to-use-queue-storage.md
     - name: Node.js
       href: storage-nodejs-how-to-use-queues.md
     - name: C++
       href: storage-c-plus-plus-how-to-use-queues.md
     - name: PHP
       href: storage-php-how-to-use-queues.md
-    - name: Python
-      href: storage-python-how-to-use-queue-storage.md
     - name: Ruby
       href: storage-ruby-how-to-use-queue-storage.md
   - name: Manage queues
@@ -214,54 +232,8 @@
       href: ../common/troubleshoot-latency-storage-analytics-logs.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
 - name: Reference
   items:
-  - name: Scalability and performance targets
-    items:
-    - name: Queue storage
-      href: scalability-targets.md
-    - name: Standard storage accounts
-      href: ../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-    - name: Storage resource provider
-      href: ../common/scalability-targets-resource-provider.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-  - name: Azure PowerShell
-    href: /powershell/module/az.storage
-  - name: Azure CLI
-    href: /cli/azure/storage
-  - name: .NET
-    items:
-    - name: Queues (version 11.x)
-      href: /dotnet/api/microsoft.azure.storage.queue
-    - name: Queues (version 12.x)
-      href: /dotnet/api/azure.storage.queues
-    - name: Storage Resource Provider
-      href: /dotnet/api/overview/azure/storage/management
-  - name: Java
-    items:
-    - name: Queues (version 8.x)
-      href: /java/api/com.microsoft.azure.storage.queue
-    - name: Queues (version 12.x)
-      href: https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/index.html
-    - name: Storage Resource Provider
-      href: /java/api/overview/azure/storage/management
-  - name: JavaScript (version 12.x)
-    href: /javascript/api/@azure/storage-queue
-  - name: Python (version 12.x)
-    href: /python/api/azure-storage-queue/?view=azure-python
-  - name: REST
-    items:
-    - name: Blobs, Queues, Tables, and Files
-      href: /rest/api/storageservices
-    - name: Storage Resource Provider
-      href: /rest/api/storagerp
-  - name: C++
-    href: https://azure.github.io/azure-storage-cpp
-  - name: Ruby
-    href: https://azure.github.io/azure-storage-ruby
-  - name: PHP
-    href: https://azure.github.io/azure-storage-php/
-  - name: iOS
-    href: https://azure.github.io/azure-storage-ios/
-  - name: Android
-    href: https://azure.github.io/azure-storage-android
+  - name: Azure Queue storage reference
+    href: ../queues/reference.md
   - name: Resource Manager template
     displayName: ARM
     href: /azure/templates/microsoft.storage/allversions
@@ -281,12 +253,12 @@
       href: ../common/storage-explorer-troubleshooting.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Storage Explorer accessibility
       href: ../../vs-azure-tools-storage-explorer-accessibility.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-  - name: Azure Storage forum
+  - name: Azure Storage on Microsoft Q&A
     href: https://docs.microsoft.com/answers/topics/azure-queue-storage.html
   - name: Azure Storage on Stack Overflow
     href: https://stackoverflow.com/questions/tagged/windows-azure-storage
-  - name: Pricing for Azure storage
-    href: https://azure.microsoft.com/pricing/details/storage/
+  - name: Pricing for Queue storage
+    href: https://azure.microsoft.com/pricing/details/storage/queues/
   - name: Azure pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Videos

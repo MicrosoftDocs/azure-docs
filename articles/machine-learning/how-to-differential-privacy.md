@@ -1,25 +1,29 @@
 ---
-title: How to preserve data privacy using the WhiteNoise packages
+title: How to preserve data privacy using the WhiteNoise packages (preview)
 titleSuffix: Azure Machine Learning
 description: Learn how to apply differential privacy best practices to Azure Machine Learning models by using the WhiteNoise packages.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
+ms.custom: how-to
 ms.author: slbird
 author: slbird
 ms.reviewer: luquinta
-ms.date: 05/17/2020
+ms.date: 07/09/2020
 # Customer intent: As an experienced data scientist, I want to use differential privacy in Azure Machine Learning.
 ---
 
-# Use differential privacy in Azure Machine Learning
+# Use differential privacy in Azure Machine Learning (preview)
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Learn how to apply differential privacy best practices to Azure Machine Learning models by using the WhiteNoise Python packages.
 
 Differential privacy is the gold-standard definition of privacy. Systems that adhere to this definition of privacy provide strong assurances against a wide range of data reconstruction and reidentification attacks, including attacks by adversaries who possess auxiliary information. Learn more about how [differential privacy works](./concept-differential-privacy.md).
+
+> [!NOTE]
+> Please note that we are renaming the toolkit and will be introducing the new name in the coming weeks. 
 
 ## Prerequisites
 
