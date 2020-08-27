@@ -44,6 +44,7 @@ This article assumes that you're familiar with the command-line interface (Bash,
 
 The --help or -h parameter can be used to view help for specific commands. Alternately, The Azure help [command] [options] format can also be used too. When in doubt about the parameters needed by a command, refer to help. For example, the following commands all return the same information:
 
+# [Azure CLI](#tab/azure-cli)
 ```azurecli
 az account set --help
 az account set -h
