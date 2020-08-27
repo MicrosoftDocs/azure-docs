@@ -239,6 +239,70 @@ To set one or more node types as primary in a cluster resource, set the "isPrima
     ],
 }
 ```
+## (Preview) Enable multiple Availability zones in single VMSS
+
+The previously mentioned solution uses one nodeType per AZ. The following solution will allow users to deploy 3 AZ's in the same nodeType.
+
+### Configuring zones on a virtual machine scale set
+To enable zones on a virtual machine scale set you must include the following three values in the virtual machine scale set resource.
+
+* The first value is the **zones** property, which specifies the Availability Zones present in the virtual machine scale set.
+* The second value is the "singlePlacementGroup" property, which must be set to true.
+* The third value is "zoneBalance" and is optional, which ensures strict zone balancing if set to true. Read about [zoneBalancing](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones#zone-balancing).
+* The FaultDomain & UpgradeDomain overrides are not required to be configured.
+
+```json
+{
+    "apiVersion": "2018-10-01",
+    "type": "Microsoft.Compute/virtualMachineScaleSets",
+    "name": "[parameters('vmNodeType1Name')]",
+    "location": "[parameters('computeLocation')]",
+    "zones": ["1", "2", "3"],
+    "properties": {
+        "singlePlacementGroup": "true",
+        "zoneBalance": false
+    }
+}
+```
+
+>[!NOTE]
+> The VMSS should be configured with atleast 3 Availability zones.
+> For a VMSS with Bronze durability, there should be atleast 2 VMs per Availability zone.
+> For a VMSS with Silver durability & above, there should be atleast 5 VMs per Availability zone.
+
+### Enabling the support for multiple zones in the Service Fabric nodeType
+The Service Fabric nodeType must be enabled to support multiple availability zones.
+
+* The first value is **multipleAvailabilityZones** which should be set to true for the nodeType.
+* The second value is "hierarchicalUpgradeDomain" and is optional. If true or not specified, the UpgradeDomains will be hierarchical across zones. Service Fabric upgrades will happen one zone at a time. If the value is false, UD's will be flat, without zone information & Service Fabric upgrades will be triggered in all the zones in parallel, just following the UD's within the zones.
+* The Service Fabric cluster resource apiVersion should be "2020-12-01-preview" or higher.
+* The cluster code version should be "7.1.417.9590" or higher.
+
+```json
+{
+    "apiVersion": "2020-12-01-preview",
+    "type": "Microsoft.ServiceFabric/clusters",
+    "name": "[parameters('clusterName')]",
+    "location": "[parameters('clusterLocation')]",
+    "dependsOn": [
+        "[concat('Microsoft.Storage/storageAccounts/', parameters('supportLogStorageAccountName'))]"
+    ],
+    "properties": {
+        "clusterCodeVersion": "7.1.417.9590",
+        "hierarchicalUpgradeDomain": false/true,
+        "nodeTypes": [
+          {
+                "name": "[parameters('vmNodeType0Name')]",
+                "multipleAvailabilityZones": true,
+          }
+        ]
+}
+```
+
+>[!NOTE]
+> Public IP and Load Balancer Resources should be using the Standard SKU as described earlier in the article.
+> "multipleAvailabilityZones" property on the nodeType can only be defined at the time of nodeType creation & can't be modified later. Hence, existing nodeTypes can't be configured with this property.
+> "hierarchicalUpgradeDomain" property if false, would make UpgradeDomains flat for the nodeType, which would mean there can only be a maximum of 5 UD's in a VMSS with 3 AZ's. If the property is true or not defined, would make UDs hierarchical, which would mean there would be 15 UD's when there are 15 VMs in 3 AZs. It is important to correctly adjust the upgrade policy timeout to incorporate for the upgrade time duration for 15 upgrade domains.
 
 ## Migrate to using Availability Zones from a cluster using a Basic SKU Load Balancer and a Basic SKU IP
 To migrate a cluster, which was using a Load Balancer and IP with a basic SKU, you must first create an entirely new Load Balancer and IP resource using the standard SKU. It is not possible to update these resources in-place.
