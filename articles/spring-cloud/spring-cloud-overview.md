@@ -12,7 +12,7 @@ ms.custom: devx-track-java
 
 # What is Azure Spring Cloud?
 
-Azure Spring Cloud makes it easy to deploy Spring Boot-based microservice applications to Azure with zero code changes.  Azure Spring Cloud manages the lifecycle of Spring Cloud applications, so developers can focus on their code.  Spring Cloud provides lifecycle management using comprehensive monitoring and diagnostics, configuration management, service discovery, CI/CD integration, blue-green deployments, and more.
+Azure Spring Cloud makes it easy to deploy Spring Boot-based microservice applications to Azure with zero code changes.  Azure Spring Cloud manages the infrastructure of Spring Cloud applications, so developers can focus on their code.  Spring Cloud provides lifecycle management using comprehensive monitoring and diagnostics, configuration management, service discovery, CI/CD integration, blue-green deployments, and more.
 
 As part of the Azure ecosystem, Azure Spring Cloud allows easy binding to other Azure services including storage, databases, monitoring, and more.
 
@@ -24,11 +24,9 @@ This introduction describes the Azure Spring Cloud configuration server, how to 
 
 Azure Spring Cloud Config Server provides externalized configuration in a distributed system with both server and client-side support.  Azure Spring Cloud Config Server is a central location to manage application properties across all environments. For more information see [Spring Cloud Config Server reference](https://spring.io/projects/spring-cloud-config.md). 
 
-
-
 ## Enable blue/green deployments
 
-Azure Spring Cloud supports blue/green deployments for releasing and updating code to production environments.  Leveraging this change management pattern allows developers to implement features and code changes with the security of an immediate fallback when necessary.  Azure allows developers to concentrate on writing code by managing multiple production environments and making it easy to update or roll back code changes without interrupting the application.  To learn more about staging environments and blue/green deployments, visit this [How-To article](spring-cloud-howto-staging-environment.md).
+Azure Spring Cloud supports blue/green deployments for releasing and updating code to production environments.  This change management pattern allows developers to implement features and code changes with the security of an immediate fallback when necessary.  Developers can concentrate on writing code with multiple production environments to update or roll back code changes without interrupting the application.  To learn more about staging environments and blue/green deployments, visit this [How-To article](spring-cloud-howto-staging-environment.md).
 
 ## Automate CI/CD pipelines
 
