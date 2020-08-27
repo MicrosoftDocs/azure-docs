@@ -2,7 +2,7 @@
 title: Create a template spec with linked templates
 description: Learn how to create a template spec with linked templates.
 ms.topic: conceptual
-ms.date: 08/26/2020
+ms.date: 08/27/2020
 
 ---
 
@@ -241,7 +241,7 @@ az deployment group create \
 ```
 
 > [!NOTE]
-> There is a known issue with getting template spec id and then assign it to a variable in Windows PowerShell.
+> There is a known issue with getting a template spec ID and assigning it to a variable in Windows PowerShell.
 
 ---
 

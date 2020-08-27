@@ -64,7 +64,7 @@ To restore a VM running SAP HANA, follow these steps:
 
 * [Restore a new VM from Azure VM backup](backup-azure-arm-restore-vms.md) from the latest recovery point. Or create a new empty VM and attach the disks from the latest recovery point.
 * Since WA disks aren't backed up, they aren't restored. Create empty WA disks and log area.
-* After all the other configurations (such as IP, system name, and so on) are set, the VM is set to receive DB data from Azure backup.
+* After all the other configurations (such as IP, system name, and so on) are set, the VM is set to receive DB data from Azure Backup.
 * Now restore the DB into the VM from the [Azure SAP HANA DB backup](sap-hana-db-restore.md#restore-to-a-point-in-time-or-to-a-recovery-point) to the desired point-in-time.
 
 ## Next steps

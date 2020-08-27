@@ -100,7 +100,7 @@ Hit the *Sign in* button at the top of the window to configure ADT Explorer to w
 Enter the important information you gathered earlier in the [Prerequisites](#prerequisites) section:
 * Application (client) ID
 * Directory (tenant) ID
-* ADT URL, in the format *https://<instance host name>*
+* ADT URL, in the format *https://{instance host name}*
 
 >[!NOTE]
 > You can revisit/edit this information at any time by selecting the same icon to pull up the Sign In box again. It will keep the values that you passed in.
@@ -174,7 +174,7 @@ In the *GRAPH VIEW* box, hit the *Import Graph* icon.
 
 :::image type="content" source="media/quickstart-adt-explorer/import-graph.png" alt-text="In the Graph View box, an icon is highlighted. It shows an arrow pointing into a cloud." lightbox="media/quickstart-adt-explorer/import-graph.png":::
 
-In the file selector box, navigate again to the *client/examples* folder and choose the _**buildingScenario.xlsx**_ spreadsheet file. This file contains a description of the sample graph. Hit OK.
+In the file selector box, navigate to the *Azure_Digital_Twins_samples/AdtSampleApp/SampleClientApp* folder and choose the _**buildingScenario.xlsx**_ spreadsheet file. This file contains a description of the sample graph. Hit OK.
 
 After a few seconds, ADT Explorer will open an *Import* view displaying a preview of the graph that is going to be loaded.
 
