@@ -35,7 +35,7 @@ Supported sign-in methods:
 >[!NOTE]
 >Smartcard and Windows Hello can only use Kerberos to sign in and so require line of sight to the domain controller.
 
-## Unsupported methods
+## Single sign-on (SSO)
 
 Windows Virtual Desktop currently doesn't support the following authentication methods:
 
