@@ -24,9 +24,9 @@ These are the currently supported sign-in methods:
     - Username and password
     - Smartcard
     - Windows Hello
-- Web client
-    - Username and password
 - Windows Store client
+    - Username and password
+- Web client
     - Username and password
 - Android
     - Username and password
