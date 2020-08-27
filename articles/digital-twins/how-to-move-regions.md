@@ -237,21 +237,13 @@ After completing this step, your new instance in the target region should be a c
 
 ## Verify
 
-### Verify instance
+To verify that your new instance was set up correctly, you can use the following tools:
+* The [**Azure portal**](http://portal.azure.com) (good for verifying that your new instance exists and is in the correct target region; also good for verifying endpoints and routes, and connections to other Azure services)
+* The [Azure Digital Twins **CLI commands**](how-to-use-cli.md) (good for verifying that your new instance exists and is in the correct target region; also can be used to verify instance data)
+* [**ADT Explorer**](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) (good for verifying instance data like models, twins, and graph)
+* The [Azure Digital Twins APIs and SDKs](how-to-use-apis-sdks.md) (good for verifying instance data like models, twins, and graph; also good for verifying endpoints and routes)
 
-Look for it in portal, look at region.
-
-### Verify graph
-
-Use ADT Explorer
-
-### Verify endpoints and routes
-
-Look under the instance in portal
-
-### Verify other Azure services
-
-Depends on the service, but try to run them.
+You can also try running any custom apps or end-to-end flows that you had running with your original instance, to help you verify that they're working with the new instance correctly.
 
 ## Clean up source resources
 
