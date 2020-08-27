@@ -116,12 +116,13 @@ mysql -h [hostname] -u [uname] -p[pass] [db_to_restore] < [backupfile.sql]
 ```
 In this example, restore the data into the newly created database on the target Azure Database for MySQL server.
 
-----
-# [Single Server](#tab/single-server)
+Here is an example for how to use this **mysql** for **Single Server** :
+
 ```bash
 $ mysql -h mydemoserver.mysql.database.azure.com -u myadmin@mydemoserver -p testdb < testdb_backup.sql
 ```
-# [Flexible Server (Preview)](#tab/flexible-server)
+Here is an example for how to use this **mysql** for **Flexible Server** :
+
 ```bash
 $ mysql -h mydemoserver.mysql.database.azure.com -u myadmin -p testdb < testdb_backup.sql
 ```
