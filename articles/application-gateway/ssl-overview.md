@@ -2,10 +2,10 @@
 title: Enabling end to end TLS on Azure Application Gateway
 description: This article is an overview of the Application Gateway end to end TLS support.
 services: application-gateway
-author: amsriva
+author: surajmb
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 5/13/2020
+ms.date: 08/21/2020
 ms.author: victorh
 
 ---
@@ -25,7 +25,7 @@ Application Gateway supports TLS termination at the gateway, after which traffic
 To configure TLS termination, a TLS/SSL certificate is required to be added to the listener to enable the Application Gateway to derive a symmetric key as per TLS/SSL protocol specification. The symmetric key is then used to encrypt and decrypt the traffic sent to the gateway. The TLS/SSL certificate needs to be in Personal Information Exchange (PFX) format. This file format allows you to export the private key that is required by the application gateway to perform the encryption and decryption of traffic.
 
 > [!IMPORTANT] 
-> Please note that the certificate on the listener requires the entire certificate chain to be uploaded. 
+> The certificate on the listener requires the entire certificate chain to be uploaded (the root certificate from the CA, the intermediates and the leaf certificate) to establish the chain of trust. 
 
 
 > [!NOTE] 

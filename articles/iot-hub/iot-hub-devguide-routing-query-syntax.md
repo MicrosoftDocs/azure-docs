@@ -7,6 +7,7 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: asrastog
+ms.custom: ['Role: Cloud Development', 'Role: Data Analytics']
 ---
 
 # IoT Hub message routing query syntax

@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
-ms.date: 07/22/2020
+ms.date: 08/26/2020
 ---
 
 # Reference guide to using functions in expressions for Azure Logic Apps and Power Automate
@@ -1167,7 +1167,7 @@ And returns this result:
 
 ### bool
 
-Return the Boolean version for a value.
+Return the Boolean version of a value.
 
 ```
 bool(<value>)
@@ -1175,27 +1175,27 @@ bool(<value>)
 
 | Parameter | Required | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*value*> | Yes | Any | The value to convert |
+| <*value*> | Yes | Any | The value to convert to Boolean. |
 |||||
+
+If you're using `bool()` with an object, the value of the object must be a string or integer that can be converted to Boolean.
 
 | Return value | Type | Description |
 | ------------ | ---- | ----------- |
-| true or false | Boolean | The Boolean version for the specified value |
+| `true` or `false` | Boolean | The Boolean version of the specified value. |
 ||||
 
-*Example*
+*Outputs*
 
-These examples convert the specified values to Boolean values:
+These examples show the different supported types of input for `bool()`:
 
-```
-bool(1)
-bool(0)
-```
-
-And returns these results:
-
-* First example: `true`
-* Second example: `false`
+| Input value | Type | Return value |
+| ----------- | ---------- | ---------------------- |
+| `bool(1)` | Integer | `true` |
+| `bool(0)` | Integer    | `false` |
+| `bool(-1)` | Integer | `true` |
+| `bool('true')` | String | `true` |
+| `bool('false')` | String | `false` |
 
 <a name="coalesce"></a>
 
@@ -1327,7 +1327,7 @@ convertFromUtc('<timestamp>', '<destinationTimeZone>', '<format>'?)
 | Parameter | Required | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Yes | String | The string that contains the timestamp |
-| <*destinationTimeZone*> | Yes | String | The name for the target time zone. For time zone names, see [Microsoft Time Zone Index Values](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values), but you might have to remove any punctuation from the time zone name. |
+| <*destinationTimeZone*> | Yes | String | The name for the target time zone. For time zone names, see [Microsoft Time Zone Index Values](https://support.microsoft.com/help/973627/microsoft-time-zone-index-values), but you might have to remove any punctuation from the time zone name. |
 | <*format*> | No | String | Either a [single format specifier](/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. |
 |||||
 
@@ -1369,8 +1369,8 @@ convertTimeZone('<timestamp>', '<sourceTimeZone>', '<destinationTimeZone>', '<fo
 | Parameter | Required | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Yes | String | The string that contains the timestamp |
-| <*sourceTimeZone*> | Yes | String | The name for the source time zone. For time zone names, see [Microsoft Time Zone Index Values](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values), but you might have to remove any punctuation from the time zone name. |
-| <*destinationTimeZone*> | Yes | String | The name for the target time zone. For time zone names, see [Microsoft Time Zone Index Values](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values), but you might have to remove any punctuation from the time zone name. |
+| <*sourceTimeZone*> | Yes | String | The name for the source time zone. For time zone names, see [Microsoft Time Zone Index Values](https://support.microsoft.com/help/973627/microsoft-time-zone-index-values), but you might have to remove any punctuation from the time zone name. |
+| <*destinationTimeZone*> | Yes | String | The name for the target time zone. For time zone names, see [Microsoft Time Zone Index Values](https://support.microsoft.com/help/973627/microsoft-time-zone-index-values), but you might have to remove any punctuation from the time zone name. |
 | <*format*> | No | String | Either a [single format specifier](/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. |
 |||||
 
@@ -1412,7 +1412,7 @@ convertToUtc('<timestamp>', '<sourceTimeZone>', '<format>'?)
 | Parameter | Required | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Yes | String | The string that contains the timestamp |
-| <*sourceTimeZone*> | Yes | String | The name for the source time zone. For time zone names, see [Microsoft Time Zone Index Values](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values), but you might have to remove any punctuation from the time zone name. |
+| <*sourceTimeZone*> | Yes | String | The name for the source time zone. For time zone names, see [Microsoft Time Zone Index Values](https://support.microsoft.com/help/973627/microsoft-time-zone-index-values), but you might have to remove any punctuation from the time zone name. |
 | <*format*> | No | String | Either a [single format specifier](/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. |
 |||||
 
@@ -2787,12 +2787,9 @@ And returns these results:
 
 ### lastIndexOf
 
-Return the starting position or index value
-for the last occurrence of a substring.
-This function is not case-sensitive,
-and indexes start with the number 0.
+Return the starting position or index value for the last occurrence of a substring. This function is not case-sensitive, and indexes start with the number 0.
 
-```
+```json
 lastIndexOf('<text>', '<searchText>')
 ```
 
@@ -2800,24 +2797,38 @@ lastIndexOf('<text>', '<searchText>')
 | --------- | -------- | ---- | ----------- |
 | <*text*> | Yes | String | The string that has the substring to find |
 | <*searchText*> | Yes | String | The substring to find |
-|||||
+|||
 
 | Return value | Type | Description |
 | ------------ | ---- | ----------- |
-| <*ending-index-value*> | Integer | The starting position or index value for the last occurrence of the specified substring. <p>If the string is not found, return the number -1. |
-||||
+| <*ending-index-value*> | Integer | The starting position or index value for the last occurrence of the specified substring. |
+|||
 
-*Example*
+If the string or substring value is empty, the following behavior occurs:
 
-This example finds the starting index value for
-the last occurrence of the "world" substring in
-the "hello world" string:
+* If the string value is empty, `-1` is returned:
 
+* If the string and substring values are both empty, `0` is returned.
+
+* If only the substring value is empty, the greater of the following two values is returned:
+
+  * `0`
+
+  * The length of the string, minus 1.
+
+*Examples*
+
+This example finds the starting index value for the last occurrence of the substring `world` substring in the string `hello world hello world`. The returned result is `18`:
+
+```json
+lastIndexOf('hello world hello world', 'world')
 ```
-lastIndexOf('hello world', 'world')
-```
 
-And returns this result: `6`
+This example is missing the substring parameter, and returns a value of `22` because the value of the input string (`23`) minus 1 is greater than 0.
+
+```json
+lastIndexOf('hello world hello world', '')
+```
 
 <a name="length"></a>
 
@@ -4887,22 +4898,15 @@ xpath('<xml>', '<xpath>')
 
 *Example 1*
 
-This example finds nodes that match the `<name></name>` node in the specified arguments, and returns an array with those node values:
+Suppose that you have this `'items'` XML string: 
+
+`"<?xml version="1.0"?> <produce> <item> <name>Gala</name> <type>apple</type> <count>20</count> </item> <item> <name>Honeycrisp</name> <type>apple</type> <count>10</count> </item> </produce>"`
+
+This example passes in the XPath expression, `'/produce/item/name'`, to find the nodes that match the `<name></name>` node in the `'items'` XML string, and returns an array with those node values:
 
 `xpath(xml(parameters('items')), '/produce/item/name')`
 
-Here are the arguments:
-
-* The "items" string, which contains this XML:
-
-  `"<?xml version="1.0"?> <produce> <item> <name>Gala</name> <type>apple</type> <count>20</count> </item> <item> <name>Honeycrisp</name> <type>apple</type> <count>10</count> </item> </produce>"`
-
-  The example uses the [parameters()](#parameters) function to get the XML string from the "items" argument, but must also convert
-  the string to XML format by using the [xml()](#xml) function.
-
-* This XPath expression, which is passed as a string:
-
-  `"/produce/item/name"`
+The example also uses the [parameters()](#parameters) function to get the XML string from `'items'` and convert the string to XML format by using the [xml()](#xml) function.
 
 Here is the result array with the nodes that match `<name></name`:
 
@@ -4910,64 +4914,104 @@ Here is the result array with the nodes that match `<name></name`:
 
 *Example 2*
 
-Following on Example 1, this example finds nodes that match the `<count></count>` node and adds those node values with the `sum()` function:
+Following on Example 1, this example passes in the XPath expression, `'/produce/item/name[1]'`, to find the first `name` element that is the child of the `item` element.
 
-`xpath(xml(parameters('items')), 'sum(/produce/item/count)')`
+`xpath(xml(parameters('items')), '/produce/item/name[1]')`
 
-And returns this result: `30`
+Here is the result: `Gala`
 
 *Example 3*
 
-For this example, both expressions find nodes that match the `<location></location>` node, in the specified arguments, which include XML with a namespace. 
+Following on Example 1, this example pass in the XPath expression, `'/produce/item/name[last()]'`, to find the last `name` element that is the child of the `item` element.
 
-> [!NOTE]
+`xpath(xml(parameters('items')), '/produce/item/name[last()]')`
+
+Here is the result: `Honeycrisp`
+
+*Example 4*
+
+In this example, suppose your `items` XML string also contains the attributes, `expired='true'` and `expired='false'`:
+
+`"<?xml version="1.0"?> <produce> <item> <name expired='true'>Gala</name> <type>apple</type> <count>20</count> </item> <item> <name expired='false'>Honeycrisp</name> <type>apple</type> <count>10</count> </item> </produce>"`
+
+This example passes in the XPath expression, `'//name[@expired]'`, to find all the `name` elements that have the `expired` attribute:
+
+`xpath(xml(parameters('items')), '//name[@expired]')`
+
+Here is the result: `[ Gala, Honeycrisp ]`
+
+*Example 5*
+
+In this example, suppose your `items` XML string contains only this attribute, `expired = 'true'`:
+
+`"<?xml version="1.0"?> <produce> <item> <name expired='true'>Gala</name> <type>apple</type> <count>20</count> </item> <item> <name>Honeycrisp</name> <type>apple</type> <count>10</count> </item> </produce>"`
+
+This example passes in the XPath expression, `'//name[@expired = 'true']'`, to find all the `name` elements that have the attribute, `expired = 'true'`:
+
+`xpath(xml(parameters('items')), '//name[@expired = 'true']')`
+
+Here is the result: `[ Gala ]`
+
+*Example 6*
+
+In this example, suppose your `items` XML string also contains these attributes: 
+
+* `expired='true' price='12'`
+* `expired='false' price='40'`
+
+`"<?xml version="1.0"?> <produce> <item> <name expired='true' price='12'>Gala</name> <type>apple</type> <count>20</count> </item> <item> <name expired='false' price='40'>Honeycrisp</name> <type>apple</type> <count>10</count> </item> </produce>"`
+
+This example passes in the XPath expression, `'//name[price>35]'`, to find all the `name` elements that have `price > 35`:
+
+`xpath(xml(parameters('items')), '//name[price>35]')`
+
+Here is the result: `Honeycrisp`
+
+*Example 7*
+
+In this example, suppose your `items` XML string is the same as in Example 1:
+
+`"<?xml version="1.0"?> <produce> <item> <name>Gala</name> <type>apple</type> <count>20</count> </item> <item> <name>Honeycrisp</name> <type>apple</type> <count>10</count> </item> </produce>"`
+
+This example finds nodes that match the `<count></count>` node and adds those node values with the `sum()` function:
+
+`xpath(xml(parameters('items')), 'sum(/produce/item/count)')`
+
+Here is the result: `30`
+
+*Example 8*
+
+In this example, suppose you have this XML string, which includes the XML document namespace, `xmlns="http://contoso.com"`:
+
+`"<?xml version="1.0"?> <file xmlns="http://contoso.com"> <location>Paris</location> </file>"`
+
+These expressions use either XPath expression, `/*[name()="file"]/*[name()="location"]` or `/*[local-name()="file" and namespace-uri()="http://contoso.com"]/*[local-name()="location"]`, to find nodes that match the `<location></location>` node. These examples show the syntax that you use in either the Logic App Designer or in the expression editor:
+
+* `xpath(xml(body('Http')), '/*[name()="file"]/*[name()="location"]')`
+* `xpath(xml(body('Http')), '/*[local-name()="file" and namespace-uri()="http://contoso.com"]/*[local-name()="location"]')`
+
+Here is the result node that matches the `<location></location>` node: 
+
+`<location xmlns="https://contoso.com">Paris</location>`
+
+> [!IMPORTANT]
 >
-> If you're working in code view, escape the double quotation mark (") by using the backslash character (\\). 
+> If you work in code view, escape the double quotation mark (") by using the backslash character (\\). 
 > For example, you need to use escape characters when you serialize an expression as a JSON string. 
-> However, if you're working in the Logic App Designer or expression editor, you don't need to escape the 
+> However, if you're work in the Logic App Designer or expression editor, you don't need to escape the 
 > double quotation mark because the backslash character is added automatically to the underlying definition, for example:
 > 
 > * Code view: `xpath(xml(body('Http')), '/*[name()=\"file\"]/*[name()=\"location\"]')`
 >
 > * Expression editor: `xpath(xml(body('Http')), '/*[name()="file"]/*[name()="location"]')`
-> 
-> The following examples apply to expressions that you enter in the expression editor.
 
-* *Expression 1*
+*Example 9*
 
-  `xpath(xml(body('Http')), '/*[name()="file"]/*[name()="location"]')`
-
-* *Expression 2*
-
-  `xpath(xml(body('Http')), '/*[local-name()="file" and namespace-uri()="http://contoso.com"]/*[local-name()="location"]')`
-
-Here are the arguments:
-
-* This XML, which includes the XML document namespace, `xmlns="http://contoso.com"`:
-
-  ```xml
-  <?xml version="1.0"?> <file xmlns="http://contoso.com"> <location>Paris</location> </file>
-  ```
-
-* Either XPath expression here:
-
-  * `/*[name()="file"]/*[name()="location"]`
-
-  * `/*[local-name()="file" and namespace-uri()="http://contoso.com"]/*[local-name()="location"]`
-
-Here is the result node that matches the `<location></location>` node:
-
-```xml
-<location xmlns="https://contoso.com">Paris</location>
-```
-
-*Example 4*
-
-Following on Example 3, this example finds the value in the `<location></location>` node:
+Following on Example 8, this example uses the XPath expression, `'string(/*[name()="file"]/*[name()="location"])'`, to find the value in the `<location></location>` node:
 
 `xpath(xml(body('Http')), 'string(/*[name()="file"]/*[name()="location"])')`
 
-And returns this result: `"Paris"`
+Here is the result: `Paris`
 
 ## Next steps
 

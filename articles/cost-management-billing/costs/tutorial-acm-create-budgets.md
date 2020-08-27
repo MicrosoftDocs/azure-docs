@@ -3,9 +3,10 @@ title: Tutorial - Create and manage Azure budgets
 description: This tutorial helps plan and account for the costs of Azure services that you consume.
 author: bandersmsft
 ms.author: banders
-ms.date: 07/15/2020
-ms.topic: conceptual
+ms.date: 08/20/2020
+ms.topic: tutorial
 ms.service: cost-management-billing
+ms.subservice: cost-management
 ms.reviewer: adwise
 ms.custom: seodec18
 ---
@@ -35,7 +36,7 @@ In this tutorial, you learn how to:
 
 Budgets are supported for the following types of Azure account types and scopes:
 
-- Azure Role-Based Access Control scopes
+- Azure role-based access control (Azure RBAC) scopes
     - Management groups
     - Subscription
 - Enterprise Agreement scopes
@@ -184,9 +185,14 @@ $ActionGroupId = (Set-AzActionGroup -ResourceGroupName YourResourceGroup -Name T
 
 New-AzConsumptionBudget -Amount 100 -Name TestPSBudget -Category Cost -StartDate 2020-02-01 -TimeGrain Monthly -EndDate 2022-12-31 -ContactEmail test@test.com -NotificationKey Key1 -NotificationThreshold 0.8 -NotificationEnabled -ContactGroup $ActionGroupId
 ```
+
 ## Create a budget with an Azure Resource Manager template
 
 You can create a budget using an Azure Resource Manager template. To use the template, see [Create a budget with an Azure Resource Manager template](quick-create-budget-template.md).
+
+## Clean up resources
+
+If you created a budget and you no longer it, view its details and delete it.
 
 ## Next steps
 

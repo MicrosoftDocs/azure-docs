@@ -226,10 +226,6 @@ Once you have registered or joined your devices to Azure AD, use the [Azure port
 * [Configure your device settings](device-management-azure-portal.md#configure-device-settings)
 * You need to be a local administrator to manage Windows devices. [Azure AD updates this membership for Azure AD joined devices](assign-local-admin.md), automatically adding those with the device manager role as administrators to all joined devices.
 
-* [Locate devices](device-management-azure-portal.md#locate-devices)
-
-* [Perform device identity management tasks](device-management-azure-portal.md#device-identity-management-tasks)
-
 Make sure that you keep the environment clean by [managing stale devices](manage-stale-devices.md), and focus your resources on managing current devices.
 
 * [Review device-related audit logs](device-management-azure-portal.md#audit-logs)

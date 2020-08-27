@@ -8,6 +8,8 @@
     href: overview.md
   - name: Compare messaging services
     href: compare-messaging-services.md
+  - name: Release notes
+    href: whats-new.md
 - name: Quickstarts
   expanded: true
   items:
@@ -91,7 +93,7 @@
   - name: Resource Manager templates
     href: template-samples.md
   - name: Code samples
-    href: https://docs.microsoft.com/samples/browse/?term=Event%20Grid
+    href: /samples/browse/?term=Event+Grid
   - name: Azure Policy built-ins
     href: ./policy-samples.md
 - name: Concepts
@@ -180,6 +182,8 @@
       href: geo-disaster-recovery.md      
   - name: Security 
     items: 
+    - name: Security baseline
+      href: security-baseline.md
     - name: Authenticate event delivery to event handlers
       href: security-authentication.md
     - name: Authenticate publishing clients
@@ -234,9 +238,9 @@
     items:
     - name: Configure private endpoints
       href: configure-private-endpoints.md
-    - name: Configure IP firewall (preview)
+    - name: Configure IP firewall
       href: configure-firewall.md
-    - name: Secure WebHook with AAD
+    - name: Secure Webhook with AAD
       href: secure-webhook-delivery.md
     - name: Event delivery with managed identity
       href: managed-service-identity.md

@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with TargetProcess | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and TargetProcess.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 7cb91628-e758-480d-a233-7a3caaaff50d
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with TargetProcess
 
@@ -66,7 +60,7 @@ To configure the integration of TargetProcess into Azure AD, you need to add Tar
 
 	 ![TargetProcess in the results list](common/search-new-app.png)
 
-## Configure and test Azure AD single sign-on
+## Configure and test Azure AD SSO
 
 In this section, you configure and test Azure AD single sign-on with TargetProcess based on a test user called **Britta Simon**.
 For single sign-on to work, a link relationship between an Azure AD user and the related user in TargetProcess needs to be established.
@@ -131,25 +125,27 @@ To configure Azure AD single sign-on with TargetProcess, perform the following s
 
 	![image](./media/target-process-tutorial/install_extension.png)
 
-2. After adding extension to the browser, click on **setup TargetProcess** will direct you to the TargetProcess application. From there, provide the admin credentials to sign into TargetProcess. The browser extension will automatically configure the application for you and automate steps 3-7.
+1. After adding extension to the browser, click on **setup TargetProcess** will direct you to the TargetProcess application. From there, provide the admin credentials to sign into TargetProcess. The browser extension will automatically configure the application for you and automate steps 3-7.
+
+	![Setup configuration](common/setup-sso.png)
 
 	**If you want to configure the application manually perform the following steps:**
 
-3. Sign-on to your TargetProcess application as an administrator.
+1. Sign-on to your TargetProcess application as an administrator.
 
-4. In the menu on the top, click **Setup**.
+1. In the menu on the top, click **Setup**.
 
     ![Setup](./media/target-process-tutorial/tutorial_target_process_05.png)
 
-5. Click **Settings** tab.
+1. Click **Settings** tab.
 
     ![Settings](./media/target-process-tutorial/tutorial_target_process_06.png)
 
-6. Click **Single Sign-on** tab.
+1. Click **Single Sign-on** tab.
 
     ![click Single Sign-On](./media/target-process-tutorial/tutorial_target_process_07.png)
 
-7. On the Single Sign-on settings dialog, perform the following steps:
+1. On the Single Sign-on settings dialog, perform the following steps:
 
     ![Configure Single Sign-On](./media/target-process-tutorial/tutorial_target_process_08.png)
 

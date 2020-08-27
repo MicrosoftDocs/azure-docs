@@ -1,13 +1,14 @@
 ---
 title: View and download your Azure invoice
-description: Describes how to view and download your Azure invoice.
+description: Learn how to view and download your Azure invoice. You can download your invoice in the Azure portal or have it sent in an email.
 keywords: billing invoice,invoice download,azure invoice,azure usage
 author: bandersmsft
 ms.reviewer: amberb
 tags: billing
 ms.service: cost-management-billing
+ms.subservice: billing
 ms.topic: conceptual
-ms.date: 05/28/2020
+ms.date: 08/20/2020
 ms.author: banders
 ---
 
@@ -89,6 +90,9 @@ To download an invoice:
     [![Screenshot that shows selecting access to invoice](./media/download-azure-invoice/cmb-select-access-to-invoice.png)](./media/download-azure-invoice/cmb-select-access-to-invoice-zoomed-in.png#lightbox)
 1.  Select **On** and then **Save** at the top of the page.  
     ![Screenshot that shows selecting on for access to invoice](./media/download-azure-invoice/cmb-access-to-invoice.png)
+    
+> [!NOTE]
+> Microsoft doesn’t recommend sharing any of your confidential or personally identifiable information with third parties. This recommendation applies to sharing your Azure bill or invoice with a third party for cost optimizations. For more information, see https://azure.microsoft.com/support/legal/ and https://www.microsoft.com/trust-center.
 
 ## Get MOSP subscription invoice in email
 

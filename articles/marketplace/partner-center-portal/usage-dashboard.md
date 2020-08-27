@@ -5,6 +5,8 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 07/22/2020
+author: mingshen-ms
+ms.author: mingshen
 ---
 
 # Usage dashboard in Microsoft commercial marketplace analytics
@@ -104,6 +106,8 @@ The **Metered billing usage** tab presents usage info for offer types where usag
 - **Overage trend by plan**: Represents the trend of usage quantity of the selected meter dimension by plans. The plans displayed will represent the top five plans with the highest amount of usage for the offer selected.
 - **Overage trend by Top 50 Customers**: The top 50 offers with the highest usage hours are displayed on a ***leader board*** and are ranked by the highest usage of the custom meter. Select a customer in the leaderboard to view the usage trend of a selected meter dimension.
 - **Overage trend by top customers**: Presents top customer percentile(s) that contribute to the % of overall usage. The top customer percentile is displayed along the X-axis and is determined by the customer's usage quantity. The Y-axis displays the usage quantity. You can display details by hovering over points along the line chart.
+
+If you have multiple offers that use custom meters, the metered billing usage report shows usage information for all your offers, according to their custom meter dimensions.
 
 > [!NOTE]
 > The usage details and all charts on this page are displayed for whichever meter dimension is selected for the page filter.

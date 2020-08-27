@@ -10,7 +10,7 @@ ms.subservice: bing-web-search
 ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: aahi
-ms.custom: seodec2018, tracking-python
+ms.custom: seodec2018, devx-track-python
 #Customer intent: As a new developer, I want to make my first call to the Bing Web Search API and receive a response using Python.
 ---
 

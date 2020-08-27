@@ -2,6 +2,7 @@
 title: Azure Application Insights for ASP.NET Core applications | Microsoft Docs
 description: Monitor ASP.NET Core web applications for availability, performance, and usage.
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ms.date: 04/30/2020
 
 ---
@@ -32,6 +33,8 @@ The [Application Insights SDK for ASP.NET Core](https://nuget.org/packages/Micro
 - A valid Application Insights instrumentation key. This key is required to send any telemetry to Application Insights. If you need to create a new Application Insights resource to get an instrumentation key, see [Create an Application Insights resource](./create-new-resource.md).
 
 ## Enable Application Insights server-side telemetry (Visual Studio)
+
+For Visual Studio for Mac use the [manual guidance](#enable-application-insights-server-side-telemetry-no-visual-studio). Only the Windows version of Visual Studio supports this procedure.
 
 1. Open your project in Visual Studio.
 
@@ -111,6 +114,10 @@ The [Application Insights SDK for ASP.NET Core](https://nuget.org/packages/Micro
 
     > [!NOTE]
     > An instrumentation key specified in code wins over the environment variable `APPINSIGHTS_INSTRUMENTATIONKEY`, which wins over other options.
+
+### User secrets and other configuration providers
+
+If you want to store the instrumentation key in ASP.NET Core user secrets or retrieve it from another configuration provider, you can use the overload with a `Microsoft.Extensions.Configuration.IConfiguration` parameter. For example, `services.AddApplicationInsightsTelemetry(Configuration);`.
 
 ## Run your application
 
@@ -217,7 +224,7 @@ See the [configurable settings in `ApplicationInsightsServiceOptions`](https://g
 
 The Application Insights SDK for ASP.NET Core supports both fixed-rate and adaptive sampling. Adaptive sampling is enabled by default. 
 
-For more information, see [Configure adaptive sampling for ASP.NET Core applications](../../azure-monitor/app/sampling.md#configuring-adaptive-sampling-for-aspnet-core-applications).
+For more information, see [Configure adaptive sampling for ASP.NET Core applications](./sampling.md#configuring-adaptive-sampling-for-aspnet-core-applications).
 
 ### Adding TelemetryInitializers
 
@@ -452,12 +459,15 @@ This SDK requires `HttpContext`, and hence does not work in any non-HTTP applica
 
 ## Open-source SDK
 
-[Read and contribute to the code](https://github.com/microsoft/ApplicationInsights-dotnet#recent-updates).
+* [Read and contribute to the code](https://github.com/microsoft/ApplicationInsights-dotnet#recent-updates).
+
+For the latest updates and bug fixes [consult the release notes](./release-notes.md).
 
 ## Next steps
 
-* [Explore user flows](../../azure-monitor/app/usage-flows.md) to understand how users navigate through your app.
+* [Explore user flows](./usage-flows.md) to understand how users navigate through your app.
 * [Configure a snapshot collection](./snapshot-debugger.md) to see the state of source code and variables at the moment an exception is thrown.
-* [Use the API](../../azure-monitor/app/api-custom-events-metrics.md) to send your own events and metrics for a detailed view of your app's performance and usage.
-* Use [availability tests](../../azure-monitor/app/monitor-web-app-availability.md) to check your app constantly from around the world.
+* [Use the API](./api-custom-events-metrics.md) to send your own events and metrics for a detailed view of your app's performance and usage.
+* Use [availability tests](./monitor-web-app-availability.md) to check your app constantly from around the world.
 * [Dependency Injection in ASP.NET Core](/aspnet/core/fundamentals/dependency-injection)
+

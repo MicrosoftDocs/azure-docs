@@ -30,13 +30,29 @@ This container image has the following tags available:
 
 ## Computer Vision
 
-The [Computer Vision][cv-containers] container image can be found on the `containerpreview.azurecr.io` container registry. It resides within the `microsoft` repository and is named `cognitive-services-read`. The fully qualified container image name is, `containerpreview.azurecr.io/microsoft/cognitive-services-read`.
+The [Computer Vision][cv-containers] Read OCR container image can be found on the `containerpreview.azurecr.io` container registry. It resides within the `microsoft` repository and is named `cognitive-services-read`. The fully qualified container image name is, `containerpreview.azurecr.io/microsoft/cognitive-services-read`.
 
 This container image has the following tags available:
 
 | Image Tags                    | Notes |
 |-------------------------------|:------|
-| `latest`                      |       |
+| `latest ( (2.0.013250001-amd64-preview)` | • Further decrease memory usage for container. |
+|                                          | • External cache is required for multi-pods setup. For example, set-up Redis for caching. |
+|                                          | • Fix results missing issue when Redis cache is set-up and ResultExpirationPeriod=0.  |
+|                                          | • Remove request body size limitation of 26MB. Container can now accept >26MB files.  |
+|                                          | • Add time stamp and build version to console logging.  |
+| `1.1.013050001-amd64-preview`            | * Added ReadEngineConfig:ResultExpirationPeriod container initialization configuration to specify when the system should clean up recognition results. |
+|                                          | The setting is in hours, and default value is 48hr.   |
+|                                          |   The setting can reduce memory usage for result storing, especially when container in-memory storage is used.  |
+|                                          |    * Example 1. ReadEngineConfig:ResultExpirationPeriod=1, the system will clear the recognition result 1hr after the process.   |
+|                                          |    * Example 2. ReadEngineConfig:ResultExpirationPeriod=0, the system will clear the recognition result after result retrieval.  |
+|                                          | Fixed an 500 Internal Server Error when invalid image format is passed into the system. It will now return a 400 error:   |
+|                                          | `{`  |
+|                                          | `"error": {`  |
+|                                          |      `"code": "InvalidImageSize",`  |
+|                                          |      `"message": "Image must be between 1024 and 209715200 bytes."`  |
+|                                          |          `}`  |
+|                                          | `}`  |
 | `1.1.011580001-amd64-preview` |       |
 | `1.1.009920003-amd64-preview` |       |
 | `1.1.009910003-amd64-preview` |       |

@@ -85,7 +85,7 @@ The names of files/blobs within an asset must follow both the [blob name require
 
 The operations marked with `x-ms-long-running-operation` in the Azure Media Services [swagger files](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01/streamingservice.json) are long running operations. 
 
-For details about how to track asynchronous Azure operations, see [Async operations](../../azure-resource-manager/management/async-operations.md#monitor-status-of-operation).
+For details about how to track asynchronous Azure operations, see [Async operations](../../azure-resource-manager/management/async-operations.md).
 
 Media Services has the following long-running operations:
 

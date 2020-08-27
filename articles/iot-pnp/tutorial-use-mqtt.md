@@ -39,10 +39,10 @@ az iot hub show-connection-string --hub-name <YourIoTHubName> --output table
 
 Use the IoT hub connection string to configure the **Azure IoT explorer** tool:
 
-* Launch the **Azure IoT explorer** tool.
-* On the **Settings** page, paste the IoT hub connection string into the **App configurations** settings.
-* Select **Save and Connect**.
-* The device you added previously is in the device list on the main page.
+1. Launch the **Azure IoT explorer** tool.
+1. On the **Settings** page, paste the IoT hub connection string into the **App configurations** settings.
+1. Select **Save and Connect**.
+1. The device you added previously is in the device list on the main page.
 
 ## Clone sample repo
 
@@ -93,19 +93,20 @@ In the **TelemetryMQTTWin32** project, open the **MQTT_Mosquitto.cpp** source fi
 * `PWD` identifier with the shared access signature value you generated for the device.
 
 Verify the code is working correctly, by starting Azure IoT explorer, start listening the telemetry.
-Run the application (Ctrl+F5), after couple of seconds you should see something like:
+
+Run the application (Ctrl+F5), after couple of seconds you see output that looks like:
 
 :::image type="content" source="media/tutorial-use-mqtt/mqtt-sample-output.png" alt-text="Output from MQTT sample application":::
 
-In Azure IoT explorer, you should see, clearly not an IoT Plug and Play device:
+In Azure IoT explorer, you can see that the device isn't an IoT Plug and Play device:
 
 :::image type="content" source="media/tutorial-use-mqtt/non-pnp-iot-explorer.png" alt-text="Non-IoT Plug and Play device in Azure IoT explorer":::
 
 ### Make the device an IoT Plug and Play device
 
-IoT Plug and Play device must follow a set of simple conventions. If a device sends a **Model ID** when it connects, it becomes an IoT Plug and Play device.
+IoT Plug and Play device must follow a set of simple conventions. If a device sends a model ID when it connects, it becomes an IoT Plug and Play device.
 
-In this sample, you add a **Model ID**** to the MQTT connection packet. You pass the **Model ID** as querystring parameter in the `USERNAME` and change the `api-version` to `2020-05-31-preview`:
+In this sample, you add a model ID** to the MQTT connection packet. You pass the model ID as querystring parameter in the `USERNAME` and change the `api-version` to `2020-05-31-preview`:
 
 ```c
 // computed Host Username and Topic
@@ -118,7 +119,7 @@ In this sample, you add a **Model ID**** to the MQTT connection packet. You pass
 
 Rebuild and run the sample.
 
-The device twin now includes the **Model ID**:
+The device twin now includes the model ID:
 
 :::image type="content" source="media/tutorial-use-mqtt/model-id-iot-explorer.png" alt-text="View the model ID in Azure IoT explorer":::
 
@@ -126,7 +127,7 @@ You can now navigate the IoT Plug and Play component:
 
 :::image type="content" source="media/tutorial-use-mqtt/components-iot-explorer.png" alt-text="View components in Azure IoT explorer":::
 
-You can now modify your device code to implement the telemetry, properties, and commands defined in your model. In this example, no code change is necessary because the model doesn't include any components.
+You can now modify your device code to implement the telemetry, properties, and commands defined in your model. To see an example implementation of the thermostat device using the Mosquitto library, see [Using MQTT PnP with Azure IoTHub without the IoT SDK on Windows](https://github.com/Azure-Samples/IoTMQTTSample/tree/master/src/Windows/PnPMQTTWin32) on GitHub.
 
 > [!NOTE]
 > By default a shared access signature is only valid for 60 minutes.
@@ -136,7 +137,7 @@ You can now modify your device code to implement the telemetry, properties, and 
 
 ### MQTT topics
 
-The following definitions are for the MQTT topics the device uses to send information to the IoT hub:
+The following definitions are for the MQTT topics the device uses to send information to the IoT hub. To learn more, see [Communicate with your IoT hub using the MQTT protocol](../iot-hub/iot-hub-mqtt-support.md):
 
 * The `DEVICE_CAPABILITIES_MESSAGE` defines the topic the device uses to report the interfaces it implements.
 * The `DEVICETWIN_PATCH_MESSAGE` defines the topic the device uses to report property updates to the IoT hub.
@@ -148,7 +149,7 @@ For more information about MQTT, visit the [MQTT Samples for Azure IoT](https://
 
 ## Next steps
 
-In this tutorial, you learned how to modify a simple MQTT device client to follow the IoT Plug and Play conventions. To learn more about how IoT Plug and Play, see:
+In this tutorial, you learned how to modify an MQTT device client to follow the IoT Plug and Play conventions. To learn more about IoT Plug and Play, see:
 
 > [!div class="nextstepaction"]
 > [Architecture](concepts-architecture.md)

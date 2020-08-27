@@ -1,7 +1,7 @@
 ---
 title: Authorize developer accounts using OAuth 2.0 in API Management
 titleSuffix: Azure API Management
-description: Learn how to authorize users using OAuth 2.0 in API Management.
+description: Learn how to authorize users using OAuth 2.0 in API Management. OAuth 2.0 secures the API so that users can only access resources to which they're entitled.
 services: api-management
 documentationcenter: ''
 author: mikebudzynski

@@ -50,6 +50,8 @@
     href: how-to-integrate-certificate-authority.md
   - name: Troubleshooting - Import certificates
     href: import-cert-faqs.md
+  - name: Export certificate from key vault
+    href: how-to-export-certificate.md
 
 - name: Reference
   items:

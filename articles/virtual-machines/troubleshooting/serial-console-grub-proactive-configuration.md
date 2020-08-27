@@ -438,4 +438,4 @@ For more information on how to access single user mode, see [this doc](./serial-
 
 
 ## Next steps
-Learn more about [Azure Serial Console]( https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-linux)
+Learn more about [Azure Serial Console]( ./serial-console-linux.md)

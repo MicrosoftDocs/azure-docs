@@ -127,4 +127,4 @@ To view the telemetry for the selected interface, go to its **Telemetry** tab.
 
 ## Next steps
 
-In this how-to article, you learned how to install and use Azure IoT explorer to interact with your IoT Plug and Play devices. A suggested next step is to learn how to [Manage models](./howto-manage-models.md).
+In this how-to article, you learned how to install and use Azure IoT explorer to interact with your IoT Plug and Play devices. A suggested next step is to learn how to use the [Azure CLI IoT Plug and Play commands](./howto-use-iot-pnp-cli.md).

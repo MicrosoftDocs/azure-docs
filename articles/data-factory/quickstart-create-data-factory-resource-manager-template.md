@@ -53,7 +53,7 @@ Save the file in the **C:\ADFv2QuickStartPSH** folder. (If the folder doesn't al
 
 The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-data-factory-v2-blob-to-blob-copy/).
 
-:::code language="json" source="~/quickstart-templates/101-data-factory-v2-blob-to-blob-copy/azuredeploy.json" range="1-196" highlight="40-187":::
+:::code language="json" source="~/quickstart-templates/101-data-factory-v2-blob-to-blob-copy/azuredeploy.json":::
 
 There are Azure resources defined in the template:
 

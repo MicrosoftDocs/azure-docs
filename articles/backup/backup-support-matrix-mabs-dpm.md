@@ -19,7 +19,7 @@ MABS is based on System Center DPM and provides similar functionality with a few
 
 - No System Center license is required to run MABS.
 - For both MABS and DPM, Azure provides long-term backup storage. In addition, DPM allows you to back up data for long-term storage on tape. MABS doesn't provide this functionality.
-- You can back up a primary DPM server with a secondary DPM server. The secondary server will protect the primary server database and the data source replicas stored on the primary server. If the primary server fails, the secondary server can continue to protect workloads that are protected by the primary server, until the primary server is available again.  MABS doesn't provide this functionality.
+- [You can back up a primary DPM server with a secondary DPM server](/system-center/dpm/back-up-the-dpm-server?view=sc-dpm-2019). The secondary server will protect the primary server database and the data source replicas stored on the primary server. If the primary server fails, the secondary server can continue to protect workloads that are protected by the primary server, until the primary server is available again.  MABS doesn't provide this functionality.
 
 You download MABS from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=57520). It can be run on-premises or on an Azure VM.
 
@@ -71,7 +71,7 @@ Azure Backup can back up DPM/MABS instances that are running any of the followin
 **DPM on-premises** | Physical server/Hyper-V VM: System Center 2012 SP1 or later.<br/><br/> VMware VM: System Center 2012 R2 with Update 5 or later.
 
 >[!NOTE]
->Installing Azure Backup Server is not supported on Windows Server Core or Microsoft Hyper-V Server.
+>Installing Azure Backup Server isn't supported on Windows Server Core or Microsoft Hyper-V Server.
 
 ## Management support
 
@@ -89,7 +89,7 @@ You can deploy MABS on an Azure Stack VM so that you can manage backup of Azure 
 
 **Component** | **Details**
 --- | ---
-**MABS on Azure Stack VM** | At least size A2. We recommend you start with a Windows Server 2012 R2 or Windows Server 2016 image from the Azure Marketplace.<br/><br/> Don't install anything else on the MABS VM.
+**MABS on Azure Stack VM** | At least size A2. We recommend you start with a Windows Server 2012 R2 or Windows Server 2016 image from Azure Marketplace.<br/><br/> Don't install anything else on the MABS VM.
 **MABS storage** | Use a separate storage account for the MABS VM. The MARS agent running on MABS needs temporary storage for a cache location and to hold data restored from the cloud.
 **MABS storage pool** | The size of the MABS storage pool is determined by the number and size of disks that are attached to the MABS VM. Each Azure Stack VM size has a maximum number of disks. For example, A2 is four disks.
 **MABS retention** | Don't retain backed up data on the local MABS disks for more than five days.
