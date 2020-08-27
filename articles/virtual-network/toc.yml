@@ -101,7 +101,7 @@
       - name: Overview
         href: security-overview.md
       - name: How it works
-        href: newtwork-security-group-how-it-works.md
+        href: network-security-group-how-it-works.md
     - name: Application security groups
       href: application-security-groups.md
     - name: Service tags 
