@@ -50,7 +50,7 @@ This command performs the following actions, which may take a few minutes:
 > Make a note of your password that will be generate for you if not provided. If you forget the password you would have to reset the password using ``` az postgres flexible-server update``` command
 
 ## Create a Web App
-In this section, you create app host in App Service app, connect this app to the Postgres database, then deploy your code to that host. Make sure you're in the repository root of your application code in the terminal.
+In this section, you create app host in App Service app and connect this app to the Postgres database. Make sure you're in the repository root of your application code in the terminal.
 
 Create an App Service app (the host process) with the az webapp up command
 
@@ -88,8 +88,6 @@ az webapp config appsettings set --settings DBHOST="<mysql-server-name>.mysql.da
 - Replace <username> and <password> with the credentials that the command also generated for you.
 - The resource group and app name are drawn from the cached values in the .azure/config file.
 - The command creates settings named DBHOST, DBNAME, DBUSER, and DBPASS. If your application code is using different name for the database information then use those names for the app settings as mentioned in the code.
-
-Now you are ready to [deploy your application code](../../../app-service/deploy-best-practices) to the web app.
 
 ## Clean up resources
 
