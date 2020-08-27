@@ -78,6 +78,8 @@ By default, the following databases are created under your server: **information
 
 ## Connect to Azure Database for MySQL Flexible Server using mysql command-line client
 
+If you created your flexible server with *Private access (VNet Integration)*, you will need to connect to your server from a resource within the same VNet as your server. You can create a virtual machine and add it to the VNet created 
+
 You can choose either [mysql.exe](https://dev.mysql.com/doc/refman/8.0/en/mysql.html) or MySQL Workbench <!-- [MySQL Workbench](./connect-workbench.md)--> to connect to the server from your local environment. In this quickstart, we will run **mysql.exe** in [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) to connect to the server.
 
 <!-- need to decide how to connect based on connectivity method. If private access, requires a resource within the VNet to connect. May be more complicated for a quickstart? -->

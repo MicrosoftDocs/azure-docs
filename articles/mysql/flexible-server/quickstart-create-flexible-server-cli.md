@@ -117,6 +117,13 @@ The result is in JSON format. Make a note of the **fullyQualifiedDomainName** an
 
 ## Connect to Azure Database for MySQL server using mysql command-line client
 
+As the flexible server was created with *Private access (VNet Integration)*, you will need to connect to your server from a resource within the same VNet as your server. You can create a virtual machine and add it to the virtual network created. 
+
+Below is a sample of how to create an Ubuntu Linux virtual machine that is added to the same virtual network and subnet as the flexible server created.  
+
+`az vm create --name <yourvirtualmachinename> --vnet-name <created with your flexible server> --subnet-name <created with your flexible server> --image UbuntuLTS --admin-username <yourVMusername> --admin-password <your VM password>`
+
+
 You can connect to your server using a popular client tool, **[mysql.exe](https://dev.mysql.com/downloads/)** command-line tool with [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview). Alternatively, you can use mysql command line on your local environment.
 
 <!-- need to decide how to connect based on connectivity method. If private access, requires a resource within the VNet to connect. May be more complicated for a quickstart? -->
