@@ -43,23 +43,7 @@ Yes, you can view reports across vaults and subscriptions as well as regions. Yo
 
 If you are an [Azure Lighthouse](https://azure.microsoft.com/services/azure-lighthouse/) user with delegated access to your customers' subscriptions or LA Workspaces, you can use Backup Reports to view data across all your tenants.
 
-### How long does it take for the Azure backup agent job status to reflect in the portal?
-
-The Azure portal can take up to 15 mins to reflect the Azure backup agent job status.
-
-### When a backup job fails, how long does it take to raise an alert?
-
-An alert is raised within 20 mins of the Azure backup failure.
-
-### Is there a case where an email won’t be sent if notifications are configured?
-
-Yes. In the following situations, notifications are not sent.
-
-* If notifications are configured hourly, and an alert is raised and resolved within the hour
-* When a job is canceled
-* If a second backup job fails because the original backup job is in progress
-
-## Recovery Services Vault
+## Recovery Services vault
 
 ### How long does it take for the Azure backup agent job status to reflect in the portal?
 
@@ -71,7 +55,7 @@ An alert is raised within 20 mins of the Azure backup failure.
 
 ### Is there a case where an email won’t be sent if notifications are configured?
 
-Yes. In the following situations, notifications are not sent:
+Yes. In the following situations, notifications aren't sent:
 
 * If notifications are configured hourly, and an alert is raised and resolved within the hour
 * When a job is canceled

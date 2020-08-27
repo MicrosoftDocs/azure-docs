@@ -2,7 +2,7 @@
 title: Machine Learning Services in Azure SQL Managed Instance (preview)
 description: This article provides an overview or Machine Learning Services in Azure SQL Managed Instance.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-managed-instance
 ms.subservice: machine-learning
 ms.custom: 
 ms.devlang: 
@@ -11,7 +11,7 @@ author: garyericson
 ms.author: garye
 ms.reviewer: carlrab, davidph
 manager: cgronlun
-ms.date: 05/27/2020
+ms.date: 06/03/2020
 ---
 
 # Machine Learning Services in Azure SQL Managed Instance (preview)
@@ -47,7 +47,23 @@ Base distributions of Python and R are included in Machine Learning Services. Yo
 
 This limited public preview is subject to the [Azure preview terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 
-If you're interested in joining the preview program and accept these terms, then you can request enrollment by creating an Azure support ticket at [https://azure.microsoft.com/support/create-ticket/](https://azure.microsoft.com/support/create-ticket/). For "Issue type" select "Technical", for "Service" select "SQL Database Managed Instance", and for "Problem type" select "Other". In your request, state that you would like to be enrolled into limited public preview of Machine Learning for SQL Managed Instance with these details: logical server name, region, and subscription ID.
+If you're interested in joining the preview program and accept these terms, then you can request enrollment by creating an Azure support ticket at [**https://azure.microsoft.com/support/create-ticket/**](https://azure.microsoft.com/support/create-ticket/). 
+
+1. Select the following options:
+   - Issue type - **Technical**
+   - Subscription - *select your subscription*
+   - Service - **SQL Database Managed Instance**
+   - Summary - *enter a brief description of your request*
+   - Problem type - **Machine Learning Services for SQL Managed Instance (Preview)**
+   - Problem subtype - **Other issue or "How To" questions**
+
+1. Click **Next: Solutions**.
+
+1. Read the information about the preview, then click **Details**.
+
+1. In **Description**, enter the specifics of your request including the logical server name, region, and subscription ID that you would like to enroll in the preview. Enter other details as appropriate.
+
+1. When you're finished, click **Next: Review + create**, then click **Create**.
 
 Once you're enrolled in the program, Microsoft will onboard you to the public preview and enable Machine Learning Services for your existing or new database.
 
@@ -58,3 +74,4 @@ Machine Learning Services in SQL Managed Instance is not recommended for product
 - See the [key differences from SQL Server Machine Learning Services](machine-learning-services-differences.md).
 - To learn how to use Python in Machine Learning Services, see [Run Python scripts](https://docs.microsoft.com/sql/machine-learning/tutorials/quickstart-python-create-script?context=/azure/azure-sql/managed-instance/context/ml-context&view=sql-server-ver15).
 - To learn how to use R in Machine Learning Services, see [Run R scripts](https://docs.microsoft.com/sql/machine-learning/tutorials/quickstart-r-create-script?context=/azure/azure-sql/managed-instance/context/ml-context&view=sql-server-ver15).
+- For more information about machine learning on other SQL platforms, see the [SQL machine learning documentation](https://docs.microsoft.com/sql/machine-learning/).

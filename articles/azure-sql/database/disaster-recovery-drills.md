@@ -1,5 +1,5 @@
 ---
-title: Disaster Recovery Drills 
+title: Disaster recovery drills 
 description: Learn guidance and best practices for using Azure SQL Database to perform disaster recovery drills.
 services: sql-database
 ms.service: sql-database
@@ -12,7 +12,7 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 12/18/2018
 ---
-# Performing Disaster Recovery Drill
+# Performing disaster recovery drills
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 It is recommended that validation of application readiness for recovery workflow is performed periodically. Verifying the application behavior and implications of data loss and/or the disruption that failover involves is a good engineering practice. It is also a requirement by most industry standards as part of business continuity certification.

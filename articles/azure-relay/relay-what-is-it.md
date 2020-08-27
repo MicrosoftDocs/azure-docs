@@ -1,23 +1,10 @@
 ---
 title: What is Azure Relay? | Microsoft Docs
 description: This article provides an overview of the Azure Relay service, which allows you to develop cloud applications that consume on-premises services running in your corporate network without opening a firewall connection or making intrusive changes to your network infrastructure.  
-services: service-bus-relay
-author: spelluru
-manager: 
-editor: ''
-
-ms.assetid: 1e3e971d-2a24-4f96-a88a-ce3ea2b1a1cd
-ms.service: service-bus-relay
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 11/13/2018
-ms.author: spelluru
-
-#customer intent: As a developer, I want to consume my on-premises services from my applications running in the cloud. In some cases, I want my applications running in a customer network to access services running in my network. How do I go about it? 
-
+ms.date: 06/23/2020
 ---
+
 # What is Azure Relay?
 The Azure Relay service enables you to securely expose services that run in your corporate network to the public cloud. You can do so without opening a port on your firewall, or making intrusive changes to your corporate network infrastructure. 
 

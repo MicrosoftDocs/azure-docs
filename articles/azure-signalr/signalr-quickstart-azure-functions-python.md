@@ -7,6 +7,7 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 12/14/2019
 ms.author: antchu
+ms.custom: devx-track-python
 ---
 # Quickstart: Create a chat room with Azure Functions and SignalR Service using Python
 
@@ -94,4 +95,4 @@ Sign in to the Azure portal at <https://portal.azure.com/> with your Azure accou
 In this quickstart, you built and ran a real-time serverless application in VS Code. Next, learn more about how to deploy Azure Functions from VS Code.
 
 > [!div class="nextstepaction"]
-> [Deploy Azure Functions with VS Code](/azure/javascript/tutorial-vscode-serverless-node-01)
+> [Deploy Azure Functions with VS Code](/azure/developer/javascript/tutorial-vscode-serverless-node-01)

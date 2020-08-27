@@ -379,6 +379,11 @@
       "branch": "master"
     },
     {
+      "path_to_root": "azure-sdk-for-java-cosmos-db",
+      "url": "https://github.com/Azure/azure-sdk-for-java/",
+      "branch": "master"
+    },    
+    {
       "path_to_root": "azure-sdk-for-java-script-event-hubs",
       "url": "https://github.com/Azure/azure-sdk-for-js/",
       "branch": "master"
@@ -393,6 +398,11 @@
       "url": "https://github.com/Azure/azure-sdk-for-python/",
       "branch": "master"
     },
+    {
+      "path_to_root": "spring-data-azure-cosmos-db-sql-tutorial",
+      "url": "https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-getting-started/",
+      "branch": "main"
+    },    
     {
       "path_to_root": "cosmos-dotnet-getting-started",
       "url": "https://github.com/Azure-Samples/cosmos-dotnet-getting-started",
@@ -447,6 +457,11 @@
     {
       "path_to_root": "cosmosdb-python-sdk",
       "url": "https://github.com/Azure/azure-sdk-for-python/",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "cosmosdb-cassandra-python-sample",
+      "url": "https://github.com/Azure-Samples/azure-cosmos-db-cassandra-python-getting-started",
       "branch": "master"
     },
     {
@@ -529,7 +544,12 @@
       "path_to_root": "azure-cosmos-java-sql-api-samples",
       "url": "https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples",
       "branch": "master"
-    },    
+    }, 
+    {
+      "path_to_root": "azure-cosmos-java-sql-app-example",
+      "url": "https://github.com/Azure-Samples/azure-cosmos-java-sql-app-example",
+      "branch": "master"
+    },         
     {
       "path_to_root": "azure-storage-snippets",
       "url": "https://github.com/azure-samples/AzureStorageSnippets",

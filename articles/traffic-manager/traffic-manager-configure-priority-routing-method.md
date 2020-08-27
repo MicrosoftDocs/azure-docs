@@ -4,7 +4,6 @@ description: This tutorial explains how to configure the priority traffic routin
 services: traffic-manager
 documentationcenter: ''
 author: rohinkoul
-manager: kumudD
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: tutorial

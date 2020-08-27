@@ -5,14 +5,14 @@ description: Learn how to use Azure DDoS Protection Standard telemetry in Azure 
 services: virtual-network
 documentationcenter: na
 author: KumudD
-manager: twooley
+manager: mtillman
 editor: ''
 tags: azure-resource-manager
 
 ms.assetid: 
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/17/2019
@@ -78,8 +78,7 @@ You cannot move a virtual network to another resource group or subscription when
 ## Disable DDoS for a virtual network
 
 1. Enter the name of the virtual network you want to disable DDoS protection standard for in the **Search resources, services, and docs box** at the top of the portal. When the name of the virtual network appears in the search results, select it.
-2. Select **DDoS protection**, under **SETTINGS**.
-3. Select **Basic** under **DDoS protection plan** and then select **Save**.
+2. Select **Under DDoS Protection Standard**, select **Disable**.
 
 **Commands** 
 - Azure CLI: [az network ddos-protection delete](https://docs.microsoft.com/cli/azure/network/ddos-protection?view=azure-cli-latest#az-network-ddos-protection-delete)

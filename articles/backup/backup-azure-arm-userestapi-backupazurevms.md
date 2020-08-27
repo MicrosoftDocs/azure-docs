@@ -18,7 +18,7 @@ Let's assume you want to protect a VM "testVM" under a resource group "testRG" t
 
 ### Discover unprotected Azure VMs
 
-First, the vault should be able to identify the Azure VM. This is triggered using the [refresh operation](https://docs.microsoft.com/rest/api/backup/protectioncontainers/refresh). It is an asynchronous *POST*  operation that makes sure the vault gets the latest list of all unprotected VM in the current subscription and 'caches' them. Once the VM is 'cached', Recovery services will be able to access the VM and protect it.
+First, the vault should be able to identify the Azure VM. This is triggered using the [refresh operation](/rest/api/backup/protectioncontainers/refresh). It is an asynchronous *POST*  operation that makes sure the vault gets the latest list of all unprotected VM in the current subscription and 'caches' them. Once the VM is 'cached', Recovery services will be able to access the VM and protect it.
 
 ```http
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{vaultresourceGroupname}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/refreshContainers?api-version=2016-12-01
@@ -30,9 +30,9 @@ The POST URI has `{subscriptionId}`, `{vaultName}`, `{vaultresourceGroupName}`, 
 POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/refreshContainers?api-version=2016-12-01
 ```
 
-#### Responses
+#### Responses to refresh operation
 
-The 'refresh' operation is an [asynchronous operation](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). It means this operation creates another operation that needs to be tracked separately.
+The 'refresh' operation is an [asynchronous operation](../azure-resource-manager/management/async-operations.md). It means this operation creates another operation that needs to be tracked separately.
 
 It returns two responses: 202 (Accepted) when another operation is created and then 200 (OK) when that operation completes.
 
@@ -41,7 +41,7 @@ It returns two responses: 202 (Accepted) when another operation is created and t
 |204 No Content     |         |  OK  with No content returned      |
 |202 Accepted     |         |     Accepted    |
 
-##### Example responses
+##### Example responses to refresh operation
 
 Once the *POST* request is submitted, a 202 (Accepted) response is returned.
 
@@ -87,7 +87,7 @@ X-Powered-By: ASP.NET
 
 ### Selecting the relevant Azure VM
 
- You can confirm that "caching" is done by [listing all protectable items](https://docs.microsoft.com/rest/api/backup/backupprotectableitems/list) under the subscription and locate the desired VM in the response. [The response of this operation](#example-responses-1) also gives you information on how Recovery Services identifies a VM.  Once you are familiar with the pattern, you can skip this step and directly proceed to [enabling protection](#enabling-protection-for-the-azure-vm).
+ You can confirm that "caching" is done by [listing all protectable items](/rest/api/backup/backupprotectableitems/list) under the subscription and locate the desired VM in the response. [The response of this operation](#example-responses-to-get-operation) also gives you information on how Recovery Services identifies a VM.  Once you are familiar with the pattern, you can skip this step and directly proceed to [enabling protection](#enabling-protection-for-the-azure-vm).
 
 This operation is a *GET* operation.
 
@@ -97,13 +97,13 @@ GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 
 The *GET* URI has all the required parameters. No additional request body is needed.
 
-#### <a name="responses-1"></a>Responses
+#### Responses to get operation
 
 |Name  |Type  |Description  |
 |---------|---------|---------|
-|200 OK     | [WorkloadProtectableItemResourceList](https://docs.microsoft.com/rest/api/backup/backupprotectableitems/list#workloadprotectableitemresourcelist)        |       OK |
+|200 OK     | [WorkloadProtectableItemResourceList](/rest/api/backup/backupprotectableitems/list#workloadprotectableitemresourcelist)        |       OK |
 
-#### <a name="example-responses-1"></a>Example responses
+#### Example responses to get operation
 
 Once the *GET* request is submitted, a 200 (OK) response is returned.
 
@@ -157,7 +157,7 @@ In the example, the above values translate to:
 
 ### Enabling protection for the Azure VM
 
-After the relevant VM is "cached" and "identified", select the policy to protect. To know more about existing policies in the vault, refer to [list Policy API](https://docs.microsoft.com/rest/api/backup/backuppolicies/list). Then select the [relevant policy](/rest/api/backup/protectionpolicies/get) by referring to the policy name. To create policies, refer to [create policy tutorial](backup-azure-arm-userestapi-createorupdatepolicy.md). "DefaultPolicy" is selected in the below example.
+After the relevant VM is "cached" and "identified", select the policy to protect. To know more about existing policies in the vault, refer to [list Policy API](/rest/api/backup/backuppolicies/list). Then select the [relevant policy](/rest/api/backup/protectionpolicies/get) by referring to the policy name. To create policies, refer to [create policy tutorial](backup-azure-arm-userestapi-createorupdatepolicy.md). "DefaultPolicy" is selected in the example below.
 
 Enabling protection is an asynchronous *PUT* operation that creates a 'protected item'.
 
@@ -179,7 +179,7 @@ To create a protected item, following are the components of the request body.
 |---------|---------|---------|
 |properties     | AzureIaaSVMProtectedItem        |ProtectedItem Resource properties         |
 
-For the complete list of definitions of the request body and other details, refer to [create protected item REST API document](https://docs.microsoft.com/rest/api/backup/protecteditems/createorupdate#request-body).
+For the complete list of definitions of the request body and other details, refer to [create protected item REST API document](/rest/api/backup/protecteditems/createorupdate#request-body).
 
 ##### Example request body
 
@@ -195,20 +195,20 @@ The following request body defines properties required to create a protected ite
 }
 ```
 
-The `{sourceResourceId}` is the `{virtualMachineId}` mentioned above from the [response of list protectable items](#example-responses-1).
+The `{sourceResourceId}` is the `{virtualMachineId}` mentioned above from the [response of list protectable items](#example-responses-to-get-operation).
 
-#### Responses
+#### Responses to create protected item operation
 
-The creation of a protected item is an [asynchronous operation](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). It means this operation creates another operation that needs to be tracked separately.
+The creation of a protected item is an [asynchronous operation](../azure-resource-manager/management/async-operations.md). It means this operation creates another operation that needs to be tracked separately.
 
 It returns two responses: 202 (Accepted) when another operation is created and then 200 (OK) when that operation completes.
 
 |Name  |Type  |Description  |
 |---------|---------|---------|
-|200 OK     |    [ProtectedItemResource](https://docs.microsoft.com/rest/api/backup/protecteditemoperationresults/get#protecteditemresource)     |  OK       |
+|200 OK     |    [ProtectedItemResource](/rest/api/backup/protecteditemoperationresults/get#protecteditemresource)     |  OK       |
 |202 Accepted     |         |     Accepted    |
 
-##### Example responses
+##### Example responses to create protected item operation
 
 Once you submit the *PUT* request for protected item creation or update, the initial response is 202 (Accepted) with a location header or Azure-async-header.
 
@@ -279,25 +279,25 @@ Triggering an on-demand backup is a *POST* operation.
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}/backup?api-version=2016-12-01
 ```
 
-The `{containerName}` and `{protectedItemName}` are as constructed [above](#responses-1). The `{fabricName}` is "Azure". For our example, this translates to:
+The `{containerName}` and `{protectedItemName}` are as constructed [above](#responses-to-get-operation). The `{fabricName}` is "Azure". For our example, this translates to:
 
 ```http
 POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;iaasvmcontainerv2;testRG;testVM/backup?api-version=2016-12-01
 ```
 
-### Create the request body
+### Create the request body for on-demand backup
 
 To trigger an on-demand backup, following are the components of the request body.
 
 |Name  |Type  |Description  |
 |---------|---------|---------|
-|properties     | [IaaSVMBackupRequest](https://docs.microsoft.com/rest/api/backup/backups/trigger#iaasvmbackuprequest)        |BackupRequestResource properties         |
+|properties     | [IaaSVMBackupRequest](/rest/api/backup/backups/trigger#iaasvmbackuprequest)        |BackupRequestResource properties         |
 
-For the complete list of definitions of the request body and other details, refer to [trigger backups for protected items REST API document](https://docs.microsoft.com/rest/api/backup/backups/trigger#request-body).
+For the complete list of definitions of the request body and other details, refer to [trigger backups for protected items REST API document](/rest/api/backup/backups/trigger#request-body).
 
-#### Example request body
+#### Example request body for on-demand backup
 
-The following request body defines properties required to trigger a backup for a protected item. If the retention is not specified, it will be retained for 30 days from the time of trigger of the backup job.
+The following request body defines properties required to trigger a backup for a protected item. If the retention isn't specified, it will be retained for 30 days from the time of trigger of the backup job.
 
 ```json
 {
@@ -308,9 +308,9 @@ The following request body defines properties required to trigger a backup for a
 }
 ```
 
-### Responses
+### Responses for on-demand backup
 
-Triggering an on-demand backup is an [asynchronous operation](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). It means this operation creates another operation that needs to be tracked separately.
+Triggering an on-demand backup is an [asynchronous operation](../azure-resource-manager/management/async-operations.md). It means this operation creates another operation that needs to be tracked separately.
 
 It returns two responses: 202 (Accepted) when another operation is created and then 200 (OK) when that operation completes.
 
@@ -318,7 +318,7 @@ It returns two responses: 202 (Accepted) when another operation is created and t
 |---------|---------|---------|
 |202 Accepted     |         |     Accepted    |
 
-#### <a name="example-responses-3"></a>Example responses
+#### Example responses for on-demand backup
 
 Once you submit the *POST* request for an on-demand backup, the initial response is 202 (Accepted) with a location header or Azure-async-header.
 
@@ -394,7 +394,7 @@ To change the policy with which VM is protected, you can use the same format as 
 }
 ```
 
-The response will follow the same format as mentioned [for enabling protection](#responses-2)
+The response will follow the same format as mentioned [for enabling protection](#responses-to-create-protected-item-operation)
 
 ### Stop protection but retain existing data
 
@@ -410,11 +410,11 @@ To remove protection on a protected VM but retain the data already backed up, re
 }
 ```
 
-The response will follow the same format as mentioned [for triggering an on-demand backup](#example-responses-3). The resultant job should be tracked as explained in the [monitor jobs using REST API document](backup-azure-arm-userestapi-managejobs.md#tracking-the-job).
+The response will follow the same format as mentioned [for triggering an on-demand backup](#example-responses-for-on-demand-backup). The resultant job should be tracked as explained in the [monitor jobs using REST API document](backup-azure-arm-userestapi-managejobs.md#tracking-the-job).
 
 ### Stop protection and delete data
 
-To remove the protection on a protected VM and delete the backup data as well, perform a delete operation as detailed [here](https://docs.microsoft.com/rest/api/backup/protecteditems/delete).
+To remove the protection on a protected VM and delete the backup data as well, perform a delete operation as detailed [here](/rest/api/backup/protecteditems/delete).
 
 Stopping protection and deleting data is a *DELETE* operation.
 
@@ -422,15 +422,15 @@ Stopping protection and deleting data is a *DELETE* operation.
 DELETE https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}?api-version=2019-05-13
 ```
 
-The `{containerName}` and `{protectedItemName}` are as constructed [above](#responses-1). `{fabricName}` is "Azure". For our example, this translates to:
+The `{containerName}` and `{protectedItemName}` are as constructed [above](#responses-to-get-operation). `{fabricName}` is "Azure". For our example, this translates to:
 
 ```http
 DELETE https://management.azure.com//Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;iaasvmcontainerv2;testRG;testVM?api-version=2019-05-13
 ```
 
-#### <a name="responses-2"></a>Responses
+#### Responses for delete protection
 
-*DELETE* protection is an [asynchronous operation](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). It means this operation creates another operation that needs to be tracked separately.
+*DELETE* protection is an [asynchronous operation](../azure-resource-manager/management/async-operations.md). It means this operation creates another operation that needs to be tracked separately.
 
 It returns two responses: 202 (Accepted) when another operation is created and then 204 (NoContent) when that operation completes.
 
@@ -440,9 +440,9 @@ It returns two responses: 202 (Accepted) when another operation is created and t
 |202 Accepted     |         |     Accepted    |
 
 > [!IMPORTANT]
-> In order to protect against accidental delete scenarios, there is a [soft-delete feature available](use-restapi-update-vault-properties.md#soft-delete-state) for Recovery services vault. If the soft-delete state of the vault is set to enabled, then the delete operation will NOT immediately delete the data. It will be kept for 14 days and then permanently purged. Customer is not charged for storage for this 14 days period. To undo the deletion operation, refer to the [undo-delete section](#undo-the-stop-protection-and-delete-data).
+> In order to protect against accidental delete scenarios, there is a [soft-delete feature available](use-restapi-update-vault-properties.md#soft-delete-state) for Recovery Services vault. If the soft-delete state of the vault is set to enabled, then the delete operation won't immediately delete the data. It will be kept for 14 days and then permanently purged. You aren't charged for storage for this 14 days period. To undo the deletion operation, refer to the [undo-delete section](#undo-the-deletion).
 
-### Undo the stop protection and delete data
+### Undo the deletion
 
 Undoing the accidental deletion is similar to creating the backup item. After undoing the deletion, the item is retained but no future backups are triggered.
 
@@ -459,7 +459,7 @@ Undo deletion is a *PUT* operation which is very similar to [changing the policy
 }
 ```
 
-The response will follow the same format as mentioned [for triggering an on-demand backup](#example-responses-3). The resultant job should be tracked as explained in the [monitor jobs using REST API document](backup-azure-arm-userestapi-managejobs.md#tracking-the-job).
+The response will follow the same format as mentioned [for triggering an on-demand backup](#example-responses-for-on-demand-backup). The resultant job should be tracked as explained in the [monitor jobs using REST API document](backup-azure-arm-userestapi-managejobs.md#tracking-the-job).
 
 ## Next steps
 

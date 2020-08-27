@@ -33,14 +33,8 @@ Azure Security Center monitors the following Azure resources:
 
 * Virtual machines (VMs) (including [Cloud Services](../cloud-services/cloud-services-choose-me.md))
 * Virtual machine scale sets
-* Azure Virtual Networks
-* Containers
-* Azure SQL service
-* Azure Storage account
-* Azure Web Apps (in [App Service Environment](../app-service/environment/intro.md))
 * Partner solutions integrated with your Azure subscription such as a web application firewall on VMs and on App Service Environment
-
-In addition, non-Azure (including on-premises) machines can also be monitored by Azure Security Center. Both [Windows machines](./quick-onboard-windows-computer.md) and [Linux machines](./quick-onboard-linux-computer.md) are supported.
+* [The many Azure PaaS services listed in the product overview](features-paas.md)
 
 
 ## How can I see the current security state of my Azure resources?
@@ -83,7 +77,7 @@ Azure Security Center automatically collects, analyzes, and fuses log data from 
 
 
 ## Why did Secure Score values change? <a name="secure-score-faq"></a>
-As of February 2019, Security Center adjusted the score of a few recommendations, in order to better fit their severity. As a result of this adjustment, there may be changes in overall Secure Score values.  For more information about Secure Score, see [Secure Score calculation](security-center-secure-score.md).
+As of February 2019, Security Center adjusted the score of a few recommendations, in order to better fit their severity. As a result of this adjustment, there may be changes in overall Secure Score values.  For more information about secure score, see [Enhanced secure score in Azure Security Center](secure-score-security-controls.md).
 
 
 ## What's the difference between threats detected and alerted on by Microsoft Security Response Center versus Azure Security Center?

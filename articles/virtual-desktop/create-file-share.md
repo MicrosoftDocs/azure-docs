@@ -1,16 +1,13 @@
 ---
 title: Create an Azure Files file share with a domain controller - Azure
 description: Set up an FSLogix profile container on an Azure file share in an existing Windows Virtual Desktop host pool with your Active Directory domain.
-services: virtual-desktop
 author: Heidilohr
-
-ms.service: virtual-desktop
-ms.topic: conceptual
-ms.date: 06/02/2020
+ms.topic: how-to
+ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
 ---
-# Create an Azure Files file share with a domain controller
+# Create a profile container with Azure Files and AD DS
 
 In this article, you'll learn how to create an Azure file share authenticated by a domain controller on an existing Windows Virtual Desktop host pool. You can use this file share to store storage profiles.
 
@@ -38,7 +35,7 @@ To set up a storage account:
     - Enter a unique name for your storage account.
     - For **Location**, we recommend you choose the same location as the Windows Virtual Desktop host pool.
     - For **Performance**, select **Standard**. (Depending on your IOPS requirements. For more information, see [Storage options for FSLogix profile containers in Windows Virtual Desktop](store-fslogix-profile.md).)
-    - For **Account type**, select **StorageV2**.
+    - For **Account type**, select **StorageV2** or **FileStorage** (only available if Performance tier is Premium).
     - For **Replication**, select **Locally-redundant storage (LRS)**.
 
 5. When you're done, select **Review + create**, then select **Create**.
@@ -59,21 +56,22 @@ To create a file share:
 
 4. Select **Create**.
 
-## Enable Azure Active Directory authentication
+## Enable Active Directory authentication
 
-Next, you'll need to enable Azure Active Directory (AD) authentication. To enable this policy, you'll need to follow this section's instructions on a machine that's already domain-joined. To enable authentication, follow these instructions on the VM running the domain controller:
+Next, you'll need to enable Active Directory (AD) authentication. To enable this policy, you'll need to follow this section's instructions on a machine that's already domain-joined. To enable authentication, follow these instructions on the VM running the domain controller:
 
 1. Remote Desktop Protocol into the domain-joined VM.
 
 2. Follow the instructions in [Enable Azure AD DS authentication for your Azure file shares](../storage/files/storage-files-identity-ad-ds-enable.md) to install the AzFilesHybrid module and enable authentication.
 
-3.  Open the Azure portal, open your storage account, select **Configuration**, then confirm **Azure Active Directory (AD)** is set to **Enabled**.
+3.  Open the Azure portal, open your storage account, select **Configuration**, then confirm **Active Directory (AD)** is set to **Enabled**.
 
-     ![A screenshot of the Configuration page with Azure Active Directory (AD) enabled.](media/active-directory-enabled.png)
+     > [!div class="mx-imgBorder"]
+     > ![A screenshot of the Configuration page with Azure Active Directory (AD) enabled.](media/active-directory-enabled.png)
 
 ## Assign Azure RBAC permissions to Windows Virtual Desktop users
 
-All users that need to have FSLogix profiles stored on the storage account must be assigned the Storage File Data SMB Share Contributor role. 
+All users that need to have FSLogix profiles stored on the storage account must be assigned the Storage File Data SMB Share Contributor role.
 
 Users signing in to the Windows Virtual Desktop session hosts need access permissions to access your file share. Granting access to an Azure File share involves configuring permissions both at the share level as well as on the NTFS level, similar to a traditional Windows share.
 
@@ -88,15 +86,17 @@ To assign role-based access control (RBAC) permissions:
 
 2. Open the storage account you created in [Set up a storage account](#set-up-a-storage-account).
 
-3. Select **Access Control (IAM)**.
+3. Select **File shares**, then select the name of the file share you plan to use.
 
-4. Select **Add a role assignment**.
+4. Select **Access Control (IAM)**.
 
-5. In the **Add role assignment** tab, select **Storage File Data SMB Share Elevated Contributor** for the administrator account.
-   
+5. Select **Add a role assignment**.
+
+6. In the **Add role assignment** tab, select **Storage File Data SMB Share Elevated Contributor** for the administrator account.
+
      To assign users permissions for their FSLogix profiles, follow these same instructions. However, when you get to step 5, select **Storage File Data SMB Share Contributor** instead.
 
-6. Select **Save**.
+7. Select **Save**.
 
 ## Assign users permissions on the Azure file share
 
@@ -121,7 +121,7 @@ Here's how to get the UNC path:
 
 5. After copying the URI, do the following things to change it into the UNC:
 
-    - Remove `https://`
+    - Remove `https://` and replace with `\\`
     - Replace the forward slash `/` with a back slash `\`.
     - Add the name of the file share you created in [Create an Azure file share](#create-an-azure-file-share) to the end of the UNC.
 
@@ -145,15 +145,15 @@ To configure your NTFS permissions:
 
 1. Open a command prompt on a domain-joined VM.
 
-2. Run the following cmdlet to mount the Azure file share and assign it a drive letter:
+2. Run the following command to mount the Azure file share and assign it a drive letter:
 
-     ```powershell
+     ```cmd
      net use <desired-drive-letter>: <UNC-pat> <SA-key> /user:Azure\<SA-name>
      ```
 
-3. Run the following cmdlet to review the access permissions to the Azure file share:
-    
-    ```powershell
+3. Run the following command to review the access permissions to the Azure file share:
+
+    ```cmd
     icacls <mounted-drive-letter>:
     ```
 
@@ -161,9 +161,9 @@ To configure your NTFS permissions:
 
     Both *NT Authority\Authenticated Users* and *BUILTIN\Users* have certain permissions by default. These default permissions let these users read other users' profile containers. However, the permissions described in [Configure storage permissions for use with Profile Containers and Office Containers](/fslogix/fslogix-storage-config-ht) don't let users read each others' profile containers.
 
-4. Run the following cmdlets to let your Windows Virtual Desktop users create their own profile containers while blocking access to their profile container from other users.
-     
-     ```powershell
+4. Run the following commands to allow your Windows Virtual Desktop users to create their own profile container while blocking access to their profile containers from other users.
+
+     ```cmd
      icacls <mounted-drive-letter>: /grant <user-email>:(M)
      icacls <mounted-drive-letter>: /grant "Creator Owner":(OI)(CI)(IO)(M)
      icacls <mounted-drive-letter>: /remove "Authenticated Users"
@@ -175,14 +175,12 @@ To configure your NTFS permissions:
 
      For example:
 
-     ```powershell
+     ```cmd
      icacls <mounted-drive-letter>: /grant john.doe@contoso.com:(M)
      icacls <mounted-drive-letter>: /grant "Creator Owner":(OI)(CI)(IO)(M)
      icacls <mounted-drive-letter>: /remove "Authenticated Users"
      icacls <mounted-drive-letter>: /remove "Builtin\Users"
      ```
-
-5. Select **Apply**.
 
 ## Configure FSLogix on session host VMs
 

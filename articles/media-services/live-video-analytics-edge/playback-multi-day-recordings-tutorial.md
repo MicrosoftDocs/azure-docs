@@ -36,7 +36,7 @@ It is recommended that you read through the following documentation pages:
 
 ## Run the sample 
 
-As part of the [CVR tutorial](continuous-video-recording-tutorial.md), you would have created a Media Service account. For this tutorial, you will need to have complete API access to that account. You can use the steps in [Get credentials to access Media Services API](../latest/access-api-howto.md#use-the-azure-portal) to create a service principal. You should be able to get a JSON block from the Azure portal that looks like this:
+As part of the [CVR tutorial](continuous-video-recording-tutorial.md), you would have created a Media Service account. For this tutorial, you will need to have complete API access to that account. You can use the steps in [Get credentials to access Media Services API](../latest/access-api-howto.md?tabs=portal) to create a service principal. You should be able to get a JSON block from the Azure portal that looks like this:
 
 ```
 {
@@ -53,7 +53,7 @@ As part of the [CVR tutorial](continuous-video-recording-tutorial.md), you would
 }
 ```
 
-Next, in Visual Studio code, open src/ams-asset-player. This folder contains the necessary files for this tutorial. Open the appsettings.json file, and copy its contents into a new file, appsettings.Developer.json. Make the following edits to the latter file:
+Next, in Visual Studio code, open src/ams-asset-player. This folder contains the necessary files for this tutorial. Open the appsettings.json file, and copy its contents into a new file, appsettings.development.json. Make the following edits to the latter file:
 
 ```
   "AMS" : {

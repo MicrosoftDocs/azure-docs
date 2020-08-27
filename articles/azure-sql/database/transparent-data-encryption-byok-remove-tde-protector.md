@@ -1,7 +1,7 @@
 ---
-title: Remove TDE protector (PowerShell & Azure CLI)
+title: Remove TDE protector (PowerShell & the Azure CLI)
 titleSuffix: Azure SQL Database & Azure Synapse Analytics 
-description: "Learn how to respond to a potentially compromised TDE protector for an Azure SQL Database or Azure Synapse Analytics using TDE with Bring YOur Own Key (BYOK) support."
+description: "Learn how to respond to a potentially compromised TDE protector for Azure SQL Database or Azure Synapse Analytics using TDE with Bring YOur Own Key (BYOK) support."
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -17,7 +17,7 @@ ms.date: 02/24/2020
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
 
-This topic describes how to respond to a potentially compromised TDE protector for an Azure SQL Database or Azure Synapse Analytics that is using TDE with customer-managed keys in Azure Key Vault - Bring Your Own Key (BYOK) support. To learn more about BYOK support for TDE, see the [overview page](transparent-data-encryption-byok-overview.md).
+This topic describes how to respond to a potentially compromised TDE protect for Azure SQL Database or Azure Synapse Analytics that is using TDE with customer-managed keys in Azure Key Vault - Bring Your Own Key (BYOK) support. To learn more about BYOK support for TDE, see the [overview page](transparent-data-encryption-byok-overview.md).
 
 > [!CAUTION]
 > The procedures outlined in this article should only be done in extreme cases or in test environments. Review the steps carefully, as deleting actively used TDE protectors from Azure Key Vault will result in **database becoming unavailable**.
@@ -28,14 +28,14 @@ Keep in mind that once the TDE protector is deleted in Key Vault, in up to 10 mi
 
 This how-to guide goes over two approaches depending on the desired result after a compromised incident response:
 
-- To keep databases in Azure SQL Database / Azure Synapse **accessible**
-- To make the databases in Azure SQL Database / Data Warehouses **inaccessible**
+- To make the databases in Azure SQL Database / Azure Synapse Analytics **inaccessible**.
+- To make the databases in Azure SQL Database / Azure Azure Synapse Analytics (formerly SQL Data Warehouse) **inaccessible**.
 
 ## Prerequisites
 
 - You must have an Azure subscription and be an administrator on that subscription
 - You must have Azure PowerShell installed and running.
-- This how-to guide assumes that you are already using a key from Azure Key Vault as the TDE protector for an Azure SQL Database or Azure Synapse (formerly SQL Data Warehouse). See [Transparent Data Encryption with BYOK Support](transparent-data-encryption-byok-overview.md) to learn more.
+- This how-to guide assumes that you are already using a key from Azure Key Vault as the TDE protector for an Azure SQL Database or Azure Synapse (formerly  SQL Data Warehouse). See [Transparent Data Encryption with BYOK Support](transparent-data-encryption-byok-overview.md) to learn more.
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -44,9 +44,9 @@ This how-to guide goes over two approaches depending on the desired result after
 > [!IMPORTANT]
 > The PowerShell Azure Resource Manager (RM) module is still supported but all future development is for the Az.Sql module. The AzureRM module will continue to receive bug fixes until at least December 2020.  The arguments for the commands in the Az module and in the AzureRm modules are substantially identical. For more about their compatibility, see [Introducing the new Azure PowerShell Az module](/powershell/azure/new-azureps-module-az).
 
-# [Azure CLI](#tab/azure-cli)
+# [The Azure CLI](#tab/azure-cli)
 
-For installation, see [Install Azure CLI](/cli/azure/install-azure-cli).
+For installation, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
 * * *
 
@@ -75,7 +75,7 @@ Alternatively, you can use PowerShell or the Azure CLI:
 
 The PowerShell command **Get-AzureRmSqlServerKeyVaultKey** provides the thumbprint of the TDE Protector used in the query, so you can see which keys to keep and which keys to delete in AKV. Only keys no longer used by the database can be safely deleted from Azure Key Vault.
 
-# [Azure CLI](#tab/azure-cli)
+# [The Azure CLI](#tab/azure-cli)
 
 The PowerShell command **az sql server key show** provides the thumbprint of the TDE Protector used in the query, so you can see which keys to keep and which keys to delete in AKV. Only keys no longer used by the database can be safely deleted from Azure Key Vault.
 
@@ -126,7 +126,7 @@ The PowerShell command **az sql server key show** provides the thumbprint of t
    Restore-AzKeyVaultKey -VaultName <KeyVaultName> -InputFile <BackupFilePath>
    ```
 
-# [Azure CLI](#tab/azure-cli)
+# [The Azure CLI](#tab/azure-cli)
 
 For command reference, see the [Azure CLI keyvault](/cli/azure/keyvault/key).
 

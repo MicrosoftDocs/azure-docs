@@ -4,7 +4,7 @@ description: Learn how to connect privately to a storage account in Azure using 
 services: private-link
 author: malopMSFT
 ms.service: private-link
-ms.topic: article
+ms.topic: how-to
 ms.date: 09/16/2019
 ms.author: allensu
 

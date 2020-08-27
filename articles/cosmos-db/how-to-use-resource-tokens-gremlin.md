@@ -5,7 +5,7 @@ author: luisbosquez
 ms.author: lbosq
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/06/2019
 ---
 
@@ -97,5 +97,5 @@ With a single Gremlin account, you can issue an unlimited number of tokens. Howe
 A common error that applications encounter while they're using resource tokens is, "Insufficient permissions provided in the authorization header for the corresponding request. Please retry with another authorization header." This error is returned when a Gremlin traversal attempts to write an edge or a vertex but the resource token grants *Read* permissions only. Inspect your traversal to see whether it contains any of the following steps: *.addV()*, *.addE()*, *.drop()*, or *.property()*.
 
 ## Next steps
-* [Role-based access control](role-based-access-control.md) in Azure Cosmos DB
+* [Azure role-based access control (Azure RBAC)](role-based-access-control.md) in Azure Cosmos DB
 * [Learn how to secure access to data](secure-access-to-data.md) in Azure Cosmos DB

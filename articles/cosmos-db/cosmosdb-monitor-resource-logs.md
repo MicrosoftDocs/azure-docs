@@ -4,7 +4,7 @@ description: Learn how to use Azure Diagnostic settings to monitor the performan
 author: SnehaGunda
 services: cosmos-db
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/05/2020
 ms.author: sngun
 ---
@@ -140,6 +140,21 @@ For detailed information about how to create a diagnostic setting by using the A
    | order by requestCharge_s desc
    | limit 100
    ```
+
+1. How to get the request charges and the execution duration of a query?
+
+   ```kusto
+   AzureDiagnostics
+   | where TimeGenerated >= ago(24hr)
+   | where Category == "QueryRuntimeStatistics"
+   | join (
+   AzureDiagnostics
+   | where TimeGenerated >= ago(24hr)
+   | where Category == "DataPlaneRequests"
+   ) on $left.activityId_g == $right.activityId_g
+   | project databasename_s, collectionname_s, OperationName1 , querytext_s,requestCharge_s1, duration_s1, bin(TimeGenerated, 1min)
+   ```
+
 
 1. How to get the distribution for different operations?
 

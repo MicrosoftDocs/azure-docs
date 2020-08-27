@@ -3,16 +3,16 @@ title: Create a new access package in entitlement management - Azure AD
 description: Learn how to create a new access package of resources you want to share in Azure Active Directory entitlement management.
 services: active-directory
 documentationCenter: ''
-author: msaburnley
+author: ajburnle
 manager: daveba
 editor: 
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.subservice: compliance
-ms.date: 10/15/2019
+ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: 
 ms.collection: M365-identity-device-management
@@ -133,11 +133,11 @@ On the **Review + create** tab, you can review your settings and check for any v
 
 You can also create an access package using Microsoft Graph.  A user in an appropriate role with an application that has the delegated `EntitlementManagement.ReadWrite.All` permission can call the API to
 
-1. [List the accessPackageResources in the catalog](https://docs.microsoft.com/graph/api/accesspackagecatalog-list-accesspackageresources?view=graph-rest-beta) and [create an accessPackageResourceRequest](https://docs.microsoft.com/graph/api/accesspackageresourcerequest-post?view=graph-rest-beta) for any resources that are not yet in the catalog.
-1. [List the accessPackageResourceRoles](https://docs.microsoft.com/graph/api/accesspackagecatalog-list-accesspackageresourceroles?view=graph-rest-beta) of each accessPackageResource in an accessPackageCatalog. This list of roles will then be used to select a role, when subsequently creating an accessPackageResourceRoleScope.
-1. [Create an accessPackage](https://docs.microsoft.com/graph/api/accesspackage-post?view=graph-rest-beta).
-1. [Create an accessPackageAssignmentPolicy](https://docs.microsoft.com/graph/api/accesspackageassignmentpolicy-post?view=graph-rest-beta).
-1. [Create an accessPackageResourceRoleScope](https://docs.microsoft.com/graph/api/accesspackage-post-accesspackageresourcerolescopes?view=graph-rest-beta) for each resource role needed in the access package.
+1. [List the accessPackageResources in the catalog](/graph/api/accesspackagecatalog-list-accesspackageresources?view=graph-rest-beta) and [create an accessPackageResourceRequest](/graph/api/accesspackageresourcerequest-post?view=graph-rest-beta) for any resources that are not yet in the catalog.
+1. [List the accessPackageResourceRoles](/graph/api/accesspackagecatalog-list-accesspackageresourceroles?view=graph-rest-beta) of each accessPackageResource in an accessPackageCatalog. This list of roles will then be used to select a role, when subsequently creating an accessPackageResourceRoleScope.
+1. [Create an accessPackage](/graph/api/accesspackage-post?view=graph-rest-beta).
+1. [Create an accessPackageAssignmentPolicy](/graph/api/accesspackageassignmentpolicy-post?view=graph-rest-beta).
+1. [Create an accessPackageResourceRoleScope](/graph/api/accesspackage-post-accesspackageresourcerolescopes?view=graph-rest-beta) for each resource role needed in the access package.
 
 ## Next steps
 

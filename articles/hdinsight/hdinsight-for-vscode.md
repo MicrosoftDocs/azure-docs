@@ -5,8 +5,9 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/07/2020
+ms.custom: devx-track-python
 ---
 
 # Use Spark & Hive Tools for Visual Studio Code
@@ -65,7 +66,7 @@ For a national cloud user, follow these steps to set the Azure environment first
 
 ## Connect to an Azure account
 
-Before you can submit scripts to your clusters from Visual Studio Code, you must either connect to your Azure account or link a cluster. Use Apache Ambari username and password credentials or a domain-joined account. Follow these steps to connect to Azure:
+Before you can submit scripts to your clusters from Visual Studio Code, user can either sign in to Azure subscription, or [link a HDInsight cluster](#link-a-cluster). Use the Ambari username/password or domain joined credential for ESP cluster to connect to your HDInsight cluster. Follow these steps to connect to Azure:
 
 1. From the menu bar, navigate to **View** > **Command Palette...**, and enter **Azure: Sign In**:
 
@@ -166,7 +167,10 @@ With Spark & Hive Tools for Visual Studio Code, you can submit interactive Hive 
 
 ## Submit interactive PySpark queries
 
-To submit interactive PySpark queries, follow these steps:
+Users can perform PySpark interactive in the following ways:
+
+### Using the PySpark interactive command in PY file
+Using the PySpark interactive command to submit the queries, follow these steps:
 
 1. Reopen the **HDexample** folder that was discussed [earlier](#open-a-work-folder), if closed.  
 
@@ -188,31 +192,61 @@ To submit interactive PySpark queries, follow these steps:
         print(sortedCollection[i])
    ```
 
-4. [Connect](#connect-to-an-azure-account) to your Azure account, or link a cluster if you haven't yet done so.
+4. The prompt to install PySpark kernel is displayed in the lower right corner of the window. You can click on **Install** button to proceed for the PySpark installations; or click on **Skip** button to skip this step.
 
-5. Select all the code, right-click the script editor, and select **Spark: PySpark Interactive** to submit the query. Or, use the Ctrl+Alt+I shortcut.
+   ![install pyspark kernel](./media/hdinsight-for-vscode/install-the-pyspark-kernel.png)
 
-   ![pyspark interactive context menu](./media/hdinsight-for-vscode/pyspark-interactive-right-click.png)
+5. If you need to install it later, you can navigate to **File** > **Preference** > **Settings**, then uncheck **Hdinsight: Enable Skip Pyspark Installation** in the settings. 
+    
+    ![install pyspark kernel](./media/hdinsight-for-vscode/enable-skip-pyspark-installation.png)
 
-6. Select the cluster, if you haven't specified a default cluster. After a few moments, the **Python Interactive** results appear in a new tab. The tools also let you submit a block of code instead of the whole script file by using the context menu:
+6. If the installation is successful in step 4, the "PySpark installed successfully" message box is displayed in the lower right corner of the window. Click on **Reload** button to reload the window.
+    ![pyspark installed successfully](./media/hdinsight-for-vscode/pyspark-kernel-installed-successfully.png)
+
+7. [Connect](#connect-to-an-azure-account) to your Azure account, or link a cluster if you haven't yet done so.
+
+8. Select all the code, right-click the script editor, and select **Spark: PySpark Interactive** to submit the query. Or, use the Ctrl+Alt+I shortcut.
+
+    ![pyspark interactive context menu](./media/hdinsight-for-vscode/pyspark-interactive-right-click.png)
+
+9. Select the cluster, if you haven't specified a default cluster. After a few moments, the **Python Interactive** results appear in a new tab. Click on PySpark to switch the kernel to **PySpark**, and the code will run successfully. The tools also let you submit a block of code instead of the whole script file by using the context menu:
 
    ![pyspark interactive python interactive window](./media/hdinsight-for-vscode/pyspark-interactive-python-interactive-window.png)
 
-7. Enter **%%info**, and then press Shift+Enter to view the job information (optional):
+10. Enter **%%info**, and then press Shift+Enter to view the job information (optional):
 
-   ![pyspark interactive view job information](./media/hdinsight-for-vscode/pyspark-interactive-view-job-information.png)
+    ![pyspark interactive view job information](./media/hdinsight-for-vscode/pyspark-interactive-view-job-information.png)
 
-8. The tool also supports the **Spark SQL** query:
+The tool also supports the **Spark SQL** query:
 
-   ![Pyspark Interactive view result](./media/hdinsight-for-vscode/pyspark-ineteractive-select-result.png)
+   ![pyspark interactive view result](./media/hdinsight-for-vscode/pyspark-ineteractive-select-result.png)
 
-   The submission status appears on the left of the lower status bar when you're running queries. Don't submit other queries when the status is **PySpark Kernel (busy)**.  
 
-   > [!NOTE]
-   >
-   > When **Python Extension Enabled** is cleared in the settings (it's selected by default), the submitted pyspark interaction results will use the old window:
-   >
-   > ![pyspark interactive python extension disabled](./media/hdinsight-for-vscode/pyspark-interactive-python-extension-disabled.png)
+### Perform interactive query in PY file using a #%% comment
+
+1. Add **#%%** before the Py code to get notebook experience.
+
+    ![add #%%](./media/hdinsight-for-vscode/run-cell.png)
+
+2. Click on **Run Cell**. After a few moments, the Python Interactive results appear in a new tab.
+
+   ![run cell results](./media/hdinsight-for-vscode/run-cell-get-results.png)
+
+   > [!NOTE]  
+   > When the kernel or settings mess up, use the **Python: Select Interpreter to start Jupyter server** command and **Restart IPython kernel**, then reload the VSCode, it can be solved.
+
+## Leverage IPYNB support from Python extension
+
+1. You can create a Jupyter Notebook by command from the Command Palette or by creating a new .ipynb file in your workspace. For more information, see [Working with Jupyter Notebooks in Visual Studio Code](https://code.visualstudio.com/docs/python/jupyter-support)
+
+2. Click on PySpark to switch kernel to **PySpark**, and then click on **Run Cell**, after a while, the result will be displayed.
+
+   ![run ipynb results](./media/hdinsight-for-vscode/run-ipynb-file-results.png)
+
+
+> [!NOTE]
+>
+>Ms-python >=2020.5.78807 version is not supported on this extention  is a [known issue](#known-issues).
 
 ## Submit PySpark batch job
 
@@ -252,6 +286,21 @@ To submit interactive PySpark queries, follow these steps:
    ![Submit Python job result output](./media/hdinsight-for-vscode/submit-pythonjob-result.png)
 
 After you submit a Python job, submission logs appear in the **OUTPUT** window in Visual Studio Code. The Spark UI URL and Yarn UI URL are also shown. You can open the URL in a web browser to track the job status.
+
+## Integrate with HDInsight Identity Broker (HIB)
+
+### Connect to your HDInsight ESP cluster with ID Broker (HIB)
+
+You can follow the normal steps to sign in to Azure subscription to connect to your HDInsight ESP cluster with ID Broker (HIB). After sign-in, you'll see the cluster list in Azure Explorer. For more instructions, see [Connect to your HDInsight cluster](#connect-to-an-azure-account).
+
+### Run a Hive/PySpark job on an HDInsight ESP cluster with ID Broker (HIB)
+
+For run a hive job, you can follow the normal steps to submit job to HDInsight ESP cluster with ID Broker (HIB). Refer to [Submit interactive Hive queries and Hive batch scripts](#submit-interactive-hive-queries-and-hive-batch-scripts) for more instructions.
+
+For run a interactive PySpark job, you can follow the normal steps to submit job to HDInsight ESP cluster with ID Broker (HIB). Refer to [Submit interactive PySpark queries](#submit-interactive-pyspark-queries) for more instructions.
+
+For run a PySpark batch job, you can follow the normal steps to submit job to HDInsight ESP cluster with ID Broker (HIB). Refer to [Submit PySpark batch job](#submit-pyspark-batch-job) for more instructions.
+
 
 ## Apache Livy configuration
 
@@ -414,6 +463,13 @@ Submit a job to an HDInsight cluster using Data Lake Storage Gen2. You're prompt
 ## Sign out  
 
 From the menu bar, go to **View** > **Command Palette**, and then enter **Azure: Sign Out**.
+
+## Known Issues
+### ms-python >=2020.5.78807 version is not supported on this extention 
+
+"Failed to connect to Jupyter notebook." is a known issue for python version >=2020.5.78807. It is recommended that users use the **[2020.4.76186](https://github.com/microsoft/vscode-python/releases/download/2020.4.76186/ms-python-release.vsix)** version of ms-python to avoid this issue.
+
+![known issues](./media/hdinsight-for-vscode/known-issue.png)
 
 ## Next steps
 

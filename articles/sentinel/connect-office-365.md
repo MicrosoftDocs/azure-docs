@@ -1,6 +1,6 @@
 ---
 title: Connect Office 365 logs to Azure Sentinel | Microsoft Docs
-description: Learn how to connect Office 365 data to Azure Sentinel.
+description: Learn to use the Office 365 log connector to bring in information about ongoing user and admin activities in Exchange and SharePoint, including OneDrive.
 services: sentinel
 documentationcenter: na
 author: yelevin

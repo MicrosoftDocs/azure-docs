@@ -1,15 +1,8 @@
 ---
 title: Configure your own key for encrypting Azure Service Bus data at rest
 description: This article provides information on how to configure your own key for encrypting Azure Service Bus data rest. 
-services: service-bus-messaging
-ms.service: service-bus
-documentationcenter: ''
-author: axisc
-
 ms.topic: conceptual
-ms.date: 02/25/2020
-ms.author: aschhab
-
+ms.date: 06/23/2020
 ---
 
 # Configure customer-managed keys for encrypting Azure Service Bus data at rest by using the Azure portal
@@ -23,7 +16,7 @@ Enabling the BYOK feature is a one time setup process on your namespace.
 > [!NOTE]
 > There are some caveats to the customer managed key for service side encryption. 
 >   * This feature is supported by [Azure Service Bus Premium](service-bus-premium-messaging.md) tier. It cannot be enabled for standard tier Service Bus namespaces.
->   * The encryption can only be enabled for new or empty namespaces. If the namespace contains data, then the encryption operation will fail.
+>   * The encryption can only be enabled for new or empty namespaces. If the namespace contains any queues or topics, then the encryption operation will fail.
 
 You can use Azure Key Vault to manage your keys and audit your key usage. You can either create your own keys and store them in a key vault, or you can use the Azure Key Vault APIs to generate keys. For more information about Azure Key Vault, see [What is Azure Key Vault?](../key-vault/general/overview.md)
 
@@ -46,7 +39,7 @@ To enable customer-managed keys in the Azure portal, follow these steps:
 
 After you enable customer-managed keys, you need to associate the customer managed key with your Azure Service Bus namespace. Service Bus supports only Azure Key Vault. If you enable the **Encryption with customer-managed key** option in the previous section, you need to have the key imported into Azure Key Vault. Also, the keys must have **Soft Delete** and **Do Not Purge** configured for the key. These settings can be configured using [PowerShell](../key-vault/general/soft-delete-powershell.md) or [CLI](../key-vault/general/soft-delete-cli.md#enabling-purge-protection).
 
-1. To create a new key vault, follow the Azure Key Vault [Quickstart](../key-vault/general/overview.md). For more information about importing existing keys, see [About keys, secrets, and certificates](../key-vault/about-keys-secrets-and-certificates.md).
+1. To create a new key vault, follow the Azure Key Vault [Quickstart](../key-vault/general/overview.md). For more information about importing existing keys, see [About keys, secrets, and certificates](../key-vault/general/about-keys-secrets-certificates.md).
 1. To turn on both soft delete and purge protection when creating a vault, use the [az keyvault create](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create) command.
 
     ```azurecli-interactive
@@ -95,7 +88,7 @@ After you enable customer-managed keys, you need to associate the customer manag
 
 ## Rotate your encryption keys
 
-You can rotate your key in the key vault by using the Azure Key Vaults rotation mechanism. For more information, see [Set up key rotation and auditing](../key-vault/secrets/key-rotation-log-monitoring.md). Activation and expiration dates can also be set to automate key rotation. The Service Bus service will detect new key versions and start using them automatically.
+You can rotate your key in the key vault by using the Azure Key Vaults rotation mechanism. Activation and expiration dates can also be set to automate key rotation. The Service Bus service will detect new key versions and start using them automatically.
 
 ## Revoke access to keys
 
@@ -325,5 +318,3 @@ In this step, you will update the Service Bus namespace with key vault informati
 See the following articles:
 - [Service Bus overview](service-bus-messaging-overview.md)
 - [Key Vault overview](../key-vault/general/overview.md)
-
-

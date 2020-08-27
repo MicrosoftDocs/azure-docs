@@ -4,24 +4,20 @@ description: Integrate app in Azure App Service with Azure virtual networks.
 author: ccompy
 ms.assetid: 90bc6ec6-133d-4d87-a867-fcf77da75f5a
 ms.topic: article
-ms.date: 04/16/2020
+ms.date: 08/05/2020
 ms.author: ccompy
 ms.custom: seodec18
 
 ---
 # Integrate your app with an Azure virtual network
 
-This article describes the Azure App Service VNet Integration feature and how to set it up with apps in [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). With [Azure Virtual Network][VNETOverview] (VNets), you can place many of your Azure resources in a non-internet-routable network.
+This article describes the Azure App Service VNet Integration feature and how to set it up with apps in [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). With [Azure Virtual Network][VNETOverview] (VNets), you can place many of your Azure resources in a non-internet-routable network. The VNet Integration feature enables your apps to access resources in or through a VNet. VNet Integration doesn't enable your apps to be accessed privately.
 
-Azure App Service has two variations:
+Azure App Service has two variations on the VNet Integration feature:
 
 [!INCLUDE [app-service-web-vnet-types](../../includes/app-service-web-vnet-types.md)]
 
 ## Enable VNet Integration
-
-> [!NOTE]
-> If the "Networking” blade is disabled (grayed out) in the menu for your Linux apps, it means that feature is currently not available.
->
 
 1. Go to the **Networking** UI in the App Service portal. Under **VNet Integration**, select **Click here to configure**.
 
@@ -70,8 +66,8 @@ Gateway-required VNet Integration supports connecting to a VNet in another regio
 
 You can't use gateway-required VNet Integration:
 
-* With Linux apps.
 * With a VNet connected with Azure ExpressRoute.
+* From a Linux app
 * To access service endpoint secured resources.
 * With a coexistence gateway that supports both ExpressRoute and point-to-site or site-to-site VPNs.
 
@@ -150,25 +146,54 @@ Three charges are related to the use of the gateway-required VNet Integration fe
 
 CLI support is available for regional VNet Integration. To access the following commands, [install the Azure CLI][installCLI].
 
-        az webapp vnet-integration --help
+```azurecli
+az webapp vnet-integration --help
 
-        Group
-            az webapp vnet-integration : Methods that list, add, and remove virtual network integrations
-            from a webapp.
-                This command group is in preview. It may be changed/removed in a future release.
-        Commands:
-            add    : Add a regional virtual network integration to a webapp.
-            list   : List the virtual network integrations on a webapp.
-            remove : Remove a regional virtual network integration from webapp.
+Group
+    az webapp vnet-integration : Methods that list, add, and remove virtual network
+    integrations from a webapp.
+        This command group is in preview. It may be changed/removed in a future release.
+Commands:
+    add    : Add a regional virtual network integration to a webapp.
+    list   : List the virtual network integrations on a webapp.
+    remove : Remove a regional virtual network integration from webapp.
 
-        az appservice vnet-integration --help
+az appservice vnet-integration --help
 
-        Group
-            az appservice vnet-integration : A method that lists the virtual network integrations used in an
-            appservice plan.
-                This command group is in preview. It may be changed/removed in a future release.
-        Commands:
-            list : List the virtual network integrations used in an appservice plan.
+Group
+    az appservice vnet-integration : A method that lists the virtual network
+    integrations used in an appservice plan.
+        This command group is in preview. It may be changed/removed in a future release.
+Commands:
+    list : List the virtual network integrations used in an appservice plan.
+```
+
+Powershell support for regional VNet integration is available too, but you must create generic resource with a property array of the subnet resourceID
+
+```azurepowershell
+# Parameters
+$sitename="myWebApp"
+$resourcegroupname="myRG"
+$VNetname="myVNet"
+$location="myRegion"
+$integrationsubnetname = "myIntegrationSubnet"
+$subscriptionID = "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"
+
+#Property array with the SubnetID
+$properties = @{
+      "subnetResourceId" = "/subscriptions/"+$subscriptionID+"/resourceGroups/"+$resourcegroupname+"/providers/Microsoft.Network/virtualNetworks/"+$VNetname+"/subnets/"+$integrationsubnetname;
+      }
+      
+#Creation of the VNet integration
+$resourceID = $sitename+"/VirtualNetwork"
+New-AzResource -ResourceName $resourceID `
+-Location $location  `
+-ResourceGroupName $resourcegroupname `
+-ResourceType Microsoft.Web/sites/networkConfig `
+-PropertyObject $properties 
+
+```
+
 
 For gateway-required VNet Integration, you can integrate App Service with an Azure virtual network by using PowerShell. For a ready-to-run script, see [Connect an app in Azure App Service to an Azure virtual network](https://gallery.technet.microsoft.com/scriptcenter/Connect-an-app-in-Azure-ab7527e3).
 

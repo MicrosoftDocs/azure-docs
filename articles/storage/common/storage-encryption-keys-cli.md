@@ -7,10 +7,11 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/02/2020
+ms.date: 08/24/2020
 ms.author: tamram
-ms.reviewer: cbrooks
-ms.subservice: common
+ms.reviewer: ozgun
+ms.subservice: common 
+ms.custom: devx-track-azurecli
 ---
 
 # Configure customer-managed keys with Azure Key Vault by using Azure CLI
@@ -26,6 +27,7 @@ To enable customer-managed keys for your storage account, first assign a system-
 To assign a managed identity using Azure CLI, call [az storage account update](/cli/azure/storage/account#az-storage-account-update). Remember to replace the placeholder values in brackets with your own values.
 
 ```azurecli-interactive
+az login
 az account set --subscription <subscription-id>
 
 az storage account update \
@@ -82,13 +84,40 @@ az keyvault key create \
     --vault-name <key-vault>
 ```
 
-Only 2048-bit RSA and RSA-HSM keys are supported with Azure Storage encryption. For more information about keys, see **Key Vault keys** in [About Azure Key Vault keys, secrets and certificates](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys).
+Azure storage encryption supports RSA and RSA-HSM keys of sizes 2048, 3072 and 4096. For more information about keys, see **Key Vault keys** in [About Azure Key Vault keys, secrets and certificates](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys).
 
 ## Configure encryption with customer-managed keys
 
-By default, Azure Storage encryption uses Microsoft-managed keys. Configure your Azure Storage account for customer-managed keys and specify the key to associate with the storage account.
+By default, Azure Storage encryption uses Microsoft-managed keys. In this step, configure your Azure Storage account to use customer-managed keys with Azure Key Vault, then specify the key to associate with the storage account.
 
-To update the storage account's encryption settings, call [az storage account update](/cli/azure/storage/account#az-storage-account-update), as shown in the following example. Include the `--encryption-key-source` parameter and set it to `Microsoft.Keyvault` to enable customer-managed keys for the storage account. The example also queries for the key vault URI and the latest key version, both of which values are needed to associate the key with the storage account. Remember to replace the placeholder values in brackets with your own values.
+When you configure encryption with customer-managed keys, you can choose to automatically update the key used for encryption when the key version changes in the associated key vault. Alternately, you can explicitly specify a key version to be used for encryption until the key version is manually updated.
+
+> [!NOTE]
+> To rotate a key, create a new version of the key in Azure Key Vault. Azure Storage does not handle the rotation of the key in Azure Key Vault, so you will need to rotate your key manually or create a function to rotate it on a schedule.
+
+### Configure encryption to automatically update the key version
+
+To configure encryption with customer-managed keys to automatically update the key version, install [Azure CLI version 2.4.0](/cli/azure/release-notes-azure-cli#april-21-2020) or later. For more information, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+
+To automatically update the key version for a customer-managed key, omit the key version when you configure encryption with customer-managed keys for the storage account. Call [az storage account update](/cli/azure/storage/account#az-storage-account-update) to update the storage account's encryption settings, as shown in the following example. Include the `--encryption-key-source` parameter and set it to `Microsoft.Keyvault` to enable customer-managed keys for the account. Remember to replace the placeholder values in brackets with your own values.
+
+```azurecli-interactive
+key_vault_uri=$(az keyvault show \
+    --name <key-vault> \
+    --resource-group <resource_group> \
+    --query properties.vaultUri \
+    --output tsv)
+az storage account update
+    --name <storage-account> \
+    --resource-group <resource_group> \
+    --encryption-key-name <key> \
+    --encryption-key-source Microsoft.Keyvault \
+    --encryption-key-vault $key_vault_uri
+```
+
+### Configure encryption for manual updating of key versions
+
+To explicitly specify a key version to use for encryption, provide the key version when you configure encryption with customer-managed keys for the storage account. Call [az storage account update](/cli/azure/storage/account#az-storage-account-update) to update the storage account's encryption settings, as shown in the following example. Include the `--encryption-key-source` parameter and set it to `Microsoft.Keyvault` to enable customer-managed keys for the account. Remember to replace the placeholder values in brackets with your own values.
 
 ```azurecli-interactive
 key_vault_uri=$(az keyvault show \
@@ -110,9 +139,7 @@ az storage account update
     --encryption-key-vault $key_vault_uri
 ```
 
-## Update the key version
-
-When you create a new version of a key, you'll need to update the storage account to use the new version. First, query for the key vault URI by calling [az keyvault show](/cli/azure/keyvault#az-keyvault-show), and for the key version by calling [az keyvault key list-versions](/cli/azure/keyvault/key#az-keyvault-key-list-versions). Then call [az storage account update](/cli/azure/storage/account#az-storage-account-update) to update the storage account's encryption settings to use the new version of the key, as shown in the previous section.
+When you manually update the key version, you'll need to update the storage account's encryption settings to use the new version. First, query for the key vault URI by calling [az keyvault show](/cli/azure/keyvault#az-keyvault-show), and for the key version by calling [az keyvault key list-versions](/cli/azure/keyvault/key#az-keyvault-key-list-versions). Then call [az storage account update](/cli/azure/storage/account#az-storage-account-update) to update the storage account's encryption settings to use the new version of the key, as shown in the previous example.
 
 ## Use a different key
 
@@ -120,7 +147,7 @@ To change the key used for Azure Storage encryption, call [az storage account up
 
 ## Revoke customer-managed keys
 
-If you believe that a key may have been compromised, you can revoke customer-managed keys by removing the key vault access policy. To revoke a customer-managed key, call the [az keyvault delete-policy](/cli/azure/keyvault#az-keyvault-delete-policy) command, as shown in the following example. Remember to replace the placeholder values in brackets with your own values and to use the variables defined in the previous examples.
+You can revoke customer-managed keys by removing the key vault access policy. To revoke a customer-managed key, call the [az keyvault delete-policy](/cli/azure/keyvault#az-keyvault-delete-policy) command, as shown in the following example. Remember to replace the placeholder values in brackets with your own values and to use the variables defined in the previous examples.
 
 ```azurecli-interactive
 az keyvault delete-policy \

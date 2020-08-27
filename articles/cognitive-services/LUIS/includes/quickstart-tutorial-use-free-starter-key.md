@@ -12,4 +12,4 @@ ms.custom: include file
 ms.author: diberry
 ---
 
-For this article, you can use the free [LUIS](../luis-concept-keys.md#starter-key) account and its starter key in order to author your LUIS application.
+For this article, you can use the free [LUIS](../luis-how-to-azure-subscription.md#starter-key) account and its starter key in order to author your LUIS application.

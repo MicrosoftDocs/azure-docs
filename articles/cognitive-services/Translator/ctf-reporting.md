@@ -108,7 +108,7 @@ The result set contains array of the **UserTranslationCount**. Each UserTranslat
 > [!NOTE]
 > The quota will adjust to ensure fairness among all users of the service.
 
-**View code examples on GitHib**
+**View code examples on GitHub**
 * [C#](https://github.com/MicrosoftTranslator/CustomTranslator-API-CSharp)
 * [PHP](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-PHP)
 

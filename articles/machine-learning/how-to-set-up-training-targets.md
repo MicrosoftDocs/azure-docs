@@ -8,9 +8,9 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
+ms.date: 07/08/2020
 ms.topic: conceptual
-ms.date: 03/13/2020
-ms.custom: seodec18
+ms.custom: how-to, devx-track-python
 ---
 # Set up and use compute targets for model training 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -36,7 +36,7 @@ Azure Machine Learning has varying support across different compute targets. A t
 
 
 > [!NOTE]
-> Azure Machine Learning Compute can be created as a persistent resource or created dynamically when you request a run. Run-based creation removes the compute target after the training run is complete, so you cannot reuse compute targets created this way.
+> Azure Machine Learning Compute clusters can be created as a persistent resource or created dynamically when you request a run. Run-based creation removes the compute target after the training run is complete, so you cannot reuse compute targets created this way.
 
 ## What's a run configuration?
 
@@ -70,7 +70,8 @@ While ML pipelines can train models, they can also prepare data before training 
 Use the sections below to configure these compute targets:
 
 * [Local computer](#local)
-* [Azure Machine Learning Compute](#amlcompute)
+* [Azure Machine Learning compute cluster](#amlcompute)
+* [Azure Machine Learning compute instance](#instance)
 * [Remote virtual machines](#vm)
 * [Azure HDInsight](#hdinsight)
 
@@ -85,18 +86,17 @@ Use the sections below to configure these compute targets:
 
 Now that you've attached the compute and configured your run, the next step is to [submit the training run](#submit).
 
-### <a id="amlcompute"></a>Azure Machine Learning Compute
+### <a id="amlcompute"></a>Azure Machine Learning compute cluster
 
-Azure Machine Learning Compute is a managed-compute infrastructure that allows the user to easily create a single or multi-node compute. The compute is created within your workspace region as a resource that can be shared with other users in your workspace. The compute scales up automatically when a job is submitted, and can be put in an Azure Virtual Network. The compute executes in a containerized environment and packages your model dependencies in a [Docker container](https://www.docker.com/why-docker).
+Azure Machine Learning compute cluster is a managed-compute infrastructure that allows you to easily create a single or multi-node compute. The compute is created within your workspace region as a resource that can be shared with other users in your workspace. The compute scales up automatically when a job is submitted, and can be put in an Azure Virtual Network. The compute executes in a containerized environment and packages your model dependencies in a [Docker container](https://www.docker.com/why-docker).
 
 You can use Azure Machine Learning Compute to distribute the training process across a cluster of CPU or GPU compute nodes in the cloud. For more information on the VM sizes that include GPUs, see [GPU-optimized virtual machine sizes](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu). 
 
-Azure Machine Learning Compute has default limits, such as the number of cores that can be allocated. For more information, see [Manage and request quotas for Azure resources](https://docs.microsoft.com/azure/machine-learning/how-to-manage-quotas).
+Azure Machine Learning Compute has default limits, such as the number of cores that can be allocated. For more information, see [Manage and request quotas for Azure resources](how-to-manage-quotas.md).
 
-You may also choose to use low-priority VMs to run some or all of your workloads. These VMs do not have guaranteed availability and may be preempted while in use. A preempted job is restarted, not resumed.  Low-priority VMs have discounted rates compared to normal VMs, see [Plan and manage costs](https://docs.microsoft.com/azure/machine-learning/concept-plan-manage-cost).
 
 > [!TIP]
-> Clusters can generally scale up to 100 nodes as long as you have enough quota for the number of cores required. By default clusters are setup with inter-node communication enabled between the nodes of the cluster to support MPI jobs for example. However you can scale your clusters to 1000s of nodes by simply [raising a support ticket](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest), and requesting to whitelist your subscription, or workspace, or a specific cluster for disabling inter-node communication. 
+> Clusters can generally scale up to 100 nodes as long as you have enough quota for the number of cores required. By default clusters are setup with inter-node communication enabled between the nodes of the cluster to support MPI jobs for example. However you can scale your clusters to 1000s of nodes by simply [raising a support ticket](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest), and requesting to allow list your subscription, or workspace, or a specific cluster for disabling inter-node communication. 
 
 Azure Machine Learning Compute can be reused across runs. The compute can be shared with other users in the workspace and is retained between runs, automatically scaling nodes up or down based on the number of runs submitted, and the max_nodes set on your cluster. The min_nodes setting controls the minimum nodes available.
 
@@ -111,14 +111,181 @@ Azure Machine Learning Compute can be reused across runs. The compute can be sha
 
    You can also configure several advanced properties when you create Azure Machine Learning Compute. The properties allow you to create a persistent cluster of fixed size, or within an existing Azure Virtual Network in your subscription.  See the [AmlCompute class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py
     ) for details.
-    
-   Or you can create and attach a persistent Azure Machine Learning Compute resource in [Azure Machine Learning studio](#portal-create).
 
+    Or you can create and attach a persistent Azure Machine Learning Compute resource in [Azure Machine Learning studio](#portal-create).
+
+   
 1. **Configure**: Create a run configuration for the persistent compute target.
 
    [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/amlcompute2.py?name=run_amlcompute)]
 
 Now that you've attached the compute and configured your run, the next step is to [submit the training run](#submit).
+
+ ### <a id="low-pri-vm"></a> Lower your compute cluster cost
+
+You may also choose to use [low-priority VMs](concept-plan-manage-cost.md#low-pri-vm) to run some or all of your workloads. These VMs do not have guaranteed availability and may be preempted while in use. A preempted job is restarted, not resumed. 
+
+Use any of these ways to specify a low-priority VM:
+    
+* In the studio, choose **Low Priority** when you create a VM.
+    
+* With the Python SDK, set the `vm_priority` attribute in your provisioning configuration.  
+    
+    ```python
+    compute_config = AmlCompute.provisioning_configuration(vm_size='STANDARD_D2_V2',
+                                                                vm_priority='lowpriority',
+                                                                max_nodes=4)
+    ```
+    
+* Using the CLI, set the `vm-priority`:
+    
+    ```azurecli-interactive
+    az ml computetarget create amlcompute --name lowpriocluster --vm-size Standard_NC6 --max-nodes 5 --vm-priority lowpriority
+    ```
+
+ ### <a id="managed-identity"></a> Set up managed identity
+
+ Azure Machine Learning compute clusters also support [managed identities](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) to authenticate access to Azure resources without including credentials in your code. There are two types of managed identities:
+
+* A **system-assigned managed identity** is enabled directly on the Azure Machine Learning compute cluster. The life cycle of a system-assigned identity is directly tied to the compute cluster. If the compute cluster is deleted, Azure automatically cleans up the credentials and the identity in Azure AD.
+* A **user-assigned managed identity** is a standalone Azure resource provided through Azure Managed Identity service. You can assign a user-assigned managed identity to multiple resources, and it persists for as long as you want.
+
+Use any of these ways to specify a managed identity for a compute cluster:
+    
+* In the studio, when compute cluster creation or when editing compute cluster details, toggle **Assign a managed identity** and specify a system-assigned identity or user-assigned identity.
+    
+* With the Python SDK, set the `identity_type` attribute in your provisioning configuration.  
+    
+    ```python
+    # configure cluster with a system-assigned managed identity
+    compute_config = AmlCompute.provisioning_configuration(vm_size='STANDARD_D2_V2',
+                                                            max_nodes=5,
+                                                            identity_type="SystemAssigned",
+                                                            )
+
+    # configure cluster with a user-assigned managed identity
+    compute_config = AmlCompute.provisioning_configuration(vm_size='STANDARD_D2_V2',
+                                                            max_nodes=5,
+                                                            identity_type="UserAssigned",
+                                                            identity_id=['/subscriptions/<subcription_id>/resourcegroups/<resource_group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<user_assigned_identity>'])
+
+    cpu_cluster_name = "cpu-cluster"
+    cpu_cluster = ComputeTarget.create(ws, cpu_cluster_name, compute_config)
+    ```
+
+* With the Python SDK, set the `identity_type` and `identity_id` (if creating a user-assigned managed identity) attributes in your provisioning configuration.  
+    
+    ```python
+    # add a system-assigned managed identity
+    cpu_cluster.add_identity(identity_type="SystemAssigned")
+
+    # add a user-assigned managed identity
+    cpu_cluster.add_identity(identity_type="UserAssigned", 
+                                identity_id=['/subscriptions/<subcription_id>/resourcegroups/<resource_group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<user_assigned_identity>'])
+    ```
+    
+* Using the CLI, set the `assign-identity` attribute during cluster creation:
+    
+    ```azurecli
+    # create a cluster with a user-assigned managed identity
+    az ml computetarget create amlcompute --name cpu-cluster --vm-size Standard_NC6 --max-nodes 5 --assign-identity '/subscriptions/<subcription_id>/resourcegroups/<resource_group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<user_assigned_identity>'
+
+    # create a cluster with a system-managed identity
+    az ml computetarget create amlcompute --name cpu-cluster --vm-size Standard_NC6 --max-nodes 5 --assign-identity '[system]'
+
+* Using the CLI, execute the following commands to assign a managed identity on an existing cluster:
+    
+    ```azurecli
+    # add a user-assigned managed identity
+    az ml computetarget amlcompute identity assign --name cpu-cluster '/subscriptions/<subcription_id>/resourcegroups/<resource_group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<user_assigned_identity>'
+
+    # add a system-assigned managed identity
+    az ml computetarget amlcompute identity assign --name cpu-cluster '[system]'
+
+> [!NOTE]
+> Azure Machine Learning compute clusters support only **one system-assigned identity** or **multiple user-assigned identities**, not both concurrently.
+> 
+> Additionally, you can assign only one managed identity from the studio.
+
+#### Managed identity usage
+
+AML defines the **default managed identity** as the system-assigned managed identity or the first user-assigned managed identity.
+
+During a run there are two applications of an identity:
+1. The system uses an identity to setup the user's storage mounts, container registry, and datastores.
+    * In this case, the system will use the default managed identity.
+
+1. The user applies an identity to access resources from within the code for a submitted run
+    
+    * In this case, the user must provide the *client_id* corresponding to the managed identity they want to use to retrieve a credential. 
+    * Alternatively, AML exposes the user-assigned identity's client id through the *DEFAULT_IDENTITY_CLIENT_ID* environment variable.
+    
+    For example, to retrieve a token for a datastore with the default managed identity:
+    
+    ```python
+    client_id = os.environ.get('DEFAULT_IDENTITY_CLIENT_ID')
+    credential = ManagedIdentityCredential(client_id=client_id)
+    token = credential.get_token('https://storage.azure.com/')
+
+
+
+### <a id="instance"></a>Azure Machine Learning compute instance
+
+[Azure Machine Learning compute instance](concept-compute-instance.md) is a managed-compute infrastructure that allows you to easily create a single VM. The compute is created within your workspace region, but unlike a compute cluster, an instance cannot be shared with other users in your workspace. Also the instance does not automatically scale down.  You must stop the resource to prevent ongoing charges.
+
+A compute instance can run multiple jobs in parallel and has a job queue. 
+
+Compute instances can run jobs securely in a [virtual network environment](how-to-enable-virtual-network.md#compute-instance), without requiring enterprises to open up SSH ports. The job executes in a containerized environment and packages your model dependencies in a Docker container. 
+
+1. **Create and attach**: 
+    
+    ```python
+    import datetime
+    import time
+    
+    from azureml.core.compute import ComputeTarget, ComputeInstance
+    from azureml.core.compute_target import ComputeTargetException
+    
+    # Choose a name for your instance
+    # Compute instance name should be unique across the azure region
+    compute_name = "ci{}".format(ws._workspace_id)[:10]
+    
+    # Verify that instance does not exist already
+    try:
+        instance = ComputeInstance(workspace=ws, name=compute_name)
+        print('Found existing instance, use it.')
+    except ComputeTargetException:
+        compute_config = ComputeInstance.provisioning_configuration(
+            vm_size='STANDARD_D3_V2',
+            ssh_public_access=False,
+            # vnet_resourcegroup_name='<my-resource-group>',
+            # vnet_name='<my-vnet-name>',
+            # subnet_name='default',
+            # admin_user_ssh_public_key='<my-sshkey>'
+        )
+        instance = ComputeInstance.create(ws, compute_name, compute_config)
+        instance.wait_for_completion(show_output=True)
+    ```
+
+1. **Configure**: Create a run configuration.
+    
+    ```python
+    
+    from azureml.core import ScriptRunConfig
+    from azureml.core.runconfig import DEFAULT_CPU_IMAGE
+    
+    src = ScriptRunConfig(source_directory='', script='train.py')
+    
+    # Set compute target to the one created in previous step
+    src.run_config.target = instance
+    
+    # Set environment
+    src.run_config.environment = myenv
+     
+    run = experiment.submit(config=src)
+    ```
+
+Now that you've attached the compute and configured your run, the next step is to [submit the training run](#submit)
 
 
 ### <a id="vm"></a>Remote virtual machines
@@ -150,13 +317,6 @@ Use the Azure Data Science Virtual Machine (DSVM) as the Azure VM of choice for 
                                                    username='<username>',
                                                    password="<password>")
 
-   # If you authenticate with SSH keys instead, use this code:
-   #                                                  ssh_port=22,
-   #                                                  username='<username>',
-   #                                                  password=None,
-   #                                                  private_key_file="<path-to-file>",
-   #                                                  private_key_passphrase="<passphrase>")
-
    # Attach the compute
    compute = ComputeTarget.attach(ws, compute_target_name, attach_config)
 
@@ -187,7 +347,7 @@ Azure HDInsight is a popular platform for big-data analytics. The platform provi
 
 1. **Attach**: To attach an HDInsight cluster as a compute target, you must provide the resource ID, user name, and password for the HDInsight cluster. The resource ID of the HDInsight cluster can be constructed using the subscription ID, resource group name, and HDInsight cluster name using the following string format: `/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.HDInsight/clusters/<cluster_name>`
 
-   ```python
+    ```python
    from azureml.core.compute import ComputeTarget, HDInsightCompute
    from azureml.exceptions import ComputeTargetException
 
@@ -355,7 +515,7 @@ For more information, see [Resource management](reference-azure-machine-learning
 
 ## Set up with VS Code
 
-You can access, create, and manage the compute targets that are associated with your workspace using the [VS Code extension](tutorial-train-deploy-image-classification-model-vscode.md#configure-compute-targets) for Azure Machine Learning.
+You can access, create, and manage the compute targets that are associated with your workspace using the [VS Code extension](how-to-manage-resources-vscode.md#compute-clusters) for Azure Machine Learning.
 
 ## <a id="submit"></a>Submit training run using Azure Machine Learning SDK
 

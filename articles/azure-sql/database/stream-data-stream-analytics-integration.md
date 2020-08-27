@@ -1,5 +1,5 @@
 ---
-title: Stream data using Stream Analytics integration (preview)
+title: Stream data using Azure Stream Analytics integration (preview)
 description: Use Azure Stream Analytics integration to stream data into Azure SQL Database.
 services: sql-database
 ms.service: sql-database
@@ -13,10 +13,9 @@ ms.reviewer: sstein
 ms.date: 11/04/2019
 ---
 
-# Stream data into Azure SQL Database using Stream Analytics integration (preview)
-[!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
+# Stream data into Azure SQL Database using Azure Stream Analytics integration (preview)
 
-Users can now ingest, process, view, and analyze real-time streaming data into a table directly from a SQL database in the Azure portal using [Azure Stream Analytics](../../stream-analytics/stream-analytics-introduction.md). This experience enables a wide variety of scenarios such as connected car, remote monitoring, fraud detection, and many more. In the Azure portal, you can select an events source (Event Hub/IoT Hub), view incoming real-time events, and select a table to store events. You can also write Stream Analytics Query Language queries in the portal to transform incoming events and store them in the selected table. This new entry point is in addition to the creation and configuration experiences that already exist in Stream Analytics. This experience starts from the context of your database, enabling you to quickly set up a Stream Analytics job and navigate seamlessly between the Azure SQL Database and Stream Analytics experiences.
+Users can now ingest, process, view, and analyze real-time streaming data into a table directly from a database in Azure SQL Database. They do so in the Azure portal using [Azure Stream Analytics](../../stream-analytics/stream-analytics-introduction.md). This experience enables a wide variety of scenarios such as connected car, remote monitoring, fraud detection, and many more. In the Azure portal, you can select an events source (Event Hub/IoT Hub), view incoming real-time events, and select a table to store events. You can also write Azure Stream Analytics Query Language queries in the portal to transform incoming events and store them in the selected table. This new entry point is in addition to the creation and configuration experiences that already exist in Stream Analytics. This experience starts from the context of your database, enabling you to quickly set up a Stream Analytics job and navigate seamlessly between the database in Azure SQL Database and Stream Analytics experiences.
 
 ![Stream Analytics flow](./media/stream-data-stream-analytics-integration/stream-analytics-flow.png)
 
@@ -27,7 +26,7 @@ Users can now ingest, process, view, and analyze real-time streaming data into a
 - Additional ease of use with preview data: Preview incoming data from the events source (Event Hub/IoT Hub) in the context of selected table
 
 > [!IMPORTANT]
-> An Azure Stream Analytics job can output to Azure SQL Database, Azure SQL Managed Instance, or Azure Synapse (formerly Azure SQL Data Warehouse). For more information, see [Outputs](../../stream-analytics/stream-analytics-define-outputs.md#sql-database).
+> An Azure Stream Analytics job can output to Azure SQL Database, Azure SQL Managed Instance, or Azure Synapse Analytics (formerly SQL Data Warehouse). For more information, see [Outputs](../../stream-analytics/stream-analytics-define-outputs.md#sql-database).
 
 ## Prerequisites
 
@@ -44,7 +43,7 @@ To complete the steps in this article, you need the following resources:
 
     ![Stream Analytics](./media/stream-data-stream-analytics-integration/stream-analytics.png)
 
-3. To start ingesting your streaming data into this SQL database, select **Create** and give a name to your streaming job, and then select **Next: Input**.
+3. To start ingesting your streaming data into this database, select **Create** and give a name to your streaming job, and then select **Next: Input**.
 
     ![create Stream Analytics job](./media/stream-data-stream-analytics-integration/create-job.png)
 
@@ -71,7 +70,7 @@ To complete the steps in this article, you need the following resources:
 
 6. A query page opens with following details:
 
-   - Your **Input** (input events source) from which you will ingest data  
+   - Your **Input** (input events source) from which you'll ingest data  
    - Your **Output** (output table) which will store transformed data
    - Sample [SAQL query](../../stream-analytics/stream-analytics-stream-analytics-query-patterns.md) with SELECT statement.
    - **Input preview**: Shows snapshot of latest incoming data from input events source.
@@ -94,27 +93,27 @@ To complete the steps in this article, you need the following resources:
    - **Output schema**: This contains schema of the table you selected in step 5 (new or existing).
 
       - Create new: If you selected this option in step 5, you won’t see the schema yet until you start the streaming job. When creating a new table, select the appropriate table index. For more information about table indexing, see [Clustered and Nonclustered Indexes Described](/sql/relational-databases/indexes/clustered-and-nonclustered-indexes-described/).
-      - Use existing: If you selected this option in step 5, you will see the schema of selected table.
+      - Use existing: If you selected this option in step 5, you'll see the schema of selected table.
 
-7. After you are done authoring & testing the query, select **Save query**. Select **Start Stream Analytics job** to start ingesting transformed data into the SQL table. Once you finalize the following fields, **start** the job.
+7. After you're done authoring & testing the query, select **Save query**. Select **Start Stream Analytics job** to start ingesting transformed data into the SQL table. Once you finalize the following fields, **start** the job.
    - **Output start time**: This defines the time of the first output of the job.  
      - Now: The job will start now and process new incoming data.
      - Custom: The job will start now but will process data from a specific point in time (that can be in the past or the future). For more information, see [How to start an Azure Stream Analytics job](../../stream-analytics/start-job.md).
    - **Streaming units**: Azure Stream Analytics is priced by the number of streaming units required to process the data into the service. For more information, see [Azure Stream Analytics pricing](https://azure.microsoft.com/pricing/details/stream-analytics/).
    - **Output data error handling**:  
-     - Retry: When an error occurs, Azure Stream Analytics retries writing the event indefinitely until the write succeeds. There is no timeout for retries. Eventually all subsequent events are blocked from processing by the event that is retrying. This option is the default output error handling policy.
-     - Drop: Azure Stream Analytics will drop any output event that results in a data conversion error. The dropped events cannot be recovered for reprocessing later. All transient errors (for example, network errors) are retried regardless of the output error handling policy configuration.
+     - Retry: When an error occurs, Azure Stream Analytics retries writing the event indefinitely until the write succeeds. There's no timeout for retries. Eventually all subsequent events are blocked from processing by the event that is retrying. This option is the default output error handling policy.
+     - Drop: Azure Stream Analytics will drop any output event that results in a data conversion error. The dropped events can't be recovered for reprocessing later. All transient errors (for example, network errors) are retried regardless of the output error handling policy configuration.
    - **SQL Database output settings**: An option for inheriting the partitioning scheme of your previous query step, to enable fully parallel topology with multiple writers to the table. For more information, see [Azure Stream Analytics output to Azure SQL Database](../../stream-analytics/stream-analytics-sql-output-perf.md).
    - **Max batch count**: The recommended upper limit on the number of records sent with every bulk insert transaction.  
     For more information about output error handling, see [Output error policies in Azure Stream Analytics](../../stream-analytics/stream-analytics-output-error-policy.md).  
 
      ![start job](./media/stream-data-stream-analytics-integration/start-job.png)
 
-8. Once you start the job, you will see the Running job in the list, and you can take following actions:
+8. Once you start the job, you'll see the Running job in the list, and you can take following actions:
    - **Start/stop the job**: If the job is running, you can stop the job. If the job is stopped, you can start the job.
    - **Edit job**: You can edit the query. If you want to do more changes to the job ex, add more inputs/outputs, then open the job in Stream Analytics. Edit option is disabled when the job is running.
-   - **Preview output table**: You can preview the table in SQL query editor.
-   - **Open in Stream Analytics**: Open the job in Stream Analytics service to view monitoring, debugging details of the job.
+   - **Preview output table**: You can preview the table in the SQL query editor.
+   - **Open in Stream Analytics**: Open the job in Stream Analytics to view monitoring, debugging details of the job.
 
      ![stream analytics jobs](./media/stream-data-stream-analytics-integration/jobs.png)
 
@@ -122,3 +121,4 @@ To complete the steps in this article, you need the following resources:
 
 - [Azure Stream Analytics documentation](https://docs.microsoft.com/azure/stream-analytics/)
 - [Azure Stream Analytics solution patterns](../../stream-analytics/stream-analytics-solution-patterns.md)
+ 

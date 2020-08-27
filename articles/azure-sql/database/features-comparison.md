@@ -3,15 +3,15 @@ title: Compare the database engine features of SQL Database and SQL Managed Inst
 titleSuffix: Azure SQL Database & SQL Managed Instance 
 description: This article compares the database engine features of Azure SQL Database and Azure SQL Managed Instance
 services: sql-database
-ms.service: sql-database
-ms.subservice: service
+ms.service: sql-db-mi
+ms.subservice: features
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: bonova, sstein
-ms.date: 05/10/2019
+ms.date: 07/22/2020
 ---
 
 # Features comparison: Azure SQL Database and Azure SQL Managed Instance
@@ -92,7 +92,7 @@ The following table lists the major features of SQL Server and provides informat
 | [Service Broker](https://docs.microsoft.com/sql/database-engine/configure-windows/sql-server-service-broker) | No | Yes, but only within the instance. If you are using remote Service Broker routes, try to consolidate databases from several distributed SQL Server instances into one SQL Managed Instance during migration and use only local routes. See [Service Broker differences](../managed-instance/transact-sql-tsql-differences-sql-server.md#service-broker) |
 | [Server configuration settings](https://docs.microsoft.com/sql/database-engine/configure-windows/server-configuration-options-sql-server) | No | Yes - see [T-SQL differences](../managed-instance/transact-sql-tsql-differences-sql-server.md) |
 | [Set statements](https://docs.microsoft.com/sql/t-sql/statements/set-statements-transact-sql) | Most - see individual statements | Yes - see [T-SQL differences](../managed-instance/transact-sql-tsql-differences-sql-server.md)|
-| [SQL Server Agent](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent) | No - see [Elastic jobs](elastic-jobs-overview.md) | Yes - see [SQL Server Agent differences](../managed-instance/transact-sql-tsql-differences-sql-server.md#sql-server-agent) |
+| [SQL Server Agent](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent) | No - see [Elastic jobs (preview)](elastic-jobs-overview.md) | Yes - see [SQL Server Agent differences](../managed-instance/transact-sql-tsql-differences-sql-server.md#sql-server-agent) |
 | [SQL Server Auditing](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine) | No - see [SQL Database auditing](auditing-overview.md) | Yes - see [Auditing differences](../managed-instance/transact-sql-tsql-differences-sql-server.md#auditing) |
 | [System stored functions](https://docs.microsoft.com/sql/relational-databases/system-functions/system-functions-for-transact-sql) | Most - see individual functions | Yes - see [Stored procedures, functions, triggers differences](../managed-instance/transact-sql-tsql-differences-sql-server.md#stored-procedures-functions-and-triggers) |
 | [System stored procedures](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/system-stored-procedures-transact-sql) | Some - see individual stored procedures | Yes - see [Stored procedures, functions, triggers differences](../managed-instance/transact-sql-tsql-differences-sql-server.md#stored-procedures-functions-and-triggers) |
@@ -123,7 +123,7 @@ The Azure platform provides a number of PaaS capabilities that are added as an a
 | Backup retention | Yes. 7 days default, max 35 days. | Yes. 7 days default, max 35 days. |
 | [Data Migration Service (DMS)](https://docs.microsoft.com/sql/dma/dma-overview) | Yes | Yes |
 | File system access | No. Use [BULK INSERT](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql#f-importing-data-from-a-file-in-azure-blob-storage) or [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql#i-accessing-data-from-a-file-stored-on-azure-blob-storage) to access and load data from Azure Blob Storage as an alternative. | No. Use [BULK INSERT](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql#f-importing-data-from-a-file-in-azure-blob-storage) or [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql#i-accessing-data-from-a-file-stored-on-azure-blob-storage) to access and load data from Azure Blob Storage as an alternative. |
-| [Geo-restore](recovery-using-backups.md#geo-restore) | Yes - all service tiers other than hyperscale | Yes - all service tiers other than hyperscale |
+| [Geo-restore](recovery-using-backups.md#geo-restore) | Yes | Yes |
 | [Hyperscale architecture](service-tier-hyperscale.md) | Yes | No |
 | [Long-term backup retention - LTR](long-term-retention-overview.md) | Yes, keep automatically taken backups up to 10 years. | Not yet. Use `COPY_ONLY` [manual backups](../managed-instance/transact-sql-tsql-differences-sql-server.md#backup) as a temporary workaround. |
 | Pause/resume | Yes, in [serverless model](serverless-tier-overview.md) | No |
@@ -137,7 +137,7 @@ The Azure platform provides a number of PaaS capabilities that are added as an a
 | [SQL Data Sync](sql-data-sync-sql-server-configure.md) | Yes | No |
 | [SQL Server Analysis Services (SSAS)](https://docs.microsoft.com/sql/analysis-services/analysis-services) | No, [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) is a separate Azure cloud service. | No, [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) is a separate Azure cloud service. |
 | [SQL Server Integration Services (SSIS)](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services) | Yes, with a managed SSIS in Azure Data Factory (ADF) environment, where packages are stored in SSISDB hosted by Azure SQL Database and executed on Azure SSIS Integration Runtime (IR), see [Create Azure-SSIS IR in ADF](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime). <br/><br/>To compare the SSIS features in SQL Database and SQL Managed Instance, see [Compare SQL Database to SQL Managed Instance](../../data-factory/create-azure-ssis-integration-runtime.md#comparison-of-sql-database-and-sql-managed-instance). | Yes, with a managed SSIS in Azure Data Factory (ADF) environment, where packages are stored in SSISDB hosted by SQL Managed Instance and executed on Azure SSIS Integration Runtime (IR), see [Create Azure-SSIS IR in ADF](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime). <br/><br/>To compare the SSIS features in SQL Database and SQL Managed Instance, see [Compare SQL Database to SQL Managed Instance](../../data-factory/create-azure-ssis-integration-runtime.md#comparison-of-sql-database-and-sql-managed-instance). |
-| [SQL Server Reporting Services (SSRS)](https://docs.microsoft.com/sql/reporting-services/create-deploy-and-manage-mobile-and-paginated-reports) | No - [see Power BI](https://docs.microsoft.com/power-bi/) | No - [see Power BI](https://docs.microsoft.com/power-bi/) |
+| [SQL Server Reporting Services (SSRS)](https://docs.microsoft.com/sql/reporting-services/create-deploy-and-manage-mobile-and-paginated-reports) | No - [see Power BI](https://docs.microsoft.com/power-bi/) | No - use [Power BI paginated reports](https://docs.microsoft.com/power-bi/paginated-reports/paginated-reports-report-builder-power-bi) instead or host SSRS on an Azure VM. While SQL Managed Instance cannot run SSRS as a service, it can host [SSRS catalog databases](https://docs.microsoft.com/sql/reporting-services/install-windows/ssrs-report-server-create-a-report-server-database#database-server-version-requirements) for a reporting server installed on Azure Virtual Machine, using SQL Server authentication. |
 | [Query Performance Insights (QPI)](query-performance-insight-use.md) | Yes | No. Use built-in reports in SQL Server Management Studio and Azure Data Studio. |
 | [VNet](../../virtual-network/virtual-networks-overview.md) | Partial, it enables restricted access using [VNet Endpoints](vnet-service-endpoint-rule-overview.md) | Yes, SQL Managed Instance is injected in customer's VNet. See [subnet](../managed-instance/transact-sql-tsql-differences-sql-server.md#subnet) and [VNet](../managed-instance/transact-sql-tsql-differences-sql-server.md#vnet) |
 | VNet Service endpoint | [Yes](vnet-service-endpoint-rule-overview.md) | No |
@@ -162,7 +162,7 @@ Azure SQL Database and Azure SQL Managed Instance support various data tools tha
 | [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) | Yes | Yes [version 18.0 and higher](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) |
 | [SQL Server PowerShell](https://docs.microsoft.com/sql/relational-databases/scripting/sql-server-powershell) | Yes | Yes |
 | [SQL Server Profiler](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler) | No - see [Extended events](xevent-db-diff-from-svr.md) | Yes |
-| [System Center Operations Manager (SCOM)](https://docs.microsoft.com/system-center/scom/welcome) | [Yes](https://www.microsoft.com/download/details.aspx?id=38829) | Yes, [in preview](https://www.microsoft.com/download/details.aspx?id=100306) |
+| [System Center Operations Manager (SCOM)](https://docs.microsoft.com/system-center/scom/welcome) | [Yes](https://www.microsoft.com/download/details.aspx?id=38829) | Yes, [in preview](https://www.microsoft.com/download/details.aspx?id=38829) |
 
 ## Migration methods
 

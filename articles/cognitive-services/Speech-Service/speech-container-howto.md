@@ -19,16 +19,16 @@ Containers enable you to run some of the Speech service APIs in your own environ
 Speech containers enable customers to build a speech application architecture that is optimized for both robust cloud capabilities and edge locality. There are four different containers available. The two standard containers are **Speech-to-text** and **Text-to-speech**. The two custom containers are **Custom Speech-to-text** and **Custom Text-to-speech**. Speech containers have the same [pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) as the cloud-based Azure Speech Services.
 
 > [!IMPORTANT]
-> All speech containers are currently offered as part of a [Public "Gated" Preview](../cognitive-services-container-support.md#public-gated-preview-container-registry-containerpreviewazurecrio). An announcement will be made when speech containers progress to General Availability (GA).
+> All speech containers are currently offered as part of a [Public "Gated" Preview](../cognitive-services-container-support.md#container-availability-in-azure-cognitive-services). An announcement will be made when speech containers progress to General Availability (GA).
 
 | Function | Features | Latest |
 |--|--|--|
-| Speech-to-text | Analyzes sentiment and transcribes continuous real-time speech or batch audio recordings with intermediate results.  | 2.2.0 |
-| Custom Speech-to-text | Using a custom model from the [Custom Speech portal](https://speech.microsoft.com/customspeech), transcribes continuous real-time speech or batch audio recordings into text with intermediate results. | 2.2.0 |
-| Text-to-speech | Converts text to natural-sounding speech with plain text input or Speech Synthesis Markup Language (SSML). | 1.4.0 |
-| Custom Text-to-speech | Using a custom model from the [Custom Voice portal](https://aka.ms/custom-voice-portal), converts text to natural-sounding speech with plain text input or Speech Synthesis Markup Language (SSML). | 1.4.0 |
+| Speech-to-text | Analyzes sentiment and transcribes continuous real-time speech or batch audio recordings with intermediate results.  | 2.3.1 |
+| Custom Speech-to-text | Using a custom model from the [Custom Speech portal](https://speech.microsoft.com/customspeech), transcribes continuous real-time speech or batch audio recordings into text with intermediate results. | 2.3.1 |
+| Text-to-speech | Converts text to natural-sounding speech with plain text input or Speech Synthesis Markup Language (SSML). | 1.5.0 |
+| Custom Text-to-speech | Using a custom model from the [Custom Voice portal](https://aka.ms/custom-voice-portal), converts text to natural-sounding speech with plain text input or Speech Synthesis Markup Language (SSML). | 1.5.0 |
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
 
 ## Prerequisites
 
@@ -160,7 +160,7 @@ All tags, except for `latest` are in the following format and are case-sensitive
 The following tag is an example of the format:
 
 ```
-2.2.0-amd64-en-us-preview
+2.3.1-amd64-en-us-preview
 ```
 
 For all of the supported locales of the **speech-to-text** container, please see [Speech-to-text image tags](../containers/container-image-tags.md#speech-to-text).
@@ -189,7 +189,7 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-text-to-spe
 ```
 
 > [!IMPORTANT]
-> The `latest` tag pulls the `en-US` locale and `jessarus` voice. For additional locales see [Text-to-speech locales](#text-to-speech-locales).
+> The `latest` tag pulls the `en-US` locale and `ariarus` voice. For additional locales see [Text-to-speech locales](#text-to-speech-locales).
 
 #### Text-to-speech locales
 
@@ -202,13 +202,13 @@ All tags, except for `latest` are in the following format and are case-sensitive
 The following tag is an example of the format:
 
 ```
-1.3.0-amd64-en-us-jessarus-preview
+1.5.0-amd64-en-us-ariarus-preview
 ```
 
 For all of the supported locales and corresponding voices of the **text-to-speech** container, please see [Text-to-speech image tags](../containers/container-image-tags.md#text-to-speech).
 
 > [!IMPORTANT]
-> When constructing a *Standard Text-to-speech* HTTP POST, the [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md) message requires a `voice` element with a `name` attribute. The value is the corresponding container locale and voice, also known as the ["short name"](language-support.md#standard-voices). For example, the `latest` tag would have a voice name of `en-US-JessaRUS`.
+> When constructing a *Standard Text-to-speech* HTTP POST, the [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md) message requires a `voice` element with a `name` attribute. The value is the corresponding container locale and voice, also known as the ["short name"](language-support.md#standard-voices). For example, the `latest` tag would have a voice name of `en-US-AriaRUS`.
 
 # [Custom Text-to-speech](#tab/ctts)
 
@@ -349,7 +349,7 @@ ApiKey={API_KEY}
 This command:
 
 * Runs a *Text-to-speech* container from the container image.
-* Allocates 2 CPU cores and one gigabyte (GB) of memory.
+* Allocates 1 CPU core and 2 gigabytes (GB) of memory.
 * Exposes TCP port 5000 and allocates a pseudo-TTY for the container.
 * Automatically removes the container after it exits. The container image is still available on the host computer.
 
@@ -389,7 +389,7 @@ ApiKey={API_KEY}
 This command:
 
 * Runs a *Custom Text-to-speech* container from the container image.
-* Allocates 2 CPU cores and one gigabyte (GB) of memory.
+* Allocates 1 CPU core and 2 gigabytes (GB) of memory.
 * Loads the *Custom Text-to-speech* model from the volume input mount, for example *C:\CustomVoice*.
 * Exposes TCP port 5000 and allocates a pseudo-TTY for the container.
 * Downloads the model given the `ModelId` (if not found on the volume mount).

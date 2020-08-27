@@ -24,7 +24,7 @@ Faceted navigation is used for self-directed filtering on query results in a sea
 
 Facets are dynamic and returned on a query. Search responses bring with them the facet categories used to navigate the results. If you aren't familiar with facets, the following example is an illustration of a facet navigation structure.
 
-  ![](./media/search-filters-facets/facet-nav.png)
+  ![An image showing a search dialog with filtered search results grouped by business title. An arrow indicates the results are facets that are displayed in a facet navigation structure.](./media/search-filters-facets/facet-nav.png)
 
 New to faceted navigation and want more detail? See [How to implement faceted navigation in Azure Cognitive Search](search-faceted-navigation.md).
 

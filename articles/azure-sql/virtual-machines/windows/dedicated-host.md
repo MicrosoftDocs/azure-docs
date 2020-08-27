@@ -4,7 +4,6 @@ description: Learn how to run a SQL Server VM on an Azure Dedicated Host.
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
-manager: jroth
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
 ms.devlang: na

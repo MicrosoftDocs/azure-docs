@@ -2,13 +2,14 @@
 title: "Quickstart: Use SDK to create and manage knowledge base - QnA Maker"
 description: This quickstart shows you how to create and manage your knowledge base using the client SDK.
 ms.topic: quickstart
-ms.date: 04/27/2020
+ms.date: 06/18/2020
+ms.custom: devx-track-python, devx-track-javascript
 zone_pivot_groups: programming-languages-set-six
 ---
 
-# Quickstart: Create and manage knowledge base
+# Quickstart: QnA Maker client library
 
-Get started with the QnA Maker client library. Follow these steps to install the package and try out the example code for basic tasks.  QnA Maker enables you to power a question-and-answer service from your semi-structured content like FAQ documents, URLs, and product manuals.
+Get started with the QnA Maker client library. Follow these steps to install the package and try out the example code for basic tasks.
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Get intent with C# and REST](../includes/quickstart-sdk-csharp.md)]
@@ -22,6 +23,13 @@ Get started with the QnA Maker client library. Follow these steps to install the
 [!INCLUDE [Get intent with Python and REST](../includes/quickstart-sdk-python.md)]
 ::: zone-end
 
+## Clean up resources
+
+If you want to clean up and remove a Cognitive Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
+
+* [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
+* [Azure CLI](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
+
 ## Next steps
 
 > [!div class="nextstepaction"]
@@ -30,3 +38,4 @@ Get started with the QnA Maker client library. Follow these steps to install the
 * [What is the QnA Maker API?](../Overview/overview.md)
 * [Edit a knowledge base](../how-to/edit-knowledge-base.md)
 * [Get usage analytics](../how-to/get-analytics-knowledge-base.md)
+

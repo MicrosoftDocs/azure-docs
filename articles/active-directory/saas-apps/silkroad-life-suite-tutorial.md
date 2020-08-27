@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with SilkRoad Life Suite | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and SilkRoad Life Suite.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 3cd92319-7964-41eb-8712-444f5c8b4d15
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with SilkRoad Life Suite
 
@@ -129,17 +123,13 @@ To configure Azure AD single sign-on with SilkRoad Life Suite, perform the follo
 
     b. In the **Identifier** box, type a URL using the following pattern:
 
-	| |
-	|--|
-	| `https://<subdomain>.silkroad-eng.com/Authentication/SP`|
-	| `https://<subdomain>.silkroad.com/Authentication/SP`|
+	- `https://<subdomain>.silkroad-eng.com/Authentication/SP`
+	- `https://<subdomain>.silkroad.com/Authentication/SP`
 
     c. In the **Reply URL** text box, type a URL using the following pattern:
 
-	| |
-	|--|
-	| `https://<subdomain>.silkroad-eng.com/Authentication/`|
-	| `https://<subdomain>.silkroad.com/Authentication/`|
+	- `https://<subdomain>.silkroad-eng.com/Authentication/`
+	- `https://<subdomain>.silkroad.com/Authentication/`
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Sign-On URL, Identifier and Reply URL. Contact [SilkRoad Life Suite Client support team](https://www.silkroad.com/locations/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.

@@ -2,7 +2,7 @@
 title: Create parameter file
 description: Create parameter file for passing in values during deployment of an Azure Resource Manager template
 ms.topic: conceptual
-ms.date: 04/20/2020
+ms.date: 06/19/2020
 ---
 # Create Resource Manager parameter file
 
@@ -176,12 +176,18 @@ The following example shows the formats of different parameter types.
 }
 ```
 
+## Deploy template with parameter file
+
+See:
+
+- [Deploy resources with ARM templates and Azure CLI](./deploy-cli.md#parameters)
+- [Deploy resources with ARM templates and Azure PowerShell](./deploy-powershell.md#pass-parameter-values)
+
 ## File name
 
 The general convention for naming the parameter file is to add **.parameters** to the template name. For example, if your template is named **azuredeploy.json**, your parameter file is named **azuredeploy.parameters.json**. This naming convention helps you see the connection between the template and the parameters.
 
 To deploy to different environments, create more than one parameter file. When naming the parameter file, add a way to identify its use. For example, use **azuredeploy.parameters-dev.json** and **azuredeploy.parameters-prod.json**
-
 
 ## Parameter precedence
 
@@ -192,6 +198,7 @@ It's possible to use an external parameter file, by providing the URI to the fil
 ## Parameter name conflicts
 
 If your template includes a parameter with the same name as one of the parameters in the PowerShell command, PowerShell presents the parameter from your template with the postfix **FromTemplate**. For example, a parameter named **ResourceGroupName** in your template conflicts with the **ResourceGroupName** parameter in the [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) cmdlet. You're prompted to provide a value for **ResourceGroupNameFromTemplate**. You can avoid this confusion by using parameter names that aren't used for deployment commands.
+
 
 ## Next steps
 

@@ -83,7 +83,7 @@ For ease of following along, sample 5-VM-1-NodeTypes-Secure_Step2.JSON contains 
           "properties": {
             "certificate": {
               "thumbprint": "[parameters('certificateThumbprint')]",
-    		  "thumbprintSecondary": "[parameters('secCertificateThumbprint')]",
+              "thumbprintSecondary": "[parameters('secCertificateThumbprint')]",
               "x509StoreName": "[parameters('certificateStoreValue')]"
          }
     ``` 
@@ -94,7 +94,7 @@ For ease of following along, sample 5-VM-1-NodeTypes-Secure_Step2.JSON contains 
           "properties": {
             "certificate": {
               "thumbprint": "[parameters('secCertificateThumbprint')]",
-    		  "thumbprintSecondary": "[parameters('certificateThumbprint')]",
+              "thumbprintSecondary": "[parameters('certificateThumbprint')]",
               "x509StoreName": "[parameters('certificateStoreValue')]"
          }
     ``` 
@@ -255,7 +255,7 @@ In addition to the cluster certificates, you can add client certificates to perf
 
 You can add two kinds of client certificates - Admin or Read-only. These then can be used to control access to the admin operations and Query operations on the cluster. By default, the cluster certificates are added to the allowed Admin certificates list.
 
-you can specify any number of client certificates. Each addition/deletion results in a configuration update to the Service Fabric cluster
+You can specify any number of client certificates. Each addition/deletion results in a configuration update to the Service Fabric cluster.
 
 
 ### Adding client certificates - Admin or Read-Only via portal

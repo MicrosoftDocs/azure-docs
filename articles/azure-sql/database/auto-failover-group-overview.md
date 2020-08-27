@@ -3,21 +3,21 @@ title: Auto-failover groups
 titleSuffix: Azure SQL Database & SQL Managed Instance
 description: Auto-failover groups allow you to manage replication and automatic / coordinated failover of a group of databases on a server or all databases in a managed instance.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: high-availability
-ms.custom: sqldbrb=2
+ms.custom: sqldbrb=2, devx-track-azurecli
 ms.devlang: 
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-ms.date: 2/10/2020
+ms.date: 07/09/2020
 ---
 
 # Use auto-failover groups to enable transparent and coordinated failover of multiple databases
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-Auto-failover groups allow you to manage replication and failover of a group of databases on a server or all databases in a managed instance to another region. It is a declarative abstraction on top of the existing [active geo-replication](active-geo-replication-overview.md) feature, designed to simplify deployment and management of geo-replicated databases at scale. You can initiate failover manually or you can delegate it to the Azure service based on a user-defined policy. The latter option allows you to automatically recover multiple related databases in a secondary region after a catastrophic failure or other unplanned event that results in full or partial loss of the SQL Database or SQL Managed Instance availability in the primary region. A failover group can include one or multiple databases, typically used by the same application. Additionally, you can use the readable secondary databases to offload read-only query workloads. Because auto-failover groups involve multiple databases, these databases must be configured on the primary server. Auto-failover groups support replication of all databases in the group to only one secondary server or instance in a different region.
+The auto-failover groups feature allows you to manage the replication and failover of a group of databases on a server or all databases in a managed instance to another region. It is a declarative abstraction on top of the existing [active geo-replication](active-geo-replication-overview.md) feature, designed to simplify deployment and management of geo-replicated databases at scale. You can initiate failover manually or you can delegate it to the Azure service based on a user-defined policy. The latter option allows you to automatically recover multiple related databases in a secondary region after a catastrophic failure or other unplanned event that results in full or partial loss of the SQL Database or SQL Managed Instance availability in the primary region. A failover group can include one or multiple databases, typically used by the same application. Additionally, you can use the readable secondary databases to offload read-only query workloads. Because auto-failover groups involve multiple databases, these databases must be configured on the primary server. Auto-failover groups support replication of all databases in the group to only one secondary server or instance in a different region.
 
 > [!NOTE]
 > If you want multiple Azure SQL Database secondaries in the same or different regions, use [active geo-replication](active-geo-replication-overview.md).
@@ -130,7 +130,7 @@ To achieve real business continuity, adding database redundancy between datacent
   
 ## Permissions
 
-Permissions for a failover group are managed via [role-based access control (RBAC)](../../role-based-access-control/overview.md). The [SQL Server Contributor](../../role-based-access-control/built-in-roles.md#sql-server-contributor) role has all the necessary permissions to manage failover groups.
+Permissions for a failover group are managed via [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md). The [SQL Server Contributor](../../role-based-access-control/built-in-roles.md#sql-server-contributor) role has all the necessary permissions to manage failover groups.
 
 ### Create failover group
 
@@ -198,7 +198,7 @@ To illustrate the change sequence, we will assume server A is the primary server
 1. Perform a planned failover to switch the primary server to B. Server A will become the new secondary server. The failover may result in several minutes of downtime. The actual time will depend on the size of failover group.
 2. Create additional secondaries of each database on server B to server C using [active geo-replication](active-geo-replication-overview.md). Each database on server B will have two secondaries, one on server A and one on server C. This will guarantee that the primary databases remain protected during the transition.
 3. Delete the failover group. At this point the logins will be failing. This is because the SQL aliases for the failover group listeners have been deleted and the gateway will not recognize the failover group name.
-4. Re-create the failover group with the same name between servers A and C. At this point the logins will stop failing.
+4. Re-create the failover group with the same name between servers B and C. At this point the logins will stop failing.
 5. Add all primary databases on B to the new failover group.
 6. Perform a planned failover of the failover group to switch B and C. Now server C will become the primary and B - the secondary. All secondary databases on server A will be automatically linked to the primaries on C. As in step 1, the failover may result in several minutes of downtime.
 7. Drop the server A. All databases on A will be deleted automatically.
@@ -224,9 +224,9 @@ If your application uses SQL Managed Instance as the data tier, follow these gen
 To ensure non-interrupted connectivity to the primary SQL Managed Instance after failover both the primary and secondary instances must be in the same DNS zone. It will guarantee that the same multi-domain (SAN) certificate can be used to authenticate the client connections to either of the two instances in the failover group. When your application is ready for production deployment, create a secondary SQL Managed Instance in a different region and make sure it shares the DNS zone with the primary SQL Managed Instance. You can do it by specifying the optional `DNS Zone Partner` parameter using the Azure portal, PowerShell, or the REST API.
 
 > [!IMPORTANT]
-> The first SQL Managed Instance created in the subnet determines DNS zone for all subsequent instances in the same subnet. This means that two instances from the same subnet cannot belong to different DNS zones.
+> The first managed instance created in the subnet determines DNS zone for all subsequent instances in the same subnet. This means that two instances from the same subnet cannot belong to different DNS zones.
 
-For more information about creating the secondary SQL Managed Instance in the same DNS zone as the primary instance, see [Create a secondary managed instance](../managed-instance/failover-group-add-instance-tutorial.md#3---create-a-secondary-sql-managed-instance).
+For more information about creating the secondary SQL Managed Instance in the same DNS zone as the primary instance, see [Create a secondary managed instance](../managed-instance/failover-group-add-instance-tutorial.md#create-a-secondary-managed-instance).
 
 ### Enabling replication traffic between two instances
 
@@ -234,7 +234,7 @@ Because each instance is isolated in its own VNet, two-directional traffic betwe
 
 ### Creating a failover group between managed instances in different subscriptions
 
-You can create a failover group between SQL Managed Instances in two different subscriptions. When using PowerShell API you can do it by specifying the `PartnerSubscriptionId` parameter for the secondary SQL Managed Instance. When using REST API, each instance ID included in the `properties.managedInstancePairs` parameter can have its own subscriptionID.
+You can create a failover group between SQL Managed Instances in two different subscriptions, as long as subscriptions are associated to the same [Azure Active Directory Tenant](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis#terminology). When using PowerShell API, you can do it by specifying the `PartnerSubscriptionId` parameter for the secondary SQL Managed Instance. When using REST API, each instance ID included in the `properties.managedInstancePairs` parameter can have its own subscriptionID.
   
 > [!IMPORTANT]
 > Azure portal does not support the creation of failover groups across different subscriptions. Also, for the existing failover groups across different subscriptions and/or resource groups, failover cannot be initiated manually via portal from the primary SQL Managed Instance. Initiate it from the geo-secondary instance instead.
@@ -394,7 +394,7 @@ Be aware of the following limitations:
 
 ## Programmatically managing failover groups
 
-As discussed previously, auto-failover groups and active geo-replication can also be managed programmatically using Azure PowerShell and the REST API. The following tables describe the set of commands available. Active geo-replication includes a set of Azure Resource Manager APIs for management, including the [Azure SQL Database REST API](https://docs.microsoft.com/rest/api/sql/) and [Azure PowerShell cmdlets](https://docs.microsoft.com/powershell/azure/overview). These APIs require the use of resource groups and support role-based security (RBAC). For more information on how to implement access roles, see [Azure Role-Based Access Control](../../role-based-access-control/overview.md).
+As discussed previously, auto-failover groups and active geo-replication can also be managed programmatically using Azure PowerShell and the REST API. The following tables describe the set of commands available. Active geo-replication includes a set of Azure Resource Manager APIs for management, including the [Azure SQL Database REST API](https://docs.microsoft.com/rest/api/sql/) and [Azure PowerShell cmdlets](https://docs.microsoft.com/powershell/azure/). These APIs require the use of resource groups and support role-based security (RBAC). For more information on how to implement access roles, see [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md).
 
 ### Manage SQL Database failover
 

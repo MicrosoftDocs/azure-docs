@@ -2,14 +2,14 @@
 title: Workday attribute reference
 description: Learn which attributes from SuccessFactors are supported by SuccessFactors-HR driven provisioning 
 services: active-directory
-author: cmmdesai
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
-ms.topic: conceptual
+ms.topic: reference
 ms.workload: identity
 ms.date: 05/25/2020
-ms.author: chmutali
+ms.author: kenwith
 ms.reviewer: celested
 ---
 
@@ -206,7 +206,7 @@ To configure additional XPATHs, refer to the section [Tutorial: Managing your co
 ## Custom XPATH values
 The table below provides a list of other commonly used custom XPATH API expressions when provisioning workers from Workday to Active Directory or Azure AD. Please test the XPATH API expressions provided here with your version of Workday referring to the instructions captured in the section [Tutorial: Managing your configuration](../saas-apps/workday-inbound-tutorial.md#managing-your-configuration).
 
-To add more attributes to the XPATH table for the benefit of customers implementing this integration, please leave a comment below or directly [contribute](https://docs.microsoft.com/contribute) to the article. 
+To add more attributes to the XPATH table for the benefit of customers implementing this integration, please leave a comment below or directly [contribute](/contribute) to the article. 
 
 > [!div class="mx-tdBreakAll"]
 > | \# | Workday Attribute Name  | Workday API version | Workday XPATH API expression   |
@@ -219,7 +219,7 @@ To add more attributes to the XPATH table for the benefit of customers implement
 
 
 ## Supported XPATH functions
-Given below is the list of XPATH functions supported by [Microsoft .NET XPATH library](https://docs.microsoft.com/previous-versions/dotnet/netframework-4.0/ms256138(v=vs.100)) that you can use while creating your XPATH API expression. 
+Given below is the list of XPATH functions supported by [Microsoft .NET XPATH library](/previous-versions/dotnet/netframework-4.0/ms256138(v=vs.100)) that you can use while creating your XPATH API expression. 
 
 * name
 * last
@@ -243,4 +243,3 @@ Given below is the list of XPATH functions supported by [Microsoft .NET XPATH li
 * sum
 * round
 * floor
-

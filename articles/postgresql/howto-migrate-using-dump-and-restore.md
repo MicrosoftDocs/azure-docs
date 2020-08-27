@@ -4,7 +4,7 @@ description: Describes how to extract a PostgreSQL database into a dump file and
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/24/2019
 ---
 

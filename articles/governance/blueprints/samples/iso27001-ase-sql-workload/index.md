@@ -1,7 +1,7 @@
 ---
 title: ISO 27001 ASE/SQL workload blueprint sample overview
 description: Overview and architecture of the ISO 27001 App Service Environment/SQL Database workload blueprint sample.
-ms.date: 01/13/2020
+ms.date: 07/13/2020
 ms.topic: sample
 ---
 # Overview of the ISO 27001 App Service Environment/SQL Database workload blueprint sample
@@ -31,7 +31,7 @@ This environment is composed of several Azure services used to provide a secure,
 enterprise-ready workload infrastructure based on ISO 27001 standards. This environment is
 composed of:
 
-- [Role-based access control](../../../../role-based-access-control/overview.md) (RBAC) role named
+- [Azure role](../../../../role-based-access-control/overview.md) named
   DevOps that has rights to deploy and manage resources in an [Azure App Service Environments](../../../../app-service/environment/intro.md)
   deployed by the blueprint sample
 - [Azure Policies](../../../policy/overview.md) to lock down what services can be deployed to the

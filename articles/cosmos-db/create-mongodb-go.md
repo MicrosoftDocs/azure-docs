@@ -417,7 +417,7 @@ To view, query, and work with the user data created in the previous step, login 
 
 In the top Search box, enter **Azure Cosmos DB**. When your Cosmos account blade opens, select your Cosmos account. In the left navigation, select **Data Explorer**. Expand your collection in the Collections pane, and then you can view the documents in the collection, query the data, and even create and run stored procedures, triggers, and UDFs. 
 
-![Data Explorer showing the newly created document](./media/create-mongodb-go/go-cosmos-db-data-explorer.jpg)
+:::image type="content" source="./media/create-mongodb-go/go-cosmos-db-data-explorer.png" alt-text="Data Explorer showing the newly created document":::
 
 
 Delete a `todo` using it's ID

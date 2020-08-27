@@ -160,16 +160,18 @@ The configuration server upgrade fails when certain services do not stop.
 
 To identify the issue, navigate to C:\ProgramData\ASRSetupLogs\CX_TP_InstallLogFile on the configuration server. If you find following errors, use the steps below to resolve the issue: 
 
-	2018-06-28 14:28:12.943   Successfully copied php.ini to C:\Temp from C:\thirdparty\php5nts
-	2018-06-28 14:28:12.943   svagents service status - SERVICE_RUNNING
-	2018-06-28 14:28:12.944   Stopping svagents service.
-	2018-06-28 14:31:32.949   Unable to stop svagents service.
-	2018-06-28 14:31:32.949   Stopping svagents service.
-	2018-06-28 14:34:52.960   Unable to stop svagents service.
-	2018-06-28 14:34:52.960   Stopping svagents service.
-	2018-06-28 14:38:12.971   Unable to stop svagents service.
-	2018-06-28 14:38:12.971   Rolling back the install changes.
-	2018-06-28 14:38:12.971   Upgrade has failed.
+```output
+2018-06-28 14:28:12.943   Successfully copied php.ini to C:\Temp from C:\thirdparty\php5nts
+2018-06-28 14:28:12.943   svagents service status - SERVICE_RUNNING
+2018-06-28 14:28:12.944   Stopping svagents service.
+2018-06-28 14:31:32.949   Unable to stop svagents service.
+2018-06-28 14:31:32.949   Stopping svagents service.
+2018-06-28 14:34:52.960   Unable to stop svagents service.
+2018-06-28 14:34:52.960   Stopping svagents service.
+2018-06-28 14:38:12.971   Unable to stop svagents service.
+2018-06-28 14:38:12.971   Rolling back the install changes.
+2018-06-28 14:38:12.971   Upgrade has failed.
+```
 
 To resolve the issue:
 
@@ -191,7 +193,7 @@ You have insufficient permissions to create an application in Azure Active Direc
 To resolve the issue, sign in to the Azure portal and do one of the following:
 
 - Request the Application Developer role in AAD. For more information on the Application Developer role, see [Administrator role permissions in Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
-- Verify that the **User can create application** flag is set to *true* in AAD. For more information, see [How to: Use the portal to create an Azure AD application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions).
+- Verify that the **User can create application** flag is set to *true* in AAD. For more information, see [How to: Use the portal to create an Azure AD application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
 
 ## Process server/Master Target are unable to communicate with the configuration server 
 
@@ -209,8 +211,10 @@ TCP    192.168.1.40:52739     192.168.1.40:443      SYN_SENT  // Replace IP with
 
 If you find traces similar to the following in the MT agent logs, the MT Agent is reporting errors on port 443:
 
-    #~> (11-20-2018 20:31:51):   ERROR  2508 8408 313 FAILED : PostToSVServer with error [at curlwrapper.cpp:CurlWrapper::processCurlResponse:212]   failed to post request: (7) - Couldn't connect to server
-    #~> (11-20-2018 20:31:54):   ERROR  2508 8408 314 FAILED : PostToSVServer with error [at curlwrapper.cpp:CurlWrapper::processCurlResponse:212]   failed to post request: (7) - Couldn't connect to server
+```output
+#~> (11-20-2018 20:31:51):   ERROR  2508 8408 313 FAILED : PostToSVServer with error [at curlwrapper.cpp:CurlWrapper::processCurlResponse:212]   failed to post request: (7) - Couldn't connect to server
+#~> (11-20-2018 20:31:54):   ERROR  2508 8408 314 FAILED : PostToSVServer with error [at curlwrapper.cpp:CurlWrapper::processCurlResponse:212]   failed to post request: (7) - Couldn't connect to server
+```
  
 This error can be encountered when other applications are also using port 443 or due to a firewall setting blocking the port.
 

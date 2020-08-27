@@ -8,7 +8,7 @@ manager: celestedg
 
 ms.author: mimart
 ms.date: 04/04/2020
-ms.custom: mvc, seo-javascript-september2019
+ms.custom: mvc, seo-javascript-september2019, devx-track-javascript
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
@@ -55,7 +55,8 @@ To update an application in your Azure AD B2C tenant, you can use our new unifie
 1. Select the **Directory + subscription** filter in the top menu, and then select the directory that contains your Azure AD B2C tenant.
 1. In the left menu, select **Azure AD B2C**. Or, select **All services** and search for and select **Azure AD B2C**.
 1. Select **App registrations**, select the **Owned applications** tab, and then select the *webapp1* application.
-1. Under **Web**, select the **Add URI** link, enter `http://localhost:6420`, and then select **Save**.
+1. Under **Web**, select the **Add URI** link, enter `http://localhost:6420`.
+1. Under **Implicit Grant**, select the checkboxes for **Access Tokens** and **ID Tokens** and then select **Save**.
 1. Select **Overview**.
 1. Record the **Application (client) ID** for use in a later step when you update the code in the single-page web application.
 
@@ -93,14 +94,22 @@ Now that you've obtained the sample, update the code with your Azure AD B2C tena
     ```javascript
     const msalConfig = {
         auth: {
-            clientId: "00000000-0000-0000-0000-000000000000", // Replace this value with your Application (client) ID
-            authority: "https://your-b2c-tenant.b2clogin.com/your-b2c-tenant.onmicrosoft.com/B2C_1_signupsignin1", // Update with your tenant and user flow names
-            validateAuthority: false
+          clientId: "00000000-0000-0000-0000-000000000000", // Replace this value with your Application (client) ID
+          authority: b2cPolicies.authorities.signUpSignIn.authority,
+          validateAuthority: false
         },
         cache: {
-            cacheLocation: "localStorage",
-            storeAuthStateInCookie: true
+          cacheLocation: "localStorage",
+          storeAuthStateInCookie: true
         }
+    };
+
+    const loginRequest = {
+       scopes: ["openid", "profile"],
+    };
+
+    const tokenRequest = {
+      scopes: apiConfig.b2cScopes // i.e. ["https://fabrikamb2c.onmicrosoft.com/helloapi/demo.read"]
     };
     ```
 

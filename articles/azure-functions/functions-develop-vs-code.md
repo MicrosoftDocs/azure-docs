@@ -2,6 +2,7 @@
 title: Develop Azure Functions by using Visual Studio Code 
 description: Learn how to develop and test Azure Functions by using the Azure Functions extension for Visual Studio Code.
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ms.date: 08/21/2019
 #Customer intent: As an Azure Functions developer, I want to understand how Visual Studio Code supports Azure Functions so that I can more efficiently create, publish, and maintain my Functions projects.
 ---
@@ -92,11 +93,15 @@ Depending on your language, these other files are created:
 
 * [HttpExample.cs class library file](functions-dotnet-class-library.md#functions-class-library-project) that implements the function.
 
+At this point, you can add input and output bindings to your function by [adding a parameter to a C# class library function](#add-input-and-output-bindings).
+
 # [JavaScript](#tab/nodejs)
 
 * A package.json file in the root folder.
 
 * An HttpExample folder that contains the [function.json definition file](functions-reference-node.md#folder-structure) and the [index.js file](functions-reference-node.md#exporting-a-function), a Node.js file that contains the function code.
+
+At this point, you can add input and output bindings to your function by [modifying the function.json file](#add-input-and-output-bindings).
 
 <!-- # [PowerShell](#tab/powershell)
 
@@ -109,8 +114,6 @@ Depending on your language, these other files are created:
 * An HttpExample folder that contains the [function.json definition file](functions-reference-python.md#programming-model) and the \_\_init\_\_.py file, which contains the function code.
      -->
 ---
-
-At this point, you can add input and output bindings to your function by [modifying the function.json file](#add-a-function-to-your-project) or by [adding a parameter to a C# class library function](#add-a-function-to-your-project).
 
 You can also [add a new function to your project](#add-a-function-to-your-project).
 
@@ -263,13 +266,7 @@ When you set up [continuous deployment](functions-continuous-deployment.md), you
 > [!IMPORTANT]
 > Publishing to an existing function app overwrites the content of that app in Azure.
 
-1. In Visual Studio Code, select F1 to open the command palette. In the command palette, search for and select **Azure Functions: Deploy to function app**.
-
-1. If you're not signed in, you're prompted to **Sign in to Azure**. After you sign in from the browser, go back to Visual Studio Code. If you have multiple subscriptions, **Select a subscription** that contains your function app.
-
-1. Select your existing function app in Azure. When you're warned about overwriting all files in the function app, select **Deploy** to acknowledge the warning and continue.
-
-The project is rebuilt, repackaged, and uploaded to Azure. The existing project is replaced by the new package, and the function app restarts.
+[!INCLUDE [functions-republish-vscode](../../includes/functions-republish-vscode.md)]
 
 ## Get the URL of the deployed function
 
@@ -295,7 +292,7 @@ To run your Functions project locally, you must meet these additional requiremen
 
     | Language | Requirement |
     | -------- | --------- |
-    | **C#** | [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)<br/>[.NET Core CLI tools](https://docs.microsoft.com/dotnet/core/tools/?tabs=netcore2x)   |
+    | **C#** | [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)<br/>[.NET Core CLI tools](/dotnet/core/tools/?tabs=netcore2x)   |
     | **Java** | [Debugger for Java extension](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)<br/>[Java 8](https://aka.ms/azure-jdks)<br/>[Maven 3 or later](https://maven.apache.org/) |
     | **JavaScript** | [Node.js](https://nodejs.org/)<sup>*</sup> |  
     | **Python** | [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python)<br/>[Python 3.6.8](https://www.python.org/downloads/) recommended|

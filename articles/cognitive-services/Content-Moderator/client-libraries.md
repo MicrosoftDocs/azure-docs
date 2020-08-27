@@ -10,8 +10,9 @@ zone_pivot_groups: programming-languages-set-eleven
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: quickstart
-ms.date: 04/24/2020
+ms.date: 08/17/2020
 ms.author: pafarley
+ms.custom: devx-track-python
 ---
 # Quickstart: Use the Content Moderator client library
 

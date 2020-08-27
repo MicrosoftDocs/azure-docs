@@ -43,11 +43,7 @@ This article gives you an overview of the sign-ins report.
 
 ### What Azure AD license do you need to access sign-in activity?
 
-- The sign-in activity report is available in [all editions of Azure AD](reference-reports-data-retention.md#how-long-does-azure-ad-store-the-data).
-
-- If you want to access the sign-in data using an API, your tenant must have an [Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) license associated with it.
-
-
+The sign-in activity report is available in [all editions of Azure AD](reference-reports-data-retention.md#how-long-does-azure-ad-store-the-data) and can also be accessed through the Microsoft Graph API.
 
 ## Sign-ins report
 
@@ -181,7 +177,7 @@ The **Location** - The location the connection was initiated from:
 
 - **Success**: One or more conditional access policies applied to the user and application (but not necessarily the other conditions) during sign-in. 
 
-- **Failure**: One or more conditional access policies applied and was not satisfied during sign-in.
+- **Failure**: The sign-in satisfied the user and application condition of at least one Conditional Access policy and grant controls are either not satisfied or set to block access.
 
 
 

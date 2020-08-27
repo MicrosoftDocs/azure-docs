@@ -42,7 +42,7 @@ Use the limits summarized in this table for planning.
 **Planning** | **Limits**
 --- | --- 
 **Azure Migrate projects** | Assess up to 35,000 servers in a project.
-**Azure Migrate appliance** | An appliance can discover up to 250 servers.<br/> An appliance can only be associated with a single Azure Migrate project.<br/> Any number of appliances can be associated with a single Azure Migrate project. <br/><br/> 
+**Azure Migrate appliance** | An appliance can discover up to 1000 servers.<br/> An appliance can only be associated with a single Azure Migrate project.<br/> Any number of appliances can be associated with a single Azure Migrate project. <br/><br/> 
 **Group** | You can add up to 35,000 servers in a single group.
 **Azure Migrate assessment** | You can assess up to 35,000 servers in a single assessment.
 

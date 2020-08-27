@@ -4,7 +4,6 @@ description: Extend support for SQL Server 2008 and SQL Server 2008 R2 by migrat
 services: virtual-machines-windows
 documentationcenter: ''
 author: MashaMSFT
-manager: craigg
 tags: azure-service-management
 ms.service: virtual-machines-sql
 
@@ -56,7 +55,7 @@ SQL Server requires app-consistent Azure Site Recovery snapshots to guarantee re
 
 ### Database Migration Service
 
-The [Database Migration Service](/azure/dms/dms-overview) is an option for customers if they're migrating from on-premises to an Azure VM by upgrading SQL Server to the 2012 version or later.
+The [Azure Database Migration Service](/azure/dms/dms-overview) is an option for customers if they're migrating from on-premises to an Azure VM by upgrading SQL Server to the 2012 version or later.
 
 ## Disaster recovery
 
@@ -69,7 +68,7 @@ Disaster recovery solutions for EOS SQL Server on an Azure VM are as follows:
 ## Security patching
 Extended security updates for SQL Server VMs are delivered through the Microsoft Update channels after the SQL Server VM has been registered with the SQL VM [resource provider](sql-vm-resource-provider-register.md). Patches can be downloaded manually or automatically.
 
-*Automated patching* is enabled by default. Automated patching allows Azure to automatically patch SQL Server and the operating system. You can specify a day of the week, time, and duration for a maintenance window if the SQL Server IaaS extension is installed. Azure performs patching in this maintenance window. The maintenance window schedule uses the VM locale for time.  For more information, see [Automated patching for SQL Server on Azure Virtual Machines](automated-patching.md).
+*Automated patching* is enabled by default. Automated patching allows Azure to automatically patch SQL Server and the operating system. You can specify a day of the week, time, and duration for a maintenance window if the SQL Server IaaS extension is installed. Azure performs patching in this maintenance window. The maintenance window schedule uses the VM locale for time. For more information, see [Automated patching for SQL Server on Azure Virtual Machines](automated-patching.md).
 
 
 ## Next steps

@@ -16,7 +16,7 @@ Azure Maps Creator [Feature State service](https://docs.microsoft.com/rest/api/m
 
 ## Prerequisites
 
-1. [Create an Azure Maps account](quick-demo-map-app.md#create-an-account-with-azure-maps)
+1. [Create an Azure Maps account](quick-demo-map-app.md#create-an-azure-maps-account)
 2. [Obtain a primary subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account), also known as the primary key or the subscription key.
 3. [Create a Creator resource](how-to-manage-creator.md)
 4. Download the [sample Drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
@@ -43,7 +43,7 @@ The following script implements the mouse click event. The code retrieves the fe
 /* Upon a mouse click, log the feature properties to the browser's console. */
 map.events.add("click", function(e){
 
-    var features = map.layers.getRenderedShapes(e.position, "indoor")
+    var features = map.layers.getRenderedShapes(e.position, "indoor");
 
     var result = features.reduce(function (ids, feature) {
         if (feature.layer.id == "indoor_unit_office") {

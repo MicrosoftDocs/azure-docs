@@ -4,7 +4,7 @@ description: This page provides instructions to create, configure, start, and de
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: victorh
 ---

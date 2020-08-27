@@ -1,6 +1,6 @@
 ---
 title: Assign a managed identity access to a resource using Azure CLI - Azure AD
-description: Step by step instructions for assigning a managed identity on one resource, access to another resource, using Azure CLI.
+description: Step-by-step instructions for assigning a managed identity on one resource, access to another resource, using Azure CLI.
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -10,12 +10,13 @@ editor:
 ms.service: active-directory
 ms.subservice: msi
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/06/2017
 ms.author: markvi
-ms.collection: M365-identity-device-management
+ms.collection: M365-identity-device-management 
+ms.custom: devx-track-azurecli
 ---
 
 # Assign a managed identity access to a resource using Azure CLI
@@ -26,11 +27,11 @@ Once you've configured an Azure resource with a managed identity, you can give t
 
 ## Prerequisites
 
-- If you're unfamiliar with managed identities for Azure resources, check out the [overview section](overview.md). **Be sure to review the [difference between a system-assigned and user-assigned managed identity](overview.md#how-does-the-managed-identities-for-azure-resources-work)**.
+- If you're unfamiliar with managed identities for Azure resources, check out the [overview section](overview.md). **Be sure to review the [difference between a system-assigned and user-assigned managed identity](overview.md#managed-identity-types)**.
 - If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com/free/) before continuing.
 - To run the CLI script examples, you have three options:
     - Use [Azure Cloud Shell](../../cloud-shell/overview.md) from the Azure portal (see next section).
-    - Use the embedded Azure Cloud Shell via the "Try It" button, located in the top right corner of each code block.
+    - Use the embedded Azure Cloud Shell via the "Try It" button, located in the top-right corner of each code block.
     - [Install the latest version of Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) if you prefer to use a local CLI console. 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]

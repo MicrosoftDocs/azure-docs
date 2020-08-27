@@ -1,9 +1,9 @@
 ---
 title: Point-in-time restore (PITR)
 titleSuffix: Azure SQL Managed Instance 
-description: Restore a database on an Azure SQL Managed Instance to a previous point in time.
+description: Restore a database on Azure SQL Managed Instance to a previous point in time.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-managed-instance
 ms.subservice: operations
 ms.custom: 
 ms.devlang: 
@@ -13,10 +13,10 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab, mathoma
 ms.date: 08/25/2019
 ---
-# Restore an Azure SQL Managed Instance database to a previous point in time
+# Restore a database in Azure SQL Managed Instance to a previous point in time
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-Use point-in-time restore (PITR) to create a database as a copy of another database from some time in the past. This article describes how to do a point-in-time restore of a database in an Azure SQL Managed Instance.
+Use point-in-time restore (PITR) to create a database as a copy of another database from some time in the past. This article describes how to do a point-in-time restore of a database in Azure SQL Managed Instance.
 
 Point-in-time restore is useful in recovery scenarios, such as incidents caused by errors, incorrectly loaded data, or deletion of crucial data. You can also use it simply for testing or auditing. Backup files are kept for 7 to 35 days, depending on your database settings.
 
@@ -28,17 +28,17 @@ Point-in-time restore can restore a database:
 
 ## Limitations
 
-Point in time restore to a SQL Managed Instance has the following limitations:
+Point-in-time restore to SQL Managed Instance has the following limitations:
 
-- When you're restoring from one SQL Managed Instance to another, both instances must be in the same subscription and region. Cross-region and cross-subscription restore aren't currently supported.
-- Point-in-time restore of a whole SQL Managed Instance is not possible. This article explains only what's possible: point-in-time restore of a database that's hosted on a SQL Managed Instance.
+- When you're restoring from one instance of SQL Managed Instance to another, both instances must be in the same subscription and region. Cross-region and cross-subscription restore aren't currently supported.
+- Point-in-time restore of a whole SQL Managed Instance is not possible. This article explains only what's possible: point-in-time restore of a database that's hosted on SQL Managed Instance.
 
 > [!WARNING]
 > Be aware of the storage size of your SQL Managed Instance. Depending on size of the data to be restored, you might run out of instance storage. If there isn't enough space for the restored data, use a different approach.
 
-The following table shows point-in-time restore scenarios for SQL Managed Instances:
+The following table shows point-in-time restore scenarios for SQL Managed Instance:
 
-|           |Restore existing DB to same SQL Managed Instance| Restore existing DB to another SQL Managed Instance|Restore dropped DB to same SQL Managed Instance|Restore dropped DB to another SQL Managed Instance|
+|           |Restore existing DB to the same instance of SQL Managed Instance| Restore existing DB to another SQL Managed Instance|Restore dropped DB to same SQL Managed Instance|Restore dropped DB to another SQL Managed Instance|
 |:----------|:----------|:----------|:----------|:----------|
 |**Azure portal**| Yes|No |Yes|No|
 |**Azure CLI**|Yes |Yes |No|No|
@@ -239,7 +239,7 @@ Connect directly to the SQL Managed Instance and start SQL Server Management Stu
 ALTER DATABASE WorldWideImportersPITR MODIFY NAME = WorldWideImporters;
 ```
 
-Use one of the following methods to connect to your database in the SQL Managed Instance:
+Use one of the following methods to connect to your database in SQL Managed Instance:
 
 - [Azure virtual machine](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-configure-vm)
 - [Point-to-site](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-configure-p2s)

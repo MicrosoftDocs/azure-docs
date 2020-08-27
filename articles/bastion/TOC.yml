@@ -2,7 +2,7 @@
   href: index.yml
 - name: Overview
   items: 
-  - name: About Azure Bastion
+  - name: What is Azure Bastion?
     href: bastion-overview.md
 - name: Quickstarts
   items:
@@ -33,7 +33,7 @@
   - name: Connect to a virtual machine scale set
     href: bastion-connect-vm-scale-set.md
   - name: Connect to DevTest Labs virtual machines
-    href: ../lab-services/enable-browser-connection-lab-virtual-machines.md?toc=%2fazure%2fbastion%2ftoc.json
+    href: ../devtest-labs/enable-browser-connection-lab-virtual-machines.md?toc=%2fazure%2fbastion%2ftoc.json
   - name: Work with a virtual machine session
     items:
     - name: Copy and paste
