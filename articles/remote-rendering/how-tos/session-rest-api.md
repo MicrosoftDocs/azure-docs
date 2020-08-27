@@ -112,7 +112,7 @@ The response from the request above includes a **sessionId**, which you need for
 $sessionId = "d31bddca-dab7-498e-9bc9-7594bc12862f"
 ```
 
-## Modify and query Session properties
+## Modify and query session properties
 
 There are a few commands to query or modify the parameters of existing sessions.
 
