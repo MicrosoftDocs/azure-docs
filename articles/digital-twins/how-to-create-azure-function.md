@@ -57,7 +57,7 @@ In order to use the SDK, you'll need to include the following packages into your
 
 **Option 1. Add packages using Visual Studio package manager:**
     
-You can do this by right-selecting on your project and select _Manage NuGet Packages..._ from the list. Then, in the window that opens, select _Browse_ tab and search for the following packages. Select _Install_ and _accept_ the License agreement to install the packages.
+You can do this by right-selecting on your project and select _Manage NuGet Packages_ from the list. Then, in the window that opens, select _Browse_ tab and search for the following packages. Select _Install_ and _accept_ the License agreement to install the packages.
 
 * `Azure.DigitalTwins.Core` (version `1.0.0-preview.2`)
 * `Azure.Identity` (version `1.1.1`)
@@ -99,7 +99,7 @@ private static readonly string adtInstanceUrl = Environment.GetEnvironmentVariab
 ```csharp
 private static readonly HttpClient httpClient = new HttpClient();
 ```
-* You can use the managed identity credentials in Azure function like this:
+* You can use the managed identity credentials in Azure function.
 ```csharp
 ManagedIdentityCredential cred = new ManagedIdentityCredential("https://digitaltwins.azure.net");
 ```
