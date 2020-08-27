@@ -1256,6 +1256,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-arc/arc-overview.md",
+      "redirect_url": "/azure/azure-arc/overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory/saas-apps/123contactform-tutorial.md",
       "redirect_url": "/azure/active-directory/saas-apps/123formbuilder-tutorial",
       "redirect_document_id": true
