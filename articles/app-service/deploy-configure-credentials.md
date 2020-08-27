@@ -8,6 +8,7 @@ ms.reviewer: byvinyal
 ms.custom: seodec18
 
 ---
+
 # Configure deployment credentials for Azure App Service
 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) supports two types of credentials for [local Git deployment](deploy-local-git.md) 
 and [FTP/S deployment](deploy-ftp.md). These credentials are not the same as your Azure subscription credentials.
@@ -71,6 +72,76 @@ To get the app-level credentials:
 2. Select **App Credentials**, and select the **Copy** link to copy the username or password.
 
 To reset the app-level credentials, select **Reset Credentials** in the same dialog.
+
+## Disable basic authentication
+
+Some organizations need to meet security requirements and would rather disable access via FTP or WebDeploy. This way, the organization's members can only access its App Services through APIs that are controlled by Azure Active Directory (AAD).
+
+### FTP
+
+To disable FTP access to the site, copy the following snippet and paste it at resources.azure.com/raw. Replace the placeholders with your subscription, resource group, site name, and site’s location.
+
+```
+PATCH https://management.azure.com/subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Web/sites/<site-name>/basicPublishingCredentialsPolicies/ftp/?api-version=2014-11-01
+{
+  "id": null,
+  "name": "<site-name>",
+  "type": "Microsoft.Web/sites",
+  "location": "<location>",
+  "properties": {
+    "allow": false
+  }
+}
+```
+
+Once you have replaced the placeholders, select the text and press Ctrl + S (for Send). On the right side panel, you can see the response code and body. To confirm that FTP access is blocked, you can try to authenticate using an FTP client such as FileZilla. To retrieve the publishing credentials, go to the overview blade of your site and click Download Publish Profile. Use the file’s FTP hostname, username, and password to authenticate, and you will get a 401 Unauthenticted.
+
+### WebDeploy and SCM
+
+To disable basic auth access to the WebDeploy port and SCM site, copy the following snippet and paste it at [resources.azure.com/raw](https://resources.azure.com/raw/). Replace the placeholders with your subscription, resource group, site name, and site's location. 
+
+```bash
+PATCH https://management.azure.com/subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Web/sites/<site-name>/basicPublishingCredentialsPolicies/scm/?api-version=2014-11-01
+{
+  "id": null,
+  "name": "<site-name>",
+  "type": "Microsoft.Web/sites",
+  "location": "<location>",
+  "properties": {
+    "allow": false
+  }
+}
+```
+
+To confirm that the publish profile credentials are blocked on WebDeploy, try [publishing a web app using Visual Studio 2019](https://docs.microsoft.com/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019).
+
+### Disable access to the API
+
+The API in the previous section is backed Azure Role-Based Access Control (RBAC), which means you can [create a custom role](https://docs.microsoft.com/en-us/azure/role-based-access-control/custom-roles#steps-to-create-a-custom-role) to block users from using the API and assign lower-priveldged users to the role so they cannot enable basic auth on any sites. To configure the custom role, follow the instructions below.
+
+1.  Open the [Azure portal](https://portal.azure.com/)
+2.  Open the subscription that you want to create the custom role in
+3.  On the left navigation panel, click **Access Control (IAM)**
+4.  Click **+ Add** and click **Add custom role** in the dropdown
+5.  Provide a name and description for the role.
+6.  For **Baseline permissions** you can clone one of your organization's existing roles, or one of the default roles
+7.  Click the **Permissions** tab, and click **Exclude permissions**
+8.  In the context blade, click the **Microsoft Web Apps**. This will open a list of all the RBAC actions for App Service
+9.  Search for the `microsoft.web/sites/basicPublishingCredentialsPolicies/ftp` and `microsoft.web/sites/basicPublishingCredentialsPolicies/scm` operations. Under these, check the box for **Write**. This will add the actions as *NotActions* for the role.
+  
+    You can disable this for [slots](https://docs.microsoft.com/en-us/azure/app-service/deploy-staging-slots) as well. See the `microsoft.web/sites/slots/basicPublishingCredentialsPolicies/ftp` and `microsoft.web/sites/slots/basicPublishingCredentialsPolicies/scm` actions   
+
+    ![Disable write actions in the Portal]({{site.baseurl}}/media/2020/08/rbac-ftp-list-operations-portal.png)
+
+10. Click **Review + create** at the bottom. Under **Permissions**, you will see the `basicPublishingCredentialsPolicies` APIs listed as NotActions.
+    
+    ![List of NotActions]({{site.baseurl}}/media/2020/08/rbac-ftp-list-notactions.png)
+
+11. Finally, click **Create**. You can now assign this role to your organization's users.
+
+> More information on [setting up custom RBAC roles](https://docs.microsoft.com/en-us/azure/role-based-access-control/custom-roles-portal#step-2-choose-how-to-start).
+
+You can also use [Azure Monitor](https://azure.github.io/AppService/2020/08/10/securing-data-plane-access.html#audit-with-azure-monitor) to audit any successful authentication requests and use [Azure Policy](https://azure.github.io/AppService/2020/08/10/securing-data-plane-access.html#enforce-compliance-with-azure-policy) to enforce this configuration for all sites in your subscription.
 
 ## Next steps
 
