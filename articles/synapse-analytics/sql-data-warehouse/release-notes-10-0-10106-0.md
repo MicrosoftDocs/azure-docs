@@ -36,6 +36,13 @@ For tooling improvements, make sure you have the correct version installed speci
 > SELECT SERVERPROPERTY('EngineEdition')
 > ```
 
+## Aug 2020
+
+| Service improvements | Details |
+| --- | --- |
+|**Workload Management – Portal Experience**|Users can configure and manage their workload management settings via the Azure portal. The ability to configure [workload groups](/azure/synapse-analytics/sql-data-warehouse/quickstart-configure-workload-isolation-portal) and [workload classifiers](/azure/synapse-analytics/sql-data-warehouse/quickstart-create-a-workload-classifier-portal) with importance is possible.|
+|**Improved table mappings catalog view**|The new catalog view [sys.pdw_permanent_table_mappings](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-pdw-permanent-table-mappings-transact-sql?view=sqlallproducts-allversions) maps **object_ids** of permanent user tables to their physical table names. This view offers optimized performance over the current [sys.pdw_table_mappings](/sql/relational-databases/system-catalog-views/sys-pdw-table-mappings-transact-sql?view=sqlallproducts-allversions).|
+
 ## July 2020
 
 | Service improvements | Details |

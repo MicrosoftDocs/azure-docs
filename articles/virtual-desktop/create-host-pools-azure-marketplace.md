@@ -3,7 +3,7 @@ title: Windows Virtual Desktop host pool Azure portal - Azure
 description: How to create a Windows Virtual Desktop host pool by using the Azure portal.
 author: Heidilohr
 ms.topic: tutorial
-ms.date: 08/20/2020
+ms.date: 08/21/2020
 ms.author: helohr
 manager: lizross
 ---
@@ -137,7 +137,7 @@ To set up your virtual machine within the host pool setup process:
 
     If you choose **Advanced**, select an existing network security group that you've already configured.
 
-10. After that, select whether you want the virtual machines to be joined to a specific domain and organizational unit. If you choose **Yes**, specify the domain to join. You can also add a specific organizational unit you want the virtual machines to be in. If you choose **No**, the VMs will be joined to the domain matching the suffix of the **AD domain join UPN**.
+10. After that, select whether you want the virtual machines to be joined to a specific domain and organizational unit. If you choose **Yes**, specify the domain to join. You can optionally add a specific organizational unit you want the virtual machines to be in. If you choose **No**, the VMs will be joined to the domain matching the suffix of the **AD domain join UPN**.
 
 11. Under Administrator account, enter the credentials for the Active Directory Domain admin of the virtual network you selected.
 

@@ -264,7 +264,7 @@ ms.custom: H1Hack27Feb2017
 [virtual-machines-linux-create-upload-vhd-oracle]:../../linux/oracle-create-upload-vhd.md
 [virtual-machines-linux-redhat-create-upload-vhd]:../../linux/redhat-create-upload-vhd.md
 [virtual-machines-linux-how-to-attach-disk]:../../linux/add-disk.md
-[virtual-machines-linux-how-to-attach-disk-how-to-initialize-a-new-data-disk-in-linux]:../../linux/add-disk.md#connect-to-the-linux-vm-to-mount-the-new-disk
+[virtual-machines-linux-how-to-attach-disk-how-to-initialize-a-new-data-disk-in-linux]:../../linux/add-disk.md#format-and-mount-the-disk
 [virtual-machines-linux-tutorial]:../../linux/quick-create-cli.md
 [virtual-machines-linux-update-agent]:../../linux/update-agent.md
 [virtual-machines-manage-availability]:../../linux/manage-availability.md

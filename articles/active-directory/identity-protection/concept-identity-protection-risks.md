@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 08/15/2020
+ms.date: 08/24/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -36,6 +36,7 @@ These risks are calculated offline using Microsoft's internal and external threa
 | Risk detection | Description |
 | --- | --- |
 | Leaked credentials | This risk detection type indicates that the user's valid credentials have been leaked. When cybercriminals compromise valid passwords of legitimate users, they often share those credentials. This sharing is typically done by posting publicly on the dark web, paste sites, or by trading and selling the credentials on the black market. When the Microsoft leaked credentials service acquires user credentials from the dark web, paste sites, or other sources, they are checked against Azure AD users' current valid credentials to find valid matches. For more information about leaked credentials, see [Common questions](#common-questions). |
+| Password spray | A password spray attack is where multiple usernames are attacked using common passwords in a unified brute force manner to gain unauthorized access. This risk detection is triggered when a password spray attack has been performed. |
 | Azure AD threat intelligence | This risk detection type indicates user activity that is unusual for the given user or is consistent with known attack patterns based on Microsoft's internal and external threat intelligence sources. |
 
 ### Sign-in risk
