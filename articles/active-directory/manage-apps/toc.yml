@@ -248,8 +248,6 @@
           href: ways-users-get-assigned-to-applications.md
       - name: Troubleshoot My Apps
         items:
-        - name: Manage browser extension
-          href: manage-access-panel-browser-extension.md
         - name: App not appearing
           href: access-panel-troubleshoot-application-not-appearing.md
         - name: Unexpected app appearing
