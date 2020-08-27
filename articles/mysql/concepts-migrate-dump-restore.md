@@ -94,11 +94,13 @@ For example, to back up a database named 'testdb' on your MySQL server with the 
 ```bash
 GRANT SELECT, LOCK TABLES, SHOW VIEW ON *.* TO 'testuser'@'hostname' IDENTIFIED BY 'password';
 ```
+Now run mysqldump to create the backup of `testdb` database
 
 ```bash
 $ mysqldump -u root -p testdb > testdb_backup.sql
 ```
 To select specific tables in your database to back up, list the table names separated by spaces. For example, to back up only table1 and table2 tables from the 'testdb', follow this example:
+
 ```bash
 $ mysqldump -u root -p testdb table1 table2 > testdb_tables_backup.sql
 ```
@@ -113,11 +115,21 @@ Once you have created the target database, you can use the mysql command or MySQ
 mysql -h [hostname] -u [uname] -p[pass] [db_to_restore] < [backupfile.sql]
 ```
 In this example, restore the data into the newly created database on the target Azure Database for MySQL server.
+
+# [Single Server](#tab/single-server)
 ```bash
 $ mysql -h mydemoserver.mysql.database.azure.com -u myadmin@mydemoserver -p testdb < testdb_backup.sql
 ```
+# [Flexible Server (Preview)](#tab/flexible-server)
+```bash
+$ mysql -h mydemoserver.mysql.database.azure.com -u myadmin -p testdb < testdb_backup.sql
+```
+
 ## Dump and restore using PHPMyAdmin
 Follow these steps to dump and restore a database using PHPMyadmin.
+
+> [!NOTE]
+> For single server, the username must be in this format , 'username@servername' but for flexible server you can just use 'username' If you use 'username@servername' for flexible server, the connection will fail.
 
 ### Export with PHPMyadmin
 To export, you can use the common tool phpMyAdmin, which you may already have installed locally in your environment. To export your MySQL database using PHPMyAdmin:

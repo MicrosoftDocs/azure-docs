@@ -397,19 +397,19 @@
   - name: Quickstarts
     items:
     - name: Create Server using ARM template
-      href: flexible-server/quickstart-create-flexible-server-arm-template.md
+      href: flexible-server/quickstart-create-arm-template.md
   - name: Tutorials
     items:
     - name: Build PHP (Laravel) app with Flexible Server
-      href: flexible-server/tutorial-php-flexible-server-database-app.md
+      href: flexible-server/tutorial-php-database-app.md
   - name: How-to guides
     items:
     - name: Manage your server
       items:
       - name: Azure Portal
-        href: flexible-server/how-to-manage-flexible-server-portal.md
+        href: flexible-server/how-to-manage-portal.md
       - name: Azure CLI
-        href: flexible-server/how-to-manage-flexible-server-cli.md
+        href: flexible-server/how-to-manage-cli.md
 - name: Reference
   items:
   - name: Azure CLI

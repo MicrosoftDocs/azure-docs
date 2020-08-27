@@ -9,9 +9,9 @@ ms.author: sumuth
 ms.date: 09/22/2020
 ---
 
-# Quickstart: Use an ARM template to create an Azure Database for MySQL - Flexible server
+# Quickstart: Use an ARM template to create an Azure Database for MySQL - Flexible server (Preview)
 
-Azure Database for MySQL Flexible server is a managed service that you use to run, manage, and scale highly available MySQL databases in the cloud. You can use ARM templates to provision a MySQL Flexible server to deploy multiple servers or multiple databases on a server.
+Azure Database for MySQL Flexible server (Preview) is a managed service that you use to run, manage, and scale highly available MySQL databases in the cloud. You can use ARM templates to provision a flexible server to deploy multiple servers or multiple databases on a server.
 
 An [ARM template](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview) is a JavaScript Object Notation (JSON) file that defines the infrastructure and configuration for your project. The template uses declarative syntax, which lets you state what you intend to deploy without having to write the sequence of programming commands to create it.
 
@@ -186,7 +186,7 @@ You'll have to enter the name of the new server to view the details of your Azur
 
 ```azurepowershell-interactive
 $serverName = Read-Host -Prompt "Enter the name of your Azure Database for MySQL server"
-Get-AzResource -ResourceType "Microsoft.DBforMySQL/servers" -Name $serverName | ft
+Get-AzResource -ResourceType "Microsoft.DBforMySQL/flexibleServers" -Name $serverName | ft
 Write-Host "Press [ENTER] to continue..."
 ```
 
@@ -199,7 +199,7 @@ echo "Enter your Azure Database for MySQL server name:" &&
 read serverName &&
 echo "Enter the resource group where the Azure Database for MySQL server exists:" &&
 read resourcegroupName &&
-az resource show --resource-group $resourcegroupName --name $serverName --resource-type "Microsoft.DbForMySQL/servers"
+az resource show --resource-group $resourcegroupName --name $serverName --resource-type "Microsoft.DbForMySQL/flexibleServers"
 ```
 
 ---

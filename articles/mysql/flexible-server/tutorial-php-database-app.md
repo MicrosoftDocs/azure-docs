@@ -10,15 +10,15 @@ ms.date: 9/22/2020
 ms.custom: mvc
 ---
 
-# Tutorial: Build a PHP (Laravel) and MySQL Flexible Server app in Azure App Service
+# Tutorial: Build a PHP (Laravel) and MySQL Flexible Server (Preview) app in Azure App Service
 
 [Azure App Service](https://docs.microsoft.com/azure/app-service/overview) provides a highly scalable, self-patching web hosting service using the Linux operating system. This tutorial shows how to create a PHP app in Azure and connect it to a MySQL database. When you're finished, you'll have a [Laravel](https://laravel.com/) app running on Azure App Service on Linux.
 
-![PHP Web App in Azure with Flexible Server](media/tutorial-php-flexible-server-database-app/complete-checkbox-published.png)
+![PHP Web App in Azure with Flexible Server](media/tutorial-php-database-app/complete-checkbox-published.png)
 
 In this tutorial, you learn how to:
 
-- Create a MySQL database in Azure
+- Create a MySQL Flexible Server (Preview)
 - Connect a PHP app to MySQL
 - Deploy the app to Azure
 - Update the data model and redeploy the app
@@ -130,22 +130,12 @@ php artisan serve
 
 Navigate to `http://localhost:8000` in a browser. Add a few tasks in the page.
 
-![PHP connects successfully to MySQL](media/tutorial-php-flexible-server-database-app/mysql-connect-success.png)
+![PHP connects successfully to MySQL](media/tutorial-php-database-app/mysql-connect-success.png)
 
 To stop PHP, type `Ctrl + C` in the terminal.
 
-## Use Azure Cloud Shell
-Azure hosts Azure Cloud Shell, an interactive shell environment that you can use through your browser. You can use either Bash or PowerShell with Cloud Shell to work with Azure services. You can use the Cloud Shell preinstalled commands to run the code in this article without having to install anything on your local environment.
-
-To start Azure Cloud Shell:
-
-## Create MySQL in Azure
-
-In this step, you create a MySQL database in [Azure Database for MySQL](/azure/mysql). Later, you configure the PHP application to connect to this database.
-
-### Create a MySQL server
-
-In the Cloud Shell, create a server in Azure Database for MySQL with the [`az flexible-server create`](/cli/azure/mysql/server?view=azure-cli-latest#az-mysql-flexible-server-create) command.
+### Create a MySQL Flexible Server (Preview)
+In this step, you create a MySQL database in [Azure Database for MySQL](/azure/mysql). Later, you configure the PHP application to connect to this database. In the [Azure Cloud Shell](../../../cloud-shell/overview), create a server in Azure Database for MySQL with the [`az flexible-server create`](/cli/azure/mysql/server?view=azure-cli-latest#az-mysql-flexible-server-create) command.
 
 ```azurecli-interactive
 az mysql flexible-server create  --resource-group myResourceGroup --public-access <IP-Address>
@@ -252,7 +242,7 @@ Navigate to `http://localhost:8000`. If the page loads without errors, the PHP a
 
 Add a few tasks in the page.
 
-![PHP connects successfully to Azure Database for MySQL](media/tutorial-php-flexible-server-database-app/mysql-connect-success.png)
+![PHP connects successfully to Azure Database for MySQL](media/tutorial-php-database-app/mysql-connect-success.png)
 
 To stop PHP, type `Ctrl + C` in the terminal.
 
@@ -407,7 +397,7 @@ remote: Running deployment command...
 
 Browse to `http://<app-name>.azurewebsites.net` and add a few tasks to the list.
 
-![PHP Web App in Azure](media/tutorial-php-flexible-server-database-app/php-mysql-in-azure.png)
+![PHP Web App in Azure](media/tutorial-php-database-app/php-mysql-in-azure.png)
 
 Congratulations, you're running a data-driven PHP app in Azure App Service.
 
@@ -527,7 +517,7 @@ php artisan serve
 
 To see the task status change, navigate to `http://localhost:8000` and select the checkbox.
 
-![Added check box to task](media/tutorial-php-flexible-server-database-app/complete-checkbox.png)
+![Added check box to task](media/tutorial-php-database-app/complete-checkbox.png)
 
 To stop PHP, type `Ctrl + C` in the terminal.
 
@@ -549,34 +539,9 @@ git push azure master
 
 Once the `git push` is complete, navigate to the Azure app and test the new functionality.
 
-![Model and database changes published to Azure](media/tutorial-php-flexible-server-database-app/complete-checkbox-published.png)
+![Model and database changes published to Azure](media/tutorial-php-database-app/complete-checkbox-published.png)
 
 If you added any tasks, they are retained in the database. Updates to the data schema leave existing data intact.
-
-## Stream diagnostic logs
-To access the console logs generated from inside your application code in App Service, turn on diagnostics logging by running the following command in the Cloud Shell:
-```bash
-az webapp log config --resource-group <resource-group-name> --name <app-name> --application-logging true --level Verbose
-```
-
-Possible values for --level are: Error, Warning, Info, and Verbose. Each subsequent level includes the previous level. For example: Error includes only error messages, and Verbose includes all messages. Once diagnostic logging is turned on, run the following command to see the log stream:
-
-```bash
-az webapp log tail --resource-group <resource-group-name> --name <app-name>
-```
-
-If you don't see console logs immediately, check again in 30 seconds.
-
-> [!NOTE]
-> You can also inspect the log files from the browser at ```https://<app-name>.scm.azurewebsites.net/api/logs/docker```.
-
-To stop log streaming at any time, type Ctrl+C.
-> [!TIP]
-> A PHP application can use the standard [error_log()](https://php.net/manual/function.error-log.php) to output to the console. The sample application uses this approach in _app/Http/routes.php_.
->
-> As a web framework, [Laravel uses Monolog](https://laravel.com/docs/5.4/errors) as the logging provider. To see how to get Monolog to output messages to the console, see [PHP: How to use monolog to log to console (php://out)](https://stackoverflow.com/questions/25787258/php-how-to-use-monolog-to-log-to-console-php-out).
->
->
 
 ## Manage the Azure app
 
@@ -593,4 +558,4 @@ az group delete --name myResourceGroup
 
 ## Next steps
 > [!div class="nextstepaction"]
-> [Configure PHP applications in App Service](https://docs.microsoft.com/azure/app-service/configure-language-php?pivots=platform-linux)
+> [Configure PHP applications in App Service](../../../app-service/configure-language-php.md?pivots=platform-linux)

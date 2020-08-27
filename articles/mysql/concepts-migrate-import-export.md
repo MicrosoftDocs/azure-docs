@@ -58,6 +58,11 @@ For example, if you have a WordPress or web app that uses the MyISAM engine, fir
 ## Import and export by using MySQL Workbench
 There are two ways to export and import data in MySQL Workbench. Each serves a different purpose.
 
+> [!NOTE]
+> If you are adding a connection to MySQL Single or Flexible server (Preview) on MySQL Workbench, then please make sure:
+> - For MySQL Single server , the username must be in this format , 'username@servername'
+> - For MySQL Flexible server you can just use 'username' If you use 'username@servername' to connect, the connection will fail.
+
 ### Table data export and import wizards from the object browser's context menu
 ![MySQL Workbench wizards on the object browser's context menu](./media/concepts-migrate-import-export/p1.png)
 
