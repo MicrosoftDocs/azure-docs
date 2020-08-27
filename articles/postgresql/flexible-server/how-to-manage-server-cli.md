@@ -52,7 +52,7 @@ storage-size | 6144 | The storage capacity of the server (unit is megabytes). Mi
 > - Scaling up from Basic to General purpose or Memory optimized pricing tier is not supported. You can manually scale up with either  [using a bash script](https://techcommunity.microsoft.com/t5/azure-database-for-PostgreSQL/upgrade-from-basic-to-general-purpose-or-memory-optimized-tiers/ba-p/830404) or [using PostgreSQL Workbench](https://techcommunity.microsoft.com/t5/azure-database-support-blog/how-to-scale-up-azure-database-for-PostgreSQL-from-basic-tier-to/ba-p/369134)
 
 
-## Manage PostgreSQL databases on a server.
+## Manage PostgreSQL databases on a server
 You can use any of these commands to create, delete , list and view database properties of a database on your server
 
 | Cmdlet | Usage| Description |
@@ -62,7 +62,7 @@ You can use any of these commands to create, delete , list and view database pro
 |[az postgres flexible-server db list](/cli/azure/sql/db#az-PostgreSQL-flexible-server-db-list)|```az postgres flexible-server db list -g myresourcegroup -s mydemoserver```|lists all the databases on the server|
 |[az postgres flexible-server db show](/cli/azure/sql/db#az-PostgreSQL-flexible-server-db-show)|```az postgres flexible-server db show -g myresourcegroup -s mydemoserver -n mydatabasename```|Shows more details of the database|
 
-## Update admin password
+## Reset admin password
 You can change the administrator role's password with this command
 ```azurecli-interactive
 az postgres flexible-server update --resource-group myresourcegroup --name mydemoserver --admin-password <new-password>
