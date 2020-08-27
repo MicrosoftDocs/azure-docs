@@ -69,6 +69,7 @@ Using Notepad or another text editor, add the following to the top the **server.
 ```javascript
 var azure = require('azure-storage');
 ```
+
 ---
 
 ## Setup an Azure Storage connection
@@ -99,6 +100,7 @@ queueSvc.createQueueIfNotExists('myqueue', function(error, results, response){
   }
 });
 ```
+
 ---
 
 If the queue is created, `result.created` is true. If the queue exists, `result.created` is false.
@@ -143,6 +145,7 @@ queueSvc.createMessage('myqueue', "Hello world!", function(error, results, respo
   }
 });
 ```
+
 ---
 
 ## How to peek at the next message
@@ -164,12 +167,12 @@ queueSvc.peekMessages('myqueue', function(error, results, response){
 ```
 
 The `result` contains the message.
+
 ---
 
 > [!NOTE]
 > Using **peekMessages** when there are no messages in the queue will not return an error, however no messages will be returned.
-> 
-> 
+
 
 ## How to dequeue the next message
 
@@ -232,6 +235,7 @@ queueSvc.getMessages('myqueue', function(error, getResults, getResponse){
   }
 });
 ```
+
 ---
 
 ## Additional options for dequeuing messages
@@ -265,6 +269,7 @@ queueSvc.getMessages('myqueue', {numOfMessages: 15, visibilityTimeout: 5 * 60}, 
   }
 });
 ```
+
 ---
 
 ## How to get the queue length
@@ -284,6 +289,7 @@ queueSvc.getQueueMetadata('myqueue', function(error, results, response){
   }
 });
 ```
+
 ---
 
 ## How to list queues
@@ -305,6 +311,7 @@ queueSvc.listQueuesSegmented(null, function(error, results, response){
 ```
 
 If all queues cannot be returned, `result.continuationToken` can be used as the first parameter of **listQueuesSegmented** or the second parameter of **listQueuesSegmentedWithPrefix** to retrieve more results.
+
 ---
 
 ## How to Delete a Queue
@@ -324,6 +331,7 @@ queueSvc.deleteQueue(queueName, function(error, response){
   }
 });
 ```
+
 ---
 
 To clear all messages from a queue without deleting it, use **clearMessages**.
