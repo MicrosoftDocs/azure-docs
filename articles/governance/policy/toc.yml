@@ -193,9 +193,9 @@
   - name: Azure SDK for Java
     items:
     - name: Assignments
-      href: /java/api/com.microsoft.azure.management.resources.policyassignment?view=azure-java-stable
+      href: /java/api/com.microsoft.azure.management.resources.policyassignment
     - name: Policy Definitions
-      href: /java/api/com.microsoft.azure.management.resources.PolicyDefinitions?view=azure-java-stable
+      href: /java/api/com.microsoft.azure.management.resources.PolicyDefinitions
   - name: Azure SDK for JavaScript
     items:
     - name: Policy
