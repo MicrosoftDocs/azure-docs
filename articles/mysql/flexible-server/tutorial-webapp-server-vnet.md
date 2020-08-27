@@ -36,7 +36,7 @@ az account set --subscription <subscription id>
 
 Create a private flexible server inside a virtual network (VNET) using the following command:
 ```azurecli
-az postgres flexible-server create --resource-group myresourcegroup --location westus2
+az mysql flexible-server create --resource-group myresourcegroup --location westus2
 ```
 This command performs the following actions, which may take a few minutes:
 
