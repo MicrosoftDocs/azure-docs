@@ -1,11 +1,12 @@
 ---
-title: Manage Azure Database for PostgreSQL Flexible Server - Azure portal
+title: 'Manage Azure Database for PostgreSQL Flexible Server (Preview) - Azure portal'
 description: Learn how to manage an Azure Database for PostgreSQL Fleixble server from the Azure portal.
-author:mksuni
+author: mksuni
 ms.author: sumuth
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 9/22/2020
+ms.custom: mvc, devx-track-azurecli
 ---
 
 # Manage an Azure Database for PostgreSQL Flexible Server (Preview) using the Azure portal
