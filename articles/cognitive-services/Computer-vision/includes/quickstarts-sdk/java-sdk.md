@@ -204,9 +204,17 @@ Computer Vision can read visible text in an image and convert it to a character 
 > [!NOTE]
 > You can also read text in a remote image using its URL. See the sample code on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java) for scenarios involving remote images.
 
+### Set up test image
+
+Create a **resources/** folder in the **src/main/** folder of your project, and add an image you'd like to read text from. You can download a [sample image](https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/master/articles/cognitive-services/Computer-vision/Images/readsample.jpg) to use here.
+
+Then add the following method definition to your **ComputerVisionQuickstarts** class. If necessary, change the value of the `localFilePath` to match your image file. 
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_read_setup)]
+
 ### Call the Read API
 
-First, use the following code to call the **readInStreamWithServiceResponseAsync** method for the given image. When you add this code to your project, you need to replace the value of `localTextImagePath` with the path to your local image. You can download a [sample image](https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/master/articles/cognitive-services/Computer-vision/Images/readsample.jpg) to use here.
+Then, add the following code to call the **readInStreamWithServiceResponseAsync** method for the given image.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_read_call)]
 
