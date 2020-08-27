@@ -10,9 +10,9 @@ ms.author: peterlu
 ms.date: 08/24/2020
 ---
  
-# What is ML studio?
+# What is Azure Machine Learning studio?
 
-In this article, you learn about Azure Machine Learning studio, the web portal for data scientist developers in [Azure Machine Learning](overview-what-is-azure-ml.md). ML studio combines no-code and code-first experiences for an inclusive data science platform.
+In this article, you learn about Azure Machine Learning studio, the web portal for data scientist developers in [Azure Machine Learning](overview-what-is-azure-ml.md). The studio combines no-code and code-first experiences for an inclusive data science platform.
 
 In this article you learn:
 >[!div class="checklist"]
@@ -21,7 +21,7 @@ In this article you learn:
 > - The differences between [Azure Machine Learning studio and ML Studio (classic)](#ml-studio-classic-vs-azure-machine-learning-studio).
 
 
-## Author ML projects
+## Author machine learning projects
 
 The studio offers multiple authoring experiences depending on the type project and the level of user experience.
 
@@ -59,23 +59,23 @@ Manage your machine learning assets directly in your browser. Assets are shared 
 - Pipelines 
 - Pipeline endpoints
 
-Even if you're an experienced developer, the studio can simplify how you manage your workspace resources.
+Even if you're an experienced developer, the studio can simplify how you manage workspace resources.
 
 ## ML Studio (classic) vs Azure Machine Learning studio
 
-Released in 2015, Machine Learning **Studio (classic)** was our first drag-and-drop machine learning builder. It is a standalone service that only offers a visual experience. Studio (classic) does not interoperate with Azure Machine Learning.
+Released in 2015, ML **Studio (classic)** was our first drag-and-drop machine learning builder. It is a standalone service that only offers a visual experience. Studio (classic) does not interoperate with Azure Machine Learning.
 
 **Azure Machine Learning** is a separate and modernized service that delivers a complete data science platform. It supports both code-first and low-code experiences.
 
 **Azure Machine Learning studio** is a web portal *in* Azure Machine Learning that contains low-code and no-code options for project authoring and asset management. 
 
-We recommend that new users choose **Azure Machine Learning**, instead of Machine Learning Studio (classic), for the latest range of data science tools.
+We recommend that new users choose **Azure Machine Learning**, instead of ML Studio (classic), for the latest range of data science tools.
 
 ### Feature comparison
 
-The following table summarizes the key differences between Machine Learning Studio (classic) and Azure Machine Learning.
+The following table summarizes the key differences between ML Studio (classic) and Azure Machine Learning.
 
-| Feature | Machine Learning Studio (classic) | Azure Machine Learning |
+| Feature | ML Studio (classic) | Azure Machine Learning |
 |---| --- | --- |
 | Drag and drop interface | Classic experience | Updated experience - [Azure Machine Learning designer (preview)](concept-designer.md) <br/>(Requires Enterprise workspace) | 
 | Code SDKs | Unsupported | Fully integrated with [Azure Machine Learning Python](https://docs.microsoft.com/python/api/overview/azure/ml/) and [R](tutorial-1st-r-experiment.md) SDKs |
