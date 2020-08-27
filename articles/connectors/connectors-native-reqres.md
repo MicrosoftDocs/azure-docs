@@ -35,11 +35,14 @@ For information about encryption, security, and authorization for inbound calls 
 
 ## Add Request trigger
 
-This built-in trigger creates a manually callable HTTPS endpoint that can receive *only* incoming HTTPS requests. When this event happens, the trigger fires and runs the logic app. For more information about the trigger's underlying JSON definition and how to call this trigger, see the [Request trigger type](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger) and [Call, trigger, or nest workflows with HTTPS endpoints in Azure Logic Apps](../logic-apps/logic-apps-http-endpoint.md).
+This built-in trigger creates a manually callable endpoint that can handle *only* inbound requests over HTTPS. When a caller sends a request to this endpoint, the [Request trigger](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger) fires and runs the logic app. For more information about how to call this trigger, see [Call, trigger, or nest workflows with HTTPS endpoints in Azure Logic Apps](../logic-apps/logic-apps-http-endpoint.md).
+
+Your logic app keeps an inbound request open only for a [limited time](../logic-apps/logic-apps-limits-and-config.md#request-limits). Assuming that your logic app includes a [Response action](#add-response), if your logic app doesn't send a response back to the caller after this time passes, your logic app returns a `504 GATEWAY TIMEOUT` status to the caller. If your logic app doesn't include a Response action, 
+> your logic app immediately returns a `202 ACCEPTED` status to the caller.
 
 1. Sign in to the [Azure portal](https://portal.azure.com). Create a blank logic app.
 
-1. After Logic App Designer opens, in the search box, enter `http request` as your filter. From the triggers list, select the **When an HTTP request is received** trigger, which is the first step in your logic app workflow.
+1. After Logic App Designer opens, in the search box, enter `http request` as your filter. From the triggers list, select the **When an HTTP request is received** trigger.
 
    ![Select Request trigger](./media/connectors-native-reqres/select-request-trigger.png)
 
@@ -202,13 +205,10 @@ Here's more information about the outputs from the Request trigger:
 
 ## Add a Response action
 
-You can use the Response action to respond with a payload (data) to an incoming HTTPS request but only in a logic app that's triggered by an HTTPS request. You can add the Response action at any point in your workflow. For more information about the underlying JSON definition for this trigger, see the [Response action type](../logic-apps/logic-apps-workflow-actions-triggers.md#response-action).
-
-Your logic app keeps the incoming request open only for a [limited time](../logic-apps/logic-apps-limits-and-config.md#request-limits). Assuming that your logic app workflow includes a Response action, if the logic app doesn't return a response after this time passes, your logic app returns a `504 GATEWAY TIMEOUT` to the caller. Otherwise, if your logic app doesn't include a Response action, your logic app immediately returns a `202 ACCEPTED` response to the caller.
+When you use the Request trigger to handle inbound requests, you can model the response and send the payload results back to the caller by using the built-in [Response action](../logic-apps/logic-apps-workflow-actions-triggers.md#response-action). You can use the Response action *only* with the Request trigger. This combination with the Request trigger and Response action creates the [request-response pattern](https://en.wikipedia.org/wiki/Request%E2%80%93response). Except for inside Foreach loops and Until loops, and parallel branches, you can add the Response action anywhere in your workflow.
 
 > [!IMPORTANT]
-> If a Response action includes these headers, Logic Apps removes these headers
-> from the generated response message without showing any warning or error:
+> If a Response action includes these headers, Logic Apps removes these headers from the generated response message without showing any warning or error:
 >
 > * `Allow`
 > * `Content-*` with these exceptions: `Content-Disposition`, `Content-Encoding`, and `Content-Type`
@@ -218,8 +218,7 @@ Your logic app keeps the incoming request open only for a [limited time](../logi
 > * `Set-Cookie`
 > * `Transfer-Encoding`
 >
-> Although Logic Apps won't stop you from saving logic apps that have a
-> Response action with these headers, Logic Apps ignores these headers.
+> Although Logic Apps won't stop you from saving logic apps that have a Response action with these headers, Logic Apps ignores these headers.
 
 1. In the Logic App Designer, under the step where you want to add a Response action, select **New step**.
 
@@ -229,7 +228,7 @@ Your logic app keeps the incoming request open only for a [limited time](../logi
 
    To add an action between steps, move your pointer over the arrow between those steps. Select the plus sign (**+**) that appears, and then select **Add an action**.
 
-1. Under **Choose an action**, in the search box, enter "response" as your filter, and select the **Response** action.
+1. Under **Choose an action**, in the search box, enter `response` as your filter, and select the **Response** action.
 
    ![Select the Response action](./media/connectors-native-reqres/select-response-action.png)
 
