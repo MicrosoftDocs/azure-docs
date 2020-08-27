@@ -304,6 +304,8 @@ The Service Fabric nodeType must be enabled to support multiple availability zon
 > "multipleAvailabilityZones" property on the nodeType can only be defined at the time of nodeType creation & can't be modified later. Hence, existing nodeTypes can't be configured with this property.
 > "hierarchicalUpgradeDomain" property if false, would make UpgradeDomains flat for the nodeType, which would mean there can only be a maximum of 5 UD's in a VMSS with 3 AZ's. If the property is true or not defined, would make UDs hierarchical, which would mean there would be 15 UD's when there are 15 VMs in 3 AZs. It is important to correctly adjust the upgrade policy timeout to incorporate for the upgrade time duration for 15 upgrade domains.
 
+Full sample template is present [here](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/crossAZ/15-VM-Windows-Multiple-AZ-Secure).
+
 ## Migrate to using Availability Zones from a cluster using a Basic SKU Load Balancer and a Basic SKU IP
 To migrate a cluster, which was using a Load Balancer and IP with a basic SKU, you must first create an entirely new Load Balancer and IP resource using the standard SKU. It is not possible to update these resources in-place.
 
