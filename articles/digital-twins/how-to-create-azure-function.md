@@ -60,7 +60,7 @@ In order to use the SDK, you'll need to include the following packages into your
 You can do this by right-selecting on your project and select _Manage NuGet Packages_ from the list. Then, in the window that opens, select _Browse_ tab and search for the following packages. Select _Install_ and _accept_ the License agreement to install the packages.
 
 * `Azure.DigitalTwins.Core` (version `1.0.0-preview.2`)
-* `Azure.Identity` (version `1.1.1`)
+* `Azure.Identity` 
 
 For configuration of the Azure SDK pipeline to set up properly for Azure Functions, you will also need the following packages. Repeat the same process as above to install all the packages.
 
@@ -90,8 +90,7 @@ using Azure.Core.Pipeline;
 
 You will now declare class level variables and add authentication code that will allow the function to access Azure Digital Twins.
 
-* Read ADT service URL as an environment variable.
-
+* Read ADT service URL as an environment variable. It is a good practice to read the service URL from an environment variable, rather than hard-coding it in the function.
 ```csharp     
 private static readonly string adtInstanceUrl = Environment.GetEnvironmentVariable("ADT_SERVICE_URL");
 ```
@@ -184,7 +183,10 @@ For your Functions app to be able to access Azure Digital Twins, it needs to hav
 
 Next, you can set up security access for the function using CLI or Azure portal. Choose either of these methods:
 
-## Option 1: Set up security access for the Azure function app using CLI
+## Set up security access for the Azure function app
+You can set up security access for the Azure function app using one of these options:
+
+### Option 1: Set up security access for the Azure function app using CLI
 
 The Azure function skeleton from earlier examples requires that a bearer token to be passed to it, in order to be able to authenticate with Azure Digital Twins. To make sure that this bearer token is passed, you'll need to set up [Managed Service Identity (MSI)](../active-directory/managed-identities-azure-resources/overview.md) for the function app. This only needs to be done once for each function app.
 
@@ -210,7 +212,7 @@ Lastly, you can make the URL of your Azure Digital Twins instance accessible to 
 ```azurecli	
 az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "ADT_SERVICE_URL=https://<your-Azure-Digital-Twins-instance-URL>"
 ```
-## Option 2: Set up security access for the Azure function app using Azure portal
+### Option 2: Set up security access for the Azure function app using Azure portal
 
 A system assigned managed identity enables Azure resources to authenticate to cloud services (for example, Azure Key Vault) without storing credentials in code. Once enabled, all necessary permissions can be granted via Azure role-based-access-control. The lifecycle of this type of managed identity is tied to the lifecycle of this resource. Additionally, each resource (for example, Virtual Machine) can only have one system assigned managed identity.
 
@@ -228,7 +230,7 @@ You can verify in the notifications that your function is successfully registere
 
 :::image type="content" source="media/how-to-create-azure-function/notifications-enable-managed-identity.png" alt-text="Azure portal: notifications":::
 
-Also note the **object ID** shown on this page, as it will be used in the next section.
+Also note the **object ID** shown on the _Identity_ page, as it will be used in the next section.
 
 :::image type="content" source="media/how-to-create-azure-function/object-id.png" alt-text="Copy the Object ID to use in future":::
 
