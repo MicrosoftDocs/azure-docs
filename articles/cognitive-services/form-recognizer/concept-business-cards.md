@@ -23,21 +23,22 @@ The Business Card API extracts key fields from business cards and returns them i
 
 ![Contoso itemized image from FOTT + JSON output](./media/business-card-english.jpg)
 
-### Fields Extracted: 
-* Contact Names 
+### Fields extracted:
+
+* Contact names 
   * First names
-  * Last Names
-* Company Names 
+  * Last names
+* Company names 
 * Departments 
-* Job Titles 
+* Job titles 
 * Emails 
 * Websites 
 * Addresses 
-* Phone Numbers 
-  * Mobile Phones 
+* Phone numbers 
+  * Mobile phones 
   * Faxes 
-  * Work Phones 
-  * Other Phones 
+  * Work phones 
+  * Other phones 
 
 The Business Card API can also return all recognized text from the Business Card. This OCR output is included in the JSON response.  
 
@@ -59,10 +60,7 @@ The second step is to call the [Get Analyze Business Card Result](https://westce
 
 |Field| Type | Possible values |
 |:-----|:----:|:----|
-|status | string | notStarted: The analysis operation has not started. |
-| |  | running: The analysis operation is in progress. |
-| |  | failed: The analysis operation has failed. |
-| |  | succeeded: The analysis operation has succeeded. |
+|status | string | notStarted: The analysis operation has not started.<br /><br />running: The analysis operation is in progress.<br /><br />failed: The analysis operation has failed.<br /><br />succeeded: The analysis operation has succeeded.|
 
 When the **status** field has the **succeeded** value, the JSON response will include the business card understanding and optional text recognition results, if requested. The business card understanding result is organized as a dictionary of named field values, where each value contains the extracted text, normalized value, bounding box, confidence and corresponding word elements. The text recognition result is organized as a hierarchy of lines and words, with text, bounding box and confidence information.
 
