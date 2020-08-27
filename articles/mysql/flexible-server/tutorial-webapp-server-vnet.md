@@ -10,9 +10,9 @@ ms.date: 9/22/2020
 ms.custom: mvc, devx-track-azurecli
 ---
 
-# Quickstart: Create an Azure Database for MySQL Flexible Server (Preview) with App Services Web App
+# Create an Azure Database for MySQL Flexible Server (Preview) with App Services Web App in virtual network
 
-Azure Database for MySQL Flexible Server (Preview) is a managed service that enables you to run, manage, and scale highly available MySQL databases in the cloud. The Azure CLI is used to create and manage Azure resources from the command-line or in scripts. This tutorial shows you how create a Azure App Service Web app with MySQL database inside a [Virtual network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview).
+This tutorial shows you how create a Azure App Service Web app with  MySQL Flexible Server (Preview) inside a [Virtual network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview).
 
 ## Prerequisites
 
@@ -50,6 +50,7 @@ This command performs the following actions, which may take a few minutes:
 > Make a note of your password that will be generate for you if not provided. If you forget the password you would have to reset the password using ``` az postgres flexible-server update``` command
 
 ## Create a Web App
+
 In this section, you create app host in App Service app and connect this app to the Postgres database. Make sure you're in the repository root of your application code in the terminal.
 
 Create an App Service app (the host process) with the az webapp up command
@@ -71,6 +72,7 @@ This command performs the following actions, which may take a few minutes:
 - Upload the repository using ZIP deployment with build automation enabled.
 
 ## Add the Web App to the virtual network
+
 Use **az webapp vnet-integration** command to add a regional virtual network integration to a webapp. Replace <vnet-name> and <subnet-name> with the virtual network and subnet name that the flexible server is using.
 
 ```azurecli
@@ -78,13 +80,14 @@ az webapp vnet-integration add -g myresourcegroup -n  mywebapp --vnet <vnet-name
 ```
 
 ## Configure environment variables to connect the database
+
 With the code now deployed to App Service, the next step is to connect the app to the flexible server in Azure. The app code expects to find database information in a number of environment variables. To set environment variables in App Service, you create "app settings" with the ```az webapp config appsettings``` set command.
 
 ```azurecli
 az webapp config appsettings set --settings DBHOST="<mysql-server-name>.mysql.database.azure.com" DBNAME="flexibleserverdb" DBUSER="<username>" DBPASS="<password>"
 ```
 
-- Replace <postgres-server-name> for the newly created flexible server command.
+- Replace ```<postgres-server-name>```, ```<username>```, ```<password>``` for the newly created flexible server command.
 - Replace <username> and <password> with the credentials that the command also generated for you.
 - The resource group and app name are drawn from the cached values in the .azure/config file.
 - The command creates settings named DBHOST, DBNAME, DBUSER, and DBPASS. If your application code is using different name for the database information then use those names for the app settings as mentioned in the code.
