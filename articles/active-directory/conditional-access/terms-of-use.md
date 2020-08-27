@@ -47,7 +47,7 @@ Azure AD terms of use has the following capabilities:
 - List who has or hasn't accepted to your terms of use.
 - Assist in meeting privacy regulations.
 - Display a log of terms of use activity for compliance and audit.
-- Create and manage terms of use using [Microsoft Graph APIs](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/agreement) (currently in preview).
+- Create and manage terms of use using [Microsoft Graph APIs](/graph/api/resources/agreement?view=graph-rest-beta) (currently in preview).
 
 ## Prerequisites
 
