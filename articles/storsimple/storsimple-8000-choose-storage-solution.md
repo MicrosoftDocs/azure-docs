@@ -1,6 +1,6 @@
 ---
 title: Options for data transfer to Azure using an appliance | Microsoft Docs
-description: Learn how to choose the right appliance to transfer data to Azure
+description: Learn how to choose the right appliance for on-premises data transfer to Azure between Data Box Edge, Azure File Sync, and StorSimple 8000 series.
 services: storsimple
 author: alkohli
 

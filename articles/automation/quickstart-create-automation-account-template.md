@@ -46,7 +46,7 @@ After you complete these steps, you need to [configure diagnostic settings](auto
 
 The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-automation/).
 
-:::code language="json" source="~/quickstart-templates/101-automation/azuredeploy.json" range="1-324" highlight="58-122":::
+:::code language="json" source="~/quickstart-templates/101-automation/azuredeploy.json":::
 
 ### API versions
 

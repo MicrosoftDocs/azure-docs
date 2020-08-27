@@ -116,6 +116,14 @@
     href: faq.md
   - name: Windows 10 Enterprise multi-session FAQ
     href: windows-10-multisession-faq.md
+  - name: MSIX app attach
+    items:
+      - name: What is MSIX app attach?
+        href: what-is-app-attach.md
+      - name: Glossary
+        href: app-attach-glossary.md
+      - name: FAQ
+        href: app-attach-faq.md
   - name: Data locations
     href: data-locations.md
 - name: Troubleshoot
@@ -150,6 +158,8 @@
     href: /windows-server/remote/remote-desktop-services/virtual-machine-recs?context=/azure/virtual-desktop/context/context
   - name: Azure command-line interface (CLI)
     href: /cli/azure/ext/desktopvirtualization/?view=azure-cli-latest
+  - name: Azure example scenarios
+    href: /azure/architecture/example-scenario/wvd/windows-virtual-desktop
 - name: Resources
   items:
   - name: PowerShell

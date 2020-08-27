@@ -68,6 +68,7 @@ Azure Arc agents require the following protocols/ports/outbound URLs to function
 | `https://github.com`, git://github.com                                                                         | Example GitOps repos are hosted on GitHub. Configuration agent requires connectivity to whichever git endpoint you specify. |
 | `https://login.microsoftonline.com`                                                                            | Required to fetch and update Azure Resource Manager tokens                                                                                    |
 | `https://azurearcfork8s.azurecr.io`                                                                            | Required to pull container images for Azure Arc agents                                                                  |
+| `https://eus.his.arc.azure.com`, `https://weu.his.arc.azure.com`                                                                            |  Required to pull system-assigned managed identity certificates                                                                  |
 
 ## Register the two providers for Azure Arc enabled Kubernetes:
 
@@ -170,7 +171,7 @@ You can also view this resource on the [Azure portal](https://portal.azure.com/)
 
 ## Connect using an outbound proxy server
 
-If your cluster is behind an outbound proxy server, Azure CLI and the Arc enabled Kubernetes agents need to route their requests via the outbound proxy server. The following configuration helps achieve that:
+If your cluster is behind an outbound proxy server, Azure CLI and the Arc enabled Kubernetes agents need to route their requests via the outbound proxy server. The following configuration enables that:
 
 1. Check the version of `connectedk8s` extension installed on your machine by running this command:
 
@@ -178,7 +179,7 @@ If your cluster is behind an outbound proxy server, Azure CLI and the Arc enable
     az -v
     ```
 
-    You need `connectedk8s` extension version >= 0.2.3 to setup agents with outbound proxy. If you have version < 0.2.3 on your machine, follow the [update steps](#before-you-begin) to get the latest version of extension on your machine.
+    You need `connectedk8s` extension version >= 0.2.3 to set up agents with outbound proxy. If you have version < 0.2.3 on your machine, follow the [update steps](#before-you-begin) to get the latest version of extension on your machine.
 
 2. Set the environment variables needed for Azure CLI:
 

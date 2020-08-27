@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/10/2020
+ms.date: 08/25/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: references_regions
@@ -23,8 +23,8 @@ For end to end protection for your blob data, Microsoft recommends enabling the 
 - Blob soft delete, to protect against accidental delete or overwrite of an individual blob. To learn how to enable blob soft delete, see [Soft delete for blobs](soft-delete-blob-overview.md).
 - Blob versioning (preview), to automatically maintain previous versions of a blob. When blob versioning is enabled, you can restore an earlier version of a blob to recover your data if it is erroneously modified or deleted. To learn how to enable blob versioning, see [Enable and manage blob versioning](versioning-enable.md).
 
-> [!IMPORTANT]
-> To prevent accidental deletion of a storage account, configure a **CannotDelete** lock on the storage account resource. For more information on locking Azure resources, see [Lock resources to prevent unexpected changes](../../azure-resource-manager/management/lock-resources.md).
+> [!WARNING]
+> Deleting a storage account cannot be undone. Soft delete does not protect against the deletion of a storage account. To prevent accidental deletion of a storage account, configure a **CannotDelete** lock on the storage account resource. For more information on locking Azure resources, see [Lock resources to prevent unexpected changes](../../azure-resource-manager/management/lock-resources.md).
 
 ## How container soft delete works
 

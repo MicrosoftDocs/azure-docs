@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 07/09/2018
 ms.author: cshoe
-ms.custom: H1Hack27Feb2017
+ms.custom: "devx-track-csharp, H1Hack27Feb2017"
 ---
 
 # Twilio binding for Azure Functions

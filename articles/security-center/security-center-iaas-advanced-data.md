@@ -68,7 +68,7 @@ Both of these are described below.
 
     [![Security Center pricing page with optional bundles](media/security-center-advanced-iaas-data/sql-servers-on-vms-in-pricing-small.png)](media/security-center-advanced-iaas-data/sql-servers-on-vms-in-pricing-large.png#lightbox)
 
-    Advanced Data Security for SQL servers on machines will be enabled on all SQL servers connected to the selected workspace. The protection will be fully active after the first restart of the SQL Server. 
+    Advanced Data Security for SQL servers on machines will be enabled on all SQL servers connected to the selected workspace. The protection will be fully active after the first restart of the SQL Server instance.
 
     >[!TIP] 
     > To create a new workspace, follow the instructions in [Create a Log Analytics workspace](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).

@@ -14,7 +14,8 @@ metadata:
   ms.collection: collection
   author: j-martens
   ms.author: jmartens
-  ms.date: 07/30/2020
+  ms.date: 08/17/2020
+  ms.custom: contperfq1
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -27,13 +28,13 @@ landingContent:
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Python notebooks
+          - text: Using Python notebooks
             url: tutorial-1st-experiment-sdk-setup.md
-          - text: AutoML (no code/low-code)
+          - text: With AutoML (no code/low-code)
             url: tutorial-first-experiment-automated-ml.md
-          - text: Designer (drag & drop)
+          - text: In the designer (drag & drop)
             url: tutorial-designer-automobile-price-train-score.md
-          - text: RStudio
+          - text: Using RStudio
             url: tutorial-1st-r-experiment.md
 
 # BYO

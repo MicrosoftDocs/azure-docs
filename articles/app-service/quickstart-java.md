@@ -14,7 +14,10 @@ zone_pivot_groups: app-service-platform-windows-linux
 ---
 # Quickstart: Create a Java app on Azure App Service
 
-[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service.  This quickstart shows how to use the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) with the [Azure Web App Plugin for Maven](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) to deploy a Java web archive (WAR) file.
+[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service.  This quickstart shows how to use the [Azure CLI](/cli/azure/get-started-with-azure-cli) with the [Azure Web App Plugin for Maven](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) to deploy a Java web archive (WAR) file.
+
+> [!NOTE]
+> In this article we are only working with Java apps packaged in WAR files. The plugin also supports JAR web applications, visit [Deploy a Java SE JAR file to App Service on Linux](/java/azure/spring-framework/deploy-spring-boot-java-app-with-maven-plugin?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) to try it out.
 
 > [!NOTE]
 > The same can also be done using popular IDEs like IntelliJ and Eclipse. Check out our similar documents at [Azure Toolkit for IntelliJ Quickstart](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app) or [Azure Toolkit for Eclipse Quickstart](/azure/developer/java/toolkit-for-eclipse/create-hello-world-web-app).
@@ -48,12 +51,12 @@ You can run the maven command below to configure the deployment
 mvn com.microsoft.azure:azure-webapp-maven-plugin:1.9.1:config
 ```
 
-::: zone pivot="platform-windows"  
+::: zone pivot="platform-windows" 
 You will be asked to select 
 * **OS(Default: `linux`)**
 * **Java Version(Default: `1.8`)**
 * **Web Container(Default: `tomcat 8.5`)** 
-
+ 
 Be careful to input **`2`** to choose the **windows** OS at the first step. The other configurations can be left default by pressing **ENTER**. Finally press **`Y`** on **Confirm (Y/N)** prompt to complete configuration.
 
 A sample process looks like:
@@ -132,6 +135,13 @@ Confirm (Y/N)? :
 ```
 ::: zone-end
 ::: zone pivot="platform-linux"  
+
+You will be asked to select 
+* **OS(Default: `linux`)**
+* **Java Version(Default: `Java 8`)**
+* **Web Container(Default: `Tomcat 8.5`)** 
+
+All the configurations can be left default by pressing **ENTER**. Finally press **`Y`** on **Confirm (Y/N)** prompt to complete configuration.
 A sample process looks like:
 
 ```cmd
@@ -169,16 +179,7 @@ Confirm (Y/N)? : Y
 ```
 ::: zone-end
 
-> [!NOTE]
-> In this article we are only working with Java apps packaged in WAR files. The plugin also supports JAR web applications, visit [Deploy a Java SE JAR file to App Service on Linux](https://docs.microsoft.com/java/azure/spring-framework/deploy-spring-boot-java-app-with-maven-plugin?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) to try it out.
-
-Open `pom.xml` to see the updated configuration.
-
-```bash
-code pom.xml
-```
-
-You can modify the configurations for App Service directly in your pom file if needed, some common ones are listed below:
+You can modify the configurations for App Service directly in your `pom.xml` if needed, some common ones are listed below:
 
  Property | Required | Description | Version
 ---|---|---|---
@@ -190,11 +191,8 @@ You can modify the configurations for App Service directly in your pom file if n
 `<runtime>` | true | The runtime environment configuration, you could see the detail [here](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme). | 0.1.0+
 `<deployment>` | true | The deployment configuration, you could see the details [here](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme). | 0.1.0+
 
-::: zone pivot="platform-windows"
 Be careful about the values of `<appName>` and `<resourceGroup>`(`helloworld-1590394316693` and `helloworld-1590394316693-rg` accordingly in the demo), they will be used later.
-::: zone-end
-::: zone pivot="platform-linux"
-::: zone-end
+
 > [!div class="nextstepaction"]
 > [I ran into an issue](https://www.research.net/r/javae2e?tutorial=quickstart-java&step=config)
 
@@ -211,21 +209,11 @@ Then you can deploy your Java app to Azure using the following command:
 mvn package azure-webapp:deploy
 ```
 
-::: zone pivot="platform-windows"
 Once deployment has completed, your application will be ready at `http://<appName>.azurewebsites.net/`(`http://helloworld-1590394316693.azurewebsites.net` in the demo). Open the url with your local web browser, you should see
 
-![Sample app running in Azure App Service](./media/app-service-web-get-started-java/java-hello-world-in-browser-azure-app-service.png)
+![Sample app running in Azure App Service](./media/quickstart-java/java-hello-world-in-browser-azure-app-service.png)
 
-**Congratulations!** You've deployed your first Java app to App Service on Windows.
-
-[!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
-::: zone-end
-::: zone pivot="platform-linux"
-Once deployment has completed, browse to the deployed application using the following URL in your web browser, for example `http://<webapp>.azurewebsites.net`. 
-
-![Sample app running in Azure App Service](media/quickstart-java/java-hello-world-in-browser-azure-app-service.png)
-
-**Congratulations!** You've deployed your first Java app to App Service on Linux.
+**Congratulations!** You've deployed your first Java app to App Service.
 
 > [!div class="nextstepaction"]
 > [I ran into an issue](https://www.research.net/r/javae2e?tutorial=app-service-linux-quickstart&step=deploy)
@@ -239,29 +227,16 @@ az group delete --name <your resource group name; for example: helloworld-155840
 ```
 
 This command may take a minute to run.
-::: zone-end
-
-Once deployment has completed, your application will be ready at `http://<appName>.azurewebsites.net/`(`http://helloworld-1590394316693.azurewebsites.net` in the demo). Open the url with your local web browser, you should see
-
-![Sample app running in Azure App Service](./media/quickstart-java/java-hello-world-in-browser-azure-app-service.png)
-
-**Congratulations!** You've deployed your first Java app to App Service.
-
-> [!div class="nextstepaction"]
-> [I ran into an issue](https://www.research.net/r/javae2e?quickstart-java&step=deploy)
-
-[!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
-
 
 ## Next steps
 > [!div class="nextstepaction"]
-> [Connect to Azure SQL Database with Java](/azure/sql-database/sql-database-connect-query-java?toc=%2Fazure%2Fjava%2Ftoc.json)
+> [Connect to Azure SQL Database with Java](../azure-sql/database/connect-query-java.md?toc=%2fazure%2fjava%2ftoc.json)
 
 > [!div class="nextstepaction"]
-> [Connect to Azure DB for MySQL with Java](/azure/mysql/connect-java)
+> [Connect to Azure DB for MySQL with Java](../mysql/connect-java.md)
 
 > [!div class="nextstepaction"]
-> [Connect to Azure DB for PostgreSQL with Java](/azure/postgresql/connect-java)
+> [Connect to Azure DB for PostgreSQL with Java](../postgresql/connect-java.md)
 
 > [!div class="nextstepaction"]
 > [Azure for Java Developers Resources](/java/azure/)
@@ -270,7 +245,7 @@ Once deployment has completed, your application will be ready at `http://<appNam
 > [Configure Java app](configure-language-java.md)
 
 > [!div class="nextstepaction"]
-> [CI/CD with Jenkins](/azure/jenkins/deploy-jenkins-app-service-plugin)
+> [CI/CD with Jenkins](/azure/developer/jenkins/deploy-to-azure-app-service-using-plugin)
 
 > [!div class="nextstepaction"]
 > [Map custom domain](app-service-web-tutorial-custom-domain.md)

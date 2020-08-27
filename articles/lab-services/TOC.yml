@@ -24,6 +24,8 @@
     href: classroom-labs-fundamentals.md
   - name: Capacity limits
     href: capacity-limits.md  
+  - name: Cost management for labs
+    href: cost-management-guide.md        
   - name: Scenarios
     items:  
     - name: Use Lab Services for conducting classes
@@ -66,7 +68,7 @@
       href: how-to-manage-lab-accounts.md
     - name: Manage labs in a lab account
       href: manage-labs.md
-    - name: Configure automatic shutdown of VMs
+    - name: Configure auto-shutdown of VMs for a lab account
       href: how-to-configure-lab-accounts.md
     - name: Add a lab creator
       href: add-lab-creator.md
@@ -86,8 +88,6 @@
       href: specify-marketplace-images.md
     - name: Specify support information (lab account owner)
       href: lab-account-owner-support-information.md
-    - name: Cost management for labs
-      href: cost-management-guide.md
   - name: Create and configure classroom labs (educator)
     items:        
     - name: Create and manage classroom labs
@@ -106,7 +106,7 @@
       href: how-to-use-shared-image-gallery.md            
     - name: Enable remote desktop connection for Linux
       href: how-to-enable-remote-desktop-linux.md
-    - name: Enable automatic shutdown on disconnect
+    - name: Configure auto-shutdown of VMs for a lab
       href: how-to-enable-shutdown-disconnect.md       
     - name: Enable nested virtualization on a template VM
       items:

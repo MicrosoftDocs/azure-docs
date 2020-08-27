@@ -1,7 +1,7 @@
 ---
 title: 'Architecture: Global transit network architecture'
 titleSuffix: Azure Virtual WAN
-description: Learn about global transit network architecture for Virtual WAN
+description: Learn how Azure Virtual WAN allows a global transit network architecture by enabling ubiquitous, any-to-any connectivity between cloud workloads.
 services: virtual-wan
 author: cherylmc
 

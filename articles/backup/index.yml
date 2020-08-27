@@ -36,7 +36,7 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Back up a VM with the Azure Portal
+          - text: Back up a VM with the Azure portal
             url: quick-backup-vm-portal.md
           - text: Back up a VM with PowerShell
             url: quick-backup-vm-powershell.md
