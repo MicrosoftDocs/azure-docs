@@ -5,7 +5,7 @@ ms.subservice: logs
 ms.topic: sample
 author: bwren
 ms.author: bwren
-ms.date: 07/17/2020
+ms.date: 07/31/2020
 
 ---
 
@@ -462,6 +462,88 @@ The following sample creates a diagnostic setting for an Azure Recovery Services
       },
       "recoveryServicesName": {
         "value": "my-vault"
+      },
+      "workspaceId": {
+        "value": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/MyResourceGroup/providers/microsoft.operationalinsights/workspaces/MyWorkspace"
+      },
+      "storageAccountId": {
+        "value": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/MyResourceGroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount"
+      },
+      "eventHubAuthorizationRuleId": {
+        "value": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/MyResourceGroup/providers/Microsoft.EventHub/namespaces/MyNameSpace/authorizationrules/RootManageSharedAccessKey"
+      },
+      "eventHubName": {
+        "value": "my-eventhub"
+      }
+  }
+}
+```
+
+## Diagnostic setting for Log Analytics workspace
+The following sample creates a diagnostic setting for a Log Analytics workspace vault by adding a resource of type `Microsoft.OperationalInsights/workspaces/providers/diagnosticSettings` to the template. This example sends audit data about queries executed in the workspace to the same workspace.
+
+### Template file
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "workspaceName": {
+            "type": "String"
+        },
+        "settingName": {
+            "type": "String"
+        },
+        "workspaceId": {
+            "type": "String"
+        },
+        "storageAccountId": {
+            "type": "String"
+        },
+        "eventHubAuthorizationRuleId": {
+            "type": "String"
+        },
+        "eventHubName": {
+            "type": "String"
+        }
+    },
+    "resources": [
+        {
+            "type": "Microsoft.OperationalInsights/workspaces/providers/diagnosticSettings",
+            "apiVersion": "2017-05-01-preview",
+            "name": "[concat(parameters('workspaceName'), '/Microsoft.Insights/', parameters('settingName'))]",
+            "dependsOn": [],
+            "properties": {
+                "workspaceId": "[parameters('workspaceId')]",
+                "storageAccountId": "[parameters('storageAccountId')]",
+                "eventHubAuthorizationRuleId": "[parameters('eventHubAuthorizationRuleId')]",
+                "eventHubName": "[parameters('eventHubName')]",
+                "metrics": [],
+                "logs": [
+                    {
+                        "category": "LAQueryLogs",
+                        "enabled": true
+                    }
+                ]
+            }
+        }
+    ]
+}
+```
+
+### Parameter file
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+      "settingName": {
+          "value": "Send to all locations"
+      },
+      "workspaceName": {
+        "value": "MyWorkspace"
       },
       "workspaceId": {
         "value": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/MyResourceGroup/providers/microsoft.operationalinsights/workspaces/MyWorkspace"
