@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/13/2019
+ms.date: 08/27/2020
 ms.author: jeedes
 ---
 # Tutorial: Azure Active Directory integration with Seismic
@@ -39,7 +39,7 @@ To configure Azure AD integration with Seismic, you need the following items:
 In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
 * Seismic supports **SP** initiated SSO
-* Once you configure Seismic you can enforce Session control, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session control extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+* Once you configure Seismic you can enforce Session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 ## Adding Seismic from the gallery
 
