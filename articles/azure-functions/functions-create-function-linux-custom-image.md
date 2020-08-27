@@ -88,7 +88,7 @@ mvn archetype:generate "-DarchetypeGroupId=com.microsoft.azure" "-DarchetypeArti
 ```
 ---
 
-The `-DjavaVersion` parameter tells the Functions runtime which version of Java to use. Use `-DjavaVersion=11` if you want to your functions to run on Java 11, which is in preview. 
+The `-DjavaVersion` parameter tells the Functions runtime which version of Java to use. Use `-DjavaVersion=11` if you want to your functions to run on Java 11, which is in preview. For more information, see [Java versions](functions-reference-java.md#java-versions).
 
 Maven asks you for values needed to finish generating the project on deployment.   
 Provide the following values when prompted:
@@ -298,17 +298,17 @@ With the image deployed to the function app on Azure, you can now invoke the fun
 
     1. In the left navigation panel, select **Functions**, and then select the function you want to verify.
 
-        ![The Get function URL command on the Azure portal](./media/functions-create-function-linux-custom-image/functions-portal-select-function.png)   
+        ![Choose your function in the Azure portal](./media/functions-create-function-linux-custom-image/functions-portal-select-function.png)   
 
     
     1. Select **Get Function Url**.
 
-        ![The Get function URL command on the Azure portal](./media/functions-create-function-linux-custom-image/functions-portal-get-function-url.png)   
+        ![Get the function URL from the Azure portal](./media/functions-create-function-linux-custom-image/functions-portal-get-function-url.png)   
 
     
     1. In the pop-up window, select **default (function key)** and then copy the URL to the clipboard. The key is the string of characters following `?code=`.
 
-        ![The Get function URL command on the Azure portal](./media/functions-create-function-linux-custom-image/functions-portal-copy-url.png)   
+        ![Choose the default function access key](./media/functions-create-function-linux-custom-image/functions-portal-copy-url.png)   
 
 
     > [!NOTE]  
