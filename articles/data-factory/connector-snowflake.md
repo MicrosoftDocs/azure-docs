@@ -10,7 +10,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 07/30/2020
+ms.date: 08/28/2020
 ---
 
 # Copy data from and to Snowflake by using Azure Data Factory
@@ -158,7 +158,7 @@ If your sink data store and format meet the criteria described in this section, 
         - `rowDelimiter` is **\r\n**, or any single character.
         - `compression` can be **no compression**, **gzip**, **bzip2**, or **deflate**.
         - `encodingName` is left as default or set to **utf-8**.
-        - `quoteChar` is **double quote**, **single quote** or **empty string** (no quote char).
+        - `quoteChar` is **double quote**, **single quote**, or **empty string** (no quote char).
     - For **JSON** format, direct copy only supports the case that source Snowflake table or query result only has single column and the data type of this column is **VARIANT**, **OBJECT**, or **ARRAY**.
         - `compression` can be **no compression**, **gzip**, **bzip2**, or **deflate**.
         - `encodingName` is left as default or set to **utf-8**.
@@ -290,7 +290,7 @@ If your source data store and format meet the criteria described in this section
         - `rowDelimiter` is **\r\n**, or any single character. If row delimiter is not “\r\n”, `firstRowAsHeader` need to be **false**, and `skipLineCount` is not specified.
         - `compression` can be **no compression**, **gzip**, **bzip2**, or **deflate**.
         - `encodingName` is left as default or set to "UTF-8", "UTF-16", "UTF-16BE", "UTF-32", "UTF-32BE", "BIG5", "EUC-JP", "EUC-KR", "GB18030", "ISO-2022-JP", "ISO-2022-KR", "ISO-8859-1", "ISO-8859-2", "ISO-8859-5", "ISO-8859-6", "ISO-8859-7", "ISO-8859-8", "ISO-8859-9", "WINDOWS-1250", "WINDOWS-1251", "WINDOWS-1252", "WINDOWS-1253", "WINDOWS-1254", "WINDOWS-1255".
-        - `quoteChar` is **double quote**, **single quote** or **empty string** (no quote char).
+        - `quoteChar` is **double quote**, **single quote**, or **empty string** (no quote char).
     - For **JSON** format, direct copy only supports the case that sink Snowflake table only has single column and the data type of this column is **VARIANT**, **OBJECT**, or **ARRAY**.
         - `compression` can be **no compression**, **gzip**, **bzip2**, or **deflate**.
         - `encodingName` is left as default or set to **utf-8**.
@@ -300,7 +300,7 @@ If your source data store and format meet the criteria described in this section
 
    -  `additionalColumns` is not specified.
    - If your source is a folder, `recursive` is set to true.
-   - `prefix`, `modifiedDateTimeStart`, `modifiedDateTimeEnd` are not specified.
+   - `prefix`, `modifiedDateTimeStart`, `modifiedDateTimeEnd`, and `enablePartitionDiscovery` are not specified.
 
 **Example:**
 

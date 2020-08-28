@@ -570,6 +570,8 @@
         href: ../common/storage-explorer-troubleshooting.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Storage Explorer security
         href: ../common/storage-explorer-security.md
+      - name: Storage Explorer blob versioning
+        href: ../common/storage-explorer-blob-versioning.md
       - name: Storage Explorer support policy and lifecycle
         href: ../common/storage-explorer-support-policy-lifecycle.md
       - name: Storage Explorer accessibility
@@ -850,6 +852,8 @@
         href: ../common/storage-explorer-troubleshooting.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Storage Explorer security
         href: ../common/storage-explorer-security.md
+      - name: Storage Explorer blob versioning
+        href: ../common/storage-explorer-blob-versioning.md
       - name: Storage Explorer support policy and lifecycle
         href: ../common/storage-explorer-support-policy-lifecycle.md
       - name: Storage Explorer accessibility
