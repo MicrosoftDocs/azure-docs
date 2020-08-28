@@ -18,18 +18,18 @@ ms.collection: M365-identity-device-management
 
 [!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
-Identity Protection provides ongoing risk detection for your Azure AD B2C tenant. If your tenant is linked to an Azure subscription with Azure AD Premium P2, you can view Identity Protection risk events in the Azure portal. You can also use [Conditional Access](../active-directory/conditional-access/overview.md) policies based on these risk detections to determine actions and enforce organizational policies.
+Identity Protection provides ongoing risk detection for your Azure AD B2C tenant. If your Azure AD B2C tenant pricing tier is Premium P2, you can view detailed Identity Protection risk events in the Azure portal. You can also use [Conditional Access](../active-directory/conditional-access/overview.md) policies based on these risk detections to determine actions and enforce organizational policies.
 
 ## Prerequisites
 
 - Your Azure AD B2C tenant must be [linked to an Azure AD subscription](billing.md#link-an-azure-ad-b2c-tenant-to-a-subscription).
-- Azure AD Premium P2 is required to use sign-in and user risk-based Conditional Access. If necessary, [change your Azure AD pricing tier to Premium P2](https://aka.ms/exid-pricing-tier). 
+- Azure AD B2C Premium P2 is required to use sign-in and user risk-based Conditional Access. If necessary, [change your Azure AD pricing tier to Premium P2](https://aka.ms/exid-pricing-tier). 
 - To manage Identity Protection and Conditional Access in your B2C tenant, you'll need an account that is assigned the Global Administrator role or the Security administrator role.
-- To use these features in your tenant, you first need to switch to the Azure AD Premium P2 pricing tier.
+- To use these features in your tenant, you first need to switch to the Azure AD B2C Premium P2 pricing tier.
 
 ## Set up Identity Protection
 
-Identity Protection is on by default. To be able to view Identity Protection risk events in your Azure AD B2C tenant, simply link your Azure AD B2C tenant to an Azure AD subscription and select the Azure AD Premium P2 pricing tier. You'll begin to receive ongoing notifications about risk events, which you can view in the Azure portal. 
+Identity Protection is on by default. To be able to view Identity Protection risk events in your Azure AD B2C tenant, simply link your Azure AD B2C tenant to an Azure AD subscription and select the Azure AD B2C Premium P2 pricing tier. You can view detailed risk event reports in the Azure portal.
 
 ### Supported Identity Protection risk detections
 
@@ -89,11 +89,9 @@ To add a conditional access policy based on the Identity Protection risk detecti
 
 1. Under **Security**, select **Conditional Access (Preview)**. The **Conditional Access Policies** page opens. 
 
-1. Select **New policy** and follow the Azure AD Conditional Access documentation to create a new policy. The following are examples:
+1. Select **New policy** and follow the Azure AD Conditional Access documentation to create a new policy. The following is an example:
 
    - [Sign-in risk-based Conditional Access: Enable with Conditional Access policy](../active-directory/conditional-access/howto-conditional-access-policy-risk.md#enable-with-conditional-access-policy)
-
-   - [User risk-based Conditional Access: Enable with Conditional Access policy](../active-directory/conditional-access/howto-conditional-access-policy-risk-user.md#enable-with-conditional-access-policy)
 
    > [!IMPORTANT]
    > When selecting the users you want to apply the policy to, don't select **All users** only, or you could block yourself from signing in.

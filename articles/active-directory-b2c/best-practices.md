@@ -40,7 +40,7 @@ Define your application and service architecture, inventory current systems, and
 | Usability vs. security | Your solution must strike the right balance between application usability and your organization's acceptable level of risk. |
 | Move on-premises dependencies to the cloud | To help ensure a resilient solution, consider moving existing application dependencies to the cloud. |
 | Migrate existing apps to b2clogin.com | The deprecation of login.microsoftonline.com will go into effect for all Azure AD B2C tenants on 04 December 2020. [Learn more](b2clogin.md). |
-| Use Identity Protection and Conditional Access | Use these capabilities for significantly greater control over risky authentications and access policies. Azure AD Premium P2 is required. [Learn more](conditional-access-identity-protection-overview.md). |
+| Use Identity Protection and Conditional Access | Use these capabilities for significantly greater control over risky authentications and access policies. Azure AD B2C Premium P2 is required. [Learn more](conditional-access-identity-protection-overview.md). |
 
 ## Implementation
 

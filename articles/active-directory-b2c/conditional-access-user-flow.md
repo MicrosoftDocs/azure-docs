@@ -61,6 +61,9 @@ Learn more about [Identity Protection and Conditional Access](conditional-access
 
 ## Add Conditional Access to an existing user flow
 
+> [!NOTE]
+> The existing user flow must be a version that supports Conditional Access. These user flow versions are labeled **Recommended**.
+
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select the **Directory + Subscription** icon in the portal toolbar, and then select the directory that contains your Azure AD B2C tenant.
@@ -85,11 +88,12 @@ To test Conditional Access in your user flow, [create a Conditional Access polic
 
 ### Prerequisites
 
+- Azure AD B2C Premium 2 is required to create risky sign-in policies. Premium P1 tenants can create location, app, or group-based policies.
 - For testing purposes, you can [register the test web application](tutorial-register-applications.md) `https://jwt.ms`, which is a Microsoft-owned web application that displays the decoded contents of a token (the contents of the token never leave your browser). 
 - To simulate a risky sign-in, download the TOR Browser and attempt to sign in to the user flow endpoint.
 - Using the following settings, [create a Conditional Access policy](conditional-access-identity-protection-setup.md):
    
-   - For **Users and groups**, select the test user (don't select **All users** or you'll block yourself from signing in).
+   - For **Users and groups**, select the test user (don't select **All users** or you could block yourself from signing in).
    - For **Cloud apps or actions**, choose **Select apps**, and then choose your relying party application.
    - For Conditions, select **Sign-in risk** and **High**, **Medium**, and **Low** risk levels.
    - For **Grant**, choose **Block access**.
