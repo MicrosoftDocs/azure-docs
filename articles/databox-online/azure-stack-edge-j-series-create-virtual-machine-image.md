@@ -1,13 +1,13 @@
 ---
-title: Create VM images for your Azure Stack Edge device
-description: Describes how to create linux or Windows VM images to use with your Azure Stack Edge device.
+title: Create VM images for your Azure Stack Edge GPU device
+description: Describes how to create linux or Windows VM images to use with your Azure Stack Edge GPU device.
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 08/21/2020
+ms.date: 08/28/2020
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to create and upload Azure VM images that I can use with my Azure Stack Edge device so that I can deploy VMs on the device.
 ---

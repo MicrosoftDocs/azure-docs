@@ -1,13 +1,13 @@
 ---
-title: Use certificates with Azure Stack Edge | Microsoft Docs
-description: Describes use of certificates with Azure Stack Edge device including why to use, which types and how to upload certificates on your device.
+title: Use certificates with Azure Stack Edge GPU | Microsoft Docs
+description: Describes use of certificates with Azure Stack Edge GPU device including why to use, which types and how to upload certificates on your device.
 services: Azure Stack Edge
 author: alkohli
 
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 02/11/2020
+ms.date: 08/28/2020
 ms.author: alkohli
 ---
 # Use certificates with Azure Stack Edge series 
