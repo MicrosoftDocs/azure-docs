@@ -96,7 +96,7 @@ For more information, see [Access Azure Key Vault behind a firewall](/azure/key-
 
 The following diagram illustrates the process for an application calling a Key Vault "Get Secret" API:
 
-![The Azure Key Vault authentication flow](../media/authentication/authentication--flow.png)
+![The Azure Key Vault authentication flow](../media/authenticatio--uthentication--flow.png)
 
 ## Code examples
 
@@ -105,15 +105,15 @@ The following table links to different articles that demonstrate how to work wit
 | Key Vault Secrets | Key Vault Keys | Key Vault Certificates |
 |  --- | --- | --- |
 | [Python](/azure/key-vault/secrets/quick-create-python) | [Python](/azure/key-vault/keys/quick-create-python) | [Python](/azure/key-vault/certificates/quick-create-python) | 
-| [.NET (SDK v4)](/azure/key-vault/secrets/quick-create-net) | n/a | n/a |
-| [.NET (SDK v3)](/azure/key-vault/secrets/quick-create-net-v3) | n/a | n/a |
-| [Java](/azure/key-vault/secrets/quick-create-java) | n/a | n/a |
-| [JavaScript](/azure/key-vault/secrets/quick-create-node) | n/a | n/a | 
+| [.NET (SDK v4)](/azure/key-vault/secrets/quick-create-net) | -- | -- |
+| [.NET (SDK v3)](/azure/key-vault/secrets/quick-create-net-v3) | -- | -- |
+| [Java](/azure/key-vault/secrets/quick-create-java) | -- | -- |
+| [JavaScript](/azure/key-vault/secrets/quick-create-node) | -- | -- | 
 | | | |
 | [Azure portal](/azure/key-vault/secrets/quick-create-portal) | [Azure portal](/azure/key-vault/keys/quick-create-portal) | [Azure portal](/azure/key-vault/certificates/quick-create-portal) |
 | [Azure CLI](/azure/key-vault/secrets/quick-create-cli) | [Azure CLI](/azure/key-vault/keys/quick-create-cli) | [Azure CLI](/azure/key-vault/certificates/quick-create-cli) |
 | [Azure PowerShell](/azure/key-vault/secrets/quick-create-powershell) | [Azure PowerShell](/azure/key-vault/keys/quick-create-powershell) | [Azure PowerShell](/azure/key-vault/certificates/quick-create-powershell) |
-| [ARM template](/azure/key-vault/secrets/quick-create-net) | n/a | n/a |
+| [ARM template](/azure/key-vault/secrets/quick-create-net) | -- | -- |
 
 ## Next Steps
 
