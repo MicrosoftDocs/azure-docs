@@ -41,6 +41,6 @@ To create a flexible server in Virtual Network, you need:
 > After the flexible server is deployed to a virtual network and subnet, you cannot move it to Public access (allowed IP addresses).
 
 ## Next steps
-- [Create and manage Azure Database for MySQL Flexible Server Virtual Network using Azure CLI](how-to-manage-virtual-network-using-cli.md).
+- [Create and manage Azure Database for MySQL Flexible Server Virtual Network using Azure CLI](./how-to-manage-virtual-network-using-cli.md).
 - Learn more about [networking in Azure Database for MySQL Flexible Server](./concepts-networking-overview.md)
-- Understand more about [Azure Database for MySQL Flexible Server Virtual Network](./concepts-virtual-network.md).
+- Understand more about [Azure Database for MySQL Flexible Server Virtual Network](./concepts-networking-virtual-network.md).

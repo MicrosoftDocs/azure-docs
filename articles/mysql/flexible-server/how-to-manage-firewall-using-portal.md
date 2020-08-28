@@ -87,4 +87,4 @@ Repeat the following steps to manage the firewall rules.
 ## Next steps
 - Learn more about [Networking in Azure Database for MySQL Flexible Server](./concepts-networking-overview.md)
 - Understand more about [Azure Database for MySQL Flexible Server firewall rules](./concepts-networking-public-access.md).
-- Similarly, you can script to [Create and manage Azure Database for MySQL firewall rules using Azure CLI](howto-manage-firewall-using-cli.md).
+- Similarly, you can script to [Create and manage Azure Database for MySQL firewall rules using Azure CLI](./howto-manage-firewall-using-cli.md).
