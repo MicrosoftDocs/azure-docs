@@ -11,7 +11,7 @@ ms.date: 06/24/2019
 Azure role-based access control (Azure RBAC) enables fine-grained access management for Azure. Using RBAC, you can segregate duties within your team and grant only the amount of access to users that they need to perform their jobs.
 
 > [!IMPORTANT]
-> Roles provided by Azure Backup are limited to actions that can be performed in Azure portal or via REST API or Recovery Services vault PowerShell or CLI cmdlets. Actions performed in Azure backup Agent Client UI or System center Data Protection Manager UI or Azure Backup Server UI are out of control of these roles.
+> Roles provided by Azure Backup are limited to actions that can be performed in Azure portal or via REST API or Recovery Services vault PowerShell or CLI cmdlets. Actions performed in the Azure Backup agent client UI or System center Data Protection Manager UI or Azure Backup Server UI are out of control of these roles.
 
 Azure Backup provides three built-in roles to control backup management operations. Learn more on [Azure built-in roles](../role-based-access-control/built-in-roles.md)
 

@@ -386,6 +386,15 @@
     items:
     - name: What is Flexible Server?
       href: flexible-server/overview.md
+  - name: Quickstarts
+    expanded: true
+    items:
+      - name: Create Server
+        items:
+        - name: Azure portal
+          href: flexible-server/quickstart-create-server-portal.md
+        - name: Azure CLI
+          href: flexible-server/quickstart-create-server-cli.md
 - name: Reference
   items:
   - name: Azure CLI
