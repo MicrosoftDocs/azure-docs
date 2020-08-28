@@ -25,7 +25,7 @@ If you're already familiar with [Identity Protection](../active-directory/identi
 ![Conditional Access in a B2C tenant](media/conditional-access-identity-protection-overview/conditional-access-b2c.png)
 
 > [!NOTE]
-> To use sign-in and user risk-based Conditional access, Azure AD Premium P2 is required.
+> To use sign-in and user risk-based Conditional access, Azure AD B2C Premium P2 is required.
 
 ## Benefits of Identity Protection and Conditional Access for Azure AD B2C  
 
