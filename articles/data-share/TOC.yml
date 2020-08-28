@@ -39,7 +39,7 @@
   items:
   - name: Share and receive data by source type
     items:
-    - name: Share and receive data from Azure Data Explorer
+    - name: Share from Azure Data Explorer
       href: /azure/data-explorer/data-share
       maintainContext: true
   - name: Monitor
