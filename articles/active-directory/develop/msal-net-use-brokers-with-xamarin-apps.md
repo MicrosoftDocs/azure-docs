@@ -333,12 +333,14 @@ As an alternative, you can configure MSAL to fall back to the embedded browser, 
 
 Here are a few tips on avoiding issues when you implement brokered authentication on Android:
 
-- Add a **Redirect URI** to your application registration in the [Azure portal](https://portal.azure.com/). A missing or incorrect redirect URI is a common issue encountered by developers.
-- Install the minimum required version of the broker apps. Either of these two apps can be used for brokered authentication on Android.
+- **Redirect URI** - Add a redirect URI to your application registration in the [Azure portal](https://portal.azure.com/). A missing or incorrect redirect URI is a common issue encountered by developers.
+- **Broker version** - Install the minimum required version of the broker apps. Either of these two apps can be used for brokered authentication on Android.
   - [Intune Company Portal](https://play.google.com/store/apps/details?id=com.microsoft.windowsintune.companyportal) (version 5.0.4689.0 or greater)
-  - [Microsoft Authenticator](https://play.google.com/store/apps/details?id=com.azure.authenticator) (Version 6.2001.0140 or greater).
-- If you install both broker apps on your device, the default broker MSAL communicates with is the **first broker installed** on the device. This means that if you first install Microsoft Authenticator and then install Intune Company Portal, brokered authentication will *only* happen on the Microsoft Authenticator.
-- If you encounter an issue with brokered authentication, viewing the broker's logs might help you diagnose the cause.
+  - [Microsoft Authenticator](https://play.google.com/store/apps/details?id=com.azure.authenticator) (version 6.2001.0140 or greater).
+- **Broker precedence** - MSAL communicates with the *first broker installed* on the device when multiple brokers are installed.
+
+    Example: If you first install Microsoft Authenticator and then install Intune Company Portal, brokered authentication will *only* happen on the Microsoft Authenticator.
+- **Logs** - If you encounter an issue with brokered authentication, viewing the broker's logs might help you diagnose the cause.
   - View Microsoft Authenticator logs:
 
     1. Select the menu button in the top-right corner of the app.
