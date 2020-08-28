@@ -1,6 +1,6 @@
 ---
 title: What's new? Release notes - Azure Active Directory | Microsoft Docs
-description: Learn what is new with Azure Active Directory, such as the latest release notes, known issues, bug fixes, deprecated functionality, and upcoming changes.
+description: Learn what is new with Azure Active Directory; such as the latest release notes, known issues, bug fixes, deprecated functionality, and upcoming changes.
 services: active-directory
 author: ajburnle
 manager: daveba
@@ -31,7 +31,7 @@ Azure AD receives improvements on an ongoing basis. To stay up to date with the 
 - Deprecated functionality
 - Plans for changes
 
-This page is updated monthly, so revisit it regularly. If you're looking for items that are older than six months, you can find them in the [Archive for What's new in Azure Active Directory](whats-new-archive.md).
+This page is updated monthly, so revisit it regularly. If you're looking for items older than six months, you can find them in [Archive for What's new in Azure Active Directory](whats-new-archive.md).
 
 ---
 
@@ -68,7 +68,9 @@ You can expand a managed domain to have more than one replica set per Azure AD t
 **Service category:** MFA  
 **Product capability:** Identity Security & Protection
  
-We've recently updated the Azure MFA Server IP address. Please make sure your MFA servers can communicate with all of the IP addresses listed in [Getting started with the Azure Multi-Factor Authentication Server](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfaserver-deploy#azure-multi-factor-authentication-server-firewall-requirements).
+Starting 1 October 2020, Azure MFA Server firewall requirements will require additional IP ranges.
+
+If you have outbound firewall rules in your organization, update the rules so that your MFA servers can communicate with all the necessary IP ranges. The IP ranges are documented in [Azure Multi-Factor Authentication Server firewall requirements](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfaserver-deploy#azure-multi-factor-authentication-server-firewall-requirements).
 
 ---
 
@@ -77,10 +79,14 @@ We've recently updated the Azure MFA Server IP address. Please make sure your MF
 **Type:** Plan for change  
 **Service category:** N/A  
 **Product capability:** Identity Security & Protection
- 
-With the recent release of Microsoft Secure Score, we will introduce an improved scoring model. These changes allow for a more flexible and accurate view of your security posture with a standardized score reported in percentages instead of points.
 
-We are updating the Identity Secure Score portal and introducing a preview version at the beginning of September. This preview version will allow customers to toggle from the existing experience to the new version of Identity Secure Score that matches the experience and branding of the new Microsoft Secure Score. In addition to updating the scoring model, “Identity Secure Score”  will be renamed “Secure Score for Identity” in the portal for brand alignment. This preview will last until the end of November 2020. After the preview, the customers will automatically be directed to the new UX experience.
+We're updating the Identity Secure Score portal to align with the changes introduced in Microsoft Secure Score’s [new release](https://docs.microsoft.com/microsoft-365/security/mtp/microsoft-secure-score-whats-new?view=o365-worldwide). 
+
+The preview version with the changes will be available at the beginning of September. Customers can then toggle from the existing experience to the new version of Identity Secure Score that matches the experience and branding of the new Microsoft Secure Score. The changes in the preview version include:
+- “Identity Secure Score” renamed to “Secure Score for Identity” for brand alignment with Microsoft Secure Score
+- Points normalized to standard scale and reported in percentages instead of points
+
+This preview will last until the end of November 2020. After the preview, the customers will automatically be directed to the new UX experience.
 
 ---
 
@@ -90,17 +96,17 @@ We are updating the Identity Secure Score portal and introducing a preview versi
 **Service category:** B2C - Consumer Identity Management  
 **Product capability:** B2B/B2C
  
-Previously, Custom Open ID Connect providers could only be added or managed through the Azure Portal. Now the Azure AD B2C customers can add and manage them through Microsoft Graph APIs beta version as well. To learn how to configure this resource with APIs, see [identityProvider resource type](https://docs.microsoft.com/graph/api/resources/identityprovider?view=graph-rest-beta).
+Previously, Custom Open ID Connect providers could only be added or managed through the Azure portal. Now the Azure AD B2C customers can add and manage them through Microsoft Graph APIs beta version as well. To learn how to configure this resource with APIs, see [identityProvider resource type](https://docs.microsoft.com/graph/api/resources/identityprovider?view=graph-rest-beta).
  
 ---
 
 ### New Restricted Guest Access Permissions in Azure AD - Public Preview
 
 **Type:** New feature  
-**Service category:** Directory Management  
-**Product capability:** Directory
+**Service category:** Access Control   
+**Product capability:** User Management
 
-We've updated directory level permissions for guest users. These permissions allow administrators to impose additional restrictions and controls on external guest user access to user and groups' profile and membership information within your organization in Azure AD. With this public preview feature, customers can manage external user access at scale by obfuscating group memberships, including restricting guest users from seeing memberships of the group(s) they are in.
+We've updated directory level permissions for guest users. These permissions allow administrators to require additional restrictions and controls on external guest user access. Admins can now add additional restrictions for external guests' access to user and groups' profile and membership information within your organization. With this public preview feature, customers can manage external user access at scale by obfuscating group memberships, including restricting guest users from seeing memberships of the group(s) they are in.
 
 To learn more, see [Restricted Guest Access Permissions](https://docs.microsoft.com/azure/active-directory/users-groups-roles/users-restrict-guest-permissions) and [Users Default Permissions](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions).
  
@@ -116,7 +122,7 @@ Microsoft Graph Delta Query now supports two new resource types in v1.0:
 - Service Principal
 - OAuth2PermissionGrant
 
-This allows a client to track changes to those resources efficiently and provides the best solution to synchronize changes to those resources with a local data store. To learn how to configure these resources in a query, see [Use delta query to track changes in Microsoft Graph data](https://docs.microsoft.com/graph/delta-query-overview).
+Now clients can track changes to those resources efficiently and provides the best solution to synchronize changes to those resources with a local data store. To learn how to configure these resources in a query, see [Use delta query to track changes in Microsoft Graph data](https://docs.microsoft.com/graph/delta-query-overview).
  
 ---
 
@@ -130,7 +136,7 @@ Microsoft Graph Delta Query now supports two new resource types in v1.0:
 - Service Principal
 - OAuth2PermissionGrant
 
-This allows a client to track changes to those resources efficiently and therefore provides the best solution to synchronize changes to those resources with a local data store. To learn how to configure these resources in a query, see [Use delta query to track changes in Microsoft Graph data](https://docs.microsoft.com/graph/delta-query-overview).
+Clients can now track changes to those resources efficiently and provides the best solution to synchronize changes to those resources with a local data store. To learn how to configure these resources in a query, see [Use delta query to track changes in Microsoft Graph data](https://docs.microsoft.com/graph/delta-query-overview).
 
 ---
 
@@ -146,17 +152,17 @@ In August 2020 we have added following 26 new applications in our App gallery wi
 
 You can also find the documentation of all the applications from here https://aka.ms/AppsTutorial
 
-For listing your application in the Azure AD app gallery, please read the details here https://aka.ms/AzureADAppRequest
+For listing your application in the Azure AD app gallery, read the details here https://aka.ms/AzureADAppRequest
 
 ---
 
-### General Availability of Azure AD My Sign-Ins
+### General Availability of Azure AD My sign-ins
 
 **Type:** New feature  
 **Service category:** Authentications (Logins)  
 **Product capability:** End User Experiences
  
-Azure AD My Sign-Ins is a new feature that allows enterprise users to review their sign-in history to check for any unusual activity. Additionally, this feature allows end-users to report “This wasn’t me” or “This was me” on suspicious activities. To learn more about using this feature, see [View and search your recent sign-in activity from the My Sign-ins page](https://docs.microsoft.com/azure/active-directory/user-help/my-account-portal-sign-ins-page#confirm-unusual-activity).
+Azure AD My sign-ins is a new feature that allows enterprise users to review their sign-in history to check for any unusual activity. Additionally, this feature allows end-users to report “This wasn’t me” or “This was me” on suspicious activities. To learn more about using this feature, see [View and search your recent sign-in activity from the My Sign-ins page](https://docs.microsoft.com/azure/active-directory/user-help/my-account-portal-sign-ins-page#confirm-unusual-activity).
  
 ---
 
@@ -178,7 +184,7 @@ To learn more about how to configure SAP SuccessFactors inbound provisioning to 
 **Service category:** RBAC  
 **Product capability:** Access Control
 
-With this new feature, you can assign Azure AD built-in roles to cloud groups. For example, you can assign the SharePoint Administrator role to Contoso_SharePoint_Admins group. You can also use PIM to make the group an eligible member of the role, instead of granting standing access. To learn how to configure this feature, see [Use cloud groups to manage role assignments in Azure Active Directory (preview)](https://docs.microsoft.com/azure/active-directory/users-groups-roles/roles-groups-concept).
+You can now assign Azure AD built-in roles to cloud groups with this new feature. For example, you can assign the SharePoint Administrator role to Contoso_SharePoint_Admins group. You can also use PIM to make the group an eligible member of the role, instead of granting standing access. To learn how to configure this feature, see [Use cloud groups to manage role assignments in Azure Active Directory (preview)](https://docs.microsoft.com/azure/active-directory/users-groups-roles/roles-groups-concept).
  
 ---
 
@@ -188,7 +194,7 @@ With this new feature, you can assign Azure AD built-in roles to cloud groups. F
 **Service category:** RBAC  
 **Product capability:** Access Control
  
-Users in this role can access a set of dashboards and insights via the [M365 Insights application](https://www.microsoft.com/microsoft-365/partners/workplaceanalytics). This includes full access to all dashboards and presented insights and data exploration functionality. However, users in this role do not have access to product configuration settings, which is the responsibility of the Insights Administrator role. To learn more about this role, see [Administrator role permissions in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#insights-business-leader)
+Users in the Insights Business Leader role can access a set of dashboards and insights via the [M365 Insights application](https://www.microsoft.com/microsoft-365/partners/workplaceanalytics). This includes full access to all dashboards and presented insights and data exploration functionality. However, users in this role don't have access to product configuration settings, which is the responsibility of the Insights Administrator role. To learn more about this role, see [Administrator role permissions in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#insights-business-leader)
  
 ---
 
@@ -198,7 +204,7 @@ Users in this role can access a set of dashboards and insights via the [M365 Ins
 **Service category:** RBAC  
 **Product capability:** Access Control
  
-Users in this role can access the full set of administrative capabilities in the [M365 Insights application](https://www.microsoft.com/microsoft-365/partners/workplaceanalytics). This role has the ability to read directory information, monitor service health, file support tickets, and access the Insights administrator settings aspects.To learn more about this role, see [Administrator role permissions in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#insights-administrator)
+Users in the Insights Administrator role can access the full set of administrative capabilities in the [M365 Insights application](https://www.microsoft.com/microsoft-365/partners/workplaceanalytics). A user in this role can read directory information, monitor service health, file support tickets, and access the Insights administrator settings aspects. To learn more about this role, see [Administrator role permissions in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#insights-administrator)
  
 --- 
 
@@ -208,7 +214,7 @@ Users in this role can access the full set of administrative capabilities in the
 **Service category:** RBAC  
 **Product capability:** Access Control
  
-Previously, only the Global Administrator could manage the [extension property](https://docs.microsoft.com/graph/api/application-post-extensionproperty?view=graph-rest-beta&tabs=http). We are now enabling this capability for the Application Administrator and Cloud Application Administrator as well.
+Previously, only the Global Administrator could manage the [extension property](https://docs.microsoft.com/graph/api/application-post-extensionproperty?view=graph-rest-beta&tabs=http). We're now enabling this capability for the Application Administrator and Cloud Application Administrator as well.
  
 ---
 
@@ -218,7 +224,7 @@ Previously, only the Global Administrator could manage the [extension property](
 **Service category:** Microsoft Identity Manager  
 **Product capability:** Identity Lifecycle Management
 
-A [hotfix rollup package (build 4.6.263.0)](https://support.microsoft.com/help/4576473/hotfix-rollup-package-build-4-6-263-0-is-available-for-microsoft-ident) is available for Microsoft Identity Manager (MIM) 2016 Service Pack 2 (SP2). This rollup package contains updates for the MIM CM, MIM Synchronization Manager and PAM components. In addition, the MIM generic connectors build 1.1.1301.0 includes updates for the Graph connector.
+A [hotfix rollup package (build 4.6.263.0)](https://support.microsoft.com/help/4576473/hotfix-rollup-package-build-4-6-263-0-is-available-for-microsoft-ident) is available for Microsoft Identity Manager (MIM) 2016 Service Pack 2 (SP2). This rollup package contains updates for the MIM CM, MIM Synchronization Manager, and PAM components. In addition, the MIM generic connectors build 1.1.1301.0 includes updates for the Graph connector.
 
 ---
  
@@ -230,7 +236,7 @@ A [hotfix rollup package (build 4.6.263.0)](https://support.microsoft.com/help/4
 **Service category:** Conditional Access  
 **Product capability:** Identity Security & Protection
  
-With the GA release of the client apps condition in Conditional Access, new policies will now apply by default to all client applications, including legacy authentication clients. Existing policies will remain unchanged, but the *Configure Yes/No* toggle will be removed from existing policies to easily see which client apps  are applied to by the policy. 
+With the GA release of the client apps condition in Conditional Access, new policies will now apply by default to all client applications. This includes legacy authentication clients. Existing policies will remain unchanged, but the *Configure Yes/No* toggle will be removed from existing policies to easily see which client apps  are applied to by the policy. 
 
 When creating a new policy, make sure to exclude users and service accounts that are still using legacy authentication; if you don't, they will be blocked. [Learn more](https://aka.ms/caclientapps).
  
