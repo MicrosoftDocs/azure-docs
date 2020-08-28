@@ -15,7 +15,7 @@ ms.author: aahi
 # Quickstart: Explore the Metrics Advisor demo with example data
 
 > [!Note]
-> The Metrics Advisor demo is read-only, and you will not be able to onboard your data. To use the service on your data, first [create a Metrics Advisor resource](build-first-monitor.md).
+> The Metrics Advisor demo is read-only, and you will not be able to onboard your data. To use the service on your data, first [create a Metrics Advisor resource](web-portal.md).
 
 Use this article to quickly start exploring the key features in Metrics Advisor. We provide a demo site with sample data and preset configurations, for you to get familiar with the fully featured Web portal.
 

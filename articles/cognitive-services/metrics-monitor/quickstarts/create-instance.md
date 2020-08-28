@@ -97,4 +97,4 @@ Right-click on the resource group listing. Select **Delete resource group**, and
 
 ## Next Steps
 
-- [Build your first monitor on web](build-first-monitor.md)
+- [Build your first monitor on web](web-portal.md)

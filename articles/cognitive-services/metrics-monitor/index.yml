@@ -30,7 +30,7 @@ landingContent:
         - text: Create a Metrics Advisor instance
           url: quickstarts/create-instance.md    
         - text: Build your first monitor 
-          url: quickstarts/build-first-monitor.md
+          url: quickstarts/web-portal.md
         - text: Use the REST API and Client libraries
           url: quickstarts/rest-api-and-client-library.md
     - linkListType: how-to-guide

@@ -8,7 +8,7 @@
 - name: Quickstarts
   items:
   - name: Use the web portal
-    href: quickstarts/build-first-monitor.md
+    href: quickstarts/web-portal.md
   - name: Use the Client library or REST API
     href: quickstarts/rest-api-and-client-library.md
   - name: Explore the demo site
