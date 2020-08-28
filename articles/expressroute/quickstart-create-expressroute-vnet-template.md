@@ -1,19 +1,19 @@
 ---
-title: 'Quickstart: Create an ExpressRoute circuit with private peering - ARM Template - Azure ExpressRoute'
-description: This quickstart article describes how to create an ExpressRoute circuit with private peering and a virtual network with an ExpressRoute gateway.
+title: Create an ExpressRoute circuit by using an Azure Resource Manager template (ARM template)
+description: Learn how to create an ExpressRoute circuit by using Azure Resource Manager template (ARM template).
 services: expressroute
 author: duongau
 mnager: kumud
-Customer intent: As an IT admin, I want to establish a fast, private connection to Microsoft cloud services from my on-premises infrastructure or colocation facility.
 ms.service: expressroute
 ms.topic: quickstart
+ms.custom: subject-armsq
 ms.date: 08/27/2020
 ms.author: duau
 ---
 
 # Quickstart: Create an ExpressRoute circuit with private peering using an ARM template
 
-This quickstart describes how to use an Azure Resource Manager template (ARM Template) to create an ExpressRoute circuit with private peering and a virtual network with an ExpressRoute gateway to link to your circuit.
+This quickstart describes how to use an Azure Resource Manager template (ARM Template) to create an ExpressRoute circuit with private peering.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -29,11 +29,11 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-expressroute-private-peering-vnet).
 
-In this quickstart, you'll create an ExpressRoute circuit with *Equinix* as the service provider. The circuit will have a *Premium SKU*, bandwidth of *50 Mbps*, and the peering location of *Washington DC*. Private peering will be enabled with a primary and secondary subnet of *192.168.10.16/30* and *192.168.10.20/30* respectively. A virtual network will also be created along with a *High Performance SKU ExpressRoute gateway*.
+In this quickstart, you'll create an ExpressRoute circuit with *Equinix* as the service provider. The circuit will be using a *Premium SKU*, with a bandwidth of *50 Mbps*, and the peering location of *Washington DC*. Private peering will be enabled with a primary and secondary subnet of *192.168.10.16/30* and *192.168.10.20/30* respectively. A virtual network will also be created along with a *HighPerformance ExpressRoute gateway*.
 
 :::code language="json" source="~/quickstart-templates/101-expressroute-private-peering-vnet/azuredeploy.json":::
 
-Multiple Azures resource have been defined in the template:
+Multiple Azures resources have been defined in the template:
 
 * [**Microsoft.Network/expressRouteCircuits**](/azure/templates/microsoft.network/expressRouteCircuits)
 * [**Microsoft.Network/expressRouteCircuits/peerings**](/azure/templates/microsoft.network/expressRouteCircuits/peerings) (Used to enabled private peering on the circuit)
