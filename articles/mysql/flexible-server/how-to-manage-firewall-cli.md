@@ -143,6 +143,6 @@ az mysql server firewall-rule delete --server-name mydemoserver --name FirewallR
 Upon success, there is no output. Upon failure, error message text displays.
 
 ## Next steps
-- Learn more about [Networking in Azure Database for MySQL Flexible Server](./concepts-networking-overview.md)
-- Understand more about [Azure Database for MySQL Flexible Server firewall rules](./concepts-networking-public-access.md).
-- [Create and manage Azure Database for MySQL Flexible Server firewall rules using the Azure portal](./howto-manage-firewall-portal.md).
+- Learn more about [Networking in Azure Database for MySQL Flexible Server]<!--- FIX ME(./concepts-networking-overview.md)--->
+- Understand more about [Azure Database for MySQL Flexible Server firewall rules]<!--- FIX ME(./concepts-networking-public-access.md).--->
+- [Create and manage Azure Database for MySQL Flexible Server firewall rules using the Azure portal](./how-to-manage-firewall-portal.md).

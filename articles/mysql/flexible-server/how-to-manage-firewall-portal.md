@@ -82,6 +82,6 @@ Repeat the following steps to manage the firewall rules.
 - To delete an existing rule, click the ellipsis […] and click **Delete** to remove the rule. Click **Save** to save the changes.
 
 ## Next steps
-- Learn more about [Networking in Azure Database for MySQL Flexible Server](./concepts-networking-overview.md)
-- Understand more about [Azure Database for MySQL Flexible Server firewall rules](./concepts-networking-public-access.md).
-- [Create and manage Azure Database for MySQL firewall rules using Azure CLI](./howto-manage-firewall-cli.md).
+- Learn more about [Networking in Azure Database for MySQL Flexible Server]<!--- FIX ME(./concepts-networking-overview.md)--->
+- Understand more about [Azure Database for MySQL Flexible Server firewall rules]<!--- FIX ME(./concepts-networking-public-access.md).--->
+- [Create and manage Azure Database for MySQL firewall rules using Azure CLI](./how-to-manage-firewall-cli.md).
