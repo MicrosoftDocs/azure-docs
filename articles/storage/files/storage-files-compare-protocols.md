@@ -29,7 +29,7 @@ Azure Files offers two protocols for connecting and mounting your Azure file sha
 |Symbolic links support     |Supported         |Not supported         |
 |Deleting or modifying open files     |Supported         |Not supported         |
 |Locking     |Byte-range advisory network lock manager         |Supported         |
-|Public IP allowlisting | Not supported | Supported|
+|Public IP safe listing | Not supported | Supported|
 |Protocol interop| Not supported | File-REST|
 
 ## SMB shares
