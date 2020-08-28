@@ -176,7 +176,7 @@ Read-Host -Prompt "Press [ENTER] to continue ..."
 
 Follow these steps to verify if your server was created in Azure.
 
-# [Azure Portal](#tab/portal)
+# [Azure portal](#tab/portal)
 
 1. In the [Azure portal](https://portal.azure.com), search for and select **Azure Database for MySQL Flexible servers (Preview)**.
 
@@ -205,6 +205,7 @@ az resource show --resource-group $resourcegroupName --name $serverName --resour
 ```
 
 ---
+
 ## Clean up resources
 
 Keep this resource group, server, and single database if you want to go to the [Next steps](#next-steps). The next steps show you how to connect and query your database using different methods.
@@ -219,7 +220,6 @@ In the [portal](https://portal.azure.com), select the resource group you want to
 1. Select **Delete resource group**.
 2. To confirm the deletion, type the name of the resource group
 
----
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
@@ -232,6 +232,3 @@ Remove-AzResourceGroup -Name ExampleResourceGroup
 az group delete --name ExampleResourceGroup
 ```
 ----
-
-
-## Next steps
