@@ -140,4 +140,4 @@ Upon success, there is no output. Upon failure, error message text displays.
 ## Next steps
 - Learn more about [Networking in Azure Database for MySQL Flexible Server](./concepts-networking-overview.md)
 - Understand more about [Azure Database for MySQL Flexible Server firewall rules](./concepts-networking-public-access.md).
-- [Create and manage Azure Database for MySQL Flexible Server firewall rules using the Azure portal](./howto-manage-firewall-using-portal.md).
+- [Create and manage Azure Database for MySQL Flexible Server firewall rules using the Azure Portal](./howto-manage-firewall-using-portal.md).

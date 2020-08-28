@@ -222,6 +222,5 @@ using (var connection = new MySqlConnection(builder.ConnectionString))
 ```
 
 ## Next steps
-
 - [Use MySQL Workbench to connect and query data in Azure Database for MySQL Flexible Server](./connect-workbench.md)
 - [Use PHP to connect and query data in Azure Database for MySQL Flexible Server](./connect-php.md)
