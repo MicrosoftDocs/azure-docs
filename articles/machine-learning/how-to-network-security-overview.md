@@ -18,11 +18,11 @@ ms.custom: how-to, devx-track-python, references_regions
 
 In this article, you learn how to use virtual networks to secure network communication in Azure Machine Learning. This article uses an example scenario to show you how to configure a complete virtual network.
 
-This article is part one of a four-part series that walks you through securing a virtual network. We highly recommend that you read through this overview article to understand the concepts first. 
+This article is part one of a five-part series that walks you through securing a virtual network. We highly recommend that you read through this overview article to understand the concepts first. 
 
 Here are the other articles in this series:
 
-**1. VNet overview** > [2. Secure the workspace](how-to-secure-workspace-vnet.md) > [3. Secure the training environment](how-to-secure-training-vnet.md) > [4. Secure the inferencing environment](how-to-secure-inferencing-vnet.md) 
+**1. VNet overview** > [2. Secure the workspace](how-to-secure-workspace-vnet.md) > [3. Secure the training environment](how-to-secure-training-vnet.md) > [4. Secure the inferencing environment](how-to-secure-inferencing-vnet.md) > [5. Enable studio functionality](how-to-enable-studio-virtual-network.md)
 
 ## Prerequisites
 
@@ -176,3 +176,4 @@ This article is part one of a four-part virtual network series. See the rest of 
 * [Part 1: Virtual network overview](how-to-network-security-overview.md)
 * [Part 3: Secure the training environment](how-to-secure-training-vnet.md)
 * [Part 4: Secure the inferencing environment](how-to-secure-inferencing-vnet.md)
+* [Part 5:Enable studio functionality](how-to-enable-studio-virtual-network.md)

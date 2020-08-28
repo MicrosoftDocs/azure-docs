@@ -20,19 +20,33 @@ ms.custom: contperfq4, tracking-python
 
 In this article, you learn how to secure training environments with a virtual network in Azure Machine Learning.
 
-This article is part three of a four-part series that walks you through securing a virtual network. See the other articles in this series:
+This article is part three of a five-part series that walks you through securing a virtual network. We highly recommend that you read through [Part one: VNet overview](how-to-network-security-overview.md) to understand the overall architecture first. 
 
-[1. VNet overview](how-to-network-security-overview.md) > [Secure the workspace](how-to-secure-workspace-vnet.md) > **3. Secure the training environment** > [4. Secure the inferencing environment](how-to-secure-inferencing-vnet.md) 
+See the other articles in this series:
+
+[1. VNet overview](how-to-network-security-overview.md) > [Secure the workspace](how-to-secure-workspace-vnet.md) > **3. Secure the training environment** > [4. Secure the inferencing environment](how-to-secure-inferencing-vnet.md)  > [5. Enable studio functionality](how-to-enable-studio-virtual-network.md)
+
+In this article you learn how to secure the following training compute resources in a virtual network:
+> [!div class="checklist"]
+> - Azure Machine Learning compute cluster
+> - Azure Machine Learning compute instance
+> - Azure Databricks
+> - Virtual Machine
+> - HDInsight cluster
 
 ## Prerequisites
 
-+ An Azure Machine Learning [workspace](how-to-manage-workspace.md).
++ Read the [Network security overview](how-to-network-security-overview.md) article to understand common virtual network scenarios and overall virtual network architecture.
 
-+ Understand the [common virtual network scenarios for Azure Machine Learning](how-to-enable-virtual-network.md)
++ An existing virtual network and subnet to use with your compute resources.
 
-+ General working knowledge of both the [Azure Virtual Network service](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) and [IP networking](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm).
++ To deploy resources into a virtual network or subnet, your user account must have permissions to the following actions in Azure role-based access controls (RBAC):
 
-+ A pre-existing virtual network and subnet to use with your compute resources.
+    - "Microsoft.Network/virtualNetworks/join/action" on the virtual network resource.
+    - "Microsoft.Network/virtualNetworks/subnet/join/action" on the subnet resource.
+
+    For more information on RBAC with networking, see the [Networking built-in roles](/azure/role-based-access-control/built-in-roles#networking)
+
 
 ## <a name="compute-instance"></a>Compute clusters & instances 
 
@@ -291,3 +305,4 @@ This article is part three in a four-part virtual network series. See the rest o
 * [Part 1: Virtual network overview](how-to-network-security-overview.md)
 * [Part 2: Secure the workspace resources](how-to-secure-workspace-vnet.md)
 * [Part 4: Secure the inferencing environment](how-to-secure-inferencing-vnet.md)
+* [Part 5:Enable studio functionality](how-to-enable-studio-virtual-network.md)

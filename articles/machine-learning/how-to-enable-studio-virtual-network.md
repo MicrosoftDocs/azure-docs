@@ -25,9 +25,11 @@ In this article, you learn how to use Azure Machine Learning studio in a virtual
 > - Give the studio access to data stored inside of a virtual network.
 > - Understand how storage security is impacted by the studio.
 
-This article is an optional part of a four-part series that walks you through securing a virtual network. See the other articles in this series:
+This article is part five of a five-part series that walks you through securing a virtual network. We highly recommend that you read through [Part one: VNet overview](how-to-network-security-overview.md) to understand the overall architecture first. 
 
-[1. VNet overview](how-to-network-security-overview.md) > [2. Secure the workspace](how-to-secure-workspace-vnet.md) > [3. Secure the training environment](how-to-secure-training-vnet.md) > [4. Secure the inferencing environment](how-to-secure-inferencing-vnet.md) 
+See the other articles in this series:
+
+[1. VNet overview](how-to-network-security-overview.md) > [2. Secure the workspace](how-to-secure-workspace-vnet.md) > [3. Secure the training environment](how-to-secure-training-vnet.md) > [4. Secure the inferencing environment](how-to-secure-inferencing-vnet.md) > [5. Enable studio functionality](how-to-enable-studio-virtual-network.md)
 
 
 > [!IMPORTANT]

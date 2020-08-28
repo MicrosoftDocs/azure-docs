@@ -20,35 +20,43 @@ ms.custom: contperfq4, tracking-python
 
 In this article, you learn how to secure inferencing environments with a virtual network in Azure Machine Learning.
 
-This article is part four of a four-part series that walks you through securing a virtual network. See the other articles in this series:
+This article is part four of a five-part series that walks you through securing a virtual network. We highly recommend that you read through [Part one: VNet overview](how-to-network-security-overview.md) to understand the overall architecture first. 
 
-[1. VNet overview](how-to-network-security-overview.md) > [Secure the workspace](how-to-secure-workspace-vnet.md) > [3. Secure the training environment](how-to-secure-training-vnet.md) > **4. Secure the inferencing environment** 
+See the other articles in this series:
+
+[1. VNet overview](how-to-network-security-overview.md) > [Secure the workspace](how-to-secure-workspace-vnet.md) > [3. Secure the training environment](how-to-secure-training-vnet.md) > **4. Secure the inferencing environment** > [5. Enable studio functionality](how-to-enable-studio-virtual-network.md)
+
+In this article you learn how to secure the following inferencing resources in a virtual network:
+> [!div class="checklist"]
+> - Default Azure Kubernetes Service (AKS) cluster
+> - Private AKS cluster
+
 
 ## Prerequisites
 
-+ An Azure Machine Learning [workspace](how-to-manage-workspace.md).
++ Read the [Network security overview](how-to-network-security-overview.md) article to understand common virtual network scenarios and overall virtual network architecture.
 
-+ Understand the [common virtual network scenarios for Azure Machine Learning](how-to-enable-virtual-network.md)
++ An existing virtual network and subnet to use with your compute resources.
 
-+ General working knowledge of both the [Azure Virtual Network service](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) and [IP networking](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm).
++ To deploy resources into a virtual network or subnet, your user account must have permissions to the following actions in Azure role-based access controls (RBAC):
 
-+ A pre-existing virtual network and subnet to use with your compute resources.
+    - "Microsoft.Network/virtualNetworks/join/action" on the virtual network resource.
+    - "Microsoft.Network/virtualNetworks/subnet/join/action" on the subnet resource.
 
-If you are accessing the studio from a resource inside of a virtual network (for example, a compute instance or virtual machine), you must allow outbound traffic from the virtual network to the studio. 
-
-For example, if you are using network security groups (NSG) to restrict outbound traffic, add a rule to a __service tag__ destination of __AzureFrontDoor.Frontend__.
-
+    For more information on RBAC with networking, see the [Networking built-in roles](/azure/role-based-access-control/built-in-roles#networking)
 
 <a id="aksvnet"></a>
 
 ## Azure Kubernetes Service
 
-To add Azure Kubernetes Service (AKS) in a virtual network to your workspace, use the following steps:
+To use an AKS cluster in a virtual network, the following network requirements must be met:
 
-> [!IMPORTANT]
-> Before you begin the following procedure, follow the prerequisites in the [Configure advanced networking in Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/configure-azure-cni#prerequisites) how-to and plan the IP addressing for your cluster.
->
-> The AKS instance and the Azure virtual network must be in the same region. If you secure the Azure Storage Account(s) used by the workspace in a virtual network, they must be in the same virtual network as the AKS instance.
+> [!div class="checklist"]
+> * Follow the prerequisites in [Configure advanced networking in Azure Kubernetes Service (AKS)](../aks/configure-azure-cni.md#prerequisites).
+> * The AKS instance and the virtual network must be in the same region. If you secure the Azure Storage Account(s) used by the workspace in a virtual network, they must be in the same virtual network as the AKS instance too.
+
+
+To add AKS in a virtual network to your workspace, use the following steps:
 
 1. Sign in to [Azure Machine Learning studio](https://ml.azure.com/), and then select your subscription and workspace.
 
@@ -97,13 +105,13 @@ aks_target = ComputeTarget.create(workspace=ws,
 
 When the creation process is completed, you can run inference, or model scoring, on an AKS cluster behind a virtual network. For more information, see [How to deploy to AKS](how-to-deploy-and-where.md).
 
-### Use private IPs with Azure Kubernetes Service
+## Private AKS cluster
 
 By default, a public IP address is assigned to AKS deployments. When using AKS inside a virtual network, you can use a private IP address instead. Private IP addresses are only accessible from inside the virtual network or joined networks.
 
 A private IP address is enabled by configuring AKS to use an _internal load balancer_. 
 
-#### Network contributor role
+### Network contributor role
 
 > [!IMPORTANT]
 > If you create or attach an AKS cluster by providing a virtual network you previously created, you must grant the service principal (SP) or managed identity for your AKS cluster the _Network Contributor_ role to the resource group that contains the virtual network. This must be done before you try to change the internal load balancer to private IP.
@@ -135,7 +143,7 @@ A private IP address is enabled by configuring AKS to use an _internal load bala
     ```
 For more information on using the internal load balancer with AKS, see [Use internal load balancer with Azure Kubernetes Service](/azure/aks/internal-lb).
 
-#### Enable private IP
+### Enable private IP
 
 > [!IMPORTANT]
 > You cannot enable private IP when creating the Azure Kubernetes Service cluster. It must be enabled as an update to an existing cluster.
@@ -234,3 +242,4 @@ This article is part three in a four-part virtual network series. See the rest o
 * [Part 1: Virtual network overview](how-to-network-security-overview.md)
 * [Part 2: Secure the workspace resources](how-to-secure-workspace-vnet.md)
 * [Part 3: Secure the training environment](how-to-secure-training-vnet.md)
+* [Part 5:Enable studio functionality](how-to-enable-studio-virtual-network.md)

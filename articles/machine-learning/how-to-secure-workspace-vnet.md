@@ -20,13 +20,13 @@ ms.custom: how-to, contperfq4, tracking-python
 In this article, you learn how to secure an Azure Machine Learning workspace and its associated resouces in a virtual network.
 
 
-This article is part-two of a four-part series that walks you through securing a virtual network. See the other articles in this series:
+This article is part two of a five-part series that walks you through securing a virtual network. We highly recommend that you read through [Part one: VNet overview](how-to-network-security-overview.md) to understand the overall architecture first. 
 
-[1. VNet overview](how-to-network-security-overview.md) > **2. Secure the workspace** > [3. Secure the training environment](how-to-secure-training-vnet.md) > [4. Secure the inferencing environment](how-to-secure-inferencing-vnet.md) 
+See the other articles in this series:
 
+[1. VNet overview](how-to-network-security-overview.md) > **2. Secure the workspace** > [3. Secure the training environment](how-to-secure-training-vnet.md) > [4. Secure the inferencing environment](how-to-secure-inferencing-vnet.md) > [5. Enable studio functionality](how-to-enable-studio-virtual-network.md)
 
-
-In this article you learn how to enable the following workspaces resources  in a virtual network:
+In this article you learn how to enable the following workspaces resources in a virtual network:
 > [!div class="checklist"]
 > - Azure Machine Learning workspace
 > - Azure Storage accounts
@@ -72,15 +72,6 @@ Azure Private Link lets you connect to your workspace using a private endpoint. 
 The template at [https://github.com/Azure/azure-quickstart-templates/tree/master/201-machine-learning-advanced](https://github.com/Azure/azure-quickstart-templates/tree/master/201-machine-learning-advanced) can be used to create a workspace with a private endpoint.
 
 For information on using this template, including private endpoints, see [Use an Azure Resource Manager template to create a workspace for Azure Machine Learning](how-to-create-workspace-template.md).
-
-### Using a workspace over a private endpoint
-
-Since communication to the workspace is only allowed from the virtual network, any development environments that use the workspace must be members of the virtual network. For example, a virtual machine in the virtual network.
-
-> [!IMPORTANT]
-> To avoid temporary disruption of connectivity, Microsoft recommends flushing the DNS cache on machines connecting to the workspace after enabling Private Link. 
-
-For information on Azure Virtual Machines, see the [Virtual Machines documentation](/azure/virtual-machines/).
 
 
 > [!TIP]
@@ -339,3 +330,4 @@ This article is part one of a four-part virtual network series. See the rest of 
 * [Part 1: Virtual network overview](how-to-network-security-overview.md)
 * [Part 3: Secure the training environment](how-to-secure-training-vnet.md)
 * [Part 4: Secure the inferencing environment](how-to-secure-inferencing-vnet.md)
+* [Part 5:Enable studio functionality](how-to-enable-studio-virtual-network.md)
