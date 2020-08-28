@@ -409,16 +409,7 @@
     - name: Build PHP (Laravel) app with Flexible Server
       href: flexible-server/tutorial-php-database-app.md
     - name: Web app and database server in virtual network
-      href: flexible-server/tutorial-webapp-server-vnet.md
-      
-  - name: How-to guides
-    items:
-    - name: Manage your server
-      items:
-      - name: Azure portal
-        href: flexible-server/how-to-manage-portal.md
-      - name: Azure CLI
-        href: flexible-server/how-to-manage-cli.md
+      href: flexible-server/tutorial-webapp-server-vnet.md      
   - name: Concepts
     items:
     - name: Limitations
@@ -433,6 +424,14 @@
           href: flexible-server/concepts-slow-query-logs.md
         - name: Audit logs
           href: flexible-server/concepts-audit-logs.md
+  - name: How-to guides
+    items:
+    - name: Manage your server
+      items:
+      - name: Azure portal
+        href: flexible-server/how-to-manage-portal.md
+      - name: Azure CLI
+        href: flexible-server/how-to-manage-cli.md
 - name: Reference
   items:
   - name: Azure CLI
