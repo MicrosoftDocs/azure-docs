@@ -45,15 +45,15 @@ In this example, we will reference the parent domain as **contoso.net**
       > [!NOTE] 
       > If the new zone that you are creating is a child zone (e.g. Parent zone = contoso.net Child zone = child.contoso.net), please refer to our [Creating a new Child DNS zone tutorial](./tutorial-public-dns-zones-child.md)
 
-| **Setting** | **Value** | **Details** |
-|--|--|--|
-| **Project details:**  |  |  |
-| **Resource group**    | ContosoRG | Create a resource group. The resource group name must be unique within   the subscription that you selected. The location of the resource group has no   impact on the DNS zone. The DNS zone location is always "global,"   and isn't shown. |
-| **Instance details:** |  |  |
-| **Zone child**        | leave unchecked | Since this zone is **not** a [child zone](./tutorial-public-dns-zones-child.md) you should leave this unchecked |
-| **Name**              | contoso.net | Field for your parent zone name      |
-| **Location**          | East US | This field is based on the location selected as part of Resource group creation  |
-
+    | **Setting** | **Value** | **Details** |
+    |--|--|--|
+    | **Project details:**  |  |  |
+    | **Resource group**    | ContosoRG | Create a resource group. The resource group name must be unique within   the subscription that you selected. The location of the resource group has no   impact on the DNS zone. The DNS zone location is always "global,"   and isn't shown. |
+    | **Instance details:** |  |  |
+    | **Zone child**        | leave unchecked | Since this zone is **not** a [child zone](./tutorial-public-dns-zones-child.md) you should leave this unchecked |
+    | **Name**              | contoso.net | Field for your parent zone name      |
+    | **Location**          | East US | This field is based on the location selected as part of Resource group creation  |
+    
 
 ## Retrieve name servers
 
