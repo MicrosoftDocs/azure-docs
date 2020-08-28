@@ -183,16 +183,13 @@ Logs appear in the results:
 1. Select **Azure Explorer**, then **Spring Cloud**.
 1. Right-click the running app.
 1. Select **Streaming Logs** from the drop-down list.
-
-    ![Select streaming logs](media/spring-cloud-intellij-howto/streaming-logs.png)
-
 1. Select instance.
 
-    ![Select instance](media/spring-cloud-intellij-howto/select-instance.png)
+    [ ![Select streaming logs](media/spring-cloud-quickstart-java/intellij-get-streaming-logs.png) ](media/spring-cloud-quickstart-java/intellij-get-streaming-logs.png)
 
 1. The streaming log will be visible in the output window.
 
-    ![Streaming log output](media/spring-cloud-intellij-howto/streaming-log-output.png)
+    [ ![Streaming log output](media/media/spring-cloud-quickstart-java/intellij-streaming-logs-output.png) ](media/media/spring-cloud-quickstart-java/intellij-streaming-logs-output.png)
 ---
 
 For advanced logs analytics features, visit **Logs** tab in the menu on [Azure portal](https://portal.azure.com/). Logs here have a latency of a few minutes.
