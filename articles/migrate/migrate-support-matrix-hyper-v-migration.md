@@ -34,6 +34,7 @@ You can select up to 10 VMs at once for replication. If you want to migrate more
 | **Required changes for Azure** | Some VMs might require changes so that they can run in Azure. Make adjustments manually before migration. The relevant articles contain instructions about how to do this. |
 | **Linux boot**                 | If /boot is on a dedicated partition, it should reside on the OS disk, and not be spread across multiple disks.<br/> If /boot is part of the root (/) partition, then the '/' partition should be on the OS disk, and not span other disks. |
 | **UEFI boot**                  | Supported. Ensure that you select a VM size supported by Azure generation 2 VM  |
+| **UEFI - Secure boot**         | Not supported for migration.|
 | **Disk size**                  | 2 TB for the OS disk, 4 TB for data disks.|
 | **Disk number** | A maximum of 16 disks per VM.|
 | **Encrypted disks/volumes**    | Not supported for migration.|
