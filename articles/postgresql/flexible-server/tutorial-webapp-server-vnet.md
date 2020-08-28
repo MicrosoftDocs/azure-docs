@@ -98,3 +98,5 @@ Clean up all resources you created in the tutorial using the following command. 
 az group delete -n myresourcegroup
 ```
 
+## Next steps
+- [Map an existing custom DNS name to Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-domain)
