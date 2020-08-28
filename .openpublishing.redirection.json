@@ -7935,6 +7935,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-functions/functions-create-first-azure-function-azure-cli.md",
+      "redirect_url": "articles/azure-functions/create-first-function-cli-csharp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-functions/functions-create-first-function-vs-code.md",
+      "redirect_url": "articles/azure-functions/create-first-function-vs-code-csharp",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/app-service-logic/app-service-logic-connector-http.md",
       "redirect_url": "/azure/connectors/connectors-native-http",
       "redirect_document_id": false
