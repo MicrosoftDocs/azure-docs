@@ -51,7 +51,7 @@ SMB with Azure Files is ideal for:
 
 - Windows environments
 - Customers that require any of the features listed in [Features](#features)
-- Production environments (NFS is currently in preview)
+- Production environments
 
 Do not use SMB if you need Unix style permissions (UID/GID), case sensitivity, or POSIX delete behavior.
 
@@ -73,19 +73,6 @@ NFS with Azure Files is ideal for:
 
 - Linux environments.
 - SAP
-
-#### Container storage 
-
-Containers deliver "build once, run anywhere" capabilities that enable developers to accelerate innovation. For the containers that access raw data at every start, a shared file system allows these containers to access the file system no matter which instance they run on. NFS is ideal for container storage because it provides persistent shared access to file data and has low attach-detach latencies.
-
-#### Enterprise Applications (Databases, CRM, LOB apps) 
-
-With high scalability, elasticity, availability, and persistence, NFS can be used to store the files of enterprise applications and the applications delivered as services.   
-
-Many More 
-
-Web applications, DevOps, HPC, Log Directories, Video Streaming etc. Basically, any application ever written for Linux, assumes POSIX semantics. NFS is the native choice for any Linux applications. 
-
 - Linux-centric workloads that do not require SMB access.
 - Inherent locking system that you do not need to manage.
 
