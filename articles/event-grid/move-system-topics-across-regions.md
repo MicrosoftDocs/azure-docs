@@ -3,8 +3,8 @@ title: Move Azure Event Grid system topics to another region
 description: This article shows you how to move Azure Event Grid system topics from one region to another region.  
 ms.topic: how-to
 ms.custom: subject-moving-resources
-ms.date: 08/20/2020
-#Customer intent: As an Azure service administrator, I want to be able to move an Azure event source and its associated system topic from one region to another region to have it closer to customers. 
+ms.date: 08/27/2020
+#Customer intent: As an Azure service administrator, I want to be able to move an Azure event source and its associated system topic from one region to another region to have it closer to customers, to meet internal policy and governance requirements, or in response to capacity planning requirements. 
 ---
 
 # Move Azure Event Grid system topics to another region
@@ -16,12 +16,11 @@ Here are the high-level steps covered in this article:
 - **Modify the template** to add the `endpointUrl` property to point to a webhook that subscribes to the system topic. When the system topic is exported, its subscription (in this case, it's a webhook) is also exported to the template, but the `endpointUrl` property isn't included. So, you need to update it to point to the endpoint that subscribes to the topic. Also, update the value of the `location` property to the new location or region. For other types of event handlers, you need to the update only the location. 
 - **Use the template to deploy resources** to the target region. You'll specify names for the storage account and the system topic to be created in the target region. 
 - **Verify the deployment**. Verify that the webhook is invoked when you upload a file to the blob storage in the target region. 
-- To **complete the move**, delete resources from the source region. 
+- To **complete the move**, delete resources (event source and system topic) from the source region. 
 
 ## Prerequisites
 - Complete the [Quickstart: Route Blob storage events to web endpoint with the Azure portal](blob-event-quickstart-portal.md) in the source region. This step is **optional**. Do it to test steps in this article. Keep the storage account in a separate resource group from the App Service and App Service plan. 
 - Ensure that the Event Grid service is available in the target region. See [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=event-grid&regions=all).
-- For any preview features, ensure that your subscription is whitelisted for the target region.
 
 ## Prepare
 To get started, export a Resource Manager template for the resource group that contains the system event source (Azure Storage account) and its associated system topic. 
@@ -85,15 +84,17 @@ Deploy the template to create a storage account and a system topic for the stora
     1. Select an Azure **subscription**. 
     1. Select an existing **resource group** in the target region or create one. 
     1. For **location**, select the target region. If you selected an existing resource group, this setting is read-only.
+    1. For the **system topic name**, enter a name for the system topic that will be associated with the storage account.  
     1. For the **storage account name**, enter a name for the storage account to be created in the target region. 
-    1. For the **system topic name**, enter a name for the system topic that will be associated with the storage account. 
 
         :::image type="content" source="./media/move-system-topics-across-regions/deploy-template.png" alt-text="Deploy Resource Manager template":::
-    5. Select the **I agree to the terms and conditions stated above** checkbox.     
-    6. Now, select **Purchase** to start the deployment process. 
+    5. Select **Review + create** at the bottom of the page. 
+    1. On the **Review + create** page, review settings, and select **Create**. 
 
 ## Verify
-Upload a file to a container in the Azure Blob storage, and verify that the webhook has received the event. For more information, see [Send an event to your endpoint](blob-event-quickstart-portal.md#send-an-event-to-your-endpoint).
+1. After the deployment succeeds, select **Goto resource group**. 
+1. On the **Resource group** page, verify that the event source (in this example, Azure Storage account) and the system topic are created. 
+1. Upload a file to a container in the Azure Blob storage, and verify that the webhook has received the event. For more information, see [Send an event to your endpoint](blob-event-quickstart-portal.md#send-an-event-to-your-endpoint).
 
 ## Discard or clean up
 To complete the move, delete the resource group that contains the storage account and its associated system topic in the source region.  
@@ -109,10 +110,10 @@ To delete a resource group (source or target) by using the Azure portal:
 3. On the confirmation page, enter the name of the resource group, and select **Delete**.  
 
 ## Next steps
-You learned how to move an Azure event source and its associated system topic from one region to another region. 
+You learned how to move an Azure event source and its associated system topic from one region to another region. See the following articles for moving custom topics, domains, and partner namespaces across regions.
 
-To learn about moving custom topics from one region to another, see [Move custom topics across regions](move-custom-topics-across-regions.md). 
-
-To learn about moving domains from one region to another, see [Move domains across regions](move-system-topics-across-regions.md). 
+- [Move custom topics across regions](move-custom-topics-across-regions.md). 
+- [Move domains across regions](move-system-topics-across-regions.md). 
+- [Move partner namespaces across regions](move-partner-namespaces-across-regions.md). 
 
 To learn more about moving resources between regions and disaster recovery in Azure, see the following article: [Move resources to a new resource group or subscription](../azure-resource-manager/management/move-resource-group-and-subscription.md)

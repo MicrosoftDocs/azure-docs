@@ -4,24 +4,26 @@ description: This article shows you how to move Azure Event Grid custom topics f
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 08/20/2020
-#Customer intent: As an Azure service administrator, I want to be able to move an Azure event source and its associated system topic from one region to another region to have it closer to customers. 
+#Customer intent: As an Azure service administrator, I want to be able to move Event Grid custom topics from one region to another region to have it closer to customers, to meet internal policy and governance requirements, or in response to capacity planning requirements. 
 ---
 
 # Move Azure Event Grid custom topics to another region
 You might want to move your resources to another region for a number of reasons. For example, to take advantage of a new Azure region, to meet internal policy and governance requirements, or in response to capacity planning requirements. 
 
-Here's are the high-level steps covered in this article: 
+Here are the high-level steps covered in this article: 
 
-- **Export the custom topic** resource to an Azure Resource Manager template. Only the custom topic resource is exported to the template. Any subscriptions to the topic aren't exported. 
+- **Export the custom topic** resource to an Azure Resource Manager template. 
+
+    > [!IMPORTANT]
+    > Only the custom topic is exported to the template. Any subscriptions for the topic aren't exported.
 - **Use the template to deploy the custom topic** to the target region. 
-- **Create subscriptions manually** in the target region. When you exported the custom topic to a template in the current region, only the topic is exported. Subscriptions aren't included in the template. 
-- **Verify the deployment**. Send an event to the custom topic and verify the event handler associated with the subscription is invoked. 
+- **Create subscriptions manually** in the target region. When you exported the custom topic to a template in the current region, only the topic is exported. Subscriptions aren't included in the template, so create them manually after the custom topic is created in the target region. 
+- **Verify the deployment**. Verify that the custom topic is created in the target region. 
 - To **complete the move**, delete custom topic from the source region. 
 
 ## Prerequisites
 - Complete the [Quickstart: Route custom events to web endpoint](custom-event-quickstart-portal.md) in the source region. Do this step so that you can test steps in this article. 
 - Ensure that the Event Grid service is available in the target region. See [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=event-grid&regions=all).
-- For any preview features, ensure that your subscription is whitelisted for the target region.
 
 ## Prepare
 To get started, export a Resource Manager template for the custom topic. 
@@ -39,7 +41,7 @@ To get started, export a Resource Manager template for the custom topic.
 
     > [!IMPORTANT]
     > Only the topic is exported to the template. Subscriptions for the topic aren't exported. So, you need to create subscriptions for the topic after you move the topic to the target region. 
-5. Locate the **.zip** file that you downloaded from the portal, and unzip that file to a folder of your choice. This zip file contains template and parameters JSON files. 
+5. Locate the **.zip** file you downloaded from the portal, and unzip that file to a folder of your choice. This zip file contains template and parameters JSON files. 
 1. Open the **template.json** in an editor of your choice. 
 8. Update `location` for the **topic** resource to the target region or location. To obtain location codes, see [Azure locations](https://azure.microsoft.com/global-infrastructure/locations/). The code for a region is the region name with no spaces, for example, `West US` is equal to `westus`.
 
@@ -66,8 +68,16 @@ Deploy the template to create a custom topic in the target region.
     1. Select an existing **resource group** in the target region or create one. 
     1. For **Location**, select the target region. If you selected an existing resource group, this setting is read-only. 
     1. For the **topic name**, enter a new name for the topic. 
-    5. Select the **I agree to the terms and conditions stated above** checkbox.     
-    6. Now, select **Purchase** to start the deployment process. 
+    1. Select **Review + create** at the bottom of the page. 
+    
+        :::image type="content" source="./media/move-custom-topics-across-regions/deploy-template.png" alt-text="Custom deployment":::
+    1. On the **Review + create** page, review settings, and select **Create**. 
+
+## Verify
+
+1. After the deployment succeeds, select **Go to resource**. 
+1. Confirm that you see the **Event Grid Topic** page for the custom topic.   
+1. Follow steps in the [Route custom events to a web endpoint](custom-event-quickstart-portal.md#send-an-event-to-your-topic) to send events to the topic. Verify that the webhook event handler is invoked. 
 
 ## Discard or clean up
 To complete the move, delete the custom topic in the source region.  

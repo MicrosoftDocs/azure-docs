@@ -17,7 +17,8 @@ Here's are the high-level steps covered in this article:
 - To **complete the move**, delete the partner namespace from the source region. 
 
     > [!NOTE]
-    > Exporting partner topics to an Azure Resource Manager template isn't supported because customers can't create a partner topic directly. 
+    > - Exporting partner topics to an Azure Resource Manager template isn't supported because customers can't create a partner topic directly. 
+    > - Partner registrations are global resources (not tied to any specific region), so moving them from one region to another region isn't applicable. 
 
 ## Prerequisites
 - Ensure that the Event Grid service is available in the target region. See [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=event-grid&regions=all).
@@ -28,7 +29,7 @@ To get started, export a Resource Manager template for the partner namespace.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. In the search bar at the top, type **Event Grid partner namespaces**, and select **Event Grid Partner Namespaces** from the results list. 
-3. Select the **partner namesapce** that you want to export to a Resource Manager template. 
+3. Select the **partner namespace** that you want to export to a Resource Manager template. 
 4. On the **Event Grid Partner Namespace** page, select **Export Template** under **Settings** on the left menu, and then select **Download** on the toolbar. 
 
     :::image type="content" source="./media/move-partner-namespaces-across-regions/download-template.png" alt-text="Export template -> Download":::   
