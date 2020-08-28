@@ -138,7 +138,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. On the **Instant Login** page, perform the following steps:
  
-	![Instant Login](./media/clever-tutorial/ic798985.png "Instant Login")
+	![Clever Instant Login](./media/clever-tutorial/ic798985.png "Instant Login")
 
 	a. Type the **Login URL**.
 
