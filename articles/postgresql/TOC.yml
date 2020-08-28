@@ -369,11 +369,12 @@
       - name: Azure portal
         href: howto-move-regions-portal.md
 - name: Flexible server
+  items:
   - name: Quickstarts
     items:
     - name: Create Server and Database
       items:
-      - name: Create Server using ARM template
+      - name: ARM template
         href: flexible-server/quickstart-create-server-arm-template.md
   - name: How-to guides
     items:
