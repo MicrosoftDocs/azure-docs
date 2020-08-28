@@ -7,7 +7,7 @@ ms.topic: reference
 ms.workload: identity
 author: rolyon
 ms.author: rolyon
-ms.date: 08/26/2020
+ms.date: 08/28/2020
 ms.custom: generated
 ---
 
@@ -7770,9 +7770,18 @@ Azure service: [Azure Monitor](../azure-monitor/index.yml)
 > | Microsoft.OperationalInsights/workspaces/query/DeviceCleanup/read | Read data from the DeviceCleanup table |
 > | Microsoft.OperationalInsights/workspaces/query/DeviceConnectSession/read | Read data from the DeviceConnectSession table |
 > | Microsoft.OperationalInsights/workspaces/query/DeviceEtw/read | Read data from the DeviceEtw table |
+> | Microsoft.OperationalInsights/workspaces/query/DeviceEvents/read | Read data from the DeviceEvents table |
+> | Microsoft.OperationalInsights/workspaces/query/DeviceFileEvents/read | Read data from the DeviceFileEvents table |
 > | Microsoft.OperationalInsights/workspaces/query/DeviceHardwareHealth/read | Read data from the DeviceHardwareHealth table |
 > | Microsoft.OperationalInsights/workspaces/query/DeviceHealth/read | Read data from the DeviceHealth table |
 > | Microsoft.OperationalInsights/workspaces/query/DeviceHeartbeat/read | Read data from the DeviceHeartbeat table |
+> | Microsoft.OperationalInsights/workspaces/query/DeviceImageLoadEvents/read | Read data from the DeviceImageLoadEvents table |
+> | Microsoft.OperationalInsights/workspaces/query/DeviceInfo/read | Read data from the DeviceInfo table |
+> | Microsoft.OperationalInsights/workspaces/query/DeviceLogonEvents/read | Read data from the DeviceLogonEvents table |
+> | Microsoft.OperationalInsights/workspaces/query/DeviceNetworkEvents/read | Read data from the DeviceNetworkEvents table |
+> | Microsoft.OperationalInsights/workspaces/query/DeviceNetworkInfo/read | Read data from the DeviceNetworkInfo table |
+> | Microsoft.OperationalInsights/workspaces/query/DeviceProcessEvents/read | Read data from the DeviceProcessEvents table |
+> | Microsoft.OperationalInsights/workspaces/query/DeviceRegistryEvents/read | Read data from the DeviceRegistryEvents table |
 > | Microsoft.OperationalInsights/workspaces/query/DeviceSkypeHeartbeat/read | Read data from the DeviceSkypeHeartbeat table |
 > | Microsoft.OperationalInsights/workspaces/query/DeviceSkypeSignIn/read | Read data from the DeviceSkypeSignIn table |
 > | Microsoft.OperationalInsights/workspaces/query/DeviceSleepState/read | Read data from the DeviceSleepState table |
@@ -7823,6 +7832,7 @@ Azure service: [Azure Monitor](../azure-monitor/index.yml)
 > | Microsoft.OperationalInsights/workspaces/query/HDInsightStormLogs/read | Read data from the HDInsightStormLogs table |
 > | Microsoft.OperationalInsights/workspaces/query/HDInsightStormMetrics/read | Read data from the HDInsightStormMetrics table |
 > | Microsoft.OperationalInsights/workspaces/query/HDInsightStormTopologyMetrics/read | Read data from the HDInsightStormTopologyMetrics table |
+> | Microsoft.OperationalInsights/workspaces/query/HealthStateChangeEvent/read | Read data from the HealthStateChangeEvent table |
 > | Microsoft.OperationalInsights/workspaces/query/Heartbeat/read | Read data from the Heartbeat table |
 > | Microsoft.OperationalInsights/workspaces/query/HuntingBookmark/read | Read data from the HuntingBookmark table |
 > | Microsoft.OperationalInsights/workspaces/query/IISAssessmentRecommendation/read | Read data from the IISAssessmentRecommendation table |
@@ -7906,6 +7916,8 @@ Azure service: [Azure Monitor](../azure-monitor/index.yml)
 > | Microsoft.OperationalInsights/workspaces/query/Operation/read | Read data from the Operation table |
 > | Microsoft.OperationalInsights/workspaces/query/OutboundConnection/read | Read data from the OutboundConnection table |
 > | Microsoft.OperationalInsights/workspaces/query/Perf/read | Read data from the Perf table |
+> | Microsoft.OperationalInsights/workspaces/query/PowerBIDatasetsTenantPreview/read | Read data from the PowerBIDatasetsTenantPreview table |
+> | Microsoft.OperationalInsights/workspaces/query/PowerBIDatasetsWorkspacePreview/read | Read data from the PowerBIDatasetsWorkspacePreview table |
 > | Microsoft.OperationalInsights/workspaces/query/ProtectionStatus/read | Read data from the ProtectionStatus table |
 > | Microsoft.OperationalInsights/workspaces/query/requests/read | Read data from the requests table |
 > | Microsoft.OperationalInsights/workspaces/query/SCCMAssessmentRecommendation/read | Read data from the SCCMAssessmentRecommendation table |
