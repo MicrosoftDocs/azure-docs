@@ -3,7 +3,7 @@ title: Manage user-assigned managed identities using REST - Azure AD
 description: Step-by-step instructions on how to create, list, and delete a user-assigned managed identity to make REST API calls.
 services: active-directory
 documentationcenter: 
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: 
 ms.service: active-directory
@@ -13,7 +13,7 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/26/2018
-ms.author: markvi
+ms.author: barclayn
 ms.collection: M365-identity-device-management
 ---
 
