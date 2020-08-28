@@ -52,8 +52,6 @@ Returns a `Promise<LaunchResponse>`, which resolves when the Immersive Reader is
 
 The returned `Promise` will be rejected with an [`Error`](#error) object if the Immersive Reader fails to load. For more information, see the [error codes](#error-codes).
 
----
-
 ## close
 
 Closes the Immersive Reader.
@@ -63,8 +61,6 @@ An example use case for this function is if the exit button is hidden by setting
 ```typescript
 close(): void;
 ```
-
----
 
 ## Launching the Immersive Reader
 
@@ -133,8 +129,6 @@ Type: HTMLDivElement[]
 Required: false
 ```
 
----
-
 ## LaunchResponse
 
 Contains the response from the call to `ImmersiveReader.launchAsync`. Note that a reference to the `iframe` that contains the Immersive Reader can be accessed via `container.firstChild`.
@@ -202,8 +196,6 @@ Required: true
 | TokenExpired | The supplied token is expired. |
 | Throttled | The call rate limit has been exceeded. |
 
----
-
 ## Types
 
 ### Content
@@ -237,8 +229,6 @@ Type: Chunk[]
 Required: true
 Default value: null 
 ```
-
----
 
 ### Chunk
 
@@ -289,8 +279,6 @@ Default value: "text/plain"
 | text/html | HTML content. [Learn more](#html-support)|
 | application/mathml+xml | Mathematical Markup Language (MathML). [Learn more](./how-to/display-math.md).
 | application/vnd.openxmlformats-officedocument.wordprocessingml.document | Microsoft Word .docx format document.
-
----
 
 ## Options
 
@@ -395,8 +383,6 @@ Required: false
 Default value: null
 ```
 
----
-
 ### Read Aloud Options Parameters
 
 | Name | Type | Description |
@@ -450,8 +436,6 @@ Default value: null
 Values available: See the Supported Languages section
 ```
 
----
-
 ## Display Options
 
 ```typescript
@@ -485,8 +469,6 @@ Required: false
 Default value: "Calibri"
 Values available: "Calibri", "Sitka", "ComicSans"
 ```
-
----
 
 ## Cookie Policy Options
 
@@ -584,13 +566,10 @@ Default value: "MiddleYellow"
 Values available: "AccessibleBlue", "AccessibleGreen", "AccessibleYellow", "AccessibleOrange", "AccessibleRed", "AccessibleMagenta", "MiddleBlue", "MiddleGreen", "MiddleYellow", "MiddleOrange", "MiddleRed", "MiddleMagenta"
 ```
 
----
-
 ## Supported Languages
 
 The translation feature of Immersive Reader supports many languages. See [this article](https://www.onenote.com/learningtools/languagesupport) for more details.
 
----
 
 ## HTML support
 
@@ -604,8 +583,6 @@ When formatting is enabled, the following content will be rendered as HTML in th
 
 Unsupported tags will be rendered comparably. Images and tables are currently not supported.
 
----
-
 ## Browser support
 
 Use the most recent versions of the following browsers for the best experience with the Immersive Reader.
@@ -615,8 +592,6 @@ Use the most recent versions of the following browsers for the best experience w
 * Google Chrome
 * Mozilla Firefox
 * Apple Safari
-
----
 
 ## Next steps
 
