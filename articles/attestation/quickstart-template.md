@@ -80,7 +80,7 @@ Azure resources defined in the template:
 
 2. Select or enter the following values.
 
-    Unless it's specified, use the default value to create the key vault and a secret.
+    Unless it's specified, use the default value to create the attestation provider.
 
     * **name**: Select a name for your Azure Attestation provider.
     * **location**: Select a location. For example, **Central US**.
