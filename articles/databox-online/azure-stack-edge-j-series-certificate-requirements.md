@@ -74,7 +74,7 @@ The PFX certificates installed on your Azure Stack Edge device should meet the f
 
 * The certificate PFX files must have the values *Server Authentication (1.3.6.1.5.5.7.3.1)* and *Client Authentication (1.3.6.1.5.5.7.3.2)* in the *Enhanced Key Usage* field.
 
-* The passwords to all certificate PFX files must be the same at the time of deployment if you are using the Azure Stack Readiness Checker Tool. For more information, see [Create certificates for your Azure Stack Edge Rugged series using Azure Stack Hub Readiness Checker tool](azure-stack-edge-j-series-create-certificates-tool.md).
+* The passwords to all certificate PFX files must be the same at the time of deployment if you are using the Azure Stack Readiness Checker Tool. For more information, see [Create certificates for your Azure Stack Edge using Azure Stack Hub Readiness Checker tool](azure-stack-edge-j-series-create-certificates-tool.md).
 
 * The password to the certificate PFX must be a complex password. Make a note of this password because it is used as a deployment parameter.
 
@@ -84,7 +84,7 @@ For more information, see [Export PFX certificates with private key](azure-stack
 
 [Use certificates with Azure Stack Edge](azure-stack-edge-j-series-manage-certificates.md)
 
-[Create certificates for your Azure Stack Edge Rugged series using Azure Stack Hub Readiness Checker tool](azure-stack-edge-j-series-create-certificates-tool.md)
+[Create certificates for your Azure Stack Edge using Azure Stack Hub Readiness Checker tool](azure-stack-edge-j-series-create-certificates-tool.md)
 
 [Export PFX certificates with private key](azure-stack-edge-j-series-manage-certificates.md#export-certificates-as-pfx-format-with-private-key)
 

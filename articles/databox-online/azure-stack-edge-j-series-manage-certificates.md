@@ -10,7 +10,7 @@ ms.topic: article
 ms.date: 02/11/2020
 ms.author: alkohli
 ---
-# Use certificates with Azure Stack Edge Rugged series 
+# Use certificates with Azure Stack Edge series 
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
@@ -63,7 +63,7 @@ These certificates could be root certificates or the intermediate certificates. 
 
 ## Node certificates
 
-Your Azure Stack Edge device could be a 1-node device or a 4-node device. All the nodes in the device are constantly communicating with each other and therefore need to have a trust relationship. Node certificates provide a way to establish that trust. Node certificates also come into play when you are connecting to the device node using a remote PowerShell session over https.
+<!--Your Azure Stack Edge device could be a 1-node device or a 4-node device.--> All the nodes in the device are constantly communicating with each other and therefore need to have a trust relationship. Node certificates provide a way to establish that trust. Node certificates also come into play when you are connecting to the device node using a remote PowerShell session over https.
 
 ### Caveats
 

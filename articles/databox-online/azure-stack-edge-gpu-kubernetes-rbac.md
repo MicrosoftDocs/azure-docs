@@ -44,7 +44,7 @@ This approach lets you logically segregate a single Kubernetes cluster, with use
 
 In the current implementation of RBAC, Azure Stack Edge allows you to take the following actions from a restricted PowerShell runspace:
 
-- Create namespaces. Use the 
+- Create namespaces.  
 - Create additional users.
 - Grant you admin access to the namespaces that you created. Keep in mind that you won't have access to cluster admin role or a view of the cluster-wide resources.
 - Get `kubeconfig` file with information to access the Kubernetes cluster.

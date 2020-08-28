@@ -41,7 +41,11 @@
     - name: Security overview
       href: azure-stack-edge-security.md 
     - name: Review specifications
-      href: azure-stack-edge-gpu-technical-specifications-compliance.md 
+      items:
+      - name: Device specifications
+        href: azure-stack-edge-gpu-technical-specifications-compliance.md
+      - name: Power cord specifications
+        href: azure-stack-edge-technical-specifications-power-cords-regional.md
     - name: Understand Kubernetes
       items:
       - name: What is Kubernetes?
@@ -152,7 +156,9 @@
     - name: Troubleshoot
       items:
       - name: Device issues 
-        href: azure-stack-edge-troubleshoot.md       
+        href: azure-stack-edge-troubleshoot.md
+      - name: Ordering issues
+        href: azure-stack-edge-troubleshoot-ordering.md       
       - name: Contact Microsoft Support
         href: azure-stack-edge-contact-microsoft-support.md 
   
@@ -160,6 +166,15 @@
     items:
     - name: 2008 - Release notes
       href: azure-stack-edge-gpu-2008-release-notes.md 
+
+  - name: Reference
+    items:
+    - name: Azure PowerShell
+      href: https://docs.microsoft.com/powershell/module/az.stackedge/?view=azps-4.4.0#stack_edge
+    - name: REST API
+      href: https://docs.microsoft.com/rest/api/databoxedgegateway
+    - name: .NET SDK
+      href: https://docs.microsoft.com/dotnet/api/overview/azure/databoxedge/databoxgateway?view=azure-dotnet 
 
 - name: Azure Stack Edge with FPGA
   items:

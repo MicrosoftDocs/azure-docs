@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 08/04/2020
+ms.date: 08/28/2020
 ms.author: alkohli
 ---
 # System requirements for Azure Stack Edge with GPU 
@@ -118,9 +118,10 @@ Factors you should consider include:
 
 - **Container specifics** - Think about the following.
 
+    - What is your container footprint? How much memory, storage, and CPU is your container consuming?
     - How many containers are in your workload? You could have a lot of lightweight containers versus a few resource-intensive ones.
-    - What are the resources allocated to these containers versus what are the resources they are consuming?
-    - How many layers do your containers share?
+    - What are the resources allocated to these containers versus what are the resources they are consuming (the footprint)?
+    - How many layers do your containers share? Container images are a bundle of files organized into a stack of layers. For your container image, determine how many layers and their respective sizes to calculate resource consumption.
     - Are there unused containers? A stopped container still takes up disk space.
     - In which language are your containers written?
 - **Size of the data processed** - How much data will your containers be processing? Will this data consume disk space or the data will be processed in the memory?

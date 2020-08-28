@@ -7,19 +7,21 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 08/14/2020
+ms.date: 08/28/2020
 ms.author: alkohli
 ---
 
 # Kubernetes on your Azure Stack Edge device
 
-Kubernetes is a popular platform to orchestrate containerized applications. This article provides an overview of Kubernetes and then describes how Kubernetes works on your Azure Stack Edge device. 
+Kubernetes is a popular open-source platform to orchestrate containerized applications. This article provides an overview of Kubernetes and then describes how Kubernetes works on your Azure Stack Edge device. 
 
 ## About Kubernetes 
 
-Kubernetes provides an  easy and reliable platform to manage container-based applications and their associated networking and storage components. You can rapidly provision, upgrade, and scale resources on demand without taking your applications offline.
+Kubernetes provides an  easy and reliable platform to manage container-based applications and their associated networking and storage components. You can rapidly build, deliver, and scale containerized apps with Kubernetes.
 
 As an open platform, you can use Kubernetes to build applications with your preferred programming language, OS libraries, or messaging bus. To schedule and deploy releases, Kubernetes can integrate with existing continuous integration and continuous delivery tools.
+
+For more information, see [How Kubernetes works](https://www.youtube.com/watch?v=q1PcAawa4Bg&list=PLLasX02E8BPCrIhFrc_ZiINhbRkYMKdPT&index=2&t=0s).
 
 ## Kubernetes on Azure Stack Edge
 

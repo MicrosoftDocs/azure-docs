@@ -11,11 +11,14 @@ ms.date: 08/27/2020
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand what Azure Stack Edge is and how it works so I can use it to process and transform data before sending to Azure.
 ---
-# What is Azure Stack Edge with GPU?
+# What is Azure Stack Edge with GPU (Preview)?
 
-Azure Stack Edge is an AI-enabled edge computing device with network data transfer capabilities. This article provides you an overview of the Azure Stack Edge solution, benefits, key capabilities, and the scenarios where you can deploy this device.
+Azure Stack Edge with GPU is an AI-enabled edge computing device with network data transfer capabilities. This article provides you an overview of the Azure Stack Edge solution, benefits, key capabilities, and the scenarios where you can deploy this device.
 
-Azure Stack Edge is a Hardware-as-a-service solution. Microsoft ships you a cloud-managed device that acts as network storage gateway and has a built-in Graphical Processing Unit (GPU) that enables accelerated AI-inferencing. 
+Azure Stack Edge with GPU is a Hardware-as-a-service solution. Microsoft ships you a cloud-managed device that acts as network storage gateway and has a built-in Graphical Processing Unit (GPU) that enables accelerated AI-inferencing. 
+
+> [!IMPORTANT]
+> Azure Stack Edge with GPU is currently in preview. This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Use cases
 
@@ -39,7 +42,7 @@ Azure Stack Edge has the following capabilities:
 
 |Capability |Description  |
 |---------|---------|
-|Accelerated AI inferencing| Enabled by the built-in GPU (one or two) depending on the model.|
+|Accelerated AI inferencing| Enabled by the built-in GPU (one or two depending on the model).|
 |Edge computing      |Allows analysis, processing, filtering of data. Supports VMs and Kubernetes clusters.|
 |High performance | High performance compute and data transfers.|
 |Data access     | Direct data access from Azure Storage Blobs and Azure Files using cloud APIs for additional data processing in the cloud. Local cache on the device is used for fast access of most recently used files.|

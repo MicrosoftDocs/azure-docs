@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/14/2020
+ms.date: 08/28/2020
 ms.author: alkohli
 ---
 # Manage an Azure Stack Edge GPU device via Windows PowerShell
