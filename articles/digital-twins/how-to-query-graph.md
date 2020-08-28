@@ -27,6 +27,8 @@ The rest of this article provides examples of how to use these operations.
 
 This section contains sample queries that illustrate the query language structure and perform possible query operations.
 
+### Query by property
+
 Get [digital twins](concepts-twins-graph.md) by properties (including ID and metadata):
 ```sql
 SELECT  * 
