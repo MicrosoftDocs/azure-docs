@@ -86,7 +86,7 @@ In this section, you create a new build pipeline. You configure the pipeline to 
     ![Use Tasks palette to add tasks to your pipeline](./media/how-to-ci-cd/add-build-task.png)
 
    >[!TIP]
-   > After each task is added, the editor will automatically highlighted the added lines. To prevent accidental overwriting, deselect the lines and provide a new space for your next task before adding additional tasks.
+   > After each task is added, the editor will automatically highlight the added lines. To prevent accidental overwriting, deselect the lines and provide a new space for your next task before adding additional tasks.
 
 8. Repeat this process to add three more tasks with the following parameters:
 
