@@ -51,7 +51,7 @@ Before you can deploy the stateless application, make sure that you have complet
     - Make sure that the `kubectl` client version is skewed no more than one version from the Kubernetes master version running on your Azure Stack Edge device. 
       - Use `kubectl version` to check the version of kubectl running on the client. Make a note of the full version.
       - In the local UI of your Azure Stack Edge device, go to **Overview** and note the Kubernetes software number. 
-      - Verify these two versions for compatibility from the mapping provided in the [Supported Kubernetes version](azure-stack-edge-placeholder.md). 
+      - Verify these two versions for compatibility from the mapping provided in the Supported Kubernetes version <!--insert link-->.
 
 1. You have a [GitOps configuration that you can use to run an Azure Arc deployment](https://github.com/kagoyal/dbehaikudemo). You will use the following `yaml` files to deploy on your Azure Stack Edge device.
 

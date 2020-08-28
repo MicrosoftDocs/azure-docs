@@ -14,7 +14,7 @@ ms.author: alkohli
 This article describes the steps required to install update on your Azure Stack Edge with GPU via the local web UI and via the Azure portal. You apply the software updates or hotfixes to keep your Azure Stack Edge device up-to-date. 
 
 > [!IMPORTANT]
-> - Update **2006** corresponds to **2.1.1257.1591** software version on your device. For information on this update, go to [Release notes](azure-stack-edge-gpu-2005-release-notes.md).
+> - Update **2008** corresponds to **2.1.1328.1904** software version on your device. For information on this update, go to [Release notes](azure-stack-edge-gpu-2008-release-notes.md).
 >
 > - Keep in mind that installing an update or hotfix restarts your device. This update requires you to apply two updates sequentially. First you apply the device software updates and then Kubernetes updates. Given that the Azure Stack Edge is a single node device, any I/O in progress is disrupted and your device experiences a downtime of up to 30 minutes for the device software update.
 

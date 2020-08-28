@@ -95,4 +95,4 @@ Take the following steps to add a webserver app module on your Azure Stack Edge 
 
 ## Next steps
 
-- Learn how to [Expose stateful application via an IoT Edge module](azure-stack-edge-placeholder.md).
+- Learn how to Expose stateful application via an IoT Edge module<!--insert link-->.

@@ -108,4 +108,4 @@ To view the container logs, follow these steps on the dashboard:
 
 ## Next steps
 
-Learn how to [Troubleshoot Kubernetes issues](azure-stack-edge-placeholder.md).
+Learn how to Troubleshoot Kubernetes issues <!--insert link-->.

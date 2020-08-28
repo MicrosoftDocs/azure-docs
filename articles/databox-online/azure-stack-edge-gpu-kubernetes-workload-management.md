@@ -91,12 +91,12 @@ While deploying applications, consider the following information:
 
 To locally deploy an app via kubectl, see:
 
-- [Deploy a stateless application on your Azure Stack Edge via kubectl](azure-stack-edge-placeholder.md).
+- [Deploy a stateless application on your Azure Stack Edge via kubectl](azure-stack-edge-j-series-deploy-stateless-application-kubernetes.md).
 
 To deploy an app via IoT Edge, see:
 
-- [Deploy a sample module on your Azure Stack Edge via IoT Edge](azure-stack-edge-placeholder.md).
+- [Deploy a sample module on your Azure Stack Edge via IoT Edge](azure-stack-edge-gpu-deploy-sample-module.md).
 
 To deploy an app via Azure Arc, see:
 
-- [Deploy an application using Azure Arc](azure-stack-edge-placeholder.md).
+- [Deploy an application using Azure Arc](azure-stack-edge-gpu-deploy-sample-module.md).

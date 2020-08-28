@@ -44,7 +44,7 @@ Before you can deploy the stateful application, make sure that you have complete
     - Make sure that the `kubectl` client version is skewed no more than one version from the Kubernetes master version running on your Azure Stack Edge device. 
         - Use `kubectl version` to check the version of kubectl running on the client. Make a note of the full version.
         - In the local UI of your Azure Stack Edge device, go to **Overview** and note the Kubernetes software number. 
-        - Verify these two versions for compatibility from the mapping provided in the [Supported Kubernetes version](azure-stack-edge-placeholder.md). 
+        - Verify these two versions for compatibility from the mapping provided in the Supported Kubernetes version<!-- insert link-->. 
 
 
 You are ready to deploy a stateful application on your Azure Stack Edge device. 

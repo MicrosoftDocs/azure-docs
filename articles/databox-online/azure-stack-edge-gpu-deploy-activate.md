@@ -43,7 +43,7 @@ Before you configure and set up your Azure Stack Edge device with GPU, make sure
 
     ![Local web UI "Cloud details" page](./media/azure-stack-edge-gpu-deploy-activate/activate-1.png)
     
-3. In the **Activate** pane, enter the **Activation key** that you got in [Get the activation key for Azure Stack Edge](azure-stack-edge-j-series-deploy-prep.md#get-the-activation-key).
+3. In the **Activate** pane, enter the **Activation key** that you got in [Get the activation key for Azure Stack Edge](azure-stack-edge-gpu-deploy-prep.md#get-the-activation-key).
 
 4. Select **Apply**.
 

@@ -108,4 +108,4 @@ In this tutorial, you learned how to:
 To learn how to administer your Azure Stack Edge device, see:
 
 > [!div class="nextstepaction"]
-> [Use local web UI to administer an Azure Stack Edge](azure-stack-edge-j-series-manage-access-power-connectivity-mode.md)
+> [Use local web UI to administer an Azure Stack Edge](azure-stack-edge-manage-access-power-connectivity-mode.md)

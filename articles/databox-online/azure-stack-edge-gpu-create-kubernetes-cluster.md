@@ -120,7 +120,7 @@ In this approach, you create a namespace and a user. You then associate the user
     For example, if the Kubernetes master node was running v1.15.2, install v1.15.2 on the client.
 
     > [!IMPORTANT]
-    > Download a client that is skewed no more than one minor version from the master. The client version but may lead the master by up to one minor version. For example, a v1.3 master should work with v1.1, v1.2, and v1.3 nodes, and should work with v1.2, v1.3, and v1.4 clients. For more information on Kubernetes client version, see [Kubernetes version and version skew support policy](https://kubernetes.io/docs/setup/release/version-skew-policy/#supported-version-skew). For more information on Kubernetes server version on Azure Stack Edge, go to [Get Kubernetes server version](azure-stack-edge-placeholder.md).
+    > Download a client that is skewed no more than one minor version from the master. The client version but may lead the master by up to one minor version. For example, a v1.3 master should work with v1.1, v1.2, and v1.3 nodes, and should work with v1.2, v1.3, and v1.4 clients. For more information on Kubernetes client version, see [Kubernetes version and version skew support policy](https://kubernetes.io/docs/setup/release/version-skew-policy/#supported-version-skew). For more information on Kubernetes server version on Azure Stack Edge, go to Get Kubernetes server version.<!-- insert link-->
     > Sometimes, `kubectl` is preinstalled on your system if you are running Docker for Windows or other tools. It is important to download the specific version of `kubectl` as indicated in this section to work with this kubernetes cluster. 
 
     The installation takes several minutes.

@@ -129,7 +129,7 @@ Factors you should consider include:
 To understand and refine the performance of your solution, you could use:
 
 - The compute metrics available in the Azure portal. Go to your Azure Stack Edge resource and then go to **Monitoring > Metrics**. Look at the **Edge compute - Memory usage** and **Edge compute - Percentage CPU** to understand the available resources and how are the resources getting consumed.
-- To monitor and troubleshoot compute modules, go to [Debug Kubernetes issues](azure-stack-edge-j-series-create-kubernetes-cluster.md#debug-kubernetes-issues).
+- To monitor and troubleshoot compute modules, go to [Debug Kubernetes issues](azure-stack-edge-gpu-connect-powershell-interface.md#debug-kubernetes-issues-related-to-iot-edge).
 
 Finally, make sure that you validate your solution on your dataset and quantify the performance on Azure Stack Edge before deploying in production.
 
