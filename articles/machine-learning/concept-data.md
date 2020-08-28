@@ -64,13 +64,19 @@ Supported cloud-based storage services in Azure that can be registered as datast
 
 ## Datasets
 
-Azure Machine Learning datasets are references that point to the data in your storage service. They aren't copies of your data, so no extra storage cost is incurred and the integrity of your original data sources aren't at risk.
+Azure Machine Learning datasets are references that point to the data in your storage service. They aren't copies of your dataBy creating an Azure Machine Learning dataset, you create a reference to the data source location, along with a copy of its metadata. 
 
- To interact with your data in storage, [create a dataset](how-to-create-register-datasets.md) to package your data into a consumable object for machine learning tasks. Register the dataset to your workspace to share and reuse it across different experiments without data ingestion complexities.
+Because datasets are lazily evaluated, and the data remains in its existing location, you
+
+* Incur no extra storage cost.
+* Don't risk unintentionally changing your original data sources.
+* Improve ML workflow performance speeds.
+
+To interact with your data in storage, [create a dataset](how-to-create-register-datasets.md) to package your data into a consumable object for machine learning tasks. Register the dataset to your workspace to share and reuse it across different experiments without data ingestion complexities.
 
 Datasets can be created from local files, public urls, [Azure Open Datasets](https://azure.microsoft.com/services/open-datasets/), or Azure storage services via datastores. 
 
-We support 2 types of datasets: 
+There are 2 types of datasets: 
 
 + A [FileDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py) references single or multiple files in your datastores or public URLs. If your data is already cleansed and ready to use in training experiments, you can [download or mount files](how-to-train-with-datasets.md#mount-files-to-remote-compute-targets) referenced by FileDatasets to your compute target.
 
