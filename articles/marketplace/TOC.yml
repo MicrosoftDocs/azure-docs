@@ -181,9 +181,9 @@
         items:
         - name: Create a SaaS offer 
           href: create-new-saas-offer.md
-        - name: Configure your SaaS offer properties
+        - name: Configure SaaS offer properties
           href: create-new-saas-offer-properties.md  
-        - name: Configure offer listing
+        - name: Configure SaaS offer listing
           href: create-new-saas-offer-listing.md
         - name: Add a preview audience
           href: create-new-saas-offer-preview.md
@@ -191,8 +191,8 @@
           href: create-new-saas-offer-technical.md  
         - name: Create plans
           href: create-new-saas-offer-plans.md        
-       # - name: Test and publish your offer
-       #   href: test-publish-saas-offer.md
+        - name: Test and publish a SaaS offer
+          href: test-publish-saas-offer.md
       - name: Market your SaaS offer
         href: create-new-saas-offer-marketing.md
       - name: SaaS Fulfillment APIs
