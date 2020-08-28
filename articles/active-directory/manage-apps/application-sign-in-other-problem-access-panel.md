@@ -1,24 +1,19 @@
 ---
-title: Problems signing in to an application from the access panel | Microsoft Docs
-description: How to troubleshoot issues accessing an application from the Microsoft Azure AD Access Panel at myapps.microsoft.com
+title: Troubleshoot problems signing in to an application from Azure AD My Apps
+description: Troubleshoot problems signing in to an application from Azure AD My Apps
 services: active-directory
-documentationcenter: ''
 author: kenwith
 manager: celestedg
-ms.assetid: 
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: japere
-ms.collection: M365-identity-device-management
 ---
 
-# Problems signing in to an application from the access panel
+# Troubleshoot problems signing in to an application from Azure AD My Apps
 
 The Access Panel is a web-based portal which enables a user with a work or school account in Azure Active Directory (Azure AD) to view and start cloud-based applications that the Azure AD administrator has granted them access to. 
 
@@ -521,6 +516,10 @@ open a support ticket with the following information if available:
 -   Time zone and time/timeframe during error occurs
 
 -   Fiddler traces
+
+
+# DEEP LINK CONTENT
+
 
 ## Next steps
 [Provide single sign-on to your apps with Application Proxy](application-proxy-configure-single-sign-on-with-kcd.md)
