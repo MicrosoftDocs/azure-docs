@@ -19,7 +19,7 @@ This quickstart shows how to use the [Azure CLI](https://docs.microsoft.com/cli/
 
 ## Launch Azure Cloud Shell
 
-The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account.
+The [Azure Cloud Shell](../../cloud-shell/overview.md) is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account.
 
 To open the Cloud Shell, just select **Try it** from the upper right corner of a code block. You can also open Cloud Shell in a separate browser tab by going to [https://shell.azure.com/bash](https://shell.azure.com/bash). Select **Copy** to copy the blocks of code, paste it into the Cloud Shell, and select **Enter** to run it.
 
@@ -105,7 +105,7 @@ The result is in JSON format. Make a note of the **fullyQualifiedDomainName** an
 }
 ```
 
-## Connect to Azure Database for MySQL Flexible Server using mysql command-line client
+## Connect using mysql command-line client
 
 As the flexible server was created with *Private access (VNet Integration)*, you will need to connect to your server from a resource within the same VNet as your server. You can create a virtual machine and add it to the virtual network created. 
 
