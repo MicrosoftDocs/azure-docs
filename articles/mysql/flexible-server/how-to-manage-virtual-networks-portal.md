@@ -24,8 +24,8 @@ You can deploy your flexible server into a virtual network and subnet during ser
 
 ## Prerequisites
 To create a flexible server in a virtual network, you need:
-- A [Virtual Network](../../virtual-network/quick-create-portal#create-a-virtual-network.md)
--  To [delegate a subnet](../../virtual-network/manage-subnet-delegation#delegate-a-subnet-to-an-azure-service.md) to **Microsoft.DBforMySQL/flexibleServers**. This delegation means that only Azure Database for MySQL Flexible Servers can use that subnet. No other Azure resource types can be in the delegated subnet.
+- A [Virtual Network](../../virtual-network/quick-create-portal.md#create-a-virtual-network)
+-  To [delegate a subnet](../../virtual-network/manage-subnet-delegation.md#delegate-a-subnet-to-an-azure-service) to **Microsoft.DBforMySQL/flexibleServers**. This delegation means that only Azure Database for MySQL Flexible Servers can use that subnet. No other Azure resource types can be in the delegated subnet.
 
 ## Create Azure Database for MySQL Flexible Server in an already existing virtual network
 

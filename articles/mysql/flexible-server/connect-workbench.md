@@ -17,7 +17,7 @@ This quickstart demonstrates how to connect to an Azure Database for MySQL Flexi
 
 This quickstart uses the resources created in either of these guides as a starting point:
 
-- [Create an Azure Database for MySQL Flexible Server using Azure portal](./quickstart-create-server-portal.md)
+- [Create an Azure Database for MySQL Flexible Server using Azure portal](./quickstart-server-create-portal.md)
 - [Create an Azure Database for MySQL Flexible Server using Azure CLI](./quickstart-server-create-cli.md)
 
 ## Preparing your client workstation
