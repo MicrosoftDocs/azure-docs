@@ -149,13 +149,13 @@ Use the following information to create an AWS connector and start monitoring yo
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Go to **Cost Management + Billing** > **Cost Management**.
-3. Under **Settings**, select **Cloud connectors (Preview)**.  
-    ![Example showing the Cloud connectors (Preview) setting)](./media/aws-integration-setup-configure/cloud-connectors-preview01.png).
+3. Under **Settings**, select **Cloud connectors**.  
+    ![Example showing the Cloud connectors setting)](./media/aws-integration-setup-configure/cloud-connectors-preview01.png).
 4. Select **+Add** at the top of the page to create a connector.
 5. On the **Create connector** page, in **Display name**, enter a name for your connector.  
     ![Example of the page for creating an AWS connector](./media/aws-integration-setup-configure/create-aws-connector01.png)
 6. Optionally, select the default management group. It will store all discovered linked accounts. You can set it up later.
-7. In the **Billing** section, select **Auto renew on** if you want to ensure continuous operation when the preview expires. If you select the automatic option, you must select a billing subscription.
+7. In the **Billing** section, select **Auto renew on** if you want to ensure continuous operation. If you select the automatic option, you must select a billing subscription.
 8. For **Role ARN**, enter the value that you used when you set up the role in AWS.
 9. For **External ID**, enter the value that you used when you set up the role in AWS.
 10. For **Report Name**, enter the name that you created in AWS.
