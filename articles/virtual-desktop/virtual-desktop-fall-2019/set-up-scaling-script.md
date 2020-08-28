@@ -355,4 +355,4 @@ If you decided to use Log Analytics, you can view all the log data in a custom l
 
 ## Report issues
 
-Issue reports for the scaling tool are currently being handled by Microsoft Support. If you encounter any issue with the scaling tool, get the necessary information as described in the [Reporting issues](#reporting-issues) section. In case you have feedback on the tool or request for new features, open a GitHub issue labeled with "4-WVD-scaling-tool" on the [RDS GitHub page](https://github.com/Azure/RDS-Templates/issues?q=is%3Aissue+is%3Aopen+label%3A4-WVD-scaling-tool).
+Issue reports for the scaling tool are currently being handled by Microsoft Support. When you make an issue report, make sure to follow the instructions in [Reporting issues](#reporting-issues). If you have feedback about the tool or want to request new features, open a GitHub issue labeled "4-WVD-scaling-tool" on the [RDS GitHub page](https://github.com/Azure/RDS-Templates/issues?q=is%3Aissue+is%3Aopen+label%3A4-WVD-scaling-tool).
