@@ -32,19 +32,28 @@ The values for the parameters in the topology are specified when you create grap
 
 ## Media graph states  
 
-A media graph can be in one of the following states:
+The lifecycle of graph topologies and graph instances is shown in the following state diagram.
 
-* Inactive –  represents the state where a media graph is configured but not active.
-* Activating – the state when a media graph is being instantiated (that is, the transition state between inactive and active).
-* Active – the state when a media graph is active. 
+![Graph topology and graph instance lifecycle](./media/media-graph/graph-topology-lifecycle.svg)
 
-    > [!NOTE]
-    >  Media graph can be active without data flowing through it (for example, the input video source goes offline).
-* Deactivating – This is the state when a media graph is transitioning from active to inactive.
+You begin with [creating a graph topology](direct-methods.md#graphtopologyset). Then, for each live video feed that you want to process with this topology, you [create a graph instance](direct-methods.md#graphinstanceset). 
 
-The diagram below illustrates the media graph state machine.
+The graph instance will be in the `Inactive` (idle) state.
 
-![Media graph state machine](./media/media-graph/media-graph-state-machine.png)
+When you are ready to send the live video feed into the graph instance, you [activate](direct-methods.md#graphinstanceactivate) it. The graph instance will briefly go through a transitionary `Activating` state, and if successful, go into an `Active` state. In the `Active` state, media will be processed (if the graph instance receives input data).
+
+> [!NOTE]
+>  A graph instance can be active without data flowing through it (for example, the camera goes offline).
+>  Your Azure subscription will be billed when the graph instance is in the active state.
+
+You can repeat the process of creating and activating other graph instances for the same topology, if you have other live video feeds to process.
+
+When you are done processing the live video feed, you can [deactivate](direct-methods.md#graphinstancedeactivate) the graph instance. The graph instance will briefly go through a transitionary `Deactivating` state, flush any data that it has, and then return to the `Inactive` state.
+
+You can only [delete](direct-methods.md#graphinstancedelete) a graph instance when it is in the `Inactive` state.
+
+After all graph instances that refer to a specific graph topology have been deleted, you can [delete the graph topology](direct-methods.md#graphtopologydelete).
+
 
 ## Sources, processors, and sinks  
 

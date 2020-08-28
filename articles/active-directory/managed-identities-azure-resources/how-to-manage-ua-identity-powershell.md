@@ -3,7 +3,7 @@ title: Create, list & delete user-assigned managed identity using Azure PowerShe
 description: Step-by-step instructions on how to create, list, and delete user-assigned managed identity using Azure PowerShell.
 services: active-directory
 documentationcenter: 
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: 
 
@@ -14,7 +14,7 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/16/2018
-ms.author: markvi
+ms.author: barclayn
 ms.collection: M365-identity-device-management
 ---
 
