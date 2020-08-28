@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 08/27/2020
 ---
 
-# High availability concepts in Azure Database for MySQL Flexible Server
+# High availability concepts in Azure Database for MySQL Flexible Server (Preview)
 
 Azure Database for MySQL Flexible Server, which is currently in public preview, allows configuring high availability with automatic failover using **zone redundant** high availability option. When deployed in a zone redundant configuration, flexible server automatically provisions and manages a standby replica in a different availability zone. Using storage level replication, the data is **synchronously replicated** to the standby server in the secondary zone to enable zero data loss after a failover.
 
-Zone redundant high availability configuration enables automatic failover capability during planned events such as user-initiated scale compute operation, and also when unplanned events such as underlying hardware and software faults, network failures, and even availability zone failures.
+Zone redundant high availability configuration enables automatic failover during planned events such as user-initiated scale compute operations, and unplanned events such as underlying hardware and software faults, network failures, and even availability zone failures.
 
 ![view of zone redundant high availability](./media/concepts-high-availability/1-flexible-server-overview-zone-redundant-ha.png)
 
 ## Zone redundant high availability architecture
 
-Primary database server is deployed in the region and the availability zone of your choice. When the high availability is chosen, a standby replica server with the same configuration as that of the primary server is automatically deployed, including compute tier, compute size, storage size, and network configuration. The log data is replicated in synchronous mode to the standby replica to ensure that their is 0 data loss in any failure situation. Automatic backups, both snapshots and log backups, are performed from the primary database server. 
+The primary server is deployed in the region and a specific availability zone. When the high availability is chosen, a standby replica server with the same configuration as that of the primary server is automatically deployed, including compute tier, compute size, storage size, and network configuration. The log data is replicated in synchronous mode to the standby replica to ensure that their is 0 data loss in any failure situation. Automatic backups, both snapshots and log backups, are performed from the primary database server. 
 
 The health of the HA is continuously monitored and reported on the overview page.
 
@@ -45,15 +45,15 @@ Planned downtime events include activities scheduled by Azure such as periodic s
 Flexible servers offer maintenance scheduling capability wherein you can choose a 30 minute window in a day of your preference during which the Azure maintenance works such as patching or minor version upgrades would happen. For your flexible servers configured with high availability, these maintenance activities are performed on the standby replica first. 
 
 
-## Failover process - unplanned outage
-Unplanned outages include software bugs that or infrastructure faults such as compute, network, storage failures, or power outages impacts the availability of the database. In the event of the database unavailability, the replication to the standby replica is severed and the standby replica is activated to be the primary database. DNS is updated, and clients then reconnect to the database server and resume their operations. The overall failover time is expected to take 60-120s. However, depending on the activity in the primary database server at the time of the failover such as large transactions and recovery time, the failover may take longer.
+## Failover process - unplanned events
+Unplanned service downtimes include software bugs that or infrastructure faults such as compute, network, storage failures, or power outages impacts the availability of the database. In the event of the database unavailability, the replication to the standby replica is severed and the standby replica is activated to be the primary database. DNS is updated, and clients then reconnect to the database server and resume their operations. The overall failover time is expected to take 60-120s. However, depending on the activity in the primary database server at the time of the failover such as large transactions and recovery time, the failover may take longer.
 
 ## Point-in-time restore 
 As flexible servers configured in high availability replicates data in real time, the standby data will be up-to-date with the primary. Any user errors on the primary - such as an accidental drop of a table or incorrect updates are faithfully replicated to the standby. Hence, you cannot use standby to recover from such logical faults. To recover from these logical errors, you have to perform point-in-time restore to the time right before the error occurred. Using flexible server's point-in-time restore capability, when you restore the database configured with high availability, a new database server will be restored as a new flexible server with a user-provided name. You can then export the object from the database server and import it to your production database server. Similarly, if you want to clone your database server for testing and development purposes, or you want to restore for any other purposes, you can either choose the latest restore point or a custom restore point. The restore operation will create a single zone flexible server.
 
-## Mitigation when not configured with high availability
+## Mitigate downtime when HA is not configured
 
-Planned outages such as scheduled patches, minor version upgrades or the user initiated operations such as scale compute incurs downtime. To mitigate application impact for Azure initiated maintenance tasks, you can choose to schedule them during the day of the week and time which least impacts the application. 
+Planned service downtimes such as scheduled patches, minor version upgrades or the user initiated operations such as scale compute incurs downtime. To mitigate application impact for Azure initiated maintenance tasks, you can choose to schedule them during the day of the week and time which least impacts the application. 
 
 During unplanned downtime events such as database crash or the server failure, the impacted server will be restarted within the same zone. Though rare, if the entire zone is impacted, you can restore the database on another zone within the region. 
 
@@ -77,7 +77,7 @@ During unplanned downtime events such as database crash or the server failure, t
 -   Standby replica cannot be used for read-only queries.
 -   Depending on the activity on the primary server at the time of failover, it might take up to 2 minutes or longer for the failover to complete.
 -   Restarting the primary database server to pick up static parameter changes also restarts standby replica.
--   Configuring read replicas are not supported
+-   Configuring read replicas for zone redundant high availability servers is not supported.
 -   Configuring customer initiated management tasks cannot be scheduled during managed maintenance window.
 -   Planned events such as scale compute and minor version upgrades happen in both primary and standby at the same time. 
 
