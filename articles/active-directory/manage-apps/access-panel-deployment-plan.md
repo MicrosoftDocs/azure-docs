@@ -50,11 +50,8 @@ Azure AD My Apps benefits businesses in the following ways:
 My Apps is free and requires no licenses to use at a basic level. However, the number of objects in your directory and the additional features you want to deploy can require additional licenses. Some common Azure AD scenarios that have licensing requirements include the following security features:
 
 * [Azure Multi-Factor Authentication](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-how-it-works)
-
 * [Group-based membership](https://docs.microsoft.com/azure/active-directory/active-directory-manage-groups)
-
 * [Self-service password reset](https://docs.microsoft.com/azure/active-directory/authentication/quickstart-sspr)
-
 * [Azure Active Directory Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)
 
 See the [full licensing guide for Azure AD](https://azure.microsoft.com/pricing/details/active-directory/).
@@ -64,7 +61,6 @@ See the [full licensing guide for Azure AD](https://azure.microsoft.com/pricing/
 Complete the following prerequisites before you begin this project:
 
 * [Integrate application SSO](https://docs.microsoft.com/azure/active-directory/manage-apps/plan-sso-deployment)
-
 * [Manage Azure AD user and group infrastructure](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-manage-groups)
 
 ## Plan Azure AD My Apps deployment
@@ -134,7 +130,6 @@ Users or administrators must consent to any application’s terms of use and pri
 To use administrator consent, you must be a global administrator of the organization, and the applications must be either:
 
 * Registered in your organization
-
 * Registered in another Azure AD organization and previously consented by at least one user
 
 For more information, see [Configure the way end users consent to an application in Azure Active Directory](configure-user-consent.md).
@@ -175,9 +170,7 @@ When users sign in to password-based SSO applications, they need to install and 
 If you must integrate password-based SSO applications, you should define a mechanism to deploy the extension at scale with [supported browsers](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction). Options include:
 
 * [Group Policy for Internet Explorer](https://azure.microsoft.com/documentation/articles/active-directory-saas-ie-group-policy/)
-
 * [Configuration Manager for Internet Explorer](https://docs.microsoft.com/configmgr/core/clients/deploy/deploy-clients-to-windows-computers)
-
 * [User-driven download and configuration for Chrome, Firefox, Microsoft Edge, or IE](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
 
 Users who don't use password-based SSO applications also benefit from the extension. These benefits include the ability to launch any app from its search bar, finding access to recently used applications, and having a link to the My Apps page.
