@@ -183,7 +183,11 @@ Add the redirect URI to the app's registration in the [Azure portal](https://por
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Select **Azure Active Directory** > **App registrations** > your registered app
 1. Select **Authentication** > **Add a platform** > **iOS / macOS**
-1. Enter your bundle ID, and then select **Configure**. In the pane that's displayed, the generated redirect URI appears in the **Redirect URI** text box.
+1. Enter your bundle ID, and then select **Configure**.
+
+    Copy the generated redirect URI that appears in the **Redirect URI** text box for inclusion in your code:
+
+    :::image type="content" source="media/msal-net-use-brokers-with-xamarin-apps/portal-01-ios-platform-settings.png" alt-text="iOS platform settings with generated redirect URI in Azure portal":::
 1. Select **Done** to complete generation of the redirect URI.
 
 ## Brokered authentication for Android
