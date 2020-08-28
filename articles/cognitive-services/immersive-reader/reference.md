@@ -350,7 +350,7 @@ Default value: null
 ##### `-preferences`
 
 > [!CAUTION]
-> **IMPORTANT** Do not attempt to programmatically change the values of the `-preferences` string sent to and from the Immersive Reader application as this may cause unexpected behavior resulting in a degraded user experience for your customers. Instead, to override user preferences with custom values, use the [DisplayOptions](#displayoptions) exposed by the Immersive Reader SDK.
+> **IMPORTANT** Do not attempt to programmatically change the values of the `-preferences` string sent to and from the Immersive Reader application as this may cause unexpected behavior resulting in a degraded user experience for your customers.
 
 ```Parameters
 Type: String
@@ -510,7 +510,6 @@ enum CookiePolicy { Disable, Enable }
 
 ## Supported Languages
 
-(Need a supported languages page in Azure docs)
 The translation feature of Immersive Reader supports many languages. See [this article](https://www.onenote.com/learningtools/languagesupport) for more details.
 
 <br>
