@@ -34,7 +34,7 @@
     - name: Create custom DNS records for a web app
       href: dns-web-sites-custom-domain.md
     - name: Creating a new Child DNS zone
-      href: tutorial-public-dnszones-child.md
+      href: tutorial-public-dns-zones-child.md
     - name: Alias records for Traffic Manager
       href: tutorial-alias-tm.md
     - name: Alias records for Public IP addresses
