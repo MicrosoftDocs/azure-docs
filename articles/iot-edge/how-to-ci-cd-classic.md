@@ -152,6 +152,15 @@ This pipeline is now configured to run automatically when you push new code to y
 
 [!INCLUDE [iot-edge-create-release-pipeline-for-cd](../../includes/iot-edge-create-release-pipeline-for-cd.md)]
 
+>[!NOTE]
+>If you wish to use **layered deployments** in your pipeline, layered deployments are not yet supported in Azure IoT Edge tasks in Azure DevOps.
+>
+>However, you can use an [Azure CLI task in Azure DevOps](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-cli) to create your deployment as a layered deployment. For the **Inline Script** value, you can use the [az iot edge deployment create command](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/edge/deployment):
+>
+>   ```azurecli-interactive
+>   az iot edge deployment create -d {deployment_name} -n {hub_name} --content modules_content.json --layered true
+>   ```
+
 [!INCLUDE [iot-edge-verify-iot-edge-ci-cd](../../includes/iot-edge-verify-iot-edge-ci-cd.md)]
 
 ## Next steps
