@@ -31,7 +31,7 @@ To enable a validation environment:
 3. In your host pool, select the **Properties** tab in the column on the right side of the screen. Next, scroll down until you see “Validation environment.” Select **Yes**, then select **Apply**.
 
 >[!div class="mx-imgBorder"]
->!![A screenshot of the Properties menu. "Validation environment" is highlighted in red, and the "Yes" bubble is selected.](media/validation-yes.png)
+>![A screenshot of the Properties menu. "Validation environment" is highlighted in red, and the "Yes" bubble is selected.](media/validation-yes.png)
 
 These changes won't make the warning go away immediately, but it should disappear eventually. Azure Advisor updates twice a day. Until then, you can postpone or dismiss the recommendation manually. We recommend you let the recommendation go away on its own. That way, Azure Advisor can let you know if it comes across any problems as the settings change.
 
@@ -55,7 +55,7 @@ To resolve this warning:
 3. In your host pool, select the **Properties** tab in the column on the right side of the screen. Next, scroll down until you see “Validation environment.” Select **No**, then select **Apply**.
 
 >[!div class="mx-imgBorder"]
->!![A screenshot of the Properties menu. "Validation environment" is highlighted in red, and the "No" bubble is selected.](media/validation-no.png)
+>![A screenshot of the Properties menu. "Validation environment" is highlighted in red, and the "No" bubble is selected.](media/validation-no.png)
 
 These changes won't make the warning go away immediately, but it should disappear eventually. Azure Advisor updates twice a day. Until then, you can postpone or dismiss the recommendation manually. We recommend you let the recommendation go away on its own. That way, Azure Advisor can let you know if it comes across any problems as the settings change.
 
