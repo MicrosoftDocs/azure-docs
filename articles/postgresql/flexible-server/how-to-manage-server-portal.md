@@ -63,3 +63,7 @@ You can delete your server if you no longer need it.
 
 3. Select **Delete**.
 
+## Next steps
+
+- Understand backup and restore concepts
+- Tune and monitor the server
