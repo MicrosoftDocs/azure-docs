@@ -375,7 +375,7 @@
     - name: Create Server and Database
       items:
       - name: ARM template
-        href: flexible-server/quickstart-create-server-arm-template.md tutorial-webapp-server-vnet.md
+        href: flexible-server/quickstart-create-server-arm-template.md
   - name: Tutorials
     items:
     - name: Web app and database server in virtual network
