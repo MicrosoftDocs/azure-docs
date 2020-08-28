@@ -25,7 +25,7 @@
     items:
     - name: Create Server and Database
       items:
-      - name: Create Server - Portal
+      - name: Create Server - portal
         href: quickstart-create-server-database-portal.md
         displayName: create single server,portal
       - name: Create Server - Azure CLI
@@ -380,7 +380,7 @@
     items:
     - name: Manage and scale a server
       items:
-      - name: Azure Portal
+      - name: Azure portal
         href: flexible-server/how-to-manage-server-portal.md
       - name: Azure CLI
         href: flexible-server/how-to-manage-server-cli.md
@@ -390,7 +390,7 @@
     href: hyperscale/index.yml
   - name: Quickstarts
     items:
-    - name: Create Server Group - Portal
+    - name: Create Server Group - portal
       href: quickstart-create-hyperscale-portal.md
       displayName: portal, create hyperscale
   - name: Tutorials
