@@ -3,7 +3,7 @@ title: Manage AWS costs and usage in Azure Cost Management
 description: This article helps you understand how to use cost analysis and budgets in Cost Management to manage your AWS costs and usage.
 author: bandersmsft
 ms.author: banders
-ms.date: 07/24/2020
+ms.date: 08/28/2020
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -31,17 +31,18 @@ The next sections describe how to use the scopes so that you see cost and usage 
 
 ### View AWS linked accounts under a management group
 
-Viewing costs by using the management group scope is the only way to see aggregated costs coming from different subscriptions and linked accounts. Using a management group provides a cross-cloud view.
+Viewing costs by using the management group scope is the only way to see aggregated costs coming from different Azure subscriptions and AWS linked accounts. Using a management group provides a cross-cloud view to view costs from Azure and AWS together.
 
 In cost analysis, open the scope picker and select the management group that holds your AWS linked accounts. Here's an example image in the Azure portal:
 
 ![Example of the Select scope view](./media/aws-integration-manage/select-scope01.png)
 
-
-
 Here's an example showing the management group cost in cost analysis, grouped by Provider (Azure and AWS).
 
 ![Example showing Azure and AWS costs for a quarter in cost analysis](./media/aws-integration-manage/cost-analysis-aws-azure.png)
+
+> [!NOTE]
+> Management groups aren't currently supported for Microsoft Customer Agreement (MCA) customers. MCA customers can create the connector and view their AWS data. However, MCA customers can't view their Azure costs and AWS costs together under a management group.
 
 ### View AWS linked account costs
 
@@ -51,15 +52,11 @@ Here's an example that shows selecting an AWS linked account scope.
 
 ![Example of the Select scope view](./media/aws-integration-manage/select-scope02.png)
 
-
-
 ### View AWS consolidated account costs
 
 To view AWS consolidated account costs, open the scope picker and select the AWS consolidated account. Here's an example that shows selecting an AWS consolidated account scope.
 
 ![Example of the Select scope view](./media/aws-integration-manage/select-scope03.png)
-
-
 
 This scope provides an aggregated view of all AWS linked accounts associated with the AWS consolidated account. Here's an example showing costs for an AWS consolidated account, grouped by service name.
 
@@ -105,15 +102,15 @@ After setting up the AWS connector, data collection and discovery processes star
 
 ## AWS integration pricing
 
-Each AWS connector gets 90 free trial days. During Public Preview, there is no charge.
+Each AWS connector gets 90 free trial days.
 
 The list price is 1% of your AWS monthly costs. Each month you are charged based on your invoiced costs from the previous month.
 
-Accessing AWS APIs may incur additional costs.
+Accessing AWS APIs may incur additional costs on AWS.
 
 ## AWS integration limitations
 
-- Cost Management doesn't support cost reports that contain multiple currency types. An error message is shown if you select a scope that has multiple currencies.
+- Budgets in Cost Management don't support management groups with multiple currencies. Management groups with multiple currencies won't see a budget evaluation. An error message is shown if you select a management group that has multiple currencies when you create a budget.
 - Cloud connectors don't support AWS GovCloud (US), AWS Gov, or AWS China.
 - Cost Management shows AWS _usage costs_ only. Tax, support, refunds, RI, credits or any other charge types aren't supported yet.
 
