@@ -31,17 +31,17 @@ The QnA Maker service uses CMK from the Azure Search service. Follow these steps
 
 1. Create a new Azure Search instance and enable the prerequisites mentioned in the [customer-managed key prerequisites for Azure Cognitive Search](https://docs.microsoft.com/azure/search/search-security-manage-encryption-keys#prerequisites).
 
-   ![View Encryption settings](../media/cognitive-services-encryption/qna-encryption-1.png)
+   ![View Encryption settings 1](../media/cognitive-services-encryption/qna-encryption-1.png)
 
 2. When you create a QnA Maker resource, it's automatically associated with an Azure Search instance. This cannot be used with CMK. To use CMK, you'll need to associate your newly created instance of Azure Search that was created in step 1. Specifically, you'll need to update the `AzureSearchAdminKey` and `AzureSearchName` in your QnA Maker resource.
 
-   ![View Encryption settings](../media/cognitive-services-encryption/qna-encryption-2.png)
+   ![View Encryption settings 2](../media/cognitive-services-encryption/qna-encryption-2.png)
 
 3. Next, create a new application setting:
    * **Name**: Set this to `CustomerManagedEncryptionKeyUrl`
    * **Value**: This is the value that you got in Step 1 when creating your Azure Search instance.
 
-   ![View Encryption settings](../media/cognitive-services-encryption/qna-encryption-3.png)
+   ![View Encryption settings 3](../media/cognitive-services-encryption/qna-encryption-3.png)
 
 4. When finished, restart the runtime. Now your QnA Maker service is CMK-enabled.
 
