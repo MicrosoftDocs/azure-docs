@@ -250,7 +250,7 @@
       href: configure-private-endpoints.md
     - name: Configure IP firewall
       href: configure-firewall.md
-    - name: Secure Webhook with AAD
+    - name: Secure Webhook with Azure Active Directory
       href: secure-webhook-delivery.md
     - name: Event delivery with managed identity
       href: managed-service-identity.md
