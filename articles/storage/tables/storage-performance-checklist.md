@@ -8,6 +8,7 @@ ms.service: storage
 ms.topic: overview
 ms.date: 10/10/2019
 ms.subservice: tables
+ms.custom: devx-track-csharp
 ---
 
 # Performance and scalability checklist for Table storage

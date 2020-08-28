@@ -9,6 +9,7 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
 ms.reviewer: hux
+ms.custom: devx-track-csharp
 ---
 
 # Utilize Blob Index tags (Preview) to manage and find data on Azure Blob storage

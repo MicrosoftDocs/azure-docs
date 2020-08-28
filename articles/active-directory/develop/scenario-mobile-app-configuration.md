@@ -129,7 +129,7 @@ If you use Xamarin.Android, do the following tasks:
 - [Ensure control goes back to MSAL after the interactive portion of the authentication flow ends](msal-net-xamarin-android-considerations.md#ensure-that-control-returns-to-msal)
 - [Update the Android manifest](msal-net-xamarin-android-considerations.md#update-the-android-manifest)
 - [Use the embedded web view (optional)](msal-net-xamarin-android-considerations.md#use-the-embedded-web-view-optional)
-- [Troubleshoot as necessary](msal-net-xamarin-android-considerations.md#troubleshoot)
+- [Troubleshoot as necessary](msal-net-xamarin-android-considerations.md#troubleshooting)
 
 For more information, see [Xamarin.Android considerations](msal-net-xamarin-android-considerations.md).
 
