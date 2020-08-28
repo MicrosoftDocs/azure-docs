@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: xpouyat
 ms.reviewer: anilmur;juliako
+ms.custom: devx-track-csharp
 
 ---
 # Using multiple input files and component properties with Premium Encoder

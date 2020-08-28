@@ -6,6 +6,7 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: srrengar
+ms.custom: devx-track-csharp
 ---
 
 # Query EventStore APIs for cluster events
