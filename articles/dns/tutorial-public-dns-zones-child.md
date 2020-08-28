@@ -60,7 +60,7 @@ In this step, we will create a new child DNS zone with name **subdomain.contoso.
 It may take a few minutes to create the zone.
 
  
-    :::image type="content" source="./media/dns-delegate-domain-azure-dns/create-dns-zone.png" alt-text="Screenshot of the create DNS zone page." border="true":::
+    :::image type="content" source="./media/dns-delegate-domain-azure-dns/create-dns-zone.png" alt-text="Screenshot of the create DNS zone page." lightbox="./media/dns-delegate-domain-azure-dns/create-dns-zone-lb.png":::
 
 ## Create child DNS zone via parent DNS zone overview page
 You can also create a new child DNS zone and delegate it into the parent DNS zone by using the **Child Zone** button from parent zone overview page. Using this button automatically pre-populates the parent parameters for the child zone automatically. 
@@ -68,7 +68,7 @@ You can also create a new child DNS zone and delegate it into the parent DNS zon
 1.	In the Azure portal, under **All resources**, open the *contoso.com* DNS zone in the **MyResourceGroup** resource group. You can enter *contoso.com* in the **Filter by name** box to find it more easily.
 1.	On DNS zone overview page, select the **+Child Zone** button.
 
-      :::image type="content" source="./media/dns-delegate-domain-azure-dns/create-child-zone.png" alt-text="Screenshot child zone button." border="true":::
+      :::image type="content" source="./media/dns-delegate-domain-azure-dns/create-child-zone-inline.png" alt-text="Screenshot child zone button." border="true" lightbox="./media/dns-delegate-domain-azure-dns/create-child-zone-expanded.png":::
 
 1.	The create DNS zone page will then open. Child zone option is already checked, and parent zone subscription and parent zone is already populated for you on this page.
 1.	Type the name as *child* for this tutorial example. Notice that you parent DNS zone name contoso.com is automatically added as prefix to name.
