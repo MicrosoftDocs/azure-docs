@@ -152,7 +152,7 @@ In this section, the following scenarios are demonstrated using the Azure portal
 
 1. Click **Save** at the top.
 
-![Change storage account tier](media/storage-tiers/account-tier.png)
+![Change default account tier in Azure portal](media/storage-tiers/account-tier.png)
 
 # [PowerShell](#tab/azure-powershell)
 The following PowerShell script can be used to change the account tier. The `$rgName` variable must be initialized with your resource group name. The `$accountName` variable must be initialized with your storage account name. 
@@ -182,7 +182,7 @@ Set-AzStorageAccount -ResourceGroupName $rgName -Name $accountName -AccessTier H
 
 1. Select **Save** at the bottom.
 
-![Change storage account tier](media/storage-tiers/blob-access-tier.png)
+![Change blob tier in Azure portal](media/storage-tiers/blob-access-tier.png)
 
 # [PowerShell](#tab/azure-powershell)
 The following PowerShell script can be used to change the blob tier. The `$rgName` variable must be initialized with your resource group name. The `$accountName` variable must be initialized with your storage account name. The `$containerName` variable must be initialized with your container name. The `$blobName` variable must be initialized with your blob name. 

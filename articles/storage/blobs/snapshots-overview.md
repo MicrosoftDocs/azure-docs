@@ -1,7 +1,7 @@
 ---
 title: Blob snapshots
 titleSuffix: Azure Storage
-description: Learn how to create a read-only snapshot of a blob to back up blob data at a given moment in time.
+description: Understand how blob snapshots work and how they are billed.
 services: storage
 author: tamram
 
@@ -27,7 +27,6 @@ A snapshot of a blob is identical to its base blob, except that the blob URI has
 
 > [!NOTE]
 > All snapshots share the base blob's URI. The only distinction between the base blob and the snapshot is the appended **DateTime** value.
->
 
 A blob can have any number of snapshots. Snapshots persist until they are explicitly deleted, either independently or as part of a [Delete Blob](/rest/api/storageservices/delete-blob) operation for the base blob. You can enumerate the snapshots associated with the base blob to track your current snapshots.
 
@@ -87,25 +86,25 @@ The following scenarios demonstrate how charges accrue for a block blob and its 
 
 In scenario 1, the base blob has not been updated after the snapshot was taken, so charges are incurred only for unique blocks 1, 2, and 3.
 
-![Azure Storage resources](./media/snapshots-overview/storage-blob-snapshots-billing-scenario-1.png)
+![Diagram 1 showing billing for unique blocks in base blob and snapshot](./media/snapshots-overview/storage-blob-snapshots-billing-scenario-1.png)
 
 #### Scenario 2
 
 In scenario 2, the base blob has been updated, but the snapshot has not. Block 3 was updated, and even though it contains the same data and the same ID, it is not the same as block 3 in the snapshot. As a result, the account is charged for four blocks.
 
-![Azure Storage resources](./media/snapshots-overview/storage-blob-snapshots-billing-scenario-2.png)
+![Diagram 2 showing billing for unique blocks in base blob and snapshot](./media/snapshots-overview/storage-blob-snapshots-billing-scenario-2.png)
 
 #### Scenario 3
 
 In scenario 3, the base blob has been updated, but the snapshot has not. Block 3 was replaced with block 4 in the base blob, but the snapshot still reflects block 3. As a result, the account is charged for four blocks.
 
-![Azure Storage resources](./media/snapshots-overview/storage-blob-snapshots-billing-scenario-3.png)
+![Diagram 3 showing billing for unique blocks in base blob and snapshot](./media/snapshots-overview/storage-blob-snapshots-billing-scenario-3.png)
 
 #### Scenario 4
 
 In scenario 4, the base blob has been completely updated and contains none of its original blocks. As a result, the account is charged for all eight unique blocks.
 
-![Azure Storage resources](./media/snapshots-overview/storage-blob-snapshots-billing-scenario-4.png)
+![Diagram 4 showing billing for unique blocks in base blob and snapshot](./media/snapshots-overview/storage-blob-snapshots-billing-scenario-4.png)
 
 > [!TIP]
 > Avoid calling methods that overwrite the entire blob, and instead update individual blocks to keep costs low.
@@ -137,7 +136,7 @@ Operations that explicitly set the tier of a blob, version, or snapshot include:
 
 #### Deleting a blob when soft delete is enabled
 
-If you delete or overwrite a base blob that has had its tier explicitly set when blob soft delete is enabled, then any previous versions or snapshots of the soft-deleted blob are billed at full content length. For more information about how blob versioning and soft delete work together, see [Blob versioning and soft delete](#blob-versioning-and-soft-delete).
+If you delete or overwrite a base blob that has had its tier explicitly set when blob soft delete is enabled, then any previous versions or snapshots of the soft-deleted blob are billed at full content length. For more information about how blob versioning and soft delete work together, see [Blob versioning and soft delete](versioning-overview.md#blob-versioning-and-soft-delete).
 
 The following table describes the billing behavior for a blob that is soft-deleted, depending on whether versioning is enabled or disabled. When versioning is enabled, a new version is created when a blob is soft-deleted. When versioning is disabled, soft-deleting a blob creates a soft-delete snapshot.
 
