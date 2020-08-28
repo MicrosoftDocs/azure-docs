@@ -419,7 +419,7 @@ For more information on using WSS and HTTPS protocols, see [container security](
 
 If you provided your Text Analytics API credentials [to the container](#analyze-sentiment-on-the-speech-to-text-output), you can use the Speech SDK to send speech recognition requests with sentiment analysis. You can configure the API responses to use either a *simple* or *detailed* format.
 > [!NOTE]
-> Speech Python SDK v1.13 has been found breaking sentiment request, which is planning to be fixed by v1.14. Please use v1.12.x or previous SDKs if sentiment is needed and you are using Speech Python SDK.
+> v1.13 of the Speech Service Python SDK has an identified issue with sentiment analysis. Please use v1.12.x or earlier if you're using sentiment analysis in the Speech Service Python SDK.
 
 # [Simple format](#tab/simple-format)
 
