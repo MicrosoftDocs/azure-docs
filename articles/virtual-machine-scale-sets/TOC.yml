@@ -217,6 +217,9 @@
     - name: vCPU quotas
       href: ../virtual-machines/windows/quotas.md
       maintainContext: true
+  - name: PUT calls for Create or Update
+    href: ../virtual-machines/put-calls-create-or-update.md
+    maintainContext: true
   - name: Scale Set FAQ
     href: virtual-machine-scale-sets-faq.md
 - name: How To
