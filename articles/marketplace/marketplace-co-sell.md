@@ -11,7 +11,7 @@ ms.date: 05/19/2020
 
 # Co-sell partner engagement
 
-You can use the Microsoft co-sell program to work directly with us on joint selling opportunities. The program helps you reach a vast community of customers and create new sales opportunities to accelerate your business growth.
+You can use the Microsoft Co-sell program to work directly with us on joint selling opportunities. The program helps you reach a vast community of customers and create new sales opportunities to accelerate your business growth.
 
 ## Co-sell channels
 
@@ -21,7 +21,7 @@ You can co-sell your solutions through three channels:
 * In collaboration with other partners.
 * In collaboration with Microsoft sellers.
 
-The co-sell program is available for **services** with Microsoft technology embedded and for repeatable, packaged **Intellectual Property (IP) solutions**.
+The Co-sell program is available for **services** with Microsoft technology embedded and for repeatable, packaged **Intellectual Property (IP) solutions**.
 
 Some IP solutions can qualify for Microsoft seller incentives when they're successfully sold and deployed with the Microsoft field sales teams.
 
@@ -29,7 +29,7 @@ Some IP solutions can qualify for Microsoft seller incentives when they're succe
 
 ## Azure IP co-sell incentivized offers
 
-Offers in the co-sell program are either **co-sell ready** or **co-sell incentivized**, depending on the requirements they meet.
+Offers in the Co-sell program are either **co-sell ready** or **co-sell incentivized**, depending on the requirements they meet.
 
 Azure IP solutions that reach the **co-sell incentivized** status unlock these benefits:
 
@@ -59,14 +59,23 @@ Start your co-sell journey directly in Partner Center, following the steps below
 1. On the left pane, select **Commercial Marketplace** > **Overview**, then select the offer that you want to co-sell.
 
     > [!NOTE]
-    > You can apply for the co-sell program with a new offer not yet published, or with an already published offer.
+    > You can join the Co-sell program with a new offer not yet published or with an offer that's already published.
 
 1. In the menu on the left, select **Co-sell with Microsoft**.
-1. Provide details about your offer and upload collaterals in the **Document** section. Microsoft sellers will use this information to recommend and sell your offer.
+
+    ![This image shows the location of the Co-sell with Microsoft tab.](./media/co-sell/co-sell-tab.png)
+
+1. Provide details about your offer and upload collaterals in the **Documents** section. Microsoft sellers will use this information to recommend and sell your offer.
+ 
+    ![This image shows the Documents section in the Co-sell tab.](./media/co-sell/co-sell-documents.png)
+
 1. Upload sales contact information in the **Contacts** section. Microsoft sellers may reach out to these contacts to request additional information about your offer.
+
+     ![This image shows the Contacts section in the Co-sell tab.](./media/co-sell/co-sell-contacts.png)
+
 1. Save the draft before you continue.
 1. After you've completed all the required sections of the offer, you can submit it for review and publication. In the upper right, select **Review and publish**. Review the offer details, then select **Publish**.
-1. We’ll review the materials you uploaded and determine if your offer qualifies for the co-sell program.
+1. We’ll review the materials you uploaded and determine if your offer qualifies for the Co-sell program.
 
 ## Next steps
 
