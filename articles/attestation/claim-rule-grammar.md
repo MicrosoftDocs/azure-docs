@@ -80,17 +80,17 @@ The following are the operators that can be used to check conditions:
 Evaluation of conditions list
 - The presence of “&&” operator implies that a conditions list is evaluated to true only if all the conditions from the list are evaluated to true. 
 - A condition represents filtering criteria on the set of claims. The condition itself is said to evaluate to true if there is at least one claim is found that satisfies the condition.
-- A claim is said to satisfy the filtering criterion represented by the condition if each of its properties satisfy the corresponding claim property conditions present in the condition.  
+- A claim is said to satisfy the filtering criterion represented by the condition if each of its properties satisfies the corresponding claim property conditions present in the condition.  
 
 The set of actions that are allowed in a policy are described below.
 
 | Action Verb | Description | Policy sections to which these apply |
 |--|--|--|
-| permit() | The incoming claim set can be used to compute the issuancerules. Does not take any claim as a parameter | Authorizationrules |
-| deny() | The incoming claim set should not be used to compute the issuancerules Does not take any claim as a parameter | Authorizationrules |
-| add(claim) | Adds the claim to the incoming claims set. Any claim added to the incoming claims set will be available for the subsequent claim rules. |Authorizationrules, issuancerules |
-| issue(claim) | Adds the claim to the incoming and outgoing claims set | Issuancerules |
-| issueproperty(claim) | Adds the claim to the incoming and property claims set | Issuancerules
+| permit() | The incoming claim set can be used to compute the **issuancerules**. Does not take any claim as a parameter | **Authorizationrules** |
+| deny() | The incoming claim set should not be used to compute the **issuancerules** Does not take any claim as a parameter | **Authorizationrules** |
+| add(claim) | Adds the claim to the incoming claims set. Any claim added to the incoming claims set will be available for the subsequent claim rules. |**Authorizationrules**, **issuancerules** |
+| issue(claim) | Adds the claim to the incoming and outgoing claims set | **Issuancerules** |
+| issueproperty(claim) | Adds the claim to the incoming and property claims set | **Issuancerules**
 
 ## Next steps
 - [How to author and sign an attestation policy](author-sign-policy.md)

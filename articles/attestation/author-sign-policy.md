@@ -1,6 +1,6 @@
 ---
 title: How to author and sign an Azure Attestation policy
-description: And explaination of how to author and sign an attestation policy.
+description: An explanation of how to author and sign an attestation policy.
 services: attestation
 author: msmbaldwin
 ms.service: attestation
@@ -12,7 +12,7 @@ ms.author: mbaldwin
 ---
 # How to author and sign an attestation policy
 
-Attestation policy is a file which will be uploaded to Microsoft Azure Attestation. Azure Attestation offers the flexibility to upload a policy in an attestation specific policy format. Alternatively, an encoded version of the policy, in JSON Web Signature, can also be uploaded. The policy administrator is responsible for writing the attestation policy. In most attestation scenarios, the relying party acts as the policy administrator. The client making the attestation call sends attestation evidence which the service parses and converts into incoming claims (set of properties, value). The service then processes the claims, based on what is defined in the policy, and returns the computed result.
+Attestation policy is a file which will be uploaded to Microsoft Azure Attestation. Azure Attestation offers the flexibility to upload a policy in an attestation-specific policy format. Alternatively, an encoded version of the policy, in JSON Web Signature, can also be uploaded. The policy administrator is responsible for writing the attestation policy. In most attestation scenarios, the relying party acts as the policy administrator. The client making the attestation call sends attestation evidence which the service parses and converts into incoming claims (set of properties, value). The service then processes the claims, based on what is defined in the policy, and returns the computed result.
 
 The policy contains rules that determine the authorization criteria, properties and the contents of the attestation token. A sample policy file looks as below:
 
@@ -31,11 +31,11 @@ issuancerules
 ```
  
 A policy file has 3 segments as seen above:
-- Version
-- Authorizationrules
-- Issuancerules
+- **Version**
+- **Authorizationrules**
+- **Issuancerules**
 
-Version: The version is the version number of the grammar that is followed.
+**Version**: The version is the version number of the grammar that is followed.
 
 ```
 Version=MajorVersion.MinorVersion	
@@ -47,12 +47,12 @@ Currently the only version supported is version 1.0.
 
 **Issuancerules**: The issuance rules are a collection of claim rules that will be evaluated to add additional information to the attestation result as defined in the policy. The claim rules apply in the order they are defined and are also optional.
 
-See [claim and claim rules](claim-rule-grammar.md) for for more information.
+See [claim and claim rules](claim-rule-grammar.md) for more information.
    
 ## Drafting the policy file
 1. Create a new file.
 2. Add version to the file.
-3. Add sections for authorizationrules and issuancerules
+3. Add sections for **authorizationrules** and **issuancerules**.
 
   ```
   version=1.0;
@@ -63,8 +63,8 @@ See [claim and claim rules](claim-rule-grammar.md) for for more information.
   issuancerules={
   };
   ```
- 
-  The authorization rules contains the deny() action without any condition, this is to make sure no issuance rules are processed. Alternatively, the authorization rule can also contain permit() action to allow processing of issuance rules.
+
+  The authorization rules contain the deny() action without any condition, this is to make sure no issuance rules are processed. Alternatively, the authorization rule can also contain permit() action to allow processing of issuance rules.
   
 4. Add claim rules to the authorization rules
 
@@ -78,9 +78,9 @@ See [claim and claim rules](claim-rule-grammar.md) for for more information.
   };
   ```
 
-  If the incoming claim set contains a claim which matches the type, value and issuer, the permit() action will indicate to the policy engine to process the issuancerules.
+  If the incoming claim set contains a claim which matches the type, value and issuer, the permit() action will indicate to the policy engine to process the **issuancerules**.
   
-5. Add claim rules to issuancerules
+5. Add claim rules to **issuancerules**.
 
   ```
   version=1.0;
