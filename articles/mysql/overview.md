@@ -59,4 +59,4 @@ Learn more about the two deployment modes for Azure Database for MySQL and choos
 
 - [Single Server](single-server/index.yml)
 - [Flexible Server](flexible-server/index.yml)
-- [Choose the right MySQL Server option in Azure](select-right-deployment-type.md)
+- [Choose the right MySQL deployment option in Azure](select-right-deployment-type.md)
