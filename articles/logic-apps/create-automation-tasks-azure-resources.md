@@ -103,6 +103,8 @@ Currently, you can create an automation task only at the resource level, view th
 
    After the selected task runs, you get an email that looks like this example:
 
+   ![Screenshot that shows email notification sent by task](./media/create-automation-tasks-azure-resources/email-notification-received.png)
+
 <a name="review-task-history"></a>
 
 ## Review task history
@@ -224,7 +226,15 @@ When you change the underlying workflow for an automation task, your changes aff
 
    For more information about the Recurrence trigger, see [Create, schedule, and run recurring tasks and workflows with the Recurrence trigger](../connectors/connectors-native-recurrence.md).
 
-1. To save your changes, on the designer toolbar, select **Save**. To test and run the updated workflow, on the designer toolbar, select **Run**.
+1. To save your changes, on the designer toolbar, select **Save**.
+
+   ![Screenshot that shows the designer toolbar and the selected "Save" command](./media/create-automation-tasks-azure-resources/save-updated-workflow.png)
+
+1. To test and run the updated workflow, on the designer toolbar, select **Run**.
+
+   After the run finishes, the designer shows the workflow's run details.
+
+   ![Screenshot that shows the workflow's run details on the designer](./media/create-automation-tasks-azure-resources/view-run-details-designer.png)
 
 ## Next steps
 
