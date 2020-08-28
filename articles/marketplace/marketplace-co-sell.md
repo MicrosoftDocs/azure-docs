@@ -21,7 +21,7 @@ You can co-sell your solutions through three channels:
 * In collaboration with other partners.
 * In collaboration with Microsoft sellers.
 
-The co-sell program applies to services with Microsoft technology embedded and to repeatable, packaged Intellectual Property (IP) solutions.
+The co-sell program is available for **services** with Microsoft technology embedded and for repeatable, packaged **Intellectual Property (IP) solutions**.
 
 Some IP solutions can qualify for Microsoft seller incentives when they're successfully sold and deployed with the Microsoft field sales teams.
 
@@ -31,7 +31,7 @@ Some IP solutions can qualify for Microsoft seller incentives when they're succe
 
 Offers in the co-sell program are either **co-sell ready** or **co-sell incentivized**, depending on the requirements they meet.
 
-Azure IP solutions that reach the **co-sell incentivized** status receive these benefits:
+Azure IP solutions that reach the **co-sell incentivized** status unlock these benefits:
 
 * The marketplace Service Fee is reduced from 20% to 10% of billed sales. This discount applies to IaaS and SaaS offers sold through the Microsoft commercial marketplace. See [Reduced Service Fee](marketplace-commercial-transaction-capabilities-and-considerations.md#reduced-service-fee) for more details.
 * Cloud Solution Provider (CSP) partners receive a 10% sales incentive to sell your SaaS and IaaS offers. Learn more about CSP at [Cloud Solution Provider program](cloud-solution-providers.md).
