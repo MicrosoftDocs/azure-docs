@@ -99,8 +99,7 @@ Follow these steps to enable compute and configure compute network.
     
 3. Assign **Kubernetes node IPs**. These static IP addresses are for the compute VM. 
 
-    - For a 4-node device, a contiguous range of a minimum of 5 IPv4 addresses (or more) are provided for the compute VM using the start and end IP addresses. 
-    - For a 1-node device, a minimum of 2 contiguous IPv4 addresses are provided. 
+    For an *n*-node device, a contiguous range of a minimum of *n+1* IPv4 addresses (or more) are provided for the compute VM using the start and end IP addresses. Given Azure Stack Edge is a 1-node device, a minimum of 2 contiguous IPv4 addresses are provided. 
 
 4. Assign **Kubernetes external service IPs**. These are also the load balancing IP addresses. These contiguous IP addresses are for services that you want to expose outside of the Kubernetes cluster and you specify the static IP range depending on the number of services exposed. 
     

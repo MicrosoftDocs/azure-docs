@@ -1,6 +1,6 @@
 ---
-title: Install Update on Azure Stack Edge Rugged series device | Microsoft Docs
-description: Describes how to apply updates using the Azure portal and local web UI for Azure Stack Edge Rugged series device
+title: Install Update on Azure Stack Edge GPU device | Microsoft Docs
+description: Describes how to apply updates using the Azure portal and local web UI for Azure Stack Edge GPU device
 services: databox
 author: alkohli
 

@@ -84,7 +84,7 @@ For more information, see [Export PFX certificates with private key](azure-stack
 
 [Use certificates with Azure Stack Edge](azure-stack-edge-j-series-manage-certificates.md)
 
-[Create certificates for your Azure Stack Edge Rugged series using Azure Stack Hub Readiness Checker tool](azure-stack-edge-j-series-create-certificates-tool.md)
+[Create certificates for your Azure Stack Edge using Azure Stack Hub Readiness Checker tool](azure-stack-edge-j-series-create-certificates-tool.md)
 
 [Export PFX certificates with private key](azure-stack-edge-j-series-manage-certificates.md#export-certificates-as-pfx-format-with-private-key)
 
