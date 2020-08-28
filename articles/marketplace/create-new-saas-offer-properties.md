@@ -40,7 +40,7 @@ Under **Industries**, you can select up to two industries and up to two sub-indu
 
 Under **Legal**, provide terms and conditions for your offer. You have two options:
 
-- [Use the Standard Contract with optional amendments](#use-the-standard-contract-with-optional-amendments)
+- [Use the standard contract with optional amendments](#use-the-standard-contract)
 - [Use your own terms and conditions](#use-your-own-terms-and-conditions)
 
 To learn about the standard contract and optional amendments, see [Standard Contract for the Microsoft commercial marketplace](standard-contract.md). You can download the [Standard Contract](https://go.microsoft.com/fwlink/?linkid=2041178) PDF (make sure your pop-up blocker is off).
