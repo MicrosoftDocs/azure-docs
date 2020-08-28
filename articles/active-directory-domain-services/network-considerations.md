@@ -100,7 +100,7 @@ A managed domain creates some networking resources during deployment. These reso
 
 ## Network security groups and required ports
 
-A [network security group (NSG)](../virtual-network/virtual-network-vnet-plan-design-arm.md) contains a list of rules that allow or deny network traffic to traffic in an Azure virtual network. A network security group is created when you deploy a managed domain that contains a set of rules that let the service provide authentication and management functions. This default network security group is associated with the virtual network subnet your managed domain is deployed into.
+A [network security group (NSG)](../virtual-network/security-overview.md) contains a list of rules that allow or deny network traffic to traffic in an Azure virtual network. A network security group is created when you deploy a managed domain that contains a set of rules that let the service provide authentication and management functions. This default network security group is associated with the virtual network subnet your managed domain is deployed into.
 
 The following network security group rules are required for the managed domain to provide authentication and management services. Don't edit or delete these network security group rules for the virtual network subnet your managed domain is deployed into.
 

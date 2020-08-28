@@ -359,5 +359,15 @@ You may experience either symptoms described below when trying to configure Wind
 
 We recommend you to use [icacls tool](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls) to configure the directory/file level permissions as a workaround. 
 
+## Errors when running Join-AzStorageAccountForAuth cmdlet
+
+### Error: "The directory service was unable to allocate a relative identifier"
+
+This error may occur if a domain controller that holds the RID Master FSMO role is unavailable or was removed from the domain and restored from backup.  Confirm that all Domain Controllers are running and available.
+
+### Error: "Cannot bind positional parameters because no names were given"
+
+This error is most likely triggered by a syntax error in the Join-AzStorageAccountforAuth command.  Check the command for misspellings or syntax errors and verify that the latest version of the AzFilesHybrid module (https://github.com/Azure-Samples/azure-files-samples/releases) is installed.  
+
 ## Need help? Contact support.
 If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your problem resolved quickly.

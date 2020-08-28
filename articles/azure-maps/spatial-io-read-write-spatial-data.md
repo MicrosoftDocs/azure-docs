@@ -150,6 +150,12 @@ GML is a spatial XML file specification that's often used as an extension to oth
 
 The `atlas.io.read` function will default to the `atlas.io.core.GmlReader.read` function when it detects that the input data is XML, but the data isn't one of the other support spatial XML formats.
 
+The `GmlReader` will parse coordinates that has one of the following SRIDs:
+
+- EPSG:4326 (Preferred)
+- EPSG:4269, EPSG:4283, EPSG:4258, EPSG:4308, EPSG:4230, EPSG:4272, EPSG:4271, EPSG:4267, EPSG:4608, EPSG:4674 possibly with a small margin of error.
+- EPSG:3857, EPSG:102100, EPSG:3785, EPSG:900913, EPSG:102113, EPSG:41001, EPSG:54004
+
 ## Next steps
 
 Learn more about the classes and methods used in this article:

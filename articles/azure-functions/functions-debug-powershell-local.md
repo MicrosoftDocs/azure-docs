@@ -1,6 +1,6 @@
 ---
 title: Debug PowerShell Azure Functions locally
-description: Understand how to develop functions by using PowerShell.
+description: Learn how to debug PowerShell functions when running locally.
 author: tylerleonhardt
 ms.topic: conceptual
 ms.date: 04/22/2019
