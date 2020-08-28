@@ -160,7 +160,7 @@ Add `msauthv2` to the `LSApplicationQueriesSchemes` section of the *Info.plist* 
     </array>
 ```
 
-### Step 7: Register your redirect URI in the application portal
+### Step 7: Add a redirect URI to your app registration
 
 When you use the broker, your redirect URI has an extra requirement. The redirect URI _must_ have the following format:
 
@@ -176,17 +176,15 @@ public static string redirectUriOnIos = "msauth.com.yourcompany.XForms://auth";
 
 Notice that the redirect URI matches the `CFBundleURLSchemes` name that you included in the *Info.plist* file.
 
-### Step 8: Make sure the redirect URI is registered with your app
+Add the redirect URI to the app's registration in the [Azure portal](https://portal.azure.com). To generate a properly formatted redirect URI, use **App registrations** in the Azure portal to generate the brokered redirect URI from the bundle ID.
 
-The redirect URI needs to be added to your app's registration in the [Azure portal](https://portal.azure.com). To make it easier, you can use **App registrations** in the Azure portal to generate the brokered redirect URI from the bundle ID.
-
-To generate the redirect URI:
+**To generate the redirect URI:**
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Select **Azure Active Directory** > **App registrations** > your registered app
 1. Select **Authentication** > **Add a platform** > **iOS / macOS**
 1. Enter your bundle ID, and then select **Configure**. In the pane that's displayed, the generated redirect URI appears in the **Redirect URI** text box.
-1. Select **Done** to complete the addition of the redirect URI.
+1. Select **Done** to complete generation of the redirect URI.
 
 ## Brokered authentication for Android
 
@@ -194,7 +192,7 @@ To generate the redirect URI:
 
 Broker support is enabled on a per-`PublicClientApplication` basis. It's disabled by default. Use the `WithBroker()` parameter (set to true by default) when creating the `IPublicClientApplication` through the `PublicClientApplicationBuilder`.
 
-```CSharp
+```csharp
 var app = PublicClientApplicationBuilder
                 .Create(ClientId)
                 .WithBroker()
@@ -208,7 +206,7 @@ When MSAL.NET calls the broker, the broker will, in turn, call back to your appl
 
 Route the result to the `SetAuthenticationContinuationEventArgs(int requestCode, Result resultCode, Intent data)` method by overriding the `OnActivityResult()` method as shown here:
 
-```CSharp
+```csharp
 protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
 {
    base.OnActivityResult(requestCode, resultCode, data);
@@ -220,46 +218,37 @@ This method is invoked every time the broker application is launched, and is use
 
 ### Step 3: Set an Activity
 
-> [!WARNING]
-> TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO
+To enable brokered authentication, set an activity so that MSAL can send and receive the response to and from the broker. To do so, provide the activity (usually the `MainActivity`) to `WithParentActivityOrWindow(object parent)` the parent object.
 
-For brokered authentication to work you'll need to set an activity so that MSAL can send and receive the response from broker.
+For example, in the call to `AcquireTokenInteractive()`:
 
-To do this, you'll need to provide the activity(usually the MainActivity) to the `WithParentActivityOrWindow(object parent)` as the parent object.
-
-**For example:**
-
-In the Acquire Token call:
-
-```CSharp
+```csharp
 result = await app.AcquireTokenInteractive(scopes)
              .WithParentActivityOrWindow((Activity)context))
              .ExecuteAsync();
 ```
 
-### Step 4: Register your RedirectUri in the application portal
+### Step 4: Add a redirect URI to your app registration
 
-MSAL uses URLs to invoke the broker and then return back to your app. To complete that round trip, you need to register a URL scheme for your app. This Redirect URI needs to be registered on the Azure AD app registration portal as a valid redirect URI for your application.
+MSAL uses URLs to invoke the broker and then return to your app. To complete that round trip, you need to register a **Redirect URI** for your app by using the [Azure portal](https://portal.azure.com).
 
-
-The redirect URI needed for your application is dependent on the certificate used to sign the APK.
+The format of the redirect URI for your application depends on the certificate used to sign the APK. For example:
 
 ```
-Example: msauth://com.microsoft.xforms.testApp/hgbUYHVBYUTvuvT&Y6tr554365466=
+msauth://com.microsoft.xforms.testApp/hgbUYHVBYUTvuvT&Y6tr554365466=
 ```
 
-The last part of the URI, `hgbUYHVBYUTvuvT&Y6tr554365466=`, is the signature that the APK is signed with, base64 encoded.
-However, during the development phase of your application using Visual Studio, if you're debugging your code without signing the apk with a specific certificate, Visual Studio will sign the apk for you for debugging purposes, giving the APK a unique signature for the machine that it's built on. Thus, each time you build your app on a different machine, you'll need to update the redirect URI in the application's code and the application's registration in the Azure portal in order to authenticate with MSAL.
+The last part of the URI, `hgbUYHVBYUTvuvT&Y6tr554365466=`, is the Base64-encoded version of the signature that the APK is signed with. While developing your app in Visual Studio, if you're debugging your code without signing the APK with a specific certificate, Visual Studio signs the APK for you for debugging purposes. When Visual Studio signs the APK for you in this way, it gives it a unique signature for the machine it's built on. Thus, each time you build your app on a different machine, you'll need to update the redirect URI in the application's code and the application's registration in the Azure portal in order to authenticate with MSAL.
 
-While debugging, you may encounter an MSAL exception (or log message) stating the redirect URI provided is incorrect. **This exception will also provide you with the redirect URI that you should be using** with the current machine you are debugging on. You can use this redirect URI to continue developing for the time being.
+While debugging, you may encounter an MSAL exception (or log message) stating the redirect URI provided is incorrect. **The exception or log message also indicates the redirect URI you should be using** with the current machine you're debugging on. You can use the provided redirect URI to continue developing your app as long as you update redirect URI in code and add the provided redirect URI to the app's registration in the Azure portal.
 
-Once you are ready to finalize your code, be sure to update the redirect URI in the code and on the application's registration in the Azure portal to use the signature of the certificate you will be signing the APK with.
+Once you're ready to finalize your code, update the redirect URI in the code and the application's registration in the Azure portal to use the signature of the certificate you sign the APK with.
 
-In practice, this means that you have to register a redirect URI for each member of the team, plus a redirect URI for the production signed version of the APK.
+In practice, this means you should consider adding a redirect URI for each member of your development team, *plus* a redirect URI for the production signed version of the APK.
 
-You can also compute this signature yourself, similar to how MSAL does it:
+You can compute the signature yourself, similar to how MSAL does it:
 
-```CSharp
+```csharp
    private string GetRedirectUriForBroker()
    {
       string packageName = Application.Context.PackageName;
@@ -291,38 +280,40 @@ You can also compute this signature yourself, similar to how MSAL does it:
    }
 ```
 
-You also have the option of acquiring the signature for your package by using the keytool with the following commands:
+You also have the option of acquiring the signature for your package by using **keytool** with the following commands:
 
-For Windows: `keytool.exe -list -v -keystore "%LocalAppData%\Xamarin\Mono for Android\debug.keystore" -alias androiddebugkey -storepass android -keypass android`
+* Windows: `keytool.exe -list -v -keystore "%LocalAppData%\Xamarin\Mono for Android\debug.keystore" -alias androiddebugkey -storepass android -keypass android`
+* macOS: `keytool -exportcert -alias androiddebugkey -keystore ~/.android/debug.keystore | openssl sha1 -binary | openssl base64`
 
-For Mac: `keytool -exportcert -alias androiddebugkey -keystore ~/.android/debug.keystore | openssl sha1 -binary | openssl base64`
+### Step 5 (optional): Fall back to the system browser
 
-### Step Five (optional): Fall-back to the system browser
+If MSAL is configured to use the broker but the broker is not installed, MSAL will fall back to using a web view (a browser). MSAL will try to authenticate using the default system browser on the device, which fails because the redirect URI is configured for the broker and the system browser doesn't know how to use it to navigate back to MSAL. To avoid the failure, you can configure an *intent filter* with the broker redirect URI you used in step 4.
 
-If MSAL is configured to use the broker, but the broker is not installed, MSAL will fall back to using a web view (a browser). MSAL will try to authenticate using the default system browser in the device. This will fail out of the box because the redirect URI is configured for broker and the system browser does not know how to use it to navigate back to MSAL. To resolve this, you can configure what's know as an intent filter with the broker redirect URI that you used in step four. You will need to modify your application's manifest to add the intent filter as shown below.
+Modify your application's manifest to add the intent filter:
 
 ```xml
-//NOTE: the slash before your signature value added to the path attribute
-//This uses the base64 encoded signature produced above.
+<!-- NOTE the SLASH (required) that prefixes the signature value in the path attribute.
+     The signature value is the Base64-encoded signature discussed above. -->
 <intent-filter>
       <data android:scheme="msauth"
                     android:host="Package Name"
                     android:path="/Package Signature"/>
 ```
 
-for example, if you have a redirect URI of `msauth://com.microsoft.xforms.testApp/hgbUYHVBYUTvuvT&Y6tr554365466=` your manifest should look something like
+For example, if you have a redirect URI of `msauth://com.microsoft.xforms.testApp/hgbUYHVBYUTvuvT&Y6tr554365466=`, your manifest should look like the following XML snippet.
+
+The forward-slash (`/`) in front of the signature in the `android:path` value is **required**.
 
 ```xml
-//NOTE: the slash before your signature value added to the path attribute
-//This uses the base64 encoded signature produced above.
+<!-- NOTE the SLASH (required) that prefixes the signature value in the path attribute.
+     The signature value is the Base64-encoded signature discussed above. -->
 <intent-filter>
       <data android:scheme="msauth"
                     android:host="com.microsoft.xforms.testApp"
                     android:path="/hgbUYHVBYUTvuvT&Y6tr554365466="/>
 ```
-**Please be sure to add a / in front of the signature in the "android:path" value**
 
-As an alternative, you can configure MSAL to fallback to the embedded browser, which does not rely on a redirect URI:
+As an alternative, you can configure MSAL to fall back to the embedded browser, which doesn't rely on a redirect URI:
 
 ```csharp
 .WithUseEmbeddedWebUi(true)
@@ -330,30 +321,30 @@ As an alternative, you can configure MSAL to fallback to the embedded browser, w
 
 ## Troubleshooting tips for Android brokered authentication
 
-It can be a bit challenging to get the brokered authentication scenario to work properly so here are some tips on avoiding issues
+Here are a few tips on avoiding issues when you implement brokered authentication on Android:
 
- - Make sure to register your redirect URI in your application's registration in the Azure [Portal](https://portal.azure.com/). This is a very common issue that developers run into.
+- Add a **Redirect URI** to your application registration in the [Azure portal](https://portal.azure.com/). A missing or incorrect redirect URI is a common issue encountered by developers.
+- Install the minimum required version of the broker apps. Either of these two apps can be used for brokered authentication on Android.
+  - [Intune Company Portal](https://play.google.com/store/apps/details?id=com.microsoft.windowsintune.companyportal) (version 5.0.4689.0 or greater)
+  - [Microsoft Authenticator](https://play.google.com/store/apps/details?id=com.azure.authenticator) (Version 6.2001.0140 or greater).
+- If you install both broker apps on your device, the default broker MSAL communicates with is the **first broker installed** on the device. This means that if you first install Microsoft Authenticator and then install Intune Company Portal, brokered authentication will *only* happen on the Microsoft Authenticator.
+- If you encounter an issue with brokered authentication, viewing the broker's logs might help you diagnose the cause.
+  - View Microsoft Authenticator logs:
 
-- Make sure you have installed the minimum required version of either **Intune Company Portal** [Link](https://play.google.com/store/apps/details?id=com.microsoft.windowsintune.companyportal) (Version 5.0.4689.0 or greater) or **Microsoft Authenticator** [Link](https://play.google.com/store/apps/details?id=com.azure.authenticator) (Version 6.2001.0140 or greater). Either of these two apps can be used for brokered authentication on Android.
+    1. Select the menu button in the top-right corner of the app.
+    1. Select **Help** > **Send Logs** > **View Logs**.
+    1. Select **Copy All** to copy the broker logs to the device's clipboard.
 
-- If you have installed both applications on your device, The default broker that MSAL will communicate with will be the first broker installed on the device. This means if you install Microsoft Authenticator first and then Intune Company Portal afterwards, brokered authentication will only happen on the Microsoft Authenticator.
+    The best way to debug with these logs is to email them to yourself and view them on your development machine. You might find it easier to parse the logs on your computer instead of on the device itself. You can also use a test editor on Android to save the logs as a text file, and then use a USB cable to copy the file to a computer.
 
-- If you run into issues with brokered authentication and you need more information to diagnose and resolve your issue, you have the ability to view the broker's logs which may be able to help. To view the broker logs on the Microsoft Authenticator, follow the steps below:
+  - View Intune Company Portal logs:
 
-    1. Press the menu button on the top right corner of the app.
-    1. Press "Help"
-    1. Press "Send Logs"
-    1. Press "View Logs"
-    1. Press "Copy All" at the bottom
-    1. At this point you should have the broker logs copied to the device's clipboard. The best way to debug with these logs is to email them to yourself and view them on a computer. This will make it much easier to digest the logs as opposed to looking at them on the device directly. You can also use a test editor on android to save the logs as a text file and use a USB cable to copy the file to a computer.
+    1. Select the menu button on the top-left corner of the app
+    1. Select **Settings** > **Diagnostic Data**
+    1. Select **Copy Logs** to copy the broker logs to the device's SD card.
+    1. Connect the device to a computer by using a USB cable to view the logs on your development machine.
 
- - For Intune Company Portal you can follow the steps below
-
-    1. Press the menu button on the top left corner of the app.
-    1. Press "Settings"
-    1. Scroll down to "Diagnostic Data" and press "Copy Logs". This will copy the broker logs to a file on SD Card that you can access with a USB cable on a conputer
-
-Once you have the logs you can search through them for your authentication attempts via correlation id. The correlation id is attached to every authentication request and each phase of the authentication attempts will have the correlation id attached to it. To find errors returned from the AAD authentication endpoint, you can look for "AADSTS".
+Once you have the logs, you can search through them for your authentication attempts via correlation ID. The correlation ID is attached to every authentication request. To find errors returned by the Microsoft identity platform authentication endpoint, search for `AADSTS`.
 
 ## Next steps
 
