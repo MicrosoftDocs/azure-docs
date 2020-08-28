@@ -3,7 +3,7 @@ title: 'Tutorial: Access Azure Storage using a SAS credential - Linux - Azure AD
 description: A tutorial that shows you how to use a Linux VM system-assigned managed identity to access Azure Storage, using a SAS credential instead of a storage account access key.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: daveba
 
@@ -14,7 +14,7 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
-ms.author: markvi
+ms.author: barclayn
 ms.collection: M365-identity-device-management
 ---
 

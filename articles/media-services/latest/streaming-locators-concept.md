@@ -13,6 +13,7 @@ ms.workload:
 ms.topic: article
 ms.date: 03/04/2020
 ms.author: juliako
+ms.custom: devx-track-csharp
 ---
 
 # Streaming Locators
