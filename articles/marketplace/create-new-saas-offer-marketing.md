@@ -22,7 +22,7 @@ For details and instructions to configure the **Co-sell with Microsoft** tab, se
 
 ## Resell through CSPs
 
-Electing to make your offer available in the Cloud Solution Provider (CSP) program enables CSPs to sell your product as part of a bundled solution to their customers. For more information about reselling your offer through the CSP program and step-by-step instructions to configure the **Resell through CSPs** tab, see [Cloud Solution Providers](cloud-solution-providers.md).
+If you elect to make your offer available in the Cloud Solution Provider (CSP) program, CSPs can sell your product as part of a bundled solution to their customers. For more information about reselling your offer through the CSP program and step-by-step instructions to configure the **Resell through CSPs** tab, see [Cloud Solution Providers](cloud-solution-providers.md).
 
 ## Next steps
 

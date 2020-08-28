@@ -41,7 +41,7 @@ The landing page url must be up and running 24x7, and ready to receive new calls
 
 Then, the *token* must be passed back to Microsoft from the publisher by calling the [SaaS Resolve API](#resolve-a-purchased-subscription), as the value of the `x-ms-marketplace-token header` header parameter.  As the result of the Resolve API call, the token is exchanged for the details of the SaaS purchase such as unique ID of the purchase, purchased offer ID, purchased plan ID, etc.
 
-On the landing page, the customer should be logged on to the new or existing SaaS account via Azure Active Directory (AAD) Single Sign On (SSO).
+On the landing page, the customer should be logged on to the new or existing SaaS account via Azure Active Directory (Azure AD) Single Sign On (SSO).
 
 The publisher should implement SSO log in to provide the user experience required by Microsoft for this flow.  Make sure to use multi-tenant Azure AD application, allow both work and school accounts or personal Microsoft accounts, when configuring the SSO.  This requirement only applies to the landing page, and for users who are redirected to the SaaS service when already logged in with Microsoft credentials. It doesn't apply to all logins to the SaaS service.
 
