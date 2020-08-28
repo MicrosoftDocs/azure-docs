@@ -15,6 +15,7 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.reviewer: milanga
+ms.custom: devx-track-csharp
 
 ---
 # Detect Motions with Azure Media Analytics

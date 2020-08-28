@@ -5,6 +5,7 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/21/2020
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ---
 
 # Remote Rendering Sessions
