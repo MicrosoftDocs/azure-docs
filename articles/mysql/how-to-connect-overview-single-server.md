@@ -60,3 +60,7 @@ Here is the list of drivers that have been tested and found to be compatible wit
 | R | [RMySQL](https://github.com/rstats-db/RMySQL) | 0.10.16+ | |
 | Swift | [mysql-swift](https://github.com/novi/mysql-swift) | 0.7.2+ | |
 | Swift | [vapor/mysql](https://github.com/vapor/mysql-kit) | 2.0.1+ | |
+
+## Next Steps 
+- [Migrate data using dump and restore](howto-migrate-using-dump-and-restore.md)
+- [Migrate data using import and export](howto-migrate-using-export-and-import.md)
