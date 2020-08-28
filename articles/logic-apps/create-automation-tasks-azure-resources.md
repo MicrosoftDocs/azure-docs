@@ -10,7 +10,7 @@ ms.date: 09/10/2020
 
 # Manage Azure resources by creating automation tasks (preview)
 
-To help you manage Azure resources more easily, you can create and automate management tasks for a specific resource or resource group by using automation task templates, which vary based on the resource type. For example, for an Azure storage account, you can set up an automation task that sends you the monthly cost for that storage account. For an Azure virtual machine, you can turn on and turn off that virtual machine. Currently, here are the task templates available in this preview:
+To help you manage [Azure resources](../azure-resource-manager/management/overview.md#terminology) more easily, you can create and automate management tasks for a specific resource or resource group by using automation task templates, which vary based on the resource type. For example, for an [Azure storage account](../storage/common/storage-account-overview.md), you can set up an automation task that sends you the monthly cost for that storage account. For an [Azure virtual machine](../virtual-machines/), you can turn on and turn off that virtual machine. Currently, here are the task templates available in this preview:
 
 * All Azure resources and resource groups: **Send monthly cost for resource**
 
@@ -24,15 +24,15 @@ To help you manage Azure resources more easily, you can create and automate mana
   * **Send monthly cost for resource**
   * **Delete old blobs**
 
-When you create an automation task for an Azure resource in the Azure portal, you do so from that specific resource, for example, the actual storage account or virtual machine resource. However, behind the scenes, an automation task is actually run as a workflow by the [Azure Logic Apps](../logic-apps/logic-apps-overview.md) service. After an automation task runs, you can review the status, history, inputs, and outputs for that specific workflow run instance. You can also open and edit the task template in the Logic App Designer so that you can customize the template.
+When you create an automation task for a resource in the Azure portal, you do so from that specific resource, for example, the actual storage account or virtual machine resource. Behind the scenes, an automation task is actually a workflow that's run by the [Azure Logic Apps](../logic-apps/logic-apps-overview.md) service. You can review and customize the task template's underlying workflow by opening the template in the Logic App Designer. After a task finishes at least one run, you can review the status, history, inputs, and outputs for each run.
 
-This article shows how to complete the following tasks:
+This article shows you how to complete the following tasks:
 
 * Create an automation task for a specific Azure resource.
 
 * Review the run status, inputs, outputs, and other historical information for each finished task.
 
-* Open and edit the task template in the Logic App Designer.
+* Open the task template to review or edit the template's underlying workflow in the Logic App Designer.
 
 ## How do automation tasks differ from Azure Automation?
 
@@ -79,7 +79,7 @@ while [Azure Automation](../automation/automation-intro.md) is a cloud-based aut
    > [!NOTE]
    > You can't change the task name after creation.
 
-   For example, tasks that send you email notifications require you to provide an email address. 
+   For example, tasks that send you email notifications require an email address.
 
    ![Screenshot that shows the required information for the selected task](./media/create-automation-tasks-azure-resources/provide-task-information.png)
 
@@ -90,19 +90,44 @@ while [Azure Automation](../automation/automation-intro.md) is a cloud-based aut
    > [!TIP]
    > If the task doesn't appear, try refreshing the tasks list. On the toolbar, select **Refresh**.
 
-## Review the task status and history
+## Review task history
 
-To view the run status, inputs, outputs, and other historical information for each finished task, follow these steps:
+To view a task's history of runs along with their statuses, inputs, outputs, and other information, follow these steps:
 
-1. In the [Azure portal](https://portal.azure.com), find the resource that has the finished tasks that you want to review.
+1. In the [Azure portal](https://portal.azure.com), find the resource that has the task history that you want to review.
 
 1. On the resource's menu, under **Settings**, select **Automation tasks**.
 
-1. In the tasks list, find the task that you want to review. In the **Runs** column for that task, select **View**.
+1. In the tasks list, find the task that you want to review. In that task's **Runs** column, select **View**.
 
-   ![Screenshot that shows the task to review and the selected "View" option](./media/create-automation-tasks-azure-resources/view-runs-for-task.png)
+   ![Screenshot that shows a task and the selected "View" option](./media/create-automation-tasks-azure-resources/view-runs-for-task.png)
 
-   
+   The **Runs history** pane shows all the runs for the task along with their statuses, start times, identifiers, and run durations.
+
+   ![Screenshot that shows a task's runs, their statuses, and other information](./media/create-automation-tasks-azure-resources/view-runs-history.png)
+
+   Here the possible statuses for a run:
+
+   | Status | Description |
+   |--------|-------------|
+   | **Cancelled** | The task was cancelled while running. |
+   | **Failed** | The task has at least one failed action, but no subsequent actions existed to handle the failure. |
+   | **Running** | The task is currently running. |
+   | **Succeeded** | All actions succeeded. <p>**Note**: A task can still finish successfully if an action failed, but a subsequent action existed to handle the failure. |
+   | **Waiting** | The run hasn't started yet and is paused because an earlier instance of the task is still running. |
+   |||
+
+   For more information, see [Review runs history](../logic-apps/monitor-logic-apps.md#review-runs-history)
+
+1. To view the statuses for each step in the run, select the run.
+
+   The **Logic app run** pane opens and shows the workflow that ran for the task and each step along with their status and run duration.
+
+   ![Screenshot that shows the task to review and the selected "View" option](./media/create-automation-tasks-azure-resources/runs-history-details.png)
+
+1. To review the inputs and outputs for each step, expand the step that you want to inspect.
+
+   For example, the first step 
 
 ## Customize the task
 
