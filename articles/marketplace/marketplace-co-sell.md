@@ -43,11 +43,11 @@ Azure IP solutions that reach the **co-sell incentivized** status unlock these b
 The table below lists the steps and requirements to make your offer co-sell ready or co-sell incentivized.
 
 |Step    |Solution type    |Requirements    |Co-sell status    |
-|----    |-------------    |------------    |---------------    |
-|<ol><li> Create a business profile in Partner Center and publish your offer in the commercial marketplace.</li>|IP and Services|<ul><li>The offer meets the commercial marketplace publishing requirements.</li><li>You have a complete business profile in Partner Center.</li>| Not ready|
+|----    |-------------    |------------    |---------------   |
+|<ol><li> Create a business profile in Partner Center and publish your offer in the commercial marketplace.</li>|IP and Services|<ul><li>The offer meets the commercial marketplace publishing requirements.</li><li>You have a complete business profile in Partner Center.</li>|Not ready|
 |<ol start=2><li>Optional: opt-in to the Cloud Solution Provider channel.</li>|IP and Services|<ul><li>The offer is configured for CSP resellers. See [Cloud Solution Provider program](cloud-solution-providers.md)</li>|Not ready|
 |<ol start=3><li>Submit required Co-sell materials</li>|IP|<ul><li>The offer has sales contact for each eligible country.</li><li>Bill of Materials required: customer one-pager, customer presentation deck (optional), solution landing page URL, social media channel URL, or other (for example, a case study).|Co-sell ready|
-||Services|<ul><li>The offer has sales contact for each eligible country.</li><li>Bill of Materials required: customer one-pager, customer presentation deck (optional), solution landing page URL, social media channel URL, or other (for example, a case study).</li><li>Active Gold competency</li>|Co-sell ready
+||Services|<ul><li>The offer has sales contact for each eligible country.</li><li>Bill of Materials required: customer one-pager, customer presentation deck (optional), solution landing page URL, social media channel URL, or other (for example, a case study).</li><li>Active Gold competency</li>|Co-sell ready|
 |<ol start=4lo><li>Qualify for Microsoft seller incentives</li>|Azure IP incentive eligible|<ul><li>At the organization level, meet or exceed a threshold of $100,000 USD ACR TTM (trailing twelve months), or, if the offer is transactable, a billed revenue threshold of $100,000 USD. The threshold can be met through a combination of Azure solutions.</li><li>The solution must be built with more than 50% of repeatable IP code on Azure.</li>|Co-sell incentivized|
 ||Business Applications incentive eligible|<ul><li>You have an active enrollment in ISV Connect premium tier.</li>|Co-sell incentivized|
 
@@ -63,15 +63,15 @@ Start your co-sell journey directly in Partner Center, following the steps below
 
 1. In the menu on the left, select **Co-sell with Microsoft**.
 
-    ![This image shows the location of the Co-sell with Microsoft tab.](./media/co-sell/co-sell-tab.png)
+    [![This image shows the location of the Co-sell with Microsoft tab.](./media/co-sell/co-sell-tab.png)](./media/co-sell/co-sell-tab.png#lightbox)
 
 1. Provide details about your offer and upload collaterals in the **Documents** section. Microsoft sellers will use this information to recommend and sell your offer.
  
-    ![This image shows the Documents section in the Co-sell tab.](./media/co-sell/co-sell-documents.png)
+   [![This image shows the Documents section in the Co-sell tab.](./media/co-sell/co-sell-documents.png)](./media/co-sell/co-sell-documents.png#lightbox)
 
 1. Upload sales contact information in the **Contacts** section. Microsoft sellers may reach out to these contacts to request additional information about your offer.
 
-     ![This image shows the Contacts section in the Co-sell tab.](./media/co-sell/co-sell-contacts.png)
+     [![This image shows the Contacts section in the Co-sell tab.](./media/co-sell/co-sell-contacts.png)](./media/co-sell/co-sell-contacts.png#lightbox)
 
 1. Save the draft before you continue.
 1. After you've completed all the required sections of the offer, you can submit it for review and publication. In the upper right, select **Review and publish**. Review the offer details, then select **Publish**.
