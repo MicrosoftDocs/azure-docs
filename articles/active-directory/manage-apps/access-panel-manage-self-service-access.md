@@ -17,17 +17,17 @@ ms.reviewer: japere,asteen
 
 Before your users can self-discover applications from their My Apps page, you need to enable **Self-service application access** to any applications that you wish to allow users to self-discover and request access to.
 
-Before your users can self-discover applications from My Apps, you need to enable **Self-service application access** to any applications that you wish to allow users to self-discover and request access to.
-
 This feature is a great way for you to save time and money as an IT group, and is highly recommended as part of a modern applications deployment with Azure Active Directory.
+
+To learn about using My Apps from an end-user perspective, see [My Apps portal help](../user-help/my-apps-portal-end-user-access.md).
 
 Using this feature, you can:
 
 -   Let users self-discover applications from the [Application Access Panel](https://myapps.microsoft.com/) without bothering the IT group.
 -   Add those users to a pre-configured group so you can see who has requested access, remove access, and manage the roles assigned to them.
--   Optionally allow a business approver to approve application access requests so the IT group doesn’t have to.
+-   Optionally allow someone to approve app access requests so the IT group doesn’t have to.
 -   Optionally configure up to 10 individuals who may approve access to this application.
--   Optionally allow a business approver to set the passwords those users can use to sign in to the application, right from the business approver’s [Application Access Panel](https://myapps.microsoft.com/).
+-   Optionally allow someone to set the passwords those users can use to sign in to the application.
 -   Optionally automatically assign self-service assigned users to an application role directly.
 
 ## Enable self-service application access to allow users to find their own applications

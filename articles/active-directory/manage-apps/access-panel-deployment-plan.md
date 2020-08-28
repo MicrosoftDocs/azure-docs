@@ -289,7 +289,6 @@ The following tests should be conducted with both corporate-owned devices and pe
 
 #### Application self-service capabilities test case examples
 
-
 | Business case| Expected result |
 | - | - |
 | User can manage membership to the application| User can add/remove members who have access to the app |
@@ -314,22 +313,5 @@ Use the least privileged role to accomplish a required task within Azure Active 
 
 You can use [Privileged Identity Management](../privileged-identity-management/pim-configure.md) to manage your roles to provide additional auditing, control, and access review for users with directory permissions.
 
-### Troubleshoot My Apps issues
-
-Create troubleshooting guides for your support organization with common scenarios, which point to Microsoft documentation in their resolutions. You might want to create guides that break support into the tiers used by your organization.
-
-See these troubleshooting guides for reference:
-
-[Applications not appearing](access-panel-troubleshoot-application-not-appearing.md)
-
-[Unexpected applications appearing](access-panel-troubleshoot-unexpected-application.md)
-
-[User cannot sign in to My Apps](access-panel-troubleshoot-web-sign-in-problem.md)
-
-[Problems using self-service application access](access-panel-troubleshoot-self-service-access.md)
-
-[Issues with the browser extension](manage-access-panel-browser-extension.md)
-
 ## Next steps
-
 [Plan a deployment of Azure Multi-Factor Authentication](https://aka.ms/deploymentplans/mfa)
