@@ -9,9 +9,9 @@ ms.date: 08/24/2020
 ---
 # Enable or disable zone redundant high availability configuration
 
-This article describes how you can enable or disable zone redundant high availability configuration in your Azure for PostgreSQL flexible server.
+This article describes how you can enable or disable zone redundant high availability configuration in your flexible server.
 
-High availability feature provisions physically separate primary and standby replica in different zones. Refer to [high availability concepts documentation](./concepts/../concepts-high-availability.md) for more details. You may choose to enable high availability at the time of flexible server creation or after the creation. 
+High availability feature provisions physically separate primary and standby replica in different zones. For more details, see [high availability concepts documentation](./concepts/../concepts-high-availability.md). You may choose to enable high availability at the time of flexible server creation or after the creation. 
 This page provides guidelines how you can enable or disable high availability. This operation does not change your other settings including VNET configuration, firewall settings, and backup retention. Similarly, enabling and disabling of high availability is an online operation and does not impact your application connectivity and operations.
 
 ## Pre-requisites
@@ -20,9 +20,9 @@ Zone redundant high availability is available only in regions where multiple zon
 
 ## Enable high availability during server creation
 
-This section provides details specifically for HA related fields. You can follow these steps to deploy high availability while creating your flexible server.
+This section provides details specifically for HA-related fields. You can follow these steps to deploy high availability while creating your flexible server.
 
-1.  In the [Azure portal](https://portal.azure.com/), choose Flexible Server and click create.  For details on how to fill details such as **Subscription**, **Resource group**, **server name**, **region**, and other fields, please refer to server creation how-to documentation.
+1.  In the [Azure portal](https://portal.azure.com/), choose Flexible Server and click create.  For details on how to fill details such as **Subscription**, **Resource group**, **server name**, **region**, and other fields, see how-to documentation for the server creation.
     ![view sub and region](./media/business-continuity/how-to-ha-sub-region.png)
 
 2.  Choose your **availability zone**. This is useful if you want to collocate your application in the same availability zone as the database to reduce latency. Choose **No Preference** if you want the flexible server to deploy on any availability zone.
