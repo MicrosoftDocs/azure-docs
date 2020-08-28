@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Create a internal load balancer - Azure PowerShell'
+title: 'Quickstart: Create an internal load balancer - Azure PowerShell'
 titleSuffix: Azure Load Balancer
-description: This quickstart shows how to create a internal load balancer using Azure PowerShell
+description: This quickstart shows how to create an internal load balancer using Azure PowerShell
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -18,9 +18,9 @@ ms.author: allensu
 ms:custom: seodec18
 ---
 
-# Quickstart: Create a internal load balancer to load balance VMs using Azure PowerShell
+# Quickstart: Create an internal load balancer to load balance VMs using Azure PowerShell
 
-Get started with Azure Load Balancer by using Azure PowerShell to create a internal load balancer and two virtual machines.
+Get started with Azure Load Balancer by using Azure PowerShell to create an internal load balancer and two virtual machines.
 
 ## Prerequisites
 
@@ -294,7 +294,7 @@ New-AzLoadBalancerRuleConfig -Name $lbr -Protocol $pro -Probe $probe -FrontendPo
 
 ### Create load balancer resource
 
-Create a internal load Balancer with [New-AzLoadBalancer](/powershell/module/az.network/new-azloadbalancer):
+Create an internal load Balancer with [New-AzLoadBalancer](/powershell/module/az.network/new-azloadbalancer):
 
 * Named **myLoadBalancer**
 * In **eastus**.
@@ -1202,7 +1202,7 @@ Remove-AzResourceGroup -Name $rg
 
 In this quickstart
 
-* You created a standard or basic public load balancer
+* You created a standard or basic internal load balancer
 * Attached virtual machines. 
 * Configured the load balancer traffic rule and health probe.
 * Tested the load balancer.
