@@ -3,9 +3,9 @@
   topicHref: /azure/index
   items:
   - name: Azure Arc
-    tocHref: /azure-arc/
-    topicHref: /azure-arc/index
+    tocHref: /azure/azure-arc/
+    topicHref: /azure/azure-arc/index
     items:
     - name: Data
       tocHref: /sql/azdata/
-      topicHref: /azure-arc/data/index
+      topicHref: /azure/azure-arc/data/index
