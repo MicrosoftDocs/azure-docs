@@ -17,11 +17,37 @@
       expanded: true
       items:
         - name: Visual Studio Code
-          href: ./functions-create-first-function-vs-code.md
+          expanded: true
+          items:
+          - name: Create your first function in VS Code (C#)
+            href: create-first-function-vs-code-csharp.md
+          - name: Create your first function in VS Code (Java)
+            href: create-first-function-vs-code-java.md
+          - name: Create your first function in VS Code (JavaScript)
+            href: create-first-function-vs-code-node.md
+          - name: Create your first function in VS Code (PowerShell)
+            href: create-first-function-vs-code-powershell.md
+          - name: Create your first function in VS Code (Python)
+            href: create-first-function-vs-code-python.md
+          - name: Create your first function in VS Code (Typescript)
+            href: create-first-function-vs-code-typescript.md
         - name: Visual Studio
           href: functions-create-your-first-function-visual-studio.md
-        - name: Command line
-          href: functions-create-first-azure-function-azure-cli.md
+          -name: Command line
+          expanded: true
+          items:
+          - name: Create your first function (C#)
+            href: create-first-function-cli-csharp.md
+          - name: Create your first function (Java)
+            href: create-first-function-cli-java.md
+          - name: Create your first function (JavaScript)
+            href: create-first-function-cli-node.md
+          - name: Create your first function (PowerShell)
+            href: create-first-function-cli-powershell.md
+          - name: Create your first function (Python)
+            href: create-first-function-cli-python.md
+          - name: Create your first function (TypeScript)
+            href: create-first-function-cli-typescript.md
         - name: ARM template
           displayName: Resource Manager
           href: functions-create-first-function-resource-manager.md
@@ -201,7 +227,7 @@
                 - name: Linux App Service plan
                   href: create-function-app-linux-app-service-plan.md
                 - name: Linux Consumption plan
-                  href: ./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-python
+                  href: create-first-function-cli-python.md
                 - name: Azure for Students Starter
                   href: functions-create-student-starter.md
             - name: Azure Cosmos DB trigger
