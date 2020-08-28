@@ -41,9 +41,24 @@ AND T.Temperature = 70
 > [!TIP]
 > The ID of a digital twin is queried using the metadata field `$dtId`.
 
-You can also get twins by their *tag* properties, as described in [Add tags to digital twins](how-to-use-tags.md):
+You can also get twins based on whether a certain property is defined. Here is a query that gets twins that have a defined *Location* property:
+
+```sql
+SELECT *​
+FROM DIGITALTWINS WHERE IS_DEFINED(Location)
+```
+
+This can help you to get twins by their *tag* properties, as described in [Add tags to digital twins](how-to-use-tags.md). Here is a query that gets all twins tagged with *red*:
+
 ```sql
 select * from digitaltwins where is_defined(tags.red) 
+```
+
+You can also get twins based on the type of a property. Here is a query that gets twins whose *Temperature* property is a number:
+
+```sql
+SELECT * FROM DIGITALTWINS​ T
+WHERE IS_NUMBER(T.Temperature)
 ```
 
 ### Select top items
@@ -150,6 +165,16 @@ WHERE IS_OF_MODEL(LightPanel, ‘dtmi:contoso:com:lightpanel;1’)
 AND IS_OF_MODEL(LightBulb, ‘dtmi:contoso:com:lightbulb ;1’) 
 AND Room.$dtId IN [‘room1’, ‘room2’] 
 ```
+
+### Other compound query examples
+
+You can combine any of the above types of query using combination operators to include more detail in a single query. Here are some additional examples of compound queries that query for more than one type of twin descriptor at once.
+
+| Description | Query |
+| --- | --- |
+| Out of the devices that *Room 123* has, return the MxChip devices that serve the role of Operator | `SELECT device​`<br>​`FROM DigitalTwins space​`​<br>​`JOIN device RELATED space.has​`<br>​`WHERE space.$dtid = 'Room 123'`​<br>​`AND device.$metadata.model = 'dtmi:contosocom:DigitalTwins:MxChip:3'`<br>​`AND has.role = 'Operator'` ​|
+| Get twins that have a relationship named *Contains* with another twin that has an ID of *id1* | ​`​SELECT Room​`​<br>​`FROM DIGITIALTWINS Room​​`​<br>​`JOIN Thermostat ON Room.Contains​​`​<br>​`WHERE Thermostat.$dtId = 'id1'`​ |
+| Get all the rooms of this room model that are contained by *floor11* | `SELECT Room`​<br>​`FROM DIGITALTWINS Floor​`​<br>​`JOIN Room RELATED Floor.Contains​`​<br>​`WHERE Floor.$dtId = 'floor11'​`​<br>​`AND IS_OF_MODEL(Room, 'dtmi:contosocom:DigitalTwins:Room;1')​` |
 
 ## Run queries with an API call
 
