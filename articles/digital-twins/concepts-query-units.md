@@ -21,7 +21,7 @@ An Azure Digital Twins **Query Unit (QU)** is a unit of on-demand computation th
 
 It abstracts away the system resources like CPU, IOPS and memory that are required to perform query operations supported by Azure Digital Twins, allowing you to track usage in Query Units instead.
 
-The complexity of the query affects how many QUs are consumed to execute that query. It is also affected by the size of the result set  (so a query returning 10 results will consume more QUs than a query of similar complexity that only returns 1 result).
+The complexity of the query affects how many QUs are consumed to execute that query. QUs are also affected by the size of the result set (so a query returning 10 results will consume more QUs than a query of similar complexity that returns just one result).
 
 This article explains how to understand Query Units and track Query Unit consumption.
 
