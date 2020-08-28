@@ -31,7 +31,11 @@ Azure Functions requires [Python 3.6 or 3.7](https://www.python.org/downloads/).
 
 Sign in to the Azure portal at <https://portal.azure.com/> with your Azure account.
 
+[Having issues? Let us know.](https://aka.ms/asrs/qspython)
+
 [!INCLUDE [Create instance](includes/signalr-quickstart-create-instance.md)]
+
+[Having issues? Let us know.](https://aka.ms/asrs/qspython)
 
 [!INCLUDE [Clone application](includes/signalr-quickstart-clone-application.md)]
 
@@ -89,8 +93,12 @@ Sign in to the Azure portal at <https://portal.azure.com/> with your Azure accou
     ```
 
     ![Run function app](media/signalr-quickstart-azure-functions-python/signalr-quickstart-run-application.png)
+    
+[Having issues? Let us know.](https://aka.ms/asrs/qspython)
 
 [!INCLUDE [Run web application](includes/signalr-quickstart-run-web-application.md)]
+
+[Having issues? Let us know.](https://aka.ms/asrs/qspython)
 
 [!INCLUDE [Cleanup](includes/signalr-quickstart-cleanup.md)]
 
