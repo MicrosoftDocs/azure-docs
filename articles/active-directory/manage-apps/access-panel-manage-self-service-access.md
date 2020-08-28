@@ -41,46 +41,46 @@ Self-service application access is a great way to allow users to self-discover a
 
 To enable self-service application access to an application, follow the steps below:
 
-1. Open the [**Azure Portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
+1. Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
 
-2. Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left hand navigation menu.
+2. Open the **Azure Active Directory Extension** by selecting **All services** at the top of the main left-hand navigation menu.
 
 3. Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
 
-4. click **Enterprise Applications** from the Azure Active Directory left hand navigation menu.
+4. Select **Enterprise Applications** from the Azure Active Directory left-hand navigation menu.
 
-5. click **All Applications** to view a list of all your applications.
+5. Select **All Applications** to view a list of all your applications.
 
    * If you do not see the application you want show up here, use the **Filter** control at the top of the **All Applications List** and set the **Show** option to **All Applications.**
 
 6. Select the application you want to enable Self-service access to from the list.
 
-7. Once the application loads, click **Self-service** from the application’s left hand navigation menu.
+7. Once the application loads, select **Self-service** from the application’s left-hand navigation menu.
 
 8. To enable Self-service application access for this application, turn the **Allow users to request access to this application?** toggle to **Yes.**
 
-9. Next, to select the group to which users who request access to this application should be added, click the selector next to the label **To which group should assigned users be added?** and select a group.
+9. Next, to select the group to which users who request access to this application should be added, select the selector next to the label **To which group should assigned users be added?** and select a group.
 
 10. **Optional:** If you wish to require a business approval before users are allowed access, set the **Require approval before granting access to this application?** toggle to **Yes**.
 
 11. **Optional: For applications using password single-sign on only,** if you wish to allow those business approvers to specify the passwords that are sent to this application for approved users, set the **Allow approvers to set user’s passwords for this application?** toggle to **Yes**.
 
-12. **Optional:** To specify the business approvers who are allowed to approve access to this application, click the selector next to the label **Who is allowed to approve access to this application?** to select up to 10 individual business approvers.
+12. **Optional:** Specify the business approvers who are allowed to approve access to this app. Select **Who is allowed to approve access to this application?** Then select up to 10 individual business approvers.
 
     * Groups are not supported.
 
-13. **Optional:** **For applications which expose roles**, if you wish to assign self-service approved users to a role, click the selector next to the **To which role should users be assigned in this application?** to select the role to which these users should be assigned.
+13. **Optional:** **For applications which expose roles**, if you wish to assign self-service approved users to a role, select the selector next to the **To which role should users be assigned in this application?** to select the role to which these users should be assigned.
 
-14. Click the **Save** button at the top of the blade to finish.
+14. Select the **Save** button at the top to finish.
 
-Once you complete Self-service application configuration, users can navigate to their [Application Access Panel](https://myapps.microsoft.com/) and click the **+Add** button to find the apps to which you have enabled Self-service access. Business approvers also see a notification in their [Application Access Panel](https://myapps.microsoft.com/). You can enable an email notifying them when a user has requested access to an application that requires their approval. 
+Once you complete Self-service application configuration, users can navigate to their [Application Access Panel](https://myapps.microsoft.com/) and select the **+Add** button to find the apps to which you have enabled Self-service access. Business approvers also see a notification in their [Application Access Panel](https://myapps.microsoft.com/). You can enable an email notifying them when a user has requested access to an application that requires their approval. 
 
 These approvals support single approval workflows only, meaning that if you specify multiple approvers, any single approver may approve access to the application.
 
 ## Things to check if self-service isn't working
 -   Make sure the user or group has been enabled to request self-service application access.
--   Make sure the user is visiting the correct place for self-service application access. users can navigate to their [Application Access Panel](https://myapps.microsoft.com/) and click the **+Add** button to find the apps to which you have enabled self-service access.
--   If self-service application access was just recently configured, try to sign in and out again into the user’s Access Panel after a few minutes to see if the self-service access changes have appeared.
+-   Make sure the user is visiting the correct place for self-service application access. users can navigate to their [Application Access Panel](https://myapps.microsoft.com/) and select the **+Add** button to find the apps to which you have enabled self-service access.
+-   If self-service application access was recently configured, try to sign in and out again into the user’s Access Panel after a few minutes to see if the self-service access changes have appeared.
 
 ## Next steps
 [Setting up Azure Active Directory for self-service group management](../users-groups-roles/groups-self-service-management.md)
