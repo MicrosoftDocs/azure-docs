@@ -13,7 +13,7 @@ Customer intent: As an IT admin, I need to understand how to add and connect to 
 ---
 # Tutorial: Transfer data via storage accounts with Azure Stack Edge
 
-[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]
+<!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
 This tutorial describes how to add and connect to storage accounts on your Azure Stack Edge device. After you've added the storage accounts, Azure Stack Edge can transfer data to Azure.
 
@@ -30,9 +30,9 @@ In this tutorial, you learn how to:
 
 Before you add storage accounts to Azure Stack Edge, make sure that:
 
-- You've installed your physical device as described in [Install Azure Stack Edge](azure-stack-edge-j-series-deploy-install.md).
+- You've installed your physical device as described in [Install Azure Stack Edge](azure-stack-edge-gpu-deploy-install.md).
 
-- You've activated the physical device as described in [Connect, set up, and activate Azure Stack Edge](azure-stack-edge-j-series-deploy-connect-setup-activate.md).
+- You've activated the physical device as described in [Activate your Azure Stack Edge](azure-stack-edge-gpu-deploy-activate.md).
 
 
 ## Add an Edge storage account

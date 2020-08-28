@@ -103,8 +103,6 @@ Before you begin, make sure you have:
 
     2. Go to **Devices > Modules** and you should see your **GPU module** running.
 
-        <!--![Module in IoT Hub](media/azure-stack-edge-deploy-gpu-sample-module/module-iot-hub-1.png)-->  
-
     3. The VS Code terminal should also show the IoT Hub events as the monitoring output for your Azure Stack Edge device.
 
         ![Monitoring output](media/azure-stack-edge-gpu-deploy-sample-module/monitor-events-output-1.png) 

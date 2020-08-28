@@ -12,7 +12,7 @@ ms.author: alkohli
 ---
 # Use the Azure portal to manage shares on your Azure Stack Edge
 
-[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]
+<!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
 This article describes how to manage shares on your Azure Stack Edge. You can manage the Azure Stack Edge via the Azure portal or via the local web UI. Use the Azure portal to add, delete, refresh shares, or sync storage key for storage account associated with the shares.
 
@@ -162,15 +162,15 @@ The refresh feature allows you to refresh the contents of a share. When you refr
 
 Do the following steps in the Azure portal to refresh a share.
 
-1.   In the Azure portal, go to **Shares**. Select and click the share that you want to refresh.
+1.  In the Azure portal, go to **Shares**. Select and click the share that you want to refresh.
 
     ![Select share](media/azure-stack-edge-j-series-manage-shares/refresh-share-1.png)
 
-2.   Click **Refresh**. 
+2.  Click **Refresh**. 
 
     ![Click refresh](media/azure-stack-edge-j-series-manage-shares/refresh-share-2.png)
  
-3.   When prompted for confirmation, click **Yes**. A job starts to refresh the contents of the on-premises share.
+3.  When prompted for confirmation, click **Yes**. A job starts to refresh the contents of the on-premises share.
 
     ![Confirm refresh](media/azure-stack-edge-j-series-manage-shares/refresh-share-3.png)
  
@@ -178,7 +178,7 @@ Do the following steps in the Azure portal to refresh a share.
 
 5.   The time to refresh depends on the number of files in the Azure container as well as the files on the device. Once the refresh has successfully completed, the share timestamp is updated. Even if the refresh has partial failures, the operation is considered successful and the timestamp is updated. The refresh error logs are also updated.
 
-    ![Updated timestamp](media/azure-stack-edge-j-series-manage-shares/refresh-share-4.png)
+![Updated timestamp](media/azure-stack-edge-j-series-manage-shares/refresh-share-4.png)
  
 If there is a failure, an alert is raised. The alert details the cause and the recommendation to fix the issue. The alert also links to a file that has the complete summary of the failures including the files that failed to update or delete.
 

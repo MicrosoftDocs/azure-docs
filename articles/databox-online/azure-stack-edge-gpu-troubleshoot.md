@@ -107,7 +107,6 @@ Any errors experienced during the upload and refresh processes are included in t
 
 1. To view the error files, go to your share and click the share to view the contents. 
 
-      <!--![Connect to and view share contents](media/data-box-edge-troubleshoot/troubleshoot-logs-1.png)-->
 
 2. Click the _Microsoft Data Box Edge folder_. This folder has two subfolders:
 
@@ -194,9 +193,6 @@ Here are the errors related to blob storage on Azure Stack Edge/ Data Box Gatewa
 |The connection times out.|Sign into the Azure Stack Edge and then check that it's unlocked. Any time the device restarts, it stays locked until someone signs in.|
 
 
-
-
-
 ## Next steps
 
-- Learn more about the [known issues in this release](azure-stack-edge-placeholder.md).
+- Learn more about the [known issues in this release](azure-stack-edge-gpu-2008-release-notes.md).

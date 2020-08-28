@@ -14,7 +14,7 @@ Customer intent: As an IT admin, I need to understand how to configure compute o
 
 # Tutorial: Transform data with Azure Stack Edge
 
-[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]
+<!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
 This tutorial describes how to configure a compute role on your Azure Stack Edge device. After you configure the compute role, Azure Stack Edge can transform data before sending it to Azure.
 
@@ -34,7 +34,7 @@ In this tutorial, you learn how to:
 
 Before you set up a compute role on your Azure Stack Edge device, make sure that:
 
-- You've activated your Azure Stack Edge device as described in [Connect, set up, and activate Azure Stack Edge](azure-stack-edge-j-series-deploy-connect-setup-activate.md).
+- You've activated your Azure Stack Edge device as described in [Activate your Azure Stack Edge](azure-stack-edge-gpu-deploy-activate.md).
 
 
 ## Configure compute
@@ -97,7 +97,7 @@ For the simple deployment in this tutorial, you'll need two shares: one Edge sha
     For more information about the `rsync` command, go to [Rsync documentation](https://www.computerhope.com/unix/rsync.htm).
 
     > [!NOTE]
-    > To mount NFS share to compute, the compute network must be configured on same subnet as NFS Virtual IP address. For details on how to configure compute network, go to [Enable compute network on your Azure Stack Edge](azure-stack-edge-j-series-extend-compute-access-modules.md).
+    > To mount NFS share to compute, the compute network must be configured on same subnet as NFS Virtual IP address. For details on how to configure compute network, go to [Enable compute network on your Azure Stack Edge](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md).
 
     The Edge share is created, and you'll receive a successful creation notification. The share list might be updated, but you must wait for the share creation to be completed.
 
@@ -180,4 +180,4 @@ In this tutorial, you learned how to:
 To learn how to administer your Azure Stack Edge device, see:
 
 > [!div class="nextstepaction"]
-> [Use local web UI to administer an Azure Stack Edge](azure-stack-edge-j-series-manage-access-power-connectivity-mode.md)
+> [Use local web UI to administer an Azure Stack Edge](azure-stack-edge-manage-access-power-connectivity-mode.md)

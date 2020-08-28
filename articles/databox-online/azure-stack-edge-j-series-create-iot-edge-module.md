@@ -13,7 +13,7 @@ ms.author: alkohli
 
 # Develop a C# IoT Edge module to move files on Azure Stack Edge
 
-[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]
+<!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
 This article steps you through how to create an IoT Edge module for deployment with your Azure Stack Edge device. Azure Stack Edge is a storage solution that allows you to process data and send it over network to Azure.
 

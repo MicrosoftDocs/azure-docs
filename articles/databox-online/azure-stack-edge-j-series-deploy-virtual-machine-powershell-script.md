@@ -14,7 +14,7 @@ ms.author: alkohli
 
 # Deploy VMs on your Azure Stack Edge device via Azure PowerShell script
 
-[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]
+<!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
 This tutorial describes how to create and manage a VM on your Azure Stack Edge device using an Azure PowerShell script.
 
@@ -30,22 +30,10 @@ Before you begin creating and managing a VM on your Azure Stack Edge device usin
 
     1. Go to the **Compute settings**. Select the network interface that you will use to create a virtual switch.
 
-        ![Enable compute settings 1](media/azure-stack-edge-j-series-extend-compute-access-modules/enable-compute-setting-1.png)
-
         > [!IMPORTANT] 
         > You can only configure one port for compute.
 
     2. Enable compute on the network interface. Azure Stack Edge creates and manages a virtual switch corresponding to that network interface.
-
-        ![Enable compute settings 2](media/azure-stack-edge-j-series-extend-compute-access-modules/enable-compute-setting-2.png)
-
-    If you decide to use another network interface for compute, make sure that you:
-
-    - Delete all the VMs that you have deployed using Azure Resource Manager.
-
-    - Delete all virtual network interfaces and the virtual network associated with this network interface.
-
-    - You can now enable another network interface for compute.
 
 3. You created and installed all the certificates on your Azure Stack Edge device and in the trusted root store of your client. Follow the procedure described in [Step 2: Create and install certificates](azure-stack-edge-j-series-connect-resource-manager.md#step-2-create-and-install-certificates).
 

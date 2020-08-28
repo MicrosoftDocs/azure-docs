@@ -14,7 +14,7 @@ ms.author: alkohli
 
 # Connect to Azure Resource Manager on your Azure Stack Edge device
 
-[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]
+<!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
 Azure Resource Manager provides a management layer that enables you to create, update, and delete resources in your Azure subscription. The Azure Stack Edge device supports the same Azure Resource Manager APIs to create, update, and delete VMs in a local subscription. This support lets you manage the device in a manner consistent with the cloud. 
 
@@ -64,14 +64,14 @@ Take the following steps in the local web UI of your Azure Stack Edge device.
 
 1. Complete the network settings for your Azure Stack Edge device. 
 
-    ![Local web UI "Network settings" page](./media/azure-stack-edge-j-series-deploy-connect-setup-activate/set-up-device-2.png)
+    ![Local web UI "Network settings" page](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/compute-network-2.png)
 
 
     Make a note of the device IP address. You will use this IP later.
 
 2. Configure the device name and the DNS domain from the **Device** page. Make a note of the device name and the DNS domain as you will use these later.
 
-    ![Local web UI "Device" page](./media/azure-stack-edge-j-series-deploy-connect-setup-activate/set-up-device-101.png)
+    ![Local web UI "Device" page](./media/azure-stack-edge-gpu-deploy-set-up-device-update-time/device-2.png)
 
     > [!IMPORTANT]
     > The device name, DNS domain will be used to form the endpoints that are exposed.

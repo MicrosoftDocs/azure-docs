@@ -13,7 +13,7 @@ ms.author: alkohli
 
 # Configure TLS 1.2 on Windows clients accessing Azure Stack Edge device
 
-[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]
+<!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
 If you are using a Windows client to access your Azure Stack Edge device, you are required to configure TLS 1.2 on your client. This article provides resources and guidelines to configure TLS 1.2 on your Windows client. 
 

@@ -13,7 +13,7 @@ ms.author: alkohli
 
 # Create certificates for your Azure Stack Edge Rugged series using Azure Stack Hub Readiness Checker tool 
 
-[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]
+<!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
 This article describes how to create certificates for your Azure Stack Edge Rugged series using the Azure Stack Hub Readiness Checker tool. The certificates can be created for both the Azure Stack Edge J-series and Azure Stack Edge K-series devices.
 
@@ -148,4 +148,4 @@ First, you'll generate a proper folder structure and place the certificates in t
 
 ## Next steps
 
-[Deploy your Azure Stack Edge device](azure-stack-edge-j-series-deploy-prep.md)
+[Deploy your Azure Stack Edge device](azure-stack-edge-gpu-deploy-prep.md)

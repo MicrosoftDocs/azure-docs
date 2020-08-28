@@ -12,7 +12,7 @@ ms.author: alkohli
 ---
 # Manage compute on your Azure Stack Edge
 
-[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]
+<!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
 This article describes how to manage compute on your Azure Stack Edge. You can manage the compute via the Azure portal or via the local web UI. Use the Azure portal to manage modules, triggers, and compute configuration, and the local web UI to manage compute settings.
 
@@ -128,4 +128,4 @@ Take the following steps in the Azure portal to sync the access keys for your de
 
 ## Next steps
 
-- Learn how to [Manage Edge compute network via Azure portal](azure-stack-edge-j-series-extend-compute-access-modules.md).
+- Learn how to [troubleshoot your Azure Stack Edge](azure-stack-edge-gpu-troubleshoot.md).
