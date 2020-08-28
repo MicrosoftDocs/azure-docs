@@ -97,5 +97,6 @@ After the resync operation from destination to source is complete, you need to b
 * [Cross-region replication](cross-region-replication-introduction.md)
 * [Requirements and considerations for using cross-region replication](cross-region-replication-requirements-considerations.md)
 * [Display health status of replication relationship](cross-region-replication-display-health-status.md)
+* [Volume replication metrics](azure-netapp-files-metrics.md#replication)
 * [Troubleshoot cross-region replication](troubleshoot-cross-region-replication.md)
 

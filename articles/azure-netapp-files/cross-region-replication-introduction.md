@@ -59,6 +59,7 @@ Recovery Time Objective (RTO), or the maximum tolerable business application dow
 * [Create replication peering](cross-region-replication-create-peering.md)
 * [Display health status of replication relationship](cross-region-replication-display-health-status.md)
 * [Manage disaster recovery](cross-region-replication-manage-disaster-recovery.md)
+* [Volume replication metrics](azure-netapp-files-metrics.md#replication)
 * [Troubleshoot cross-region replication](troubleshoot-cross-region-replication.md)
 
 
