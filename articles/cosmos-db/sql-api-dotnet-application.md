@@ -135,7 +135,7 @@ Next, let's add the following views.
 
    :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-add-mvc-view.png" alt-text="Screenshot showing the Add MVC View dialog box":::
 
-1. Once done, Visual Studio opens the *cshtml* file that it creates. You can close that file in Visual Studio. We'll come back to it later.
+1. Next select **Add** and let Visual Studio create a new template view. Replace the code in the generated file with the following contents:
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Views/Item/Create.cshtml":::
 
@@ -168,8 +168,7 @@ Next, let's add the following views.
 
 1. Next select **Add** and let Visual Studio create a new template view. Replace the code in the generated file with the following contents:
 
-   :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Views/Item/Details.cshtml"::: 
-
+   :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Views/Item/Details.cshtml":::
 
 #### <a name="AddEditIndexView"></a>Add an edit item view
 
@@ -205,7 +204,7 @@ And finally, add a view to get all the items with the following steps:
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Views/Item/Index.cshtml":::
 
-Once you complete these steps, close all the *cshtml* documents in Visual Studio.  as you return to these views later.
+Once you complete these steps, close all the *cshtml* documents in Visual Studio.
 
 ### <a name="initialize-services"></a>Declare and initialize services
 
