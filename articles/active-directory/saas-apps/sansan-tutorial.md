@@ -130,16 +130,16 @@ In this section, you'll enable Britta Simon to use Azure single sign-on by grant
 
 ## Configure Sansan
 
-1. To configure single sign-on on **Sansan** side,
+To perform the **Single Sign-On settings** on the **Sansan** side, please follow the below steps according to your requirement.
 
-   * For Japanese version, please follow the [link](https://jp-help.sansan.com/hc/ja/articles/900001551383 ).
+   * [Japanese](https://jp-help.sansan.com/hc/ja/articles/900001551383 ) version.
 
-   * For English version, please follow the [link](https://jp-help.sansan.com/hc/en-us/articles/900001551383 ).
+   * [English](https://jp-help.sansan.com/hc/en-us/articles/900001551383 ) version.
 
 
 ### Create Sansan test user
 
-In this section, you create a user called Britta Simon in Sansan, for that follow the [Add user steps](https://jp-help.sansan.com/hc/en-us/articles/206508997-Adding-users).
+In this section, you create a user called Britta Simon in Sansan. For more information on how to create a user, please refer [these](https://jp-help.sansan.com/hc/en-us/articles/206508997-Adding-users) steps.
 
 ## Test SSO
 
