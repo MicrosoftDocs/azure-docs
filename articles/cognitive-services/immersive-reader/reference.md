@@ -27,6 +27,8 @@ The SDK exposes the functions:
 
 - [`ImmersiveReader.renderButtons(options)`](#renderbuttons)
 
+<br>
+
 ## launchAsync
 
 Launches the Immersive Reader within an `iframe` in your web application. Note that the size of your content is limited to a maximum of 50 MB.
@@ -64,6 +66,8 @@ An example use case for this function is if the exit button is hidden by setting
 close(): void;
 ```
 
+<br>
+
 ## Launching the Immersive Reader
 
 The SDK provides default styling for the button for launching the Immersive Reader. Use the `immersive-reader-button` class attribute to enable this styling. See [How-To Customize the Immersive Reader button](./how-to-customize-launch-button.md) for more details.
@@ -81,6 +85,8 @@ Use the following attributes to configure the look and feel of the button.
 | `data-button-style` | Sets the style of the button. Can be `icon`, `text`, or `iconAndText`. Defaults to `icon`. |
 | `data-locale` | Sets the locale. For example, `en-US` or `fr-FR`. Defaults to English `en`. |
 | `data-icon-px-size` | Sets the size of the icon in pixels. Defaults to 20px. |
+
+<br>
 
 ## renderButtons
 
@@ -125,11 +131,13 @@ Options for rendering the Immersive Reader buttons.
 | ------- | ---- | ----------- |
 | elements | HTMLDivElement[] | Elements to render the Immersive Reader buttons in. |
 
-### -elements
+### `-elements`
 ```Parameters
 Type: HTMLDivElement[]
 Required: false
 ```
+
+<br>
 
 ## LaunchResponse
 
@@ -198,6 +206,8 @@ Required: true
 | TokenExpired | The supplied token is expired. |
 | Throttled | The call rate limit has been exceeded. |
 
+<br>
+
 ## Types
 
 ### Content
@@ -231,6 +241,8 @@ Type: Chunk[]
 Required: true
 Default value: null 
 ```
+
+<br>
 
 ### Chunk
 
@@ -281,6 +293,9 @@ Default value: "text/plain"
 | text/html | HTML content. [Learn more](#html-support)|
 | application/mathml+xml | Mathematical Markup Language (MathML). [Learn more](./how-to/display-math.md).
 | application/vnd.openxmlformats-officedocument.wordprocessingml.document | Microsoft Word .docx format document.
+
+
+<br>
 
 ## Options
 
@@ -385,6 +400,8 @@ Required: false
 Default value: null
 ```
 
+<br>
+
 ### Read Aloud Options Parameters
 
 | Name | Type | Description |
@@ -412,6 +429,8 @@ Values available: 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 2.25, 2.5
 > [!NOTE]
 > Due to browser limitations, autoplay is not supported in Safari.
 
+<br>
+
 ## Translation Options
 
 ```typescript
@@ -437,6 +456,8 @@ Required: true
 Default value: null 
 Values available: See the Supported Languages section
 ```
+
+<br>
 
 ## Display Options
 
@@ -471,6 +492,8 @@ Required: false
 Default value: "Calibri"
 Values available: "Calibri", "Sitka", "ComicSans"
 ```
+
+<br>
 
 ## Cookie Policy Options
 
@@ -568,10 +591,13 @@ Default value: "MiddleYellow"
 Values available: "AccessibleBlue", "AccessibleGreen", "AccessibleYellow", "AccessibleOrange", "AccessibleRed", "AccessibleMagenta", "MiddleBlue", "MiddleGreen", "MiddleYellow", "MiddleOrange", "MiddleRed", "MiddleMagenta"
 ```
 
+<br>
+
 ## Supported Languages
 
 The translation feature of Immersive Reader supports many languages. See [this article](https://www.onenote.com/learningtools/languagesupport) for more details.
 
+<br>
 
 ## HTML support
 
@@ -585,6 +611,8 @@ When formatting is enabled, the following content will be rendered as HTML in th
 
 Unsupported tags will be rendered comparably. Images and tables are currently not supported.
 
+<br>
+
 ## Browser support
 
 Use the most recent versions of the following browsers for the best experience with the Immersive Reader.
@@ -594,6 +622,8 @@ Use the most recent versions of the following browsers for the best experience w
 * Google Chrome
 * Mozilla Firefox
 * Apple Safari
+
+<br>
 
 ## Next steps
 
