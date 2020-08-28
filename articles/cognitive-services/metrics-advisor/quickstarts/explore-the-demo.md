@@ -39,7 +39,7 @@ Click on the *Sample - Cost/Revenue - City/Category* data feed. You'll see sever
 * Logs of when the data feed was updated.   
 * Data feed information and settings.
 
-![Data feed layout](../media/data_feed_layout.png "Data feed layout")
+![Data feed layout](../media/data-feed-layout.png "Data feed layout")
 
 ## View time series visualizations and configurations
 
