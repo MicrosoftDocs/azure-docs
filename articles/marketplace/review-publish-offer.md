@@ -16,7 +16,7 @@ This article shows you how to use Partner Center to submit your offer for publis
 
 ## Offer status
 
-You can review your offer status on the **Overview** tab of the commercial marketplace dashboard in [Partner Center](https://partner.microsoft.com/en-us/dashboard/commercial-marketplace/overview). One of the following status indicators is displayed in the **Status** column for each offer.
+You can review your offer status on the **Overview** tab of the commercial marketplace dashboard in [Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/overview). One of the following status indicators is displayed in the **Status** column for each offer.
 
 | Status | Description |
 | ------------ | ------------- |
@@ -129,19 +129,16 @@ The following screenshot shows the **Offer overview** page for a SaaS offer. The
 
 ![Illustrates the Offer overview page for an offer in Partner Center. The Go live button and preview links are shown.](./media/publish-status-publisher-signoff.png)
 
-### Preview your offer and sign off
+### Previewing and approving your offer
 
 > [!IMPORTANT]
 > To validate the end-to-end purchase and setup flow, purchase your offer while it is in Preview. First notify Microsoft with a [support ticket](https://aka.ms/marketplacesupport) to ensure we don't process a charge.
 
-1. On the **Offer overview** page, to preview your offer, select the link under the **Go live** button. There will be a link for either AppSource preview, Azure Marketplace preview, or both depending on the options you chose when creating your offer. If you chose to sell your offer through Microsoft, anyone who has been added to the preview audience can test the acquisition and deployment of your offer to ensure it meets your requirements during this stage.
+On the **Offer overview** page, you will see preview links under the **Go live** button. There will be a link for either AppSource preview, Azure Marketplace preview, or both depending on the options you chose when creating your offer. If you chose to sell your offer through Microsoft, anyone who has been added to the preview audience can test the acquisition and deployment of your offer to ensure it meets your requirements during this stage.
 
-1. If you want to make changes after previewing the offer, you can edit and resubmit to publish a new preview. For more information, see [Update an existing offer in the commercial marketplace](./partner-center-portal/update-existing-offer.md).
+After you approve your preview, select **Go live** to publish your offer live to the commercial marketplace. 
 
-1. After you approve your preview, to publish your offer live to the commercial marketplace, select **Go live**.
-
-   > [!NOTE]
-   > If your offer is already live and available to the public in the marketplace, any updates you make won't go live until you select **Go live**.
+If you want to make changes after previewing the offer, you can edit and resubmit your publication request. If your offer is already live and available to the public in the marketplace, any updates you make won't go live until you select **Go live*. For more information, see [Update an existing offer in the commercial marketplace](./partner-center-portal/update-existing-offer.md)
 
 ## Publish phase
 
