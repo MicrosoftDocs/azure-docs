@@ -127,6 +127,8 @@ Click on the module for the specific step. Navigate to the **Logs** tab. Other l
 > Runs for *published pipelines* can be found in the **Endpoints** tab in your workspace. 
 > Runs for *non-published pipelines* can be found in **Experiments** or **Pipelines**.
 
+For more information on logging and tracing from a `ParallelRunStep`, see [Debug and troubleshoot ParallelRunStep](how-to-debug-parallel-run-step.md).
+
 ## Logging in Azure Machine Learning designer (preview)
 
 For pipelines created in the designer, you can find the **70_driver_log** file in either the authoring page, or in the pipeline run detail page.

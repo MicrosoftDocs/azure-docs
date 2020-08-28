@@ -13,6 +13,8 @@ ms.custom: devx-track-java
 
 Using the Azure Spring Cloud Maven plug-in, you can easily create and update your Azure Spring Cloud applications. By predefining a configuration, you can deploy applications to your existing Azure Spring Cloud service. In this article, you use a sample application called PiggyMetrics to demonstrate this feature.
 
+Before running this example, you can try the [basic quickstart](spring-cloud-quickstart.md).
+
 Following this quickstart, you will learn how to:
 
 > [!div class="checklist"]
