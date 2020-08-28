@@ -2,13 +2,13 @@
 title: Run and manage a Kubernetes stateless application deployment on a Microsoft Azure Stack Edge device using kubectl| Microsoft Docs
 description: Describes how to create and manage a Kubernetes stateless application deployment using kubectl on a Microsoft Azure Stack Edge device.
 services: databox
-author: priestlg
+author: alkohli
 
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
 ms.date: 02/21/2020
-ms.author: v-grpr
+ms.author: alkohli
 ---
 
 # Run and manage a Kubernetes stateless application on your Azure Stack Edge device
@@ -19,7 +19,7 @@ This article describes how to deploy a stateless application using kubectl comma
 
 Before you can create a Kubernetes cluster and use the `kubectl` command-line tool, you need to ensure that:
 
-- You have sign-in credentials to a 1-node or a 4-node Azure Stack Edge J-series device.
+- You have sign-in credentials to a 1-node Azure Stack Edge device.
 
 - Windows PowerShell 5.0 or later is installed on a Windows client system to access the Azure Stack Edge device. You can have any other client with a Supported operating system as well. This article describes the procedure when using a Windows client. To download the latest version of Windows PowerShell, go to [Installing Windows PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell?view=powershell-7).
 
@@ -36,7 +36,7 @@ Before we begin, you should have:
 1. Created a Kubernetes cluster.
 2. Set up a namespace.
 3. Associated a user with the namespace.
-4. Saved the user configuration to `C:\\Users\\&lt;username&gt;\\.kube`.
+4. Saved the user configuration to `C:\Users\<username>\.kube`.
 5. Installed `kubectl`.
 
 Now you can begin running and managing stateless application deployments on an Azure Stack Edge device. Before you start using `kubectl`, you need to verify that you have the correct version of `kubectl`.

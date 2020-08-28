@@ -14,7 +14,7 @@ ms.author: alkohli
 
 # Create custom VM images for your Azure Stack Edge device
 
-[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]
+<!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
 To deploy VMs on your Azure Stack Edge device, you need to be able to create custom VM images that you can use to create VMs. This article describes the steps required to create Linux or Windows VM custom images that you can use to deploy VMs on your Azure Stack Edge device.
 

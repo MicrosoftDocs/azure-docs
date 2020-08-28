@@ -13,7 +13,7 @@ Customer intent: As an IT admin, I need to understand how to add and connect to 
 ---
 # Tutorial: Transfer data via storage accounts with Azure Stack Edge
 
-[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]
+<!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
 This tutorial describes how to add and connect to storage accounts on your Azure Stack Edge device. After you've added the storage accounts, Azure Stack Edge can transfer data to Azure.
 

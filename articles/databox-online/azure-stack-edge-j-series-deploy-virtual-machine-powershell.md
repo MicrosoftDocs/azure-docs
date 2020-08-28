@@ -14,7 +14,7 @@ ms.author: alkohli
 
 # Deploy VMs on your Azure Stack Edge device via Azure PowerShell
 
-[!INCLUDE [azure-stack-edge-gateway-deploy-vm-overview](../../includes/azure-stack-edge-gateway-deploy-virtual-machine-overview.md)]
+<!--[!INCLUDE [azure-stack-edge-gateway-deploy-vm-overview](../../includes/azure-stack-edge-gateway-deploy-virtual-machine-overview.md)]-->
 
 This tutorial describes how to create and manage a VM on your Azure Stack Edge device using Azure PowerShell.
 

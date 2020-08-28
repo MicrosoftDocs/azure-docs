@@ -12,7 +12,7 @@ ms.author: alkohli
 ---
 # Use certificates with Azure Stack Edge Rugged series 
 
-[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]
+<!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
 This article describes the types of certificates that can be installed on your Azure Stack Edge device. The article also includes the details for each certificate type along with the procedure to install and identify the expiration date. 
 
@@ -34,9 +34,9 @@ The various types of certificates that are used on your Azure Stack Edge device 
     - Local UI certificates
     - Azure Resource Manager certificates
     - Blob storage certificates
-    - VPN certificates
     - IoT device certificates
-    - WiFi certificates
+    <!--- WiFi certificates
+    - VPN certificates-->
 
 - Encryption certificates
     - Support session certificates
@@ -148,7 +148,7 @@ If your Azure Stack Edge device is experiencing any issues, then to troubleshoot
 - The Support session certificate must be provided as DER format with a `.cer` extension.
 
 
-## VPN certificates
+<!--## VPN certificates
 
 If VPN is configured on your Azure Stack Edge device, then you will also need a certificate for any communication that occurs over the VPN channel. You can bring your own VPN certificate to ensure the communication is trusted.
 
@@ -156,16 +156,16 @@ If VPN is configured on your Azure Stack Edge device, then you will also need a 
 
 - The VPN certificate must be uploaded as a pfx format with a  private key.
 - The VPN certificate is not dependant on the device name, device serial number, or device configuration. It only requires the external FQDN.
-- Make sure that the client OID is set.
+- Make sure that the client OID is set.-->
 
-## WiFi certificates
+<!--## WiFi certificates
 
 If your device is configured to operate on a wireless network, then you will also need a WiFi certificate for any communication that occurs over the wireless network. 
 
 ### Caveats
 
 - The WiFi certificate must be uploaded as a pfx format with a private key.
-- Make sure that the client OID is set.
+- Make sure that the client OID is set.-->
 
 
 ## Create certificates (optional)

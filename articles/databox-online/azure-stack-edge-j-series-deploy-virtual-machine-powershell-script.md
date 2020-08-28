@@ -14,7 +14,7 @@ ms.author: alkohli
 
 # Deploy VMs on your Azure Stack Edge device via Azure PowerShell script
 
-[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]
+<!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
 This tutorial describes how to create and manage a VM on your Azure Stack Edge device using an Azure PowerShell script.
 

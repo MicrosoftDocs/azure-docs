@@ -13,7 +13,7 @@ Customer intent: As an IT admin, I need to understand how to add and connect to 
 ---
 # Tutorial: Transfer data via shares with Azure Stack Edge
 
-[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]
+<!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
 This tutorial describes how to add and connect to shares on your Azure Stack Edge device. After you've added the shares, Azure Stack Edge can transfer data to Azure.
 
