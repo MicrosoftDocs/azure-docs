@@ -6,7 +6,7 @@ ms.author: ambhatna
 ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 8/21/2020
+ms.date: 9/21/2020
 ---
 
 # Quickstart: Use PHP to connect and query data in Azure Database for MySQL - Flexible Server
@@ -14,51 +14,51 @@ ms.date: 8/21/2020
 > [!IMPORTANT]
 > Azure Database for MySQL Flexible Server is currently in public preview
 
-This quickstart demonstrates how to connect to an Azure Database for MySQL Flexible Server using a [PHP](https://secure.php.net/manual/intro-whatis.php) application. It shows how to use SQL statements to query, insert, update, and delete data in the database. This topic assumes that you are familiar with development using PHP and that you are new to working with Azure Database for MySQL Flexible Server.
+This quickstart demonstrates how to connect to an Azure Database for MySQL Flexible Server using a [PHP](https://secure.php.net/manual/intro-whatis.php) application. It shows how to use SQL statements to query, insert, update, and delete data in the database. This article assumes that you are familiar with development using PHP and that you are new to working with Azure Database for MySQL Flexible Server.
 
 ## Prerequisites
-
 This quickstart uses the resources created in either of these guides as a starting point:
 
 - [Create an Azure Database for MySQL Flexible Server using Azure portal](./quickstart-create-server-portal.md)
 - [Create an Azure Database for MySQL Flexible Server using Azure CLI](./quickstart-create-server-azure-cli.md)
 
-> [!IMPORTANT]
-> If you created your flexible server with *Private access (VNet Integration)*, you will need to connect to your server from a resource within the same VNet as your server. You can create a virtual machine and add it to the VNet created with your flexible server. Refer to [Create and manage Azure Database for MySQL Flexible Server Virtual Network using Azure CLI](./how-to-manage-virtual-networks-using-cli.md).
-> If you created your flexible server with *Public access (allowed IP addresses)*, you can add your local IP address to the list of firewall rules on your server. Refer to [Create and manage Azure Database for MySQL Flexible Server firewall rules using the Azure CLI](./howto-manage-firewall-using-cli.md).
+## Preparing your client workstation
+- If you created your flexible server with *Private access (VNet Integration)*, you will need to connect to your server from a resource within the same VNet as your server. You can create a virtual machine and add it to the VNet created with your flexible server. Refer to [Create and manage Azure Database for MySQL Flexible Server Virtual Network using Azure CLI](./how-to-manage-virtual-networks-cli.md).
 
-## Install PHP
+- If you created your flexible server with *Public access (allowed IP addresses)*, you can add your local IP address to the list of firewall rules on your server. Refer to [Create and manage Azure Database for MySQL Flexible Server firewall rules using the Azure CLI](./howto-manage-firewall-cli.md).
 
-Install PHP on your own server, or create an Azure [web app](https://docs.microsoft.com/azure/app-service/overview) that includes PHP.  Refer to [create and manage firewall rules](./howto-manage-flexible-server-firewall-using-portal.md) to learn how to create firewall rules.
+### Install PHP
 
-### MacOS
+Install PHP on your own server, or create an Azure [web app](https://docs.microsoft.com/azure/app-service/overview) that includes PHP.  Refer to [create and manage firewall rules](./how-to-manage-firewall-portal.md) to learn how to create firewall rules.
+
+#### macOS
 
 - Download [PHP 7.1.4 version](https://secure.php.net/downloads.php).
 - Install PHP and refer to the [PHP manual](https://secure.php.net/manual/install.macosx.php) for further configuration.
 
-### Linux (Ubuntu)
+#### Linux (Ubuntu)
 
 - Download [PHP 7.1.4 non-thread safe (x64) version](https://secure.php.net/downloads.php).
 - Install PHP and refer to the [PHP manual](https://secure.php.net/manual/install.unix.php) for further configuration.
 
-### Windows
+#### Windows
 
 - Download [PHP 7.1.4 non-thread safe (x64) version](https://windows.php.net/download#php-7.1).
 - Install PHP and refer to the [PHP manual](https://secure.php.net/manual/install.windows.php) for further configuration.
 
 ## Get connection information
 
-Get the connection information needed to connect to the Azure Database for MySQL Flexible Server. You need the fully qualified server name and login credentials.
+Get the connection information needed to connect to the Azure Database for MySQL Flexible Server. You need the fully qualified server name and sign in credentials.
 
-1. Log in to the [Azure portal](https://portal.azure.com/).
-2. From the left-hand menu in Azure portal, click **All resources**, and then search for the server you have created (such as **mydemoserver**).
-3. Click the server name.
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+2. From the left-hand menu in Azure portal, select **All resources**, and then search for the server you have created (such as **mydemoserver**).
+3. Select the server name.
 4. From the server's **Overview** panel, make a note of the **Server name** and **Server admin login name**. If you forget your password, you can also reset the password from this panel.
  <!---![Azure Database for MySQL Flexible Server name](./media/connect-php/1_server-overview-name-login.png)--->
 
-## Connecting to flexible server using SSL in PHP
+## Connecting to flexible server using TLS/SSL in PHP
 
-To establish a secure connection to your flexible server over SSL from your application, refer to the following code samples. You can download the certificate needed to communicate over SSL from [https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem)
+To establish a secure connection to your flexible server over TLS/SSL from your application, refer to the following code samples. You can download the certificate needed to communicate over TLS/SSL from [https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem)
 
 ```php using SSL
 $conn = mysqli_init();
@@ -253,7 +253,7 @@ mysqli_close($conn);
 ?>
 ```
 ## Next steps
-- [Connect securely using Transport Layer Security (TLS 1.2) in Azure Database for MySQL - Flexible Server](./how-to-connect-using-TLS-SSL.md).
+- [Connect securely using Transport Layer Security (TLS 1.2) in Azure Database for MySQL - Flexible Server](./how-to-connect-TLS-SSL.md).
 - Learn more about [Networking in Azure Database for MySQL Flexible Server](./concepts-networking-overview.md).
-- [Create and manage Azure Database for MySQL Flexible Server firewall rules using the Azure Portal](./howto-manage-firewall-using-portal.md).
-- [Create and manage Azure Database for MySQL Flexible Server Virtual Network using Azure Portal](./how-to-manage-virtual-networks-using-portal.md).
+- [Create and manage Azure Database for MySQL Flexible Server firewall rules using the Azure portal](./howto-manage-firewall-portal.md).
+- [Create and manage Azure Database for MySQL Flexible Server Virtual Network using Azure portal](./how-to-manage-virtual-networks-portal.md).
