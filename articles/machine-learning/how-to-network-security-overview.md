@@ -31,11 +31,11 @@ This article assumes that you have familiarity with the following topics:
 + [Network Security Groups (NSG)](../virtual-network/security-overview.md)
 + [Network firewalls](../firewall/overview.md)
 
-## Virtual network scenarios
+## Virtual network scenario
 
-In this section, you learn about common network scenarios to help you decide which option is appropriate for you.
+In this section, you learn how a common network scenario is setup to secure Azure Machine Learning resources from external communication with public and private IP addresses.
 
-The table below shows how clients and services access different parts of an Azure Machine Learning ecosystem.
+The table below shows how clients and services access different parts of an Azure Machine Learning architecture.
 
 | Scenario | Workspace | Associated resources | Training compute environment | Inferencing compute environment |
 |-|-|-|-|-|-|
@@ -52,7 +52,7 @@ The table below shows how clients and services access different parts of an Azur
 
 ## Set up a virtual network
 
-The next five sections show you how to secure a network using the scenario described above. To secure your network, you must:
+The next five sections show you how to secure the network scenario described above. To secure your network, you must:
 
 1. Secure the [**workspace and associated resources**](#secure-the-workspace-and-associated-resources).
 1. Secure the [**training environment**](#secure-the-training-environment).
@@ -62,17 +62,18 @@ The next five sections show you how to secure a network using the scenario descr
 
 ## Secure the workspace and associated resources
 
+**Secure the workspace** > [Secure the training environment](#secure-the-training-environment) > [Secure the inferencing environment](#secure-the-inferencing-environment) > [Enable studio functionality](#optional:-enable-studio-functionality) > [Configure firewall settings](#configure-firewall-settings)
+
 Use the following steps to secure your workspace and associated resources. These steps allow your services to communicate with the virtual network.
 
 1. Create a Private Link-enabled workspace to [enable communication between your VNet and workspace](how-to-secure-workspace-vnet.md#secure-the-workspace-with-private-endpoint).
-1. Set Azure Key Vault to, ["Allow trusted Microsoft services to access this storage account"]().
+1. Set Azure Key Vault to ["Allow trusted Microsoft services to access this storage account"]().
 1. Add you Azure [storage account to the virtual network](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts).
 1. Set Azure Container Registry to use a private endpoint to [enable network access from your VNet to Azure Container Registry]().
 
-
 ![Architecture diagram showing how the workspace and associated resources communicate to each other over service endpoints or private endpoints inside of a VNet](./media/how-to-network-security-overview/secure-workspace-resources.png)
 
-For detailed instructions, see [Secure an Azure Machine Learning workspace](how-to-secure-workspace-vnet.md). 
+For detailed instructions on these steps, see [Secure an Azure Machine Learning workspace](how-to-secure-workspace-vnet.md). 
 
 ### Limitations
 
@@ -83,7 +84,9 @@ Securing your workspace and associated resources within a virtual network have t
 
 ## Secure the training environment
 
-In this section, you learn how to secure a training environment in Azure Machine Learning. You also learn how Azure Machine Learning submits training jobs within a virtual network.
+[Secure the workspace](#secure-the-workspace-and-associated-resources) > **Secure the training environment** > [Secure the inferencing environment](#secure-the-inferencing-environment) > [Enable studio functionality](#optional:-enable-studio-functionality) > [Configure firewall settings](#configure-firewall-settings)
+
+In this section, you learn how to secure a training environment in Azure Machine Learning. You also learn how Azure Machine Learning submit a training job using a virtual network.
 
 To secure the training environment, use the following steps:
 
@@ -98,9 +101,9 @@ To secure the training environment, use the following steps:
 
 For detailed instructions, see [Secure a training environment](how-to-secure-training-vnet.md). 
 
-### Training job submission 
+### Example training job submission 
 
-In this section, you learn how Azure Machine Learning securely communicates between services to submit a training job.
+In this section, you learn how Azure Machine Learning securely communicates between services to submit a training job. This workflow shows you how all the configurations work together to secure communications.
 
 1. The client machine uploads training scripts and training data to storage accounts that are secured with a service or private endpoint.
 
@@ -118,6 +121,8 @@ In this section, you learn how Azure Machine Learning securely communicates betw
 - Azure Compute Instance and Azure Compute Clusters must be in the same VNet, region, and subscription as the workspace and its associated resources. 
 
 ## Secure the inferencing environment
+
+[Secure the workspace](#secure-the-workspace-and-associated-resources) > [Secure the training environment](#secure-the-training-environment) > **Secure the inferencing environment** > [Enable studio functionality](#optional:-enable-studio-functionality) > [Configure firewall settings](#configure-firewall-settings)
 
 In this section, you learn the options available for securing an inferencing environment. We recommend that you use Azure Kubernetes Services (AKS) clusters for high-scale, production deployments.
 
@@ -142,6 +147,8 @@ The following network diagram shows a completely secured Azure Machine Learning 
 
 ## Optional: enable studio functionality
 
+[Secure the workspace](#secure-the-workspace-and-associated-resources) > [Secure the training environment](#secure-the-training-environment) > [Secure the inferencing environment](#secure-the-inferencing-environment) > **Enable studio functionality** > [Configure firewall settings](#configure-firewall-settings)
+
 By default, the studio cannot access data in storage accounts secured in a virtual network. As a result, the following operations are disabled:
 
 * Preview data in the studio.
@@ -154,7 +161,10 @@ To enable full functionality in the studio, you must [configure datastores to us
 ### Limitations
 - The studio cannot access data in storage accounts configured to use private endpoints. For full functionality, you must use service endpoints for storage and use managed identity.
 
-## Set up the firewall and NSG
+## Configure firewall settings
+
+[Secure the workspace](#secure-the-workspace-and-associated-resources) > [Secure the training environment](#secure-the-training-environment) > [Secure the inferencing environment](#secure-the-inferencing-environment) > [Enable studio functionality](#optional:-enable-studio-functionality) > **Configure firewall settings**
+
 Use NSGs and firewalls to limit inbound and outbound traffic. When using a VNet, you must configure your NSG to allow inbound communication from Azure Batch services so that your compute resources can receive jobs.
 
 
