@@ -32,7 +32,7 @@ az account set --subscription <subscription id>
 
 ## Scale compute and storage
 
-You can scale up your pricing tier , compute and storage easily using the following command. You can see all the server operation you can perform [az mysql flexible-server server overview](/cli/azure/mysql/server?view=azure-cli-latest)
+You can scale up your compute tier, vCores, and storage easily using the following command. You can see all the server operation you can perform [az mysql flexible-server server overview](/cli/azure/mysql/server?view=azure-cli-latest)
 
 ```azurecli-interactive
 az mysql flexible-server update --resource-group myresourcegroup --name mydemoserver --sku-name GP_Gen5_4 --storage-size 6144
