@@ -23,40 +23,43 @@ To complete this how-to guide, you need:
 Follow these steps to restore your flexible server using an earliest
 existing backup.
 
-1.  In the [Azure portal](https://portal.azure.com/), choose your
-    flexible server that you want to restore the backup from.
+1.  In the [Azure portal](https://portal.azure.com/), choose your flexible server that you want to restore the backup from.
 
-2.  From the overview page, click **Restore**.
+2.  Click **Overview** from the left panel.
+  
+3.  From the overview page, click **Restore**.
+ ![view overview](./media/business-continuity/how-to-restore-overview.png)
+4.  Restore page will be shown with an option to choose between Earliest restore point and Custom restore point.
 
-3.  Restore page will be shown with an option to choose between
-    Earliest restore point and Custom restore point.
+5.  select **Earliest restore point**.
 
-4.  select **Earliest restore point**.
 
-5.  Provide a new server name in the **Restore to new server** field.
-6.  Click **OK**.
+6.  Provide a new server name in the **Restore to new server** field.
+7. ![Earliest restore time](./media/business-continuity/how-to-restore-earliest.png)
 
-7.  A notification will be shown that the restore operation has been
-    initiated.
+8.  Click **OK**.
+
+9.  A notification will be shown that the restore operation has been initiated.
 
 ## Restoring to a custom restore point
 
 Follow these steps to restore your flexible server using an earliest
 existing backup.
 
-1.  In the [Azure portal](https://portal.azure.com/), choose your
-    flexible server that you want to restore the backup from.
+1.  In the [Azure portal](https://portal.azure.com/), choose your flexible server that you want to restore the backup from.
 
 2.  From the overview page, click **Restore**.
-3.  Restore page will be shown with an option to choose between
-    Earliest restore point and Custom restore point.
+    ![view overview](./media/business-continuity/how-to-restore-overview.png)
+3.  Restore page will be shown with an option to choose between Earliest restore point and Custom restore point.
 
 4.  Choose **Custom restore point**.
 
 5.  Select date and time. 
 
 6.  Provide a new server name in the **Restore to new server** field. 
-
+   
+ ![view overview](./media/business-continuity/how-to-restore-custom.png)
+ 
 7.  Click **OK**.
 
 8.  A notification will be shown that the restore operation has been
@@ -64,4 +67,7 @@ existing backup.
 
 ## Next steps
 
-Learn about \<?\>
+-   Learn about [business continuity](./concepts-business-continuity.md)
+-   Learn about [zone redundant high availability](./concepts-high-availability.md)
+-   Learn about [backup and recovery](./concepts-backup-restore.md)
+
