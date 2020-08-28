@@ -52,7 +52,7 @@ Azure Machine Learning introduces two fully managed cloud-based virtual machines
 
 * <a name="compute-instance"></a> **Compute instance**: A compute instance is a VM that includes multiple tools and environments installed for machine learning. The primary use of a compute instance is for your development workstation.  You can start running sample notebooks with no setup required. A compute instance can also be used as a compute target for training and inferencing jobs.
 
-* **Compute clusters: Compute clusters are a cluster of VMs with multi-node scaling capabilities. Compute clusters are better suited for compute targets for large jobs and production.  The cluster scales up automatically when a job is submitted.  Use as a training compute target or for dev/test deployment.
+* **Compute clusters**: Compute clusters are a cluster of VMs with multi-node scaling capabilities. Compute clusters are better suited for compute targets for large jobs and production.  The cluster scales up automatically when a job is submitted.  Use as a training compute target or for dev/test deployment.
 
 For more information about training compute targets, see [Training compute targets](concept-compute-target.md#train).  For more information about deployment compute targets, see [Deployment targets](concept-compute-target.md#deploy).
 
