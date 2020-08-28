@@ -309,42 +309,42 @@ USER_IDENTITY="admin.$ORGNAME"
 CC_NAME=<chaincodeName>  
 # If you are using chaincode_example02 then set CC_VERSION=“1” for validation
 CC_VERSION=<chaincodeVersion>
-# Language in which the chaincode is written. Supported languages are 'node', 'golang', and 'java'  
+# Language in which chaincode is written. Supported languages are 'node', 'golang', and 'java'  
 # Default value is 'golang'  
 CC_LANG=<chaincodeLanguage>  
 # CC_PATH contains the path where your chaincode is placed.
 # If you are using chaincode_example02 to validate then CC_PATH=“/home/<username>/azhlfTool/samples/chaincode/src/chaincode_example02/go”
 CC_PATH=<chaincodePath>  
-# Channel on which the chaincode will be instantiated/invoked/queried  
+# Channel on which chaincode will be instantiated/invoked/queried  
 CHANNEL_NAME=<channelName>  
 ```
 
-### Install the chaincode  
+### Install chaincode  
 
-Run the following command to install the chaincode on the peer organization.  
+Run the following command to install chaincode on the peer organization.  
 
 ```bash
 ./azhlf chaincode install -o $ORGNAME -u $USER_IDENTITY -n $CC_NAME -p $CC_PATH -l $CC_LANG -v $CC_VERSION  
 
 ```
-The command will install the chaincode on all the peer nodes of the peer organization set in the `ORGNAME` environment variable. If two or more peer organizations are in your channel and you want to install the chaincode on all of them, run this command separately for each peer organization.  
+The command will install chaincode on all the peer nodes of the peer organization set in the `ORGNAME` environment variable. If two or more peer organizations are in your channel and you want to install chaincode on all of them, run this command separately for each peer organization.  
 
 Follow these steps:  
 
 1.	Set `ORGNAME` and `USER_IDENTITY` according to `peerOrg1` and run the `./azhlf chaincode install` command.  
 2.	Set `ORGNAME` and `USER_IDENTITY` according to `peerOrg2` and run the `./azhlf chaincode install` command.  
 
-### Instantiate the chaincode  
+### Instantiate chaincode  
 
-From the peer client application, run the following command to instantiate the chaincode on the channel.  
+From the peer client application, run the following command to instantiate chaincode on the channel.  
 
 ```bash
 ./azhlf chaincode instantiate -o $ORGNAME -u $USER_IDENTITY -n $CC_NAME -v $CC_VERSION -c $CHANNEL_NAME -f <instantiateFunc> --args <instantiateFuncArgs>
 ```
 
-Pass the instantiation function name and space-separated list of arguments in `<instantiateFunc>` and `<instantiateFuncArgs>` respectively. For example, to instantiate the chaincode_example02.go chaincode, set `<instantiateFunc>` to `init` and `<instantiateFuncArgs>` to `"a" "2000" "b" "1000"`.
+Pass the instantiation function name and space-separated list of arguments in `<instantiateFunc>` and `<instantiateFuncArgs>` respectively. For example, to instantiate chaincode_example02.go chaincode, set `<instantiateFunc>` to `init` and `<instantiateFuncArgs>` to `"a" "2000" "b" "1000"`.
 
-You can also pass the collection's configuration JSON file by using the `--collections-config` flag. Or, set the transient arguments by using the `-t` flag while instantiating a chaincode used for private transactions.
+You can also pass the collection's configuration JSON file by using the `--collections-config` flag. Or, set the transient arguments by using the `-t` flag while instantiating chaincode used for private transactions.
 
 For example:
 
@@ -353,14 +353,14 @@ For example:
 ./azhlf chaincode instantiate -c $CHANNEL_NAME -n $CC_NAME -v $CC_VERSION -o $ORGNAME -u $USER_IDENTITY --collections-config <collectionsConfigJSONFilePath> -t <transientArgs>
 ```
 
-The `<collectionConfigJSONFilePath>` part is the path to the JSON file that contains the collections defined for the instantiation of a private data chaincode. You can find a sample collection's configuration JSON file relative to the *azhlfTool* directory at the following path: `./samples/chaincode/src/private_marbles/collections_config.json`.
+The `<collectionConfigJSONFilePath>` part is the path to the JSON file that contains the collections defined for the instantiation of private data chaincode. You can find a sample collection's configuration JSON file relative to the *azhlfTool* directory at the following path: `./samples/chaincode/src/private_marbles/collections_config.json`.
 Pass `<transientArgs>` as valid JSON in string format. Escape any special characters. For example:
 `'{\\\"asset\":{\\\"name\\\":\\\"asset1\\\",\\\"price\\\":99}}'`
 
 > [!NOTE]
-> Run the command once from any one peer organization in the channel. After the transaction is successfully submitted to the orderer, the orderer distributes this transaction to all the peer organizations in the channel. The chaincode is then instantiated on all the peer nodes on all the peer organizations in the channel.  
+> Run the command once from any one peer organization in the channel. After the transaction is successfully submitted to the orderer, the orderer distributes this transaction to all the peer organizations in the channel. Chaincode is then instantiated on all the peer nodes on all the peer organizations in the channel.  
 
-### Invoke the chaincode  
+### Invoke chaincode  
 
 From the peer organization's client, run the following command to invoke the chaincode function:  
 
@@ -374,16 +374,16 @@ Pass the invoke function name and space-separated list of arguments in `<invok
 > Run the command once from any one peer organization in the channel. After the transaction is successfully submitted to the orderer, the orderer distributes this transaction to all the peer organizations in the channel. The world state is then updated on all peer nodes of all the peer organizations in the channel.  
 
 
-### Query the chaincode  
+### Query chaincode  
 
-Run the following command to query the chaincode:  
+Run the following command to query chaincode:  
 
 ```bash
 ./azhlf chaincode query -o $ORGNAME -p <endorsingPeers> -u $USER_IDENTITY -n $CC_NAME -c $CHANNEL_NAME -f <queryFunction> -a <queryFuncArgs> 
 ```
-Endorsing peers are peers where a chaincode is installed and is called for execution of transactions. You must set `<endorsingPeers>` to contain peer node names from the current peer organization. List the endorsing peers for a given chaincode and channel combination separated by spaces. For example: `-p "peer1" "peer3"`.
+Endorsing peers are peers where chaincode is installed and is called for execution of transactions. You must set `<endorsingPeers>` to contain peer node names from the current peer organization. List the endorsing peers for a given chaincode and channel combination separated by spaces. For example: `-p "peer1" "peer3"`.
 
-If you're using *azhlfTool* to install your chaincode, pass any peer node names as a value to the endorsing peer argument. The chaincode is installed on every peer node for that organization. 
+If you're using *azhlfTool* to install chaincode, pass any peer node names as a value to the endorsing peer argument. Chaincode is installed on every peer node for that organization. 
 
 Pass the query function name and space-separated list of arguments in `<queryFunction>` and `<queryFuncArgs>` respectively. Again taking chaincode_example02.go chaincode as a reference, to query the value of "a" in the world state, set `<queryFunction>` to `query` and `<queryArgs>` to `"a"`.  
 
