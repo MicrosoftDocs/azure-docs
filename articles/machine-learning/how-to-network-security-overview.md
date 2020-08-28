@@ -58,7 +58,23 @@ The next five sections show you how to secure the network scenario described abo
 1. Secure the [**training environment**](#secure-the-training-environment).
 1. Secure the [**inferencing environment**](#secure-the-inferencing-environment).
 1. Optionally: [**enable studio functionality**](#optional-enable-studio-functionality).
-1. Configure [**firewall settings**](#configure-firewall-settings) 
+1. Configure [**firewall settings**](#configure-firewall-settings)
+
+> [!TIP]
+>  Some combinations of virtual network and Azure services require an Enterprise edition workspace. Use the following table to understand what scenarios require Enterprise edition:
+>
+> | Scenario | Enterprise</br>edition | Basic</br>edition |
+> | ----- |:-----:|:-----:| 
+> | No virtual network or Private Link | ✔ | ✔ |
+> | Workspace without Private Link. Other resources (except Azure Container Registry) in a virtual network | ✔ | ✔ |
+> | Workspace without Private Link. Other resources with Private Link | ✔ | |
+> | Workspace with Private Link. Other resources (except Azure Container Registry) in a virtual network | ✔ | ✔ |
+> | Workspace and any other resource with Private Link | ✔ | |
+> | Workspace with Private Link. Other resources without Private Link or virtual network | ✔ | ✔ |
+> | Azure Container Registry in a virtual network | ✔ | |
+> | Customer Managed Keys for workspace | ✔ | |
+>
+
 
 ## Secure the workspace and associated resources
 
