@@ -178,19 +178,19 @@
          href: concepts-performance-recommendations.md
          displayName:  recommendation
      - name: Application Development
-        items:
-         - name: Drivers and tools compatibility
-           href: concepts-compatibility.md
-           displayName: drivers, tools
-         - name: Application development
-           href: concepts-database-application-development.md
-           displayName: developement 
-         - name: Application Best practices
-           href: app-development-best-practices.md
-           displayName: application
-         - name: Connection resiliency
-           href: concepts-connectivity.md
-           displayName: connection, resiliency
+       items:
+       - name: Drivers and tools compatibility
+         href: concepts-compatibility.md
+         displayName: drivers, tools
+       - name: Application development
+         href: concepts-database-application-development.md
+         displayName: developement 
+       - name: Application Best practices
+         href: app-development-best-practices.md
+         displayName: application
+       - name: Connection resiliency
+         href: concepts-connectivity.md
+         displayName: connection, resiliency
      - name: Replication
        items:
        - name: Data-in replication
