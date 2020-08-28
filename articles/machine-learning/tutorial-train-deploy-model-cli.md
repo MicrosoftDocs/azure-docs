@@ -295,7 +295,7 @@ The runconfig file also contains information used to configure the environment u
 > [!TIP]
 > While it is possible to manually create a runconfig file, the one in this example was created using the `generate-runconfig.py` file included in the repository. This file gets a reference to the registered dataset, creates a run config programatically, and then persists it to file.
 
-For more information on run configuration files, see [Use compute targets for model training](how-to-submit-training.md#whats-a-run-configuration). For a complete JSON reference, see the [runconfigschema.json](https://github.com/microsoft/MLOps/blob/b4bdcf8c369d188e83f40be8b748b49821f71cf2/infra-as-code/runconfigschema.json).
+For more information on run configuration files, see [Use compute targets for model training](how-to-set-up-training-targets.md#whats-a-run-configuration). For a complete JSON reference, see the [runconfigschema.json](https://github.com/microsoft/MLOps/blob/b4bdcf8c369d188e83f40be8b748b49821f71cf2/infra-as-code/runconfigschema.json).
 
 ## Submit the training run
 

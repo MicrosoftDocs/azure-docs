@@ -138,7 +138,7 @@ A run configuration is a set of instructions that defines how a script should be
 
 A run configuration can be persisted into a file inside the directory that contains your training script.   Or it can be constructed as an in-memory object and used to submit a run.
 
-For example run configurations, see [Use a compute target to train your model](how-to-submit-training.md).
+For example run configurations, see [Use a compute target to train your model](how-to-set-up-training-targets.md).
 
 ### Estimators
 

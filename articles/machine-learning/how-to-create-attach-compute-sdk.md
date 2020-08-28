@@ -52,7 +52,7 @@ Use the sections below to configure these compute targets:
 
 ## <a id="local"></a>Local computer
 
-When you use your local computer for training, there is no need to create a compute target.  Just [submit the training run](how-to-submit-training.md) from your local machine.
+When you use your local computer for training, there is no need to create a compute target.  Just [submit the training run](how-to-set-up-training-targets.md) from your local machine.
 
 ## <a id="amlcompute"></a>Azure Machine Learning compute cluster
 
@@ -81,7 +81,7 @@ Azure Machine Learning Compute can be reused across runs. The compute can be sha
 
     Or you can create and attach a persistent Azure Machine Learning Compute resource in [Azure Machine Learning studio](how-to-create-attach-compute-studio.md#portal-create).
 
-Now that you've attached the compute, the next step is to [submit the training run](how-to-submit-training.md).
+Now that you've attached the compute, the next step is to [submit the training run](how-to-set-up-training-targets.md).
 
  ### <a id="low-pri-vm"></a> Lower your compute cluster cost
 
@@ -195,7 +195,7 @@ Compute instances can run jobs securely in a [virtual network environment](how-t
         instance.wait_for_completion(show_output=True)
     ```
 
-Now that you've attached the compute and configured your run, the next step is to [submit the training run](how-to-submit-training.md)
+Now that you've attached the compute and configured your run, the next step is to [submit the training run](how-to-set-up-training-targets.md)
 
 
 ## <a id="vm"></a>Remote virtual machines
@@ -240,7 +240,7 @@ Use the Azure Data Science Virtual Machine (DSVM) as the Azure VM of choice for 
    [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/dsvm.py?name=run_dsvm)]
 
 
-Now that you've attached the compute and configured your run, the next step is to [submit the training run](how-to-submit-training.md).
+Now that you've attached the compute and configured your run, the next step is to [submit the training run](how-to-set-up-training-targets.md).
 
 ## <a id="hdinsight"></a>Azure HDInsight 
 
@@ -285,7 +285,7 @@ Azure HDInsight is a popular platform for big-data analytics. The platform provi
    [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/hdi.py?name=run_hdi)]
 
 
-Now that you've attached the compute and configured your run, the next step is to [submit the training run](how-to-submit-training.md).
+Now that you've attached the compute and configured your run, the next step is to [submit the training run](how-to-set-up-training-targets.md).
 
 ## <a id="azbatch"></a>Azure Batch 
 

@@ -297,7 +297,7 @@
       items: 
         - name: Submit training run 
           displayName: run config, compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight
-          href: how-to-submit-training.md
+          href: how-to-set-up-training-targets.md
         - name: Use estimators for ML
           items: 
             - name: Create estimators in training

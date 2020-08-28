@@ -435,7 +435,7 @@ except ComputeTargetException:
     cpu_cluster.wait_for_completion(show_output=True)
 ```
 
-When the creation process finishes, you train your model by using the cluster in an experiment. For more information, see [Use a compute target for training](how-to-submit-training.md).
+When the creation process finishes, you train your model by using the cluster in an experiment. For more information, see [Use a compute target for training](how-to-set-up-training-targets.md).
 
 [!INCLUDE [low-pri-note](../../includes/machine-learning-low-pri-vm.md)]
 
@@ -828,12 +828,12 @@ To use a virtual machine or Azure HDInsight cluster in a virtual network with yo
 
     If you don't want to use the default outbound rules and you do want to limit the outbound access of your virtual network, see the [Limit outbound connectivity from the virtual network](#limiting-outbound-from-vnet) section.
 
-1. Attach the VM or HDInsight cluster to your Azure Machine Learning workspace. For more information, see [Use compute targets for model training](how-to-submit-training.md).
+1. Attach the VM or HDInsight cluster to your Azure Machine Learning workspace. For more information, see [Use compute targets for model training](how-to-set-up-training-targets.md).
 
 
 ## Next steps
 
-* [Use compute targets for model training](how-to-submit-training.md)
+* [Use compute targets for model training](how-to-set-up-training-targets.md)
 * [Set up private endpoints](how-to-configure-private-link.md)
 * [Where to deploy models](how-to-deploy-and-where.md)
 * [Use TLS to secure a web service through Azure Machine Learning](how-to-secure-web-service.md)
