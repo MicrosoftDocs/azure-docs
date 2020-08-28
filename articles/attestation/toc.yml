@@ -36,6 +36,8 @@
     href: workflow.md
 - name: References
   items:
+  - name: FAQ
+    href: faq.md
   - name: REST
     href: https://docs.microsoft.com/en-us/rest/api/attestation/ 
   - name: Azure PowerShell
