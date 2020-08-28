@@ -24,26 +24,50 @@ Based on the information bubble next to the VM, there are different actions to t
    -	**NotAvailableForSubscription**: The region isn't yet available for your subscription. Select an available region.
    -	**InsufficientQuota**: [Create a support request to increase your quota](../azure-portal/supportability/per-vm-quota-requests.md). Free trial subscriptions don't have quota for confidential computing VMs. 
 
-**What validations does Azure Attestation perform**
+**What is Azure PCK caching service and its role in enclave attestation**
 
-**How to shift to Azure Attestation from the other attestation models**
+Azure PCK caching service defines the Azure security baseline for the Azure Confidential computing (ACC) nodes from Intel and caches the data. The cached information will be further used by Azure Attestation in validating Trusted Execution Environments (TEEs).  
 
-**How can a verifier obtain the attestation collateral supported by Azure Attestation**
+Azure PCK caching service provides the following benefits: 
+   - The service offers Service Level Agreement (SLA)  
+   - Reduces the dependencies on externally hosted services and internet connectivity 
+   - Always ensures to fetch the latest versions of Intel certificates, CRLs, Trusted Computing Base (TCB) information and Quoting Enclave identity of the ACC nodes from Intel.      The service hence confirms the Azure security baseline to be referred by Azure Attestation while validating the TEEs. This greatly reduces the instances of attestation          failures which may arise due to invalidation/ revocation of Intel certificates  
 
-**Does Azure Attestation support the attestation of enclaves in environments other than Azure**
+**Is SGX attestation supported by Azure Attestation in non Azure environments**
+
+Azure Attestation depends on the security baseline stated by Azure PCK caching service to validate the TEEs. Azure PCK caching service is currently designed to support only Azure Confidential computing nodes. 
+
+**What validations does Azure Attestation perform for attesting SGX enclaves**
+
+Azure Attestation is a unified framework for remotely attesting different types of Trusted Execution Environments (TEEs). In this process, Azure Attestation performs the following validations: 
+
+   - Validates if the enclave quote meets the Azure security baseline as defined by Azure PCK caching service 
+   - Validates if SHA256 hash of Enclave Held Data (EHD) in the attestation request object matches the first 32 bytes of reportData field in the enclave quote 
+   - Azure Attestation allows customers to create an attestation provider and configure a custom policy. In addition to the above validations, Azure Attestation evaluates the        enclave quote against the policy. Policies define authorization rules for the enclave and also dictate issuance rules for generating the attestation token. To confirm if        intended software is running in an enclave, customers can add authorization rules to verify if mrsigner and mrenclave fields in the enclave quote matches the values of          customer binaries
+
+**How can a verifier obtain the collateral for SGX attestation supported by Azure Attestation**
+
+In general, for the attestation models with Intel as the root of trust, attestation client talks to enclave APIs to fetch the enclave evidence. Enclave APIs internally call Intel PCK caching service to fetch Intel certificates of the node to be attested. The certificates are used to sign the enclave evidence thereby generating a remotely attestable collateral.  
+
+The same process can be implemented for Azure Attestation. However to leverage the benefits offered by Azure PCK caching service,  after installing Azure Confidential computing virtual machine, it is recommended to install [Azure DCAP library](https://www.nuget.org/packages/Microsoft.Azure.DCAP). Based on the agreement with Intel, when Azure DCAP library is installed, the requests for generating enclave evidence are redirected from Intel PCK caching service to Azure PCK caching service. Azure DCAP library is supported in Windows and Linux based environments. 
+
+**How to shift to Azure Attestation from other attestation models**
+
+- After installing Azure Confidential computing virtual machine, install [Azure DCAP library](https://www.nuget.org/packages/Microsoft.Azure.DCAP)  to leverage the benefits offered by Azure PCK caching service 
+- Remote attestation client needs to be authored which can retrieve the enclave evidence and send requests to Azure Attestation. See [code samples](/azure-samples/microsoft-azure-attestation/sample-code-for-intel-sgx-attestation-using-microsoft-azure-attestation/) for reference 
+- Attestation requests can be sent to the REST API endpoint of default providers or custom attestation providers 
+- Azure Attestation APIs are protected by Azure AD authentication. Hence the client that invokes attest APIs must be able to obtain and pass a valid Azure AD access token in the attestation request 
 
 **How can the relying party verify the integrity of attestation token**
 
-Attestation token is generated by Azure Attestation is signed using a self-signed certificate. The certificates are exposed via an [OpenID metadata endpoint](/rest/api/attestation/metadataconfiguration/get). Relying party can retrieve the signing certificates from this endpoint and perform signature verification of the attestation token. Validity time of the attestation token is 8 hours
+Attestation token generated by Azure Attestation is signed using a self-signed certificate. The certificates are exposed via an [OpenID metadata endpoint](/rest/api/attestation/metadataconfiguration/get). Relying party can retrieve the signing certificates from this endpoint and perform signature verification of the attestation token. Validity time of the attestation token is 8 hours. 
 
-**How to identify the certificate to be used for signature verification of the attestation token from the OpenID metadata endpoint**
+**How to identify the certificate to be used for signature verification from the OpenID metadata endpoint**
 
-The multiple certificates exposed in the OpenID metadata endpoint corresponds to different use cases (e.g. SGX attestation) supported by Azure Attestation. As per the standards specified by [RFC 7515](https://tools.ietf.org/html/rfc7515), the certificate with key id (kid) matching the kid parameter in the attestation token header is to be used for signature verification. If no matching kid is found, then it is expected to try all the certificates exposed by OpenID metadata endpoint.
+Multiple certificates exposed in the OpenID metadata endpoint corresponds to different use cases (e.g. SGX attestation) supported by Azure Attestation. As per the standards specified by [RFC 7515](https://tools.ietf.org/html/rfc7515), the certificate with key id (kid) matching the kid parameter in the attestation token header is to be used for signature verification. If no matching kid is found, then it is expected to try all the certificates exposed by OpenID metadata endpoint.
 
-**Is it possible for the relying party to share secrets with the validated Trusted Execution Environemnts (TEEs)**
+**Is it possible for the relying party to share secrets with the validated Trusted Execution Environments (TEEs)**
 
-Public key generated within an enclave can be expressed in the Enclave Held Data (EHD) property of the attestation request object sent by the client to Azure Attestation. Azure Attestation validates if SHA256 hash of EHD matches the first 32 bytes in reportData field of the enclave quote. Azure Attestation includes “Enclave Held Data” in the attestation token. Relying party can use the enclave held data from the verified attestation response to encrypt the secrets beforing sharing with the enclave.
+Public key generated within an enclave can be expressed in the Enclave Held Data (EHD) property of the attestation request object sent by the client to Azure Attestation. After confirming if SHA256 hash of EHD is expressed in reportData field of the quote, Azure Attestation includes EHD in the attestation token. Relying party can use the EHD from the verified attestation response to encrypt the secrets and share with the enclave. 
 
-
-
-
+ 
