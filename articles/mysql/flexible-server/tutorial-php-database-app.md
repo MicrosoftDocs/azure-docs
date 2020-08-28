@@ -543,10 +543,6 @@ Once the `git push` is complete, navigate to the Azure app and test the new func
 
 If you added any tasks, they are retained in the database. Updates to the data schema leave existing data intact.
 
-## Manage the Azure app
-
-Go to the [Azure portal](https://portal.azure.com) to manage the app you created. See [How to manage your resources in Azure portal] (https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resources-portal).
-
 ## Clean up resources
 In the preceding steps, you created Azure resources in a resource group. If you don't expect to need these resources in the future, delete the resource group by running the following command in the Cloud Shell:
 
@@ -557,5 +553,5 @@ az group delete --name myResourceGroup
 <a name="next"></a>
 
 ## Next steps)
-> [!div class="nextstepaction"]
-> [Configure PHP applications in App Service](https://docs.microsoft.com/azure/app-service/configure-language-php?pivots=platform-linux
+- [How to manage your resources in Azure portal](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resources-portal)
+- [Configure PHP applications in App Service](https://docs.microsoft.com/azure/app-service/configure-language-php?pivots=platform-linux)
