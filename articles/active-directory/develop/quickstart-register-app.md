@@ -2,7 +2,7 @@
 title: "Quickstart: Register an app in the Microsoft identity platform | Azure"
 description: In this quickstart, you learn how to register an application with the Microsoft identity platform.
 services: active-directory
-author: rwike77
+author: mmacy
 manager: CelesteDG
 
 ms.service: active-directory
@@ -10,7 +10,7 @@ ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
 ms.date: 08/28/2020
-ms.author: ryanwi
+ms.author: marsma
 ms.custom: aaddev, identityplatformtop40, contperfq1
 ms.reviewer: aragra, lenalepa, sureshja
 # Customer intent: As an enterprise developer or software-as-a-service (SaaS) provider, I want to
