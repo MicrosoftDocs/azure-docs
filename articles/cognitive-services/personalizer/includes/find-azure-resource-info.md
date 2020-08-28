@@ -1,5 +1,5 @@
 ---
-title: Find your Personalizzer resource endpoint and key
+title: Find your Personalizer resource endpoint and key
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: erhopf

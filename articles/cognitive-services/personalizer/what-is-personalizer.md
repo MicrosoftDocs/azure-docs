@@ -9,7 +9,7 @@ keywords: personalizer, Azure personalizer, machine learning
 
 # What is Personalizer?
 
-Azure Personalizer is a cloud-based service that helps your applications choose the best content item to show your users. You can use the Personalizer service to determine what product to suggest to shoppers or to figure out the optimal position for an advertisement. After the content is shown to the user, the system monitors real-time user behavior and reports a reward score back to the Personalizer service. This ensures continuous improvement of the machine learning model, and Personlizer's ability to select the best content item based on the contextual information it receives.
+Azure Personalizer is a cloud-based service that helps your applications choose the best content item to show your users. You can use the Personalizer service to determine what product to suggest to shoppers or to figure out the optimal position for an advertisement. After the content is shown to the user, the system monitors real-time user behavior and reports a reward score back to the Personalizer service. This ensures continuous improvement of the machine learning model, and Personalizer's ability to select the best content item based on the contextual information it receives.
 
 > [!TIP]
 > Content is any unit of information, such as text, images, URL, emails, or anything else that you want to select from and show to your users.
@@ -98,7 +98,7 @@ Since Personalizer uses collective information in near real-time to return the s
 
 We offer quickstarts in C#, JavaScript, and Python. Each quickstart is designed to teach you basic design patterns, and have you running code in less than 10 minutes. 
 
-* [Quickstart: How to use the Personlizer client library](sdk-learning-loop.md)
+* [Quickstart: How to use the Personalizer client library](sdk-learning-loop.md)
 
 After you've had a chance to get started with the Personalizer service, try our tutorials and learn how to use Personalizer in web applications, chat bots, or an Azure Notebook.
 
