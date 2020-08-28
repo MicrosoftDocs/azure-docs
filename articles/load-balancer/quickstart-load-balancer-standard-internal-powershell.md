@@ -90,7 +90,7 @@ New-AzVirtualNetworkSubnetConfig -Name $sub -AddressPrefix $spfx
 
 ## Create Azure Bastion subnet 
 $bassubConfig =
-New-AzVirtualNetworkSubnetConfig -Name $bsub -AdressPrefix $bpfx
+New-AzVirtualNetworkSubnetConfig -Name $bsub -AddressPrefix $bpfx
 
 ## Create the virtual network ##
 $vnet = 
@@ -571,7 +571,7 @@ New-AzVirtualNetworkSubnetConfig -Name $sub -AddressPrefix $spfx
 
 ## Create Azure Bastion subnet 
 $bassubConfig =
-New-AzVirtualNetworkSubnetConfig -Name $bsub -AdressPrefix $bpfx
+New-AzVirtualNetworkSubnetConfig -Name $bsub -AddressPrefix $bpfx
 
 ## Create the virtual network ##
 $vnet = 
@@ -652,7 +652,7 @@ $spr = '*'
 $dpfx = '*'
 $dpr = '80'
 
-$rule2 = 
+$rule1 = 
 New-AzNetworkSecurityRuleConfig -Name $rnm -Description $des -Access $acc -Protocol $pro -Direction $dir -Priority $pri -SourceAddressPrefix $spfx -SourcePortRange $spr -DestinationAddressPrefix $dpfx -DestinationPortRange $dpr
 ```
 
@@ -673,7 +673,7 @@ $nmn = 'myNSG'
 
 ## $rule1 and $rule2 are variables with configuration information from the previous steps. ##
 $nsg = 
-New-AzNetworkSecurityGroup -ResourceGroupName $rg -Location $loc -Name $nmn -SecurityRules $rule1,$rule2
+New-AzNetworkSecurityGroup -ResourceGroupName $rg -Location $loc -Name $nmn -SecurityRules $rule1
 ```
 
 ## Create basic load balancer
@@ -1115,7 +1115,7 @@ Get-AzVirtualNetwork -Name $vnt -ResourceGroupName $rg
 $nsg = 
 Get-AzNetworkSecurityGroup -Name $ngn -ResourceGroupName $rg
 
-## Command to create network interface for VM1 ##
+## Command to create network interface for myTestVM ##
 $nicTestVM = 
 New-AzNetworkInterface -ResourceGroupName $rg -Location $loc -Name $nic1 -NetworkSecurityGroup $nsg -Subnet $vnet.Subnets[0]
 ```
