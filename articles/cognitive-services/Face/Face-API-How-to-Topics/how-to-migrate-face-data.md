@@ -11,6 +11,7 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: nitinme
+ms.custom: devx-track-csharp
 ---
 
 # Migrate your face data to a different Face subscription
