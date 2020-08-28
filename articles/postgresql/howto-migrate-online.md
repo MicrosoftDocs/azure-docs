@@ -9,7 +9,7 @@ ms.date: 5/6/2019
 ---
 
 # Minimal-downtime migration to Azure Database for PostgreSQL - Single Server
-[!INCLUDE[applies-to-postgres-single-flexible-server](includes/applies-to-postgres-single-flexible-server.md)]
+[!INCLUDE[applies-to-postgres-single-flexible-server](includes/applies-to-postgres-single-flexible-server-hyperscale.md)]
 
 You can perform PostgreSQL migrations to Azure Database for PostgreSQL with minimal downtime by using the newly introduced **continuous sync capability** for the [Azure Database Migration Service](https://aka.ms/get-dms) (DMS). This functionality limits the amount of downtime that is incurred by the application.
 
