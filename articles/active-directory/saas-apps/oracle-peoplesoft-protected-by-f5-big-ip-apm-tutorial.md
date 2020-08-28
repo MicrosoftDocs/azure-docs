@@ -88,22 +88,22 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, enter the values for the following fields:
 
-    a. In the **Identifier** text box, type the URL:
-    `https://hcm.sky.f5way.com`
+    a. In the **Identifier** text box, type a URL using the following pattern:
+    `https://<FQDN>.peoplesoft.f5.com`
 
-    b. In the **Reply URL** text box, type the URL:
-    `https://hcm.sky.f5way.com/saml/sp/profile/post/acs`
+    b. In the **Reply URL** text box, type a URL using the following pattern:
+    `https://<FQDN>.peoplesoft.f5.com/saml/sp/profile/post/acs`
 
-    c. In the **Logout URL** text box, type the URL:
-    `https://hcm.sky.f5way.com/saml/sp/profile/redirect/slr`
+    c. In the **Logout URL** text box, type a URL using the following pattern:
+    `https://<FQDN>.peoplesoft.f5.com/saml/sp/profile/redirect/slr`
 
 1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
     In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://<FQDN>.peoplesoft.f5.com/`
 
-> [!NOTE]
->The Sign-on URL value is not real. Update the value with the actual Sign-On URL. Contact [Oracle PeopleSoft - Protected by F5 BIG-IP APM Client support team](https://support.f5.com) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > [!NOTE]
+    >These values are not real. Update these values with the actual Sign-On URL, Identifier, Reply URL and Logout URL. Contact [Oracle PeopleSoft - Protected by F5 BIG-IP APM Client support team](https://support.f5.com) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. Oracle PeopleSoft - Protected by F5 BIG-IP APM application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
@@ -153,9 +153,9 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ### F5 SAML SP Configuration
 
-1. import the Metadata Certificate into the F5 which will be used later in the setup process. Navigate to **System > Certificate Management > Traffic Certificate Management > SSL Certificate List**. Select **Import** from the right-hand corner.
+Import the Metadata Certificate into the F5 which will be used later in the setup process. Navigate to **System > Certificate Management > Traffic Certificate Management > SSL Certificate List**. Select **Import** from the right-hand corner.
 
-    ![F5 SAML SP Configuration](./media/oracle-peoplesoft-protected-by-f5-big-ip-apm-tutorial/sp-configuration.png)
+![F5 SAML SP Configuration](./media/oracle-peoplesoft-protected-by-f5-big-ip-apm-tutorial/sp-configuration.png)
 
 #### Setup the SAML IDP Connector 
 
@@ -163,7 +163,13 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     ![F5 SAML IDP Connector](./media/oracle-peoplesoft-protected-by-f5-big-ip-apm-tutorial/saml-idp-connector.png)
 
+1. In the following page, click on **Browse** to upload the xml file.
+
+1. Give a valid name in the **Identity Provider Name** textbox and then click on **OK**.
+
     ![new SAML IDP Connector](./media/oracle-peoplesoft-protected-by-f5-big-ip-apm-tutorial/new-saml-idp.png)
+
+1. Perform the required steps in the **Security Settings** tab and then click on **OK**.
 
     ![edit SAML IDP Connector](./media/oracle-peoplesoft-protected-by-f5-big-ip-apm-tutorial/edit-saml-idp.png)
 
@@ -171,12 +177,12 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Navigate to **Access > Federation > SAML Service Provider > Local SP Services** and click **Create**. Complete the following information and click **OK**.
 
-    * Name: PeopleSoftAppSSO
-    * Entity ID*: `https://hcm.sky.f5way.com`
+    * Name: `<Name>`
+    * Entity ID: `https://<FQDN>.peoplesoft.f5.com`
     * SP Name Settings
-        * Scheme: https
-        * Host: `hcm.sky.f5way.com`
-        * Description: SP object for PeopleSoftAppSSO
+        * Scheme: `https`
+        * Host: `<FQDN>.peoplesoft.f5.com`
+        * Description: `<Description>`
 
     ![new SAML SP services](./media/oracle-peoplesoft-protected-by-f5-big-ip-apm-tutorial/new-saml-sp-service.png)
 
@@ -190,37 +196,42 @@ Click on **Add New Row** and Select the **External IdP connector** created in pr
 ### Create a new Pool
 1. Navigate to **Local Traffic > Pools > Pool List**, click **Create**, complete the following information and click **Finished**.
 
-    * Name: PeopleSoft-Pool
-    * Description: PeopleSoft-Pool
-    * Health Monitors: http
-    * Address: 10.10.10.10
-    * Service Port: 8000
+    * Name: `<Name>`
+    * Description: `<Description>`
+    * Health Monitors: `http`
+    * Address: `<Address>`
+    * Service Port: `<Service Port>`
 
     ![new pool creation](./media/oracle-peoplesoft-protected-by-f5-big-ip-apm-tutorial/create-pool.png)
 
 
 ### Create a new Client SSL profile
 
-1. Navigate to **Local Traffic > Profiles > SSL > Client > +**, complete the following information and click **Finished**.
-    * Name: PeopleSoftApp-clissl
-    * Certificate: hcm.sky.f5way.com
-    * Key: hcm.sky.f5way.com
+Navigate to **Local Traffic > Profiles > SSL > Client > +**, complete the following information and click **Finished**.
 
-    ![new Client SSL profile](./media/oracle-peoplesoft-protected-by-f5-big-ip-apm-tutorial/client-ssl-profile.png)
+* Name: `<Name>`
+* Certificate: `<Certificate>`
+* Key: `<Key>`
+
+![new Client SSL profile](./media/oracle-peoplesoft-protected-by-f5-big-ip-apm-tutorial/client-ssl-profile.png)
 
 ### Create a new Virtual Server
 
 1. Navigate to **Local Traffic > Virtual Servers > Virtual Server List > +**, complete the following information and click **Finished**.
-    * Name: PeopleSoftApp
-    * Destination Address/Mask: Host 10.10.10.32
+    * Name: `<Name>`
+    * Destination Address/Mask: `<Address>`
     * Service Port: Port 443 HTTPS
     * HTTP Profile (Client): http
-    * SSL Profile (Client): PeopleSoftApp-clissl
-    * Source Address Translation: Auto Map
-    * Access Profile: PeopleSoftApp
-    * Default Pool: PeopleSoft-Pool
 
     ![Create a new Virtual Server](./media/oracle-peoplesoft-protected-by-f5-big-ip-apm-tutorial/virtual-server-list.png)
+
+1. Fill the following values in the below page:
+
+    * SSL Profile (Client): `<SSL Profile>`
+    * Source Address Translation: Auto Map
+    * Access Profile: `<Access Profile>`
+    * Default Pool: `<Pool>`
+
 
     ![Create a new Virtual Server peoplesoft pool](./media/oracle-peoplesoft-protected-by-f5-big-ip-apm-tutorial/virtual-server-people-soft.png)
 
@@ -229,7 +240,7 @@ Click on **Add New Row** and Select the **External IdP connector** created in pr
 >[!Note]
 > Reference https://docs.oracle.com/cd/E12530_01/oam.1014/e10356/people.htm
 
-1. Logon to Peoplesoft Console http://hcm.sky.f5way.com:8000/psp/ps/?cmd=start using Admin credentials(Example: PS/PS)
+1. Logon to Peoplesoft Console `https://<FQDN>.peoplesoft.f5.com/:8000/psp/ps/?cmd=start` using Admin credentials(Example: PS/PS)
 
     ![Manager self services](./media/oracle-peoplesoft-protected-by-f5-big-ip-apm-tutorial/people-soft-console.png)
 
@@ -260,26 +271,24 @@ In the **getWWWAuthConfig()** function, replace the value that is assigned to th
 ### Configuring Per-Request Policy
 1. Navigate to **Access > Profile/Policies > Per-Request Policies**, click **Create**, complete the following information and click **Finished**.
 
-    * Name: PeopleSoftSSO
+    * Name: `<Name>`
     * Profile Type: All
-    * Languages: English
+    * Languages: `<Language>`
 
     ![Configuring Per-Request Policy ](./media/oracle-peoplesoft-protected-by-f5-big-ip-apm-tutorial/per-request.png)
 
-1. Click **Edit** Per-Request Policy `PeopleSoftSSO`
-
+1. Click **Edit** Per-Request Policy `<Name>`
     ![edit Per-Request Policy PeopleSoftSSO ](./media/oracle-peoplesoft-protected-by-f5-big-ip-apm-tutorial/people-soft-sso.png)
 
-    `Header Name: PS_SSO_UID`   
-    `Header Value: %{session.saml.last.attr.name.EMPLID}`
+    `Header Name: <Header Name>`   
+    `Header Value: <Header Value>`
 
 ### Assign Per-Request Policy to the Virtual Server
 
-1. Navigate to **Local Traffic > Virtual Servers > Virtual Server List > PeopleSoftApp**
-Specify `PeopleSoftSSO` as Per-Request Policy
+Navigate to **Local Traffic > Virtual Servers > Virtual Server List > PeopleSoftApp**
+Specify `<Name>` as Per-Request Policy
 
-
-    ![PeopleSoftSSO as Per-Request Policy ](./media/oracle-peoplesoft-protected-by-f5-big-ip-apm-tutorial/people-soft-sso-1.png)
+![PeopleSoftSSO as Per-Request Policy ](./media/oracle-peoplesoft-protected-by-f5-big-ip-apm-tutorial/people-soft-sso-1.png)
 
 ## Setting up F5 Big-IP APM to support Single Logout from PeopleSoft application
 
@@ -294,9 +303,9 @@ To add single logout support for all PeopleSoft users,please follow these steps:
 
 1. Create LTM iRule that will redirect the user to the APM logout URL: `/my.logout.php3`
 
-    * Navigate to Local Traffic > iRule, click Create, complete the following information and click Finished.
+    * Navigate to **Local Traffic > iRule**, click **Create**, complete the following information and click **Finished**.
 
-        Name: _iRule_PeopleSoftApp  
+        Name: `<Name>`  
         Definition:  
                     _when HTTP_REQUEST {  
                         switch -glob -- [HTTP::uri] {  
@@ -310,9 +319,11 @@ To add single logout support for all PeopleSoft users,please follow these steps:
 
     * Navigate to **Local Traffic > Virtual Servers > Virtual Server List > PeopleSoftApp > Resources**. Click the **Manage…** button:   
 
-    * Specify **_iRule_PeopleSoftApp** as Enabled iRule and click **Finished**
+    * Specify `<Name>` as Enabled iRule and click **Finished**
 
         ![_iRule_PeopleSoftApp ](./media/oracle-peoplesoft-protected-by-f5-big-ip-apm-tutorial/irule-people-soft.png)
+
+    * Give the **Name** textbox value as `<Name>` 
 
         ![_iRule_PeopleSoftApp finished](./media/oracle-peoplesoft-protected-by-f5-big-ip-apm-tutorial/common-irule.png)
 
