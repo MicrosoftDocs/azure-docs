@@ -35,7 +35,7 @@ In this scenario, you grant a client app access to your own web API, both of whi
 
 This diagram shows how the two app registrations relate to one another. In this section, you add permissions to the client app's registration.
 
-:::image type="content" source="media/quickstart-configure-app-access-web-apis/diagram-01-app-permission-to-api-scopes.png" alt-text="Line diagram showing a web API with exposed scopes on the right and a client app on the left with those scopes selected as permissions" border="false":::
+:::image type="content" source="media/quickstart-configure-app-access-web-apis/diagram-01-app-permission-to-api-scopes.svg" alt-text="Line diagram showing a web API with exposed scopes on the right and a client app on the left with those scopes selected as permissions" border="false":::
 
 Once you've registered both your client app and web API and you've exposed the API by creating scopes, you can configure the client's permissions to the API by following these steps:
 
@@ -117,7 +117,9 @@ The **API permissions** pane of an app registration contains a [Configured permi
 
 ### Configured permissions
 
-The **Configured permissions** table on the **API permissions** pane shows the permissions that have been explicitly configured on the application object. These permissions are part of the app's required resource access list.
+The **Configured permissions** table on the **API permissions** pane shows the list of permissions that your application requires for basic operation - the *required resource access* (RRA) list. Users, or their admins, will need to consent to these permissions before using your app. Other, optional permissions can be requested later at runtime (using dynamic consent).
+
+This is the minimum list of permissions people will have to consent to for your app. There could be more, but these will always be required. For security and adoption reasons, never ask for anything you don’t need.
 
 You can add or remove the permissions that appear in this table by using the steps outlined above or from [Other permissions granted](#other-permissions-granted) (described in the next section). As an admin, you can grant admin consent for the full set of an API's permissions that appear in the table, and revoke consent for individual permissions.
 
