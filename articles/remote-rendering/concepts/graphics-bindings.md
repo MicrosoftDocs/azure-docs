@@ -9,6 +9,7 @@ ms.author: flborn
 ms.date: 12/11/2019
 ms.topic: conceptual
 ms.service: azure-remote-rendering
+ms.custom: devx-track-csharp
 ---
 # Graphics binding
 

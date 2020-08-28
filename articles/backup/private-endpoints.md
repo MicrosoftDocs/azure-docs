@@ -550,7 +550,7 @@ A. No, private endpoints can be created for new Backup vaults only. So the vault
 Q. I tried to protect an item to my vault, but it failed and the vault still doesn't contain any items protected to it. Can I create private endpoints for this vault?<br>
 A. No, the vault must not have had any attempts to protect any items to it in the past.
 
-Q. I have a vault that is using private endpoints for backup and restore. Can I later add or remove private endpoints for this vault even if I have backup items protected to it?<br>
+Q. I have a vault that's using private endpoints for backup and restore. Can I later add or remove private endpoints for this vault even if I have backup items protected to it?<br>
 A. Yes. If you already created private endpoints for a vault and protected backup items to it, you can later add or remove private endpoints as required.
 
 Q. Can the private endpoint for Azure Backup also be used for Azure Site Recovery?<br>

@@ -81,7 +81,7 @@ Error Code: AFSMaxSnapshotReached
 Error Message: You have reached the max limit of snapshots for this file share; you will be able to take more once the older ones expire.
 
 - This error can occur when you create multiple on-demand backups for a file share.
-- There is a limit of 200 snapshots per file share including the ones taken by Azure Backup. Older scheduled backups (or snapshots) are cleaned up automatically. On-demand backups (or snapshots) must be deleted if the maximum limit is reached.
+- There's a limit of 200 snapshots per file share including the ones taken by Azure Backup. Older scheduled backups (or snapshots) are cleaned up automatically. On-demand backups (or snapshots) must be deleted if the maximum limit is reached.
 
 Delete the on-demand backups (Azure file share snapshots) from the Azure Files portal.
 
