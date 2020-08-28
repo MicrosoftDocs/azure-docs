@@ -15,6 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
+ms.custom: devx-track-csharp
 
 ---
 # Use AES-128 dynamic encryption and the key delivery service
