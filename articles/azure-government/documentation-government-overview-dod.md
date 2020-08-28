@@ -92,8 +92,8 @@ In order to gain access to the Azure DoD regions, customers must complete a pre-
 ### Can independent software vendors and solution providers building on Azure deploy solutions in the Azure Government DoD regions? 
 Solution providers with cloud service offerings built on Azure may operate DoD-only single tenant and multi-tenant solutions in the Azure Government DoD regions.  These providers must first demonstrate eligibility by providing documented evidence of a contract with an approved DoD entity or have a sponsor letter from an approved DoD entity.  Providers offering services in the Azure Government DoD regions must include computer network defense, incident reporting and screened personnel for operating solutions handling Impact Level 5 information in their offering.  Additional guidance for solution providers may be found in the DoD Cloud Computing Security Requirements Guide.
 
-### Will Office 365 or Microsoft Dynamics 365 be a part of this offering? 
-Microsoft is providing Office 365 services for the DoD at Impact Level 5 in conjunction with this offering.  Dynamics 365 is planning to offer Impact Level 5 services from the Azure DoD regions at a future date.
+### Will Microsoft 365 or Microsoft Dynamics 365 be a part of this offering? 
+Microsoft is providing Microsoft 365 services for the DoD at Impact Level 5 in conjunction with this offering.  Dynamics 365 is planning to offer Impact Level 5 services from the Azure DoD regions at a future date.
 
 ### How do I connect to the DoD Regions once I have a subscription? 
 The DoD regions for Azure Government are available through the Azure Government management portal.  DoD customers approved for use will see the regions listed as available options when deploying available services.  For general guidance on managing your Azure Government subscriptions please consult our documentation.

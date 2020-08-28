@@ -13,7 +13,7 @@ ms.date: 03/13/2020
 # Azure Monitor Logs connector for Logic Apps and Power Automate
 [Azure Logic Apps](../../logic-apps/index.yml) and [Power Automate](https://flow.microsoft.com) allow you to create automated workflows using hundreds of actions for a variety of services. The Azure Monitor Logs connector allows you to build workflows that retrieve data from a Log Analytics workspace or an Application Insights application in Azure Monitor. This article describes the actions included with the connector and provides a walkthrough to build a workflow using this data.
 
-For example, you can create a logic app to use Azure Monitor log data in an email notification from Office 365, create a bug in Azure DevOps, or post a Slack message.  You can trigger a workflow by a simple schedule or from some action in a connected service such as when a mail or a tweet is received. 
+For example, you can create a logic app to use Azure Monitor log data in an email notification from Microsoft 365, create a bug in Azure DevOps, or post a Slack message.  You can trigger a workflow by a simple schedule or from some action in a connected service such as when a mail or a tweet is received. 
 
 ## Connector limits
 The Azure Monitor Logs connector has these limits:

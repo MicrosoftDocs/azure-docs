@@ -110,7 +110,7 @@ This article provides lists Azure Monitor articles that are either new or have b
 
 ### Solutions
 - [Monitoring solutions in Azure Monitor](insights/solutions.md) - Added CLI processes.
-- [Office 365 management solution in Azure](insights/solution-office-365.md) - Changed retirement date.
+- [Microsoft 365 management solution in Azure](insights/solution-office-365.md) - Changed retirement date.
 
 ### Virtual machines
 
@@ -382,7 +382,7 @@ New and updated articles from restructure and consolidation of platform log cont
 
 ### Insights
 
-- [Office 365 management solution in Azure](insights/solution-office-365.md) - Updated deprecation date.
+- [Microsoft 365 management solution in Azure](insights/solution-office-365.md) - Updated deprecation date.
 
 ### Logs
 
@@ -449,9 +449,9 @@ Multiple updates as part of rewrite of diagnostics extension content.
 
 - [Azure Monitor for VMs (GA) frequently asked questions](insights/vminsights-ga-release-faq.md) - Change to how performance data is stored.
 
-#### Office 365
+#### Microsoft 365
 
-- [Office 365 management solution in Azure](insights/solution-office-365.md) - Updated deprecation date.
+- [Microsoft 365 management solution in Azure](insights/solution-office-365.md) - Updated deprecation date.
 
 
 ### Logs
@@ -517,9 +517,9 @@ Multiple New articles for view designer to workbooks conversion guide.
 
 - [Azure Monitor for VMs (GA) frequently asked questions](insights/vminsights-ga-release-faq.md) - Added information on upgrading workspace and agents to new version.
 
-#### Office 365
+#### Microsoft 365
 
-- [Office 365 management solution in Azure](insights/solution-office-365.md) - Added details and FAQ on migrating to Office 365 solution in Azure Sentinel. Removed onboarding section.
+- [Microsoft 365 management solution in Azure](insights/solution-office-365.md) - Added details and FAQ on migrating to Microsoft 365 solution in Azure Sentinel. Removed onboarding section.
 
 ### Logs
 
