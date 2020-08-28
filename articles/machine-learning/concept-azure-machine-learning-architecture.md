@@ -178,7 +178,7 @@ An endpoint is an instantiation of your model into either a web service that can
 
 #### Web service endpoint
 
-When deploying a model as a web service the endpoint can be deployed on Azure Container Instances, Azure Kubernetes Service, or FPGAs. You create the service from your model, script, and associated files. These are placed into a base container image, which contains the execution environment for the model. The image has a load-balanced, HTTP endpoint that receives scoring requests that are sent to the web service.
+When deploying a model as a web service, the endpoint can be deployed on Azure Container Instances, Azure Kubernetes Service, or FPGAs. You create the service from your model, script, and associated files. These are placed into a base container image, which contains the execution environment for the model. The image has a load-balanced, HTTP endpoint that receives scoring requests that are sent to the web service.
 
 You can enable Application Insights telemetry or model telemetry to monitor your web service. The telemetry data is accessible only to you.  It's stored in your Application Insights and storage account instances.
 
@@ -192,8 +192,7 @@ A deployed IoT module endpoint is a Docker container that includes your model an
 
 If you've enabled monitoring, Azure collects telemetry data from the model inside the Azure IoT Edge module. The telemetry data is accessible only to you, and it's stored in your storage account instance.
 
-Azure IoT Edge ensures that your module is running, and it monitors the device that's hosting it.
-. 
+Azure IoT Edge ensures that your module is running, and it monitors the device that's hosting it. 
 ## Automation
 
 ### Azure Machine Learning CLI 
