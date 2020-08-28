@@ -19,7 +19,7 @@ By analyzing your Azure usage data, powerful consumption insights can be gained 
 To begin, [download your usage details](../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md#download-usage-in-azure-portal). The table below provides the definition and example values of usage for Virtual Machines deployed via the Azure Resource Manager. This document does not contain detailed information for VMs deployed via our classic model.
 
 
-| Fields | Meaning | Example Values | 
+| Field | Meaning | Example Values | 
 |---|---|---|
 | Usage Date | The date when the resource was used | `11/23/2017` |
 | Meter ID | Identifies the top-level service for which this usage belongs to| `Virtual Machines`|

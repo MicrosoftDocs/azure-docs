@@ -1,6 +1,6 @@
 ---
 title: How to tag an Azure virtual machine using the CLI
-description: Learn about tagging an Azurevirtual machine created in Azure using the Azure CLI.
+description: Learn about tagging a virtual machine using the Azure CLI.
 services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
