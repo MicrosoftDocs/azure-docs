@@ -1,7 +1,7 @@
 ---
-title: how to add datafeeds to Metrics Advisor
+title: how to add datafeeds from different sources to Metrics Advisor
 titleSuffix: Azure Cognitive Services
-description: add Datafeeds to Metrics Advisor
+description: add different data feeds to Metrics Advisor
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -160,3 +160,9 @@ select StartDate, JobStatusId, COUNT(*) AS JobNumber from IngestionJobs WHERE an
 [TBD]
 
 ## Next steps
+
+- [Onboard and manage data feeds](how-tos/datafeeds.md)
+- [Use the web portal](quickstarts/web-portal.md)
+- [Send anomaly feedback to your instance](how-tos/anomaly-feedback.md)
+- [Diagnose incidents](how-tos/diagnose-incident.md).
+- [Create alerts](how-tos/alerts.md).

@@ -15,9 +15,9 @@ ms.author: aahi
 ## Prerequisites
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
-* The [Visual Studio IDE](https://visualstudio.microsoft.com/vs/) or current version of [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).
-* Once you have your Azure subscription, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Create a [Product Name] resource"  target="_blank">create a [Product Name] resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> in the Azure portal to get your key and endpoint. Wait for it to deploy and click the **Go to resource** button.
-    * You will need the key and endpoint from the resource you create to connect your application to [Product Name]. You'll paste your key and endpoint into the code below later in the quickstart.
+* The current version of [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).
+* Once you have your Azure subscription, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Create a Metrics Advisor resource"  target="_blank">create a Metrics Advisor resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> in the Azure portal to get your key and endpoint. Wait for it to deploy and click the **Go to resource** button.
+    * You will need the key and endpoint from the resource you create to connect your application to Metrics Advisor. You'll paste your key and endpoint into the code below later in the quickstart.
     You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
    
 ## Setting up
@@ -26,12 +26,10 @@ ms.author: aahi
 
 Once you've created a new project, install the client library by right-clicking on the project solution in the **Solution Explorer** and selecting **Manage NuGet Packages**. In the package manager that opens select **Browse**, check **Include prerelease**, and search for `[package-name]`. Select version `[version]`, and then **Install**. 
 
-#### [CLI](#tab/cli)
-
-In a console window (such as cmd, PowerShell, or Bash), use the `dotnet new` command to create a new console app with the name `(product-name)-quickstart`. This command creates a simple "Hello World" C# project with a single source file: *program.cs*. 
+In a console window (such as cmd, PowerShell, or Bash), use the `dotnet new` command to create a new console app with the name `metrics-advisor-quickstart`. This command creates a simple "Hello World" C# project with a single source file: *program.cs*. 
 
 ```console
-dotnet new console -n (product-name)-quickstart
+dotnet new console -n metrics-advisor-quickstart
 ```
 
 Change your directory to the newly created app folder. You can build the application with:
@@ -52,10 +50,10 @@ Build succeeded.
 
 ### Install the client library 
 
-Within the application directory, install the [Product Name] client library for .NET with the following command:
+Within the application directory, install the Metrics Advisor client library for .NET with the following command:
 
 ```console
-dotnet add package Microsoft.Azure.CognitiveServices.[Product Name] --version x.y
+dotnet add package Microsoft.Azure.CognitiveServices.[ TBD] --version x.y
 ```
 
 ---
@@ -73,15 +71,15 @@ using ...
 In the application's `Program` class, create variables for your resource's key and endpoint.
 
 > [!IMPORTANT]
-> Go to the Azure portal. If the [Product name] resource you created in the **Prerequisites** section deployed successfully, click the **Go to Resource** button under **Next Steps**. You can find your key and endpoint in the resource's **key and endpoint** page, under **resource management**. 
+> Go to the Azure portal. If the Metrics Advisor resource you created in the **Prerequisites** section deployed successfully, click the **Go to Resource** button under **Next Steps**. You can find your key and endpoint in the resource's **key and endpoint** page, under **resource management**. 
 >
 > Remember to remove the key from your code when you're done, and never post it publicly. For production, consider using a secure way of storing and accessing your credentials. See the Cognitive Services [security](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-security) article for more information.
 
 
 
 ```csharp
-private static readonly AzureKeyCredential credentials = new AzureKeyCredential("<replace-with-your-[product-name]-key-here>");
-private static readonly Uri endpoint = new Uri("<replace-with-your-[product-name]-endpoint-here>");
+private static readonly AzureKeyCredential credentials = new AzureKeyCredential("<replace-with-your-metrics-advisor-key-here>");
+private static readonly Uri endpoint = new Uri("<replace-with-your-metrics-advisor-endpoint-here>");
 ```
 
 in the application’s `main()` method, add calls for the methods used in this quickstart. You will create these later.
@@ -97,7 +95,7 @@ static void Main(string[] args){
 
 ## Code examples
 
-These code snippets show you how to do the following tasks with the [Product Name] client library for .NET:
+These code snippets show you how to do the following tasks with the Metrics Adivsor client library for .NET:
 
 * [Authenticate the client](#)
 * [Check ingestion status](#)
@@ -126,16 +124,8 @@ In a new method, instantiate a client with your endpoint and key. Create an obje
 
 ## Run the application
 
-#### [Visual Studio IDE](#tab/visual-studio)
-
-Run the application by clicking the **Debug** button at the top of the IDE window.
-
-#### [CLI](#tab/cli)
-
 Run the application from your application directory with the `dotnet run` command.
 
 ```dotnet
 dotnet run
 ```
-
----

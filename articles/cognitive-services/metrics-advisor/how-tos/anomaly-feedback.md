@@ -12,7 +12,7 @@ ms.date: 08/26/2020
 ms.author: aahi
 ---
 
-## Sending anomaly feedback to your Metrics Advisor instance
+# Send anomaly feedback to your Metrics Advisor instance
 
 If you aren't satisfied with some of the anomaly detection results provided by Metrics Monitor, you can manually add feedback that will affect the model applied to your data. 
 
@@ -62,7 +62,7 @@ There are many reasons when you might consider an anomaly is a false alarm. Cons
 |Scenario  |Recommendation |
 |---------|---------|
 |The anomaly is caused by known data source change, for example a system change.     | Don't annotate this anomaly if this scenario isn't expected to regularly reoccur.        |
-|The anomaly is caused by holiday.     | Use [Preset events](web-portal.md#preset-events) to flag anomaly detection at specified times.       |
+|The anomaly is caused by holiday.     | Use [Preset events](configure-metrics.md#preset-events) to flag anomaly detection at specified times.       |
 |There is a regular pattern to detected anomalies (for example on weekends) and they should not be anomalies.      |Use the feedback feature, or preset events.        |
 
 ## Next steps

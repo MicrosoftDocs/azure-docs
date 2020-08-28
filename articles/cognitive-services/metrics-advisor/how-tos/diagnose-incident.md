@@ -74,7 +74,7 @@ There are two types of drill down options: **Drill down** and **Horizontal compa
 
 The second section of the drill down tab is a table with comparisons for different dimension values. It includes the value, baseline value, difference value, delta value and whether it is an anomaly.
  
-![Drill Down Dimension](../media/diagnostics/drill-down-comparison.png "Drill Down Dimension")
+![Drill Down Dimension](../media/diagnostics/drill-down-comparison.png "Drill Down comparison")
 
 ### value and expected value comparisons for different dimension value
 
@@ -128,3 +128,10 @@ After selecting a shifted comparison, you can select whether you want to compare
 > 1. Data value is the raw data value.
 > 2. Delta value is the difference between raw value and compared value.
 > 3. Percentage delta value is the difference between raw value and compared value divided by compared value.
+
+## Next steps 
+
+- [Add and manage data feeds](datafeeds.md)
+    - [Configurations for different data sources](../data-feeds-from-different-sources.md)
+- [Send anomaly feedback to your instance](anomaly-feedback.md)
+- [Configure metrics and anomaly detection](configure-metrics.md)

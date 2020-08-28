@@ -21,8 +21,8 @@ ms.author: aahi
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
 * [Python 3.x](https://www.python.org/)
 <!-- this <a> link opens the Azure portal in a new tab/window. Replace the link with one to your service's resource create blade-->
-* Once you have your Azure subscription, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Create a [Product Name] resource"  target="_blank">create a [Product Name] resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> in the Azure portal to get your key and endpoint. Wait for it to deploy and click the **Go to resource** button.
-    * You will need the key and endpoint from the resource you create to connect your application to [Product Name]. You'll paste your key and endpoint into the code below later in the quickstart.
+* Once you have your Azure subscription, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Create a Metrics Advisor resource"  target="_blank">create a Metrics Advisor resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> in the Azure portal to get your key and endpoint. Wait for it to deploy and click the **Go to resource** button.
+    * You will need the key and endpoint from the resource you create to connect your application to Metrics Advisor. You'll paste your key and endpoint into the code below later in the quickstart.
     You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
     
 ## Setting up
@@ -43,7 +43,7 @@ ms.author: aahi
 After installing Python, you can install the client library with:
 
 ```console
-pip install --upgrade azure-cognitiveservices-[Product Name]
+pip install --upgrade azure-cognitiveservices-[TBD]
 ```
 
 ### Create a new python application
@@ -61,7 +61,7 @@ Create variables for your resource's Azure endpoint and key.
 
 
 > [!IMPORTANT]
-> Go to the Azure portal. If the [Product name] resource you created in the **Prerequisites** section deployed successfully, click the **Go to Resource** button under **Next Steps**. You can find your key and endpoint in the resource's **key and endpoint** page, under **resource management**. 
+> Go to the Azure portal. If the Metrics Advisor resource you created in the **Prerequisites** section deployed successfully, click the **Go to Resource** button under **Next Steps**. You can find your key and endpoint in the resource's **key and endpoint** page, under **resource management**. 
 >
 > Remember to remove the key from your code when you're done, and never post it publicly. For production, consider using a secure way of storing and accessing your credentials. For example, [Azure key vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview).
 
@@ -86,7 +86,7 @@ endpoint = "<paste-your-[product-name]-endpoint-here>"
     Include links to the service's reference content when introducing a class for the first time
 -->
 
-These code snippets show you how to do the following with the [Product Name] client library for Python:
+These code snippets show you how to do the following with the Metrics Advisor client library for Python:
 
 * [Authenticate the client](#)
 * [Check ingestion status](#)

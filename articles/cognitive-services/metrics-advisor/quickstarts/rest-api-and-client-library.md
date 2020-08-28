@@ -65,3 +65,10 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 * [Azure CLI](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 ## Next steps
+
+- [Onboard and manage data feeds](../how-tos/datafeeds.md)
+    - [Configurations for different data sources](../data-feeds-from-different-sources.md)
+- [Use the web portal](web-portal.md)
+- [Send anomaly feedback to your instance](../how-tos/anomaly-feedback.md)
+- [Diagnose incidents](../how-tos/diagnose-incident.md).
+- [Create alerts](../how-tos/alerts.md).

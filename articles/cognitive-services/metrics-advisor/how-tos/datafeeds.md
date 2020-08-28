@@ -48,7 +48,7 @@ Next you'll input a set of parameters to connect your time-series data source.
   * **Seconds**: The number of seconds when granularityName is set as "Customize".
 * **Ingest data since (UTC)**: The baseline start time for data ingestion while startOffsetInSeconds is often used to add an offset to help with data consistency.
 
-Next, you'll need to specify the connection information of the data source as well as the custom queries which are used to convert the data into the required schema. For details on the other fields and connecting different types of data sources, see [Add data feeds from different data sources](add-data-feeds-from-different-data-sources.md).
+Next, you'll need to specify the connection information of the data source as well as the custom queries which are used to convert the data into the required schema. For details on the other fields and connecting different types of data sources, see [Add data feeds from different data sources](../data-feeds-from-different-sources.md).
 
 ### Data schema requirements and configuration
 
@@ -220,7 +220,7 @@ There are several optional advanced settings when creating a new data feed. Most
 
 A data feed is considered as not available if no data is ingested from the source within the grace period specified from the time the data feed starts ingestion. An alert is triggered in this case.
 
-To configure an alert, you need a [web hook](alerts.md#-create-a-web-hook) first. Alerts will be sent to this hook.
+To configure an alert, you need a [web hook](alerts.md#create-a-web-hook) first. Alerts will be sent to this hook.
 
 * **Grace period**: The Grace Period setting is used to determine when to send an alert if no data points are ingested. The reference point is the time of first ingestion. If an ingestion fails, Metrics Advisor will keep trying at a regular interval specified by the granularity. If it continues to fail past the grace period, an alert will be sent.
 
@@ -308,4 +308,7 @@ datafeedName| Data feed Name | String | YES | The custom name of the data feed.
 
 ## Next steps
 
-* Learn the unique settings and requirements for time series stored in different type of data sources from [Adding Metrics Advisor data feeds from different data sources](../data-feeds-from-different-sources.md)
+- [Configurations for different data sources](../data-feeds-from-different-sources.md)
+- [Send anomaly feedback to your instance](anomaly-feedback.md)
+- [Diagnose incidents](diagnose-incident.md).
+- [Configure metrics and anomaly detection](configure-metrics.md)

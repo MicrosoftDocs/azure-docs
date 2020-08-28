@@ -78,22 +78,6 @@ Seasonal series:
 
 ![Seasonal series boundary](../media/metrics/seasonal_series_v2.png)
 
-<!--Seasonal series with spike:
-
-![Seasonal series with spike boundary](../media/metrics/seasonal_spike_v2.png)
-
-Non-periodic series with spike
-
-![spike series boundary](../media/metrics/spike_series_v2.png)
-
-Stable series with large spike
-
-![large spike series boundary](../media/metrics/large_spike_series_v2.png)
-
-Trend change series
-
-![trend change series boundary](../media/metrics/trend_change_series_v2.png)-->
-
 **Change threshold** 
 
 Change threshold is normally used when metric data generally stays around a certain range. The threshold is set according to **Change percentage**. The **Change threshold** mode is able to detect anomalies in the scenarios:

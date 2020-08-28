@@ -49,7 +49,7 @@ landingContent:
         - text: Create and send alerts
           url: how-tos/alerts.md
         - text: Diagnose an incident
-          url: how-tos/diagnose-incident
+          url: how-tos/diagnose-incident.md
         - text: Connect different data feed sources
           url: data-feeds-from-different-sources.md
         - text: Adjust anomaly detection using feedback
