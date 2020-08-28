@@ -42,5 +42,5 @@ See what [drivers](concepts-compatibility.md) are compatible with Azure Database
 
 
 ## Next Steps 
-- [Migrate data using dump and restore](howto-migrate-using-dump-and-restore.md)
-- [Migrate data using import and export](howto-migrate-using-export-and-import.md)
+- [Migrate data using dump and restore](concepts-migrate-dump-restore.md)
+- [Migrate data using import and export](concepts-migrate-import-export.md)
