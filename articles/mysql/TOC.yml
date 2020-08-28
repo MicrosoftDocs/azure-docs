@@ -396,8 +396,16 @@
       href: flexible-server/overview.md
   - name: Quickstarts
     items:
-    - name: Create Server using ARM template
-      href: flexible-server/quickstart-create-arm-template.md
+    expanded: true
+    items:
+      - name: Create Server
+        items:
+        - name: Azure portal
+          href: flexible-server/quickstart-create-server-portal.md
+        - name: Azure CLI
+          href: flexible-server/quickstart-create-server-cli.md
+        - name: ARM template
+          href: flexible-server/quickstart-create-arm-template.md
   - name: Tutorials
     items:
     - name: Build PHP (Laravel) app with Flexible Server
