@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 08/31/2020
 ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan, has-adal-ref
@@ -29,7 +29,150 @@ The What's new in Azure Active Directory? release notes provide information abou
 - Plans for changes
 
 ---
+ ## February 2020
+
+### Upcoming changes to custom controls
+
+**Type:** Plan for change  
+**Service category:** MFA  
+**Product capability:** Identity Security & Protection
  
+We're planning to replace the current custom controls preview with an approach that allows partner-provided authentication capabilities to work seamlessly with the Azure Active Directory administrator and end user experiences. Today, partner MFA solutions face the following limitations: they work only after a password has been entered; they don't serve as MFA for step-up authentication in other key scenarios; and they don't integrate with end user or administrative credential management functions. The new implementation will allow partner-provided authentication factors to work alongside built-in factors for key scenarios, including registration, usage, MFA claims, step up authentication, reporting, and logging. 
+
+Custom controls will continue to be supported in preview alongside the new design until it reaches general availability. At that point, we'll give customers time to migrate to the new design. Because of the limitations of the current approach, we won't onboard new providers until the new design is available. We are working closely with customers and providers and will communicate the timeline as we get closer. [Learn more](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/upcoming-changes-to-custom-controls/ba-p/1144696#).
+
+---
+
+### Identity Secure Score - MFA improvement action updates
+
+**Type:** Plan for change  
+**Service category:** MFA  
+**Product capability:** Identity Security & Protection
+ 
+To reflect the need for businesses to ensure the upmost security while applying policies that work with their business, Microsoft Secure Score is removing three improvement actions centered around multi-factor authentication (MFA), and adding two.
+
+The following improvement actions will be removed:
+
+- Register all users for MFA
+- Require MFA for all users
+- Require MFA for Azure AD privileged roles
+
+The following improvement actions will be added:
+
+- Ensure all users can complete MFA for secure access
+- Require MFA for administrative roles
+
+These new improvement actions will require registering your users or admins for MFA across your directory and establishing the right set of policies that fit your organizational needs. The main goal is to have flexibility while ensuring all your users and admins can authenticate with multiple factors or risk-based identity verification prompts. This can take the form of setting security defaults that let Microsoft decide when to challenge users for MFA, or having multiple policies that apply scoped decisions. As part of these improvement action updates, Baseline protection policies will no longer be included in scoring calculations. [Read more about what's coming in Microsoft Secure Score](https://docs.microsoft.com/microsoft-365/security/mtp/microsoft-secure-score-whats-coming?view=o365-worldwide).
+
+---
+
+### Azure AD Domain Services SKU selection
+
+**Type:** New feature  
+**Service category:** Azure AD Domain Services  
+**Product capability:** Azure AD Domain Services
+ 
+We've heard feedback that Azure AD Domain Services customers want more flexibility in selecting performance levels for their instances. Starting on February 1, 2020, we switched from a dynamic model (where Azure AD determines the performance and pricing tier based on object count) to a self-selection model. Now customers can choose a performance tier that matches their environment. This change also allows us to enable new scenarios like Resource Forests, and Premium features like daily backups. The object count is now unlimited for all SKUs, but we'll continue to offer object count suggestions for each tier.
+
+**No immediate customer action is required.** For existing customers, the dynamic tier that was in use on February 1, 2020, determines the new default tier. There is no pricing or performance impact as the result of this change. Going forward, Azure AD DS customers will need to evaluate performance requirements as their directory size and workload characteristics change. Switching between service tiers will continue to be a no-downtime operation, and we will no longer automatically move customers to new tiers based on the growth of their directory. Furthermore, there will be no price increases, and new pricing will align with our current billing model. For more information, see the [Azure AD DS SKUs documentation](https://docs.microsoft.com/azure/active-directory-domain-services/administration-concepts#azure-ad-ds-skus) and the [Azure AD Domain Services pricing page](https://azure.microsoft.com/pricing/details/active-directory-ds/).
+
+---
+ 
+### New Federated Apps available in Azure AD App gallery - February 2020
+
+**Type:** New feature  
+**Service category:** Enterprise Apps  
+**Product capability:** 3rd Party Integration
+ 
+In February 2020, we've added these 31 new apps with Federation support to the app gallery: 
+
+[IamIP Patent Platform](https://docs.microsoft.com/azure/active-directory/saas-apps/iamip-patent-platform-tutorial),
+ [Experience Cloud](https://docs.microsoft.com/azure/active-directory/saas-apps/experience-cloud-tutorial),
+ [NS1 SSO For Azure](https://docs.microsoft.com/azure/active-directory/saas-apps/ns1-sso-azure-tutorial),
+ [Barracuda Email Security Service](https://ess.barracudanetworks.com/sso/azure),
+ [ABa Reporting](https://myaba.co.uk/client-access/signin/auth/msad),
+ [In Case of Crisis - Online Portal](https://docs.microsoft.com/azure/active-directory/saas-apps/in-case-of-crisis-online-portal-tutorial),
+ [BIC Cloud Design](https://docs.microsoft.com/azure/active-directory/saas-apps/bic-cloud-design-tutorial),
+ [Beekeeper Azure AD Data Connector](https://docs.microsoft.com/azure/active-directory/saas-apps/beekeeper-azure-ad-data-connector-tutorial),
+ [Korn Ferry Assessments](https://www.kornferry.com/solutions/kf-digital/kf-assess),
+ [Verkada Command](https://docs.microsoft.com/azure/active-directory/saas-apps/verkada-command-tutorial),
+ [Splashtop](https://docs.microsoft.com/azure/active-directory/saas-apps/splashtop-tutorial),
+ [Syxsense](https://docs.microsoft.com/azure/active-directory/saas-apps/syxsense-tutorial),
+ [EAB Navigate](https://docs.microsoft.com/azure/active-directory/saas-apps/eab-navigate-tutorial),
+ [New Relic (Limited Release)](https://docs.microsoft.com/azure/active-directory/saas-apps/new-relic-limited-release-tutorial),
+ [Thulium](https://admin.thulium.com/login/instance),
+ [Ticket Manager](https://docs.microsoft.com/azure/active-directory/saas-apps/ticketmanager-tutorial),
+ [Template Chooser for Teams](https://links.officeatwork.com/templatechooser-download-teams),
+ [Beesy](https://www.beesy.me/index.php/site/login),
+ [Health Support System](https://docs.microsoft.com/azure/active-directory/saas-apps/health-support-system-tutorial),
+ [MURAL](https://app.mural.co/signup),
+ [Hive](https://docs.microsoft.com/azure/active-directory/saas-apps/hive-tutorial),
+ [LavaDo](https://appsource.microsoft.com/product/web-apps/lavaloon.lavado_standard?tab=Overview),
+ [Wakelet](https://wakelet.com/login),
+ [Firmex VDR](https://docs.microsoft.com/azure/active-directory/saas-apps/firmex-vdr-tutorial),
+ [ThingLink for Teachers and Schools](https://www.thinglink.com/),
+ [Coda](https://docs.microsoft.com/azure/active-directory/saas-apps/coda-tutorial),
+ [NearpodApp](https://nearpod.com/signup/?oc=Microsoft&utm_campaign=Microsoft&utm_medium=site&utm_source=product),
+ [WEDO](https://docs.microsoft.com/azure/active-directory/saas-apps/wedo-tutorial),
+ [InvitePeople](https://invitepeople.com/login),
+ [Reprints Desk - Article Galaxy](https://docs.microsoft.com/azure/active-directory/saas-apps/reprints-desk-article-galaxy-tutorial),
+ [TeamViewer](https://docs.microsoft.com/azure/active-directory/saas-apps/teamviewer-tutorial)
+
+ 
+For more information about the apps, see [SaaS application integration with Azure Active Directory](https://aka.ms/appstutorial). For more information about listing your application in the Azure AD app gallery, see [List your application in the Azure Active Directory application gallery](https://aka.ms/azureadapprequest).
+
+---
+ 
+### New provisioning connectors in the Azure AD Application Gallery - February 2020
+
+**Type:** New feature  
+**Service category:** Enterprise Apps  
+**Product capability:** 3rd Party Integration
+ 
+You can now automate creating, updating, and deleting user accounts for these newly integrated apps:
+
+- [Mixpanel](https://docs.microsoft.com/azure/active-directory/saas-apps/mixpanel-provisioning-tutorial)
+- [TeamViewer](https://docs.microsoft.com/azure/active-directory/saas-apps/teamviewer-provisioning-tutorial)
+- [Azure Databricks](https://docs.microsoft.com/azure/active-directory/saas-apps/azure-databricks-scim-connector-provisioning-tutorial)
+- [PureCloud by Genesys](https://docs.microsoft.com/azure/active-directory/saas-apps/purecloud-by-genesys-provisioning-tutorial)
+- [Zapier](https://docs.microsoft.com/azure/active-directory/saas-apps/zapier-provisioning-tutorial)
+
+For more information about how to better secure your organization by using automated user account provisioning, see [Automate user provisioning to SaaS applications with Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
+
+---
+ 
+### Azure AD support for FIDO2 security keys in hybrid environments
+
+**Type:** New feature  
+**Service category:** Authentications (Logins)  
+**Product capability:** User Authentication
+ 
+We're announcing the public preview of Azure AD support for FIDO2 security keys in Hybrid environments. Users can now use FIDO2 security keys to sign in to their Hybrid Azure AD joined Windows 10 devices and get seamless sign-on to their on-premises and cloud resources. Support for Hybrid environments has been the top most-requested feature from our passwordless customers since we initially launched the public preview for FIDO2 support in Azure AD joined devices. Passwordless authentication using advanced technologies like biometrics and public/private key cryptography provide convenience and ease-of-use while being secure. With this public preview, you can now use modern authentication like FIDO2 security keys to access traditional Active Directory resources. For more information, go to [SSO to on-premises resources](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-passwordless-security-key-on-premises). 
+
+To get started, visit [enable FIDO2 security keys for your tenant](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-passwordless-security-key) for step-by-step instructions. 
+
+---
+ 
+### The new My Account experience is now generally available
+
+**Type:** Changed feature  
+**Service category:** My Profile/Account  
+**Product capability:** End User Experiences
+ 
+My Account, the one stop shop for all end-user account management needs, is now generally available! End users can access this new site via URL, or in the header of the new My Apps experience. Learn more about all the self-service capabilities the new experience offers at [My Account Portal Overview](https://docs.microsoft.com/azure/active-directory/user-help/my-account-portal-overview).
+
+---
+ 
+### My Account site URL updating to myaccount.microsoft.com
+
+**Type:** Changed feature  
+**Service category:** My Profile/Account  
+**Product capability:** End User Experiences
+ 
+The new My Account end user experience will be updating its URL to `https://myaccount.microsoft.com` in the next month. Find more information about the experience and all the account self-service capabilities it offers to end users at [My Account portal help](https://docs.microsoft.com/azure/active-directory/user-help/my-account-portal-overview).
+
+---
+
 ## January 2020
  
 ### The new My Apps portal is now generally available
@@ -108,6 +251,7 @@ We've added two new sign-in linked detection types to Identity Protection: Suspi
 **Product capability:** User Authentication
  
 Starting on February 8, 2020, when a request is sent to login.microsoftonline.com to sign in a user, the service will append an empty fragment to the request.  This prevents a class of redirect attacks by ensuring that the browser wipes out any existing fragment in the request. No application should have a dependency on this behavior. For more information, see [Breaking changes](https://docs.microsoft.com/azure/active-directory/develop/reference-breaking-changes#february-2020) in the Microsoft identity platform documentation.
+
 ---
 
 ## December 2019
