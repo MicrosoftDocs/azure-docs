@@ -31,6 +31,8 @@ The flexible server deployment model is designed to support high availability wi
 
 If zone redundant high availability is configured, the service provisions and maintains a hot standby server across availability zone within the same Azure region. The data changes on the source server is synchronously replicated to the standby server to ensure zero data loss. With zone redundant high availability, once the planned or unplanned failover event is triggered, the standby server comes online immediately and is available to process incoming transactions. The typical failover time ranges from 60-120 seconds. This allows the service to support high availability and provide improved resiliency with tolerance for single availability zone failures in a given Azure region. 
 
+![Zone Redundant high availability conceptual diagram](media/overview/1-flexible-server-overview-zone-redundant-ha.png) 
+
 ## Automated patching with managed maintenance window
 
 The service performs automated patching of the underlying hardware, OS, and database engine. The patching includes security and software updates. For MySQL engine, minor version upgrades are also included as part of the planned maintenance release. Users can configure the patching schedule to be system managed or define their custom schedule. During the maintenance schedule, the patch is applied and server may require a restart as part of the patching process to complete the update. With the custom schedule, users can make their patching cycle predictable and choose a maintenance window with minimum impact to the business. In general, the service follows monthly release schedule as part of the continuous integration and release. 
