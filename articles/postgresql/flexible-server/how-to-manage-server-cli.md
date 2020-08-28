@@ -78,3 +78,7 @@ If you would just like to delete the PostgreSQL Flexible server, you can run [az
 ```azurecli-interactive
 az postgres flexible-server delete --resource-group myresourcegroup --name mydemoserver
 ```
+
+## Next steps
+- Understand backup and restore concepts
+- Tune and monitor the server
