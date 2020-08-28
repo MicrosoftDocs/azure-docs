@@ -30,6 +30,7 @@ In this article, learn how to create and manage compute targets in Azure Machine
 ## What's a compute target? 
 
 With Azure Machine Learning, you can train your model on a variety of resources or environments, collectively referred to as [__compute targets__](concept-azure-machine-learning-architecture.md#compute-targets). A compute target can be a local machine or a cloud resource, such as an Azure Machine Learning Compute, Azure HDInsight, or a remote virtual machine.  You can also create compute targets for model deployment as described in ["Where and how to deploy your models"](how-to-deploy-and-where.md).
+
 ## <a id="portal-view"></a>View compute targets
 
 To see all compute targets for your workspace, use the following steps:
@@ -86,7 +87,7 @@ Use the [steps above](#portal-create) to create the compute instance.  Then fill
 |Enable/disable SSH access     |   SSH access is disabled by default.  SSH access cannot be. changed after creation. Make sure to enable access if you plan to debug interactively with [VS Code Remote](how-to-set-up-vs-code-remote.md)   |
 |Advanced settings     |  Optional. Configure a virtual network. Specify the **Resource group**, **Virtual network**, and **Subnet** to create the compute instance inside an Azure Virtual Network (vnet). For more information, see these [network requirements](how-to-enable-virtual-network.md#compute-instance) for vnet.  |
 
-### Compute clusters
+### <a name="amlcompute"></a> Compute clusters
 
 Create a single or multi node compute cluster for your training, batch inferencing or reinforcement learning workloads. Use the [steps above](#portal-create) to create the compute cluster.  Then fill out the form as follows:
 
@@ -150,17 +151,6 @@ Use the [steps above](#portal-create) to attach a compute.  Then fill out the fo
 
 1. Select __Attach__. 
 
-## <a id="portal-view"></a>View compute targets
-
-To see all compute targets for your workspace, use the following steps:
-
-1. Navigate to [Azure Machine Learning studio](https://ml.azure.com).
- 
-1. Under __Manage__, select __Compute__.
-
-  :::image type="content" source="media/how-to-create-attach-studio/view-list.png" alt-text="View list of compute targets":::
-
-1. Select tabs at the top to show each type of compute.
 
 ## Next steps
 
