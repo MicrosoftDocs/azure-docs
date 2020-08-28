@@ -27,6 +27,16 @@ The rest of this article provides examples of how to use these operations.
 
 This section contains sample queries that illustrate the query language structure and perform possible query operations.
 
+### Select top items
+
+You can select the several "top" items in a query using the `Select TOP` clause.
+
+```sql
+SELECT TOP (5)
+FROM DIGITALTWINS
+WHERE ...
+```
+
 ### Query by property
 
 Get [digital twins](concepts-twins-graph.md) by properties (including ID and metadata):
@@ -59,16 +69,6 @@ You can also get twins based on the type of a property. Here is a query that get
 ```sql
 SELECT * FROM DIGITALTWINS​ T
 WHERE IS_NUMBER(T.Temperature)
-```
-
-### Select top items
-
-You can select the several "top" items in a query using the `Select TOP` clause.
-
-```sql
-SELECT TOP (5)
-FROM DIGITALTWINS
-WHERE property = 42
 ```
 
 ### Query by model
