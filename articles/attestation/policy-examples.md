@@ -65,38 +65,6 @@ c:[type == "aas-ehd", issuer == "CustomClaim"] => issue(claim = c);
 
 </br>
 
-## Optimum security policy for VBS enclaves
-
-```
-version=1.0;
-authorizationrules
-{
-[type == "aikValidated", value == true, issuer=="AttestationService"] &&
-[type == "tpmVersion", value >= 2, issuer=="AttestationService"] &&
-[type == "secureBootEnabled", value == true, issuer=="AttestationService"] &&
-[type == "iommuEnabled", value == true, issuer=="AttestationService"] &&
-[type == "bootDebuggingDisabled", value == true, issuer=="AttestationService"] &&
-[type == "notSafeMode", value == true, issuer=="AttestationService"] &&
-[type == "notWinPE", value == true, issuer=="AttestationService"] &&
-[type == "vbsEnabled", value == true, issuer=="AttestationService"] &&
-[type == "vbsReportPresent", value == true, issuer=="AttestationService"] &&
-[type == "enclaveAuthorId", value == "BDfK4lN9i5sHdrYbEebO09Iy6TCPYOIa2rL9kePalZg", issuer == "AttestationService"] &&
-[type == "enclaveImageId", value == "GRcSAAEFIBMABRQDEgEiBQ", issuer == "AttestationService"] &&
-[type == "enclaveOwnerId", value == "ECAwQEExIREAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA", issuer == "AttestationService"] &&
-[type == "enclaveFamilyId", value == "_v4AAAAAAAAAAAAAAAAAAA", issuer == "AttestationService"] &&
-[type == "enclaveSvn", value >= 0, issuer == "AttestationService"] &&
-[type == "enclavePlatformSvn", value >= 1, issuer == "AttestationService"] &&
-[type == "enclaveFlags", value == 0, issuer == "AttestationService"]
-=> permit();
-};
-issuancerules
-{
-c:[type == "aas-ehd", issuer == "CustomClaim"] => issue(claim = c);
-=> issueproperty(type = "omit_x5c", value = true);
-};
-```
-</br>
-
 ## Next steps
 
 - [How to author and sign an attestation policy](author-sign-policy.md)
