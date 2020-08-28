@@ -11,7 +11,8 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: sample
 ms.date: 07/09/2020
-ms.author: iainfou
+ms.author: iainfou 
+ms.custom: devx-track-azurepowershell
 
 ---
 # Enable Azure Active Directory Domain Services using PowerShell
