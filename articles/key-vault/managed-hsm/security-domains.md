@@ -18,7 +18,9 @@ Every HSM pool must have a security domain to operate. When you request a new ma
 
 ## Download security domain 
 
-When an HSM pool is in provisioned but not activated, downloading a security domain results in creating a new security domain. To download the security domain, you must create at least 3 (maximum 10) RSA key pairs and send the public keys while requesting to download the security domain. You also need to specify the minimum number of keys required (quorum) to decrypt the security domain. The HSM pool will initialize a new security domain and encrypt it using the public keys you provided. The security domain blob you download can only be decrypted when at least quorum number of private keys are available. Therefore, you must keep the private keys safe to ensure security of the security domain. Once the download is complete the HSM will in activated state.
+When an HSM pool is in provisioned but not activated, downloading a security domain results in creating a new security domain. To download the security domain, you must create at least 3 (maximum 10) RSA key pairs and send the public keys while requesting to download the security domain. You also need to specify the minimum number of keys required (quorum) to decrypt the security domain. The HSM pool will initialize a new security domain and encrypt it using the public keys you provided. The security domain blob you download can only be decrypted when at least quorum number of private keys are available. Therefore, you must keep the private keys safe to ensure security of the security domain. Once the download is complete the HSM will in activated state. 
+
+> [!IMPORTANT] For a full disaster recovery you must have the security domain, the at the quorum of private keys that were used to encrypt it and a full HSM backup. If you lose the security domain or the RSA keys (private key) used to encrypt it and no running instances of the HSM pool are present, disaster recovery will not be possible.
 
 ## Upload security domain
 
