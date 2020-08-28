@@ -11,7 +11,7 @@ No two certificates can have the same thumbprint, which makes cluster certificat
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Get a certificate
-First, get a certificate from a [certificate authority (CA)](https://wikipedia.org/wiki/Certificate_authority).  The common name of the certificate should be for the custom domain you own, and bought from a domain registrar. For example, "azureservicefabricbestpractices.com"; those whom are not Microsoft employees can not provision certs for MS domains, so you can not use the DNS names of your LB or Traffic Manager as common names for your certificate, and you will need to provision a [Azure DNS Zone](../dns/dns-delegate-domain-azure-dns.md) if your custom domain to be resolvable in Azure. You will also want to declare your custom domain you own as your cluster's "managementEndpoint" if you want portal to reflect the custom domain alias for your cluster.
+First, get a certificate from a [certificate authority (CA)](https://wikipedia.org/wiki/Certificate_authority).  The common name of the certificate should be for the custom domain you own, and bought from a domain registrar. For example, "azureservicefabricbestpractices.com"; those whom are not Microsoft employees cannot provision certs for MS domains, so you cannot use the DNS names of your LB or Traffic Manager as common names for your certificate, and you will need to provision a [Azure DNS Zone](../dns/dns-delegate-domain-azure-dns.md) if your custom domain to be resolvable in Azure. You will also want to declare your custom domain you own as your cluster's "managementEndpoint" if you want portal to reflect the custom domain alias for your cluster.
 
 For testing purposes, you could get a CA signed certificate from a free or open certificate authority.
 
@@ -19,7 +19,7 @@ For testing purposes, you could get a CA signed certificate from a free or open 
 > Self-signed certificates, including those generated when deploying a Service Fabric cluster in the Azure portal, are not supported. 
 
 ## Upload the certificate and install it in the scale set
-In Azure, a Service Fabric cluster is deployed on a virtual machine scale set.  Upload the certificate to a key vault and then install it on the virtual machine scale set that the cluster is running on. This can also be done for a certifciate already in Key Vault by [updating the ARM definition of the virtual machine scale set](../virtual-machine-scale-sets/virtual-machine-scale-sets-faq.md#how-do-i-securely-ship-a-certificate-to-the-vm).
+In Azure, a Service Fabric cluster is deployed on a virtual machine scale set.  Upload the certificate to a key vault and then install it on the virtual machine scale set that the cluster is running on. The below script can be bypassed for a certificate already in Key Vault by [updating the ARM definition of the virtual machine scale set](../virtual-machine-scale-sets/virtual-machine-scale-sets-faq.md#how-do-i-securely-ship-a-certificate-to-the-vm).
 
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser -Force
@@ -82,28 +82,28 @@ Update-AzVmss -ResourceGroupName $VmssResourceGroupName -Verbose `
 > Scale set secrets do not support the same resource ID for two separate secrets, as each secret is a versioned, unique resource. 
 
 ## Bring cluster to a valid starting state
-An upgrade from thumbprint-based certificate declaration to common-name based certificate declaration represents a change in both how nodes in the cluster choose which certificate to present to each other, and how they validate those certificates. It is recommended to review the [presentation and validation rules for both cases](cluster-security-certificates.md#certificate-configuration-rules) before proceeding. A misconfigured upgrade can cause a partition in the cluster. For instructions on how to carry out any of the upgrades described below, please see [this document](service-fabric-cluster-security-update-certs-azure.md).
+An upgrade from thumbprint-based certificate declaration to common-name based certificate declaration represents a change in both how nodes in the cluster choose which certificate to present to each other, and how they validate those certificates. Review the [presentation and validation rules for both configurations](cluster-security-certificates.md#certificate-configuration-rules) before proceeding. A misconfigured upgrade can cause a partition in the cluster. For instructions on how to carry out any of the upgrades described below, please see [this document](service-fabric-cluster-security-update-certs-azure.md).
 
-There are multipe valid starting states before the conversion, but the important similarity is that the cluster is already using the goal-state certificate, as declared by thumbprint, before the upgrade begins. We consider `GoalCert`, `OldCert1`, `OldCert2`.
+There are multiple valid starting states before the conversion, but the important similarity is that the cluster is already using the goal-state certificate, as declared by thumbprint, before the upgrade begins. We consider `GoalCert`, `OldCert1`, `OldCert2`:
 
 #### Valid States
-- `Thumbprint: GoalCert ThumbprintSecondary: None`
-- `Thumbprint: GoalCert ThumbprintSecondary: OldCert1`, where `GoalCert` has a later `NotAfter` date than `OldCert1`
-- `Thumbprint: OldCert1 ThumbprintSecondary: GoalCert`, where `GoalCert` has a later `NotAfter` date than `OldCert1`
+- `Thumbprint: GoalCert, ThumbprintSecondary: None`
+- `Thumbprint: GoalCert, ThumbprintSecondary: OldCert1`, where `GoalCert` has a later `NotAfter` date than `OldCert1`
+- `Thumbprint: OldCert1, ThumbprintSecondary: GoalCert`, where `GoalCert` has a later `NotAfter` date than `OldCert1`
 
 #### Invalid States
-- `Thumbprint: OldCert1 ThumbprintSecondary: None`
-  - If `GoalCert` has a later `NotAfter` date than `OldCert1`, upgrade to `Thumbprint: OldCert1 ThumbprintSecondary: GoalCert`
-  - Otherwise upgrade to `Thumbprint: GoalCert ThumbprintSecondary: OldCert1`, then to `Thumbprint: GoalCert ThumbprintSecondary: None`
+- `Thumbprint: OldCert1, ThumbprintSecondary: None`
+  - If `GoalCert` has a later `NotAfter` date than `OldCert1`, upgrade to `Thumbprint: OldCert1, ThumbprintSecondary: GoalCert`
+  - Otherwise upgrade to `Thumbprint: GoalCert, ThumbprintSecondary: OldCert1`, then to `Thumbprint: GoalCert, ThumbprintSecondary: None`
 
-- `Thumbprint: OldCert1 ThumbprintSecondary: GoalCert`, where `OldCert1` has a later `NotAfter` date than `GoalCert`
-  - Ugrade to `Thumbprint: GoalCert ThumbprintSecondary: None`
+- `Thumbprint: OldCert1, ThumbprintSecondary: GoalCert`, where `OldCert1` has a later `NotAfter` date than `GoalCert`
+  - Upgrade to `Thumbprint: GoalCert, ThumbprintSecondary: None`
 
-- `Thumbprint: GoalCert ThumbprintSecondary: OldCert1`, where `OldCert1` has a later `NotAfter` date than `GoalCert`
-  - Ugrade to `Thumbprint: GoalCert ThumbprintSecondary: None`
+- `Thumbprint: GoalCert, ThumbprintSecondary: OldCert1`, where `OldCert1` has a later `NotAfter` date than `GoalCert`
+  - Upgrade to `Thumbprint: GoalCert, ThumbprintSecondary: None`
 
-- `Thumbprint: OldCert1 ThumbprintSecondary: OldCert2`
-  - Remove one of `OldCert1` or `OldCert2` to get to state `Thumbprint: OldCertx ThumbprintSecondary: None`, then proceed as described above
+- `Thumbprint: OldCert1, ThumbprintSecondary: OldCert2`
+  - Remove one of `OldCert1` or `OldCert2` to get to state `Thumbprint: OldCertx, ThumbprintSecondary: None`, then proceed as described above
 
 ## Decide between Common-name validation or Common-name validation with Issuer Pinning
 The difference is described [here](cluster-security-certificates.md#common-name-based-certificate-validation-declarations) and determines whether to populate the parameter `certificateIssuerThumbprintList` below, or leave it empty.
@@ -206,7 +206,7 @@ Also consider removing the *certificateThumbprint*, it may no longer be referenc
         ...
     ```
 
-For additional information see [Deploy a Service Fabric cluster that uses certificate common name instead of thumbprint.](./service-fabric-create-cluster-using-cert-cn.md)
+For additional information, see [Deploy a Service Fabric cluster that uses certificate common name instead of thumbprint.](./service-fabric-create-cluster-using-cert-cn.md)
 
 ## Deploy the updated template
 Redeploy the updated template after making the changes.
@@ -221,6 +221,6 @@ New-AzResourceGroupDeployment -ResourceGroupName $groupname -Verbose `
 ## Next steps
 * Learn about [cluster security](service-fabric-cluster-security.md).
 * Learn how to [rollover a cluster certificate by common name](service-fabric-cluster-rollover-cert-cn.md)
-* Learn how to [configure a cluster for touchless auto-rollover](cluster-security-certificate-management.md)
+* Learn how to [configure a cluster for touchless autorollover](cluster-security-certificate-management.md)
 
 [image1]: ./media/service-fabric-cluster-change-cert-thumbprint-to-cn/PortalViewTemplates.png
