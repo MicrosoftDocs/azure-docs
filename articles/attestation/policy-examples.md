@@ -65,7 +65,7 @@ c:[type == "aas-ehd", issuer == "CustomClaim"] => issue(claim = c);
 
 </br>
 
-## Optimum securrity policy for VBS enclaves
+## Optimum security policy for VBS enclaves
 
 ```
 version=1.0;
