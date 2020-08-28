@@ -1,13 +1,13 @@
 ---
-title: Deploy VMs on your Azure Stack Edge device via Azure CLI and Python
-description: Describes how to create and manage virtual machines (VMs) on a Azure Stack Edge device using Azure CLI and Python.
+title: Deploy VMs on your Azure Stack Edge device GPU via Azure CLI and Python
+description: Describes how to create and manage virtual machines (VMs) on a Azure Stack Edge GPU device using Azure CLI and Python.
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 08/21/2020
+ms.date: 08/28/2020
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to create and manage virtual machines (VMs) on my Azure Stack Edge device using APIs so that I can efficiently manage my VMs.
 ---

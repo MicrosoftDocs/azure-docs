@@ -1,13 +1,13 @@
 ---
-title: Tutorial to transfer data to shares with Azure Stack Edge | Microsoft Docs
-description: Learn how to add and connect to shares on Azure Stack Edge device.
+title: Tutorial to transfer data to shares with Azure Stack Edge GPU | Microsoft Docs
+description: Learn how to add and connect to shares on Azure Stack Edge GPU device.
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 02/11/2020
+ms.date: 08/28/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to add and connect to shares on Azure Stack Edge so I can use it to transfer data to Azure.
 ---
