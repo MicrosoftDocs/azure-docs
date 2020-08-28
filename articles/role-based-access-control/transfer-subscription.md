@@ -23,12 +23,15 @@ Organizations might have several Azure subscriptions. Each subscription is assoc
 
 This article describes the basic steps you can follow to transfer a subscription to a different Azure AD directory and re-create some of the resources after the transfer.
 
+> [!NOTE]
+> For Azure CSP subscriptions, changing the Azure AD directory for the subscription isn't supported.
+
 ## Overview
 
 Transferring an Azure subscription to a different Azure AD directory is a complex process that must be carefully planned and executed. Many Azure services require security principals (identities) to operate normally or even manage other Azure resources. This article tries to cover most of the Azure services that depend heavily on security principals, but is not comprehensive.
 
 > [!IMPORTANT]
-> Transferring a subscription does require downtime to complete the process.
+> In some scenarios, transferring a subscription might require downtime to complete the process. Careful planning is required to assess whether downtime will be required for your migration.
 
 The following diagram shows the basic steps you must follow when you transfer a subscription to a different directory.
 
@@ -66,9 +69,9 @@ Several Azure resources have a dependency on a subscription or a directory. Depe
 | System-assigned managed identities | Yes | Yes | [List managed identities](#list-role-assignments-for-managed-identities) | You must disable and re-enable the managed identities. You must re-create the role assignments. |
 | User-assigned managed identities | Yes | Yes | [List managed identities](#list-role-assignments-for-managed-identities) | You must delete, re-create, and attach the managed identities to the appropriate resource. You must re-create the role assignments. |
 | Azure Key Vault | Yes | Yes | [List Key Vault access policies](#list-other-known-resources) | You must update the tenant ID associated with the key vaults. You must remove and add new access policies. |
-| Azure SQL databases with Azure AD authentication | Yes | No | [Check Azure SQL databases with Azure AD authentication](#list-other-known-resources) |  |  |
+| Azure SQL databases with Azure AD authentication integration enabled | Yes | No | [Check Azure SQL databases with Azure AD authentication](#list-azure-sql-databases-with-azure-ad-authentication) |  |  |
 | Azure Storage and Azure Data Lake Storage Gen2 | Yes | Yes |  | You must re-create any ACLs. |
-| Azure Data Lake Storage Gen1 | Yes |  |  | You must re-create any ACLs. |
+| Azure Data Lake Storage Gen1 | Yes | Yes |  | You must re-create any ACLs. |
 | Azure Files | Yes | Yes |  | You must re-create any ACLs. |
 | Azure File Sync | Yes | Yes |  |  |
 | Azure Managed Disks | Yes | N/A |  |  |
@@ -76,7 +79,8 @@ Several Azure resources have a dependency on a subscription or a directory. Depe
 | Azure Active Directory Domain Services | Yes | No |  |  |
 | App registrations | Yes | Yes |  |  |
 
-If you are using encryption at rest for a resource, such as a storage account or SQL database, that has a dependency on a key vault that is NOT in the same subscription that is being transferred, it can lead to an unrecoverable scenario. If you have this situation, you should take steps to use a different key vault or temporarily disable customer-managed keys to avoid this unrecoverable scenario.
+> [!IMPORTANT]
+> If you use encryption at rest for a resource like a storage account or a SQL database and the resource has a dependency on a key vault that is *not* in the subscription that's being transferred, you might get an unrecoverable error. In this situation, use a different key vault or temporarily disable customer-managed keys to avoid an unrecoverable error.
 
 ## Prerequisites
 
@@ -212,8 +216,8 @@ Managed identities do not get updated when a subscription is transferred to anot
 
 When you create a key vault, it is automatically tied to the default Azure Active Directory tenant ID for the subscription in which it is created. All access policy entries are also tied to this tenant ID. For more information, see [Moving an Azure Key Vault to another subscription](../key-vault/general/move-subscription.md).
 
-> [!WARNING]
-> If you are using encryption at rest for a resource, such as a storage account or a SQL database, that has a dependency on a key vault that is NOT in the same subscription that is being transferred, it can lead to an unrecoverable scenario. If you have this situation, you should take steps to use a different key vault or temporarily disable customer-managed keys to avoid this unrecoverable scenario.
+> [!IMPORTANT]
+> If you use encryption at rest for a resource like a storage account or a SQL database and the resource has a dependency on a key vault that is *not* in the subscription that's being transferred, you might get an unrecoverable error. In this situation, use a different key vault or temporarily disable customer-managed keys to avoid an unrecoverable error.
 
 - If you have a key vault, use [az keyvault show](https://docs.microsoft.com/cli/azure/keyvault#az-keyvault-show) to list the access policies. For more information, see [Provide Key Vault authentication with an access control policy](../key-vault/key-vault-group-permissions-for-apps.md).
 
@@ -223,7 +227,7 @@ When you create a key vault, it is automatically tied to the default Azure Activ
 
 ### List Azure SQL databases with Azure AD authentication
 
-- Use [az sql server ad-admin list](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-list) and the [az graph](https://docs.microsoft.com/cli/azure/ext/resource-graph/graph) extension to see if you are using Azure SQL databases with Azure AD authentication. For more information, see [Configure and manage Azure Active Directory authentication with SQL](../sql-database/sql-database-aad-authentication-configure.md).
+- Use [az sql server ad-admin list](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-list) and the [az graph](https://docs.microsoft.com/cli/azure/ext/resource-graph/graph) extension to see if you are using Azure SQL databases with Azure AD authentication. For more information, see [Configure and manage Azure Active Directory authentication with SQL](../azure-sql/database/authentication-aad-configure.md).
 
     ```azurecli
     az sql server ad-admin list --ids $(az graph query -q 'resources | where type == "microsoft.sql/servers" | project id' -o tsv | cut -f1)

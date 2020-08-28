@@ -555,6 +555,8 @@
         href: ethicspoint-incident-management-tutorial.md
       - name: Euromonitor Passport
         href: euromonitor-passport-tutorial.md
+      - name: Eventfinity
+        href: eventfinity-tutorial.md
       - name: EverBridge
         href: everbridge-tutorial.md
       - name: Evernote
@@ -2045,6 +2047,8 @@
         href: salesforce-sandbox-provisioning-tutorial.md
       - name: Samanage
         href: samanage-provisioning-tutorial.md
+      - name: SAP Analytics Cloud
+        href: sap-analytics-cloud-provisioning-tutorial.md
       - name: SAP Cloud Platform Identity Authentication
         href: sap-cloud-platform-identity-authentication-provisioning-tutorial.md
       - name: SAP SuccessFactors to Active Directory
