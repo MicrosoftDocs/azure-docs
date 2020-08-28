@@ -30,7 +30,7 @@ When making your decision, consider the following two options:
 
 - **MySQL on Azure VMs**. This option falls into the industry category of IaaS. With this service, you can run MySQL Server inside a managed virtual machine on the Azure cloud platform. All recent versions and editions of MySQL can be installed in the virtual machine.
 
-  The most significant difference between Azure Database for MySQL Single Server, Azure Database for MySQL Flexible Server, MySQL on Azure VMs is the granularity of control over the database engine. The control comes at the cost of responsibility of management, configuration and many database administration (DBA) tasks. In case of running on Azure VMs, these tasks include maintaining and patching database servers, database recovery, and high-availability design.
+  The most significant difference between Azure Database for MySQL Single Server, Azure Database for MySQL Flexible Server, and MySQL on Azure VMs is the granularity of control over the database engine. The control comes at the cost of responsibility of management, configuration and many database administration (DBA) tasks. In the case of running on Azure VMs, these tasks include maintaining and patching database servers, database recovery, and high-availability design.
 
 The main differences between these options are listed in the following table:
 
