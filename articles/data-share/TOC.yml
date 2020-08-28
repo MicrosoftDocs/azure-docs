@@ -37,7 +37,7 @@
     href: samples-powershell.md
 - name: How-to guides
   items:
-  - name: Share and receive data by source type
+  - name: Share and receive data by source
     items:
     - name: Share from Azure Data Explorer
       href: /azure/data-explorer/data-share
