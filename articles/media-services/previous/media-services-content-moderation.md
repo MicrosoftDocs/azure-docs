@@ -15,6 +15,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: sajagtap
+ms.custom: devx-track-csharp
 
 ---
 # Use Azure Media Content Moderator to detect possible adult and racy content 
