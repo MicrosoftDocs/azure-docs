@@ -144,5 +144,5 @@ The actions that are available in the **Action** column of the **Plan overview**
 
 ## Next steps
 
-- For help configuring the **Co-sell with Microsoft** and **Resell through CSPs** tabs, see [Marketing options for your SaaS offer](create-new-saas-offer-marketing.md).
-- [Review and publish an offer](review-publish-offer.md).
+- Learn [How to market your SaaS offer](create-new-saas-offer-marketing.md) through the **Co-sell with Microsoft** and **Resell through CSPs** programs.
+- [How to review and publish an offer](review-publish-offer.md).

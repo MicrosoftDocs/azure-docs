@@ -1,5 +1,5 @@
 ---
-title: Review and publish an offer to Microsoft commercial marketplace
+title: How to review and publish an offer to Microsoft commercial marketplace
 description: Use Partner Center to submit your offer to preview, preview your offer, and then publish it to the Microsoft commercial marketplace.
 ms.reviewer: dannyevers 
 ms.service: marketplace 
@@ -10,7 +10,7 @@ ms.author: mingshen
 ms.date: 08/12/2020
 ---
 
-# Review and publish an offer to the commercial marketplace
+# How to review and publish an offer to the commercial marketplace
 
 This article shows you how to use Partner Center to submit your offer to preview, preview your offer, and then publish it to Microsoft commercial marketplace. We also cover how to check your publishing status as it proceeds through the publishing steps. You must have already created an offer that you want to publish.
 
@@ -97,7 +97,7 @@ Each offer type checks a set of required base eligibility criteria. This criteri
 
 #### Content validation
 
-The information entered when you created your offer is checked for quality and relevance. These checks will review your entries for the marketplace listing details, pricing, availability, associated plans, and so on. To meet the listing criteria of Azure Marketplace and Microsoft AppSource, we will validate that your offer includes:
+The information entered when you created your offer is checked for quality and relevance. These checks will review your entries for the marketplace listing details, pricing, availability, associated plans, and so on. To meet the listing criteria of Microsoft AppSource and Azure Marketplace, we will validate that your offer includes:
 
 - A title that accurately describes the offer
 - Well-written descriptions that provide a thorough overview and value proposition
@@ -140,16 +140,13 @@ The following screenshot shows the **Offer overview** page for a SaaS offer. The
 
 ### To preview your offer and sign off
 
-1. On the **Offer overview** page, to preview your offer, select the link under the **Go live** button.
-
-   > [!NOTE]
-   > There will be a link for either AppSource preview, Azure Marketplace preview, or both depending on the options you chose when creating your offer. If you chose to sell your offer through Microsoft, anyone who has been added to the preview audience can test the acquisition and deployment of your offer to ensure it meets your requirements during this stage.
+1. On the **Offer overview** page, to preview your offer, select the link under the **Go live** button. There will be a link for either AppSource preview, Azure Marketplace preview, or both depending on the options you chose when creating your offer. If you chose to sell your offer through Microsoft, anyone who has been added to the preview audience can test the acquisition and deployment of your offer to ensure it meets your requirements during this stage.
 
 1. If you want to make changes after previewing the offer, you can edit and resubmit to publish a new preview. For more information, see [Update an existing offer in the commercial marketplace](./partner-center-portal/update-existing-offer.md).
 
 1. After you approve your preview, to publish your offer live to the commercial marketplace, select **Go live**.
 
-   > [!TIP]
+   > [!NOTE]
    > If your offer is already live and available to the public in the marketplace, any updates you make won't go live until you select **Go live**.
 
 ## Publish phase
@@ -182,6 +179,6 @@ After these validation checks are complete, your offer will be live in the marke
 
 To validate the end-to-end purchase and setup flow, purchase your offer while it is in Preview. First notify Microsoft with a [support ticket](https://aka.ms/marketplacesupport) to ensure we don't process a charge.
 
-## Next step
+## Next steps
 
-[Access analytic reports for the commercial marketplace in Partner Center](./partner-center-portal/analytics.md)
+[Access analytic reports for the commercial marketplace in Partner Center](partner-center-portal/analytics.md)
