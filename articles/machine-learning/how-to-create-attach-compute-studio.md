@@ -61,7 +61,7 @@ Follow the previous steps to view the list of compute targets. Then use these st
 1. Fill out the form for your compute type:
 
   * [Compute instance](#compute-instance)
-  * [Compute clusters](#compute-clusters)
+  * [Compute clusters](#amlcompute)
   * [Inference clusters](#inference-clusters)
   * [Attached compute](#attached-compute)
 
