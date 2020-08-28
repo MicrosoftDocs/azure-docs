@@ -5,7 +5,7 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 08/24/2020
+ms.date: 08/28/2020
 ---
 
 # Restart of a flexible server

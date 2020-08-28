@@ -5,7 +5,7 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 08/24/2020
+ms.date: 08/28/2020
 ---
 # High availability concepts in Azure Database for PostgreSQL-Flexible server
 
@@ -18,7 +18,7 @@ Zone redundant configuration enables automatic failover capability during planne
 
 ## Zone redundant high availability architecture
 
-Primary database server is deployed in the region and the availability zone of your choice. When the high availability is chosen, a standby replica server with the same configuration as that of the primary server is automatically deployed, including compute tier, compute size, storage size, and network configuration. Write ahead logs (WAL) files are replicated in synchronous mode to the standby replica. Automatic backups are performed from the primary database server. WAL files are continuously archived to the backup storage from the standby replica. 
+Primary database server is deployed in the region and the availability zone of your choice. A standby replica server is provisioned in a different zone with the same configuration as the primary server, including compute tier, compute size, storage size, and network configuration. Write ahead logs (WAL) files are replicated in synchronous mode to the standby replica. Automatic backups are performed from the primary database server. WAL files are continuously archived to the backup storage from the standby replica. 
 
 The health of the HA is continuously monitored and reported on the overview page. The replication statuses are listed below:
 | **Status** | **Description** |
