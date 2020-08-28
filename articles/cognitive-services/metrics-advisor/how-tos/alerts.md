@@ -101,8 +101,8 @@ You can manage all your hooks in the hook settings page.
 
 ## Next Steps
 
-- [Add and manage data feeds](../how-tos/datafeeds.md)
+- [Add and manage data feeds](datafeeds.md)
     - [Configurations for different data sources](../data-feeds-from-different-sources.md)
-- [Send anomaly feedback to your instance](../how-tos/anomaly-feedback.md)
-- [Diagnose incidents](../how-tos/diagnose-incident.md).
+- [Send anomaly feedback to your instance](anomaly-feedback.md)
+- [Diagnose incidents](diagnose-incident.md).
 - [Configure metrics and anomaly detection](configure-metrics.md)

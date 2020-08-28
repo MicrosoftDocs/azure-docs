@@ -203,3 +203,8 @@ With fine-tuned detecting configuration, anomalies that detected mostly reflect 
 
 If you'd like to get notified whenever an anomaly is detected, you can subscribe to alerts for the metric, using a web hook. See [How to: configure alerts](alerts.md) for more information.
 
+- [Add and manage data feeds](datafeeds.md)
+    - [Configurations for different data sources](../data-feeds-from-different-sources.md)
+- [Send anomaly feedback to your instance](anomaly-feedback.md)
+- [Diagnose incidents](diagnose-incident.md).
+- [Create alerts](alerts.md)
