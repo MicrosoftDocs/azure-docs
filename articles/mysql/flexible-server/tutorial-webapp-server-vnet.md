@@ -55,7 +55,7 @@ In this section, you create app host in App Service app and connect this app to 
 
 Create an App Service app (the host process) with the az webapp up command
 
-```
+```azurecli
 az webapp up --resource-group myresourcegroup --location westus2 --plan testappserviceplan --sku B1 --name mywebapp
 ```
 
