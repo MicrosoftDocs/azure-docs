@@ -40,9 +40,9 @@ This article is an optional part of a four-part series that walks you through se
 
 + A pre-existing virtual network and subnet to use.
 
-+ An [Azure Machine Learning workspace with Private Link enabled](how-to-secure-workspace-vnet.md#secure-the-workspace-with-private-endpoint).
++ An existing [Azure Machine Learning workspace with Private Link enabled](how-to-secure-workspace-vnet.md#secure-the-workspace-with-private-endpoint).
 
-+ An [Azure storage account added your virtual network](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts).
++ An existing [Azure storage account added your virtual network](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts).
 
 ## Access the studio from a resource inside the VNet
 

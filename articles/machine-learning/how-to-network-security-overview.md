@@ -1,5 +1,5 @@
 ---
-title: Network isolation & privacy overview
+title: Virtual network isolation and privacy overview
 titleSuffix: Azure Machine Learning
 description: Use an isolated Azure Virtual Network with Azure Machine Learning to secure workspace resources and compute environments.
 services: machine-learning
@@ -14,7 +14,7 @@ ms.custom: how-to, devx-track-python, references_regions
 
 ---
 
-# Network security overview 
+# Virtual network isolation and privacy overview
 
 In this article, you learn how to use virtual networks to secure network communication in Azure Machine Learning. This article uses an example scenario to show you how to configure a complete virtual network.
 

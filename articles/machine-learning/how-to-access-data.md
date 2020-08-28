@@ -85,11 +85,7 @@ To ensure you securely connect to your Azure storage service, Azure Machine Lear
 
 ### Virtual network 
 
-If your data storage account is in a **virtual network**, additional configuration steps are required to ensure Azure Machine Learning has access to your data. The configuration steps differ based on whether you create the datastore with the Azure Machine Learning Python SDK or the Azure Machine Learning studio. 
-
-* For the studio experience, see [Network isolation & privacy](how-to-enable-virtual-network.md#machine-learning-studio) to ensure that a managed identity is used to configure your datastore. 
-
-* For the SDK experience, see [Use datastores and datasets](how-to-enable-virtual-network.md#use-datastores-and-datasets) to ensure that the appropriate configuration steps are applied.  
+If your data storage account is in a **virtual network**, additional configuration steps are required to ensure Azure Machine Learning has access to your data. See [Use Azure Machine Learning studio in an Azure virtual network](how-to-enable-studio-virtual-network.md) to ensure the appropriate configuration steps are applied when you create and register your datastore.  
 
 ### Access validation
 
@@ -210,7 +206,7 @@ adlsgen2_datastore = Datastore.register_azure_data_lake_gen2(workspace=ws,
 Create a new datastore in a few steps with the Azure Machine Learning studio.
 
 > [!IMPORTANT]
-> If your data storage account is in a virtual network, additional configuration steps are required to ensure the studio has access to your data. See [Network isolation & privacy](how-to-enable-virtual-network.md#machine-learning-studio) to ensure the appropriate configuration steps are applied. 
+> If your data storage account is in a virtual network, additional configuration steps are required to ensure the studio has access to your data. See [Use Azure Machine Learning studio in an Azure virtual network](how-to-enable-studio-virtual-network.md) to ensure the appropriate configuration steps are applied. 
 
 1. Sign in to [Azure Machine Learning studio](https://ml.azure.com/).
 1. Select **Datastores** on the left pane under **Manage**.

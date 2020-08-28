@@ -55,7 +55,7 @@ For information on Azure Virtual Machines, see the [Virtual Machines documentati
 
 To secure the Azure Storage account used by your workspace, put it inside the virtual network.
 
-For information on putting the storage account in the virtual network, see [Use a storage account for your workspace](how-to-enable-virtual-network.md#use-a-storage-account-for-your-workspace).
+For information on putting the storage account in the virtual network, see [Secure Azure storage accounts](how-tosecure-workspace-vnet.md#secure-azure-storage-accounts).
 
 > [!WARNING]
 > Azure Machine Learning does not support using an Azure Storage account that has private link enabled.
