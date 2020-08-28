@@ -13,7 +13,7 @@ ms.workload: iaas-sql-server
 ms.date: 11/13/2019
 ms.author: mathoma
 ms.reviewer: jroth 
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 
 ---
 # Register a SQL Server VM in Azure with the SQL VM resource provider (RP)

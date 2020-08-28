@@ -11,7 +11,7 @@ ms.topic: quickstart
 ms.date: 08/07/2020
 ms.author: curtand
 ms.reviewer: vincesm
-ms.custom: it-pro
+ms.custom: it-pro, devx-track-azurepowershell
 
 ms.collection: M365-identity-device-management
 ---
