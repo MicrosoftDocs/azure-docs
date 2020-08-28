@@ -408,6 +408,9 @@
     items:
     - name: Build PHP (Laravel) app with Flexible Server
       href: flexible-server/tutorial-php-database-app.md
+    - name: Web app and database server in virtual network
+      href: flexible-server/tutorial-webapp-server-vnet.md
+      
   - name: How-to guides
     items:
     - name: Manage your server
