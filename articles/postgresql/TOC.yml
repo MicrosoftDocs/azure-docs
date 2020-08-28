@@ -369,10 +369,6 @@
       - name: Azure portal
         href: howto-move-regions-portal.md
 - name: Flexible server
-- name: Hyperscale (Citus)
-  items:
-  - name: Documentation
-    href: hyperscale/index.yml
   - name: Quickstarts
     items:
     - name: Create Server and Database
@@ -387,6 +383,10 @@
         href: flexible-server/how-to-manage-server-portal.md
       - name: Azure CLI
         href: flexible-server/how-to-manage-server-cli.md
+- name: Hyperscale (Citus)
+  items:
+  - name: Documentation
+    href: hyperscale/index.yml
     - name: Create Server Group - Portal
       href: quickstart-create-hyperscale-portal.md
       displayName: portal, create hyperscale
