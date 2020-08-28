@@ -286,8 +286,14 @@ You can compute the signature yourself, similar to how MSAL does it:
 
 You also have the option of acquiring the signature for your package by using **keytool** with the following commands:
 
-* Windows: `keytool.exe -list -v -keystore "%LocalAppData%\Xamarin\Mono for Android\debug.keystore" -alias androiddebugkey -storepass android -keypass android`
-* macOS: `keytool -exportcert -alias androiddebugkey -keystore ~/.android/debug.keystore | openssl sha1 -binary | openssl base64`
+* Windows:
+    ```console
+    keytool.exe -list -v -keystore "%LocalAppData%\Xamarin\Mono for Android\debug.keystore" -alias androiddebugkey -storepass android -keypass android
+    ````
+* macOS:
+    ```console
+    keytool -exportcert -alias androiddebugkey -keystore ~/.android/debug.keystore | openssl sha1 -binary | openssl base64
+    ````
 
 ### Step 5 (optional): Fall back to the system browser
 
