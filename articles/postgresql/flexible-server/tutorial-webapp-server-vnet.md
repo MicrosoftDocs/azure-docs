@@ -32,7 +32,7 @@ If you have multiple subscriptions, choose the appropriate subscription in which
 az account set --subscription <subscription id>
 ```
 
-## Create an Azure Database for PostgreSQL Flexible Server
+## Create a private PostgreSQL Flexible Server 
 
 Create a private flexible server inside a virtual network (VNET) using the following command:
 ```azurecli
