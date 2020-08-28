@@ -27,7 +27,11 @@ You may also run this tutorial on the command line (macOS, Windows, or Linux) us
 
 Sign in to the Azure portal at <https://portal.azure.com/> with your Azure account.
 
+[Having issues? Let us know.](https://aka.ms/asrs/qscsharp)
+
 [!INCLUDE [Create instance](includes/signalr-quickstart-create-instance.md)]
+
+[Having issues? Let us know.](https://aka.ms/asrs/qscsharp)
 
 [!INCLUDE [Clone application](includes/signalr-quickstart-clone-application.md)]
 
@@ -65,8 +69,11 @@ Sign in to the Azure portal at <https://portal.azure.com/> with your Azure accou
         ```bash
         func start
         ```
+[Having issues? Let us know.](https://aka.ms/asrs/qscsharp)
 
 [!INCLUDE [Run web application](includes/signalr-quickstart-run-web-application.md)]
+
+[Having issues? Let us know.](https://aka.ms/asrs/qscsharp)
 
 [!INCLUDE [Cleanup](includes/signalr-quickstart-cleanup.md)]
 
