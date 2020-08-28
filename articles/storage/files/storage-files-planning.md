@@ -24,7 +24,7 @@ This article primarily addresses deployment considerations for deploying an Azur
 Azure Files offers two protocols which may be used when mounting your file shares, SMB and Network File System (NFS). For details on both of these protocols, see [Azure file share protocols](storage-files-compare-protocols.md).
 
 > [!IMPORTANT]
-> Most of the content of this article only apply to SMB. Those that apply to NFS as well, specifically mention that they are applicable.
+> Most of the content of this article only applies to SMB shares. Anything that applies to NFS shares will specifically state it is applicable.
 
 ## Management concepts
 [!INCLUDE [storage-files-file-share-management-concepts](../../../includes/storage-files-file-share-management-concepts.md)]
