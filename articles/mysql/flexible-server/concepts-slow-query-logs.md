@@ -123,7 +123,7 @@ Once your slow query logs are piped to Azure Monitor Logs through Diagnostic Log
     | where query_time_d > 10
     ```    
     
-## Next Steps
+## Next steps
 - Learn more about [audit logs](concepts-audit-logs.md)
 <!--
 - [How to configure slow query logs from the Azure portal](howto-configure-server-logs-in-portal.md)

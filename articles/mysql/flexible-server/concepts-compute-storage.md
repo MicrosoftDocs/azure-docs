@@ -1,5 +1,5 @@
 ---
-title: Compute and Storage Options - Azure Database for MySQL - Flexible Server
+title: Compute and storage options - Azure Database for MySQL - Flexible Server
 description: This article describes the compute and storage options in Azure Database for MySQL - Flexible Server.
 author: ajlam
 ms.author: andrela
@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 8/24/2020
 ---
 
-# Compute and Storage options in Azure Database for MySQL - Flexible Server
+# Compute and storage options in Azure Database for MySQL - Flexible Server
 
 > [!IMPORTANT] 
 > Azure Database for MySQL Flexible Server is currently in public preview
@@ -64,7 +64,7 @@ The detailed specifications of the available server types are as follows:
 | E48ds_v4             | 48     | 384         |
 | E64ds_v4             | 64     | 504         |
 
-To get more details about the compute series available, please refer to Azure VM documentation for [Burstable (B-series)](../../virtual-machines/sizes-b-series-burstable.md), [General Purpose (Ddsv4-series)](../../virtual-machines/ddv4-ddsv4-series.md), and [Memory Optmized (Edsv4-series)](../../virtual-machines/edv4-edsv4-series.md).
+To get more details about the compute series available, please refer to Azure VM documentation for [Burstable (B-series)](../../virtual-machines/sizes-b-series-burstable.md), [General Purpose (Ddsv4-series)](../../virtual-machines/ddv4-ddsv4-series.md), and [Memory Optimized (Edsv4-series)](../../virtual-machines/edv4-edsv4-series.md).
 
 ## Storage
 
