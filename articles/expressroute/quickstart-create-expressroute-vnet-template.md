@@ -29,11 +29,11 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-expressroute-private-peering-vnet).
 
-In this quickstart, you'll create an ExpressRoute circuit with Equinix as the service provider. The circuit will have a Premium SKU, bandwidth of 50 Mbps, and the peering location of Washington DC. Private peering will be enabled with a primary and secondary subnet of 192.168.10.16/30 and 192.168.10.20/30 respectively. A virtual network will also be created along with a High Performance SKU ExpressRoute gateway.
+In this quickstart, you'll create an ExpressRoute circuit with *Equinix* as the service provider. The circuit will have a *Premium SKU*, bandwidth of *50 Mbps*, and the peering location of *Washington DC*. Private peering will be enabled with a primary and secondary subnet of *192.168.10.16/30* and *192.168.10.20/30* respectively. A virtual network will also be created along with a *High Performance SKU ExpressRoute gateway*.
 
 :::code language="json" source="~/quickstart-templates/101-expressroute-private-peering-vnet/azuredeploy.json":::
 
-Azure resource defined in the template:
+Multiple Azures resource have been defined in the template:
 
 * [**Microsoft.Network/expressRouteCircuits**](/azure/templates/microsoft.network/expressRouteCircuits)
 * [**Microsoft.Network/expressRouteCircuits/peerings**](/azure/templates/microsoft.network/expressRouteCircuits/peerings) (Used to enabled private peering on the circuit)
@@ -71,13 +71,15 @@ To find more templates that are related to ExpressRoute, see [Azure Quickstart T
 
     The resource group name is the project name with **rg** appended.
 
-    It takes about 20 minutes to deploy the template. When completed, the output is similar to:
+It takes about 20 minutes to deploy the template. When completed, the output is similar to:
 
-    :::image type="content" source="./media/quickstart-create-expressroute-vnet/er-arm-psoutput.png" alt-text="ExpressRoute Resource Manager template PowerShell deployment output":::
+:::image type="content" source="./media/quickstart-create-expressroute-vnet/er-arm-psoutput.png" alt-text="ExpressRoute Resource Manager template PowerShell deployment output":::
 
 Azure PowerShell is used to deploy the template. In addition to Azure PowerShell, you can also use the Azure portal, Azure CLI, and REST API. To learn other deployment methods, see [Deploy templates](../azure-resource-manager/templates/deploy-portal.md).
 
 ## Validate the deployment
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select **Resource groups** from the left pane.
 
@@ -112,8 +114,9 @@ In this quickstart, you created a:
 
 To learn more about linking a virtual network to a circuit, continue to the ExpressRoute tutorials.
 
-> [!NOTE]
-> In order to link the virtual network to the circuit you will need to call the service provider to complete the circuit provisioning process.
-
 > [!div class="nextstepaction"]
 > [ExpressRoute tutorials](expressroute-howto-linkvnet-portal-resource-manager.md)
+
+* For more information about ExpressRoute workflows, see [ExpressRoute workflows](expressroute-workflows.md).
+* For more information about circuit peering, see [ExpressRoute circuits and routing domains](expressroute-circuit-peerings.md).
+* For more information about working with virtual networks, see [Virtual network overview](../virtual-network/virtual-networks-overview.md).
