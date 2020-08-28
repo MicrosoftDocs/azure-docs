@@ -1,7 +1,7 @@
 ---
 title: Media Services Compliance
 titleSuffix: Azure Media Services
-description: Azure Media Services complies with Azure government.
+description: Azure Media Services complies with Azure Government.
 services: media-services
 documentationcenter: ''
 author: IngridAtMicrosoft
@@ -18,9 +18,24 @@ ms.author: inhenkel
 
 # Media Services compliance
 
-Media Services meet the demanding requirements of the US Federal Risk & Authorization Management Program (FedRAMP) and of the US Department of Defense, from information impact levels 2 through 5. By deploying protected services including Azure Government, Office 365 U.S. Government, and Dynamics 365 Government, federal and defense agencies can leverage a rich array of compliant services. Read more about Azure services compliance in the [Azure services by FedRAMP and DoD CC SRG audit scope](https://docs.microsoft.com/azure/azure-government/compliance/azure-services-in-fedramp-auditscope) article.
 
-Start with the [Azure compliance documentation](https://docs.microsoft.com/azure/compliance/) to learn more about compliance in Azure.
+## US Federal Risk & Authorization Management Program (FedRAMP) and US Department of Defense compliance
+
+Media Services meets the demanding requirements of the US Federal Risk & Authorization Management Program (FedRAMP) and of the US Department of Defense, from information impact levels 2 through 5. By deploying protected services including Azure Government, Office 365 U.S. Government, and Dynamics 365 Government, federal, and defense agencies can use a rich array of compliant services.
+
+Media Services Public services are compliant with the Department of Defense Cloud Computing Security Requirements Guide 2 (DoD CC SRG IL 2) and FedRAMP High.
+
+Media Services Government services are compliant with DoD CC SRG IL 2, DoD CC SRG IL 4, DoD CC SRG IL 5, and FedRAMP High.
+
+A review by 3PAO and JAB of Media Services isn't planned for 2020.
+
+Read more about Azure services compliance in the [Azure services by FedRAMP and DoD CC SRG audit scope](https://docs.microsoft.com/azure/azure-government/compliance/azure-services-in-fedramp-auditscope) article.
+
+## Azure compliance documentation
+
+If your organization needs to comply with legal or regulatory standards for Global, US government, regional, financial services, health, media, and manufacturing, start with the [Azure compliance documentation](https://docs.microsoft.com/azure/compliance/).
+
+You will also find additional compliance resources such as audit reports, a checklist for privacy and General Data Protection Regulation (GDPR), compliance blueprints, country and regional guidelines, implementation and mappings, as well as white papers and analyst reports.
 
 ## Next steps
 
