@@ -180,7 +180,7 @@ Follow these steps to verify if your server was created in Azure.
 
 1. In the [Azure portal](https://portal.azure.com), search for and select **Azure Database for PostgreSQL Flexible servers (Preview)**.
 
-2. In the database list, select your new server. The **Overview** page for your new Azure Database for MySQL server appears.
+2. In the database list, select your new server to view the **Overview** page to manage the server.
 
 # [PowerShell](#tab/PowerShell)
 
