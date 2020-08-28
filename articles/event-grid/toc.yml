@@ -242,7 +242,7 @@
       href: move-custom-topics-across-regions.md
     - name: Move domains across regions
       href: move-domains-across-regions.md
-    - name: Move partner namespace across regions
+    - name: Move partner namespaces across regions
       href: move-partner-namespaces-across-regions.md
   - name: Secure
     items:
