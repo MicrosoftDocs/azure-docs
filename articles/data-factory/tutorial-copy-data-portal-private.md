@@ -136,7 +136,7 @@ In this tutorial, you start by creating a pipeline. Then you create linked servi
 >[!TIP]
 >In this tutorial, you use **Account key** as the authentication type for your source data store. You can also choose other supported authentication methods, such as **SAS URI**,**Service Principal**, and **Managed Identity** if needed. For more information, see the corresponding sections in [Copy and transform data in Azure Blob storage by using Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#linked-service-properties).
 >
->To store secrets for data stores securely, we also recommend that you use an Azure Key Vault. For more information and illustrations, see [Store credentials in Azure Key Vault](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault).
+>To store secrets for data stores securely, we also recommend that you use Azure Key Vault. For more information and illustrations, see [Store credentials in Azure Key Vault](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault).
 
 #### Create a source dataset and linked service
 
@@ -215,7 +215,7 @@ If you didn't select the hyperlink when you tested the connection, follow the pa
 >[!TIP]
 >In this tutorial, you use **SQL authentication** as the authentication type for your sink data store. You can also choose other supported authentication methods, such as **Service Principal** and **Managed Identity** if needed. For more information, see corresponding sections in [Copy and transform data in Azure SQL Database by using Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-database#linked-service-properties).
 >
->To store secrets for data stores securely, we also recommend that you use an Azure Key Vault. For more information and illustrations, see [Store credentials in Azure Key Vault](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault).
+>To store secrets for data stores securely, we also recommend that you use Azure Key Vault. For more information and illustrations, see [Store credentials in Azure Key Vault](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault).
 
 #### Create a sink dataset and linked service
 1. Go to the **Sink** tab, and select **+ New** to create a sink dataset.
