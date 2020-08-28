@@ -1,12 +1,12 @@
 ---
-title: Create a function in Azure that responds to HTTP requests
-description: Learn how to create a function from the command line, then publish the local project to serverless hosting in Azure Functions.
-ms.date: 03/30/2020
+title: Use JavaScript to create a function in Azure to respond to HTTP
+description: Learn how to create a function from the command line using JavaScript, then publish the local project to serverless hosting in Azure Functions.
+ms.date: 09/02/2020
 ms.topic: quickstart
-ms.custom: "devx-track-csharp, devx-track-python, devx-track-azurecli"
+ms.custom: devx-track-javascript
 ---
 
-# Quickstart: Create a function in Azure that responds to HTTP requests
+# Quickstart: Create a function in Azure using JavaScript that responds to HTTP requests
 
 In this article, you use command-line tools to create a JavaScript function that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions. 
 
@@ -175,4 +175,3 @@ az group delete --name AzureFunctionsQuickstart-rg
 
 > [!div class="nextstepaction"]
 > [Connect to an Azure Storage queue](functions-add-output-binding-storage-queue-cli.md)
- 

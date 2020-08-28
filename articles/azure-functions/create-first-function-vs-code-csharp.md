@@ -1,16 +1,16 @@
 ---
-title: Create your first function in Azure using Visual Studio Code
-description: Create and publish to Azure a simple HTTP triggered function by using Azure Functions extension in Visual Studio Code. 
+title: Create a function in Azure with C# using VS Code
+description: Create and publish to Azure a simple HTTP triggered function by using Azure Functions extension in Visual Studio Code using C#. 
 ms.topic: quickstart
-ms.date: 01/10/2020
-ms.custom: "devx-track-csharp, mvc, devcenter, seo, devx-track-python"
+ms.date: 09/02/2020
+ms.custom: devx-track-csharp
 ---
 
-# Quickstart: Create a function in Azure using Visual Studio Code
+# Quickstart: Create a function in Azure with C# using Visual Studio Code
 
-In this article, you use Visual Studio Code to create a C# class library-based function that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions. 
+In this article, you use Visual Studio Code to create a C# class library-based function that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions.
 
-Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account. 
+Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
 
 There's also a [CLI-based version](functions-create-first-azure-function-azure-cli.md) of this article.
 

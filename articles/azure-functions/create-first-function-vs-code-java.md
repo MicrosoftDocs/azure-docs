@@ -1,12 +1,12 @@
 ---
-title: Create your first function in Azure using Visual Studio Code
-description: Create and publish to Azure a simple HTTP triggered function by using Azure Functions extension in Visual Studio Code. 
+title: Create a function in Azure with Java using VS Code
+description: Create and publish to Azure a simple HTTP triggered function by using Azure Functions extension in Visual Studio Code using Java. 
 ms.topic: quickstart
-ms.date: 01/10/2020
-ms.custom: "devx-track-csharp, mvc, devcenter, seo, devx-track-python"
+ms.date: 09/02/2020
+ms.custom: devx-track-java
 ---
 
-# Quickstart: Create a function in Azure using Visual Studio Code
+# Quickstart: Create a function in Azure with Java using Visual Studio Code
 
 In this article, you use Visual Studio Code to create a Java function that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions. 
 
