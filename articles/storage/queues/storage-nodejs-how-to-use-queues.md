@@ -101,9 +101,9 @@ queueSvc.createQueueIfNotExists('myqueue', function(error, results, response){
 });
 ```
 
----
-
 If the queue is created, `result.created` is true. If the queue exists, `result.created` is false.
+
+---
 
 ### Filters
 
