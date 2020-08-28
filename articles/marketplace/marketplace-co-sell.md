@@ -51,9 +51,9 @@ The table below lists the steps and requirements to make your offer co-sell read
 |<ol start=4lo><li>Qualify for Microsoft seller incentives</li>|Azure IP incentive eligible|<ul><li>At the organization level, meet or exceed a threshold of $100,000 USD ACR TTM (trailing twelve months), or, if the offer is transactable, a billed revenue threshold of $100,000 USD. The threshold can be met through a combination of Azure solutions.</li><li>The solution must be built with more than 50% of repeatable IP code on Azure.</li>|Co-sell incentivized|
 ||Business Applications incentive eligible|<ul><li>You have an active enrollment in ISV Connect premium tier.</li>|Co-sell incentivized|
 
-## Apply for the co-sell program
+## Co-sell your offer
 
-Apply for the co-sell program directly in Partner Center, following the steps below. For more details, see [Co-sell option in Partner Center](./partner-center-portal/commercial-marketplace-co-sell.md).
+Start your co-sell journey directly in Partner Center, following the steps below. For more details, see [Co-sell option in Partner Center](./partner-center-portal/commercial-marketplace-co-sell.md).
 
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
 1. On the left pane, select **Commercial Marketplace** > **Overview**, then select the offer that you want to co-sell.
