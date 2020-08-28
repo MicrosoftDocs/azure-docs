@@ -145,7 +145,7 @@ Scaling storage and changing the backup retention period are online operations a
 
 For the most up-to-date pricing information, see the service [pricing page](https://azure.microsoft.com/pricing/details/MySQL/). To see the cost for the configuration you want, the [Azure portal](https://portal.azure.com/#create/Microsoft.MySQLServer/flexibleServers) shows the monthly cost on the **Compute + storage** tab based on the options you select. If you don't have an Azure subscription, you can use the Azure pricing calculator to get an estimated price. On the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) website, select **Add items**, expand the **Databases** category, choose **Azure Database for MySQL**, and **Flexible Server** as the deployment type to customize the options.
 
-If you would like to optimize for your server, you can consider following
+If you would like to optimize cost for your server, you can consider following:
 
 - Scale down your compute tier or vCores if compute is underutilized.
 - Consider switching to the Burstable compute tier if your workload doesn't need the full compute capacity continuously from the General Purpose and Memory Optimized tiers.
