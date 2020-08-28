@@ -66,7 +66,7 @@ To view a historical view of debug runs or see a list of all active debug runs, 
 
 ## Debugging mapping data flows
 
-Mapping data flows allow you to build code-free data transformation logic that runs at scale. When building your logic, you can turn on a debug session to interactively work with your data using a live Spark cluster. To learn more, read about [mapping data flow debug mode](concepts-data-flow-debug-mode).
+Mapping data flows allow you to build code-free data transformation logic that runs at scale. When building your logic, you can turn on a debug session to interactively work with your data using a live Spark cluster. To learn more, read about [mapping data flow debug mode](concepts-data-flow-debug-mode.md).
 
 You can monitor active data flow debug sessions across a factory in the **Monitor** experience.
 
