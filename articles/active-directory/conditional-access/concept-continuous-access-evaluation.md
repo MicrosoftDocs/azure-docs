@@ -140,7 +140,7 @@ Your identity provider and resource providers may see different IP addresses. Th
 - Your resource provider sees a different IP address from the client after passing through a proxy.
 - The IP address your identity provider sees is part of an allowed IP range in policy but the IP address from the resource provider is not.
 
-If this scenario exists in your environment to avoid infinite loops, Azure AD will issue a one hour CAE token and will not enforce client location change. Even in this case, security is improved compared to traditional one hour tokens since we are still evaluating the [other events](#event-evaluation) besides client location change events.
+If this scenario exists in your environment to avoid infinite loops, Azure AD will issue a one hour CAE token and will not enforce client location change. Even in this case, security is improved compared to traditional one hour tokens since we are still evaluating the [other events](#critical-event-evaluation) besides client location change events.
 
 > [!IMPORTANT]
 > When configuring locations for continuous access evaluation, use only the [IP based Conditional Access location condition](../conditional-access/location-condition.md). Do not use country location conditions or the trusted ips feature that is available in Azure Multi-Factor Authentication's service settings page.
