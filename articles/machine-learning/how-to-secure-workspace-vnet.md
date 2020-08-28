@@ -53,7 +53,7 @@ In this article you learn how to enable the following workspaces resources in a 
 
 
 > [!IMPORTANT]
-> Using Azure Private Link with Azure Machine Learning workspace is currently in public preview. This functionality is only available in the **US East** and **US West 2** regions. 
+> Using Azure Private Link with Azure Machine Learning workspace is currently in public preview. This functionality is only available in the **US East**, **US West 2**, and **US Central** regions. 
 > This preview is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -187,14 +187,12 @@ To use Azure Machine Learning experimentation capabilities with Azure Key Vault 
 
 1. Go to the Key Vault that's associated with the workspace.
 
-1. On the __Key Vault__ page, in the left pane, select __Firewalls and virtual networks__.
+1. On the __Key Vault__ page, in the left pane, select __Networking__.
 
-   ![The "Firewalls and virtual networks" section in the Key Vault pane](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks.png)
-
-1. On the __Firewalls and virtual networks__ page, do the following actions:
-    - Under __Allow access from__, select __Selected networks__.
+1. On the __Firewalls and virtual networks__ tab, do the following actions:
+    - Under __Allow access from__, select __Private endpoint and selected networks__.
     - Under __Virtual networks__, select __Add existing virtual networks__ to add the virtual network where your experimentation compute resides.
-    - Under __Allow trusted Microsoft services to bypass this firewall__, select __Yes__.
+    - Under __Allow trusted Microsoft services to bypass this firewall?__, select __Yes__.
 
    [![The "Firewalls and virtual networks" section in the Key Vault pane](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks-page.png)](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks-page.png#lightbox)
 
