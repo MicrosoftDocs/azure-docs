@@ -23469,6 +23469,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/active-directory/conditional-access/howto-conditional-access-report-only.md",
+      "redirect_url": "/azure/active-directory/conditional-access/howto-conditional-access-insights-reporting",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/iot-hub/iot-hub-security-ground-up.md",
       "redirect_url": "/azure/iot-fundamentals/iot-security-ground-up",
       "redirect_document_id": true
