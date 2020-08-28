@@ -39,7 +39,7 @@ Azure Stack Edge has the following capabilities:
 
 |Capability |Description  |
 |---------|---------|
-|Accelerated AI inferencing| Enabled by the built-in GPU (one or two) depending on the model.|
+|Accelerated AI inferencing| Enabled by the built-in GPU (one or two depending on the model).|
 |Edge computing      |Allows analysis, processing, filtering of data. Supports VMs and Kubernetes clusters.|
 |High performance | High performance compute and data transfers.|
 |Data access     | Direct data access from Azure Storage Blobs and Azure Files using cloud APIs for additional data processing in the cloud. Local cache on the device is used for fast access of most recently used files.|

@@ -7,14 +7,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 08/04/2020
+ms.date: 08/28/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge so I can use it to transform the data before sending it to Azure.
 ---
 
 # Tutorial: Configure compute on Azure Stack Edge GPU device
 
-[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]
+<!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
 This tutorial describes how to configure a compute role and create a Kubernetes cluster on your Azure Stack Edge device. 
 

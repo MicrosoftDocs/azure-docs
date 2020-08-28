@@ -7,15 +7,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 02/11/2020
+ms.date: 08/28/2020
 ms.author: alkohli
 ---
 
-# Create certificates for your Azure Stack Edge Rugged series using Azure Stack Hub Readiness Checker tool 
+# Create certificates for your Azure Stack Edge using Azure Stack Hub Readiness Checker tool 
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
-This article describes how to create certificates for your Azure Stack Edge Rugged series using the Azure Stack Hub Readiness Checker tool. The certificates can be created for both the Azure Stack Edge J-series and Azure Stack Edge K-series devices.
+This article describes how to create certificates for your Azure Stack Edge using the Azure Stack Hub Readiness Checker tool. 
 
 ## Using Azure Stack Hub Readiness Checker tool
 

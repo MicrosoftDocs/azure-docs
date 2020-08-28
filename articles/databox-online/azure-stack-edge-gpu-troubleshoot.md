@@ -12,7 +12,7 @@ ms.author: alkohli
 ---
 # Troubleshoot issues on your Azure Stack Edge GPU device 
 
-[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]
+<!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
 This article describes how to troubleshoot issues on your Azure Stack Edge GPU device. 
 
@@ -21,13 +21,15 @@ This article describes how to troubleshoot issues on your Azure Stack Edge GPU d
 
 To diagnose and troubleshoot any device errors, you can run the diagnostics tests. Do the following steps in the local web UI of your device to run diagnostic tests.
 
-1. In the local web UI, go to **Troubleshooting > Diagnostic tests**. Select the test you want to run and click **Run test**. This runs the tests to diagnose any possible issues with your network, device, web proxy, time, or cloud settings. You are notified that the device is running tests.
+1. In the local web UI, go to **Troubleshooting > Diagnostic tests**. Select the test you want to run and select **Run test**. This runs the tests to diagnose any possible issues with your network, device, web proxy, time, or cloud settings. You are notified that the device is running tests.
 
-    ![Select tests](media/azure-stack-edge-j-series-troubleshoot/run-diag-1.png)
+    ![Select tests ](media/azure-stack-edge-gpu-troubleshoot/run-diag-1.png)
  
 2. After the tests have completed, the results are displayed. 
 
-    If a test fails, then a URL for recommended action is presented. You can click the URL to view the recommended action.
+    ![View test results](media/azure-stack-edge-gpu-troubleshoot/run-diag-2.png)
+
+    If a test fails, then a URL for recommended action is presented. Select the URL to view the recommended action.
  
     ![Review warnings for failed tests](media/azure-stack-edge-j-series-troubleshoot/run-diag-3.png)
 
@@ -38,13 +40,13 @@ A log package is composed of all the relevant logs that can help Microsoft Suppo
 
 Do the following steps to collect a Support package. 
 
-1. In the local web UI, go to **Troubleshooting > Support**. Click **Create support package**. The system starts collecting support package. The package collection may take several minutes.
+1. In the local web UI, go to **Troubleshooting > Support**. Select **Create support package**. The system starts collecting support package. The package collection may take several minutes.
 
-    ![Click add user](media/azure-stack-edge-j-series-troubleshoot/collect-logs-1.png)
+    ![Select add user](media/azure-stack-edge-gpu-troubleshoot/collect-logs-1.png)
  
-2. After the Support package is created, click **Download Support package**. A zipped package is downloaded on the path you chose. You can unzip the package and the view the system log files.
+2. After the Support package is created, select **Download Support package**. A zipped package is downloaded on the path you chose. You can unzip the package and the view the system log files.
 
-    ![Click add user](media/azure-stack-edge-j-series-troubleshoot/collect-logs-2.png)
+    ![Select add user](media/azure-stack-edge-gpu-troubleshoot/collect-logs-2.png)
 
 ## Gather advanced security logs
 
@@ -105,10 +107,10 @@ To detect any hardware intrusion into the device, currently all the chassis even
 
 Any errors experienced during the upload and refresh processes are included in the respective error files.
 
-1. To view the error files, go to your share and click the share to view the contents. 
+1. To view the error files, go to your share and select the share to view the contents. 
 
 
-2. Click the _Microsoft Data Box Edge folder_. This folder has two subfolders:
+2. Select the _Microsoft Data Box Edge folder_. This folder has two subfolders:
 
     - Upload folder that has log files for upload errors.
     - Refresh folder for errors during refresh.

@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 08/06/2020
+ms.date: 08/28/2020
 ms.author: alkohli
 ---
 # Connect to and manage a Kubernetes cluster via kubectl on your Azure Stack Edge device
