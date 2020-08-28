@@ -17,16 +17,9 @@ This article provides answers to some of the most common questions about [Azure 
 
 If your Azure issue is not addressed in this article, you can also submit an Azure support request on the [Azure support page](https://azure.microsoft.com/support/options/).
 
-**DCsv2 virtual machines are grayed out in the portal and I can't select one**
-
-Based on the information bubble next to the VM, there are different actions to take:
-   -	**UnsupportedGeneration**: Change the generation of the virtual machine image to “Gen2”.
-   -	**NotAvailableForSubscription**: The region isn't yet available for your subscription. Select an available region.
-   -	**InsufficientQuota**: [Create a support request to increase your quota](../azure-portal/supportability/per-vm-quota-requests.md). Free trial subscriptions don't have quota for confidential computing VMs. 
-
 **What is Azure PCK caching service and its role in enclave attestation**
 
-Azure PCK caching service defines the Azure security baseline for the Azure Confidential computing (ACC) nodes from Intel and caches the data. The cached information will be further used by Azure Attestation in validating Trusted Execution Environments (TEEs).  
+Azure PCK caching service defines the Azure security baseline for the[Azure Confidential computing (ACC)](../confidential-computing/overview.md) nodes from Intel and caches the data. The cached information will be further used by Azure Attestation in validating Trusted Execution Environments (TEEs).  
 
 Azure PCK caching service provides the following benefits: 
    - The service offers Service Level Agreement (SLA)  
@@ -39,7 +32,7 @@ Azure Attestation depends on the security baseline stated by Azure PCK caching s
 
 **What validations does Azure Attestation perform for attesting SGX enclaves**
 
-Azure Attestation is a unified framework for remotely attesting different types of Trusted Execution Environments (TEEs). In this process, Azure Attestation performs the following validations: 
+Azure Attestation is a unified framework for remotely attesting different types of TEEs. In this process, Azure Attestation performs the following validations: 
 
    - Validates if the enclave quote meets the Azure security baseline as defined by Azure PCK caching service 
    - Validates if SHA256 hash of Enclave Held Data (EHD) in the attestation request object matches the first 32 bytes of reportData field in the enclave quote 
@@ -49,12 +42,12 @@ Azure Attestation is a unified framework for remotely attesting different types 
 
 In general, for the attestation models with Intel as the root of trust, attestation client talks to enclave APIs to fetch the enclave evidence. Enclave APIs internally call Intel PCK caching service to fetch Intel certificates of the node to be attested. The certificates are used to sign the enclave evidence thereby generating a remotely attestable collateral.  
 
-The same process can be implemented for Azure Attestation. However to leverage the benefits offered by Azure PCK caching service,  after installing Azure Confidential computing virtual machine, it is recommended to install [Azure DCAP library](https://www.nuget.org/packages/Microsoft.Azure.DCAP). Based on the agreement with Intel, when Azure DCAP library is installed, the requests for generating enclave evidence are redirected from Intel PCK caching service to Azure PCK caching service. Azure DCAP library is supported in Windows and Linux based environments. 
+The same process can be implemented for Azure Attestation. However to leverage the benefits offered by Azure PCK caching service,  after installing ACC virtual machine, it is recommended to install [Azure DCAP library](https://www.nuget.org/packages/Microsoft.Azure.DCAP). Based on the agreement with Intel, when Azure DCAP library is installed, the requests for generating enclave evidence are redirected from Intel PCK caching service to Azure PCK caching service. Azure DCAP library is supported in Windows and Linux based environments. 
 
 **How to shift to Azure Attestation from other attestation models**
 
-- After installing Azure Confidential computing virtual machine, install [Azure DCAP library](https://www.nuget.org/packages/Microsoft.Azure.DCAP)  to leverage the benefits offered by Azure PCK caching service 
-- Remote attestation client needs to be authored which can retrieve the enclave evidence and send requests to Azure Attestation. See [code samples](/azure-samples/microsoft-azure-attestation/sample-code-for-intel-sgx-attestation-using-microsoft-azure-attestation/) for reference 
+- After installing Azure Confidential computing virtual machine, install Azure DCAP library [Windows/](https://www.nuget.org/packages/Microsoft.Azure.DCAP/), [Linux](https://packages.microsoft.com/ubuntu/18.04/prod/pool/main/a/az-dcap-client/) to leverage the benefits offered by Azure PCK caching service 
+- Remote attestation client needs to be authored which can retrieve the enclave evidence and send requests to Azure Attestation. See [code samples](/samples/browse/?expanded=azure&terms=attestation) for reference 
 - Attestation requests can be sent to the REST API endpoint of default providers or custom attestation providers 
 - Azure Attestation APIs are protected by Azure AD authentication. Hence the client that invokes attest APIs must be able to obtain and pass a valid Azure AD access token in the attestation request 
 
