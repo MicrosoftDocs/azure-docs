@@ -70,7 +70,7 @@ Following this method, you can go on to define models for the hospital's wards, 
 
 [!INCLUDE [Azure Digital Twins: validate models info](../../includes/digital-twins-validate.md)]
 
-## Manage models with APIs.
+## Manage models with APIs
 
 The following sections show how to complete different model management operations using the [Azure Digital Twins APIs and SDKs](how-to-use-apis-sdks.md).
 

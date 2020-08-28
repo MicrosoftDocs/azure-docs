@@ -1,6 +1,6 @@
 ---
-title: Azure Attestation Powershell quickstart
-description: XXX
+title: Set up Azure Attestation with Azure PowerShell
+description: How to set up and configure an attestation provider using Azure PowerShell.
 services: attestation
 author: msmbaldwin
 ms.service: attestation
@@ -224,4 +224,4 @@ For more information on the cmdlets and its parameters, see [Azure Attestation P
 ## Next steps
 
 - [How to author and sign an attestation policy](author-sign-policy.md)
-- [Attest an SGX enclave using code samples](https://docs.microsoft.com/en-us/samples/browse/?expanded=azure&terms=attestation)
+- [Attest an SGX enclave using code samples](https://docs.microsoft.com/samples/browse/?expanded=azure&terms=attestation)

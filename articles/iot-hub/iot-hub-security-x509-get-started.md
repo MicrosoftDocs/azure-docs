@@ -42,6 +42,9 @@ You may choose any of the following ways to get your certificates:
 
 These steps show you how to add a new Certificate Authority to your IoT hub through the portal.
 
+> [!NOTE]
+> The maximum number of X.509 CA certificates that can be registered to an IoT hub is 25. For more information, see [Azure IoT Hub quotas and throttling](iot-hub-devguide-quotas-throttling.md).
+
 1. In the Azure portal, navigate to your IoT hub and select **Settings** > **Certificates** for the hub.
 
 1. Select **Add** to add a new certificate.

@@ -225,7 +225,6 @@ Below are some tips for querying with Azure Digital Twins.
         ```
 * Property names and values are case-sensitive, so take care to use the exact names defined in the models. If property names are misspelled or incorrectly cased, the result set is empty with no errors returned.
 
-
 ## Next steps
 
 Learn more about the [Azure Digital Twins APIs and SDKs](how-to-use-apis-sdks.md), including the Query API which is used to run the queries from this article.

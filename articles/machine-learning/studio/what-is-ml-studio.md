@@ -24,7 +24,7 @@ Machine Learning Studio (classic) is where data science, predictive analytics, c
 
 ## The Machine Learning Studio (classic)  interactive workspace
 
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
+
 
 To develop a predictive analysis model, you typically use data from one or more sources, transform, and analyze that data through various data manipulation and statistical functions, and generate a set of results. Developing a model like this is an iterative process. As you modify the various functions and their parameters, your results converge until you are satisfied that you have a trained, effective model.
 

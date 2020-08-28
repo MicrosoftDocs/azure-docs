@@ -1,6 +1,6 @@
 ---
 title: How to author and sign an Azure Attestation policy
-description: XXX
+description: And explaination of how to author and sign an attestation policy.
 services: attestation
 author: msmbaldwin
 ms.service: attestation
@@ -163,4 +163,4 @@ print(encoded.decode('utf-8'))
 
 ## Next steps
 - [Set up Azure Attestation using PowerShell](quickstart-powershell.md)
-- [Attest an SGX enclave using code samples](https://docs.microsoft.com/en-us/samples/browse/?expanded=azure&terms=attestation)
+- [Attest an SGX enclave using code samples](https://docs.microsoft.com/samples/browse/?expanded=azure&terms=attestation)

@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: overview
-ms.date: 08/15/2020
+ms.date: 08/24/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -50,9 +50,10 @@ Identity Protection identifies risks in the following classifications:
 | Atypical travel | Sign in from an atypical location based on the user's recent sign-ins. |
 | Anonymous IP address | Sign in from an anonymous IP address (for example: Tor browser, anonymizer VPNs). |
 | Unfamiliar sign-in properties | Sign in with properties we've not seen recently for the given user. |
-| Malware linked IP address | Sign in from a malware linked IP address |
-| Leaked Credentials | This risk detection indicates that the user's valid credentials have been leaked |
-| Azure AD threat intelligence | Microsoft's internal and external threat intelligence sources have identified a known attack pattern |
+| Malware linked IP address | Sign in from a malware linked IP address. |
+| Leaked Credentials | This risk detection indicates that the user's valid credentials have been leaked. |
+| Password spray | Indicates that multiple usernames are being attacked using common passwords in a unified brute force manner. |
+| Azure AD threat intelligence | Microsoft's internal and external threat intelligence sources have identified a known attack pattern. |
 
 More detail on these risks and how/when they are calculated can be found in the article, [What is risk](concept-identity-protection-risks.md).
 

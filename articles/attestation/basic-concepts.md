@@ -1,6 +1,6 @@
 ---
 title: Azure Attestation Basic Concepts
-description: XXX
+description: Basic concepts of Azure Attestation.
 services: attestation
 author: msmbaldwin
 ms.service: attestation

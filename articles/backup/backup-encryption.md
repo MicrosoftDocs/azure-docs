@@ -22,7 +22,7 @@ Azure Backup includes encryption on two levels:
   - **Azure virtual machine backup**: Azure Backup supports backup of VMs with disks encrypted using [platform-managed keys](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption#platform-managed-keys), as well as [customer-managed keys](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption#customer-managed-keys) owned and managed by you. In addition, you can also back up your Azure Virtual machines that have their OS or data disks encrypted using [Azure Disk Encryption](backup-azure-vms-encryption.md#encryption-support-using-ade). ADE uses BitLocker for Windows VMs, and DM-Crypt for Linux VMs, to perform in-guest encryption.
 
 >[!NOTE]
->Infrastructure encryption is currently in limited preview and is available in US East, US West2, US South Central, US Gov Arizona, and US GOV Virginia regions only. If you wish to use the feature in any of these regions, please fill out [this form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0H3_nezt2RNkpBCUTbWEapUN0VHNEpJS0ZUWklUNVdJSTEzR0hIOVRMVC4u) and email us at [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com).
+>Infrastructure encryption is currently in limited preview and is available in US East, US West2, US South Central, US Gov Arizona, and US GOV Virginia regions only. If you wish to use the feature in any of these regions, fill out [this form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0H3_nezt2RNkpBCUTbWEapUN0VHNEpJS0ZUWklUNVdJSTEzR0hIOVRMVC4u) and email us at [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com).
 
 ## Next steps
 

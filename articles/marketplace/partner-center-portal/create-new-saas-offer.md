@@ -229,7 +229,7 @@ There are two kinds of amendments available for commercial marketplace publisher
 
 #### Terms and conditions
 
-If you want to provide your own custom terms and conditions, you can elect to enter them in the terms and conditions field. You can enter up to 10,000 characters of text in this field. If your terms and conditions require a longer description, enter a single URL link into this field where your terms and conditions can be found. It will display to customers as an active link.
+If you want to provide your own custom terms and conditions, you can elect to enter them in the terms and conditions field. You can enter up to 10,000 characters of text in this field. If your terms and conditions require a longer description, enter a single URL link into this field where your terms and conditions can be found.
 
 Customers are required to accept these terms before they can try your offer.
 
@@ -277,18 +277,19 @@ This field is required.
 #### Files and images
 
 - **Documents** (required) – Add related marketing documents for your offer, in PDF format, of at least one and up to three documents per offer.
-- **Images**  – Upload logo images in PNG format:
+- **Images** (required) – There are multiple places where your offer's logo images may appear throughout the marketplace(s). Provide a PNG file for the **Large** size logo. Partner Center will use this to create a **Small** and a **Medium** logo. You can optionally replace these with different images later.
 
-  - **Small** (48 x 48 pixels, required)
-  - **Medium** (90 x 90 pixels, required)
-  - **Large** (216 x 216 pixels, required)
-  - **Wide** (255 x 115 pixels) (optional)
+  - **Large** (from 216 x 216 to 350 x 350 px, required)
+  - **Medium** (90 x 90 px, optional)
+  - **Small** (48 x 48 px, optional)
+  
+  These logos are used in different places in the listing:
 
-   These three logo sizes are used in different places in the online stores:
+   - The large logo appears on your offer listing page in Azure Marketplace and Microsoft AppSource.
+   - The medium logo appears when you create a new resource in Microsoft Azure.
+   - The small logo appears in Azure Marketplace search results and on the Microsoft AppSource main page and search results page.
 
-   -   The Small logo (48 x 48 pixels) appears in Azure Marketplace search results and on the Microsoft AppSource main page and search results page. 
-   -   The Medium logo (90 x 90 pixels) appears when you create a new resource in Microsoft Azure.
-   -   The Large logo (between 216 x 216 and 350 x 350 pixels) appears on your offer listing page in Azure Marketplace and Microsoft AppSource.
+   [!INCLUDE [Logo tips](../includes/graphics-suggestions.md)]
 
 - **Screenshots** (required) – Add a maximum of five screenshots demonstrating your offer, sized at 1280 x 720 pixels. All images must be in .PNG format.
 - **Videos** (optional) – Add links to videos demonstrating your offer. You can use links to YouTube and/or Vimeo videos, which are shown along with your offer to customers. You will also need to enter a thumbnail image of the video, sized to 1280 x 720 pixels in PNG format. You can display a maximum of four videos per offer.

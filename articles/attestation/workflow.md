@@ -1,6 +1,6 @@
 ---
 title: Azure Attestation Workflow
-description: XXX
+description: The workflow of Azure Attestation.
 services: attestation
 author: msmbaldwin
 ms.service: attestation
@@ -13,9 +13,10 @@ ms.author: mbaldwin
 # Workflow
 
 The following actors are involved in an Azure Attestation work flow:
-- Relying party: The component which relies on Azure Attestation to verify enclave validity. 
-- Client: The component which collects information from an enclave and sends requests to Azure Attestation. 
-- Azure Attestation: The component which accepts enclave evidence from client, validates it and returns attestation token to the client
+
+- **Relying party**: The component which relies on Azure Attestation to verify enclave validity. 
+- **Client**: The component which collects information from an enclave and sends requests to Azure Attestation. 
+- **Azure Attestation**: The component which accepts enclave evidence from client, validates it and returns attestation token to the client
 
 
 ## Enclave validation work flow

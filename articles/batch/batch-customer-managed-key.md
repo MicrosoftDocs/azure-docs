@@ -15,7 +15,7 @@ By default Azure Batch uses platform-managed keys to encrypt all the customer da
 The keys you provide must be generated in [Azure Key Vault](../key-vault/general/basic-concepts.md), and the Batch accounts you want to configure with customer-managed keys have to be enabled with [Azure Managed Identity](../active-directory/managed-identities-azure-resources/overview.md).
 
 > [!IMPORTANT]
-> Support for customer-managed keys in Azure Batch is currently in public preview for the West Central US, East US, South Central US, West US 2, US Gov Virginia, and US Gov Arizona regions.
+> Support for customer-managed keys in Azure Batch is currently in public preview for the West Europe, North Europe, Switzerland North, Central US, South Central US, West Central US, East US, East US 2, West US 2, US Gov Virginia, and US Gov Arizona regions.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
