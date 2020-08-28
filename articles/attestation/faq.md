@@ -19,7 +19,7 @@ If your Azure issue is not addressed in this article, you can also submit an Azu
 
 **What is Azure PCK caching service and its role in enclave attestation**
 
-Azure PCK caching service defines the Azure security baseline for the[Azure Confidential computing (ACC)](../confidential-computing/overview.md) nodes from Intel and caches the data. The cached information will be further used by Azure Attestation in validating Trusted Execution Environments (TEEs).  
+Azure PCK caching service defines the Azure security baseline for the [Azure Confidential computing (ACC)](../confidential-computing/overview.md) nodes from Intel and caches the data. The cached information will be further used by Azure Attestation in validating Trusted Execution Environments (TEEs).  
 
 Azure PCK caching service provides the following benefits: 
    - The service offers Service Level Agreement (SLA)  
@@ -35,7 +35,7 @@ Azure Attestation depends on the security baseline stated by Azure PCK caching s
 Azure Attestation is a unified framework for remotely attesting different types of TEEs. In this process, Azure Attestation performs the following validations: 
 
    - Validates if the enclave quote meets the Azure security baseline as defined by Azure PCK caching service 
-   - Validates if SHA256 hash of Enclave Held Data (EHD) in the attestation request object matches the first 32 bytes of reportData field in the enclave quote 
+   - Validates if SHA256 hash of Enclave Held Data (EHD) in the attestation request object matches the first 32 bytes of reportData field in the enclave quote
    - Azure Attestation allows customers to create an attestation provider and configure a custom policy. In addition to the above validations, Azure Attestation evaluates the        enclave quote against the policy. Policies define authorization rules for the enclave and also dictate issuance rules for generating the attestation token. To confirm if        intended software is running in an enclave, customers can add authorization rules to verify if mrsigner and mrenclave fields in the enclave quote matches the values of          customer binaries
 
 **How can a verifier obtain the collateral for SGX attestation supported by Azure Attestation**
@@ -61,6 +61,6 @@ Multiple certificates exposed in the OpenID metadata endpoint corresponds to dif
 
 **Is it possible for the relying party to share secrets with the validated Trusted Execution Environments (TEEs)**
 
-Public key generated within an enclave can be expressed in the Enclave Held Data (EHD) property of the attestation request object sent by the client to Azure Attestation. After confirming if SHA256 hash of EHD is expressed in reportData field of the quote, Azure Attestation includes EHD in the attestation token. Relying party can use the EHD from the verified attestation response to encrypt the secrets and share with the enclave. 
+Public key generated within an enclave can be expressed in the Enclave Held Data (EHD) property of the attestation request object sent by the client to Azure Attestation. After confirming if SHA256 hash of EHD is expressed in reportData field of the quote, Azure Attestation includes EHD in the attestation token. Relying party can use the EHD from the verified attestation response to encrypt the secrets and share with the enclave. See [Azure Attestation basic concepts](basic-concepts.md) for more information.
 
  
