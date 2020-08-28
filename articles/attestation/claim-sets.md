@@ -44,13 +44,13 @@ Below claims that are defined by the JWT RFC and used by Azure Attestation in th
 - **maa-ehd**:  Base64Url encoded version of the “Enclave Held Data” specified in the attestation request 
 - **maa-policyhash**: SHA256 hash of the policy document
 - **maa-attestationcollateral**: JSON object describing the collateral used to perform the attestation with the following properties:
-- **maa-quotehash**: SHA256 hash of the quote
-- **maa-qeidhash**: SHA256 hash of the QE ID
-- **maa-qeidcertshash**: SHA256 hash of the QE certs
-- **maa-qeidcrlhash**: SHA256 hash of the QE CRL
-- **maa-tcbinfohash**: SHA256 hash of the tcbinfo structure
-- **maa-tcbinfocertshash**: SHA256 hash of the tcbinfo certs
-- **maa-tcbinfocrlhash**: SHA256 hash of the tcbinfo crl
+  - **maa-quotehash**: SHA256 hash of the quote
+  - **maa-qeidhash**: SHA256 hash of the QE ID
+  - **maa-qeidcertshash**: SHA256 hash of the QE certs
+  - **maa-qeidcrlhash**: SHA256 hash of the QE CRL
+  - **maa-tcbinfohash**: SHA256 hash of the tcbinfo structure
+  - **maa-tcbinfocertshash**: SHA256 hash of the tcbinfo certs
+  - **maa-tcbinfocrlhash**: SHA256 hash of the tcbinfo crl
 
 ## Claims issued by Azure Attestation in VBS enclaves
 
