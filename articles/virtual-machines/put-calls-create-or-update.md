@@ -1,6 +1,6 @@
 ---
-title: PUT calls for creation or updates on compute resources
-description: PUT calls for creation / updates on compute resources require blank instead of null value
+title: PUT calls for create or update operations
+description: PUT calls for create or update operations on compute resources 
 author: mimckitt
 ms.author: mimckitt
 ms.reviewer: cynthn
