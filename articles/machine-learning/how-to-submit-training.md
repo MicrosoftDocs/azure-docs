@@ -8,7 +8,7 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 08/26/2020
+ms.date: 08/28/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
 ---
@@ -46,25 +46,15 @@ Azure Machine Learning [environments](concept-environments.md) are an encapsulat
 
 Environments are specified in the  `run_config` object inside a `ScriptRunConfig`.
 
-## What compute targets can I use?
-
-Submit your training experiment to any of these compute resources:
-
-* Local computer
-* [Azure Machine Learning compute cluster](how-to-create-attach-compute-sdk.md#amlcompute)
-* [Azure Machine Learning compute instance](how-to-create-attach-compute-sdk.md#instance) 
-* [Remote VM](how-to-create-attach-compute-sdk.md#vm) 
-* [Azure&nbsp;Databricks](how-to-create-attach-compute-sdk.md#databricks)
-
 ## <a id="submit"></a>Train your model
 
 The code pattern to submit a training run is the same for all types of compute targets:
 
-1. Create an experiment to run.
-1. Create an environment where the script will run.
+1. Create an experiment to run
+1. Create an environment where the script will run
 1. Create a script run configuration, which references the compute target and environment
-1. Submit the run.
-1. Wait for the run to complete.
+1. Submit the run
+1. Wait for the run to complete
 
 Or you can:
 
@@ -86,7 +76,7 @@ experiment = Experiment(workspace=ws, name=experiment_name)
 
 ## Create an environment
 
-Curated environments contain collections of Python packages and are available in your workspace by default. These environments are backed by cached Docker images which reduces the run preparation cost. You can use one of these popular curated environments to start with: 
+Curated environments contain collections of Python packages and are available in your workspace by default. These environments are backed by cached Docker images which reduces the run preparation cost. For a remote compute target, you can use one of these popular curated environments to start with:
 
 ```python
 from azureml.core import Workspace, Environment
