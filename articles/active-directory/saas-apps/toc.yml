@@ -1376,8 +1376,6 @@
         href: robin-tutorial.md
       - name: RStudio Connect
         href: rstudio-connect-tutorial.md
-      - name: RStudio Server Pro
-        href: rstudio-server-pro-tutorial.md
       - name: RolePoint
         href: rolepoint-tutorial.md
       - name: Rollbar
