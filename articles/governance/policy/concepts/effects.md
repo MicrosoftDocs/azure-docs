@@ -619,7 +619,7 @@ The following operations are supported by Modify:
 - Add or replace the values of certain aliases (preview).
   - Use
     `Get-AzPolicyAlias | Select-Object -ExpandProperty 'Aliases' | Where-Object { $_.DefaultMetadata.Attributes -eq 'Modifiable' }`
-    in Azure PowerShell to get a list of aliases that can be used with Modify.
+    in Azure PowerShell **4.6.0** or higher to get a list of aliases that can be used with Modify.
 
 > [!IMPORTANT]
 > If you're managing tags, it's recommended to use Modify instead of Append as Modify provides
