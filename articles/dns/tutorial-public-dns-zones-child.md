@@ -60,7 +60,7 @@ In this step, we will create a new child DNS zone with name **subdomain.contoso.
 It may take a few minutes to create the zone.
 
  
-    :::image type="content" source="./media/dns-delegate-domain-azure-dns/create-dns-zone.png" alt-text="Screenshot of the create DNS zone page." lightbox="./media/dns-delegate-domain-azure-dns/create-dns-zone-lb.png":::
+    :::image type="content" source="./media/dns-delegate-domain-azure-dns/create-dns-zone-inline.png" alt-text="Screenshot of the create DNS zone page." lightbox="./media/dns-delegate-domain-azure-dns/create-dns-zone-expanded.png":::
 
 ## Create child DNS zone via parent DNS zone overview page
 You can also create a new child DNS zone and delegate it into the parent DNS zone by using the **Child Zone** button from parent zone overview page. Using this button automatically pre-populates the parent parameters for the child zone automatically. 
@@ -75,7 +75,7 @@ You can also create a new child DNS zone and delegate it into the parent DNS zon
 1.	Select **Next: Tags** and then **Next: Review + create**.
 1.	On the **Review + create** tab, review the summary, correct any validation errors, and then select **Create**.
 
-    :::image type="content" source="./media/dns-delegate-domain-azure-dns/create-dns-zone-child.png" alt-text="Screenshot of child zone selected" border="true":::
+    :::image type="content" source="./media/dns-delegate-domain-azure-dns/create-dns-zone-child-inline.png" alt-text="Screenshot of child zone selected" border="true"  lightbox="./media/dns-delegate-domain-azure-dns/create-dns-zone-child-expanded.png":::
 ## Verify child DNS zone
 Now that you have a new child DNS zone *subdomain.contoso.com* created. To verify that delegation happened correctly, you will want to check the nameserver(NS) records for your child zone is in the parent zone as described below.  
 
@@ -84,7 +84,7 @@ Now that you have a new child DNS zone *subdomain.contoso.com* created. To verif
 1.	In the Azure portal, under **All resources**, open the *subdomain.contoso.com* DNS zone in the **MyResourceGroup** resource group. You can enter *subdomain.contoso.com* in the **Filter by name** box to find it more easily.
 1.	Retrieve the name servers from the DNS zone overview page. In this example, the zone contoso.com has been assigned name servers *ns1-08.azure-dns.com, ns2-08.azure-dns.net, ns3-08.azure-dns.org*, and *ns4-08.azure-dns.info*:
 
-      :::image type="content" source="./media/dns-delegate-domain-azure-dns/create-child-zone-ns.png" alt-text="Screenshot of child zone nameservers" border="true":::
+      :::image type="content" source="./media/dns-delegate-domain-azure-dns/create-child-zone-ns-inline.png" alt-text="Screenshot of child zone nameservers" border="true" lightbox="./media/dns-delegate-domain-azure-dns/create-child-zone-ns-expanded.png":::
 **Verify the NS record in parent DNS zone:**
 
 Now in this step we go the parent DNS zone *contoso.com* and check that its NS record set entry for the child zones nameservers has been created.
@@ -93,7 +93,7 @@ Now in this step we go the parent DNS zone *contoso.com* and check that its NS r
 1.	On the *contoso.com* DNS zones overview page, check for the record sets.
 1.	You will find that record set of type NS and name subdomain is already created in parent DNS zone. Check the values for this record set it is similar to the nameserver list we retrieved from child DNS zone in above step.
 
-     :::image type="content" source="./media/dns-delegate-domain-azure-dns/create-child-zone-ns-validate.png" alt-text="Screenshot of Child zone nameservers validation" border="true":::
+     :::image type="content" source="./media/dns-delegate-domain-azure-dns/create-child-zone-ns-validate-inline.png" alt-text="Screenshot of Child zone nameservers validation" border="true" lightbox="./media/dns-delegate-domain-azure-dns/create-child-zone-ns-validate-expanded.png":::
 ## Clean up resources
 When you no longer need the resources you created in this tutorial, remove them by deleting the **MyResourceGroup** resource group. Open the **MyResourceGroup** resource group, and select **Delete resource group**.
 
