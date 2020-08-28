@@ -20,7 +20,7 @@ This article explains two common ways to back up and restore databases in your A
 To step through this how-to guide, you need to have:
 - [Create Azure Database for MySQL server - Azure portal](quickstart-create-mysql-server-database-using-azure-portal.md)
 - [mysqldump](https://dev.mysql.com/doc/refman/5.7/en/mysqldump.html) command-line utility installed on a machine.
-- MySQL Workbench [MySQL Workbench Download](https://dev.mysql.com/downloads/workbench/) or another third-party MySQL tool to do dump and restore commands.
+- [MySQL Workbench](https://dev.mysql.com/downloads/workbench/) or another third-party MySQL tool to do dump and restore commands.
 
 > [!TIP]
 > If you are looking to migrate large databases with database sizes more than 1 TBs, you may want to consider using community tools like **mydumper/myloader** which supports parallel export and import. Learn [How to migrate large MySQL databases](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/best-practices-for-migrating-large-databases-to-azure-database/ba-p/1362699).
@@ -28,15 +28,17 @@ To step through this how-to guide, you need to have:
 ## Common use-cases for dump and restore
 You may use MySQL utilities such as **mysqldump** and **mysqlpump** to dump and load databases into an Azure MySQL Database in several common scenarios. In other scenarios, you may use the [Import and Export](concepts-migrate-import-export.md) approach instead.
 
-- Use database dumps when you are migrating the entire database. This recommendation holds when moving a large amount of MySQL data, or when you want to minimize service interruption for live sites or applications.
--  Make sure all tables in the database use the InnoDB storage engine when loading data into Azure Database for MySQL. Azure Database for MySQL supports only InnoDB Storage engine, and therefore does not support alternative storage engines. If your tables are configured with other storage engines, convert them into the InnoDB engine format before migration to Azure Database for MySQL.
+- **Use database dumps when you are migrating the entire database**. This recommendation holds when moving a large amount of MySQL data, or when you want to minimize service interruption for live sites or applications.
+-  **Use database dump if all the tables in the database use the InnoDB storage engine**. Azure Database for MySQL supports only InnoDB Storage engine, and therefore does not support alternative storage engines. If your tables are configured with other storage engines, convert them into the InnoDB engine format before migration to Azure Database for MySQL.
 
     For example, if you have a WordPress or WebApp using the MyISAM tables, first convert those tables by migrating into InnoDB format before restoring to Azure Database for MySQL. Use the clause `ENGINE=InnoDB` to set the engine used when creating a new table, then transfer the data into the compatible table before the restore.
 
    ```sql
    INSERT INTO innodb_table SELECT * FROM myisam_table ORDER BY primary_key_columns
    ```
-- To avoid any compatibility issues, ensure the same version of MySQL is used on the source and destination systems when dumping databases. For example, if your existing MySQL server is version 5.7, then you should migrate to Azure Database for MySQL configured to run version 5.7. The `mysql_upgrade` command does not function in an Azure Database for MySQL server, and is not supported. If you need to upgrade across MySQL versions, first dump or export your lower version database into a higher version of MySQL in your own environment. Then run `mysql_upgrade`, before attempting migration into an Azure Database for MySQL.
+> [!Important]
+> - To avoid any compatibility issues, ensure the same version of MySQL is used on the source and destination systems when dumping databases. For example, if your existing MySQL server is version 5.7, then you should migrate to Azure Database for MySQL configured to run version 5.7. The `mysql_upgrade` command does not function in an Azure Database for MySQL server, and is not supported. 
+> - If you need to upgrade across MySQL versions, first dump or export your lower version database into a higher version of MySQL in your own environment. Then run `mysql_upgrade`, before attempting migration into an Azure Database for MySQL.
 
 ## Performance considerations
 To optimize performance, take notice of these considerations when dumping large databases:
