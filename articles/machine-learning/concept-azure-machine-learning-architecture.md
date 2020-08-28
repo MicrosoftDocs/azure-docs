@@ -48,11 +48,11 @@ You can share a workspace with others.
 <a name="compute-targets"></a>
 A [compute target](concept-compute-target.md) is any machine or set of machines you use to run your training script or host your service deployment. You can use your local machine or a remote compute resource as a compute target.  With compute targets, you can start training on your local machine and then scale out to the cloud without changing your training script.
 
-Azure Machine Learning introduces two fully managed cloud-based compute resources that are configured for machine learning tasks:
+Azure Machine Learning introduces two fully managed cloud-based virtual machines (VM) that are configured for machine learning tasks:
 
-* <a name="compute-instance"></a> **Compute instance**: A compute instance is a virtual machine (VM) that includes multiple tools and environments installed for machine learning. The primary use of a compute instance is for your development workstation.  You can start running sample notebooks with no setup required. A compute instance can also be used as a compute target for training and inferencing jobs.
+* <a name="compute-instance"></a> **Compute instance**: A compute instance is a VM that includes multiple tools and environments installed for machine learning. The primary use of a compute instance is for your development workstation.  You can start running sample notebooks with no setup required. A compute instance can also be used as a compute target for training and inferencing jobs.
 
-* **Compute clusters: Compute clusters are better suited for compute targets for large jobs and production. Compute clusters are a cluster of VMs with multi-node scaling capabilities. The cluster scales up automatically when a job is submitted.  Use as a training compute target or for dev/test deployment.
+* **Compute clusters: Compute clusters are a cluster of VMs with multi-node scaling capabilities. Compute clusters are better suited for compute targets for large jobs and production.  The cluster scales up automatically when a job is submitted.  Use as a training compute target or for dev/test deployment.
 
 For more information about training compute targets, see [Training compute targets](concept-compute-target.md#train).  For more information about deployment compute targets, see [Deployment targets](concept-compute-target.md#deploy).
 
