@@ -10,6 +10,7 @@ ms.date: 07/20/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
+ms.custom: devx-track-csharp
 ---
 
 # Specify a customer-provided key on a request to Blob storage with .NET

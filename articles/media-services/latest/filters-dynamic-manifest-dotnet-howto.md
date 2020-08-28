@@ -14,6 +14,7 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 08/11/2020
 ms.author: juliako
+ms.custom: devx-track-csharp
 
 ---
 # Create filters with Media Services .NET SDK

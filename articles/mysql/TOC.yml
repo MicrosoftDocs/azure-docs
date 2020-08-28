@@ -386,20 +386,15 @@
     items:
     - name: What is Flexible Server?
       href: flexible-server/overview.md
-  - name: Concepts
+  - name: Quickstarts
+    expanded: true
     items:
-    - name: Compute and storage
-      href: flexible-server/concepts-compute-storage.md
-    - name: Limitations
-      href: flexible-server/concepts-limitations.md
-    - name: Manage
-      items:
-      - name: Logs and Diagnostics
+      - name: Create Server
         items:
-        - name: Slow query logs
-          href: flexible-server/concepts-slow-query-logs.md
-        - name: Audit logs
-          href: flexible-server/concepts-audit-logs.md
+        - name: Azure portal
+          href: flexible-server/quickstart-create-server-portal.md
+        - name: Azure CLI
+          href: flexible-server/quickstart-create-server-cli.md
 - name: Reference
   items:
   - name: Azure CLI

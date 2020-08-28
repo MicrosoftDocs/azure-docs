@@ -9,6 +9,7 @@ ms.author: maheff
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 08/20/2020
+ms.custom: devx-track-csharp
 ---
 
 # Tutorial: AI-generated searchable content from Azure blobs using the .NET SDK
