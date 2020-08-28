@@ -26,5 +26,5 @@ Electing to make your offer available in the Cloud Solution Provider (CSP) progr
 
 ## Next steps
 
-[How to review and publish an offer](review-publish-offer.md)
+[Test and publish a SaaS offer](test-publish-saas-offer.md)
 [Active marketplace rewards](partner-center-portal/marketplace-rewards.md)
