@@ -172,7 +172,7 @@ To check if you have the correct deep link, follow these steps:
 11. Select the application you want the check the deep link for.
 12. Find the label **User Access URL**. Your deep link should match this URL.
 
-## If these troubleshooting steps don't resolve the issue, contact support
+## Contact support
 Open a support ticket with the following information if available:
 -   Correlation error ID
 -   UPN (user email address)
