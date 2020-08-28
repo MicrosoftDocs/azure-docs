@@ -1,6 +1,6 @@
 ---
-title: PUT calls for creation or updates on Compute Resources
-description: PUT calls for creation / updates on Compute Resources require blank instead of null value
+title: PUT calls for creation or updates on compute resources
+description: PUT calls for creation / updates on compute resources require blank instead of null value
 author: mimckitt
 ms.author: mimckitt
 ms.reviewer: cynthn
@@ -10,7 +10,7 @@ ms.date: 08/4/2020
 ms.custom: avverma
 ---
 
-# PUT calls for creation or updates on Compute resources
+# PUT calls for creation or updates on compute resources
 
 `Microsoft.Compute` resources do not support the conventional definition of *PUT* semantics. Instead, these resources use PATCH semantics.
 
