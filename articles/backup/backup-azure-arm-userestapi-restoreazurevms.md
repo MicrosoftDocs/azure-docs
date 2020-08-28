@@ -22,7 +22,7 @@ GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 
 The `{containerName}` and `{protectedItemName}` are as constructed [here](backup-azure-arm-userestapi-backupazurevms.md#example-responses-to-get-operation). `{fabricName}` is "Azure".
 
-The *GET* URI has all the required parameters. There is no need for an additional request body
+The *GET* URI has all the required parameters. There's no need for an additional request body.
 
 ### Responses
 
@@ -205,7 +205,7 @@ Since the restore job is a long running operation, it should be tracked as expla
 
 ### Restore disks
 
-If there is a need to customize the creation of a VM from the backup data, you can just restore disks into a chosen storage account and create a VM from those disks according to their requirements. The storage account should be in the same region as the Recovery Services vault and shouldn't be zone redundant. The disks, as well as the configuration of the backed-up VM ("vmconfig.json"), will be stored in the given storage account. As explained [above](#restore-operations), the relevant request body for restore disks is provided below.
+If there's a need to customize the creation of a VM from the backup data, you can just restore disks into a chosen storage account and create a VM from those disks according to their requirements. The storage account should be in the same region as the Recovery Services vault and shouldn't be zone redundant. The disks, as well as the configuration of the backed-up VM ("vmconfig.json"), will be stored in the given storage account. As explained [above](#restore-operations), the relevant request body for restore disks is provided below.
 
 #### Create request body
 

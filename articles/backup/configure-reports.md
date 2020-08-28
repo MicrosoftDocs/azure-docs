@@ -103,7 +103,7 @@ Use this tab to gain visibility into potential cost-optimization opportunities f
 
 ###### Inactive Resources
 
-Using this view, you can identify those backup items that haven't had a successful backup for a significant duration of time. This could either mean that the underlying machine that is being backed up doesn't exist anymore (and so is resulting in failed backups), or there's some issue with the machine that is preventing backups from being taken reliably.
+Using this view, you can identify those backup items that haven't had a successful backup for a significant duration of time. This could either mean that the underlying machine that's being backed up doesn't exist anymore (and so is resulting in failed backups), or there's some issue with the machine that's preventing backups from being taken reliably.
 
 To view inactive resources, navigate to the **Optimize** tab, and select the **Inactive Resources** tile. Select this tile displays a grid that contains details of all the inactive resources that exist in the selected scope. By default, the grid shows items that don't have a recovery point in the last seven days. To find inactive resources for a different time range, you can adjust the **Time Range** filter at the top of the tab.
 

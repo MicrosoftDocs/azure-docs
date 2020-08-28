@@ -48,7 +48,7 @@ The Recovery Services vault contains the backup data, and the backup policy appl
 
     ![Recovery Services vault values](./media/tutorial-backup-vm-at-scale/review-and-create.png)
 
-    A Recovery Services vault must be in the same location as the virtual machines being protected. If you have virtual machines in multiple regions, create a Recovery Services vault in each region. This tutorial creates a Recovery Services vault in *West Europe* because that is where *myVM* (the virtual machine created with the quickstart) was created.
+    A Recovery Services vault must be in the same location as the virtual machines being protected. If you have virtual machines in multiple regions, create a Recovery Services vault in each region. This tutorial creates a Recovery Services vault in *West Europe* because that's where *myVM* (the virtual machine created with the quickstart) was created.
 
 1. When you're ready to create the Recovery Services vault, select **Create**.
 
