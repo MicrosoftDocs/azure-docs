@@ -57,12 +57,12 @@ The next five sections show you how to secure the network scenario described abo
 1. Secure the [**workspace and associated resources**](#secure-the-workspace-and-associated-resources).
 1. Secure the [**training environment**](#secure-the-training-environment).
 1. Secure the [**inferencing environment**](#secure-the-inferencing-environment).
-1. Optionally: [**enable studio functionality**](#optional:-enable-studio-functionality).
-1. Set up a **firewall** and **NSGs**
+1. Optionally: [**enable studio functionality**](#optional-enable-studio-functionality).
+1. Configure [**firewall settings**](#configure-firewall-settings) 
 
 ## Secure the workspace and associated resources
 
-**Secure the workspace** > [Secure the training environment](#secure-the-training-environment) > [Secure the inferencing environment](#secure-the-inferencing-environment) > [Enable studio functionality](#optional:-enable-studio-functionality) > [Configure firewall settings](#configure-firewall-settings)
+**Secure the workspace** > [Secure the training environment](#secure-the-training-environment) > [Secure the inferencing environment](#secure-the-inferencing-environment) > [Enable studio functionality]((#optional-enable-studio-functionality)) > [Configure firewall settings](#configure-firewall-settings)
 
 Use the following steps to secure your workspace and associated resources. These steps allow your services to communicate in the virtual network.
 
@@ -84,7 +84,7 @@ Securing your workspace and associated resources within a virtual network have t
 
 ## Secure the training environment
 
-[Secure the workspace](#secure-the-workspace-and-associated-resources) > **Secure the training environment** > [Secure the inferencing environment](#secure-the-inferencing-environment) > [Enable studio functionality](#optional:-enable-studio-functionality) > [Configure firewall settings](#configure-firewall-settings)
+[Secure the workspace](#secure-the-workspace-and-associated-resources) > **Secure the training environment** > [Secure the inferencing environment](#secure-the-inferencing-environment) > [Enable studio functionality]((#optional-enable-studio-functionality)) > [Configure firewall settings](#configure-firewall-settings)
 
 In this section, you learn how to secure a training environment in Azure Machine Learning. You also walkthrough how Azure Machine Learning completes a training job to understand how the network configurations work together.
 
@@ -122,7 +122,7 @@ In this section, you learn how Azure Machine Learning securely communicates betw
 
 ## Secure the inferencing environment
 
-[Secure the workspace](#secure-the-workspace-and-associated-resources) > [Secure the training environment](#secure-the-training-environment) > **Secure the inferencing environment** > [Enable studio functionality](#optional:-enable-studio-functionality) > [Configure firewall settings](#configure-firewall-settings)
+[Secure the workspace](#secure-the-workspace-and-associated-resources) > [Secure the training environment](#secure-the-training-environment) > **Secure the inferencing environment** > [Enable studio functionality]((#optional-enable-studio-functionality) > [Configure firewall settings](#configure-firewall-settings)
 
 In this section, you learn the options available for securing an inferencing environment. We recommend that you use Azure Kubernetes Services (AKS) clusters for high-scale, production deployments.
 
@@ -163,7 +163,7 @@ To enable full functionality in the studio, you must [configure datastores to us
 
 ## Configure firewall settings
 
-[Secure the workspace](#secure-the-workspace-and-associated-resources) > [Secure the training environment](#secure-the-training-environment) > [Secure the inferencing environment](#secure-the-inferencing-environment) > [Enable studio functionality](#optional:-enable-studio-functionality) > **Configure firewall settings**
+[Secure the workspace](#secure-the-workspace-and-associated-resources) > [Secure the training environment](#secure-the-training-environment) > [Secure the inferencing environment](#secure-the-inferencing-environment) > [Enable studio functionality](#optional-enable-studio-functionality) > **Configure firewall settings**
 
 Use NSGs and firewalls to limit inbound and outbound traffic. When using a VNet, you must configure your NSG to allow inbound communication from Azure Batch services so that your compute resources can receive jobs.
 

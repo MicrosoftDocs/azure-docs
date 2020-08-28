@@ -136,7 +136,7 @@ To use an Azure storage account for the workspace in a virtual network, use the 
 
 ## Secure datastores and datasets
 
-In this section you learn how to use datastore and dataset usage for the SDK experience in a virtual network. For more information on the studio experience, see [Use Azure Machine Learning studio in a virtual network](how-to-enable-virtual-network-studio.md).
+In this section you learn how to use datastore and dataset usage for the SDK experience in a virtual network. For more information on the studio experience, see [Use Azure Machine Learning studio in a virtual network](how-to-enable-studio-virtual-network.md).
 
 ### Disable data validation
 

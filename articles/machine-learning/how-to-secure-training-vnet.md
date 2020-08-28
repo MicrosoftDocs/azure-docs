@@ -1,7 +1,7 @@
 ---
-title: Virtual network access to Azure Machine Learning studio
+title: Secure training environments with virtual networks
 titleSuffix: Azure Machine Learning
-description: Use Azure Machine Learning studio to access data stored inside of a virtual network.
+description:  Use an isolated Azure Virtual Network to secure your Azure Machine Learning training environment.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -15,10 +15,14 @@ ms.custom: contperfq4, tracking-python
 
 ---
 
-# Use Azure Machine Learning studio in an Azure virtual network
+# Secure an Azure Machine Learning training environment with virtual networks
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-In this article, you learn how to use Azure Machine Learning studio to access data stored inside of a virtual network.
+In this article, you learn how to secure training environments with a virtual network in Azure Machine Learning.
+
+This article is part three of a four-part series that walks you through securing a virtual network. See the other articles in this series:
+
+[1. VNet overview](how-to-network-security-overview.md) > [Secure the workspace](how-to-secure-workspace-vnet.md) > **3. Secure the training environment** > [4. Secure the inferencing environment](how-to-secure-inferencing-vnet.md) 
 
 ## Prerequisites
 
