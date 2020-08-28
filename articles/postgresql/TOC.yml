@@ -25,18 +25,18 @@
     items:
     - name: Create Server and Database
       items:
-      - name: Create Server - portal
+      - name: Azure portal
         href: quickstart-create-server-database-portal.md
         displayName: create single server,portal
-      - name: Create Server - Azure CLI
+      - name: Azure CLI
         href: quickstart-create-server-database-azure-cli.md
         displayName: create single server in CLI
-      - name: Create Server - Azure CLI up command
+      - name: Azure CLI up command
         href: quickstart-create-server-up-azure-cli.md
         displayName: create single server up command
-      - name: Create Server - Azure PowerShell
+      - name: Azure PowerShell
         href: quickstart-create-postgresql-server-database-using-azure-powershell.md
-      - name: Create Server - ARM template
+      - name: ARM template
         href: quickstart-create-postgresql-server-database-using-arm-template.md
         displayName: deploy azure resource manager template
     - name: Connect & query
@@ -370,6 +370,8 @@
         href: howto-move-regions-portal.md
 - name: Flexible server (Preview)
   items:
+  - name: Documentation
+    href: flexible-server/index.yml
   - name: Quickstarts
     items:
     - name: Create Server and Database
@@ -394,7 +396,7 @@
     href: hyperscale/index.yml
   - name: Quickstarts
     items:
-    - name: Create Server Group - portal
+    - name: Create Server Group - Azure portal
       href: quickstart-create-hyperscale-portal.md
       displayName: portal, create hyperscale
   - name: Tutorials
