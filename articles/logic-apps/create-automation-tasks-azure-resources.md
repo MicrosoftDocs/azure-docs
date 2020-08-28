@@ -30,7 +30,7 @@ This article shows how to complete the following tasks:
 
 * Create an automation task for a specific Azure resource.
 
-* Review the status, history, inputs, and outputs for a specific run instance.
+* Review the run status, inputs, outputs, and other historical information for each finished task.
 
 * Open and edit the task template in the Logic App Designer.
 
@@ -83,9 +83,26 @@ while [Azure Automation](../automation/automation-intro.md) is a cloud-based aut
 
    ![Screenshot that shows the required information for the selected task](./media/create-automation-tasks-azure-resources/provide-task-information.png)
 
-   After creation, the task is automatically live and starts running immediately.
+   The task that you created, which is automatically live and running, now appears on the **Automation tasks** list.
+
+   ![Screenshot that shows the automation tasks list](./media/create-automation-tasks-azure-resources/automation-tasks-list.png)
+
+   > [!TIP]
+   > If the task doesn't appear, try refreshing the tasks list. On the toolbar, select **Refresh**.
 
 ## Review the task status and history
+
+To view the run status, inputs, outputs, and other historical information for each finished task, follow these steps:
+
+1. In the [Azure portal](https://portal.azure.com), find the resource that has the finished tasks that you want to review.
+
+1. On the resource's menu, under **Settings**, select **Automation tasks**.
+
+1. In the tasks list, find the task that you want to review. In the **Runs** column for that task, select **View**.
+
+   ![Screenshot that shows the task to review and the selected "View" option](./media/create-automation-tasks-azure-resources/view-runs-for-task.png)
+
+   
 
 ## Customize the task
 
