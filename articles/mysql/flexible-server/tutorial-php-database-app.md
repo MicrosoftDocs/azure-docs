@@ -134,13 +134,25 @@ Navigate to `http://localhost:8000` in a browser. Add a few tasks in the page.
 
 To stop PHP, type `Ctrl + C` in the terminal.
 
-### Create a MySQL Flexible Server (Preview)
-In this step, you create a MySQL database in [Azure Database for MySQL](/azure/mysql). Later, you configure the PHP application to connect to this database. In the [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), create a server in Azure Database for MySQL with the [`az flexible-server create`](/cli/azure/mysql/server?view=azure-cli-latest#az-mysql-flexible-server-create) command.
+## Create a MySQL Flexible Server (Preview)
+In this step, you create a MySQL database in [Azure Database for MySQL Flexible Server](/azure/mysql) which is in public preview. Later, you configure the PHP application to connect to this database. In the [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), create a server in with the [`az flexible-server create`](/cli/azure/mysql/server?view=azure-cli-latest#az-mysql-flexible-server-create) command.
 
 ```azurecli-interactive
 az mysql flexible-server create  --resource-group myResourceGroup --public-access <IP-Address>
 ```
-JSON output will show you all the server properties being configured.Make a note of the servername and connection string to be able to connect to the server in the next step.
+
+JSON output will show you all the server properties being configured. 
+
+> [!Important]
+> - Make a note of the **servername** and **connection string** to use it in the next step to connect and run laravel data migration.
+> - For <IP-address> , provide the IP of your client machine. The server is locked when created and you need to permit access to your client machine to manage the server locally.
+
+### Configure server firewall
+In the Cloud Shell, create a firewall rule for your MySQL server to allow client connections by using the az mysql server firewall-rule create command. When both starting IP and end IP are set to 0.0.0.0, the firewall is only opened for other Azure services that do not have a static IP to connect to the server.
+
+```azurecli
+az mysql flexible-server firewall-rule create --name allanyAzureIPs --server <mysql-server-name> --resource-group myResourceGroup --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
+```
 
 ### Connect to production MySQL server locally
 
@@ -173,7 +185,7 @@ Exit the server connection by typing `quit`.
 quit
 ```
 
-## Connect app to Azure MySQL
+## Connect app to MySQL flexible server
 
 In this step, you connect the PHP application to the MySQL database you created in Azure Database for MySQL.
 
