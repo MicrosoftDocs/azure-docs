@@ -232,3 +232,7 @@ Remove-AzResourceGroup -Name ExampleResourceGroup
 az group delete --name ExampleResourceGroup
 ```
 ----
+
+## Next Steps 
+- [Migrate datab using dump and restore](howto-migrate-using-dump-and-restore.md)
+- [Migrate data using import and export](howto-migrate-using-export-and-import.md)
