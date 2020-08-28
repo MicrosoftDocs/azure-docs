@@ -57,9 +57,11 @@ Start your co-sell journey directly in Partner Center, following the steps below
 
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
 1. On the left pane, select **Commercial Marketplace** > **Overview**, then select the offer that you want to co-sell.
+
     > [!NOTE]
     > You can apply for the co-sell program with a new offer not yet published, or with an already published offer.
-3. In the menu on the left, select **Co-sell with Microsoft**.
+
+1. In the menu on the left, select **Co-sell with Microsoft**.
 1. Provide details about your offer and upload collaterals in the **Document** section. Microsoft sellers will use this information to recommend and sell your offer.
 1. Upload sales contact information in the **Contacts** section. Microsoft sellers may reach out to these contacts to request additional information about your offer.
 1. Save the draft before you continue.
