@@ -15,7 +15,7 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 08/25/2020
+ms.date: 08/28/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -87,6 +87,7 @@ For information on integration of Azure services into SAP components, see:
 
 ## Change Log
 
+- 08/28/2020: Change in [HA for SAP NW on Azure VMs on RHEL with ANF](./high-availability-guide-rhel-netapp-files.md) to fix typo
 - 08/25/2020: Change in [HA guide for SAP ASCS/SCS with WSFC and shared disk](./sap-high-availability-guide-wsfc-shared-disk.md), [Prepare Azure infrastructure for SAP ASCS/SCS with WSFC and shared disk](./sap-high-availability-infrastructure-wsfc-shared-disk.md) and [Install SAP NW HA with WSFC and shared disk](./sap-high-availability-guide-wsfc-shared-disk.md) to introduce the option of using Azure shared disk and document SAP ERS2 architecture
 - 08/25/2020: Release of [multi-SID HA guide for SAP ASCS/SCS with WSFC and Azure shared disk](./sap-ascs-ha-multi-sid-wsfc-azure-shared-disk.md)
 - 08/25/2020: Change in [HA guide for SAP ASCS/SCS with WSFC and Azure NetApp Files(SMB)](./high-availability-guide-windows-netapp-files-smb.md), [Prepare Azure infrastructure for SAP ASCS/SCS with WSFC and file share](./sap-high-availability-infrastructure-wsfc-file-share.md), [multi-SID HA guide for SAP ASCS/SCS with WSFC and shared disk](./sap-ascs-ha-multi-sid-wsfc-shared-disk.md) and [multi-SID HA guide for SAP ASCS/SCS with WSFC and SOFS file share](./sap-ascs-ha-multi-sid-wsfc-file-share.md) as a result of the content updates and restructuring in the HA guides for SAP ASCS/SCS with WFC and shared disk 
