@@ -27,7 +27,8 @@ We'll walk through the following advanced queries:
 - [Combine results from two queries into a single result](#unionresults)
 - [Include the tenant and subscription names with DisplayNames](#displaynames)
 - [Summarize virtual machine by the power states extended property](#vm-powerstate)
-- [Count of non-compliant Guest Configuration assignments by reason](#count-gcnoncompliant)
+- [Count of non-compliant Guest Configuration assignments](#count-gcnoncompliant)
+- [Query details of Guest Configuration assignment reports](#query-gcreports)
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free)
 before you begin.
@@ -595,7 +596,36 @@ Search-AzGraph -Query "Resources | where type == 'microsoft.compute/virtualmachi
 
 ---
 
-## <a name="count-gcnoncompliant"></a>Count of non-compliant Guest Configuration assignments by reason
+## <a name="displaynames"></a>Include the tenant and subscription names with DisplayNames
+
+This query uses the **Include** parameter with option _DisplayNames_ to add
+**subscriptionDisplayName** and **tenantDisplayName** to the results. This parameter is only
+available for Azure CLI and Azure PowerShell.
+
+```azurecli-interactive
+az graph query -q "limit 1" --include displayNames
+```
+
+```azurepowershell-interactive
+Search-AzGraph -Query "limit 1" -Include DisplayNames
+```
+
+An alternative to getting the subscription name is to use the `join` operator and connect to the
+**ResourceContainers** table and the `Microsoft.Resources/subscriptions` type. `join` works in Azure
+CLI, Azure PowerShell, portal, and all supported SDK. For an example, see
+[Sample - Key vault with subscription name](#join).
+
+> [!NOTE]
+> If the query doesn't use **project** to specify the returned properties,
+> **subscriptionDisplayName** and **tenantDisplayName** are automatically included in the results.
+> If the query does use **project**, each of the _DisplayName_ fields must be explicitly included in
+> the **project** or they won't be returned in the results, even when the **Include** parameter is
+> used. The **Include** parameter doesn't work with
+> [tables](../concepts/query-language.md#resource-graph-tables).
+
+---
+
+## <a name="count-gcnoncompliant"></a>Count of non-compliant Guest Configuration assignments
 
 Displays a count of non-compliant machines per [Guest Configuration assignment reason](../../policy/how-to/determine-non-compliance#compliance-details-for-guest-configuration). Limits results to first 100 for performance.
 
@@ -636,32 +666,46 @@ Search-AzGraph -Query "GuestConfigurationResources | extend vmid = split(propert
 
 ---
 
-## <a name="displaynames"></a>Include the tenant and subscription names with DisplayNames
+## <a name="query-gcreports"></a>Query details of Guest Configuration assignment reports
 
-This query uses the **Include** parameter with option _DisplayNames_ to add
-**subscriptionDisplayName** and **tenantDisplayName** to the results. This parameter is only
-available for Azure CLI and Azure PowerShell.
+Display report from [Guest Configuration assignment reason](../../policy/how-to/determine-non-compliance#compliance-details-for-guest-configuration) details that match a string.
+In the example below,
+the query returns only results where the Guest Assignment name
+is `installed_application_linux` and the output contains the string `Python`
+to list all Linux machines where a package is installed that includes the name **Python**.
+
+```kusto
+GuestConfigurationResources
+| extend vmid = split(properties.targetResourceId,'/')
+| mvexpand properties.latestAssignmentReport.resources
+| mvexpand properties_latestAssignmentReport_resources.reasons
+| where name in ('installed_application_linux')
+| where properties_latestAssignmentReport_resources_reasons.phrase contains 'Python'
+| project machine = tostring(vmid[(-1)]),
+    type = tostring(vmid[(-3)]),
+    name,
+    status = tostring(properties.complianceStatus),
+    resource = tostring(properties_latestAssignmentReport_resources.resourceId),
+    phrase = tostring(properties_latestAssignmentReport_resources_reasons.phrase)
+```
+
+# [Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
-az graph query -q "limit 1" --include displayNames
+az graph query -q "GuestConfigurationResources | extend vmid = split(properties.targetResourceId,'/') | mvexpand properties.latestAssignmentReport.resources | mvexpand properties_latestAssignmentReport_resources.reasons | where name in ('installed_application_linux') | where properties_latestAssignmentReport_resources_reasons.phrase contains 'Python' | project machine = tostring(vmid[(-1)]), type = tostring(vmid[(-3)]), name, status = tostring(properties.complianceStatus), resource = tostring(properties_latestAssignmentReport_resources.resourceId), phrase = tostring (properties_latestAssignmentReport_resources_reasons.phrase)"
 ```
+
+# [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
-Search-AzGraph -Query "limit 1" -Include DisplayNames
+Search-AzGraph -Query "GuestConfigurationResources | extend vmid = split(properties.targetResourceId,'/') | mvexpand properties.latestAssignmentReport.resources | mvexpand properties_latestAssignmentReport_resources.reasons | where name in ('installed_application_linux') | where properties_latestAssignmentReport_resources_reasons.phrase contains 'Python' | project machine = tostring(vmid[(-1)]), type = tostring(vmid[(-3)]), name, status = tostring(properties.complianceStatus), resource = tostring(properties_latestAssignmentReport_resources.resourceId), phrase = tostring (properties_latestAssignmentReport_resources_reasons.phrase)"
 ```
 
-An alternative to getting the subscription name is to use the `join` operator and connect to the
-**ResourceContainers** table and the `Microsoft.Resources/subscriptions` type. `join` works in Azure
-CLI, Azure PowerShell, portal, and all supported SDK. For an example, see
-[Sample - Key vault with subscription name](#join).
+# [Portal](#tab/azure-portal)
 
-> [!NOTE]
-> If the query doesn't use **project** to specify the returned properties,
-> **subscriptionDisplayName** and **tenantDisplayName** are automatically included in the results.
-> If the query does use **project**, each of the _DisplayName_ fields must be explicitly included in
-> the **project** or they won't be returned in the results, even when the **Include** parameter is
-> used. The **Include** parameter doesn't work with
-> [tables](../concepts/query-language.md#resource-graph-tables).
+:::image type="icon" source="../media/resource-graph-small.png"::: Try this query in Azure Resource Graph Explorer:
+
+- Azure portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/GuestConfigurationResources%20%7C%20extend%20vmid%20%3D%20split(properties.targetResourceId%2C'%2F')%20%7C%20mvexpand%20properties.latestAssignmentReport.resources%20%7C%20mvexpand%20properties_latestAssignmentReport_resources.reasons%20%7C%20where%20name%20in%20('installed_application_linux')%20%7C%20where%20properties_latestAssignmentReport_resources_reasons.phrase%20contains%20'Python'%20%7C%20project%20machine%20%3D%20tostring(vmid%5B(-1)%5D)%2C%20type%20%3D%20tostring(vmid%5B(-3)%5D)%2C%20name%2C%20status%20%3D%20tostring(properties.complianceStatus)%2C%20resource%20%3D%20tostring(properties_latestAssignmentReport_resources.resourceId)%2C%20phrase%20%3D%20tostring%20(properties_latestAssignmentReport_resources_reasons.phrase)" target="_blank">portal.azure.com <span class="docon docon-navigate-external x-hidden-focus"></span></a>
 
 ## Next steps
 
