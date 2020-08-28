@@ -171,7 +171,7 @@ Models are not necessarily returned in exactly the document form they were uploa
 
 Once a model is uploaded to your instance, the entire model interface is immutable. This means there is no traditional "editing" of models.
 
-Instead, if you want to make changes to a model in Azure Digital Twins, such as changing the `DisplayName` or `Description`, the way to do this is to upload a **newer version** of the same model. This will override the original model.
+Instead, if you want to make changes to a model in Azure Digital Twins, the way to do this is to upload a **newer version** of the same model.
 
 To do this, start with the DTDL of the original model. Update whatever fields you would like to change.
 
