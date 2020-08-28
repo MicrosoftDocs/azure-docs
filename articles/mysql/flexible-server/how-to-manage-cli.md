@@ -44,7 +44,7 @@ Here are the details for arguments above :
 ---|---|---
 name | mydemoserver | Enter a unique name for your Azure Database for MySQL server. The server name can contain only lowercase letters, numbers, and the hyphen (-) character. It must contain from 3 to 63 characters.
 resource-group | myresourcegroup | Provide the name of the Azure resource group.
-sku-name|GP_Gen5_2|Enter the name of the pricing tier and compute configuration. Follows the convention {pricing tier}_{compute generation}_{vCores} in shorthand. See the [pricing tiers](../concepts-pricing-tiers.md) for more information.
+sku-name|Standard_D4ds_v4|Enter the name of the compute tier and size. Follows the convention Standard_{VM size} in shorthand. See the [pricing tiers](../concepts-pricing-tiers.md) for more information.
 storage-size | 6144 | The storage capacity of the server (unit is megabytes). Minimum 5120 and increases in 1024 increments.
 
 > [!Important]
