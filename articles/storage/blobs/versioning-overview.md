@@ -213,11 +213,11 @@ For more information about billing details for blob snapshots, see [Blob snapsho
 
 If you have not explicitly set the blob tier for a base blob or any of its versions, then you are charged for unique blocks or pages across the blob and its versions. Data that is shared across a blob and its versions is charged only once. When a blob is updated, then data in a base blob diverges from the data stored in its versions, and the unique data is charged per block or page.
 
-When you replace a block within a block blob, that block is subsequently charged as a unique block. This is true even if the block has the same block ID and the same data as it has in the version. After the block is committed again, it diverges from its counterpart in any existing version, and you will be charged for its data. The same holds true for a page in a page blob that's updated with identical data.
+When you replace a block within a block blob, that block is subsequently charged as a unique block. This is true even if the block has the same block ID and the same data as it has in the previous version. After the block is committed again, it diverges from its counterpart in the previous version, and you will be charged for its data. The same holds true for a page in a page blob that's updated with identical data.
 
-Blob storage does not have a means to determine whether two blocks contain identical data. Each block that is uploaded and committed is treated as unique, even if it has the same data and the same block ID. Because charges accrue for unique blocks, it's important to consider that updating a blob when versioning is enabled will result in additional unique blocks and additional charges.
+Blob storage does not have a means to determine whether two blocks contain identical data. Each block that is uploaded and committed is treated as unique, even if it has the same data and the same block ID. Because charges accrue for unique blocks, it's important to keep in mind that updating a blob when versioning is enabled will result in additional unique blocks and additional charges.
 
-When blob versioning is enabled, design update operations on block blobs so that they update the least possible number of blocks. The write operations that permit fine-grained control over blocks are [Put Block](/rest/api/storageservices/put-block) and [Put Block List](/rest/api/storageservices/put-block-list). The [Put Blob](/rest/api/storageservices/put-blob) operation, on the other hand, replaces the entire contents of a blob and so may lead to additional charges.
+When blob versioning is enabled, call update operations on block blobs so that they update the least possible number of blocks. The write operations that permit fine-grained control over blocks are [Put Block](/rest/api/storageservices/put-block) and [Put Block List](/rest/api/storageservices/put-block-list). The [Put Blob](/rest/api/storageservices/put-blob) operation, on the other hand, replaces the entire contents of a blob and so may lead to additional charges.
 
 The following scenarios demonstrate how charges accrue for a block blob and its versions when the blob tier has not been explicitly set.
 
@@ -247,7 +247,7 @@ In scenario 4, the base blob has been completely updated and contains none of it
 
 ### Billing when the blob tier has been explicitly set
 
-If you have explicitly set the blob tier for a blob or version (or snapshot), then you are charged for full content length of the object in the new tier, regardless of whether it shares blocks with an object in the original tier. Any objects that remain in the original tier are charged for unique blocks that they may share, as described in [Billing when the blob tier has not been explicitly set](#billing-when-the-blob-tier-has-not-been-explicitly-set).
+If you have explicitly set the blob tier for a blob or version (or snapshot), then you are charged for the full content length of the object in the new tier, regardless of whether it shares blocks with an object in the original tier. You are also charged for the full content length of the oldest version in the original tier. Any other previous versions or snapshots that remain in the original tier are charged for unique blocks that they may share, as described in [Billing when the blob tier has not been explicitly set](#billing-when-the-blob-tier-has-not-been-explicitly-set).
 
 #### Moving a blob to a new tier
 
@@ -272,7 +272,7 @@ Operations that explicitly set the tier of a blob, version, or snapshot include:
 
 #### Deleting a blob when soft delete is enabled
 
-If you delete or overwrite a base blob that has had its tier explicitly set when blob soft delete is enabled, then any previous versions of the soft-deleted blob are billed at full content length. For more information about how blob versioning and soft delete work together, see [Blob versioning and soft delete](#blob-versioning-and-soft-delete).
+When blob soft delete is enabled, if you delete or overwrite a base blob that has had its tier explicitly set, then any previous versions of the soft-deleted blob are billed at full content length. For more information about how blob versioning and soft delete work together, see [Blob versioning and soft delete](#blob-versioning-and-soft-delete).
 
 The following table describes the billing behavior for a blob that is soft-deleted, depending on whether versioning is enabled or disabled. When versioning is enabled, a version is created when a blob is soft-deleted. When versioning is disabled, soft-deleting a blob creates a soft-delete snapshot.
 
