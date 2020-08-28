@@ -41,7 +41,11 @@
     - name: Security overview
       href: azure-stack-edge-security.md 
     - name: Review specifications
-      href: azure-stack-edge-gpu-technical-specifications-compliance.md 
+      items:
+      - name: Device specifications
+        href: azure-stack-edge-gpu-technical-specifications-compliance.md
+      - name: Power cord specifications
+        href: azure-stack-edge-technical-specifications-power-cords-regional.md
     - name: Understand Kubernetes
       items:
       - name: What is Kubernetes?
