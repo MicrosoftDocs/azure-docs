@@ -10,28 +10,30 @@ ms.date: 9/21/2020
 
 # Create and manage firewall rules for Azure Database for MySQL - Flexible Server using the Azure Portal
 
-Azure Database for MySQL Flexible Server supports two type of mutually exclusive network connectivity methods to connect to your flexible server. The two options are:
+> [!IMPORTANT]
+> Azure Database for MySQL Flexible Server is currently in public preview
+
+Azure Database for MySQL Flexible Server supports two types of mutually exclusive network connectivity methods to connect to your flexible server. The two options are:
 
 1. Public access (allowed IP addresses)
 2. Private access (VNet Integration)
 
-With *Public access (allowed IP addresses)*, the connections to the MySQL server is restricted to allowed IP addresses only. The client IP addresses needs to be allowed in firewall rules. To learn more about it, refer to [Public access (allowed IP addresses)](./concept-networking-public-access.md). The firewall rules can be defined at the time of server creation (recommended) but can be added later as well. In this article, we will provide an overview on how to create and manage firewall rules using public access (allowed IP addresses).
+In this article, we will focus on creation of MySQL server with **Public access (allowed IP addresses)** using Azure Portal and will provide an overview of managing firewall rules after creation of flexible server. With *Public access (allowed IP addresses)*, the connections to the MySQL server is restricted to allowed IP addresses only. The client IP addresses needs to be allowed in firewall rules. To learn more about it, refer to [Public access (allowed IP addresses)](./concept-networking-public-access.md). The firewall rules can be defined at the time of server creation (recommended) but can be added later as well. In this article, we will provide an overview on how to create and manage firewall rules using public access (allowed IP addresses).
 
-> [!IMPORTANT]
-> Azure Database for MySQL Flexible Server is currently in public preview
-
-## Create a firewall rule in the Azure portal during flexible server create
+## Create a firewall rule when creating a server
 
 1. Follow [use the Azure Portal to create an Azure Database for MySQL Flexible Server](./quickstart-create-server-portal.md) to create the server.
 2. Go to the **Networking** tab to configure how you want to connect to your server.
 
    On the Networking tab, you can choose how your server will be reachable. Azure Database for MySQL Flexible Server creates a firewall at the server level. It prevents external applications and tools from connecting to the server and any databases on the server, unless you create a rule to open the firewall for specific IP addresses.
 3. In the **Connectivity-method**, select *Public access (allowed IP addresses)*. To create the firewall rules, specify the Firewall rule name and single IP address, or a range of addresses. If you want to limit the rule to a single IP address, type the same address in the field for Start IP address and End IP address. Opening the firewall enables administrators, users, and applications to access any database on the MySQL server to which they have valid credentials.
-4. Select Review + create to review your flexible server configuration.
-5. Select Create to provision the server. Provisioning can take a few minutes.
-6. Please note that firewall rules can also be added after server create. Please refer to below section to learn how to configure firewall rules after creating the server.
+4. Select **Review + create** to review your flexible server configuration.
+5. Select **Create** to provision the server. Provisioning can take a few minutes.
 
-## Create a firewall rule in the Azure portal after flexible server is created
+>[!Note]
+> Firewall rules can also be added after server create. Please refer to below section to learn how to configure firewall rules after creating the server.
+
+## Create a firewall rule after server is created
 
 1. In the [Azure Portal](https://portal.azure.com/), select the Azure Database for MySQL Flexible Server on which you want to add firewall rules.
 2. On the flexible server page, under Settings heading, click **Networking** to open the Networking page for flexible server.
@@ -58,7 +60,7 @@ With *Public access (allowed IP addresses)*, the connections to the MySQL server
 
 ## Connecting from Azure
 
-You may want to enable your flexible server to connect to resources or applications deployed within Azure. This includes web applications hosted in Azure App Service, running on an Azure VM, or an Azure Data Factory data management gateway, 
+You may want to enable your flexible server to connect to resources or applications deployed within Azure. This includes web applications hosted in Azure App Service, running on an Azure VM, or an Azure Data Factory data management gateway and many more. 
 
 When an application within Azure attempts to connect to your server, the firewall verifies that Azure connections are allowed. There are two methods to enable these types of connections:
 
