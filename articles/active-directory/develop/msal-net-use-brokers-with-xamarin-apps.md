@@ -344,7 +344,7 @@ Here are a few tips on avoiding issues when you implement brokered authenticatio
     1. Select **Copy Logs** to copy the broker logs to the device's SD card.
     1. Connect the device to a computer by using a USB cable to view the logs on your development machine.
 
-Once you have the logs, you can search through them for your authentication attempts via correlation ID. The correlation ID is attached to every authentication request. To find errors returned by the Microsoft identity platform authentication endpoint, search for `AADSTS`.
+    Once you have the logs, you can search through them for your authentication attempts via correlation ID. The correlation ID is attached to every authentication request. To find errors returned by the Microsoft identity platform authentication endpoint, search for `AADSTS`.
 
 ## Next steps
 
