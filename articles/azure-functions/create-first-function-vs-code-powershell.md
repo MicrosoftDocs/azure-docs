@@ -4,39 +4,15 @@ description: Create and publish to Azure a simple HTTP triggered function by usi
 ms.topic: quickstart
 ms.date: 01/10/2020
 ms.custom: "devx-track-csharp, mvc, devcenter, seo, devx-track-python"
-zone_pivot_groups: programming-languages-set-functions
 ---
 
 # Quickstart: Create a function in Azure using Visual Studio Code
 
-::: zone pivot="programming-language-csharp"  
-In this article, you use Visual Studio Code to create a C# class library-based function that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions. 
-::: zone-end  
-::: zone pivot="programming-language-javascript"
-In this article, you use Visual Studio Code to create a JavaScript function that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions. 
-::: zone-end
-::: zone pivot="programming-language-typescript"
-In this article, you use Visual Studio Code to create a TypeScript function that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions. 
-::: zone-end   
-::: zone pivot="programming-language-powershell"
 In this article, you use Visual Studio Code to create a PowerShell function that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions. 
-::: zone-end  
-::: zone pivot="programming-language-python" 
-In this article, you use Visual Studio Code to create a Python function that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions. 
-::: zone-end  
-::: zone pivot="programming-language-java" 
-In this article, you use Visual Studio Code to create a Java function that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions. 
-::: zone-end
 
 Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account. 
 
-::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"
 There's also a [CLI-based version](functions-create-first-azure-function-azure-cli.md) of this article.
-::: zone-end
-::: zone pivot="programming-language-java"  
-> [!NOTE]
-> If Visual Studio Code isn't your prefered development tool, check out our similar tutorials for Java developers using [Maven](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java), [Gradle](./functions-create-first-java-gradle.md) and [IntelliJ IDEA](/azure/developer/java/toolkit-for-intellij/quickstart-functions).
-::: zone-end  
 
 ## Configure your environment
 
@@ -44,39 +20,16 @@ Before you get started, make sure you have the following requirements in place:
 
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-::: zone pivot="programming-language-csharp,programming-language-powershell,programming-language-python"  
 + [Node.js](https://nodejs.org/), required by Windows for npm. Only [Active LTS and Maintenance LTS versions](https://nodejs.org/about/releases/). Use the `node --version` command to check your version.
-    Not required for local development on macOS and Linux.   
-::: zone-end   
-::: zone pivot="programming-language-javascript,programming-language-typescript"  
-+ [Node.js](https://nodejs.org/), Active LTS and Maintenance LTS versions (10.14.1 recommended). Use the `node --version` command to check your version.  
-::: zone-end  
-::: zone pivot="programming-language-python"
-+ [Python 3.8](https://www.python.org/downloads/release/python-381/), [Python 3.7](https://www.python.org/downloads/release/python-375/), [Python 3.6](https://www.python.org/downloads/release/python-368/) are supported by Azure Functions (x64).
-::: zone-end   
-::: zone pivot="programming-language-powershell"
+    Not required for local development on macOS and Linux.
+
 + [PowerShell 7](/powershell/scripting/install/installing-powershell-core-on-windows)
 
 + Both [.NET Core 3.1](https://www.microsoft.com/net/download) and [.NET Core 2.1](https://dotnet.microsoft.com/download/dotnet-core/2.2)  
-::: zone-end  
-::: zone pivot="programming-language-java"  
-+ The [Java Developer Kit](https://aka.ms/azure-jdks), version 8.
 
-+ [Apache Maven](https://maven.apache.org), version 3.0 or above.
-::: zone-end  
 + [Visual Studio Code](https://code.visualstudio.com/) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms).    
-::: zone pivot="programming-language-csharp"  
-+ The [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) for Visual Studio Code.  
-::: zone-end  
-::: zone pivot="programming-language-python"  
-+ The [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) for Visual Studio Code.  
-::: zone-end  
-::: zone pivot="programming-language-powershell"  
+
 + The [PowerShell extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell).  
-::: zone-end  
-::: zone pivot="programming-language-java"   
-+ The [Java extension pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack)  
-::: zone-end  
 
 + The [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) for Visual Studio Code. 
 
@@ -95,63 +48,19 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
 
 1. Provide the following information at the prompts:
 
-    ::: zone pivot="programming-language-csharp"
-    + **Select a language for your function project**: Choose `C#`.
-    ::: zone-end
-    ::: zone pivot="programming-language-javascript"
-    + **Select a language for your function project**: Choose `JavaScript`.
-    ::: zone-end
-    ::: zone pivot="programming-language-typescript"
-    + **Select a language for your function project**: Choose `TypeScript`.
-    ::: zone-end
-    ::: zone pivot="programming-language-powershell"
     + **Select a language for your function project**: Choose `PowerShell`.
-    ::: zone-end
-    ::: zone pivot="programming-language-python"
-    + **Select a language for your function project**: Choose `Python`.
 
-    + **Select a Python alias to create a virtual environment**: Choose the location of your Python interpreter. If the location isn't shown, type in the full path to your Python binary.  
-    ::: zone-end
-
-    ::: zone pivot="programming-language-java"  
-    + **Select a language for your function project**: Choose `Java`.
-
-    + **Provide a group ID**: Choose `com.function`.
-
-    + **Provide an artifact ID**: Choose `myFunction`.
-
-    + **Provide a version**: Choose `1.0-SNAPSHOT`.
-
-    + **Provide a package name**: Choose `com.function`.
-
-    + **Provide an app name**: Choose `myFunction-12345`.
-    ::: zone-end  
-    ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"
     + **Select a template for your project's first function**: Choose `HTTP trigger`.
-    
+
     + **Provide a function name**: Type `HttpExample`.
-    ::: zone-end  
-    ::: zone pivot="programming-language-csharp"
-    + **Provide a namespace**: Type `My.Functions`. 
-    ::: zone-end  
-    ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"
+
     + **Authorization level**: Choose `Anonymous`, which enables anyone to call your function endpoint. To learn about authorization level, see [Authorization keys](functions-bindings-http-webhook-trigger.md#authorization-keys).
-    ::: zone-end  
+
     + **Select how you would like to open your project**: Choose `Add to workspace`.
 
 1. Using this information, Visual Studio Code generates an Azure Functions project with an HTTP trigger. You can view the local project files in the Explorer. To learn more about files that are created, see [Generated project files](functions-develop-vs-code.md#generated-project-files). 
 
-::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-python,programming-language-java"
-
-[!INCLUDE [functions-run-function-test-local-vs-code](../../includes/functions-run-function-test-local-vs-code.md)]
-
-::: zone-end
-
-::: zone pivot="programming-language-powershell"
-
 [!INCLUDE [functions-run-function-test-local-vs-code-ps](../../includes/functions-run-function-test-local-vs-code-ps.md)]
-
-::: zone-end
 
 After you've verified that the function runs correctly on your local computer, it's time to use Visual Studio Code to publish the project directly to Azure. 
 
@@ -170,7 +79,7 @@ After you've verified that the function runs correctly on your local computer, i
     ```http
     http://<functionappname>.azurewebsites.net/api/httpexample?name=Functions
     ```
-        
+
     The following example shows the response in the browser to the remote GET request returned by the function: 
 
     ![Function response in the browser](./media/functions-create-first-function-vs-code/functions-test-remote-browser.png)
