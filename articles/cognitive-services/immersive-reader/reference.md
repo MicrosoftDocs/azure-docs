@@ -157,12 +157,12 @@ Contains the response from the call to `ImmersiveReader.launchAsync`. Note that 
 | container | HTMLDivElement | HTML element which contains the Immersive Reader iframe. |
 | sessionId | String | Globally unique identifier for this session, used for debugging. |
 
-### -container
+### `-container`
 ```Parameters
 Type: HTMLDivElement
 ```
 
-### -sessionId
+### `-sessionId`
 ```Parameters
 Type: String
 Required: true
@@ -186,12 +186,12 @@ Contains information about an error.
 | code | String | One of a set of error codes. See [Error codes](#error-codes). |
 | message | String | Human-readable representation of the error. |
 
-### -code
+### `-code`
 ```Parameters
 Type: String
 ```
 
-### -message
+### `-message`
 ```Parameters
 Type: String
 Required: true
@@ -228,14 +228,14 @@ Contains the content to be shown in the Immersive Reader.
 | title | String | Title text shown at the top of the Immersive Reader (optional) |
 | chunks | Chunk[] | Array of chunks |
 
-### -title
+### `-title`
 ```Parameters
 Type: String
 Required: false
 Default value: "Immersive Reader" 
 ```
 
-### -chunks
+### `-chunks`
 ```Parameters
 Type: Chunk[]
 Required: true
@@ -264,21 +264,21 @@ A single chunk of data, which will be passed into the Content of the Immersive R
 | lang | String | Language of the text, the value is in IETF BCP 47 language tag format, e.g. en, es-ES. Language will be detected automatically if not specified. See [Supported Languages](#supported-languages). |
 | mimeType | string | Plain text, MathML, HTML & Microsoft Word DocX formats are supported. See [Supported MIME types](#supported-mime-types) for more details. |
 
-### -content
+### `-content`
 ```Parameters
 Type: String
 Required: true
 Default value: null 
 ```
 
-### -lang
+### `-lang`
 ```Parameters
 Type: String
 Required: false
 Default value: Automatically detected 
 ```
 
-### -mimeType
+### `-mimeType`
 ```Parameters
 Type: String
 Required: false
@@ -341,42 +341,42 @@ Contains properties that configure certain behaviors of the Immersive Reader.
 | onPreferencesChanged | Function | Executes when the user's preferences have changed. See [How-To Store User Preferences](./how-to-store-user-preferences.md) for more information. |
 | customDomain | String | Reserved for internal use. Custom domain where the Immersive Reader webapp is hosted (default is null). |
 
-### -uiLang
+### `-uiLang`
 ```Parameters
 Type: String
 Required: false
 Default value: User's browser language 
 ```
 
-### -timeout
+### `-timeout`
 ```Parameters
 Type: Number
 Required: false
 Default value: 15000
 ```
 
-### -uiZIndex
+### `-uiZIndex`
 ```Parameters
 Type: Number
 Required: false
 Default value: 1000
 ```
 
-### -onExit
+### `-onExit`
 ```Parameters
 Type: Function
 Required: false
 Default value: null
 ```
 
-### -preferences
+### `-preferences`
 ```Parameters
 Type: String
 Required: false
 Default value: null
 ```
 
-### -onPreferencesChanged
+### `-onPreferencesChanged`
 ```Parameters
 Type: Function
 Required: false
@@ -393,7 +393,7 @@ type ReadAloudOptions = {
 };
 ```
 
-### -customDomain
+### `-customDomain`
 ```Parameters
 Type: String
 Required: false
@@ -410,7 +410,7 @@ Default value: null
 | speed | Number | Playback speed, must be between 0.5 and 2.5, inclusive. |
 | autoPlay | Boolean | Automatically start Read Aloud when the Immersive Reader loads. |
 
-### -voice
+### `-voice`
 ```Parameters
 Type: String
 Required: false
@@ -418,7 +418,7 @@ Default value: "Female" or "Male" (determined by language)
 Values available: "Female", "Male"
 ```
 
-### -speed
+### `-speed`
 ```Parameters
 Type: Number
 Required: false
@@ -449,7 +449,7 @@ type TranslationOptions = {
 | autoEnableDocumentTranslation | Boolean | Automatically translate the entire document. |
 | autoEnableWordTranslation | Boolean | Automatically enable word translation. |
 
-### -language
+### `-language`
 ```Parameters
 Type: String
 Required: true
@@ -477,7 +477,7 @@ type DisplayOptions = {
 | increaseSpacing | Boolean | Sets whether text spacing is toggled on or off. |
 | fontFamily | String | Sets the chosen font ("Calibri", "ComicSans", or "Sitka"). |
 
-### -textSize
+### `-textSize`
 ```Parameters
 Type: Number
 Required: false
@@ -485,7 +485,7 @@ Default value: 20, 36 or 42 (Determined by screen size)
 Values available: 14, 20, 28, 36, 42, 48, 56, 64, 72, 84, 96
 ```
 
-### -fontFamily
+### `-fontFamily`
 ```Parameters
 Type: String
 Required: false
@@ -527,7 +527,7 @@ The Immersive Reader stores its settings, or user preferences, in cookies. This 
 | pictureDictionaryEnabled | Boolean | Sets whether Picture Dictionary is toggled on or off. |
 | posLabelsEnabled | Boolean | Sets whether the superscript text label of each highlighted Part of Speech is toggled on or off.  |
 
-### -textSize
+### `-textSize`
 ```Parameters
 Type: Number
 Required: false
@@ -535,7 +535,7 @@ Default value: 20, 36 or 42 (Determined by screen size)
 Values available: 14, 20, 28, 36, 42, 48, 56, 64, 72, 84, 96
 ```
 
-### -fontFamily
+### `-fontFamily`
 ```Parameters
 Type: String
 Required: false
@@ -543,7 +543,7 @@ Default value: "Calibri"
 Values available: "Calibri", "ComicSans", "Sitka"
 ```
 
-### -textSpacing
+### `-textSpacing`
 ```Parameters
 Type: Number
 Required: false
@@ -551,7 +551,7 @@ Default value: 40
 Values available: 24, 40
 ```
 
-### -theme
+### `-theme`
 ```Parameters
 Type: String
 Required: false
@@ -559,7 +559,7 @@ Default value: "Light"
 Values available: "Light", "Dark", "Sepia", "Yellow", "Blue", "Green", "Rose", "Apricot", "LightOrange", "LightYellow", "Lime", "LightGreen", "LightTeal", "Turquoise", "Teal", "SkyBlue", "LightBlue", "Lavender", "Orchid", "Pink", "Carnation"
 ```
 
-### -nounHighlightingColor
+### `-nounHighlightingColor`
 ```Parameters
 Type: String
 Required: false
@@ -567,7 +567,7 @@ Default value: "MiddleMagenta"
 Values available: "AccessibleBlue", "AccessibleGreen", "AccessibleYellow", "AccessibleOrange", "AccessibleRed", "AccessibleMagenta", "MiddleBlue", "MiddleGreen", "MiddleYellow", "MiddleOrange", "MiddleRed", "MiddleMagenta"
 ```
 
-### -verbHighlightingColor
+### `-verbHighlightingColor`
 ```Parameters
 Type: String
 Required: false
@@ -575,7 +575,7 @@ Default value: "MiddleRed"
 Values available: "AccessibleBlue", "AccessibleGreen", "AccessibleYellow", "AccessibleOrange", "AccessibleRed", "AccessibleMagenta", "MiddleBlue", "MiddleGreen", "MiddleYellow", "MiddleOrange", "MiddleRed", "MiddleMagenta"
 ```
 
-### -adjectiveHighlightingColor
+### `-adjectiveHighlightingColor`
 ```Parameters
 Type: String
 Required: false
@@ -583,7 +583,7 @@ Default value: "MiddleGreen"
 Values available: "AccessibleBlue", "AccessibleGreen", "AccessibleYellow", "AccessibleOrange", "AccessibleRed", "AccessibleMagenta", "MiddleBlue", "MiddleGreen", "MiddleYellow", "MiddleOrange", "MiddleRed", "MiddleMagenta"
 ```
 
-### -adverbHighlightingColor
+### `-adverbHighlightingColor`
 ```Parameters
 Type: String
 Required: false
