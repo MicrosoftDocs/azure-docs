@@ -32,9 +32,9 @@ All you need to do is define the environment for each compute target within a **
   * [Python SDK](how-to-create-attach-compute-sdk.md) 
   * [Azure Machine Learning studio](how-to-create-attach-compute-studio.md)
 
-## What's a script run configuration?
+## <a name="whats-a-run-configuration"></a>What's a script run configuration?
 
-You submit your training experiment with a [ScriptRunConfig]((https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py)) object.  This object includes the:
+You submit your training experiment with a [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py) object.  This object includes the:
 
 * **source_directory**: The source directory that contains your training script
 * **script**: Identify the training script
