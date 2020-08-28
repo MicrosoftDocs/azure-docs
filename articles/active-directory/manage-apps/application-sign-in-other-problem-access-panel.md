@@ -17,7 +17,9 @@ ms.reviewer: japere
 
 My Apps is a web-based portal that enables a user with a work or school account in Azure Active Directory (Azure AD) to view and start cloud-based applications that the Azure AD administrator has granted them access to. 
 
-These applications are configured on behalf of the user in the Azure AD portal. The application must be configured properly and assigned to the user or a group the user is a member of to see the application in My Apps.
+To learn more about using Azure AD as an identity provider for an app, see the [What is Application Management in Azure AD](what-is-application-management.md). To get up to speed quickly, check out the [Quickstart Series on Application Management](view-applications-portal.md).
+
+These applications are configured on behalf of the user in the Azure AD portal. The application must be configured properly and assigned to the user or a group the user is a member of to see the application in My Apps. 
 
 The type of apps a user may be seeing fall in the following categories:
 -   Office 365 Applications
@@ -180,5 +182,4 @@ Open a support ticket with the following information if available:
 -   Fiddler traces
 
 ## Next steps
-[Provide single sign-on to your apps with Application Proxy](application-proxy-configure-single-sign-on-with-kcd.md)
-
+- [Quickstart Series on Application Management](view-applications-portal.md)
