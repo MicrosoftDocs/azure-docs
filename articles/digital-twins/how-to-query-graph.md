@@ -25,7 +25,7 @@ The rest of this article provides examples of how to use these operations.
 
 ## Query syntax
 
-This section contains sample queries that illustrate the query language structure and perform possible query operations.
+This section contains sample queries that illustrate the query language structure and perform possible query operations on [digital twins](concepts-twins-graph.md).
 
 ### Select top items
 
@@ -39,7 +39,7 @@ WHERE ...
 
 ### Query by property
 
-Get [digital twins](concepts-twins-graph.md) by properties (including ID and metadata):
+Get digital twins by properties (including ID and metadata):
 ```sql
 SELECT  * 
 FROM DigitalTwins T  
