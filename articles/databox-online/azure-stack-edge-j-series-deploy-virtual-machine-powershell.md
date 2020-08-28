@@ -201,7 +201,7 @@ AzCopy /Source:<sourceDirectoryForVHD> /Dest:<blobContainerUri> /DestKey:<storag
 
 You can download the disk images from the marketplace. For detailed steps, go to [Get the virtual disk image from Azure marketplace](azure-stack-edge-j-series-create-virtual-machine-image.md).
 
-A sample output using AzCopy 7.3 is shown below. For more information on this command, go to [Upload VHD file to storage account using AzCopy](../lab-services/devtest-lab-upload-vhd-using-azcopy.md).
+A sample output using AzCopy 7.3 is shown below. For more information on this command, go to [Upload VHD file to storage account using AzCopy](../devtest-labs/devtest-lab-upload-vhd-using-azcopy.md).
 
 
 ```powershell
@@ -521,7 +521,7 @@ The following Standard Dv2 series VMs are supported for creation on Azure Stack 
 |**Standard_DS13_v2** |8   |56  |112  |1000 |32000  |16 / 16x2300  |8 |
 |**Standard_DS14_v2** |16  |112 |224  |1000 |64000  |32 / 32x2300  |8 |
 
-For more information, go to [Dv2 series on General Purpose VM sizes](../virtual-machines/windows/sizes-general.md#dv2-series).
+For more information, go to [Dv2 series on General Purpose VM sizes](../virtual-machines/dv2-dsv2-series.md#dv2-series).
 
 ## Unsupported VM operations and cmdlets
 

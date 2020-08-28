@@ -50,16 +50,12 @@ Before you begin creating and managing a VM on your Azure Stack Edge device usin
 
 2. Enabled a network interface for compute. This network interface IP is used to create a virtual switch for the VM deployment. The following steps walk you through the process:
 
-    1. Go to the **Compute settings**. Select the network interface that you will use to create a virtual switch.
-
-        ![Enable compute settings 1](media/azure-stack-edge-j-series-extend-compute-access-modules/enable-compute-setting-1.png)
+    1. Go to **Compute**. Select the network interface that you will use to create a virtual switch.
 
         > [!IMPORTANT] 
         > You can only configure one port for compute.
 
     2. Enable compute on the network interface. Azure Stack Edge creates and manages a virtual switch corresponding to that network interface.
-
-        ![Enable compute settings 2](media/azure-stack-edge-j-series-extend-compute-access-modules/enable-compute-setting-2.png)
 
     If you decide to use another network interface for compute, make sure that you:
 
@@ -429,4 +425,4 @@ A Python script is provided to you to create a VM. Depending on whether you are 
 
 ## Next steps
 
-[Az CLI commands in Azure Resource Manager mode](../virtual-machines/azure-cli-arm-commands.md)
+[Common Az CLI commands for Linux virtual machines](../virtual-machines/linux/cli-manage.md)
