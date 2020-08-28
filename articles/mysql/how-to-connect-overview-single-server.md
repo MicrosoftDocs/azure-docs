@@ -38,7 +38,7 @@ Transport Layer Security (TLS) is used by all drivers that Microsoft supplies or
 
 Azure Database for MySQL uses the world's most popular community edition of MySQL database. Hence, it is compatible with a wide variety of programming languages and drivers. The goal is to support the three most recent versions MySQL drivers, and efforts with authors from the open source community to constantly improve the functionality and usability of MySQL drivers continue.
 
-Check [drivers compatible](concepts-compatibility.md) with Azure Database for MySQL Single server. 
+See what [drivers](concepts-compatibility.md) are compatible with Azure Database for MySQL Single server. 
 
 
 ## Next Steps 
