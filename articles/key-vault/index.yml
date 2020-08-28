@@ -90,6 +90,21 @@ conceptualContent:
         url: ./secrets/index.yml
         text: See more
   
+    - title: Managed HSM pools (preview)
+      links:
+        - url: ./managed-hsm/overview.md
+          itemType: overview
+          text: What is managed HSM?
+        - url: ./managed-hsm/best-practices.md
+          itemType: overview
+          text: Best practices
+        - url: ./managed-hsm/quick-create-cli.md
+          itemType: quickstart
+          text: Provision and activate a managed HSM pool
+      footerLink:
+          text: See more
+          url: ./managed-hsm/index.yml
+
     - title: Client libraries
       links:
         - url: ./general/client-libraries.md
@@ -119,21 +134,6 @@ conceptualContent:
         - url: ./secrets/storage-keys-sas-tokens-code.md
           itemType: overview
           text: Fetch SAS tokens in code
-
-    - title: Managed HSM pools (preview)
-      links:
-        - url: ./managed-hsm/overview.md
-          itemType: overview
-          text: What is managed HSM?
-        - url: ./managed-hsm/best-practices.md
-          itemType: overview
-          text: Best practices
-        - url: ./managed-hsm/quick-create-cli.md
-          itemType: quickstart
-          text: Provision and activate a managed HSM pool
-      footerLink:
-          text: See more
-          url: ./managed-hsm/index.yml
 
     - title: Key Vault with Virtual Machines
       links:
