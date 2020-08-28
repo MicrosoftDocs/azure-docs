@@ -142,6 +142,8 @@ The following table shows current supported Java versions for each major version
 | 3.x | 11 (preview)<br/>8 | 11 (preview)<br/>8 |
 | 2.x | 8 | n/a |
 
+Unless you specify a Java version for your deployment, the Maven archetype defaults to Java 8 during deployment to Azure.
+
 ### Specify the deployment version
 
 You can control the version of Java targeted by the Maven archetype by using the `-DjavaVersion` parameter. The value of this parameter can be ether `8` or `11`. Java 11 support is currently in preview. 

@@ -88,7 +88,7 @@ mvn archetype:generate "-DarchetypeGroupId=com.microsoft.azure" "-DarchetypeArti
 ```
 ---
 
-The `-DjavaVersion` parameter tells the Functions runtime which version of Java to use. Use `-DjavaVersion=11` if you want to your functions to run on Java 11, which is in preview. For more information, see [Java versions](functions-reference-java.md#java-versions).
+The `-DjavaVersion` parameter tells the Functions runtime which version of Java to use. Use `-DjavaVersion=11` if you want to your functions to run on Java 11, which is in preview. When you don't specify `-DjavaVersion`, Maven defaults to Java 8. For more information, see [Java versions](functions-reference-java.md#java-versions).
 
 Maven asks you for values needed to finish generating the project on deployment.   
 Provide the following values when prompted:
