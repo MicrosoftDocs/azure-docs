@@ -42,3 +42,7 @@ PostgreSQL provides the ability to extend the functionality of your database usi
 - [Postgres 9.5 extensions](https://docs.microsoft.com/azure/postgresql/concepts-extensions#postgres-95-extensions)
 
 Fore more details, see [How to use PostgreSQL extensions on Single server](concepts-extensions.md).
+
+## Next Steps 
+- [Migrate data using dump and restore](howto-migrate-using-dump-and-restore.md)
+- [Migrate data using import and export](howto-migrate-using-export-and-import.md)
