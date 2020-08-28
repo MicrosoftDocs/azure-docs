@@ -1,0 +1,61 @@
+- name: DDoS Protection Service documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: What is Azure DDOS Protection Service?
+    href: ddos-protection-overview.md    
+- name: Quickstarts
+  items:
+  - name: Integrate a storage account
+    href: cdn-create-a-storage-account-with-cdn.md    
+- name: Tutorials
+  items:
+  - name: Add Azure CDN to a web app
+    href: cdn-add-to-web-app.md
+- name: Samples
+  items:
+  - name: Code samples
+    href: https://azure.microsoft.com/resources/samples/?service=ddos-protection
+- name: Concepts
+  items:
+  - name: Network Security
+    href: ddos-protection-overview.md
+- name: How-to guides
+  items:
+  - name: Manage DDoS Protection
+    href: manage-ddos-protection.md
+  - name: Onboard partners to DDoS Protection Standard
+    href: ddos-protection-partner-onboarding.md     
+  - name: Manage network security groups
+    href: https://docs.microsoft.com/en-us/azure/virtual-network/manage-network-security-group
+- name: Reference
+  items:
+  - name: Standard rules engine reference
+    href: cdn-standard-rules-engine-reference.md
+    items:
+    - name: REST
+      href: https://docs.microsoft.com/rest/api/virtualnetwork/ddosprotectionplans
+- name: Resources
+  items:
+  - name: Azure CDN POP locations
+    items:
+    - name: POP locations by region
+      href: cdn-pop-locations.md
+    - name: POP locations by abbreviation
+      href: cdn-pop-abbreviations.md
+  - name: Azure Content Delivery Network billing
+    href: cdn-billing.md
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/
+  - name: Microsoft Q&A question page
+    href: https://docs.microsoft.com/answers/topics/azure-cdn.html
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/cdn/
+  - name: Pricing calculator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Service updates
+    href: https://azure.microsoft.com/updates/?product=cdn
+  - name: Stack Overflow
+    href: https://stackoverflow.com/questions/tagged/azure-cdn
+  - name: Videos
+    href: https://azure.microsoft.com/documentation/videos/index/?services=cdn   
