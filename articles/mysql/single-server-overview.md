@@ -37,7 +37,7 @@ The typical failover time ranges from 60-120 seconds. The cloud native design of
 
 Azure's industry leading 99.99% availability service level agreement (SLA), powered by a global network of Microsoft-managed datacenters, helps keep your applications running 24/7.
 
-![Azure Database for MySQL Single Server conceptual diagram](media/single-server-overview/1-singleserverarchitecture.png) 
+![Azure Database for MySQL Single Server conceptual diagram](media/single-server-overview/singleserverarchitecture.png) 
 
 ## Automated Patching 
 
