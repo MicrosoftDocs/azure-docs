@@ -6,7 +6,8 @@ author: hophan
 ms.author: hophan
 ms.service: data-catalog
 ms.subservice: data-catalog-gen2
-ms.date: 06/18/2020
+ms.topic: overview
+ms.date: 08/28/2020
 ---
 
 # Product limitations for Azure Babylon (preview)
@@ -31,19 +32,21 @@ Read this document carefully. It includes warnings that Azure Babylon preview cu
 
    1. Go to the Azure portal, find your catalog, and then select **Access control (IAM)**.
 
-      ![Access Control in Azure portal](./media/product-limitations/access-control.png)
+      :::image type="content" source="./media/product-limitations/access-control.png" alt-text="Screenshot showing how to select Access control (IAM) for a catalog in the Azure portal.":::
 
    1. Select **Add a role assignment**.
 
-      ![Add Role Assignment in Azure portal](./media/product-limitations/role-assignment.png)
+      :::image type="content" source="./media/product-limitations/role-assignment.png" alt-text="Screenshot showing how to add a role assignment to a catalog in the Azure portal.":::
 
    1. Set **Role** to **Contributor** and add the user who will set up scanning.
 
-      ![Add Role Assignment in Azure portal](./media/product-limitations/add-role-assignment.png)
+      :::image type="content" source="./media/product-limitations/add-role-assignment.png" alt-text="Screenshot showing how to set the Role to Contributor for a catalog in the Azure portal.":::
 
-* On-premises SQL Server scanning in Babylon isn't yet available.
+* **Additional information**
 
-* Power BI scanning is available only in limited preview. Send an email to BabylonDiscussion\@microsoft.com to get whitelisted, and then supply a feature flag to enable it. Otherwise, Babylon will start the scan, but won't receive an asset.
+  * On-premises SQL Server scanning in Babylon isn't yet available.
+
+  * Power BI scanning is available only in limited preview. Send an email to BabylonDiscussion\@microsoft.com to get whitelisted, and then supply a feature flag to enable it. Otherwise, Babylon will start the scan, but won't receive an asset.
 
 ## Warnings that require customer awareness
 
