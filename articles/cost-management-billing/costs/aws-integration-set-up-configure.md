@@ -66,7 +66,6 @@ Use the Create a New Role wizard:
 5. In **Account ID**, enter **432263259397**.
 6. In **Options**, select **Require external ID (Best practice when a third party will assume this role)**.
 7. In **External ID**, enter the external ID which is a shared passcode between the AWS role and Azure Cost Management. The same external ID is also used on the **New Connector** page in Cost Management. Microsoft recommends that you use a strong passcode policy when entering the external ID.
-
     > [!NOTE]
     > Don't change the selection for **Require MFA**. It should remain cleared.
 8. Select **Next: Permissions**.
@@ -149,17 +148,17 @@ Use the following information to create an AWS connector and start monitoring yo
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Go to **Cost Management + Billing** > **Cost Management**.
-3. Under **Settings**, select **Cloud connectors**.  
-    ![Example showing the Cloud connectors setting)](./media/aws-integration-setup-configure/cloud-connectors-preview01.png).
-4. Select **+Add** at the top of the page to create a connector.
-5. On the **Create connector** page, in **Display name**, enter a name for your connector.  
+3. Under **Settings**, select **Connectors for AWS**.  
+4. Select **+Add** at the top of the page to create a connector.  
+   ![Example showing the Connectors for AWS setting)](./media/aws-integration-setup-configure/aws-connector.png)
+1. On the **Create connector** page, in **Display name**, enter a name for your connector.  
     ![Example of the page for creating an AWS connector](./media/aws-integration-setup-configure/create-aws-connector01.png)
-6. Optionally, select the default management group. It will store all discovered linked accounts. You can set it up later.
-7. In the **Billing** section, select **Auto renew on** if you want to ensure continuous operation. If you select the automatic option, you must select a billing subscription.
-8. For **Role ARN**, enter the value that you used when you set up the role in AWS.
-9. For **External ID**, enter the value that you used when you set up the role in AWS.
-10. For **Report Name**, enter the name that you created in AWS.
-11. Select **Next** and then select **Create**.
+1. Optionally, select the default management group. It will store all discovered linked accounts. You can set it up later.
+1. In the **Billing** section, select **Auto-Renew** to **On** if you want to ensure continuous operation. If you select the automatic option, you must select a billing subscription.
+1. For **Role ARN**, enter the value that you used when you set up the role in AWS.
+1. For **External ID**, enter the value that you used when you set up the role in AWS.
+1. For **Report Name**, enter the name that you created in AWS.
+1. Select **Next** and then select **Create**.
 
 It might take a few hours for the new AWS scopes, AWS consolidated account, AWS linked accounts, and their cost data to appear.
 
@@ -173,16 +172,16 @@ Assigning connector permissions to users after discovery occurs doesn't assign p
 - Check that new scopes are added to your scope picker. Select **Refresh** to view the latest data.
 - On the **Cloud connectors** page, select your connector and select **Go to billing account** to assign the linked account to management groups.
 
-## Manage cloud connectors
+## Manage AWS connectors
 
-When you select a connector on the **Cloud connectors** page, you can:
+When you select a connector on the **Connectors for AWS** page, you can:
 
 - Select **Go to Billing Account** to view information for the AWS consolidated account.
 - Select **Access Control** to manage the role assignment for the connector.
 - Select **Edit** to update the connector. You can't change the AWS account number, because it appears in the role ARN. But you can create a new connector.
 - Select **Verify** to rerun the verification test to make sure that Cost Management can collect data by using the connector settings.
 
-![Example list of created AWS connectors](./media/aws-integration-setup-configure/list-aws-connectors.png)
+![Example AWS connector details](./media/aws-integration-setup-configure/aws-connector-details.png)
 
 ## Set up Azure management groups
 

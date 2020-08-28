@@ -50,7 +50,7 @@ To view AWS link account costs, open the scope picker and select the AWS linked 
 
 Here's an example that shows selecting an AWS linked account scope.
 
-![Example of the Select scope view](./media/aws-integration-manage/select-scope02.png)
+![Example of the Select scope view that shows AWS linked accounts](./media/aws-integration-manage/select-scope02.png)
 
 ### View AWS consolidated account costs
 
