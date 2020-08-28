@@ -42,8 +42,8 @@ In this example we will reference the parent domain as **contoso.net**
 
 1. Select **Create DNS zone**.
 1. On the **Create DNS zone** page, enter the following values, and then select **Create**: for example, **contoso.net**
-  > [!NOTE] 
-  > If the new zone that you are creating is a child zone (e.g. Parent zone = contoso.net Child zone = child.contoso.net), please refer to our [Creating a new Child DNS zone tutorial](./tutorial-public-dnszones-child.md)
+      > [!NOTE] 
+      > If the new zone that you are creating is a child zone (e.g. Parent zone = contoso.net Child zone = child.contoso.net), please refer to our [Creating a new Child DNS zone tutorial](./tutorial-public-dnszones-child.md)
 
 | **Setting** | **Value** | **Details** |
 |--|--|--|

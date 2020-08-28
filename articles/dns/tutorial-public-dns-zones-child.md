@@ -1,5 +1,6 @@
 ---
-title: Creating child DNS zones
+title: Creating a child DNS zones
+title Suffix: Azure DNS
 description: Tutorial on how to create child DNS zones in Azure portal.
 author: jonbeck
 ms.assetid: be4580d7-aa1b-4b6b-89a3-0991c0cda897
@@ -16,7 +17,7 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Signing in to Azure Portal.
-> * Creating Child DNS zone via new DNS Zone.
+> * Creating child DNS zone via new DNS zone.
 > * Creating child DNS zone via parent DNS zone.
 > * Verifying NS Delegation for new Child DNS zone.
 
@@ -40,7 +41,7 @@ There are two ways you can do create your child DNS zone.
 1.	Through the parent DNS zone's configuration page.
 
 
-## Create Child DNS zone via Create DNS Zone
+## Create child DNS zone via create DNS zone
 
 In this step, we will create a new child DNS zone with name **subdomain.contoso.com** and delegate it to existing parent DNS zone **contoso.com**. You'll create the DNS zone using the tabs on the **Create DNS zone** page.
 1.	On the Azure portal menu or from the **Home** page, select **Create a resource**. The **New** window appears.
@@ -58,25 +59,24 @@ In this step, we will create a new child DNS zone with name **subdomain.contoso.
 1. On the **Review + create** tab, review the summary, correct any validation errors, and then select **Create**.
 It may take a few minutes to create the zone.
 
-      ![Screenshot of the Create DNS zone page](./media/dns-delegate-domain-azure-dns//CreateDNSZone.png)
-
+ 
+    :::image type="content" source="./media/dns-delegate-domain-azure-dns/create-dns-zone.png" alt-text="Screenshot of the create DNS zone page." border="true":::
 
 ## Create child DNS zone via parent DNS zone overview page
-You can also create a new child DNS zone and delegate it into the parent DNS zone by using the Child Zone button from Parent zone overview page. Using this button automatically pre-populates most of the parameters for the child zone  automatically. 
+You can also create a new child DNS zone and delegate it into the parent DNS zone by using the **Child Zone** button from parent zone overview page. Using this button automatically pre-populates the parent parameters for the child zone automatically. 
 
 1.	In the Azure portal, under **All resources**, open the *contoso.com* DNS zone in the **MyResourceGroup** resource group. You can enter *contoso.com* in the **Filter by name** box to find it more easily.
-1.	On DNS zone overview page, select the **+Child Zone button**.
+1.	On DNS zone overview page, select the **+Child Zone** button.
 
-    ![Screenshot Child Zone Button](./media/dns-delegate-domain-azure-dns//createchildzone.png)
+      :::image type="content" source="./media/dns-delegate-domain-azure-dns/create-child-zone.png" alt-text="Screenshot child zone button." border="true":::
 
-1.	This will open the Create DNS zone page. Note that child zone option is already checked, and Parent zone subscription and parent zone is already populated for you on this page.
-1.	Type the Name as *child* for this tutorial example. Notice that you parent DNS zone name contoso.com is automatically added as prefix to name.
+1.	This will open the create DNS zone page. Note that child zone option is already checked, and parent zone subscription and parent zone is already populated for you on this page.
+1.	Type the name as *child* for this tutorial example. Notice that you parent DNS zone name contoso.com is automatically added as prefix to name.
 1.	Select **Next: Tags** and then **Next: Review + create**.
 1.	On the **Review + create** tab, review the summary, correct any validation errors, and then select **Create**.
 
-    ![Screenshot of Child Zone Nameserver](./media/dns-delegate-domain-azure-dns//creatednszonechild.png)
-
-## Verify Child DNS zone
+    :::image type="content" source="./media/dns-delegate-domain-azure-dns/create-dns-zone-child.png" alt-text="Screenshot of child zone nameservers" border="true":::
+## Verify child DNS zone
 Now that you have a new child DNS zone *subdomain.contoso.com* created. To verify that delegation happened correctly, you will want to check the nameserver(NS) records for your child zone is in the parent zone as described below.  
 
 **Retrieve name servers of child DNS zone:**
@@ -84,9 +84,8 @@ Now that you have a new child DNS zone *subdomain.contoso.com* created. To verif
 1.	In the Azure portal, under **All resources**, open the *subdomain.contoso.com* DNS zone in the **MyResourceGroup** resource group. You can enter *subdomain.contoso.com* in the **Filter by name** box to find it more easily.
 1.	Retrieve the name servers from the DNS zone overview page. In this example, the zone contoso.com has been assigned name servers *ns1-08.azure-dns.com, ns2-08.azure-dns.net, ns3-08.azure-dns.org*, and *ns4-08.azure-dns.info*:
 
-     ![Screenshot of Child zone Nameservers](./media/dns-delegate-domain-azure-dns//createchildzoneNS.png)
-
-**Verify the NS record in Parent DNS zone:**
+      :::image type="content" source="./media/dns-delegate-domain-azure-dns/create-child-zone-ns.png" alt-text="Screenshot of child zone nameservers" border="true":::
+**Verify the NS record in parent DNS zone:**
 
 Now in this step we go the parent DNS zone *contoso.com* and check that its NS record set entry for the child zones nameservers has been created.
 
@@ -94,8 +93,7 @@ Now in this step we go the parent DNS zone *contoso.com* and check that its NS r
 1.	On the *contoso.com* DNS zones overview page, check for the record sets.
 1.	You will find that record set of type NS and name subdomain is already created in parent DNS zone. Check the values for this record set it is similar to the nameserver list we retrieved from child DNS zone in above step.
 
-    ![Screenshot of Child zone Nameserver validation](./media/dns-delegate-domain-azure-dns//createchildzoneNSvalidate.png)
-
+     :::image type="content" source="./media/dns-delegate-domain-azure-dns/create-child-zone-ns-validate.png" alt-text="Screenshot of Child zone nameservers validation" border="true":::
 ## Clean up resources
 When you no longer need the resources you created in this tutorial, remove them by deleting the **MyResourceGroup** resource group. Open the **MyResourceGroup** resource group, and select **Delete resource group**.
 
