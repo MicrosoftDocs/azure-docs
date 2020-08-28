@@ -95,7 +95,7 @@ Create a ```mysql-flexible-server-template.json``` file and copy this ```json```
             "location": "[parameters('location')]",
             "tags": "[parameters('tags')]",
             "sku": {
-                "name": "GP_D4s_v3",
+                "name": "Standard_D4ds_v4",
                 "tier": "[parameters('serverEdition')]",
                 "capacity": "[parameters('vCores')]"
             },
