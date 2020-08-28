@@ -22,7 +22,7 @@
   - name: Create and send alerts
     href: How-tos/alerts.md
   - name: Diagnose an incident
-    href: how-tos/diagnose-incident
+    href: how-tos/diagnose-incident.md
   - name: Connect different data feed sources
     href: data-feeds-from-different-sources.md
   - name: Adjust anomaly detection using feedback

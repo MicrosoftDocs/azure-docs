@@ -14,7 +14,7 @@ ms.author: aahi
 
 # Add data feeds from different data sources to Metrics Advisor
 
-Use this article to find the settings and requirements for connecting different types of data sources to Metrics Advisor. See the [data feeds](adding-data-feeds-overview.md) article for more information.
+Use this article to find the settings and requirements for connecting different types of data sources to Metrics Advisor. See the [data feeds](datafeeds.md) article for more information.
 
 ## Azure Blob Storage (JSON)
 

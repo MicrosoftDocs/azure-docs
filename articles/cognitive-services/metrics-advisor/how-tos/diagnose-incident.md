@@ -74,7 +74,7 @@ There are two types of drill down options: **Drill down** and **Horizontal compa
 
 The second section of the drill down tab is a table with comparisons for different dimension values. It includes the value, baseline value, difference value, delta value and whether it is an anomaly.
  
-![Drill Down Dimension](../media/diagnostics/drill-down-comparison.png "Drill Down comparison")
+![Drill Down Comparison](../media/diagnostics/drill-down-comparison.png "Drill Down comparison")
 
 ### value and expected value comparisons for different dimension value
 

@@ -117,7 +117,7 @@ A web hook is the entry point for all of the information you alerts you will rec
 
 ### Configure alert settings
 
-An alert setting determines how and which alert notifications should be sent. You can set multiple alert settings for each metric. two important settings are **Alert for** which specifies the anomalies to be included, and **Filter anomaly options** which defines which anomalies to include in the alert. See the **Add or Edit alert settings** section in [How-to: Configure and subscribe to an alert](../how-tos/alerts.md#create-a-web-hook#add-or-edit-alert-settings). for more details.
+An alert setting determines how and which alert notifications should be sent. You can set multiple alert settings for each metric. two important settings are **Alert for** which specifies the anomalies to be included, and **Filter anomaly options** which defines which anomalies to include in the alert. See the **Add or Edit alert settings** section in [How-to: Configure and subscribe to an alert](../how-tos/alerts.md#add-or-edit-alert-settings). for more details.
 
 
 ## Next Steps
