@@ -179,7 +179,7 @@ Contains information about an error.
 
 | Code | Description |
 | ---- | ----------- |
-| BadArgument | Supplied argument is invalid, see `message` for details. |
+| BadArgument | Supplied argument is invalid, see `message` parameter of the [Error](#error). |
 | Timeout | The Immersive Reader failed to load within the specified timeout. |
 | TokenExpired | The supplied token is expired. |
 | Throttled | The call rate limit has been exceeded. |
@@ -204,7 +204,7 @@ Contains the content to be shown in the Immersive Reader.
 | Name | Type | Description |
 | ---- | ---- |------------ |
 | title | String | Title text shown at the top of the Immersive Reader (optional) |
-| chunks | Chunk[] | Array of chunks |
+| chunks | [Chunk[]](#chunk) | Array of chunks |
 
 ##### `-title`
 ```Parameters
@@ -350,7 +350,7 @@ Default value: null
 ##### `-preferences`
 
 > [!CAUTION]
-> **IMPORTANT** Do not attempt to programmatically change the values of the `-preferences` string sent to and from the Immersive Reader application as this may cause unexpected behavior resulting in a degraded user experience for your customers. Instead, to override user preferences with custom values, use the *DisplayOptions* exposed by the Immersive Reader SDK.
+> **IMPORTANT** Do not attempt to programmatically change the values of the `-preferences` string sent to and from the Immersive Reader application as this may cause unexpected behavior resulting in a degraded user experience for your customers. Instead, to override user preferences with custom values, use the [DisplayOptions](#displayoptions) exposed by the Immersive Reader SDK.
 
 ```Parameters
 Type: String
@@ -372,6 +372,8 @@ Required: false
 Default value: null
 ```
 
+<br>
+
 ## ReadAloudOptions
 
 ```typescript
@@ -381,8 +383,6 @@ type ReadAloudOptions = {
     autoplay?: boolean;
 };
 ```
-
-<br>
 
 #### ReadAloudOptions Parameters
 
@@ -510,7 +510,7 @@ enum CookiePolicy { Disable, Enable }
 
 ## Supported Languages
 
-(TODO: Need a supported languages page in Azure docs)
+(Need a supported languages page in Azure docs)
 The translation feature of Immersive Reader supports many languages. See [this article](https://www.onenote.com/learningtools/languagesupport) for more details.
 
 <br>
