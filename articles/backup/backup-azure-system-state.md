@@ -84,7 +84,7 @@ Now that you've created a vault, configure it for backing up Windows System Stat
 
     ![vault credentials finished downloading](./media/backup-try-azure-backup-in-10-mins/vault-credentials-downloaded.png)
    > [!NOTE]
-   > The vault credentials must be saved only to a location that is local to the Windows Server on which you intend to use the agent.
+   > The vault credentials must be saved only to a location that's local to the Windows Server on which you intend to use the agent.
    >
 
 [!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]

@@ -17,7 +17,7 @@ Follow the below steps to create and configure an attestation provider using Azu
 Please note that, the PowerShell Gallery has deprecated Transport Layer Security (TLS) versions 1.0 and 1.1. TLS 1.2 or a later version is recommended. Hence you may receive the following errors:
 
 - WARNING: Unable to resolve package source 'https://www.powershellgallery.com/api/v2'
-- PackageManagement\Install-Package : No match was found for the specified search criteria and module name 
+- PackageManagement\Install-Package: No match was found for the specified search criteria and module name 
 
 To continue to interact with the PowerShell Gallery, run the following command before the Install-Module commands
 
@@ -27,13 +27,13 @@ To continue to interact with the PowerShell Gallery, run the following command b
 
 ## Install Az.Attestation PowerShell module
 
-On machine with Azure PowerShell, install the Az.Attestation PowerShell module which contains cmdlets for Azure Attestation.  
+On machine with Azure PowerShell, install the Az.Attestation PowerShell module, which contains cmdlets for Azure Attestation.  
 
 ### Initial installation
 
 Terminate all existing PowerShell windows.
 
-To install for "current user", launch a non-elevated Powershell window and run:
+To install for "current user", launch a non-elevated PowerShell window and run:
 
 ```powershell
 Install-Module -Name Az.Attestation -AllowClobber -Scope CurrentUser
@@ -51,7 +51,7 @@ Close the elevated PowerShell console.
 
 Terminate all existing PowerShell windows.
 
-To update for "current user", launch a non-elevated Powershell window and run:
+To update for "current user", launch a non-elevated PowerShell window and run:
 
 ```powershell
 Update-Module -Name Az.Attestation
@@ -95,10 +95,10 @@ Set-AzContext -Subscription <subscription id>
 
 ## Register Microsoft.Attestation resource provider
 
-Register the Microsoft.Attestation resource provider in subscription. For more information about Azure resource providers and how to configure and manage resources providers, see [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md). Note that registering a resource provider is required only once for a subscription. 
+Register the Microsoft.Attestation resource provider in subscription. For more information about Azure resource providers and how to configure and manage resources providers, see [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md). Note that registering a resource provider is required only once for a subscription.
 
 ```powershell
-Register-AzResourceProvider -ProviderNamespace Microsoft.Attestation 
+Register-AzResourceProvider -ProviderNamespace Microsoft.Attestation
 ```
 ## Regional availability of Azure Attestation
 
@@ -135,7 +135,7 @@ For PolicySignersCertificateFile sample, see [examples of policy signer certific
 
 Get-AzAttestation retrieves the attestation provider properties like status and AttestURI. Take a note of AttestURI, as it will be needed later.
 
-```powershell
+```azurepowershell
 Get-AzAttestation -Name $attestationProvider -ResourceGroupName $attestationResourceGroup  
 ```
 
@@ -153,8 +153,11 @@ Tags:
 TagsTable: 
 ```
 
-Attestation providers can deleted using the Remove-AzAttestation cmdlet.  
+Attestation providers can be deleted using the Remove-AzAttestation cmdlet.  
+
+``azurepowershell
 Remove-AzAttestation -Name $attestationProvider -ResourceGroupName $attestationResourceGroup
+```
 
 ## Policy management
 
@@ -189,7 +192,7 @@ $policy=Get-Content -path "C:\test\policy.txt" -Raw
 Set-AzAttestationPolicy   -Name $attestationProvider -ResourceGroupName $attestationResourceGroup -Tee $teeType -Policy $policy -PolicyFormat $policyFormat 
 ```
 
-If PolicySignerCertificateFile is provided during creation of an attestation provider, policies can be configued only in signed JWT format. Else policy can be configured in text or an unsigned JWT format.
+If PolicySignerCertificateFile is provided during creation of an attestation provider, policies can be configured only in signed JWT format. Else policy can be configured in text or an unsigned JWT format.
 
 Attestation policy in JWT format must contain a claim named "AttestationPolicy". For signed policy, JWT must be signed with private key corresponding to any of the existing policy signer certificates.
 
@@ -203,7 +206,7 @@ Reset-AzAttestationPolicy -Name $attestationProvider -ResourceGroupName $attesta
 
 ## Policy signer certificates management
 
-Below PowerShell cmdlets provide policy signer certificates management for an attestation provider :
+Below PowerShell cmdlets provide policy signer certificates management for an attestation provider:
 
 ```powershell
 Get-AzAttestationPolicySigners -Name $attestationProvider -ResourceGroupName $attestationResourceGroup
@@ -215,7 +218,7 @@ Remove-AzAttestationPolicySigner -Name $attestationProvider -ResourceGroupName $
 
 Policy signer certificate is a signed JWT with claim named "maa-policyCertificate". Value of the claim is a JWK which contains the trusted signing key to add. The JWT must be signed with private key corresponding to any of the existing policy signer certificates.
 
-Note that all semantic manipulation of the policy signer certificate must be done outside of PowerShell. As far as PowerShell is concerned, is is a simple string.
+Note that all semantic manipulation of the policy signer certificate must be done outside of PowerShell. As far as PowerShell is concerned, it is a simple string.
 
 For policy signer certificate sample, see [examples of policy signer certificate](policy-signer-examples.md).
 

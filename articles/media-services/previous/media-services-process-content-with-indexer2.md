@@ -15,6 +15,7 @@ ms.topic: article
 ms.date: 09/22/2019
 ms.author: juliako
 ms.reviewer: adsolank
+ms.custom: devx-track-csharp
 ---
 # Indexing Media Files with Azure Media Indexer 2 Preview
 

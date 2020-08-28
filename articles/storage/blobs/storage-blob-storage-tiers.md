@@ -65,6 +65,9 @@ Example usage scenarios for the archive access tier include:
 - Original (raw) data that must be preserved, even after it has been processed into final usable form.
 - Compliance and archival data that needs to be stored for a long time and is hardly ever accessed.
 
+> [!NOTE]
+> The archive tier is not currently supported for ZRS, GZRS, or RA-GZRS accounts.
+
 ## Account-level tiering
 
 Blobs in all three access tiers can coexist within the same account. Any blob that doesn't have an explicitly assigned tier infers the tier from the account access tier setting. If the access tier comes from the account, you see the **Access Tier Inferred** blob property set to "true", and the **Access Tier** blob property matches the account tier. In the Azure portal, the _access tier inferred_ property is displayed with the blob access tier as **Hot (inferred)** or **Cool (inferred)**.

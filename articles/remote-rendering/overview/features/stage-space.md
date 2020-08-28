@@ -5,6 +5,7 @@ author: christophermanthei
 ms.author: chmant
 ms.date: 03/07/2020
 ms.topic: article
+ms.custom: devx-track-csharp
 ---
 
 # Stage space

@@ -159,7 +159,7 @@ For Linux VMs, make sure that the installation commands for MMA and the dependen
 
 ## Supported operating systems
 
-- **MMS agent**: Review the supported [Windows](../azure-monitor/platform/log-analytics-agent.md#supported-windows-operating-systems), and [Linux](../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems) operating systems.
+- **MMS agent**: Review the supported [Windows](../azure-monitor/platform/agents-overview.md#supported-operating-systems), and [Linux](../azure-monitor/platform/agents-overview.md#supported-operating-systems) operating systems.
 - **Dependency agent**: the supported [Windows and Linux](../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) operating systems.
 
 ## Visualize dependencies for > hour

@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 08/26/2020
 ms.author: normesta
 ms.reviewer: prishet
+ms.custom: devx-track-csharp
 ---
 
 # Set access control lists (ACLs) recursively for Azure Data Lake Storage Gen2
@@ -449,9 +450,9 @@ This example removes an ACL entry from the root directory of the container.
 
 ```powershell
 $filesystemName = "my-container"
-$userID = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx";
+$userID = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 
-$acl = Set-AzDataLakeGen2ItemAclObject -AccessControlType user -EntityId $userID
+$acl = Set-AzDataLakeGen2ItemAclObject -AccessControlType user -EntityId $userID -Permission "---" 
 
 Remove-AzDataLakeGen2AclRecursive -Context $ctx -FileSystem $filesystemName  -Acl $acl
 ```
