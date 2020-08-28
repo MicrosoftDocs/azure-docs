@@ -6,7 +6,7 @@ author: spelluru
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.author: spelluru 
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Azure Service Bus to Event Grid integration overview
