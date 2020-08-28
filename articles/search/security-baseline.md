@@ -4,7 +4,7 @@ description: The Azure Cognitive Search security baseline provides procedural gu
 author: msmbaldwin
 ms.service: search
 ms.topic: conceptual
-ms.date: 08/26/2020
+ms.date: 08/28/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -28,33 +28,32 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33328.).
 
-**Guidance**: None.
+**Guidance**: Configure your search service's firewall by restricting access to clients from specific public IP address ranges, select virtual networks, or specific Azure resources. You can also configure Private Endpoints so traffic to the search service from your enterprise travels exclusively over private networks.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+- [How to configure the Azure Cognitive Search firewall](service-configure-firewall.md)
 
-**Responsibility**: Unset. Please provide a value in the work item.
+- [How to configure Private Endpoints for Azure Cognitive Search](service-create-private-endpoint.md)
+
+**Azure Security Center monitoring**: Yes
+
+**Responsibility**: Customer
 
 ### 1.2: Monitor and log the configuration and traffic of virtual networks, subnets, and NICs
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33329.).
 
-**Guidance**: None.
+**Guidance**: Azure Cognitive Search cannot be deployed directly into a virtual network, but if your client application or data sources are in a virtual network, you can monitor and log traffic for those in-network components, including requests sent to a search service in the cloud. Standard recommendations include enabling a network security group flow log and sending logs to either Azure Storage or a Log Analytics workspace. You could optionally use Traffic Analytics for insights into traffic patterns.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
++ [How to enable network security group flow logs](../network-watcher/network-watcher-nsg-flow-logging-portal.md)
 
-**Responsibility**: Unset. Please provide a value in the work item.
++ [How to enable and use Traffic Analytics](../network-watcher/traffic-analytics.md)
 
-### 1.3: Protect critical web applications
++ [Understand network security provided by Azure Security Center](../security-center/security-center-network-recommendations.md)
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33330.).
+**Azure Security Center monitoring**: Yes
 
-**Guidance**: None.
-
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
-
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Customer
 
 ### 1.4: Deny communications with known malicious IP addresses
 
@@ -72,33 +71,38 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33332.).
 
-**Guidance**: None.
+**Guidance**: For Azure Virtual Machines (VMs) that will be connecting to your Azure Cognitive Search service, enable network security group (NSG) flow logs for the NSGs protecting those VMs and send logs into an Azure Storage account for traffic audit. If required for investigating anomalous activity, enable Network Watcher packet capture.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
++ [How to Enable NSG Flow Logs](../network-watcher/network-watcher-nsg-flow-logging-portal.md)+ [How to enable Network Watcher](../network-watcher/network-watcher-create.md)
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Currently not available
+
+**Responsibility**: Customer
 
 ### 1.6: Deploy network-based intrusion detection/intrusion prevention systems (IDS/IPS)
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33333.).
 
-**Guidance**: None.
+**Guidance**: Cognitive Search does not support network intrusion detection, but as intrusion mitigation, you can configure firewall rules to specify which ports the search service accepts requests from. You can also configure a private endpoint to keep search traffic off the public internet.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
++ [How to configure customer-managed keys for data encryption](search-security-manage-encryption-keys.md)
++ [How to get customer-managed key information from indexes and synonym maps](search-security-get-encryption-keys.md)
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Currently not available
+
+**Responsibility**: Customer
 
 ### 1.7: Manage traffic to web applications
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33334.).
 
-**Guidance**: None.
+**Guidance**: Not applicable; this recommendation is intended for web applications running on Azure App Service or compute resources.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Customer
 
 ### 1.8: Minimize complexity and administrative overhead of network security rules
 
