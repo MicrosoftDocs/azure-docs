@@ -33,8 +33,8 @@ Below claims that are defined by the JWT RFC and used by Azure Attestation in th
 ### Incoming claims (can also be used as outgoing claims)
 
 - **$is-debuggable**: Boolean which indicates whether or not the enclave has debugging enabled or not
-- **sgx-mrsigner**: hex encoded value of the “mrsigner” field of the quote
-- **sgx-mrenclave**: hex encoded value of the “mrenclave” field of the quote
+- **sgx-mrsigner**: hex encoded value of the **mrsigner** field of the quote
+- **sgx-mrenclave**: hex encoded value of the **mrenclave** field of the quote
 - **product-id**
 - **svn**: security version number encoded in the quote 
 - **tee**: type of enclave 
@@ -69,7 +69,7 @@ Below claims that are defined by the JWT RFC and used by Azure Attestation in th
 - **enclaveAuthorId**:  String value containing the Base64Url encoded value of the enclave author id-The author identifier of the primary module for the enclave
 - **enclaveImageId**:  String value containing the Base64Url encoded value of the enclave Image id-The image identifier of the primary module for the enclave
 - **enclaveOwnerId**:  String value containing the Base64Url encoded value of the enclave Owner id-The identifier of the owner for the enclave
-- **enclaveFamilyId**:  String value containing the Base64Url encoded value of the enclave Family id. The family identifier of the primary module for the enclave
+- **enclaveFamilyId**:  String value containing the Base64Url encoded value of the enclave Family ID. The family identifier of the primary module for the enclave
 - **enclaveSvn**:  Integer value containing the security version number of the primary module for the enclave
 - **enclavePlatformSvn**:  Integer value containing the security version number of the platform that hosts the enclave
 - **enclaveFlags**:  The enclaveFlags claim is an Integer value containing Flags that describe the runtime policy for the enclave
@@ -80,9 +80,9 @@ Below claims that are defined by the JWT RFC and used by Azure Attestation in th
 - **policy_signer**:  String value containing a JWK with the public key or the certificate chain present in the signed policy header. If the policy is not signed, a Microsoft generated certificate is used to sign the policy to maintain authenticity
 - **ver (Version)**:  String value containing version of the report
 Currently 1.0.
-- **cnf (Confirmation) Claim**:  The "cnf" claim is used to identify the proof-of-possession key. Confirmation claim as defined in RFC 7800, contains the public part of the attested enclave key represented as a JSON Web Key (JWK) object (RFC 7517)
+- **cnf (Confirmation) Claim**:  The **cnf** claim is used to identify the proof-of-possession key. Confirmation claim as defined in RFC 7800, contains the public part of the attested enclave key represented as a JSON Web Key (JWK) object (RFC 7517)
 - **rp_data (relying party data)**:  Relying party data, if any, specified in the request. This is normally used by the relying party as a nonce to guarantee freshness of the report
-- **"jti" (JWT ID) Claim**: The "jti" (JWT ID) claim provides a unique identifier for the JWT. The identifier value is assigned in a manner that ensures that there is a negligible probability that the same value will be accidentally assigned to a different data object
+- **"jti" (JWT ID) Claim**: The **jti** (JWT ID) claim provides a unique identifier for the JWT. The identifier value is assigned in a manner that ensures that there is a negligible probability that the same value will be accidentally assigned to a different data object
 
 ### Property claims
 
