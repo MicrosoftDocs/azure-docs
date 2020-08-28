@@ -17,7 +17,7 @@ Azure Database for MySQL is a relational database service in the Microsoft cloud
 - Data protection using automatic backups and point-in-time-restore for up to 35 days.
 - Automated maintenance for underlying hardware, operating system and database engine to keep the service secure and up to date.
 - Predictable performance, using inclusive pay-as-you-go pricing.
-- Elastic Scaling within seconds.
+- Elastic scaling within seconds.
 - Cost optimization controls with ability to stop/start server. 
 - Enterprise grade security and industry leading compliance to protect sensitive data at-rest and in-motion.
 - Monitoring and automation to simplify management and monitoring for large scale deployments.
@@ -43,7 +43,7 @@ Single servers are best suited for cloud native applications designed to handle 
 
 For detailed overview of single server deployment mode, refer [single server overview](single-server-overview.md).
 
-### Azure Database for MySQL - Flexible Server
+### Azure Database for MySQL - Flexible Server (Preview)
 
 Azure Database for MySQL Flexible Server is a fully managed database service designed to provide more granular control and flexibility over database management functions and configuration settings. In general, the service provides more flexibility and customizations based on the user requirements. The flexible server architecture allows users to opt for high availability within single availability zone and across multiple availability zones. Flexible servers provides better cost optimization controls with the ability to stop/start server and burstable compute tier, ideal for workloads that do not need full compute capacity continuously. The service currently supports community version of MySQL 5.7 with plans to add newer versions soon. The service is currently in public preview, available today in wide variety of [Azure regions](https://azure.microsoft.com/global-infrastructure/services/).
 
@@ -60,4 +60,4 @@ Learn more about the two deployment modes for Azure Database for MySQL and choos
 
 - [Single Server](single-server/index.yml)
 - [Flexible Server](flexible-server/index.yml)
-- [Choose the right MySQL deployment option in Azure](select-right-deployment-type.md)
+- [Choose the right MySQL deployment option for your workload in Azure](select-right-deployment-type.md)
