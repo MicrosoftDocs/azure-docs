@@ -172,10 +172,6 @@ Metrics Advisor detects anomalies on all your time series data in near real-time
 
 Click on an incident and you will be taken to the **Anomaly Incidents** page where you can see more details about it. Click on **Manage incidents in a new Incident hub**, and you will be taken to the [Incident Hub](diagnose-incident.md) page where you can find all incidents under the specific metric. 
 
-## View diagnostic insights
-
-With fine-tuned detecting configuration, anomalies that detected mostly reflect real business issues. Metrics Advisor performs analysis on multi-dimensional metrics, like anomaly clustering, incident correlation and root cause analysis. Use these features to analyze and diagnose incidents in your data. See [How to: Diagnose an incident](diagnose-incident.md) for more information.
-
 ## Subscribe anomalies for notification
 
 If you'd like to get notified whenever an anomaly is detected, you can subscribe to alerts for the metric, using a web hook. See [How to: configure alerts](alerts.md) for more information.
