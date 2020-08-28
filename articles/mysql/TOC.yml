@@ -401,6 +401,14 @@
       href: flexible-server/concepts-limitations.md
     - name: Compute and storage
       href: flexible-server/concepts-compute-storage.md
+    - name: Business continuity
+      item:
+      - name: Business continuity overview
+        href: flexible-server/concepts-business-continuity.md
+      - name: Backup and restore
+        href: flexible-server/concepts-backup-restore.md
+      - name: High availability
+        href: flexible-server/concepts-high-availability.md
     - name: Manage
       items:
       - name: Logs and Diagnostics

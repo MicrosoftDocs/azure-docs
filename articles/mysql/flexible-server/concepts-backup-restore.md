@@ -14,19 +14,19 @@ Azure Database for MySQL Flexible Server, which is currently in preview, automat
 
 ## Backup overview
 
-Flexible Server takes snapshot backups of the data files and stores them in a zone redundant storage. The server also performs continuous transaction logs backup and also stores them in zone redundant storage. These backups allow you to restore a server to any point-in-time within your configured backup retention period. The default backup retention period is 7 days. You can optionally configure the database backup from 1 to 35 days. All backups are encrypted using AES 256-bit encryption for the data stored at rest.
+Flexible Server takes snapshot backups of the data files and stores them in a zone redundant storage. The server also performs continuous transaction logs backup and also stores them in zone redundant storage. These backups allow you to restore a server to any point-in-time within your configured backup retention period. The default backup retention period is seven days. You can optionally configure the database backup from 1 to 35 days. All backups are encrypted using AES 256-bit encryption for the data stored at rest.
 
 These backup files cannot be exported. The backups can only be used for restore operations in Flexible server. You can also use [pg_dump](https://docs.microsoft.com/azure/MySQL/howto-migrate-using-dump-and-restore) from a MySQL client to copy a database.
 
 ## Backup frequency
 
-The first full snapshot backup is scheduled immediately after a database server is created. Subsequently, numerous daily snapshot backup is performed. Transaction log backups occur continuously. In case of the restore operation, where we restore the existing database server into a new one, the last most recent snapshot prior to restore time is taken and the transactions logs are applied till the restore point.
+The first full snapshot backup is scheduled immediately after a database server is created. Subsequently, numerous daily snapshot backups is performed. Transaction log backups occur continuously. In case of the restore operation, where we restore the existing database server into a new one, the last most recent snapshot prior to restore time is taken and the transactions logs are applied until the restore point.
 
 ## Backup retention
 
-Database backups are stored in a local redundant storage (LRS) -- which is stored in multiple copies within a region. Backups are retained based on the backup retention period setting on the server. You can select a retention period of 1 to 35 days with a default retention period is 7 days. You can set the retention period during server creation or later by updating the backup configuration using Azure portal.
+Database backups are stored in a local redundant storage (LRS)-- which is stored in multiple copies within a region. Backups are retained based on the backup retention period setting on the server. You can select a retention period of 1 to 35 days with a default retention period is seven days. You can set the retention period during server creation or later by updating the backup configuration using Azure portal.
 
-The backup retention period governs how far back in time can a point-in-time restore operation be performed, since it's based on backups available. The backup retention period can also be treated as a recovery window from a restore perspective. All backups required to perform a point-in-time restore within the backup retention period are retained in backup storage. For example - if the backup retention period is set to 7 days, the recovery window is considered last 7 days. In this scenario, all the backups required to restore the server in last 7 days are retained. With a backup retention window of 7 days, database snapshots and transaction log backups are stored for the last 7 days.
+The backup retention period governs how far back in time can a point-in-time restore operation be performed, since it's based on backups available. The backup retention period can also be treated as a recovery window from a restore perspective. All backups required to perform a point-in-time restore within the backup retention period are retained in backup storage. For example - if the backup retention period is set to seven days, the recovery window is considered last seven days. In this scenario, all the backups required to restore the server in last seven days are retained. With a backup retention window of seven days, database snapshots and transaction log backups are stored for the last seven days.
 
 ## Backup storage cost
 
@@ -46,17 +46,17 @@ The primary means of controlling the backup storage cost is by setting the appro
 
 In Azure Database for MySQL Flexible Server, performing a point-in-time restore creates a new server from the flexible server's backups in the same region as your source server. It is created with the original server's configuration for the compute tier, number of vCores, storage size, backup retention period, and backup redundancy option. Also, tags and settings such as virtual network and firewall are inherited from the source server.
 
-Point-in-time restore is useful in multiple scenarios. Some of the use cases that quite common - 
+Point-in-time restore is useful in multiple scenarios. Some of the use cases that common- 
 -   When a user accidentally deletes data in the database
 -   User drops an important table or database
 -   User application accidentally overwrites good data with bad data due to an application defect.
 
-You can choose between an latest restore point and a custom restore point.
+You can choose between a latest restore point and a custom restore point.
 
--   **Latest restore point**: Depending on your retention period and when the last backup was taken, the latest restore point helps you to restore the server to most updated state of the server and will be auto-selected for you. The timestamp to which you can restore will also displayed on the portal.
+-   **Latest restore point**: Depending on your retention period and when the last backup was taken, the latest restore point helps you to restore the server to most updated state of the server and will be autoselected for you. The timestamp for restore will also displayed on the portal.
 -   **Custom restore point**: This will allow you to choose any point-in-time within the retention period defined for this flexible server.
 
-The estimated time of recovery depends on several factors including the database sizes, the transaction log size, the network bandwidth, and the total number of databases recovering in the same region at the same time. The recovery time is usually less than 12 hours.
+The estimated time of recovery depends on several factors including the database sizes, the transaction log size, the network bandwidth, and the total number of databases recovering in the same region at the same time. The recovery time is less than 12 hours.
 
 
 > [!IMPORTANT]
