@@ -10,7 +10,7 @@ ms.date: 08/20/2020
 # Move Azure Event Grid domains to another region
 You might want to move your resources to another region for a number of reasons. For example, to take advantage of a new Azure region, to meet internal policy and governance requirements, or in response to capacity planning requirements. 
 
-Here's are the high-level steps covered in this article: 
+Here are the high-level steps covered in this article: 
 
 - **Export the domain** resource to an Azure Resource Manager template. 
 
@@ -97,4 +97,4 @@ You learned how to move an Event Grid domain from one region to another region. 
 - [Move custom topics across regions](move-custom-topics-across-regions.md). 
 - [Move partner namespaces across regions](move-partner-namespaces-across-regions.md).
 
-To learn more about moving resources between regions and disaster recovery in Azure, see the following article: [Move resources to a new resource group or subscription](../azure-resource-manager/management/move-resource-group-and-subscription.md)
+To learn more about moving resources between regions and disaster recovery in Azure, see the following article: [Move resources to a new resource group or subscription](../azure-resource-manager/management/move-resource-group-and-subscription.md).
