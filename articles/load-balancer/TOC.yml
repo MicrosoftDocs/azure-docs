@@ -9,7 +9,7 @@
   - name: Create public load balancer - Portal
     href: quickstart-load-balancer-standard-public-portal.md
   - name: Create public load balancer - PowerShell
-    href: quickstart-create-standard-load-balancer-powershell.md
+    href: quickstart-load-balancer-standard-public-powershell.md
   - name: Create public load balancer - Azure CLI
     href: quickstart-load-balancer-standard-public-cli.md
   - name: Create public load balancer - ARM template
