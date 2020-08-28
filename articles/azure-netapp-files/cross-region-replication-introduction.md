@@ -45,15 +45,6 @@ Recovery Point Objectives (RPO), or the maximum tolerable data loss, is defined 
 
 Recovery Time Objective (RTO), or the maximum tolerable business application downtime, is determined by factors in bringing up the application and providing access to the data at the second site. The storage portion of the RTO for breaking the peering relationship to activate the destination volume and provide read and write data access in the second site is expected to be complete within a minute.
 
-## Data durability 
-
-//// content not yet available ////
-
-## Cost model
-
-//// content not yet available ////
-
-
 ## Next steps
 * [Requirements and considerations for using cross-region replication](cross-region-replication-requirements-considerations.md)
 * [Create replication peering](cross-region-replication-create-peering.md)
