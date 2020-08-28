@@ -25,7 +25,7 @@ Before you can create a Kubernetes cluster and use the `kubectl` command-line to
 
 - Compute is enabled on the Azure Stack Edge device. To enable compute, go to the **Compute** page in the local UI of the device. Then select a network interface that you want to enable for compute. Select **Enable**. Enabling compute results in the creation of a virtual switch on your device on that network interface. For more information, see [Enable compute network on your Azure Stack Edge](azure-stack-edge-j-series-extend-compute-access-modules.md).
 
-- Your Azure Stack Edge device has a Kubernetes cluster server running that is version v1.9 or later. For more information, see [Create and manage a Kubernetes cluster on Microsoft Azure Stack Edge device](azure-stack-edge-j-series-create-kubernetes-cluster.md).
+- Your Azure Stack Edge device has a Kubernetes cluster server running that is version v1.9 or later. For more information, see [Create and manage a Kubernetes cluster on Microsoft Azure Stack Edge device](azure-stack-edge-gpu-create-kubernetes-cluster.md).
 
 - You have installed `kubectl`.
 
@@ -105,7 +105,7 @@ A pod is the basic execution unit of a Kubernetes application, the smallest and 
 
 The type of stateless application that you create is an nginx web server deployment.
 
-All kubectl commands you use to create and manage stateless application deployments need to specify the namespace associated with the configuration. You created the namespace while connected to the cluster on the Azure Stack Edge device in the [Create and manage a Kubernetes cluster on Microsoft Azure Stack Edge device](azure-stack-edge-j-series-create-kubernetes-cluster.md) tutorial with `New-HcsKubernetesNamespace`.
+All kubectl commands you use to create and manage stateless application deployments need to specify the namespace associated with the configuration. You created the namespace while connected to the cluster on the Azure Stack Edge device in the [Create and manage a Kubernetes cluster on Microsoft Azure Stack Edge device](azure-stack-edge-gpu-create-kubernetes-cluster.md) tutorial with `New-HcsKubernetesNamespace`.
 
 To specify the namespace in a kubectl command, use `kubectl <command> -n <namespace-string>`.
 
@@ -359,4 +359,4 @@ deployment.extensions "nginx-deployment" deleted
 
 ## Next steps
 
-[Kubernetes Overview](azure-stack-edge-j-series-kubernetes-overview.md)
+[Kubernetes Overview](azure-stack-edge-gpu-kubernetes-overview.md)

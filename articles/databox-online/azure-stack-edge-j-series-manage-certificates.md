@@ -413,4 +413,4 @@ View the certificate expiration date on the **Certificates** page in the local w
 
 ## Next steps
 
-[Deploy your Azure Stack Edge device](azure-stack-edge-j-series-deploy-prep.md)
+[Deploy your Azure Stack Edge device](azure-stack-edge-gpu-deploy-prep.md)

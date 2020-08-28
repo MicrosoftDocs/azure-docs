@@ -30,9 +30,9 @@ In this tutorial, you learn how to:
 
 Before you add shares to Azure Stack Edge, make sure that:
 
-* You've installed your physical device as described in [Install Azure Stack Edge](azure-stack-edge-j-series-deploy-install.md).
+* You've installed your physical device as described in [Install Azure Stack Edge](azure-stack-edge-gpu-deploy-install.md).
 
-* You've activated the physical device as described in [Connect, set up, and activate Azure Stack Edge](azure-stack-edge-j-series-deploy-connect-setup-activate.md).
+* You've activated the physical device as described in [Activate your Azure Stack Edge](azure-stack-edge-gpu-deploy-activate.md).
 
 ## Add a share
 
@@ -159,7 +159,7 @@ On your Linux client connected to your Azure Stack Edge device, do the following
 
    `sudo apt-get install nfs-common`
 
-    For more information, go to [Install NFSv4 client](https://help.ubuntu.com/community/settingupnfshowto#nfsv4_client).
+    For more information, go to [Install NFSv4 client](https://help.ubuntu.com/community/NFSv4Howto).
 
 2. After the NFS client is installed, mount the NFS share that you created on your Azure Stack Edge device by using the following command:
 

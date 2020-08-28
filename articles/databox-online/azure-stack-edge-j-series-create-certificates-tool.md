@@ -148,4 +148,4 @@ First, you'll generate a proper folder structure and place the certificates in t
 
 ## Next steps
 
-[Deploy your Azure Stack Edge device](azure-stack-edge-j-series-deploy-prep.md)
+[Deploy your Azure Stack Edge device](azure-stack-edge-gpu-deploy-prep.md)
