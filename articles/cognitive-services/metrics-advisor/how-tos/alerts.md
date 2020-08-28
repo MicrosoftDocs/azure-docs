@@ -16,10 +16,10 @@ ms.author: aahi
 
 After an anomaly is detected by your Metrics Advisor instance, an alert notification can be sent out based on your alert settings, using a web hook. An alert settings can correspond to multiple detection configurations, and you can set specific alert conditions.
 
-You can find the **Alert settings** options at the downward left corner of metrics detail page. It lists alert settings that are related to the selected detection configuration. When a detection configuration is first created, the alert setting list will be empty, and no alerts will be sent.  
+You can find the **Alert settings** options at the bottom left corner of metrics detail page. It lists alert settings that are related to the selected detection configuration. When a detection configuration is first created, the alert setting list will be empty, and no alerts will be sent.  
 You can use the **add**, **edit** and **delete** icons to modify alerts.
 
-![Entrance For Alert Setting](img/entrance_for_alert_setting.png)
+![Entrance For Alert Setting](../media/alerts/alert-setting.png)
 
 ## Create a web hook
 

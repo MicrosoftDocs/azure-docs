@@ -168,16 +168,9 @@ Cycle event is used to reduce anomalies if they follow a cyclic pattern, but it 
 
 ## View recent incidents
 
-Metrics Advisor detects anomalies on all your time series data in near real-time. However, not all of these anomalies would be escalated to customers, because they might not critical enough to be noticed. Aggregation will be performed on anomalies to get related anomalies clustered for escalating a potential incident. 
+Metrics Advisor detects anomalies on all your time series data in near real-time. However, not all of these anomalies would be escalated to customers, because they might not critical enough to be noticed. Aggregation will be performed on anomalies to get related anomalies clustered for escalating a potential incident. You can view these incidents from the **Incident** tab in metrics details page. 
 
-Customers are able to view these incidents from 'Incident' tab in metrics detail page. 
-
-
-Click on an incident and you will be taken to the 'Anomaly Incidents' page where you can find more details of the incident.
-
-![View Incident In Metric](img/view-incident-in-metric.png)
-
-Click on **Manage incidents in a new Incident hub**, and you will be taken to the [Incident Hub](diagnose-incident.md) page where you can find all incidents under the specific metric. 
+Click on an incident and you will be taken to the **Anomaly Incidents** page where you can see more details about it. Click on **Manage incidents in a new Incident hub**, and you will be taken to the [Incident Hub](diagnose-incident.md) page where you can find all incidents under the specific metric. 
 
 ## View diagnostic insights
 
