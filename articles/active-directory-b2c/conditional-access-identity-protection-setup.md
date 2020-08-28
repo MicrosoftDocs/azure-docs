@@ -61,7 +61,7 @@ The following risk detections are currently supported for Azure AD B2C:
 
 ## Add a Conditional Access policy 
 
-To add a conditional access policy based on the Identity Protection risk detections, make sure security defaults are disabled for your Azure AD B2C tenant, and then create Conditional Access policies.
+To add a Conditional Access policy based on the Identity Protection risk detections, make sure security defaults are disabled for your Azure AD B2C tenant, and then create Conditional Access policies.
 
 ### To disable security defaults
 
@@ -107,13 +107,38 @@ To add a conditional access policy based on the Identity Protection risk detecti
 
       ![Choose Block access](media/conditional-access-identity-protection-setup/test-conditional-access-policy.png)
 
-1. Enable your test conditional access policy by selecting **Create**.
+1. Enable your test Conditional Access policy by selecting **Create**.
 
 1. Simulate a risky sign-in by using the [Tor browser](https://www.torproject.org/download/). 
 
 1. In the jwt.ms decoded token for the attempted sign-in, you should see that the sign-in was blocked:
 
    ![Test a blocked sign-in](media/conditional-access-identity-protection-setup/test-blocked-sign-in.png)
+
+## Review Conditional Access Outcomes in the Audit Report
+
+To review the result of a Conditional Access event:
+
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+
+2. Select the **Directory + Subscription** icon in the portal toolbar, and then select the directory that contains your Azure AD B2C tenant.
+
+3. In the Azure portal, search for and select **Azure AD B2C**.
+
+4. Under **Activities**, select **Audit logs**.
+
+5. Filter the audit log by setting **Category** to **B2C** and setting **Activity Resource Type** to **IdentityProtection**. Then select **Apply**.
+
+6. Review audit activity for up to the last 7 days. The following types of activity are included:
+
+   - **Evaluate conditional access policies**: This audit log entry indicates that a Conditional Access evaluation was performed during an authentication.
+   - **Remediate user**: This entry indicates that the grant or requirements of a Conditional Access policy were met by the end user, and this activity was reported to the risk engine to reduce the risk of (mitigate) the user.
+
+7. Select an **Evaluate conditional access policy** log entry in the list to open the **Activity Details: Audit log** page, which shows the audit log identifiers, along with this information in the **Additional Details** section:
+
+   - ConditionalAccessResult: The grant required by the conditional policy evaluation.
+   - AppliedPolicies: A list of all the Conditional Access policies where the conditions were met and the policies are ON.
+   - ReportingPolicies: A list of the Conditional Access policies that were set to report-only mode and where the conditions were met.
 
 ## Next steps
 
