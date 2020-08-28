@@ -26,6 +26,8 @@ Azure SignalR Service lets you easily add real-time functionality to your applic
 > [!NOTE]
 > This quickstart can be run on macOS, Windows, or Linux.
 
+[Having issues? Let us know.](https://aka.ms/asrs/qsjs)
+
 ## Log in to Azure
 
 Sign in to the Azure portal at <https://portal.azure.com/> with your Azure account.
@@ -33,6 +35,8 @@ Sign in to the Azure portal at <https://portal.azure.com/> with your Azure accou
 [!INCLUDE [Create instance](includes/signalr-quickstart-create-instance.md)]
 
 [!INCLUDE [Clone application](includes/signalr-quickstart-clone-application.md)]
+
+[Having issues? Let us know.](https://aka.ms/asrs/qsjs)
 
 ## Configure and run the Azure Function app
 
@@ -69,9 +73,13 @@ Sign in to the Azure portal at <https://portal.azure.com/> with your Azure accou
 
 [!INCLUDE [Cleanup](includes/signalr-quickstart-cleanup.md)]
 
+[Having issues? Let us know.](https://aka.ms/asrs/qsjs)
+
 ## Next steps
 
 In this quickstart, you built and ran a real-time serverless application in VS Code. Next, learn more about how to deploy Azure Functions from VS Code.
 
 > [!div class="nextstepaction"]
 > [Deploy Azure Functions with VS Code](/azure/developer/javascript/tutorial-vscode-serverless-node-01)
+
+[Having issues? Let us know.](https://aka.ms/asrs/qsjs)
