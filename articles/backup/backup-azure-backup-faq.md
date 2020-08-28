@@ -51,7 +51,7 @@ If you've already configured the backup and must move from GRS to LRS, then see 
 ### Can I do an Item Level Restore (ILR) for VMs backed up to a Recovery Services vault?
 
 - ILR is supported for Azure VMs backed up by Azure VM backup. For more information, see [article](backup-azure-restore-files-from-vm.md)
-- ILR isn't supported for online recovery points of on-premises VMs backed up by Azure backup Server or System Center DPM.
+- ILR isn't supported for online recovery points of on-premises VMs backed up by Azure Backup Server (MABS) or System Center DPM.
 
 ## Azure Backup agent
 
@@ -122,7 +122,7 @@ BMR/System state |Each individual copy of BMR or system state of the machine bei
 
 ### Is there a limit on the amount of data backed up using a Recovery Services vault?
 
-There is no limit on the total amount of data you can back up using a Recovery Services vault. The individual data sources (other than Azure VMs), can be a maximum of 54,400 GB in size. For more information about limits, see the [vault limits section in the support matrix](./backup-support-matrix.md#vault-support).
+There's no limit on the total amount of data you can back up using a Recovery Services vault. The individual data sources (other than Azure VMs), can be a maximum of 54,400 GB in size. For more information about limits, see the [vault limits section in the support matrix](./backup-support-matrix.md#vault-support).
 
 ### Why is the size of the data transferred to the Recovery Services vault smaller than the data selected for backup?
 
@@ -179,7 +179,7 @@ You can create up to 9999 recovery points per protected instance. A protected in
 
 ### How many times can I recover data that's backed up to Azure?
 
-There is no limit on the number of recoveries from Azure Backup.
+There's no limit on the number of recoveries from Azure Backup.
 
 ### When restoring data, do I pay for the egress traffic from Azure?
 
@@ -213,7 +213,7 @@ Microsoft doesn't decrypt the backup data at any point.
 
 ### What is the minimum length of the encryption key used to encrypt backup data?
 
-The encryption key used by the Microsoft Azure Recovery Services (MARS) Agent is derived from a passphrase that should be at least 16 characters long. For Azure VMs, there is no limit to the length of keys used by Azure KeyVault.
+The encryption key used by the Microsoft Azure Recovery Services (MARS) Agent is derived from a passphrase that should be at least 16 characters long. For Azure VMs, there's no limit to the length of keys used by Azure KeyVault.
 
 ### What happens if I misplace the encryption key? Can I recover the data? Can Microsoft recover the data?
 
