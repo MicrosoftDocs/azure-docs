@@ -52,6 +52,8 @@ Returns a `Promise<LaunchResponse>`, which resolves when the Immersive Reader is
 
 The returned `Promise` will be rejected with an [`Error`](#error) object if the Immersive Reader fails to load. For more information, see the [error codes](#error-codes).
 
+<br>
+
 ## close
 
 Closes the Immersive Reader.
