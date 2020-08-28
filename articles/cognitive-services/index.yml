@@ -12,7 +12,7 @@ metadata:
   author: nitinme
   ms.author: nitinme
   manager: nitinme
-  ms.date: 03/24/2020
+  ms.date: 08/28/2020
 
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
@@ -62,7 +62,7 @@ conceptualContent:
           text: Form Recognizer
         - url: ./ink-recognizer/index.yml
           itemType: overview
-          text: Ink Recognizer (Preview)
+          text: Ink Recognizer (Retiring)
         - url: ../media-services/video-indexer/index.yml
           itemType: overview
           text: Video Indexer
