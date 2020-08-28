@@ -6,23 +6,25 @@ services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice:
+ms.subservice: metrics-advisor
 ms.topic: conceptual
-ms.date: 08/19/2020
+ms.date: 08/28/2020
 ms.author: aahi
 ---
 
-# How to: add data feeds to Metrics Advisor
+# How to: onboard your data and manage the data feed
 
-Learn how to create data feeds in Metrics Advisor to pull your time series data from different sources. This article will guide you through key concepts for adding data feeds and common data schema requirements for time series data.
+Learn how to create and manage data feeds in Metrics Advisor. This article guides you through onboarding your time series data from different sources, and managing the data feed in Metrics Monitor.
 
-## Avoid loading partial data
+## Onboard your data feed
+
+### Avoid loading partial data
 
 Partial data is caused by inconsistencies between the data stored in Metrics Advisor and the data source. This can happen when the data source is updated after Metrics Advisor has finished pulling data. Metrics Advisor pulls data from a given data source once.
 
 For example, suppose you have two data sources. If the data for a given date is available in the first data source, but not the second, Metrics Advisor will only retrieve metrics from the first data source. If this data is later added to the second data source, Metrics Advisor won't retrieve it. 
 
-You can try to backfill historical data (described below) to mitigate inconsistencies but this won't trigger new anomaly alerts, if alerts for those time points have already been triggered. This process may add additional workload to the system, and is not automatic.
+You can try to [backfill](#backfill-your-data-feed) historical data (described below) to mitigate inconsistencies but this won't trigger new anomaly alerts, if alerts for those time points have already been triggered. This process may add additional workload to the system, and is not automatic.
 
 To avoid loading partial data, we recommend two approaches:
 
@@ -33,15 +35,6 @@ To avoid loading partial data, we recommend two approaches:
 2. Set the ingestion time offset parameter:
 
     Set the **Ingestion time offset** parameter for your data feed to delay the ingestion until the data is fully prepared. This can be useful for some data sources which don't support transactions such as Azure Table Storage. See [Advanced settings](#advanced-settings) for details.
-
-###  Backfill your datafeed
-
-Select the  **Backfill** button to trigger an immediate ingestion on a time-stamp, to fix a failed ingestion or override the existing data.
-- The start time is inclusive.
-- The end time is exclusive.
-- Anomaly detection is re-triggered on selected range only.
-
-![Backfill Datafeed](../media/datafeeds/backfill-datafeed.png)
 
 ## Add a data feed using the web Portal
 
@@ -57,18 +50,14 @@ Next you'll input a set of parameters to connect your time-series data source.
 
 Next, you'll need to specify the connection information of the data source as well as the custom queries which are used to convert the data into the required schema. For details on the other fields and connecting different types of data sources, see [Add data feeds from different data sources](add-data-feeds-from-different-data-sources.md).
 
-#### Data schema requirements
+### Data schema requirements and configuration
 
 [!INCLUDE [data schema requirements](../includes/data-schema-requirements.md)]
-
-### Verify the connection and load the data schema
 
 After the connection string and query string are set, select **Verify and get schema** to verify the connection and run the query to get your data schema from the data source. Normally it takes a few seconds depending on your data source connection. If there's an error at this step, confirm that:
 
 1. Your connection string and query are correct.
 2. Your Metrics Advisor instance is able to connect to the data source if there are firewall settings.
-
-### Schema configuration
 
 Once the data schema is loaded, select the appropriate fields.
 
@@ -94,18 +83,14 @@ Row ID | Timestamp | Country | Language | Income
 
 If *Country* is a dimension and *Language* is set as *Ignored*, then the first and second rows will have the same dimensions. Metrics Advisor will arbitrarily use one value from the two rows. Metrics Advisor will not aggregate the rows in this case.
 
-### Specify a name for onboarded data feed
+### Specify a name for the data feed and check the ingestion progress
  
-Give a custom name for the data feed, which will be displayed on the portal. Click on **Submit**. 
-
-## Check the ingestion progress of your data feed
-In the data feed details page, you can use the ingestion progress bar to view status information.
+Give a custom name for the data feed, which will be displayed on the portal. Then Click on **Submit**. In the data feed details page, you can use the ingestion progress bar to view status information.
 
 ![Ingestion Progress](../media/datafeeds/ingestion-progress.png)
 
-### Check ingestion failure details
-
 To check ingestion failure details: 
+
 1. Click **Show Details**.
 2. Click **Status** then choose **Failed** or **Error**.
 3. Hover over a failed ingestion, and view the details message that appears.
@@ -116,6 +101,10 @@ A *failed* status indicates the ingestion for this data source will be retried l
 An *Error* status indicates Metrics Advisor won't retry for the data source. To reload data, you need trigger a backfill/reload manually.
 
 You can also reload the progress of an ingestion by clicking **Refresh Progress**.
+
+## Manage your data feed
+
+After creating your data feed, use these features to manage and customize it.
 
 ## Automatic roll up settings
 
@@ -193,11 +182,14 @@ Metrics Advisor can automatically generate the data cube (sum) during ingestion,
       * Overlap in dimension. For example, you should not add the number of people in to each sport to calculate the number of people who like sports, because there is an overlap between them, one person can like multiple sports.
     * To ensure the health of the whole system, the size of cube is limited. Currently, the limit is 1,000,000. If your data exceeds that limit, ingestion will fail for that timestamp.
 
-## "Data feed is not available" alert settings
+##  Backfill your data feed
 
-A data feed is considered not available if no data is ingested from the source within the grace period specified from the time the data feed starts ingestion. An alert is triggered in this case.
+Select the  **Backfill** button to trigger an immediate ingestion on a time-stamp, to fix a failed ingestion or override the existing data.
+- The start time is inclusive.
+- The end time is exclusive.
+- Anomaly detection is re-triggered on selected range only.
 
-Currently, Metrics Advisor only supports Web Hooks for alerting you when a data feed is not available. See the [Alerts](alerts.md#-create-a-web-hook) for details.
+![Backfill Datafeed](../media/datafeeds/backfill-datafeed.png)
 
 ## Advanced settings
 
@@ -228,11 +220,11 @@ There are several optional advanced settings when creating a new data feed. Most
 
 A data feed is considered as not available if no data is ingested from the source within the grace period specified from the time the data feed starts ingestion. An alert is triggered in this case.
 
-To configure an alert, you need a hook first. Alerts will be sent to this hook.
+To configure an alert, you need a [web hook](alerts.md#-create-a-web-hook) first. Alerts will be sent to this hook.
 
 * **Grace period**: The Grace Period setting is used to determine when to send an alert if no data points are ingested. The reference point is the time of first ingestion. If an ingestion fails, Metrics Advisor will keep trying at a regular interval specified by the granularity. If it continues to fail past the grace period, an alert will be sent.
 
-* **Auro snooze**: When this option is set to zero, each timestamp with *Not Available* triggers an alert. When a setting other than zero is specified, continuous timestamps after the first timestamp with *not available* are not triggered according to the the setting specified.
+* **Auto snooze**: When this option is set to zero, each timestamp with *Not Available* triggers an alert. When a setting other than zero is specified, continuous timestamps after the first timestamp with *not available* are not triggered according to the the setting specified.
 
 
 #### Action link template: 

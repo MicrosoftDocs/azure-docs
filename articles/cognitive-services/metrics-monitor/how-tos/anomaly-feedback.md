@@ -6,7 +6,7 @@ services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: 
+ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 08/26/2020
 ms.author: aahi
@@ -64,3 +64,11 @@ There are many reasons when you might consider an anomaly is a false alarm. Cons
 |The anomaly is caused by known data source change, for example a system change.     | Don't annotate this anomaly if this scenario isn't expected to regularly reoccur.        |
 |The anomaly is caused by holiday.     | Use [Preset events](web-portal.md#preset-events) to flag anomaly detection at specified times.       |
 |There is a regular pattern to detected anomalies (for example on weekends) and they should not be anomalies.      |Use the feedback feature, or preset events.        |
+
+## Next steps
+
+- [Add and manage data feeds](../how-tos/datafeeds.md)
+    - [Configurations for different data sources](../data-feeds-from-different-sources.md)
+- [Create alerts](../how-tos/alerts.md)
+- [Diagnose incidents](../how-tos/diagnose-incident.md).
+- [Configure metrics and anomaly detection](configure-metrics.md)

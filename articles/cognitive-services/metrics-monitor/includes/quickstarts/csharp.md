@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: aahill
 manager: nitinme
-ms.service: cognitive-services
+ms.service: metrics-advisor
 ms.topic: include
 ms.date: 07/30/2020
 ms.author: aahi

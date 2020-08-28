@@ -4,18 +4,14 @@ titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: aahill
 manager: nitinme
-ms.service: cognitive-services
+ms.service: metrics-advisor
 ms.topic: include
 ms.date: 08/19/2020
 ms.author: aahi
 ---
     
 > [!TIP] 
-> Looking for example code that uses the REST API? The following samples are available on GitHub: 
-> * [C#](https://github.com/Azure-Samples/cognitive-services-rest-api-samples/)
-> * [Java](https://github.com/Azure-Samples/cognitive-services-rest-api-samples/)
-> * [JavaScript](https://github.com/Azure-Samples/cognitive-services-rest-api-samples/)
-> * [Python](https://github.com/Azure-Samples/cognitive-services-rest-api-samples/)
+> Looking for example code that uses the REST API? You can find a Python sample on [GitHub](https://github.com/Azure-Samples/cognitive-services-rest-api-samples/).
 
 ## Prerequisites
 

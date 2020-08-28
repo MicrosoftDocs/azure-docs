@@ -6,7 +6,7 @@ services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: 
+ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: aahi
@@ -193,25 +193,11 @@ Click on an incident and you will be taken to the 'Anomaly Incidents' page where
 
 ![View Incident In Metric](img/view-incident-in-metric.png)
 
-Click on **Manage incidents in a new Incident hub**, and you will be taken to the [Incident Hub]() page where you can find all incidents under the specific metric. 
+Click on **Manage incidents in a new Incident hub**, and you will be taken to the [Incident Hub](diagnose-incident.md) page where you can find all incidents under the specific metric. 
 
 ## View diagnostic insights
 
-With fine-tuned detecting configuration, anomalies that detected mostly reflect real business issues. Metrics Advisor performs analysis on multi-dimensional metrics, like anomaly clustering, incident correlation and root cause analysis. Those are been exposed as **diagnostics insights** by a set of powerful features. 
-
-To view the diagnostic insights, you can just click on the red dots on time series visualizations which stand for anomalies that detected. A pop-up window will be displayed with a link to incident analysis page. 
-
-![Incident link](../media/incident-link.png "Incident link")
-
-You will be pivoted to the incident analysis page which the anomaly belongs to with bunch of diagnostics insights. At the top, there're some statistics about the incident like **Severity**, **Anomalies involved**, and incident impacted **Start time** and **End time**. 
-
-Below that shows ancestor anomaly of the incident and automated root cause advice. This automated root cause advice is analyzed upon diagnosing tree through all related anomalies on deviation, distribution and contribution to parent anomalies, which would most likely to be the root cause of the incident. 
-
-![Incident diagnostic](../media/incident-diagnostic.png "Incident diagnostic")
-
-Based on these, you can already get a straightforward view of what is happening and the impact of the incident as well as the most potential root cause. So that immediate action could be taken to resolve incident as soon as possible. 
-
-But you can also pivot across more diagnostics insights leveraging additional features to drill down anomalies by dimension, view similar anomalies and do comparison across metrics. Please find more at [Diagnose workflow](../howto/diagnose/diagnose-workflows.md). 
+With fine-tuned detecting configuration, anomalies that detected mostly reflect real business issues. Metrics Advisor performs analysis on multi-dimensional metrics, like anomaly clustering, incident correlation and root cause analysis. Use these features to analyze and diagnose incidents in your data. See [How to: Diagnose an incident](diagnose-incident.md) for more information.
 
 ## Subscribe anomalies for notification
 

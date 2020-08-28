@@ -6,13 +6,13 @@ services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: 
+ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: aahi
 ---
 
-# How-to: Configure alerts
+# How-to: Configure and subscribe to an alert
 
 After an anomaly is detected by your Metrics Advisor instance, an alert notification can be sent out based on your alert settings, using a web hook. An alert settings can correspond to multiple detection configurations, and you can set specific alert conditions.
 
@@ -21,6 +21,27 @@ You can use the **add**, **edit** and **delete** icons to modify alerts.
 
 ![Entrance For Alert Setting](img/entrance_for_alert_setting.png)
 
+## Create a web hook
+
+> [!TIP]
+> * Web hooks are only only supported for alerts.  
+> * Use the **POST** request method.
+> * The request body wil be similar to:  
+    `{"timestamp":"2019-09-11T00:00:00Z","alertSettingGuid":"49635104-1234-4c1c-b94a-744fc920a9eb"}`
+> * When a web hook is created or modified, the API will be called as a test with an empty request body. Your API needs to return a 200 HTTP code.
+
+A web hook is the entry point for all the information available from the Metrics Advisor service, and calls a user-provided api when an alert is triggered. All alerts, including "Data feed not available" and "Incident report" alerts are sent through web hooks only.
+
+To create a web hook, you will need to add the following information
+
+
+|Parameter |Description  |
+|---------|---------|
+|Endpoint     | The API address to be called when an alert is triggered.        |
+|Username / Password | For authenticating to the API address. Leave this black if authentication isn't needed.         |
+|Header     | Custom headers in the API call.        |
+
+:::image type="content" source="../media/alerts/create_web_hook.png" alt-text="web hook creation window.":::
 
 ### Add or Edit alert settings
 
@@ -70,28 +91,6 @@ The **Operator** selector is the logical relationship of each section, to determ
 
 :::image type="content" source="../media/alerts/alert-setting-operator.png" alt-text="Operator for multiple alert setting section":::
 
-## Create a web hook
-
-> [!TIP]
-> * Web hooks are only only supported for alerts.  
-> * Use the **POST** request method.
-> * The request body wil be similar to:  
-    `{"timestamp":"2019-09-11T00:00:00Z","alertSettingGuid":"49635104-1234-4c1c-b94a-744fc920a9eb"}`
-> * When a web hook is created or modified, the API will be called as a test with an empty request body. Your API needs to return a 200 HTTP code.
-
-A web hook is the entry point for all the information available from the Metrics Advisor service, and calls a user-provided api when an alert is triggered. All alerts, including "Data feed not available" and "Incident report" alerts are sent through web hooks only.
-
-To create a web hook, you will need to add the following information
-
-
-|Parameter |Description  |
-|---------|---------|
-|Endpoint     | The API address to be called when an alert is triggered.        |
-|Username / Password | For authenticating to the API address. Leave this black if authentication isn't needed.         |
-|Header     | Custom headers in the API call.        |
-
-:::image type="content" source="../media/alerts/create_web_hook.png" alt-text="web hook creation window.":::
-
 ### Get details for alert
 
 After setting **timestamp** and **alertSettingGuid** in your api service, you can get details of alert with the API:
@@ -99,3 +98,11 @@ After setting **timestamp** and **alertSettingGuid** in your api service, you ca
 - `query_alert_result_incidents`
 
 You can manage all your hooks in the hook settings page. 
+
+## Next Steps
+
+- [Add and manage data feeds](../how-tos/datafeeds.md)
+    - [Configurations for different data sources](../data-feeds-from-different-sources.md)
+- [Send anomaly feedback to your instance](../how-tos/anomaly-feedback.md)
+- [Diagnose incidents](../how-tos/diagnose-incident.md).
+- [Configure metrics and anomaly detection](configure-metrics.md)
