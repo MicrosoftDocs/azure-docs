@@ -27,7 +27,7 @@ The type of apps a user may be seeing fall in the following categories:
 
 ## General issues to check first
 
--   Make sure the web browser meets the requirements for My Apps, see [My Apps supported browsers](../user-help/my-apps-portal-end-user-access).
+-   Make sure the web browser meets the requirements for My Apps, see [My Apps supported browsers](../user-help/my-apps-portal-end-user-access.md).
 -   Make sure the user’s browser has added the URL of the application to its **trusted sites**.
 -   Make sure to check the application is **configured** correctly.
 -   Make sure the user’s account is **enabled** for sign-ins.
