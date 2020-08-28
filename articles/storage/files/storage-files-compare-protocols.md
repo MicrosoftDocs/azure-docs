@@ -11,7 +11,7 @@ ms.subservice: files
 
 # Azure file share protocols
 
-Azure Files offers two protocols for connecting and mounting your Azure file shares. Server Message Block (SMB) and Network File System (NFS) (preview). Azure Files does not currently support multi-protocol access, so a share can only be either an NFS share, or an SMB share. Due to this, we recommend determining which protocol best suits your needs before creating Azure file shares.
+Azure Files offers two protocols for connecting and mounting your Azure file shares. [Server Message Block (SMB) protocol](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) and [Network File System (NFS) protocol](https://en.wikipedia.org/wiki/Network_File_System) (preview). Azure Files does not currently support multi-protocol access, so a share can only be either an NFS share, or an SMB share. Due to this, we recommend determining which protocol best suits your needs before creating Azure file shares.
 
 ## Differences at a glance
 
@@ -61,28 +61,11 @@ Azure Files offers NFS v4.1 protocol that is fully managed, network-attached sto
 
 ### Limitations
 
-- If the majority of your requests are metadata centric, then the latency will be worse when compared to open/close operations.
-- Encryption-in-transit is not currently available
-- Must create a new storage account in order to create an NFS share.
-- Does not currently support storage explorer, Data Box, or AzCopy.
-
-Also, the following Azure Files features are not available with NFS shares:
-
-- Azure File Sync
-- Identity-based authentication
-- Azure Backup support
-- Snapshots
-- Soft delete
+[!INCLUDE [files-nfs-limitations](../../../includes/files-nfs-limitations.md)]
 
 #### Regional availability
 
-- Australia East 
-- East US
-- East US 2
-- Southeast Asia
-- UK South
-- West Europe
-- West US 2
+[!INCLUDE [files-nfs-regional-availability](../../../includes/files-nfs-regional-availability.md)]
 
 ### Best suited
 
@@ -105,3 +88,8 @@ Web applications, DevOps, HPC, Log Directories, Video Streaming etc. Basically, 
 
 - Linux-centric workloads that do not require SMB access.
 - Inherent locking system that you do not need to manage.
+
+## Next steps
+
+- [Create an NFS file share](storage-files-how-to-create-mount-nfs-shares.md)
+- Create an SMB file share
