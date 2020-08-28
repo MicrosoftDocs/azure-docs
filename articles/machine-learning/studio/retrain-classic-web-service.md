@@ -8,7 +8,7 @@ ms.topic: how-to
 
 author: peterclu
 ms.author: peterlu
-ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT
+ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT, devx-track-csharp
 ms.date: 02/14/2019
 ---
 # Retrain and deploy a classic Studio (classic) web service

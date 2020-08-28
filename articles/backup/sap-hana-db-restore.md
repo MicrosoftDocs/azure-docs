@@ -23,7 +23,7 @@ Azure Backup can restore SAP HANA databases that are running on Azure VMs as fol
 
 Before restoring a database, note the following:
 
-* You can restore the database only to an SAP HANA instance that is in the same region
+* You can restore the database only to an SAP HANA instance that's in the same region
 
 * The target instance must be registered with the same vault as the source
 
@@ -133,7 +133,7 @@ To restore the backup data as files instead of a database, choose **Restore as F
 
     * Database backup files
     * Catalog files
-    * JSON metadata files (for each backup file that is involved)
+    * JSON metadata files (for each backup file that's involved)
 
     Typically, a network share path, or path of a mounted Azure file share when specified as the destination path, enables easier access to these files by other machines in the same network or with the same Azure file share mounted on them.
 

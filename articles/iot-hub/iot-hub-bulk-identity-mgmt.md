@@ -8,6 +8,7 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/02/2019
 ms.author: robinsh
+ms.custom: devx-track-csharp
 ---
 
 # Import and export IoT Hub device identities in bulk

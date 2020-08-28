@@ -9,9 +9,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
+ms.custom: devx-track-csharp
 ---
 
 # Get started with Azure Queue storage using .NET
+
+[!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
 
 ## Overview
 
@@ -150,8 +153,6 @@ To target the Azurite storage emulator, you can use a shortcut that maps to the 
 ```
 
 ### Add using directives
-
-[!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
 
 Add the following `using` directives to the top of the `Program.cs` file:
 
