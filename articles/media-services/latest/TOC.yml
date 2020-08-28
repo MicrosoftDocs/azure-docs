@@ -49,11 +49,11 @@
   items:
   - name: .NET
     items:
-    - name: REST Encode remote file and stream video
+    - name: Encode and stream a remote file REST
     - href: stream-files-tutorial-with-rest.md
-    - name: .NET Encode remote file and stream video
+    - name: Encode and stream a remote file .NET
       href: stream-files-dotnet-quickstart.md
-    - name: Encode uploaded file and stream video
+    - name: Encode and stream an uploaded file
       href: stream-files-tutorial-with-api.md
     - name: Stream live
       href: stream-live-tutorial-with-api.md
@@ -65,11 +65,11 @@
       href: protect-with-drm.md 
   - name: CLI
     items:
-    - name: CLI Encode remote file and stream video
+    - name: Encode and stream a remote file CLI
     - href: stream-files-cli-quickstart.md
   - name: Node.js
     items:
-    - name: Node.js Encode remote file and stream video
+    - name: Encode and stream a remote file Node.js
       href: stream-files-nodejs-quickstart.md
   - name: Azure portal
     items:
