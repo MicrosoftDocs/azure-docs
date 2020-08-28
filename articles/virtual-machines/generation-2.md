@@ -103,7 +103,7 @@ Below are the steps to create a generation 2 (Gen2) VM in Azure portal.
 
 1. Sign in to the Azure portal at https://portal.azure.com.
 1. Select **Create a resource**.
-1. Click **See all** from the Azure Marketplace on the left.
+1. Click **See all** from Azure Marketplace on the left.
 1. Select an image which supports Gen2.
 1. Click **Create**.
 1. In the **Advanced** tab, under the **VM generation** section, select the **Gen 2** option.
