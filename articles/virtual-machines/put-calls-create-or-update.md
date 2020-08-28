@@ -14,7 +14,7 @@ ms.custom: avverma
 
 `Microsoft.Compute` resources do not support the conventional definition of *PUT* semantics. Instead, these resources use PATCH semantics.
 
-**Create calls** following PATCH semantics apply default values if appropriate. For example, the disk `caching` property defaults `ReadWrite` if the resource is an OS disk.. 
+**Create** operations following PATCH semantics and apply default values when appropriate. For example, the disk `caching` property of a virtual machine defaults to `ReadWrite` if the resource is an OS disk.
 
 ```json
     "storageProfile": {
@@ -33,9 +33,9 @@ ms.custom: avverma
     },
 ```
 
-However, for **Update calls**  if a property is left out or a *null* value is passed, it will remain unchanged. There is no defaulting with **Update calls**.
+However, for **update** operations when a property is left out or a *null* value is passed, it will remain unchanged and there no defaulting values. 
 
-This is important when updating a resource with the intention of removing an association to another resource. If that resource is a `Microsoft.Compute` resource, the corresponding property you want to remove needs to be explicitly called out and a value assigned. Such as **" "** (empty or blank). This will instruct the platform to remove that association.
+This is important when sending update operations to a resource with the intention of removing an association. If that resource is a `Microsoft.Compute` resource, the corresponding property you want to remove needs to be explicitly called out and a value assigned. Such as **" "** (empty or blank). This will instruct the platform to remove that association.
 
 ## Examples
 
