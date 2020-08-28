@@ -32,7 +32,11 @@ Azure SignalR Service lets you easily add real-time functionality to your applic
 
 Sign in to the Azure portal at <https://portal.azure.com/> with your Azure account.
 
+[Having issues? Let us know.](https://aka.ms/asrs/qsjs)
+
 [!INCLUDE [Create instance](includes/signalr-quickstart-create-instance.md)]
+
+[Having issues? Let us know.](https://aka.ms/asrs/qsjs)
 
 [!INCLUDE [Clone application](includes/signalr-quickstart-clone-application.md)]
 
@@ -69,7 +73,11 @@ Sign in to the Azure portal at <https://portal.azure.com/> with your Azure accou
 
     ![Create SignalR Service](media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-run-application.png)
 
+[Having issues? Let us know.](https://aka.ms/asrs/qsjs)
+
 [!INCLUDE [Run web application](includes/signalr-quickstart-run-web-application.md)]
+
+[Having issues? Let us know.](https://aka.ms/asrs/qsjs)
 
 [!INCLUDE [Cleanup](includes/signalr-quickstart-cleanup.md)]
 
