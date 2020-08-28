@@ -110,7 +110,7 @@ az vm update -n myVM -g myResourceGroup --set identity.type="none"
 In this section, you will learn how to add and remove a user-assigned managed identity from an Azure VM using Azure CLI.
 
       > [!NOTE]
-      > If you create your managed identity in a different RG than your VM. You'll have to use the URL of your identity to assign it to your VM.
+      > If you create your user-assigned managed identity in a different RG than your VM. You'll have to use the URL of your managed identity to assign it to your VM.
       >i.e. --identities "/subscriptions/<SUBID>/resourcegroups/<RESROURCEGROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER_ASSIGNED_ID_NAME>"
 
 ### Assign a user-assigned managed identity during the creation of an Azure VM
@@ -182,7 +182,7 @@ To assign a user-assigned identity to a VM, your account needs the [Virtual Mach
    }
    ```
 
-2. Assign the user-assigned identity to your VM using [az vm identity assign](/cli/azure/vm). Be sure to replace the `<RESOURCE GROUP>` and `<VM NAME>` parameter values with your own values. The `<USER ASSIGNED IDENTITY NAME>` is the user-assigned managed identity's resource `name` property, as created in the previous step:
+2. Assign the user-assigned identity to your VM using [az vm identity assign](/cli/azure/vm). Be sure to replace the `<RESOURCE GROUP>` and `<VM NAME>` parameter values with your own values. The `<USER ASSIGNED IDENTITY NAME>` is the user-assigned managed identity's resource `name` property, as created in the previous step. If you created your user-assigned managed identity in a different RG than your VM. You'll have to use the URL of your managed identity.
 
     ```azurecli-interactive
     az vm identity assign -g <RESOURCE GROUP> -n <VM NAME> --identities <USER ASSIGNED IDENTITY>
