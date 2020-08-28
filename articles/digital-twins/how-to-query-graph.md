@@ -39,7 +39,7 @@ WHERE ...
 
 ### Query by property
 
-Get digital twins by properties (including ID and metadata):
+Get digital twins by **properties** (including ID and metadata):
 ```sql
 SELECT  * 
 FROM DigitalTwins T  
@@ -51,7 +51,7 @@ AND T.Temperature = 70
 > [!TIP]
 > The ID of a digital twin is queried using the metadata field `$dtId`.
 
-You can also get twins based on whether a certain property is defined. Here is a query that gets twins that have a defined *Location* property:
+You can also get twins based on **whether a certain property is defined**. Here is a query that gets twins that have a defined *Location* property:
 
 ```sql
 SELECT *​
@@ -64,7 +64,7 @@ This can help you to get twins by their *tag* properties, as described in [Add t
 select * from digitaltwins where is_defined(tags.red) 
 ```
 
-You can also get twins based on the type of a property. Here is a query that gets twins whose *Temperature* property is a number:
+You can also get twins based on the **type of a property**. Here is a query that gets twins whose *Temperature* property is a number:
 
 ```sql
 SELECT * FROM DIGITALTWINS​ T
@@ -73,7 +73,7 @@ WHERE IS_NUMBER(T.Temperature)
 
 ### Query by model
 
-The `IS_OF_MODEL` operator can be used to filter based on the twin's [model](concepts-models.md). It supports inheritance and has several overload options.
+The `IS_OF_MODEL` operator can be used to filter based on the twin's [**model**](concepts-models.md). It supports inheritance and has several overload options.
 
 The simplest use of `IS_OF_MODEL` takes only a `twinTypeName` parameter: `IS_OF_MODEL(twinTypeName)`.
 Here is a query example that passes a value in this parameter:
@@ -105,7 +105,7 @@ SELECT ROOM FROM DIGITALTWINS DT WHERE IS_OF_MODEL(DT, 'dtmi:sample:thing;1', ex
 
 ### Query based on relationships
 
-When querying based on digital twins' relationships, Azure Digital Twins query language has a special syntax.
+When querying based on digital twins' **relationships**, the Azure Digital Twins query language has a special syntax.
 
 Relationships are pulled into the query scope in the `FROM` clause. An important distinction from "classical" SQL-type languages is that each expression in this `FROM` clause is not a table; rather, the `FROM` clause expresses a cross-entity relationship traversal, and is written with an Azure Digital Twins version of `JOIN`. 
 
@@ -135,7 +135,7 @@ WHERE T.$dtId = 'ABC'
 
 #### Query the properties of a relationship
 
-Similarly to the way digital twins have properties described via DTDL, relationships can also have properties. 
+Similarly to the way digital twins have properties described via DTDL, relationships can also have properties. You can query twins **based on the properties of their relationships**.
 The Azure Digital Twins query language allows filtering and projection of relationships, by assigning an alias to the relationship within the `JOIN` clause. 
 
 As an example, consider a *servicedBy* relationship that has a *reportedCondition* property. In the below query, this relationship is given an alias of 'R' in order to reference its property.
@@ -168,7 +168,7 @@ AND Room.$dtId IN ['room1', 'room2']
 
 ### Other compound query examples
 
-You can combine any of the above types of query using combination operators to include more detail in a single query. Here are some additional examples of compound queries that query for more than one type of twin descriptor at once.
+You can **combine** any of the above types of query using combination operators to include more detail in a single query. Here are some additional examples of compound queries that query for more than one type of twin descriptor at once.
 
 | Description | Query |
 | --- | --- |
