@@ -92,4 +92,4 @@ To sync the storage account access key, take the following steps:
 
 ## Next steps
 
-- Learn how to [Manage users via Azure portal](azure-stack-edge-placeholder.md).
+- Learn how to [Manage users via Azure portal](azure-stack-edge-j-series-manage-users.md).

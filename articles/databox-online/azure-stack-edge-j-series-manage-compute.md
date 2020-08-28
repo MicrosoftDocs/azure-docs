@@ -128,4 +128,4 @@ Take the following steps in the Azure portal to sync the access keys for your de
 
 ## Next steps
 
-- Learn how to [Manage Edge compute network via Azure portal](azure-stack-edge-j-series-extend-compute-access-modules.md).
+- Learn how to [troubleshoot your Azure Stack Edge](azure-stack-edge-gpu-troubleshoot.md).

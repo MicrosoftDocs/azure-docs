@@ -23,7 +23,7 @@ Before you can create a Kubernetes cluster and use the `kubectl` command-line to
 
 - Windows PowerShell 5.0 or later is installed on a Windows client system to access the Azure Stack Edge device. You can have any other client with a Supported operating system as well. This article describes the procedure when using a Windows client. To download the latest version of Windows PowerShell, go to [Installing Windows PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell?view=powershell-7).
 
-- Compute is enabled on the Azure Stack Edge device. To enable compute, go to the **Compute** page in the local UI of the device. Then select a network interface that you want to enable for compute. Select **Enable**. Enabling compute results in the creation of a virtual switch on your device on that network interface. For more information, see [Enable compute network on your Azure Stack Edge](azure-stack-edge-j-series-extend-compute-access-modules.md).
+- Compute is enabled on the Azure Stack Edge device. To enable compute, go to the **Compute** page in the local UI of the device. Then select a network interface that you want to enable for compute. Select **Enable**. Enabling compute results in the creation of a virtual switch on your device on that network interface. For more information, see [Enable compute network on your Azure Stack Edge](azure-stack-edge-gpu-configure-network-compute-web-proxy.md).
 
 - Your Azure Stack Edge device has a Kubernetes cluster server running that is version v1.9 or later. For more information, see [Create and manage a Kubernetes cluster on Microsoft Azure Stack Edge device](azure-stack-edge-gpu-create-kubernetes-cluster.md).
 
