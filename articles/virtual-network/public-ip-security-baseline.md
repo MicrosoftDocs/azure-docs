@@ -4,7 +4,7 @@ description: The Azure Public IP security baseline provides procedural guidance 
 author: msmbaldwin
 ms.service: virtual-network
 ms.topic: conceptual
-ms.date: 08/26/2020
+ms.date: 08/28/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
