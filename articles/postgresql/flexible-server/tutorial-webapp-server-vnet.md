@@ -32,7 +32,7 @@ If you have multiple subscriptions, choose the appropriate subscription in which
 az account set --subscription <subscription id>
 ```
 
-## Create an Azure Database for PostgreSQL Flexible Server
+## Create a PostgreSQL Flexible Server in a new virtual network
 
 Create a private flexible server inside a virtual network (VNET) using the following command:
 ```azurecli
@@ -85,7 +85,7 @@ az webapp config appsettings set --settings DBHOST="<postgres-server-name>.postg
 ```
 
 
-- Replace ````postgres-server-name```,```username```, ```password``` for the newly created flexible server command.
+- Replace ```postgres-server-name```,```username```, ```password``` for the newly created flexible server command.
 - Replace <username> and <password> with the credentials that the command also generated for you.
 - The resource group and app name are drawn from the cached values in the .azure/config file.
 - The command creates settings named ```DBHOST```,```DBNAME```,```DBUSER```, and ```DBPASS```. If your application code is using different name for the database information then use those names for the app settings as mentioned in the code.

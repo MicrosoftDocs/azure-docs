@@ -178,9 +178,9 @@ Follow these steps to verify if your server was created in Azure.
 
 # [Azure portal](#tab/portal)
 
-1. In the [Azure portal](https://portal.azure.com), search for and select **Azure Database for MySQL Flexible servers (Preview)**.
+1. In the [Azure portal](https://portal.azure.com), search for and select **Azure Database for PostgreSQL Flexible servers (Preview)**.
 
-2. In the database list, select your new server. The **Overview** page for your new Azure Database for MySQL server appears.
+2. In the database list, select your new server to view the **Overview** page to manage the server.
 
 # [PowerShell](#tab/PowerShell)
 
@@ -212,7 +212,6 @@ Keep this resource group, server, and single database if you want to go to the [
 
 To delete the resource group:
 
----
 # [Portal](#tab/azure-portal)
 
 In the [portal](https://portal.azure.com), select the resource group you want to delete.

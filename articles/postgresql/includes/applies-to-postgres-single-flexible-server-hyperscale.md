@@ -1,0 +1,1 @@
+<Token>**APPLIES TO:** ![yes-single-server](../media/applies-to/yes.png)Azure Database for PostgreSQL - Single Server ![yes-flexible-server](../media/applies-to/yes.png)Azure Database for PostgreSQL - Flexible Server ![yes-hyperscale](../media/applies-to/yes.png)Azure Database for PostgreSQL - Hyperscale</Token>

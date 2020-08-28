@@ -35,22 +35,20 @@ az account set --subscription <subscription id>
 You can scale up your compute tier, vCores, and storage easily using the following command. You can see all the server operation you can run [az postgres flexible-server server overview](/cli/azure/PostgreSQL/server?view=azure-cli-latest)
 
 ```azurecli-interactive
-az postgres flexible-server update --resource-group myresourcegroup --name mydemoserver --sku-name Standard_D4ds_v4 --storage-size 6144
+az postgres flexible-server update --resource-group myresourcegroup --name mydemoserver --sku-name Standard_D4ds_v3 --storage-size 6144
 ```
 
 Here are the details for arguments above :
 
 **Setting** | **Sample value** | **Description**
 ---|---|---
-name | mydemoserver | Enter a unique name for your Azure Database for MySQL server. The server name can contain only lowercase letters, numbers, and the hyphen (-) character. It must contain from 3 to 63 characters.
+name | mydemoserver | Enter a unique name for your server. The server name can contain only lowercase letters, numbers, and the hyphen (-) character. It must contain from 3 to 63 characters.
 resource-group | myresourcegroup | Provide the name of the Azure resource group.
-sku-name|Standard_D4ds_v4|Enter the name of the compute tier and size. Follows the convention Standard_{VM size} in shorthand. See the [pricing tiers](../concepts-pricing-tiers.md) for more information.
+sku-name|Standard_D4ds_v3|Enter the name of the compute tier and size. Follows the convention Standard_{VM size} in shorthand. See the [pricing tiers](../concepts-pricing-tiers.md) for more information.
 storage-size | 6144 | The storage capacity of the server (unit is megabytes). Minimum 5120 and increases in 1024 increments.
 
 > [!Important]
 > - Storage can be scaled up (however, you cannot scale storage down)
-> - Scaling up from Basic to General purpose or Memory optimized pricing tier is not supported. You can manually scale up with either  [using a bash script](https://techcommunity.microsoft.com/t5/azure-database-for-PostgreSQL/upgrade-from-basic-to-general-purpose-or-memory-optimized-tiers/ba-p/830404) or [using PostgreSQL Workbench](https://techcommunity.microsoft.com/t5/azure-database-support-blog/how-to-scale-up-azure-database-for-PostgreSQL-from-basic-tier-to/ba-p/369134)
-
 
 ## Manage PostgreSQL databases on a server
 You can use any of these commands to create, delete , list and view database properties of a database on your server
@@ -73,7 +71,7 @@ az postgres flexible-server update --resource-group myresourcegroup --name mydem
 > Password must contain characters from three of the following categories: English uppercase letters, English lowercase letters, numbers, and non-alphanumeric characters.
 
 ## Delete a server
-If you would just like to delete the PostgreSQL Flexible server, you can run [az postgres flexible-server server delete](/cli/azure/PostgreSQL/server#az-PostgreSQL-flexible-server-delete) command.
+If you would just like to delete the PostgreSQL Flexible server, you can run [az postgres flexible-server delete](/cli/azure/PostgreSQL/server#az-PostgreSQL-flexible-server-delete) command.
 
 ```azurecli-interactive
 az postgres flexible-server delete --resource-group myresourcegroup --name mydemoserver
