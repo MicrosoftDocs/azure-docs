@@ -44,7 +44,7 @@ The `JSON_VALUE` function returns a scalar value from the field at the specified
 
 ## Prerequisites
 
-The first step is to create a database with a datasource that references. You'll then initialize the objects by running a [setup script](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) on the database. The setup script will create the data sources, database-scoped credentials, and external file formats that are used in the samples.
+The first step is to create a database where the datasource will be created. You'll then initialize the objects by running a [setup script](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) on the database. The setup script will create the data sources, database-scoped credentials, and external file formats that are used in the samples.
 
 ## Project nested or repeated data
 
