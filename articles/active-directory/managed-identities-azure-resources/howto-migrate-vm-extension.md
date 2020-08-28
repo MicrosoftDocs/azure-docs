@@ -3,7 +3,7 @@ title: Stop using managed identity VM extension - Azure AD
 description: Step by step instructions to stop using the VM extension and start using the Azure Instance Metadata Service (IMDS) for authentication.
 services: active-directory
 documentationcenter: 
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: 
 
@@ -14,7 +14,7 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/25/2018
-ms.author: markvi
+ms.author: barclayn
 ---
 
 # How to stop using the virtual machine managed identities extension and start using the Azure Instance Metadata Service

@@ -10,6 +10,9 @@ ms.author: cshoe
 
 # Microsoft Graph bindings for Azure Functions
 
+> [!IMPORTANT]
+> The Microsoft Graph preview bindings are now deprecated. Please refer to the [Build Azure Functions with Microsoft Graph](https://docs.microsoft.com/graph/tutorials/azure-functions) tutorial for details on how to use Microsoft Graph with Azure Functions.
+
 This article explains how to configure and work with Microsoft Graph triggers and bindings in Azure Functions. With these, you can use Azure Functions to work with data, insights, and events from the [Microsoft Graph](https://developer.microsoft.com/graph).
 
 The Microsoft Graph extension provides the following bindings:
@@ -33,6 +36,9 @@ The auth token input binding is provided in the [Microsoft.Azure.WebJobs.Extensi
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
 ## Setting up the extensions
+
+> [!IMPORTANT]
+> The Microsoft Graph preview bindings are now deprecated. Please refer to the [Build Azure Functions with Microsoft Graph](https://docs.microsoft.com/graph/tutorials/azure-functions) tutorial for details on how to use Microsoft Graph with Azure Functions.
 
 Microsoft Graph bindings are available through _binding extensions_. Binding extensions are optional components to the Azure Functions runtime. This section shows how to set up the Microsoft Graph and auth token extensions.
 
@@ -66,6 +72,9 @@ If you're using the Azure portal, you'll see a warning below the prompt to insta
 
 <a name="token-input"></a>
 ## Auth token
+
+> [!IMPORTANT]
+> The Microsoft Graph preview bindings are now deprecated. Please refer to the [Build Azure Functions with Microsoft Graph](https://docs.microsoft.com/graph/tutorials/azure-functions) tutorial for details on how to use Microsoft Graph with Azure Functions.
 
 The auth token input binding gets an Azure AD token for a given resource and provides it to your code as a string. The resource can be any for which the application has permissions. 
 
@@ -224,6 +233,9 @@ The token is always presented to code as a string.
 
 <a name="excel-input"></a>
 ## Excel input
+
+> [!IMPORTANT]
+> The Microsoft Graph preview bindings are now deprecated. Please refer to the [Build Azure Functions with Microsoft Graph](https://docs.microsoft.com/graph/tutorials/azure-functions) tutorial for details on how to use Microsoft Graph with Azure Functions.
 
 The Excel table input binding reads the contents of an Excel table stored in OneDrive.
 
@@ -533,6 +545,9 @@ The binding exposes the following types to .NET functions:
 <a name="onedrive-input"></a>
 ## File input
 
+> [!IMPORTANT]
+> The Microsoft Graph preview bindings are now deprecated. Please refer to the [Build Azure Functions with Microsoft Graph](https://docs.microsoft.com/graph/tutorials/azure-functions) tutorial for details on how to use Microsoft Graph with Azure Functions.
+
 The OneDrive File input binding reads the contents of a file stored in OneDrive.
 
 This section contains the following subsections:
@@ -676,6 +691,9 @@ The binding exposes the following types to .NET functions:
 
 <a name="onedrive-output"></a>
 ## File output
+
+> [!IMPORTANT]
+> The Microsoft Graph preview bindings are now deprecated. Please refer to the [Build Azure Functions with Microsoft Graph](https://docs.microsoft.com/graph/tutorials/azure-functions) tutorial for details on how to use Microsoft Graph with Azure Functions.
 
 The OneDrive file output binding modifies the contents of a file stored in OneDrive.
 
@@ -823,6 +841,9 @@ The binding exposes the following types to .NET functions:
 
 <a name="outlook-output"></a>
 ## Outlook output
+
+> [!IMPORTANT]
+> The Microsoft Graph preview bindings are now deprecated. Please refer to the [Build Azure Functions with Microsoft Graph](https://docs.microsoft.com/graph/tutorials/azure-functions) tutorial for details on how to use Microsoft Graph with Azure Functions.
 
 The Outlook message output binding sends a mail message through Outlook.
 
@@ -974,6 +995,9 @@ The binding exposes the following types to .NET functions:
 
 ## Webhooks
 
+> [!IMPORTANT]
+> The Microsoft Graph preview bindings are now deprecated. Please refer to the [Build Azure Functions with Microsoft Graph](https://docs.microsoft.com/graph/tutorials/azure-functions) tutorial for details on how to use Microsoft Graph with Azure Functions.
+
 Webhooks allow you to react to events in the Microsoft Graph. To support webhooks, functions are needed to create, refresh, and react to _webhook subscriptions_. A complete webhook solution requires a combination of the following bindings:
 - A [Microsoft Graph webhook trigger](#webhook-trigger) allows you to react to an incoming webhook.
 - A [Microsoft Graph webhook subscription input binding](#webhook-input) allows you to list existing subscriptions and optionally refresh them.
@@ -988,6 +1012,9 @@ For more information about webhooks, see [Working with webhooks in Microsoft Gra
 
 
 ## Webhook trigger
+
+> [!IMPORTANT]
+> The Microsoft Graph preview bindings are now deprecated. Please refer to the [Build Azure Functions with Microsoft Graph](https://docs.microsoft.com/graph/tutorials/azure-functions) tutorial for details on how to use Microsoft Graph with Azure Functions.
 
 The Microsoft Graph webhook trigger allows a function to react to an incoming webhook from the Microsoft Graph. Each instance of this trigger can react to one Microsoft Graph resource type.
 
@@ -1107,6 +1134,9 @@ The binding exposes the following types to .NET functions:
 
 <a name="webhook-input"></a>
 ## Webhook input
+
+> [!IMPORTANT]
+> The Microsoft Graph preview bindings are now deprecated. Please refer to the [Build Azure Functions with Microsoft Graph](https://docs.microsoft.com/graph/tutorials/azure-functions) tutorial for details on how to use Microsoft Graph with Azure Functions.
 
 The Microsoft Graph webhook input binding allows you to retrieve the list of subscriptions managed by this function app. The binding reads from function app storage, so it does not reflect other subscriptions created from outside the app.
 
@@ -1259,6 +1289,9 @@ The binding exposes the following types to .NET functions:
 
 ## Webhook output
 
+> [!IMPORTANT]
+> The Microsoft Graph preview bindings are now deprecated. Please refer to the [Build Azure Functions with Microsoft Graph](https://docs.microsoft.com/graph/tutorials/azure-functions) tutorial for details on how to use Microsoft Graph with Azure Functions.
+
 The webhook subscription output binding allows you to create, delete, and refresh webhook subscriptions in the Microsoft Graph.
 
 This section contains the following subsections:
@@ -1402,6 +1435,9 @@ The binding exposes the following types to .NET functions:
 
 <a name="webhook-examples"></a>
 ## Webhook subscription refresh
+
+> [!IMPORTANT]
+> The Microsoft Graph preview bindings are now deprecated. Please refer to the [Build Azure Functions with Microsoft Graph](https://docs.microsoft.com/graph/tutorials/azure-functions) tutorial for details on how to use Microsoft Graph with Azure Functions.
 
 There are two approaches to refreshing subscriptions:
 
