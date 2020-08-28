@@ -347,6 +347,8 @@
           href: ../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Use the Azure Storage REST API
           href: ../common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Prevent authorization with Shared Key
+          href: ../common/shared-key-authorization-prevent.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Delegate access with shared access signatures (SAS)
         items:
         - name: Create a user delegation SAS
@@ -572,12 +574,14 @@
         href: ../common/storage-explorer-support-policy-lifecycle.md
       - name: Storage Explorer accessibility
         href: ../../vs-azure-tools-storage-explorer-accessibility.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Azure Storage forum
+    - name: Azure Storage on Microsoft Q&A
       href: https://docs.microsoft.com/answers/topics/azure-blob-storage.html
     - name: Azure Storage on Stack Overflow
       href: https://stackoverflow.com/questions/tagged/windows-azure-storage
-    - name: Pricing for Blob storage
+    - name: Pricing for block blobs
       href: https://azure.microsoft.com/pricing/details/storage/blobs/
+    - name: Pricing for page blobs
+      href: https://azure.microsoft.com/pricing/details/storage/page-blobs/
     - name: Azure pricing calculator
       href: https://azure.microsoft.com/pricing/calculator/
     - name: Videos
@@ -737,6 +741,8 @@
         href: data-lake-storage-explorer.md
       - name: Hadoop File System CLI
         href: data-lake-storage-use-hdfs-data-lake-storage.md
+      - name: Set ACLs recursively
+        href: recursive-access-control-lists.md
     - name: Query
       items:
       - name: Filter data with query acceleration

@@ -105,7 +105,7 @@ You might choose to have separate diagnostics settings for AzureBackupReport and
 > The AzureBackupReport event is supported *only* in Azure diagnostics mode. *If you try to send data for this event in the resource-specific mode, no data will flow to the Log Analytics workspace.*
 
 > [!NOTE]
-> The toggle for **Azure diagnostics** or **Resource specific** appears only if the user selects **Send to Log Analytics**. To send data to a storage account or an event hub, a user selects the required destination and selects the check boxes for any of the desired events, without any additional inputs. Again, we recommend that you do not choose the legacy event AzureBackupReport going forward.
+> The toggle for **Azure diagnostics** or **Resource specific** appears only if the user selects **Send to Log Analytics**. To send data to a storage account or an event hub, a user selects the required destination and selects the check boxes for any of the desired events, without any additional inputs. Again, we recommend that you don't choose the legacy event AzureBackupReport going forward.
 
 ## Send Azure Site Recovery events to Log Analytics
 
