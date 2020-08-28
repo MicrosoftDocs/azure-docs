@@ -18,13 +18,13 @@ Let's assume you want to protect a VM "testVM" under a resource group "testRG" t
 
 ### Discover unprotected Azure VMs
 
-First, the vault should be able to identify the Azure VM. This is triggered using the [refresh operation](/rest/api/backup/protectioncontainers/refresh). It is an asynchronous *POST*  operation that makes sure the vault gets the latest list of all unprotected VM in the current subscription and 'caches' them. Once the VM is 'cached', Recovery services will be able to access the VM and protect it.
+First, the vault should be able to identify the Azure VM. This is triggered using the [refresh operation](/rest/api/backup/protectioncontainers/refresh). It's an asynchronous *POST*  operation that makes sure the vault gets the latest list of all unprotected VM in the current subscription and 'caches' them. Once the VM is 'cached', Recovery services will be able to access the VM and protect it.
 
 ```http
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{vaultresourceGroupname}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/refreshContainers?api-version=2016-12-01
 ```
 
-The POST URI has `{subscriptionId}`, `{vaultName}`, `{vaultresourceGroupName}`, `{fabricName}` parameters. The `{fabricName}` is "Azure". According to our example, `{vaultName}` is "testVault" and `{vaultresourceGroupName}` is "testVaultRG". As all the required parameters are given in the URI, there is no need for a separate request body.
+The POST URI has `{subscriptionId}`, `{vaultName}`, `{vaultresourceGroupName}`, `{fabricName}` parameters. The `{fabricName}` is "Azure". According to our example, `{vaultName}` is "testVault" and `{vaultresourceGroupName}` is "testVaultRG". As all the required parameters are given in the URI, there's no need for a separate request body.
 
 ```http
 POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/refreshContainers?api-version=2016-12-01
@@ -440,7 +440,7 @@ It returns two responses: 202 (Accepted) when another operation is created and t
 |202 Accepted     |         |     Accepted    |
 
 > [!IMPORTANT]
-> In order to protect against accidental delete scenarios, there is a [soft-delete feature available](use-restapi-update-vault-properties.md#soft-delete-state) for Recovery Services vault. If the soft-delete state of the vault is set to enabled, then the delete operation won't immediately delete the data. It will be kept for 14 days and then permanently purged. You aren't charged for storage for this 14 days period. To undo the deletion operation, refer to the [undo-delete section](#undo-the-deletion).
+> In order to protect against accidental delete scenarios, there's a [soft-delete feature available](use-restapi-update-vault-properties.md#soft-delete-state) for Recovery Services vault. If the soft-delete state of the vault is set to enabled, then the delete operation won't immediately delete the data. It will be kept for 14 days and then permanently purged. You aren't charged for storage for this 14 days period. To undo the deletion operation, refer to the [undo-delete section](#undo-the-deletion).
 
 ### Undo the deletion
 

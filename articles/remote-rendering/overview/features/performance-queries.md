@@ -5,6 +5,7 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/10/2020
 ms.topic: article
+ms.custom: devx-track-csharp
 ---
 
 # Server-side performance queries
@@ -105,7 +106,8 @@ void QueryPerformanceAssessment(ApiHandle<AzureSession> session)
     assessmentQuery->Completed([] (ApiHandle<PerformanceAssessmentAsync> res)
     {
         // do something with the result:
-        PerformanceAssessment result = *res->Result();
+        PerformanceAssessment result = res->GetResult();
+
         // ...
 
     });
