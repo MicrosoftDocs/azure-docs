@@ -5,7 +5,7 @@ author: joannapea
 ms.author: joanpo
 ms.service: data-share
 ms.topic: tutorial
-ms.date: 07/10/2019
+ms.date: 07/30/2020
 ---
 # Tutorial: Share data using Azure Data Share  
 
@@ -67,7 +67,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 Create an Azure Data Share resource in an Azure resource group.
 
-1. Select the **Create a resource** button (+) in the upper-left corner of the  portal.
+1. Select the menu button in the upper-left corner of the portal, then select **Create a resource** (+).
 
 1. Search for *Data Share*.
 
@@ -77,13 +77,13 @@ Create an Azure Data Share resource in an Azure resource group.
 
      **Setting** | **Suggested value** | **Field description**
     |---|---|---|
-    | Name | *datashareacount* | Specify a name for your data share account. |
     | Subscription | Your subscription | Select the Azure subscription that you want to use for your data share account.|
     | Resource group | *test-resource-group* | Use an existing resource group or create a new resource group. |
     | Location | *East US 2* | Select a region for your data share account.
+    | Name | *datashareaccount* | Specify a name for your data share account. |
     | | |
 
-1. Select **Create** to provision your data share account. Provisioning a new data share account typically takes about 2 minutes or less. 
+1. Select **Review + create**, then **Create** to provision your data share account. Provisioning a new data share account typically takes about 2 minutes or less. 
 
 1. When the deployment is complete, select **Go to resource**.
 
@@ -101,7 +101,7 @@ Create an Azure Data Share resource in an Azure resource group.
 
     ![EnterShareDetails](./media/enter-share-details.png "Enter Share details") 
 
-1. Select **Continue**
+1. Select **Continue**.
 
 1. To add Datasets to your Data Share, select **Add Datasets**. 
 
@@ -119,7 +119,7 @@ Create an Azure Data Share resource in an Azure resource group.
 
     ![AddRecipients](./media/add-recipient.png "Add recipients") 
 
-1. Select **Continue**
+1. Select **Continue**.
 
 1. If you have selected snapshot share type, you can configure snapshot schedule to provide updates of your data to your data consumer. 
 
@@ -127,9 +127,9 @@ Create an Azure Data Share resource in an Azure resource group.
 
 1. Select a start time and recurrence interval. 
 
-1. Select **Continue**
+1. Select **Continue**.
 
-1. In the Review + Create tab, review your Package Contents, Settings, Recipients, and Synchronization Settings. Select **Create**
+1. In the Review + Create tab, review your Package Contents, Settings, Recipients, and Synchronization Settings. Select **Create**.
 
 Your Azure Data Share has now been created and the recipient of your Data Share is now ready to accept your invitation. 
 

@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.date: 06/10/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.custom: references_regions
+ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Point-in-time restore for block blobs (preview)

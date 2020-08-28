@@ -92,7 +92,7 @@
   - name: Knowledge Base
     href: https://cognitive.uservoice.com/knowledgebase/topics/127875-bing-search-web-image-video-news-autosuggest
   - name: Get API key
-    href: https://azure.microsoft.com/try/cognitive-services/?api=bing-news-search-api
+    href: https://azure.microsoft.com/free/cognitive-services
   - name: Try it!
     href: https://dev.cognitive.microsoft.com/docs/services/56b43f72cf5ff8098cef380a/operations/56f02400dbe2d91900c68553
   - name: Bing News Search endpoints

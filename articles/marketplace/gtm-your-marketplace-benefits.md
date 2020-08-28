@@ -21,13 +21,13 @@ Marketplace Rewards is designed to support you at your specific stage of growth,
 
 The program creates a positive feedback loop: the benefits at each stage of growth are designed to progress you to the next stage, allowing you to grow your business to Microsoft customers, with Microsoft's field, and through Microsoft's channel by leveraging the commercial marketplace as your platform.
 
-Your benefits are differentiated based on whether your offer is [List, Trial, or Transact](determine-your-listing-type.md#choose-a-publishing-option).
+Your benefits are differentiated based on whether your offer is [List, Trial, or Transact](determine-your-listing-type.md#choose-a-listing-option).
 
 You will be contacted by a member of the Rewards team when your offer goes live, based on your eligibility.
 
 For Transact partners, as you grow your billed sales through the commercial marketplace platform, you unlock greater benefits per tier.
 
-The minimum requirement to publish in the storefronts is an MPNID, so these benefits are available to all partners regardless of MPN competency status or partner type. Each partner is empowered to grow their business through the commercial marketplace as a platform.
+The minimum requirement to publish in the online stores is an MPNID, so these benefits are available to all partners regardless of MPN competency status or partner type. Each partner is empowered to grow their business through the commercial marketplace as a platform.
 
 You will get support in understanding the resources available to you and in implementing the best practices, which you can also [review on your own](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/).
 
@@ -36,7 +36,7 @@ Detailed descriptions of all program benefits can be found in this [Marketplace 
 Getting started is easy:
 
 1. Publish an offer in either Microsoft AppSource or Azure Marketplace.
-2. Go to [Marketplace Rewards](https://partner.microsoft.com/en-us/dashboard/mpn/program/commercialmarketplace) in Partner Center and select **Enroll in Marketplace Rewards Program**.
+2. Go to [Marketplace Rewards](https://partner.microsoft.com/dashboard/mpn/program/commercialmarketplace) in Partner Center and select **Enroll in Marketplace Rewards Program**.
 3. To activate sales and marketing benefits, assign a company marketing contact. This contact will receive follow-up communications about your Marketplace Rewards.
 4. To add or update your marketing contact information, go to the top of the Sales and Marketing benefits tab on Marketplace Rewards page, then select **Add, update, or change**.  Next, do the following:
 
@@ -101,9 +101,15 @@ All the activities described on this page are covered by the [marketplace publis
 Microsoft reserves the right to revoke and terminate Marketplace Rewards benefits to publishers who: 
 
 * Engage in illegal activity using their marketplace listing.
+* Receive a purchase that is known or believed to be fraudulent.
 * Are de-listed from the commercial marketplace. 
 * Use their offer to show marketing or other content that violates copyright or trademark laws.
 * Violate the policies of the [Azure sponsorship program](https://azure.microsoft.com/offers/ms-azr-0036p/), including, but not limited to, using the Azure sponsorship funding for their own internal operations or Bitcoin mining.
+
+Microsoft reserves the right to revoke and terminate Marketplace Rewards when:
+
+* The customer making the purchase did so accidentally and wishes to cancel the purchase. 
+* The customer cancels before using the partner’s product.
 
 ### Offer availability
 

@@ -3,7 +3,7 @@ title: Deploy Azure dedicated hosts using the Azure portal
 description: Deploy VMs to dedicated hosts using the Azure portal.
 author: cynthn
 ms.service: virtual-machines
-ms.topic: article
+ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 03/10/2020
 ms.author: cynthn
@@ -11,7 +11,7 @@ ms.author: cynthn
 #Customer intent: As an IT administrator, I want to learn about more about using a dedicated host for my Azure virtual machines
 ---
 
-# Deploy VMs to dedicated hosts using the portal
+# Deploy Linux VMs to dedicated hosts using the portal 
 
 This article guides you through how to create an Azure [dedicated host](dedicated-hosts.md) to host your virtual machines (VMs). 
 

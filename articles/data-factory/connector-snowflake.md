@@ -10,7 +10,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 07/09/2020
+ms.date: 08/28/2020
 ---
 
 # Copy data from and to Snowflake by using Azure Data Factory
@@ -44,7 +44,7 @@ The following properties are supported for a Snowflake-linked service.
 | Property         | Description                                                  | Required |
 | :--------------- | :----------------------------------------------------------- | :------- |
 | type             | The type property must be set to **Snowflake**.              | Yes      |
-| connectionString | Configure the [full account name](https://docs.snowflake.net/manuals/user-guide/connecting.html#your-snowflake-account-name) (including additional segments that identify the region and cloud platform), user name, password, database, and warehouse. Specify the JDBC connection string to connect to the Snowflake instance. You can also put password in Azure Key Vault. Refer to the examples below the table, as well as the [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md) article, for more details.| Yes      |
+| connectionString | Specifies the information needed to connect to the Snowflake instance. You can choose to put password or entire connection string in Azure Key Vault. Refer to the examples below the table, as well as the [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md) article, for more details.<br><br>Some typical settings:<br>- **Account name:** The  [full account name](https://docs.snowflake.net/manuals/user-guide/connecting.html#your-snowflake-account-name) of your Snowflake account (including additional segments that identify the region and cloud platform), e.g. xy12345.east-us-2.azure.<br/>- **User name:** The login name of the user for the connection.<br>- **Password:** The password for the user.<br>- **Database:** The default database to use once connected. It should be an existing database for which the specified role has privileges.<br>- **Warehouse:** The virtual warehouse to use once connected. It should be an existing warehouse for which the specified role has privileges.<br>- **Role:** The default access control role to use in the Snowflake session. The specified role should be an existing role that has already been assigned to the specified user. The default role is PUBLIC. | Yes      |
 | connectVia       | The [integration runtime](concepts-integration-runtime.md) that is used to connect to the data store. You can use the Azure integration runtime or a self-hosted integration runtime (if your data store is located in a private network). If not specified, it uses the default Azure integration runtime. | No       |
 
 **Example:**
@@ -55,7 +55,7 @@ The following properties are supported for a Snowflake-linked service.
     "properties": {
         "type": "Snowflake",
         "typeProperties": {
-            "connectionString": "jdbc:snowflake://<accountname>.snowflakecomputing.com/?user=<username>&password=<password>&db=<database>&warehouse=<warehouse>"
+            "connectionString": "jdbc:snowflake://<accountname>.snowflakecomputing.com/?user=<username>&password=<password>&db=<database>&warehouse=<warehouse>&role=<myRole>"
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
@@ -73,7 +73,7 @@ The following properties are supported for a Snowflake-linked service.
     "properties": {
         "type": "Snowflake",
         "typeProperties": {
-            "connectionString": "jdbc:snowflake://<accountname>.snowflakecomputing.com/?user=<username>&db=<database>&warehouse=<warehouse>",
+            "connectionString": "jdbc:snowflake://<accountname>.snowflakecomputing.com/?user=<username>&db=<database>&warehouse=<warehouse>&role=<myRole>",
             "password": {
                 "type": "AzureKeyVaultSecret",
                 "store": { 
@@ -158,7 +158,7 @@ If your sink data store and format meet the criteria described in this section, 
         - `rowDelimiter` is **\r\n**, or any single character.
         - `compression` can be **no compression**, **gzip**, **bzip2**, or **deflate**.
         - `encodingName` is left as default or set to **utf-8**.
-        - `quoteChar` is **double quote**, **single quote** or **empty string** (no quote char).
+        - `quoteChar` is **double quote**, **single quote**, or **empty string** (no quote char).
     - For **JSON** format, direct copy only supports the case that source Snowflake table or query result only has single column and the data type of this column is **VARIANT**, **OBJECT**, or **ARRAY**.
         - `compression` can be **no compression**, **gzip**, **bzip2**, or **deflate**.
         - `encodingName` is left as default or set to **utf-8**.
@@ -290,7 +290,7 @@ If your source data store and format meet the criteria described in this section
         - `rowDelimiter` is **\r\n**, or any single character. If row delimiter is not “\r\n”, `firstRowAsHeader` need to be **false**, and `skipLineCount` is not specified.
         - `compression` can be **no compression**, **gzip**, **bzip2**, or **deflate**.
         - `encodingName` is left as default or set to "UTF-8", "UTF-16", "UTF-16BE", "UTF-32", "UTF-32BE", "BIG5", "EUC-JP", "EUC-KR", "GB18030", "ISO-2022-JP", "ISO-2022-KR", "ISO-8859-1", "ISO-8859-2", "ISO-8859-5", "ISO-8859-6", "ISO-8859-7", "ISO-8859-8", "ISO-8859-9", "WINDOWS-1250", "WINDOWS-1251", "WINDOWS-1252", "WINDOWS-1253", "WINDOWS-1254", "WINDOWS-1255".
-        - `quoteChar` is **double quote**, **single quote** or **empty string** (no quote char).
+        - `quoteChar` is **double quote**, **single quote**, or **empty string** (no quote char).
     - For **JSON** format, direct copy only supports the case that sink Snowflake table only has single column and the data type of this column is **VARIANT**, **OBJECT**, or **ARRAY**.
         - `compression` can be **no compression**, **gzip**, **bzip2**, or **deflate**.
         - `encodingName` is left as default or set to **utf-8**.
@@ -300,7 +300,7 @@ If your source data store and format meet the criteria described in this section
 
    -  `additionalColumns` is not specified.
    - If your source is a folder, `recursive` is set to true.
-   - `prefix`, `modifiedDateTimeStart`, `modifiedDateTimeEnd` are not specified.
+   - `prefix`, `modifiedDateTimeStart`, `modifiedDateTimeEnd`, and `enablePartitionDiscovery` are not specified.
 
 **Example:**
 

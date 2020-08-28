@@ -64,7 +64,7 @@ conceptualContent:
           text: Form Recognizer
         - url: ./ink-recognizer/index.yml
           itemType: overview
-          text: Ink Recognizer (Preview)
+          text: Ink Recognizer (Retiring)
         - url: ../media-services/video-indexer/index.yml
           itemType: overview
           text: Video Indexer
@@ -73,7 +73,7 @@ conceptualContent:
       links:
         - url: ./immersive-reader/index.yml
           itemType: overview
-          text: Immersive Reader (Preview)
+          text: Immersive Reader
         - url: ./luis/index.yml
           itemType: overview
           text: Language Understanding (LUIS)

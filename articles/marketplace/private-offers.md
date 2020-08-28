@@ -4,8 +4,8 @@ description: Private offers in the Microsoft commercial marketplace for app and 
 ms.subservice: partnercenter-marketplace-publisher
 ms.service: marketplace
 ms.topic: article
-author: qianw211
-ms.author: dsindona
+author: vikrambmsft
+ms.author: vikramb
 ms.date: 07/01/2020
 ---
 
@@ -30,13 +30,16 @@ Private offers are now available for Virtual Machine, Azure Application (impleme
 
 ## Creating private offers using plans
 
-For *new or existing offers with plans*, publishers can easily create new, private variations by creating new plans (formerly known as SKUs) and marking them as private.  
+For *new or existing offers with plans*, publishers can easily create new, private variations by creating new plans (formerly known as SKUs) and marking them as private. Each offer can have up to 45 private plans.
 
 <!--- [Private SKUs](./cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md) --->
 
 Private plans are components of an offer and are only visible and purchasable by the targeted customers. Private plans can reuse the base images and/or offer metadata already published for a public plan. This option allows publishers to create multiple private variations of a public offer without having to publish multiple versions of the same base image and offer metadata. For Virtual Machine and Azure application offers only, when a private plan shares a base image with a public plan, any changes to the offer's base image will propagate across all public and private plans using that base image.
 
 For *new offers that only include private plans*, publishers can create their offers as any other offer, and then mark the plans as private. The offers that only have private plans will not be discoverable or accessible via the Microsoft commercial marketplace or the [Azure portal](https://azure.microsoft.com/features/azure-portal/) by customers that are not associated with the offer.
+
+>[!NOTE]
+>An offer that contains only private plans will not be visible in the public Azure Marketplace or AppSource.
 
 ## Targeting customers with private offers
 
@@ -46,7 +49,7 @@ Once an offer has been certified and published, customers can be updated or remo
 
 ## Deploying private offers
 
-Private offers are only discoverable via the [Azure portal](https://azure.microsoft.com/features/azure-portal/) and are not shown in [Microsoft AppSource](https://appsource.microsoft.com/) or [Azure Marketplace](https://azuremarketplace.microsoft.com). To learn more about publishing to the different commercial marketplace storefronts, see [Determine your publishing option](./determine-your-listing-type.md).
+Private offers are only discoverable via the [Azure portal](https://azure.microsoft.com/features/azure-portal/) and are not shown in [Microsoft AppSource](https://appsource.microsoft.com/) or [Azure Marketplace](https://azuremarketplace.microsoft.com). To learn more about publishing to the different commercial marketplace online stores, see [Determine your publishing option](./determine-your-listing-type.md).
 
 Once signed into the Azure portal, customers can select the Marketplace navigation element to access their private offers. Private offers will also appear in search results and can be deployed via command line and Azure Resource Manager templates like any other offers.
 
@@ -56,6 +59,7 @@ Private offers will also appear in search results. Just look for the **Private**
 
 >[!Note]
 >Private offers are not supported with subscriptions established through a reseller of the Cloud Solution Provider (CSP) program.
+
 
 <!---
 ## Next steps

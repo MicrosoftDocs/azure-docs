@@ -4,6 +4,7 @@ description: 'Tutorial: This tutorial shows you how to capture data from your ev
 services: event-hubs
 ms.date: 06/23/2020
 ms.topic: tutorial
+ms.custom: devx-track-csharp
 ---
 
 # Tutorial: Migrate captured Event Hubs data to a SQL Data Warehouse using Event Grid and Azure Functions
@@ -173,4 +174,4 @@ After a couple of minutes, query the table in your SQL data warehouse. You obser
 ## Next steps 
 You can use powerful data visualization tools with your data warehouse to achieve actionable insights.
 
-This article shows how to use [Power BI with SQL Data Warehouse](/azure/sql-data-warehouse/sql-data-warehouse-integrate-power-bi)
+This article shows how to use [Power BI with SQL Data Warehouse](/power-bi/connect-data/service-azure-sql-data-warehouse-with-direct-connect)

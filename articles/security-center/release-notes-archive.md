@@ -26,6 +26,19 @@ This page provides you with information about:
 - Deprecated functionality
 
 
+## February 2020
+
+### Fileless attack detection for Linux (preview)
+
+As attackers increasing employ stealthier methods to avoid detection, Azure Security Center is extending fileless attack detection for Linux, in addition to Windows. Fileless attacks exploit software vulnerabilities, inject malicious payloads into benign system processes, and hide in memory. These techniques:
+
+- minimize or eliminate traces of malware on disk
+- greatly reduce the chances of detection by disk-based malware scanning solutions
+
+To counter this threat, Azure Security Center released fileless attack detection for Windows in October 2018, and has now extended fileless attack detection on Linux as well. 
+
+
+
 ## January 2020
 
 ### Enhanced secure score (preview)

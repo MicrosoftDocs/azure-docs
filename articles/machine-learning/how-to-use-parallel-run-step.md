@@ -9,26 +9,28 @@ ms.topic: tutorial
 ms.reviewer: jmartens, larryfr
 ms.author: tracych
 author: tracychms
-ms.date: 07/16/2020
-ms.custom: Build2020, tracking-python
+ms.date: 08/14/2020
+ms.custom: Build2020, devx-track-python
 ---
 
 # Run batch inference on large amounts of data by using Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Learn how to run batch inference on large amounts of data asynchronously and in parallel by using Azure Machine Learning. The ParallelRunStep provides parallelism capabilities out of the box.
+This article shows you how to run your Azure Machine Learning model in parallel, quickly evaluating large amounts of data. 
 
-With ParallelRunStep, it's straightforward to scale offline inferences to large clusters of machines on terabytes of structured or unstructured data with improved productivity and optimized cost.
+Inferencing over large datasets or with complicated models can be time-consuming. The `ParallelRunStep` class allows you to perform processing in parallel, potentially getting overall results faster. Even if running a single evaluation is fairly speedy, many scenarios (object detection, video processing, natural language processing, etc.) involve running many evaluations. 
+
+With `ParallelRunStep`, it's straightforward to scale batch inferences to large clusters of machines. Such clusters can handle terabytes of structured or unstructured data with improved productivity and optimized cost.
 
 In this article, you learn the following tasks:
 
-> * Set up machine learning resources.
-> * Configure batch inference data inputs and output.
-> * Prepare the pre-trained image classification model based on the [MNIST](https://publicdataset.azurewebsites.net/dataDetail/mnist/) dataset. 
-> * Write your inference script.
-> * Create a [machine learning pipeline](concept-ml-pipelines.md) containing ParallelRunStep and run batch inference on MNIST test images. 
-> * Resubmit a batch inference run with new data input and parameters. 
-> * View the results.
+> 1. Set up machine learning resources.
+> 1. Configure batch inference data inputs and output.
+> 1. Prepare the pre-trained image classification model based on the [MNIST](https://publicdataset.azurewebsites.net/dataDetail/mnist/) dataset. 
+> 1.  Write your inference script.
+> 1. Create a [machine learning pipeline](concept-ml-pipelines.md) containing ParallelRunStep and run batch inference on MNIST test images. 
+> 1. Resubmit a batch inference run with new data input and parameters. 
+> 1. View the results.
 
 ## Prerequisites
 
@@ -195,21 +197,21 @@ model = Model.register(model_path="models/",
 ## Write your inference script
 
 >[!Warning]
->The following code is only a sample that the [sample notebook](https://aka.ms/batch-inference-notebooks) uses. You'll need to create your own script for your scenario.
+>The following code is only a sample that the [sample notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/machine-learning-pipelines/parallel-run) uses. You'll need to create your own script for your scenario.
 
 The script *must contain* two functions:
 - `init()`: Use this function for any costly or common preparation for later inference. For example, use it to load the model into a global object. This function will be called only once at beginning of process.
 -  `run(mini_batch)`: The function will run for each `mini_batch` instance.
-    -  `mini_batch`: ParallelRunStep will invoke run method and pass either a list or Pandas DataFrame as an argument to the method. Each entry in mini_batch will be - a file path if input is a FileDataset, a Pandas DataFrame if input is a TabularDataset.
-    -  `response`: run() method should return a Pandas DataFrame or an array. For append_row output_action, these returned elements are appended into the common output file. For summary_only, the contents of the elements are ignored. For all output actions, each returned output element indicates one successful run of input element in the input mini-batch. Make sure that enough data is included in run result to map input to run output result. Run output will be written in output file and not guaranteed to be in order, you should use some key in the output to map it to input.
+    -  `mini_batch`: `ParallelRunStep` will invoke run method and pass either a list or pandas `DataFrame` as an argument to the method. Each entry in mini_batch will be a file path if input is a `FileDataset` or a pandas `DataFrame` if input is a `TabularDataset`.
+    -  `response`: run() method should return a pandas `DataFrame` or an array. For append_row output_action, these returned elements are appended into the common output file. For summary_only, the contents of the elements are ignored. For all output actions, each returned output element indicates one successful run of input element in the input mini-batch. Make sure that enough data is included in run result to map input to run output result. Run output will be written in output file and not guaranteed to be in order, you should use some key in the output to map it to input.
 
 ```python
+%%writefile digit_identification.py
 # Snippets from a sample script.
 # Refer to the accompanying digit_identification.py
-# (https://aka.ms/batch-inference-notebooks)
+# (https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/machine-learning-pipelines/parallel-run)
 # for the implementation script.
 
-%%writefile digit_identification.py
 import os
 import numpy as np
 import tensorflow as tf
@@ -284,7 +286,7 @@ batch_env.docker.base_image = DEFAULT_GPU_IMAGE
 
 `ParallelRunConfig` is the major configuration for `ParallelRunStep` instance within the Azure Machine Learning pipeline. You use it to wrap your script and configure necessary parameters, including all of the following entries:
 - `entry_script`: A user script as a local file path that will be run in parallel on multiple nodes. If `source_directory` is present, use a relative path. Otherwise, use any path that's accessible on the machine.
-- `mini_batch_size`: The size of the mini-batch passed to a single `run()` call. (optional; the default value is `10` files for FileDataset and `1MB` for TabularDataset.)
+- `mini_batch_size`: The size of the mini-batch passed to a single `run()` call. (optional; the default value is `10` files for `FileDataset` and `1MB` for `TabularDataset`.)
     - For `FileDataset`, it's the number of files with a minimum value of `1`. You can combine multiple files into one mini-batch.
     - For `TabularDataset`, it's the size of data. Example values are `1024`, `1024KB`, `10MB`, and `1GB`. The recommended value is `1MB`. The mini-batch from `TabularDataset` will never cross file boundaries. For example, if you have .csv files with various sizes, the smallest file is 100 KB and the largest is 10 MB. If you set `mini_batch_size = 1MB`, then files with a size smaller than 1 MB will be treated as one mini-batch. Files with a size larger than 1 MB will be split into multiple mini-batches.
 - `error_threshold`: The number of record failures for `TabularDataset` and file failures for `FileDataset` that should be ignored during processing. If the error count for the entire input goes above this value, the job will be aborted. The error threshold is for the entire input and not for individual mini-batch sent to the `run()` method. The range is `[-1, int.max]`. The `-1` part indicates ignoring all failures during processing.
@@ -301,7 +303,7 @@ batch_env.docker.base_image = DEFAULT_GPU_IMAGE
 - `run_invocation_timeout`: The `run()` method invocation timeout in seconds. (optional; default value is `60`)
 - `run_max_try`: Maximum try count of `run()` for a mini-batch. A `run()` is failed if an exception is thrown, or nothing is returned when `run_invocation_timeout` is reached (optional; default value is `3`). 
 
-You can specify `mini_batch_size`, `node_count`, `process_count_per_node`, `logging_level`, `run_invocation_timeout`, and `run_max_try` as `PipelineParameter`, so that when you resubmit a pipeline run, you can fine-tune the parameter values. In this example, you use PipelineParameter for `mini_batch_size` and `Process_count_per_node` and you will change these values when resubmit a run later. 
+You can specify `mini_batch_size`, `node_count`, `process_count_per_node`, `logging_level`, `run_invocation_timeout`, and `run_max_try` as `PipelineParameter`, so that when you resubmit a pipeline run, you can fine-tune the parameter values. In this example, you use `PipelineParameter` for `mini_batch_size` and `Process_count_per_node` and you will change these values when resubmit a run later. 
 
 This example assumes that you're using the `digit_identification.py` script that was discussed earlier. If you use your own script, change the `source_directory` and `entry_script` parameters accordingly.
 
@@ -344,7 +346,7 @@ parallelrun_step = ParallelRunStep(
     allow_reuse=True
 )
 ```
-### create and run the pipeline
+### Create and run the pipeline
 
 Now, run the pipeline. First, create a [`Pipeline`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline%28class%29?view=azure-ml-py) object by using your workspace reference and the pipeline step that you created. The `steps` parameter is an array of steps. In this case, there's only one step for batch inference. To build pipelines that have multiple steps, place the steps in order in this array.
 
@@ -391,7 +393,7 @@ pipeline_run_2.wait_for_completion(show_output=True)
 ```
 ## View the results
 
-The results from above run are written to the DataStore specified in the PipelineData object as the output data, which in this case is called *inferences*. The results are stored in the default blob container, you can navigate to your storage account and view through Storage Explorer, the file path is azureml-blobstore-*GUID*/azureml/*RunId*/*output_dir*.
+The results from above run are written to the `DataStore` specified in the `PipelineData` object as the output data, which in this case is called *inferences*. The results are stored in the default blob container, you can navigate to your storage account and view through Storage Explorer, the file path is azureml-blobstore-*GUID*/azureml/*RunId*/*output_dir*.
 
 You can also download this data to view the results. Below is the sample code to view the first 10 rows.
 
@@ -414,7 +416,7 @@ df.head(10)
 
 ## Next steps
 
-To see this process working end to end, try the [batch inference notebook](https://aka.ms/batch-inference-notebooks). 
+To see this process working end to end, try the [batch inference notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/machine-learning-pipelines/parallel-run). 
 
 For debugging and troubleshooting guidance for ParallelRunStep, see the [how-to guide](how-to-debug-parallel-run-step.md).
 

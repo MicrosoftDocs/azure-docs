@@ -71,7 +71,7 @@ You can configure Azure AD B2C to allow users to sign in to your application wit
 
 With external identity provider federation, you can offer your consumers the ability to sign in with their existing social or enterprise accounts, without having to create a new account just for your application.
 
-On the sign-up or sign-in page, Azure AD B2C presents a list of external identity providers the user can choose for sign-in. Once they select one of the external identity providers, they're taken (redirected) to the selected provider's website to complete the sign in process. After the user successfully signs in, they're returned back to Azure AD B2C for authentication of the account in your application.
+On the sign-up or sign-in page, Azure AD B2C presents a list of external identity providers the user can choose for sign-in. Once they select one of the external identity providers, they're taken (redirected) to the selected provider's website to complete the sign in process. After the user successfully signs in, they're returned to Azure AD B2C for authentication of the account in your application.
 
 ![Mobile sign-in example with a social account (Facebook)](media/technical-overview/external-idp.png)
 
@@ -258,7 +258,4 @@ Find out more about usage analytics in [Track user behavior in Azure Active Dire
 
 ## Next steps
 
-Now that you have deeper view into the features and technical aspects of Azure Active Directory B2C, get started with the service by creating a B2C tenant:
-
-> [!div class="nextstepaction"]
-> [Tutorial: Create an Azure Active Directory B2C tenant >](tutorial-create-tenant.md)
+Now that you have deeper view into the features and technical aspects of Azure Active Directory B2C, get started with our [tutorial for creating an Azure Active Directory B2C tenant](tutorial-create-tenant.md).

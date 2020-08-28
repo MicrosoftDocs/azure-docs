@@ -2,15 +2,11 @@
 title: Azure AD Application Proxy frequently asked questions | Microsoft Docs
 description: Learn answers to frequently asked questions (FAQ) about using Azure AD Application Proxy to publish internal, on-premises applications to remote users.  
 services: active-directory
-documentationcenter: ''
 author: kenwith
 manager: celestedg
-ms.assetid:
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: reference
 ms.date: 07/23/2020
 ms.author: kenwith
@@ -27,6 +23,9 @@ This page answers frequently asked questions about Azure Active Directory (Azure
 
 To use Azure AD Application Proxy, you must have an Azure AD Premium P1 or P2 license. For more information about licensing, see [Azure Active Directory Pricing](https://azure.microsoft.com/pricing/details/active-directory/)
 
+### What happens to Azure AD Application Proxy in my tenant, if my license expires?
+If your license expires, Application Proxy will automatically be disabled. Your application information will be saved for up to one year.
+
 ### Why is the "Enable Application Proxy button grayed out?
 
 Make sure you have at least an Azure AD Premium P1 or P2 license and an Azure AD Application Proxy Connector installed. After you successfully install your first connector, the Azure AD Application Proxy service will be enabled automatically.
@@ -39,6 +38,10 @@ No, this scenario isn't supported. The default settings are:
 
 - Microsoft AAD Application Proxy Connector - WAPCSvc - Network Service
 - Microsoft AAD Application Proxy Connector Updater - WAPCUpdaterSvc - NT Authority\System
+
+### Can a guest user with the Global Administrator or the Application Administrator role register the connector for the (guest) tenant?
+
+No, currently, this isn't possible. The registration attempt is always made on the user's home tenant.
 
 ### My back-end application is hosted on multiple web servers and requires user session persistence (stickiness). How can I achieve session persistence? 
 
@@ -78,6 +81,15 @@ Application Proxy requires Windows Server 2012 R2 or later. There is currently a
 
 
 ## Application configuration
+
+### I am receiving an error about an invalid certificate or possible wrong password
+
+After you uploaded the SSL certificate, you receive the message "Invalid certificate, possible wrong password" on the portal.
+
+Here are some tips for troubleshooting this error:
+- Check for problems with the certificate. Install it on your local computer. If you don't experience any issues then the certificate is good.
+- Ensure that the password does not contain any special characters. For testing, the password should only contain the characters 0-9, A-Z, and a-z.
+- If the certificate was created with Microsoft Software Key Storage Provider, the RSA algorithm must be used.
 
 ### What is the length of the default and "long" back-end timeout? Can the timeout be extended?
 

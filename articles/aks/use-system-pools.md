@@ -5,6 +5,7 @@ services: container-service
 ms.topic: article
 ms.date: 06/18/2020
 ms.author: mlearned
+ms.custom: fasttrack-edit
 ---
 
 # Manage system node pools in Azure Kubernetes Service (AKS)
@@ -85,7 +86,7 @@ az aks nodepool add \
     --name systempool \
     --node-count 3 \
     --node-taints CriticalAddonsOnly=true:NoSchedule \
-    --mode system
+    --mode System
 ```
 ## Show details for your node pool
 
@@ -209,6 +210,6 @@ In this article, you learned how to create and manage system node pools in an AK
 [supported-versions]: supported-kubernetes-versions.md
 [tag-limitation]: ../azure-resource-manager/management/tag-resources.md
 [taints-tolerations]: operator-best-practices-advanced-scheduler.md#provide-dedicated-nodes-using-taints-and-tolerations
-[vm-sizes]: ../virtual-machines/linux/sizes.md
+[vm-sizes]: ../virtual-machines/sizes.md
 [use-multiple-node-pools]: use-multiple-node-pools.md
 [maximum-pods]: configure-azure-cni.md#maximum-pods-per-node

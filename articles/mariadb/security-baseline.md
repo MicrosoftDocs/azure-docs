@@ -302,7 +302,7 @@ How to onboard Azure Sentinel: https://docs.microsoft.com/azure/sentinel/quickst
 
 Understand access management for MariaDB: https://docs.microsoft.com/azure/mariadb/concepts-security#access-management
 
-Understand built-in RBAC roles for Azure Subscriptions: https://docs.microsoft.com/azure/role-based-access-control/built-in-roles
+Understand Azure built-in roles for Azure Subscriptions: https://docs.microsoft.com/azure/role-based-access-control/built-in-roles
 
 
 **Azure Security Center monitoring**: Yes
@@ -528,9 +528,9 @@ Understand customer data protection in Azure: https://docs.microsoft.com/azure/s
 
 ### 4.6: Use Azure RBAC to control access to resources
 
-**Guidance**: Use Azure AD RBAC to control access to the Azure Database for the MariaDB management plane (Azure portal/Azure Resource Manager). For data plane access (within the database itself), use SQL queries to create users and configure user permissions.
+**Guidance**: Use Azure role-based access control (Azure RBAC) to control access to the Azure Database for the MariaDB management plane (Azure portal/Azure Resource Manager). For data plane access (within the database itself), use SQL queries to create users and configure user permissions.
 
-How to configure RBAC in Azure: https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal
+How to configure Azure RBAC: https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal
 
 How to configure user access with SQL for MariaDB: https://docs.microsoft.com/azure/mariadb/howto-create-users
 

@@ -1,12 +1,12 @@
 ---
-title: Tutorial - Restore a VM disk with Azure Backup
+title: Tutorial - Restore a VM with Azure CLI
 description: Learn how to restore a disk and create a recover a VM in Azure with Backup and Recovery Services.
 ms.topic: tutorial
 ms.date: 01/31/2019
 ms.custom: mvc
 ---
 
-# Restore a disk and create a recovered VM in Azure
+# Restore a VM with Azure CLI
 
 Azure Backup creates recovery points that are stored in geo-redundant recovery vaults. When you restore from a recovery point, you can restore the whole VM or individual files. This article explains how to restore a complete VM using CLI. In this tutorial you learn how to:
 
@@ -20,7 +20,7 @@ For information on using PowerShell to restore a disk and create a recovered VM,
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.18 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli).
+If you choose to install and use the CLI locally, this tutorial requires that you're running the Azure CLI version 2.0.18 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli).
 
 ## Prerequisites
 
@@ -28,7 +28,7 @@ This tutorial requires a Linux VM that has been protected with Azure Backup. To 
 
 ## Backup overview
 
-When Azure initiates a backup, the backup extension on the VM takes a point-in-time snapshot. The backup extension is installed on the VM when the first backup is requested. Azure Backup can also take a snapshot of the underlying storage if the VM is not running when the backup takes place.
+When Azure initiates a backup, the backup extension on the VM takes a point-in-time snapshot. The backup extension is installed on the VM when the first backup is requested. Azure Backup can also take a snapshot of the underlying storage if the VM isn't running when the backup takes place.
 
 By default, Azure Backup takes a file system consistent backup. Once Azure Backup takes the snapshot, the data is transferred to the Recovery Services vault. To maximize efficiency, Azure Backup identifies and transfers only the blocks of data that have changed since the previous backup.
 
@@ -54,11 +54,11 @@ az backup recoverypoint list \
 ## Restore a VM disk
 
 > [!IMPORTANT]
-> It is very strongly recommended to use Az CLI version 2.0.74 or later to get all the benefits of a quick restore including managed disk restore. It is best if user always uses the latest version.
+> It's very strongly recommended to use Az CLI version 2.0.74 or later to get all the benefits of a quick restore including managed disk restore. It's best if you always use the latest version.
 
 ### Managed disk restore
 
-If the backed up VM has managed disks and if the intent is to restore managed disks from the recovery point, you first provide an Azure storage account. This storage account is used to store the VM configuration and the deployment template that can be later used to deploy the VM from the restored disks. Then, you also provide a target resource group for the managed disks to be restored into.
+If the backed-up VM has managed disks and if the intent is to restore managed disks from the recovery point, you first provide an Azure storage account. This storage account is used to store the VM configuration and the deployment template that can be later used to deploy the VM from the restored disks. Then, you also provide a target resource group for the managed disks to be restored into.
 
 1. To create a storage account, use [az storage account create](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create). The storage account name must be all lowercase, and be globally unique. Replace *mystorageaccount* with your own unique name:
 
@@ -78,12 +78,12 @@ If the backed up VM has managed disks and if the intent is to restore managed di
         --container-name myVM \
         --item-name myVM \
         --storage-account mystorageaccount \
-        --rp-name myRecoveryPointName
+        --rp-name myRecoveryPointName \
         --target-resource-group targetRG
     ```
 
     > [!WARNING]
-    > If target-resource-group is not provided then the managed disks will be restored as unmanaged disks to the given storage account. This will have significant consequences to the restore time since the time taken to restore the disks entirely depends on the given storage account. Customers will get the benefit of instant restore only when the target-resource-group parameter is given. If the intention is to restore managed disks as unmanaged then do not provide the target-resource-group parameter and instead provide the parameter restore-as-unmanaged-disk parameter as shown below. This parameter is available from az 3.4.0 onwards.
+    > If **target-resource-group** isn't provided, then the managed disks will be restored as unmanaged disks to the given storage account. This will have significant consequences to the restore time since the time taken to restore the disks entirely depends on the given storage account. You'll get the benefit of instant restore only when the target-resource-group parameter is given. If the intention is to restore managed disks as unmanaged then don't provide the **target-resource-group** parameter and instead provide the parameter **restore-as-unmanaged-disk** parameter as shown below. This parameter is available from az 3.4.0 onwards.
 
     ```azurecli-interactive
     az backup restore restore-disks \
@@ -92,15 +92,15 @@ If the backed up VM has managed disks and if the intent is to restore managed di
     --container-name myVM \
     --item-name myVM \
     --storage-account mystorageaccount \
-    --rp-name myRecoveryPointName
+    --rp-name myRecoveryPointName \
     --restore-as-unmanaged-disk
     ```
 
-This will restore managed disks as unmanaged disks to the given storage account and will not be leveraging the 'instant' restore functionality. In future versions of CLI, it will be mandatory to provide either the target-resource-group parameter or 'restore-as-unmanaged-disk' parameter.
+This will restore managed disks as unmanaged disks to the given storage account and won't be leveraging the 'instant' restore functionality. In future versions of CLI, it will be mandatory to provide either the **target-resource-group** parameter or **restore-as-unmanaged-disk** parameter.
 
 ### Unmanaged disks restore
 
-If the backed up VM has unmanaged disks and if the intent is to restore disks from the recovery point, you first provide an Azure storage account. This storage account is used to store the VM configuration and the deployment template that can be later used to deploy the VM from the restored disks. By default, the unmanaged disks will be restored to their original storage accounts. If user wishes to restore all unmanaged disks to one single place, then the given storage account can also be used as a staging location for those disks too.
+If the backed-up VM has unmanaged disks and if the intent is to restore disks from the recovery point, you first provide an Azure storage account. This storage account is used to store the VM configuration and the deployment template that can be later used to deploy the VM from the restored disks. By default, the unmanaged disks will be restored to their original storage accounts. If you wish to restore all unmanaged disks to one single place, then the given storage account can also be used as a staging location for those disks too.
 
 In additional steps, the restored disk is used to create a VM.
 
@@ -134,7 +134,7 @@ As mentioned above, the unmanaged disks will be restored to their original stora
         --container-name myVM \
         --item-name myVM \
         --storage-account mystorageaccount \
-        --rp-name myRecoveryPointName
+        --rp-name myRecoveryPointName \
         --restore-to-staging-storage-account
     ```
 
@@ -176,7 +176,7 @@ az backup job show \
     -n 1fc2d55d-f0dc-4ca6-ad48-aca0fe5d0414
 ```
 
-The output of this query will give all details but we are interested only in the storage account contents. We can use the [query capability](/cli/azure/query-azure-cli?view=azure-cli-latest) of Azure CLI to fetch the relevant details
+The output of this query will give all details, but we're interested only in the storage account contents. We can use the [query capability](/cli/azure/query-azure-cli?view=azure-cli-latest) of Azure CLI to fetch the relevant details
 
 ```azurecli-interactive
 az backup job show \
@@ -199,7 +199,7 @@ az backup job show \
 
 ### Fetch the deployment template
 
-The template is not directly accessible since it is under a customer's storage account and the given container. We need the complete URL (along with a temporary SAS token) to access this template.
+The template isn't directly accessible since it's under a customer's storage account and the given container. We need the complete URL (along with a temporary SAS token) to access this template.
 
 First, extract the template blob Uri from job details
 

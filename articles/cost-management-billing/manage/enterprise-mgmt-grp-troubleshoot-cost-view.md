@@ -4,15 +4,16 @@ description: Learn how to resolve any issues you might have with organizational 
 author: bandersmsft
 ms.reviewer: amberb
 ms.service: cost-management-billing
+ms.subservice: enterprise
 ms.topic: troubleshooting
-ms.date: 06/05/2019
+ms.date: 08/20/2019
 ms.author: banders
 ms.custom: seodec18
 ---
 
 # Troubleshoot enterprise cost views
 
-Within enterprise enrollments, there are several settings that could cause users within the enrollment to not see costs.  These settings are managed by the enrollment administrator. Or, if the enrollment isn't bought directly through Microsoft, the settings are managed by the partner.  This article helps you understand what the settings are and how they impact the enrollment. These settings are independent of the Azure Role-based access control (RBAC) roles.
+Within enterprise enrollments, there are several settings that could cause users within the enrollment to not see costs.  These settings are managed by the enrollment administrator. Or, if the enrollment isn't bought directly through Microsoft, the settings are managed by the partner.  This article helps you understand what the settings are and how they impact the enrollment. These settings are independent of the Azure roles.
 
 ## Enable access to costs
 

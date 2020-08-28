@@ -65,7 +65,7 @@ Set up a new Azure Migrate project as follows.
 11. Wait a few minutes for the Azure Migrate project to deploy. You'll be taken to the project page. If you don't see the project, you can access it from **Servers** in the Azure Migrate dashboard.
 
 
-## Set up the appliance
+## Set up the Azure Migrate appliance
 
 Azure Migrate: Server Assessment runs a lightweight appliance.
 
@@ -77,15 +77,23 @@ Azure Migrate: Server Assessment runs a lightweight appliance.
     - Configure the appliance for the first time, and register it with the Azure Migrate project.
 - You can set up multiple appliances for a single Azure Migrate project. Across all appliances, you can discover any number of physical servers. A maximum of 1000 servers can be discovered per appliance.
 
+### Generate the Azure Migrate project key
+
+1. In **Migration Goals** > **Servers** > **Azure Migrate: Server Assessment**, select **Discover**.
+2. In **Discover machines** > **Are your machines virtualized?**, select **Physical or other (AWS, GCP, Xen, etc.)**.
+3. In **1:Generate Azure Migrate project key**, provide a name for the Azure Migrate appliance that you will set up for discovery of physical or virtual servers.The name should be alphanumeric with 14 characters or fewer.
+1. Click on **Generate key** to start the creation of the required Azure resources. Please do not close the Discover machines page during the creation of resources.
+1. After the successful creation of the Azure resources, an **Azure Migrate project key** is generated.
+1. Copy the key as you will need it to complete the registration of the appliance during its configuration.
+
 ### Download the installer script
 
-Download the zipped file for the appliance.
+In **2: Download Azure Migrate appliance**, click on **Download**.
 
-1. In **Migration Goals** > **Servers** > **Azure Migrate: Server Assessment**, click **Discover**.
-2. In **Discover machines** > **Are your machines virtualized?**, click **Not virtualized/Other**.
-3. Click **Download** to download the zipped file.
+   ![Selections for Discover machines](./media/tutorial-assess-physical/servers-discover.png)
 
-    ![Download installer](./media/tutorial-assess-physical/download-appliance.png)
+
+   ![Selections for Generate Key](./media/tutorial-assess-physical/generate-key-physical.png)
 
 
 ### Verify security
@@ -95,20 +103,20 @@ Check that the zipped file is secure, before you deploy it.
 1. On the machine to which you downloaded the file, open an administrator command window.
 2. Run the following command to generate the hash for the zipped file:
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - Example usage for public cloud: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256 ```
+    - Example usage for public cloud: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-Public.zip SHA256 ```
     - Example usage for government cloud: ```  C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-USGov.zip SHA256 ```
 3.  Verify the latest appliance versions and hash values:
     - For the public cloud:
 
         **Scenario** | **Download*** | **Hash value**
         --- | --- | ---
-        Physical (63.1 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2105112) | 0a27adf13cc5755e4b23df0c05732c6ac08d1fe8850567cb57c9906fbc3b85a0
+        Physical (85 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2140334) | 6de88e229c2b4836d16ce03fdfac93b5c27274945577bd8a359d598cf3777b24
 
     - For Azure Government:
 
         **Scenario** | **Download*** | **Hash value**
         --- | --- | ---
-        Physical (63.1 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2120100&clcid=0x409) | 93dfef131026e70acdfad2769cd208ff745ab96a96f013cdf3f9e1e61c9b37e1
+        Physical (85 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2140338) | 5a4715a9d10e81a5f38192b7d1c6ac0919ae3998afbf2e933c99bafae6bef80e
 
 ### Run the Azure Migrate installer script
 
@@ -124,13 +132,17 @@ The installer script does the following:
 
 Run the script as follows:
 
-1. Extract the zipped file to a folder on the server that will host the appliance.  Make sure you don't run the script on a machine on an existing Azure Migrate appliance.
+1. Extract the .zip file to a folder on the server that will host the appliance.  Make sure you don't run the script on a machine on an existing Azure Migrate appliance.
 2. Launch PowerShell on the above server with administrative (elevated) privilege.
 3. Change the PowerShell directory to the folder where the contents have been extracted from the downloaded zipped file.
 4. Run the script named **AzureMigrateInstaller.ps1** by running the following command:
 
-    - For the public cloud: ``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller> AzureMigrateInstaller.ps1 ```
-    - For Azure Government: ``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-Server-USGov>AzureMigrateInstaller.ps1 ```
+    - For the public cloud: 
+    
+        ``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-Public> .\AzureMigrateInstaller.ps1 ```
+    - For Azure Government: 
+    
+        ``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-Server-USGov>.\AzureMigrateInstaller.ps1 ```
 
     The script will launch the appliance web application when it finishes successfully.
 
@@ -148,41 +160,51 @@ Set up the appliance for the first time.
 1. Open a browser on any machine that can connect to the appliance, and open the URL of the appliance web app: **https://*appliance name or IP address*: 44368**.
 
    Alternately, you can open the app from the desktop by clicking the app shortcut.
-2. In the web app > **Set up prerequisites**, do the following:
-    - **License**: Accept the license terms, and read the third-party information.
+2. Accept the **license terms**, and read the third-party information.
+1. In the web app > **Set up prerequisites**, do the following:
     - **Connectivity**: The app checks that the server has internet access. If the server uses a proxy:
-        - Click **Proxy settings**, and specify the proxy address and listening port, in the form http://ProxyIPAddress or http://ProxyFQDN.
+        - Click on **Set up proxy** to and specify the proxy address (in the form http://ProxyIPAddress or http://ProxyFQDN) and listening port.
         - Specify credentials if the proxy needs authentication.
         - Only HTTP proxy is supported.
+        - If you have added proxy details or disabled the proxy and/or authentication, click on **Save** to trigger connectivity check again.
     - **Time sync**: Time is verified. The time on the appliance should be in sync with internet time for server discovery to work properly.
-    - **Install updates**: Azure Migrate Server Assessment checks that the appliance has the latest updates installed.
+    - **Install updates**: Azure Migrate Server Assessment checks that the appliance has the latest updates installed.After the check completes, you can click on **View appliance services** to see the status and versions of the components running on the appliance.
 
 ### Register the appliance with Azure Migrate
 
-1. Click **Log In**. If it doesn't appear, make sure you've disabled the pop-up blocker in the browser.
-2. On the new tab, sign in using your Azure credentials.
-    - Sign in with your username and password.
-    - Sign in with a PIN isn't supported.
-3. After successfully signing in, go back to the web app.
-4. Select the subscription in which the Azure Migrate project was created. Then select the project.
-5. Specify a name for the appliance. The name should be alphanumeric with 14 characters or less.
-6. Click **Register**.
+1. Paste the **Azure Migrate project key** copied from the portal. If you do not have the key, go to **Server Assessment> Discover> Manage existing appliances**, select the appliance name you provided at the time of key generation and copy the corresponding key.
+1. Click on **Log in**. It will open an Azure login prompt in a new browser tab. If it doesn't appear, make sure you've disabled the pop-up blocker in the browser.
+1. On the new tab, sign in by using your Azure username and password.
+   
+   Sign-in with a PIN isn't supported.
+3. After you successfully logged in, go back to the web app. 
+4. If the Azure user account used for logging has the right [permissions](tutorial-prepare-physical.md) on the Azure resources created during key generation, the appliance registration will be initiated.
+1. After appliance is successfully registered, you can see the registration details by clicking on **View details**.
 
 
 ## Start continuous discovery
 
 Now, connect from the appliance to the physical servers to be discovered, and start the discovery.
 
-1. Click **Add Credentials** to specify the account credentials that the appliance will use to discover servers.  
-2. Specify the **Operating System**,  a friendly name for the credentials, and the username and password. Then click **Add**.
-You can add multiple credentials for Windows and Linux servers.
-4. Click **Add server**, and specify server details- FQDN/IP address and friendly name of credentials (one entry per row) to connect to the server.
-3. Click **Validate**. After validation, the list of servers that can be discovered is shown.
-    - If validation fails for a server, review the error by hovering over the icon in the **Status** column. Fix issues, and validate again.
-    - To remove a server, select > **Delete**.
-4. After validation, click **Save and start discovery** to start the discovery process.
+1. In **Step 1: Provide credentials for discovery of Windows and Linux physical or virtual servers​**, click on **Add credentials** to specify a friendly name for credentials, add **Username** and **Password** for a Windows or Linux server. Click on **Save**.
+1. If you want to add multiple credentials at once,click on **Add more** to save and add more credentials. Multiple credentials are supported for physical servers discovery.
+1. In **Step 2:Provide physical or virtual server details​**, click on **Add discovery source** to specify the server **IP address/FQDN** and the friendly name for credentials to connect to the server.
+1. You can either **Add single item** at a time or **Add multiple items** in one go. There is also an option to provide server details through **Import CSV**.
 
-This starts discovery. It takes around 1.5 minutes per server for metadata of discovered server to appear in the Azure portal.
+    ![Selections for adding discovery source](./media/tutorial-assess-physical/add-discovery-source-physical.png)
+
+    - If you choose **Add single item**, you can choose the OS type,specify friendly name for credentials, add server **IP address/FQDN** and click on **Save**.
+    - If you choose **Add multiple items**, you can add multiple records at once by specifying server **IP address/FQDN** with the friendly name for credentials in the text box.**Verify** the added records and click on **Save**.
+    - If you choose **Import CSV** _(selected by default)_, you can download a CSV template file, populate the file with the server **IP address/FQDN** and friendly name for credentials. You then import the file into the appliance, **verify** the records in the file and click on **Save**.
+
+1. On clicking Save, appliance will try validating the connection to the servers added and show the **Validation status** in the table against each server.
+    - If validation fails for a server, review the error by clicking on **Validation failed** in the Status column of the table. Fix the issue, and validate again.
+    - To remove a server, click on **Delete**.
+1. You can **revalidate** the connectivity to servers any time before starting the discovery.
+1. Click on **Start discovery**, to kick off discovery of the successfully validated servers. After the discovery has been successfully initiated, you can check the discovery status against each server in the table.
+
+
+This starts discovery. It takes approximately 2 minutes per server for metadata of discovered server to appear in the Azure portal.
 
 ### Verify servers in the portal
 

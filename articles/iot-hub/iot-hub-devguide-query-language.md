@@ -7,6 +7,7 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: robinsh
+ms.custom: devx-track-csharp
 ---
 
 # IoT Hub query language for device and module twins, jobs, and message routing

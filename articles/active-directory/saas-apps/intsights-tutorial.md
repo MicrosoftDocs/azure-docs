@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with IntSights | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and IntSights.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 236feb7c-998b-4504-94d2-99656e500259
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 07/16/2020
+ms.date: 08/06/2020
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with IntSights
@@ -104,6 +98,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	| lastName | user.surname |
 	| intsightsAccountId | < intsightsAccountId > |
 	| intsightsRole | < intsightsRole > |
+
+    > [!NOTE]
+    > **intsightsAccountId** and **intsightsRole** are the optional claims which are not added by default and are to be added manually only when **Just In Time** user provisioning is enabled.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
