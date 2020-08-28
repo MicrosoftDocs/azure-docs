@@ -395,6 +395,20 @@
           href: flexible-server/quickstart-create-server-portal.md
         - name: Azure CLI
           href: flexible-server/quickstart-create-server-cli.md
+  - name: Concepts
+    items:
+    - name: Limitations
+      href: flexible-server/concepts-limitations.md
+    - name: Compute and storage
+      href: flexible-server/concepts-compute-storage.md
+    - name: Manage
+      items:
+      - name: Logs and Diagnostics
+        items:
+        - name: Slow query logs
+          href: flexible-server/concepts-slow-query-logs.md
+        - name: Audit logs
+          href: flexible-server/concepts-audit-logs.md
 - name: Reference
   items:
   - name: Azure CLI
