@@ -21,8 +21,7 @@ This article describes how to configure and run a module on the GPU on your Azur
 
 Before you begin, make sure that:
 
-1. You've access to a GPU enabled 1-node or a 4-node Azure Stack Edge device. This device is activated with a resource in Azure. 
-2. You've enabled compute on this device. Follow the steps in [Tutorial: Enable compute on your Azure Stack Edge device](azure-stack-edge-gpu-deploy-enable-compute.md). 
+1. You've access to a GPU enabled 1-node Azure Stack Edge device. This device is activated with a resource in Azure.  
 
 ## Configure module to use GPU
 
