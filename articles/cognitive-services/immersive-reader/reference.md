@@ -137,38 +137,10 @@ Contains properties that configure certain behaviors of the Immersive Reader.
     onPreferencesChanged?: (value: string) => any; // Executes when the user's preferences have changed.
 }
 ```
-### Cookie Policy Options
 
 ```typescript
 enum CookiePolicy { Disable, Enable }
 ```
-
-The Immersive Reader stores it settings, or user preferences, in cookies. This *cookiePolicy* option **disables** the use of cookies by default in order to comply with EU Cookie Compliance laws. Should you want to re-enable cookies and restore the default functionality for Immersive Reader user preferences, you will need to ensure that your website or application obtains the proper consent from the user to enable cookies. Then, to re-enable cookies in the Immersive Reader, you must explicitly set the *cookiePolicy* option to *CookiePolicy.Enable* when launching the Immersive Reader. The table below describes what settings the Immersive Reader stores in its cookie when the *cookiePolicy* option is enabled.
-
-| Setting                        | Description                                                    |
-| ------------------------------ | -------------------------------------------------------------- |
-| Text Size                      | The number that represents the chosen text size in pixels. |
-| Font Family                    | The chosen font (Calibri, Sitka or Comic Sans). |
-| Text Spacing                   | One of two number choices that sets whether text spacing toggled on or off. |
-| Formatting                     | A boolean that sets whether HTML formatting is toggled on or off. |
-| Theme                          | The chosen theme (e.g light, dark...). |
-| Syllabification Enabled        | A boolean that sets whether syllabification toggled on or off. |
-| Noun Highlighting Enabled      | Sets whether noun highlighting is toggled on or off. |
-| Noun Highlight Color           | The chosen noun highlighting color. |
-| Verb Highlighting Enabled      | Sets whether verb highlighting is toggled on or off. |
-| Verb Highlight Color           | The chosen verb highlighting color. |
-| Adjective Highlighting Enabled | Sets whether adjective highlighting is toggled on or off. |
-| Adjective Highlight Color      | The chosen adjective highlighting color. |
-| Adverb Highlighting Enabled    | Sets whether adverb highlighting is toggled on or off. |
-| Adverb Highlight Color         | The chosen adverb highlighting color. |
-| Part of Speech Labels Enabled  | Sets whether the superscript text label of each highlighted Part of Speech is toggled on or off.  |
-| Picture Dictionary Enabled     | Sets whether Picture Dictionary is toggled on or off. |
-| Content Hybrid Mode            | A boolean that turns vertical text spacing on without toggling text spacing on, this setting is determined by other features of the Immersive Reader such as Part of Speech Labels that require more vertical space between lines of text. |
-| Read Aloud State               | Stores the number representing the chosen Speed at which text is read aloud, and the chosen voice gender (male or female).  |
-| Translation State              | Determines whether text translation is toggled on or off when the Immersive Reader is loaded. Stores a boolean that sets whether text translation is toggled on or off when the Immersive Reader is loaded, and the chosen language |
-| Dialog State                   | Stores whether the first run experience has already been shown. |
-
-### Read Aloud Options
 
 ```typescript
 type ReadAloudOptions = {
@@ -181,8 +153,6 @@ type ReadAloudOptions = {
 > [!NOTE]
 > Due to browser limitations, autoplay is not supported in Safari.
 
-### Translation Options
-
 ```typescript
 type TranslationOptions = {
     language: string;                         // Set the translation language, e.g. fr-FR, es-MX, zh-Hans-CN. Required to automatically enable word or document translation.
@@ -190,8 +160,6 @@ type TranslationOptions = {
     autoEnableWordTranslation?: boolean;      // Automatically enable word translation.
 };
 ```
-
-### Display Options
 
 ```typescript
 type DisplayOptions = {
