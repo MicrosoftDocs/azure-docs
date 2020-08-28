@@ -3,10 +3,10 @@ title: Partnering with Azure DDoS Protection Standard
 description: "Understand partnering opportunities enabled by Azure DDoS Protection Standard."
 ms.service: ddos-protection
 documentationcenter: na
-author: anupamvi
+author: aletheatoh
 mms.devlang: na
 ms.topic: how-to
-ms.date: 01/28/2020
+ms.date: 08/28/2020
 ms.author: kumud
 ---
 # Partnering with Azure DDoS Protection Standard
