@@ -27,7 +27,7 @@ To help you manage [Azure resources](../azure-resource-manager/management/overvi
   * **Send monthly cost for resource**
   * **Delete old blobs**
 
-When you create an automation task for a resource in the Azure portal, you do so from that specific resource, for example, the actual storage account or virtual machine resource. Behind the scenes, an automation task is actually a logic app workflow that's run by the [Azure Logic Apps](../logic-apps/logic-apps-overview.md) service. You can view and edit the task template's underlying workflow by opening the template in the Logic App Designer. After a task finishes at least one run, you can review the status, history, inputs, and outputs for each run.
+When you create an automation task for a resource in the Azure portal, you do so from that specific resource, for example, the actual storage account or virtual machine resource. Behind the scenes, an automation task is actually a logic app workflow that's run by the [Azure Logic Apps](../logic-apps/logic-apps-overview.md) service. You can view and edit the task's underlying workflow by opening the task in the Logic App Designer. After a task finishes at least one run, you can review the status, history, inputs, and outputs for each run.
 
 This article shows you how to complete the following tasks:
 
@@ -35,13 +35,13 @@ This article shows you how to complete the following tasks:
 
 * [Review a task's history](#review-task-history), which includes the run status, inputs, outputs, and other historical information.
 
-* [Edit the task](#edit-task) so that you can update the task, or customize the task template's underlying workflow in the Logic App Designer.
+* [Edit the task](#edit-task) so that you can update the task, or customize the task's underlying workflow in the Logic App Designer.
 
 ## How do automation tasks differ from Azure Automation?
 
-Currently, you can create automation tasks only at the resource level, view their run history, and edit the task templates.
+Currently, you can create an automation task only at the resource level, view the task's runs history, and edit the task's underlying logic app workflow, which is powered by the [Azure Logic Apps](../logic-apps/logic-apps-overview.md) service.
 
-while [Azure Automation](../automation/automation-intro.md) is a cloud-based automation and configuration service that supports consistent management across your Azure and non-Azure environments. The service comprises [process automation for orchestrating processes](../automation/automation-intro.md#process-automation) by using [runbooks](../automation/automation-runbook-execution.md), configuration management with [change tracking and inventory](../automation/change-tracking.md), update management, shared capabilities, and heterogeneous features. Automation gives you complete control during deployment, operations, and decommissioning of workloads and resources.
+[Azure Automation](../automation/automation-intro.md) is a cloud-based automation and configuration service that supports consistent management across your Azure and non-Azure environments. The service comprises [process automation for orchestrating processes](../automation/automation-intro.md#process-automation) by using [runbooks](../automation/automation-runbook-execution.md), configuration management with [change tracking and inventory](../automation/change-tracking.md), update management, shared capabilities, and heterogeneous features. Automation gives you complete control during deployment, operations, and decommissioning of workloads and resources.
 
 ## Prerequisites
 
@@ -84,9 +84,13 @@ while [Azure Automation](../automation/automation-intro.md) is a cloud-based aut
 1. Under **Configuration**, provide a name for the task and any other information required for the task. When you're done, select **Create**.
 
    > [!NOTE]
-   > You can't change the task name after creation.
+   > You can't change the task name after creation, so consider a name that still applies if you [edit the underlying workflow](#edit-task-workflow). 
+   > Changes that you make to the underlying workflow apply only to the task that you created, not the task template.
+   >
+   > For example, if you name your task `Send monthly cost`, but you later edit the underlying workflow to run weekly, 
+   > you can't change your task's name to `Send weekly cost`.
 
-   For example, tasks that send you email notifications require an email address.
+   Tasks that send email notifications require an email address.
 
    ![Screenshot that shows the required information for the selected task](./media/create-automation-tasks-azure-resources/provide-task-information.png)
 
@@ -95,7 +99,7 @@ while [Azure Automation](../automation/automation-intro.md) is a cloud-based aut
    ![Screenshot that shows the automation tasks list](./media/create-automation-tasks-azure-resources/automation-tasks-list.png)
 
    > [!TIP]
-   > If the task doesn't appear, try refreshing the tasks list. On the toolbar, select **Refresh**.
+   > If the task doesn't appear immediately, try refreshing the tasks list or wait a little before you refresh. On the toolbar, select **Refresh**.
 
    After the selected task runs, you get an email that looks like this example:
 
@@ -160,7 +164,7 @@ To change a task, you have these options:
 
 * [Edit the task "inline"](#edit-task-inline) so that you can change the task's properties, such as connection information or configuration information, for example, your email address.
 
-* [Edit the task template's underlying workflow](#edit-task-template-workflow) in the Logic App Designer.
+* [Edit the task's underlying workflow](#edit-task-workflow) in the Logic App Designer.
 
 <a name="edit-task-inline"></a>
 
@@ -188,9 +192,11 @@ To change a task, you have these options:
 
 1. When you're done, select **Save**.
 
-<a name="edit-task-template-workflow"></a>
+<a name="edit-task-workflow"></a>
 
-### Edit the task template's underlying workflow
+### Edit the task's underlying workflow
+
+When you change the underlying workflow for an automation task, your changes affect only the task instance that you created, and not the template that creates the task. After you make and save your changes, the name that you provided for your original task might not accurately describe the task anymore, so you might have to recreate the task with a different name.
 
 1. In the [Azure portal](https://portal.azure.com), find the resource that has the task that you want to update.
 
@@ -207,6 +213,18 @@ To change a task, you have these options:
 1. To open the underlying workflow in the Logic App Designer, on the logic app's menu, select **Logic app designer**.
 
    ![Screenshot that shows the "Logic app designer" menu option selected and designer surface with the underlying workflow](./media/create-automation-tasks-azure-resources/view-task-workflow-logic-app-designer.png)
+
+   You can now edit the properties for the workflow's trigger and actions as well as edit the trigger and actions that define the workflow itself.
+
+1. To view the properties for the trigger or an action, expand that trigger or action.
+
+   For example, you can change the Recurrence trigger to run weekly, rather than monthly.
+
+   ![Screenshot that shows the expanded Recurrence trigger with the Frequency list open to show available frequency options](./media/create-automation-tasks-azure-resources/edit-recurrence-trigger.png)
+
+   For more information about the Recurrence trigger, see [Create, schedule, and run recurring tasks and workflows with the Recurrence trigger](../connectors/connectors-native-recurrence.md).
+
+1. To save your changes, on the designer toolbar, select **Save**. To test and run the updated workflow, on the designer toolbar, select **Run**.
 
 ## Next steps
 
