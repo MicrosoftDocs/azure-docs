@@ -32,7 +32,7 @@ If you have multiple subscriptions, choose the appropriate subscription in which
 az account set --subscription <subscription id>
 ```
 
-## Create a Flexible Server in a new virtual network
+## Create a PostgreSQL Flexible Server in a new virtual network
 
 Create a private flexible server inside a virtual network (VNET) using the following command:
 ```azurecli
