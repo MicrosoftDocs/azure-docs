@@ -12,7 +12,8 @@ metadata:
   author: nitinme
   ms.author: nitinme
   manager: nitinme
-  ms.date: 03/24/2020
+  ms.custom: custom-portals-hub
+  ms.date: 08/28/2020
 
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
@@ -55,9 +56,6 @@ conceptualContent:
         - url: ./Custom-Vision-Service/index.yml
           itemType: overview
           text: Custom Vision
-        - url: https://www.customvision.ai/
-          itemType: overview
-          text: " - Customize with Vision portal"
         - url: ./face/index.yml
           itemType: overview
           text: Face
@@ -79,24 +77,15 @@ conceptualContent:
         - url: ./luis/index.yml
           itemType: overview
           text: Language Understanding (LUIS)
-        - url: https://luis.ai
-          itemType: overview
-          text: " - Customize with LUIS portal"
         - url: ./qnamaker/index.yml
           itemType: overview
           text: QnA Maker
-        - url: https://qnamaker.ai
-          itemType: overview
-          text: " - Customize with QnA Maker portal"
         - url: ./text-analytics/index.yml
           itemType: overview
           text: Text Analytics
         - url: ./translator/index.yml
           itemType: overview
           text: Translator
-        - url: https://portal.customtranslator.azure.ai/
-          itemType: overview
-          text: " - Customize with Translator portal" 
 
     - title: Speech
       summary: Convert speech into text and text into natural-sounding speech. Translate from one language to another and enable speaker verification and recognition.
@@ -154,33 +143,24 @@ conceptualContent:
           text: Cognitive Services containers FAQ
 additionalContent:
   sections:
-    - title: Customize with Cognitive Services 
-      summary: With Cognitive Services, you can customize your user experience by improving  Microsoft's baseline models or creating your own. Use the links below to create, manage, and deploy models using web-based user interfaces for each service.
-      items: 
-        # Card
-        - title: Custom Translator
-          # imageSrc should be square in ratio with no whitespace
-          summary: Learn how to customize Microsoft Translator's neural text and speech translation systems using your own training data to fit your style and terminology.
-          url: https://portal.customtranslator.azure.ai/
-        - title: Custom Vision
-          # imageSrc should be square in ratio with no whitespace
-          summary: Easily customize your own state-of-the-art computer vision models that fit perfectly with your unique use case. Just bring a few examples of labeled images and let Custom Vision do the hard work.
-          url: https://www.customvision.ai/
-        # Card
-        - title: Language Understanding (LUIS)
-          summary: A machine learning-based service to build natural language into apps, bots, and IoT devices. Quickly create enterprise-ready, custom models that continuously improve.
-          url: https://luis.ai
-        # Card
-        - title: QnA Maker 
-          summary: Build, train and publish a sophisticated bot using FAQ pages, support websites, product manuals, SharePoint documents or editorial content through an easy-to-use UI.
-          url: https://www.qnamaker.ai/
-        # Card
-        - title: Speech Studio
-          summary: All the tools you need to transcribe spoken audio to text, perform translations and convert text to lifelike speech. Includes tools for custom speech, custom voice, and custom translation.
-          url: https://speech.microsoft.com/
     - title: Additional resources
       items:
-        - title: SDKs
+        - title: Portals for customization
+          links:
+            - text: Custom Translator
+              url: https://portal.customtranslator.azure.ai/
+            - text: Custom Vision
+              url: https://www.customvision.ai/
+            # Card
+            - text: Language Understanding (LUIS)
+              url: https://luis.ai
+            # Card
+            - text: QnA Maker 
+              url: https://www.qnamaker.ai/
+            # Card
+            - text: Speech Studio
+              url: https://speech.microsoft.com/
+        - title: SDKs & REST APIs
           links:
             - text: C#
               url: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client?view=azure-dotnet
@@ -194,9 +174,7 @@ additionalContent:
               url: https://docs.microsoft.com/python/api/overview/azure/cognitive-services?view=azure-python
             - text: R 
               url: https://github.com/Azure/AzureCognitive
-        - title: REST APIs
-          links:
-            - text: Cognitive Services Management
+            - text: Cognitive Services Management REST API
               url: https://docs.microsoft.com/rest/api/cognitiveservices/
         - title: Tools
           links:
