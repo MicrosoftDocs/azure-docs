@@ -1,11 +1,12 @@
 ---
 title: 'Use Azure Firewall to inspect traffic destined to a Private Endpoint'
+titleSuffix: Azure Private Link
 description: Learn how you can inspect traffic destined to a Private Endpoint using Azure Firewall.
 services: private-link
 author: jocortems
 ms.service: private-link
 ms.topic: how-to
-ms.date: 09/28/2020
+ms.date: 09/02/2020
 ms.author: jocorte
 
 ---
@@ -30,7 +31,7 @@ Azure Firewall will be the focus of this article, it allows filtering traffic us
 
 ## Scenario 1: Hub and Spoke Architecture - Dedicated Virtual Network for Private Endpoints
 
-![Dedicated Virtual Network for Private Endpoints](./media/inspect-traffic-using-azure-firewall/HubandSpoke.png)
+:::image type="content" source="./media/inspect-traffic-using-azure-firewall/hubandspoke.png" alt-text="Dedicated Virtual Network for Private Endpoints" border="true":::
 
 This is the most scalable architecture if there is a need to connect privately to multiple Azure services using Private Endpoints because only a single route pointing to the entire virtual network address space where the Private Endpoints are deployed is needed, this reduces administrative overhead and prevents running into the 400 routes limit.
 
@@ -41,7 +42,7 @@ The tradeoff with this architecture is that virtual network peering charges will
 
 ## Scenario 2: Hub and Spoke Architecture - Shared Virtual Network for Private Endpoints and Virtual Machines
 
-![Private Endpoints and Virtual Machines in same Virtual Network](./media/inspect-traffic-using-azure-firewall/SharedSpoke.png)
+:::image type="content" source="./media/inspect-traffic-using-azure-firewall/sharedspoke.png" alt-text="Private Endpoints and Virtual Machines in same Virtual Network" border="true":::
 
 This architecture can be implemented when it is not possible to have a dedicated virtual network for the Private Endpoints, or when only a few services will be exposed in the virtual network using Private Endpoints. Because the virtual machines will have /32 system routes pointing to each Private Endpoint one route per Private Endpoint must be configured in order to route traffic through Azure Firewall. As the number of services exposed in the virtual network using Private Endpoints increases so does the administrative overhead of maintaining the route table and, depending on your overall architecture, it is possible to run into the 400 routes limit. It is for these reasons that we recommend using Scenario 1 whenever possible.
 
@@ -52,16 +53,16 @@ As with Scenario 1, virtual network peering charges will be incurred from the vi
 
 ## Scenario 3: Single Virtual Network
 
-![Single Virtual Network](./media/inspect-traffic-using-azure-firewall/SingleVNET.png)
+:::image type="content" source="./media/inspect-traffic-using-azure-firewall/singlevnet.png" alt-text="Single Virtual Network" border="true":::
 
 This architecture can be implemented when all services have been deployed into a single virtual network and migrating to a hub and spoke architecture is not possible. The same considerations as in Scenario 2 above apply; however in this scenario there are no virtual network peering charges.
 
 >[!NOTE]
 > If you want to implement this scenario using a third party NVA or Azure Firewall network rules instead of application rules it is required to SNAT traffic destined to the Private Endpoints in order to maintain flow symmetry; otherwise communication between the virtual machines and Private Endpoints will break.
 
-## Scenario 4: On-Premises Traffic to Private Endpoints
+## Scenario 4: On-premises traffic to Private Endpoints
 
-![On-Premises Traffic to Private Endpoints](./media/inspect-traffic-using-azure-firewall/onprem.png)
+:::image type="content" source="./media/inspect-traffic-using-azure-firewall/onprem.png" alt-text="On-premises traffic to private endpoints" border="true":::
 
 This architecture can be implemented if you have set up connectivity with your on-premises network either using [ExpressRoute](..\expressroute\expressroute-introduction.md) or [Site to Site VPN](..\vpn-gateway\vpn-gateway-howto-site-to-site-resource-manager-portal.md) and have a requirement for clients in your on-premises network accessing services exposed in a virtual network via Private Endpoints to be routed through a security appliance. The same considerations as in Scenario 2 above apply; however in this scenario there are no virtual network peering charges. For more information about how to configure your DNS servers to allow on-premises workloads to access Private Endpoints refer to [On-Premises workloads using a DNS forwarder](./private-endpoint-dns.md#on-premises-workloads-using-a-dns-forwarder).
 
