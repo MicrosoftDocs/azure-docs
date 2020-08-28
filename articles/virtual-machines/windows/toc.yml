@@ -86,7 +86,7 @@
       - name: Export the VHD of a managed disk to a storage account
         href: ../scripts/virtual-machines-powershell-sample-copy-managed-disks-vhd.md
       - name: Create a snapshot from a VHD
-        href: ../scripts/virtual-machines-windows-powershell-sample-create-snapshot-from-vhd.md
+        href: ../scripts/virtual-machines-powershell-sample-create-snapshot-from-vhd.md
       - name: Copy a snapshot
         href: ../scripts/virtual-machines-powershell-sample-copy-snapshot-to-same-or-different-subscription.md
     - name: Secure
@@ -624,7 +624,7 @@
   - name: Manage VMs
     items:
     - name: VM usage
-      href: vm-usage.md
+      href: ../vm-usage.md
     - name: Common PowerShell tasks
       href: ps-common-ref.md
     - name: Change VM size

@@ -677,7 +677,7 @@
   - name: Manage VMs
     items:
     - name: VM usage
-      href: vm-usage.md
+      href: ../vm-usage.md
     - name: Common CLI tasks
       href: cli-manage.md
     - name: Change VM size
