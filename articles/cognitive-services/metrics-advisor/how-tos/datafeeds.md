@@ -36,11 +36,11 @@ To avoid loading partial data, we recommend two approaches:
 
     Set the **Ingestion time offset** parameter for your data feed to delay the ingestion until the data is fully prepared. This can be useful for some data sources which don't support transactions such as Azure Table Storage. See [Advanced settings](#advanced-settings) for details.
 
-## Add a data feed using the web Portal
+### Add a data feed using the web Portal
 
 After signing into your Metrics Advisor portal with your Active Directory account, click **Get started**. Then, on the main page of the portal, click **Add data feed** from the left menu.
 
-### Add connection settings
+#### Add connection settings
 
 Next you'll input a set of parameters to connect your time-series data source. 
 * **Source Type**: The type of data source where your time series data is stored.
@@ -50,7 +50,7 @@ Next you'll input a set of parameters to connect your time-series data source.
 
 Next, you'll need to specify the connection information of the data source as well as the custom queries which are used to convert the data into the required schema. For details on the other fields and connecting different types of data sources, see [Add data feeds from different data sources](../data-feeds-from-different-sources.md).
 
-### Data schema requirements and configuration
+#### Data schema requirements and configuration
 
 [!INCLUDE [data schema requirements](../includes/data-schema-requirements.md)]
 
