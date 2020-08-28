@@ -46,7 +46,7 @@ The same process can be implemented for Azure Attestation. However to leverage t
 
 **How to shift to Azure Attestation from other attestation models**
 
-- After installing Azure Confidential computing virtual machine, install Azure DCAP library ([Windows/](https://www.nuget.org/packages/Microsoft.Azure.DCAP/), [Linux](https://packages.microsoft.com/ubuntu/18.04/prod/pool/main/a/az-dcap-client/)) to leverage the benefits offered by Azure PCK caching service 
+- After installing Azure Confidential computing virtual machine, install Azure DCAP library ([Windows/](https://www.nuget.org/packages/Microsoft.Azure.DCAP/) [Linux](https://packages.microsoft.com/ubuntu/18.04/prod/pool/main/a/az-dcap-client/)) to leverage the benefits offered by Azure PCK caching service 
 - Remote attestation client needs to be authored which can retrieve the enclave evidence and send requests to Azure Attestation. See [code samples](/samples/browse/?expanded=azure&terms=attestation) for reference 
 - Attestation requests can be sent to the REST API endpoint of default providers or custom attestation providers 
 - Azure Attestation APIs are protected by Azure AD authentication. Hence the client that invokes attest APIs must be able to obtain and pass a valid Azure AD access token in the attestation request 
