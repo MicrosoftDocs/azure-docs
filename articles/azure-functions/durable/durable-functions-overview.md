@@ -700,8 +700,9 @@ You can get started with Durable Functions in under 10 minutes by completing one
 * [C# using Visual Studio 2019](durable-functions-create-first-csharp.md)
 * [JavaScript using Visual Studio Code](quickstart-js-vscode.md)
 * [Python using Visual Studio Code](quickstart-python-vscode.md)
+* [PowerShell using Visual Studio Code](quickstart-powershell-vscode.md)
 
-In both quickstarts, you locally create and test a "hello world" durable function. You then publish the function code to Azure. The function you create orchestrates and chains together calls to other functions.
+In these quickstarts, you locally create and test a "hello world" durable function. You then publish the function code to Azure. The function you create orchestrates and chains together calls to other functions.
 
 ## Learn more
 

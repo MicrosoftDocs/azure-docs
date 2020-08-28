@@ -3,16 +3,18 @@ title: Send ink data to the Ink Recognizer API
 titleSuffix: Azure Cognitive Services
 description: Learn about calling the Ink Analyzer API for different applications
 services: cognitive-services
-author: erhopf
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ink-recognizer
 ms.topic: conceptual
-ms.date: 05/02/2019
-ms.author: erhopf
+ms.date: 08/24/2020
+ms.author: aahi
 ---
 
 # Send ink data to the Ink Recognizer API 
+
+[!INCLUDE [ink-recognizer-deprecation](../includes/deprecation-note.md)]
 
 Digital inking refers to the technologies that enable digital representations of input such as handwriting and drawings. This is typically achieved using a digitizer that captures the movements of input devices, such as a stylus. As devices continue to enable rich digital inking experiences, artificial intelligence and machine learning enables the recognition of written shapes and text in any context. The Ink Recognizer API enables you to send ink strokes and get detailed information about them. 
 

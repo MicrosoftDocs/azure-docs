@@ -79,7 +79,7 @@ These on-demand backups will also show up in the list of restore points for rest
 
 Restores triggered from HANA native clients (using **Backint**) to restore to the same machine can be [monitored](#monitor-manual-backup-jobs-in-the-portal) from the **Backup jobs** page.
 
-### Run SAP HANA native client backup on a database with Azure backup enabled
+### Run SAP HANA native client backup on a database with Azure Backup enabled
 
 If you want to take a local backup (using HANA Studio / Cockpit) of a database that's being backed up with Azure Backup, do the following:
 
@@ -124,7 +124,7 @@ You can change the underlying policy for an SAP HANA backup item.
 >[!NOTE]
 > Any change in the retention period will be applied retrospectively to all the older recovery points besides the new ones.
 >
-> Incremental backup policies cannot be used for SAP HANA databases. Incremental backup is not currently supported for these databases.
+> Incremental backup policies can't be used for SAP HANA databases. Incremental backup isn't currently supported for these databases.
 
 ### Modify Policy
 
@@ -166,7 +166,7 @@ You can stop protecting an SAP HANA database in a couple of ways:
 
 If you choose to leave recovery points, keep these details in mind:
 
-* All recovery points will remain intact forever, all pruning shall stop at stop protection with retain data.
+* All recovery points will remain intact forever, and all pruning will stop at stop protection with retain data.
 * You'll be charged for the protected instance and the consumed storage. For more information, see [Azure Backup pricing](https://azure.microsoft.com/pricing/details/backup/).
 * If you delete a data source without stopping backups, new backups will fail.
 

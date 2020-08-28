@@ -24,7 +24,7 @@ By creating an [Azure Machine Learning dataset](../machine-learning/how-to-creat
 
 To understand where datasets fit in Azure Machine Learning's overall data access workflow, see  the [Securely access data](../machine-learning/concept-data.md#data-workflow) article.
 
-Azure Open Datasets are curated public datasets that you can use to add scenario-specific features to enrich your predictive solutions and improve their accuracy. See the [Open Datasets catalog](https://azure.microsoft.com/services/op[en-datasets/catalog/) for public-domain data that can help you train machine learning models, like:
+Azure Open Datasets are curated public datasets that you can use to add scenario-specific features to enrich your predictive solutions and improve their accuracy. See the [Open Datasets catalog](https://azure.microsoft.com/en-in/services/open-datasets/catalog/) for public-domain data that can help you train machine learning models, like:
 
 * [weather](https://azure.microsoft.com/services/open-datasets/catalog/noaa-integrated-surface-data/)
 * [census](https://azure.microsoft.com/services/open-datasets/catalog/us-decennial-census-zip/)
@@ -72,7 +72,7 @@ tabular_dataset = MNIST.get_tabular_dataset()
 file_dataset = MNIST.get_file_dataset()
 ```
 
-In this example, the Diabetes `opendatasets` class is only available as a `TabularDataset`, hence the use of `get_tabular_dataset()`
+In this example, the Diabetes `opendatasets` class is only available as a `TabularDataset`, hence the use of `get_tabular_dataset()`.
 
 ```python
 
@@ -95,7 +95,7 @@ titanic_ds = titanic_ds.register(workspace=workspace,
 
 ## Create datasets with the studio
 
-You can also create datasets from Open Datasets with the [Azure Machine Learning studio](https://ml.azure.com), a consolidated web interface that includes machine learning tools to perform data science scenarios for data science practitioners of all skill levels.
+You can also create Azure Machine Learning datasets from Azure Open Datasets with the [Azure Machine Learning studio](https://ml.azure.com), a consolidated web interface that includes machine learning tools to perform data science scenarios for data science practitioners of all skill levels.
 
 > [!Note]
 > Datasets created through Azure Machine Learning studio are automatically registered to the workspace.
@@ -108,7 +108,7 @@ You can also create datasets from Open Datasets with the [Azure Machine Learning
 
     ![Choose dataset](./media/how-to-create-dataset-from-open-dataset/open-datasets-2.png)
 
-1. Choose a name under which to register the dataset, and optionally filter the data by using the available filters. In this case, for the **public holidays** dataset, you filter the time period to one year and the country code to only the US. Select **Create**.
+1. Choose a name under which to register the dataset, and optionally filter the data by using the available filters. In this case, for the **public holidays** dataset, you filter the time period to one year and the country code to only the US. See the [Azure Open Datasets Catalog](https://azure.microsoft.com/services/op[en-datasets/catalog/) for data detail such as, field descriptions and date ranges. Select **Create**.
 
     ![Set dataset params and create dataset](./media/how-to-create-dataset-from-open-dataset/open-datasets-3.png)
 

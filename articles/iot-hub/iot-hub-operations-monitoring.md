@@ -8,7 +8,7 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: nberdy
-ms.custom: amqp
+ms.custom: "amqp, devx-track-csharp"
 ---
 
 # IoT Hub operations monitoring (deprecated)

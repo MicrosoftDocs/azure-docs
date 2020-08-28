@@ -5,7 +5,7 @@
  author: cherylmc
  ms.service: virtual-wan
  ms.topic: include
- ms.date: 06/26/2020
+ ms.date: 08/18/2020
  ms.author: cherylmc
  ms.custom: include file
 ---
@@ -114,7 +114,7 @@ Software-defined connectivity solutions typically manage their branch devices us
 
 ### What if a device I am using is not in the Virtual WAN partner list? Can I still use it to connect to Azure Virtual WAN VPN?
 
-Yes as long as the device supports IPsec IKEv1 or IKEv2. Virtual WAN partners automate connectivity from the device to Azure VPN end points. This implies automating steps such as 'branch information upload', 'IPsec and configuration' and 'connectivity'.Since your device is not from a Virtual WAN partner ecosystem, you will need to do the heavy lifting of manually taking the Azure configuration and updating your device to set up IPsec connectivity.
+Yes as long as the device supports IPsec IKEv1 or IKEv2. Virtual WAN partners automate connectivity from the device to Azure VPN end points. This implies automating steps such as 'branch information upload', 'IPsec and configuration' and 'connectivity'. Because your device is not from a Virtual WAN partner ecosystem, you will need to do the heavy lifting of manually taking the Azure configuration and updating your device to set up IPsec connectivity.
 
 ### How do new partners that are not listed in your launch partner list get onboarded?
 
@@ -211,7 +211,7 @@ The traffic follows the pattern: branch device ->ISP->Microsoft network edge->Mi
 
 Yes. An internet connection and physical device that supports IPsec, preferably from our integrated [Virtual WAN partners](../articles/virtual-wan/virtual-wan-locations-partners.md). Optionally, you can manually manage the configuration and connectivity to Azure from your preferred device.
 
-### How do I enable default route (0.0.0.0/0) in a connection (VPN, ExpressRoute, or Virtual Network):
+### How do I enable default route (0.0.0.0/0) in a connection (VPN, ExpressRoute, or Virtual Network)?
 
 A virtual hub can propagate a learned default route to a virtual network/site-to-site VPN/ExpressRoute connection if the flag is 'Enabled' on the connection. This flag is visible when the user edits a virtual network connection, a VPN connection, or an ExpressRoute connection. By default, this flag is disabled when a site or an ExpressRoute circuit is connected to a hub. It is enabled by default when a virtual network connection is added to connect a VNet to a virtual hub. The default route does not originate in the Virtual WAN hub; the default route is propagated if it is already learned by the Virtual WAN hub as a result of deploying a firewall in the hub, or if another connected site has forced-tunneling enabled.
 
@@ -235,23 +235,27 @@ When multiple ExpressRoute circuits are connected to a virtual hub, routing weig
 
 ### Does Virtual WAN prefer ExpressRoute over VPN for traffic egressing Azure
 
-Yes 
+Yes.
 
-### When a Virtual WAN hub has an ExpressRoute circuit and a VPN Site connected to it, what would cause a VPN connection route to be prefered over ExpressRoute?
+### When a Virtual WAN hub has an ExpressRoute circuit and a VPN Site connected to it, what would cause a VPN connection route to be preferred over ExpressRoute?
 
-When an ExpressRoute circuit is connected to Virtual Hub, the Microsoft edge routers are the first node for communication between on-premises and Azure. These edge routers communicate with the Virtual WAN ExpressRoute gateways that in turn learn routes from the Virtual Hub router that controls all routes between any gateways in Virtual WAN. The Microsoft edge routers process Virtual Hub ExpressRoute routes with higher preference over routes learnt from on-premises. Due to any reason if VPN connection becomes the primary medium for Virtual hub to learn routes from (e.g failover scenarios between ExpressRoute and VPN) , unless the VPN Site has a longer AS Path length, Virtual Hub will continue to share VPN learnt routes with ExpressRoute Gateway, causing the Microsoft Edge Routers to prefer VPN routes over on-premise routes. 
+When an ExpressRoute circuit is connected to virtual hub, the Microsoft edge routers are the first node for communication between on-premises and Azure. These edge routers communicate with the Virtual WAN ExpressRoute gateways that, in turn, learn routes from the virtual hub router that controls all routes between any gateways in Virtual WAN. The Microsoft edge routers process virtual hub ExpressRoute routes with higher preference over routes learned from on-premises. Due to any reason, if the VPN connection becomes the primary medium for the virtual hub to learn routes from (e.g failover scenarios between ExpressRoute and VPN), unless the VPN Site has a longer AS Path length, the virtual hub will continue to share VPN learned routes with the ExpressRoute gateway, causing the Microsoft Edge routers to prefer VPN routes over on-premises routes.
 
 ### When two hubs (hub 1 and 2) are connected and there is an ExpressRoute circuit connected as a bow-tie to both the hubs, what is the path for a VNet connected to hub 1 to reach a VNet connected in hub 2?
 
-Current behavior is to prefer the ExpressRoute circuit path over hub-to-hub for VNet-to-VNet connectivity. However, this is not encouraged in a virtual WAN setup. Virtual WAN team is working on a fix to enable the preference for hub-to-hub over the ExpressRoute path. The recommendation is for multiple ExpressRoute circuits (different providers) to connect to one hub and use the hub-to-hub connectivity provided by Virtual WAN for inter-region traffic flows.
+The current behavior is to prefer the ExpressRoute circuit path over hub-to-hub for VNet-to-VNet connectivity. However, this is not encouraged in a virtual WAN setup. The Virtual WAN team is working on a fix to enable the preference for hub-to-hub over the ExpressRoute path. The recommendation is for multiple ExpressRoute circuits (different providers) to connect to one hub and use the hub-to-hub connectivity provided by Virtual WAN for inter-region traffic flows.
 
 ### Is there support for IPv6 in Virtual WAN?
 
 IPv6 is not supported in Virtual WAN hub and its gateways. If you have a VNet that has IPv6 support and you would like to connect the VNet to Virtual WAN, this scenario not currently supported.
 
-### What is the recommended API version to be used by scripts automating various Virtual WAN functionality ?
+### What is the recommended API version to be used by scripts automating various Virtual WAN functionalities?
 
 A minimum version of 05-01-2020 (May 1 2020) is required. 
+
+### Are there any Virtual WAN limits?
+
+See the [Virtual WAN limits](../articles/azure-resource-manager/management/azure-subscription-service-limits.md#virtual-wan-limits) section on the Subscription and service limits page.
 
 ### What are the differences between the Virtual WAN types (Basic and Standard)?
 

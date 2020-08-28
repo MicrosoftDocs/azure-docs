@@ -62,8 +62,14 @@
           href: use-key-vault-references-dotnet-core.md
         - name: Spring Boot
           href: use-key-vault-references-spring-boot.md
-    - name: Integrate with a CI/CD pipeline
-      href: integrate-ci-cd-pipeline.md
+    - name: CI/CD pipeline integration
+      items:
+        - name: Push using Azure Pipelines
+          href: push-kv-devops-pipeline.md
+        - name: Push using GitHub Actions
+          href: concept-github-action.md
+        - name: Build project using exported configuration
+          href: integrate-ci-cd-pipeline.md
     - name: Integrate with Kubernetes deployment using Helm
       href: integrate-kubernetes-deployment-helm.md
 - name: Samples
@@ -81,8 +87,6 @@
       href: concept-point-time-snapshot.md
     - name: Feature management
       href: concept-feature-management.md
-    - name: Sync using GitHub Actions
-      href: concept-github-action.md
     - name: Event handling
       href: concept-app-configuration-event.md
     - name: Security
@@ -128,7 +132,7 @@
         - name: Azure SDK for .NET
           href: https://go.microsoft.com/fwlink/?linkid=2092056
         - name: Java Spring provider
-          href: https://go.microsoft.com/fwlink/?linkid=2074659
+          href: https://github.com/microsoft/spring-cloud-azure/tree/master/
         - name: Azure SDK for Java
           href: https://go.microsoft.com/fwlink/?linkid=2098196
         - name: Azure SDK for Python

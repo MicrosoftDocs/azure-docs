@@ -8,6 +8,7 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: sngun
+ms.custom: devx-track-dotnet
 ---
 
 # Tutorial: Develop an ASP.NET Core MVC web application with Azure Cosmos DB by using .NET SDK

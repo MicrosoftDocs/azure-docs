@@ -5,8 +5,8 @@ services: key-vault
 author: ghogen
 manager: jillfra
 ms.service: key-vault
-ms.custom: vs-azure
-ms.topic: conceptual
+ms.custom: "vs-azure, devx-track-csharp"
+ms.topic: how-to
 ms.date: 08/07/2019
 ms.author: ghogen
 ---

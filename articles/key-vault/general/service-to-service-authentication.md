@@ -7,7 +7,7 @@ services: key-vault
 
 ms.author: mbaldwin
 ms.date: 08/08/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: key-vault
 ms.subservice: general
 

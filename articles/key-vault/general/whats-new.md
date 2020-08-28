@@ -7,7 +7,7 @@ tags: azure-resource-manager
 
 ms.service: key-vault
 ms.subservice: general
-ms.topic: tutorial
+ms.topic: overview
 ms.date: 07/27/2020
 ms.author: mbaldwin
 

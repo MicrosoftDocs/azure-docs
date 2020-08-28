@@ -98,6 +98,8 @@
     href: azure-advisor.md
 - name: Concepts
   items:
+  - name: Authentication
+    href: authentication.md
   - name: Safe URL list
     href: safe-url-list.md
   - name: Windows Virtual Desktop environment
