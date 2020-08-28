@@ -50,7 +50,7 @@ Your offer's publishing status will change as it moves through the publishing pr
 
 ## Preview and test your offer
 
-When the offer is ready for you to review and be signed off, we’ll send you an email to request that you review and approve your offer preview. You can also refresh the **Offer overview** page in your browser to see if your offer has reached the Publisher sign-off phase. If it has, the **Go live** button and preview links will be available.
+When the offer is ready for you to review and be signed off, we’ll send you an email to request that you review and approve your offer preview. You can also refresh the **Offer overview** page in your browser to see if your offer has reached the Publisher sign-off phase. If it has, the **Go live** button and preview links will be available. There will be a link for either Microsoft AppSource preview, Azure Marketplace preview, or both depending on the options you chose when creating your offer. If you chose to sell your offer through Microsoft, anyone who has been added to the preview audience can test the acquisition and deployment of your offer to ensure it meets your requirements during this stage.
 
 The following screenshot shows the **Offer overview** page for a SaaS offer, with two preview links under the **Go live** button. The validation steps you’ll see on this page vary depending on the the selections you made when you created the offer.
 
@@ -61,7 +61,7 @@ Use the following steps to preview your offer.
 > [!IMPORTANT]
 > To validate the end-to-end purchase and setup flow, purchase your offer while it is in Preview. First notify Microsoft with a [support ticket](https://aka.ms/marketplacesupport) to ensure we don't process a charge.
 
-1. On the **Offer overview** page, select a preview link under the **Go live** button. There will be a link for either Microsoft AppSource preview, Azure Marketplace preview, or both depending on the options you chose when creating your offer. If you chose to sell your offer through Microsoft, anyone who has been added to the preview audience can test the acquisition and deployment of your offer to ensure it meets your requirements during this stage.
+1. On the **Offer overview** page, select a preview link under the **Go live** button. 
 
 1. To validate the end-to-end purchase and setup flow, purchase your offer while it's in Preview. First notify Microsoft with a [support ticket](https://aka.ms/marketplacesupport) to ensure we don't process a charge.
 
