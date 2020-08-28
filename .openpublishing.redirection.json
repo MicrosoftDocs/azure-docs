@@ -37330,22 +37330,27 @@
     {
       "source_path": "articles/active-directory/application-access-panel-self-service-applications-how-to.md",
       "redirect_url": "/azure/active-directory/manage-apps/access-panel-manage-self-service-access",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/application-access-panel-self-service-applications-problem.md",
-      "redirect_url": "/azure/active-directory/manage-apps/access-panel-troubleshoot-self-service-access",
-      "redirect_document_id": true
+      "redirect_url": "/azure/active-directory/manage-apps/access-panel-manage-self-service-access",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/manage-apps/access-panel-troubleshoot-self-service-access.md",
+      "redirect_url": "/azure/active-directory/manage-apps/access-panel-manage-self-service-access",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/application-access-panel-unexpected-application-appears.md",
       "redirect_url": "/azure/active-directory/manage-apps/access-panel-troubleshoot-unexpected-application",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/application-access-panel-unexpected-application-not-appearing.md",
       "redirect_url": "/azure/active-directory/manage-apps/access-panel-troubleshoot-application-not-appearing",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/application-access-panel-web-sign-in-problem.md",
