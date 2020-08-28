@@ -317,7 +317,7 @@
     - name: Disk Storage reservations
       href: ../../cost-management-billing/reservations/understand-disk-reservations.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
     - name: Virtual machine and disk performance
-      href: articles/virtual-machines/windows/disk-performance-windows.md
+      href: virtual-machines/windows/disk-performance-windows.md
     - name: Designing for high performance
       href: premium-storage-performance.md
     - name: Disk bursting
