@@ -74,9 +74,9 @@ The following are the operators that can be used to check conditions:
 
 | Valuetype | Operations Supported |
 |--|--|
-| Integer | == (equals), != (not equal), <= (less than or equal), < (less than), >= (greater than or equal), > (greater than) |
-| String | == (equals), != (not equal) |
-| Boolean | == (equals), != (not equal) |
+| Integer | == (equals), \!= (not equal), <= (less than or equal), < (less than), >= (greater than or equal), > (greater than) |
+| String | == (equals), \!= (not equal) |
+| Boolean | == (equals), \!= (not equal) |
 
 Evaluation of conditions list:
 
@@ -88,8 +88,8 @@ The set of actions that are allowed in a policy are described below.
 
 | Action Verb | Description | Policy sections to which these apply |
 |--|--|--|
-| permit() | The incoming claim set can be used to compute the **issuancerules**. Does not take any claim as a parameter | **authorizationrules** |
-| deny() | The incoming claim set should not be used to compute the **issuancerules** Does not take any claim as a parameter | **authorizationrules** |
+| permit() | The incoming claim set can be used to compute **issuancerules**. Does not take any claim as a parameter | **authorizationrules** |
+| deny() | The incoming claim set should not be used to compute **issuancerules** Does not take any claim as a parameter | **authorizationrules** |
 | add(claim) | Adds the claim to the incoming claims set. Any claim added to the incoming claims set will be available for the subsequent claim rules. |**authorizationrules**, **issuancerules** |
 | issue(claim) | Adds the claim to the incoming and outgoing claims set | **issuancerules** |
 | issueproperty(claim) | Adds the claim to the incoming and property claims set | **issuancerules**
