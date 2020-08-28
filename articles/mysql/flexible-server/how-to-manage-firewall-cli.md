@@ -48,6 +48,8 @@ az account set --subscription <subscription id>
 
 You can use the `az mysql flexible-server --public access` command to create the flexible server with *Public access (allowed IP addresses)* and configure the firewall rules during creation of flexible server. You can use the **--public-access** switch to provide the allowed IP addresses that will be able to connect to the server. You can provide single or range of IP addresses to be included in the allowed list of IPs. IP address range must be dash separated and does not contain any spaces. There are various options to create a flexible server using CLI as shown in the example below.
 
+Refer to the Azure CLI reference documentation <!--FIXME --> for the complete list of configurable CLI parameters. For example, in the below commands you can optionally specify the resource group.
+
 - Create a flexible server with public access and add client IP address to have access to the server
     ```azurecli-interactive
     az mysql flexible-server create --public-access <my_client_ip>
@@ -75,11 +77,13 @@ You can use the `az mysql flexible-server --public access` command to create the
 The **az mysql flexible-server firewall-rule** command is used from the Azure CLI to create, delete, list, show, and update firewall rules.
 
 Commands:
-- **create**: Create an Azure MySQL server firewall rule.
-- **list**: List the Azure MySQL server firewall rules.
-- **update**: Update an Azure MySQL server firewall rule.
-- **show**: Show the details of an Azure MySQL server firewall rule.
-- **delete**: Delete an Azure MySQL server firewall rule.
+- **create**: Create an flexible server firewall rule.
+- **list**: List the flexible server firewall rules.
+- **update**: Update an flexible server firewall rule.
+- **show**: Show the details of an flexible server firewall rule.
+- **delete**: Delete an flexible server firewall rule.
+
+Refer to the Azure CLI reference documentation <!--FIXME --> for the complete list of configurable CLI parameters. For example, in the below commands you can optionally specify the resource group.
 
 ### Create a firewall rule
 Use the `az mysql flexible-server firewall-rule create` command to create new firewall rule on the server.

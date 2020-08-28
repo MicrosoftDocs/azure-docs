@@ -224,6 +224,6 @@ using (var connection = new MySqlConnection(builder.ConnectionString))
 ## Next steps
 - [Use MySQL Workbench to connect and query data in Azure Database for MySQL Flexible Server](./connect-workbench.md)
 - [Use PHP to connect and query data in Azure Database for MySQL Flexible Server](./connect-php.md)
-- [Create and manage Azure Database for MySQL Flexible Server Virtual Network using Azure CLI](./how-to-manage-virtual-network-cli.md).
+- [Create and manage Azure Database for MySQL Flexible Server virtual network using Azure CLI](./how-to-manage-virtual-network-cli.md).
 - Learn more about [networking in Azure Database for MySQL Flexible Server](./concepts-networking-overview.md)
 - Understand more about [Azure Database for MySQL Flexible Server firewall rules](./concepts-networking-public-access.md).

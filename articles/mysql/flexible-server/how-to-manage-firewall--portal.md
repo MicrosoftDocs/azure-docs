@@ -60,14 +60,11 @@ In this article, we will focus on creation of MySQL server with **Public access 
 
 ## Connecting from Azure
 
-You may want to enable resources or applications deployed in Azure to connect to your flexible server. This includes web applications hosted in Azure App Service, running on an Azure VM, or an Azure Data Factory data management gateway and many more. 
+You may want to enable resources or applications deployed in Azure to connect to your flexible server. This includes web applications hosted in Azure App Service, running on an Azure VM, an Azure Data Factory data management gateway and many more. 
 
-When an application within Azure attempts to connect to your server, the firewall verifies that Azure connections are allowed. There are two methods to enable these types of connections:
+When an application within Azure attempts to connect to your server, the firewall verifies that Azure connections are allowed. You can enable this setting by selecting the **Allow public access from any resources deployed within Azure to access this server** option in the portal from the **Networking** tab and hit **Save**.
 
-1. A firewall setting with starting and ending address equal to 0.0.0.0 indicates these connections are allowed.
-2. You can select the **Allow public access from any resources deployed within Azure to access this server** option in the portal from the **Networking** pane and hit **Save**.
-
-The resources do not need to be in the same Virtual Network (VNet) or resource group for the firewall rule to enable those connections. If the connection attempt is not allowed, the request does not reach the Azure Database for MySQL Flexible Server.
+The resources do not need to be in the same virtual network (VNet) or resource group for the firewall rule to enable those connections. If the connection attempt is not allowed, the request does not reach the Azure Database for MySQL Flexible Server.
 
 > [!IMPORTANT]
 > This option configures the firewall to allow all connections from Azure including connections from the subscriptions of other customers. When selecting this option, make sure your login and user permissions limit access to only authorized users.

@@ -21,7 +21,7 @@ This quickstart uses the resources created in either of these guides as a starti
 - [Create an Azure Database for MySQL Flexible Server using Azure CLI](./quickstart-server-create-azure-cli.md)
 
 ## Preparing your client workstation
-- If you created your flexible server with *Private access (VNet Integration)*, you will need to connect to your server from a resource within the same VNet as your server. You can create a virtual machine and add it to the VNet created with your flexible server. Refer to [Create and manage Azure Database for MySQL Flexible Server Virtual Network using Azure CLI](./how-to-manage-virtual-networks-cli.md).
+- If you created your flexible server with *Private access (VNet Integration)*, you will need to connect to your server from a resource within the same VNet as your server. You can create a virtual machine and add it to the VNet created with your flexible server. Refer to [Create and manage Azure Database for MySQL Flexible Server virtual network using Azure CLI](./how-to-manage-virtual-networks-cli.md).
 - If you created your flexible server with *Public access (allowed IP addresses)*, you can add your local IP address to the list of firewall rules on your server. Refer to [Create and manage Azure Database for MySQL Flexible Server firewall rules using the Azure CLI](./howto-manage-firewall-cli.md).
 
 - Download and install MySQL Workbench on your computer from [the MySQL website](https://dev.mysql.com/downloads/workbench/).
@@ -111,4 +111,4 @@ Now, you have connected to Azure Database for MySQL Flexible Server by using MyS
 - [Connect securely using Transport Layer Security (TLS 1.2) in Azure Database for MySQL - Flexible Server](./how-to-connect-TLS-SSL.md).
 - Learn more about [Networking in Azure Database for MySQL Flexible Server](./concepts-networking-overview.md).
 - [Create and manage Azure Database for MySQL Flexible Server firewall rules using the Azure portal](./howto-manage-firewall-portal.md).
-- [Create and manage Azure Database for MySQL Flexible Server Virtual Network using Azure portal](./how-to-manage-virtual-networks-portal.md).
+- [Create and manage Azure Database for MySQL Flexible Server virtual network using Azure portal](./how-to-manage-virtual-networks-portal.md).
