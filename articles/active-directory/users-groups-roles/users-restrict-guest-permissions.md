@@ -49,7 +49,7 @@ We’ve made changes to the existing Azure portal controls for guest user permis
 
 ## Update with the Microsoft Graph API
 
-We’ve added a new Microsoft Graph API to configure guest permissions in your Azure AD organization. The following API calls can be made to assign any permission level. The value for guestUserRoleId used here is to illustrate the most restricted guest user setting. For more information about using the Microsoft Graph to set guest permissions, see [authorizationPolicy resource type](https://docs.microsoft.com/graph/api/resources/authorizationpolicy).
+We’ve added a new Microsoft Graph API to configure guest permissions in your Azure AD organization. The following API calls can be made to assign any permission level. The value for guestUserRoleId used here is to illustrate the most restricted guest user setting. For more information about using the Microsoft Graph to set guest permissions, see [authorizationPolicy resource type](/graph/api/resources/authorizationpolicy).
 
 ### Configuring for the first time
 
@@ -163,5 +163,5 @@ Are there any license requirements for this feature? | No, there are no new lice
 ## Next steps
 
 - To learn more about existing guest permissions in Azure AD, see [What are the default user permissions in Azure Active Directory?](../fundamentals/users-default-permissions.md).
-- To see the Microsoft Graph API methods for restricting guest access, see [authorizationPolicy resource type](https://docs.microsoft.com/graph/api/resources/authorizationpolicy).
+- To see the Microsoft Graph API methods for restricting guest access, see [authorizationPolicy resource type](/graph/api/resources/authorizationpolicy).
 - To revoke all access for a user, see [Revoke user access in Azure AD](users-revoke-access.md).

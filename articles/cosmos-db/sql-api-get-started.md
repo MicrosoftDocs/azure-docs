@@ -8,6 +8,7 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: kirankk
+ms.custom: devx-track-csharp
 
 ---
 # Tutorial: Build a .NET console app to manage data in Azure Cosmos DB SQL API account

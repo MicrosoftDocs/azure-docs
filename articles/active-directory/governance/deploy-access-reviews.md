@@ -181,7 +181,7 @@ Typical targets for review include:
 
 * Group [membership](../fundamentals/active-directory-manage-groups.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context) (synchronized to Azure AD, or created in Azure AD or Office 365, including Microsoft Teams).
 
-* [Access Package](/entitlement-management-overview.md) that group resources (groups, apps, and sites) into a single package to manage access.
+* [Access Package](/azure/active-directory/governance/entitlement-management-overview) that group resources (groups, apps, and sites) into a single package to manage access.
 
 * [Azure AD roles​ and Azure Resource roles](../privileged-identity-management/pim-resource-roles-assign-roles.md) as defined in Privileged Identity Management.
 
@@ -282,7 +282,7 @@ External identities can be granted access to company resources through one of th
 
 * Assigned a privileged role in Azure AD or in an Azure subscription
 
-See [sample script](https://github.com/microsoft/access-reviews-samples/tree/master/ExternalIdentityUse.). The script will show where external identities invited into the tenant are used. You can see external user’s group membership, role assignments, and application assignments in Azure AD. The script won't show any assignments outside of Azure AD, for example direct rights assignment to Sharepoint resources, without the use of groups.
+See [sample script](https://github.com/microsoft/access-reviews-samples/tree/master/ExternalIdentityUse). The script will show where external identities invited into the tenant are used. You can see external user’s group membership, role assignments, and application assignments in Azure AD. The script won't show any assignments outside of Azure AD, for example direct rights assignment to Sharepoint resources, without the use of groups.
 
 When creating an Access Review for groups or applications, you can choose to let the reviewer focus on Everyone with access, or Guest users only. By selecting Guest users only, reviewers are given a focused list of external identities from Azure AD B2B that have access to the resource.
 
@@ -421,7 +421,7 @@ To reduce the risk of stale access, administrators can enable periodic reviews o
 | How-to articles| Description |
 | - | - |
 | [Create Access Reviews](entitlement-management-access-reviews-create.md)| Enable reviews of Access Package. |
-| [Perform Access Reviews](/entitlement-management-access-reviews-review-access.md)| Perform access reviews for other users that are assigned to an Access Package. |
+| [Perform Access Reviews](entitlement-management-access-reviews-review-access.md)| Perform access reviews for other users that are assigned to an Access Package. |
 | [Self-review assigned Access Package(s)](entitlement-management-access-reviews-self-review.md)| Self-review of assigned Access Package(s) |
 
 
