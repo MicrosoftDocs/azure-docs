@@ -30,27 +30,25 @@ Below claims that are defined by the JWT RFC and used by Azure Attestation in th
 
 ## Claims issued by Azure Attestation in SGX enclaves
 
-### Incoming claims (can also be used as outgoing claims)
+### Incoming claims 
 
 - **$is-debuggable**: Boolean which indicates whether or not the enclave has debugging enabled or not
+- **$sgx-mrsigner**: hex encoded value of the “mrsigner” field of the quote
+- **$sgx-mrenclave**: hex encoded value of the “mrenclave” field of the quote
+- **$product-id**
+- **$svn**: security version number encoded in the quote 
+- **$tee**: type of enclave 
+
+### Outgoing claims
+
+- **is-debuggable**: Boolean which indicates whether or not the enclave has debugging enabled or not
 - **sgx-mrsigner**: hex encoded value of the “mrsigner” field of the quote
 - **sgx-mrenclave**: hex encoded value of the “mrenclave” field of the quote
 - **product-id**
 - **svn**: security version number encoded in the quote 
 - **tee**: type of enclave 
-
-### Outgoing claims
-
 - **maa-ehd**:  Base64Url encoded version of the “Enclave Held Data” specified in the attestation request 
-- **maa-policyhash**: SHA256 hash of the policy document
-- **maa-attestationcollateral**: JSON object describing the collateral used to perform the attestation with the following properties:
-  - **maa-quotehash**: SHA256 hash of the quote
-  - **maa-qeidhash**: SHA256 hash of the QE ID
-  - **maa-qeidcertshash**: SHA256 hash of the QE certs
-  - **maa-qeidcrlhash**: SHA256 hash of the QE CRL
-  - **maa-tcbinfohash**: SHA256 hash of the tcbinfo structure
-  - **maa-tcbinfocertshash**: SHA256 hash of the tcbinfo certs
-  - **maa-tcbinfocrlhash**: SHA256 hash of the tcbinfo crl
+- **aas-ehd**:  Base64Url encoded version of the “Enclave Held Data” specified in the attestation request 
 
 ## Claims issued by Azure Attestation in VBS enclaves
 
@@ -77,7 +75,7 @@ Below claims that are defined by the JWT RFC and used by Azure Attestation in th
 ### Outgoing claims
 
 - **policy_hash**:  String value containing SHA256 hash of the policy text computed by BASE64URL(SHA256(BASE64URL(UTF8(Policy text))))
-- **policy_signer**:  String value containing a JWK with the public key or the certificate chain present in the signed policy header. If the policy is not signed, a Microsoft generated certificate is used to sign the policy to maintain authenticity
+- **policy_signer**:  String value containing a JWK with the public key or the certificate chain present in the signed policy header
 - **ver (Version)**:  String value containing version of the report
 Currently 1.0.
 - **cnf (Confirmation) Claim**:  The "cnf" claim is used to identify the proof-of-possession key. Confirmation claim as defined in RFC 7800, contains the public part of the attested enclave key represented as a JSON Web Key (JWK) object (RFC 7517)
