@@ -96,6 +96,8 @@
     href: language-packs.md
   - name: Use Azure Advisor
     href: azure-advisor.md
+  - name: Resolve recommendations
+    href: azure-advisor-recommendations.md
 - name: Concepts
   items:
   - name: Authentication

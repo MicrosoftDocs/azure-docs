@@ -23469,6 +23469,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/active-directory/conditional-access/howto-conditional-access-report-only.md",
+      "redirect_url": "/azure/active-directory/conditional-access/howto-conditional-access-insights-reporting",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/iot-hub/iot-hub-security-ground-up.md",
       "redirect_url": "/azure/iot-fundamentals/iot-security-ground-up",
       "redirect_document_id": true
@@ -37344,8 +37349,13 @@
     },
     {
       "source_path": "articles/active-directory/application-access-panel-web-sign-in-problem.md",
-      "redirect_url": "/azure/active-directory/manage-apps/access-panel-troubleshoot-web-sign-in-problem",
-      "redirect_document_id": true
+      "redirect_url": "/azure/active-directory/manage-apps/application-sign-in-other-problem-access-panel",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/manage-apps/access-panel-troubleshoot-web-sign-in-problem.md",
+      "redirect_url": "/azure/active-directory/manage-apps/application-sign-in-other-problem-access-panel",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/manage-apps/access-panel-workspaces.md",
@@ -37569,8 +37579,13 @@
     },
     {
       "source_path": "articles/active-directory/application-sign-in-other-problem-deeplink.md",
-      "redirect_url": "/azure/active-directory/manage-apps/application-sign-in-other-problem-deeplink",
-      "redirect_document_id": true
+      "redirect_url": "/azure/active-directory/manage-apps/application-sign-in-other-problem-access-panel",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/manage-apps/application-sign-in-other-problem-deeplink.md",
+      "redirect_url": "/azure/active-directory/manage-apps/application-sign-in-other-problem-access-panel",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/application-sign-in-problem-application-error.md",
@@ -40036,6 +40051,26 @@
     {
       "source_path": "articles/cognitive-services/Speech-Service/speech-devices-sdk-kws-guidelines.md",
       "redirect_url": "/azure/cognitive-services/speech-service/custom-keyword-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/speech-translation-basics.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/get-started-speech-translation",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/translate-speech-to-speech.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/get-started-speech-translation",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/translate-speech-to-text.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/get-started-speech-translation",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/translate-speech-to-text-multiple-languages.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/get-started-speech-translation",
       "redirect_document_id": false
     },
     {
@@ -56325,8 +56360,18 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/personalizer/sdk-learning-loop.md",
+      "redirect_url": "/azure/cognitive-services/personalizer/quickstart-personalizer-sdk",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/service-fabric/service-fabric-scale-up-node-type.md",
       "redirect_url": "/azure/service-fabric/service-fabric-scale-up-primary-node-type",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/load-balancer/quickstart-create-standard-load-balancer-powershell.md",
+      "redirect_url": "/azure/load-balancer/quickstart-load-balancer-standard-public-powershell",
       "redirect_document_id": false
     }
   ]

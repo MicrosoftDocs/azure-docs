@@ -28,6 +28,10 @@ The quickstart contains the following major steps:
 1. Explore the scenario graph that is created
 1. Make changes to the graph
 
+The sample graph you will be working with represents a building with two floors and two rooms. The graph will look like this:
+
+:::image type="content" source="media/quickstart-adt-explorer/graph-view-full.png" alt-text="View of a graph made of 4 circular nodes connected by arrows. A circle labeled 'Floor1' is connected by a arrow labeled 'contains' to a circle labeled 'Room1'; a circle labeled 'Floor0' is connected by an arrow labeled 'contains' to a circle labeled 'Room0'. 'Floor1' and 'Floor0' are not connected.":::
+
 ## Prerequisites
 
 You'll need an Azure subscription to complete this quickstart. If you don't have one already, **[create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)** now.
