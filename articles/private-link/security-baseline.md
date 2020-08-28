@@ -4,7 +4,7 @@ description: The Azure Private Link security baseline provides procedural guidan
 author: msmbaldwin
 ms.service: private-link
 ms.topic: conceptual
-ms.date: 08/26/2020
+ms.date: 08/28/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -358,9 +358,11 @@ Follow Security Center recommendations for encryption at rest and encryption in 
 
 **Guidance**: Use Azure role-based access control (Azure RBAC) to control access to data and resources, otherwise use service specific access control methods.
 
-Review your options to control the exposure of your service through "Visibility" setting. in Private Link.  These visibility settings decide whether a consumer can connect to your service. 
+- [Familiarize yourself with a brief description and the unique ID of Azure built-in roles here](../role-based-access-control/built-in-roles.md)
 
-Use the networking built-in roles such as Network contributor/owner.
+Invoke PowerShell cmd "Get-AzRoleDefinition" or "az role definition list" to retrieve a list of roles in your environment.
+
+Review your options to control the exposure of your service through "Visibility" setting. in Private Link. These visibility settings decide whether a consumer can connect to your service. 
 
 Make your service private for consumption from your other Virtual Networks (Azure RBAC permissions only). Restrict the exposure to a limited set of trusted subscriptions, or make it public so that all Azure subscriptions can request connections on the Private Link service.
 
