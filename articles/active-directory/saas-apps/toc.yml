@@ -79,6 +79,8 @@
         href: allocadia-tutorial.md
       - name: Ally.io
         href: ally-tutorial.md
+      - name: Altamira HRM
+        href: altamira-hrm-tutorial.md
       - name: Amazon Business
         href: amazon-business-tutorial.md
       - name: Amazon Web Services (AWS)
@@ -553,6 +555,8 @@
         href: ethicspoint-incident-management-tutorial.md
       - name: Euromonitor Passport
         href: euromonitor-passport-tutorial.md
+      - name: Eventfinity
+        href: eventfinity-tutorial.md
       - name: EverBridge
         href: everbridge-tutorial.md
       - name: Evernote
@@ -636,6 +640,8 @@
         href: formcom-tutorial.md
       - name: Fortes Change Cloud
         href: fortes-change-cloud-tutorial.md
+      - name: FortiGate SSL VPN
+        href: fortigate-ssl-vpn-tutorial.md
       - name: Freedcamp
         href: freedcamp-tutorial.md
       - name: FreshDesk
@@ -670,6 +676,8 @@
         href: gigya-tutorial.md
       - name: GitHub
         href: github-tutorial.md
+      - name: GitHub Enterprise Cloud - Enterprise Account
+        href: github-enterprise-cloud-enterprise-account-tutorial.md
       - name: GlassFrog
         href: glassfrog-tutorial.md
       - name: GlobalOne
@@ -854,6 +862,8 @@
         href: iris-intranet-tutorial.md
       - name: IriusRisk
         href: iriusrisk-tutorial.md
+      - name: iSAMS
+        href: isams-tutorial.md
       - name: iServer Portal
         href: iserver-portal-tutorial.md
       - name: ITRP
@@ -918,6 +928,8 @@
         href: kantegassoforjira-tutorial.md
       - name: Keeper Password Manager & Digital Vault
         href: keeperpasswordmanager-tutorial.md
+      - name: Kemp LoadMaster
+        href: kemp-tutorial.md
       - name: Khoros Care
         href: khoros-care-tutorial.md
       - name: Kindling
@@ -1018,6 +1030,8 @@
         href: mapbox-tutorial.md
       - name: Marketo
         href: marketo-tutorial.md
+      - name: Maverics Identity Orchestrator SAML Connector
+        href: maverics-identity-orchestrator-saml-connector-tutorial.md
       - name: Maxient Conduct Manager Software
         href: maxient-conduct-manager-software-tutorial.md
       - name: MaxxPoint
@@ -1454,6 +1468,8 @@
         href: sensoscientific-tutorial.md
       - name: Sequr
         href: sequr-tutorial.md
+      - name: Serraview Space Utilization Software Solutions
+        href: serraview-space-utilization-software-solutions-tutorial.md
       - name: ServiceChannel
         href: servicechannel-tutorial.md
       - name: ServiceNow
@@ -1648,7 +1664,7 @@
         href: tickitlms-learn-tutorial.md
       - name: Tidemark
         href: tidemark-tutorial.md
-      - name: TigerText Secure Messenger
+      - name: TigerConnect Secure Messenger
         href: tigertext-tutorial.md
       - name: TimeLive
         href: timelive-tutorial.md
@@ -1712,6 +1728,8 @@
         href: velpicsaml-tutorial.md
       - name: Veracode
         href: veracode-tutorial.md
+      - name: VeraSMART
+        href: verasmart-tutorial.md
       - name: Veritas Enterprise Vault.cloud SSO
         href: veritas-tutorial.md
       - name: Verkada Command
@@ -1728,6 +1746,8 @@
         href: vidyard-tutorial.md
       - name: Visit.org
         href: visitorg-tutorial.md
+      - name: Visibly
+        href: visibly-tutorial.md
       - name: Visitly
         href: visitly-tutorial.md
       - name: Visma
@@ -1862,6 +1882,8 @@
         href: zscaler-zscloud-tutorial.md
       - name: Zwayam
         href: zwayam-tutorial.md
+      - name: Zylo
+        href: zylo-tutorial.md
   - name: User provisioning tutorials
     expanded: true
     items:
@@ -2025,6 +2047,8 @@
         href: salesforce-sandbox-provisioning-tutorial.md
       - name: Samanage
         href: samanage-provisioning-tutorial.md
+      - name: SAP Analytics Cloud
+        href: sap-analytics-cloud-provisioning-tutorial.md
       - name: SAP Cloud Platform Identity Authentication
         href: sap-cloud-platform-identity-authentication-provisioning-tutorial.md
       - name: SAP SuccessFactors to Active Directory

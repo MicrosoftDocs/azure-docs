@@ -13,7 +13,7 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 04/22/2020
+ms.date: 08/25/2020
 ms.assetid: 3cd520fd-eaf7-4ef9-b4d3-4827057e5028
 ---
 
@@ -24,7 +24,7 @@ ms.assetid: 3cd520fd-eaf7-4ef9-b4d3-4827057e5028
 >
 > Before installing **Python 2.x** in production, consider the question of long-term support of Python 2.x, particularly their ability to receive security updates. As products, including some of the extension mentioned, update with **Python 3.8** support, you should discontinue use of Python 2.x.
 
-Some Linux distributions have transitioned to Python 3.8 and removed the legacy `/usr/bin/python` entrypoint for Python altogether. This transition impacts the out-of-the-box, automated deployment of certain virtual machine (VM) extensions with the following conditions:
+Some Linux distributions have transitioned to Python 3.8 and removed the legacy `/usr/bin/python` entrypoint for Python altogether. This transition impacts the out-of-the-box, automated deployment of certain virtual machine (VM) extensions with these two conditions:
 
 - Extensions that are still transitioning to Python 3.x support
 - Extensions that use the legacy `/usr/bin/python` entrypoint
@@ -39,50 +39,52 @@ In-place upgrades, such as upgrading from **Ubuntu 18.04 LTS** to **Ubuntu 20.04
 
 ## Resolution
 
-Consider the following general recommendations before deploying extensions in the known-affected scenarios described previously in the Summary:
+Consider these general recommendations before deploying extensions in the known-affected scenarios described previously in the Summary:
 
-1.	Before deploying the extension, reinstate the `/usr/bin/python` symlink by using the Linux distribution vendor-provided method.
+1. Before deploying the extension, reinstate the `/usr/bin/python` symlink by using the Linux distribution vendor-provided method.
 
-    - For example, for **Python 2.7**, use: `sudo apt update && sudo apt install python-is-python2`
+   - For example, for **Python 2.7**, use: `sudo apt update && sudo apt install python-is-python2`
 
-2.	If you’ve already deployed an instance that exhibits this problem, use the **Run command** functionality in the **VM blade** to run the commands mentioned above. The Run command extension itself is not affected by the transition to Python 3.8.
+1. This recommendation is for Azure customers and is not supported in Azure Stack:
 
-3.	If you are deploying a new instance, and need to set an extension at provisioning time, use **cloud-init** user data to install the packages mentioned above.
+   - If you’ve already deployed an instance that exhibits this problem, use the Run command functionality in the VM blade to run the commands mentioned above. The Run command extension itself is not affected by the transition to Python 3.8.
 
-    For example, for Python 2.7:
+1. If you are deploying a new instance, and need to set an extension at provisioning time, use **cloud-init** user data to install the packages mentioned above.
 
-    ```
-    # create cloud-init config
-    cat > cloudinitConfig.json <<EOF
-    #cloud-config
-    package_update: true
+   For example, for Python 2.7:
+
+   ```python
+   # create cloud-init config
+   cat > cloudinitConfig.json <<EOF
+   #cloud-config
+   package_update: true
     
-    runcmd:
-    - sudo apt update
-    - sudo apt install python-is-python2 
-    EOF
-    
-    # create VM
-    az vm create \
-        --resource-group <resourceGroupName> \
-        --name <vmName> \
-        --image <Ubuntu 20.04 Image URN> \
-        --admin-username azadmin \
-        --ssh-key-value "<sshPubKey>" \
-        --custom-data ./cloudinitConfig.json
-    ```
+   runcmd:
+   - sudo apt update
+   - sudo apt install python-is-python2 
+   EOF
 
-4.	If your organization’s policy administrators determine that extensions shouldn’t be deployed in VMs, you can disable extension support at provisioning time:
+   # create VM
+   az vm create \
+       --resource-group <resourceGroupName> \
+       --name <vmName> \
+       --image <Ubuntu 20.04 Image URN> \
+       --admin-username azadmin \
+       --ssh-key-value "<sshPubKey>" \
+       --custom-data ./cloudinitConfig.json
+   ```
 
-    - REST API
+1. If your organization’s policy administrators determine that extensions shouldn’t be deployed in VMs, you can disable extension support at provisioning time:
 
-      To disable and enable extensions when you can deploy a VM with this property:
+   - REST API
 
-      ```
-        "osProfile": {
-          "allowExtensionOperations": false
-        },
-      ```
+     To disable and enable extensions when you can deploy a VM with this property:
+
+     ```python
+       "osProfile": {
+         "allowExtensionOperations": false
+       },
+     ```
 
 ## Next steps
 

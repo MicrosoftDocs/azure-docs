@@ -1,6 +1,6 @@
 ---
 title: Overview of access control in Azure Data Lake Storage Gen2 | Microsoft Docs
-description: Understand how access control works in Azure Data Lake Storage Gen2
+description: Understand how access control works in Azure Data Lake Storage Gen2. Azure role-based access control (Azure RBAC) and POSIX-like ACLs are supported.
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage

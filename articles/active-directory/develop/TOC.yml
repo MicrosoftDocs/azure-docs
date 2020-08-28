@@ -48,7 +48,7 @@
     - name: ASP.NET
       href: quickstart-v2-dotnet-native-aspnet.md
     - name: ASP.NET Core
-      href: https://azure.microsoft.com/resources/samples/active-directory-dotnet-native-aspnetcore-v2
+      href: https://docs.microsoft.com/samples/azure-samples/active-directory-dotnet-native-aspnetcore-v2/active-directory-dotnet-native-aspnetcore-v2/
   - name: Mobile and desktop apps
     items:
     - name: Android
@@ -468,13 +468,13 @@
   - name: Automatic user provisioning (SCIM)
     items:
     - name: What is automatic user provisioning?
-      href: /azure/active-directory/app-provisioning/user-provisioning
+      href: ../app-provisioning/user-provisioning.md
     - name: Develop and integrating a SCIM endpoint
-      href: /azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups
+      href: ../app-provisioning/use-scim-to-provision-users-and-groups.md
     - name: Common provisioning scenarios
-      href: /azure/active-directory/app-provisioning/scim-graph-scenarios
+      href: ../app-provisioning/scim-graph-scenarios.md
     - name: Automate configuration using MS Graph
-      href: /azure/active-directory/app-provisioning/application-provisioning-configure-api
+      href: ../app-provisioning/application-provisioning-configure-api.md
   - name: Azure portal help articles
     items:
     - name: Token lifetime defaults for a custom-developed application
@@ -630,7 +630,7 @@
     - name: Publish to Azure AD App Gallery
       href: v2-howto-app-gallery-listing.md
     - name: Publish to the Office 365 Seller Dashboard
-      href: https://docs.microsoft.com/office/dev/store/use-the-seller-dashboard-to-submit-to-the-office-store
+      href: /office/dev/store/use-the-seller-dashboard-to-submit-to-the-office-store
 - name: Reference
   items:
   - name: Application manifest
@@ -642,7 +642,7 @@
     displayName: MSAL, auth library, SDK
     href: reference-v2-libraries.md
   - name: Identity and access APIs in Microsoft Graph
-    href: https://docs.microsoft.com/graph/api/resources/azure-ad-overview
+    href: /graph/api/resources/azure-ad-overview
   - name: Authentication and authorization error codes
     displayName: AADSTS
     href: reference-aadsts-error-codes.md
@@ -663,7 +663,7 @@
   - name: Try Sign in with Microsoft
     href: https://azure.microsoft.com/develop/identity/signin/
   - name: Managed identities for Azure resources
-    href: https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview
+    href: ../managed-identities-azure-resources/overview.md
   - name: Getting help
     displayName: support, help options
     href: developer-support-help-options.md

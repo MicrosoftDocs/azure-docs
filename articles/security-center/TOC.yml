@@ -40,6 +40,8 @@
     href: security-center-enable-data-collection.md
   - name: Set up email notifications
     href: security-center-provide-security-contact-details.md
+  - name: Create an auto-response to an alert with an ARM template
+    href: quickstart-automation-alert.md
 
 - name: Tutorials
   items:
@@ -155,6 +157,8 @@
       href: workflow-automation.md
     - name: Export recommendations
       href: continuous-export.md
+  - name: Manage your resources with asset inventory
+    href: asset-inventory.md
   - name: Integrate with other tools and services
     items:
     - name: Integrate with Windows Admin Center

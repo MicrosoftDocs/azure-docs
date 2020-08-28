@@ -1,6 +1,6 @@
 ---
 title: Migrate Azure Data Lake Storage from Gen1 to Gen2
-description: Migrate Azure Data Lake Storage from Gen1 to Gen2.
+description: Migrate Azure Data Lake Storage from Gen1 to Gen2, which is built on Azure Blob storage and provides a set of capabilities dedicated to big data analytics.
 author: normesta
 ms.topic: how-to
 ms.author: normesta

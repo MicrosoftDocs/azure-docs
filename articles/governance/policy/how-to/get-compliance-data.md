@@ -1,7 +1,7 @@
 ---
 title: Get policy compliance data
 description: Azure Policy evaluations and effects determine compliance. Learn how to get the compliance details of your Azure resources.
-ms.date: 07/15/2020
+ms.date: 08/10/2020
 ms.topic: how-to
 ---
 # Get compliance data of Azure resources
@@ -48,8 +48,8 @@ Evaluations of assigned policies and initiatives happen as the result of various
 - A policy or initiative already assigned to a scope is updated. The evaluation cycle and timing for
   this scenario is the same as for a new assignment to a scope.
 
-- A resource is deployed to a scope with an assignment via Azure Resource Manager, REST, Azure CLI,
-  or Azure PowerShell. In this scenario, the effect event (append, audit, deny, deploy) and
+- A resource is deployed to or updated within a scope with an assignment via Azure Resource Manager,
+  REST API, or a supported SDK. In this scenario, the effect event (append, audit, deny, deploy) and
   compliant status information for the individual resource becomes available in the portal and SDKs
   around 15 minutes later. This event doesn't cause an evaluation of other resources.
 

@@ -58,6 +58,8 @@ landingContent:
             url: quickstart-create-security-twin.md
           - text: Create custom security alerts
             url: quickstart-create-custom-alerts.md
+          - text: Investigate security alerts
+            url: quickstart-investigate-security-alerts.md
   - title: Customize your solution
     linkLists:
       - linkListType: how-to-guide

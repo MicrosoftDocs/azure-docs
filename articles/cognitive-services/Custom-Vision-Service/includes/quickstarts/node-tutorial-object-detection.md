@@ -2,11 +2,11 @@
 author: areddish
 ms.author: areddish
 ms.service: cognitive-services
-ms.date: 04/14/2020
+ms.date: 08/17/2020
 ms.custom: devx-track-javascript
 ---
 
-This article shows you how to get started using the Custom Vision SDK with Node.js to build an object detection model. After it's created, you can add tagged regions, upload images, train the project, obtain the project's published prediction endpoint URL, and use the endpoint to programmatically test an image. Use this example as a template for building your own Node.js application.
+This article shows you how to get started using the Custom Vision client library with Node.js to build an object detection model. After it's created, you can add tagged regions, upload images, train the project, obtain the project's published prediction endpoint URL, and use the endpoint to programmatically test an image. Use this example as a template for building your own Node.js application.
 
 ## Prerequisites
 
@@ -19,9 +19,9 @@ This article shows you how to get started using the Custom Vision SDK with Node.
 [!INCLUDE [node-get-images](../../includes/node-get-images.md)]
 
 
-## Install the Custom Vision SDK
+## Install the Custom Vision client library
 
-To install the Custom Vision service SDKs for Node.js in your project, run the following commands:
+To install the Custom Vision service client libraries for Node.js in your project, run the following commands:
 
 ```shell
 npm install @azure/cognitiveservices-customvision-training

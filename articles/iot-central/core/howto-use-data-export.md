@@ -28,7 +28,7 @@ This article describes how to use the new data export preview features in Azure 
 
 ## Prerequisites
 
-You must be an administrator in your IoT Central application, or have Data export permissions.
+To use data export (preview), you must have a V3 application, and you must have Data export permissions.
 
 ## Set up export destination
 
@@ -145,15 +145,22 @@ Create a new destination or add a destination that you have already created.
 
 ## Export contents and format
 
-For Event Hubs and Service Bus destinations, data is exported in near-realtime. The data is in the message body and is in JSON format encoded as UTF-8. See below for examples.
+### Azure Blob Storage destination
 
-For Blob storage, data is exported once per minute, with each file containing the batch of changes since the last exported file. Exported data is placed in three folders in JSON format. The default paths in your storage account are:
+Data is exported once per minute, with each file containing the batch of changes since the last exported file. Exported data is placed in three folders in JSON format. The default paths in your storage account are:
 
 - Telemetry: _{container}/{app-id}/{partition_id}/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}_
 - Property changes: _{container}/{app-id}/{partition_id}/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}_
 
 To browse the exported files in the Azure portal, navigate to the file and select the **Edit blob** tab.
 
+### Azure Event Hubs and Azure Service Bus destinations
+
+Data is exported in near-realtime. The data is in the message body and is in JSON format encoded as UTF-8. 
+
+In the annotations or system properties bag of the message, you can find `iotcentral-device-id`, `iotcentral-application-id`, `iotcentral-message-source`, and `iotcentral-message-type` which have the same values as the corresponding fields in the message body.
+
+### Webhook destination
 For webhooks destinations, data is also exported in near-real time. The data is in the message body is in the same format as for Event Hubs and Service Bus.
 
 
@@ -164,7 +171,7 @@ Each exported message contains a normalized form of the full message the device 
 - `messageSource` which is *telemetry* for exporting telemetry data
 - `deviceId` of the device that sent the telemetry message
 - `schema` is the name and version of the payload schema
-- `templateId` is the device template Id associated to the device
+- `templateId` is the device template ID associated to the device
 - `enrichments` are any enrichments that were set up on the export
 - `messageProperties` are the additional pieces of data that the device sent alongside the message. This is also known as *application properties*, [learn more from IoT Hub docs](../../iot-hub/iot-hub-devguide-messages-construct.md).
 
@@ -212,7 +219,7 @@ Each message or record represents one change to a device or cloud property. For 
 - `messageType` which is either *cloudPropertyChange* or *devicePropertyDesiredChange*, *devicePropertyReportedChange*
 - `deviceId` of the device whose properties changed
 - `schema` is the name and version of the payload schema
-- `templateId` is the device template Id associated to the device
+- `templateId` is the device template ID associated to the device
 - `enrichments` are any enrichments that were set up on the export
 
 For Event Hubs and Service Bus, IoT Central exports new messages data to your event hub or Service Bus queue or topic in near real time.
@@ -249,6 +256,7 @@ This is a table that highlights the differences between the legacy data export a
 | Filtering | None | Depends on the data type exported. For telemetry, filtering by telemetry, message properties, property values |
 | Enrichments | None | Enrich with a custom string or a property value on the device |
 | Destinations | Azure Event Hubs, Azure Service Bus queues and topics, Azure Blob Storage | Same as for legacy data export and webhooks| 
+| Supported apps | V2, V3 | V3 only |
 | Notable limits | 5 exports per app, 1 destination per export | 10 exports-destination connections per app | 
 
 ## Next steps

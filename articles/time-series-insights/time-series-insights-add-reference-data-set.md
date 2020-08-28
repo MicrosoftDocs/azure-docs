@@ -9,7 +9,7 @@ manager: diviso
 ms.reviewer: jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 08/12/2020
 ms.custom: seodec18
 ---
 
@@ -25,7 +25,7 @@ Reference data is not joined retroactively. Thus, only current and future ingres
 
 ### Learn about Time Series Insight’s reference data model.</br>
 
-> [!VIDEO https://www.youtube.com/embed/Z0NuWQUMv1o]
+> [!VIDEO <https://www.youtube.com/embed/Z0NuWQUMv1o>]
 
 ## Add a reference data set
 
@@ -113,6 +113,6 @@ Reference data is not joined retroactively. Thus, only current and future ingres
 
 ## Next steps
 
-* [Manage reference data](time-series-insights-manage-reference-data-csharp.md) programmatically.
+- [Manage reference data](time-series-insights-manage-reference-data-csharp.md) programmatically.
 
-* For the complete API reference, read [Reference Data API](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api) document.
+- For the complete API reference, read [Reference Data API](https://docs.microsoft.com/rest/api/time-series-insights/gen1-reference-data-api) document.

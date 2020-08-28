@@ -1,6 +1,6 @@
 ---
 title: 'Create a route-based Azure VPN Gateway: CLI'
-description: Learn how to create a route-based Azure VPN gateway using Azure CLI. Use a VPN gateway to connect to your on-premises network.
+description: Quickly create a route-based Azure VPN gateway using the Azure CLI, for a VPN connection to an on-premises network or to connect virtual networks.
 services: vpn-gateway
 author: cherylmc
 

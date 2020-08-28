@@ -278,7 +278,7 @@ These examples also work with accounts that have a hierarchical namespace. [Mult
 >
 > |Scenario|Flag|
 > |---|---|
-> |Copy files as Append Blobs or Page Blobs.|**--blob-type**=\[BlockBlob\|PageBlob\|AppendBlob\]|
+> |Copy blobs as Block, Page, or Append Blobs.|**--blob-type**=\[BlockBlob\|PageBlob\|AppendBlob\]|
 > |Copy to a specific access tier (such as the archive tier).|**--block-blob-tier**=\[None\|Hot\|Cool\|Archive\]|
 > |Automatically decompress files.|**--decompress**=\[gzip\|deflate\]|
 > 
