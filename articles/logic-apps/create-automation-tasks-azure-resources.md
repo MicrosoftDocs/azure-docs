@@ -113,24 +113,37 @@ To view a task's history of runs along with their statuses, inputs, outputs, and
    | **Cancelled** | The task was cancelled while running. |
    | **Failed** | The task has at least one failed action, but no subsequent actions existed to handle the failure. |
    | **Running** | The task is currently running. |
-   | **Succeeded** | All actions succeeded. <p>**Note**: A task can still finish successfully if an action failed, but a subsequent action existed to handle the failure. |
+   | **Succeeded** | All actions succeeded. A task can still finish successfully if an action failed, but a subsequent action existed to handle the failure. |
    | **Waiting** | The run hasn't started yet and is paused because an earlier instance of the task is still running. |
    |||
 
    For more information, see [Review runs history](../logic-apps/monitor-logic-apps.md#review-runs-history)
 
-1. To view the statuses for each step in the run, select the run.
+1. To view the statuses and other information for each step in a run, select that run.
 
-   The **Logic app run** pane opens and shows the workflow that ran for the task and each step along with their status and run duration.
+   The **Logic app run** pane opens and shows the underlying workflow that ran.
 
-   ![Screenshot that shows the task to review and the selected "View" option](./media/create-automation-tasks-azure-resources/runs-history-details.png)
+   * A workflow always starts with a [*trigger*](../connectors/apis-list.md#triggers-actions). For this task, the workflow starts with the [**Recurrence** trigger](../connectors/connectors-native-recurrence.md).
 
-1. To review the inputs and outputs for each step, expand the step that you want to inspect.
+   * Each step shows its status and run duration. Steps that have 0-second durations took less than 1 second to run.
 
-   For example, the first step 
+   ![Screenshot that shows each step in the run, status, and run duration](./media/create-automation-tasks-azure-resources/runs-history-details.png)
 
-## Customize the task
+1. To review the inputs and outputs for each step, select the step, which expands.
 
+   This example shows the inputs for the Recurrence trigger, which has no outputs because the trigger only specifies when the workflow runs and provides no outputs for the subsequent actions to process.
+
+   ![Screenshot that shows the expanded trigger and inputs](./media/create-automation-tasks-azure-resources/view-trigger-inputs.png)
+
+   In contrast, the **Send an email** action has inputs from earlier actions in the workflow and outputs.
+
+   ![Screenshot that shows an expanded action, inputs, and outputs](./media/create-automation-tasks-azure-resources/view-action-inputs-outputs.png)
+
+## Edit the task
+
+You have these options when you want to edit a task:
+
+* 
 
 
 ## Next steps
