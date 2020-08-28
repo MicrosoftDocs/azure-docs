@@ -368,7 +368,7 @@
       items:
       - name: Azure portal
         href: howto-move-regions-portal.md
-- name: Flexible server
+- name: Flexible server (Preview)
   items:
   - name: Quickstarts
     items:
@@ -388,6 +388,8 @@
   items:
   - name: Documentation
     href: hyperscale/index.yml
+  - name: Quickstarts
+    items:
     - name: Create Server Group - Portal
       href: quickstart-create-hyperscale-portal.md
       displayName: portal, create hyperscale
