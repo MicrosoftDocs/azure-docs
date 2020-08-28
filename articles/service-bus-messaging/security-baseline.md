@@ -4,7 +4,7 @@ description: The Service Bus security baseline provides procedural guidance and 
 author: msmbaldwin
 ms.service: service-bus-messaging
 ms.topic: conceptual
-ms.date: 08/26/2020
+ms.date: 08/28/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
