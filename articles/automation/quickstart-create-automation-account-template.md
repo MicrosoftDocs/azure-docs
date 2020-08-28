@@ -56,7 +56,7 @@ The following table lists the API version for the resources used in this example
 |:---|:---|:---|
 | [Workspace](/azure/templates/microsoft.operationalinsights/workspaces) | workspaces | 2020-03-01-preview |
 | [Automation account](/azure/templates/microsoft.automation/automationaccounts) | automation | 2020-01-13-preview |
-| [Workspace Linked services](/azure/templates/microsoft.operationalinsights/workspaces/linkedservices) | worksapces | 2020-03-01-preview |
+| [Workspace Linked services](/azure/templates/microsoft.operationalinsights/workspaces/linkedservices) | workspaces | 2020-03-01-preview |
 
 ### Before you use the template
 

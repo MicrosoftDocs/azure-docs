@@ -14,7 +14,7 @@ ms.author: rohink
 
 You can use Azure DNS to host your DNS domain and manage your DNS records. By hosting your domains in Azure, you can manage your DNS records by using the same credentials, APIs, tools, and billing as your other Azure services.
 
-Suppose you buy the domain contoso.net from a domain name registrar and then create a zone with the name contoso.net in Azure DNS. Because you're the owner of the domain, your registrar offers you the option to configure the name server (NS) records for your domain. The registrar stores the NS records in the .net parent zone. Internet users around the world are then directed to your domain in your Azure DNS zone when they try to resolve DNS records in contoso.net.
+Suppose you buy the domain contoso.net from a domain name registrar and then create a zone with the name contoso.net in Azure DNS. Because you're the owner of the domain, your registrar offers you the option to configure the name server (NS) records for your domain. The registrar stores the NS records in the .NET parent zone. Internet users around the world are then directed to your domain in your Azure DNS zone when they try to resolve DNS records in contoso.net.
 
 
 In this tutorial, you learn how to:
@@ -30,9 +30,9 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 ## Prerequisites
 
-You must have a domain name available to test with that you can host in Azure DNS . You must have full control of this domain. Full control includes the ability to set the name server (NS) records for the domain.
+You must have a domain name available to test with that you can host in Azure DNS. You must have full control of this domain. Full control includes the ability to set the name server (NS) records for the domain.
 
-The example domain used for this tutorial is contoso.net, but use your own domain name.
+In this example, we will reference the parent domain as **contoso.net**
 
 ## Create a DNS zone
 
@@ -41,14 +41,19 @@ The example domain used for this tutorial is contoso.net, but use your own domai
    ![DNS zone](./media/dns-delegate-domain-azure-dns/openzone650.png)
 
 1. Select **Create DNS zone**.
-1. On the **Create DNS zone** page, enter the following values, and then select **Create**:
+1. On the **Create DNS zone** page, enter the following values, and then select **Create**: for example, **contoso.net**
+      > [!NOTE] 
+      > If the new zone that you are creating is a child zone (e.g. Parent zone = contoso.net Child zone = child.contoso.net), please refer to our [Creating a new Child DNS zone tutorial](./tutorial-public-dns-zones-child.md)
 
-   | **Setting** | **Value** | **Details** |
-   |---|---|---|
-   |**Name**|[your domain name] |The domain name you bought. This tutorial uses contoso.net as an example.|
-   |**Subscription**|[Your subscription]|Select a subscription to create the zone in.|
-   |**Resource group**|**Create new:** contosoRG|Create a resource group. The resource group name must be unique within the subscription that you selected.<br>The location of the resource group has no impact on the DNS zone. The DNS zone location is always "global," and isn't shown.|
-   |**Location**|East US||
+    | **Setting** | **Value** | **Details** |
+    |--|--|--|
+    | **Project details:**  |  |  |
+    | **Resource group**    | ContosoRG | Create a resource group. The resource group name must be unique within   the subscription that you selected. The location of the resource group has no   impact on the DNS zone. The DNS zone location is always "global,"   and isn't shown. |
+    | **Instance details:** |  |  |
+    | **Zone child**        | leave unchecked | Since this zone is **not** a [child zone](./tutorial-public-dns-zones-child.md) you should leave this unchecked |
+    | **Name**              | contoso.net | Field for your parent zone name      |
+    | **Location**          | East US | This field is based on the location selected as part of Resource group creation  |
+    
 
 ## Retrieve name servers
 
@@ -81,7 +86,7 @@ After you complete the delegation, you can verify that it's working by using a t
 
 You don't have to specify the Azure DNS name servers. If the delegation is set up correctly, the normal DNS resolution process finds the name servers automatically.
 
-1. From a command prompt, enter an nslookup command similar to the following example:
+1. From a command prompt, enter a nslookup command similar to the following example:
 
    ```
    nslookup -type=SOA contoso.net
