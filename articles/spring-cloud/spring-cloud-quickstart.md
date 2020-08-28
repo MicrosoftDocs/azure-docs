@@ -189,7 +189,7 @@ Logs appear in the results:
 
 1. The streaming log will be visible in the output window.
 
-    [ ![Streaming log output](media/media/spring-cloud-quickstart-java/intellij-streaming-logs-output.png) ](media/media/spring-cloud-quickstart-java/intellij-streaming-logs-output.png)
+    [ ![Streaming log output](media/media/spring-cloud-quickstart-java/intellij-streaming-logs-output.png) ](media/spring-cloud-quickstart-java/intellij-streaming-logs-output.png)
 ---
 
 For advanced logs analytics features, visit **Logs** tab in the menu on [Azure portal](https://portal.azure.com/). Logs here have a latency of a few minutes.
