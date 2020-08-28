@@ -37345,12 +37345,12 @@
     {
       "source_path": "articles/active-directory/application-access-panel-unexpected-application-appears.md",
       "redirect_url": "/azure/active-directory/manage-apps/access-panel-troubleshoot-unexpected-application",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/application-access-panel-unexpected-application-not-appearing.md",
       "redirect_url": "/azure/active-directory/manage-apps/access-panel-troubleshoot-application-not-appearing",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/application-access-panel-web-sign-in-problem.md",
