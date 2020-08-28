@@ -82,7 +82,7 @@ az spring-cloud app logs -h
 ```
 
 ## Next steps
-
+* [Quickstart: Monitoring Azure Spring Cloud apps with logs, metrics, and tracing](spring-cloud-quickstart-logs-metrics-tracing.md)
 * [Analyze logs and metrics with diagnostics settings](./diagnostic-services.md)
 
  

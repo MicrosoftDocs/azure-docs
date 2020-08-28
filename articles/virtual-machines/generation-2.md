@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 02/11/2020
+ms.date: 08/28/2020
 ms.author: jushiman
 ---
 
@@ -40,6 +40,7 @@ Generation 1 VMs are supported by all VM sizes in Azure (except for Mv2-series V
 * [NVv3-series](nvv3-series.md)
 
 <sup>1</sup> Mv2-series does not support Generation 1 VM images and only support a subset of Generation 2 images. Please see [Mv2-series documentation](mv2-series.md) for details.
+
 
 ## Generation 2 VM images in Azure Marketplace
 

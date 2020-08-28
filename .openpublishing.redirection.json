@@ -1256,6 +1256,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-arc/arc-overview.md",
+      "redirect_url": "/azure/azure-arc/overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory/saas-apps/123contactform-tutorial.md",
       "redirect_url": "/azure/active-directory/saas-apps/123formbuilder-tutorial",
       "redirect_document_id": true
@@ -1348,6 +1353,26 @@
     {
       "source_path": "articles/open-datasets/service/how-to-create-dataset-from-open-dataset.md",
       "redirect_url": "/azure/open-datasets/how-to-create-azure-machine-learning-dataset-from-open-dataset",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-windows-cli-sample-copy-snapshot-to-same-or-different-subscription.md",
+      "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-cli-sample-copy-snapshot-to-same-or-different-subscription",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-copy-snapshot-to-same-or-different-subscription.md",
+      "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-cli-sample-copy-snapshot-to-same-or-different-subscription",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-linux-powershell-sample-copy-snapshot-to-same-or-different-subscription.md",
+      "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-powershell-sample-copy-snapshot-to-same-or-different-subscription",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-copy-snapshot-to-same-or-different-subscription.md",
+      "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-powershell-sample-copy-snapshot-to-same-or-different-subscription",
       "redirect_document_id": false
     },
     {
@@ -23444,6 +23469,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/active-directory/conditional-access/howto-conditional-access-report-only.md",
+      "redirect_url": "/azure/active-directory/conditional-access/howto-conditional-access-insights-reporting",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/iot-hub/iot-hub-security-ground-up.md",
       "redirect_url": "/azure/iot-fundamentals/iot-security-ground-up",
       "redirect_document_id": true
@@ -27765,7 +27795,7 @@
     },
     {
       "source_path": "articles/storage/scripts/storage-linux-cli-sample-copy-managed-disks-to-same-or-different-subscription.md",
-      "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-linux-cli-sample-copy-managed-disks-to-same-or-different-subscription",
+      "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-cli-sample-copy-managed-disks-to-same-or-different-subscription",
       "redirect_document_id": true
     },
     {
@@ -27795,7 +27825,7 @@
     },
     {
       "source_path": "articles/storage/scripts/storage-windows-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md",
-      "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-copy-managed-disks-to-same-or-different-subscription",
+      "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-powershell-sample-copy-managed-disks-to-same-or-different-subscription",
       "redirect_document_id": true
     },
     {
@@ -33779,6 +33809,26 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md",
+      "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-powershell-sample-copy-managed-disks-to-same-or-different-subscription",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-linux-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md",
+      "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-powershell-sample-copy-managed-disks-to-same-or-different-subscription",
+      "redirect_document_id": false
+    },    
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-copy-managed-disks-to-same-or-different-subscription.md",
+      "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-cli-sample-copy-managed-disks-to-same-or-different-subscription",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-windows-cli-sample-copy-managed-disks-to-same-or-different-subscription.md",
+      "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-cli-sample-copy-managed-disks-to-same-or-different-subscription",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/multi-factor-authentication/multi-factor-authentication-manage-users-and-devices.md",
       "redirect_url": "/azure/active-directory/authentication/howto-mfa-userdevicesettings",
       "redirect_document_id": true
@@ -37329,8 +37379,13 @@
     },
     {
       "source_path": "articles/active-directory/application-access-panel-web-sign-in-problem.md",
-      "redirect_url": "/azure/active-directory/manage-apps/access-panel-troubleshoot-web-sign-in-problem",
-      "redirect_document_id": true
+      "redirect_url": "/azure/active-directory/manage-apps/application-sign-in-other-problem-access-panel",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/manage-apps/access-panel-troubleshoot-web-sign-in-problem.md",
+      "redirect_url": "/azure/active-directory/manage-apps/application-sign-in-other-problem-access-panel",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/manage-apps/access-panel-workspaces.md",
@@ -37554,8 +37609,13 @@
     },
     {
       "source_path": "articles/active-directory/application-sign-in-other-problem-deeplink.md",
-      "redirect_url": "/azure/active-directory/manage-apps/application-sign-in-other-problem-deeplink",
-      "redirect_document_id": true
+      "redirect_url": "/azure/active-directory/manage-apps/application-sign-in-other-problem-access-panel",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/manage-apps/application-sign-in-other-problem-deeplink.md",
+      "redirect_url": "/azure/active-directory/manage-apps/application-sign-in-other-problem-access-panel",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/application-sign-in-problem-application-error.md",
@@ -40021,6 +40081,26 @@
     {
       "source_path": "articles/cognitive-services/Speech-Service/speech-devices-sdk-kws-guidelines.md",
       "redirect_url": "/azure/cognitive-services/speech-service/custom-keyword-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/speech-translation-basics.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/get-started-speech-translation",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/translate-speech-to-speech.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/get-started-speech-translation",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/translate-speech-to-text.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/get-started-speech-translation",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/translate-speech-to-text-multiple-languages.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/get-started-speech-translation",
       "redirect_document_id": false
     },
     {
@@ -56310,8 +56390,18 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/personalizer/sdk-learning-loop.md",
+      "redirect_url": "/azure/cognitive-services/personalizer/quickstart-personalizer-sdk",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/service-fabric/service-fabric-scale-up-node-type.md",
       "redirect_url": "/azure/service-fabric/service-fabric-scale-up-primary-node-type",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/load-balancer/quickstart-create-standard-load-balancer-powershell.md",
+      "redirect_url": "/azure/load-balancer/quickstart-load-balancer-standard-public-powershell",
       "redirect_document_id": false
     }
   ]
