@@ -37,6 +37,8 @@ The typical failover time ranges from 60-120 seconds. The cloud native design of
 
 Azure's industry leading 99.99% availability service level agreement (SLA), powered by a global network of Microsoft-managed datacenters, helps keep your applications running 24/7.
 
+![Azure Database for MySQL Single Server Architecture conceptual diagram](media/single-server-overview/1-singleserverarchitecture.png) 
+
 ## Automated Patching 
 
 The service performs automated patching of the underlying hardware, OS, and database engine. The patching includes security and software updates. For MySQL engine, minor version upgrades are automatic and included as part of the patching cycle. There is no user action or configuration settings required for patching. The patching frequency is service managed based on the criticality of the payload. In general, the service follows monthly release schedule as part of the continuous integration and release. Users can subscribe to the [planned maintenance notification](concepts-monitoring.md) to receive notification of the upcoming maintenance 72 hours before the event.
