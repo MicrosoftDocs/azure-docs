@@ -4,7 +4,7 @@ description: The App Service security baseline provides procedural guidance and 
 author: msmbaldwin
 ms.service: app-service
 ms.topic: conceptual
-ms.date: 08/26/2020
+ms.date: 08/28/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
