@@ -12,7 +12,7 @@
     href: quick-create-portal.md
   - name: Create VM - Azure PowerShell
     href: quick-create-powershell.md
-  - name: Create VM - ARM templateF
+  - name: Create VM - ARM template
     displayName: Resource Manager, template, json
     href: quick-create-template.md
   expanded: true
