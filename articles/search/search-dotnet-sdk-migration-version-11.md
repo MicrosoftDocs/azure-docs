@@ -10,6 +10,7 @@ ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 08/20/2020
+ms.custom: devx-track-csharp
 ---
 
 # Upgrade to Azure Cognitive Search .NET SDK version 11

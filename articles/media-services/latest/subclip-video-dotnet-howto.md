@@ -14,6 +14,7 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 06/09/2019
 ms.author: juliako
+ms.custom: devx-track-csharp
 
 ---
 # Subclip a video when encoding with Media Services - .NET

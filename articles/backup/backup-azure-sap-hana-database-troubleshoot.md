@@ -17,7 +17,7 @@ Refer to the [prerequisites](tutorial-backup-sap-hana-db.md#prerequisites) and [
 
 ### UserErrorHANAInternalRoleNotPresent
 
-| **Error Message**      | <span style="font-weight:normal">Azure backup does not have required role  privileges to carry out backup</span>    |
+| **Error Message**      | <span style="font-weight:normal">Azure Backup does not have required role  privileges to carry out backup</span>    |
 | ---------------------- | ------------------------------------------------------------ |
 | **Possible causes**    | The role may have been overwritten.                          |
 | **Recommended action** | To resolve the issue, run the script from the **Discover DB** pane, or download it [here](https://aka.ms/scriptforpermsonhana). Alternatively, add the 'SAP_INTERNAL_HANA_SUPPORT' role to the Workload Backup User (AZUREWLBACKUPHANAUSER). |
@@ -26,7 +26,7 @@ Refer to the [prerequisites](tutorial-backup-sap-hana-db.md#prerequisites) and [
 
 | Error Message      | <span style="font-weight:normal">Failed to connect to HANA system</span>                        |
 | ------------------ | ------------------------------------------------------------ |
-| **Possible causes**    | The SAP HANA instance may be down.<br/>The required permissions for Azure backup to interact with the HANA database aren't set. |
+| **Possible causes**    | The SAP HANA instance may be down.<br/>The required permissions for Azure Backup to interact with the HANA database aren't set. |
 | **Recommended action** | Check if the SAP HANA database is up. If the database is up and running, check if all the required permissions are set. If any of the permissions are missing run the [preregistration script](https://aka.ms/scriptforpermsonhana) to add the missing permissions. |
 
 ### UserErrorHanaInstanceNameInvalid
@@ -40,14 +40,14 @@ Refer to the [prerequisites](tutorial-backup-sap-hana-db.md#prerequisites) and [
 
 | Error Message      | <span style="font-weight:normal">The specified SAP HANA operation isn't supported</span>              |
 | ------------------ | ------------------------------------------------------------ |
-| **Possible causes**    | Azure backup for SAP HANA doesn't support incremental backup and actions performed on SAP HANA native clients (Studio/ Cockpit/ DBA Cockpit) |
+| **Possible causes**    | Azure Backup for SAP HANA doesn't support incremental backup and actions performed on SAP HANA native clients (Studio/ Cockpit/ DBA Cockpit) |
 | **Recommended action** | For more information, refer [here](./sap-hana-backup-support-matrix.md#scenario-support). |
 
 ### UserErrorHANAPODoesNotSupportBackupType
 
 | Error Message      | <span style="font-weight:normal">This SAP HANA database doesn't support the requested backup type</span>  |
 | ------------------ | ------------------------------------------------------------ |
-| **Possible causes**    | Azure backup doesn't support incremental backup and backup using snapshots |
+| **Possible causes**    | Azure Backup doesn't support incremental backup and backup using snapshots |
 | **Recommended action** | For more information, refer [here](./sap-hana-backup-support-matrix.md#scenario-support). |
 
 ### UserErrorHANALSNValidationFailure
@@ -68,7 +68,7 @@ Refer to the [prerequisites](tutorial-backup-sap-hana-db.md#prerequisites) and [
 
 | Error Message      | <span style="font-weight:normal">Detected invalid backint configuration</span>                       |
 | ------------------ | ------------------------------------------------------------ |
-| **Possible causes**    | The backing parameters are incorrectly specified for Azure backup |
+| **Possible causes**    | The backing parameters are incorrectly specified for Azure Backup |
 | **Recommended action** | Check if the following (backint) parameters are set:<br/>\* [catalog_backup_using_backint:true]<br/>\* [enable_accumulated_catalog_backup:false]<br/>\* [parallel_data_backup_backint_channels:1]<br/>\* [log_backup_timeout_s:900)]<br/>\* [backint_response_timeout:7200]<br/>If backint-based parameters are present in HOST, remove them. If parameters aren't present at HOST level but have been manually modified at a database level, revert them to the appropriate values as described earlier. Or, run [stop protection and retain backup data](./sap-hana-db-manage.md#stop-protection-for-an-sap-hana-database) from the Azure portal, and then select **Resume backup**. |
 
 ### UserErrorIncompatibleSrcTargetSystemsForRestore
