@@ -35,7 +35,7 @@ az account set --subscription <subscription id>
 You can scale up your compute tier, vCores, and storage easily using the following command. You can see all the server operation you can perform [az mysql flexible-server server overview](/cli/azure/mysql/server?view=azure-cli-latest)
 
 ```azurecli-interactive
-az mysql flexible-server update --resource-group myresourcegroup --name mydemoserver --sku-name GP_Gen5_4 --storage-size 6144
+az mysql flexible-server update --resource-group myresourcegroup --name mydemoserver --sku-name Standard_D4ds_v4 --storage-size 6144
 ```
 
 Here are the details for arguments above :
