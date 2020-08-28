@@ -1,7 +1,7 @@
 ---
 title: Details of the policy definition structure
 description: Describes how policy definitions are used to establish conventions for Azure resources in your organization.
-ms.date: 08/17/2020
+ms.date: 08/27/2020
 ms.topic: conceptual
 ---
 # Azure Policy definition structure
@@ -804,6 +804,14 @@ Policy, use one of the following methods:
   # Use Get-AzPolicyAlias to list aliases for a Namespace (such as Azure Compute -- Microsoft.Compute)
   (Get-AzPolicyAlias -NamespaceMatch 'compute').Aliases
   ```
+
+  > [!NOTE]
+  > To find aliases that can be used with the [modify](./effects.md#modify) effect, use the
+  > following command:
+  >
+  > ```azurepowershell-interactive
+  > Get-AzPolicyAlias | Select-Object -ExpandProperty 'Aliases' | Where-Object { $_.DefaultMetadata.Attributes -eq 'Modifiable' }
+  > ```
 
 - Azure CLI
 

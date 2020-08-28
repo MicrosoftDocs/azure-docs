@@ -11,6 +11,26 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-linux-powershell-sample-copy-snapshot-to-storage-account.md",
+      "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-powershell-sample-copy-snapshot-to-storage-account",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-copy-snapshot-to-storage-account.md",
+      "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-powershell-sample-copy-snapshot-to-storage-account",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-copy-snapshot-to-storage-account.md",
+      "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-cli-sample-copy-snapshot-to-storage-account",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-windows-cli-sample-copy-snapshot-to-storage-account.md",
+      "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-cli-sample-copy-snapshot-to-storage-account",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/linux/infrastructure-example.md",
       "redirect_url": "/previous-versions/azure/virtual-machines/linux/infrastructure-example",
       "redirect_document_id": false
@@ -15609,6 +15629,31 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/event-hubs/get-started-dotnet-standard-send-v2.md",
+      "redirect_url": "/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/event-hubs/get-started-java-send-v2.md",
+      "redirect_url": "/azure/event-hubs/event-hubs-java-get-started-send",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/event-hubs/get-started-node-send-v2.md",
+      "redirect_url": "/azure/event-hubs/event-hubs-node-get-started-send",
+      "redirect_document_id": false
+    },                
+    {
+      "source_path": "articles/event-hubs/get-started-capture-python-v2.md",
+      "redirect_url": "/azure/event-hubs/event-hubs-capture-python",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/event-hubs/get-started-python-send-v2.md",
+      "redirect_url": "/azure/event-hubs/event-hubs-python-get-started-send",
+      "redirect_document_id": false
+    },   
+    {
       "source_path": "articles/data-factory/data-factory-sdks.md",
       "redirect_url": "https://azure.microsoft.com/services/data-factory/",
       "redirect_document_id": false
@@ -17286,6 +17331,16 @@
     {
       "source_path": "articles/machine-learning/sample-designer-datasets.md",
       "redirect_url": "/azure/machine-learning/samples-designer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/studio/what-is-ml-studio.md",
+      "redirect_url": "/azure/machine-learning/overview-what-is-machine-learning-studio#ml-studio-classic-vs-azure-machine-learning-studio",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/compare-azure-ml-to-studio-classic.md",
+      "redirect_url": "/azure/machine-learning/overview-what-is-machine-learning-studio#ml-studio-classic-vs-azure-machine-learning-studio",
       "redirect_document_id": false
     },
     {
@@ -37149,8 +37204,18 @@
     },
     {
       "source_path": "articles/active-directory/active-directory-saas-ie-group-policy.md",
-      "redirect_url": "/azure/active-directory/manage-apps/deploy-access-panel-browser-extension",
+      "redirect_url": "/azure/active-directory/manage-apps/access-panel-deployment-plan",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory/manage-apps/deploy-access-panel-browser-extension.md",
+      "redirect_url": "/azure/active-directory/manage-apps/access-panel-deployment-plan",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/manage-apps/access-panel-extension-problem-installing.md",
+      "redirect_url": "/azure/active-directory/manage-apps/access-panel-deployment-plan",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/active-directory-saas-ie-troubleshooting.md",
@@ -55682,6 +55747,16 @@
       "source_path": "articles/cost-management-billing/understand/index.yml",
       "redirect_url": "/azure/cost-management-billing",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/management/programmatically-create-subscription.md",
+      "redirect_url": "/azure/cost-management-billing/manage/programmatically-create-subscription",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/azure-resource-manager/management/grant-access-to-create-subscription.md",
+      "redirect_url": "/azure/cost-management-billing/manage/grant-access-to-create-subscription",
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/active-directory/manage-apps/add-gallery-app.md",

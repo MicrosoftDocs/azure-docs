@@ -371,6 +371,8 @@
 - name: Flexible server
 - name: Hyperscale (Citus)
   items:
+  - name: Documentation
+    href: hyperscale/index.yml
   - name: Quickstarts
     items:
     - name: Create Server and Database
@@ -385,6 +387,9 @@
         href: flexible-server/how-to-manage-server-portal.md
       - name: Azure CLI
         href: flexible-server/how-to-manage-server-cli.md
+    - name: Create Server Group - Portal
+      href: quickstart-create-hyperscale-portal.md
+      displayName: portal, create hyperscale
   - name: Tutorials
     items:
     - name: Design a multi-tenant database
