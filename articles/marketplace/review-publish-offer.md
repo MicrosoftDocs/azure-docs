@@ -12,51 +12,42 @@ ms.date: 08/12/2020
 
 # How to review and publish an offer to the commercial marketplace
 
-This article shows you how to use Partner Center to submit your offer to preview, preview your offer, and then publish it to Microsoft commercial marketplace. We also cover how to check your publishing status as it proceeds through the publishing steps. You must have already created an offer that you want to publish.
+This article shows you how to use Partner Center to submit your offer for publishing, preview your offer, and then publish it to the commercial marketplace. We also cover how to check your publishing status as it proceeds through the publishing steps. You must have already created an offer that you want to publish.
 
-## Go to your offer in the commercial marketplace
+## Offer status
 
-1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
-2. In the left-navigation menu, select **Commercial Marketplace** > **Overview**.
-3. On the **Overview** tab, under **Offers**, one of the following status indicators is displayed in the **Status** column for each offer.
+You can review your offer status on the **Overview** tab of the commercial marketplace dashboard in [Partner Center](https://partner.microsoft.com/en-us/dashboard/commercial-marketplace/overview). One of the following status indicators is displayed in the **Status** column for each offer.
 
-    | Status | Description |
-    | ------------ | ------------- |
-    | Draft | Offer has been created but it isn't being published. |
-    | Publish in progress | Offer is working its way through the publishing process. |
-    | Attention needed | We discovered a critical issue during certification or during another publishing phase. |
-    | Preview | We certified the offer, which now awaits a final verification by the publisher. Select **Go live** to publish the offer live. |
-    | Live | Offer is live in the marketplace and can be seen and acquired by customers. |
-    | Pending stop sell | Publisher selected "stop sell" on an offer or plan, but the action has not yet been completed. |
-    | Not available in the marketplace | A previously published offer in the marketplace has been removed. |
-    |||
+| Status | Description |
+| ------------ | ------------- |
+| Draft | Offer has been created but it isn't being published. |
+| Publish in progress | Offer is working its way through the publishing process. |
+| Attention needed | We discovered a critical issue during certification or during another publishing phase. |
+| Preview | We certified the offer, which now awaits a final verification by the publisher. Select **Go live** to publish the offer live. |
+| Live | Offer is live in the marketplace and can be seen and acquired by customers. |
+| Pending stop sell | Publisher selected "stop sell" on an offer or plan, but the action has not yet been completed. |
+| Not available in the marketplace | A previously published offer in the marketplace has been removed. |
+|||
 
-4. In the **Offer alias** column, select the offer you want to preview and publish.
+## Validation and publishing steps
 
-## Submit your offer to preview
-
-1. To submit your offer to preview, select **Review and publish** at the upper-right corner of the portal. The **Review and publish** page appears.
-1. Make sure that the **Status** column for each page says **Complete**. The three possible statuses are as follows:
+When you are ready to submit an offer for publishing, select **Review and publish** at the upper-right corner of the portal. The **Review and publish** page shows the status of each page for your offer, which can be one of hte following:
 
    - **Not started** – The page is incomplete.
    - **Incomplete** – The page is missing required information or has errors that need to be fixed. You'll need to go back to the page and update it.
    - **Complete** – The page is complete. All required data has been provided and there are no errors.
 
-1. If any of the pages have a status other than **Complete**, in the **Page** column, select the page name, correct the issue, save the page, and then select **Review and publish** again to return to this page.
-1. After all the pages are complete, in the **Notes for certification** box, provide testing instructions to the certification team to ensure that your app is tested correctly. Provide any supplementary notes helpful for understanding your app.
-1. To submit the offer for publishing, select **Publish**. The **Offer overview** page appears and shows the publishing status.
+If any of the pages have a status other than **Complete**, you need to correct the issue on that page and then return to the **Review and publish** page to confirm the status now shows as **Complete**. Some offer types require testing. If so, you will see a **Notes for certification** field where you need to provide testing instructions to the certification team and any supplementary notes helpful for understanding your app.
 
-## Validation and publishing steps
-
-After you select **Publish**, the validation and publishing processes proceed in order. The most common publishing process is shown in this table:
+After all pages are complete and you have entered applicable testing notes,  select **Publish** to begin the validation and publishing processes. The phases and overall sequence can vary depending on the type of offer you are publishing. The following table shows one possible publishing flow. Each phase is explained in more detail in the following sections.
 
 | Phase | What happens |
 | ------------ | ------------- | ------------- |
-| Automated validation | We process a set of automated validations. |
-| Certification | We conduct manual validations. |
-| Preview creation | The listing page for your offer preview is available to anyone who has the preview link. If your offer will be sold through Microsoft (transactable), only the audience you specified on the **Preview audience** page of your offer can purchase and access the offer for testing. |
-| Publisher sign-off | We send you an email with a request for you to preview and approve your offer. |
-| Publish | We run a series of steps to verify that the preview offer is published live to the commercial marketplace. |
+| [Automated validation](#automated-validation-phase) | We process a set of automated validations. |
+| [Certification](#certification-phase) | We conduct manual validations. |
+| [Preview creation](#preview-creation-phase) | The listing page for your offer preview is available to anyone who has the preview link. If your offer will be sold through Microsoft (transactable), only the audience you specified on the **Preview audience** page of your offer can purchase and access the offer for testing. |
+| [Publisher sign-off](#publisher-sign-off-phase) | We send you an email with a request for you to preview and approve your offer. |
+| [Publish](#publish-phase) | We run a series of steps to verify that the preview offer is published live to the commercial marketplace. |
 |||
 
 ## Automated validation phase
@@ -138,7 +129,10 @@ The following screenshot shows the **Offer overview** page for a SaaS offer. The
 
 ![Illustrates the Offer overview page for an offer in Partner Center. The Go live button and preview links are shown.](./media/publish-status-publisher-signoff.png)
 
-### To preview your offer and sign off
+### Preview your offer and sign off
+
+> [!IMPORTANT]
+> To validate the end-to-end purchase and setup flow, purchase your offer while it is in Preview. First notify Microsoft with a [support ticket](https://aka.ms/marketplacesupport) to ensure we don't process a charge.
 
 1. On the **Offer overview** page, to preview your offer, select the link under the **Go live** button. There will be a link for either AppSource preview, Azure Marketplace preview, or both depending on the options you chose when creating your offer. If you chose to sell your offer through Microsoft, anyone who has been added to the preview audience can test the acquisition and deployment of your offer to ensure it meets your requirements during this stage.
 
@@ -174,10 +168,6 @@ Now that you’ve chosen to go live with your offer, which makes it available in
     We ensure your offer becomes publicly available in the marketplace.
 
 After these validation checks are complete, your offer will be live in the marketplace.
-
-### Reporting usage of preview and other internal usage
-
-To validate the end-to-end purchase and setup flow, purchase your offer while it is in Preview. First notify Microsoft with a [support ticket](https://aka.ms/marketplacesupport) to ensure we don't process a charge.
 
 ## Next steps
 

@@ -58,10 +58,10 @@ The following screenshot shows the **Offer overview** page for a SaaS offer, wit
 
 Use the following steps to preview your offer.
 
-1. On the **Offer overview** page, select a preview link under the **Go live** button.
+> [!IMPORTANT]
+> To validate the end-to-end purchase and setup flow, purchase your offer while it is in Preview. First notify Microsoft with a [support ticket](https://aka.ms/marketplacesupport) to ensure we don't process a charge.
 
-   > [!NOTE]
-   > There will be a link for either Microsoft AppSource preview, Azure Marketplace preview, or both depending on the options you chose when creating your offer. If you chose to sell your offer through Microsoft, anyone who has been added to the preview audience can test the acquisition and deployment of your offer to ensure it meets your requirements during this stage.
+1. On the **Offer overview** page, select a preview link under the **Go live** button. There will be a link for either Microsoft AppSource preview, Azure Marketplace preview, or both depending on the options you chose when creating your offer. If you chose to sell your offer through Microsoft, anyone who has been added to the preview audience can test the acquisition and deployment of your offer to ensure it meets your requirements during this stage.
 
 1. To validate the end-to-end purchase and setup flow, purchase your offer while it's in Preview. First notify Microsoft with a [support ticket](https://aka.ms/marketplacesupport) to ensure we don't process a charge.
 
