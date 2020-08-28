@@ -161,9 +161,9 @@ SELECT LightBulb
 FROM DIGITALTWINS Room 
 JOIN LightPanel RELATED Room.contains 
 JOIN LightBulb RELATED LightPanel.contains 
-WHERE IS_OF_MODEL(LightPanel, ‘dtmi:contoso:com:lightpanel;1’) 
-AND IS_OF_MODEL(LightBulb, ‘dtmi:contoso:com:lightbulb ;1’) 
-AND Room.$dtId IN [‘room1’, ‘room2’] 
+WHERE IS_OF_MODEL(LightPanel, 'dtmi:contoso:com:lightpanel;1') 
+AND IS_OF_MODEL(LightBulb, 'dtmi:contoso:com:lightbulb ;1') 
+AND Room.$dtId IN ['room1', 'room2'] 
 ```
 
 ### Other compound query examples
