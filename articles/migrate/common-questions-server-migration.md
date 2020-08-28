@@ -14,7 +14,7 @@ This article answers common questions about the Azure Migrate: Server Migration 
 - Questions about [discovery, assessment, and dependency visualization](common-questions-discovery-assessment.md)
 - Get questions answered in the [Azure Migrate forum](https://aka.ms/AzureMigrateForum)
 
-## Where should I install the l the replication appliance for agent-based migrations?
+## Where should I install the replication appliance for agent-based migrations?
 
 The replication appliance should be installed on a dedicated machine. The replication appliance shouldn't be installed on a source machine that you want to replicate or on the Azure Migrate discovery and assessment appliance you may have installed before. Follow the [tutorial](https://docs.microsoft.com/azure/migrate/tutorial-migrate-physical-virtual-machines) for more details.
 
@@ -90,7 +90,7 @@ Bandwidth for replication of data to Azure depends on a range of factors and is 
 
 When replication starts for a VM, an initial replication cycle occurs in which full copies of the disks are replicated. After the initial replication is completed, incremental replication cycles (delta cycles) are scheduled periodically to transfer any changes that have occurred since the previous replication cycle.
 
-### Agentless VMware VM migration:
+### Agentless VMware VM migration
 
 You can work out the bandwidth requirement based on the volume of data needed to be moved in the wave and time within which you would like initial replication to complete (ideally you’d want initial replication to have completed at least 3-4 days prior to the actual migration window to give you sufficient time to perform a test migration prior to the actual window and to keep downtime to a minimum during the window).
 
@@ -164,7 +164,7 @@ The test migration button could be in a disabled state in the following scenario
 
 Test migration simulates the actual migration by creating a test Azure VM using replicated data. The server will be deployed with a point in time copy of the replicated data to the target Resource Group (selected while enabling replication) with a “-test” suffix. Test migrations are intended for validating server functionality so that post migration issues are minimized. If the test migration is not cleaned up post testing, the test virtual machine will continue to run in Azure and will incur charges. To cleanup post a test migration, go to the replicating machines view in the Server Migration tool, and use the 'cleanup test migration' action on the machine.
 
-## Can I migrate Active Directory domain-controllers using Azure Migrate Server Migration?
+## Can I migrate Active Directory domain-controllers using Azure Migrate?
 
 The Server Migration tool is application agnostic and works for most applications. When you migrate a server using the Server Migration tool, all the applications installed on the server are migrated along with it. However, for some applications, alternate migration methods other than server migration may be better suited for the migration.  For Active Directory, in the case of hybrid environments where the on-premises site is connected to your Azure environment, you can extend your Directory into Azure by adding additional domain controllers in Azure and setting up Active Directory replication. If you are migrating into an isolated environment in Azure requiring its own domain controllers (or testing applications in a sandbox environment), you can migrate servers using the server migration tool.
 
