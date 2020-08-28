@@ -4,7 +4,7 @@ description: This article shows you how to move Azure Event Grid domains from on
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 08/20/2020
-#Customer intent: As an Azure service administrator, I want to be able to move an Azure Event Grid domain from one region to another region to have it closer to customers. 
+#Customer intent: As an Azure service administrator, I want to be able to move an Azure Event Grid domain and topics in the domain from one region to another region to have it closer to customers, to meet internal policy and governance requirements, or in response to capacity planning requirements.
 ---
 
 # Move Azure Event Grid domains to another region
@@ -12,15 +12,17 @@ You might want to move your resources to another region for a number of reasons.
 
 Here's are the high-level steps covered in this article: 
 
-- **Export the domain** resource to an Azure Resource Manager template. The domain resource and topics in the domain are exported to the template. Subscriptions to domain topics aren't exported. 
+- **Export the domain** resource to an Azure Resource Manager template. 
+
+    > [!IMPORTANT]
+    > The domain resource and topics in the domain are exported to the template. Subscriptions to domain topics aren't exported. 
 - **Use the template to deploy the domain** to the target region. 
-- **Create subscriptions for domain topics manually** in the target region. When you exported the domain to a template in the current region, subscriptions aren't included in the template. 
+- **Create subscriptions for domain topics manually** in the target region. When you exported the domain to a template in the current region, subscriptions for domain topics aren't exported. So, create them after the domain and domain topics are created in the target region. 
 - **Verify the deployment**. Send an event to a domain topic in the domain and verify the event handler associated with the subscription is invoked. 
 - To **complete the move**, delete domain from the source region. 
 
 ## Prerequisites
 - Ensure that the Event Grid service is available in the target region. See [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=event-grid&regions=all).
-- For any preview features, ensure that your subscription is whitelisted for the target region.
 
 ## Prepare
 To get started, export a Resource Manager template for the domain. 
@@ -63,9 +65,11 @@ Deploy the template to create the domain and domain topics in the target region.
 8. On the **Custom deployment** page, follow these steps:
     1. Select an Azure **subscription**. 
     1. Select an existing **resource group** in the target region or create one. 
-    1. For **Location**, select the target region. If you selected an existing resource group, this setting is read-only. 
+    1. For **Region**, select the target region. If you selected an existing resource group, this setting is read-only. 
     1. For the **domain name**, enter a new name for the domain. 
     1. Select **Review + create**. 
+    
+        :::image type="content" source="./media/move-domains-across-regions/deploy-template.png" alt-text="Deploy template":::        
     1. After the validation of the template succeeds, select **Create** at the bottom of the page to deploy the resource. 
     1. After the deployment succeeds, select **Go to resource group** to navigate to the resource group page. Confirm that there's a domain in the resource group. Select the domain. Confirm that there are domain topics in the domain. 
 
@@ -87,10 +91,10 @@ To delete the resource group that contains the domain by using the Azure portal:
 3. On the confirmation page, enter the name of the resource group, and select **Delete**.  
 
 ## Next steps
-You learned how to move an Event Grid domain from one region to another region. 
+You learned how to move an Event Grid domain from one region to another region. See the following articles for moving system topics, custom topics, and partner namespaces across regions.
 
-To learn about moving system topics from one region to another, see [Move system topics across regions](move-system-topics-across-regions.md). 
-
-To learn about moving custom topics from one region to another, see [Move custom topics across regions](move-custom-topics-across-regions.md). 
+- [Move system topics across regions](move-system-topics-across-regions.md). 
+- [Move custom topics across regions](move-custom-topics-across-regions.md). 
+- [Move partner namespaces across regions](move-partner-namespaces-across-regions.md).
 
 To learn more about moving resources between regions and disaster recovery in Azure, see the following article: [Move resources to a new resource group or subscription](../azure-resource-manager/management/move-resource-group-and-subscription.md)

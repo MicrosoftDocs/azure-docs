@@ -1,10 +1,10 @@
 ---
-title: Move Azure Event Grid partner namespace to another region
+title: Move Azure Event Grid partner namespaces to another region
 description: This article shows you how to move Azure Event Grid partner namespaces from one region to another region.  
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 08/20/2020
-#Customer intent: As an Azure service administrator, I want to be able to move an Azure Event Grid partner namespace from one region to another region to have it closer to customers. 
+#Customer intent: As an Azure service administrator, I want to be able to move an Azure Event Grid partner namespace from one region to another region to have it closer to customers, to meet internal policy and governance requirements, or in response to capacity planning requirements. 
 ---
 
 # Move Azure Event Grid partner namespaces to another region
@@ -12,17 +12,16 @@ You might want to move your resources to another region for a number of reasons.
 
 Here's are the high-level steps covered in this article: 
 
-- **Export the partner namespace** resource to an Azure Resource Manager template. Delete definitions for event channel resources in the template. An event channel may have a reference to the Azure Resource Manager ID of the partner topic, which is owned by a customer.
-- **Use the template to deploy the partner namespace** to the target region. Create event channels for the new partner namespace in the target region. 
+- **Export the partner namespace** resource to an Azure Resource Manager template. Delete definitions for event channel resources in the template. An event channel may have a reference to the Azure Resource Manager ID of the partner topic, which is owned by a customer. So, they can't be created by using the template in the target region.  
+- **Use the template to deploy the partner namespace** to the target region. Then, create event channels in the new partner namespace in the target region. 
 - To **complete the move**, delete the partner namespace from the source region. 
 
     > [!NOTE]
-    > - Exporting partner topics to an Azure Resource Manager template isn't supported because customers can't create a partner topic directly. 
-    > - Partner registrations are global resources (not tied to any specific region), so moving them from one region to another region isn't applicable. 
+    > - Exporting **partner topics** to an Azure Resource Manager template isn't supported because customers can't create a partner topic directly. 
+    > - **Partner registrations** are global resources (not tied to any specific region), so moving them from one region to another region isn't applicable. 
 
 ## Prerequisites
 - Ensure that the Event Grid service is available in the target region. See [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=event-grid&regions=all).
-- Ensure that the feature is supported in the target region.
 
 ## Prepare
 To get started, export a Resource Manager template for the partner namespace. 
@@ -82,12 +81,10 @@ To delete a partner namespace by using the Azure portal:
 3. **Confirm** the deletion to delete the partner namespace. 
 
 ## Next steps
-You learned how to move an Event Grid partner namespace from one region to another region. 
+You learned how to move an Event Grid partner namespace from one region to another region. See the following articles for moving system topics, custom topics, and domains across regions.
 
-To learn about moving system topics from one region to another, see [Move system topics across regions](move-system-topics-across-regions.md). 
-
-To learn about moving custom topics from one region to another, see [Move custom topics across regions](move-custom-topics-across-regions.md). 
-
-To learn about moving domains from one region to another, see [Move domains across regions](move-domains-across-regions.md). 
+- [Move system topics across regions](move-system-topics-across-regions.md). 
+- [Move custom topics across regions](move-custom-topics-across-regions.md). 
+- [Move domains across regions](move-domains-across-regions.md).
 
 To learn more about moving resources between regions and disaster recovery in Azure, see the following article: [Move resources to a new resource group or subscription](../azure-resource-manager/management/move-resource-group-and-subscription.md)

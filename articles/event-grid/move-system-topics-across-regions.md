@@ -3,7 +3,7 @@ title: Move Azure Event Grid system topics to another region
 description: This article shows you how to move Azure Event Grid system topics from one region to another region.  
 ms.topic: how-to
 ms.custom: subject-moving-resources
-ms.date: 08/27/2020
+ms.date: 08/28/2020
 #Customer intent: As an Azure service administrator, I want to be able to move an Azure event source and its associated system topic from one region to another region to have it closer to customers, to meet internal policy and governance requirements, or in response to capacity planning requirements. 
 ---
 
@@ -83,7 +83,7 @@ Deploy the template to create a storage account and a system topic for the stora
 8. On the **Custom deployment** page, follow these steps. 
     1. Select an Azure **subscription**. 
     1. Select an existing **resource group** in the target region or create one. 
-    1. For **location**, select the target region. If you selected an existing resource group, this setting is read-only.
+    1. For **Region**, select the target region. If you selected an existing resource group, this setting is read-only.
     1. For the **system topic name**, enter a name for the system topic that will be associated with the storage account.  
     1. For the **storage account name**, enter a name for the storage account to be created in the target region. 
 
@@ -113,7 +113,7 @@ To delete a resource group (source or target) by using the Azure portal:
 You learned how to move an Azure event source and its associated system topic from one region to another region. See the following articles for moving custom topics, domains, and partner namespaces across regions.
 
 - [Move custom topics across regions](move-custom-topics-across-regions.md). 
-- [Move domains across regions](move-system-topics-across-regions.md). 
+- [Move domains across regions](move-domains-across-regions.md). 
 - [Move partner namespaces across regions](move-partner-namespaces-across-regions.md). 
 
 To learn more about moving resources between regions and disaster recovery in Azure, see the following article: [Move resources to a new resource group or subscription](../azure-resource-manager/management/move-resource-group-and-subscription.md)
