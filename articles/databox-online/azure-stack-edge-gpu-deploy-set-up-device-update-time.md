@@ -63,8 +63,6 @@ Follow these steps to configure device related settings.
 
     4. When the device name and the DNS domain are changed, the SMB and NFS endpoints are created. 
 
-       <!--![Local web UI "Device" page](./media/azure-stack-edge-gpu-deploy-set-up-device-update-time/device-4.png)-->
-
     4. After the settings are applied, go back to **Get started**.
 
 ## Configure update

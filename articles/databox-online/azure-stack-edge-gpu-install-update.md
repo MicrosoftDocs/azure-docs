@@ -99,11 +99,7 @@ We recommend that you install updates through the Azure portal. The device autom
 
 7. After the restart, the device is again put in the maintenance mode and an informational alert is displayed to indicate that.
 
-    <!--![Software version after update](./media/azure-stack-edge-j-series-install-update/portal-update-12.png)-->
-
-    If you select the **Update device** from the top command bar, you can see the progress of the updates.
-    
-    <!--![Software version after update](./media/azure-stack-edge-j-series-install-update/portal-update-13.png)-->
+    If you select the **Update device** from the top command bar, you can see the progress of the updates.   
 
 8. The device status updates to **Online** after the updates are installed. 
 

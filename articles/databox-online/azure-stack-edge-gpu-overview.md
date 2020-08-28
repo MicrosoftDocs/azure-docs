@@ -7,11 +7,11 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 05/27/2020
+ms.date: 08/27/2020
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand what Azure Stack Edge is and how it works so I can use it to process and transform data before sending to Azure.
 ---
-# What is Azure Stack Edge?
+# What is Azure Stack Edge with GPU?
 
 Azure Stack Edge is an AI-enabled edge computing device with network data transfer capabilities. This article provides you an overview of the Azure Stack Edge solution, benefits, key capabilities, and the scenarios where you can deploy this device.
 
@@ -39,7 +39,7 @@ Azure Stack Edge has the following capabilities:
 
 |Capability |Description  |
 |---------|---------|
-|Accelerated AI inferencing| Enabled by the built-in GPU (one or two) or the FPGA depending on the model.|
+|Accelerated AI inferencing| Enabled by the built-in GPU (one or two) depending on the model.|
 |Edge computing      |Allows analysis, processing, filtering of data. Supports VMs and Kubernetes clusters.|
 |High performance | High performance compute and data transfers.|
 |Data access     | Direct data access from Azure Storage Blobs and Azure Files using cloud APIs for additional data processing in the cloud. Local cache on the device is used for fast access of most recently used files.|
@@ -75,6 +75,6 @@ Azure Stack Edge physical device, Azure resource, and target storage account to 
 
 ## Next steps
 
-- Review the [Azure Stack Edge system requirements](azure-stack-edge-system-requirements.md).
+- Review the [Azure Stack Edge system requirements](azure-stack-edge-gpu-system-requirements.md).
 - Understand the [Azure Stack Edge limits](azure-stack-edge-limits.md).
 - Deploy [Azure Stack Edge](azure-stack-edge-gpu-deploy-prep.md) in Azure portal.
