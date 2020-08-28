@@ -57,17 +57,8 @@ To create a workspace, you need an Azure subscription. If you don't have an Azur
  
  1. To view the new workspace, select **Go to resource**.
 
-### Download a configuration file
 
-1. If you will be creating a [compute instance](tutorial-1st-experiment-sdk-setup.md#azure), skip this step.
-
-1. If you plan to use code on your local environment that references this workspace, select  **Download config.json** from the **Overview** section of the workspace.  
-
-   ![Download config.json](./media/how-to-manage-workspace/configure.png)
-   
-   Place the file into  the directory structure with your Python scripts or Jupyter Notebooks. It can be in the same directory, a subdirectory named *.azureml*, or in a parent directory. When you create a compute instance, this file is added to the correct directory on the VM for you.
-
-## Networking
+### Networking
 
 > [!IMPORTANT]
 > For more information on using a private endpoint and virtual network with your workspace, see [Network isolation and privacy](how-to-enable-virtual-network.md).
@@ -95,7 +86,7 @@ To create a workspace, you need an Azure subscription. If you don't have an Azur
     >
     > For more information, see [Azure Private Endpoint DNS configuration](/azure/private-link/private-endpoint-dns).
 
-## Advanced
+### Advanced
 
 By default, metrics and metadata for the workspace is stored in an Azure Cosmos DB instance that Microsoft maintains. This data is encrypted using Microsoft-managed keys. 
 
@@ -143,7 +134,17 @@ You can upgrade your workspace from Basic edition to Enterprise edition to take 
 
 
 > [!IMPORTANT]
-> You cannot downgrade an Enterprise edition workspace to a Basic edition workspace. 
+> You cannot downgrade an Enterprise edition workspace to a Basic edition workspace.
+
+### Download a configuration file
+
+1. If you will be creating a [compute instance](tutorial-1st-experiment-sdk-setup.md#azure), skip this step.
+
+1. If you plan to use code on your local environment that references this workspace, select  **Download config.json** from the **Overview** section of the workspace.  
+
+   ![Download config.json](./media/how-to-manage-workspace/configure.png)
+   
+   Place the file into  the directory structure with your Python scripts or Jupyter Notebooks. It can be in the same directory, a subdirectory named *.azureml*, or in a parent directory. When you create a compute instance, this file is added to the correct directory on the VM for you.
 
 ## <a name="view"></a>Find a workspace
 
