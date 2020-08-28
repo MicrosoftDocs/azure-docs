@@ -28,6 +28,8 @@ The following diagram shows how object replication replicates block blobs from a
 
 To learn how to configure object replication, see [Configure object replication (preview)](object-replication-configure.md).
 
+[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
+
 ## Object replication policies and rules
 
 When you configure object replication, you create a replication policy that specifies the source storage account and the destination account. A replication policy includes one or more rules that specify a source container and a destination container and indicate which block blobs in the source container will be replicated.
