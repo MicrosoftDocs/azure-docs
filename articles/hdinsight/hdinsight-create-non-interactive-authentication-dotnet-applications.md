@@ -6,8 +6,9 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive
+ms.custom: "hdinsightactive, devx-track-csharp"
 ms.date: 12/23/2019
+
 ---
 
 # Create a non-interactive authentication .NET HDInsight application
