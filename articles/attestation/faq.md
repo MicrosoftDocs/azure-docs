@@ -21,28 +21,29 @@ If your Azure issue is not addressed in this article, you can also submit an Azu
 
 Azure PCK caching service defines the Azure security baseline for the [Azure Confidential computing (ACC)](../confidential-computing/overview.md) nodes from Intel and caches the data. The cached information will be further used by Azure Attestation in validating Trusted Execution Environments (TEEs).  
 
-Azure PCK caching service provides the following benefits: 
-   - The service offers Service Level Agreement (SLA)  
-   - Reduces the dependencies on externally hosted services and internet connectivity 
-   - Always ensures to fetch the latest versions of Intel certificates, CRLs, Trusted Computing Base (TCB) information and Quoting Enclave identity of the ACC nodes from Intel. The service hence confirms the Azure security baseline to be referred by Azure Attestation while validating the TEEs. This greatly reduces the instances of attestation failures which may arise due to invalidation/ revocation of Intel certificates  
+Azure PCK caching service:
+   - Provides a Service Level Agreement (SLA)  
+   - Reduces dependencies on externally hosted services and internet connectivity.
+   - Fetches the latest versions of Intel certificates, CRLs, Trusted Computing Base (TCB) information and Quoting Enclave identity of the ACC nodes from Intel. The service hence confirms the Azure security baseline to be referred by Azure Attestation while validating the TEEs, greatly reducing attestation failures due to invalidation or revocation of Intel certificates  
 
-## Is SGX attestation supported by Azure Attestation in non Azure environments
+## Is SGX attestation supported by Azure Attestation in non-Azure environments
 
 Azure Attestation depends on the security baseline stated by Azure PCK caching service to validate the TEEs. Azure PCK caching service is currently designed to support only Azure Confidential computing nodes. 
 
 ## What validations does Azure Attestation perform for attesting SGX enclaves
 
-Azure Attestation is a unified framework for remotely attesting different types of TEEs. In this process, Azure Attestation performs the following validations: 
-   - Validates if trusted root of signed enclave quote belongs to Intel 
-   - Validates if the enclave quote meets the Azure security baseline as defined by Azure PCK caching service 
-   - Validates if SHA256 hash of Enclave Held Data (EHD) in the attestation request object matches the first 32 bytes of reportData field in the enclave quote
-   - Azure Attestation allows customers to create an attestation provider and configure a custom policy. In addition to the above validations, Azure Attestation evaluates the enclave quote against the policy. Policies define authorization rules for the enclave and also dictate issuance rules for generating the attestation token. To confirm if intended software is running in an enclave, customers can add authorization rules to verify if **mrsigner** and **mrenclave** fields in the enclave quote matches the values of customer binaries.
+Azure Attestation is a unified framework for remotely attesting different types of TEEs. Azure Attestation:
+
+   - Validates if the trusted root of a signed enclave quote belongs to Intel.
+   - Validates if the enclave quote meets the Azure security baseline as defined by Azure PCK caching service.
+   - Validates if the SHA256 hash of Enclave Held Data (EHD) in the attestation request object matches the first 32 bytes of reportData field in the enclave quote.
+   - Allows customers to create an attestation provider and configure a custom policy. In addition to the above validations, Azure Attestation evaluates the enclave quote against the policy. Policies define authorization rules for the enclave and also dictate issuance rules for generating the attestation token. To confirm if intended software is running in an enclave, customers can add authorization rules to verify if **mrsigner** and **mrenclave** fields in the enclave quote matches the values of customer binaries.
 
 ## How can a verifier obtain the collateral for SGX attestation supported by Azure Attestation
 
 In general, for the attestation models with Intel as the root of trust, attestation client talks to enclave APIs to fetch the enclave evidence. Enclave APIs internally call Intel PCK caching service to fetch Intel certificates of the node to be attested. The certificates are used to sign the enclave evidence thereby generating a remotely attestable collateral.  
 
-The same process can be implemented for Azure Attestation. However to leverage the benefits offered by Azure PCK caching service,  after installing ACC virtual machine, it is recommended to install [Azure DCAP library](https://www.nuget.org/packages/Microsoft.Azure.DCAP). Based on the agreement with Intel, when Azure DCAP library is installed, the requests for generating enclave evidence are redirected from Intel PCK caching service to Azure PCK caching service. Azure DCAP library is supported in Windows and Linux based environments.
+The same process can be implemented for Azure Attestation. However to leverage the benefits offered by Azure PCK caching service,  after installing ACC virtual machine, it is recommended to install [Azure DCAP library](https://www.nuget.org/packages/Microsoft.Azure.DCAP). Based on the agreement with Intel, when Azure DCAP library is installed, the requests for generating enclave evidence are redirected from Intel PCK caching service to Azure PCK caching service. Azure DCAP library is supported in Windows and Linux-based environments.
 
 ## How to shift to Azure Attestation from other attestation models
 
@@ -57,7 +58,7 @@ Attestation token generated by Azure Attestation is signed using a self-signed c
 
 ## How to identify the certificate to be used for signature verification from the OpenID metadata endpoint
 
-Multiple certificates exposed in the OpenID metadata endpoint corresponds to different use cases (e.g. SGX attestation) supported by Azure Attestation. As per the standards specified by [RFC 7515](https://tools.ietf.org/html/rfc7515), the certificate with key ID (kid) matching the *kid* parameter in the attestation token header is to be used for signature verification. If no matching **kid** is found, then it is expected to try all the certificates exposed by OpenID metadata endpoint.
+Multiple certificates exposed in the OpenID metadata endpoint correspond to different use cases (e.g. SGX attestation) supported by Azure Attestation. As per the standards specified by [RFC 7515](https://tools.ietf.org/html/rfc7515), the certificate with key ID (kid) matching the *kid* parameter in the attestation token header is to be used for signature verification. If no matching **kid** is found, then it is expected to try all the certificates exposed by OpenID metadata endpoint.
 
 ## Is it possible for the relying party to share secrets with the validated Trusted Execution Environments (TEEs)
 
