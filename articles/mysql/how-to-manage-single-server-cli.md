@@ -29,8 +29,6 @@ az account set --subscription <subscription id>
 
 If you have not already created a sever , refer to this [quickstart](quickstart-create-mysql-server-database-using-azure-cli.md) to create one.
 
-[!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
-
 ## Scale compute and storage
 You can scale up your pricing tier , compute and storage easily using the following command. You can see all the server operation you can perform [az mysql server overview](/cli/azure/mysql/server?view=azure-cli-latest)
 
