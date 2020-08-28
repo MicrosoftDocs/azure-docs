@@ -1,6 +1,6 @@
 ---
-title: How to plan a SaaS offer for Microsoft commercial marketplace  
-description: How to plan for a new software as a service (SaaS) offer for listing or selling in Microsoft AppSource, Azure Marketplace, or through the Cloud Solution Provider (CSP) program using the Microsoft commercial marketplace program in Microsoft Partner Center. 
+title: How to plan a SaaS offer for the Microsoft commercial marketplace  
+description: How to plan for a new software as a service (SaaS) offer for listing or selling in Microsoft AppSource, Azure Marketplace, or through the Cloud Solution Provider (CSP) program using the commercial marketplace program in Microsoft Partner Center. 
 author: mingshen-ms 
 ms.author: mingshen
 ms.reviewer: dannyevers
@@ -149,17 +149,12 @@ To help create your offer more easily, prepare some of these items ahead of time
 
 - **Name**: This name will appear as the title of your offer listing in the commercial marketplace. The name may be trademarked. It cannot contain emojis (unless they are the trademark and copyright symbols) and must be limited to 50 characters.
 - **Search results summary**: Describe the purpose or function of your offer as a single sentence with no line breaks in 100 characters or less. This summary is used in the commercial marketplace listing(s) search results.
-- **Description**: This description will be displayed in the commercial marketplace listing(s) overview. Consider including a value proposition, key benefits, intended user base, any category or industry associations, in-app purchase opportunities, any required disclosures, and a link to learn more. You can enter up to 3,000 characters of text in this box, including HTML markup. For additional tips, see [Write a great app description](https://docs.microsoft.com/windows/uwp/publish/write-a-great-app-description).
-
-  > [!NOTE]
-  > This text box has rich text editor controls that you can use to make your description more engaging. You can also use HTML tags to format your description. Most tags require both opening and closing tags. For information about HTML formatting, see [Supported HTML tags for offer descriptions](supported-html-tags.md).
+- **Description**: This description will be displayed in the commercial marketplace listing(s) overview. Consider including a value proposition, key benefits, intended user base, any category or industry associations, in-app purchase opportunities, any required disclosures, and a link to learn more.
+    
+    This text box has rich text editor controls that you can use to make your description more engaging. You can also use HTML tags to format your description. You can enter up to 3,000 characters of text in this box, including HTML markup. For additional tips, see [Write a great app description](https://docs.microsoft.com/windows/uwp/publish/write-a-great-app-description).
 
 - **Getting Started Instructions**: If you choose to sell your offer through Microsoft (transactable offer), this field is required. These are instructions to help customers connect to your SaaS offer. You can add up to 3,000 characters of text and links to more detailed online documentation.
-- **Search keywords** (optional): Provide up to three search keywords that customers can use to find your offer in the marketplace(s).
-
-  > [!TIP]
-  > The text you enter in the **Name** and **Description** boxes are automatically included in search.
-
+- **Search keywords** (optional): Provide up to three search keywords that customers can use to find your offer in the marketplace(s). You don't need to include the offer **Name** and **Description**: that text is automatically included in search.
 - **Privacy policy link**: The URL for your company’s privacy policy. You must provide a valid privacy policy and are responsible for ensuring your app complies with privacy laws and regulations.
 - **Contact information**: You must designate the following contacts from your organization:
   - **Support contact**: Provide the name, phone, and email for Microsoft partners to use when your customers open tickets. You must also include the URL for your support website.
@@ -188,14 +183,14 @@ To help create your offer more easily, prepare some of these items ahead of time
   - URL: Must be hosted on YouTube or Vimeo only.
   - Thumbnail: 1280 x 720 .png file
 
-> [!TIP]
-> To publish your offer to the commercial marketplace, your offer must meet the general [commercial marketplace certification policies](https://docs.microsoft.com/legal/marketplace/certification-policies#100-general) and the [software as a service policies](https://docs.microsoft.com/legal/marketplace/certification-policies#1000-software-as-a-service-saas).
+> [!Note]
+> Your offer must meet the general [commercial marketplace certification policies](https://docs.microsoft.com/legal/marketplace/certification-policies#100-general) and the [software as a service policies](https://docs.microsoft.com/legal/marketplace/certification-policies#1000-software-as-a-service-saas) to be published to the commercial marketplace.
 
 ## Preview audience
 A preview audience can access your offer prior to being published live in the online stores in order to test the end-to-end functionality before you publish it live. On the **Preview audience** page, you can define a limited preview audience. This setting is not available if you choose to process transactions independently instead of selling your offer through Microsoft. If so, you can skip this section and go to [Additional sales opportunities](#additional-sales-opportunities).
 
 > [!NOTE]
-> The preview audience differs from a private plan. A private plan is one you make available only to a specific audience you choose. This enables you to negotiate a custom plan with specific customers. For more details, see the next section: Plans.
+> A preview audience differs from a private plan. A private plan is one you make available only to a specific audience you choose. This enables you to negotiate a custom plan with specific customers. For more details, see the next section: Plans.
 
 You can send invites to Microsoft Account (MSA) or Azure Active Directory (Azure AD) email addresses. Add up to 10 email addresses manually or import up to 20 with a .csv file. If your offer is already live, you can still define a preview audience for testing any changes or updates to your offer.
 
@@ -214,7 +209,7 @@ SaaS offers can use one of two pricing models with each plan: either _flat rate_
 **Per user** – Enable access to your offer with a price based on the number of users who can access the offer or occupy seats. With this user-based model, you can set the minimum and maximum number of users supported by the plan. You can create multiple plans to configure different price points based on the number of users. These fields are optional. If left unselected, the number of users will be interpreted as not having a limit (min of 1 and max of as many as your service can support). These fields may be edited as part of an update to your plan.
 
 > [!IMPORTANT]
-> After your offer is published, the pricing model choice cannot be changed. In addition, all plans for the same offer must share the same pricing model.
+> After your offer is published, you cannot change the pricing model. In addition, all plans for the same offer must share the same pricing model.
 
 ### SaaS billing
 

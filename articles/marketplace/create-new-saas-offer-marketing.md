@@ -1,6 +1,6 @@
 ---
-title: How to market your SaaS offer in Partner Center
-description: Learn about the co-sell with Microsoft and resell through CSP options for your software as a service (SaaS) offer in the Microsoft commercial marketplace.
+title: How to market your SaaS offer in Microsoft Partner Center
+description: Learn about the co-sell with Microsoft and resell through Cloud Solution Providers (CSP) program options for your software as a service (SaaS) offer in the Microsoft commercial marketplace.
 author: mingshen-ms
 ms.author: mingshen
 ms.reviewer: dannyevers
@@ -12,7 +12,7 @@ ms.date: 08/31/2020
 
 # How to market your SaaS offer
 
-This article describes additional marketing options you can choose, if you’re selling your software as a service (SaaS) offer through Microsoft. You can co-sell your offer with Microsoft, resell it through Cloud Solution Providers (CSPs), or both.
+This article describes additional marketing options you can choose if you’re selling your software as a service (SaaS) offer through Microsoft. You can co-sell your offer with Microsoft, resell it through Cloud Solution Providers (CSPs), or both.
 
 ## Co-sell with Microsoft
 
@@ -26,4 +26,4 @@ Electing to make your offer available in the Cloud Solution Provider (CSP) progr
 
 ## Next steps
 
-After you finish creating your offer, the next step is to review and publish it. For help reviewing and publishing your offer, see [Review and publish an offer](review-publish-offer.md).
+After you finish creating your offer, continue to [Review and publish an offer](review-publish-offer.md).
