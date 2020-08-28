@@ -100,7 +100,7 @@ To create datasets from an [Azure datastore](how-to-access-data.md) with the Pyt
 
 2. Create the dataset by referencing paths in the datastore. You can create a dataset from multiple paths in multiple datastores. There is no hard limit on the number of files or data size that you can create a dataset from. 
 
-> [!Note]
+> [!NOTE]
 > For each data path, a few requests will be sent to the storage service to check whether it points to a file or a folder. This overhead may lead to degraded performance or failure. A dataset referencing one folder with 1000 files inside is considered referencing one data path. We recommend creating dataset referencing less than 100 paths in datastores for optimal performance.
 
 ### Create a FileDataset
@@ -121,6 +121,9 @@ mnist_ds = Dataset.File.from_files(path=web_paths)
 ```
 To reuse and share datasets across experiment in your workspace, [register your dataset](#register-datasets). 
 
+>[!TIP] Upload files from a local directory and create a FileDataset in a single method with the public preview method, [upload_directory()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.filedataset?view=azure-ml-py#methods). This method is an [experimental](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py#stable-vs-experimental) preview feature, and may change at any time. 
+> 
+>  This method uploads data to your underlying storage, and as a result incur storage costs. 
 ### Create a TabularDataset
 
 Use the [`from_delimited_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory) method on the `TabularDatasetFactory` class to read files in .csv or .tsv format, and to create an unregistered TabularDataset. If you're reading from multiple files, results will be aggregated into one tabular representation. 
@@ -182,7 +185,8 @@ To create a TabularDataset from an in memory pandas dataframe, write the data to
 from azureml.core import Workspace, Dataset
 local_path = 'data/prepared.csv'
 dataframe.to_csv(local_path)
-upload the local file to a datastore on the cloud
+
+# upload the local file to a datastore on the cloud
 
 subscription_id = 'xxxxxxxxxxxxxxxxxxxxx'
 resource_group = 'xxxxxx'
@@ -200,61 +204,9 @@ datastore.upload(src_dir='data', target_path='data')
 dataset = Dataset.Tabular.from_delimited_files(datastore.path('data/prepared.csv'))
 ```
 
-When you create a dataset with register, you create and register a Tabular dataset with your default datastore of the workspace. 
-
-Create a dataset from spark dataframe. Currently, register_spark_dataframe only support blob storage, ADLS gen1 and gen2, file share is not supported.
-    you can use spark dataframe create by yourself or use the below sample code to retrieve existing spark dataframe from dataset.
-
-upload a spark dataframe and register as a dataset with register_spark_dataframe()
-
-```python
-  register_spark_dataframe(dataframe, target, name, show_progress=True),
-```
-dataframe: In memory dataframe to be uploaded.
-    type dataframe: pyspark.sql.DataFrame,
-   target: The datastore path where the dataframe parquet data will be uploaded to.
- A guid folder will be generated under the target path to avoid conflict.
-
-    
-```python
-    dstore = workspace.get_default_datastore()
-    datastore_path = [(dstore, 'weather-data-florida/*/*/data.parquet')]
-    dataset = Dataset.Tabular.from_parquet_files(path=datastore_path)
-    spark_df = dataset.to_spark_dataframe()
-
-    # dataset=Dataset.Tabular.register_spark_dataframe(<spark dataframe>, <datastore>, <name of regisitered dataset>, show_progress=True),
-    
-    dataset=Dataset.Tabular.register_spark_dataframe(spark_df, blob_datastore, "new_ds_from_spark", show_progress=True)
-```
-
-
-Create and register a dataset from an in memory pandas dataframe and upload it to your Azure Datalake datastore or zure blob file share. all In one method returns a tabular dataset. 
-
-Datastore type can only be azure data lake store or azure storage store.
-        dataframe is the In memory dataframe you wante to turn into a dataset register nd upload to your selected datastore
-target is The datastore path where the dataframe parquet data will be uploaded to
- name is The name of the registered dataset.
-
-   
-```python
-    ## upload a pandas dataframe and register as a dataset with register_pandas_dataframe()
-    register_pandas_dataframe(dataframe, target, name, show_progress=True),
-```
-       
-you can use spark dataframe create by yourself or use the below sample code to retrieve existing spark dataframe from dataset. 
-    
-
-    ```python
-    dstore = workspace.get_default_datastore()
-    datastore_path = [(dstore, 'weather-data-florida/*/*/data.parquet')]
-    dataset = Dataset.Tabular.from_parquet_files(path=datastore_path)
-    pandas_df = dataset.to_pandas_dataframe(),
-   
- 
-    # dataset=Dataset.Tabular.register_pandas_dataframe(<pandas dataframe>, <datastore>, "name of registered dataset", show_progress=True),
-   
-    dataset=Dataset.Tabular.register_pandas_dataframe(pandas_df, blob_datastore, new_ds_from_pandas", show_progress=True)
-    ```
+>[!TIP]  Create and register a TabularDataset from an in memory spark or pandas dataframe with a single method with public preview methods, [`register_spark_dataframe()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#methods) and [`register_pandas_dataframe()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#methods). These register methods are [experimental](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py#stable-vs-experimental) preview features, and may change at any time. 
+> 
+>  These methods upload data to your underlying storage, and as a result incur storage costs. 
 
 ## Register datasets
 
