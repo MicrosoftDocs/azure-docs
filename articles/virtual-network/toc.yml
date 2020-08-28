@@ -97,7 +97,11 @@
   - name: Security
     items:
     - name: Network security groups
-      href: security-overview.md
+      items:
+      - name: Overview
+        href: security-overview.md
+      - name: How it works
+        href: network-security-group-how-it-works.md
     - name: Application security groups
       href: application-security-groups.md
     - name: Service tags 

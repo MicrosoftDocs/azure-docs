@@ -474,7 +474,7 @@
         href: cloudinit-bash-script.md
       - name: Prepare existing VM for cloud-init
         href: cloudinit-prepare-custom-image.md
-    - name: Create images without an
+    - name: Create images without a provisioning agent
       href: no-agent.md
     - name: Disable Linux Agent provisioning
       href: disable-provisioning.md
