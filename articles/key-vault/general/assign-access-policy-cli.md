@@ -63,7 +63,7 @@ Determine the object ID of the application, group, or user to which you want to 
     
 Use the [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) command to assign the desired permissions:
 
-```azurecli
+```azurecli-interactive
 az keyvault set-policy --name myKeyVault --object-id <object-id> --secret-permissions <secret-permissions> --key-permissions <key-permissions> --certificate-permissions <certificate-permissions>
 ```
 

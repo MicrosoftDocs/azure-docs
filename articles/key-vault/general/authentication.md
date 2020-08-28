@@ -118,6 +118,6 @@ The following table links to different articles that demonstrate how to work wit
 ## Next Steps
 
 - [Key Vault access policy troubleshooting](troubleshooting-access-issues.md)
-- [Key Vault REST API error codes])(rest-error-codes.md)
+- [Key Vault REST API error codes](rest-error-codes.md)
 - [Key Vault developer's guide](developers-guide.md)
 - [What is Azure Role-Based Access Control (RBAC)?](/azure/role-based-access-control/overview)
