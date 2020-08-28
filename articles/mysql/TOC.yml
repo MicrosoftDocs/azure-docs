@@ -395,7 +395,6 @@
     - name: What is Flexible Server?
       href: flexible-server/overview.md
   - name: Quickstarts
-    items:
     expanded: true
     items:
       - name: Create Server
