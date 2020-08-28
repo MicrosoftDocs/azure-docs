@@ -91,7 +91,7 @@ New-AzManagementGroup -GroupName 'ContosoSubGroup' -ParentId $parentGroup.id
 ### Create in Azure CLI
 
 For Azure CLI, use the
-[az account management-group create](/cli/azure/account/management-group?view=azure-cli-latest#az-account-management-group-create)
+[az account management-group create](/cli/azure/account/management-group#az-account-management-group-create)
 command to create a new management group.
 
 ```azurecli-interactive

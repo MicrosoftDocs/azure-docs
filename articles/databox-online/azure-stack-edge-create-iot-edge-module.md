@@ -9,6 +9,7 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/06/2019
 ms.author: alkohli
+ms.custom: devx-track-csharp
 ---
 
 # Develop a C# IoT Edge module to move files on Azure Stack Edge

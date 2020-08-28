@@ -1,6 +1,6 @@
 ---
 title: 'About Azure VPN Gateway'
-description: Learn what a VPN Gateway is, and how to use a VPN Gateway to connect to IPsec IKE Site-to-Site, VNet-to-Vnet, and Point-to-Site VPN virtual networks.
+description: Learn what a VPN Gateway is, and how to use a VPN Gateway to connect to IPsec IKE Site-to-Site, VNet-to-VNet, and Point-to-Site VPN virtual networks.
 services: vpn-gateway
 author: cherylmc
 Customer intent: As someone with a basic network background, but is new to Azure, I want to understand the capabilities of Azure VPN Gateway so that I can securely connect to my Azure virtual networks.
@@ -28,9 +28,15 @@ Creating a virtual network gateway can take up to 45 minutes to complete. When y
 
 A VPN gateway connection relies on multiple resources that are configured with specific settings. Most of the resources can be configured separately, although some resources must be configured in a certain order.
 
-### <a name="diagrams"></a>Design: Connection topology diagrams
+### <a name="diagrams"></a>Design
 
-It's important to know that there are different configurations available for VPN gateway connections. You need to determine which configuration best fits your needs. For example, Point-to-Site, Site-to-Site, and coexisting ExpressRoute/Site-to-Site connections all have different instructions and configuration requirements. For information about design and connection topology diagrams, see [Design](design.md).
+It's important to know that there are different configurations available for VPN gateway connections. You need to determine which configuration best fits your needs. For example, Point-to-Site, Site-to-Site, and coexisting ExpressRoute/Site-to-Site connections all have different instructions and configuration requirements. For information about design and to view connection topology diagrams, see [Design](design.md).
+
+### <a name="planningtable"></a>Planning table
+
+The following table can help you decide the best connectivity option for your solution.
+
+[!INCLUDE [cross-premises](../../includes/vpn-gateway-cross-premises-include.md)]
 
 ### <a name="settings"></a>Settings
 
@@ -39,12 +45,6 @@ The settings that you chose for each resource are critical to creating a success
 ### <a name="tools"></a>Deployment tools
 
 You can start out creating and configuring resources using one configuration tool, such as the Azure portal. You can later decide to switch to another tool, such as PowerShell, to configure additional resources, or modify existing resources when applicable. Currently, you can't configure every resource and resource setting in the Azure portal. The instructions in the articles for each connection topology specify when a specific configuration tool is needed.
-
-### <a name="planningtable"></a>Planning table
-
-The following table can help you decide the best connectivity option for your solution.
-
-[!INCLUDE [cross-premises](../../includes/vpn-gateway-cross-premises-include.md)]
 
 ## <a name="gwsku"></a>Gateway SKUs
 
