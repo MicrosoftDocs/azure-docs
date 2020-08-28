@@ -185,7 +185,7 @@ validate=False)
 
 ```
 
-## Secure Azure Key Vault 
+## Secure Azure Key Vault
 
 Azure Machine Learning uses an associated Key Vault instance to store the following credentials:
 * The associated storage account connection string
@@ -195,8 +195,6 @@ Azure Machine Learning uses an associated Key Vault instance to store the follow
 To use Azure Machine Learning experimentation capabilities with Azure Key Vault behind a virtual network, use the following steps:
 
 1. Go to the Key Vault that's associated with the workspace.
-
-   [![The key vault that's associated with the Azure Machine Learning workspace](./media/how-to-enable-virtual-network/workspace-key-vault.png)](./media/how-to-enable-virtual-network/workspace-key-vault.png#lightbox)
 
 1. On the __Key Vault__ page, in the left pane, select __Firewalls and virtual networks__.
 
@@ -208,8 +206,6 @@ To use Azure Machine Learning experimentation capabilities with Azure Key Vault 
     - Under __Allow trusted Microsoft services to bypass this firewall__, select __Yes__.
 
    [![The "Firewalls and virtual networks" section in the Key Vault pane](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks-page.png)](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks-page.png#lightbox)
-
-
 
 ## Enable Azure Container Registry (ACR)
 

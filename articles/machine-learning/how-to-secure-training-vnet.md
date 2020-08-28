@@ -1,7 +1,7 @@
 ---
 title: Secure training environments with virtual networks
 titleSuffix: Azure Machine Learning
-description:  Use an isolated Azure Virtual Network to secure your Azure Machine Learning training environment.
+description: Use an isolated Azure Virtual Network to secure your Azure Machine Learning training environment. 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -86,7 +86,7 @@ The NSG rule configuration in the Azure portal is shown in the following images:
 
 
 
-![The outbound NSG rules for Machine Learning Compute](./media/how-to-enable-virtual-network/experimentation-virtual-network-outbound.png)
+![Inbound NSG rules for Machine Learning Compute](./media/how-to-enable-virtual-network/experimentation-virtual-network-outbound.png)
 
 ### <a id="limiting-outbound-from-vnet"></a> Limit outbound connectivity from the virtual network
 
