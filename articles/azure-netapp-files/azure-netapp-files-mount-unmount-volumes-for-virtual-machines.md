@@ -23,8 +23,8 @@ You can mount or unmount a volume for Windows or Linux virtual machines as neces
     ![Mount instructions SMB](../media/azure-netapp-files/azure-netapp-files-mount-instructions-smb.png)  
     * If you are mounting an NFS volume, ensure that you use the `vers` option in the `mount` command to specify the NFS protocol version that corresponds to the volume you want to mount. 
     * If you are using NFSv4.1, use the following command to mount your file system:  `sudo mount -t nfs -o rw,hard,rsize=65536,wsize=65536,vers=4.1,tcp,sec=sys $MOUNTTARGETIPADDRESS:/$VOLUMENAME $MOUNTPOINT`  
-    > [!NOTE]
-    > If you use NFSv4.1, ensure that all VMs mounting the export use unique hostnames.
+        > [!NOTE]
+        > If you use NFSv4.1, ensure that all VMs mounting the export use unique hostnames.
 
 3. If you want to have an NFS volume automatically mounted when an Azure VM is started or rebooted, add an entry to the `/etc/fstab` file on the host. 
 
