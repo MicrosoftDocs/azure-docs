@@ -121,7 +121,8 @@ mnist_ds = Dataset.File.from_files(path=web_paths)
 ```
 To reuse and share datasets across experiment in your workspace, [register your dataset](#register-datasets). 
 
->[!TIP] Upload files from a local directory and create a FileDataset in a single method with the public preview method, [upload_directory()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.filedataset?view=azure-ml-py#methods). This method is an [experimental](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py#stable-vs-experimental) preview feature, and may change at any time. 
+> [!TIP] 
+> Upload files from a local directory and create a FileDataset in a single method with the public preview method, [upload_directory()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.filedataset?view=azure-ml-py#methods). This method is an [experimental](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py#stable-vs-experimental) preview feature, and may change at any time. 
 > 
 >  This method uploads data to your underlying storage, and as a result incur storage costs. 
 ### Create a TabularDataset
@@ -204,7 +205,8 @@ datastore.upload(src_dir='data', target_path='data')
 dataset = Dataset.Tabular.from_delimited_files(datastore.path('data/prepared.csv'))
 ```
 
->[!TIP]  Create and register a TabularDataset from an in memory spark or pandas dataframe with a single method with public preview methods, [`register_spark_dataframe()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#methods) and [`register_pandas_dataframe()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#methods). These register methods are [experimental](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py#stable-vs-experimental) preview features, and may change at any time. 
+> [!TIP]
+> Create and register a TabularDataset from an in memory spark or pandas dataframe with a single method with public preview methods, [`register_spark_dataframe()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#methods) and [`register_pandas_dataframe()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#methods). These register methods are [experimental](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py#stable-vs-experimental) preview features, and may change at any time. 
 > 
 >  These methods upload data to your underlying storage, and as a result incur storage costs. 
 
