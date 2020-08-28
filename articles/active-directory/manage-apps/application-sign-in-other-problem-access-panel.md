@@ -15,9 +15,9 @@ ms.reviewer: japere
 
 # Troubleshoot problems signing in to an application from Azure AD My Apps
 
-The Access Panel is a web-based portal which enables a user with a work or school account in Azure Active Directory (Azure AD) to view and start cloud-based applications that the Azure AD administrator has granted them access to. 
+My Apps is a web-based portal that enables a user with a work or school account in Azure Active Directory (Azure AD) to view and start cloud-based applications that the Azure AD administrator has granted them access to. 
 
-These applications are configured on behalf of the user in the Azure AD portal. The application must be configured properly and assigned to the user or a group the user is a member of to see the application in the Access Panel.
+These applications are configured on behalf of the user in the Azure AD portal. The application must be configured properly and assigned to the user or a group the user is a member of to see the application in My Apps.
 
 The type of apps a user may be seeing fall in the following categories:
 -   Office 365 Applications
@@ -27,7 +27,7 @@ The type of apps a user may be seeing fall in the following categories:
 
 ## General issues to check first
 
--   Make sure the web browser meets the requirements for My Apps, see [My Apps supported browsers](../user-help/my-apps-portal-end-user-access.md).
+-   Make sure the web browser meets the requirements, see [My Apps supported browsers](../user-help/my-apps-portal-end-user-access.md).
 -   Make sure the user’s browser has added the URL of the application to its **trusted sites**.
 -   Make sure to check the application is **configured** correctly.
 -   Make sure the user’s account is **enabled** for sign-ins.
@@ -39,7 +39,7 @@ The type of apps a user may be seeing fall in the following categories:
 -   Make sure to also try clearing your browser’s cookies and trying to sign in again.
 
 ## Problems with the user’s account
-Access to the Access Panel can be blocked due to a problem with the user’s account. Following are some ways you can troubleshoot and solve problems with users and their account settings:
+Access to My Apps can be blocked due to a problem with the user’s account. Following are some ways you can troubleshoot and solve problems with users and their account settings:
 -   [Check if a user account exists in Azure Active Directory](#check-if-a-user-account-exists-in-azure-active-directory)
 -   [Check a user’s account status](#check-a-users-account-status)
 -   [Reset a user’s password](#reset-a-users-password)
@@ -53,34 +53,34 @@ Access to the Access Panel can be blocked due to a problem with the user’s acc
 ### Check if a user account exists in Azure Active Directory
 To check if a user’s account is present, follow these steps:
 1.  Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
-2.  Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
+2.  Open the **Azure Active Directory Extension** by selecting **All services** at the top of the main left-hand navigation menu.
 3.  Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
-4.  click **Users and groups** in the navigation menu.
-5.  click **All users**.
-6.  **Search** for the user you are interested in and **click the row** to select.
+4.  Select **Users and groups** in the navigation menu.
+5.  Select **All users**.
+6.  **Search** for the user you are interested in and **select the row** to select.
 7.  Check the properties of the user object to be sure that they look as you expect and no data is missing.
 
 ### Check a user’s account status
 To check a user’s account status, follow these steps:
 1.  Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
-2.  Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
+2.  Open the **Azure Active Directory Extension** by selecting **All services** at the top of the main left-hand navigation menu.
 3.  Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
-4.  click **Users and groups** in the navigation menu.
-5.  click **All users**.
-6.  **Search** for the user you are interested in and **click the row** to select.
-7.  click **Profile**.
+4.  Select **Users and groups** in the navigation menu.
+5.  Select **All users**.
+6.  **Search** for the user you are interested in and **select the row** to select.
+7.  Select **Profile**.
 8.  Under **Settings** ensure that **Block sign in** is set to **No**.
 
 ### Reset a user’s password
 To reset a user’s password, follow these steps:
 1.  Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
-2.  Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
+2.  Open the **Azure Active Directory Extension** by selecting **All services** at the top of the main left-hand navigation menu.
 3.  Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
-4.  click **Users and groups** in the navigation menu.
-5.  click **All users**.
-6.  **Search** for the user you are interested in and **click the row** to select.
-7.  click the **Reset password** button at the top of the user pane.
-8.  click the **Reset password** button on the **Reset password** pane that appears.
+4.  Select **Users and groups** in the navigation menu.
+5.  Select **All users**.
+6.  **Search** for the user you are interested in and **select the row** to select.
+7.  Select the **Reset password** button at the top of the user pane.
+8.  Select the **Reset password** button on the **Reset password** pane that appears.
 9.  Copy the **temporary password** or **enter a new password** for the user.
 10. Communicate this new password to the user, they be required to change this password during their next sign-in to Azure Active Directory.
 
@@ -92,11 +92,11 @@ To enable self-service password reset, follow these deployment steps:
 ### Check a user’s multi-factor authentication status
 To check a user’s multi-factor authentication status, follow these steps:
 1. Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
-2. Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
+2. Open the **Azure Active Directory Extension** by selecting **All services** at the top of the main left-hand navigation menu.
 3. Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
-4. click **Users and groups** in the navigation menu.
-5. click **All users**.
-6. click the **Multi-Factor Authentication** button at the top of the pane.
+4. Select **Users and groups** in the navigation menu.
+5. Select **All users**.
+6. Select the **Multi-Factor Authentication** button at the top of the pane.
 7. Once the **Multi-Factor Authentication Administration Portal** loads, ensure you are on the **Users** tab.
 8. Find the user in the list of users by searching, filtering, or sorting.
 9. Select the user from the list of users and **Enable**, **Disable**, or **Enforce** multi-factor authentication as desired.
@@ -106,71 +106,71 @@ To check a user’s multi-factor authentication status, follow these steps:
 ### Check a user’s authentication contact info
 To check a user’s authentication contact info used for Multi-factor authentication, Conditional Access, Identity Protection, and Password Reset, follow these steps:
 1.  Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
-2.  Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
+2.  Open the **Azure Active Directory Extension** by selecting **All services** at the top of the main left-hand navigation menu.
 3.  Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
-4.  click **Users and groups** in the navigation menu.
-5.  click **All users**.
-6.  **Search** for the user you are interested in and **click the row** to select.
-7.  click **Profile**.
+4.  Select **Users and groups** in the navigation menu.
+5.  Select **All users**.
+6.  **Search** for the user you are interested in and **select the row** to select.
+7.  Select **Profile**.
 8.  Scroll down to **Authentication contact info**.
 9.  **Review** the data registered for the user and update as needed.
 
 ### Check a user’s group memberships
 To check a user’s group memberships, follow these steps:
 1.  Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
-2.  Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
+2.  Open the **Azure Active Directory Extension** by selecting **All services** at the top of the main left-hand navigation menu.
 3.  Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
-4.  click **Users and groups** in the navigation menu.
-5.  click **All users**.
-6.  **Search** for the user you are interested in and **click the row** to select.
-7.  click **Groups** to see which groups the user is a member of.
+4.  Select **Users and groups** in the navigation menu.
+5.  Select **All users**.
+6.  **Search** for the user you are interested in and **select the row** to select.
+7.  Select **Groups** to see which groups the user is a member of.
 
 ### Check a user’s assigned licenses
 To check a user’s assigned licenses, follow these steps:
 1.  Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
-2.  Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
+2.  Open the **Azure Active Directory Extension** by selecting **All services** at the top of the main left-hand navigation menu.
 3.  Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
-4.  click **Users and groups** in the navigation menu.
-5.  click **All users**.
-6.  **Search** for the user you are interested in and **click the row** to select.
-7.  click **Licenses** to see which licenses the user currently has assigned.
+4.  Select **Users and groups** in the navigation menu.
+5.  Select **All users**.
+6.  **Search** for the user you are interested in and **select the row** to select.
+7.  Select **Licenses** to see which licenses the user currently has assigned.
 
 ### Assign a user a license 
 To assign a license to a user, follow these steps:
 1.  Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
-2.  Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
+2.  Open the **Azure Active Directory Extension** by selecting **All services** at the top of the main left-hand navigation menu.
 3.  Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
-4.  click **Users and groups** in the navigation menu.
-5.  click **All users**.
-6.  **Search** for the user you are interested in and **click the row** to select.
-7.  click **Licenses** to see which licenses the user currently has assigned.
-8.  click the **Assign** button.
+4.  Select **Users and groups** in the navigation menu.
+5.  Select **All users**.
+6.  **Search** for the user you are interested in and **select the row** to select.
+7.  Select **Licenses** to see which licenses the user currently has assigned.
+8.  Select the **Assign** button.
 9.  Select **one or more products** from the list of available products.
-10. **Optional** click the **assignment options** item to granularly assign products. Click **Ok** when this is completed.
-11. Click the **Assign** button to assign these licenses to this user.
+10. **Optional** select the **assignment options** item to granularly assign products. Select **Ok**.
+11. Select the **Assign** button to assign these licenses to this user.
 
 ## Troubleshooting deep links
-Deep links or User access URLs are links your users may use to access their password-SSO applications directly from their browsers URL bars. By navigating to this link, users be automatically signed into the application without having to go to the Access Panel first. This is the same link that users use to access these applications from the Office 365 application launcher.
+Deep links or User access URLs are links your users may use to access their password-SSO applications directly from their browsers URL bars. By navigating to this link, users are automatically signed into the application without having to go to My Apps first. The link is the same one that users use to access these applications from the Office 365 application launcher.
 
-### Checking the deeplink
+### Checking the deep link
 
-To check if you have the correct deeplink, follow these steps:
+To check if you have the correct deep link, follow these steps:
 1. Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator** or **Co-admin.**
-2. Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
+2. Open the **Azure Active Directory Extension** by selecting **All services** at the top of the main left-hand navigation menu.
 3. Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
-4. click **Enterprise Applications** from the Azure Active Directory left-hand navigation menu.
-5. click **All Applications** to view a list of all your applications.
+4. Select **Enterprise Applications** from the Azure Active Directory left-hand navigation menu.
+5. Select **All Applications** to view a list of all your applications.
    * If you do not see the application you want show up here, use the **Filter** control at the top of the **All Applications List** and set the **Show** option to **All Applications.**
 6. Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator** or **Co-admin.**
-7. Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
+7. Open the **Azure Active Directory Extension** by selecting **All services** at the top of the main left-hand navigation menu.
 8. Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
-9. click **Enterprise Applications** from the Azure Active Directory left-hand navigation menu.
-10. click **All Applications** to view a list of all your applications.
+9. Select **Enterprise Applications** from the Azure Active Directory left-hand navigation menu.
+10. Select **All Applications** to view a list of all your applications.
     * If you do not see the application you want show up here, use the **Filter** control at the top of the **All Applications List** and set the **Show** option to **All Applications.**
-11. Select the application you want the check the deeplink for.
-12. Find the label **User Access URL**. Your deeplink should match this URL.
+11. Select the application you want the check the deep link for.
+12. Find the label **User Access URL**. Your deep link should match this URL.
 
-## If these troubleshooting steps do not the resolve the issue
+## If these troubleshooting steps don't resolve the issue, contact support
 Open a support ticket with the following information if available:
 -   Correlation error ID
 -   UPN (user email address)
