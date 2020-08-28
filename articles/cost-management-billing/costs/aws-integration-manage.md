@@ -35,7 +35,7 @@ Viewing costs by using the management group scope is the only way to see aggrega
 
 In cost analysis, open the scope picker and select the management group that holds your AWS linked accounts. Here's an example image in the Azure portal:
 
-![Example of the Select scope view](./media/aws-integration-manage/select-scope01.png)
+![Example of the Select scope view with linked accounts under a management group](./media/aws-integration-manage/select-scope01.png)
 
 Here's an example showing the management group cost in cost analysis, grouped by Provider (Azure and AWS).
 
@@ -56,7 +56,7 @@ Here's an example that shows selecting an AWS linked account scope.
 
 To view AWS consolidated account costs, open the scope picker and select the AWS consolidated account. Here's an example that shows selecting an AWS consolidated account scope.
 
-![Example of the Select scope view](./media/aws-integration-manage/select-scope03.png)
+![Example of the Select scope view with consolidated accounts](./media/aws-integration-manage/select-scope03.png)
 
 This scope provides an aggregated view of all AWS linked accounts associated with the AWS consolidated account. Here's an example showing costs for an AWS consolidated account, grouped by service name.
 
@@ -81,7 +81,7 @@ The following table describes dimensions available to group and filter by in cos
 | Service tier |   |   |   |
 | Subscription ID | lineItem/UsageAccountId | Consolidated account and management group |   |
 | Subscription name | N/A | Consolidated account and management group | Account names are collected using the AWS Organization API. |
-| Tag | resourceTags/\* | All | The _user:_ prefix is removed from user-defined tags to allow cross-cloud tags. The _aws:_ prefix is left intact. |
+| Tag | resourceTags | All | The _user:_ prefix is removed from user-defined tags to allow cross-cloud tags. The _aws:_ prefix is left intact. |
 | Billing account ID | bill/PayerAccountId | Management group |   |
 | Billing account name | N/A | Management group | Account names are collected using the AWS Organization API. |
 | Provider | N/A | Management group | Either AWS or Azure. |
