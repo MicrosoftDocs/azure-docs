@@ -56333,6 +56333,11 @@
       "source_path": "articles/service-fabric/service-fabric-scale-up-node-type.md",
       "redirect_url": "/azure/service-fabric/service-fabric-scale-up-primary-node-type",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/load-balancer/quickstart-create-standard-load-balancer-powershell.md",
+      "redirect_url": "/azure/load-balancer/quickstart-load-balancer-standard-public-powershell",
+      "redirect_document_id": false
     }
   ]
 }
