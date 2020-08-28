@@ -1,24 +1,21 @@
 ---
-title: How to use self-service application access | Microsoft Docs
-description: Enable self-service application access to allow users to find their own applications
+title: How to use self-service application access in Azure AD
+description: Enable self-service so users can find apps in Azure AD
 services: active-directory
-documentationcenter: ''
 author: kenwith
 manager: celestedg
-ms.assetid: 
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: japere,asteen
-ms.collection: M365-identity-device-management
 ---
 
 # How to use self-service application access
+
+Before your users can self-discover applications from their My Apps page, you need to enable **Self-service application access** to any applications that you wish to allow users to self-discover and request access to.
 
 Before your users can self-discover applications from My Apps, you need to enable **Self-service application access** to any applications that you wish to allow users to self-discover and request access to.
 
@@ -40,7 +37,7 @@ Using this feature, you can:
 
 ## Enable self-service application access to allow users to find their own applications
 
-Self-service application access is a great way to allow users to self-discover applications, optionally allow the business group to approve access to those applications. You can allow the business group to manage the credentials assigned to those users for Password Single-Sign On Applications right from their access panels.
+Self-service application access is a great way to allow users to self-discover applications, optionally allow the business group to approve access to those applications. You can allow the business group to manage the credentials assigned to those users for Password Single-Sign On Applications right from their My Apps page.
 
 To enable self-service application access to an application, follow the steps below:
 
@@ -79,6 +76,11 @@ To enable self-service application access to an application, follow the steps be
 Once you complete Self-service application configuration, users can navigate to their [Application Access Panel](https://myapps.microsoft.com/) and click the **+Add** button to find the apps to which you have enabled Self-service access. Business approvers also see a notification in their [Application Access Panel](https://myapps.microsoft.com/). You can enable an email notifying them when a user has requested access to an application that requires their approval. 
 
 These approvals support single approval workflows only, meaning that if you specify multiple approvers, any single approver may approve access to the application.
+
+## Things to check if self-service isn't working
+-   Make sure the user or group has been enabled to request self-service application access.
+-   Make sure the user is visiting the correct place for self-service application access. users can navigate to their [Application Access Panel](https://myapps.microsoft.com/) and click the **+Add** button to find the apps to which you have enabled self-service access.
+-   If self-service application access was just recently configured, try to sign in and out again into the user’s Access Panel after a few minutes to see if the self-service access changes have appeared.
 
 ## Next steps
 [Setting up Azure Active Directory for self-service group management](../users-groups-roles/groups-self-service-management.md)
