@@ -32,6 +32,8 @@ Azure SignalR Service lets you easily add real-time functionality to your applic
 > [!NOTE]
 > This quickstart can be run on macOS, Windows, or Linux.
 
+[Having issues? Let us know.](https://aka.ms/asrs/qsjava)
+
 ## Log in to Azure
 
 Sign in to the Azure portal at <https://portal.azure.com/> with your Azure account.
@@ -39,6 +41,8 @@ Sign in to the Azure portal at <https://portal.azure.com/> with your Azure accou
 [!INCLUDE [Create instance](includes/signalr-quickstart-create-instance.md)]
 
 [!INCLUDE [Clone application](includes/signalr-quickstart-clone-application.md)]
+
+[Having issues? Let us know.](https://aka.ms/asrs/qsjava)
 
 ## Configure and run the Azure Function app
 
@@ -79,9 +83,13 @@ Sign in to the Azure portal at <https://portal.azure.com/> with your Azure accou
 
 [!INCLUDE [Cleanup](includes/signalr-quickstart-cleanup.md)]
 
+[Having issues? Let us know.](https://aka.ms/asrs/qsjava)
+
 ## Next steps
 
 In this quickstart, you built and ran a real-time serverless application using Maven. Next, learn about how to create Java Azure Functions from scratch.
 
 > [!div class="nextstepaction"]
 > [Create your first function with Java and Maven](../azure-functions/functions-create-first-java-maven.md)
+
+[Having issues? Let us know.](https://aka.ms/asrs/qsjava)
