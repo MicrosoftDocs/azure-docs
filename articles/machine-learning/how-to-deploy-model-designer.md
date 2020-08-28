@@ -100,7 +100,9 @@ You're now ready to deploy your model.
 
 After deployment succeeds, you can find the real-time endpoint in the **Endpoints** asset page. Once there, you will find a REST endpoint, which clients can use to submit requests to the real-time endpoint. 
 
-The designer also generates sample data json file for consuming, you can download `_samples.json` in the **trained_model_outputs** folder.
+> [!NOTE]
+> The designer also generates sample data json file for consuming, you can download `_samples.json` in the **trained_model_outputs** folder. 
+> `_samples.json` is good reference for consuming, especially when input data contains too many columns.
 
 Following is sample code to consume the real-time endpoint.
 
