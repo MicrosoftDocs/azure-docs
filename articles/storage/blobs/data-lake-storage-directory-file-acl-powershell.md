@@ -120,6 +120,8 @@ $dir.Owner
 $dir.Properties
 $dir.Properties.Metadata
 ```
+> [!NOTE]
+> To get the root directory of the container, omit the `-Path` parameter.
 
 ## Rename or move a directory
 
@@ -197,7 +199,8 @@ $properties.Group
 $properties.Owner
 ```
 
-To list the contents of a container, omit the `-Path` parameter from the command.
+> [!NOTE]
+> To list the contents of the root directory of the container, omit the `-Path` parameter.
 
 ## Upload a file to a directory
 
@@ -222,6 +225,9 @@ $file1.Properties
 $file1.Properties.Metadata
 
 ```
+
+> [!NOTE]
+> To upload a file to the root directory of the container, omit the `-Path` parameter.
 
 ## Show file properties
 
