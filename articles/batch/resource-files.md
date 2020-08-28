@@ -88,7 +88,7 @@ Each Azure Batch task uses files differently, which is why Batch has options ava
 
 Your Batch job may contain several tasks that all use the same, common files. If common task files are shared among many tasks, using an application package to contain the files instead of using resource files may be a better option. Application packages provide optimization for download speed. Also, data in application packages is cached between tasks, so if your task files don't change often, application packages may be a good fit for your solution. With application packages, you don't need to manually manage several resource files or generate SAS URLs to access the files in Azure Storage. Batch works in the background with Azure Storage to store and deploy application packages to compute nodes.
 
-If each task has many files unique to that task, resource files are the best option becasue tasks that use unique files often need to be updated or replaced, which is not as easy to do with application packages content. Resource files provide additional flexibility for updating, adding, or editing individual files.
+If each task has many files unique to that task, resource files are the best option because tasks that use unique files often need to be updated or replaced, which is not as easy to do with application packages content. Resource files provide additional flexibility for updating, adding, or editing individual files.
 
 ### Number of resource files per task
 
