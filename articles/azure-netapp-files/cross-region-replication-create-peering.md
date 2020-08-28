@@ -103,6 +103,7 @@ To authorize the replication, you need to obtain the resource ID of the replicat
 * [Cross-region replication](cross-region-replication-introduction.md)
 * [Requirements and considerations for using cross-region replication](cross-region-replication-requirements-considerations.md)
 * [Display health status of replication relationship](cross-region-replication-display-health-status.md)
+* [Volume replication metrics](azure-netapp-files-metrics.md#replication)
 * [Manage disaster recovery](cross-region-replication-manage-disaster-recovery.md)
 * [Troubleshoot cross-region-replication](troubleshoot-cross-region-replication.md)
 

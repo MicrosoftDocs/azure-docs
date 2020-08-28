@@ -54,9 +54,9 @@ Azure NetApp Files provides metrics on allocated storage, actual storage usage, 
     The average time for reads from the volume in milliseconds.
 - *Average Write Latency*   
     The average time for writes from the volume in milliseconds.
-- *Read Iops*   
+- *Read IOPS*   
     The number of reads to the volume per second.
-- *Write Iops*   
+- *Write IOPS*   
     The number of writes to the volume per second.
 
 ## <a name="replication"></a>Volume replication metrics
