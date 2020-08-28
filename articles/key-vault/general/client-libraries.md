@@ -33,4 +33,4 @@ Each SDK has separate client libraries for secrets, keys, and certificates, per 
 ## Next steps
 
 - See the [Azure Key Vault developers guide](developers-guide.md)
-- Read more about [managed identity for Azure Key Vault](managed-identity.md)
+- Read more about [Authenticating to Key vault](authentication.md)

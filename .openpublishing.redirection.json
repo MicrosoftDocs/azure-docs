@@ -4689,9 +4689,14 @@
     },
     {
       "source_path": "articles/key-vault/key-vault-group-permissions-for-apps.md",
-      "redirect_url": "/azure/key-vault/general/group-permissions-for-apps",
+      "redirect_url": "/azure/key-vault/general/assign-access-policy-cli",
       "redirect_document_id": false
     },
+    {
+      "source_path": "articles/key-vault/general/group-permissions-for-apps.md",
+      "redirect_url": "/azure/key-vault/general/assign-access-policy-cli",
+      "redirect_document_id": false
+    },    
     {
       "source_path": "articles/key-vault/key-vault-hsm-protected-keys.md",
       "redirect_url": "/azure/key-vault/keys/hsm-protected-keys",
@@ -4805,7 +4810,12 @@
 
     {
       "source_path": "articles/key-vault/managed-identity.md",
-      "redirect_url": "/azure/key-vault/general/managed-identity",
+      "redirect_url": "/azure/key-vault/general/assign-access-policy-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/key-vault/general/managed-identity.md",
+      "redirect_url": "/azure/key-vault/general/assign-access-policy-portal",
       "redirect_document_id": false
     },
     {
