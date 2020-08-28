@@ -11,7 +11,7 @@ ms.date: 08/14/2020
 
 # Get a SAS URI for your VM image
 
-During the publishing process, you must provide a URI for each VHD associated with your plans (previously called SKUs). Microsoft needs access to these VHDs during the certification process. You’ll enter this URI on the **Plans** tab in Partner Center.
+During the publishing process, you must provide a SAS (Shared Access Signature) URI for each VHD associated with your plans (previously called SKUs). Microsoft needs access to these VHDs during the certification process. You’ll enter this URI on the **Plans** tab in Partner Center.
 
 Generating SAS URIs for your VHDs has these requirements:
 
@@ -104,3 +104,7 @@ Check the SAS URI before publishing it on Partner Center to avoid any issues rel
 - `Sp=rl` appears near the middle of your URI. This string shows Read and List access is specified.
 - When `sr=c` appears, this means that container-level access is specified.
 - Copy and paste the URI into a browser to test-download the blob (you can cancel the operation before the download completes).
+
+## Next step
+
+- Read [Create an Azure Virtual Machine offer](azure-vm-create-offer.md).

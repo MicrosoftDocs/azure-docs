@@ -51,7 +51,7 @@ Additionally, consider adding the following tools to your development environmen
 
 ## Create a VM image using an approved base
 
-To create your virtual machine technical assets using an image you built on your own premises, see [#create-a-vm-using-your-own-image](Create a VM using your own image) below.
+To create your virtual machine technical assets using an image you built on your own premises, see [Create a VM image using an approved base](#create-a-vm-image-using-an-approved-base) below.
 
 This section describes various aspects of using an approved base, such as using the Remote Desktop Protocol (RDP), selecting a size for the VM, installing the latest Windows updates, and generalizing the VHD image.
 
@@ -116,7 +116,7 @@ Create a generation 2 (Gen2) VM in Azure portal.
 
 1. Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com/).
 2. Select **Create a resource**.
-3. Select **See all** from the Azure Marketplace on the left.
+3. Select **See all** from Azure Marketplace on the left.
 4. Select an image that supports Gen2.
 5. Select **Create**.
 6. In the **Advanced** tab, under the **VM generation** section, select the **Gen 2** option.
@@ -128,7 +128,7 @@ Create a generation 2 (Gen2) VM in Azure portal.
 
 ## Connect to your Azure VM
 
-This section explains how to connect and sign into the VM you created on Azure. After you've successfully connected, you can work with the VM as if you were locally logged in to its host server. 
+This section explains how to connect and sign into the VM you created on Azure. After you've successfully connected, you can work with the VM as if you were locally logged in to its host server.
 
 ### Connect to a Windows-based VM
 
@@ -182,7 +182,7 @@ As VMs allow access to the underlying operating system, ensure the VHD size is l
 The base images of operating system VMs must contain the latest updates up to their published date. Before publishing the operating system VHD you created, ensure you update the OS and all installed services with all the latest security and maintenance patches.
 
 - For Windows Server, run the Check for Updates command.
-- For Linux distributions, updates are commonly downloaded and installed through a command-line tool or a graphical utility. For example, Ubuntu Linux provides the [apt-get](https://manpages.ubuntu.com/manpages/cosmic/man8/apt-get.8.html)command and the [Update Manager](https://manpages.ubuntu.com/manpages/cosmic/man8/update-manager.8.html) tool for updating the OS.
+- For Linux distributions, updates are commonly downloaded and installed through a command-line tool or a graphical utility. For example, Ubuntu Linux provides the [apt-get](https://manpages.ubuntu.com/manpages/cosmic/man8/apt-get.8.html) command and the [Update Manager](https://manpages.ubuntu.com/manpages/cosmic/man8/update-manager.8.html) tool for updating the OS.
 
 #### Perform additional security checks
 
@@ -214,12 +214,17 @@ The following process generalizes a Linux VM and redeploys it as a separate VM. 
 
 1. Remove the Azure Linux agent
 
-    - Connect to your Linux VM using an SSH client
-    - In the SSH window, enter the following command: `sudo waagent –deprovision+user`.
-    - Type Y to continue (you can add the -force parameter to the previous command to avoid the confirmation step).
-    - After the command completes, type Exit to close the SSH client.
+    1. Connect to your Linux VM using an SSH client
+    2. In the SSH window, enter the following command: `sudo waagent –deprovision+user`.
+    3. Type Y to continue (you can add the -force parameter to the previous command to avoid the confirmation step).
+    4. After the command completes, type Exit to close the SSH client.
 
 2. Stop virtual machine
 
-    - In the Azure portal, select your resource group (RG) and de-allocate the VM.
-    - Your VHD is now generalized and you can create a new VM using this VHD
+    1. In the Azure portal, select your resource group (RG) and de-allocate the VM.
+    2. Your VHD is now generalized and you can create a new VM using this VHD.
+
+## Next steps
+
+- If you encountered difficulty creating your new Azure-based VHD, see [Common issues during VHD creation](common-issues-during-vhd-creation.md).
+- If not, [Test Virtual Machine (VM) deployed from VHD](azure-vm-image-certification.md) explains how to test and submit a VM image for Azure Marketplace certification, including where to get the Certification Test Tool for Azure Certified tool and how to use it to certify your VM image.
