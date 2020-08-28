@@ -96,7 +96,7 @@ For more information, see [Access Azure Key Vault behind a firewall](/azure/key-
 
 The following diagram illustrates the process for an application calling a Key Vault "Get Secret" API:
 
-![The Azure Key Vault authentication flow](../media/authenticatio--uthentication--flow.png)
+![The Azure Key Vault authentication flow](../media/authentication/authentication-flow.png)
 
 ## Code examples
 

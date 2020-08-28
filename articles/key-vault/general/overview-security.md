@@ -1,5 +1,5 @@
 ---
-title: Azure Key Vault security | Microsoft Docs
+title: Azure Key Vault security
 description: Manage access permissions for Azure Key Vault, keys, and secrets. Covers the authentication and authorization model for Key Vault, and how to secure your key vault.
 services: key-vault
 author: msmbaldwin
@@ -11,7 +11,7 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: mbaldwin
-Customer intent: As a key vault administrator, I want to learn the options available to secure my vaults
+#Customer intent: As a key vault administrator, I want to learn the options available to secure my vaults
 ---
 
 # Azure Key Vault security

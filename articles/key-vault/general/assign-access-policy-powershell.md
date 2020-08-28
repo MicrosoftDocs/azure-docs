@@ -17,7 +17,7 @@ ms.author: mbaldwin
 
 # Assign a Key Vault access policy using Azure PowerShell
 
-A Key Vault access policy determines whether a given service principal, namely an application or user group, can perform different operations on Key Vault [secrets](../secrets), [keys](../keys), and [certificates](../certificates). You can assign access policies using the [Azure portal](assign-access-policy-portal.md), the [Azure CLI](assign-access-policy-cli.md), or Azure PowerShell (this article).
+A Key Vault access policy determines whether a given service principal, namely an application or user group, can perform different operations on Key Vault [secrets](../secrets/index.yml), [keys](../keys/index.yml), and [certificates](../certificates/index.yml). You can assign access policies using the [Azure portal](assign-access-policy-portal.md), the [Azure CLI](assign-access-policy-cli.md), or Azure PowerShell (this article).
 
 [!INCLUDE [key-vault-access-policy-limits.md](../../../includes/key-vault-access-policy-limits.md)]
 
@@ -29,7 +29,7 @@ For more information on creating groups in Azure Active Directory using Azure Po
 
     To run commands directly in the cloud, use the [Azure Cloud Shell](/azure/cloud-shell/overview).
 
-1: Local PowerShell only:
+1. Local PowerShell only:
 
     1. Install the [Azure Active Directory PowerShell module](https://www.powershellgallery.com/packages/AzureAD).
 
