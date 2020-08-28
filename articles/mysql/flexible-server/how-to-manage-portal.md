@@ -22,7 +22,7 @@ After server creation you can scale between the Burstable, General Purpose and M
 
 2. You can change the **Compute Tier** , **vCore**, **Storage** to scale up the server using higher compute tier or scale up withing the same tier by increasing storage or vCores to your desired value.
 
-   <!-- ![scaling storage flexible server](./media/howto-manage-server-portal/scale-server.png) -->
+   ![scaling storage flexible server](./media/howto-manage-server-portal/scale-server.png)
 
    > [!Important]
    > - Storage cannot be scaled down.
@@ -38,7 +38,7 @@ You can change the administrator role's password using the Azure portal.
 
 2. Enter a new password and confirm the password. The textbox will prompt you about password complexity requirements.
 
-   <!-- ![reset your password for flexible server](./media/howto-manage-server-portal/reset-password.png) -->
+   ![reset your password for flexible server](./media/howto-manage-server-portal/reset-password.png)
 
 3. Select **Save** to save the new password.
 
@@ -50,7 +50,7 @@ You can delete your server if you no longer need it.
 
 2. Type the name of the server into the input box to confirm that this is the server you want to delete.
 
-     <!--![delete the flexible server](./media/howto-manage-server-portal/delete-server.png) -->
+    ![delete the flexible server](./media/howto-manage-server-portal/delete-server.png)
 
    > [!NOTE]
    > Deleting a server is irreversible.
