@@ -24,7 +24,7 @@ When making your decision, consider the following two options:
     - [Flexible Server (Preview)](flexible-server/overview.md) is a fully managed database service designed to provide more granular control and flexibility over database management functions and configuration settings. In general, the service provides more flexibility and server configuration customizations compared to single server deployment based on the user requirements. The flexible server architecture allows users to opt for high availability within single availability zone and across multiple availability zones. Flexible servers also provide better cost optimization controls with ability to stop/start your server and burstable skus, ideal for workloads that do not need full compute capacity continuously. 
     Flexible servers are best suited for:
      
-      - Application developments requiring better control and customizations of MySQL engine.
+      - Application development requiring better control and customizations of MySQL engine.
       - Zone redundant high availability
       - Managed maintenance windows
 
