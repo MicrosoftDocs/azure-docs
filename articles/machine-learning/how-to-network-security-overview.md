@@ -164,8 +164,9 @@ To enable full functionality in the studio, see [Use Azure Machine Learning stud
 
 [Secure the workspace](#secure-the-workspace-and-associated-resources) > [Secure the training environment](#secure-the-training-environment) > [Secure the inferencing environment](#secure-the-inferencing-environment) > [Enable studio functionality](#optional-enable-studio-functionality) > **Configure firewall settings**
 
-Use a firewalls to limit inbound and outbound traffic. When using a VNet, you must configure your NSG to allow inbound communication from Azure Batch services so that your compute resources can receive jobs.
+Configure your firewall to control access to your Azure Machine Learning workspace resources and the public internet. While we recommend Azure Firewall, you should be able to use  other firewall products to secure your network. If you have questions about how to allow communication through your firewall, please consult the documentation for the firewall you are using.
 
+For more information on firewall settings, see [Use workspace behind a Firewall](how-to-access-azureml-behind-firewall.md).
 
 ## Next steps
 
