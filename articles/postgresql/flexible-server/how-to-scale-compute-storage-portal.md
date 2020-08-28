@@ -64,12 +64,12 @@ Follow these steps to increase your storage size.
 2.  Click **Compute+storage**.
 
 3.  A page with current settings is displayed.
-
+![compute+storage selection](./media/business-continuity/how-to-click-compute-storage.png)
 4.  The field **Storage size in GiB** with a slide-bar is shown with the current size.
 
 5.  Slide the bar to your desired size. Corresponding IOPS number is shown. The IOPS is dependent on the compute tier and size. The cost information is also shown. 
 
- ![storage scale up](./media/business-continuity/how-to-storage-scale-up.png)
+ ![storage scale up](./media/business-continuity/how-to-storage-scaleup.png)
 
 6.  If you are good with the storage size, click **Save**. 
 7.  You will see a confirmation message. Click **OK** if you want to proceed. 

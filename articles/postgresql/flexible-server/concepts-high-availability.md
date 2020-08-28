@@ -21,8 +21,9 @@ Zone redundant configuration enables automatic failover capability during planne
 Primary database server is deployed in the region and the availability zone of your choice. A standby replica server is provisioned in a different zone with the same configuration as the primary server, including compute tier, compute size, storage size, and network configuration. Write ahead logs (WAL) files are replicated in synchronous mode to the standby replica. Automatic backups are performed from the primary database server. WAL files are continuously archived to the backup storage from the standby replica. 
 
 The health of the HA is continuously monitored and reported on the overview page. The replication statuses are listed below:
+
 | **Status** | **Description** |
-| ----- | ------ |
+| ------- | ------ |
 | <b> NotEnabled | HA is not enabled |
 | <b> CreatingStandby | In the creating a new standby |
 | <b> ReplicatingData | After the standby is created, it is catching up with the primary. |
