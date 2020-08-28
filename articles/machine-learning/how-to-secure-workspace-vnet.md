@@ -26,7 +26,7 @@ This article is part-two of a four-part series that walks you through securing a
 
 
 
-In this article you learn how to configure the following workspaces resources to work in a virtual network:
+In this article you learn how to enable the following workspaces resources  in a virtual network:
 > [!div class="checklist"]
 > - Azure Machine Learning workspace
 > - Azure Storage accounts
@@ -57,7 +57,7 @@ In this article you learn how to configure the following workspaces resources to
 > This preview is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Azure Private Link enables you to connect to your workspace using a private endpoint. The private endpoint is a set of private IP addresses within your virtual network. You can then limit access to your workspace to only occur over the private IP addresses. Private Link helps reduce the risk of data exfiltration. To learn more about private endpoints, see the [Azure Private Link](/azure/private-link/private-link-overview) article.
+Azure Private Link lets you connect to your workspace using a private endpoint. The private endpoint is a set of private IP addresses within your virtual network. You can then limit access to your workspace to only occur over the private IP addresses. Private Link helps reduce the risk of data exfiltration. To learn more about private endpoints, see the [Azure Private Link](/azure/private-link/private-link-overview) article.
 
 > [!IMPORTANT]
 > Azure Private Link does not effect Azure control plane (management operations) such as deleting the workspace or managing compute resources. For example, creating, updating, or deleting a compute target. These operations are performed over the public Internet as normal.
@@ -73,7 +73,7 @@ The template at [https://github.com/Azure/azure-quickstart-templates/tree/master
 
 For information on using this template, including private endpoints, see [Use an Azure Resource Manager template to create a workspace for Azure Machine Learning](how-to-create-workspace-template.md).
 
-## Using a workspace over a private endpoint
+### Using a workspace over a private endpoint
 
 Since communication to the workspace is only allowed from the virtual network, any development environments that use the workspace must be members of the virtual network. For example, a virtual machine in the virtual network.
 
@@ -108,11 +108,7 @@ For information on Azure Virtual Machines, see the [Virtual Machines documentati
 >
 > For non-default storage accounts, the `storage_account` parameter in the [`Workspace.create()` function](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) allows you to specify a custom storage account by Azure resource ID.
 
-To use an Azure storage service for the workspace in a virtual network, use the following steps:
-
-1. Create a compute resource (for example, a Machine Learning compute instance or cluster) behind a virtual network, or attach a compute resource to the workspace (for example, an HDInsight cluster, virtual machine, or Azure Kubernetes Service cluster). The compute resource can be for experimentation or model deployment.
-
-   For more information, see the [Use a Machine Learning compute](#amlcompute), [Use a virtual machine or HDInsight cluster](#vmorhdi), and [Use Azure Kubernetes Service](#aksvnet) sections in this article.
+To use an Azure storage account for the workspace in a virtual network, use the following steps:
 
 1. In the Azure portal, go to the storage service you want to use in your workspace.
 
@@ -140,9 +136,11 @@ To use an Azure storage service for the workspace in a virtual network, use the 
 
 ## Secure datastores and datasets
 
-This section covers datastore and dataset usage for the SDK experience. For more information on the studio experience, see [Use Azure Machine Learning studio in a virtual network](how-to-enable-virtual-network-studio.md).
+In this section you learn how to use datastore and dataset usage for the SDK experience in a virtual network. For more information on the studio experience, see [Use Azure Machine Learning studio in a virtual network](how-to-enable-virtual-network-studio.md).
 
-By default, Azure Machine Learning performs data validity and credential checks when you attempt to access data using the SDK. If your data is behind a virtual network, Azure Machine Learning can't access the data and fails its checks. To avoid this, you must create datastores and datasets that skip validation.
+### Disable data validation
+
+By default, Azure Machine Learning performs data validity and credential checks when you attempt to access data using the SDK. If the data is behind a virtual network, Azure Machine Learning can't complete these checks. To avoid this, you must create datastores and datasets that skip validation.
 
 ### Use datastores
 
@@ -266,7 +264,7 @@ Once those requirements are fulfilled, use the following steps to enable Azure C
     
     For more information, see the [update()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#update-friendly-name-none--description-none--tags-none--image-build-compute-none--enable-data-actions-none-) method reference.
 
-1. You must apply the following Azure Resource Manager template. This template enables your workspace to communicate with ACR.
+1. Apply the following Azure Resource Manager template. This template enables your workspace to communicate with ACR.
 
     ```json
     {
@@ -340,7 +338,8 @@ To use ACI in a virtual network to your workspace, use the following steps:
 
 ## Next steps
 
-* [Set up training environments](how-to-set-up-training-targets.md)
-* [Set up private endpoints](how-to-configure-private-link.md)
-* [Where to deploy models](how-to-deploy-and-where.md)
-* [Use TLS to secure a web service through Azure Machine Learning](how-to-secure-web-service.md)
+This article is part one of a four-part virtual network series. See the rest of the articles to learn how to secure a virtual network:
+
+* [Part 1: Virtual network overview](how-to-network-security-overview.md)
+* [Part 3: Secure the training environment](how-to-secure-training-vnet.md)
+* [Part 4: Secure the inferencing environment](how-to-secure-inferencing-vnet.md)

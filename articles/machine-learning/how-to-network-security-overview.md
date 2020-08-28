@@ -65,10 +65,9 @@ The next five sections show you how to secure a network using the scenario descr
 Use the following steps to secure your workspace and associated resources. These steps allow your services to communicate with the virtual network.
 
 1. Create a Private Link-enabled workspace to [enable communication between your VNet and workspace](how-to-secure-workspace-vnet.md#secure-the-workspace-with-private-endpoint).
-1. Set the Azure Key Vault to, ["Allow trusted Microsoft services to access this storage account"]().
-1. Add the Azure[ storage account to the virtual network](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts).
-
-1. Use a private endpoint to [enable network access from your VNet to Azure Container Registry]().
+1. Set Azure Key Vault to, ["Allow trusted Microsoft services to access this storage account"]().
+1. Add you Azure [storage account to the virtual network](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts).
+1. Set Azure Container Registry to use a private endpoint to [enable network access from your VNet to Azure Container Registry]().
 
 
 ![Architecture diagram showing how the workspace and associated resources communicate to each other over service endpoints or private endpoints inside of a VNet](./media/how-to-network-security-overview/secure-workspace-resources.png)
@@ -161,7 +160,8 @@ Use NSGs and firewalls to limit inbound and outbound traffic. When using a VNet,
 
 ## Next steps
 
-* [Set up training environments](how-to-set-up-training-targets.md)
-* [Set up private endpoints](how-to-configure-private-link.md)
-* [Where to deploy models](how-to-deploy-and-where.md)
-* [Use TLS to secure a web service through Azure Machine Learning](how-to-secure-web-service.md)
+This article is part one of a four-part virtual network series. See the rest of the articles to learn how to secure a virtual network:
+
+* [Part 1: Virtual network overview](how-to-network-security-overview.md)
+* [Part 3: Secure the training environment](how-to-secure-training-vnet.md)
+* [Part 4: Secure the inferencing environment](how-to-secure-inferencing-vnet.md)

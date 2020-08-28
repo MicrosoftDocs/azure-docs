@@ -282,7 +282,8 @@ To use a virtual machine or Azure HDInsight cluster in a virtual network with yo
 
 ## Next steps
 
-* [Set up training environments](how-to-set-up-training-targets.md)
-* [Set up private endpoints](how-to-configure-private-link.md)
-* [Where to deploy models](how-to-deploy-and-where.md)
-* [Use TLS to secure a web service through Azure Machine Learning](how-to-secure-web-service.md)
+This article is part three in a four-part virtual network series. See the rest of the articles to learn how to secure a virtual network:
+
+* [Part 1: Virtual network overview](how-to-network-security-overview.md)
+* [Part 2: Secure the workspace resources](how-to-secure-workspace-vnet.md)
+* [Part 4: Secure the inferencing environment](how-to-secure-inferencing-vnet.md)
