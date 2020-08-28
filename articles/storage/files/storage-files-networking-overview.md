@@ -12,7 +12,7 @@ ms.subservice: files
 # Azure Files networking considerations 
 You can connect to an Azure file share in two ways:
 
-- Accessing the share directly via the SMB or FileREST protocols. This access pattern is primarily employed when to eliminate as many on-premises servers as possible.
+- Accessing the share directly via the Server Message Block (SMB), Network File System (NFS) (preview), or FileREST protocols. This access pattern is primarily employed when to eliminate as many on-premises servers as possible.
 - Creating a cache of the Azure file share on an on-premises server (or on an Azure VM) with Azure File Sync, and accessing the file share's data from the on-premises server with your protocol of choice (SMB, NFS, FTPS, etc.) for your use case. This access pattern is handy because it combines the best of both on-premises performance and cloud scale and serverless attachable services, such as Azure Backup.
 
 This article focuses on how to configure networking for when your use case calls for accessing the Azure file share directly rather than using Azure File Sync. For more information about networking considerations for an Azure File Sync deployment, see [Azure File Sync networking considerations](storage-sync-files-networking-overview.md).
@@ -31,8 +31,8 @@ Since the easiest way to access your Azure file share from on-premises is to ope
 1. Ensure that SMB 1.0 is removed or disabled on your organization's devices. All currently supported versions of Windows and Windows Server support removing or disabling SMB 1.0, and starting with Windows 10, version 1709, SMB 1.0 is not installed on the Windows by default. To learn more about how to disable SMB 1.0, see our OS-specific pages:
     - [Securing Windows/Windows Server](storage-how-to-use-files-windows.md#securing-windowswindows-server)
     - [Securing Linux](storage-how-to-use-files-linux.md#securing-linux)
-2. Ensure that no products within your organization require SMB 1.0 and remove the ones that do. We maintain an [SMB1 Product Clearinghouse](https://aka.ms/stillneedssmb1), which contains all the first and third-party products known to Microsoft to require SMB 1.0. 
-3. (Optional) Use a third-party firewall with your organization's on-premises network to prevent SMB 1.0 traffic from leaving your organizational boundary.
+1. Ensure that no products within your organization require SMB 1.0 and remove the ones that do. We maintain an [SMB1 Product Clearinghouse](https://aka.ms/stillneedssmb1), which contains all the first and third-party products known to Microsoft to require SMB 1.0. 
+1. (Optional) Use a third-party firewall with your organization's on-premises network to prevent SMB 1.0 traffic from leaving your organizational boundary.
 
 If your organization requires port 445 to be blocked per policy or regulation, or your organization requires traffic to Azure to follow a deterministic path, you can use Azure VPN Gateway or ExpressRoute to tunnel traffic to your Azure file shares.
 
