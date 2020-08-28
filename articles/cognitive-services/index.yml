@@ -159,7 +159,7 @@ additionalContent:
             # Card
             - text: Speech Studio
               url: https://speech.microsoft.com/
-        - title: SDKs
+        - title: SDKs & REST APIs
           links:
             - text: C#
               url: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client?view=azure-dotnet
@@ -173,7 +173,7 @@ additionalContent:
               url: https://docs.microsoft.com/python/api/overview/azure/cognitive-services?view=azure-python
             - text: R 
               url: https://github.com/Azure/AzureCognitive
-            - text: Cognitive Services Management
+            - text: Cognitive Services Management REST API
               url: https://docs.microsoft.com/rest/api/cognitiveservices/
         - title: Tools
           links:
