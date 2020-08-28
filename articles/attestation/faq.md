@@ -33,7 +33,7 @@ Azure Attestation depends on the security baseline stated by Azure PCK caching s
 **What validations does Azure Attestation perform for attesting SGX enclaves**
 
 Azure Attestation is a unified framework for remotely attesting different types of TEEs. In this process, Azure Attestation performs the following validations: 
-
+   - Validates if trusted root of signed enclave quote belongs to Intel 
    - Validates if the enclave quote meets the Azure security baseline as defined by Azure PCK caching service 
    - Validates if SHA256 hash of Enclave Held Data (EHD) in the attestation request object matches the first 32 bytes of reportData field in the enclave quote
    - Azure Attestation allows customers to create an attestation provider and configure a custom policy. In addition to the above validations, Azure Attestation evaluates the        enclave quote against the policy. Policies define authorization rules for the enclave and also dictate issuance rules for generating the attestation token. To confirm if        intended software is running in an enclave, customers can add authorization rules to verify if mrsigner and mrenclave fields in the enclave quote matches the values of          customer binaries
