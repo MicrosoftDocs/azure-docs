@@ -224,7 +224,7 @@ When you change the underlying workflow for an automation task, your changes aff
 
    ![Screenshot that shows the expanded Recurrence trigger with the Frequency list open to show available frequency options](./media/create-automation-tasks-azure-resources/edit-recurrence-trigger.png)
 
-   For more information about the Recurrence trigger, see [Create, schedule, and run recurring tasks and workflows with the Recurrence trigger](../connectors/connectors-native-recurrence.md).
+   For more information about the Recurrence trigger, see [Create, schedule, and run recurring tasks and workflows with the Recurrence trigger](../connectors/connectors-native-recurrence.md). For more information about other triggers and actions that you can use, see [Connectors for Azure Logic Apps](../connectors/apis-list.md).
 
 1. To save your changes, on the designer toolbar, select **Save**.
 
@@ -236,7 +236,9 @@ When you change the underlying workflow for an automation task, your changes aff
 
    ![Screenshot that shows the workflow's run details on the designer](./media/create-automation-tasks-azure-resources/view-run-details-designer.png)
 
+1. To disable the workflow so that the task doesn't continue running, see [Manage logic apps in the Azure portal](../logic-apps/manage-logic-apps-with-azure-portal.md).
+
 ## Next steps
 
-* [What is Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
-* [Quickstart: Create your first integration workflow by using Azure Logic Apps - Azure portal](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* [Manage logic apps in the Azure portal](../logic-apps/manage-logic-apps-with-azure-portal.md)
+
