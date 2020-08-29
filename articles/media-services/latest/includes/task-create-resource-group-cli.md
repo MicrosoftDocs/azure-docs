@@ -9,8 +9,8 @@ ms.custom: CLI
 
 <!-- Create a resource group -->
 
-In the following command, provide the Azure subscription ID that you want to use for the Media Services account. You can see a list of subscriptions that you have access to by navigating to [Subscriptions](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
+Use the following command to create a resource group. Select the geographic region that will be used to store the media and metadata records for your Media Services account. This region will be used to process and stream your media.
 
 ```azurecli
-az account set --subscription mySubscriptionId
+az group create --name amsResourceGroup --location westus2
 ```

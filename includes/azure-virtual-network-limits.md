@@ -95,7 +95,7 @@ The following limits apply only for networking resources managed through Azure R
 | Private IP addresses per virtual network |4,096 |4,096 |
 | Concurrent TCP or UDP flows per NIC of a virtual machine or role instance |500,000, up to 1,000,000 for two or more NICs. |500,000, up to 1,000,000 for two or more NICs. |
 | Network Security Groups (NSGs) |200 |200 |
-| NSG rules per NSG |1,000 |1,000 |
+| NSG rules per NSG |200 |1,000 |
 | User-defined route tables |200 |200 |
 | User-defined routes per route table |400 |400 |
 | Public IP addresses (dynamic) |500 |500 |

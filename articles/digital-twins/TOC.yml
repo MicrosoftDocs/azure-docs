@@ -6,6 +6,10 @@
     href: overview.md
   - name: Differences from previous release
     href: overview-differences.md
+- name: Quickstart
+  items:
+  - name: Explore a sample scenario
+    href: quickstart-adt-explorer.md
 - name: Tutorials
   items:
   - name: Code a client app
@@ -22,6 +26,8 @@
     href: concepts-twins-graph.md
   - name: Query language
     href: concepts-query-language.md
+  - name: Query Units
+    href: concepts-query-units.md
   - name: Integration with other services
     href: concepts-integration.md
   - name: Event routes
@@ -74,6 +80,8 @@
     items:
     - name: Ingest telemetry from IoT Hub
       href: how-to-ingest-iot-hub-data.md
+    - name: Integrate with Logic Apps
+      href: how-to-integrate-logic-apps.md  
   - name: Connect output
     items:
     - name: Manage endpoints and routes

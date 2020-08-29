@@ -317,7 +317,6 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Strongbridge LLC](https://www.sb-llc.com)|
 |[Summit 7 Systems, Inc.](https://summit7systems.com/)|
 |[Sumo Logic](https://www.sumologic.com/)|
-|[Surveillance and Cyber Security Solutions, LLC](https://www.scssllc.com)|
 |[SWC Technology Partners](https://www.swc.com)|
 |[Sybatech, Inc](http://www.sybatech.com)|
 |[Synergy Technical, LLC](https://www.syntechva.com/)|
