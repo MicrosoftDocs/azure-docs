@@ -17,8 +17,8 @@ This quickstart demonstrates how to connect to an Azure Database for MySQL Flexi
 
 This quickstart uses the resources created in either of these guides as a starting point:
 
-- [Create an Azure Database for MySQL Flexible Server using Azure portal](./quickstart-server-create-portal.md)
-- [Create an Azure Database for MySQL Flexible Server using Azure CLI](./quickstart-server-create-cli.md)
+- [Create an Azure Database for MySQL Flexible Server using Azure portal](./quickstart-create-server-portal.md)
+- [Create an Azure Database for MySQL Flexible Server using Azure CLI](./quickstart-create-server-cli.md)
 
 ## Preparing your client workstation
 - If you created your flexible server with *Private access (VNet Integration)*, you will need to connect to your server from a resource within the same VNet as your server. You can create a virtual machine and add it to the VNet created with your flexible server. Refer to [Create and manage Azure Database for MySQL Flexible Server virtual network using Azure CLI](./how-to-manage-virtual-networks-cli.md).
