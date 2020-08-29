@@ -92,6 +92,8 @@ NOTE: This selection is valid in all regions and is the default selection for St
 
 NOTE: If it is acceptable for the IP address to change over time, **Dynamic** IP assignment can be selected.
 
+---
+
 ## Additional Information 
 
 For more details on the individual fields listed above, please see [Manage public IP addresses](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address#create-a-public-ip-address).
