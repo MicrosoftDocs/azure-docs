@@ -10,7 +10,7 @@ ms.custom: devx-track-python
 
 [!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
-A project in Azure Notebooks Preview is essentially a configuration of the underlying Linux virtual machine in which Jupyter notebooks run, along with a file folder and descriptive metadata. 
+A project in Azure Notebooks Preview is essentially a configuration of the underlying Linux virtual machine in which Jupyter Notebooks run, along with a file folder and descriptive metadata. 
 
 The project dashboard in Azure Notebooks allows you to manage files and otherwise configure the project's characteristics:
 
@@ -54,7 +54,7 @@ The **+ New** command (keyboard shortcut: n) creates new files or folders. When 
 
 | Item type | Description | Command behavior |
 | --- | --- | --- |
-| **Notebook** | A Jupyter notebook | Displays a popup in which you specify the notebook's filename and language. |
+| **Notebook** | A Jupyter Notebook | Displays a popup in which you specify the notebook's filename and language. |
 | **Folder** | A subfolder | Creates an edit field in the project's file list into which you enter the folder name. |
 | **Blank File** | A file into which you can store any content such as text, data, etc. | Creates an edit field in the project's file list into which you enter the file name. |
 | **Markdown** | A Markdown file. | Creates an edit field in the project's file list into which you enter the file name. |
@@ -129,7 +129,7 @@ The information you then project depends on the type of operation you chose:
 - **Environment.yml**: In the second drop-down list, select an *environments.yml* file for Python projects using a conda environment.
 
    > [!WARNING]
-   > As this is a preview service under development, there is currently a known issue where the `Environment.yml` setting does not get applied to your project as expected. The project and the Jupyter notebooks within do not load the specified environment file at present.
+   > As this is a preview service under development, there is currently a known issue where the `Environment.yml` setting does not get applied to your project as expected. The project and the Jupyter Notebooks within do not load the specified environment file at present.
 
 When you're done adding steps, select **Save**.
 
