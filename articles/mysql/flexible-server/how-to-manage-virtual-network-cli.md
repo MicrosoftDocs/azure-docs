@@ -77,5 +77,5 @@ Refer to the Azure CLI reference documentation <!--FIXME --> for the complete li
 
 ## Next steps
 - Learn more about [networking in Azure Database for MySQL Flexible Server]<!--- FIX ME(./concepts-networking-overview.md).--->
-- [Create and manage Azure Database for MySQL Flexible Server virtual network using Azure portal](./how-to-manage-virtual-networks-portal.md).
+- [Create and manage Azure Database for MySQL Flexible Server virtual network using Azure portal](./how-to-manage-virtual-network-portal.md).
 - Understand more about [Azure Database for MySQL Flexible Server virtual network]<!--- FIX ME(./concepts-virtual-network.md).--->
