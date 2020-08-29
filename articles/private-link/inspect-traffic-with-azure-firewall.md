@@ -445,7 +445,7 @@ Connect to the VM **myVm** from the internet as follows:
 
 1. Enter the password you defined when creating **myVm**
 
-## Access SQL Server privately from the VM
+## Access SQL Server privately from the virtual machine
 
 In this section, you'll connect privately to the SQL Database using the private endpoint.
 
