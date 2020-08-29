@@ -10,7 +10,7 @@ ms.custom: hdinsightactive
 ms.date: 11/22/2019
 ---
 
-# Use external packages with Jupyter notebooks in Apache Spark clusters on HDInsight
+# Use external packages with Jupyter Notebooks in Apache Spark clusters on HDInsight
 
 > [!div class="op_single_selector"]
 > * [Using cell magic](apache-spark-jupyter-notebook-use-external-packages.md)
@@ -20,7 +20,7 @@ Learn how to configure a [Jupyter Notebook](https://jupyter.org/) in Apache Spar
 
 You can search the [Maven repository](https://search.maven.org/) for the complete list of packages that are available. You can also get a list of available packages from other sources. For example, a complete list of community-contributed packages is available at [Spark Packages](https://spark-packages.org/).
 
-In this article, you'll learn how to use the [spark-csv](https://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar) package with the Jupyter notebook.
+In this article, you'll learn how to use the [spark-csv](https://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar) package with the Jupyter Notebook.
 
 ## Prerequisites
 
@@ -30,7 +30,7 @@ In this article, you'll learn how to use the [spark-csv](https://search.maven.or
 
 * The [URI scheme](../hdinsight-hadoop-linux-information.md#URI-and-scheme) for your clusters primary storage. This would be `wasb://` for Azure Storage, `abfs://` for Azure Data Lake Storage Gen2 or `adl://` for Azure Data Lake Storage Gen1. If secure transfer is enabled for Azure Storage or Data Lake Storage Gen2, the URI would be `wasbs://` or `abfss://`, respectively  See also, [secure transfer](../../storage/common/storage-require-secure-transfer.md).
 
-## Use external packages with Jupyter notebooks
+## Use external packages with Jupyter Notebooks
 
 1. Navigate to `https://CLUSTERNAME.azurehdinsight.net/jupyter` where `CLUSTERNAME` is the name of your Spark cluster.
 
@@ -56,7 +56,7 @@ In this article, you'll learn how to use the [spark-csv](https://search.maven.or
 
     a. Locate the package in the Maven Repository. For this article, we use [spark-csv](https://mvnrepository.com/artifact/com.databricks/spark-csv).
 
-    b. From the repository, gather the values for **GroupId**, **ArtifactId**, and **Version**. Make sure that the values you gather match your cluster. In this case, we're using a Scala 2.11 and Spark 1.5.0 package, but you may need to select different versions for the appropriate Scala or Spark version in your cluster. You can find out the Scala version on your cluster by running `scala.util.Properties.versionString` on the Spark Jupyter kernel or on Spark submit. You can find out the Spark version on your cluster by running `sc.version` on Jupyter notebooks.
+    b. From the repository, gather the values for **GroupId**, **ArtifactId**, and **Version**. Make sure that the values you gather match your cluster. In this case, we're using a Scala 2.11 and Spark 1.5.0 package, but you may need to select different versions for the appropriate Scala or Spark version in your cluster. You can find out the Scala version on your cluster by running `scala.util.Properties.versionString` on the Spark Jupyter kernel or on Spark submit. You can find out the Spark version on your cluster by running `sc.version` on Jupyter Notebooks.
 
     ![Use external packages with Jupyter notebook](./media/apache-spark-jupyter-notebook-use-external-packages/use-external-packages-with-jupyter.png "Use external packages with Jupyter notebook")
 
@@ -110,11 +110,11 @@ In this article, you'll learn how to use the [spark-csv](https://search.maven.or
 
 ### Tools and extensions
 
-* [Use external python packages with Jupyter notebooks in Apache Spark clusters on HDInsight Linux](apache-spark-python-package-installation.md)
+* [Use external python packages with Jupyter Notebooks in Apache Spark clusters on HDInsight Linux](apache-spark-python-package-installation.md)
 * [Use HDInsight Tools Plugin for IntelliJ IDEA to create and submit Spark Scala applications](apache-spark-intellij-tool-plugin.md)
 * [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Apache Spark applications remotely](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 * [Use Apache Zeppelin notebooks with an Apache Spark cluster on HDInsight](apache-spark-zeppelin-notebook.md)
-* [Kernels available for Jupyter notebook in Apache Spark cluster for HDInsight](apache-spark-jupyter-notebook-kernels.md)
+* [Kernels available for Jupyter Notebook in Apache Spark cluster for HDInsight](apache-spark-jupyter-notebook-kernels.md)
 * [Install Jupyter on your computer and connect to an HDInsight Spark cluster](apache-spark-jupyter-notebook-install-locally.md)
 
 ### Manage resources
