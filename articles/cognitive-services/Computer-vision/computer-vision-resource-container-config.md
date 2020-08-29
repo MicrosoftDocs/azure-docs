@@ -29,9 +29,9 @@ The container also has the following container specific configuration settings:
 |Required|Setting|Purpose|
 |--|--|--|
 |No|ReadEngineConfig:ResultExpirationPeriod|Result expiration period in hours. Default is 48 hours. The setting specifies when the system should clear recognition results. For example, resultExpirationPeriod=1, the system will clear the recognition result 1hr after the process. resultExpirationPeriod=0, the system will clear the recognition result after result retrieval.|
-|No|Cache:Redis|Enablse Redis storage for result storing. A cache is **REQUIRED** if multiple read containers are placed behind load balancer.|
-|No|Queue:RabbitMQ|Eables RabbitMQ for tasks dispatching. This can be useful when multiple read containers are placed behind load balancer.|
-|No|Storage::DocumentStore::MongoDB|Enables MongoDB for permenant result storing.|
+|No|Cache:Redis|Enables Redis storage for result storing. A cache is **REQUIRED** if multiple read containers are placed behind load balancer.|
+|No|Queue:RabbitMQ|Enables RabbitMQ for tasks dispatching. This can be useful when multiple read containers are placed behind load balancer.|
+|No|Storage::DocumentStore::MongoDB|Enables MongoDB for permanent result storing.|
 
 ## ApiKey configuration setting
 
