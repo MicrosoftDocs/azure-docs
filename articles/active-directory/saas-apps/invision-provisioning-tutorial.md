@@ -28,7 +28,7 @@ This tutorial describes the steps you need to perform in both InVision and Azure
 > * Create users in InVision
 > * Remove users in InVision when they do not require access anymore
 > * Keep user attributes synchronized between Azure AD and InVision
-> * [Single sign-on](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/invision-tutorial) to InVision (required)
+> * [Single sign-on](https://docs.microsoft.com/azure/active-directory/saas-apps/invision-tutorial) to InVision (required)
 
 ## Prerequisites
 
