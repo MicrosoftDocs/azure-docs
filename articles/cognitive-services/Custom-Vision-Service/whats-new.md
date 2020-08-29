@@ -16,6 +16,12 @@ ms.author: pafarley
 
 Learn what's new in the service. These items may release notes, videos, blog posts, and other types of information. Bookmark this page to keep up-to-date with the service.
 
+## July 2020
+
+### Role-based access control
+
+Custom Vision supports Azure role-based access control (Azure RBAC), an authorization system for managing individual access to Azure resources. To learn how to manage access to your Custom Vision projects, see [Role-based access control](./role-based-access-control.md).
+
 ## September 2019
 
 ### Suggested tags
