@@ -248,7 +248,7 @@ az keyvault create --name "ContosoKeyVaultHSM" --resource-group "ContosoResource
 You can add software-protected keys (as shown earlier) and HSM-protected keys to this vault. To create an HSM-protected key, set the Destination parameter to 'HSM':
 
 ```azurecli
-az keyvault key create --vault-name "ContosoKeyVaultHSM" --name "ContosoFirstHSMKey" --protection "hsm"
+az keyvault key create --vault-name "Contoso-mhsm" --name "ContosoFirstHSMKey" --protection "hsm"
 ```
 
 You can use the following command to import a key from a .pem file on your computer. This command imports the key into HSMs in the Key Vault service:
@@ -312,6 +312,27 @@ Here's an example of how to remove a specific secret:
 ```azurecli
 az keyvault secret delete --vault-name "ContosoKeyVault" --name "SQLPassword"
 ```
+
+
+Setup Storage account encryption with customer managed key
+
+```azurecli
+storage_account_principal=$(az storage account show --name <storage-account> --resource-group <resource-group>  --query identity.principalId -o tsv)
+az keyvault role assignment create --hsm-name contosomhsm --assignee-object-id $storage_account_principal --scope /keys/storagecmk --role "Managed HSM Crypto Service Encryption"
+key_vault_uri=$(az keyvault show \
+    --hsm-name Contoso-mhsm \
+    --resource-group ContosoResourceGroup \
+    --query properties.hsmUri \
+    --output tsv)
+az storage account update
+    --name <storage-account> \
+    --resource-group <resource_group> \
+    --encryption-key-name <key> \
+    --encryption-key-source Microsoft.Keyvault \
+    --encryption-key-vault $key_vault_uri
+
+```
+
 
 ## Next steps
 
