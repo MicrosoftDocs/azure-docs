@@ -1,4 +1,4 @@
-- name: Azure Firewall Documentation
+- name: Azure Firewall documentation
   href: index.yml
 - name: Overview
   items:

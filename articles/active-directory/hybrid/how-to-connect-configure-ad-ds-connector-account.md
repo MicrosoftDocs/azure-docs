@@ -11,7 +11,8 @@ ms.date: 05/18/2020
 ms.subservice: hybrid
 ms.author: billmath
 
-ms.collection: M365-identity-device-management
+ms.collection: M365-identity-device-management 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Azure AD Connect: Configure AD DS Connector Account Permissions 

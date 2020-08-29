@@ -2,7 +2,8 @@
 title: How to create Guest Configuration policies for Linux
 description: Learn how to create an Azure Policy Guest Configuration policy for Linux.
 ms.date: 08/17/2020
-ms.topic: how-to
+ms.topic: how-to 
+ms.custom: devx-track-azurepowershell
 ---
 # How to create Guest Configuration policies for Linux
 
