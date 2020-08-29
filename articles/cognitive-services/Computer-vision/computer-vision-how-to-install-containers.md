@@ -181,6 +181,9 @@ The `operation-location` is the fully qualified URL and is accessed via an HTTP 
 }
 ```
 
+> [!IMPORTANT]
+> When deploying multiple Read containers behind a load balancer, for example, under docker compose or Kubernetes, an external cache is needed. Because the processing container and the GET request container may not be the same one, an external cache is used to store the results and share accross containers. The detail of cache setting can be found at [Configure Computer Vision Docker containers](https://docs.microsoft.com/en-us/azure/cognitive-services/computer-vision/computer-vision-resource-container-config).
+
 ### Synchronous read
 
 You can use the `POST /vision/v2.0/read/core/Analyze` operation to synchronously read an image. When the image is read in its entirety, then and only then does the API return a JSON response. The only exception to this is if an error occurs. When an error occurs the following JSON is returned:
