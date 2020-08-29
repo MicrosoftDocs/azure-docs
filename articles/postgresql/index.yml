@@ -1,11 +1,11 @@
 ### YamlMime:Landing
-title:  Azure Database for PostgreSQL documentation
-summary: "Azure Database for PostgreSQL is a relational database service based on the open-source Postgres database engine. It's a fully managed database-as-a-service offering that can handle mission-critical workloads with predictable performance, security, high availability, and dynamic scalability. Find documentation about the Azure Database for PostgreSQL deployment options in the cloud: Single Server, Flexible Server (Preview) and Hyperscale (Citus)."
+title:  Azure Database for PostgreSQL - Single Server documentation
+summary: "Azure Database for PostgreSQL Single server is a relational database service based on the open-source Postgres database engine. It's a fully managed database-as-a-service offering that can handle mission-critical workloads with predictable performance, security, high availability, and dynamic scalability."
 metadata:
   description: "Azure Database for PostgreSQL is a relational database service in the Microsoft cloud that is built for developers based on the open-source PostgreSQL database engine."
   author: rachel-msft
   ms.author: raagyema
-  ms.date: 09/22/2020
+  ms.date: 09/21/2020
   ms.service: postgresql
   ms.topic: landing-page
 
