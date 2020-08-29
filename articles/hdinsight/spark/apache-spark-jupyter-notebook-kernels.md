@@ -113,7 +113,7 @@ Whichever kernel you use, leaving the notebooks running consumes the cluster res
 
 ## Where are the notebooks stored?
 
-If your cluster uses Azure Storage as the default storage account, Jupyter notebooks are saved to storage account under the **/HdiNotebooks** folder.  Notebooks, text files, and folders that you create from within Jupyter are accessible from the storage account.  For example, if you use Jupyter to create a folder **`myfolder`** and a notebook **myfolder/mynotebook.ipynb**, you can access that notebook at `/HdiNotebooks/myfolder/mynotebook.ipynb` within the storage account.  The reverse is also true, that is, if you upload a notebook directly to your storage account at `/HdiNotebooks/mynotebook1.ipynb`, the notebook is visible from Jupyter as well.  Notebooks remain in the storage account even after the cluster is deleted.
+If your cluster uses Azure Storage as the default storage account, Jupyter Notebooks are saved to storage account under the **/HdiNotebooks** folder.  Notebooks, text files, and folders that you create from within Jupyter are accessible from the storage account.  For example, if you use Jupyter to create a folder **`myfolder`** and a notebook **myfolder/mynotebook.ipynb**, you can access that notebook at `/HdiNotebooks/myfolder/mynotebook.ipynb` within the storage account.  The reverse is also true, that is, if you upload a notebook directly to your storage account at `/HdiNotebooks/mynotebook1.ipynb`, the notebook is visible from Jupyter as well.  Notebooks remain in the storage account even after the cluster is deleted.
 
 > [!NOTE]  
 > HDInsight clusters with Azure Data Lake Storage as the default storage do not store notebooks in associated storage.
@@ -130,7 +130,7 @@ Whether the cluster uses Azure Storage or Azure Data Lake Storage as the default
 
 ## Supported browser
 
-Jupyter notebooks on Spark HDInsight clusters are supported only on Google Chrome.
+Jupyter Notebooks on Spark HDInsight clusters are supported only on Google Chrome.
 
 ## Suggestions
 
@@ -140,5 +140,5 @@ The new kernels are in evolving stage and will mature over time. So the APIs cou
 
 - [Overview: Apache Spark on Azure HDInsight](apache-spark-overview.md)
 - [Use Apache Zeppelin notebooks with an Apache Spark cluster on HDInsight](apache-spark-zeppelin-notebook.md)
-- [Use external packages with Jupyter notebooks](apache-spark-jupyter-notebook-use-external-packages.md)
+- [Use external packages with Jupyter Notebooks](apache-spark-jupyter-notebook-use-external-packages.md)
 - [Install Jupyter on your computer and connect to an HDInsight Spark cluster](apache-spark-jupyter-notebook-install-locally.md)
