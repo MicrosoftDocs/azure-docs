@@ -50,7 +50,7 @@
   - name: .NET
     items:
     - name: Encode and stream a remote file REST
-    - href: stream-files-tutorial-with-rest.md
+      href: stream-files-tutorial-with-rest.md
     - name: Encode and stream a remote file .NET
       href: stream-files-dotnet-quickstart.md
     - name: Encode and stream an uploaded file
@@ -66,7 +66,7 @@
   - name: CLI
     items:
     - name: Encode and stream a remote file CLI
-    - href: stream-files-cli-quickstart.md
+      href: stream-files-cli-quickstart.md
   - name: Node.js
     items:
     - name: Encode and stream a remote file Node.js
