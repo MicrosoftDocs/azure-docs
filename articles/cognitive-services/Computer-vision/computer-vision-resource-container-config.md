@@ -24,6 +24,15 @@ You configure the Computer Vision container's runtime environment by using the `
 > [!IMPORTANT]
 > The [`ApiKey`](#apikey-configuration-setting), [`Billing`](#billing-configuration-setting), and [`Eula`](#eula-setting) settings are used together, and you must provide valid values for all three of them; otherwise your container won't start. For more information about using these configuration settings to instantiate a container, see [Billing](computer-vision-how-to-install-containers.md).
 
+The container also has the following container specific configuration settings:
+
+|Required|Setting|Purpose|
+|--|--|--|
+|No|ReadEngineConfig:ResultExpirationPeriod|Result expiration period in hours. Default is 48 hours. The setting specifies when the system should clear recognition results. For example, resultExpirationPeriod=1, the system will clear the recognition result 1hr after the process. resultExpirationPeriod=0, the system will clear the recognition result after result retrieval.|
+|No|Cache:Redis|Enablse Redis storage for result storing. A cache is **REQUIRED** if multiple read containers are placed behind load balancer.|
+|No|Queue:RabbitMQ|Eables RabbitMQ for tasks dispatching. This can be useful when multiple read containers are placed behind load balancer.|
+|No|Storage::DocumentStore::MongoDB|Enables MongoDB for permenant result storing.|
+
 ## ApiKey configuration setting
 
 The `ApiKey` setting specifies the Azure `Cognitive Services` resource key used to track billing information for the container. You must specify a value for the ApiKey and the value must be a valid key for the _Cognitive Services_ resource specified for the [`Billing`](#billing-configuration-setting) configuration setting.
