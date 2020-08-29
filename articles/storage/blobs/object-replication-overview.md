@@ -1,21 +1,21 @@
 ---
-title: Object replication overview (preview)
+title: Object replication overview
 titleSuffix: Azure Storage
-description: Object replication (preview) asynchronously copies block blobs between a source storage account and a destination account. Use object replication to minimize latency on read requests, to increase efficiency for compute workloads, to optimize data distribution, and to minimize costs.
+description: Object replication asynchronously copies block blobs between a source storage account and a destination account. Use object replication to minimize latency on read requests, to increase efficiency for compute workloads, to optimize data distribution, and to minimize costs.
 services: storage
 author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/28/2020
+ms.date: 08/28/2020
 ms.author: tamram
 ms.subservice: blobs 
 ms.custom: devx-track-azurecli
 ---
 
-# Object replication for block blobs (preview)
+# Object replication for block blobs
 
-Object replication (preview) asynchronously copies block blobs between a source storage account and a destination account. Some scenarios supported by object replication include:
+Object replication asynchronously copies block blobs between a source storage account and a destination account. Some scenarios supported by object replication include:
 
 - **Minimizing latency.** Object replication can reduce latency for read requests by enabling clients to consume data from a region that is in closer physical proximity.
 - **Increase efficiency for compute workloads.** With object replication, compute workloads can process the same sets of block blobs in different regions.
@@ -26,7 +26,7 @@ The following diagram shows how object replication replicates block blobs from a
 
 :::image type="content" source="media/object-replication-overview/object-replication-diagram.svg" alt-text="Diagram showing how object replication works":::
 
-To learn how to configure object replication, see [Configure object replication (preview)](object-replication-configure.md).
+To learn how to configure object replication, see [Configure object replication](object-replication-configure.md).
 
 ## Object replication policies and rules
 
@@ -37,11 +37,11 @@ After you configure object replication, Azure Storage checks the change feed for
 > [!IMPORTANT]
 > Because block blob data is replicated asynchronously, the source account and destination account are not immediately in sync. There's currently no SLA on how long it takes to replicate data to the destination account.
 
-### Replications policies
+### Replication policies
 
 When you configure object replication, a replication policy is created on both the source account and the destination account via the Azure Storage resource provider. The replication policy is identified by a policy ID. The policy on the source and destination accounts must have the same policy ID in order for replication to take place.
 
-A storage account can serve as the source account for up to two destination accounts. And a destination account may have no more than two source accounts. The source and destination accounts may all be in different regions. You can configure separate replication policies to replicate data to each of the destination accounts.
+A storage account can serve as the source account for up to two destination accounts. And a destination account may have no more than two source accounts. The source and destination accounts may all be in different regions. They may also reside in different subscriptions and in different Azure Active Directory (Azure AD) tenants. Only one replication policy may be created for each pair of accounts.
 
 ### Replication rules
 
@@ -85,78 +85,8 @@ Be sure to register for the change feed and blob versioning previews before you 
 
 Enabling change feed and blob versioning may incur additional costs. For more details, refer to the [Azure Storage pricing page](https://azure.microsoft.com/pricing/details/storage/).
 
-### Register for the preview
-
-You can register for the object replication preview using PowerShell or Azure CLI. Make sure that you also register for the change feed and blob versioning previews if you haven't already.
-
-# [PowerShell](#tab/powershell)
-
-To register for the preview with PowerShell, run the following commands:
-
-```powershell
-# Register for the object replication preview
-Register-AzProviderFeature -FeatureName AllowObjectReplication -ProviderNamespace Microsoft.Storage
-
-# Register for change feed (preview)
-Register-AzProviderFeature -FeatureName Changefeed -ProviderNamespace Microsoft.Storage
-
-# Register for blob versioning (preview)
-Register-AzProviderFeature -FeatureName Versioning -ProviderNamespace Microsoft.Storage
-
-# Refresh the Azure Storage provider namespace
-Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
-```
-
-# [Azure CLI](#tab/azure-cli)
-
-To register for the preview with Azure CLI, run the following commands:
-
-```azurecli
-az feature register --namespace Microsoft.Storage --name AllowObjectReplication
-az feature register --namespace Microsoft.Storage --name Changefeed
-az feature register --namespace Microsoft.Storage --name Versioning
-az provider register --namespace 'Microsoft.Storage'
-```
-
----
-
-### Check registration status
-
-You can check the status of your registration requests using PowerShell or Azure CLI.
-
-# [PowerShell](#tab/powershell)
-
-To check the status of your registration requests using PowerShell, run the following commands:
-
-```powershell
-Get-AzProviderFeature -ProviderNamespace Microsoft.Storage `
-    -FeatureName AllowObjectReplication
-
-Get-AzProviderFeature -ProviderNamespace Microsoft.Storage `
-    -FeatureName Changefeed
-
-Get-AzProviderFeature -ProviderNamespace Microsoft.Storage `
-    -FeatureName Versioning
-```
-
-# [Azure CLI](#tab/azure-cli)
-
-To check the status of your registration requests using Azure CLI, run the following commands:
-
-```azurecli
-az feature list -o table --query "[?contains(name, 'Microsoft.Storage/AllowObjectReplication')].{Name:name,State:properties.state}"
-az feature list -o table --query "[?contains(name, 'Microsoft.Storage/Changefeed')].{Name:name,State:properties.state}"
-az feature list -o table --query "[?contains(name, 'Microsoft.Storage/Versioning')].{Name:name,State:properties.state}"
-```
-
----
-
-## Ask questions or provide feedback
-
-To ask questions about the object replication preview, or to provide feedback, contact Microsoft at AzureStorageFeedback@microsoft.com. Ideas and suggestions about Azure Storage are always welcomed at the [Azure Storage feedback forum](https://feedback.azure.com/forums/217298-storage).
-
 ## Next steps
 
-- [Configure object replication (preview)](object-replication-configure.md)
-- [Change feed support in Azure Blob Storage (Preview)](storage-blob-change-feed.md)
+- [Configure object replication](object-replication-configure.md)
+- [Change feed support in Azure Blob Storage](storage-blob-change-feed.md)
 - [Enable and manage blob versioning](versioning-enable.md)

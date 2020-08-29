@@ -1,5 +1,5 @@
 ---
-title: Configure object replication (preview)
+title: Configure object replication
 titleSuffix: Azure Storage
 description: Learn how to configure object replication to asynchronously copy block blobs from a container in one storage account to another.
 services: storage
@@ -7,15 +7,15 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/16/2020
+ms.date: 08/28/2020
 ms.author: tamram
 ms.subservice: blobs 
 ms.custom: devx-track-azurecli
 ---
 
-# Configure object replication for block blobs (preview)
+# Configure object replication for block blobs
 
-Object replication (preview) asynchronously copies block blobs between a source storage account and a destination account. For more information about object replication, see [Object replication (preview)](object-replication-overview.md).
+Object replication asynchronously copies block blobs between a source storage account and a destination account. For more information about object replication, see [Object replication](object-replication-overview.md).
 
 When you configure object replication, you create a replication policy that specifies the source storage account and the destination account. A replication policy includes one or more rules that specify a source container and a destination container and indicate which block blobs in the source container will be replicated.
 
@@ -25,17 +25,15 @@ This article describes how to configure object replication for your storage acco
 
 Before you configure object replication, create the source and destination storage accounts if they do not already exist. Both accounts must be general-purpose v2 storage accounts. For more information, see [Create an Azure Storage account](../common/storage-account-create.md).
 
-A storage account can serve as the source account for up to two destination accounts. And a destination account may have no more than two source accounts. The source and destination accounts may all be in different regions. You can configure separate replication policies to replicate data to each of the destination accounts.
+Object replication requires that blob versioning is enabled for both the source and destination account, and that blob change feed is enabled for the source account. To learn more about blob versioning, see [Blob versioning](versioning-overview.md). To learn more about change feed, see [Change feed support in Azure Blob Storage](storage-blob-change-feed.md). Keep in mind that enabling these features can result in additional costs.
 
-Before you begin, make sure that you have registered for the following feature previews:
+A storage account can serve as the source account for up to two destination accounts. And a destination account may have no more than two source accounts. The source and destination accounts may all be in different regions. They may also reside in different subscriptions and in different Azure Active Directory (Azure AD) tenants. Only one replication policy may be created for each pair of accounts.
 
-- [Object replication (preview)](object-replication-overview.md)
-- [Blob versioning (preview)](versioning-overview.md)
-- [Change feed support in Azure Blob Storage (Preview)](storage-blob-change-feed.md)
+When you configure object replication, a replication policy is created on both the source account and the destination account via the Azure Storage resource provider. The replication policy is identified by a policy ID. The policy on the source and destination accounts must have the same policy ID in order for replication to take place.
 
 # [Azure portal](#tab/portal)
 
-Before you configure object replication in the Azure portal, create the source and destination containers in their respective storage accounts, if they do not already exist. Also, enabled blob versioning and change feed on the source account, and enable blob versioning on the destination account.
+Before you configure object replication in the Azure portal, create the source and destination containers in their respective storage accounts, if they do not already exist. Also, enable blob versioning and change feed on the source account, and enable blob versioning on the destination account.
 
 To create a replication policy in the Azure portal, follow these steps:
 
@@ -62,6 +60,53 @@ To create a replication policy in the Azure portal, follow these steps:
     :::image type="content" source="media/object-replication-configure/configure-replication-copy-scope.png" alt-text="Screenshot showing custom copy scope for object replication":::
 
 1. Select **Save and apply** to create the replication policy and start replicating data.
+
+After you have configured object replication, the Azure portal displays the replication policy and rules, as shown in the following image.
+
+:::image type="content" source="media/object-replication-configure/object-replication-policies-portal.png" alt-text="Screenshot showing object replication policy in Azure portal":::
+
+If you do not have permissions to the source storage account, then you can configure object replication on the destination account and provide a JSON template to another user to create the same policy on the source account. For example, if the source account is in a different Azure AD tenant from the destination account, then use this approach to configure object replication. Keep in mind that you must have access to the destination account in order to create the policy.
+
+To configure object replication on the destination account with a JSON file, follow these steps:
+
+1. Create a local JSON file that contains the template for the replication policy on the destination account. Set the **policyId** field to **default** so that Azure Storage will define the policy ID.
+
+    The following example creates a replication policy on the destination account with a single rule that matches the prefix *b* and sets the minimum creation time for blobs that are to be replicated. Remember to replace values in angle brackets with your own values:
+
+    ```json
+    {
+      "properties": {
+        "policyId": "default",
+        "sourceAccount": "<source-account>",
+        "destinationAccount": "<dest-account>",
+        "rules": [
+          {
+            "ruleId": "default",
+            "sourceContainer": "<source-container>",
+            "destinationContainer": "<destination-container>",
+            "filters": {
+              "prefixMatch": [
+                "b"
+              ],
+              "minCreationTime": "2020-08-028T00:00:00Z"
+            }
+          }
+        ]
+      }
+    }
+    ```
+
+1. Navigate to the **Object replication** settings for the destination account in the Azure portal.
+1. Select **Upload replication rules**.
+1. Upload the JSON file to create the replication policy on the destination account.
+
+You can then export a JSON file that you can provide to another user to configure the source account. To download this JSON file, follow these steps:
+
+1. Navigate to the **Object replication** settings for the destination account in the Azure portal.
+1. Select the **More** button next to the policy that you wish to download, then select **Download rules**.
+1. Save the JSON file to your local computer.
+
+The downloaded JSON file includes the policy ID that Azure Storage created for the policy on the destination account. You must use the same policy ID to configure object replication on the source account.
 
 # [PowerShell](#tab/powershell)
 
@@ -294,4 +339,4 @@ az storage account or-policy delete \
 
 ## Next steps
 
-- [Object replication overview (preview)](object-replication-overview.md)
+- [Object replication overview](object-replication-overview.md)
