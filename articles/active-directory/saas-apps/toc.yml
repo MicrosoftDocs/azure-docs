@@ -555,6 +555,8 @@
         href: ethicspoint-incident-management-tutorial.md
       - name: Euromonitor Passport
         href: euromonitor-passport-tutorial.md
+      - name: Eventfinity
+        href: eventfinity-tutorial.md
       - name: EverBridge
         href: everbridge-tutorial.md
       - name: Evernote
@@ -1766,7 +1768,7 @@
       items:
       - name: Watch by Colors
         href: watch-by-colors-tutorial.md
-      - name: Wandera
+      - name: Wandera RADAR Admin
         href: wandera-tutorial.md
       - name: Way We Do
         href: waywedo-tutorial.md

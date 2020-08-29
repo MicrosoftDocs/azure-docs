@@ -16,7 +16,8 @@ ms.topic: how-to
 ms.date: 07/18/2017
 ms.author: billmath
 
-ms.collection: M365-identity-device-management
+ms.collection: M365-identity-device-management 
+ms.custom: devx-track-azurepowershell
 ---
 # Azure AD Connect Health Agent Installation
 
