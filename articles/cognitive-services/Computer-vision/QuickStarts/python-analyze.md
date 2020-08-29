@@ -17,7 +17,7 @@ ms.custom: seodec18, devx-track-python
 
 In this quickstart, you'll analyze a remotely stored image to extract visual features using the Computer Vision REST API. With the [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) method, you can extract visual features based on image content.
 
-You can run this quickstart in a step-by step fashion using a Jupyter notebook on [MyBinder](https://mybinder.org). To launch Binder, select the following button:
+You can run this quickstart in a step-by step fashion using a Jupyter Notebook on [MyBinder](https://mybinder.org). To launch Binder, select the following button:
 
 [![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=VisionAPI.ipynb)
 
@@ -45,7 +45,7 @@ To create and run the sample, do the following steps:
 
 ```python
 import requests
-# If you are using a Jupyter notebook, uncomment the following line.
+# If you are using a Jupyter Notebook, uncomment the following line.
 # %matplotlib inline
 import matplotlib.pyplot as plt
 import json
