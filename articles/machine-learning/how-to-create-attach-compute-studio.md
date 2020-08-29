@@ -41,7 +41,7 @@ To see all compute targets for your workspace, use the following steps:
 
 1. Select tabs at the top to show each type of compute target.
 
-  :::image type="content" source="media/how-to-create-attach-studio/view-compute-targets.png" alt-text="View list of compute targets":::
+    :::image type="content" source="media/how-to-create-attach-studio/view-compute-targets.png" alt-text="View list of compute targets":::
 
 ## <a id="portal-create"></a>Create compute target
 
@@ -51,11 +51,11 @@ Follow the previous steps to view the list of compute targets. Then use these st
 
 1. If you have no compute targets, select  **Create** in the middle of the page.
   
-  ::image type="content" source="media/how-to-create-attach-studio/create-compute-target.png" alt-text="Create compute target":::
+    :::image type="content" source="media/how-to-create-attach-studio/create-compute-target.png" alt-text="Create compute target":::
 
 1. If you see a list of compute resources, select **+New** above the list.
 
-  :::image type="content" source="media/how-to-create-attach-studio/select-new.png" alt-text="Select new":::
+    :::image type="content" source="media/how-to-create-attach-studio/select-new.png" alt-text="Select new":::
 
 
 1. Fill out the form for your compute type:
@@ -69,7 +69,7 @@ Follow the previous steps to view the list of compute targets. Then use these st
 
 1. View the status of the create operation by selecting the compute target from the list:
 
-  :::image type="content" source="media/how-to-create-attach-studio/view-list.png" alt-text="View compute status from a list":::
+    :::image type="content" source="media/how-to-create-attach-studio/view-list.png" alt-text="View compute status from a list":::
 
 
 ### Compute instance
@@ -96,7 +96,7 @@ Create a single or multi node compute cluster for your training, batch inferenci
 |---------|---------|
 |Compute name     |  <li>Name is required and must be between 3 to 24 characters long.</li><li>Valid characters are upper and lower case letters, digits, and the  **-** character.</li><li>Name must start with a letter</li><li>Name needs to be unique across all existing computes within an Azure region. You will see an alert if the name you choose is not unique</li><li>If **-**  character is used, then it needs to be followed by at least one letter later in the name</li>     |
 |Virtual machine type |  Choose CPU or GPU. This type cannot be changed after creation     |
-|Virtual machine priority | Choose **Dedicated** or **Low priority**.  Low priority virtual machines are cheaper but don't guarantee the compute nodes. Your job may be pre-empted.
+|Virtual machine priority | Choose **Dedicated** or **Low priority**.  Low priority virtual machines are cheaper but don't guarantee the compute nodes. Your job may be preempted.
 |Virtual machine size     |  Supported virtual machine sizes might be restricted in your region. Check the [availability list](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines)     |
 |Minimum number of nodes | Minimum number of nodes that you want to provision. If you want a dedicated number of nodes, set that count here. Save money by setting the minimum to 0, so you won't pay for any nodes when the cluster is idle. |
 |Maximum number of nodes | Maximum number of nodes that you want to provision. The compute will autoscale to a maximum of this node count when a job is submitted. |

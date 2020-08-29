@@ -151,7 +151,7 @@ When you're using a local computer (which might also be a remote virtual machine
 
     This example creates an environment using python 3.7.7, but any specific subversions can be chosen. SDK compatibility may not be guaranteed with certain major versions (3.5+ is recommended), and it's recommended to try a different version/subversion in your Anaconda environment if you run into errors. It will take several minutes to create the environment while components and packages are downloaded.
 
-1. Run the following commands in your new environment to enable environment-specific IPython kernels. This will ensure expected kernel and package import behavior when working with Jupyter Notebooks within Anaconda environments:
+1. Run the following commands in your new environment to enable environment-specific I Python kernels. This will ensure expected kernel and package import behavior when working with Jupyter Notebooks within Anaconda environments:
 
     ```bash
     conda install notebook ipykernel
@@ -301,10 +301,10 @@ Once the cluster is running, [create a library](https://docs.databricks.com/user
    |SDK&nbsp;package&nbsp;extras|Source|PyPi&nbsp;Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
    |----|---|---|
    |For Databricks| Upload Python Egg or PyPI | azureml-sdk[databricks]|
-   |For Databricks -with-<br> automated ML capabilities| Upload Python Egg or PyPI | azureml-sdk[automl]|
+   |For Databricks -with-<br> automated ML capabilities| Upload Python Egg or PyPI | `azureml-sdk[automl]`|
 
    > [!Warning]
-   > No other SDK extras can be installed. Choose only one of the preceding options [databricks] or [automl].
+   > No other SDK extras can be installed. Choose only one of the preceding options [`databricks`] or [`automl`].
 
    * Do not select **Attach automatically to all clusters**.
    * Select  **Attach** next to your cluster name.
