@@ -49,7 +49,7 @@ Currently, you can create an automation task only at the resource level, view th
 
 * The Azure resource that you want to manage. This article uses an Azure storage account as the example.
 
-* An Office 365 account if you want to following along with the example, which sends you email by using Office 365 Outlook.
+* An Office 365 account if you want to follow along with the example, which sends you email by using Office 365 Outlook.
 
 <a name="create-automation-task"></a>
 
