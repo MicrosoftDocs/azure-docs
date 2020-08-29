@@ -48,7 +48,7 @@ You use the Azure portal to create an HDInsight cluster that uses Azure Storage 
     |Region   | From the drop-down list, select a region where the cluster is created. |
     |Cluster type| Select Select cluster type to open a list. From the list, select **Spark**.|
     |Cluster version|This field will auto-populate with the default version once the cluster type has been selected.|
-    |Cluster login username| Enter the cluster login username.  The default name is **admin**. You use this account to login in to the Jupyter notebook later in the quickstart. |
+    |Cluster login username| Enter the cluster login username.  The default name is **admin**. You use this account to login in to the Jupyter Notebook later in the quickstart. |
     |Cluster login password| Enter the cluster login password. |
     |Secure Shell (SSH) username| Enter the SSH username. The SSH username used for this quickstart is **sshuser**. By default, this account shares the same password as the *Cluster Login username* account. |
 
@@ -73,7 +73,7 @@ You use the Azure portal to create an HDInsight cluster that uses Azure Storage 
 
 If you run into an issue with creating HDInsight clusters, it could be that you don't have the right permissions to do so. For more information, see [Access control requirements](../hdinsight-hadoop-customize-cluster-linux.md#access-control).
 
-## Create a Jupyter notebook
+## Create a Jupyter Notebook
 
 Jupyter Notebook is an interactive notebook environment that supports various programming languages. The notebook allows you to interact with your data, combine code with markdown text and perform simple visualizations.
 
