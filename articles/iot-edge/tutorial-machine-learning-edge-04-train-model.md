@@ -29,7 +29,7 @@ The steps in this article might be typically performed by data scientists.
 We use Azure Notebooks to host the two Jupyter Notebooks and supporting files. Here we create and configure an Azure Notebooks project. If you have not used Jupyter and/or Azure Notebooks, here are a couple of introductory documents:
 
 * **Quickstart:** [Create and share a notebook](../notebooks/quickstart-create-share-jupyter-notebook.md)
-* **Tutorial:** [Create and run a Jupyter notebook with Python](../notebooks/tutorial-create-run-jupyter-notebook.md)
+* **Tutorial:** [Create and run a Jupyter Notebook with Python](../notebooks/tutorial-create-run-jupyter-notebook.md)
 
 Using Azure Notebooks ensures a consistent environment for the exercise.
 
@@ -50,7 +50,7 @@ To use Azure Notebooks, you need to create an account. Azure Notebook accounts a
 
 1. Create a user ID for Azure Notebooks.
 
-### Upload Jupyter notebook files
+### Upload Jupyter Notebook files
 
 We will upload sample notebook files into a new Azure Notebooks project.
 
@@ -127,7 +127,7 @@ Now that the project is created, you can run the notebooks.
 
     ![Sign in prompt for device authentication](media/tutorial-machine-learning-edge-04-train-model/sign-in-prompt.png)
 
-    Open the link and enter the specified code. This sign-in procedure authenticates the Jupyter notebook to access Azure resources using the Microsoft Azure Cross-Platform Command Line Interface.  
+    Open the link and enter the specified code. This sign-in procedure authenticates the Jupyter Notebook to access Azure resources using the Microsoft Azure Cross-Platform Command Line Interface.  
 
     ![Authenticate application on device confirmation](media/tutorial-machine-learning-edge-04-train-model/cross-platform-cli.png)
 
