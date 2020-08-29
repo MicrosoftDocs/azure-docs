@@ -52,17 +52,6 @@ This article describes error messages and resolutions that can help you troubles
 |-|-|
 |     `Volume Replication is in invalid status: (Mirrored|Uninitialized) for operation: 'ResyncReplication'`     |     Validate that   volume replication is in state "broken”.    |
 
-## Errors authorizing volume  
-
-|     Error Message    |     Resolution    |
-|-|-|
-|     `Missing value   for 'AuthorizeSourceReplication'`    |     The   `RemoteResourceID` is missing or invalid from the UI or API request (fix error   message).    |
-|     `Missing value   for 'RemoteVolumeResourceId'`    |     The   `RemoteResourceID` is missing or invalid from the UI or API request.    |
-|     `Data   Protection volume not found for RemoteVolumeResourceId: {remoteResourceId}`    |     Validate if   `RemoteResourceID` is correct or exists for the user.    |
-|     `Remote volume   '{0}' is not configured for replication`    |     Destination   volume is not a data protection volume.    |
-|     `Remote volume   '{0}' does not have source volume '{1}' as RemoteVolumeResourceId`    |     Data   protection volume does not have this source volume in its remote resource ID   (wrong source ID was entered).    |
-|     `The   destination volume replication creation failed (message: {0})`    |     This error   indicates a server error. Contact Support.    |
-
 ## Errors deleting snapshot 
 
 |     Error Message    |     Resolution    |
