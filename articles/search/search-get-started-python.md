@@ -13,7 +13,7 @@ ms.date: 08/20/2020
 ms.custom: devx-track-python
 ---
 
-# Quickstart: Create an Azure Cognitive Search index in Python using Jupyter notebooks
+# Quickstart: Create an Azure Cognitive Search index in Python using Jupyter Notebooks
 
 > [!div class="op_single_selector"]
 > * [Python (REST)](search-get-started-python.md)
@@ -23,7 +23,7 @@ ms.custom: devx-track-python
 > * [Portal](search-get-started-portal.md)
 > 
 
-Build a Jupyter notebook that creates, loads, and queries an Azure Cognitive Search index using Python and the [Azure Cognitive Search REST APIs](/rest/api/searchservice/). This article explains how to build a notebook step by step. Alternatively, you can [download and run a finished Jupyter Python notebook](https://github.com/Azure-Samples/azure-search-python-samples).
+Build a Jupyter Notebook that creates, loads, and queries an Azure Cognitive Search index using Python and the [Azure Cognitive Search REST APIs](/rest/api/searchservice/). This article explains how to build a notebook step by step. Alternatively, you can [download and run a finished Jupyter Python notebook](https://github.com/Azure-Samples/azure-search-python-samples).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -49,7 +49,7 @@ All requests require an api-key on every request sent to your service. Having a 
 
 ## Connect to Azure Cognitive Search
 
-In this task, start a Jupyter notebook and verify that you can connect to Azure Cognitive Search. You'll do this by requesting a list of indexes from your service. On Windows with Anaconda3, you can use Anaconda Navigator to launch a notebook.
+In this task, start a Jupyter Notebook and verify that you can connect to Azure Cognitive Search. You'll do this by requesting a list of indexes from your service. On Windows with Anaconda3, you can use Anaconda Navigator to launch a notebook.
 
 1. Create a new Python3 notebook.
 
