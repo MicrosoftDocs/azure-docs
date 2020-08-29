@@ -1,41 +1,36 @@
 ---
-title: Azure Key Vault security worlds | Microsoft Docs
+title: Managed HSM security domain | Microsoft Docs
 ms.service: key-vault
-ms.subservice: general
+ms.subservice: managed-hsm
 ms.topic: conceptual
-author: msmbaldwin
-ms.author: mbaldwin
-manager: rkarlin
-ms.date: 07/03/2017
+author: amitbapat
+ms.author: ambapat
+manager: msmbaldwin
+ms.date: 09/15/2020
 ---
-# Azure Key Vault security worlds and geographic boundaries
+# Managed HSM security domain
 
-Azure Key Vault is a multi-tenant service and uses a pool of Hardware Security Modules (HSMs) in each Azure location. 
+Security domain is a set of core credentials needed to recover a managed HSM pool in case of a disaster. These credentials are generated in the HSM pool's member partitions and enclaves and represent "ownership" of those partitions.
 
-All HSMs at Azure locations in the same geographic region share the same cryptographic boundary (Thales Security World). For example, East US and West US share the same security world because they belong to the US geo location. Similarly, all Azure locations in Japan share the same security world and all Azure locations in Australia, India, and so on. 
+Every HSM pool must have a security domain to operate. When you request a new managed HSM pool, it is provisioned but not activated until you initialize and download the security domain. When an HSM pool is in provisioned (but not activated) state, there are two ways to initialize it:
+- request to create a new security domain
+- request to upload an existing security domain you already have. This method allows you to create multiple HSM pools that share the same security domain.
+
+## Download security domain 
+
+When an HSM pool is in provisioned but not activated, downloading a security domain results in creating a new security domain. To download the security domain, you must create at least 3 (maximum 10) RSA key pairs and send the public keys while requesting to download the security domain. You also need to specify the minimum number of keys required (quorum) to decrypt the security domain. The HSM pool will initialize a new security domain and encrypt it using the public keys you provided. The security domain blob you download can only be decrypted when at least quorum number of private keys are available. Therefore, you must keep the private keys safe to ensure security of the security domain. Once the download is complete the HSM will in activated state. 
+
+> [!IMPORTANT] For a full disaster recovery you must have the security domain, the at the quorum of private keys that were used to encrypt it and a full HSM backup. If you lose the security domain or the RSA keys (private key) used to encrypt it and no running instances of the HSM pool are present, disaster recovery will not be possible.
+
+## Upload security domain
+
+When an HSM pool is in provisioned but not activated, you can request to initiate a security domain recovery process. The HSM pool will generate a RSA key pair and return the public key. Then you can upload the security domain to this HSM pool - before uploading, the client (Azure CLI or PowerShell) will need to be provided with the minimum quorum number of private keys you used while downloading the security domain. The client will decrypt the security domain and encrypt it using the public key you downloaded when you requested recovery. Once the upload is complete the HSM will be in activated state.
+
 
 ## Backup and restore behavior
 
-A backup taken of a key from a key vault in one Azure location can be restored to a key vault in another Azure location, as long as both of these conditions are true:
+Backups (either full backup or a single key backup) can only be successfully restored if the source HSM pool where the backup was created and the destination HSM pool where the backup will be restored share the same security domain. In this way security domain also defines a cryptographic boundary for each HSM pool.
 
-- Both of the Azure locations belong to the same geographical location
-- Both of the key vaults belong to the same Azure subscription
-
-For example, a backup taken by a given subscription of a key in a key vault in West India, can only be restored to another key vault in the same subscription and geo location; West India, Central India or South India.
-
-## Regions and products
-
-- [Azure regions](https://azure.microsoft.com/regions/)
-- [Microsoft products by region](https://azure.microsoft.com/regions/services/)
-
-Regions are mapped to security worlds, shown as major headings in the tables:
-
-In the products by region article, for example, the **Americas** tab contains EAST US, CENTRAL US, WEST US all mapping to the Americas region. 
-
->[!NOTE]
->An exception is that US DOD EAST and US DOD CENTRAL have their own security worlds. 
-
-Similarly, on the **Europe** tab, NORTH EUROPE and WEST EUROPE both map to the Europe region. The same is also true on the **Asia Pacific** tab.
 
 
 
