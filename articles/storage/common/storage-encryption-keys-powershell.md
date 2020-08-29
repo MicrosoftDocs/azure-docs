@@ -10,7 +10,8 @@ ms.topic: how-to
 ms.date: 08/24/2020
 ms.author: tamram
 ms.reviewer: ozgun
-ms.subservice: common
+ms.subservice: common 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Configure customer-managed keys with Azure Key Vault by using PowerShell
