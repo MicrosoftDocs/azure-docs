@@ -17,7 +17,7 @@ ms.custom: fasttrack-edit
 When working with Virtual WAN virtual hub routing, there are quite a few available scenarios. In this NVA scenario, the goal is to route traffic through an NVA (Network Virtual Appliance) for branch to VNet and VNet to branch. For information about virtual hub routing, see [About virtual hub routing](about-virtual-hub-routing.md).
 
 > [!NOTE]
-> Some of the routing capabilities may still be rolling out. If the rollout has not yet happened in your region, please use the steps in these versions of the articles in the meantime:
+> If you already have a set up with routes that are prior to the new capabilities [How to configure virtual hub routing](how-to-virtual-hub-routing.md) becoming available, please use the steps in these versions of the articles:
 >* [Azure portal article](virtual-wan-route-table-nva-portal.md)
 >* [PowerShell article](virtual-wan-route-table-nva.md)
 >

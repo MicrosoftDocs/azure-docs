@@ -11,7 +11,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/18/2020
+ms.date: 08/25/2020
 ---
 
 # Copy data from and to the SFTP server by using Azure Data Factory
@@ -107,7 +107,7 @@ To use SSH public key authentication, set "authenticationType" property as **Ssh
 | userName | The user who has access to the SFTP server. |Yes |
 | privateKeyPath | Specify the absolute path to the private key file that the integration runtime can access. This applies only when the self-hosted type of integration runtime is specified in "connectVia." | Specify either `privateKeyPath` or `privateKeyContent`.  |
 | privateKeyContent | Base64 encoded SSH private key content. SSH private key should be OpenSSH format. Mark this field as a SecureString to store it securely in your data factory, or [reference a secret stored in an Azure key vault](store-credentials-in-key-vault.md). | Specify either `privateKeyPath` or `privateKeyContent`. |
-| passPhrase | Specify the pass phrase or password to decrypt the private key if the key file is protected by a pass phrase. Mark this field as a SecureString to store it securely in your data factory, or [reference a secret stored in an Azure key vault](store-credentials-in-key-vault.md). | Yes, if the private key file is protected by a pass phrase. |
+| passPhrase | Specify the pass phrase or password to decrypt the private key if the key file or the key content is protected by a pass phrase. Mark this field as a SecureString to store it securely in your data factory, or [reference a secret stored in an Azure key vault](store-credentials-in-key-vault.md). | Yes, if the private key file or the key content is protected by a pass phrase. |
 
 > [!NOTE]
 > The SFTP connector supports an RSA/DSA OpenSSH key. Make sure that your key file content starts with "-----BEGIN [RSA/DSA] PRIVATE KEY-----". If the private key file is a PPK-format file, use the PuTTY tool to convert from PPK to OpenSSH format. 

@@ -4,26 +4,41 @@
   items:
   - name: What is Azure DB for PostgreSQL?
     href: overview.md
+- name: Shared Docs
+  items:
+  - name: Migration
+    items:
+      - name: Migrate data with pg_dump and pg_restore
+        href: howto-migrate-using-dump-and-restore.md
+        displayName: pg_dump, pg_restore
+      - name: Migrate data with pg_dump and psql 
+        href: howto-migrate-using-export-and-import.md
+        displayName: import , export
+      - name: Minimal-downtime migration with DMS
+        href: howto-migrate-online.md
+        displayName: dms, data migration service
 - name: Single server
   items:
   - name: Documentation
     href: single-server/index.yml
   - name: Quickstarts
     items:
-    - name: Create Server - Portal
-      href: quickstart-create-server-database-portal.md
-      displayName: create single server,portal
-    - name: Create Server - Azure CLI
-      href: quickstart-create-server-database-azure-cli.md
-      displayName: create single server in CLI
-    - name: Create Server - Azure CLI up command
-      href: quickstart-create-server-up-azure-cli.md
-      displayName: create single server up command
-    - name: Create Server - Azure PowerShell
-      href: quickstart-create-postgresql-server-database-using-azure-powershell.md
-    - name: Create Server - ARM template
-      href: quickstart-create-postgresql-server-database-using-arm-template.md
-      displayName: deploy azure resource manager template
+    - name: Create Server and Database
+      items:
+      - name: Azure portal
+        href: quickstart-create-server-database-portal.md
+        displayName: create single server,portal
+      - name: Azure CLI
+        href: quickstart-create-server-database-azure-cli.md
+        displayName: create single server in CLI
+      - name: Azure CLI up command
+        href: quickstart-create-server-up-azure-cli.md
+        displayName: create single server up command
+      - name: Azure PowerShell
+        href: quickstart-create-postgresql-server-database-using-azure-powershell.md
+      - name: ARM template
+        href: quickstart-create-postgresql-server-database-using-arm-template.md
+        displayName: deploy azure resource manager template
     - name: Connect & query
       items:
       - name: Python
@@ -71,7 +86,7 @@
       href: ../app-service/tutorial-python-postgresql-app.md
       displayName: python, django , connect
       maintainContext: true
-    - name: Monitor and tune 
+    - name: Monitor and tune
       href: tutorial-monitor-and-tune.md
       displayName: monitor, alerts, configure
   - name: Samples
@@ -189,7 +204,10 @@
       items:
       - name: Azure portal
         href: howto-create-manage-server-portal.md
-        displayName: manage server, scale server, reset password, reset
+        displayName: scale server, reset password, reset
+      - name: Azure CLI
+        href: how-to-manage-cli.md
+        displayName: scale server, reset password, reset
     - name: Restart server
       items:
       - name: Azure portal
@@ -206,6 +224,9 @@
       - name: Azure CLI
         href: howto-manage-firewall-using-cli.md
         displayName: firewall, rules, cli
+    - name: Connect and Query Guide
+      href: how-to-connect-query-guide.md
+      displayName: application development
     - name: Restore server
       items:
       - name: Azure portal
@@ -217,17 +238,6 @@
       - name: Azure PowerShell
         href: howto-restore-server-powershell.md
         displayName: restore, georestore, geo-restore, outage
-    - name: Migrate server and database
-      items:
-      - name: Dump & restore
-        href: howto-migrate-using-dump-and-restore.md
-        displayName: migrate,pg_dump, pg_restore 
-      - name: Import & export
-        href: howto-migrate-using-export-and-import.md
-        displayName: migrate,pg_dump, psql
-      - name: Minimal-downtime migration
-        href: howto-migrate-online.md
-        displayName: migrate,dms, data migration service
     - name: Authentication
       items:
         - name: Create users
@@ -358,13 +368,35 @@
       items:
       - name: Azure portal
         href: howto-move-regions-portal.md
-- name: Flexible server
+- name: Flexible server (Preview)
+  items:
+  - name: Documentation
+    href: flexible-server/index.yml
+  - name: Quickstarts
+    items:
+    - name: Create Server and Database
+      items:
+      - name: ARM template
+        href: flexible-server/quickstart-create-server-arm-template.md
+  - name: Tutorials
+    items:
+    - name: Web app and database server in virtual network
+      href: flexible-server/tutorial-webapp-server-vnet.md
+  - name: How-to guides
+    items:
+    - name: Manage and scale a server
+      items:
+      - name: Azure portal
+        href: flexible-server/how-to-manage-server-portal.md
+      - name: Azure CLI
+        href: flexible-server/how-to-manage-server-cli.md
 - name: Hyperscale (Citus)
   items:
+  - name: Documentation
+    href: hyperscale/index.yml
   - name: Quickstarts
-    expanded: true
     items:
-    - name: Create DB - Portal
+    - name: Create Server Group - Azure portal
       href: quickstart-create-hyperscale-portal.md
       displayName: portal, create hyperscale
   - name: Tutorials
@@ -423,8 +455,8 @@
       href: concepts-hyperscale-extensions.md
     - name: High availability
       href: concepts-hyperscale-high-availability.md
-    - name: Reference
-      items:
+  - name: API Reference
+    items:
       - name: SQL API functions
         href: reference-hyperscale-functions.md
       - name: Server parameters
