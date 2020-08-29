@@ -76,9 +76,9 @@
     - name: Manage storage
       items:
       - name: Create a managed disk from a VHD
-        href: ../scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-vhd.md
+        href: ../scripts/virtual-machines-powershell-sample-create-managed-disk-from-vhd.md
       - name: Create a managed disk from a snapshot
-        href: ../scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot.md
+        href: ../scripts/virtual-machines-powershell-sample-create-managed-disk-from-snapshot.md
       - name: Copy a managed disk
         href: ../scripts/virtual-machines-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md
       - name: Export a snapshot as a VHD to a storage account

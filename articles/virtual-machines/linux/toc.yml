@@ -85,7 +85,7 @@
     - name: Manage storage
       items:
       - name: Create managed disk from a VHD
-        href: ..virtual-machines-cli-sample-create-managed-disk-from-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+        href: ../scripts/virtual-machines-cli-sample-create-managed-disk-from-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
       - name: Create a managed disk from a snapshot
         href: ../scripts/virtual-machines-cli-sample-create-managed-disk-from-snapshot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
       - name: Copy managed disk to same or different subscription

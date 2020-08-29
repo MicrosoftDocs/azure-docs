@@ -29,7 +29,7 @@ This script creates a snapshot from a VHD file in a storage account in same or d
 
 ## Next steps
 
-[Create a managed disk from snapshot](virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot.md?toc=%2fpowershell%2fmodule%2ftoc.json)
+[Create a managed disk from snapshot](virtual-machines-powershell-sample-create-managed-disk-from-snapshot.md?toc=%2fpowershell%2fmodule%2ftoc.json)
 
 
 [Create a virtual machine by attaching a managed disk as OS disk](./virtual-machines-windows-powershell-sample-create-vm-from-managed-os-disks.md?toc=%2fpowershell%2fmodule%2ftoc.json)
