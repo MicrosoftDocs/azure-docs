@@ -20,11 +20,11 @@ This sample showcases the various steps in the [Team Data Science Process](https
 
 ## Prerequisites
 
-You need an Azure account and a Spark 1.6 (or Spark 2.0) HDInsight cluster to complete this walkthrough. See the [Overview of Data Science using Spark on Azure HDInsight](spark-overview.md) for instructions on how to satisfy these requirements. That topic also contains a description of the NYC 2013 Taxi data used here and instructions on how to execute code from a Jupyter notebook on the Spark cluster. 
+You need an Azure account and a Spark 1.6 (or Spark 2.0) HDInsight cluster to complete this walkthrough. See the [Overview of Data Science using Spark on Azure HDInsight](spark-overview.md) for instructions on how to satisfy these requirements. That topic also contains a description of the NYC 2013 Taxi data used here and instructions on how to execute code from a Jupyter Notebook on the Spark cluster. 
 
 ### Spark clusters and notebooks
 
-Setup steps and code are provided in this walkthrough for using an HDInsight Spark 1.6. But Jupyter notebooks are provided for both HDInsight Spark 1.6 and Spark 2.0 clusters. A description of the notebooks and links to them are provided in the [Readme.md](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Readme.md) for the GitHub repository containing them. Moreover, the code here and in the linked notebooks is generic and should work on any Spark cluster. If you are not using HDInsight Spark, the cluster setup and management steps may be slightly different from what is shown here. For convenience, here are the links to the Jupyter notebooks for Spark 1.6 (to be run in the pySpark kernel of the Jupyter Notebook server) and  Spark 2.0 (to be run in the pySpark3 kernel of the Jupyter Notebook server):
+Setup steps and code are provided in this walkthrough for using an HDInsight Spark 1.6. But Jupyter Notebooks are provided for both HDInsight Spark 1.6 and Spark 2.0 clusters. A description of the notebooks and links to them are provided in the [Readme.md](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Readme.md) for the GitHub repository containing them. Moreover, the code here and in the linked notebooks is generic and should work on any Spark cluster. If you are not using HDInsight Spark, the cluster setup and management steps may be slightly different from what is shown here. For convenience, here are the links to the Jupyter Notebooks for Spark 1.6 (to be run in the pySpark kernel of the Jupyter Notebook server) and  Spark 2.0 (to be run in the pySpark3 kernel of the Jupyter Notebook server):
 
 - [Spark 1.6 notebooks](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark1.6/): Provide information on how to perform data exploration, modeling, and scoring with several different algorithms.
 - [Spark 2.0 notebooks](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/): Provide information on how to perform regression and classification tasks. Datasets may vary, but the steps and concepts are applicable to various datasets.
@@ -78,7 +78,7 @@ import datetime
 
 ### Preset Spark context and PySpark magics
 
-The PySpark kernels that are provided with Jupyter notebooks have a preset context. So you do not need to set the Spark or Hive contexts explicitly before you start working with the application you are developing. These contexts are available for you by default. These contexts are:
+The PySpark kernels that are provided with Jupyter Notebooks have a preset context. So you do not need to set the Spark or Hive contexts explicitly before you start working with the application you are developing. These contexts are available for you by default. These contexts are:
 
 * sc - for Spark 
 * sqlContext - for Hive
@@ -88,7 +88,7 @@ The PySpark kernel provides some predefined “magics”, which are special comm
 * **%%local** Specifies that the code in subsequent lines is to be executed locally. Code must be valid Python code.
 * **%%sql -o \<variable name>** Executes a Hive query against the sqlContext. If the -o parameter is passed, the result of the query is persisted in the %%local Python context as a Pandas DataFrame.
 
-For more information on Jupyter notebook kernels and the predefined "magics", see [Kernels available for Jupyter notebooks with HDInsight Spark Linux clusters on HDInsight](../../hdinsight/spark/apache-spark-jupyter-notebook-kernels.md).
+For more information on Jupyter Notebook kernels and the predefined "magics", see [Kernels available for Jupyter Notebooks with HDInsight Spark Linux clusters on HDInsight](../../hdinsight/spark/apache-spark-jupyter-notebook-kernels.md).
 
 ## Load the data
 
@@ -1081,7 +1081,7 @@ oneHotTESTregScaled.unpersist()
 
 ## Save the models
 
-To consume and score an independent dataset described in the [Score and evaluate Spark-built machine learning models](spark-model-consumption.md) topic, you need to copy and paste these file names containing the saved models created here into the Consumption Jupyter notebook. Here is the code to print out the paths to model files you need there.
+To consume and score an independent dataset described in the [Score and evaluate Spark-built machine learning models](spark-model-consumption.md) topic, you need to copy and paste these file names containing the saved models created here into the Consumption Jupyter Notebook. Here is the code to print out the paths to model files you need there.
 
 ```python
 # MODEL FILE LOCATIONS FOR CONSUMPTION
