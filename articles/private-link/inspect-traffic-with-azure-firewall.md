@@ -126,6 +126,7 @@ Replace the following parameters in the steps with the information below:
 
 ### Azure Firewall network
 | Parameter                   | Value                 |
+|-----------------------------|----------------------|
 | **\<virtual-network-name>** | myAzFwVNet          |
 | **\<region-name>**          | South Central US      |
 | **\<IPv4-address-space>**   | 10.0.0.0/16          |
@@ -133,6 +134,8 @@ Replace the following parameters in the steps with the information below:
 | **\<subnet-address-range>** | 10.0.0.0/24          |
 
 ### Private endpoint network
+| Parameter                   | Value                 |
+|-----------------------------|----------------------|
 | **\<private-endpoint-virtual-network-name>** | myPEVNet         |
 | **\<region-name>**          | South Central US      |
 | **\<IPv4-address-space>**   | 10.2.0.0/16          |
@@ -311,7 +314,7 @@ In this section, we'll link virtual networks **myVMVNet** and **myAzFwVNet** to 
 The link is required for the VM and firewall to resolve the FQDN of database to its private endpoint address. Virtual network **myPEVNet** was automatically linked when the private endpoint was created.
 
 >[!NOTE]
->If you don't link the VM and Firewall virtual networks to the private DNS zone both the VM and Firewall will still be able to resolve the SQL Server FQDN; however they will resolve to its public IP address, defeating the purpose of Private Endpoint.
+>If you don't link the VM and firewall virtual networks to the private DNS zone, both the VM and firewall will still be able to resolve the SQL Server FQDN. They will resolve to its public IP address.
 
 1. In the portal's search bar, enter **privatelink.database**.
 
@@ -446,7 +449,7 @@ Connect to the VM **myVm** from the internet as follows:
 
 In this section, you'll connect privately to the SQL Database using the private endpoint.
 
-1. Enter `nslookup mypedbserver.database.windows.net`
+1. Enter `nslookup mydbserver.database.windows.net`
     
     You'll receive a message similar to below:
 
@@ -455,7 +458,7 @@ In this section, you'll connect privately to the SQL Database using the private 
     Address:        127.0.0.53#53
 
     Non-authoritative answer:
-    mypedbserver.database.windows.net       canonical name = mypedbserver.privatelink.database.windows.net.
+    mypdbserver.database.windows.net       canonical name = mydbserver.privatelink.database.windows.net.
     Name:   mypedbserver.privatelink.database.windows.net
     Address: 10.2.0.4
     ```
@@ -465,7 +468,7 @@ In this section, you'll connect privately to the SQL Database using the private 
 1. Run the following command to connect to the SQL Server. Use the server admin and password you defined when you created the SQL Server in the previous steps.
 
     ```bash
-    sqlcmd -S mypedbserver.database.windows.net -U '<ServerAdmin>' -P '<YourPassword>'
+    sqlcmd -S mypdbserver.database.windows.net -U '<ServerAdmin>' -P '<YourPassword>'
     ```
 
 1. Validate that [Azure Firewall logs](..\Firewall\log-analytics-samples.md) show the traffic is allowed.
