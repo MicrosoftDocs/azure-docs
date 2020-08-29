@@ -10,7 +10,7 @@ ms.date: 09/10/2020
 
 # Manage Azure resources by creating automation tasks (preview)
 
-To help you manage [Azure resources](../azure-resource-manager/management/overview.md#terminology) more easily, you can create and automate management tasks for a specific resource or resource group by using automation task templates, which vary based on the resource type. For example, for an [Azure storage account](../storage/common/storage-account-overview.md), you can set up an automation task that sends you the monthly cost for that storage account. For an [Azure virtual machine](../virtual-machines/), you can turn on and turn off that virtual machine. Currently, here are the task templates available in this preview:
+To help you manage [Azure resources](../azure-resource-manager/management/overview.md#terminology) more easily, you can create and automate management tasks for a specific resource or resource group by using automation task templates, which vary based on the resource type. For example, for an [Azure storage account](../storage/common/storage-account-overview.md), you can set up an automation task that sends you the monthly cost for that storage account. For an [Azure virtual machine](../virtual-machines), you can turn on and turn off that virtual machine. Currently, here are the task templates available in this preview:
 
 * All Azure resources and resource groups:<p>
 
@@ -206,7 +206,7 @@ When you change the underlying workflow for an automation task, your changes aff
 
 1. In the tasks list, find the task that you want to update. Open the task's ellipses (**...**) menu, and select **Open in Logic Apps**.
 
-   ![Screenshot that shows the Configuration tab](./media/create-automation-tasks-azure-resources/edit-task-logic-app-designer.png)
+   ![Screenshot that shows the opened ellipses menu and the selected option, "Open in Logic Apps"](./media/create-automation-tasks-azure-resources/edit-task-logic-app-designer.png)
 
    The task's underlying workflow opens in the Azure Logic Apps service and shows the **Overview** pane where you can view the same runs history that's available for the task.
 
