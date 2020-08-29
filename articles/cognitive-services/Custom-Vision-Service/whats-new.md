@@ -14,7 +14,7 @@ ms.author: pafarley
 
 # What's new in Custom Vision
 
-Learn what's new in the service. These items may release notes, videos, blog posts, and other types of information. Bookmark this page to keep up-to-date with the service.
+Learn what's new in the service. These items may be release notes, videos, blog posts, and other types of information. Bookmark this page to keep up-to-date with the service.
 
 ## July 2020
 
