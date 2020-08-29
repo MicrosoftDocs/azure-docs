@@ -363,10 +363,10 @@ method, or from the Experiment tab view in Azure Machine Learning studio client 
   4. If you want to change the region, please change the workspace, resource group or subscription. `Workspace.create` will not create or update a workspace if it already exists, even if the region specified is different.
   
 * **Sample notebook fails**: If a sample notebook fails with an error that preperty, method, or library does not exist:
-  * Ensure that the correctcorrect kernel has been selected in the jupyter notebook. The kernel is displayed in the top right of the notebook page. The default is azure_automl. Note that the kernel is saved as part of the notebook. So, if you switch to a new conda environment, you will have to select the new kernel in the notebook.
+  * Ensure that the correctcorrect kernel has been selected in the Jupyter Notebook. The kernel is displayed in the top right of the notebook page. The default is azure_automl. Note that the kernel is saved as part of the notebook. So, if you switch to a new conda environment, you will have to select the new kernel in the notebook.
       * For Azure Notebooks, it should be Python 3.6. 
       * For local conda environments, it should be the conda envioronment name that you specified in automl_setup.
-  * Ensure the notebook is for the SDK version that you are using. You can check the SDK version by executing `azureml.core.VERSION` in a jupyter notebook cell. You can download previous version of the sample notebooks from GitHub by clicking the `Branch` button, selecting the `Tags` tab and then selecting the version.
+  * Ensure the notebook is for the SDK version that you are using. You can check the SDK version by executing `azureml.core.VERSION` in a Jupyter Notebook cell. You can download previous version of the sample notebooks from GitHub by clicking the `Branch` button, selecting the `Tags` tab and then selecting the version.
 
 * **Numpy import fails in Windows**: Some Windows environments see an error loading numpy with the latest Python version 3.6.8. If you see this issue, try with Python version 3.6.7.
 
