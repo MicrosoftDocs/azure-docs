@@ -5,7 +5,7 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 8/24/2020
+ms.date: 9/21/2020
 ---
 
 # Limitations in Azure Database for MySQL - Flexible Server

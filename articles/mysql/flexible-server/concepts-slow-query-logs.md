@@ -5,7 +5,7 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 08/25/2020
+ms.date: 9/21/2020
 ---
 # Slow query logs in Azure Database for MySQL Flexible Server
 

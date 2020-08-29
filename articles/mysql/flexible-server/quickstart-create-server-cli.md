@@ -6,7 +6,7 @@ ms.author: andrela
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 08/21/2020
+ms.date: 9/21/2020
 ms.custom: mvc
 ---
 
@@ -55,7 +55,7 @@ az mysql flexible-server create
 
 The server created has the below attributes: 
 - Auto-generated server name, admin username, admin password, resource group name (if not already specified in local context), and in the same location as your resource group 
-- Service defaults for remaining server configurations: compute tier (Burstable), SKU (B1MS), backup retention period (7 days), and MySQL version (5.7)
+- Service defaults for remaining server configurations: compute tier (Burstable), compute size/SKU (B1MS), backup retention period (7 days), and MySQL version (5.7)
 - The default connectivity method is Private access (VNet Integration) with an auto-generated virtual network and subnet
 
 > [!NOTE] 
