@@ -110,7 +110,7 @@ HDInsight Spark clusters include [Apache Zeppelin](https://zeppelin.apache.org/)
 
 Zeppelin notebook in Apache Spark cluster on HDInsight can use external, community-contributed packages that aren't included in the cluster. Search the [Maven repository](https://search.maven.org/) for the complete list of packages that are available. You can also get a list of available packages from other sources. For example, a complete list of community-contributed packages is available at [Spark Packages](https://spark-packages.org/).
 
-In this article, you'll see how to use the [spark-csv](https://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar) package with the Jupyter notebook.
+In this article, you'll see how to use the [spark-csv](https://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar) package with the Jupyter Notebook.
 
 1. Open interpreter settings. From the top-right corner, select the logged in user name, then select **Interpreter**.
 
@@ -222,5 +222,5 @@ To validate the service from a command line, SSH to the head node. Switch user t
 ## Next steps
 
 * [Overview: Apache Spark on Azure HDInsight](apache-spark-overview.md)
-* [Kernels available for Jupyter notebook in Apache Spark cluster for HDInsight](apache-spark-jupyter-notebook-kernels.md)
+* [Kernels available for Jupyter Notebook in Apache Spark cluster for HDInsight](apache-spark-jupyter-notebook-kernels.md)
 * [Install Jupyter on your computer and connect to an HDInsight Spark cluster](apache-spark-jupyter-notebook-install-locally.md)
