@@ -35,7 +35,7 @@ East US, West US 2, West Europe, and Southeast Asia.
 
 ### What are the known limitations of Azure Spring Cloud?
 
-During preview release, Azure Spring Cloud has the following known limitations:
+Azure Spring Cloud has the following known limitations:
 	
 * `spring.application.name` will be overridden by the application name that's used to create each application.
 * `server.port` defaults to port 1025. If any other value is applied, it will be overridden to 1025.
