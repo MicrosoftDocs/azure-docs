@@ -64,7 +64,7 @@ To connect to Azure Database for MySQL Flexible Server using MySQL Workbench:
     A new SQL tab opens with a blank editor where you can type your queries.
 
 > [!NOTE]
-> In flexible server, encrypted connection using TLS 1.2 is required and enforced on your Azure Database for MySQL server. Although typically no additional configuration with TLS/SSL certificates is required for MySQL Workbench to connect to your server, we recommend binding the TLS/SSL CA certification with MySQL Workbench. For more information, see [connect using TLS/SSL](./how-to-connect-TLS-SSL.md)
+> Encrypted connection using TLS 1.2 is required and enforced on your Azure Database for MySQL Flexible Server. Although typically no additional configuration with TLS/SSL certificates is required for MySQL Workbench to connect to your server, we recommend binding the TLS/SSL CA certification with MySQL Workbench. For more information, see [connect using TLS/SSL](./how-to-connect-TLS-SSL.md)
 
 ## Create a table, insert data, read data, update data, delete data
 
