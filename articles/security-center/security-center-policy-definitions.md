@@ -18,13 +18,13 @@ This article provides a list of [Azure Policy](../governance/policy/overview.md)
 
 To learn about the built-in policies that are monitored by Security Center, see the following table:
 
-[!INCLUDE [azure-policy-samples-init-asc](../../includes/policy/samples/custom/init-asc.md)]
+[!INCLUDE [azure-policy-reference-init-asc](../../includes/policy/reference/custom/init-asc.md)]
 
 ## Built-in policy initiatives
 
 To learn about the built-in initiatives that are monitored by Security Center, see the following table:
 
-[!INCLUDE [azure-policy-samples-policyset-security-center](../../includes/policy/samples/bycat/policysets-security-center.md)]
+[!INCLUDE [azure-policy-reference-policyset-security-center](../../includes/policy/reference/bycat/policysets-security-center.md)]
 
 ## Next steps
 
