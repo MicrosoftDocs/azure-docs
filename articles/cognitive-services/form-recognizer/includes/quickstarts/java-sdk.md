@@ -24,19 +24,13 @@ ms.author: pafarley
 * An Azure Storage blob that contains a set of training data. See [Build a training data set for a custom model](../../build-training-data-set.md) for tips and options for putting together your training data set. For this quickstart, you can use the files under the **Train** folder of the [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451).
 * The current version of the [Java Development Kit(JDK)](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 * The [Gradle build tool](https://gradle.org/install/), or another dependency manager.
+* Once you have your Azure subscription, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title="Create a Form Recognizer resource"  target="_blank">create a Form Recognizer resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
+    * You will need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. You'll paste your key and endpoint into the code below later in the quickstart.
+    * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
 ## Setting up
 
-### Create a Form Recognizer Azure resource
-
-[!INCLUDE [create resource](../create-resource.md)]
-
-### Create environment variables
-
-[!INCLUDE [environment-variables](../environment-variables.md)]
-
 ### Create a new Gradle project
-
 
 In a console window (such as cmd, PowerShell, or Bash), create a new directory for your app, and navigate to it. 
 
@@ -58,6 +52,18 @@ Create a folder for your sample app. From your working directory, run the follow
 mkdir -p src/main/java
 ```
 
+### Install the client library
+
+This quickstart uses the Gradle dependency manager. You can find the client library and information for other dependency managers on the [Maven Central Repository](https://mvnrepository.com/artifact/com.azure/azure-ai-formrecognizer).
+
+In your project's *build.gradle.kts* file, be sure to include the client library as an `implementation` statement. 
+
+```kotlin
+dependencies {
+    implementation group: 'com.azure', name: 'azure-ai-formrecognizer', version: '3.0.0'
+}
+```
+
 Navigate to the new folder and create a file called *formrecognizer-quickstart.java*. Open it in your preferred editor or IDE and add the following `import` statements:
 
 ```java
@@ -75,26 +81,33 @@ In the application's `main` method, create variables for your resource's Azure e
 ```java
 public static void main(String[] args)
 {
-    String key = System.getenv("FORM_RECOGNIZER_KEY");
-    String endpoint = System.getenv("FORM_RECOGNIZER_ENDPOINT");
+    String key = "<replace-with-your-form-recognizer-key>"
+    String endpoint = "<replace-with-your-form-recognizer-endpoint>";
 }
 ```
 
-### Install the client library
+## Object model 
 
-This quickstart uses the Gradle dependency manager. You can find the client library and information for other dependency managers on the [Maven Central Repository](https://mvnrepository.com/artifact/com.azure/azure-ai-formrecognizer).
+With Form Recognizer, you can create two different client types. The first, `FormRecognizerClient` is used to query the service to recognized form fields and content. The second, `FormTrainingClient` is use to create and manage custom models that you can use to improve recognition. 
 
-In your project's *build.gradle.kts* file, be sure to include the client library as an `implementation` statement. 
+### FormRecognizerClient
 
-```kotlin
-dependencies {
-    implementation group: 'com.azure', name: 'azure-ai-formrecognizer', version: '3.0.0'
-}
-```
+`FormRecognizerClient` provides operations for:
 
-<!-- 
-    Object model tbd
--->
+- Recognizing form fields and content, using custom models trained to recognize your custom forms.  These values are returned in a collection of `RecognizedForm` objects. See example [Analyze custom forms](#analyze-forms-with-a-custom-model).
+- Recognizing form content, including tables, lines and words, without the need to train a model.  Form content is returned in a collection of `FormPage` objects. See example [Recognize form content](#recognize-form-content).
+- Recognizing common fields from US receipts, using a pre-trained receipt model on the Form Recognizer service.  These fields and meta-data are returned in a collection of `RecognizedForm` objects. See example [Recognize receipts](#recognize-receipts).
+
+### FormTrainingClient
+
+`FormTrainingClient` provides operations for:
+
+- Training custom models to recognize all fields and values found in your custom forms.  A `CustomFormModel` is returned indicating the form types the model will recognize, and the fields it will extract for each form type.
+- Training custom models to recognize specific fields and values you specify by labeling your custom forms.  A `CustomFormModel` is returned indicating the fields the model will extract, as well as the estimated accuracy for each field.
+- Managing models created in your account.
+- Copying a custom model from one Form Recognizer resource to another.
+
+Note that models can also be trained using a graphical user interface such as the [Form Recognizer Labeling Tool](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/quickstarts/label-tool).
 
 ## Code examples
 
@@ -111,6 +124,11 @@ These code snippets show you how to do the following tasks with the Form Recogni
 
 Inside the `Main` method, add the following code. Here, you'll authenticate two client objects using the subscription variables you defined above. You'll use an **AzureKeyCredential** object, so that if needed, you can update the API key without creating new client objects.
 
+> [!IMPORTANT]
+> Get your key and endpoint from the Azure portal. If the Form Recognizer resource you created in the **Prerequisites** section deployed successfully, click the **Go to Resource** button under **Next Steps**. You can find your key and endpoint in the resource's **key and endpoint** page, under **resource management**. 
+>
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, consider using a secure way of storing and accessing your credentials. For example, [Azure key vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview).
+
 ```java
 FormRecognizerClient recognizerClient = new FormRecognizerClientBuilder()
     .credential(new AzureKeyCredential("{key}"))
@@ -124,7 +142,8 @@ FormTrainingClient trainingClient = recognizerClient.getFormTrainingClient();
 
 The next block of code uses the client objects to call methods for each of the major tasks in the Form Recognizer SDK. You'll define these methods later on.
 
-You'll also need to add references to the URLs for your training and testing data. 
+You'll also need to add references to the URLs for your training and testing data.
+
 * To retrieve the SAS URL for your custom model training data, open the Microsoft Azure Storage Explorer, right-click your container, and select **Get shared access signature**. Make sure the **Read** and **List** permissions are checked, and click **Create**. Then copy the value in the **URL** section. It should have the form: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
 * To get a URL of a form to test, you can use the above steps to get the SAS URL of an individual document in blob storage. Or, take the URL of a document located elsewhere.
 * Use the above method to get the URL of a receipt image as well.
@@ -192,6 +211,41 @@ The returned value is a collection of **FormPage** objects: one for each page in
         });
     });
 }
+```
+
+### Output
+
+```console
+Form Page 1 has 18 lines.
+    Line 0 has 1 word, and text: 'Contoso'.
+    Line 1 has 1 word, and text: 'Address:'.
+    Line 2 has 3 words, and text: 'Invoice For: Microsoft'.
+    Line 3 has 4 words, and text: '1 Redmond way Suite'.
+    Line 4 has 3 words, and text: '1020 Enterprise Way'.
+    Line 5 has 3 words, and text: '6000 Redmond, WA'.
+    Line 6 has 3 words, and text: 'Sunnayvale, CA 87659'.
+    Line 7 has 1 word, and text: '99243'.
+    Line 8 has 2 words, and text: 'Invoice Number'.
+    Line 9 has 2 words, and text: 'Invoice Date'.
+    Line 10 has 3 words, and text: 'Invoice Due Date'.
+    Line 11 has 1 word, and text: 'Charges'.
+    Line 12 has 2 words, and text: 'VAT ID'.
+    Line 13 has 1 word, and text: '34278587'.
+    Line 14 has 1 word, and text: '6/18/2017'.
+    Line 15 has 1 word, and text: '6/24/2017'.
+    Line 16 has 1 word, and text: '$56,651.49'.
+    Line 17 has 1 word, and text: 'PT'.
+Table 0 has 2 rows and 6 columns.
+    Cell (0, 0) contains text: 'Invoice Number'.
+    Cell (0, 1) contains text: 'Invoice Date'.
+    Cell (0, 2) contains text: 'Invoice Due Date'.
+    Cell (0, 3) contains text: 'Charges'.
+    Cell (0, 5) contains text: 'VAT ID'.
+    Cell (1, 0) contains text: '34278587'.
+    Cell (1, 1) contains text: '6/18/2017'.
+    Cell (1, 2) contains text: '6/24/2017'.
+    Cell (1, 3) contains text: '$56,651.49'.
+    Cell (1, 5) contains text: 'PT'.
 ```
 
 ## Recognize receipts
@@ -288,6 +342,50 @@ The next block of code iterates through the individual items detected on the rec
 }
 ```
 
+### Output 
+
+```console
+Form Page 1 has 18 lines.
+    Line 0 has 1 word, and text: 'Contoso'.
+    Line 1 has 1 word, and text: 'Address:'.
+    Line 2 has 3 words, and text: 'Invoice For: Microsoft'.
+    Line 3 has 4 words, and text: '1 Redmond way Suite'.
+    Line 4 has 3 words, and text: '1020 Enterprise Way'.
+    Line 5 has 3 words, and text: '6000 Redmond, WA'.
+    Line 6 has 3 words, and text: 'Sunnayvale, CA 87659'.
+    Line 7 has 1 word, and text: '99243'.
+    Line 8 has 2 words, and text: 'Invoice Number'.
+    Line 9 has 2 words, and text: 'Invoice Date'.
+    Line 10 has 3 words, and text: 'Invoice Due Date'.
+    Line 11 has 1 word, and text: 'Charges'.
+    Line 12 has 2 words, and text: 'VAT ID'.
+    Line 13 has 1 word, and text: '34278587'.
+    Line 14 has 1 word, and text: '6/18/2017'.
+    Line 15 has 1 word, and text: '6/24/2017'.
+    Line 16 has 1 word, and text: '$56,651.49'.
+    Line 17 has 1 word, and text: 'PT'.
+Table 0 has 2 rows and 6 columns.
+    Cell (0, 0) contains text: 'Invoice Number'.
+    Cell (0, 1) contains text: 'Invoice Date'.
+    Cell (0, 2) contains text: 'Invoice Due Date'.
+    Cell (0, 3) contains text: 'Charges'.
+    Cell (0, 5) contains text: 'VAT ID'.
+    Cell (1, 0) contains text: '34278587'.
+    Cell (1, 1) contains text: '6/18/2017'.
+    Cell (1, 2) contains text: '6/24/2017'.
+    Cell (1, 3) contains text: '$56,651.49'.
+    Cell (1, 5) contains text: 'PT'.
+Merchant Name: 'Contoso Contoso', with confidence 0.516
+Transaction Date: '6/10/2019 12:00:00 AM', with confidence 0.985
+Item:
+    Name: '8GB RAM (Black)', with confidence 0.916
+    Total Price: '999', with confidence 0.559
+Item:
+    Name: 'SurfacePen', with confidence 0.858
+    Total Price: '99.99', with confidence 0.386
+Total: '1203.39', with confidence '0.774'
+```
+
 ## Train a custom model
 
 This section demonstrates how to train a model with your own data. A trained model can output structured data that includes the key/value relationships in the original form document. After you train the model, you can test and retrain it and eventually use it to reliably extract data from more forms according to your needs.
@@ -338,6 +436,62 @@ Finally, this method returns the unique ID of the model.
 }
 ```
 
+### Output
+
+This response has been truncated for readability.
+
+```console
+Merchant Name: 'Contoso Contoso', with confidence 0.516
+Transaction Date: '6/10/2019 12:00:00 AM', with confidence 0.985
+Item:
+    Name: '8GB RAM (Black)', with confidence 0.916
+    Total Price: '999', with confidence 0.559
+Item:
+    Name: 'SurfacePen', with confidence 0.858
+    Total Price: '99.99', with confidence 0.386
+Total: '1203.39', with confidence '0.774'
+Form Page 1 has 18 lines.
+    Line 0 has 1 word, and text: 'Contoso'.
+    Line 1 has 1 word, and text: 'Address:'.
+    Line 2 has 3 words, and text: 'Invoice For: Microsoft'.
+    Line 3 has 4 words, and text: '1 Redmond way Suite'.
+    Line 4 has 3 words, and text: '1020 Enterprise Way'.
+    ...
+Table 0 has 2 rows and 6 columns.
+    Cell (0, 0) contains text: 'Invoice Number'.
+    Cell (0, 1) contains text: 'Invoice Date'.
+    Cell (0, 2) contains text: 'Invoice Due Date'.
+    Cell (0, 3) contains text: 'Charges'.
+    ... 
+Custom Model Info:
+    Model Id: 95035721-f19d-40eb-8820-0c806b42798b
+    Model Status: Ready
+    Training model started on: 8/24/2020 6:36:44 PM +00:00
+    Training model completed on: 8/24/2020 6:36:50 PM +00:00
+Submodel Form Type: form-95035721-f19d-40eb-8820-0c806b42798b
+    FieldName: CompanyAddress
+    FieldName: CompanyName
+    FieldName: CompanyPhoneNumber
+    ... 
+Custom Model Info:
+    Model Id: e7a1181b-1fb7-40be-bfbe-1ee154183633
+    Model Status: Ready
+    Training model started on: 8/24/2020 6:36:44 PM +00:00
+    Training model completed on: 8/24/2020 6:36:52 PM +00:00
+Submodel Form Type: form-0
+    FieldName: field-0, FieldLabel: Additional Notes:
+    FieldName: field-1, FieldLabel: Address:
+    FieldName: field-2, FieldLabel: Company Name:
+    FieldName: field-3, FieldLabel: Company Phone:
+    FieldName: field-4, FieldLabel: Dated As:
+    FieldName: field-5, FieldLabel: Details
+    FieldName: field-6, FieldLabel: Email:
+    FieldName: field-7, FieldLabel: Hero Limited
+    FieldName: field-8, FieldLabel: Name:
+    FieldName: field-9, FieldLabel: Phone:
+    ...
+```
+
 ### Train a model with labels
 
 You can also train custom models by manually labeling the training documents. Training with labels leads to better performance in some scenarios. To train with labels, you need to have special label information files (*\<filename\>.pdf.labels.json*) in your blob storage container alongside the training documents. The [Form Recognizer sample labeling tool](../../quickstarts/label-tool.md) provides a UI to help you create these label files. Once you have them, you can call the **beginTraining** method with the *useTrainingLabels* parameter set to `true`.
@@ -374,6 +528,48 @@ The returned **CustomFormModel** indicates the fields the model can extract, alo
     });
     return customFormModel.getModelId();
 }
+```
+
+### Output
+
+This response has been truncated for readability.
+
+```console
+Form Page 1 has 18 lines.
+    Line 0 has 1 word, and text: 'Contoso'.
+    Line 1 has 1 word, and text: 'Address:'.
+    Line 2 has 3 words, and text: 'Invoice For: Microsoft'.
+    Line 3 has 4 words, and text: '1 Redmond way Suite'.
+    Line 4 has 3 words, and text: '1020 Enterprise Way'.
+    Line 5 has 3 words, and text: '6000 Redmond, WA'.
+    ...
+Table 0 has 2 rows and 6 columns.
+    Cell (0, 0) contains text: 'Invoice Number'.
+    Cell (0, 1) contains text: 'Invoice Date'.
+    Cell (0, 2) contains text: 'Invoice Due Date'.
+    ... 
+Merchant Name: 'Contoso Contoso', with confidence 0.516
+Transaction Date: '6/10/2019 12:00:00 AM', with confidence 0.985
+Item:
+    Name: '8GB RAM (Black)', with confidence 0.916
+    Total Price: '999', with confidence 0.559
+Item:
+    Name: 'SurfacePen', with confidence 0.858
+    Total Price: '99.99', with confidence 0.386
+Total: '1203.39', with confidence '0.774'
+Custom Model Info:
+    Model Id: 63c013e3-1cab-43eb-84b0-f4b20cb9214c
+    Model Status: Ready
+    Training model started on: 8/24/2020 6:42:54 PM +00:00
+    Training model completed on: 8/24/2020 6:43:01 PM +00:00
+Submodel Form Type: form-63c013e3-1cab-43eb-84b0-f4b20cb9214c
+    FieldName: CompanyAddress
+    FieldName: CompanyName
+    FieldName: CompanyPhoneNumber
+    FieldName: DatedAs
+    FieldName: Email
+    FieldName: Merchant
+    ... 
 ```
 
 ## Analyze forms with a custom model
@@ -413,7 +609,69 @@ The following code prints the analysis results to the console. It prints each re
 }
 ```
 
-## Manage your custom models
+### Output
+
+This response has been truncated for readability.
+
+```console
+Custom Model Info:
+    Model Id: 9b0108ee-65c8-450e-b527-bb309d054fc4
+    Model Status: Ready
+    Training model started on: 8/24/2020 7:00:31 PM +00:00
+    Training model completed on: 8/24/2020 7:00:32 PM +00:00
+Submodel Form Type: form-9b0108ee-65c8-450e-b527-bb309d054fc4
+    FieldName: CompanyAddress
+    FieldName: CompanyName
+    FieldName: CompanyPhoneNumber
+    ...
+Form Page 1 has 18 lines.
+    Line 0 has 1 word, and text: 'Contoso'.
+    Line 1 has 1 word, and text: 'Address:'.
+    Line 2 has 3 words, and text: 'Invoice For: Microsoft'.
+    Line 3 has 4 words, and text: '1 Redmond way Suite'.
+    ...
+
+Table 0 has 2 rows and 6 columns.
+    Cell (0, 0) contains text: 'Invoice Number'.
+    Cell (0, 1) contains text: 'Invoice Date'.
+    Cell (0, 2) contains text: 'Invoice Due Date'.
+    ...
+Merchant Name: 'Contoso Contoso', with confidence 0.516
+Transaction Date: '6/10/2019 12:00:00 AM', with confidence 0.985
+Item:
+    Name: '8GB RAM (Black)', with confidence 0.916
+    Total Price: '999', with confidence 0.559
+Item:
+    Name: 'SurfacePen', with confidence 0.858
+    Total Price: '99.99', with confidence 0.386
+Total: '1203.39', with confidence '0.774'
+Custom Model Info:
+    Model Id: dc115156-ce0e-4202-bbe4-7426e7bee756
+    Model Status: Ready
+    Training model started on: 8/24/2020 7:00:31 PM +00:00
+    Training model completed on: 8/24/2020 7:00:41 PM +00:00
+Submodel Form Type: form-0
+    FieldName: field-0, FieldLabel: Additional Notes:
+    FieldName: field-1, FieldLabel: Address:
+    FieldName: field-2, FieldLabel: Company Name:
+    FieldName: field-3, FieldLabel: Company Phone:
+    FieldName: field-4, FieldLabel: Dated As:
+    ... 
+Form of type: custom:form
+Field 'Azure.AI.FormRecognizer.Models.FieldValue:
+    Value: '$56,651.49
+    Confidence: '0.249
+Field 'Azure.AI.FormRecognizer.Models.FieldValue:
+    Value: 'PT
+    Confidence: '0.245
+Field 'Azure.AI.FormRecognizer.Models.FieldValue:
+    Value: '99243
+    Confidence: '0.114
+   ...
+```
+
+
+## Manage custom models
 
 This section demonstrates how to manage the custom models stored in your account. The following code does all of the model management tasks in a single method, as an example. Start by copying the method signature below:
 
@@ -434,6 +692,13 @@ The following code block checks how many models you have saved in your Form Reco
     AccountProperties accountProperties = client.getAccountProperties();
     System.out.printf("The account has %s custom models, and we can have at most %s custom models",
         accountProperties.getCustomModelCount(), accountProperties.getCustomModelLimit());
+```
+
+### Output 
+
+```console
+Account has 20 models.
+It can have at most 5000 models.
 ```
 
 ### List the models currently stored in the resource account
@@ -465,6 +730,28 @@ The following code block lists the current models in your account and prints the
 
         });
     });
+```
+
+### Output 
+
+This response has been truncated for readability.
+
+```console
+Custom Model Info:
+    Model Id: 05932d5a-a2f8-4030-a2ef-4e5ed7112515
+    Model Status: Creating
+    Training model started on: 8/24/2020 7:35:02 PM +00:00
+    Training model completed on: 8/24/2020 7:35:02 PM +00:00
+Custom Model Info:
+    Model Id: 150828c4-2eb2-487e-a728-60d5d504bd16
+    Model Status: Ready
+    Training model started on: 8/24/2020 7:33:25 PM +00:00
+    Training model completed on: 8/24/2020 7:33:27 PM +00:00
+Custom Model Info:
+    Model Id: 3303e9de-6cec-4dfb-9e68-36510a6ecbb2
+    Model Status: Ready
+    Training model started on: 8/24/2020 7:29:27 PM +00:00
+    Training model completed on: 8/24/2020 7:29:36 PM +00:00
 ```
 
 ### Delete a model from the resource account
@@ -513,6 +800,7 @@ try {
 ```
 
 ### Enable client logging
+
 Azure SDKs for Java offer a consistent logging story to help aid in troubleshooting application errors and speeding up their resolution. The logs produced will capture the flow of an application before reaching the terminal state to help locate the root issue. View the [logging wiki](https://github.com/Azure/azure-sdk-for-java/wiki/Logging-with-Azure-SDK) for guidance about enabling logging.
 
 ## Next steps
