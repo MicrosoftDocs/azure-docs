@@ -8,6 +8,7 @@ ms.service: postgresql
 ms.topic: overview
 ms.date: 09/21/2020
 ---
+# Azure Database for PostgreSQL Single Server
 
 [Azure Database for PostgreSQL](./overview-azure-pg.md) powered by the PostgreSQL community edition is available in three deployment modes:
 

@@ -1,6 +1,6 @@
 ---
 title: Enable/Disable zone redundant high availability - Azure portal - Azure Database for PostgreSQL - Flexible Server
-description: This article describes how to enable or disable zone redundant high availability in Azure Database for PostgreSQL through the Azure portal.
+description: This article describes how to enable or disable zone redundant high availability in Azure Database for PostgreSQL flexible Server through the Azure portal.
 author: sr-msft
 ms.author: srranga
 ms.service: postgresql
@@ -35,11 +35,11 @@ This section provides details specifically for HA-related fields. You can follow
 
 5.  If high availability option is checked, the burstable tier will not be available to choose. You can choose either
     **General purpose** or **Memory Optimized** compute tiers.
-![AZ selection](./media/how-to-manage-ha-portal/how-to-ha-select-compute.png)
+![Compute tier selection](./media/how-to-manage-ha-portal/how-to-ha-select-compute.png)
 6.  Select the **compute size** for your choice from the dropdown.
 
 7.  Select **storage size** in GiB using the sliding bar and select the **backup retention period** between 7 days and 35 days.
-![compute storage](./media/how-to-manage-ha-portal/how-to-ha-compute-size-storage-backup.png)    
+![Storage scale-up](./media/how-to-manage-ha-portal/how-to-ha-compute-size-storage-backup.png)    
 
 ## Enable high availability post server creation
 
