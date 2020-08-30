@@ -31,7 +31,7 @@ In this scenario, there is an existing forest synced using Azure AD Connect sync
 
 ### In your on-premises environment
 
-1. Identity a domain-joined host server running Windows Server 2012 R2 or greater with minimum of 4 GB RAM and .NET 4.7.1+ runtime 
+1. Identify a domain-joined host server running Windows Server 2012 R2 or greater with minimum of 4 GB RAM and .NET 4.7.1+ runtime 
 
 2. If there is a firewall between your servers and Azure AD, configure the following items:
    - Ensure that agents can make *outbound* requests to Azure AD over the following ports:
