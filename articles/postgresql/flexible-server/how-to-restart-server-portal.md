@@ -5,7 +5,7 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 08/28/2020
+ms.date: 09/21/2020
 ---
 
 # Restart of a flexible server
@@ -30,13 +30,13 @@ Follow these steps to restart your flexible server.
 2.  Click **Overview** from the left panel.
    
 3.  From the overview page, click **Restart**.
-     ![Restart selection](./media/business-continuity/how-to-restart-base-page.png)
+     ![Restart selection](./media/how-to-restart-server-portal/how-to-restart-base-page.png)
 
 4.  A pop-up confirmation message will appear.
 
 5.  Click **Yes** if you want to continue.
    
- ![Restart confirm](./media/business-continuity/how-to-restart-pop-up.png)
+ ![Restart confirm](./media/how-to-restart-server-portal/how-to-restart-pop-up.png)
  
 6.  A notification will be shown that the restart operation has been
     initiated.

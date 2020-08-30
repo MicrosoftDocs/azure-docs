@@ -5,7 +5,7 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 08/28/2020
+ms.date: 09/21/2020
 ---
 
 # Point-in-time restore of a flexible server
@@ -28,14 +28,14 @@ existing backup.
 2.  Click **Overview** from the left panel.
   
 3.  From the overview page, click **Restore**.
- ![view overview](./media/business-continuity/how-to-restore-overview.png)
+ ![view overview](./media/how-to-restore-server-portal/how-to-restore-overview.png)
 4.  Restore page will be shown with an option to choose between Earliest restore point and Custom restore point.
 
 5.  select **Earliest restore point**.
 
 
 6.  Provide a new server name in the **Restore to new server** field.
-7. ![Earliest restore time](./media/business-continuity/how-to-restore-earliest.png)
+7. ![Earliest restore time](./media/how-to-restore-server-portal/how-to-restore-earliest.png)
 
 8.  Click **OK**.
 
@@ -49,7 +49,7 @@ existing backup.
 1.  In the [Azure portal](https://portal.azure.com/), choose your flexible server that you want to restore the backup from.
 
 2.  From the overview page, click **Restore**.
-    ![view overview](./media/business-continuity/how-to-restore-overview.png)
+    ![view overview](./media/how-to-restore-server-portal/how-to-restore-overview.png)
 3.  Restore page will be shown with an option to choose between Earliest restore point and Custom restore point.
 
 4.  Choose **Custom restore point**.
@@ -58,7 +58,7 @@ existing backup.
 
 6.  Provide a new server name in the **Restore to new server** field. 
    
- ![view overview](./media/business-continuity/how-to-restore-custom.png)
+ ![view overview](./media/how-to-restore-server-portal/how-to-restore-custom.png)
  
 7.  Click **OK**.
 

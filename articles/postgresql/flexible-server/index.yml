@@ -26,3 +26,27 @@ landingContent:
         links: 
           - text: Check out our blog
             url: https://techcommunity.microsoft.com/t5/Azure-Database-for-PostgreSQL/bg-p/ADforPostgreSQL
+      - linkListType: overview
+        links:
+          - text: What is Azure PostgreSQL?
+            url: overview-azure-pg.md
+          - text: What is Flexible Server?
+            url: overview-azure-pg-flexible-server.md 
+          - text: What is Single Server?
+            url: overview-azure-pg-single-server.md
+          - text: Business continuity concepts
+            url: concepts-business-continuity.md 
+          - text: High availability concepts
+            url: concepts-high-availability.md           
+          - text: Backup and restore
+            url: concepts-backup-restore.md 
+      - linkListType: how-to-guide
+        links:
+          - text: How to manage high availability?
+            url: how-to-manage-high-availability-portal.md
+          - text: How to restore server?
+            url: how-to-restore-server-portal.md 
+          - text: How to restart server?
+            url: how-to-restart-server-portal.md    
+          - text: How to scale compute and storage?
+            url: how-to-scale-compute-storage-portal.md        

@@ -5,7 +5,7 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 08/28/2020
+ms.date: 09/21/2020
 ---
 # High availability concepts in Azure Database for PostgreSQL-Flexible server
 
@@ -34,6 +34,12 @@ The health of the HA is continuously monitored and reported on the overview page
 ## Steady-state operations
 
 Applications are connected to the primary server using the DB server name. The standby replica information is currently not exposed via Azure portal. Commits and writes are confirmed to the application only after the WAL files are persisted on both the primary server's disk and the standby replica. Due to this additional round-trip requirement, applications can expect elevated latency for writes and commits. You can monitor the health of the high availability on the portal.
+![Zone redundant HA - Steady state](./media/business-continuity/concepts-ha-steady-state.png)
+
+1. Clients connect to the flexible server and performs write operations.
+2. Changes are replicated to the standby site
+3. Primary receives acknowledgement  
+4. Writes/commits are acknowledged.
 
 ## Failover process - planned events
 
@@ -46,6 +52,13 @@ Planned downtime events include activities scheduled by Azure such as periodic s
 
 ## Failover process - unplanned outage
 Unplanned outages include software bugs  or infrastructure faults such as compute, network, storage failures, or power outages impact the availability of the database. In the event of the database unavailability, the replication to the standby replica is severed and the standby replica is activated to be the primary database. Clients can reconnect to the database server and resume their operations. The overall failover time is expected to take 60-120s. However, depending on the activity in the primary database server at the time of the failover such as large transactions and recovery time, the failover may take longer.
+
+![Zone redundant HA - Failover](./media/business-continuity/concepts-ha-failover-state.png)
+
+1. Primary database server is down and the clients lose database connectivity. 
+2. Standby is activated with the same database server name as primary, and client connects to the new primary. Note that the client application can be on any zone. Having application and the database server in the same zone reduces latency.
+3. A new standby server is provisioned in the same AZ. 
+4. Once the steady-state is established, the client application commits and writes are acknowledged after the data is persisted on both sites.
 
 ## Point-in-time restore 
 

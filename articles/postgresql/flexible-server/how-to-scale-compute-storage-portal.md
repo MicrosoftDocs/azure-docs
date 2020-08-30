@@ -5,7 +5,7 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 08/28/2020
+ms.date: 09/21/2020
 ---
 
 # Scale operations in flexible server
@@ -32,10 +32,10 @@ Follow these steps to choose the compute tier.
 2.  Click **Compute+storage**.
 
 3.  A page with current settings is displayed.
- ![compute+storage selection](./media/business-continuity/how-to-click-compute-storage.png)
+ ![compute+storage selection](./media/how-to-scale-compute-storage-portal/how-to-click-compute-storage.png)
 
 4.  You can choose the compute class between burstable, general purpose, and memory optimized tiers.
-   ![list compute tiers](./media/business-continuity/how-to-list-compute-tiers.png)
+   ![list compute tiers](./media/how-to-scale-compute-storage-portal/how-to-list-compute-tiers.png)
 
 
 5.  If you are good with the default vCores and memory sizes, you can skip the next step.
@@ -43,13 +43,13 @@ Follow these steps to choose the compute tier.
 6.  If you want to change the number of vCores, you can click the drop-down of **Compute size** and click the desired number of vCores/Memory from the list.
     
     6.1 Burstable compute tier:
-    ![burstable compute](./media/business-continuity/how-to-compute-burstable-dropdown.png)
+    ![burstable compute](./media/how-to-scale-compute-storage-portal/how-to-compute-burstable-dropdown.png)
 
     6.2 General purpose compute tier:
-    ![gp compute](./media/business-continuity/how-to-compute-gp-dropdown.png)
+    ![gp compute](./media/how-to-scale-compute-storage-portal/how-to-compute-gp-dropdown.png)
 
     6.3 Memory optimized compute tier:
-    ![mo compute](./media/business-continuity/how-to-compute-mo-dropdown.png)
+    ![mo compute](./media/how-to-scale-compute-storage-portal/how-to-compute-mo-dropdown.png)
 
 7.  Click **Save**. 
 8.  You will see a confirmation message. Click **OK** if you want to proceed. 
@@ -64,12 +64,12 @@ Follow these steps to increase your storage size.
 2.  Click **Compute+storage**.
 
 3.  A page with current settings is displayed.
-![compute+storage selection](./media/business-continuity/how-to-click-compute-storage.png)
+![compute+storage selection](./media/how-to-scale-compute-storage-portal/how-to-click-compute-storage.png)
 4.  The field **Storage size in GiB** with a slide-bar is shown with the current size.
 
 5.  Slide the bar to your desired size. Corresponding IOPS number is shown. The IOPS is dependent on the compute tier and size. The cost information is also shown. 
 
- ![storage scale up](./media/business-continuity/how-to-storage-scaleup.png)
+ ![storage scale up](./media/how-to-scale-compute-storage-portal/how-to-storage-scaleup.png)
 
 6.  If you are good with the storage size, click **Save**. 
 7.  You will see a confirmation message. Click **OK** if you want to proceed. 

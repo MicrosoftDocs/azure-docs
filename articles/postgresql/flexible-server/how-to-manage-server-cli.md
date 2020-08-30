@@ -5,7 +5,7 @@ author: mksuni
 ms.author: sumuth
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 9/22/2020
+ms.date: 9/21/2020
 ---
 
 # Manage an Azure Database for PostgreSQL Flexible server (Preview) using the Azure CLI

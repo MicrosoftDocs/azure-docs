@@ -5,7 +5,7 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 08/28/2020
+ms.date: 09/21/2020
 ---
 # Overview of business continuity with Azure Database for PostgreSQL - Flexible Server
 
