@@ -224,6 +224,8 @@
         href: ./spark/apache-spark-delta-lake-overview.md
       - name: Apache Spark performance
         href: ./spark/apache-spark-performance.md
+      - name: Performance optimization for Apache Spark using Hyperspace indexes
+        href: ./spark/apache-spark-performance-hyperspace.md
       - name: Apache Spark Auto Scale behavior
         href: ./spark/apache-spark-autoscale.md
     - name: Development

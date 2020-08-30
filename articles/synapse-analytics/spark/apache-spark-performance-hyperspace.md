@@ -11,7 +11,7 @@ ms.author: euang
 ms.reviewer: euang
 ---
 
-# Hyperspace - An Indexing Subsystem for Apache Spark
+# Hyperspace - An indexing subsystem for Apache Spark
 
 Hyperspace introduces the ability for Apache Spark users to create indexes on their datasets (for example, CSV, JSON, Parquet etc.) and leverage them for potential query and workload acceleration.
 
@@ -189,7 +189,7 @@ import com.microsoft.hyperspace._
 hyperspace: com.microsoft.hyperspace.Hyperspace = com.microsoft.hyperspace.Hyperspace@1432f740
 ```
 
-## Create Indexes
+## Create indexes
 
 To create a Hyperspace index, you need to provide two pieces of information:
 
@@ -244,7 +244,7 @@ Results in:
 import com.microsoft.hyperspace.index.Index
 ```
 
-## List Indexes
+## List indexes
 
 The below code shows how you can list all available indexes in a Hyperspace instance. It uses "indexes" API that returns information about existing indexes as a Spark DataFrame so you can perform additional operations. For instance, you can invoke valid operations on this DataFrame for checking its content or analyzing it further (for example filtering specific indexes or grouping them according to some desired property).
 
@@ -268,7 +268,7 @@ Results in:
 |        empIndex|             [deptId]|             [empName]|`deptId` INT,`emp...|com.microsoft.cha...|30768c6c9b2533004...|Relation[empId#32...|       200|abfss://datasets@...|      ACTIVE|              0|
 ```
 
-## Delete Indexes
+## Delete indexes
 
 You can drop an existing index by using the "deleteIndex" API and providing the index name. Index deletion does a soft delete: It mainly updates index's status in the Hyperspace metadata from "ACTIVE" to "DELETED". This will exclude the dropped index from any future query optimization and Hyperspace no longer picks that index for any query. However, index files for a deleted index still remain available (since it is a soft-delete), so that the index could be restored if user asks for.
 
@@ -290,7 +290,7 @@ Results in:
 |        empIndex|             [deptId]|             [empName]|`deptId` INT,`emp...|com.microsoft.cha...|30768c6c9b2533004...|Relation[empId#32...|       200|abfss://datasets@...|      ACTIVE|              0|
 ```
 
-## Restore Indexes
+## Restore indexes
 
 You can use the "restoreIndex" API to restore a deleted index. This will bring back the latest version of index into ACTIVE status and makes it usable again for queries. The below cell shows an example of "restoreIndex" usage. You delete "deptIndex1" and restore it. The output shows "deptIndex1" first went into the "DELETED" status after invoking "deleteIndex" command and came back to the "ACTIVE" status after calling "restoreIndex".
 
@@ -325,7 +325,7 @@ Results in:
 |        empIndex|             [deptId]|             [empName]|`deptId` INT,`emp...|com.microsoft.cha...|30768c6c9b2533004...|Relation[empId#32...|       200|abfss://datasets@...|      ACTIVE|              0|
 ```
 
-## Vacuum Indexes
+## Vacuum indexes
 
 You can perform a hard-delete that is, fully remove files and the metadata entry for a deleted index using "vacuumIndex" command. Once done, this action is irreversible as it physically deletes all the index files (which is why it is a hard-delete).
 
@@ -369,7 +369,7 @@ res48: org.apache.spark.sql.Spark™Session = org.apache.spark.sql.SparkSession@
 res51: org.apache.spark.sql.Spark™Session = org.apache.spark.sql.SparkSession@39fe1ddb
 ```
 
-## Index Usage
+## Index usage
 
 In order to make Spark use Hyperspace indexes during query processing, you need to make sure that Hyperspace is enabled.
 
@@ -422,7 +422,7 @@ only showing top five rows
 |    30|     Sales| Chicago|
 ```
 
-## Index Types
+## Index types
 
 Currently, Hyperspace has rules to exploit indexes for two groups of queries:
 
@@ -548,7 +548,7 @@ Project [deptName#534]
    +- *(1) FileScan parquet [deptId#533,deptName#534] Batched: true, Format: Parquet, Location: InMemoryFileIndex[abfss://datasets@hyperspacebenchmark.dfs.core.windows.net/hyperspaceon..., PartitionFilters: [], PushedFilters: [IsNotNull(deptId), GreaterThan(deptId,20)], ReadSchema: struct<deptId:int,deptName:string>
 ```
 
-The third example is a query joining department and employee records on the department id. The equivalent SQL statement is shown below:
+The third example is a query joining department and employee records on the department ID. The equivalent SQL statement is shown below:
 
 ```sql
 SELECT employees.deptId, empName, departments.deptId, deptName
@@ -631,7 +631,7 @@ Project [empName#528, deptName#534]
          +- *(2) FileScan parquet [deptId#533,deptName#534] Batched: true, Format: Parquet, Location: InMemoryFileIndex[abfss://datasets@hyperspacebenchmark.dfs.core.windows.net/hyperspaceon..., PartitionFilters: [], PushedFilters: [IsNotNull(deptId)], ReadSchema: struct<deptId:int,deptName:string>, SelectedBucketsCount: 200 out of 200
 ```
 
-## Support for SQL Semantics
+## Support for SQL semantics
 
 The index usage is transparent to whether you use the DataFrame API or Spark SQL. The following example shows the same join example as before, in sql form, showing the use of indexes if applicable.
 
@@ -764,7 +764,7 @@ deptIndex1:abfss://datasets@hyperspacebenchmark.dfs.core.windows.net/<container>
 empIndex:abfss://datasets@hyperspacebenchmark.dfs.core.windows.net/<container>/indexes/public/empIndex/v__=0
 ```
 
-## Refresh Indexes
+## Refresh indexes
 
 If the original data on which an index was created changes, then the index will no longer capture the latest state of data. You can refresh such a stale index using "refreshIndex" command. This causes the index to be fully rebuilt and updates it according to the latest data records (don't worry, we will show you how to incrementally refresh your index in other notebooks).
 
