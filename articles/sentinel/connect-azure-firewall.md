@@ -12,6 +12,11 @@ ms.author: yelevin
 ---
 # Connect data from Azure Firewall
 
+> [!IMPORTANT]
+> The Azure Firewall data connector in Azure Sentinel is currently in public preview.
+> This feature is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 Azure Firewall is a managed, cloud-based network security service that protects your Azure Virtual Network resources. It's a fully stateful firewall-as-a-service with built-in high availability and unrestricted cloud scalability. 
 
 You can connect Azure Firewall logs to Azure Sentinel, enabling you to view log data in workbooks, use it to create custom alerts, and incorporate it to improve your investigation.
