@@ -5,7 +5,7 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 8/25/2020
+ms.date: 9/21/2020
 ---
 
 # Audit Logs in Azure Database for MySQL Flexible Server

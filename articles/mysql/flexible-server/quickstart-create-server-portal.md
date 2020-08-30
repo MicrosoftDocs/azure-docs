@@ -6,7 +6,7 @@ ms.author: andrela
 ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 8/20/2020
+ms.date: 9/21/2020
 ---
 
 # Quickstart: Use the Azure portal to create an Azure Database for MySQL Flexible Server

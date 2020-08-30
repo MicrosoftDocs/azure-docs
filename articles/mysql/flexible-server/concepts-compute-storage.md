@@ -5,7 +5,7 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 8/24/2020
+ms.date: 9/21/2020
 ---
 
 # Compute and storage options in Azure Database for MySQL - Flexible Server
@@ -13,7 +13,7 @@ ms.date: 8/24/2020
 > [!IMPORTANT] 
 > Azure Database for MySQL Flexible Server is currently in public preview
 
-You can create an Azure Database for MySQL Flexible Server in one of three different pricing tiers: Burstable, General Purpose, and Memory Optimized. The compute tiers are differentiated by the underlying VM SKU used B-series, D-series, and E-series. The choice of compute tier dictates the memory and vCores available on the server. The same storage technology is used across all compute tiers. All resources are provisioned at the MySQL server level. A server can have one or many databases.
+You can create an Azure Database for MySQL Flexible Server in one of three different compute tiers: Burstable, General Purpose, and Memory Optimized. The compute tiers are differentiated by the underlying VM SKU used B-series, D-series, and E-series. The choice of compute tier and size dictates the memory and vCores available on the server. The same storage technology is used across all compute tiers. All resources are provisioned at the MySQL server level. A server can have one or many databases.
 
 | Resource / Tier | **Burstable** | **General Purpose** | **Memory Optimized** |
 |:---|:----------|:--------------------|:---------------------|
@@ -25,9 +25,9 @@ You can create an Azure Database for MySQL Flexible Server in one of three diffe
 
 \* With the exception of E64ds_v4 (Memory Optimized) SKU, which has 504 GB of memory
 
-To choose a pricing tier, use the following table as a starting point.
+To choose a compute tier, use the following table as a starting point.
 
-| Pricing tier | Target workloads |
+| Compute tier | Target workloads |
 |:-------------|:-----------------|
 | Burstable | Best for workloads that don’t need the full CPU continuously. |
 | General Purpose | Most business workloads that require balanced compute and memory with scalable I/O throughput. Examples include servers for hosting web and mobile apps and other enterprise applications.|
