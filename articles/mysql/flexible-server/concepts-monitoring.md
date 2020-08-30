@@ -9,15 +9,15 @@ ms.date: 9/21/2020
 ---
 # Understand your Azure Database for MySQL Flexible Server resources using metrics
 
-Monitoring resources of your servers helps you troubleshoot, optimize your workload resources and you can seamlessly pay attention to what matters most to you. Azure Database for MySQL Flexible Server provides metrics which are numerical values that describe some aspect of a system at a particular time. Monitoring the right metrics helps you keep the performance, reliability and availability of your server and application. 
+Monitoring resources of your servers helps you troubleshoot, optimize your workload resources and you can seamlessly pay attention to what matters most to you. Azure Database for MySQL Flexible Server provides metrics, which are numerical values that describe some aspect of a system at a particular time. Monitoring the right metrics helps you keep the performance, reliability, and availability of your server and application. 
 
-In this article you will learn about the various metrics available for your flexible server that give insight into the behavior of your server.
+In this article, you will learn about the various metrics available for your flexible server that give insight into the behavior of your server.
 
 ## Available Metrics
 
-Azure Database for MySQL Flexible Server provides various metrics to understand how your workload is performing and based on this data, you can understand the impact on your server and application. For example, in flexible server, you can monitor **Host CPU percent**, **Active Connections**, **IO percent** and **Host Memory Percent** to identify when there is a performance impact and either you might have to optimize your workload or scale vertically by changing compute tier or scaling horizontally by using read replica.
+Azure Database for MySQL Flexible Server provides various metrics to understand how your workload is performing and based on this data, you can understand the impact on your server and application. For example, in flexible server, you can monitor **Host CPU percent**, **Active Connections**, **IO percent**, and **Host Memory Percent** to identify when there is a performance impact and either you might have to optimize your workload or scale vertically by changing compute tier or scaling horizontally by using read replica.
 
-All Azure metrics have a one-minute frequency, and each metric provides 30 days of history. You can configure alerts on the metrics. For step by step guidance, see [How to set up alerts](./howto-alert-on-metric.md). Other tasks include setting up automated actions, performing advanced analytics, and archiving history. For more information, see the [Azure Metrics Overview](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+All Azure metrics have a one-minute frequency, and each metric provides 30 days of history. You can configure alerts on the metrics. For step-by-step guidance, see [How to set up alerts](./how-to-alert-on-metric.md). Other tasks include setting up automated actions, performing advanced analytics, and archiving history. For more information, see the [Azure Metrics Overview](../../monitoring-and-diagnostics/monitoring-overview-metrics.md).
 
 ### List of metrics
 These metrics are available for Azure Database for MySQL:
@@ -36,9 +36,9 @@ These metrics are available for Azure Database for MySQL:
 |Storage Percent|storage_percent|Percent|The percentage of storage used out of the server's maximum.|
 |Storage Used|storage_used|Bytes|The amount of storage in use. The storage used by the service may include the database files, transaction logs, and the server logs.|
 |Total connections|total_connections|Count|The number of total connections to the server|
-|Aborted Connections|aborted_connections|Count|The number of failed attempts to connect to the MySQL for example failed connection due to bad credentials.|
+|Aborted Connections|aborted_connections|Count|The number of failed attempts to connect to the MySQL, for example, failed connection due to bad credentials.|
 |Queries|Queries|Count|The number of queries per second|
 
 ## Next steps
 - See [How to set up alerts](./how-to-alert-on-metric.md) for guidance on creating an alert on a metric.
-- Learn more about [scaling IOPS](./concepts/../concepts-compute-storage.md#IOPS) to improve performance.
+- Learn more about [scaling IOPS](./concepts/../concepts-compute-storage.md#iops) to improve performance.

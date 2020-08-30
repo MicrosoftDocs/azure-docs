@@ -14,7 +14,7 @@ ms.date: 9/21/2020
 
 In this quickstart, you connect to an Azure Database for MySQL Flexible Server by using Python. You then use SQL statements to query, insert, update, and delete data in the database from Mac, Ubuntu Linux, and Windows platforms. 
 
-This topic assumes that you're familiar with developing using Python, but you're new to working with Azure Database for MySQL Flexible Server.
+This article assumes that you're familiar with developing using Python, but you're new to working with Azure Database for MySQL Flexible Server.
 
 ## Prerequisites
 
@@ -22,8 +22,8 @@ This topic assumes that you're familiar with developing using Python, but you're
 - An Azure Database for MySQL Flexible Server. [Create an Azure Database for MySQL Flexible Server using Azure portal](./quickstart-create-server-portal.md) or [Create an Azure Database for MySQL Flexible Server using Azure CLI](./quickstart-create-server-cli.md).
 
 ## Preparing your client workstation
-- If you created your flexible server with *Private access (VNet Integration)*, you will need to connect to your server from a resource within the same VNet as your server. You can create a virtual machine and add it to the VNet created with your flexible server. Refer to [Create and manage Azure Database for MySQL Flexible Server virtual network using Azure CLI](./how-to-manage-virtual-network-cli.md).
-- If you created your flexible server with *Public access (allowed IP addresses)*, you can add your local IP address to the list of firewall rules on your server. Refer to [Create and manage Azure Database for MySQL Flexible Server firewall rules using the Azure CLI](./how-to-manage-firewall-cli.md).
+- If you created your flexible server with *Private access (VNet Integration)*, you will need to connect to your server from a resource within the same VNet as your server. You can create a virtual machine and add it to the VNet created with your flexible server. Refer to [Create and manage Azure Database for MySQL Flexible Server virtual network using Azure CLI]<!-- FIX ME (./how-to-manage-virtual-network-cli.md).-->
+- If you created your flexible server with *Public access (allowed IP addresses)*, you can add your local IP address to the list of firewall rules on your server. Refer to [Create and manage Azure Database for MySQL Flexible Server firewall rules using the Azure CLI]<!--(./how-to-manage-firewall-cli.md).-->
 
 ## Install Python and the MySQL connector
 
@@ -50,7 +50,7 @@ Install Python and the MySQL connector for Python on your computer by using the 
 
 ## Get connection information
 
-Get the connection information you need to connect to Azure Database for MySQL Flexible Server from the Azure portal. You need the server name, database name, and login credentials.
+Get the connection information you need to connect to Azure Database for MySQL Flexible Server from the Azure portal. You need the server name, database name, and sign in credentials.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
    
@@ -266,7 +266,7 @@ else:
 ```
 
 ## Next steps
-- [Encrypted connectivity using Transport Layer Security (TLS 1.2) in Azure Database for MySQL - Flexible Server](./how-to-connect-TLS-SSL.md).
+- [Encrypted connectivity using Transport Layer Security (TLS 1.2) in Azure Database for MySQL - Flexible Server]<!-- FIX ME(./how-to-connect-TLS-SSL.md).-->
 - Learn more about [Networking in Azure Database for MySQL Flexible Server]<!-- FIX ME (./concepts-networking-overview.md). --->
-- [Create and manage Azure Database for MySQL Flexible Server firewall rules using the Azure portal](./how-to-manage-firewall-portal.md).
-- [Create and manage Azure Database for MySQL Flexible Server virtual network using Azure portal](./how-to-manage-virtual-network-portal.md).
+- [Create and manage Azure Database for MySQL Flexible Server firewall rules using the Azure portal]<!-- FIX ME(./how-to-manage-firewall-portal.md).-->
+- [Create and manage Azure Database for MySQL Flexible Server virtual network using Azure portal]<!-- FIX ME(./how-to-manage-virtual-network-portal.md).-->
