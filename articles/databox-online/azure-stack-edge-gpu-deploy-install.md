@@ -70,7 +70,7 @@ This device is shipped in a single box. Complete the following steps to unpack y
     - One rail kit assembly
     - A Safety, Environmental, and Regulatory Information booklet
 
-If you didn't receive all of the items listed here, [Contact Microsoft Support](azure-stack-edge-contact-microsoft-support). The next step is to rack mount your device.
+If you didn't receive all of the items listed here, [Contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md). The next step is to rack mount your device.
 
 
 ## Rack the device

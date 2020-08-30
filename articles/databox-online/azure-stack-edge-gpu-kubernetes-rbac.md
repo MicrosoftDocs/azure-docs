@@ -120,8 +120,6 @@ When working with namespaces and users on your Azure Stack Edge devices, the fol
 - You are not allowed to create any user namespaces with names that are already in use by other user namespaces. For example, if you have a `test-ns` that you created, you cannot create another `test-ns` namespace.
 - You are not allowed to create users with names that are already reserved. For example, `aseuser` is a reserved cluster admin and cannot be used.
 
-For more information on Azure Stack Edge namespaces, see [Namespace types](azure-stack-edge-gpu-kubernetes-workload-management.md#namespaces-types).
-
 
 ## Next steps
 
