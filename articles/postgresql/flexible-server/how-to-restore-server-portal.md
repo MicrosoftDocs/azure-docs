@@ -28,7 +28,7 @@ existing backup.
 2.  Click **Overview** from the left panel.
   
 3.  From the overview page, click **Restore**.
- ![view overview](./media/how-to-restore-server-portal/how-to-restore-overview.png)
+ ![view restore overview](./media/how-to-restore-server-portal/how-to-restore-overview.png)
 4.  Restore page will be shown with an option to choose between Earliest restore point and Custom restore point.
 
 5.  select **Earliest restore point**.
@@ -49,7 +49,7 @@ existing backup.
 1.  In the [Azure portal](https://portal.azure.com/), choose your flexible server that you want to restore the backup from.
 
 2.  From the overview page, click **Restore**.
-    ![view overview](./media/how-to-restore-server-portal/how-to-restore-overview.png)
+    ![view restore overview - earliest backup](./media/how-to-restore-server-portal/how-to-restore-overview.png)
 3.  Restore page will be shown with an option to choose between Earliest restore point and Custom restore point.
 
 4.  Choose **Custom restore point**.
@@ -58,7 +58,7 @@ existing backup.
 
 6.  Provide a new server name in the **Restore to new server** field. 
    
- ![view overview](./media/how-to-restore-server-portal/how-to-restore-custom.png)
+ ![view overview - custom restore](./media/how-to-restore-server-portal/how-to-restore-custom.png)
  
 7.  Click **OK**.
 

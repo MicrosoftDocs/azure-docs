@@ -119,5 +119,5 @@ During unplanned downtime events such as database crash or the server failure, t
 ## Next steps
 
 -   Learn about [business continuity](./concepts-business-continuity.md)
--   Learn how to [manage high availability](./how-to-manage-high-availability.md)
+-   Learn how to [manage high availability](./how-to-manage-high-availability-portal.md)
 -   Learn about [backup and recovery](./concepts-backup-restore.md)

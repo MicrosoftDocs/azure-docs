@@ -93,6 +93,3 @@ After a restore from either recovery mechanism, you should perform the following
 -   Learn about [zone redundant high availability](./concepts-high-availability.md)
 -   Learn [how to restore](./how-to-restore-server-portal.md)
 
-## Feedback
-
-Submit and view feedback 
