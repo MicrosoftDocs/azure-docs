@@ -20,7 +20,7 @@ ms.author: mbaldwin
 
 Below claims that are defined by the JWT RFC and used by Azure Attestation in the response object:
 
-- **"iss" (Issuer) Claim**: The "iss" (issuer) claim identifies the principal that issued the JWT. The processing of this claim is generally application specific. The "iss" value is a case-sensitive string containing a StringOrURI value.
+- **"iss" (Issuer) Claim**: The "iss" (issuer) claim identifies the principal that issued the JWT. The processing of this claim is generally application-specific. The "iss" value is a case-sensitive string containing a StringOrURI value.
 - **"iat" (Issued At) Claim**: The "iat" (issued at) claim identifies the time at which the JWT was issued. This claim can be used to determine the age of the JWT. Its value MUST be a number containing a NumericDate value.
 - **"exp" (Expiration Time) Claim**: The "exp" (expiration time) claim identifies the expiration time on or after which the JWT MUST NOT be accepted for processing. The processing of the "exp" claim requires that the current date/time MUST be before the expiration date/time listed in the "exp" claim.
 
@@ -32,11 +32,7 @@ Below claims that are defined by the JWT RFC and used by Azure Attestation in th
 
 ### Incoming claims 
 
-- **$is-debuggable**: Boolean which indicates whether or not the enclave has debugging enabled or not
-<<<<<<< HEAD
-- **sgx-mrsigner**: hex encoded value of the **mrsigner** field of the quote
-- **sgx-mrenclave**: hex encoded value of the **mrenclave** field of the quote
-=======
+- **$is-debuggable**: A Boolean, which indicates whether or not the enclave has debugging enabled or not
 - **$sgx-mrsigner**: hex encoded value of the “mrsigner” field of the quote
 - **$sgx-mrenclave**: hex encoded value of the “mrenclave” field of the quote
 - **$product-id**
@@ -45,10 +41,9 @@ Below claims that are defined by the JWT RFC and used by Azure Attestation in th
 
 ### Outgoing claims
 
-- **is-debuggable**: Boolean which indicates whether or not the enclave has debugging enabled or not
+- **is-debuggable**: A Boolean, which indicates whether or not the enclave has debugging enabled or not
 - **sgx-mrsigner**: hex encoded value of the “mrsigner” field of the quote
 - **sgx-mrenclave**: hex encoded value of the “mrenclave” field of the quote
->>>>>>> 0cb9fdd3f43dd7e0623b539c3875a8dddd6ce5e4
 - **product-id**
 - **svn**: security version number encoded in the quote 
 - **tee**: type of enclave 
@@ -72,7 +67,7 @@ Below claims that are defined by the JWT RFC and used by Azure Attestation in th
 - **enclaveAuthorId**:  String value containing the Base64Url encoded value of the enclave author id-The author identifier of the primary module for the enclave.
 - **enclaveImageId**:  String value containing the Base64Url encoded value of the enclave Image id-The image identifier of the primary module for the enclave.
 - **enclaveOwnerId**:  String value containing the Base64Url encoded value of the enclave Owner id-The identifier of the owner for the enclave.
-- **enclaveFamilyId**:  String value containing the Base64Url encoded value of the family identifier of the primary module for the enclave.
+- **enclaveFamilyId**:  String value containing the Base64Url encoded value of the enclave Family id. The family identifier of the primary module for the enclave.
 - **enclaveSvn**:  Integer value containing the security version number of the primary module for the enclave.
 - **enclavePlatformSvn**:  Integer value containing the security version number of the platform that hosts the enclave.
 - **enclaveFlags**:  The enclaveFlags claim is an Integer value containing Flags that describe the runtime policy for the enclave.
@@ -82,15 +77,15 @@ Below claims that are defined by the JWT RFC and used by Azure Attestation in th
 - **policy_hash**:  String value containing SHA256 hash of the policy text computed by BASE64URL(SHA256(BASE64URL(UTF8(Policy text)))).
 - **policy_signer**:  String value containing a JWK with the public key or the certificate chain present in the signed policy header.
 - **ver (Version)**:  String value containing version of the report. Currently 1.0.
-- **cnf (Confirmation) Claim**:  The **cnf** claim is used to identify the proof-of-possession key. A confirmation claim, as defined in RFC 7800, contains the public part of the attested enclave key represented as a JSON Web Key (JWK) object (RFC 7517).
-- **rp_data (relying party data)**:  Relying party data, if any, specified in the request. This is normally used by the relying party as a nonce to guarantee freshness of the report.
-- **"jti" (JWT ID) Claim**: The **jti** (JWT ID) claim provides a unique identifier for the JWT. The identifier value is assigned in a manner that ensures that there is a negligible probability that the same value will be accidentally assigned to a different data object.
+- **cnf (Confirmation) Claim**:  The "cnf" claim is used to identify the proof-of-possession key. Confirmation claim as defined in RFC 7800, contains the public part of the attested enclave key represented as a JSON Web Key (JWK) object (RFC 7517).
+- **rp_data (relying party data)**:  Relying party data, if any, specified in the request, used by the relying party as a nonce to guarantee freshness of the report.
+- **"jti" (JWT ID) Claim**: The "jti" (JWT ID) claim provides a unique identifier for the JWT. The identifier value is assigned in a manner that ensures that there is a negligible probability that the same value will be accidentally assigned to a different data object.
 
 ### Property claims
 
 - **report_validity_in_minutes**: An integer claim signifying for how long the token is valid.
   - **Default value(time)**: One day in minutes.
-  - **Maximum value(time)**: One year in minutes .
+  - **Maximum value(time)**: One year in minutes.
 - **omit_x5c**: A Boolean claim indicating if Azure Attestation should omit the cert used to provide proof of service authenticity. If true, x5t will be added to the attestation token. If false(default), x5c will be added to the attestation token.
 
 ## Next steps
