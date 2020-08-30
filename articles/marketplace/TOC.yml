@@ -34,8 +34,6 @@
         href: ./marketplace-solution-templates.md
       - name: Azure apps managed applications
         href: ./marketplace-managed-apps.md
-      - name: SaaS apps
-        href: ./marketplace-saas-applications-technical-publishing-guide.md
       - name: Containers
         href: ./marketplace-containers.md
       - name: IoT Edge modules
@@ -169,22 +167,6 @@
       items:
       - name: Plan a SaaS offer
         href: plan-saas-offer.md
-      - name: Create a SaaS offer
-        items:
-        - name: Create the SaaS offer 
-          href: create-new-saas-offer.md
-        - name: Configure your SaaS offer properties
-          href: create-new-saas-offer-properties.md  
-        - name: Configure offer listing
-          href: create-new-saas-offer-listing.md
-        - name: Add a preview audience
-          href: create-new-saas-offer-preview.md
-        - name: Provide technical details
-          href: create-new-saas-offer-technical.md  
-        - name: Create plans
-          href: create-new-saas-offer-plans.md
-        - name: Marketing options
-          href: create-new-saas-offer-marketing.md      
       - name: Azure AD auth for SaaS
         items:
           - name: Azure AD and SaaS overview
@@ -194,7 +176,25 @@
           - name: Landing page for free or trial offers
             href: ./azure-ad-free-or-trial-landing-page.md
       - name: SaaS metered billing
-        href: ./partner-center-portal/saas-metered-billing.md           
+        href: ./partner-center-portal/saas-metered-billing.md  
+      - name: Create and publish a SaaS offer
+        items:
+        - name: Create a SaaS offer 
+          href: create-new-saas-offer.md
+        - name: Configure SaaS offer properties
+          href: create-new-saas-offer-properties.md  
+        - name: Configure SaaS offer listing
+          href: create-new-saas-offer-listing.md
+        - name: Add a preview audience
+          href: create-new-saas-offer-preview.md
+        - name: Add technical details
+          href: create-new-saas-offer-technical.md  
+        - name: Create plans
+          href: create-new-saas-offer-plans.md        
+        - name: Test and publish a SaaS offer
+          href: test-publish-saas-offer.md
+      - name: Market your SaaS offer
+        href: create-new-saas-offer-marketing.md
       - name: SaaS Fulfillment APIs
         href: ./partner-center-portal/pc-saas-fulfillment-apis.md
         items:
@@ -248,7 +248,7 @@
     href: review-publish-offer.md
   - name: Update existing offers
     href: ./partner-center-portal/update-existing-offer.md
-  - name: Activate benefits
+  - name: Activate marketplace rewards
     href: ./partner-center-portal/marketplace-rewards.md
   - name: Partner Center Analytics
     items:

@@ -1,6 +1,6 @@
 ---
-title: Create a SaaS offer in the Microsoft commercial marketplace 
-description: How to create a new software as a service (SaaS) offer for listing or selling in Microsoft AppSource, Azure Marketplace, or through the Cloud Solution Provider (CSP) program using the Microsoft commercial marketplace program in Microsoft Partner Center. 
+title: How to create a SaaS offer in the Microsoft commercial marketplace 
+description: Learn how to create a new software as a service (SaaS) offer for listing or selling in Microsoft AppSource, Azure Marketplace, or through the Cloud Solution Provider (CSP) program using the commercial marketplace portal in Microsoft Partner Center. 
 author: mingshen-ms
 ms.author: mingshen
 ms.reviewer: dannyevers
@@ -10,16 +10,13 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ---
 
-# Create a SaaS offer in the commercial marketplace
+# How to create a SaaS offer in the commercial marketplace
 
 As a commercial marketplace publisher, you can create a software as a service (SaaS) offer so potential customers can buy your SaaS-based technical solution. This article explains the process to create a SaaS offer for the Microsoft commercial marketplace.
 
 ## Before you begin
 
-If you haven’t already done so, read [Plan a SaaS offer for the commercial marketplace](plan-saas-offer.md). It will help you understand the technical requirements for your SaaS app, and the information and assets you’ll need when you create your offer.
-
-> [!IMPORTANT]
-> Unless you plan to publish a simple listing (**Contact me** listing option) in the commercial marketplace, your SaaS application must meet technical requirements around authentication. For detailed information, see [Plan a SaaS offer for the commercial marketplace](plan-saas-offer.md) and [Azure AD and transactable SaaS offers in the commercial marketplace](azure-ad-saas.md).
+If you haven’t already done so, read [Plan a SaaS offer for the commercial marketplace](plan-saas-offer.md). It will explain the technical requirements for your SaaS app, and the information and assets you’ll need when you create your offer. Unless you plan to publish a simple listing (**Contact me** listing option) in the commercial marketplace, your SaaS application must meet technical requirements around authentication.
 
 ## Create a new SaaS offer
 
@@ -27,7 +24,7 @@ If you haven’t already done so, read [Plan a SaaS offer for the commercial mar
 1. In the left-navigation menu, select **Commercial Marketplace** > **Overview**.
 1. On the **Overview** tab, select **+ New offer** > **Software as a Service**.
 
-   :::image type="content" source="partner-center-portal/media/new-offer-saas.png" alt-text="Illustrates the left-navigation menu and the New offer list.":::
+   :::image type="content" source="media/new-offer-saas.png" alt-text="Illustrates the left-navigation menu and the New offer list.":::
 
 1. In the **New offer** dialog box, enter an **Offer ID**. This ID is visible in the URL of the commercial marketplace listing and Azure Resource Manager templates, if applicable. For example, if you enter **test-offer-1** in this box, the offer web address will be `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
    + Each offer in your account must have a unique offer ID.

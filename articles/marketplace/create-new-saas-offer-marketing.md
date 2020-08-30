@@ -1,18 +1,18 @@
 ---
-title: Marketing options for your SaaS offer in Partner Center
-description: Learn about the co-sell with Microsoft and resell through CSP options for your software as a service (SaaS) offer in Microsoft Partner Center.
+title: How to market your SaaS offer in Microsoft Partner Center
+description: Learn about the co-sell with Microsoft and resell through Cloud Solution Providers (CSP) program options for your software as a service (SaaS) offer in the Microsoft commercial marketplace.
 author: mingshen-ms
 ms.author: mingshen
 ms.reviewer: dannyevers
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 07/31/2020
+ms.date: 08/31/2020
 ---
 
-# Marketing options for your SaaS offer
+# How to market your SaaS offer
 
-This article describes additional marketing options you can choose, if you’re selling your software as a service (SaaS) offer through Microsoft. You can co-sell your offer with Microsoft, resell it through Cloud Solution Providers (CSPs), or both.
+This article describes additional marketing options you can choose if you’re selling your software as a service (SaaS) offer through Microsoft. You can co-sell your offer with Microsoft, resell it through the Cloud Solution Providers (CSP) program, or both.
 
 ## Co-sell with Microsoft
 
@@ -22,8 +22,9 @@ For details and instructions to configure the **Co-sell with Microsoft** tab, se
 
 ## Resell through CSPs
 
-Electing to make your offer available in the Cloud Solution Provider (CSP) program enables CSPs to sell your product as part of a bundled solution to their customers. For more information about reselling your offer through CSPs and step-by-step instructions to configure the **Resell through CSPs** tab, see [Cloud Solution Providers](https://go.microsoft.com/fwlink/?linkid=2111109).
+If you elect to make your offer available in the Cloud Solution Provider (CSP) program, CSPs can sell your product as part of a bundled solution to their customers. For more information about reselling your offer through the CSP program and step-by-step instructions to configure the **Resell through CSPs** tab, see [Cloud Solution Providers](cloud-solution-providers.md).
 
 ## Next steps
 
-After you finish creating your offer, the next step is to review and publish it. For help reviewing and publishing your offer, see [Review and publish an offer](review-publish-offer.md).
+[Test and publish a SaaS offer](test-publish-saas-offer.md)
+[Active marketplace rewards](partner-center-portal/marketplace-rewards.md)
