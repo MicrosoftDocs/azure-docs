@@ -147,6 +147,7 @@ deptDF: org.apache.spark.sql.DataFrame = [deptId: int, deptName: string ... 1 mo
 | 7902|   FORD|    20|
 | 7654| MARTIN|    30|  
 ```
+
 &nbsp;
 &nbsp;
 
@@ -777,8 +778,8 @@ Second cell runs our range selection query example. The results should now conta
 ```scala
 val extraDepartments = Seq(
       (50, "Inovation", "Seattle"),
-	  (60, "Human Resources", "San Francisco"))
-	  
+      (60, "Human Resources", "San Francisco"))
+
 val extraDeptData: DataFrame = extraDepartments.toDF("deptId", "deptName", "location")
 extraDeptData.write.mode("Append").parquet(deptLocation)
 
