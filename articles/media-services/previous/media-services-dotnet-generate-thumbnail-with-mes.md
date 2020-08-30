@@ -15,6 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
+ms.custom: devx-track-csharp
 
 ---
 # How to generate thumbnails using Media Encoder Standard with .NET 
@@ -278,7 +279,7 @@ Note the use of {Resolution} macro in the FileName; it indicates to the encoder 
 While all of the above examples have discussed how you can submit an encoding task that only produces images, you can also combine video/audio encoding with thumbnail generation. The following JSON and XML preset tell **Media Encoder Standard** to generate a thumbnail during encoding.
 
 ### <a id="json"></a>JSON preset
-For information about schema, see [this](/azure/media-services/previous/media-services-mes-schema) article.
+For information about schema, see [this](./media-services-mes-schema.md) article.
 
 ```json
 	{
@@ -343,7 +344,7 @@ For information about schema, see [this](/azure/media-services/previous/media-se
 ```
 
 ### <a id="xml"></a>XML preset
-For information about schema, see [this](/azure/media-services/previous/media-services-mes-schema) article.
+For information about schema, see [this](./media-services-mes-schema.md) article.
 
 ```csharp
 	<?xml version="1.0" encoding="utf-16"?>

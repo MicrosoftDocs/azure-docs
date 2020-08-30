@@ -1,8 +1,8 @@
 ---
 # Mandatory fields.
-title: Use Azure Digital Twins to update an Azure Maps indoor map
+title: Integrate with Azure Maps
 titleSuffix: Azure Digital Twins
-description: See how to create an Azure function that can use the twin graph and Azure Digital Twins notifications to update information shown in Azure Maps.
+description: See how to create an Azure function that can use the twin graph and Azure Digital Twins notifications to update an Azure Maps indoor map.
 author: alexkarcher-msft
 ms.author: alkarche # Microsoft employees only
 ms.date: 6/3/2020

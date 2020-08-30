@@ -11,7 +11,7 @@ ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: aahi
-ms.custom: tracking-python
+ms.custom: devx-track-python
 ---
 
 # Quickstart: Search for videos using the Bing Video Search REST API and Python

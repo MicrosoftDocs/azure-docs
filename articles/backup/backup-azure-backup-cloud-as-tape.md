@@ -58,7 +58,7 @@ The total number of recovery points is 56.
 
 By clicking **Modify** in the preceding screen, customers have further flexibility in specifying retention schedules.
 
-![Modify](./media/backup-azure-backup-cloud-as-tape/modify.png)
+![Modify Policy window](./media/backup-azure-backup-cloud-as-tape/modify.png)
 
 ## Next steps
 

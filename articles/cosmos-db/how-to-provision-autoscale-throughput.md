@@ -5,7 +5,8 @@ author: deborahc
 ms.author: dech
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 07/29/2020
+ms.date: 07/30/2020
+ms.custom: devx-track-csharp
 ---
 
 # Provision autoscale throughput on database or container in Azure Cosmos DB
@@ -239,11 +240,11 @@ container.replaceThroughput(ThroughputProperties.createAutoscaledThroughput(newA
 
 ## Cassandra API
 
-Azure Cosmos DB accounts for Cassandra API can be provisioned for autoscale using [CQL commands](manage-scale-cassandra.md#use-autoscale), [Azure CLI](cli-samples.md)or [Azure Resource Manager templates](resource-manager-samples.md).
+Azure Cosmos DB accounts for Cassandra API can be provisioned for autoscale using [CQL commands](manage-scale-cassandra.md#use-autoscale), [Azure CLI](cli-samples.md), [Azure PowerShell](powershell-samples.md) or [Azure Resource Manager templates](resource-manager-samples.md).
 
 ## Azure Cosmos DB API for MongoDB
 
-Azure Cosmos DB accounts for MongoDB API can be provisioned for autoscale using [MongoDB extension commands](mongodb-custom-commands.md), [Azure CLI](cli-samples.md)or [Azure Resource Manager templates](resource-manager-samples.md).
+Azure Cosmos DB accounts for MongoDB API can be provisioned for autoscale using [MongoDB extension commands](mongodb-custom-commands.md), [Azure CLI](cli-samples.md), [Azure PowerShell](powershell-samples.md) or [Azure Resource Manager templates](resource-manager-samples.md).
 
 ## Azure Resource Manager
 
@@ -252,6 +253,10 @@ Azure Resource Manager templates can be used to provision autoscale throughput o
 ## Azure CLI
 
 Azure CLI can be used to provision autoscale throughput on a database or container-level resources for all Azure Cosmos DB APIs. For samples see [Azure CLI Samples for Azure Cosmos DB](cli-samples.md).
+
+## Azure PowerShell
+
+Azure PowerShell can be used to provision autoscale throughput on a database or container-level resources for all Azure Cosmos DB APIs. For samples see [Azure PowerShell samples for Azure Cosmos DB](powershell-samples.md).
 
 ## Next steps
 

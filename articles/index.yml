@@ -1403,7 +1403,7 @@ productDirectory:
       imageSrc: https://static.docs.com/ui/media/product/azure/disk-storage.svg
       azureCategories:
         - storage
-      url: virtual-machines/windows/managed-disks-overview.md
+      url: virtual-machines/managed-disks-overview.md
     # Card
     - title: Azure Files
       summary: File shares that use the standard SMB 3.0 protocol
@@ -1417,7 +1417,7 @@ productDirectory:
       imageSrc: https://static.docs.com/ui/media/product/azure/disk.svg
       azureCategories:
         - storage
-      url: virtual-machines/windows/managed-disks-overview.md
+      url: virtual-machines/managed-disks-overview.md
     # Card
     - title: Queue Storage
       summary: Effectively scale apps according to traffic

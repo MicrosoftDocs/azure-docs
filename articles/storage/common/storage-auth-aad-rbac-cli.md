@@ -1,5 +1,5 @@
 ---
-title: Use Azure CLI to assign an RBAC role for data access 
+title: Use Azure CLI to assign an Azure role for data access 
 titleSuffix: Azure Storage
 description: Learn how to use Azure CLI to assign permissions to an Azure Active Directory security principal with role-based access control (RBAC). Azure Storage supports built-in and Azure custom roles for authentication via Azure AD.
 services: storage
@@ -14,15 +14,15 @@ ms.subservice: common
 ms.custom: devx-track-azurecli
 ---
 
-# Use Azure CLI to assign an RBAC role for access to blob and queue data
+# Use Azure CLI to assign an Azure role for access to blob and queue data
 
-Azure Active Directory (Azure AD) authorizes access rights to secured resources through [role-based access control (RBAC)](../../role-based-access-control/overview.md). Azure Storage defines a set of Azure built-in roles that encompass common sets of permissions used to access blob or queue data.
+Azure Active Directory (Azure AD) authorizes access rights to secured resources through [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md). Azure Storage defines a set of Azure built-in roles that encompass common sets of permissions used to access blob or queue data.
 
-When an RBAC role is assigned to an Azure AD security principal, Azure grants access to those resources for that security principal. Access can be scoped to the level of the subscription, the resource group, the storage account, or an individual container or queue. An Azure AD security principal may be a user, a group, an application service principal, or a [managed identity for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md).
+When an Azure role is assigned to an Azure AD security principal, Azure grants access to those resources for that security principal. Access can be scoped to the level of the subscription, the resource group, the storage account, or an individual container or queue. An Azure AD security principal may be a user, a group, an application service principal, or a [managed identity for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md).
 
 This article describes how to use Azure CLI to list Azure built-in roles and assign them to users. For more information about using Azure CLI, see [Azure Command-Line Interface (CLI)](/cli/azure).
 
-## RBAC roles for blobs and queues
+## Azure roles for blobs and queues
 
 [!INCLUDE [storage-auth-rbac-roles-include](../../../includes/storage-auth-rbac-roles-include.md)]
 
@@ -30,7 +30,7 @@ This article describes how to use Azure CLI to list Azure built-in roles and ass
 
 [!INCLUDE [storage-auth-resource-scope-include](../../../includes/storage-auth-resource-scope-include.md)]
 
-## List available RBAC roles
+## List available Azure roles
 
 To list available Azure built-in roles with Azure CLI, use the [az role definition list](/cli/azure/role/definition#az-role-definition-list) command:
 
@@ -50,9 +50,9 @@ Storage Queue Data Message Sender         Allows for sending of Azure Storage qu
 Storage Queue Data Reader                 Allows for read access to Azure Storage queues and queue messages
 ```
 
-## Assign an RBAC role to a security principal
+## Assign an Azure role to a security principal
 
-To assign an RBAC role to a security principal, use the [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command. The format of the command can differ based on the scope of the assignment. The following examples show how to assign a role to a user at various scopes, but you can use the same command to assign a role to any security principal.
+To assign an Azure role to a security principal, use the [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command. The format of the command can differ based on the scope of the assignment. The following examples show how to assign a role to a user at various scopes, but you can use the same command to assign a role to any security principal.
 
 ### Container scope
 

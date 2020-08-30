@@ -16,7 +16,7 @@ This article explains how to use Microsoft Azure Backup Server (MABS) to restore
 
 ## Restore a recovery point
 
-1. In the MABS Administrator Console, click Recovery view.
+1. In the MABS Administrator Console, select **Recovery view**.
 
 2. Using the Browse pane, browse or filter to find the VM you want to recover. Once you select a VM or folder, the Recovery points for pane displays the available recovery points.
 
@@ -24,15 +24,15 @@ This article explains how to use Microsoft Azure Backup Server (MABS) to restore
 
 3. In the **Recovery points for** field, use the calendar and drop-down menus to select a date when a recovery point was taken. Calendar dates in bold have available recovery points.
 
-4. On the tool ribbon, click **Recover** to open the **Recovery Wizard**.
+4. On the tool ribbon, select **Recover** to open the **Recovery Wizard**.
 
     ![Recovery Wizard, Review Recovery Selection](./media/restore-azure-backup-server-vmware/recovery-wizard.png)
 
-5. Click **Next** to advance to the **Specify Recovery Options** screen.
+5. Select **Next** to advance to the **Specify Recovery Options** screen.
 
-6. On the **Specify Recovery Options** screen, if you want to enable network bandwidth throttling, click **Modify**. To leave network throttling disabled, click **Next**. No other options on this wizard screen are available for VMware VMs. If you choose to modify the network bandwidth throttle, in the Throttle dialog, select **Enable network bandwidth usage throttling** to turn it on. Once enabled, configure the **Settings** and **Work Schedule**.
+6. On the **Specify Recovery Options** screen, if you want to enable network bandwidth throttling, select **Modify**. To leave network throttling disabled, select **Next**. No other options on this wizard screen are available for VMware VMs. If you choose to modify the network bandwidth throttle, in the Throttle dialog, select **Enable network bandwidth usage throttling** to turn it on. Once enabled, configure the **Settings** and **Work Schedule**.
 
-7. On the **Select Recovery Type** screen, choose whether to recover to the original instance, or to a new location, and click **Next**.
+7. On the **Select Recovery Type** screen, choose whether to recover to the original instance, or to a new location. Then select **Next**.
 
      * If you choose **Recover to original instance**, you don't need to make any more choices in the wizard. The data for the original instance is used.
 
@@ -40,7 +40,7 @@ This article explains how to use Microsoft Azure Backup Server (MABS) to restore
 
       ![Select Recovery Type](./media/restore-azure-backup-server-vmware/recovery-type.png)
 
-8. On the **Summary** screen, review your settings and click **Recover** to start the recovery process. The **Recovery status** screen shows the progression of the recovery operation.
+8. On the **Summary** screen, review your settings and select **Recover** to start the recovery process. The **Recovery status** screen shows the progression of the recovery operation.
 
 ## Restore an individual file from a VM
 
@@ -49,28 +49,28 @@ You can restore individual files from a protected VM recovery point. This featur
 >[!NOTE]
 >Restoring an individual file from a VM is available only for Windows VM and Disk Recovery Points.
 
-1. In the MABS Administrator Console, click **Recovery** view.
+1. In the MABS Administrator Console, select **Recovery** view.
 
-2. Using the **Browse** pane, browse or filter to find the VM you want to recover. Once you select a VM or folder, the Recovery points for pane displays the available recovery points.
+2. Using the **Browse** pane, browse or filter to find the VM you want to recover. Once you select a VM or folder, the **Recovery points for pane** displays the available recovery points.
 
-    ![Available recovery points](./media/restore-azure-backup-server-vmware/vmware-rp-disk.png)
+    !["Recovery points for" pane](./media/restore-azure-backup-server-vmware/vmware-rp-disk.png)
 
 3. In the **Recovery Points for:** pane, use the calendar to select the date that contains the desired recovery point(s). Depending on how the backup policy has been configured, dates can have more than one recovery point. Once you've selected the day when the recovery point was taken, make sure you've chosen the correct **Recovery time**. If the selected date has multiple recovery points, choose your recovery point by selecting it in the Recovery time drop-down menu. Once you chose the recovery point, the list of recoverable items appears in the **Path:** pane.
 
-4. To find the files you want to recover, in the **Path** pane, double-click the item in the **Recoverable item** column to open it. Select the file, files, or folders you want to recover. To select multiple items, press the **Ctrl** key while selecting each item. Use the **Path** pane to search the list of files or folders appearing in the **Recoverable Item** column. **Search list below** does not search into subfolders. To search through subfolders, double-click the folder. Use the **Up** button to move from a child folder into the parent folder. You can select multiple items (files and folders), but they must be in the same parent folder. You cannot recover items from multiple folders in the same recovery job.
+4. To find the files you want to recover, in the **Path** pane, double-click the item in the **Recoverable item** column to open it. Select the file, files, or folders you want to recover. To select multiple items, press the **Ctrl** key while selecting each item. Use the **Path** pane to search the list of files or folders appearing in the **Recoverable Item** column. **Search list below** doesn't search into subfolders. To search through subfolders, double-click the folder. Use the **Up** button to move from a child folder into the parent folder. You can select multiple items (files and folders), but they must be in the same parent folder. You can't recover items from multiple folders in the same recovery job.
 
     ![Review Recovery Selection](./media/restore-azure-backup-server-vmware/vmware-rp-disk-ilr-2.png)
 
-5. When you have selected the item(s) for recovery, in the Administrator Console tool ribbon, click **Recover** to open the **Recovery Wizard**. In the Recovery Wizard, the **Review Recovery Selection** screen shows the selected items to be recovered.
+5. Once you've selected the item(s) for recovery, in the Administrator Console tool ribbon, select **Recover** to open the **Recovery Wizard**. In the Recovery Wizard, the **Review Recovery Selection** screen shows the selected items to be recovered.
 
-6. On the **Specify Recovery Options** screen, if you want to enable network bandwidth throttling, click **Modify**. To leave network throttling disabled, click **Next**. No other options on this wizard screen are available for VMware VMs. If you choose to modify the network bandwidth throttle, in the Throttle dialog, select **Enable network bandwidth usage throttling** to turn it on. Once enabled, configure the **Settings** and **Work Schedule**.
-7. On the **Select Recovery Type** screen, click **Next**. You can only recover your file(s) or folder(s) to a network folder.
-8. On the **Specify Destination** screen, click **Browse** to find a network location for your files or folders. MABS creates a folder where all recovered items are copied. The folder name has the prefix, MABS_day-month-year. When you select a location for the recovered files or folder, the details for that location (Destination, Destination path, and available space) are provided.
+6. On the **Specify Recovery Options** screen, if you want to enable network bandwidth throttling, select **Modify**. To leave network throttling disabled, select **Next**. No other options on this wizard screen are available for VMware VMs. If you choose to modify the network bandwidth throttle, in the Throttle dialog, select **Enable network bandwidth usage throttling** to turn it on. Once enabled, configure the **Settings** and **Work Schedule**.
+7. On the **Select Recovery Type** screen, select **Next**. You can only recover your file(s) or folder(s) to a network folder.
+8. On the **Specify Destination** screen, select **Browse** to find a network location for your files or folders. MABS creates a folder where all recovered items are copied. The folder name has the prefix, MABS_day-month-year. When you select a location for the recovered files or folder, the details for that location (Destination, Destination path, and available space) are provided.
 
     ![Specify location to recover files](./media/restore-azure-backup-server-vmware/specify-destination.png)
 
-9. On the **Specify Recovery Options** screen, choose which security setting to apply. You can opt to modify the network bandwidth usage throttling, but throttling is disabled by default. Also, **SAN Recovery** and **Notification** are not enabled.
-10. On the **Summary** screen, review your settings and click **Recover** to start the recovery process. The **Recovery status** screen shows the progression of the recovery operation.
+9. On the **Specify Recovery Options** screen, choose which security setting to apply. You can opt to modify the network bandwidth usage throttling, but throttling is disabled by default. Also, **SAN Recovery** and **Notification** aren't enabled.
+10. On the **Summary** screen, review your settings and select **Recover** to start the recovery process. The **Recovery status** screen shows the progression of the recovery operation.
 
 ## Next steps
 

@@ -16,9 +16,19 @@ This article answers common questions about backing up data with the Microsoft A
 
 The latest MARS agent used when backing up Windows Server machines, System Center DPM, and Microsoft Azure Backup server is available for [download](https://aka.ms/azurebackup_agent).
 
+### Where can I download the vault credentials file?
+
+In the Azure portal, navigate to **Properties** for your vault. Under **Backup Credentials**, select the checkbox for **Already using the latest Recovery Services Agent**. Select **Download**.
+
+![Download credentials](./media/backup-azure-file-folder-backup-faq/download-credentials.png)
+
 ### How long are vault credentials valid?
 
 Vault credentials expire after 10 days. If the credentials file expires, download the file again from the Azure portal.
+
+### What characters are allowed for the passphrase?
+
+The passphrase should use characters from the ASCII character set, with [ASCII values less than or equal to 127](https://docs.microsoft.com/office/vba/language/reference/user-interface-help/character-set-0127).
 
 ### From what drives can I back up files and folders?
 
@@ -166,7 +176,7 @@ The Azure Backup agent requires a passphrase (that you provided during registrat
 
 Consider the following conditions:
 
-* If you uninstall and re-register the agent on the same original machine with thee
+* If you uninstall and re-register the agent on the same original machine with the
   * *Same passphrase*, then you can restore your backed-up data.
   * *Different passphrase*, then you can't restore your backed-up data.
 * If you install the agent on a *different machine* with the
@@ -185,7 +195,7 @@ If you have the same passphrase (that you provided during registration) of the o
 
 ### My backup jobs have been failing or not running for a long time. I'm past the retention period. Can I still restore?
 
-As a safety measure, Azure Backup will preserve the last recovery point, even if it's past the retention period. Once backups resume and fresh recovery points become available, the older recovery point will be removed according to the specified retention.
+As a safety measure, Azure Backup will preserve the most recent recovery point, even if it's past the retention period. Once backups resume and fresh recovery points become available, the older recovery point will be removed according to the specified retention.
 
 ### What happens if I cancel an ongoing restore job?
 

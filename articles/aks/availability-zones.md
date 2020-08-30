@@ -4,7 +4,7 @@ description: Learn how to create a cluster that distributes nodes across availab
 services: container-service
 ms.custom: fasttrack-edit, references_regions
 ms.topic: article
-ms.date: 02/27/2020
+ms.date: 08/13/2020
 
 ---
 
@@ -24,6 +24,7 @@ You need the Azure CLI version 2.0.76 or later installed and configured. Run `a
 
 AKS clusters can currently be created using availability zones in the following regions:
 
+* Australia East
 * Central US
 * East US 2
 * East US

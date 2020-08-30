@@ -51,7 +51,7 @@ To get started, follow the instructions for [registering a new application](http
 
 If you intend to query the Microsoft Graph API, [configure your new application to access web APIs](https://docs.microsoft.com/azure/active-directory/develop/quickstart-configure-app-access-web-apis). When you select the API permissions for this application, the default of **User.Read** is enough to gather basic information about the buyer to make the onboarding process smooth and automatic. Do not request any API permissions labeled **needs admin consent**, as this will block all non-administrator users from visiting your landing page.
 
-If you require elevated permissions as part of your onboarding or provisioning process, consider using the [incremental consent](https://docs.microsoft.com/azure/active-directory/develop/quickstart-configure-app-access-web-apis) functionality of Azure AD so that all buyers sent from the marketplace are able to interact initially with the landing page.
+If you require elevated permissions as part of your onboarding or provisioning process, consider using the [incremental consent](https://aka.ms/incremental-consent) functionality of Azure AD so that all buyers sent from the marketplace are able to interact initially with the landing page.
 
 ## Use a code sample as a starting point
 
@@ -85,16 +85,7 @@ To authenticate your application with the SaaS fulfillment APIs, you need an acc
 
 ### Call the resolve endpoint
 
-The SaaS fulfillment APIs implement the [resolve](./partner-center-portal/pc-saas-fulfillment-api-v2.md#resolve-a-purchased-subscription) endpoint that can be called to confirm the validity of the marketplace token and to return information about the subscription, including the values shown in this table.
-
-| Value | Description |
-| ------------ | ------------- |
-| Id | Unique identifier (GUID) for this subscription. You will need this value in future calls to the SaaS fulfillment APIs. |
-| subscriptionName | Name of the subscription, which was set when the offer was added to Partner Center. |
-| offerId | Identifier for the specific offer (set when the offer was added). |
-| planId | Identifier for the specific plan for the offer (set when the offer was added). |
-| Quantity | Quantity input by the buyer during purchase. |
-|||
+The SaaS fulfillment APIs implement the [resolve](./partner-center-portal/pc-saas-fulfillment-api-v2.md#resolve-a-purchased-subscription) endpoint that can be called to confirm the validity of the marketplace token and to return information about the subscription.
 
 ## Read information from claims encoded in the ID token
 

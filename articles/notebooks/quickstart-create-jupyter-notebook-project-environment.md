@@ -3,7 +3,7 @@ title: Create an Azure Notebooks Preview project with a custom environment
 description: Create a new project in Azure Notebooks Preview that's configured with a specific set of installed packages and startup scripts.
 ms.topic: quickstart
 ms.date: 12/04/2018
-ms.custom: tracking-python
+ms.custom: devx-track-python
 ---
 
 # Quickstart: Create a project with a custom environment in Azure Notebooks Preview

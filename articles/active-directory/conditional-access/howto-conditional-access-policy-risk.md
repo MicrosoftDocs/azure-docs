@@ -63,8 +63,8 @@ There are two locations where this policy may be assigned. Organizations should 
 
 [User risk-based Conditional Access](howto-conditional-access-policy-risk-user.md)
 
-[Determine impact using Conditional Access report-only mode](howto-conditional-access-report-only.md)
+[Determine impact using Conditional Access report-only mode](howto-conditional-access-insights-reporting.md)
 
 [Simulate sign in behavior using the Conditional Access What If tool](troubleshoot-conditional-access-what-if.md)
 
-[What is Azure Active Directory Identity Protection?](../identity-protection/overview.md)
+[What is Azure Active Directory Identity Protection?](../identity-protection/overview-identity-protection.md)

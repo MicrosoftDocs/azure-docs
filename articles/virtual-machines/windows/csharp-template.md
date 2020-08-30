@@ -8,6 +8,7 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: how-to
 ms.date: 07/14/2017
 ms.author: cynthn
+ms.custom: devx-track-csharp
 
 ---
 # Deploy an Azure Virtual Machine using C# and a Resource Manager template
@@ -321,4 +322,4 @@ It should take about five minutes for this console application to run completely
 ## Next steps
 
 * If there were issues with the deployment, a next step would be to look at [Troubleshoot common Azure deployment errors with Azure Resource Manager](../../azure-resource-manager/templates/common-deployment-errors.md).
-* Learn how to deploy a virtual machine and its supporting resources by reviewing [Deploy an Azure Virtual Machine Using C#](csharp.md).
+* Learn how to deploy a virtual machine and its supporting resources by reviewing [Deploy an Azure Virtual Machine Using C#](../../azure-resource-manager/templates/deploy-rest.md).

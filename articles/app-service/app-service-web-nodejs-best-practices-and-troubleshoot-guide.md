@@ -12,7 +12,7 @@ ms.custom: seodec18
 ---
 # Best practices and troubleshooting guide for node applications on Azure App Service Windows
 
-In this article, you learn best practices and troubleshooting steps for [node applications](app-service-web-get-started-nodejs.md) running on Azure App Service (with [iisnode](https://github.com/azure/iisnode)).
+In this article, you learn best practices and troubleshooting steps for [Windows Node.js applications](quickstart-nodejs.md?pivots=platform-windows) running on Azure App Service (with [iisnode](https://github.com/azure/iisnode)).
 
 > [!WARNING]
 > Use caution when using troubleshooting steps on your production site. Recommendation is to troubleshoot your app on a non-production setup for example your staging slot and when the issue is fixed, swap your staging slot with your production slot.
@@ -268,9 +268,9 @@ NODE.exe has a setting called `NODE_PENDING_PIPE_INSTANCES`. On Azure App Servic
 
 Follow these links to learn more about node.js applications on Azure App Service.
 
-* [Get started with Node.js web apps in Azure App Service](app-service-web-get-started-nodejs.md)
-* [How to debug a Node.js web app in Azure App Service](https://blogs.msdn.microsoft.com/azureossds/2018/08/03/debugging-node-js-apps-on-azure-app-services/)
+* [Get started with Node.js web apps in Azure App Service](quickstart-nodejs.md)
+* [How to debug a Node.js web app in Azure App Service](/archive/blogs/azureossds/debugging-node-js-apps-on-azure-app-services)
 * [Using Node.js Modules with Azure applications](../nodejs-use-node-modules-azure-apps.md)
-* [Azure App Service Web Apps: Node.js](https://blogs.msdn.microsoft.com/silverlining/2012/06/14/windows-azure-websites-node-js/)
+* [Azure App Service Web Apps: Node.js](/archive/blogs/silverlining/windows-azure-websites-node-js)
 * [Node.js Developer Center](../nodejs-use-node-modules-azure-apps.md)
 * [Exploring the Super Secret Kudu Debug Console](https://azure.microsoft.com/documentation/videos/super-secret-kudu-debug-console-for-azure-web-sites/)

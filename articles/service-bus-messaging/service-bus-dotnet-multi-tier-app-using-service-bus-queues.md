@@ -4,6 +4,7 @@ description: A .NET tutorial that helps you develop a multi-tier app in Azure th
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/23/2020
+ms.custom: devx-track-csharp
 ---
 
 # .NET multi-tier application using Azure Service Bus queues
@@ -21,7 +22,7 @@ You will learn the following:
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-In this tutorial you'll build and run the multi-tier application in an Azure cloud service. The front end is an ASP.NET MVC web role and the back end is a worker-role that uses a Service Bus queue. You can create the same multi-tier application with the front end as a web project, that is deployed to an Azure website instead of a cloud service. You can also try out the [.NET on-premises/cloud hybrid application](../service-bus-relay/service-bus-dotnet-hybrid-app-using-service-bus-relay.md) tutorial.
+In this tutorial you'll build and run the multi-tier application in an Azure cloud service. The front end is an ASP.NET MVC web role and the back end is a worker-role that uses a Service Bus queue. You can create the same multi-tier application with the front end as a web project, that is deployed to an Azure website instead of a cloud service. You can also try out the [.NET on-premises/cloud hybrid application](../azure-relay/service-bus-dotnet-hybrid-app-using-service-bus-relay.md) tutorial.
 
 The following screenshot shows the completed application.
 
