@@ -33,6 +33,14 @@ Security and privacy are among the top priorities for Azure and Azure Spring Clo
 
 East US, West US 2, West Europe, and Southeast Asia.
 
+### What are the known limitations of Azure Spring Cloud?
+
+During preview release, Azure Spring Cloud has the following known limitations:
+	
+* `spring.application.name` will be overridden by the application name that's used to create each application.
+* `server.port` defaults to port 1025. If any other value is applied, it will be overridden to 1025.
+* The Azure portal and Azure Resource Manager templates do not support uploading application packages. You can upload application packages only by deploying the application via the Azure CLI.
+
 ### What pricing tiers are available? 
 Which one should I use and what are the limits within each tier?
 * Azure Spring Cloud offers two pricing tiers: Basic and Standard. The Basic tier is targeted for Dev/Test and trying out Azure Spring Cloud. The Standard tier is optimized to run general purpose production traffic. See [Azure Spring Cloud pricing details](https://azure.microsoft.com/pricing/details/spring-cloud/) for limits and feature level comparison.
