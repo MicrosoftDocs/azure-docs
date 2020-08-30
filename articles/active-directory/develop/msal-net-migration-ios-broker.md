@@ -245,15 +245,18 @@ Example:
 
 For more information about how to register the redirect URI in the Azure portal, see [Step 7: Add a redirect URI to your app registration](msal-net-use-brokers-with-xamarin-apps.md#step-7-add-a-redirect-uri-to-your-app-registration).
 
-### **Step Seven: Set the Entitlements.plist**
-Make sure the Entitlements.plist are set to enable keychain access. [More information](https://docs.microsoft.com/en-us/azure/active-directory/develop/msal-net-xamarin-ios-considerations#enable-keychain-access) on enabling keychain access.
+### **Step 7: Set the Entitlements.plist**
 
-```CSharp
+Enable keychain access in the *Entitlements.plist* file:
+
+```xml
  <key>keychain-access-groups</key>
     <array>
       <string>$(AppIdentifierPrefix)com.microsoft.adalcache</string>
     </array>
 ```
+
+For more information about enabling keychain access, see [Enable keychain access](msal-net-xamarin-ios-considerations.md#enable-keychain-access).
 
 ## Next steps
 

@@ -18,7 +18,7 @@ ms.custom: aaddev
 
 # Migrate Android applications that use a broker from ADAL.NET to MSAL.NET
 
-If you have a Xamarin Android app currently using the Azure Active Directory Authentication Library for .NET (ADAL.NET) and an [authentication broker](brokered-auth.md), it's time to migrate to the [Microsoft Authentication Library for .NET ](msal-overview.md) (MSAL.NET). The steps in this article help you migrate your Xamarin Android app from ADAL to MSAL.
+If you have a Xamarin Android app currently using the Azure Active Directory Authentication Library for .NET (ADAL.NET) and an [authentication broker](brokered-auth.md), it's time to migrate to the [Microsoft Authentication Library for .NET ](msal-overview.md) (MSAL.NET).
 
 ## Prerequisites
 
@@ -29,9 +29,7 @@ If you have a Xamarin Android app currently using the Azure Active Directory Aut
 <table>
 <tr><td>Current ADAL code:</td><td>MSAL counterpart:</td></tr>
 <tr><td>
-In ADAL.NET, broker support is enabled on a per-authentication context basis as it's disabled by default.
-
-To call the broker, you had to set a `useBroker` to *true* in the `PlatformParameters` constructor:
+In ADAL.NET, broker support is enabled on a per-authentication context basis. To call the broker, you had to set a `useBroker` to *true* in the `PlatformParameters` constructor:
 
 ```CSharp
 public PlatformParameters(
@@ -62,9 +60,7 @@ AuthenticationResult result =
 ```
 
 </td><td>
-In MSAL.NET, broker support is enabled on a per-PublicClientApplication basis. It is disabled by default.
-
-Use the `WithBroker()` parameter (which is set to true by default) to call broker:
+In MSAL.NET, broker support is enabled on a per-PublicClientApplication basis. Use the `WithBroker()` parameter (which is set to true by default) to call broker:
 
 ```CSharp
 var app = PublicClientApplicationBuilder
