@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/11/2020
+ms.date: 08/27/2020
 ms.author: erhopf
 ms.custom: devx-track-csharp
 ---
@@ -25,25 +25,14 @@ Today, Microsoft uses NMT for translation to most popular languages. All [langua
 
 ## Core features
 
-Here are the features available via the Speech SDK and REST APIs:
+* Speech-to-text translation with recognition results.
+* Speech-to-speech translation.
+* Support for translation to multiple target languages.
+* Interim recognition and translation results.
 
-| Use case | SDK | REST |
-|----------|-----|------|
-| Speech-to-text translation with recognition results. | Yes | No |
-| Speech-to-speech translation. | Yes | No |
-| Interim recognition and translation results. | Yes | No |
+## Get started 
 
-## Get started with speech translation
-
-We offer quickstarts designed to have you running code in less than 10 minutes. This table includes a list of speech translation quickstarts organized by language.
-
-| Quickstart | Platform | API reference |
-|------------|----------|---------------|
-| [C#, .NET Core](~/articles/cognitive-services/Speech-Service/quickstarts/translate-speech-to-text.md?pivots=programming-language-csharp&tabs=dotnetcore) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
-| [C#, .NET Framework](~/articles/cognitive-services/Speech-Service/quickstarts/translate-speech-to-text.md?pivots=programming-language-csharp&tabs=dotnet) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
-| [C#, UWP](~/articles/cognitive-services/Speech-Service/quickstarts/translate-speech-to-text.md?pivots=programming-language-csharp&tabs=uwp) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
-| [C++](~/articles/cognitive-services/Speech-Service/quickstarts/translate-speech-to-text.md?pivots=programming-language-cpp&tabs=windows) | Windows | [Browse](https://aka.ms/csspeech/cppref)|
-| [Java](~/articles/cognitive-services/Speech-Service/quickstarts/translate-speech-to-text.md?pivots=programming-language-java&tabs=jre) | Windows, Linux, macOS | [Browse](https://aka.ms/csspeech/javaref) |
+See the [quickstart](get-started-speech-translation.md) to get started with speech translation. The speech translation service is available via the [Speech SDK](speech-sdk.md) and the [Speech CLI](spx-overview.md).
 
 ## Sample code
 
@@ -67,5 +56,6 @@ If your applications, tools, or products are using the [Translator Speech API](h
 
 ## Next steps
 
+* Complete the speech translation [quickstart](get-started-speech-translation.md)
 * [Get a Speech service subscription key for free](get-started.md)
 * [Get the Speech SDK](speech-sdk.md)
