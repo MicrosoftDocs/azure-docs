@@ -6,17 +6,18 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 05/19/2020
+ms.custom: devx-track-csharp
 ---
 
 # Connect with Managed Identity to Azure Database for PostgreSQL
 
-This article shows you how to use a user-assigned identity for an Azure Virtual Machine (VM) to access an Azure Database for PostgreSQL server. Managed Service Identities are automatically managed by Azure and enable you to authenticate to services that support Azure AD authentication, without needing to insert credentials into your code. You learn how to:
+This article shows you how to use a user-assigned identity for an Azure Virtual Machine (VM) to access an Azure Database for PostgreSQL server. Managed Service Identities are automatically managed by Azure and enable you to authenticate to services that support Azure AD authentication, without needing to insert credentials into your code. 
 
-> [!div class="checklist"]
-> * Grant your VM access to an Azure Database for PostgreSQL server
-> * Create a user in the database that represents the VM's user-assigned identity
-> * Get an access token using the VM identity and use it to query an Azure Database for PostgreSQL server
-> * Implement the token retrieval in a C# example application
+You learn how to:
+- Grant your VM access to an Azure Database for PostgreSQL server
+- Create a user in the database that represents the VM's user-assigned identity
+- Get an access token using the VM identity and use it to query an Azure Database for PostgreSQL server
+- Implement the token retrieval in a C# example application
 
 ## Prerequisites
 

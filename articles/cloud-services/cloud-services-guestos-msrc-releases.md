@@ -10,7 +10,7 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 8/15/2020
+ms.date: 8/17/2020
 ms.author: yohaddad
 ---
 
@@ -74,33 +74,30 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 
 
 ## July 2020 Guest OS
->[!NOTE]
->The July Guest OS is currently being rolled out to Cloud Service VMs that are configured for automatic updates. When the rollout is complete, this version will be made available for manual updates through the Azure portal and configuration files. The following patches are included in the July Guest OS. This list is subject to change.
-
 
 | Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
-|  Rel 20-07 |  [4565479]  |  Internet Explorer | 2.100, 3.87, 4.80 | Jul 14, 2020 |
-|  Rel 20-07 |  [4565511]  |  Latest Cumulative Update (LCU) | 5.45 | Jul 14, 2020 |
-|  Rel 20-07 |  [4558998]  |  Latest Cumulative Update (LCU) | 6.21 | Jul 14, 2020 |
-|  Rel 20-07 |  [4565524]  |  Monthly Rollup | 2.100 | Jul 14, 2020 |
-|  Rel 20-07 |  [4565616]  |  Monthly Rollup | 2.100 | Jul 16, 2020 |
-|  Rel 20-07 |  [4565354]  |  Servicing Stack update | 2.100 | Jul 14, 2020 |
-|  Rel 20-07 |  [4565612]  |  Monthly Rollup | 2.100 | Jul 14, 2020 |
-|  Rel 20-07 |  [4565615]  |  Monthly Rollup | 3.87 | Jul 14, 2020 |
-|  Rel 20-07 |  [4566426]  |  Servicing Stack update | 3.87 | Jul 14, 2020 |
-|  Rel 20-07 |  [4565537]  |  Monthly Rollup | 3.87 | Jul 14, 2020 |
-|  Rel 20-07 |  [4565610]  |  Monthly Rollup | 3.87 | Jul 14, 2020 |
-|  Rel 20-07 |  [4565541]  |  Monthly Rollup | 4.80 | Jul 14, 2020 |
-|  Rel 20-07 |  [4566425]  |  Servicing Stack update | 4.80 | Jul 14, 2020 |
-|  Rel 20-07 |  [4565614]  |  Monthly Rollup | 4.80 | Jul 14, 2020 |
-|  Rel 20-07 |  [4565613]  |  Monthly Rollup | 4.80 | Jul 14, 2020 |
-|  Rel 20-07 |  [4565912]  |  Servicing Stack update | 5.45 | Jul 14, 2020 |
-|  Rel 20-07 |  [4565628]  |  Monthly Rollup | 5.45 | Jul 14, 2020 |
-|  Rel 20-07 |  [4494175]  |  Microcode | 5.45 | Feb 25, 2020 |
-|  Rel 20-07 |  [4565632]  |  Monthly Rollup | 6.21 | Jul 14, 2020 |
-|  Rel 20-07 |  [4558997]  |  Servicing Stack update | 6.21 | Jul 14, 2020 |
-|  Rel 20-07 |  [4494174]  |  Microcode | 6.21 | Feb 25, 2020 |
+|  Rel 20-07 |  [4565479]  |  Internet Explorer | [2.100], [3.87], [4.80] | Jul 14, 2020 |
+|  Rel 20-07 |  [4565511]  |  Latest Cumulative Update (LCU) | [5.45] | Jul 14, 2020 |
+|  Rel 20-07 |  [4558998]  |  Latest Cumulative Update (LCU) | [6.21] | Jul 14, 2020 |
+|  Rel 20-07 |  [4565524]  |  Monthly Rollup | [2.100] | Jul 14, 2020 |
+|  Rel 20-07 |  [4565616]  |  Monthly Rollup | [2.100] | Jul 16, 2020 |
+|  Rel 20-07 |  [4565354]  |  Servicing Stack update | [2.100] | Jul 14, 2020 |
+|  Rel 20-07 |  [4565612]  |  Monthly Rollup | [2.100] | Jul 14, 2020 |
+|  Rel 20-07 |  [4565615]  |  Monthly Rollup | [3.87] | Jul 14, 2020 |
+|  Rel 20-07 |  [4566426]  |  Servicing Stack update | [3.87] | Jul 14, 2020 |
+|  Rel 20-07 |  [4565537]  |  Monthly Rollup | [3.87] | Jul 14, 2020 |
+|  Rel 20-07 |  [4565610]  |  Monthly Rollup | [3.87] | Jul 14, 2020 |
+|  Rel 20-07 |  [4565541]  |  Monthly Rollup | [4.80] | Jul 14, 2020 |
+|  Rel 20-07 |  [4566425]  |  Servicing Stack update | [4.80] | Jul 14, 2020 |
+|  Rel 20-07 |  [4565614]  |  Monthly Rollup | [4.80] | Jul 14, 2020 |
+|  Rel 20-07 |  [4565613]  |  Monthly Rollup | [4.80] | Jul 14, 2020 |
+|  Rel 20-07 |  [4565912]  |  Servicing Stack update | [5.45] | Jul 14, 2020 |
+|  Rel 20-07 |  [4565628]  |  Monthly Rollup | [5.45] | Jul 14, 2020 |
+|  Rel 20-07 |  [4494175]  |  Microcode | [5.45] | Feb 25, 2020 |
+|  Rel 20-07 |  [4565632]  |  Monthly Rollup | [6.21] | Jul 14, 2020 |
+|  Rel 20-07 |  [4558997]  |  Servicing Stack update | [6.21] | Jul 14, 2020 |
+|  Rel 20-07 |  [4494174]  |  Microcode | [6.21] | Feb 25, 2020 |
 
 
 [4565479]: https://support.microsoft.com/kb/4565479
@@ -124,6 +121,11 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 [4565632]: https://support.microsoft.com/kb/4565632
 [4558997]: https://support.microsoft.com/kb/4558997
 [4494174]: https://support.microsoft.com/kb/4494174
+[2.100]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
+[3.87]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
+[4.80]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
+[5.45]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
+[6.21]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
 
 
 ## June 2020 Guest OS

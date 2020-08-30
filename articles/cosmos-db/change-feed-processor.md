@@ -8,6 +8,7 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.reviewer: sngun
+ms.custom: devx-track-csharp
 ---
 
 # Change feed processor in Azure Cosmos DB
@@ -97,8 +98,8 @@ You are charged for RUs consumed, since data movement in and out of Cosmos conta
 The change feed processor can be hosted in any platform that supports long running processes or tasks:
 
 * A continuous running [Azure WebJob](https://docs.microsoft.com/learn/modules/run-web-app-background-task-with-webjobs/).
-* A process in an [Azure Virtual Machine](https://docs.microsoft.com/azure/architecture/best-practices/background-jobs.md#azure-virtual-machines).
-* A background job in [Azure Kubernetes Service](https://docs.microsoft.com/azure/architecture/best-practices/background-jobs.md#azure-kubernetes-service).
+* A process in an [Azure Virtual Machine](https://docs.microsoft.com/azure/architecture/best-practices/background-jobs#azure-virtual-machines).
+* A background job in [Azure Kubernetes Service](https://docs.microsoft.com/azure/architecture/best-practices/background-jobs#azure-kubernetes-service).
 * An [ASP.NET hosted service](https://docs.microsoft.com/aspnet/core/fundamentals/host/hosted-services).
 
 While change feed processor can run in short lived environments, because the lease container maintains the state, the start and stop cycle of these environments will add delay to receiving the notifications (due to the overhead of starting the processor every time the environment is started).

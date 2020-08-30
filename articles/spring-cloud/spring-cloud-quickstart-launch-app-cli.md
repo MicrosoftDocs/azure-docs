@@ -11,7 +11,7 @@ ms.custom: devx-track-java, devx-track-azurecli
 
 # Quickstart: Launch a Java Spring application using the Azure CLI
 
-Azure Spring Cloud enables you to easily run a Spring Boot based microservices application on Azure.
+Azure Spring Cloud enables you to easily run a Spring Boot based microservices application on Azure.  Before running this example, you can try the [basic quickstart](spring-cloud-quickstart.md).
 
 This quickstart shows you how to deploy an existing Java Spring Cloud application to Azure. When you're finished, you can continue to manage the application via the Azure CLI or switch to using the Azure portal.
 
@@ -155,17 +155,17 @@ az spring-cloud app show --name gateway --query properties.url
 ```
 
 3. Navigate to the URL provided by the previous command to run the PiggyMetrics application.
-    ![Screenshot of PiggyMetrics running](media/spring-cloud-quickstart-launch-app-cli/launch-app.png)
+    ![PiggyMetrics running](media/spring-cloud-quickstart-launch-app-cli/launch-app.png)
 
 You can also navigate the Azure portal to find the URL. 
 1. Navigate to the service
 2. Select **Apps**
 3. Select **gateway**
 
-    ![Screenshot of PiggyMetrics running](media/spring-cloud-quickstart-launch-app-cli/navigate-app1.png)
+    ![PiggyMetrics navigate](media/spring-cloud-quickstart-launch-app-cli/navigate-app1.png)
     
 4. Find the URL on the **gateway Overview** page
-    ![Screenshot of PiggyMetrics running](media/spring-cloud-quickstart-launch-app-cli/navigate-app2-url.png)
+    ![PiggyMetrics navigate 2](media/spring-cloud-quickstart-launch-app-cli/navigate-app2-url.png)
 
 > [!div class="nextstepaction"]
 > [I ran into an issue](https://www.research.net/r/javae2e?tutorial=asc-cli-quickstart&step=public-endpoint)
