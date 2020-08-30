@@ -144,9 +144,6 @@ az role assignment create --assignee-object-id $(az ad group show -g 'Contoso Se
 
 # This role assignment allows Contoso Security Team to become administrator of existing Managed HSM pool
 az keyvault role assignment create  --hsm-name contosomhsm --assignee $(az ad group show -g 'Contoso Security Team' --query 'objectId' -o tsv) --scope / --role "Managed HSM Administrator"
-
-
-
 ```
 
 # [Azure PowerShell](#tab/azure-powershell)

@@ -1,5 +1,5 @@
 ---
-title: Managed HSM security domain | Microsoft Docs
+title: About managed HSM security domain | Microsoft Docs
 ms.service: key-vault
 ms.subservice: managed-hsm
 ms.topic: conceptual
@@ -8,7 +8,7 @@ ms.author: ambapat
 manager: msmbaldwin
 ms.date: 09/15/2020
 ---
-# Managed HSM security domain
+# About managed HSM security domain
 
 Security domain is a set of core credentials needed to recover a managed HSM pool in case of a disaster. These credentials are generated in the HSM pool's member partitions and enclaves and represent "ownership" of those partitions.
 
@@ -31,6 +31,11 @@ When an HSM pool is in provisioned but not activated, you can request to initiat
 
 Backups (either full backup or a single key backup) can only be successfully restored if the source HSM pool where the backup was created and the destination HSM pool where the backup will be restored share the same security domain. In this way security domain also defines a cryptographic boundary for each HSM pool.
 
+## Next Steps
+
+- Read an [Overview of Managed HSM](overview.md)
+- Learn about [Managing managed HSM with Azure CLI](manage-with-cli.md)
+- Review [Managed HSM best practices](best-practices.md)
 
 
 
