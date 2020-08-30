@@ -27,7 +27,7 @@ The appliance has a number of components.
 
 - **Management app**: This is a web app for user input during appliance deployment. Used when assessing machines for migration to Azure.
 - **Discovery agent**: The agent gathers machine configuration data. Used when assessing machines for migration to Azure. 
-- **Assessment agent**: The agent collects performance data. Used when assessing machines for migration to Azure.
+- **Collector agent**: The agent collects performance data. Used when assessing machines for migration to Azure.
 - **DRA agent**: Orchestrates VM replication, and coordinates communication between replicated machines and Azure. Used only when replicating VMware VMs to Azure using agentless migration.
 - **Gateway**: Sends replicated data to Azure. Used only when replicating VMware VMs to Azure using agentless migration.
 - **Auto update service**: Updates appliance components (runs every 24 hours).

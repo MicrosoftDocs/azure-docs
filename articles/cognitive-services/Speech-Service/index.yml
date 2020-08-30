@@ -64,15 +64,12 @@ conceptualContent:
         url: index-text-to-speech.yml
     - title: Speech translation
       links:
+      - itemType: overview
+        text: About speech translation
+        url: speech-translation.md
       - itemType: quickstart
-        text: Translate speech-to-text
-        url: quickstarts/translate-speech-to-text.md
-      - itemType: quickstart
-        text: Translate speech to multiple languages
-        url: quickstarts/translate-speech-to-text-multiple-languages.md
-      - itemType: how-to-guide
-        text: Speech translation basics
-        url: speech-translation-basics.md        
+        text: Get started with speech translation
+        url: get-started-speech-translation.md      
       footerLink:
         text: More
         url: index-speech-translation.yml
