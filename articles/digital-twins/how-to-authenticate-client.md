@@ -36,15 +36,9 @@ To proceed, you will need a client app project in which you write your code. If 
 
 First, include the following packages in your project in order to use the .NET SDK and authentication tools for this how-to:
 * `Azure.DigitalTwins.Core` (version `1.0.0-preview.2`)
-* `Azure.Identity` (version `1.1.1`)
+* `Azure.Identity`
 
 Depending on your tools of choice, you can include the packages using the Visual Studio package manager or the `dotnet` command line tool. 
-
-To authenticate with the .NET SDK, use one of the credential-obtaining methods that are defined in the [Azure.Identity](https://docs.microsoft.com/dotnet/api/azure.identity?view=azure-dotnet) library.
-
-Here are two that are commonly used: 
-* [InteractiveBrowserCredential](https://docs.microsoft.com/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet). This method is intended for interactive applications and will bring up a web browser for authentication.
-* [ManagedIdentityCredential](https://docs.microsoft.com/dotnet/api/azure.identity.managedidentitycredential?view=azure-dotnet). This method works great in cases where you need [managed identities (MSI)](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)—for example, when working with Azure Functions. 
 
 You'll also need the following using statements:
 
@@ -52,6 +46,13 @@ You'll also need the following using statements:
 using Azure.Identity;
 using Azure.DigitalTwins.Core;
 ```
+To authenticate with the .NET SDK, use one of the credential-obtaining methods that are defined in the [Azure.Identity](https://docs.microsoft.com/dotnet/api/azure.identity?view=azure-dotnet) library. Here are two that are commonly used (even together in the same application):
+
+* [InteractiveBrowserCredential](https://docs.microsoft.com/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet) is intended for interactive applications, and can be used to create an authenticated SDK client
+* [ManagedIdentityCredential](https://docs.microsoft.com/dotnet/api/azure.identity.managedidentitycredential?view=azure-dotnet) works great in cases where you need managed identities (MSI), and is a good candidate for working with Azure Functions
+
+### InteractiveBrowserCredential method
+The [InteractiveBrowserCredential](https://docs.microsoft.com/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet) method is intended for interactive applications and will bring up a web browser for authentication.
 
 To use the interactive browser credentials to create an authenticated SDK client, add this code:
 
@@ -80,7 +81,9 @@ try
 >[!NOTE]
 > While you can place the client ID, tenant ID and instance URL directly into the code as shown above, it's a good idea to have your code get these values from a configuration file or environment variable instead.
 
-In an Azure function, you can then use the managed identity credentials like this:
+### ManagedIdentityCredential method
+ The [ManagedIdentityCredential](https://docs.microsoft.com/dotnet/api/azure.identity.managedidentitycredential?view=azure-dotnet) method works great in cases where you need [managed identities (MSI)](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)—for example, when working with Azure Functions.
+In an Azure function, you can use the managed identity credentials like this:
 
 ```csharp
 ManagedIdentityCredential cred = new ManagedIdentityCredential(adtAppId);

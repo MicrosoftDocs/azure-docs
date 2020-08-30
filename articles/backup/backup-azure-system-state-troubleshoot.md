@@ -15,7 +15,7 @@ This article describes solutions for issues that you might come across while usi
 We recommend you perform the following validation steps, before you start troubleshooting System State backup:
 
 - [Ensure Microsoft Azure Recovery Services (MARS) Agent is up to date](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)
-- [Ensure there is network connectivity between MARS agent and Azure](./backup-azure-mars-troubleshoot.md#the-microsoft-azure-recovery-service-agent-was-unable-to-connect-to-microsoft-azure-backup)
+- [Ensure there's network connectivity between MARS agent and Azure](./backup-azure-mars-troubleshoot.md#the-microsoft-azure-recovery-service-agent-was-unable-to-connect-to-microsoft-azure-backup)
 - Ensure Microsoft Azure Recovery Services is running (in Service console). If necessary, restart and retry the operation
 - [Ensure 5-10% free volume space is available on scratch folder location](./backup-azure-file-folder-backup-faq.md#whats-the-minimum-size-requirement-for-the-cache-folder)
 - [Check if another process or antivirus software is interfering with Azure Backup](./backup-azure-troubleshoot-slow-backup-performance-issue.md#cause-another-process-or-antivirus-software-interfering-with-azure-backup)
@@ -32,7 +32,7 @@ We recommend you perform the following validation steps, before you start troubl
 
 ### Limitation
 
-- Recovering to different hardware using System State recovery is not recommended by Microsoft
+- Recovering to different hardware using System State recovery isn't recommended by Microsoft
 - System State backup currently supports "on-premises" Windows servers. This functionality isn't available for Azure VMs.
 
 ## Prerequisites
@@ -81,7 +81,7 @@ To install Windows Server Backup using Server Manager, perform the following ste
 
 ### System Volume information permission
 
-Ensure that the Local SYSTEM has full control on the **System Volume Information** folder located in the volume where Windows is installed. Usually this is **C:\System Volume Information**. Windows Server backup can fail if the permissions above are not set correctly.
+Ensure that the Local SYSTEM has full control on the **System Volume Information** folder located in the volume where Windows is installed. Usually this is **C:\System Volume Information**. Windows Server backup can fail if the permissions above aren't set correctly.
 
 ### Dependent services
 
@@ -132,7 +132,7 @@ If the job fails, it indicates a WSB issue that would result in MARS agent Syste
 
 | Symptom | Resolution
 | -- | --
-| - MARS agent fails with error message: Backup failed as the shadow copy volume could not grow due to insufficient disk space on volumes containing system files <br/><br/> - Following error/warning log is present in volsnap system event logs: “There was insufficient disk space on volume C: to grow the shadow copy storage for shadow copies of C: due to this failure all shadow copies of volume C: are at risk of being deleted” | - Free up space in the highlighted volume in the event log so that there is sufficient space for shadow copies to grow while backup is in progress <br/><br/> -  While configuring shadow copy space we can restrict the amount of space used for shadow copy. For more information, see this [article](/windows-server/administration/windows-commands/vssadmin-resize-shadowstorage)
+| - MARS agent fails with error message: Backup failed as the shadow copy volume could not grow due to insufficient disk space on volumes containing system files <br/><br/> - Following error/warning log is present in volsnap system event logs: “There was insufficient disk space on volume C: to grow the shadow copy storage for shadow copies of C: due to this failure all shadow copies of volume C: are at risk of being deleted” | - Free up space in the highlighted volume in the event log so that there's sufficient space for shadow copies to grow while backup is in progress <br/><br/> -  While configuring shadow copy space we can restrict the amount of space used for shadow copy. For more information, see this [article](/windows-server/administration/windows-commands/vssadmin-resize-shadowstorage)
 
 ### EFI partition locked
 

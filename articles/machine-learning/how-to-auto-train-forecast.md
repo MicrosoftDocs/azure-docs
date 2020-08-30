@@ -29,6 +29,8 @@ The following examples show you how to:
 
 ## Prerequisites
 
+For this article you need, 
+
 * An Azure Machine Learning workspace. To create the workspace, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
 
 * This article assumes basic familiarity with setting up an automated machine learning experiment. Follow the [tutorial](tutorial-auto-train-models.md) or [how-to](how-to-configure-auto-train.md) to see the basic automated machine learning experiment design patterns.
@@ -99,15 +101,12 @@ test_labels = test_data.pop(label).values
 
 You can specify separate train and validation sets directly in the `AutoMLConfig` object.   Learn more about the [AutoMLConfig](#configure-experiment).
 
-For time series forecasting, **Rolling Origin Cross Validation (ROCV)** is used to split time series in a temporally consistent way. ROCV divides the series into training and validation data using an origin time point. Sliding the origin in time generates the cross-validation folds. 
+For time series forecasting, **Rolling Origin Cross Validation (ROCV)** is automatically used when you pass the training and validation data together, and set the number of cross validation folds with the `n_cross_validations` parameter in your `AutoMLConfig`. ROCV divides the series into training and validation data using an origin time point. Sliding the origin in time generates the cross-validation folds. This strategy preserves the time series data integrity and eliminates the risk of data leakage
 
 ![alt text](./media/how-to-auto-train-forecast/ROCV.svg)
 
-This strategy will preserve the time series data integrity and eliminate the risk of data leakage. ROCV is automatically used for forecasting tasks when you pass the training and validation data together and set the number of cross validation folds with the `n_cross_validations` parameter in your `AutoMLConfig`.
+For other cross validation and data split options, see [Configure data splits and cross-validation in AutoML](how-to-configure-cross-validation-data-splits.md).
 
-For additional cross validation and data split options, see [Configure data splits and cross-validation in AutoML](how-to-configure-cross-validation-data-splits.md).
-
-Learn more about how AutoML applies cross validation to [prevent over-fitting models](concept-manage-ml-pitfalls.md#prevent-over-fitting).
 
 ```python
 automl_config = AutoMLConfig(task='forecasting',
@@ -116,6 +115,7 @@ automl_config = AutoMLConfig(task='forecasting',
                              **time_series_settings)
 ```
 
+Learn more about how AutoML applies cross validation to [prevent over-fitting models](concept-manage-ml-pitfalls.md#prevent-over-fitting).
 
 ## Configure experiment
 The [`AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py) object defines the settings and data necessary for an automated machine learning task. Configuration for a forecasting model is similar to the setup of a standard regression model, but certain featurization steps and configuration options exist specifically for time-series data. 
@@ -181,6 +181,7 @@ The following table summarizes these additional parameters. See the [reference d
 |`enable_dnn`|[Enable Forecasting DNNs]().||
 |`time_series_id_column_names`|The column name(s) used to uniquely identify the time series in data that has multiple rows with the same timestamp. If time series identifiers are not defined, the data set is assumed to be one time-series. To learn more about single time-series, see the [energy_demand_notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand).||
 |`target_lags`|Number of rows to lag the target values based on the frequency of the data. The lag is represented as a list or single integer. Lag should be used when the relationship between the independent variables and dependent variable doesn't match up or correlate by default. ||
+|`feature_lags`| The features to lag will be automatically decided by automated ML when `target_lags` are set and `feature_lags` is set to `auto`. Enabling feature lags may help to improve accuracy. Feature lags are disabled by default. ||
 |`target_rolling_window_size`|*n* historical periods to use to generate forecasted values, <= training set size. If omitted, *n* is the full training set size. Specify this parameter when you only want to consider a certain amount of history when training the model. Learn more about [target rolling window aggregation](#target-rolling-window-aggregation).||
 
 
@@ -191,16 +192,15 @@ The following code,
 * Sets the `forecast_horizon` to 50 in order to predict for the entire test set. 
 * Sets a forecast window to 10 periods with `target_rolling_window_size`
 * Specifies a single lag on the target values for two periods ahead with the `target_lags` parameter. 
-* Sets the `forecast_horizon`, `target_rolling_window_size` and `target_lags` to the recommended "auto" setting, which will automatically detect these values for you.
+* Sets `target_lags` to the recommended "auto" setting, which will automatically detect this value for you.
 
 ```python
 time_series_settings = {
     "time_column_name": "day_datetime",
     "time_series_id_column_names": ["store"],
-    "forecast_horizon": "auto",
+    "forecast_horizon": 50,
     "target_lags": "auto",
-    "target_rolling_window_size": "auto",
-    "preprocess": True,
+    "target_rolling_window_size": 10,
 }
 ```
 
@@ -266,16 +266,7 @@ View the [Beverage Production Forecasting notebook](https://github.com/Azure/Mac
 ### Target Rolling Window Aggregation
 Often the best information a forecaster can have is the recent value of the target.  Target rolling window aggregations allow you to add a rolling aggregation of data values as features. Generating and using these additional features as extra contextual data helps with the accuracy of the train model.
 
-To enable target rolling windows, set the `target_rolling_window_size` parameter. 
-
-```python
-automl_config = AutoMLConfig(task='forecasting',
-                             enable_dnn=True,
-                             ...
-                             target_rolling_window_size=3)
-```
-
-For example, say you want to predict energy demand. You might want to add a rolling window feature of three days to account for thermal changes of heated spaces. In this example, create this window by setting `target_rolling_window_size=3` in the `AutoMLConfig` constructor. 
+For example, say you want to predict energy demand. You might want to add a rolling window feature of three days to account for thermal changes of heated spaces. In this example, create this window by setting `target_rolling_window_size= 3` in the `AutoMLConfig` constructor. 
 
 The table shows resulting feature engineering that occurs when window aggregation is applied. Columns for **minimum, maximum,** and **sum** are generated on a sliding window of three based on the defined settings. Each row has a new calculated feature, in the case of the timestamp for September 8, 2017 4:00am the maximum, minimum, and sum values are calculated using the **demand values** for September 8, 2017 1:00AM - 3:00AM. This window of three shifts along to populate data for the remaining rows.
 

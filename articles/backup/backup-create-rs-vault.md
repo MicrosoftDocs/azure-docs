@@ -32,7 +32,7 @@ Azure Backup automatically handles storage for the vault. You need to specify ho
    - Learn more about [geo](../storage/common/storage-redundancy.md) and [local](../storage/common/storage-redundancy.md) redundancy.
 
 >[!NOTE]
->The Storage Replication settings for the vault are not relevant for Azure file share backup as the current solution is snapshot based and there is no data transferred to the vault. Snapshots are stored in the same storage account as the backed up file share.
+>The Storage Replication settings for the vault aren't relevant for Azure file share backup as the current solution is snapshot based and there's no data transferred to the vault. Snapshots are stored in the same storage account as the backed up file share.
 
 ## Set Cross Region Restore
 
@@ -43,7 +43,7 @@ As one of the restore options, Cross Region Restore (CRR) allows you to restore 
 
 To choose this feature, select **Enable Cross Region Restore** from the **Backup Configuration** pane.
 
-For this process, there are pricing implications as it is at the storage level.
+For this process, there are pricing implications as it's at the storage level.
 
 >[!NOTE]
 >Before you begin:
@@ -52,8 +52,8 @@ For this process, there are pricing implications as it is at the storage level.
 >- The Cross Region Restore (CRR) feature is now previewed in all Azure public regions.
 >- CRR is a vault level opt-in feature for any GRS vault (turned off by default).
 >- After opting-in, it might take up to 48 hours for the backup items to be available in secondary regions.
->- Currently CRR is supported only for Backup Management Type - ARM Azure VM (classic Azure VM will not be supported).  When additional management types support CRR, then they will be **automatically** enrolled.
->- Cross Region Restore currently cannot be reverted back to GRS or LRS once the protection is initiated for the first time.
+>- Currently CRR is supported only for Backup Management Type - ARM Azure VM (classic Azure VM won't be supported).  When additional management types support CRR, then they will be **automatically** enrolled.
+>- Cross Region Restore currently can't be reverted back to GRS or LRS once the protection is initiated for the first time.
 
 ### Configure Cross Region Restore
 
@@ -139,7 +139,7 @@ If you need to keep the current protected data in the GRS vault and continue the
 
 - For an Azure VM, you can [stop protection with retain data](backup-azure-manage-vms.md#stop-protecting-a-vm) for the VM in the GRS vault, move the VM to another resource group, and then protect the VM in the LRS vault. See [guidance and limitations](../azure-resource-manager/management/move-limitations/virtual-machines-move-limitations.md) for moving a VM to another resource group.
 
-  A VM can be protected in only one vault at a time. However, the VM in the new resource group can be protected on the LRS vault as it is considered a different VM.
+  A VM can be protected in only one vault at a time. However, the VM in the new resource group can be protected on the LRS vault as it's considered a different VM.
 
   - Azure Backup service will retain the recovery points that have been backed up on the GRS vault.
   - You'll need to pay to keep the recovery points in the GRS vault (see [Azure Backup pricing](azure-backup-pricing.md) for details).
