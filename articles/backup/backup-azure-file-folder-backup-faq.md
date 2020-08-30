@@ -195,7 +195,7 @@ If you have the same passphrase (that you provided during registration) of the o
 
 ### My backup jobs have been failing or not running for a long time. I'm past the retention period. Can I still restore?
 
-As a safety measure, Azure Backup will preserve the last recovery point, even if it's past the retention period. Once backups resume and fresh recovery points become available, the older recovery point will be removed according to the specified retention.
+As a safety measure, Azure Backup will preserve the most recent recovery point, even if it's past the retention period. Once backups resume and fresh recovery points become available, the older recovery point will be removed according to the specified retention.
 
 ### What happens if I cancel an ongoing restore job?
 
