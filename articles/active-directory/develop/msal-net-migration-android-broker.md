@@ -29,7 +29,9 @@ If you have a Xamarin Android app currently using the Azure Active Directory Aut
 <table>
 <tr><td>Current ADAL code:</td><td>MSAL counterpart:</td></tr>
 <tr><td>
-In ADAL.NET, broker support is enabled on a per-authentication context basis. To call the broker, you had to set a `useBroker` to *true* in the `PlatformParameters` constructor:
+In ADAL.NET, broker support is enabled on a per-authentication context basis.
+
+To call the broker, you had to set a `useBroker` to *true* in the `PlatformParameters` constructor:
 
 ```CSharp
 public PlatformParameters(
@@ -60,7 +62,9 @@ AuthenticationResult result =
 ```
 
 </td><td>
-In MSAL.NET, broker support is enabled on a per-PublicClientApplication basis. Use the `WithBroker()` parameter (which is set to true by default) to call broker:
+In MSAL.NET, broker support is enabled on a per-PublicClientApplication basis.
+
+Use the `WithBroker()` parameter (which is set to true by default) to call broker:
 
 ```CSharp
 var app = PublicClientApplicationBuilder
