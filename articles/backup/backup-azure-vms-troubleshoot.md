@@ -23,10 +23,10 @@ This section covers backup operation failure of Azure Virtual machine.
 * Verify that the VM has internet connectivity.
   * Make sure another backup service isn't running.
 * From `Services.msc`, ensure the **Windows Azure Guest Agent** service is **Running**. If the **Windows Azure Guest Agent** service is missing, install it from [Back up Azure VMs in a Recovery Services vault](./backup-azure-arm-vms-prepare.md#install-the-vm-agent).
-* The **Event log** may show backup failures that are from other backup products, for example, Windows Server backup, and aren't due to Azure backup. Use the following steps to determine whether the issue is with Azure Backup:
-  * If there is an error with an entry **Backup** in the event source or message, check whether Azure IaaS VM Backup backups were successful, and whether a Restore Point was created with the desired snapshot type.
+* The **Event log** may show backup failures that are from other backup products, for example, Windows Server backup, and aren't due to Azure Backup. Use the following steps to determine whether the issue is with Azure Backup:
+  * If there's an error with the entry **Backup** in the event source or message, check whether Azure IaaS VM Backup backups were successful, and whether a Restore Point was created with the desired snapshot type.
   * If Azure Backup is working, then the issue is likely with another backup solution.
-  * Here is an example of an event viewer error 517 where Azure backup was working fine but "Windows Server Backup" was failing:<br>
+  * Here is an example of an Event Viewer error 517 where Azure Backup was working fine but "Windows Server Backup" was failing:<br>
     ![Windows Server Backup failing](media/backup-azure-vms-troubleshoot/windows-server-backup-failing.png)
   * If Azure Backup is failing, then look for the corresponding Error Code in the section Common VM backup errors in this article.
 
@@ -38,7 +38,7 @@ The following are common issues with backup failures on Azure virtual machines.
 
 Error code: VMRestorePointInternalError
 
-If at the time of backup, the **Event Viewer Application logs** displays the message **Faulting application name: IaaSBcdrExtension.exe** then it is confirmed that the antivirus configured in the VM is restricting the execution of backup extension.
+If at the time of backup, the **Event Viewer Application logs** displays the message **Faulting application name: IaaSBcdrExtension.exe** then it's confirmed that the antivirus configured in the VM is restricting the execution of backup extension.
 To resolve this issue, exclude the directories below in the antivirus configuration and retry the backup operation.
 
 * `C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot`
@@ -188,7 +188,7 @@ REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v CalculateSnapshotTi
 
 This will ensure the snapshots are taken through host instead of Guest. Retry the backup operation.
 
-**Step 2**: Try changing the backup schedule to a time when the VM is under less load (less CPU/IOps etc.)
+**Step 2**: Try changing the backup schedule to a time when the VM is under less load (like less CPU or IOps)
 
 **Step 3**: Try [increasing the size of the VM](https://azure.microsoft.com/blog/resize-virtual-machines/) and retry the operation
 
@@ -242,7 +242,7 @@ Error code: ExtensionSnapshotFailedNoSecureNetwork <br/> Error message: The snap
 Error code: ExtensionVCRedistInstallationFailure <br/> Error message: The snapshot operation failed because of failure to install Visual C++ Redistributable for Visual Studio 2012.
 
 * Navigate to `C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\agentVersion` and install vcredist2013_x64.<br/>Make sure that the registry key value that allows the service installation is set to the correct value. That is, set the **Start** value in **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Msiserver** to **3** and not **4**. <br><br>If you still have issues with installation, restart the installation service by running **MSIEXEC /UNREGISTER** followed by **MSIEXEC /REGISTER** from an elevated command prompt.
-* Check the event log to verify if you are noticing access related issues. For example: *Product: Microsoft Visual C++ 2013 x64 Minimum Runtime - 12.0.21005 -- Error 1401.Could not create key: Software\Classes.  System error 5.  Verify that you have sufficient access to that key, or contact your support personnel.* <br><br> Ensure the administrator or user account has sufficient permissions to update the registry key **HKEY_LOCAL_MACHINE\SOFTWARE\Classes**. Provide sufficient permissions and restart the Windows Azure Guest Agent.<br><br> <li> If you have antivirus products in place, ensure they have the right exclusion rules to allow the installation.
+* Check the event log to verify if you're noticing access related issues. For example: *Product: Microsoft Visual C++ 2013 x64 Minimum Runtime - 12.0.21005 -- Error 1401.Could not create key: Software\Classes.  System error 5.  Verify that you have sufficient access to that key, or contact your support personnel.* <br><br> Ensure the administrator or user account has sufficient permissions to update the registry key **HKEY_LOCAL_MACHINE\SOFTWARE\Classes**. Provide sufficient permissions and restart the Windows Azure Guest Agent.<br><br> <li> If you have antivirus products in place, ensure they have the right exclusion rules to allow the installation.
 
 ### UserErrorRequestDisallowedByPolicy - An invalid policy is configured on the VM which is preventing Snapshot operation
 

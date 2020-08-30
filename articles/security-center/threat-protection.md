@@ -20,7 +20,7 @@ Azure Security Center's threat protection provides comprehensive defenses for yo
 
 * **Threat protection for Azure compute resources**: Windows machines, Linux machines, Azure App Service, and Azure containers
 
-* **Threat protection for Azure data resources**: SQL Database and SQL Data Warehouse, Azure Storage, and Azure Cosmos DB
+* **Threat protection for Azure data resources**: SQL Database and Azure Synapse Analytics (formerly SQL Data Warehouse), Azure Storage, and Azure Cosmos DB
 
 * **Threat protection for Azure service layers**: Azure network layer, Azure management layer (Azure Resource Manager) (Preview), and Azure Key Vault (Preview)
 
@@ -126,19 +126,19 @@ For more information on App Service plans, see [App Service plans](https://azure
 
 
 
-## Threat protection for SQL Database and SQL Data Warehouse <a name="data-sql"></a>
+## Threat protection for SQL Database and Azure Synapse Analytics (formerly SQL Data Warehouse) <a name="data-sql"></a>
 
 Advanced Threat Protection for Azure SQL Database detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases.
 
 You'll see alerts when there are suspicious database activities, potential vulnerabilities, or SQL injection attacks, and anomalous database access and query patterns.
 
-Advanced Threat Protection for Azure SQL Database and SQL is part of the [Advanced Data Security (ADS)](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security) unified package for advanced SQL security capabilities, covering Azure SQL Database, Azure SQL Managed Instances, Azure SQL Data Warehouse databases, and SQL servers on Azure Virtual Machines.
+Advanced Threat Protection for Azure SQL Database and SQL is part of the [Advanced Data Security (ADS)](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security) unified package for advanced SQL security capabilities, covering Azure SQL Database, Azure SQL Managed Instances, Azure Synapse Analytics (formerly SQL Data Warehouse) databases, and SQL servers on Azure Virtual Machines.
 
 For more information, see:
 
 * [How to enable Advanced Threat Protection for Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview)
 * [How to enable Advanced Threat Protection for SQL servers on Azure Virtual Machines](security-center-iaas-advanced-data.md)
-* [The list of threat protection alerts for SQL Database and SQL Data Warehouse](alerts-reference.md#alerts-sql-db-and-warehouse)
+* [The list of threat protection alerts for SQL Database and Azure Synapse Analytics (formerly SQL Data Warehouse)](alerts-reference.md#alerts-sql-db-and-warehouse)
 
 
 

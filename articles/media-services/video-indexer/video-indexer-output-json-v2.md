@@ -9,7 +9,7 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 08/10/2020
+ms.date: 08/27/2020
 ms.author: juliako
 ---
 
@@ -23,7 +23,7 @@ You can also use the API by calling the **Get Video Index** API and the response
 
 ![Insights](./media/video-indexer-output-json/video-indexer-summarized-insights.png)
 
-This article examines the Video Indexer output (JSON content). For information about what features and insights are available to you, see [Video Indexer insights](video-indexer-overview.md#video-insights).
+This article examines the Video Indexer output (JSON content). <br/>For information about what features and insights are available to you, see [Video Indexer insights](video-indexer-overview.md#video-insights).
 
 > [!NOTE]
 > Expiration of all the access tokens in Video Indexer is one hour.

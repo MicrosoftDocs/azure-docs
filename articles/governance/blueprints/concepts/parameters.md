@@ -1,7 +1,7 @@
 ---
 title: Use parameters to creating dynamic blueprints
 description: Learn about static and dynamic parameters and how to use them to create secure and dynamic blueprints.
-ms.date: 04/15/2020
+ms.date: 08/27/2020
 ms.topic: conceptual
 ---
 # Creating dynamic blueprints through parameters
@@ -85,13 +85,13 @@ you define as required vs what can be changed during assignment.
 
 1. Select **Blueprint definitions** from the page on the left.
 
-1. Click on an existing blueprint and then click **Edit blueprint** OR click **+ Create blueprint**
+1. Select an existing blueprint and then select **Edit blueprint** OR select **+ Create blueprint**
    and fill out the information on the **Basics** tab.
 
-1. Click **Next: Artifacts** OR click on the **Artifacts** tab.
+1. Select **Next: Artifacts** OR select the **Artifacts** tab.
 
 1. Artifacts added to the blueprint that have parameter options display **X of Y parameters
-   populated** in the **Parameters** column. Click on the artifact row to edit the artifact
+   populated** in the **Parameters** column. Select the artifact row to edit the artifact
    parameters.
 
    :::image type="content" source="../media/parameters/parameter-column.png" alt-text="Blueprint parameters on a blueprint definition" border="false":::
@@ -219,8 +219,8 @@ different name for every assignment of the blueprint. For a list of blueprint fu
 
 1. Select **Blueprint definitions** from the page on the left.
 
-1. Right-click on the blueprint that you want to assign. Select **Assign blueprint** OR click on the
-   blueprint you want to assign, then click the **Assign blueprint** button.
+1. Right-click on the blueprint that you want to assign. Select **Assign blueprint** OR select the
+   blueprint you want to assign, then use the **Assign blueprint** button.
 
 1. On the **Assign blueprint** page, find the **Artifact parameters** section. Each artifact with at
    least one **dynamic parameter** displays the artifact and the configuration options. Provide
@@ -290,8 +290,9 @@ a dynamic parameter that isn't provided during assignment, the assignment will f
 ## Next steps
 
 - See the list of [blueprint functions](../reference/blueprint-functions.md).
-- Learn about the [blueprint lifecycle](lifecycle.md).
-- Learn to customize the [blueprint sequencing order](sequencing-order.md).
-- Find out how to make use of [blueprint resource locking](resource-locking.md).
+- Learn about the [blueprint lifecycle](./lifecycle.md).
+- Learn to customize the [blueprint sequencing order](./sequencing-order.md).
+- Find out how to make use of [blueprint resource locking](./resource-locking.md).
 - Learn how to [update existing assignments](../how-to/update-existing-assignments.md).
-- Resolve issues during the assignment of a blueprint with [general troubleshooting](../troubleshoot/general.md).
+- Resolve issues during the assignment of a blueprint with
+  [general troubleshooting](../troubleshoot/general.md).

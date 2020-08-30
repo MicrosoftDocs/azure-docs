@@ -83,6 +83,10 @@
       items:
       - name: Create a zone-redundant virtual network gateway
         href: ../vpn-gateway/create-zone-redundant-vnet-gateway.md
+    - name: Application Gateway v2
+      items:
+      - name: Autoscaling and Zone-redundant Application Gateway v2
+        href: ../application-gateway/application-gateway-autoscaling-zone-redundant.md
     - name: Identity
       items:
       - name: Create an Azure Active Directory Domain Services instance

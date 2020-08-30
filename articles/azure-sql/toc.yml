@@ -983,7 +983,7 @@
         href: virtual-machines/windows/create-sql-vm-resource-manager-template.md
     - name: Concepts
       items:
-      - name: Business Continuity
+      - name: Business continuity
         items:
         - name: Overview
           href: virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview.md
@@ -1029,9 +1029,11 @@
         - name: License model
           displayName: ahb, ahub, payg, change, modify, update
           href: virtual-machines/windows/licensing-model-azure-hybrid-benefit-ahb-change.md
-        - name: Edition
+        - name: Change edition
           displayName: change, modify, update
           href: virtual-machines/windows/change-sql-server-edition.md
+        - name: Change version
+          href: virtual-machines/windows/change-sql-server-version.md
         - name: Storage
           href: virtual-machines/windows/storage-configuration.md
         - name: Azure Key Vault Integration
@@ -1067,6 +1069,8 @@
             href: virtual-machines/windows/automated-backup-sql-2014.md
         - name: Always On availability group
           items:
+          - name: Azure portal
+            href: virtual-machines/windows/availability-group-azure-portal-configure.md
           - name: PowerShell or Az CLI
             href: virtual-machines/windows/availability-group-az-commandline-configure.md
           - name: Azure Quickstart templates

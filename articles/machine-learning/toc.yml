@@ -6,9 +6,9 @@
     - name: What is Azure Machine Learning?
       displayName: AML, services, overview, introduction
       href: overview-what-is-azure-ml.md
-    - name: Azure Machine Learning vs Studio (classic)
-      displayName: AML, Studio, designer
-      href: compare-azure-ml-to-studio-classic.md
+    - name: What is Azure Machine Learning studio?
+      displayName: AML, studio, designer
+      href: overview-what-is-machine-learning-studio.md
     - name: Architecture & terms
       displayName: architecture, concepts, definitions, glossary
       href: concept-azure-machine-learning-architecture.md
@@ -267,7 +267,7 @@
         - name: Access data
           items: 
             - name: Connect to Azure Storage
-              displayName: blob, get, fileshare, access, mount, download, data lake
+              displayName: blob, get, fileshare, access, mount, download, data lake, datastore
               href: how-to-access-data.md
             - name: Get data from a datastore
               displayName: data, data set, register, access data
@@ -438,6 +438,8 @@
           href: how-to-create-your-first-pipeline.md
         - name: Moving data into and between ML pipeline steps (Python)
           href: how-to-move-data-in-out-of-pipelines.md
+        - name: Deploy ML pipelines (Python)
+          href: how-to-deploy-pipelines.md
         - name: Schedule a pipeline (Python)
           href: how-to-schedule-pipelines.md
         - name: Trigger a pipeline
@@ -511,7 +513,7 @@
       href: monitor-resource-reference.md
     - name: Machine learning pipeline YAML reference
       href: reference-pipeline-yaml.md
-    - name: Sovereign cloud parity
+    - name: Sovereign cloud parity	
       href: reference-machine-learning-cloud-parity.md
 - name: Resources
   items: 

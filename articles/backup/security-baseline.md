@@ -479,11 +479,11 @@ Microsoft manages the underlying infrastructure for Azure Backup and has impleme
 
 ### 4.6: Use Azure RBAC to control access to resources
 
-**Guidance**: Azure role-based access control (Azure RBAC) enables fine-grained access management for Azure. Using RBAC, you can segregate duties within your team and grant only the amount of access to users that they need to perform their jobs.
+**Guidance**: Azure role-based access control (Azure RBAC) enables fine-grained access management for Azure. Using Azure RBAC, you can segregate duties within your team and grant only the amount of access to users that they need to perform their jobs.
 
 Azure Backup provides three built-in roles to control backup management operations: Backup Contributor, Backup Operator, and Backup Reader. You can map Backup built-in roles to various backup management actions.
 
-- [How to configure RBAC in Azure](../role-based-access-control/role-assignments-portal.md)
+- [How to configure Azure RBAC](../role-based-access-control/role-assignments-portal.md)
 
 - [Use Role-Based Access Control to manage Azure Backup recovery points](./backup-rbac-rs-vault.md)
 
@@ -579,7 +579,7 @@ Underlying platform scanned and patched by Microsoft. Review security controls a
 
 ### 6.1: Use Azure Asset Discovery
 
-**Guidance**: Use Azure Resource Graph to query/discover all resources (such as compute, storage, network, ports, and protocols etc.) within your subscription(s).  Ensure appropriate (read) permissions in your tenant and enumerate all Azure subscriptions as well as resources within your subscriptions.
+**Guidance**: Use Azure Resource Graph to query/discover all resources (such as compute, storage, network, ports, and protocols) within your subscription(s).  Ensure appropriate (read) permissions in your tenant and enumerate all Azure subscriptions as well as resources within your subscriptions.
 
 Although classic Azure resources may be discovered via Resource Graph, it is highly recommended to create and use Azure Resource Manager resources going forward.
 
@@ -863,7 +863,7 @@ Allowed resource types
 
 **Guidance**: Microsoft Antimalware is enabled on the underlying host that supports Azure services (for example, Azure Backup), however it does not run on your content.
 
-Pre-scan any files being uploaded to non-compute Azure resources, such as App Service, Data Lake Storage, Blob Storage, etc.
+Pre-scan any files being uploaded to non-compute Azure resources, such as App Service, Data Lake Storage, and Blob Storage.
 
 Use Azure Security Center's Threat detection for data services to detect malware uploaded to storage accounts.
 
