@@ -18,10 +18,10 @@ Private endpoints allow resources access to the private link service deployed in
 
 You may need to inspect or block traffic from clients to the services exposed via private endpoints. Complete this inspection by using [Azure Firewall](../firewall/overview.md) or a third-party network virtual appliance.
 
-There are some limitations to implementation:
+Limitations:
 
 * Network security groups (NSGs) don't apply to private endpoints
-* User-defined routes (UDR) don't apply to Private Endpoints
+* User-defined routes (UDR) don't apply to private endpoints
 * A single route table can be attached to a subnet
 * A route table supports up to 400 routes
 
@@ -72,10 +72,7 @@ For more information on charges related to connections with peered virtual netwo
 > This scenario can be implemented using any third party NVA or Azure Firewall network rules instead of application rules.
 
 ## Scenario 3: Single virtual network
-
-:::image type="content" source="./media/inspect-traffic-using-azure-firewall/singlevnet.png" alt-text="Single Virtual Network" border="true":::
-
-This scenario is implemented when all services have been deployed into a single virtual network. This scenario is implemented when a migration to a hub and spoke architecture isn't possible. The same considerations as in scenario 2 apply. In this scenario, there aren't virtual network peering charges.
+There are some limitations to implementation: a migration to a hub and spoke architecture isn't possible. The same considerations as in scenario 2 apply. In this scenario, there aren't virtual network peering charges.
 
 >[!NOTE]
 > If you want to implement this scenario using a third party NVA or Azure Firewall, network rules instead of application rules is required to SNAT traffic destined to the private endpoints. Otherwise communication between the virtual machines and private endpoints will fail.
@@ -108,11 +105,21 @@ In this section, you'll create a virtual network and subnet to host the VM used 
 
 Create three virtual networks and their corresponding subnets to:
 
-* Host the VM that is used to access your private link resource.
 * Contain the Azure Firewall used to restrict communication between the VM and the private endpoint.
+* Host the VM that is used to access your private link resource.
 * The private endpoint.
 
 Replace the following parameters in the steps with the information below:
+
+### Azure Firewall network
+| Parameter                   | Value                 |
+|-----------------------------|----------------------|
+| **\<resource-group-name>**  | myResourceGroup |
+| **\<virtual-network-name>** | myAzFwVNet          |
+| **\<region-name>**          | South Central US      |
+| **\<IPv4-address-space>**   | 10.0.0.0/16          |
+| **\<subnet-name>**          | AzureFirewallSubnet        |
+| **\<subnet-address-range>** | 10.0.0.0/24          |
 
 ### Virtual machine network
 | Parameter                   | Value                |
@@ -124,19 +131,11 @@ Replace the following parameters in the steps with the information below:
 | **\<subnet-name>**          | VMSubnet      |
 | **\<subnet-address-range>** | 10.1.0.0/24          |
 
-### Azure Firewall network
-| Parameter                   | Value                 |
-|-----------------------------|----------------------|
-| **\<virtual-network-name>** | myAzFwVNet          |
-| **\<region-name>**          | South Central US      |
-| **\<IPv4-address-space>**   | 10.0.0.0/16          |
-| **\<subnet-name>**          | AzureFirewallSubnet        |
-| **\<subnet-address-range>** | 10.0.0.0/24          |
-
 ### Private endpoint network
 | Parameter                   | Value                 |
 |-----------------------------|----------------------|
-| **\<private-endpoint-virtual-network-name>** | myPEVNet         |
+| **\<resource-group-name>**  | myResourceGroup |
+| **\<virtual-network-name>** | myPEVNet         |
 | **\<region-name>**          | South Central US      |
 | **\<IPv4-address-space>**   | 10.2.0.0/16          |
 | **\<subnet-name>**          | PrivateEndpointSubnet    |        |
@@ -144,7 +143,7 @@ Replace the following parameters in the steps with the information below:
 
 [!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
-1. Repeat steps 1 to 9 to create the virtual networks for hosting the Azure Firewall and Private endpoint resources.
+1. Repeat steps 1 to 9 to create the virtual networks for hosting the virtual machine and private endpoint resources.
 
 ### Create virtual machine
 
@@ -158,7 +157,7 @@ Replace the following parameters in the steps with the information below:
     | Subscription | Select your subscription. |
     | Resource group | Select **myResourceGroup**. You created this resource group in the previous section.  |
     | **INSTANCE DETAILS** |  |
-    | Virtual machine name | Enter **myVm**. |
+    | Virtual machine name | Enter **myVM**. |
     | Region | Select **(US) South Central US**. |
     | Availability options | Leave the default **No infrastructure redundancy required**. |
     | Image | Select **Ubuntu Server 18.04 LTS - Gen1**. |
@@ -258,7 +257,7 @@ In this section, you create a private SQL Database using a private endpoint.
     | Subscription | Select your subscription. |
     | Resource group | Select **myResourceGroup**. You created this resource group in the previous section.|
     |Location|Select **(US) South Central US**.|
-    |Name|Enter **sqlPrivateEndpoint**.  |
+    |Name|Enter **SQLPrivateEndpoint**.  |
     | **NETWORKING** |  |
     | Virtual network  | Select **myPEVNet** from resource group **myResourceGroup**. |
     | Subnet | Select **PrivateEndpointSubnet**. |
