@@ -83,12 +83,12 @@ result = await app.AcquireTokenInteractive(scopes)
 
 In ADAL.NET, you passed in an activity (usually the MainActivity) as part of the PlatformParameters as shown in [Step 1: Enable the broker](#step-1-enable-the-broker).
 
-MSAL.NET also uses an activity, but it's not required in regular Android usage without a broker. In order to use the broker, you will need to set the activity in order to send and receive responses from broker.
+MSAL.NET also uses an activity, but it's not required in regular Android usage without a broker. To use the broker, set the activity to send and receive responses from broker.
 
 <table>
 <tr><td>Current ADAL code:</td><td>MSAL counterpart:</td></tr>
 <tr><td>
-The activity is passed into the PlatformParameters in the Android specific platform.
+The activity is passed into the PlatformParameters in the Android-specific platform.
 
 ```CSharp
 page.BrokerParameters = new PlatformParameters(
