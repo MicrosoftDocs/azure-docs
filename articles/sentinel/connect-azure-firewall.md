@@ -7,7 +7,7 @@ ms.assetid: bfa2eca4-abdc-49ce-b11a-0ee229770cdd
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: how-to
-ms.date: 05/04/2020
+ms.date: 08/30/2020
 ms.author: yelevin
 ---
 # Connect data from Azure Firewall
