@@ -43,7 +43,7 @@ More about key vault best practices:
 
 [Azure Key Vault service limits](service-limits.md)
 
-## New Azure Key Vault RBAC Built-in Roles (preview)
+## Azure RBAC built-in roles for Key Vault data plane operations (preview)
 
 > [!div class="mx-tableFixed"]
 > | Built-in role | Description | ID |
