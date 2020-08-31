@@ -199,7 +199,7 @@ Create new secret ( Secrets \> +Generate/Import) should show below error:
 
 ### Creating Custom Roles 
 
-[az role definition create command](https://docs.microsoft.com/en-us/cli/azure/role/definition#az-role-definition-create)
+[az role definition create command](https://docs.microsoft.com/cli/azure/role/definition#az-role-definition-create)
 
 **(CLI bash script)</br>**
 ```azurecli
@@ -221,7 +221,7 @@ az role definition create --role-definition '{ \
 
 For more Information about how to create custom roles, see:
 
-[Azure custom roles](https://docs.microsoft.com/en-us/azure/role-based-access-control/custom-roles)
+[Azure custom roles](https://docs.microsoft.com/azure/role-based-access-control/custom-roles)
 
 For available actions check Appendix: **Available Actions**
 
@@ -239,6 +239,6 @@ For available actions check Appendix: **Available Actions**
 
 ## Learn more
 
-[RBAC Overview](https://docs.microsoft.com/en-us/azure/role-based-access-control/overview)
+[RBAC Overview](https://docs.microsoft.com/azure/role-based-access-control/overview)
 
-[Custom Roles Tutorial](https://docs.microsoft.com/en-us/azure/role-based-access-control/tutorial-custom-role-cli)
+[Custom Roles Tutorial](https://docs.microsoft.com/azure/role-based-access-control/tutorial-custom-role-cli)
