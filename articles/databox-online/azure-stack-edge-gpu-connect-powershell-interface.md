@@ -179,7 +179,8 @@ Use "kubectl options" for a list of global command-line options (applies to all 
 C:\Users\myuser>
 ```
 
-For a comprehensive list of the `kubectl` commands, go to [`kubectl` cheatsheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/). 
+For a comprehensive list of the `kubectl` commands, go to [`kubectl` cheatsheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/).
+
 
 ### To get IP of service or module exposed outside of Kubernetes cluster
 
