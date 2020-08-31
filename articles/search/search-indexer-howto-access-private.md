@@ -49,7 +49,7 @@ The rest of the guide will show how the __contoso-search__ service can be config
 
 Configure the storage account to [allow access only from specific subnets](https://docs.microsoft.com/azure/storage/common/storage-network-security#grant-access-from-a-virtual-network). Via the Azure portal, if you check this option and leave the set empty, it means that no traffic from any virtual network is allowed.
 
-   ![Virtual Network Access](media\search-indexer-howto-secure-access\storage-firewall-noaccess.PNG "Virtual Network Access")
+   ![Virtual Network Access](media\search-indexer-howto-secure-access\storage-firewall-noaccess.png "Virtual Network Access")
 
 > [!NOTE]
 > The [trusted Microsoft service approach](https://docs.microsoft.com/azure/storage/common/storage-network-security#trusted-microsoft-services) can be used to bypass virtual network or IP restrictions on such a storage account and can enable the search service to access data in the storage account as described in the [how to guide](search-indexer-howto-access-trusted-service-exception.md). However, when using this approach communication between Azure Cognitive Search and the storage account happens via the public IP address of the storage account, over the secure Microsoft backbone network.
