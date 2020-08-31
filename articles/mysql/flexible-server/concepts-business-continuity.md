@@ -3,14 +3,14 @@ title: Overview of business continuity with Azure Database for MySQL Flexible Se
 description: Learn about the concepts of business continuity with Azure Database for MySQL Flexible Server
 author: kummanish
 ms.author: manishku
-ms.service: MySQL
+ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/24/2020
 ---
 
 # Overview of business continuity with Azure Database for MySQL Flexible Server (Preview)
 
-Azure Database for MySQL Flexible Server, which is currently in preview, enables business continuity capabilities that protect your databases in the event of a planned and unplanned outage. Features such as automated backups and high availability addresses different levels of fault-protection with different recovery time and data loss exposures. As you architect your application to protect against faults, you should consider the recovery time objective (RTO) and recovery point objective (RPO) for each application. RTO is the downtime tolerance and RPO is the data loss tolerance after a disruption to the database service. 
+Azure Database for MySQL Flexible Server enables business continuity capabilities that protect your databases in the event of a planned and unplanned outage. Features such as automated backups and high availability addresses different levels of fault-protection with different recovery time and data loss exposures. As you architect your application to protect against faults, you should consider the recovery time objective (RTO) and recovery point objective (RPO) for each application. RTO is the downtime tolerance and RPO is the data loss tolerance after a disruption to the database service. 
 
 The table below illustrates the features that Flexible server offers.
 
@@ -20,7 +20,7 @@ The table below illustrates the features that Flexible server offers.
 | **Backup & Recovery** | Flexible server automatically performs daily backups of your database files and continuously backs up transaction logs. Backups can be retained for any period between 1 to 35 days. You will be able to restore your database server to any point in time within your backup retention period. Recovery time will be dependent on the size of the data to restore + the time to perform log recovery. Refer to [Concepts - Backup and Restore](./concepts-backup-restore.md) for more details. |Backup data remains within the region |
 | **Local redundant backup** | Flexible server backups are automatically and securely stored in a local redundant storage within a region and in same availability zone. The locally redundant backups replicate the server backup data files three times within a single physical location in the primary region. Locally redundant backup storage provides at least 99.999999999% (11 nines) durability of objects over a given year. Refer to [Concepts - Backup and Restore](./concepts-backup-restore.md) for more details.| Applicable in all regions |
 | **Zone redundant high availability** | Flexible server can be deployed in high availability mode, which deploys primary and standby servers in two different availability zones within a region. This protects from zone-level failures and also helps with reducing application downtime during planned and unplanned downtime events. Data from the primary server is synchronously replicated to the standby replica. During any downtime event, the database server is automatically failed over to the standby replica. Refer to [Concepts - High availability](./concepts-high-availability.md) for more details. | Supported in general purpose and memory optimized compute tiers. Available only in regions where multiple zones are available.|
-| **Premium file shares** | Database files are stored in a highly durable and reliable Azure premium file shares that provide data redundancy with three copies of replica stored within an availability zone with automatic data recovery capabilities. Refer to [Premium File shares](../storage/files/storage-how-to-create-premium-fileshare.md) for more details. | Data stored within an availability zone |
+| **Premium file shares** | Database files are stored in a highly durable and reliable Azure premium file shares that provide data redundancy with three copies of replica stored within an availability zone with automatic data recovery capabilities. Refer to [Premium File shares](../../storage/files/storage-how-to-create-premium-fileshare.md) for more details. | Data stored within an availability zone |
 
 > [!IMPORTANT]
 > No uptime, RTO and RPO SLA are offered during preview period. Details provided in this page for your information and planning purposes only.
@@ -31,11 +31,10 @@ Here are some planned maintenance scenarios that incur downtime:
 | **Scenario** | **Process**|
 | :------------ | :----------- | 
 | **Compute scaling (User)**| When you perform compute scaling operation, a new flexible server is provisioned using the scaled compute configuration. In the existing database server, active checkpoints are allowed to complete, client connections are drained, any uncommitted transactions are canceled, and then it is shut down. The storage is then attached to the new server and the database is started which performs recovery if necessary before accepting client connections. |
-| **Scaling up storage (User)** | When a scaling up storage operation is initiated, active checkpoints are allowed to complete, client connections are drained, any uncommitted transactions are canceled, and then it is shut down. The storage is scaled to the desired size and then attached to the new server. A recovery is performed if needed before accepting client connections. Scaling down of the storage size is not supported. | Overall application downtime is reduced due to scale operation performed at the standby first, and the flexible server is failed over. |
 | **New software deployment (Azure)** | New features rollout or bug fixes automatically happen as part of service’s planned maintenance, and you can schedule when those activities to happen. For more information, see to the [documentation](https://aka.ms/servicehealthpm), and also check your [portal](https://aka.ms/servicehealthpm) | 
 | **Minor version upgrades (Azure)** | Azure Database for MySQL automatically patches database servers to the minor version determined by Azure. It happens as part of service's planned maintenance. This would incur a short downtime in terms of seconds, and the database server is automatically restarted with the new minor version. For more information, see to the [documentation](https://docs.microsoft.com/azure/mysql/concepts-monitoring#planned-maintenance-notification), and also check your [portal](https://aka.ms/servicehealthpm).|
 
-When the flexible server is configured with **zone redundant high availability**, the flexible server performs operations on the standby server first and then the fail over. This reduces the application downtime to the time it takes to failover. Refer to [Concepts - High availability](./concepts-high-availability.md) for more details.
+When the flexible server is configured with **zone redundant high availability**, the flexible server performs operations on the standby server first and then on the primary server without a failover. Refer to [Concepts - High availability](./concepts-high-availability.md) for more details.
 
 ##  Unplanned downtime mitigation
 
