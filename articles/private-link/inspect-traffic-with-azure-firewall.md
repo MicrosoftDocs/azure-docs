@@ -18,7 +18,7 @@ Private endpoints allow resources access to the private link service deployed in
 
 You may need to inspect or block traffic from clients to the services exposed via private endpoints. Complete this inspection by using [Azure Firewall](../firewall/overview.md) or a third-party network virtual appliance.
 
-Limitations:
+The following limitations apply:
 
 * Network security groups (NSGs) don't apply to private endpoints
 * User-defined routes (UDR) don't apply to private endpoints
@@ -72,7 +72,7 @@ For more information on charges related to connections with peered virtual netwo
 > This scenario can be implemented using any third party NVA or Azure Firewall network rules instead of application rules.
 
 ## Scenario 3: Single virtual network
-There are some limitations to implementation: a migration to a hub and spoke architecture isn't possible. The same considerations as in scenario 2 apply. In this scenario, there aren't virtual network peering charges.
+There's some limitations to implementation: a migration to a hub and spoke architecture isn't possible. The same considerations as in scenario 2 apply. In this scenario, virtual network peering charges don't apply.
 
 >[!NOTE]
 > If you want to implement this scenario using a third party NVA or Azure Firewall, network rules instead of application rules is required to SNAT traffic destined to the private endpoints. Otherwise communication between the virtual machines and private endpoints will fail.
@@ -230,7 +230,7 @@ Replace the following parameters in the steps with the information below:
 
 In this section, you enable the logs on the firewall.
 
-1. In the Azure portal, select **All resources** in the left hand menu.
+1. In the Azure portal, select **All resources** in the left-hand menu.
 
 2. Select the firewall **myAzureFirewall** in the list of resources.
 
@@ -284,7 +284,7 @@ In this section, you create a private SQL Database.
 
 In this section, you create a private endpoint for the Azure SQL database in the previous section.
 
-1. In the Azure portal, select **All resources** in the left hand menu.
+1. In the Azure portal, select **All resources** in the left-hand menu.
 
 2. Select the Azure SQL server **mydbserver** in the list of services.  If you used a different server name, choose that name.
 
@@ -503,7 +503,7 @@ The route sends traffic from the **myVM** subnet to the address space of virtual
 
 9. Select **+ Add**.
 
-10. On the **Add route** page, enter or select this information:
+10. On the **Add route** page, enter, or select this information:
 
     | Setting | Value |
     | ------- | ----- |
