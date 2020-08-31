@@ -18,7 +18,8 @@ Here are the currently available task templates in this preview:
 
 | Resource type | Automation task templates |
 |---------------|---------------------------|
-| All Azure resources and resource groups | **Send monthly cost for resource** |
+| Azure resource groups | **When resource is deleted** |
+| All Azure resources | **Send monthly cost for resource** |
 | Azure virtual machines | Additionally: <p>- **Power off Virtual Machine** <br>- **Start Virtual Machine** |
 | Azure Storage accounts | Additionally: <p>- **Delete old blobs** |
 |||
