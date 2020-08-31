@@ -13,11 +13,16 @@ query language used by Resource Graph, start with the
 
 This article covers the language components supported by Resource Graph:
 
-- [Resource Graph tables](#resource-graph-tables)
-- [Resource Graph custom language elements](#resource-graph-custom-language-elements)
-- [Supported KQL language elements](#supported-kql-language-elements)
-- [Scope of the query](#query-scope)
-- [Escape characters](#escape-characters)
+- [Understanding the Azure Resource Graph query language](#understanding-the-azure-resource-graph-query-language)
+  - [Resource Graph tables](#resource-graph-tables)
+  - [<a name="extended-properties"></a>Extended properties (preview)](#extended-properties-preview)
+  - [Resource Graph custom language elements](#resource-graph-custom-language-elements)
+    - [<a name="shared-query-syntax"></a>Shared query syntax (preview)](#shared-query-syntax-preview)
+  - [Supported KQL language elements](#supported-kql-language-elements)
+    - [Supported tabular/top level operators](#supported-tabulartop-level-operators)
+  - [Query scope](#query-scope)
+  - [Escape characters](#escape-characters)
+  - [Next steps](#next-steps)
 
 ## Resource Graph tables
 
@@ -31,6 +36,7 @@ properties from related resource types. Here is the list of tables available in 
 |ResourceContainers |Includes subscription (in preview -- `Microsoft.Resources/subscriptions`) and resource group (`Microsoft.Resources/subscriptions/resourcegroups`) resource types and data. |
 |AdvisorResources |Includes resources _related_ to `Microsoft.Advisor`. |
 |AlertsManagementResources |Includes resources _related_ to `Microsoft.AlertsManagement`. |
+|GuestConfigurationResources |Includes resources _related_ to `Microsoft.GuestConfiguration`. |
 |HealthResources |Includes resources _related_ to `Microsoft.ResourceHealth`. |
 |MaintenanceResources |Includes resources _related_ to `Microsoft.Maintenance`. |
 |SecurityResources |Includes resources _related_ to `Microsoft.Security`. |
