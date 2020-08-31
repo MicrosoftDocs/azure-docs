@@ -10,28 +10,30 @@ ms.subservice: alerts
 
 # Log alerts in Azure Monitor
 
+## Overview
+
 Log alerts are one of the alert types that are supported in [Azure Alerts](./alerts-overview.md). Log alerts allow users to use a [Log Analytics](../log-query/get-started-portal.md) query to evaluate resources logs every set frequency, and fire an alert based on the results. Rules can trigger one or more actions using [Action Groups](./action-groups.md).
-
-## Prerequisites
-
-Log alerts run queries on Log Analytics data. First you should start [collecting log data](resource-logs.md) and query the log data for issues. You can use examples provided in Log Analytics to understand what you can discover or [get started on writing queries](../log-query/get-started-portal.md).
-
-[Azure Monitoring Contributor](./roles-permissions-security.md) is a common role that is needed for creating, modifying, and updating log alerts. Access & query execution rights for the resource logs are also needed. Partial access to resource logs can fail queries or return partial results. [Learn more about configuring log alerts in Azure](./alerts-log.md).
 
 > [!NOTE]
 > Log data from a [Log Analytics workspace](../log-query/get-started-portal.md) can be sent to the Azure Monitor metrics store. Metrics alerts have [different behavior](alerts-metric-overview.md), which may be more desirable depending on the data you are working with. For information on what and how you can route logs to metrics, see [Metric Alert for Logs](alerts-metric-logs.md).
+
+## Prerequisites
+
+Log alerts run queries on Log Analytics data. First you should start [collecting log data](resource-logs.md) and query the log data for issues. You can use examples provided in Log Analytics to understand what you can discover or [get started on writing your own query](../log-query/get-started-portal.md).
+
+[Azure Monitoring Contributor](./roles-permissions-security.md) is a common role that is needed for creating, modifying, and updating log alerts. Access & query execution rights for the resource logs are also needed. Partial access to resource logs can fail queries or return partial results. [Learn more about configuring log alerts in Azure](./alerts-log.md).
 
 > [!NOTE]
 > Log alerts for Log Analytics used to be managed using the legacy [Log Analytics Alert API](api-alerts.md). [Learn more about switching to the current ScheduledQueryRules API](alerts-log-api-switch.md).
 
 ## Query evaluation definition
 
-Log search rules definition starts from the evaluation logic of:
+Log search rules condition definition starts from:
 
-- Query to run.
-- Evaluation of the results.
+- What query to run?
+- How to use the results?
 
-The following sections describe the different parameters you can use:
+The following sections describe the different parameters you can use to set the above logic.
 
 ### Log Query
 The [Log Analytics](../log-query/get-started-portal.md) query used to evaluate the rule. The results returned by this query are used to determine whether an alert is to be triggered. The query can be scoped to:
