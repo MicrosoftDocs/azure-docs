@@ -35,7 +35,7 @@ Azure Kubernetes Service is good for high-scale production deployments. Use Azur
 
 - The [Azure CLI extension for Machine Learning service](reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py), or the [Azure Machine Learning Visual Studio Code extension](tutorial-setup-vscode-extension.md).
 
-- If you plan on using an Azure Virtual Network to secure communication between your Azure ML workspace and the AKS cluster, read the [network isolation during training & inference](how-to-enable-virtual-network.md) article.
+- If you plan on using an Azure Virtual Network to secure communication between your Azure ML workspace and the AKS cluster, read the [Network isolation during training & inference](how-to-enable-virtual-network.md) article.
 
 ## Limitations
 
@@ -43,15 +43,15 @@ Azure Kubernetes Service is good for high-scale production deployments. Use Azur
 
 - If you have an Azure Policy that restricts the creation of Public IP addresses, then AKS cluster creation will fail. AKS requires a Public IP for [egress traffic](/azure/aks/limit-egress-traffic). Th egress traffic article also provides guidance to lock down egress traffic from the cluster through the Public IP, except for a few fully qualified domain names. There are 2 ways to enable a Public IP:
     - The cluster can use the Public IP created by default with the BLB or SLB, Or
-    - The cluster can be created without a Public IP and then a Public IP is configured with a firewall with a user defined route. For more information, see [customize cluster egress with a user-defined-route](/azure/aks/egress-outboundtype).
+    - The cluster can be created without a Public IP and then a Public IP is configured with a firewall with a user defined route. For more information, see [Customize cluster egress with a user-defined-route](/azure/aks/egress-outboundtype).
     
     The AML control plane does not talk to this Public IP. It talks to the AKS control plane for deployments. 
 
-- If you **attach** an AKS cluster, which has an [authorized IP range enabled to access the API server](/azure/aks/api-server-authorized-ip-ranges), enable the AML control plane IP ranges for the AKS cluster. The AML control plane is deployed across paired regions and deploys inference pods on the AKS cluster. Without access to the API server, the inference pods cannot be deployed. Use the [IP ranges](https://www.microsoft.com/download/confirmation.aspx?id=56519) for both the [paired regions](/azure/best-practices-availability-paired-regions) when enabling the IP ranges in an AKS cluster.
+- If you **attach** an AKS cluster, which has an [Authorized IP range enabled to access the API server](/azure/aks/api-server-authorized-ip-ranges), enable the AML control plane IP ranges for the AKS cluster. The AML control plane is deployed across paired regions and deploys inference pods on the AKS cluster. Without access to the API server, the inference pods cannot be deployed. Use the [IP ranges](https://www.microsoft.com/download/confirmation.aspx?id=56519) for both the [paired regions](/azure/best-practices-availability-paired-regions) when enabling the IP ranges in an AKS cluster.
 
     Authorized IP ranges only works with Standard Load Balancer.
 
-- If you want to use a private AKS cluster (using Azure Private Link), you must create the cluster first, and then **attach** it to the workspace. For more information, see [create a private Azure Kubernetes Service cluster](/azure/aks/private-clusters).
+- If you want to use a private AKS cluster (using Azure Private Link), you must create the cluster first, and then **attach** it to the workspace. For more information, see [Create a private Azure Kubernetes Service cluster](/azure/aks/private-clusters).
 
 - The compute name for the AKS cluster MUST be unique within your Azure ML workspace.
     - Name is required and must be between 3 to 24 characters long.
@@ -60,17 +60,20 @@ Azure Kubernetes Service is good for high-scale production deployments. Use Azur
     - Name needs to be unique across all existing computes within an Azure region. You will see an alert if the name you choose is not unique.
    
  - If you want to deploy models to **GPU** nodes or **FPGA** nodes (or any specific SKU), then you must create a cluster with the specific SKU. There is no support for creating a secondary node pool in an existing cluster and deploying models in the secondary node pool.
+ 
+- When creating a cluster using Azure Machine Learning, you can select whether to create the cluster for __dev-test__ or __production__. If you want to create an AKS cluster for __development__, __validation__, and __testing__ instead of production, set the __cluster purpose__ to __dev-test__.
+
+    A __dev-test__ cluster is not suitable for production level traffic and may increase inference times. Dev/test clusters also do not guarantee fault tolerance. We recommend at least 2 virtual CPUs for dev/test clusters.
+
+    If you do not specify the cluster purpose, a __production__ cluster is created. For a production cluster, make sure that the __number of nodes__ multiplied by the __number of cores__ for the VM is 12 or greater. For example, if you use a VM size of "Standard_D3_v2", which has 4 virtual cores, then you should select 3 or greater as the number of nodes.
+
+- The Azure Machine Learning SDK does not provide support scaling an AKS cluster. To scale the nodes in the cluster, use the UI for your AKS cluster in the Azure Machine Learning studio. You can only change the node count, not the VM size of the cluster.
 
 ## Create a new AKS cluster
 
 **Time estimate**: Approximately 10 minutes.
 
 Creating or attaching an AKS cluster is a one time process for your workspace. You can reuse this cluster for multiple deployments. If you delete the cluster or the resource group that contains it, you must create a new cluster the next time you need to deploy. You can have multiple AKS clusters attached to your workspace.
-
-> [!TIP]
-> If you want to create an AKS cluster for __development__, __validation__, and __testing__ instead of production, you can specify the __cluster purpose__ to __dev test__.
->
-> A development, validation, and testing cluster is not suitable for production level traffic and may increase inference times. Dev/test clusters also do not guarantee fault tolerance. We recommend at least 2 virtual CPUs for dev/test clusters.
 
 The following examples demonstrate how to create a new AKS cluster using the SDK and CLI:
 
@@ -83,6 +86,7 @@ from azureml.core.compute import AksCompute, ComputeTarget
 # For example, to create a dev/test cluster, use:
 # prov_config = AksCompute.provisioning_configuration(cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST)
 prov_config = AksCompute.provisioning_configuration()
+
 # Example configuration to use an existing virtual network
 # prov_config.vnet_name = "mynetwork"
 # prov_config.vnet_resourcegroup_name = "mygroup"
@@ -101,11 +105,6 @@ aks_target = ComputeTarget.create(workspace = ws,
 aks_target.wait_for_completion(show_output = True)
 ```
 
-> [!IMPORTANT]
-> For [`provisioning_configuration()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py), if you pick custom values for `agent_count` and `vm_size`, and `cluster_purpose` is not `DEV_TEST`, then you need to make sure `agent_count` multiplied by `vm_size` is greater than or equal to 12 virtual CPUs. For example, if you use a `vm_size` of "Standard_D3_v2", which has 4 virtual CPUs, then you should pick an `agent_count` of 3 or greater.
->
-> The Azure Machine Learning SDK does not provide support scaling an AKS cluster. To scale the nodes in the cluster, use the UI for your AKS cluster in the Azure Machine Learning studio. You can only change the node count, not the VM size of the cluster.
-
 For more information on the classes, methods, and parameters used in this example, see the following reference documents:
 
 * [AksCompute.ClusterPurpose](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.akscompute.clusterpurpose?view=azure-ml-py)
@@ -123,7 +122,19 @@ For more information, see the [az ml computetarget create aks](https://docs.micr
 
 # [Portal](#tab/azure-portal)
 
-From Azure Machine Learning studio, select __Compute__, __Inference clusters__, and then select __Create__.
+1. From Azure Machine Learning studio, select __Compute__, __Inference clusters__, and then select __Create__.
+
+    :::image type="content" source="media/how-to-create-attach-kubernetes/create-inference-compute.png" alt-text="{alt-text}":::
+
+1. Provide a unique __compute name__, select __Create new__, set the __region__, __size__, __purpose__, and __number of nodes__.
+
+    If you want to configure this cluster to use an existing virtual network, select __Advanced__ network configuration. For more information, see the [Network isolation during training & inference](how-to-enable-virtual-network.md) article.
+
+    If you want to secure communication with models deployed to this AKS cluster by using the HTTPS transport, select __Enable SSL configuration__. For more information, see the [Use TLS to secure a web service through Azure Machine Learning](how-to-secure-web-service.md) article.
+
+    :::image type="content" source="media/how-to-create-attach-kubernetes/new-aks-cluster.png" alt-text="{alt-text}":::
+
+1. Select __Create__ to create the new cluster.
 
 ---
 
