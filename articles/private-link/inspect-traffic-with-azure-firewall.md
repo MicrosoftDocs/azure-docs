@@ -73,7 +73,7 @@ For more information on charges related to connections with peered virtual netwo
 
 ## Scenario 3: Single virtual network
 
-:::image type="content" source="./media/inspect-traffic-using-azure-firewall/single-vnet.png" alt-text="On-premises traffic to private endpoints" border="true":::
+:::image type="content" source="./media/inspect-traffic-using-azure-firewall/single-vnet.png" alt-text="Single virtual network" border="true":::
 
 There's some limitations to implementation: a migration to a hub and spoke architecture isn't possible. The same considerations as in scenario 2 apply. In this scenario, virtual network peering charges don't apply.
 
