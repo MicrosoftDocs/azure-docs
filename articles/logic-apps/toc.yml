@@ -317,11 +317,11 @@
     - name: Manage logic apps - Visual Studio
       href: manage-logic-apps-with-visual-studio.md
     - name: Manage integration accounts
-      href: ./logic-apps-enterprise-integration-create-integration-account.md
+      href: logic-apps-enterprise-integration-create-integration-account.md
     - name: Manage integration service environments
       href: ise-manage-integration-service-environment.md
-      - name: Move logic app resources
-      href: move-logic-app-resources.md      
+    - name: Move logic app resources
+      href: move-logic-app-resources.md
     - name: Migrate to latest schema
       href: ../connectors/connectors-schema-migration.md
     - name: Test
