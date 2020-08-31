@@ -1,12 +1,12 @@
 ---
 title: Use the Azure portal to troubleshoot Azure Stack Edge with GPU| Microsoft Docs 
-description: Describes how to troubleshoot Azure Stack Edge issues.
+description: Describes how to troubleshoot Azure Stack Edge GPU issues.
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: edge
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 08/19/2020
 ms.author: alkohli
 ---
