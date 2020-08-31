@@ -130,12 +130,12 @@ To allow a user access at the *all service instances* level within Azure AD Conn
    ![Screenshot of Azure AD Connect Health resource sidebar](./media/how-to-connect-health-operations/startRBAC.png)
 2. Select **Add**.
 3. In the **Select a role** pane, select a role (for example, **Owner**).<br>
-   ![Screenshot of Azure AD Connect Health and Azure RBAC Users window](./media/how-to-connect-health-operations/RBAC_add.png)
+   ![Screenshot of Azure AD Connect Health and Azure RBAC configure menu](./media/how-to-connect-health-operations/RBAC_add.png)
 4. Type the name or identifier of the targeted user or group. You can select one or more users or groups at the same time. Click **Select**.
-   ![Screenshot of Azure AD Connect Health and Azure RBAC Users window](./media/how-to-connect-health-operations/RBAC_select_users.png)
+   ![Screenshot of Azure AD Connect Health and Azure RBAC role list](./media/how-to-connect-health-operations/RBAC_select_users.png)
 5. Select **OK**.<br>
 6. After the role assignment is complete, the users and groups appear in the list.<br>
-   ![Screenshot of Azure AD Connect Health and Azure RBAC Users window and new users highlighted](./media/how-to-connect-health-operations/RBAC_user_list.png)
+   ![Screenshot of Azure AD Connect Health and Azure RBAC and new users highlighted](./media/how-to-connect-health-operations/RBAC_user_list.png)
 
 Now the listed users and groups have access, according to their assigned roles.
 
@@ -157,7 +157,7 @@ Now the listed users and groups have access, according to their assigned roles.
 
 ### Remove users or groups
 You can remove a user or a group added to Azure AD Connect Health and Azure RBAC. Simply right-click the user or group, and select **Remove**.<br>
-![Screenshot of Azure AD Connect Health and Azure RBAC Users window, with Remove highlighted](./media/how-to-connect-health-operations/RBAC_remove.png)
+![Screenshot of Azure AD Connect Health and Azure RBAC with Remove highlighted](./media/how-to-connect-health-operations/RBAC_remove.png)
 
 [//]: # (End of RBAC section)
 
