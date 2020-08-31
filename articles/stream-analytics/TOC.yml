@@ -4,6 +4,8 @@
   items:
   - name: What is Stream Analytics?
     href: stream-analytics-introduction.md
+  - name: Stream Analytics Dedicated
+    href: stream-analytics-cluster-overview.md
   - name: End-to-end solution patterns
     href: stream-analytics-solution-patterns.md
 - name: Quickstarts
@@ -24,6 +26,9 @@
       href: stream-analytics-quick-create-vs.md
     - name: Visual Studio Code
       href: quick-create-vs-code.md
+  - name: Create a Stream Analytics cluster
+    href: stream-analytics-create-cluster.md
+- name: Create a job
 - name: Tutorials
   items:
   - name: 1 - Create / manage a job
@@ -148,6 +153,14 @@
   items:
   - name: Manage
     items:
+    - name: Stream Analytics cluster
+      items:
+      - name: Create and delete Private endpoints
+        href: stream-analytics-privateendpoints.md
+      - name: Add and remove jobs in cluster
+        href: stream-analytics-manage-jobs-cluster.md
+      - name: Scale size of cluster
+        href: stream-analytics-scale-cluster.md
     - name: Autoscale jobs
       href: stream-analytics-autoscale.md
     - name: Update credentials
