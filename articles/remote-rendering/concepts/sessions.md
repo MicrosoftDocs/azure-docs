@@ -5,6 +5,7 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/21/2020
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ---
 
 # Remote Rendering Sessions
@@ -71,7 +72,7 @@ In all cases, you won't be billed further once a session is stopped.
 
 #### Extend a session's lease time
 
-You can [extend the lease time](../how-tos/session-rest-api.md#update-a-session) of an active session, if it turns out that you need it longer.
+You can [extend the lease time](../how-tos/session-rest-api.md#modify-and-query-session-properties) of an active session, if it turns out that you need it longer.
 
 ## Example code
 
@@ -102,6 +103,8 @@ while (true)
     {
         break;
     }
+    // REST calls must not be issued too frequently, otherwise the server returns failure code 429 ("too many requests"). So we insert the recommended delay of 10s
+    await Task.Delay(TimeSpan.FromSeconds(10));
 }
 
 if (sessionProperties.Status != RenderingSessionStatus.Ready)

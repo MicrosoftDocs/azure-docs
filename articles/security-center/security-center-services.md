@@ -30,7 +30,7 @@ The two tabs below show the features of Azure Security Center that are available
 |[Fileless security alerts](alerts-reference.md#alerts-windows)|✔|✔|✔|Standard|
 |[Network-based security alerts](threat-protection.md#network-layer)|✔|✔|-|Standard|
 |[Just-In-Time VM access](security-center-just-in-time.md)|✔|-|-|Standard|
-|[Native vulnerability assessment](built-in-vulnerability-assessment.md)|✔|-|-|Standard|
+|[Native vulnerability assessment](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner)|✔|-|-|Standard|
 |[File Integrity Monitoring](security-center-file-integrity-monitoring.md)|✔|✔|✔|Standard|
 |[Adaptive application controls](security-center-adaptive-application.md)|✔|-|✔|Standard|
 |[Network map](security-center-network-recommendations.md#network-map)|✔|✔|-|Standard|
@@ -54,7 +54,7 @@ The two tabs below show the features of Azure Security Center that are available
 |[Fileless security alerts](alerts-reference.md#alerts-windows)|-|-|-|Standard|
 |[Network-based security alerts](threat-protection.md#network-layer)|✔|✔|-|Standard|
 |[Just-In-Time VM access](security-center-just-in-time.md)|✔|-|-|Standard|
-|[Native vulnerability assessment](built-in-vulnerability-assessment.md)|✔|-|-|Standard|
+|[Native vulnerability assessment](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner)|✔|-|-|Standard|
 |[File Integrity Monitoring](security-center-file-integrity-monitoring.md)|✔|✔|✔|Standard|
 |[Adaptive application controls](security-center-adaptive-application.md)|✔|-|✔|Standard|
 |[Network map](security-center-network-recommendations.md#network-map)|✔|✔|-|Standard|
@@ -86,7 +86,7 @@ For information about when recommendations are generated for each of these prote
 
 | Endpoint Protection| Platforms | Security Center Installation | Security Center Discovery |
 |------|------|-----|-----|
-| Windows Defender (Microsoft Antimalware)| Windows Server 2016 or later| No, Built in to OS| Yes |
+| Microsoft Defender Antivirus| Windows Server 2016 or later| No, Built in to OS| Yes |
 | System Center Endpoint Protection (Microsoft Antimalware) | Windows Server 2012 R2, 2012, 2008 R2 (see note below) | Via Extension | Yes |
 | Trend Micro – Deep Security | Windows Server Family  | No | Yes |
 | Symantec v12.1.1100+| Windows Server Family  | No | Yes |

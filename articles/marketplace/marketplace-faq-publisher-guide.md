@@ -115,11 +115,11 @@ Commercial marketplace publishers are responsible for supporting their software,
 
 During the publishing process, you're given access to a preview of your offer. Access is restricted to users that you specify in the **Preview** tab, and the offer can't be viewed by anyone else. You can purchase a preview and test the process, but you'll be charged the full amount according to your offer's setup.
 
-To complete a purchase at a very low price, we suggest publishing a private plan that's viewable by you alone and at a price you can accept as the cost of testing. A price of $0.00 is supported but won't reflect the full experience, as a paid subscription would, so we recommend setting the price at $1.00.
+To complete a purchase at a low price, we suggest publishing a private plan that's viewable by you alone and at a price you can accept as the cost of testing. A price of $0.00 is supported but won't reflect the full experience, as a paid subscription would, so we recommend setting the price at $1.00.
 
 ### What are leads from the commercial marketplace and what should I do with them?
 
-As customers use your offers on the Microsoft AppSource and Azure Marketplace storefronts, information is captured. After customers have demonstrated enough interest, a lead is created and an opportunity is sent to the system of your choice. Publishers who are successful with the commercial marketplace often pursue leads, develop relationships, and turn interest into deals.
+As customers use your offers on the Microsoft AppSource and Azure Marketplace online stores, information is captured. After customers have demonstrated enough interest, a lead is created and an opportunity is sent to the system of your choice. Publishers who are successful with the commercial marketplace often pursue leads, develop relationships, and turn interest into deals.
 
 For more information, see [Customer leads from your marketplace offer](partner-center-portal/commercial-marketplace-get-customer-leads.md).
 
@@ -135,7 +135,7 @@ Offers are presented to customers through in-product experiences, websites, rese
 
 ### Can my offer appear in both Microsoft AppSource and Azure Marketplace?
 
-Microsoft AppSource is the destination for business and industry solutions, and Azure Marketplace is designed for IT and developer solutions. Offers are available in each of the storefronts based on categories and industries that you selected during the offer creation. In the rare case that the offer is relevant to the users of both storefronts, it can appear in both.
+Microsoft AppSource is the destination for business and industry solutions, and Azure Marketplace is designed for IT and developer solutions. Offers are available in each of the online stores based on categories and industries that you selected during the offer creation. In the rare case that the offer is relevant to the users of both online stores, it can appear in both.
 
 ### What is the Cloud Solution Provider program?
 

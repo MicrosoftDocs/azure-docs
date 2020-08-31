@@ -134,10 +134,10 @@ For the past release history, see [here](https://en.wikipedia.org/wiki/Kubernete
 
 |  K8s version | Upstream Release  | AKS preview  | AKS GA  | End of Life |
 |--------------|-------------------|--------------|---------|-------------|
-| 1.17  | Dec-09-19  | Jan 19   | Jul 20  | 1.20 GA | 
-| 1.18  | Mar-23-20  | May 20   | Aug 20  | 1.21 GA | 
-| 1.19  | Aug-04-20  | Aug 20   | Nov 20  | 1.22 GA | 
-| 1.20  | *Nov 20    | *Dec 20   | *Jan 21  | 1.23 GA | 
+| 1.17  | Dec-09-19  | Jan 2019   | Jul 2020  | 1.20 GA | 
+| 1.18  | Mar-23-20  | May 2020   | Aug 2020  | 1.21 GA | 
+| 1.19  | Aug-04-20  | Aug 2020   | Nov 2020  | 1.22 GA | 
+| 1.20  | *Nov 2020    | *Dec 2020   | *Jan 2021  | 1.23 GA | 
 
 \* Pending Upstream release date confirmation.
 

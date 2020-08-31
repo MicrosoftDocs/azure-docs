@@ -85,7 +85,7 @@ All search parameter types are supported.
 | `_security`             | Yes       | Yes       | Yes       |         |
 | `_text`                 | No        | No        | No        |         |
 | `_content`              | No        | No        | No        |         |
-| `_list`                 | No        | Yes       | Yes       |         |
+| `_list`                 | Yes       | Yes       | Yes       |         |
 | `_has`                  | No        | No        | No        |         |
 | `_type`                 | Yes       | Yes       | Yes       |         |
 | `_query`                | No        | No        | No        |         |
@@ -93,7 +93,7 @@ All search parameter types are supported.
 | Search operations       | Supported - PaaS | Supported - OSS (SQL) | Supported - OSS (Cosmos DB) | Comment |
 |-------------------------|-----------|-----------|-----------|---------|
 | `_filter`               | No        | No        | No        |         |
-| `_sort`                 | No        | No        | No        |         |
+| `_sort`                 | No        | Partial   | Partial        |   `_sort=_lastUpdated` is supported       |
 | `_score`                | No        | No        | No        |         |
 | `_count`                | Yes       | Yes       | Yes       |         |
 | `_summary`              | Partial   | Partial   | Partial   | `_summary=count` is supported |

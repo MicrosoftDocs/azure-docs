@@ -45,7 +45,7 @@ In model parallelism, worker nodes only need to synchronize the shared parameter
 
 ## Next steps
 
-* Learn how to [set up training environments](how-to-set-up-training-targets.md) with the Python SDK.
+* Learn how to [use compute targets for model training](how-to-set-up-training-targets.md) with the Python SDK.
 * For a technical example, see the [reference architecture  scenario](https://docs.microsoft.com/azure/architecture/reference-architectures/ai/training-deep-learning).
 * [Train ML models with TensorFlow](how-to-train-tensorflow.md).
 * [Train ML models with PyTorch](how-to-train-pytorch.md). 
