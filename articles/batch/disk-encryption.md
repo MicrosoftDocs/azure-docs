@@ -39,7 +39,7 @@ When creating a Batch pool in the the Azure portal, select either **TemporaryDis
 
 After the pool is created, you can see the disk encryption configuration targets in the pool's **Properties** section.
 
-:::image type="content" source="media/disk-encryption/configuration-target.png" alt-text="Screenshot showing the disk encryption confirguration targets in the Azure portal.":::
+:::image type="content" source="media/disk-encryption/configuration-target.png" alt-text="Screenshot showing the disk encryption configuration targets in the Azure portal.":::
 
 ## Examples
 
