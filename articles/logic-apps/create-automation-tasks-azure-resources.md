@@ -10,26 +10,18 @@ ms.date: 09/10/2020
 
 # Manage Azure resources by creating automation tasks (preview)
 
-To help you manage [Azure resources](../azure-resource-manager/management/overview.md#terminology) more easily, you can create and automate management tasks for a specific resource or resource group by using automation task templates, which vary based on the resource type. When you create an automation task for a resource in the Azure portal, you do so from that specific resource, for example, the actual storage account or virtual machine resource.
+To help you manage [Azure resources](../azure-resource-manager/management/overview.md#terminology) more easily, you can create and automate management tasks for a specific resource or resource group by using automation task templates, which vary in availability based on the resource type. For example, for an [Azure storage account](../storage/common/storage-account-overview.md), you can set up an automation task that sends you the monthly cost for that storage account. For an [Azure virtual machine](https://azure.microsoft.com/services/virtual-machines/), you can turn on and turn off that virtual machine.
 
-Behind the scenes, an automation task is actually a logic app workflow that's run by the [Azure Logic Apps](../logic-apps/logic-apps-overview.md) service. You can view and edit the task's underlying workflow by opening the task in the Logic App Designer. After a task finishes at least one run, you can review the status, history, inputs, and outputs for each run.
+Behind the scenes, an automation task is actually a workflow that's run by the [Azure Logic Apps](../logic-apps/logic-apps-overview.md) service. After you create the task, you can view and edit the underlying workflow by opening the task in the Logic App Designer. After a task finishes at least one run, you can review the status, history, inputs, and outputs for each run.
 
-For example, for an [Azure storage account](../storage/common/storage-account-overview.md), you can set up an automation task that sends you the monthly cost for that storage account. For an [Azure virtual machine](https://azure.microsoft.com/services/virtual-machines/), you can turn on and turn off that virtual machine. Currently, here are the task templates available in this preview:
+Here are the currently available task templates in this preview:
 
-* All Azure resources and resource groups:<p>
-
-  * **Send monthly cost for resource**
-
-* Azure virtual machines:<p>
-
-  * **Send monthly cost for resource**
-  * **Power off Virtual Machine**
-  * **Start Virtual Machine**
-
-* Azure Storage accounts:<p>
-
-  * **Send monthly cost for resource**
-  * **Delete old blobs**
+| Resource type | Automation task templates |
+|---------------|---------------------------|
+| All Azure resources and resource groups | **Send monthly cost for resource** |
+| Azure virtual machines | Additionally: <p>- **Power off Virtual Machine** <br>- **Start Virtual Machine** |
+| Azure Storage accounts | Additionally: <p>- **Delete old blobs** |
+|||
 
 This article shows you how to complete the following tasks:
 
