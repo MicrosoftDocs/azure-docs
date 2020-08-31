@@ -628,7 +628,7 @@ CLI, Azure PowerShell, portal, and all supported SDK. For an example, see
 
 ## <a name="count-gcnoncompliant"></a>Count of non-compliant Guest Configuration assignments
 
-Displays a count of non-compliant machines per [Guest Configuration assignment reason](../policy/how-to/determine-non-compliance#compliance-details-for-guest-configuration). Limits results to first 100 for performance.
+Displays a count of non-compliant machines per [Guest Configuration assignment reason](../../policy/how-to/determine-non-compliance.md#compliance-details-for-guest-configuration). Limits results to first 100 for performance.
 
 ```kusto
 GuestConfigurationResources
@@ -669,7 +669,7 @@ Search-AzGraph -Query "GuestConfigurationResources | extend vmid = split(propert
 
 ## <a name="query-gcreports"></a>Query details of Guest Configuration assignment reports
 
-Display report from [Guest Configuration assignment reason](../policy/how-to/determine-non-compliance#compliance-details-for-guest-configuration) details.
+Display report from [Guest Configuration assignment reason](../../policy/how-to/determine-non-compliance.md#compliance-details-for-guest-configuration) details.
 In the example below,
 the query returns only results where the Guest Assignment name
 is `installed_application_linux` and the output contains the string `Python`
@@ -714,7 +714,7 @@ Search-AzGraph -Query "GuestConfigurationResources | extend vmid = split(propert
 
 ## <a name="query-gcmachinedetails"></a>Find all reasons a machine is non-compliant for Guest Configuration assignments
 
-Display all [Guest Configuration assignment reasons](../policy/how-to/determine-non-compliance#compliance-details-for-guest-configuration) for a specific machine.
+Display all [Guest Configuration assignment reasons](../../policy/how-to/determine-non-compliance.md#compliance-details-for-guest-configuration) for a specific machine.
 Remove the first `where` clause to also include audits where the machine is compliant.
 
 ```kusto
