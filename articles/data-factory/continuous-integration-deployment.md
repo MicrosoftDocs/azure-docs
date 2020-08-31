@@ -330,9 +330,17 @@ Below is the current default parameterization template. If you need to add only 
 
 ```json
 {
-    "Microsoft.DataFactory/factories/pipelines": {
+    "Microsoft.DataFactory/factories": {
+        "properties": {
+            "globalParameters": {
+                "*": {
+                    "value": "="
+                }
+            }
+        },
+        "location": "="
     },
-    "Microsoft.DataFactory/factories/dataflows": {
+    "Microsoft.DataFactory/factories/pipelines": {
     },
     "Microsoft.DataFactory/factories/integrationRuntimes":{
         "properties": {
@@ -385,7 +393,6 @@ Below is the current default parameterization template. If you need to add only 
             "typeProperties": {
                 "scope": "="
             }
-
         }
     },
     "Microsoft.DataFactory/factories/linkedServices": {
@@ -422,7 +429,8 @@ Below is the current default parameterization template. If you need to add only 
                     "aadResourceId": "=",
                     "sasUri": "|:-sasUri:secureString",
                     "sasToken": "|",
-                    "connectionString": "|:-connectionString:secureString"
+                    "connectionString": "|:-connectionString:secureString",
+                    "hostKeyFingerprint": "="
                 }
             }
         },
@@ -445,8 +453,8 @@ Below is the current default parameterization template. If you need to add only 
                     "fileName": "="
                 }
             }
-        }}
-}
+        }
+    }
 ```
 
 ### Example: parameterizing an existing Azure Databricks interactive cluster ID
@@ -455,6 +463,16 @@ The following example shows how to add a single value to the default parameteriz
 
 ```json
 {
+    "Microsoft.DataFactory/factories": {
+        "properties": {
+            "globalParameters": {
+                "*": {
+                    "value": "="
+                }
+            }
+        },
+        "location": "="
+    },
     "Microsoft.DataFactory/factories/pipelines": {
     },
     "Microsoft.DataFactory/factories/dataflows": {
