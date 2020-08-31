@@ -45,11 +45,11 @@ The following architecture diagram shows the implementation.
 |Step | Description |
 |:-----| :-----------|
 | 1. | The user arrives at a page to either sign in or sign up to create an account. Azure AD B2C collects the user attributes.
-| 2. | Azure AD B2C calls the middle layer API and passes on the user attributes.
-| 3. | The middle layer API collects user attributes and transforms them into a format that Jumio API can consume. Then it sends the attributes to Jumio.
-| 4. | After Jumio consumes the information and processes it, it returns the result to the middle layer API.
-| 5. | The middle layer API processes the information and sends back relevant information to Azure AD B2C.
-| 6. | Azure AD B2C receives information back from the middle layer API. If it shows a failure response, an error message is displayed to user. If it shows a success response, the user is authenticated and written into the directory.
+| 2. | Azure AD B2C calls the middle-layer API and passes on the user attributes.
+| 3. | The middle-layer API collects user attributes and transforms them into a format that Jumio API can consume. Then it sends the attributes to Jumio.
+| 4. | After Jumio consumes the information and processes it, it returns the result to the middle-layer API.
+| 5. | The middle-layer API processes the information and sends back relevant information to Azure AD B2C.
+| 6. | Azure AD B2C receives information back from the middle-layer API. If it shows a failure response, an error message is displayed to user. If it shows a success response, the user is authenticated and written into the directory.
 
 ## Sign up with Jumio
 
