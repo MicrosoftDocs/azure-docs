@@ -11,7 +11,7 @@ ms.date: 9/21/2020
 # Create and manage firewall rules for Azure Database for MySQL - Flexible Server using the Azure portal
 
 > [!IMPORTANT]
-> Azure Database for MySQL Flexible Server is currently in public preview
+> Azure Database for MySQL Flexible Server is currently in public preview.
 
 Azure Database for MySQL Flexible Server supports two types of mutually exclusive network connectivity methods to connect to your flexible server. The two options are:
 
@@ -28,8 +28,9 @@ In this article, we will focus on creation of MySQL server with **Public access 
 4. Fill out the **Basics** form.
 5. Go to the **Networking** tab to configure how you want to connect to your server.
 6. In the **Connectivity method**, select *Public access (allowed IP addresses)*. To create the **Firewall rules**, specify the Firewall rule name and single IP address, or a range of addresses. If you want to limit the rule to a single IP address, type the same address in the field for Start IP address and End IP address. Opening the firewall enables administrators, users, and applications to access any database on the MySQL server to which they have valid credentials.
-> [!Note]
-> Azure Database for MySQL Flexible Server creates a firewall at the server level. It prevents external applications and tools from connecting to the server and any databases on the server, unless you create a rule to open the firewall for specific IP addresses.
+   > [!Note]
+   > Azure Database for MySQL Flexible Server creates a firewall at the server level. It prevents external applications and tools from connecting to the server and any databases on the server, unless you create a rule to open the firewall for specific IP addresses.
+
 7. Select **Review + create** to review your flexible server configuration.
 8.  Select **Create** to provision the server. Provisioning can take a few minutes.
 

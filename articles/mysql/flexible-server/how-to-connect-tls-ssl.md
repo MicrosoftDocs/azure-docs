@@ -37,7 +37,7 @@ The following example shows how to connect to your server using the mysql comman
 ```bash
  mysql.exe -h mydemoserver.mysql.database.azure.com -u myadmin -p --ssl-mode=REQUIRED --ssl-ca=c:\ssl\DigiCertGlobalRootCA.crt.pem
 ```
-> **Note:**
+> [!Note]
 > Confirm that the value passed to `--ssl-ca` matches the file path for the certificate you saved.
 
 ### Step 4: Verify the TLS/SSL connection
