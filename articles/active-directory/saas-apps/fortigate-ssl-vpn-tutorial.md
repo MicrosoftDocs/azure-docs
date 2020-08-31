@@ -143,9 +143,9 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
 1. In the **Add Assignment** dialog, click the **Assign** button.
 
-### Create a Security Group for the test user
+### Create a security group for the test user
 
-In this section, you'll create a Security Group in Azure Active Directory for the test user. This security group will be used by FortiGate to grant the user network access via the VPN.
+In this section, you'll create a security group in Azure Active Directory for the test user. This security group will be used by FortiGate to grant the user network access via the VPN.
 
 1. From the left pane in the Azure portal, select **Azure Active Directory**, and then select **Groups**.
 1. Select **New group** at the top of the screen.
@@ -154,31 +154,31 @@ In this section, you'll create a Security Group in Azure Active Directory for th
    1. In the **Name** field, enter `FortiGateAccess`.
    1. In the **Group description** field, enter `Group for granting FortiGate VPN access`.
    1. For the **Azure AD roles can be assigned to the group (Preview)** settings, select **No**.
-   1. In the **Membership type** field, select **Assigned**
-   1. Under **Members** click **No members selected**
+   1. In the **Membership type** field, select **Assigned**.
+   1. Under **Members**, select **No members selected**.
    1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
-   1. Click **Create**
+   1. Select **Create**.
 1. Once you've been returned to the **Groups** blade in Azure Active Directory, locate the **FortiGate Access** group and take note of the **Object Id** for later use.
 
 ## Configure FortiGate SSL VPN SSO
 
-### Upload the Base64 SAML Certificate to the FortiGate Appliance
+### Upload the Base64 SAML Certificate to the FortiGate appliance
 
-After completing the SAML configuration of the FortiGate App in your tenant, you downloaded the Base64 encoded SAML certificate. This must be uploaded to the FortiGate Appliance. To do so,
+After completing the SAML configuration of the FortiGate app in your tenant, you downloaded the Base64 encoded SAML certificate. This must be uploaded to the FortiGate appliance:
 
-1. Sign-in to the management portal of your FortiGate Appliance
-1. In the left-hand menu, click **System**
-1. Under **System**, click **Certificates**
-1. Click **Import** -> **Remote Certificate**
-1. Browse to the certificate downloaded from the FortiGate App deployment in the Azure tenant, select it and click **OK**
+1. Sign in to the management portal of your FortiGate appliance.
+1. In the left-hand menu, click **System**.
+1. Under **System**, click **Certificates**.
+1. Click **Import** -> **Remote Certificate**.
+1. Browse to the certificate downloaded from the FortiGate App deployment in the Azure tenant, select it, and click **OK**
 
-After the certificate has uploaded, take note of its name under **System** -> **Certificates** -> **Remote Certificate**. By default, it will be named REMOTE_Cert_**N** where **N** is an integer value
+After the certificate has uploaded, take note of its name under **System** > **Certificates** > **Remote Certificate**. By default, it will be named REMOTE_Cert_**N** where **N** is an integer value.
 
-### Perform FortiGate Command Line Configuration
+### Perform FortiGate command-line configuration
 
-The following steps requires the Azure Logout URL to be configured. This URL contains a question mark character (?). Special steps are required to submit this character successfully and they cannot be performed from the FortiGate CLI Console. Instead you will need to establish an SSH session to the FortiGate applicance using a tool like PuTTY. If your FortiGate appliance is an Azure Virtual Machine, you can perform the following steps from the Azure Virtual Machine Serial Console
+The following steps require the Azure logout URL to be configured. This URL contains a question mark (?). Special steps are required to submit this character successfully. The steps can't be performed from the FortiGate CLI Console. Instead, establish an SSH session to the FortiGate applicance using a tool like PuTTY. If your FortiGate appliance is an Azure virtual machine, you can perform the following steps from the Azure virtual machine serial console.
 
-To perform these steps you will need the values recorded earlier
+To perform these steps, you will need the values recorded earlier:
 
 - Entity ID
 - Reply URL
@@ -188,10 +188,10 @@ To perform these steps you will need the values recorded earlier
 - Azure Logout URL
 - Base64 SAML Certificate Name (REMOTE_Cert_N)
 
-1. Establish an SSH session to your FortiGate Applicance and sign-in with a FortiGate Administrator account
-1. Perform the following commands -
+1. Establish an SSH session to your FortiGate applicance and sign in with a FortiGate Administrator account.
+1. Perform the following commands:
 
-   ```
+   ```console
     config user saml
     edit azure
     set entity-id <Entity ID>
@@ -207,24 +207,12 @@ To perform these steps you will need the values recorded earlier
 
    ```
 
-**NOTE:** The **Azure Logout URL** contains a ? character. This requires a special key sequence in order for it to be correctly provided to the FortiGate Serial Console. The URL is typically
-
-   ```
-    https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0
-   ```
-
-To provide this in the Serial Console, proceed by typing
-
-   ```
-    set idp-single-logout-url https://login.microsoftonline.com/common/wsfederation
-   ```
-
-Then type **CTRL+V**
-Then paste the rest of the URL in to complete the line
-
-   ```
-    set idp-single-logout-url https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0
-   ```
+   > [!NOTE]
+   > The **Azure Logout URL** contains a `?` character. You must enter a special key sequence to correctly provide the URL to the FortiGate serial console. The URL usually is `https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0`.
+   >
+   > To enter the Azure Logout URL in the serial console, enter `set idp-single-logout-url https://login.microsoftonline.com/common/wsfederation`.
+   > 
+   > Then, select CTRL+V and paste the rest of the URL to complete the line: `set idp-single-logout-url https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0`.
 
 ### Configure FortiGate for Group Matching
 
@@ -232,8 +220,8 @@ In this section, you will configure FortiGate to recognize the Object Id of the 
 
 To perform these steps you will need the Object Id of the **FortiGateAccess** security group created earlier
 
-1. Establish an SSH session to your FortiGate Applicance and sign-in with a FortiGate Administrator account
-1. Perform the following commands -
+1. Establish an SSH session to your FortiGate Applicance and sign-in with a FortiGate Administrator account.
+1. Perform the following commands:
 
    ```
     config user group
@@ -265,9 +253,9 @@ Microsoft and FortiGate recommend that you use the Fortinet VPN client, FortiCli
 
 ## Additional resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
