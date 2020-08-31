@@ -7,7 +7,7 @@ ms.service: azure-resource-manager
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: mbaldwin
-ms.date: 07/20/2020
+ms.date: 08/31/2020
 ---
 
 # Quickstart: Create an Azure Attestation provider with an ARM template
