@@ -316,11 +316,18 @@ method, or from the Experiment tab view in Azure Machine Learning studio client 
 
 * **Recent upgrade of AutoML dependecies to newer versions will be breaking compatibilitity**:  As of version 1.13.0 of the SDK, models won't be loaded in older SDKs due to incompatibility between the older versions we pinned in our previous packages, and the newer versions we pin now. 
 
-  When using an older version of the SDK you will see errors such as `No module named 'sklearn.decomposition._truncated_svd'"` or `"No module named 'pandas.core.internals.managers'"`. To work around this issue, update the SDK version to 1.13.0 or later:
+  When using a newer version of the SDK, you will see errors such as `No module named 'sklearn.decomposition._truncated_svd'"` or `"No module named 'pandas.core.internals.managers'"` when retrieving old models. To work around this issue, downgrade scikit-learn and pandas:
+
+  ```bash
+    pip install --upgrade scikit-learn==0.20.3
+    pip install --upgrade pandas==0.23.4
+  ```
+  
+  When using an older version of the SDK, you will see errors such as `AttributeError: 'SimpleImputer' object has no attribute 'add_indicator'` when retrieving new models. To work around this issue, update the SDK version to 1.13.0 or later:
     
-     ```bash
+  ```bash
       pip install --upgrade azureml-sdk[automl]
-     ```
+  ```
 
 * **TensorFlow**: As of version 1.5.0 of the SDK, automated machine learning does not install TensorFlow models by default. To install TensorFlow and use it with your automated ML experiments, install tensorflow==1.12.0 via CondaDependecies. 
  
