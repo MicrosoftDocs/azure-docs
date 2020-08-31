@@ -21,7 +21,7 @@ Azure RBAC allows users to manage Key, Secrets, and Certificates permissions. It
 
 The Azure RBAC model provides the ability to set permissions on different scope levels: management group, subscription, resource group, or individual objects. Apart from the ability to control permissions across key vaults, Azure RBAC for key vault also provides the ability to have separate permissions on individual keys, secrets, and certificates
 
-For more information : [Role-based access control(RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview).
+For more information, see [Role-based access control(RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview).
 
 ## Best Practices for individual keys, secrets and certificates
 
@@ -37,11 +37,10 @@ only for specific scenarios:
 -   Shared key vault with common secrets, when applications need access
     to subsets of secrets in that key vault
 
-More about key vault best practices:
+More about Azure Key Vault best practices:
 
-[Azure Key Vault best practices](best-practices.md)
-
-[Azure Key Vault service limits](service-limits.md)
+- [Azure Key Vault best practices](best-practices.md)
+- [Azure Key Vault service limits](service-limits.md)
 
 ## Azure RBAC built-in roles for Key Vault data plane operations (preview)
 
@@ -239,6 +238,6 @@ For available actions check Appendix: **Available Actions**
 
 ## Learn more
 
-[RBAC Overview](https://docs.microsoft.com/azure/role-based-access-control/overview)
+- [RBAC Overview](https://docs.microsoft.com/azure/role-based-access-control/overview)
 
-[Custom Roles Tutorial](https://docs.microsoft.com/azure/role-based-access-control/tutorial-custom-role-cli)
+- [Custom Roles Tutorial](https://docs.microsoft.com/azure/role-based-access-control/tutorial-custom-role-cli)
