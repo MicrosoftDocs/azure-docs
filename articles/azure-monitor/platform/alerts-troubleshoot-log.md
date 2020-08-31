@@ -12,7 +12,7 @@ ms.date: 10/29/2018
 
 This article shows you how to resolve common issues with log alerts in Azure Monitor. It also provides solutions to common problems with the functionality and configuration of log alerts.
 
-Log alerts allow users to use a [Log Analytics](../log-query/get-started-portal.md) query to evaluated resources logs every set frequency, and fire an alert based on the results. Rules can trigger run one or more actions using [Action Groups](./action-groups.md). [Learn more about functionality and terminology of log alerts](alerts-unified-log.md).
+Log alerts allow users to use a [Log Analytics](../log-query/get-started-portal.md) query to evaluate resources logs every set frequency, and fire an alert based on the results. Rules can trigger run one or more actions using [Action Groups](./action-groups.md). [Learn more about functionality and terminology of log alerts](alerts-unified-log.md).
 
 > [!NOTE]
 > This article doesn't consider cases where the Azure portal shows an alert rule triggered and a notification is not performed by an associated action group. For such cases, see the details on troubleshooting [here](./alerts-troubleshoot.md#action-or-notification-on-my-alert-did-not-work-as-expected).
@@ -65,9 +65,26 @@ While there are builtin capabilities to prevent false alerts, they can still occ
 
 ### Query optimization issues
 
-The alerting service changes your query to optimize for lower load and alert latency. For workspaces and Application Insights, it's called **Query to be executed** in the condition pane. In all other resource types, select **See final alert Query** in the condition tab.
+The alerting service changes your query to optimize for lower load and alert latency. The alert flow was built to transform the results that indicate the issue to an alert. For example, in a case of a query like:
+
+``` Kusto
+SecurityEvent
+| where EventID == 4624
+```
+
+If the intent of the user is to alert, when this event type happens, the alerting logic appends `count` to the query. The query that will run will be:
+
+``` Kusto
+SecurityEvent
+| where EventID == 4624
+| count
+```
+
+There's no need to add alerting logic to the query and doing that may even cause issues. In the above example, if you include `count` in your query, it will always result in the value 1, since the alert service will do `count` of `count`.
 
 The optimized query is what the log alert service runs. You can run the modified query in Log Analytics [portal](../log-query/log-query-overview.md) or [API](/rest/api/loganalytics/).
+
+For workspaces and Application Insights, it's called **Query to be executed** in the condition pane. In all other resource types, select **See final alert Query** in the condition tab.
 
 ![Query to be executed](media/alert-log-troubleshoot/LogAlertPreview.png)
 

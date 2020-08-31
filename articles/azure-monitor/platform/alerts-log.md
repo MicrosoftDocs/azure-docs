@@ -16,7 +16,7 @@ This article shows you how to create and manage log alerts using Azure Monitor. 
 - Criteria: Logic to evaluate. If met, the alert fires.  
 - Action: Notifications or automation about the alert - email, SMS, webhook, and so on.
 
-Log alerts allow users to use a [Log Analytics](../log-query/get-started-portal.md) query to evaluated resources logs every set frequency, and fire an alert based on the results. Rules can trigger run one or more actions using [Action Groups](./action-groups.md). [Learn more about functionality and terminology of log alerts](alerts-unified-log.md).
+Log alerts allow users to use a [Log Analytics](../log-query/get-started-portal.md) query to evaluate resources logs every set frequency, and fire an alert based on the results. Rules can trigger run one or more actions using [Action Groups](./action-groups.md). [Learn more about functionality and terminology of log alerts](alerts-unified-log.md).
 
 You can also create log alert rules using Azure Resource Manager templates, which are described in [a separate article](alerts-log-create-templates.md).
 
@@ -29,7 +29,7 @@ Here the steps to get started writing queries for alerts:
 
 1. Go to the resource you would like to alert on.
 1. Under **Monitor**, select **Logs**.
-1. Query the log data that can indicate the issue. You can use examples to understand what you can discover or [get started on writing queries](../log-query/get-started-portal.md). Also, [learn how to create optimized alert queries](alerts-log-query.md).
+1. Query the log data that can indicate the issue. You can use examples to understand what you can discover or [get started on writing your own query](../log-query/get-started-portal.md). Also, [learn how to create optimized alert queries](alerts-log-query.md).
 1. Press on '+ New Alert Rule' button to start the alert creation flow.
 
     ![Log Analytics - Set Alert](media/alerts-log/AlertsAnalyticsCreate.png)
@@ -62,10 +62,10 @@ Here the steps to get started writing queries for alerts:
 1. For metric measurements alert logic, you can optionally specify how to [split the alerts by dimensions](alerts-unified-log.md#split-by-alert-dimensions) using the **Aggregate on** option. Row grouping expression must be unique and sorted.
 
     > [!NOTE]
-    > As [bin()](/azure/kusto/query/binfunction) can result in uneven time intervals, the alert service will automatically convert [bin()](/azure/kusto/query/binfunction) command to [bin_at()](/azure/kusto/query/binatfunction) command with appropriate time at runtime, to ensure results with a fixed point.
+    > As [bin()](/azure/kusto/query/binfunction) can result in uneven time intervals, the alert service will automatically convert [bin()](/azure/kusto/query/binfunction) function to [bin_at()](/azure/kusto/query/binatfunction) function with appropriate time at runtime, to ensure results with a fixed point.
 
     > [!NOTE]
-    > Split by alert dimensions is only available for the current scheduledQueryRules API. If you use the legacy [Log Analytics Alert API](api-alerts.md), you will need to switch. [Learn more about switching](./alerts-log-api-switch.md). Resource centric alerting at scale at scale is only supported in the API version `2020-05-01-preview` and above.
+    > Split by alert dimensions is only available for the current scheduledQueryRules API. If you use the legacy [Log Analytics Alert API](api-alerts.md), you will need to switch. [Learn more about switching](./alerts-log-api-switch.md). Resource centric alerting at scale is only supported in the API version `2020-05-01-preview` and above.
 
     ![aggregate on option](media/alerts-log/aggregate-on.png)
 
@@ -77,7 +77,7 @@ Here the steps to get started writing queries for alerts:
 
 1. Define the **Alert rule name**, **Description**, and select the alert **Severity**. These details are used in all alert actions. Additionally, you can choose to not activate the alert rule on creation by selecting **Enable rule upon creation**.
 
-1. Choose if you want to suppress rule actions for a time after an alert is fires, use the [**Suppress Alerts**](alerts-unified-log.md#state-and-resolving-alerts) option. The rule will still run and create alerts but actions won't be triggered to prevent noise. Mute actions value greater than the frequency of alert to be effective.
+1. Choose if you want to suppress rule actions for a time after an alert is fires, use the [**Suppress Alerts**](alerts-unified-log.md#state-and-resolving-alerts) option. The rule will still run and create alerts but actions won't be triggered to prevent noise. Mute actions value must be greater than the frequency of alert to be effective.
 
     ![Suppress Alerts for Log Alerts](media/alerts-log/AlertsPreviewSuppress.png)
 
@@ -133,7 +133,7 @@ Here the steps to get started writing queries for alerts:
 
 1. Once selected, write, paste, or edit the alerting query in the **Search Query** field.
 
-1. Continue to the next described in the [last section](#log-alert-for-log-analytics-and-application-insights).
+1. Continue to the next steps described in the [last section](#log-alert-for-log-analytics-and-application-insights).
 
 ### Log alert for all other resource types
 

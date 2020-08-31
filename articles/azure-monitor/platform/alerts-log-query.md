@@ -10,8 +10,29 @@ ms.subservice: alerts
 # Optimizing log alert queries
 This article describes how to write and convert [Log Alert](alerts-unified-log.md) queries to achieve optimal performance. Optimized queries reduce latency and load of alerts, which run frequently.
 
+## How to start writing an alert log query
+
+Alert queries start from [querying the log data in Log Analytics](alerts-log.md#create-a-log-alert-rule-with-the-Azure-portal) that indicates the issue. You can use query examples or [get started on writing your own query](../log-query/get-started-portal.md). 
+
+The alert flow was built to transform the results that indicate the issue to an alert. For example, in a case of a query like:
+
+``` Kusto
+SecurityEvent
+| where EventID == 4624
+```
+
+If the intent of the user is to alert, when this event type happens, the alerting logic appends `count` to the query. The query that will run will be:
+
+``` Kusto
+SecurityEvent
+| where EventID == 4624
+| count
+```
+
+There's no need to add alerting logic to the query and doing that may even cause issues. In the above example, if you include `count` in your query, it will always result in the value 1, since the alert service will do `count` of `count`.
+
 ## Log query constraints
-[Log queries in Azure Monitor](../log-query/log-query-overview.md) start with either a table, [search](/azure/kusto/query/searchoperator), or [union](/azure/kusto/query/unionoperator) operator.
+[Log queries in Azure Monitor](../log-query/log-query-overview.md) start with either a table, [`search`](/azure/kusto/query/searchoperator), or [`union`](/azure/kusto/query/unionoperator) operator.
 
 Queries for log alert rules should always start with a table to define a clear scope, which improves both query performance and the relevance of the results. Queries in alert rules run frequently, so using `search` and `union` can result in excessive overhead adding latency to the alert, as it requires scanning across multiple tables. These operators also reduce the ability of the alerting service to optimize the query.
 
@@ -46,7 +67,6 @@ You want to create a log alert rule using the following query that retrieves per
 search *
 | where Type == 'Perf' and CounterName == '% Free Space'
 | where CounterValue < 30
-| summarize count()
 ```
 
 To modify this query, start by using the following query to identify the table that the properties belong to:
@@ -65,7 +85,6 @@ You can use this result to create the following query that you would use for the
 Perf
 | where CounterName == '% Free Space'
 | where CounterValue < 30
-| summarize count()
 ```
 
 ### Example 2
@@ -75,7 +94,6 @@ You want to create a log alert rule using the following query that retrieves per
 search ObjectName =="Memory" and CounterName=="% Committed Bytes In Use"
 | summarize Avg_Memory_Usage =avg(CounterValue) by Computer
 | where Avg_Memory_Usage between(90 .. 95)  
-| count
 ```
 
 To modify this query, start by using the following query to identify the table that the properties belong to:
@@ -94,7 +112,6 @@ Perf
 | where ObjectName =="Memory" and CounterName=="% Committed Bytes In Use"
 | summarize Avg_Memory_Usage=avg(CounterValue) by Computer
 | where Avg_Memory_Usage between(90 .. 95)
-| count
 ```
 
 ### Example 3
@@ -108,7 +125,6 @@ search (ObjectName == "Processor" and CounterName == "% Idle Time" and InstanceN
     | where CounterName == "% Processor Utility"
     | summarize by Computer)
 | summarize Avg_Idle_Time = avg(CounterValue) by Computer
-| count
 ```
 
 To modify this query, start by using the following query to identify the table that the properties in the first part of the query belong to: 
@@ -140,7 +156,6 @@ Perf
     | where CounterName == "% Processor Utility"
     | summarize by Computer))
 | summarize Avg_Idle_Time = avg(CounterValue) by Computer
-| count
 ``` 
 
 ### Example 4
@@ -154,7 +169,6 @@ search Type == 'SecurityEvent' and EventID == '4625'
     | summarize arg_max(TimeGenerated, Computer) by Computer , Hour = bin(TimeGenerated, 1h)
     | project Hour , Computer
 ) on Hour
-| count
 ```
 
 To modify the query, start by using the following query to identify the table that contains the properties in the left side of the join: 
@@ -187,7 +201,6 @@ SecurityEvent
     | summarize arg_max(TimeGenerated, Computer) by Computer , Hour = bin(TimeGenerated, 1h)
     | project Hour , Computer
 ) on Hour
-| count
 ```
 
 ## Next steps
