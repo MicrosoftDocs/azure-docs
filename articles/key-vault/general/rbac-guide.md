@@ -14,14 +14,14 @@ ms.author: mbaldwin
 # Provide access to Key Vault keys, certificates, and secrets with an Azure role-based access control (preview)
 
 Azure role-based access control (Azure RBAC)  is an authorization system built on [Azure Resource
-Manager](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview)
+Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)
 that provides fine-grained access management of Azure resources.
 
 Azure RBAC allows users to manage Key, Secrets, and Certificates permissions. It provides one place to manage all permissions across all key vaults. Previously Key Vaults object access management was only possible using key vault local access policies, which required you to navigate to each key vault separately
 
 The Azure RBAC model provides the ability to set permissions on different scope levels: management group, subscription, resource group, or individual objects. Apart from the ability to control permissions across key vaults, Azure RBAC for key vault also provides the ability to have separate permissions on individual keys, secrets, and certificates
 
-For more information : [Role-based access control(RBAC)](https://docs.microsoft.com/en-us/azure/role-based-access-control/overview).
+For more information : [Role-based access control(RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview).
 
 ## Best Practices for individual keys, secrets and certificates
 
