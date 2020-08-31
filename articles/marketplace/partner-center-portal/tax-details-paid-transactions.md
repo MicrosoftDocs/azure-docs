@@ -253,6 +253,7 @@ To understand your tax considerations for price selection, and tax responsibilit
 | Zambia                           | Price being selected is the final sale price and includes any applicable taxes.                                                                   | Price minus Store fee                 | Publisher          |
 | Zimbabwe                         | Price being selected is the final sale price and includes any applicable taxes.                                                                   | Price minus Store fee                 | Publisher          |
 |
+
 \* For purchases made through all customer purchase scenarios except Enterprise Agreement.
 
 The following applies only to Azure Marketplace Publishers, notwithstanding anything to the contrary above:
