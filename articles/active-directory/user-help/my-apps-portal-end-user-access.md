@@ -69,7 +69,7 @@ You can choose how many apps to view in the **Recently Used** section and decide
 
 3. In the **Settings** box, select the number of recent apps you want to see on the portal, and whether to allow your organization's internal URLs to redirect so you can use them remotely.
 
-    ![Settings page of the extension, showing the available customizations](media/my-apps-portal/my-apps-portal-extension-settings-page.png)
+   ![Settings page of the extension, showing the available customizations](media/my-apps-portal/my-apps-portal-extension-settings-page.png)
 
 ## Access to the My Apps portal by device
 
@@ -85,11 +85,11 @@ If you have permission to access and use your organization's cloud-based apps, y
 
 2. In a supported web browser, go to https://myapps.microsoft.com, or use the link provided by your organization if they direct you to a customized page such as `https://myapps.microsoft.com/contoso.com`.
 
-    The **Apps** page appears, showing all the cloud-based apps owned by your organization that are available for you to use.
+   The **Apps** page appears, showing all the cloud-based apps owned by your organization that are available for you to use.
 
 3. From the **Apps** page, select the app you want to start using.
 
-    A new page opens for the app, where you can sign in (if necessary) or begin using the app.
+   A new page opens for the app, where you can sign in (if necessary) or begin using the app.
 
 ### Access and use the My Apps portal on an Intune-managed browser
 
@@ -99,11 +99,11 @@ View and use your organization's apps from an Intune Managed Browser on your iOS
 
 2. Open the Intune Managed Browser app, go to https://myapps.microsoft.com, or use the link provided by your organization if they direct you to a customized page, such as https://myapps.microsoft.com/contoso.com.
 
-    The **Apps** page appears, showing all the cloud-based apps owned by your organization and available for you to use.
+   The **Apps** page appears, showing all the cloud-based apps owned by your organization and available for you to use.
 
 3. From the **Apps** page, select the app you want to start using.
 
-    A new page opens for the app, where you can sign in (if necessary) or begin using the app.
+   A new page opens for the app, where you can sign in (if necessary) or begin using the app.
 
 ### Access and use the My Apps portal on an iOS device
 
@@ -113,11 +113,11 @@ View and use the **My Apps** portal from an iPhone or iPad device, running iOS v
 
 2. Go to https://myapps.microsoft.com, or use the link provided by your organization if they direct you to a customized page, such as https://myapps.microsoft.com/contoso.com.
 
-    The **Apps** page appears, showing all the cloud-based apps owned by your organization that are available for you to use.
+   The **Apps** page appears, showing all the cloud-based apps owned by your organization that are available for you to use.
 
 3. From the **Apps** page, select the app you want to start using.
 
-    A new page opens for the app, where you can sign in (if necessary) or begin using the app.
+   A new page opens for the app, where you can sign in (if necessary) or begin using the app.
 
 ### Access and use the My Apps portal on an Android device
 
@@ -127,11 +127,11 @@ View and use the **My Apps** portal on an Android device.
 
 2. Go to https://myapps.microsoft.com, or use the link provided by your organization if they direct you to a customized page, such as https://myapps.microsoft.com/contoso.com.
 
-    The **Apps** page appears, showing all the cloud-based apps owned by your organization and available for you to use.
+   The **Apps** page appears, showing all the cloud-based apps owned by your organization and available for you to use.
 
 3. From the **Apps** page, select the app you want to start using.
 
-    A new page opens for the app, where you can sign in (if necessary) or begin using the app.
+   A new page opens for the app, where you can sign in (if necessary) or begin using the app.
 
 ## Add a new app to the My Apps portal
 
@@ -139,13 +139,13 @@ If your administrator has given you permission, you can add a new app to the **A
 
 1. From the **Apps** page, select **Add self-service apps**.
 
-       ![Add apps page, in the My Apps portal at myapplications.microsoft.com](media/my-apps-portal/my-apps-portal-add-app-link.png)
+   ![Add apps page, in the My Apps portal at myapplications.microsoft.com](media/my-apps-portal/my-apps-portal-add-app-link.png)
 
 2. Select the app you want to add from the provided list, and then select **Add**.
 
 3. The app is added to the list on the **Apps** page.
 
-    Some apps might require administrator approval before being added. When that happens, the app isn't added to the **Apps** page until the administrator approves it.
+   Some apps might require administrator approval before being added. When that happens, the app isn't added to the **Apps** page until the administrator approves it.
 
 ## Start a cloud-based app
 
@@ -153,7 +153,7 @@ You can start any of the available cloud-based apps from the **My Apps** portal.
 
 - From the **Apps** page, select the app you want to start using.
 
-    A new page opens for the app, where you can sign in (if necessary) or begin using the app.
+   A new page opens for the app, where you can sign in (if necessary) or begin using the app.
 
 ## Activities in the My Apps portal
 
