@@ -10,7 +10,8 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.topic: reference
 
-ms.collection: M365-identity-device-management
+ms.collection: M365-identity-device-management 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Azure AD Connect:  ADSyncTools PowerShell Reference
