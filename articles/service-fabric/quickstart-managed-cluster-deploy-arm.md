@@ -45,12 +45,12 @@ Take note of the certificate thumbprint as this will be required to deploy the t
 
 For this quickstart, provide your own values for the following template parameters: 
 * **Subscription**: Select an Azure subscription.
-* **Resource Group**: Select **Create new**. Enter a unique name for the resource group, such as *myResourceGroup*, the choose **OK**.
+* **Resource Group**: Select **Create new**. Enter a unique name for the resource group, such as *myResourceGroup*, then choose **OK**.
 * **Location**: Select a location, such as **East US**.
 * **Cluster Name**: Enter a unique name for your cluster, such as *mySFCluster*.
 * **Admin Username**: Enter a name for the admin to be used for RDP on the underlying VMs in the cluster.
 * **Admin Password**: Enter a password for the admin to be used for RDP on the underlying VMs in the cluster.
-* **Client Certificate Thumbprint**: Provide the thumprint of the client certificate that you would like to use to access your cluster. If you do not have a certificate, follow [steps]() to create a self-signed certificate. 
+* **Client Certificate Thumbprint**: Provide the thumbprint of the client certificate that you would like to use to access your cluster. If you do not have a certificate, follow [steps]() to create a self-signed certificate. 
 * **Node Type Name**: Enter a unique name for your node type, such as *myNodeType*.
 * **I agree to the terms and conditions stated above**: Check this box to agree. 
 
