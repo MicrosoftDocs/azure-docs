@@ -7,6 +7,7 @@ ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 10/07/2019
 ms.author: sngun
+ms.custom: devx-track-dotnet
 
 ---
 # Azure Cosmos DB.NET V3 SDK (Microsoft.Azure.Cosmos) examples for the SQL API

@@ -371,12 +371,16 @@
       href: partner-arkose-labs.md
     - name: Experian
       href: partner-experian.md
+    - name: HYPR
+      href: partner-hypr.md
     - name: IDology
       href: partner-idology.md
     - name: itsme
       href: partner-itsme.md
     - name: LexisNexis
       href: partner-lexisnexis.md
+    - name: Jumio
+      href: partner-jumio.md
     - name: Onfido
       href: partner-onfido.md
     - name: Trusona
@@ -385,6 +389,8 @@
       href: partner-twilio.md
     - name: TypingDNA
       href: partner-typingdna.md
+    - name: WhoIAM
+      href: partner-whoiam.md
   - name: Use b2clogin.com
     items:
     - name: b2clogin.com overview

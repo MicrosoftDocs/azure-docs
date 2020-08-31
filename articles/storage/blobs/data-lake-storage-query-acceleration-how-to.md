@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 04/21/2020
 ms.author: normesta
 ms.reviewer: jamsbak
+ms.custom: devx-track-csharp
 ---
 
 # Filter data by using Azure Data Lake Storage query acceleration (preview)

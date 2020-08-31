@@ -54,7 +54,7 @@ You can use this restore option to restore the complete file share in the origin
     ![Select restore point](./media/restore-afs/restore-point.png)
 
     >[!NOTE]
-    >By default, the **Select Restore Point** pane lists restore points from the last 30 days. If you want to look at the restore points created during a specific duration, please specify the range by selecting the appropriate **Start Time** and **End Time** and click the **Refresh** button.
+    >By default, the **Select Restore Point** pane lists restore points from the last 30 days. If you want to look at the restore points created during a specific duration, specify the range by selecting the appropriate **Start Time** and **End Time** and click the **Refresh** button.
 
 1. The next step is to choose the **Restore Location**. In the **Recovery Destination** section, specify where or how to restore the data. Select one of the following two options by using the toggle button:
 
