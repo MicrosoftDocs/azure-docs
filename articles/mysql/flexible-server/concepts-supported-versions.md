@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 08/28/2020
 ---
 
-# Supported Azure Database for MySQL server versions
+# Supported Azure Database for MySQL Flexible Server versions
 
 Azure Database for MySQL Flexible Server has been developed from [MySQL Community Edition](https://www.mysql.com/products/community/), using the InnoDB engine.
 
