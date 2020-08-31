@@ -36,7 +36,7 @@ Security Center offers the following options for working with security policies:
 * **Add regulatory compliance policies** - Security Center's regulatory compliance dashboard shows the status of all the assessments within your environment in the context of a particular standard or regulation (such as Azure CIS, NIST SP 800-53 R4, SWIFT CSP CSCF-v2020). For more information, see [Improve your regulatory compliance](security-center-compliance-dashboard.md).
 
 
-## Managing your security policies
+## Manage your security policies
 
 To view your security policies in Security Center:
 

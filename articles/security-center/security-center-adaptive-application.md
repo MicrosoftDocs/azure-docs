@@ -111,7 +111,7 @@ Select the recommendation, or open the adaptive application controls page to vie
 
 
 
-## Editing a group's adaptive application controls rule
+## Edit a group's adaptive application controls rule
 
 You might decide to edit the allow list for a group of machines because of known changes in your organization. 
 
@@ -146,7 +146,7 @@ To edit the rules for a group of machines:
 
 
 
-## Responding to the "Allowlist rules in your adaptive application control policy should be updated" recommendation
+## Respond to the "Allowlist rules in your adaptive application control policy should be updated" recommendation
 
 You'll see this recommendation when Security Center's machine learning identifies potentially legitimate behavior that hasn't previously been allowed. The recommendation suggests new rules for your existing definitions to reduce the number of false positive alerts.
 
@@ -163,7 +163,7 @@ To remediate the issues:
 
 
 
-## Auditing alerts and violations
+## Audit alerts and violations
 
 1. From Security Center's menu, select **Adaptive application controls**.
 
@@ -195,7 +195,7 @@ When you move a machine from one group to another, the application control polic
 
 
 
-## Managing application controls via the REST API 
+## Manage application controls via the REST API 
 
 To manage your adaptive application controls programatically, use our REST API. 
 
