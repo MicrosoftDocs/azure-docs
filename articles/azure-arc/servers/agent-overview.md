@@ -126,14 +126,6 @@ az provider register --namespace 'Microsoft.GuestConfiguration'
 
 You can also register the resource providers in the Azure portal by following the steps under [Azure portal](../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal).
 
-## Agent version
-
-The following table provides details on bug fixes and new features available for a given agent release.
-
-|Agent version |Details |Known issues |
-|--------------|--------|-------------|
-| 0.11 | Support for Ubuntu 20.04, and reliability improvements for extension deployments. |If you are using an older version of the agent on Linux and have configured the agent to use a proxy server, you will need to reconfigure the proxy server setting after the upgrade. To do this, run `sudo azcmagent_proxy add http://proxyserver.local:83` |
-
 ## Installation and configuration
 
 Connecting machines in your hybrid environment directly with Azure can be accomplished using different methods depending on your requirements. The following table highlights each method to determine which works best for your organization.

@@ -46,4 +46,4 @@ The Connected Machine agent sends a regular heartbeat message to the service eve
 
 ## Next steps
 
-Before evaluating or enabling Arc enabled servers (preview) across multiple hybrid machines, review the [Connected Machine agent overview](agent-overview.md) article to understand what is required, technical details about the agent, and deployment methods.
+Before evaluating or enabling Arc enabled servers (preview) across multiple hybrid machines, review [Connected Machine agent overview](agent-overview.md) article to understand requirements, technical details about the agent, and deployment methods.
