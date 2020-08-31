@@ -1,6 +1,6 @@
 ---
-title: Tutorial to filter, analyze data with compute on Azure Stack Edge | Microsoft Docs
-description: Learn how to configure compute role on Azure Stack Edge and use it to transform data before sending to Azure.
+title: Tutorial to filter, analyze data with compute on Azure Stack Edge GPU | Microsoft Docs
+description: Learn how to configure compute role on Azure Stack Edge GPU and use it to transform data before sending to Azure.
 services: databox
 author: alkohli
 
@@ -25,7 +25,7 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Configure compute
-> * Get Kubernetes API endpoint
+> * Get Kubernetes endpoints
 
  
 ## Prerequisites
