@@ -8734,6 +8734,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/web-application-firewall/ag/whats-new.md",
+      "redirect_url": "/azure/web-application-firewall/ag/ag-overview#whats-new",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/application-insights/app-insights-azure-diagnostics.md",
       "redirect_url": "/azure/azure-monitor/platform/diagnostics-extension-to-application-insights",
       "redirect_document_id": false
