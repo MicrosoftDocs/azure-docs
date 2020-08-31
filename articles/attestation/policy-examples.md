@@ -12,7 +12,7 @@ ms.author: mbaldwin
 ---
 # Examples of an attestation policy
 
-Attestation policy is used to process the attestation evidence and determines whether Azure Attestation shall issue an attestation token. Attestation token generation can be controlled with custom policies. Below are some examples of an attestation policy.
+Attestation policy is used to process the attestation evidence and determine whether Azure Attestation will issue an attestation token. Attestation token generation can be controlled with custom policies. Below are some examples of an attestation policy.
 
 ## Default policy for an SGX enclave with PolicyFormat=Text
 
