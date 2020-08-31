@@ -33,7 +33,9 @@ You can view the scope in the top left corner of the screen. If you're using you
 [![Scope](media/get-started-portal/scope.png)](media/get-started-portal/scope.png#lightbox)
 
 ## Table schema
-The left side of the screen includes the **Tables** tab which allows you to inspect the tables that are available in the current scope. These are groupd by **Solution** by default, but you change their grouping or filter them. For now, expand the **Security and Audit** solution and locate the **SecurityEvent** table.You can expand the table to view its schema, or hover over its name to show additional information about it. 
+The left side of the screen includes the **Tables** tab which allows you to inspect the tables that are available in the current scope. These are grouped by **Solution** by default, but you change their grouping or filter them. 
+
+Expand the **Log Management** solution and locate the **AzureActivity** table. You can expand the table to view its schema, or hover over its name to show additional information about it. 
 
 [![Tables view](media/get-started-portal/table-details.png)](media/get-started-portal/table-details.png#lightbox)
 
@@ -48,9 +50,36 @@ This is the simplest query that we can write. It just returns all the records in
 
 [![Query results](media/get-started-portal/query-results.png)](media/get-started-portal/query-results.png#lightbox)
 
-We have a message here that we're not seeing all of the results. This is because Log Analytics can return a maximum of 10,000 records, and our query returned more records than that. We can try to filter it by reducing our time range.
+You can see that we do have results. The number of records returned by the query is displayed in the bottom right corner. 
 
+## Filter
+
+Let's add a filter to the query to reduce the number of records that are returned. Select the **Filter** tab in the left pane. This shows different columns in the query results that you can use to filter the results. The top values in those columns are displayed with the number of records with that value. Click on **Administrative** under **CategoryValue** and then **Apply & Run**. 
+
+[![Query pane](media/get-started-portal/query-pane.png)](media/get-started-portal/query-pane.png#lightbox)
+
+A **where** statement is added to the query with the value you selected. The results now include only those records with that value so you can see that the record count is reduced.
+
+[![Query results filtered](media/get-started-portal/query-results-filter-01.png)](media/get-started-portal/query-results-filter-01.png#lightbox)
+
+
+## Time range
 All tables in a Log Analytics workspace have a column called **TimeGenerated** which is the time that the record was created. All queries have a time range that limits the results to records with a **TimeGenerated** value within that range. The time range can either be set in the query or with the selector at the top of the screen.
+
+By default, the query will return records form the last 24 hours. Select the **Time range** dropdown and change it to **7 days**. Click **Run** again to return the results. You can see that results are returned, but we have a message here that we're not seeing all of the results. This is because Log Analytics can return a maximum of 10,000 records, and our query returned more records than that. 
+
+[![Query results filtered](media/get-started-portal/query-results-max.png)](media/get-started-portal/query-results-max.png#lightbox)
+
+
+## Multiple query conditions
+Let's reduce our results further by adding another filter condition. A query can include any number of filters to target exactly the set of records that you want. Select **Success** under **ActivityStatusValue** and click **Apply & Run**. 
+
+[![Query results filtered](media/get-started-portal/query-results-filter-02.png)](media/get-started-portal/query-results-filter-02.png#lightbox)
+
+
+## Analyze results
+In addition to helping you write and run queries, Log Analytics provides features for working with the results. Start by expanding a record to view the values for all of its columns.
+
 
 
 
