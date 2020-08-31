@@ -30,9 +30,9 @@ The following are the list of Azure resources to which outbound private endpoint
 | --- | --- |
 | Azure Storage - Blob (or) ADLS Gen 2 | `blob`|
 | Azure Storage - Tables | `table`|
-| Cosmos DB - SQL API | `Sql`|
-| Azure SQL server | `sqlServer`|
-| Azure MySQL server (preview) | `mysqlServer`|
+| Azure Cosmos DB - SQL API | `Sql`|
+| Azure SQL Database | `sqlServer`|
+| Azure Database for MySQL (preview) | `mysqlServer`|
 | Azure Key Vault | `vault` |
 | Azure functions (preview) | `sites` |
 

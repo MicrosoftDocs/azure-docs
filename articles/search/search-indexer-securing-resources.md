@@ -19,12 +19,12 @@ Azure Cognitive Search indexers can make outbound calls to various Azure resourc
 | --- | --- |
 | Azure Storage (blobs, tables, ADLS Gen 2) | Data source |
 | Azure Storage (blobs, tables) | Skillsets (caching enriched documents, and storing knowledge store projections) |
-| Cosmos DB (various APIs) | Data source |
-| Azure SQL | Data source |
+| Azure Cosmos DB (various APIs) | Data source |
+| Azure SQL Database | Data source |
 | SQL server on Azure IaaS VMs | Data source |
 | SQL managed instances | Data source |
-| Azure functions | Host for custom web api skills |
-| Cognitive service resource | Attached to skillset that will be used to bill enrichment beyond the 20 free documents limit |
+| Azure Functions | Host for custom web api skills |
+| Cognitive Services | Attached to skillset that will be used to bill enrichment beyond the 20 free documents limit |
 
 > [!NOTE]
 > The cognitive service resource attached to a skillset is used for billing, based on the enrichments performed and written into the search index. It is not used for accessing the Cognitive Services APIs. Access from an indexer's enrichment pipeline to Cognitive Services APIs occurs via a secure communication channel, where data is strongly encrypted in transit and is never stored at rest.
@@ -34,12 +34,12 @@ Customers can secure these resources via several network isolation mechanisms of
 | Resource | IP Restriction | Private endpoint |
 | --- | --- | ---- |
 | Azure storage (blobs, tables, ADLS Gen 2) | Supported only if the storage account and search service are in different regions | Supported |
-| Cosmos DB - SQL API | Supported | Supported |
-| Cosmos DB - Cassandra, Mongo, and Gremlin API | Supported | Unsupported |
-| Azure SQL | Supported | Supported |
+| Azure Cosmos DB - SQL API | Supported | Supported |
+| Azure Cosmos DB - Cassandra, Mongo, and Gremlin API | Supported | Unsupported |
+| Azure SQL Database | Supported | Supported |
 | SQL server on Azure IaaS VMs | Supported | N/A |
 | SQL managed instances | Supported | N/A |
-| Azure functions | Supported | Supported, only for certain SKUs of Azure functions |
+| Azure Functions | Supported | Supported, only for certain SKUs of Azure functions |
 
 > [!NOTE]
 > In addition to the options listed above, for network secured Azure storage accounts, customers can leverage the fact that Azure Cognitive Search is a [trusted Microsoft service](https://docs.microsoft.com/azure/storage/common/storage-network-security#trusted-microsoft-services). This means that a specific search service can bypass virtual network or IP restrictions on the storage account and can access data in the storage account, if the appropriate role based access control is enabled on the storage account. Details are available in the [how to guide](search-indexer-howto-access-trusted-service-exception.md). This option can be utilized instead of the IP restriction route, in case either the storage account or the search service cannot be moved to a different region.
