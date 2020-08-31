@@ -85,7 +85,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-    In the **Sign-on URL** text box, type a URL:
+    In the **Sign-on URL** text box, type the URL:
     `https://askspoke.com/login`
 
 1. askSpoke application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
@@ -143,15 +143,15 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Click on **Settings** tab from the left navigation pane.
 
-    ![askSpoke Configuration](./media/askspoke-tutorial/configure1.png)
+    ![askSpoke settings tab](./media/askspoke-tutorial/configure1.png)
 
 1. Scroll down to **SSO** and click on **Connect**.
 
-    ![askSpoke Configuration](./media/askspoke-tutorial/configure2.png)
+    ![askSpoke connect](./media/askspoke-tutorial/configure2.png)
 
 1. On the **Enable SAML & SCIM** section, perform the following steps:
 
-    ![askSpoke Configuration](./media/askspoke-tutorial/configure3.png)
+    ![askSpoke Enable SAML & SCIM section](./media/askspoke-tutorial/configure3.png)
 
     1. In the **Sign-on URL** textbox, paste **Login URL** value, which you have copied from the Azure portal.
 

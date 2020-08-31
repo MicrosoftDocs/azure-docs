@@ -80,7 +80,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     a. In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://go.datava.com/<TENANT_NAME>`
 
-    b. In the **Reply URL** textbox, type a URL:
+    b. In the **Reply URL** textbox, type the URL:
     `https://go.datava.com/saml/module.php/saml/sp/saml2-acs.php/azure-sp`
 
 	> [!NOTE]

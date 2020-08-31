@@ -134,15 +134,15 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Click on the **Settings** tab.
 
-	![Mapbox Configuration](./media/mapbox-tutorial/configure1.png)
+	![Mapbox Settings tab](./media/mapbox-tutorial/configure1.png)
 
 1. Click on the **Security** tab from the left navigation pane.
 
-	![Mapbox Configuration](./media/mapbox-tutorial/configure2.png)
+	![Mapbox Security tab](./media/mapbox-tutorial/configure2.png)
 
 1. Click **Edit single sign-on**.
 
-	![Mapbox Configuration](./media/mapbox-tutorial/configure3.png)
+	![Mapbox Edit single sign-on](./media/mapbox-tutorial/configure3.png)
 
 1. Scroll down to **Step 3: Setup SAML single sign-on for Mapbox** and perform the following steps:
 

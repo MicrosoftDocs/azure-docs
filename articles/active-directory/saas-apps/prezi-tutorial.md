@@ -79,7 +79,7 @@ To enable Azure AD SSO in the Azure portal:
 
 1. Select **Set additional URLs**, and do the following step if you want to configure the application in **SP**-initiated mode:
 
-    In the **Sign-on URL** box, enter the URL `https://prezi.com/login/sso/`.
+    In the **Sign-on URL** box, enter the URL: `https://prezi.com/login/sso/`.
 
 1. Select **Save**.
 
