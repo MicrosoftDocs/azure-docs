@@ -38,7 +38,7 @@ This script uses following commands to create a managed disk from a VHD in diffe
 
 ## Next steps
 
-[Create a virtual machine by attaching a managed disk as OS disk](./virtual-machines-windows-powershell-sample-create-vm-from-managed-os-disks.md?toc=%2fpowershell%2fmodule%2ftoc.json)
+[Create a virtual machine by attaching a managed disk as OS disk](./virtual-machines-powershell-sample-create-vm-from-managed-os-disks.md)
 
 For more information on the Azure PowerShell module, see [Azure PowerShell documentation](/powershell/azure/).
 

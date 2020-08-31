@@ -32,7 +32,7 @@ This script creates a snapshot from a VHD file in a storage account in same or d
 [Create a managed disk from snapshot](virtual-machines-powershell-sample-create-managed-disk-from-snapshot.md?toc=%2fpowershell%2fmodule%2ftoc.json)
 
 
-[Create a virtual machine by attaching a managed disk as OS disk](./virtual-machines-powershell-sample-create-vm-from-managed-os-disks.md?toc=%2fpowershell%2fmodule%2ftoc.json)
+[Create a virtual machine by attaching a managed disk as OS disk](./virtual-machines-powershell-sample-create-vm-from-managed-os-disks.md)
 
 For more information on the Azure PowerShell module, see [Azure PowerShell documentation](/powershell/azure/).
 

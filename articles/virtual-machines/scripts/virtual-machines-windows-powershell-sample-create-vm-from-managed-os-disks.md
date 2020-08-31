@@ -1,25 +1,19 @@
 ---
-title: Make VM by attaching managed disk as OS disk (Windows) - PowerShell
+title: Make VM by attaching managed disk as OS disk - PowerShell
 description: Azure PowerShell Script Sample - Create a VM by attaching a managed disk as OS disk
-services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: ramankumarlive
 manager: kavithag
-editor: ramankum
-tags: azure-service-management
-
-ms.assetid:
 ms.service: virtual-machines-windows
-
+ms.subservice: disks
 ms.topic: sample
-ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: ramankum
 ms.custom: mvc, devx-track-azurepowershell
 ---
 
-# Create a virtual machine using an existing managed OS disk with PowerShell (Windows)
+# Create a virtual machine using an existing managed OS disk with PowerShell 
 
 This script creates a virtual machine by attaching an existing managed disk as OS disk. Use this script in preceding scenarios:
 * Create a VM from an existing managed OS disk that was copied from a managed disk in different subscription
