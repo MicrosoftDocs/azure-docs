@@ -191,7 +191,7 @@ In this section, you'll add a Private Endpoint to an existing Azure Cache for Re
 
 4. Select the **+ Private Endpoint** button to create your private endpoint.
 
-    :::image type="content" source="media/cache-private-link/11-add-private-endpoint.png" alt-text="Select private endpoint from list.":::
+    :::image type="content" source="media/cache-private-link/11-add-private-endpoint.png" alt-text="Add private endpoint.":::
 
 5. On the **Create a private endpoint page**, configure the settings for your private endpoint.
 
