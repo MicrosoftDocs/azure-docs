@@ -63,15 +63,26 @@ Container images for Read are available.
 
 | Container | Container Registry / Repository / Image Name |
 |-----------|------------|
-| Read | `containerpreview.azurecr.io/microsoft/cognitive-services-read:latest` |
+| Read 3.0 | `mcr.microsoft.com/azure-cognitive-services/vision/read:3.0` |
+| Read 3.1 | `mcr.microsoft.com/azure-cognitive-services/vision/read:3.1` |
 
 Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image.
 
 ### Docker pull for the Read container
 
+# [Version 3.0](#tab/version-3)
+
 ```bash
-docker pull containerpreview.azurecr.io/microsoft/cognitive-services-read:latest
+docker pull mcr.microsoft.com/azure-cognitive-services/vision/read:3.0
 ```
+
+# [Version 3.1](#tab/version-3-1)
+
+```bash
+docker pull mcr.microsoft.com/azure-cognitive-services/vision/read:3.1
+```
+
+---
 
 [!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)]
 
@@ -88,18 +99,33 @@ Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) 
 
 [Examples](computer-vision-resource-container-config.md#example-docker-run-commands) of the `docker run` command are available.
 
+# [Version 3.0](#tab/version-3)
+
 ```bash
-docker run --rm -it -p 5000:5000 --memory 16g --cpus 8 \
-containerpreview.azurecr.io/microsoft/cognitive-services-read \
-Eula=accept \
-Billing={ENDPOINT_URI} \
-ApiKey={API_KEY}
+docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
+mcr.microsoft.com/azure-cognitive-services/vision/read:3.0 \
+--env Eula=accept \
+--env Billing={ENDPOINT_URI} \
+--env ApiKey={API_KEY} \
 ```
+
+# [Version 3.1](#tab/version-3-1)
+
+```bash
+docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
+mcr.microsoft.com/azure-cognitive-services/vision/read:3.1 \
+--env Eula=accept \
+--env Billing={ENDPOINT_URI} \
+--env ApiKey={API_KEY} \
+```
+
+---
+
 
 This command:
 
 * Runs the Read container from the container image.
-* Allocates 8 CPU core and 16 gigabytes (GB) of memory.
+* Allocates 8 CPU core and 18 gigabytes (GB) of memory.
 * Exposes TCP port 5000 and allocates a pseudo-TTY for the container.
 * Automatically removes the container after it exits. The container image is still available on the host computer.
 
@@ -118,11 +144,19 @@ More [examples](./computer-vision-resource-container-config.md#example-docker-ru
 
 The container provides REST-based query prediction endpoint APIs. 
 
-Use the host, `http://localhost:5000`, for container APIs.
+Use the host, `http://localhost:5000`, for container APIs. You can view the Swagger path at `http://localhost:5000/swagger/vision-v3.0-read/swagger.json`.
 
 ### Asynchronous read
 
-You can use the `POST /vision/v2.0/read/core/asyncBatchAnalyze` and `GET /vision/v2.0/read/operations/{operationId}` operations in concert to asynchronously read an image, similar to how the Computer Vision service uses those corresponding REST operations. The asynchronous POST method will return an `operationId` that is used as the identifer to the HTTP GET request.
+# [Version 3.0](#tab/version-3)
+
+You can use the `POST /vision/v3.0/read/analyze` and `GET /vision/v3.0/read/operations/{operationId}` operations in concert to asynchronously read an image, similar to how the Computer Vision service uses those corresponding REST operations. The asynchronous POST method will return an `operationId` that is used as the identifer to the HTTP GET request.
+
+# [Version 3.1](#tab/version-3-1)
+
+You can use the `POST /vision/v3.1/read/analyze` and `GET /vision/v3.1/read/operations/{operationId}` operations in concert to asynchronously read an image, similar to how the Computer Vision service uses those corresponding REST operations. The asynchronous POST method will return an `operationId` that is used as the identifer to the HTTP GET request.
+
+---
 
 From the swagger UI, select the `asyncBatchAnalyze` to expand it in the browser. Then select **Try it out** > **Choose file**. In this example, we'll use the following image:
 
@@ -183,7 +217,15 @@ The `operation-location` is the fully qualified URL and is accessed via an HTTP 
 
 ### Synchronous read
 
-You can use the `POST /vision/v2.0/read/core/Analyze` operation to synchronously read an image. When the image is read in its entirety, then and only then does the API return a JSON response. The only exception to this is if an error occurs. When an error occurs the following JSON is returned:
+# [Version 3.0](#tab/version-3)
+
+You can use the `POST /vision/v3.0/read/SyncAnalyze` operation to synchronously read an image. When the image is read in its entirety, then and only then does the API return a JSON response. The only exception to this is if an error occurs. When an error occurs the following JSON is returned:
+
+# [Version 3.1](#tab/version-3-1)
+
+You can use the `POST /vision/v3.1/read/syncAnalyze` operation to synchronously read an image. When the image is read in its entirety, then and only then does the API return a JSON response. The only exception to this is if an error occurs. When an error occurs the following JSON is returned:
+
+---
 
 ```json
 {
