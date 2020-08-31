@@ -109,7 +109,7 @@ After creating the Recovery Services vault, the next step is to configure the va
 
 ## Initial backup
 
-You have enabled backup for the Recovery Services vaults, but an initial backup hasn't been created. It's a disaster recovery best practice to trigger the first backup, so that your data is protected.
+You've enabled backup for the Recovery Services vaults, but an initial backup hasn't been created. It's a disaster recovery best practice to trigger the first backup, so that your data is protected.
 
 To run an on-demand backup job:
 
