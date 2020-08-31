@@ -53,6 +53,8 @@ to create a new management group. In this example, the management group **groupI
   PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/Contoso?api-version=2020-02-01
   ```
 
+- No Request Body
+
 The **groupId** is a unique identifier being created. This ID is used by other commands to reference
 this group and it can't be changed later.
 
@@ -109,6 +111,8 @@ To remove the management group created above, use the
   ```http
   DELETE https://management.azure.com/providers/Microsoft.Management/managementGroups/Contoso?api-version=2020-02-01
   ```
+
+- No Request Body
 
 ## Next steps
 

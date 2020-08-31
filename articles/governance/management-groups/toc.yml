@@ -15,7 +15,7 @@
     href: ./create-management-group-portal.md
   - name: Create a management group - Azure CLI
     displayName: hierarchy
-    href: ./create-management-group-azurecli.md
+    href: ./create-management-group-azure-cli.md
   - name: Create a management group - Azure PowerShell
     displayName: hierarchy
     href: ./create-management-group-powershell.md

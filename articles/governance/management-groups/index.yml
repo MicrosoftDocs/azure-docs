@@ -35,7 +35,7 @@ landingContent:
           - text: Create a management group (Portal)
             url: ./create-management-group-portal.md
           - text: Create a management group (Azure CLI)
-            url: ./create-management-group-azurecli.md
+            url: ./create-management-group-azure-cli.md
           - text: Create a management group (Azure PowerShell)
             url: ./create-management-group-powershell.md
           - text: Create a management group (REST)
