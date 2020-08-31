@@ -93,6 +93,14 @@ The same considerations as in scenario 2 above apply. In this scenario, there ar
 >[!NOTE]
 > If you want to implement this scenario using a third party NVA or Azure Firewall, network rules instead of application rules is required to SNAT traffic destined to the private endpoints. Otherwise communication between the virtual machines and private endpoints will fail.
 
+## Prerequisites
+
+* An Azure subscription.
+* A Log Analytics workspace.  
+
+See, [Create a Log Analytics workspace in the Azure portal](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace) to create a workspace if you don't have one in your subscription.
+
+
 ## Sign in to Azure
 
 Sign in to the Azure portal at https://portal.azure.com.
@@ -107,7 +115,7 @@ Create three virtual networks and their corresponding subnets to:
 
 * Contain the Azure Firewall used to restrict communication between the VM and the private endpoint.
 * Host the VM that is used to access your private link resource.
-* The private endpoint.
+* Host the private endpoint.
 
 Replace the following parameters in the steps with the information below:
 
@@ -153,21 +161,21 @@ Replace the following parameters in the steps with the information below:
 
     | Setting | Value |
     | ------- | ----- |
-    | **PROJECT DETAILS** | |
+    | **Project details** | |
     | Subscription | Select your subscription. |
     | Resource group | Select **myResourceGroup**. You created this resource group in the previous section.  |
-    | **INSTANCE DETAILS** |  |
+    | **Instance details** |  |
     | Virtual machine name | Enter **myVM**. |
     | Region | Select **(US) South Central US**. |
     | Availability options | Leave the default **No infrastructure redundancy required**. |
     | Image | Select **Ubuntu Server 18.04 LTS - Gen1**. |
     | Size | Select **Standard_B2s**. |
-    | **ADMINISTRATOR ACCOUNT** |  |
+    | **Administrator account** |  |
     | Authentication type | Select **Password**. |
     | Username | Enter a username of your choosing. |
     | Password | Enter a password of your choosing. The password must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/linux/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     | Confirm Password | Reenter password. |
-    | **INBOUND PORT RULES** |  |
+    | **Inbound port rules** |  |
     | Public inbound ports | Select **None**. |
     |||
 
@@ -202,10 +210,10 @@ Replace the following parameters in the steps with the information below:
 
     | Setting | Value |
     | ------- | ----- |
-    | **PROJECT DETAILS** | |
+    | **Project details** | |
     | Subscription | Select your subscription. |
     | Resource group | Select **myResourceGroup**.  |
-    | **INSTANCE DETAILS** |  |
+    | **Instance details** |  |
     | Name | Enter **myAzureFirewall**. |
     | Region | Select **South Central US**. |
     | Availability zone | Leave the default **None**. |
@@ -218,9 +226,34 @@ Replace the following parameters in the steps with the information below:
 
 1. When you see the **Validation passed** message, select **Create**.
 
-## Create your private endpoint
+## Enable firewall logs
 
-In this section, you create a private SQL Database using a private endpoint.
+In this section, you enable the logs on the firewall.
+
+1. In the Azure portal, select **All resources** in the left hand menu.
+
+2. Select the firewall **myAzureFirewall** in the list of resources.
+
+3. Under **Monitoring** in the firewall settings, select **Diagnostic settings**
+
+4. Select **+ Add diagnostic setting** in the Diagnostic settings.
+
+5. In **Diagnostics setting**, enter or select this information:
+
+| Setting | Value |
+| ------- | ----- |
+| Diagnostic setting name | Enter **myDiagSetting**. |
+| Category details | |
+| log | Select **AzureFirewallApplicationRule** and **AzureFirewallNetworkRule**. |
+| Destination details | Select **Send to Log Analytics**. |
+| Subscription | Select your subscription. |
+| Log Analytics workspace | Select your Log Analytics workspace. |
+
+6. Select **Save**.
+
+## Create Azure SQL database
+
+In this section, you create a private SQL Database.
 
 1. On the upper-left side of the screen in the Azure portal, select **Create a resource** > **Databases** > **SQL Database**.
 
@@ -228,10 +261,10 @@ In this section, you create a private SQL Database using a private endpoint.
 
     | Setting | Value |
     | ------- | ----- |
-    | **PROJECT DETAILS** | |
+    | **Project details** | |
     | Subscription | Select your subscription. |
     | Resource group | Select **myResourceGroup**. You created this resource group in the previous section.|
-    | **DATABASE DETAILS** |  |
+    | **Database details** |  |
     | Database name  | Enter **mydatabase**.  |
     | Server | Select **Create new** and enter the information below.    |
     | Server name | Enter **mydbserver**. If this name is taken, enter a unique name.   |
@@ -242,35 +275,69 @@ In this section, you create a private SQL Database using a private endpoint.
     | Want to use SQL elastic pool    | Leave the default **No**. |
     | Compute + storage | Leave the default **General Purpose Gen5, 2 vCores, 32 GB Storage**. |
     |||
-  
-1. Select **Next: Networking**.
-
-1. In **Create SQL Database - Networking**, connectivity method, select **Private Endpoint**.
-
-1. In **Create SQL Database - Networking**, select **Add Private Endpoint**.
-
-1. In **Create Private Endpoint**, enter or select this information:
-
-    | Setting | Value |
-    | ------- | ----- |
-    | **PROJECT DETAILS** | |
-    | Subscription | Select your subscription. |
-    | Resource group | Select **myResourceGroup**. You created this resource group in the previous section.|
-    |Location|Select **(US) South Central US**.|
-    |Name|Enter **SQLPrivateEndpoint**.  |
-    | **NETWORKING** |  |
-    | Virtual network  | Select **myPEVNet** from resource group **myResourceGroup**. |
-    | Subnet | Select **PrivateEndpointSubnet**. |
-    | **PRIVATE DNS INTEGRATION**|  |
-    | Integrate with private DNS zone  | Leave the default **Yes**. |
-    | Private DNS zone  | Leave the default **(New) privatelink.database.windows.net**. |
-    |||
-
-1. Select **OK**.
 
 1. Select **Review + create**. You're taken to the **Review + create** page where Azure validates your configuration.
 
 1. When you see the **Validation passed** message, select **Create**.
+
+## Create private endpoint
+
+In this section, you create a private endpoint for the Azure SQL database in the previous section.
+
+1. In the Azure portal, select **All resources** in the left hand menu.
+
+2. Select the Azure SQL server **mydbserver** in the list of services.  If you used a different server name, choose that name.
+
+3. In the server settings, select **Private endpoint connections** under **Security**.
+
+4. Select **+ Private endpoint**.
+
+5. In **Create a private endpoint**, enter or select this information in the **Basics** tab:
+
+    | Setting | Value |
+    | ------- | ----- |
+    | **Project details** | |
+    | Subscription | Select your subscription. |
+    | Resource group | Select **myResourceGroup**. |
+    | **Instance details** | |
+    | Name | Enter **SQLPrivateEndpoint**. |
+    | Region | Select **(US) South Central US.** |
+
+6. Select the **Resource** tab or select **Next: Resource** at the bottom of the page.
+
+7. In the **Resource** tab, enter or select this information:
+
+    | Setting | Value |
+    | ------- | ----- |
+    | Connection method | Select **Connect to an Azure resource in my directory**. |
+    | Subscription | Select your subscription. |
+    | Resource type | Select **Microsoft.Sql/servers**. |
+    | Resource | Select **mydbserver** or the name of the server you created in the previous step.
+    | Target sub-resource | Select **sqlServer**. |
+
+8. Select the **Configuration** tab or select **Next: Configuration** at the bottom of the page.
+
+9. In the **Configuration** tab, enter or select this information:
+
+    | Setting | Value |
+    | ------- | ----- |
+    | **Networking** | |
+    | Virtual network | Select **myPEVnet**. |
+    | Subnet | Select **PrivateEndpointSubnet**. |
+    | **Private DNS integration** | |
+    | Integrate with private DNS zone | Select **Yes**. |
+    | Subscription | Select your subscription. |
+    | Private DNS zones | Leave the default **privatelink.database.windows.net**. |
+
+10. Select the **Review + create** tab or select **Review + create** at the bottom of the page.
+
+11. Select **Create**.
+
+12. After the endpoint is created, select **Firewalls and virtual networks** under **Security**.
+
+13. In **Firewalls and virtual networks**, select **Yes** next to **Allow Azure services and resources to access this server**.
+
+14. Select **Save**.
 
 ## Connect the virtual networks using virtual network peering
 
@@ -278,20 +345,20 @@ In this section, we'll connect virtual networks **myVMVNet** and **myPEVNet** to
 
 1. In the portal's search bar, enter **myAzFwVNet**.
 
-1. Select **Peerings** under **Settings** menu and select the **Add** button.
+2. Select **Peerings** under **Settings** menu and select **+ Add**.
 
-1. In **Add Peering** enter or select the following information:
+3. In **Add Peering** enter or select the following information:
 
     | Setting | Value |
     | ------- | ----- |
     | Name of the peering from myAzFwVNet to remote virtual network | Enter **myAzFwVNet-to-myVMVNet**. |
-    | **PEER DETAILS** |  |
+    | **Peer details** |  |
     | Virtual network deployment model  | Leave the default **Resource Manager**.  |
     | I know my resource ID | Leave unchecked.    |
     | Subscription | Select your subscription.    |
     | Virtual network | Select **myVMVNet**. |
     | Name of the peering from remote virtual network to myAzFwVNet    |    Enter **myVMVNet-to-myAzFwVNet**.    |
-    | **CONFIGURATION** | |
+    | **Configuration** | |
     | **Configure virtual network access settings** | |
     | Allow virtual network access from myAzFwVNet to remote virtual network | Leave the default **Enabled**.    |
     | Allow virtual network access from remote virtual network to myAzFwVNet    | Leave the default **Enabled**.    |
@@ -302,9 +369,32 @@ In this section, we'll connect virtual networks **myVMVNet** and **myPEVNet** to
     | Allow gateway transit | Leave unchecked |
     |||
 
-1. Select **OK**.
+4. Select **OK**.
 
-1. Repeat steps 2-4 to create a virtual network peering between virtual networks **myAzFwVNet** and **myPEVNet**.
+5. Select **+ Add**.
+
+6. In **Add Peering** enter or select the following information:
+
+    | Setting | Value |
+    | ------- | ----- |
+    | Name of the peering from myAzFwVNet to remote virtual network | Enter **myAzFwVNet-to-myPEVNet**. |
+    | **Peer details** |  |
+    | Virtual network deployment model  | Leave the default **Resource Manager**.  |
+    | I know my resource ID | Leave unchecked.    |
+    | Subscription | Select your subscription.    |
+    | Virtual network | Select **myPEVNet**. |
+    | Name of the peering from remote virtual network to myAzFwVNet    |    Enter **myPEVNet-to-myAzFwVNet**.    |
+    | **Configuration** | |
+    | **Configure virtual network access settings** | |
+    | Allow virtual network access from myAzFwVNet to remote virtual network | Leave the default **Enabled**.    |
+    | Allow virtual network access from remote virtual network to myAzFwVNet    | Leave the default **Enabled**.    |
+    | **Configure forwarded traffic settings** | |
+    | Allow forwarded traffic from remote virtual network to myAzFwVNet    | Select **Enabled**. |
+    | Allow forwarded traffic from myAzFwVNet to remote virtual network | Select **Enabled**. |
+    | **Configure gateway transit settings** | |
+    | Allow gateway transit | Leave unchecked |
+
+7. Select **OK**.
 
 ## Link the virtual networks to the private DNS zone
 
@@ -317,24 +407,26 @@ The link is required for the VM and firewall to resolve the FQDN of database to 
 
 1. In the portal's search bar, enter **privatelink.database**.
 
-1. Select **Virtual network links** under **Settings** menu and select the **Add** button.
+2. Select **privatelink.database.windows.net** in the search results.
 
-1. In **Add virtual network link** enter or select the following information:
+3. Select **Virtual network links** under **Settings**.
+
+4. Select **+ Add**
+
+5. In **Add virtual network link** enter or select the following information:
 
     | Setting | Value |
     | ------- | ----- |
     | Link name | Enter **Link-to-myVMVNet**. |
-    | **VIRTUAL NETWORK DETAILS** |  |
+    | **Virtual network details** |  |
     | I know the resource ID of virtual network  | Leave unchecked.  |
     | Subscription | Select your subscription.    |
     | Virtual network | Select **myVMVNet**. |
     | **CONFIGURATION** | |
     | Enable auto registration | Leave unchecked.    |
-    |||
 
-1. Select **OK**.
 
-1. Repeat steps 2-4 to create a virtual network link between **privatelink.database.windows.net** private DNS zone and virtual network **myAzFwVNet**.
+6. Select **OK**.
 
 ## Configure an application rule with SQL FQDN in Azure Firewall
 
@@ -344,18 +436,22 @@ This rule allows communication through the firewall that we created in the previ
 
 1. In the portal's search bar, enter **myAzureFirewall**.
 
-1. Select **Rules** under **Settings** menu.
+2. Select **myAzureFirewall** in the search results.
 
-1. Select **Application rule collection** and select **Add application rule collection**.
+3. Select **Rules** under **Settings** in the **myAzureFirewall** overview.
 
-1. In **Add application rule collection** enter or select the following information:
+4. Select the **Application rule collection** tab.
+
+5. Select **+ Add application rule collection**.
+
+6. In **Add application rule collection** enter or select the following information:
 
     | Setting | Value |
     | ------- | ----- |
     | Name | Enter **SQLPrivateEndpoint**. |
     | Priority | Enter **100**. |
     | Action | Enter **Allow**. |
-    | **RULES** |  |
+    | **Rules** |  |
     | **FQDN tags** | |
     | Name  | Leave blank.  |
     | Source type | Leave the default **IP address**.    |
@@ -365,11 +461,11 @@ This rule allows communication through the firewall that we created in the previ
     | Name | Enter **SQLPrivateEndpoint**.    |
     | Source type | Leave the default **IP address**. |
     | Source | Enter **10.1.0.0/16**. |
-    | Protocol: Port | Enter **Mssql: 1433**. |
+    | Protocol: Port | Enter **mssql:1433**. |
     | Target FQDNs | Enter **mydbserver.database.windows.net**. |
     |||
 
-1. Select **Save**.
+7. Select **Add**.
 
 ## Route traffic between the virtual machine and private endpoint through Azure Firewall
 
@@ -381,68 +477,77 @@ The route sends traffic from the **myVM** subnet to the address space of virtual
 
 1. On the Azure portal menu or from the **Home** page, select **Create a resource**.
 
-1. Type **route table** in the search box and press **Enter**.
+2. Type **route table** in the search box and press **Enter**.
 
-1. Select **Route table** and then select **Create**.
+3. Select **Route table** and then select **Create**.
 
-1. On the **Create Route table** page, use the following table to configure the route table:
+4. On the **Create Route table** page, use the following table to configure the route table:
 
     | Setting | Value |
     | ------- | ----- |
-    | **PROJECT DETAILS** | |
+    | **Project details** | |
     | Subscription | Select your subscription. |
     | Resource group | Select **myResourceGroup**.  |
-    | **INSTANCE DETAILS** |  |
+    | **Instance details** |  |
     | Region | Select **South Central US**. |
-    | Name | Enter **VMsubnet-to-AzFW**. |
+    | Name | Enter **VMsubnet-to-AzureFirewall**. |
     | Propagate gateway routes | Select **No**. |
-    |||
 
-1. Select **Review + create**. You're taken to the **Review + create** page where Azure validates your configuration.
+5. Select **Review + create**. You're taken to the **Review + create** page where Azure validates your configuration.
 
-1. When you see the **Validation passed** message, select **Create**.
+6. When you see the **Validation passed** message, select **Create**.
 
-1. Once the deployment completes select **Go to resource**.
+7. Once the deployment completes select **Go to resource**.
 
-1. Select **Routes** from the **Settings** menu and select **Add**.
+8. Select **Routes** under **Settings**.
 
-1. On the **Add route** page, use the following table to configure the route:
+9. Select **+ Add**.
+
+10. On the **Add route** page, enter or select this information:
 
     | Setting | Value |
     | ------- | ----- |
-    | Route name | Enter **to-privateendpoint**. |
+    | Route name | Enter **myVMsubnet-to-privateendpoint**. |
     | Address prefix | Enter **10.2.0.0/16**.  |
     | Next hop type | Select **Virtual appliance**. |
     | Next hop address | Enter **10.0.0.4**. |
-    |||
 
-1. Select **OK**.
+11. Select **OK**.
 
-1. Select **Subnets** from the **Settings** menu and select **Associate**.
+12. Select **Subnets** under **Settings**.
 
-1. On the **Associate subnet** page, use the following table to associate the route table with **VMSubnet**:
+13. Select **+ Associate**.
+
+14. On the **Associate subnet** page, enter or select this information:
 
     | Setting | Value |
     | ------- | ----- |
     | Virtual network | Select **myVMVNet**. |
     | Subnet | Select **VMSubnet**.  |
-    |||
 
-1. Select **OK**.
+15. Select **OK**.
 
 ## Connect to the virtual machine from your client computer
 
 Connect to the VM **myVm** from the internet as follows:
 
-1. In the portal's search bar, enter **myVm**.
+1. In the portal's search bar, enter **myVm-ip**.
 
-1. Select the **Connect** button. After selecting the **Connect** button, **Connect to virtual machine** opens.
+2. Select **myVM-ip** in the search results.
 
-1. Select **SSH** and copy the example command in section **4. Run the example command below to connect to your VM**.
+3. Copy or write down the value under **IP address**.
 
-1. If you're using Windows 10, run the command using PowerShell. For other Windows client versions, use an SSH client like [Putty](https://www.putty.org/)
+4. If you're using Windows 10, run the following command using PowerShell. For other Windows client versions, use an SSH client like [Putty](https://www.putty.org/):
 
-1. Enter the password you defined when creating **myVm**
+* Replace **username** with the admin username you entered during VM creation.
+
+* Replace **IPaddress** with the IP address from the previous step.
+
+```bash
+ssh username@IPaddress
+```
+
+5. Enter the password you defined when creating **myVm**
 
 ## Access SQL Server privately from the virtual machine
 
@@ -457,24 +562,39 @@ In this section, you'll connect privately to the SQL Database using the private 
     Address:        127.0.0.53#53
 
     Non-authoritative answer:
-    mypdbserver.database.windows.net       canonical name = mydbserver.privatelink.database.windows.net.
-    Name:   mypedbserver.privatelink.database.windows.net
+    mydbserver.database.windows.net       canonical name = mydbserver.privatelink.database.windows.net.
+    Name:   mydbserver.privatelink.database.windows.net
     Address: 10.2.0.4
     ```
 
-1. Install [SQL Server and SQL Server command-line tools](https://docs.microsoft.com/sql/linux/quickstart-install-connect-ubuntu?view=sql-server-ver15).
+2. Install [SQL Server command-line tools](https://docs.microsoft.com/sql/linux/quickstart-install-connect-ubuntu?view=sql-server-ver15#tools).
 
-1. Run the following command to connect to the SQL Server. Use the server admin and password you defined when you created the SQL Server in the previous steps.
+3. Run the following command to connect to the SQL Server. Use the server admin and password you defined when you created the SQL Server in the previous steps.
+
+* Replace **\<ServerAdmin>** with the admin username you entered during the SQL server creation.
+
+* Replace **\<YourPassword>** with the admin password you entered during SQL server creation.
 
     ```bash
-    sqlcmd -S mypdbserver.database.windows.net -U '<ServerAdmin>' -P '<YourPassword>'
+    sqlcmd -S mydbserver.database.windows.net -U '<ServerAdmin>' -P '<YourPassword>'
     ```
+4. A SQL command prompt will be displayed on successful login. Enter **exit** to exit the **sqlcmd** tool.
 
-1. Validate that [Azure Firewall logs](..\Firewall\log-analytics-samples.md) show the traffic is allowed.
+5. Close the connection to **myVM** by entering **exit**.
 
-1. (Optionally) [Create a new database](https://docs.microsoft.com/sql/linux/quickstart-install-connect-ubuntu?view=sql-server-ver15).
+## Validate the traffic in Azure Firewall logs
 
-1. Close the connection to **myVM** by typing `exit`.
+1. In the Azure portal, select **All Resources** and select your Log Analytics workspace.
+
+2. Select **Logs** under **General** in the Log Analytics workspace page.
+
+3. Select the blue **Get Started** button.
+
+4. In the **Example queries** window, select **Firewalls** under **All Queries**.
+
+5. Select the **Run** button under **Application rule log data**.
+
+6. In the log query output, verify **mydbserver.database.windows.net** is listed under **FQDN** and **SQLPrivateEndpoint** is listed under **RuleCollection**.
 
 ## Clean up resources
 
