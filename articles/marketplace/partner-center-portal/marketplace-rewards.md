@@ -31,7 +31,7 @@ To check your eligibility for the Marketplace Rewards program, see the [Marketpl
 Your steps to get started are easy:
 
 1. Publish an offer in either Microsoft AppSource or Azure Marketplace.
-1. To see your list of benefits, go to the [Marketplace Rewards](https://partner.microsoft.com/en-us/dashboard/mpn/program/commercialmarketplace) page in Partner Center, and select the **Sales and Marketing benefits** tab.
+1. To see your list of benefits, go to the [Marketplace Rewards](https://partner.microsoft.com/dashboard/mpn/program/commercialmarketplace) page in Partner Center, and select the **Sales and Marketing benefits** tab.
 1. To activate sales and marketing benefit, you must first assign a company marketing contact. This contact will receive follow-up communications about your Marketplace Rewards.
 1. To add or update your marketing contact information, go to the top of the Sales and Marketing benefits tab on Marketplace Rewards page, then select **Add, update, or change**.  Next, do the following:
 
