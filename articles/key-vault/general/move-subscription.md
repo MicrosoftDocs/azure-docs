@@ -55,8 +55,6 @@ Make sure that you go to the Azure Policy page on the Azure portal and look at t
 
 ## Procedure
 
-If you 
-
 ### Moving Key Vault to a new subscription within the same tenant
 
 1. Log in to the Azure portal
