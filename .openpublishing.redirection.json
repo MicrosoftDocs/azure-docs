@@ -33611,7 +33611,7 @@
     {
       "source_path": "articles/active-directory/active-directory-passwords-troubleshoot.md",
       "redirect_url": "/azure/active-directory/authentication/troubleshoot-sspr",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/multi-factor-authentication/nps-extension-vpn.md",
