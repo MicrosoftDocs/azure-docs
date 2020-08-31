@@ -29,7 +29,7 @@ Follow the steps below to use the module before the official release is availabl
 * [Download and load Modules](https://github.com/a-santamaria/ServiceFabricManagedClustersClients#download-and-load-modules)
 * [Documentation and Examples](https://github.com/a-santamaria/ServiceFabricManagedClustersClients#documentation-and-examples). 
 
-## Scale a Managed Service Fabric cluster (Using Preview Modules)
+## Scale a Managed Service Fabric cluster (using preview modules)
 Change the instance count to increase or decrease the number of nodes on the node type that you would like to scale. You can find node type names in the ARM template from your cluster deployment, or in the Service Fabric Explorer. 
 
 > [!Note]
@@ -46,7 +46,7 @@ Set-AzServiceFabricManagedNodeType -ResourceGroupName $resourceGroup -ClusterNam
 
 The cluster will begin upgrading automatically and after a few minutes you will see the additional nodes.
 
-## Scale a Managed Service Fabric cluster (Without Preview Modules)
+## Scale a Managed Service Fabric cluster (Without preview modules)
 If you do not wish to install the pre-release modules, you can still scale your node type. Get the Azure resource for the target node type, and set the property `vmInstanceCount` to the desired number of nodes. Trigger the changes by setting the resource. 
 
 <!-- Any suggestions for an easy way to ge the resource ID? -->
