@@ -30,7 +30,7 @@ Azure Logic Apps helps you schedule and automate business processes and workflow
 
 Every logic app must start with a trigger, which fires when a specific event happens or when a specific condition is met. Each time the trigger fires, the Logic Apps engine creates a logic app instance that starts and runs your workflow.
 
-The Ethereum Blockchain connector has one trigger and several actions. Which trigger or action you use depends on your scenario.
+The Ethereum Blockchain connector has one trigger and several actions. Which trigger or action you use depends on your scenario. Follow the section in this article that best matches your scenario.
 
 If your workflow:
 
