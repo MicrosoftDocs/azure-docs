@@ -150,8 +150,37 @@ The `result` contains the message.
 
 Calling **peekMessages** when there are no messages in the queue won't return an error. However, no messages are returned.
 
+## How to change the contents of a queued message
 
-## How to dequeue the next message
+The following example updates the text of a message.
+
+# [JavaScript v12](#tab/javascript)
+
+Change the contents of a message in-place in the queue by calling [updateMessage](/javascript/api/@azure/storage-queue/queueclient#updatemessage-string--string--string--number--queueupdatemessageoptions-). 
+
+:::code language="javascript" source="~/azure-storage-snippets/queues/howto/JavaScript/JavaScript-v12/javascript-queues-v12.js" id="Snippet_UpdateMessage":::
+
+# [JavaScript v2](#tab/javascript2)
+
+Change the contents of a message in-place in the queue by calling **updateMessage**. 
+
+```javascript
+queueSvc.getMessages('myqueue', function(error, getResults, getResponse){
+  if(!error){
+    // Got the message
+    var message = getResults[0];
+    queueSvc.updateMessage('myqueue', message.messageId, message.popReceipt, 10, {messageText: 'new text'}, function(error, updateResults, updateResponse){
+      if(!error){
+        // Message updated successfully
+      }
+    });
+  }
+});
+```
+
+---
+
+## How to dequeue a message
 
 Dequeueing a message is a two-stage process:
 
@@ -192,37 +221,6 @@ queueSvc.getMessages('myqueue', function(error, results, response){
 By default, a message is only hidden for 30 seconds. After 30 seconds it's visible to other clients. You can specify a different value by using `options.visibilityTimeout` with **getMessages**.
 
 Using **getMessages** when there are no messages in the queue won't return an error. However, no messages will be returned.
-
----
-
-
-## How to change the contents of a queued message
-
-The following example updates the text of a message.
-
-# [JavaScript v12](#tab/javascript)
-
-Change the contents of a message in-place in the queue by calling [updateMessage](/javascript/api/@azure/storage-queue/queueclient#updatemessage-string--string--string--number--queueupdatemessageoptions-). 
-
-:::code language="javascript" source="~/azure-storage-snippets/queues/howto/JavaScript/JavaScript-v12/javascript-queues-v12.js" id="Snippet_UpdateMessage":::
-
-# [JavaScript v2](#tab/javascript2)
-
-Change the contents of a message in-place in the queue by calling **updateMessage**. 
-
-```javascript
-queueSvc.getMessages('myqueue', function(error, getResults, getResponse){
-  if(!error){
-    // Got the message
-    var message = getResults[0];
-    queueSvc.updateMessage('myqueue', message.messageId, message.popReceipt, 10, {messageText: 'new text'}, function(error, updateResults, updateResponse){
-      if(!error){
-        // Message updated successfully
-      }
-    });
-  }
-});
-```
 
 ---
 
@@ -313,7 +311,7 @@ If all queues can't be returned, pass `result.continuationToken` as the first pa
 
 ---
 
-## How to Delete a Queue
+## How to delete a Queue
 
 # [JavaScript v12](#tab/javascript)
 
@@ -341,7 +339,7 @@ To clear all messages from a queue without deleting it, call **clearMessages**.
 
 [!INCLUDE [storage-check-out-samples-all](../../../includes/storage-check-out-samples-all.md)]
 
-## Next Steps
+## Next steps
 
 Now that you've learned the basics of queue storage, follow these links to learn about more complex storage tasks.
 
