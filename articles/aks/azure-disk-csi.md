@@ -108,7 +108,7 @@ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azuredisk-csi
 volumesnapshotclass.snapshot.storage.k8s.io/csi-azuredisk-vsc created
 ```
 
-Now let's create a [volume snapshot](https://github.com/kubernetes-sigs/azuredisk-csi-driver/blob/master/deploy/example/snapshot/azuredisk-volume-snapshot.yaml) from the PVC [we dynamically created at the beginning of this tutorial](#dynamically-create-azure-disk-PVs-using-the-built-in-storage-classes), `pvc-azuredisk`.
+Now let's create a [volume snapshot](https://github.com/kubernetes-sigs/azuredisk-csi-driver/blob/master/deploy/example/snapshot/azuredisk-volume-snapshot.yaml) from the PVC [we dynamically created at the beginning of this tutorial](#dynamically-create-azure-disk-pvs-using-the-built-in-storage-classes), `pvc-azuredisk`.
 
 
 ```bash
@@ -177,7 +177,7 @@ As expected we can still see our previously created `test.txt` file.
 
 A cloned volume is defined as a duplicate of an existing Kubernetes Volume. For more information on cloning volumes in Kubernetes see the conceptual documentation for [Volume Cloning](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#volume-cloning).
 
-The CSI driver for Azure Disks supports volume cloning, to demonstrate we'll create a [cloned volume](https://github.com/kubernetes-sigs/azuredisk-csi-driver/blob/master/deploy/example/cloning/nginx-pod-restored-cloning.yaml) of the [previously created](#dynamically-create-azure-disk-PVs-using-the-built-in-storage-classes) `azuredisk-pvc` and [a new pod to consume it](https://github.com/kubernetes-sigs/azuredisk-csi-driver/blob/master/deploy/example/cloning/nginx-pod-restored-cloning.yaml).
+The CSI driver for Azure Disks supports volume cloning, to demonstrate we'll create a [cloned volume](https://github.com/kubernetes-sigs/azuredisk-csi-driver/blob/master/deploy/example/cloning/nginx-pod-restored-cloning.yaml) of the [previously created](#dynamically-create-azure-disk-pvs-using-the-built-in-storage-classes) `azuredisk-pvc` and [a new pod to consume it](https://github.com/kubernetes-sigs/azuredisk-csi-driver/blob/master/deploy/example/cloning/nginx-pod-restored-cloning.yaml).
 
 
 
@@ -204,9 +204,10 @@ test.txt
 
 You may also request a larger volume for a PVC. To do so edit the PVC object and specify a larger size. This triggers the expansion of the the underlying volume that backs the PersistentVolume. 
 
-> [!NOTE] A new PersistentVolume is never created to satisfy the claim. Instead, an existing volume is resized.
+> [!NOTE] 
+> A new PersistentVolume is never created to satisfy the claim. Instead, an existing volume is resized.
 
-In AKS the built-in `managed-csi` storage class already allows for expansion, so we'll just leverage the [pvc created earlier with this storage class](#dynamically-create-azure-disk-PVs-using-the-built-in-storage-classes). The PVC requested a 10Gi persistent volume, we can confirm that by running:
+In AKS the built-in `managed-csi` storage class already allows for expansion, so we'll just leverage the [pvc created earlier with this storage class](#dynamically-create-azure-disk-pvs-using-the-built-in-storage-classes). The PVC requested a 10Gi persistent volume, we can confirm that by running:
 
 ```console 
 $ kubectl exec -it nginx-azuredisk -- df -h /mnt/azuredisk
@@ -243,7 +244,8 @@ pvc-391ea1a6-0191-4022-b915-c8dc4216174a   15Gi       RWO            Delete     
 (...)
 ```
 
-> [!NOTE] The PVC won't reflect the new size until it has a pod associated to it again.
+> [!NOTE] 
+> The PVC won't reflect the new size until it has a pod associated to it again.
 
 Let's create a new pod:
 
