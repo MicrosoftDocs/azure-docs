@@ -98,11 +98,11 @@ The Backup operation failed due to an issue with Windows service **COM+ System**
 Error code: ExtensionFailedVssWriterInBadState <br/>
 Error message: Snapshot operation failed because VSS writers were in a bad state.
 
-This error occurs because the VSS writers were in a bad state. Azure Backup extensions interact with VSS Writers for taking snapshots of the disks. To resolve this issue, follow these steps:
+This error occurs because the VSS writers were in a bad state. Azure Backup extensions interact with VSS Writers to take snapshots of the disks. To resolve this issue, follow these steps:
 
 Restart VSS writers that are in a bad state.
 - From an elevated command prompt, run ```vssadmin list writers```.
-- The output contains all VSS writers and their state. For every VSS writer with a state that's not [1] Stable, restart the respective VSS writer's service. 
+- The output contains all VSS writers and their state. For every VSS writer with a state that's not **[1] Stable**, restart the respective VSS writer's service. 
 - To restart the service, run the following commands from an elevated command prompt:
 
  ```net stop serviceName``` <br>
@@ -124,7 +124,7 @@ REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v SnapshotWithoutThre
 Error code: ExtensionFailedVssServiceInBadState <br/>
 Error message: Snapshot operation failed due to VSS (Volume Shadow Copy) service in bad state.
 
-This error occurs because the VSS service was in a bad state. Azure Backup extensions interact with VSS service for taking snapshots of the disks. To resolve this issue, follow these steps:
+This error occurs because the VSS service was in a bad state. Azure Backup extensions interact with VSS service to take snapshots of the disks. To resolve this issue, follow these steps:
 
 Restart VSS (Volume Shadow Copy) service.
 - Navigate to Services.msc and restart 'Volume Shadow Copy service'.<br>
@@ -135,25 +135,25 @@ Restart VSS (Volume Shadow Copy) service.
  ```net start VSS```
 
  
-If the issue still persist, restart the VM at the scheduled downtime.
+If the issue still persists, restart the VM at the scheduled downtime.
 
 ### UserErrorSkuNotAvailable - VM creation failed as VM size selected is not available
 
 Error code: UserErrorSkuNotAvailable 
 Error message: VM creation failed as VM size selected is not available. 
  
-This error occurs because the VM size selected during the restore operation is of unsupported size. <br>
+This error occurs because the VM size selected during the restore operation is an unsupported size. <br>
 
-To resolve this issue, use [restore disks](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#restore-disks) option during restore operation and use those disks to create a VM from the list of [available supported VM sizes](https://docs.microsoft.com/azure/backup/backup-support-matrix-iaas#vm-compute-support) using [Powershell cmdlets](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#create-a-vm-from-restored-disks).
+To resolve this issue, use the [restore disks](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#restore-disks) option during the restore operation. Use those disks to create a VM from the list of [available supported VM sizes](https://docs.microsoft.com/azure/backup/backup-support-matrix-iaas#vm-compute-support) using [Powershell cmdlets](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#create-a-vm-from-restored-disks).
 
 ### UserErrorMarketPlaceVMNotSupported - VM creation failed due to Market Place purchase request being not present
 
 Error code: UserErrorMarketPlaceVMNotSupported 
 Error message: VM creation failed due to Market Place purchase request being not present. 
  
-Azure Backup support backup and restore of VMs which are available in the Azure Market Place. This error occurs when you are trying to restore a VM (with a specific Plan/Publisher setting) which is no longer available in the Azure Market Place, [Learn More](https://docs.microsoft.com/legal/marketplace/participation-policy#offering-suspension-and-removal).
-- To resolve this issue, please use [restore disks](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#restore-disks) option during restore operation and use [PowerShell](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#create-a-vm-from-restored-disks) or [Azure CLI](https://docs.microsoft.com/azure/backup/tutorial-restore-disk) cmdlets to create the VM with latest marketplace information corresponding to the VM.
-- If the publisher does not have any marketplace information, you can use the data disks to get back your data and can attach them to an existing VM.
+Azure Backup supports backup and restore of VMs which are available in Azure Marketplace. This error occurs when you are trying to restore a VM (with a specific Plan/Publisher setting) which is no longer available in Azure Marketplace, [Learn more here](https://docs.microsoft.com/legal/marketplace/participation-policy#offering-suspension-and-removal).
+- To resolve this issue, use the [restore disks](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#restore-disks) option during the restore operation and then use [PowerShell](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#create-a-vm-from-restored-disks) or [Azure CLI](https://docs.microsoft.com/azure/backup/tutorial-restore-disk) cmdlets to create the VM with the latest marketplace information corresponding to the VM.
+- If the publisher does not have any Marketplace information, you can use the data disks to retrieve your data and you can attach them to an existing VM.
 
 ### ExtensionConfigParsingFailure - Failure in parsing the config for the backup extension
 
