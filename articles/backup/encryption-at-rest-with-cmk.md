@@ -164,7 +164,7 @@ To assign the key:
     ![Status succeeded](./media/encryption-at-rest-with-cmk/status-succeeded.png)
 
 >[!NOTE]
-> This process remains the same when you wish to update/change the encryption key. If you wish to update and use a key from another Key Vault (different from the one that is being currently used), make sure that:
+> This process remains the same when you wish to update/change the encryption key. If you wish to update and use a key from another Key Vault (different from the one that's being currently used), make sure that:
 >
 > - The Key Vault is located in the same region as the Recovery Services vault
 >
@@ -237,7 +237,7 @@ No, CMK encryption can be enabled for new vaults only. So the vault must never h
 
 No, the vault must have not had any attempts to protect any items to it in the past.
 
-### I have a vault that is using CMK encryption. Can I later revert to encryption using platform-managed keys even if I have backup items protected to the vault?
+### I have a vault that's using CMK encryption. Can I later revert to encryption using platform-managed keys even if I have backup items protected to the vault?
 
 No, once you've enabled CMK encryption, it can't be reverted to use platform-managed keys. You can change the keys used according to your requirements.
 

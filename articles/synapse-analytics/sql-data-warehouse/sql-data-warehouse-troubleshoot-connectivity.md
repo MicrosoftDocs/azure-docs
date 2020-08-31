@@ -10,7 +10,7 @@ ms.subservice: sql-dw
 ms.date: 03/27/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019, azure-synapse
+ms.custom: "seo-lt-2019, azure-synapse, devx-track-csharp"
 ---
 
 # Troubleshooting connectivity issues in Synapse SQL pool

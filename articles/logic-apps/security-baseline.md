@@ -6,7 +6,7 @@ ms.service: security
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
+ms.custom: subject-security-benchmark
 
 # Important: This content is machine generated; do not modify this topic directly. Contact mbaldwin for more information.
 
@@ -180,7 +180,7 @@ Diagnostic logs in Logic Apps should be enabled
 
 DDoS Protection Standard should be enabled
 
-You may also use Azure Blueprints to simplify large-scale Azure deployments by packaging key environment artifacts, such as Azure Resource Manager templates, role-based access control (RBAC), and policies, in a single blueprint definition. Easily apply the blueprint to new subscriptions and environments, and fine-tune control and management through versioning.
+You may also use Azure Blueprints to simplify large-scale Azure deployments by packaging key environment artifacts, such as Azure Resource Manager templates, Azure role-based access control (Azure RBAC), and policies, in a single blueprint definition. Easily apply the blueprint to new subscriptions and environments, and fine-tune control and management through versioning.
 
 * [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -609,7 +609,7 @@ The Request trigger supports only Transport Layer Security (TLS) 1.2 for inbound
 
 Follow Azure Security Center recommendations for encryption at rest and encryption in transit, where applicable.
 
-* [Secure access and data in Azure Logic Apps](./logic-apps-securing-a-logic-app.md)
+* [Secure access and data in Azure Logic Apps - Access for inbound calls to request-based triggers](./logic-apps-securing-a-logic-app.md)
 
 * [Receive and respond to inbound HTTPS requests in Azure Logic Apps](../connectors/connectors-native-reqres.md#tls-support)
 
@@ -639,7 +639,7 @@ Microsoft manages the underlying infrastructure for Azure Logic Apps and has imp
 
 **Responsibility**: Shared
 
-### 4.6: Use Role-based access control to control access to resources
+### 4.6: Use Azure RBAC to control access to resources
 
 **Guidance**: You can permit only specific users or groups to run specific tasks, such as managing, editing, and viewing logic apps. To control their permissions, use Azure role-based access control (Azure RBAC) so that you can assign customized or built-in roles to the members in your Azure subscription:
 - Logic App Contributor: Lets you manage logic apps, but you can't change access to them.
@@ -875,7 +875,7 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 
 **Guidance**: Resources related to your Logic Apps that are required for business operations, but may incur higher risk for the organization, should be isolated within its own virtual machine and/or virtual network and sufficiently secured with either an Azure Firewall or Network Security Group.
 
-Logic Apps that are required for business operations, but may incur higher risk for the organization, should be isolated wherever possible via separate resource groups with specific permissions and RBAC boundaries.
+Logic Apps that are required for business operations, but may incur higher risk for the organization, should be isolated wherever possible via separate resource groups with specific permissions and Azure RBAC boundaries.
 
 * [How to create a virtual network](../virtual-network/quick-create-portal.md)
 
@@ -883,7 +883,7 @@ Logic Apps that are required for business operations, but may incur higher risk 
 
 * [How to create Management Groups](../governance/management-groups/create.md)
 
-* [How to secure access to Logic Apps via RBAC](./logic-apps-securing-a-logic-app.md#access-to-logic-app-operations)
+* [How to secure access to Logic Apps via Azure RBAC](./logic-apps-securing-a-logic-app.md#access-to-logic-app-operations)
 
 **Azure Security Center monitoring**: N/A
 
