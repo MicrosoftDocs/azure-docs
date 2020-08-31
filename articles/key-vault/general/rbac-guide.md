@@ -17,18 +17,18 @@ Azure role-based access control (Azure RBAC) is an authorization system built on
 Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)
 that provides fine-grained access management of Azure resources.
 
-Azure RBAC allows users to manage Key, Secrets, and Certificates permissions. It provides one place to manage all permissions across all key vaults. Previously Key Vaults object access management was only possible using key vault local access policies, which required you to navigate to each key vault separately
+Azure RBAC allows users to manage Key, Secrets, and Certificates permissions. It provides one place to manage all permissions across all key vaults. 
 
-The Azure RBAC model provides the ability to set permissions on different scope levels: management group, subscription, resource group, or individual objects. Apart from the ability to control permissions across key vaults, Azure RBAC for key vault also provides the ability to have separate permissions on individual keys, secrets, and certificates
+The Azure RBAC model provides the ability to set permissions on different scope levels: management group, subscription, resource group, or individual resources.  Azure RBAC for key vault also provides the ability to have separate permissions on individual keys, secrets, and certificates
 
 For more information, see [Role-based access control(RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview).
 
-## Best Practices for individual keys, secrets and certificates
+## Best Practices for individual keys, secrets, and certificates
 
 Our recommendation is to use a vault per application per environment
-(Development, Pre-Production and Production).
+(Development, Pre-Production, and Production).
 
-Individual keys, secrets and certificates permissions should be used
+Individual keys, secrets, and certificates permissions should be used
 only for specific scenarios:
 
 -   Multi-layer applications that need to separate access control
@@ -37,7 +37,7 @@ only for specific scenarios:
 -   Shared key vault with common secrets, when applications need access
     to subsets of secrets in that key vault
 
-More about Azure Key Vault best practices, see:
+More about Azure Key Vault management guidelines, see:
 
 - [Azure Key Vault best practices](best-practices.md)
 - [Azure Key Vault service limits](service-limits.md)
@@ -55,15 +55,15 @@ More about Azure Key Vault best practices, see:
 | Key Vault Secrets Officer (preview)| Perform any action on the secrets of a key vault, except manage permissions. Only works for key vaults that use the 'Azure role-based access control' permission model. | b86a8fe4-44ce-4948-aee5-eccb2c155cd7 |
 | Key Vault Secrets User (preview)| Read secret contents. Only works for key vaults that use the 'Azure role-based access control' permission model. | 4633458b-17de-408a-b874-0445c86b69e6 |
 
-For more details about Azure RBAC built-in roles definitions, see [Azure role-based access control built-in roles](https://https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
+For more information about Azure RBAC built-in roles definitions, see [Azure role-based access control built-in roles](https://https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
 
 ## Using Azure RBAC Secret, Key, and Certificate Permissions with Key Vault
 
-The new Azure RBAC permission model for key vault replaces the access policies permissions model. You have the option to choose whether to use access policies or Azure RBAC permissions on Key Vault.
+The new Azure RBAC permission model for key vault provides alternative to the vault access policy permissions model. 
 
 ### Enable Azure RBAC Permissions on Key Vault
 
-Important: Setting Azure RBAC permission model invalidates all access policies permissions. It can cause outages when equivalent Azure RBAC roles are not assigned.
+Important: Setting Azure RBAC permission model invalidates all access policies permissions. It can cause outages when equivalent Azure RBAC roles aren't assigned.
 
 1.  Enable Azure RBAC permissions on new key vault:
 
@@ -120,7 +120,7 @@ Above role assignment provides ability to list key vault objects in key vault.
 az role assignment create --role "Key Vault Secrets Officer (preview)" --assignee {i.e jalichwa@microsoft.com} --scope /subscriptions/{subscriptionid}/resourcegroups/{resource-group-name}/providers/Microsoft.KeyVault/vaults/{key-vault-name}
 ```
 
-After creating above role assignment you should be able to create/update/delete secrets.
+After creating above role assignment you can create/update/delete secrets.
 
 4. Create new secret ( Secrets \> +Generate/Import) for testing secret level role assignment.
 
@@ -154,7 +154,7 @@ Go to key vault Access control (IAM) tab and remove "Key Vault Secrets Officer (
 
 ![Remove assignment - key vault](../media/rbac/image9.png)
 
-Navigate to previously created secret. You should be able to see all secret properties.
+Navigate to previously created secret. You can see all secret properties.
 
 ![Secret view with access](../media/rbac/image10.png)
 
@@ -168,8 +168,7 @@ Create new secret ( Secrets \> +Generate/Import) should show below error:
     and remove "Key Vault Secrets Officer (preview)" role assignment for
     this resource.
 
--   Navigate to previously created secret. You should not be able to see
-    secret properties.
+-   Navigate to previously created secret. You can see secret properties.
 
 ![Secret view without access](../media/rbac/image12.png)
 
@@ -213,7 +212,7 @@ For available actions check Appendix: **Available Actions**
 
 -   2000 RBAC role assignments per subscription
 
--   SLA 99% : 10 minutes (600 seconds) after role assignments is changed to be applied
+-   SLA 99% : 10 minutes (600 seconds) after role assignments is changed for role to be applied
 
 **Notes**:
 
