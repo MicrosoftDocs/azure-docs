@@ -56,9 +56,7 @@ More about Azure Key Vault best practices, see:
 > | Key Vault Secrets Officer (preview)| Perform any action on the secrets of a key vault, except manage permissions. Only works for key vaults that use the 'Azure role-based access control' permission model. | b86a8fe4-44ce-4948-aee5-eccb2c155cd7 |
 > [Key Vault Secrets User (preview)| Read secret contents. Only works for key vaults that use the 'Azure role-based access control' permission model. | 4633458b-17de-408a-b874-0445c86b69e6 |
 
-More details can about roles definitions can be found here:
-
-[Azure role-based access control built-in roles](https://https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
+For more details about Azure RBAC built-in roles definitions, see [Azure role-based access control built-in roles](https://https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
 
 ## Using Azure RBAC Secret, Key, and Certificate Permissions with Key Vault
 
