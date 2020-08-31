@@ -36,7 +36,7 @@ If the application persistently fails to connect to Azure Database for MySQL Fle
 ### Steps to resolve connectivity issues
 
 * Refer to [encrypted connectivity using Transport Layer Security (TLS 1.2) in Azure Database for MySQL - Flexible Server](./how-to-connect-tls-ssl.md) --> to learn more about encrypted connections.
-* If you are using **Public access (allowed IP addresses)**, then set up [firewall rules](./how-to-manage-firewall-using-portal.md) to allow the client IP address. For temporary testing purposes only, set up a firewall rule using 0.0.0.0 as the starting IP address and using 255.255.255.255 as the ending IP address. This will open the server to all IP addresses. If this resolves your connectivity issue, remove this rule and create a firewall rule for an appropriately limited IP address or address range.
+* If you are using **Public access (allowed IP addresses)**, then set up [firewall rules](./how-to-manage-firewall-portal.md) to allow the client IP address. For temporary testing purposes only, set up a firewall rule using 0.0.0.0 as the starting IP address and using 255.255.255.255 as the ending IP address. This will open the server to all IP addresses. If this resolves your connectivity issue, remove this rule and create a firewall rule for an appropriately limited IP address or address range.
 * On all firewalls between the client and the internet, make sure that port 3306 is open for outbound connections.
 * Verify your connection string and other connection settings. Refer to the pre-defined connection strings in the **Connection Strings** page available for your server in the Azure portal for common languages.
 
