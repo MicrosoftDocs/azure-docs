@@ -8,17 +8,31 @@ ms.custom: devx-track-typescript
 
 # Quickstart: Create a function in Azure using TypeScript that responds to HTTP requests
 
-In this article, you use command-line tools to create a TypeScript function that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions. 
+In this article, you use command-line tools to create a TypeScript function that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions.
 
 Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
 
-There is also a [Visual Studio Code-based version](functions-create-first-function-vs-code.md) of this article.
+There is also a [Visual Studio Code-based version](create-first-function-vs-code-typescript.md) of this article.
 
-[!INCLUDE [functions-requirements-cli](../../includes/functions-requirements-cli.md)]
+## Configure your local environment
 
-[!INCLUDE [functions-cli-verify-prereqs](../../includes/functions-cli-verify-prereqs.md)]
+Before you begin, you must have the following:
 
-[!INCLUDE [functions-cli-create-venv](../../includes/functions-cli-create-venv.md)]
++ An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+
++ The [Azure Functions Core Tools](../articles/azure-functions/functions-run-local.md#v2) version 2.7.1846 or a later 2.x version.
+
++ The [Azure CLI](/cli/azure/install-azure-cli) version 2.4 or later.
+
++ [Node.js](https://nodejs.org/), Active LTS and Maintenance LTS versions (8.11.1 and 10.14.1 recommended).
+
+### Prerequisite check
+
++ In a terminal or command window, run `func --version` to check that the Azure Functions Core Tools are version 2.7.1846 or later.
+
++ Run `az --version` to check that the Azure CLI version is 2.0.76 or later.
+
++ Run `az login` to sign in to Azure and verify an active subscription.
 
 ## Create a local function project
 
@@ -38,7 +52,13 @@ cd LocalFunctionProj
 
 This folder contains various files for the project, including configurations files named [local.settings.json](functions-run-local.md#local-settings-file) and [host.json](functions-host-json.md). Because *local.settings.json* can contain secrets downloaded from Azure, the file is excluded from source control by default in the *.gitignore* file.
 
-[!INCLUDE [functions-cli-add-function](../../includes/functions-cli-add-function.md)]
+Add a function to your project by using the following command, where the `--name` argument is the unique name of your function (HttpExample) and the `--template` argument specifies the function's trigger (HTTP).
+
+```console
+func new --name HttpExample --template "HTTP trigger"
+```
+
+`func new` creates a subfolder matching the function name that contains a code file appropriate to the project's chosen language and a configuration file named *function.json*.
 
 ### (Optional) Examine the file contents
 
@@ -60,7 +80,40 @@ For an HTTP trigger, the function receives request data in the variable `req` of
 
 Each binding requires a direction, a type, and a unique name. The HTTP trigger has an input binding of type [`httpTrigger`](functions-bindings-http-webhook-trigger.md) and output binding of type [`http`](functions-bindings-http-webhook-output.md).
 
-[!INCLUDE [functions-run-function-test-local-cli](../../includes/functions-run-function-test-local-cli.md)]
+## Run the function locally
+
+Run your function by starting the local Azure Functions runtime host from the *LocalFunctionProj* folder:
+
+```console
+npm install
+npm start
+```
+
+Toward the end of the output, the following lines should appear:
+
+<pre>
+...
+
+Now listening on: http://0.0.0.0:7071
+Application started. Press Ctrl+C to shut down.
+
+Http Functions:
+
+        HttpExample: [GET,POST] http://localhost:7071/api/HttpExample
+...
+
+</pre>
+
+>[!NOTE]  
+> If HttpExample doesn't appear as shown below, you likely started the host from outside the root folder of the project. In that case, use **Ctrl**+**C** to stop the host, navigate to the project's root folder, and run the previous command again.
+
+Copy the URL of your `HttpExample` function from this output to a browser and append the query string `?name=<your-name>`, making the full URL like `http://localhost:7071/api/HttpExample?name=Functions`. The browser should display a message like `Hello Functions`:
+
+![Result of the function run locally in the browser](./media/functions-run-function-test-local-cli/function-test-local-browser.png)
+
+The terminal in which you started your project also shows log output as you make requests.
+
+When you're ready, use **Ctrl**+**C** and choose `y` to stop the functions host.
 
 ## Create supporting Azure resources for your function
 

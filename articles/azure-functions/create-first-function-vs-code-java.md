@@ -8,12 +8,14 @@ ms.custom: devx-track-java
 
 # Quickstart: Create a function in Azure with Java using Visual Studio Code
 
-In this article, you use Visual Studio Code to create a Java function that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions. 
+In this article, you use Visual Studio Code to create a Java function that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions.
 
-Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account. 
+Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
+
+There's also a [CLI-based version](create-first-function-cli-java.md) of this article.
 
 > [!NOTE]
-> If Visual Studio Code isn't your prefered development tool, check out our similar tutorials for Java developers using [Maven](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java), [Gradle](./functions-create-first-java-gradle.md) and [IntelliJ IDEA](/azure/developer/java/toolkit-for-intellij/quickstart-functions).
+> If Visual Studio Code isn't your preferred development tool, check out our similar tutorials for Java developers using [Maven](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java), [Gradle](./functions-create-first-java-gradle.md) and [IntelliJ IDEA](/azure/developer/java/toolkit-for-intellij/quickstart-functions).
 
 ## Configure your environment
 
@@ -70,7 +72,43 @@ After you've verified that the function runs correctly on your local computer, i
 
 [!INCLUDE [functions-sign-in-vs-code](../../includes/functions-sign-in-vs-code.md)]
 
-[!INCLUDE [functions-publish-project-vscode](../../includes/functions-publish-project-vscode.md)]
+## Publish the project to Azure
+
+In this section, you create a function app and related resources in your Azure subscription and then deploy your code. 
+
+> [!IMPORTANT]
+> Publishing to an existing function app overwrites the content of that app in Azure. 
+
+
+1. Choose the Azure icon in the Activity bar, then in the **Azure: Functions** area, choose the **Deploy to function app...** button.
+
+    ![Publish your project to Azure](media/functions-publish-project-vscode/function-app-publish-project.png)
+
+1. Provide the following information at the prompts:
+
+    + **Select folder**: Choose a folder from your workspace or browse to one that contains your function app. You won't see this if you already have a valid function app opened.
+
+    + **Select subscription**: Choose the subscription to use. You won't see this if you only have one subscription.
+
+    + **Select Function App in Azure**: Choose `+ Create new Function App`. (Don't choose the `Advanced` option, which isn't covered in this article.)
+
+    + **Enter a globally unique name for the function app**: Type a name that is valid in a URL path. The name you type is validated to make sure that it's unique in Azure Functions.
+
+    + **Select a location for new resources**:  For better performance, choose a [region](https://azure.microsoft.com/regions/) near you. 
+
+1. When completed, the following Azure resources are created in your subscription, using names based on your function app name:
+
+    + A resource group, which is a logical container for related resources.
+    + A standard Azure Storage account, which maintains state and other information about your projects.
+    + A consumption plan, which defines the underlying host for your serverless function app. 
+    + A function app, which provides the environment for executing your function code. A function app lets you group functions as a logical unit for easier management, deployment, and sharing of resources within the same hosting plan.
+    + An Application Insights instance connected to the function app, which tracks usage of your serverless function.
+
+    A notification is displayed after your function app is created and the deployment package is applied. 
+
+1. Select **View Output** in this notification to view the creation and deployment results, including the Azure resources that you created. If you miss the notification, select the bell icon in the lower right corner to see it again.
+
+    ![Create complete notification](media/functions-publish-project-vscode/function-create-notifications.png)
 
 ## Run the function in Azure
 

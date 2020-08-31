@@ -33,7 +33,7 @@
             href: create-first-function-vs-code-typescript.md
         - name: Visual Studio
           href: functions-create-your-first-function-visual-studio.md
-          -name: Command line
+        - name: Command line
           expanded: true
           items:
           - name: Create your first function (C#)
