@@ -635,7 +635,7 @@ The maximum number of ACLs that you can apply to a directory or file is 32 acces
 
 ### Provide feedback or report issues
 
-You can provide your feedback or report an issue by using any of these pages: [PowerShell](https://github.com/Azure/azure-powershell/issues/new?assignees=&labels=triage&template=az-module-bug-report.md&title=), [.NET](https://github.com/Azure/azure-sdk-for-net/issues/new?assignees=&labels=&template=bug_report.md&title=), [Python](https://github.com/Azure/azure-sdk-for-python/issues/new?assignees=&labels=&template=bug_report.md&title=)
+You can provide your feedback or report an issue at  [recursiveACLfeedback@microsoft.com](recursiveACLfeedback@microsoft.com).
 
 ## See also
 
