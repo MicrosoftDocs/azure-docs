@@ -10,6 +10,9 @@ ms.date: 9/21/2020
 
 # Use the Azure portal to set up alerts on metrics for Azure Database for MySQL - Flexible Server 
 
+> [!IMPORTANT] 
+> Azure Database for MySQL Flexible Server is currently in public preview
+
 This article shows you how to set up Azure Database for MySQL alerts using the Azure portal. You can receive an alert based on monitoring metrics for your Azure services.
 
 The alert triggers when the value of a specified metric crosses a threshold you assign. The alert triggers both when the condition is first met, and then afterwards when that condition is no longer being met. 

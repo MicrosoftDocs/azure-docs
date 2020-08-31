@@ -9,13 +9,16 @@ ms.date: 9/21/2020
 ---
 # Understand your Azure Database for MySQL Flexible Server resources using metrics
 
-Monitoring resources of your servers helps you troubleshoot, optimize your workload resources and you can seamlessly pay attention to what matters most to you. Azure Database for MySQL Flexible Server provides metrics, which are numerical values that describe some aspect of a system at a particular time. Monitoring the right metrics helps you keep the performance, reliability, and availability of your server and application. 
+> [!IMPORTANT] 
+> Azure Database for MySQL Flexible Server is currently in public preview
+
+Azure Database for MySQL Flexible Server provides monitoring of servers through Azure Monitor. Metrics are numerical values that describe some aspect of the resources of your server at a particular time. Monitoring your server's resources helps you troubleshoot and optimize your workload resources by allowing you to seamlessly monitor what matters the most to you. Monitoring the right metrics helps you keep the performance, reliability, and availability of your server and applications.
 
 In this article, you will learn about the various metrics available for your flexible server that give insight into the behavior of your server.
 
 ## Available Metrics
 
-Azure Database for MySQL Flexible Server provides various metrics to understand how your workload is performing and based on this data, you can understand the impact on your server and application. For example, in flexible server, you can monitor **Host CPU percent**, **Active Connections**, **IO percent**, and **Host Memory Percent** to identify when there is a performance impact and either you might have to optimize your workload or scale vertically by changing compute tier or scaling horizontally by using read replica.
+Azure Database for MySQL Flexible Server provides various metrics to understand how your workload is performing and based on this data, you can understand the impact on your server and application. For example, in flexible server, you can monitor **Host CPU percent**, **Active Connections**, **IO percent**, and **Host Memory Percent** to identify when there is a performance impact. From there, you may have to optimize your workload, scale vertically by changing compute tiers, or scaling horizontally by using read replica.
 
 All Azure metrics have a one-minute frequency, and each metric provides 30 days of history. You can configure alerts on the metrics. For step-by-step guidance, see [How to set up alerts](./how-to-alert-on-metric.md). Other tasks include setting up automated actions, performing advanced analytics, and archiving history. For more information, see the [Azure Metrics Overview](../../monitoring-and-diagnostics/monitoring-overview-metrics.md).
 
