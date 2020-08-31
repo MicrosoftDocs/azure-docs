@@ -34,7 +34,7 @@ The following steps will help create a Conditional Access policy to block legacy
 1. Under **Cloud apps or actions**, select **All cloud apps**.
    1. Select **Done**.
 1. Under **Conditions** > **Client apps**, set **Configure** to **Yes**.
-   1. Check only the boxes **Exchange ActiveSync clients** and **Other clients**.
+   1. Check only the boxes **Exchange ActiveSync clients** and **Other clients**. To deploy Exchange ActiveSync Conditional Access policy in Azure, the user must also be a Global Administrator.
    1. Select **Done**.
 1. Under **Access controls** > **Grant**, select **Block access**.
    1. Select **Select**.

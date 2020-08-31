@@ -306,11 +306,11 @@ The [Azure Security Center](../../security-center/security-center-intro.md):
 
 #### Inventory your privileged accounts within hosted Virtual Machines
 
-You don't usually need to give users unrestricted permissions to all your Azure subscriptions or resources. Use Azure AD admin roles to grant only the access that your users who need to do their jobs. You can use Azure AD administrator roles to let one admin manage only VMs in a subscription, while another can manage SQL databases within the same subscription. For more information, see [Get started with Role-Based Access Control in the Azure portal](../../role-based-access-control/overview.md).
+You don't usually need to give users unrestricted permissions to all your Azure subscriptions or resources. Use Azure AD admin roles to grant only the access that your users who need to do their jobs. You can use Azure AD administrator roles to let one admin manage only VMs in a subscription, while another can manage SQL databases within the same subscription. For more information, see [What is Azure role-based access control](../../role-based-access-control/overview.md).
 
 #### Implement PIM for Azure AD administrator roles
 
-Use Privileged identity Management with Azure AD administrator roles to manage, control, and monitor access to Azure resources. Using PIM protects by lowering the exposure time of privileges and increasing your visibility into their use through reports and alerts. For more information, see [Manage RBAC access to Azure resources with Privileged Identity Management](../../role-based-access-control/best-practices.md).
+Use Privileged identity Management with Azure AD administrator roles to manage, control, and monitor access to Azure resources. Using PIM protects by lowering the exposure time of privileges and increasing your visibility into their use through reports and alerts. For more information, see [What is Azure AD Privileged Identity Management](../privileged-identity-management/pim-configure.md).
 
 #### Use Azure log integrations to send relevant Azure logs to your SIEM systems
 

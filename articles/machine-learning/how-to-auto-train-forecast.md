@@ -252,7 +252,6 @@ To enable DNN for an AutoML experiment created in the Azure Machine Learning stu
 
 Automated ML provides users with both native time-series and deep learning models as part of the recommendation system. 
 
-
 Models| Description | Benefits
 ----|----|---
 Prophet (Preview)|Prophet works best with time series that have strong seasonal effects and several seasons of historical data. To leverage this model, install it locally using `pip install fbprophet`. | Accurate & fast, robust to outliers, missing data, and dramatic changes in your time series.
