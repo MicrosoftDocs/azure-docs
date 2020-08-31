@@ -14,7 +14,7 @@ This article answers common questions about Azure Backup monitoring and reportin
 
 ### How do I check if reporting data has started flowing into a Log Analytics (LA) Workspace?
 
-Navigate to the LA Workspace you have configured, navigate to the **Logs** menu item, and run the query CoreAzureBackup | take 1. If you see a record being returned, it means data has started flowing into the workspace. The initial data push may take up to 24 hours.
+Navigate to the LA Workspace you've configured. Navigate to the **Logs** menu item, and run the query `CoreAzureBackup | take 1`. If you see a record being returned, it means data has started flowing into the workspace. The initial data push may take up to 24 hours.
 
 ### What is the frequency of data push to an LA Workspace?
 
