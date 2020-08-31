@@ -9,7 +9,7 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: douglas, carlrab, sstein
-ms.date: 08/18/2020
+ms.date: 08/31/2020
 ---
 
 # User-initiated manual failover on SQL Managed Instance
@@ -108,6 +108,14 @@ API response will be one of the following two:
 - One of the 400 request errors.
 
 Operation status can be tracked through reviewing API responses in response headers. For more information, see [Status of asynchronous Azure operations](../../azure-resource-manager/management/async-operations.md).
+
+## Permissions required
+
+Azure RBAC permission required to execute user-initiated failover is:
+
+Microsoft.Sql/managedInstanes/failover/action
+
+This is needed if, for example, you are creating a custom RBAC role. Please note that the permission to manually initiate failover is already included in the [Managed Instance Contributor] (../../azure/role-based-access-control/built-in-roles.md#sql-managed-instance-contributor) role. 
 
 ## Monitor the failover
 
