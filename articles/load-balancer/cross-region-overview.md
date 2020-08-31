@@ -12,6 +12,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/01/2020
 ms.author: allensu
+ms.custom: references_regions
 
 ---
 # Cross-region load balancer (Preview)
@@ -31,7 +32,7 @@ Cross-region load balancing offers the same benefits a regional standard load ba
 
 The frontend IP configuration of your cross-region load balancer is static and advertised across the Azure regions of your choice.  
 
-:::image type="content" source="./media/cross-region-overview/cross-region-load-balancer-1.png" alt-text="Cross-region load balancer" border="true":::
+:::image type="content" source="./media/cross-region-overview/cross-region-load-balancer.png" alt-text="Diagram of cross-region load balancer." border="true":::
 
 > [!IMPORTANT]
 > Cross-region load balancer is currently in public preview.
@@ -52,7 +53,7 @@ If a region fails, the traffic is routed to the next healthy regional load balan
 
 The health probe of the cross-region load balancer gathers information about availability every 20 seconds. If one regional load balancer drops its availability to 0, cross-region load balancer will detect the failure. The regional load balancer is taken out of rotation. 
 
-:::image type="content" source="./media/cross-region-overview/cross-region-load-balancer-2.png" alt-text="Global region view" border="true":::
+:::image type="content" source="./media/cross-region-overview/global-region-view.png" alt-text="Diagram of global region traffic view." border="true":::
 
 ### Ultra-low latency
 
