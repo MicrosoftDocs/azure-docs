@@ -125,10 +125,6 @@
       items:
         - name: Azure CLI
           href: https://docs.microsoft.com/cli/azure/appconfig?view=azure-cli-latest
-        - name: Powershell
-          href: https://docs.microsoft.com/powershell/module/az.appconfiguration/
-        - name: Terraform
-          href: https://www.terraform.io/docs/providers/azurerm/r/app_configuration.html
         - name: .NET Core provider
           href: https://go.microsoft.com/fwlink/?linkid=2074664
         - name: .NET Framework builder
@@ -155,6 +151,10 @@
       items:
         - name: REST API
           href: https://docs.microsoft.com/rest/api/appconfiguration/
+        - name: Powershell
+          href: https://docs.microsoft.com/powershell/module/az.appconfiguration/
+        - name: Terraform
+          href: https://www.terraform.io/docs/providers/azurerm/r/app_configuration.html
 - name: Resources
   items:
     - name: Pricing
