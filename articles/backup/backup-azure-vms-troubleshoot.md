@@ -105,11 +105,11 @@ Restart VSS writers that are in a bad state.
 - The output contains all VSS writers and their state. For every VSS writer with a state that's not **[1] Stable**, restart respective VSS writer's service. 
 - To restart the service, run the following commands from an elevated command prompt:
 
-* ```net stop serviceName```
-* ```net start serviceName```
+ ```net stop serviceName``` <br>
+ ```net start serviceName```
 
-    > [!NOTE]
-    > Restarting some services can have an impact on your production environment, ensure the approval process is followed and the service is restarted at the scheduled downtime.
+> [!NOTE]
+> Restarting some services can have an impact on your production environment, ensure the approval process is followed and the service is restarted at the scheduled downtime.
     
     
 If restarting the VSS writers did not resolve the issue and the issue still persists due to a time-out then,
