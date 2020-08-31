@@ -36,31 +36,6 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 ---
 
 ## August 2020 
-
-[671574](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=671574&triage=true&fullScreen=false&_a=edit)
-
-### Resource Forests now available for Azure AD DS 
-
-**Type:**   
-**Service category:**   
-**Product capability:** Azure AD Domain Services
- 
-The capability of resource forests in Azure AD Domain Services is now generally available. You can now enable authorization without password hash synchronization to use Azure AD Domain Services, including smart-card authorization. To learn more, see [Replica sets concepts and features for Azure Active Directory Domain Services (preview)](https://docs.microsoft.com/azure/active-directory-domain-services/concepts-replica-sets).
- 
----
- 
-[917938](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=917938&triage=true&fullScreen=false&_a=edit)
-
-### Regional replica support for Azure AD DS managed domains now available
-
-**Type:**   
-**Service category:**   
-**Product capability:** Azure AD Domain Services
- 
-
-You can expand a managed domain to have more than one replica set per Azure AD tenant. Replica sets can be added to any peered virtual network in any Azure region that supports Azure AD Domain Services. Additional replica sets in different Azure regions provide geographical disaster recovery for legacy applications if an Azure region goes offline. To learn more, see [Replica sets concepts and features for Azure Active Directory Domain Services (preview)](https://docs.microsoft.com/azure/active-directory-domain-services/concepts-replica-sets).
-
----
  
 ### Updates to Azure Multi-Factor Authentication Server firewall requirements
 
@@ -82,22 +57,12 @@ If you have outbound firewall rules in your organization, update the rules so th
 
 We're updating the Identity Secure Score portal to align with the changes introduced in Microsoft Secure Score’s [new release](https://docs.microsoft.com/microsoft-365/security/mtp/microsoft-secure-score-whats-new?view=o365-worldwide). 
 
-The preview version with the changes will be available at the beginning of September. Customers can then toggle from the existing experience to the new version of Identity Secure Score that matches the experience and branding of the new Microsoft Secure Score. The changes in the preview version include:
+The preview version with the changes will be available at the beginning of September. C The changes in the preview version include:
 - “Identity Secure Score” renamed to “Secure Score for Identity” for brand alignment with Microsoft Secure Score
 - Points normalized to standard scale and reported in percentages instead of points
 
-This preview will last until the end of November 2020. After the preview, the customers will automatically be directed to the new UX experience.
+In this preview, customers will be able to toggle between the existing experience and the new experience. This preview will last until the end of November 2020. After the preview, the customers will automatically be directed to the new UX experience.
 
----
-
-### Custom Open ID Connect MS Graph API support for Azure AD B2C
-
-**Type:** New feature  
-**Service category:** B2C - Consumer Identity Management  
-**Product capability:** B2B/B2C
- 
-Previously, Custom Open ID Connect providers could only be added or managed through the Azure portal. Now the Azure AD B2C customers can add and manage them through Microsoft Graph APIs beta version as well. To learn how to configure this resource with APIs, see [identityProvider resource type](https://docs.microsoft.com/graph/api/resources/identityprovider?view=graph-rest-beta).
- 
 ---
 
 ### New Restricted Guest Access Permissions in Azure AD - Public Preview
@@ -109,6 +74,15 @@ Previously, Custom Open ID Connect providers could only be added or managed thro
 We've updated directory level permissions for guest users. These permissions allow administrators to require additional restrictions and controls on external guest user access. Admins can now add additional restrictions for external guests' access to user and groups' profile and membership information within your organization. With this public preview feature, customers can manage external user access at scale by obfuscating group memberships, including restricting guest users from seeing memberships of the group(s) they are in.
 
 To learn more, see [Restricted Guest Access Permissions](https://docs.microsoft.com/azure/active-directory/users-groups-roles/users-restrict-guest-permissions) and [Users Default Permissions](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions).
+ 
+---
+### Custom Open ID Connect MS Graph API support for Azure AD B2C
+
+**Type:** New feature  
+**Service category:** B2C - Consumer Identity Management  
+**Product capability:** B2B/B2C
+ 
+Previously, Custom Open ID Connect providers could only be added or managed through the Azure portal. Now the Azure AD B2C customers can add and manage them through Microsoft Graph APIs beta version as well. To learn how to configure this resource with APIs, see [identityProvider resource type](https://docs.microsoft.com/graph/api/resources/identityprovider?view=graph-rest-beta).
  
 ---
 
@@ -156,13 +130,34 @@ For listing your application in the Azure AD app gallery, read the details here 
 
 ---
 
-### General Availability of Azure AD My sign-ins
+### Resource Forests now available for Azure AD DS 
+
+**Type:** New feature 
+**Service category:** Azure AD Domain Services   
+**Product capability:** Azure AD Domain Services
+ 
+The capability of resource forests in Azure AD Domain Services is now generally available. You can now enable authorization without password hash synchronization to use Azure AD Domain Services, including smart-card authorization. To learn more, see [Replica sets concepts and features for Azure Active Directory Domain Services (preview)](https://docs.microsoft.com/azure/active-directory-domain-services/concepts-replica-sets).
+ 
+---
+
+### Regional replica support for Azure AD DS managed domains now available
+
+**Type:** New feature   
+**Service category:** Azure AD Domain Services  
+**Product capability:** Azure AD Domain Services
+ 
+
+You can expand a managed domain to have more than one replica set per Azure AD tenant. Replica sets can be added to any peered virtual network in any Azure region that supports Azure AD Domain Services. Additional replica sets in different Azure regions provide geographical disaster recovery for legacy applications if an Azure region goes offline. To learn more, see [Replica sets concepts and features for Azure Active Directory Domain Services (preview)](https://docs.microsoft.com/azure/active-directory-domain-services/concepts-replica-sets).
+
+---
+
+### General Availability of Azure AD My Sign-Ins
 
 **Type:** New feature  
 **Service category:** Authentications (Logins)  
 **Product capability:** End User Experiences
  
-Azure AD My sign-ins is a new feature that allows enterprise users to review their sign-in history to check for any unusual activity. Additionally, this feature allows end-users to report “This wasn’t me” or “This was me” on suspicious activities. To learn more about using this feature, see [View and search your recent sign-in activity from the My Sign-ins page](https://docs.microsoft.com/azure/active-directory/user-help/my-account-portal-sign-ins-page#confirm-unusual-activity).
+Azure AD My Sign-Ins is a new feature that allows enterprise users to review their sign-in history to check for any unusual activity. Additionally, this feature allows end-users to report “This wasn’t me” or “This was me” on suspicious activities. To learn more about using this feature, see [View and search your recent sign-in activity from the My Sign-Ins page](https://docs.microsoft.com/azure/active-directory/user-help/my-account-portal-sign-ins-page#confirm-unusual-activity).
  
 ---
 
@@ -181,7 +176,7 @@ To learn more about how to configure SAP SuccessFactors inbound provisioning to 
 ### Assign Azure AD built-in roles to cloud groups
 
 **Type:** New feature  
-**Service category:** RBAC  
+**Service category:** Azure AD RBAC  
 **Product capability:** Access Control
 
 You can now assign Azure AD built-in roles to cloud groups with this new feature. For example, you can assign the SharePoint Administrator role to Contoso_SharePoint_Admins group. You can also use PIM to make the group an eligible member of the role, instead of granting standing access. To learn how to configure this feature, see [Use cloud groups to manage role assignments in Azure Active Directory (preview)](https://docs.microsoft.com/azure/active-directory/users-groups-roles/roles-groups-concept).
@@ -191,7 +186,7 @@ You can now assign Azure AD built-in roles to cloud groups with this new feature
 ### Insights Business Leader built-in role now available
 
 **Type:** New feature  
-**Service category:** RBAC  
+**Service category:** Azure AD RBAC  
 **Product capability:** Access Control
  
 Users in the Insights Business Leader role can access a set of dashboards and insights via the [M365 Insights application](https://www.microsoft.com/microsoft-365/partners/workplaceanalytics). This includes full access to all dashboards and presented insights and data exploration functionality. However, users in this role don't have access to product configuration settings, which is the responsibility of the Insights Administrator role. To learn more about this role, see [Administrator role permissions in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#insights-business-leader)
@@ -201,7 +196,7 @@ Users in the Insights Business Leader role can access a set of dashboards and in
 ### Insights Administrator built-in role now available
 
 **Type:** New feature  
-**Service category:** RBAC  
+**Service category:** Azure AD RBAC  
 **Product capability:** Access Control
  
 Users in the Insights Administrator role can access the full set of administrative capabilities in the [M365 Insights application](https://www.microsoft.com/microsoft-365/partners/workplaceanalytics). A user in this role can read directory information, monitor service health, file support tickets, and access the Insights administrator settings aspects. To learn more about this role, see [Administrator role permissions in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#insights-administrator)
@@ -211,7 +206,7 @@ Users in the Insights Administrator role can access the full set of administrati
 ### Application Admin and Cloud Application Admin can manage extension properties of applications
 
 **Type:** Changed feature  
-**Service category:** RBAC  
+**Service category:** Azure AD RBAC  
 **Product capability:** Access Control
  
 Previously, only the Global Administrator could manage the [extension property](https://docs.microsoft.com/graph/api/application-post-extensionproperty?view=graph-rest-beta&tabs=http). We're now enabling this capability for the Application Administrator and Cloud Application Administrator as well.
@@ -377,7 +372,7 @@ For more information about how to better secure your organization by using autom
 ### View role assignments across all scopes and ability to download them to a csv file
 
 **Type:** Changed feature  
-**Service category:** RBAC  
+**Service category:** Azure AD RBAC  
 **Product capability:** Access Control
  
 You can now view role assignments across all scopes for a role in the "Roles and administrators" tab in the Azure AD portal. You can also download those role assignments for each role into a CSV file. For guidance on viewing and adding role assignments, see [View and assign administrator roles in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-manage-roles-portal).
@@ -1032,7 +1027,7 @@ For more information, see [Azure AD authentication methods API overview](https:/
 
 **Type:** New feature
 
-**Service category:** RBAC
+**Service category:** Azure AD RBAC
 
 **Product capability:** Access Control
 
@@ -1052,7 +1047,7 @@ For more information, see [Administrative units management in Azure Active Direc
 
 **Type:** New feature
 
-**Service category:** RBAC
+**Service category:** Azure AD RBAC
 
 **Product capability:** Access Control
 
@@ -1066,7 +1061,7 @@ For more information, see [Administrative units management in Azure Active Direc
 
 **Type:** New feature
 
-**Service category:** RBAC
+**Service category:** Azure AD RBAC
 
 **Product capability:** Access Control
 
@@ -1078,7 +1073,7 @@ Users in this role can enable, configure and manage services and settings relate
 
 **Type:** New feature
 
-**Service category:** RBAC
+**Service category:** Azure AD RBAC
 
 **Product capability:** Access Control
 
