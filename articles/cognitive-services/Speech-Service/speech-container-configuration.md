@@ -8,13 +8,13 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 08/31/2020
 ms.author: aahi
 ---
 
 # Configure Speech service containers
 
-Speech containers enable customers to build one speech application architecture that is optimized to take advantage of both robust cloud capabilities and edge locality. The four speech containers we support now are, **speech-to-text**, **custom-speech-to-text**, **text-to-speech**, **neural-text-to-speech** and **custom-text-to-speech**.
+Speech containers enable customers to build one speech application architecture that is optimized to take advantage of both robust cloud capabilities and edge locality. The five speech containers we support now are, **speech-to-text**, **custom-speech-to-text**, **text-to-speech**, **neural-text-to-speech** and **custom-text-to-speech**.
 
 The **Speech** container runtime environment is configured using the `docker run` command arguments. This container has several required settings, along with a few optional settings. Several [examples](#example-docker-run-commands) of the command are available. The container-specific settings are the billing settings.
 
@@ -99,7 +99,7 @@ The volume mount setting consists of three color `:` separated fields:
 This command mounts the host machine _C:\input_ directory to the containers _/usr/local/models_ directory.
 
 > [!IMPORTANT]
-> The volume mount settings are only applicable to **Custom Speech-to-text** and **Custom Text-to-speech** containers. The standard **Speech-to-text** and **Text-to-speech** containers do not use volume mounts.
+> The volume mount settings are only applicable to **Custom Speech-to-text** and **Custom Text-to-speech** containers. The **Speech-to-text**, **Neural Text-to-speech** and **Text-to-speech** containers do not use volume mounts.
 
 ## Example docker run commands
 
@@ -230,8 +230,8 @@ Logging:Console:LogLevel:Default=Information
 ### Basic example for Neural Text-to-speech
 
 ```Docker
-docker run --rm -it -p 5000:5000 --memory 2g --cpus 6 \
-neuraltts.azurecr.io/microsoft/cognitive-services-neural-text-to-speech \
+docker run --rm -it -p 5000:5000 --memory 12g --cpus 6 \
+containerpreview.azurecr.io/microsoft/cognitive-services-neural-text-to-speech \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
@@ -240,8 +240,8 @@ ApiKey={API_KEY}
 ### Logging example for Neural Text-to-speech
 
 ```Docker
-docker run --rm -it -p 5000:5000 --memory 2g --cpus 6 \
-neuraltts.azurecr.io/microsoft/cognitive-services-neural-text-to-speech \
+docker run --rm -it -p 5000:5000 --memory 12g --cpus 6 \
+containerpreview.azurecr.io/microsoft/cognitive-services-neural-text-to-speech \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY} \

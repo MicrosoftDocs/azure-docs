@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 08/18/2020
+ms.date: 08/31/2020
 ms.author: aahi
 ---
 
@@ -27,7 +27,7 @@ Speech containers enable customers to build a speech application architecture th
 | Custom Speech-to-text | Using a custom model from the [Custom Speech portal](https://speech.microsoft.com/customspeech), transcribes continuous real-time speech or batch audio recordings into text with intermediate results. | 2.3.1 |
 | Text-to-speech | Converts text to natural-sounding speech with plain text input or Speech Synthesis Markup Language (SSML). | 1.5.0 |
 | Custom Text-to-speech | Using a custom model from the [Custom Voice portal](https://aka.ms/custom-voice-portal), converts text to natural-sounding speech with plain text input or Speech Synthesis Markup Language (SSML). | 1.5.0 |
-| Neural Text-to-speech | Uses a more advanced model for more natural sounding utterances. | 1.0.0 |
+| Neural Text-to-speech | Converts text to natural-sounding speech using deep neural network technology, allowing for more natural synthesized speech. | 1.1.0 |
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
 
@@ -77,7 +77,7 @@ The following table describes the minimum and recommended allocation of resource
 | Custom Speech-to-text | 2 core, 2-GB memory | 4 core, 4-GB memory |
 | Text-to-speech | 1 core, 2-GB memory | 2 core, 3-GB memory |
 | Custom Text-to-speech | 1 core, 2-GB memory | 2 core, 3-GB memory |
-| Neural Text-to-speech | 6 core, 2-GB memory | 8 core, 4-GB memory |
+| Neural Text-to-speech | 6 core, 12-GB memory | 8 core, 16-GB memory |
 
 * Each core must be at least 2.6 gigahertz (GHz) or faster.
 
@@ -118,7 +118,7 @@ Container images for Speech are available in the following Container Registry.
 
 | Container | Repository |
 |-----------|------------|
-| Neural Text-to-speech | `neuraltts.azurecr.io/microsoft/cognitive-services-neural-text-to-speech:latest` |
+| Neural Text-to-speech | `containerpreview.azurecr.io/microsoft/cognitive-services-neural-text-to-speech:latest` |
 
 ***
 
@@ -217,16 +217,33 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-custom-text
 
 #### Docker pull for the Neural Text-to-speech container
 
-> [!IMPORTANT]
-> * The `latest` tag pulls the `en-US` locale and `arianeural` voice, which is the only voice currently available for this container.
-
 Use the [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image from Container Preview registry.
 
 ```Docker
-docker pull neuraltts.azurecr.io/microsoft/cognitive-services-neural-text-to-speech:latest
+docker pull containerpreview.azurecr.io/microsoft/cognitive-services-neural-text-to-speech:latest
 ```
 
-When constructing a *Neural Text-to-speech* HTTP POST, the [Speech Synthesis Markup Language (SSML)](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-synthesis-markup) message requires a `voice` element with a `name` attribute. The value is the corresponding container locale and voice, also known as the ["short name"](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#neural-voices). For example, the `latest` tag would have a voice name of `en-US-AriaNeural`.
+> [!IMPORTANT]
+> The `latest` tag pulls the `en-US` locale and `arianeural` voice. For additional locales see [Neural Text-to-speech locales](#neural-text-to-speech-locales).
+
+#### Neural Text-to-speech locales
+
+All tags, except for `latest` are in the following format and are case-sensitive:
+
+```
+<major>.<minor>.<patch>-<platform>-<locale>-<voice>-<prerelease>
+```
+
+The following tag is an example of the format:
+
+```
+1.1.0-amd64-en-us-arianeural-preview
+```
+
+For all of the supported locales and corresponding voices of the **neural text-to-speech** container, please see [Neural Text-to-speech image tags](../containers/container-image-tags.md#neural-text-to-speech).
+
+> [!IMPORTANT]
+> When constructing a *Neural Text-to-speech* HTTP POST, the [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md) message requires a `voice` element with a `name` attribute. The value is the corresponding container locale and voice, also known as the ["short name"](language-support.md#neural-voices). For example, the `latest` tag would have a voice name of `en-US-AriaNeural`.
 
 ***
 
@@ -406,8 +423,8 @@ This command:
 To run the *Neural Text-to-speech* container, execute the following `docker run` command.
 
 ```bash
-docker run --rm -it -p 5000:5000 --memory 2g --cpus 6 \
-neuraltts.azurecr.io/microsoft/cognitive-services-neural-text-to-speech \
+docker run --rm -it -p 5000:5000 --memory 12g --cpus 6 \
+containerpreview.azurecr.io/microsoft/cognitive-services-neural-text-to-speech \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
@@ -415,8 +432,8 @@ ApiKey={API_KEY}
 
 This command:
 
-* Runs a Neural Text-to-speech container from the container image.
-* Allocates 6 CPU cores and 2 gigabyte (GB) of memory.
+* Runs a *Neural Text-to-speech* container from the container image.
+* Allocates 6 CPU cores and 12 gigabytes (GB) of memory.
 * Exposes TCP port 5000 and allocates a pseudo-TTY for the container.
 * Automatically removes the container after it exits. The container image is still available on the host computer.
 
@@ -599,6 +616,7 @@ In this article, you learned concepts and workflow for downloading, installing, 
   * *Custom Speech-to-text*
   * *Text-to-speech*
   * *Custom Text-to-speech*
+  * *Neural Text-to-speech*
 * Container images are downloaded from the container registry in Azure.
 * Container images run in Docker.
 * Whether using the REST API (Text-to-speech only) or the SDK (Speech-to-text or Text-to-speech) you specify the host URI of the container. 
