@@ -24,7 +24,7 @@ Multiple subscriptions can trust the same Azure AD directory. Each subscription 
 
 If your subscription expires, you lose access to all the other resources associated with the subscription. However, the Azure AD directory remains in Azure. You can associate and manage the directory using a different Azure subscription.
 
-When a user signs up for a new Azure AD directory, the user is assigned the Global Administrator role in the directory. When you add a subscription to an existing directory, you aren't assigned to the Global Administrator role.
+By default, when a user signs up for a Microsoft cloud service, an Azure AD tenant is created and the user is made a member of the Global Administrators role. When you add a subscription to an existing directory, you aren't assigned to the Global Administrator role.
 
 All of your users have a single *home* directory for authentication. Your users can also be guests in other directories. You can see both the home and guest directories for each user in Azure AD.
 
