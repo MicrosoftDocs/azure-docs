@@ -119,7 +119,7 @@ Next, you'll upload this file to Cloud Shell. In your Cloud Shell window, click 
 :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-upload.png" alt-text="Cloud Shell window showing selection of the Upload option":::
 Navigate to the *manifest.json* you just created and hit "Open."
 
-Next, run the following command to create an app registration (replacing placeholders as needed):
+Next, run the following command to create an app registration, with a *Public client/native (mobile & desktop)* reply URL of `http://localhost`. Replace placeholders as needed:
 
 ```azurecli
 az ad app create --display-name <name-for-your-app-registration> --native-app --required-resource-accesses manifest.json --reply-url http://localhost
