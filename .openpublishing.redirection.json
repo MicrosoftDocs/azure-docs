@@ -8734,6 +8734,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/web-application-firewall/ag/whats-new.md",
+      "redirect_url": "/azure/web-application-firewall/ag/ag-overview#whats-new",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/application-insights/app-insights-azure-diagnostics.md",
       "redirect_url": "/azure/azure-monitor/platform/diagnostics-extension-to-application-insights",
       "redirect_document_id": false
@@ -23474,7 +23479,7 @@
       "redirect_document_id": true
     },
     {
-      "source_path": "articles/active-directory/fundamentals/concept-continuous-access-evaluation.md",
+      "source_path": "articles/active-directory/fundamentals/concept-fundamentals-continuous-access-evaluation.md",
       "redirect_url": "/azure/active-directory/conditional-access/concept-continuous-access-evaluation",
       "redirect_document_id": true
     },
@@ -32454,6 +32459,11 @@
       "redirect_document_id": false
     },
     {
+        "source_path": "articles/governance/management-groups/create.md",
+        "redirect_url": "/azure/governance/management-groups/create-management-group-portal",
+        "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory/active-directory-saas-facebook-at-work-provisioning-tutorial.md",
       "redirect_url": "/azure/active-directory/active-directory-saas-workplacebyfacebook-provisioning-tutorial",
       "redirect_document_id": false
@@ -37363,16 +37373,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/active-directory/application-access-panel-unexpected-application-appears.md",
-      "redirect_url": "/azure/active-directory/manage-apps/access-panel-troubleshoot-unexpected-application",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/active-directory/application-access-panel-unexpected-application-not-appearing.md",
-      "redirect_url": "/azure/active-directory/manage-apps/access-panel-troubleshoot-application-not-appearing",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/active-directory/application-access-panel-web-sign-in-problem.md",
       "redirect_url": "/azure/active-directory/manage-apps/application-sign-in-other-problem-access-panel",
       "redirect_document_id": false
@@ -37600,7 +37600,17 @@
     {
       "source_path": "articles/active-directory/application-sign-in-other-problem-access-panel.md",
       "redirect_url": "/azure/active-directory/manage-apps/application-sign-in-other-problem-access-panel",
-      "redirect_document_id": true
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/manage-apps/access-panel-troubleshoot-application-not-appearing.md",
+      "redirect_url": "/azure/active-directory/manage-apps/application-sign-in-other-problem-access-panel",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/manage-apps/access-panel-troubleshoot-unexpected-application.md",
+      "redirect_url": "/azure/active-directory/manage-apps/application-sign-in-other-problem-access-panel",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/application-sign-in-other-problem-deeplink.md",
