@@ -3,11 +3,12 @@ title: Enable Container Storage Interface (CSI) drivers on Azure Kubernetes Serv
 description: Learn how to enable the Container Storage Interface (CSI) drivers for Azure Disk and Azure Files in an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 ms.topic: article
-ms.date: 08/17/2020
+ms.date: 08/27/2020
+author: palma21
 
 ---
 
-# Enable CSI drivers for Azure disks and Azure files on Azure Kubernetes Service (AKS) (preview)
+# Enable CSI drivers for Azure Disks and Azure Files on Azure Kubernetes Service (AKS) (preview)
 
 The Container Storage Interface (CSI) is a standard for exposing arbitrary block and file storage systems to containerized workloads on Kubernetes. By adopting and using CSI, Azure Kubernetes Service (AKS) now can write, deploy, and iterate plugins exposing new or improving existing storage systems in Kubernetes without having to touch the core Kubernetes code and waiting for its release cycles.
 
@@ -25,6 +26,7 @@ This feature can only be set at cluster creation time.
 
 > [!IMPORTANT]
 > The minimum kubernetes minor version that supports CSI drivers is v1.17.
+> During Preview the default storage class will still be the same in-tree storage class as until now. After this feature is generally available, the default storage class will be the `managed-csi` storage class and in-tree storage classes will be removed.
 
 ### Register the `EnableAzureDiskFileCSIDriver` preview feature
 
@@ -78,11 +80,23 @@ Create the AKS cluster with support for CSI Storage drivers.
 
 ```azurecli-interactive
 # Create an AKS-managed Azure AD cluster
-az aks create -g MyResourceGroup -n MyManagedCluster --aks-custom-headers EnableAzureDiskFileCSIDriver=true
+az aks create -g MyResourceGroup -n MyManagedCluster --network-plugin azure -k 1.17.9 --aks-custom-headers EnableAzureDiskFileCSIDriver=true
 ```
 
 If you want to create clusters in-tree storage drivers instead of CSI storage drivers, you can do so by omitting the custom `--aks-custom-headers` parameter.
 
+
+You can now check, for example, how many Azure disk-based volumes you can attach to this node by running:
+
+```console
+$ kubectl get nodes
+aks-nodepool1-25371499-vmss000000
+aks-nodepool1-25371499-vmss000001
+aks-nodepool1-25371499-vmss000002
+
+$ echo $(kubectl get CSINode <NODE NAME> -o jsonpath="{.spec.drivers[1].allocatable.count}")
+8
+```
 
 ## Next steps
 
@@ -117,22 +131,3 @@ If you want to create clusters in-tree storage drivers instead of CSI storage dr
 [az-feature-register]: /cli/azure/feature?view=azure-cli-latest#az-feature-register
 [az-feature-list]: /cli/azure/feature?view=azure-cli-latest#az-feature-list
 [az-provider-register]: /cli/azure/provider?view=azure-cli-latest#az-provider-register
-
-
-
-
-
-## Use the Azure disk CSI driver
-
-### Leverage the built in storage classes
-
-### Create a custom Storage class
-
-### Resize a Persistent Volume (PV)
-
-### Azure File VHD Disk
-
-### Use NFS
-
-
-### Windows Containers
