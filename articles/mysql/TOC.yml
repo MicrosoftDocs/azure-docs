@@ -454,7 +454,7 @@
       - name: TLS/SSL
         items:
         - name: Connect using TLS/SSL
-          href: flexible-server/how-to-connect-TLS-SSL.md
+          href: flexible-server/how-to-connect-tls-ssl.md
         - name: ARM template
           href: flexible-server/quickstart-create-arm-template.md
 - name: Reference
