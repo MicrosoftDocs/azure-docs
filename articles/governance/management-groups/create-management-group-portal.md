@@ -54,8 +54,7 @@ directory. You receive a notification when the process is complete. For more inf
      automatically created with an ID that is the Azure Active Directory ID. For all other
      management groups, assign a unique ID.
    - The display name field is the name that is displayed within the Azure portal. A separate
-     display name is an optional field when creating the management group and can be changed at any
-     time.
+     display name is an optional field when creating the management group and can be changed at any time.
 
    :::image type="content" source="./media/create_context_menu.png" alt-text="Options pane for creating a new management group":::
 
