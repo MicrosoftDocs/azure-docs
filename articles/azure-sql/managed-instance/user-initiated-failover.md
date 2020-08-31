@@ -37,7 +37,7 @@ User initiating a failover will need to have one of the following RBAC roles:
 - Subscription Owner role, or
 - Managed Instance Contributor role, or
 - Custom role with the following permission:
-  - `Microsoft.Sql/managedInstanes/failover/action`
+  - `Microsoft.Sql/managedInstances/failover/action`
 
 ### Using PowerShell
 
