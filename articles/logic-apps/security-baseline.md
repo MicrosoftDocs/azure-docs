@@ -92,9 +92,9 @@ Use Azure Security Center Just In Time Network access to configure NSGs to limit
 
 Use Azure Security Center Adaptive Network Hardening to recommend NSG configurations that limit ports and source IPs based on actual traffic and threat intelligence.
 
-* [How to secure inbound calls to Logic Apps](./logic-apps-securing-a-logic-app.md#access-to-request-based-triggers)
+* [How to secure inbound calls to Logic Apps](logic-apps-securing-a-logic-app.md#access-for-inbound-calls-to-request-based-triggers)
 
-* [How to restrict inbound IP addresses](./logic-apps-securing-a-logic-app.md#restrict-inbound-ip-addresses)
+* [How to restrict inbound IP addresses](logic-apps-securing-a-logic-app.md#restrict-inbound-ip-addresses)
 
 * [How to configure DDoS protection](../virtual-network/manage-ddos-protection.md)
 
@@ -366,7 +366,7 @@ Every request endpoint on a logic app has a Shared Access Signature (SAS) in the
 
 * [How to get members of a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
 
-* [How to secure access and data in Azure Logic Apps using SAS](./logic-apps-securing-a-logic-app.md#access-to-request-based-triggers)
+* [How to secure access and data in Azure Logic Apps using SAS](logic-apps-securing-a-logic-app.md#access-for-inbound-calls-to-request-based-triggers)
 
 **Azure Security Center monitoring**: N/A
 
@@ -380,7 +380,7 @@ If basic authentication is being used, you will need to specify a username and p
 
 If you are using Infrastructure as Code, avoid storing passwords in code and instead use Azure Key Vault to store and retrieve credentials.
 
-* [How to secure and access data in Logic Apps](./logic-apps-securing-a-logic-app.md)
+* [How to secure and access data in Logic Apps](logic-apps-securing-a-logic-app.md)
 
 * [How to set and retrieve a secret from Azure Key Vault](../key-vault/secrets/quick-create-portal.md)
 
@@ -471,7 +471,7 @@ Additionally, every request endpoint on a logic app has a Shared Access Signatur
 
 * [How to configure Named Locations in Azure](../active-directory/reports-monitoring/quickstart-configure-named-locations.md)
 
-* [Understand how to restrict inbound IP addresses in Logic Apps](./logic-apps-securing-a-logic-app.md#restrict-inbound-ip-addresses)
+* [Understand how to restrict inbound IP addresses in Logic Apps](logic-apps-securing-a-logic-app.md#restrict-inbound-ip-addresses)
 
 **Azure Security Center monitoring**: N/A
 
@@ -609,11 +609,11 @@ The Request trigger supports only Transport Layer Security (TLS) 1.2 for inbound
 
 Follow Azure Security Center recommendations for encryption at rest and encryption in transit, where applicable.
 
-* [Secure access and data in Azure Logic Apps - Access for inbound calls to request-based triggers](./logic-apps-securing-a-logic-app.md)
+* [Secure access and data in Azure Logic Apps](logic-apps-securing-a-logic-app.md)
 
-* [Receive and respond to inbound HTTPS requests in Azure Logic Apps](../connectors/connectors-native-reqres.md#tls-support)
+* [Receive and respond to inbound HTTPS requests in Azure Logic Apps](logic-apps-securing-a-logic-app.md#access-for-inbound-calls-to-request-based-triggers)
 
-* [Call service endpoints over HTTP or HTTPS from Azure Logic Apps](../connectors/connectors-native-http.md#tls-support)
+* [Call service endpoints over HTTP or HTTPS from Azure Logic Apps](logic-apps-securing-a-logic-app.md#access-for-inbound-calls-to-request-based-triggers)
 
 * [Understand encryption in transit with Azure](../security/fundamentals/encryption-overview.md#encryption-of-data-in-transit)
 
@@ -631,7 +631,7 @@ Follow Azure Security Center recommendations for encryption at rest and encrypti
 
 Microsoft manages the underlying infrastructure for Azure Logic Apps and has implemented strict controls to prevent the loss or exposure of customer data.
 
-* [Secure access to run history data](./logic-apps-securing-a-logic-app.md#access-to-run-history-data)
+* [Secure access to run history data](logic-apps-securing-a-logic-app.md#access-to-run-history-data)
 
 * [Understand customer data protection in Azure](../security/fundamentals/protection-customer-data.md)
 
@@ -647,7 +647,7 @@ Microsoft manages the underlying infrastructure for Azure Logic Apps and has imp
 
 To prevent others from changing or deleting your logic app, you can use Azure Resource Lock. This capability prevents others from changing or deleting production resources.
 
-* [Secure access to Azure Logic Apps operations](./logic-apps-securing-a-logic-app.md#access-to-logic-app-operations)
+* [Secure access to Azure Logic Apps operations](logic-apps-securing-a-logic-app.md#access-to-logic-app-operations)
 
 **Azure Security Center monitoring**: N/A
 
@@ -883,7 +883,7 @@ Logic Apps that are required for business operations, but may incur higher risk 
 
 * [How to create Management Groups](../governance/management-groups/create.md)
 
-* [How to secure access to Logic Apps via Azure RBAC](./logic-apps-securing-a-logic-app.md#access-to-logic-app-operations)
+* [How to secure access to Logic Apps via Azure RBAC](logic-apps-securing-a-logic-app.md#access-to-logic-app-operations)
 
 **Azure Security Center monitoring**: N/A
 
@@ -909,9 +909,9 @@ Also, use secured parameters to protect sensitive data and secrets.
 
 * [Single and multi-resource export to a template in Azure portal](../azure-resource-manager/templates/export-template-portal.md)
 
-* [How to deploy Azure Resource Manager templates for Azure Logic Apps](./logic-apps-deploy-azure-resource-manager-templates.md)
+* [How to deploy Azure Resource Manager templates for Azure Logic Apps](logic-apps-deploy-azure-resource-manager-templates.md)
 
-* [Understand secure action parameters](./logic-apps-securing-a-logic-app.md#secure-action-parameters)
+* [Understand secure action parameters](logic-apps-securing-a-logic-app.md#secure-action-parameters)
 
 * [Security recommendations for parameters](../azure-resource-manager/templates/template-best-practices.md#security-recommendations-for-parameters)
 
@@ -945,11 +945,11 @@ Also, ensure that you secure data in run history by using obfuscation.
 
 * [Single and multi-resource export to a template in Azure portal](../azure-resource-manager/templates/export-template-portal.md)
 
-* [How to deploy Azure Resource Manager templates for Azure Logic Apps](./logic-apps-deploy-azure-resource-manager-templates.md)
+* [How to deploy Azure Resource Manager templates for Azure Logic Apps](logic-apps-deploy-azure-resource-manager-templates.md)
 
-* [Secure access to run history inputs and outputs](./logic-apps-securing-a-logic-app.md#obfuscate)
+* [Secure access to run history inputs and outputs](logic-apps-securing-a-logic-app.md#obfuscate)
 
-* [Secure access to parameter inputs](./logic-apps-securing-a-logic-app.md#secure-action-parameters)
+* [Secure access to parameter inputs](logic-apps-securing-a-logic-app.md#secure-action-parameters)
 
 * [Security recommendations for parameters](../azure-resource-manager/templates/template-best-practices.md#security-recommendations-for-parameters)
 
@@ -1031,11 +1031,11 @@ Additionally, Azure Resource Manager has the ability to export the template in J
 
 When you create an integration service environment (ISE) for hosting your logic apps, and you want more control over the encryption keys used by Azure Storage, you can set up, use, and manage your own key by using Azure Key Vault. This capability is also known as "Bring Your Own Key" (BYOK), and your key is called a "customer-managed key".
 
-* [Secure inputs and outputs in run history in Azure Logic Apps](./logic-apps-securing-a-logic-app.md#obfuscate)
+* [Secure inputs and outputs in run history in Azure Logic Apps](logic-apps-securing-a-logic-app.md#obfuscate)
 
 * [Security recommendations for parameters](../azure-resource-manager/templates/template-best-practices.md#security-recommendations-for-parameters)
 
-* [Secure access to parameter inputs in Azure Logic Apps](./logic-apps-securing-a-logic-app.md#access-to-parameter-inputs)
+* [Secure access to parameter inputs in Azure Logic Apps](logic-apps-securing-a-logic-app.md#access-to-parameter-inputs)
 
 * [Pass secure parameter values during deployment using Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md)
 
@@ -1067,11 +1067,11 @@ Currently, only specific built-in triggers and actions support managed identitie
 
 You can also implement Credential Scanner to identify credentials within code. Credential Scanner will also encourage moving discovered credentials to more secure locations such as Azure Key Vault.
 
-* [Secure inputs and outputs in run history in Azure Logic Apps](./logic-apps-securing-a-logic-app.md#obfuscate)
+* [Secure inputs and outputs in run history in Azure Logic Apps](logic-apps-securing-a-logic-app.md#obfuscate)
 
 * [Security recommendations for parameters](../azure-resource-manager/templates/template-best-practices.md#security-recommendations-for-parameters)
 
-* [Secure access to parameter inputs in Azure Logic Apps](./logic-apps-securing-a-logic-app.md#access-to-parameter-inputs)
+* [Secure access to parameter inputs in Azure Logic Apps](logic-apps-securing-a-logic-app.md#access-to-parameter-inputs)
 
 * [Pass secure parameter values during deployment using Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md)
 
@@ -1131,7 +1131,7 @@ Additionally, you should expand your logic app's underlying workflow definition 
 
 * [Learn more about business continuity and disaster recovery for Azure Logic Apps](./business-continuity-disaster-recovery-guidance.md)
 
-* [How to automate deployment for Azure Logic Apps by using Azure Resource Manager templates](./logic-apps-azure-resource-manager-templates-overview.md)
+* [How to automate deployment for Azure Logic Apps by using Azure Resource Manager templates](logic-apps-azure-resource-manager-templates-overview.md)
 
 **Azure Security Center monitoring**: N/A
 
@@ -1149,9 +1149,9 @@ Every request endpoint on a logic app has a Shared Access Signature (SAS) in the
 
 * [Learn more about business continuity and disaster recovery for Azure Logic Apps](./business-continuity-disaster-recovery-guidance.md)
 
-* [How to automate deployment for Azure Logic Apps by using Azure Resource Manager templates](./logic-apps-azure-resource-manager-templates-overview.md)
+* [How to automate deployment for Azure Logic Apps by using Azure Resource Manager templates](logic-apps-azure-resource-manager-templates-overview.md)
 
-* [How to secure access and data in Azure Logic Apps using SAS](./logic-apps-securing-a-logic-app.md#access-to-request-based-triggers)
+* [How to secure access and data in Azure Logic Apps using SAS](logic-apps-securing-a-logic-app.md#access-for-inbound-calls-to-request-based-triggers)
 
 * [How to backup Key Vault Keys](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey)
 
