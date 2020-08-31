@@ -59,7 +59,7 @@ For the remaining tasks, you use SSMS to connect to and manage your server.
 
 3. In **Object Explorer**, expand to see server objects. Right-click to see server properties.
    
-    ![Connect in SSMS](./media/analysis-services-tutorial-roles/aas-connect-ssms-objexp.png)
+    ![Object Explorer in SSMS](./media/analysis-services-tutorial-roles/aas-connect-ssms-objexp.png)
 
 ## Add a user account to the server administrator role
 
