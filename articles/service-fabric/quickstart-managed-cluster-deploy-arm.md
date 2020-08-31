@@ -10,7 +10,7 @@ ms.custom: subject-armqs
 
 Service Fabric Managed clusters are an evolution of the Azure Service Fabric cluster resource model that streamlines your deployment and cluster management experience. Service Fabric managed clusters are a fully encapsulated resource that enable you to deploy a single Service Fabric cluster resource rather than having to deploy all of the underlying resources that make up a Service Fabric cluster. This article describes how to do deploy a Managed Service Fabric test cluster in Azure using an Azure Resource Manager template (ARM template).
 
-The three-node Basic SKU cluster deployed in this tutorial is only intended to be used for instructional purposes (rather than production workloads). For more information about Managed Service Fabric cluster SKUs please see [PLACEHOLDER](https://docs.microsoft.com/en-us/azure/key-vault/certificates/quick-create-portal#:~:text=%20Quickstart%3A%20Set%20and%20retrieve%20a%20certificate%20from,vault%2C%20you%20just%20need%20to%20take...%20More%20).
+The three-node Basic SKU cluster deployed in this tutorial is only intended to be used for instructional purposes (rather than production workloads). For more information about Managed Service Fabric cluster SKUs please see [PLACEHOLDER](https://docs.microsoft.com/azure/key-vault/certificates/quick-create-portal#:~:text=%20Quickstart%3A%20Set%20and%20retrieve%20a%20certificate%20from,vault%2C%20you%20just%20need%20to%20take...%20More%20).
 
 ## Prerequisites
 
@@ -20,9 +20,12 @@ Before you begin this quickstart:
 <!-- Section to be completed when templates are merged into the quickstart repo. -->
 ## Review the template 
 
-The template used in this quickstart is from [Azure Quickstart Templates - PLACEHOLDER](https://docs.microsoft.com/en-us/azure/key-vault/certificates/quick-create-portal#:~:text=%20Quickstart%3A%20Set%20and%20retrieve%20a%20certificate%20from,vault%2C%20you%20just%20need%20to%20take...%20More%20).
+The template used in this quickstart is from [Azure Quickstart Templates - PLACEHOLDER](https://docs.microsoft.com/azure/key-vault/certificates/quick-create-portal#:~:text=%20Quickstart%3A%20Set%20and%20retrieve%20a%20certificate%20from,vault%2C%20you%20just%20need%20to%20take...%20More%20).
+
+<!-- To be updated when samples are added 
 
 :::code language="json" source="~peterpogorski/quickstart-templates/101-managed-service-fabric-cluster-basic/azuredeploy.json" range="1-112" :::
+-->
 
 ## Create a client certificate (optional)
 

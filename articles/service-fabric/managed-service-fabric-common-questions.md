@@ -25,12 +25,12 @@ No, there is no additional cost associated with a managed Service Fabric cluster
 The SLA does not change from the current Service Fabric resource model.
 
 ### What is the difference between a Basic, and Standard SKU cluster? 
-This is a sku for the SF cluster type. Basic means, most of the configurations are provided by the Service Fabric resource provider. Standard is where customers are allowed to config to their choice. Basic is for testing, quickly bringing up a cluster. See [cluster SKUs](PLACEHOLDER) for more details. 
+This is a sku for the SF cluster type. Basic means, most of the configurations are provided by the Service Fabric resource provider. Standard is where customers are allowed to config to their choice. Basic is for testing, quickly bringing up a cluster. See cluster SKUs for more details. 
 
 ## Cluster Deployment and Management
 
 ### I run custom script extensions on my Virtual Machine Scale Set, can I continue to do that with a managed Service Fabric resource?  
-Yes you can still specify VM extensions on a node type. Please see the [node type extension sample](PLACEHOLDER) for more details.
+Yes you can still specify VM extensions on a node type. Please see the node type extension sample for more details.
 
 ### I want to have an internal only load balancer, is that possible?
 It is not currently possible to have an internal only load balancer. It is recommended that you lock down the Network Security Group rules to block any undesired inbound/outbound traffic.
