@@ -1,0 +1,107 @@
+### YamlMime:Landing
+
+title: Azure Communication Services
+summary: Azure Communication Services is a cloud-based communications service that lets you add voice, video, chat, and telephony to your apps. Note that Azure Communication Services is currently in public preview.
+
+metadata:
+  title: Azure Communication Services 
+  description: Azure Communication Services is a cloud-based communications service that lets you add voice, video, chat, and telephony to your apps. Note that Azure Communication Services is currently in public preview.
+  ms.service: azure-communication-services
+  ms.topic: landing-page # Required
+  author: mikben 
+  ms.author: mikben
+  ms.date: 08/10/2020 
+
+landingContent:
+  - title: About Azure Communication Services
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Communication Services?
+            url: overview.md 
+      - linkListType: concept
+        links:
+          - text: SDK options
+            url: concepts/sdk-options.md
+  - title: Get started
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Create a Communication Services resource
+            url: quickstarts/create-a-communication-resource.md
+          - text: Create and manage user access tokens
+            url: quickstarts/user-access-tokens.md
+      - linkListType: concept
+        links:
+          - text: Client and server architecture
+            url: concepts/client-and-server-architecture.md
+          - text: Authentication and authorization
+            url: concepts/authentication.md
+          - text: Event handling
+            url: concepts/event-handling.md
+          - text: Notifications
+            url: concepts/notifications.md
+          - text: Logging and diagnostics
+            url: concepts/logging-diagnostics.md
+  - title: Voice and video calling
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Add voice and video calling to your app
+            url: quickstarts/voice-and-video-calling/getting-started-with-calling.md
+          - text: Use the calling SDK
+            url: quickstarts/voice-and-video-calling/calling-client-samples.md
+      - linkListType: concept
+        links:
+          - text: Voice and video concepts
+            url: concepts/voice-and-video-calling/about-voice-video.md
+          - text: Calling SDK overview
+            url: concepts/voice-and-video-calling/calling-sdk-features.md
+          - text: Call flows
+            url: concepts/call-flows.md
+  - title: Telephony and SMS
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Buy a telephone number
+            url: quickstarts/telephony-and-sms/get-a-phone-number.md
+          - text: Send an SMS message
+            url: quickstarts/telephony-and-sms/send-sms.md
+          - text: Handle SMS events
+            url: quickstarts/telephony-and-sms/handle-sms-events.md
+      - linkListType: concept
+        links:
+          - text: SMS concepts
+            url: concepts/telephony-and-sms/sms.md
+          - text: SMS SDK overview
+            url: concepts/telephony-and-sms/sms-sdk-features.md
+          - text: Calling SDK overview
+            url: concepts/voice-and-video-calling/calling-sdk-features.md
+          - text: Plan your telephony and SMS solution
+            url: concepts/telephony-and-sms/plan-your-telephony-and-SMS-solution.md
+      - linkListType: tutorial
+        links:
+          - text: Use SMS as a two-factor authentication provider
+            url: tutorials/telephony-and-sms/add-2fa-to-your-app.md
+  - title: Chat
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Add chat to your app
+            url: quickstarts/chat/get-started-with-chat.md
+          - text: Handle chat events
+            url: quickstarts/chat/handle-chat-events.md
+      - linkListType: concept
+        links:
+          - text: Chat concepts
+            url: concepts/chat/about-chat.md
+          - text: Chat SDK overview
+            url: concepts/chat/chat-sdk-features.md
+  - title: Samples
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Get started with the Group Calling hero sample
+            url: samples/calling-hero-sample.md
+          - text: Get started with the Chat hero sample
+            url: samples/chat-hero-sample.md

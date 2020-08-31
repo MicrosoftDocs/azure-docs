@@ -1,0 +1,129 @@
+- name: Azure Communication Services Documentation
+  href: index.yml
+- name: Meta [Temporary]
+  expanded: false
+  items:
+  - name: Contributor quickstart
+    href: contribute.md
+  - name: Docs Philosophy
+    href: docs-philosophy.md
+  - name: Generating Reference Docs
+    href: reference-docs-guidance.md
+- name: Overview
+  expanded: true
+  items:
+  - name: What is Azure Communication Services?
+    href: overview.md
+  - name: Compare related services
+    href: compare.md
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: Create a Communication Services resource
+    href: quickstarts/create-a-communication-resource.md
+  - name: Create and manage user access tokens
+    href: quickstarts/user-access-tokens.md
+  - name: Chat
+    items:
+      - name: Add chat to your app
+        href: quickstarts/chat/get-started-with-chat.md
+      - name: Handle chat events
+        href: quickstarts/chat/handle-chat-events.md
+  - name: Telephony and SMS
+    items:
+      - name: Get a telephone number
+        href: quickstarts/telephony-and-sms/get-a-phone-number.md
+      - name: Send an SMS message
+        href: quickstarts/telephony-and-sms/send-sms.md
+      - name: Handle SMS events
+        href: quickstarts/telephony-and-sms/handle-sms-events.md
+  - name: Voice and video calling
+    items:
+    - name: Add voice calling to your app
+      href: quickstarts/voice-and-video-calling/getting-started-with-calling.md
+    - name: Use the calling SDK
+      href: quickstarts/voice-and-video-calling/calling-client-samples.md
+  - name: Networking
+    items:
+    - name: Get a network relay token
+      href: quickstarts/networking/get-turn-token.md
+- name: Tutorials
+  expanded: false
+  items:
+  - name: Integrate Communication Services with other Azure services*
+    href: tutorials/trusted-service-tutorial.md
+  - name: Add push notifications to enable calling alerts*
+    href: tutorials/trusted-service-tutorial.md
+  - name: Use SMS as a two-factor authentication provider*
+    href: tutorials/telephony-and-sms/add-2fa-to-your-app.md
+- name: Concepts
+  expanded: false
+  items:
+  - name: Chat
+    items:
+      - name: Chat SDK overview
+        href: concepts/chat/chat-sdk-features.md
+      - name: Chat concepts
+        href: concepts/chat/about-chat.md
+  - name: Telephony and SMS
+    items: 
+      - name: SMS SDK overview
+        href: concepts/telephony-and-sms/sms-sdk-features.md
+      - name: SMS concepts
+        href: concepts/telephony-and-sms/sms.md
+      - name: Plan your telephony and SMS solution 
+        href: concepts/telephony-and-sms/plan-your-telephony-and-sms-solution.md
+      - name: Push Notifications Overview*
+        href: concepts/telephony-and-sms/push-notifications-overview.md
+      - name: Push Notifications Overview 2*
+        href: concepts/telephony-and-sms/push-notifications-overview-2.md
+      - name: Registering For Push Notifications*
+        href: concepts/telephony-and-sms/notifications-azure-portal-registration.md
+  - name: Voice and video Calling
+    items:
+      - name: Calling SDK overview
+        href: concepts/voice-and-video-calling/calling-sdk-features.md
+      - name: Voice and video concepts
+        href: concepts/voice-and-video-calling/about-voice-video.md
+  - name: Networking
+    items:
+      - name: STUN and TURN
+        href: concepts/networking/ice-stun-nat-turn-sdp.md
+  - name: Client and server architecture
+    href: concepts/client-and-server-architecture.md
+  - name: Metric definitions
+    href: concepts/azure-communication-metric-definitions.md
+  - name: Logging and diagnostics
+    href: concepts/logging-diagnostics.md
+  - name: Call flows
+    href: concepts/call-flows.md
+  - name: SDKs and REST APIs
+    href: concepts/sdk-options.md
+  - name: Pricing model
+    href: concepts/pricing.md
+  - name: Identity model
+    href: concepts/identity-model.md
+  - name: Authentication and authorization
+    href: concepts/authentication.md
+  - name: Event handling
+    href: concepts/event-handling.md
+  - name: Notifications
+    href: concepts/notifications.md
+- name: Samples
+  items:
+  - name: Group calling hero sample
+    href: samples/calling-hero-sample.md
+  - name: Chat hero sample
+    href: samples/chat-hero-sample.md
+- name: References
+  items:
+  - name: REST API Documentation
+    href: https://docs.microsoft.com/en-us/rest/api/azure/
+- name: Resources
+  items:
+  - name: Roadmap
+    href: roadmap.md
+  - name: Troubleshooting
+    href: troubleshooting.md
+  - name: Provide Product Feedback
+    href: product-feedback.md 
