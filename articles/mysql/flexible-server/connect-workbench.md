@@ -109,6 +109,6 @@ Now, you have connected to Azure Database for MySQL Flexible Server by using MyS
 
 ## Next steps
 - [encrypted connectivity using Transport Layer Security (TLS 1.2) in Azure Database for MySQL - Flexible Server](./how-to-connect-TLS-SSL.md).
-- Learn more about [Networking in Azure Database for MySQL Flexible Server]<!--- FIX ME (./concepts-networking-overview.md). --->
+- Learn more about [Networking in Azure Database for MySQL Flexible Server]<!-- FIX ME (./concepts-networking-overview.md). -->
 - [Create and manage Azure Database for MySQL Flexible Server firewall rules using the Azure portal](./how-to-manage-firewall-portal.md).
 - [Create and manage Azure Database for MySQL Flexible Server virtual network using Azure portal](./how-to-manage-virtual-network-portal.md).
