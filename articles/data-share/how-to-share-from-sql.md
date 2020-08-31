@@ -1,6 +1,6 @@
 ---
 title: Share and receive data from Azure SQL Database and Azure Synapse Analytics
-description: Learn how to share and receive data from Azure Blob Storage and Azure Data Lake Storage
+description: Learn how to share and receive data from Azure SQL Database and Azure Synapse Analytics
 author: jifems
 ms.author: jife
 ms.service: data-share
