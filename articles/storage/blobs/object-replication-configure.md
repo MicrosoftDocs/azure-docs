@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.date: 07/16/2020
 ms.author: tamram
 ms.subservice: blobs 
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Configure object replication for block blobs (preview)
@@ -20,6 +20,8 @@ Object replication (preview) asynchronously copies block blobs between a source 
 When you configure object replication, you create a replication policy that specifies the source storage account and the destination account. A replication policy includes one or more rules that specify a source container and a destination container and indicate which block blobs in the source container will be replicated.
 
 This article describes how to configure object replication for your storage account by using the Azure portal, PowerShell, or Azure CLI. You can also use one of the Azure Storage resource provider client libraries to configure object replication.
+
+[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
 ## Create a replication policy and rules
 
