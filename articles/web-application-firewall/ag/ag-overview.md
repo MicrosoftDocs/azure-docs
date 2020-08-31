@@ -153,7 +153,7 @@ Microsoft Azure Sentinel is a scalable, cloud-native, security information event
 With the built-in Azure WAF firewall events workbook, you can get an overview of the security events on your WAF. This includes events, matched and blocked rules, and everything else that gets logged in the firewall logs. See more on logging below. 
 
 
-![Sentinel](../media/ag-overview/sentinel.png)
+![Azure WAF firewall events workbook](../media/ag-overview/sentinel.png)
 
 #### Logging
 
