@@ -29,7 +29,7 @@ If you have problems with password writeback for Azure AD Connect, review the fo
 * [Restart the Azure AD Connect Sync service](#restart-the-azure-ad-connect-sync-service)
 * [Disable and re-enable the password writeback feature](#disable-and-re-enable-the-password-writeback-feature)
 * [Install the latest Azure AD Connect release](#install-the-latest-azure-ad-connect-release)
-* [Troubleshoot password writeback](#troubleshoot-password-writeback)
+* [Troubleshoot password writeback](#common-password-writeback-errors)
 
 ### Confirm network connectivity
 
@@ -225,8 +225,6 @@ To properly assist you, we ask that you provide as much detail as possible when 
    * Is this a cloud-only user?
 * **Licensing**: Does the user have an Azure AD license assigned?
 * **Application event log**: If you're using password writeback and the error is in your on-premises infrastructure, include a zipped copy of your application event log from the Azure AD Connect server.
-
-[Service restart]: ./media/active-directory-passwords-troubleshoot/servicerestart.png "Restart the Azure AD Sync service"
 
 ## Next steps
 
