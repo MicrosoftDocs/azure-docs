@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/27/2020
+ms.date: 08/29/2020
 ms.author: alkohli
 ---
 # Use Kubernetes dashboard to monitor your Azure Stack Edge GPU device
@@ -21,6 +21,7 @@ In this article, you learn how to:
 > [!div class="checklist"]
 >
 > * Access the Kubernetes dashboard on your device
+> * Download `aseuser` config
 > * View modules deployed on your device
 > * Get IP address for applications deployed on your device
 > * View container logs for modules deployed on your device
@@ -28,13 +29,13 @@ In this article, you learn how to:
 
 ## About Kubernetes Dashboard
 
-Kubernetes Dashboard is a web-based user interface that you can use to troubleshoot your containerized applications. Kubernetes Dashboard is a UI-based alternative to the Kubernetes `kubectl` command line. 
+Kubernetes Dashboard is a web-based user interface that you can use to troubleshoot your containerized applications. Kubernetes Dashboard is a UI-based alternative to the Kubernetes `kubectl` command line. For more information, see [Kubernetes Dashboard](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/). 
 
-On your Azure Stack Edge device, you can use the Kubernetes Dashboard in read-only mode to get an overview of the applications running on your Azure Stack Edge device, view status of Kubernetes cluster resources, and see any errors that have occurred on the device.
+On your Azure Stack Edge device, you can use the Kubernetes Dashboard in *read-only* mode to get an overview of the applications running on your Azure Stack Edge device, view status of Kubernetes cluster resources, and see any errors that have occurred on the device.
 
 ## Access dashboard
 
-The Kubernetes Dashboard is read-only and runs on the Kubernetes master node at port 31000. Follow these steps to access the dashboard: 
+The Kubernetes Dashboard is *read-only* and runs on the Kubernetes master node at port 31000. Follow these steps to access the dashboard: 
 
 1. In the local UI of your device, go to **Device** and then go to **Device endpoints**. Select the Kubernetes dashboard URL to open the dashboard in a browser.
 

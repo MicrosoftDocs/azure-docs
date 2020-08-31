@@ -50,11 +50,8 @@ Azure AD My Apps benefits businesses in the following ways:
 My Apps is free and requires no licenses to use at a basic level. However, the number of objects in your directory and the additional features you want to deploy can require additional licenses. Some common Azure AD scenarios that have licensing requirements include the following security features:
 
 * [Azure Multi-Factor Authentication](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-how-it-works)
-
 * [Group-based membership](https://docs.microsoft.com/azure/active-directory/active-directory-manage-groups)
-
 * [Self-service password reset](https://docs.microsoft.com/azure/active-directory/authentication/quickstart-sspr)
-
 * [Azure Active Directory Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)
 
 See the [full licensing guide for Azure AD](https://azure.microsoft.com/pricing/details/active-directory/).
@@ -64,7 +61,6 @@ See the [full licensing guide for Azure AD](https://azure.microsoft.com/pricing/
 Complete the following prerequisites before you begin this project:
 
 * [Integrate application SSO](https://docs.microsoft.com/azure/active-directory/manage-apps/plan-sso-deployment)
-
 * [Manage Azure AD user and group infrastructure](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-manage-groups)
 
 ## Plan Azure AD My Apps deployment
@@ -134,7 +130,6 @@ Users or administrators must consent to any application’s terms of use and pri
 To use administrator consent, you must be a global administrator of the organization, and the applications must be either:
 
 * Registered in your organization
-
 * Registered in another Azure AD organization and previously consented by at least one user
 
 For more information, see [Configure the way end users consent to an application in Azure Active Directory](configure-user-consent.md).
@@ -175,9 +170,7 @@ When users sign in to password-based SSO applications, they need to install and 
 If you must integrate password-based SSO applications, you should define a mechanism to deploy the extension at scale with [supported browsers](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction). Options include:
 
 * [Group Policy for Internet Explorer](https://azure.microsoft.com/documentation/articles/active-directory-saas-ie-group-policy/)
-
 * [Configuration Manager for Internet Explorer](https://docs.microsoft.com/configmgr/core/clients/deploy/deploy-clients-to-windows-computers)
-
 * [User-driven download and configuration for Chrome, Firefox, Microsoft Edge, or IE](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
 
 Users who don't use password-based SSO applications also benefit from the extension. These benefits include the ability to launch any app from its search bar, finding access to recently used applications, and having a link to the My Apps page.
@@ -289,7 +282,6 @@ The following tests should be conducted with both corporate-owned devices and pe
 
 #### Application self-service capabilities test case examples
 
-
 | Business case| Expected result |
 | - | - |
 | User can manage membership to the application| User can add/remove members who have access to the app |
@@ -314,22 +306,5 @@ Use the least privileged role to accomplish a required task within Azure Active 
 
 You can use [Privileged Identity Management](../privileged-identity-management/pim-configure.md) to manage your roles to provide additional auditing, control, and access review for users with directory permissions.
 
-### Troubleshoot My Apps issues
-
-Create troubleshooting guides for your support organization with common scenarios, which point to Microsoft documentation in their resolutions. You might want to create guides that break support into the tiers used by your organization.
-
-See these troubleshooting guides for reference:
-
-[Applications not appearing](access-panel-troubleshoot-application-not-appearing.md)
-
-[Unexpected applications appearing](access-panel-troubleshoot-unexpected-application.md)
-
-[User cannot sign in to My Apps](access-panel-troubleshoot-web-sign-in-problem.md)
-
-[Problems using self-service application access](access-panel-troubleshoot-self-service-access.md)
-
-[Issues with the browser extension](manage-access-panel-browser-extension.md)
-
 ## Next steps
-
 [Plan a deployment of Azure Multi-Factor Authentication](https://aka.ms/deploymentplans/mfa)
