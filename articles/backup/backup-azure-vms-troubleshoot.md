@@ -98,18 +98,26 @@ The Backup operation failed due to an issue with Windows service **COM+ System**
 Error code: ExtensionFailedVssWriterInBadState <br/>
 Error message: Snapshot operation failed because VSS writers were in a bad state.
 
-Restart VSS writers that are in a bad state. From an elevated command prompt, run ```vssadmin list writers```. The output contains all VSS writers and their state. For every VSS writer with a state that's not **[1] Stable**, to restart VSS writer, run the following commands from an elevated command prompt:
+This error occurs because the VSS writers were in bad state. Azure backup extensions interacts with VSS Writers for taking snapshots of the disks. To resolve this issue, follow these steps:
+
+Restart VSS writers that are in a bad state.
+- From an elevated command prompt, run ```vssadmin list writers```.
+- The output contains all VSS writers and their state. For every VSS writer with a state that's not **[1] Stable**, restart respective VSS writer's service. 
+- To restart the service, run the following commands from an elevated command prompt:
 
 * ```net stop serviceName```
 * ```net start serviceName```
 
-Another procedure that can help is to run the following command from an elevated command-prompt (as an administrator).
+    > [!NOTE]
+    > Restarting some services can have an impact on your production environment, ensure the approval process is followed and the service is restarted at the scheduled downtime.
+    
+    
+If restarting the VSS writers did not resolve the issue and the issue still persists due to a time-out then,
+- Run the following command from an elevated command-prompt (as an administrator) to prevent the threads from being created for blob-snapshots.
 
 ```console
 REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v SnapshotWithoutThreads /t REG_SZ /d True /f
 ```
-
-Adding this registry key will cause the threads to not be created for blob-snapshots, and prevent the time-out.
 
 ### ExtensionConfigParsingFailure - Failure in parsing the config for the backup extension
 
