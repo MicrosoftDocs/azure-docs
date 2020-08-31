@@ -63,15 +63,15 @@ Start your co-sell journey directly in Partner Center, following the steps below
 
 1. In the menu on the left, select **Co-sell with Microsoft**.
 
-    [![This image shows the location of the Co-sell with Microsoft tab.](./media/co-sell/co-sell-tab.png)](./media/co-sell/co-sell-tab.png#lightbox)
+    [![This image shows the location of the Co-sell with Microsoft tab.](./media/co-sell/co-sell-with-microsoft-tab.png)](./media/co-sell/co-sell-with-microsoft-tab.png#lightbox)
 
 1. Provide details about your offer and upload collaterals in the **Documents** section. Microsoft sellers will use this information to recommend and sell your offer.
  
-   [![This image shows the Documents section in the Co-sell tab.](./media/co-sell/co-sell-documents.png)](./media/co-sell/co-sell-documents.png#lightbox)
+   [![This image shows the Documents section in the Co-sell tab.](./media/co-sell/co-sell-documents-section.png)](./media/co-sell/co-sell-documents-section.png#lightbox)
 
 1. Upload sales contact information in the **Contacts** section. Microsoft sellers may reach out to these contacts to request additional information about your offer.
 
-     [![This image shows the Contacts section in the Co-sell tab.](./media/co-sell/co-sell-contacts.png)](./media/co-sell/co-sell-contacts.png#lightbox)
+     [![This image shows the Contacts section in the Co-sell tab.](./media/co-sell/co-sell-contacts-section.png)](./media/co-sell/co-sell-contacts-section.png#lightbox)
 
 1. Save the draft before you continue.
 1. After you've completed all the required sections of the offer, you can submit it for review and publication. In the upper right, select **Review and publish**. Review the offer details, then select **Publish**.
