@@ -115,9 +115,9 @@ The Oracle software is already installed on the Marketplace image. Create a samp
     ```
 2. Create a data directory for the Oracle data files
 
-```bash
-    mkdir /u01/app/oracle/oradata
-```
+    ```bash
+        mkdir /u01/app/oracle/oradata
+    ```
 
 3.  Create the database:
 
@@ -178,18 +178,18 @@ The Oracle software is already installed on the Marketplace image. Create a samp
 
 4. Set Oracle variables
 
-Before you connect, you need to set two environment variables: *ORACLE_HOME* and *ORACLE_SID*.
+    Before you connect, you need to set two environment variables: *ORACLE_HOME* and *ORACLE_SID*.
 
-```bash
-ORACLE_SID=cdb1; export ORACLE_SID
-```
+    ```bash
+        ORACLE_SID=cdb1; export ORACLE_SID
+    ```
 
-You also can add ORACLE_HOME and ORACLE_SID variables to the .bashrc file. This would save the environment variables for future sign-ins. Confirm the following statements have been added to the `~/.bashrc` file using editor of your choice.
+    You also can add ORACLE_HOME and ORACLE_SID variables to the .bashrc file. This would save the environment variables for future sign-ins. Confirm the following statements have been added to the `~/.bashrc` file using editor of your choice.
 
-```bash
-# Add ORACLE_SID. 
-export ORACLE_SID=cdb1 
-```
+    ```bash
+    # Add ORACLE_SID. 
+    export ORACLE_SID=cdb1 
+    ```
 
 ## Oracle EM Express connectivity
 
