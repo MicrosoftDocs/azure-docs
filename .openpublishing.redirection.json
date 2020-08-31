@@ -29379,6 +29379,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/security-center/security-center-vulnerability-assessment-recommendations.md",
+      "redirect_url": "/azure/security-center/deploy-vulnerability-assessment-vm",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security-center/built-in-vulnerability-assessment.md",
+      "redirect_url": "/azure/security-center/deploy-vulnerability-assessment-vm",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security-center/partner-vulnerability-assessment.md",
+      "redirect_url": "/azure/security-center/deploy-vulnerability-assessment-vm",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/security-center/security-center-secure-score.md",
       "redirect_url": "/azure/security-center/secure-score-security-controls",
       "redirect_document_id": false

@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 06/10/2020
+ms.date: 08/28/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge so I can use it to transfer data to Azure. 
 ---
@@ -79,7 +79,7 @@ Follow these steps to configure the network for your device.
      >[!NOTE]
      >
      > * We recommend that you do not switch the local IP address of the network interface from static to DCHP, unless you have another IP address to connect to the device. If using one network interface and you switch to DHCP, there would be no way to determine the DHCP address. If you want to change to a DHCP address, wait until after the device has activated with the service, and then change. You can then view the IPs of all the adapters in the **Device properties** in the Azure portal for your service.
-     > * If you enable compute and use IoT Edge module on your Azure Stack Edge device, we recommend you set web proxy authentication as **None**. NTLM is not supported.
+
 
     After you have configured and applied the network settings, go back to **Get started**.
 
@@ -115,7 +115,11 @@ Follow these steps to enable compute and configure compute network.
 
 This is an optional configuration.
 
-1. Go to the Get started page in the local web UI of your device.
+> [!IMPORTANT]
+> * If you enable compute and use IoT Edge module on your Azure Stack Edge device, we recommend you set web proxy authentication as **None**. NTLM is not supported.
+>* Proxy-auto config (PAC) files are not supported. A PAC file defines how web browsers and other user agents can automatically choose the appropriate proxy server (access method) for fetching a given URL. Proxies that try to intercept and read all the traffic (then re-sign everything with their own certification) aren't compatible since the proxy's certificate is not trusted. Typically transparent proxies work well with Azure Stack Edge. Non-transparent web proxies are not supported.
+
+1. Go to the **Get started** page in the local web UI of your device.
 2. On the **Network** tile, configure your web proxy server settings. Although web proxy configuration is optional, if you use a web proxy, you can configure it on this page only.
 
    ![Local web UI "Web proxy settings" page](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/web-proxy-1.png)

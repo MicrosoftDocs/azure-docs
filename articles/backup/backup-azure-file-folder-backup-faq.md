@@ -118,7 +118,7 @@ The size of the cache folder determines the amount of data that you're backing u
 1. Run this command in an elevated command prompt to stop the Backup engine:
 
     ```Net stop obengine```
-2. If you have configured System State backup, open Disk Management and unmount the disk(s) with names in the format `"CBSSBVol_<ID>"`.
+2. If you've configured System State backup, open Disk Management and unmount the disk(s) with names in the format `"CBSSBVol_<ID>"`.
 3. By default, the scratch folder is located at `\Program Files\Microsoft Azure Recovery Services Agent\Scratch`
 4. Copy the entire `\Scratch` folder to a different drive that has sufficient space. Ensure the contents are copied, not moved.
 5. Update the following registry entries with the path of the newly moved scratch folder.
