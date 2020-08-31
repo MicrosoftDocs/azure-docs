@@ -25,18 +25,18 @@ No, there is no additional cost associated with a managed Service Fabric cluster
 The SLA does not change from the current Service Fabric resource model.
 
 ### What is the difference between a Basic, and Standard SKU cluster? 
-This is a sku for the SF cluster type. Basic means, most of the configurations are provided by the Service Fabric resource provider. Standard is where customers are allowed to config to their choice. Basic is for testing, quickly bringing up a cluster. See cluster SKUs for more details. 
+A Basic SKU cluster means, most of the configurations are provided by the Service Fabric resource provider. Basic SKU clusters are intended to be used for testing and pre production environments. A Standard SKU cluster allows users to configure the cluster to specifically meet their needs. For more information, see cluster SKUs for more details. 
 
 ## Cluster Deployment and Management
 
 ### I run custom script extensions on my Virtual Machine Scale Set, can I continue to do that with a managed Service Fabric resource?  
-Yes you can still specify VM extensions on a node type. Please see the node type extension sample for more details.
+Yes you can still specify VM extensions on a node type. For more information, see the node type extension sample for more details.
 
 ### I want to have an internal only load balancer, is that possible?
 It is not currently possible to have an internal only load balancer. It is recommended that you lock down the Network Security Group rules to block any undesired inbound/outbound traffic.
 
-### Can I auto-scale my cluster? 
-Auto-scaling is not yet available in the preview. 
+### Can I autoscale my cluster? 
+Autoscaling is not yet available in the preview. 
 
 ### Can I deploy my cluster across availability zones? 
 Cross availability zone clusters are not yet available in the preview. 
@@ -47,7 +47,7 @@ In the preview, all runtime upgrades will be completed automatically.
 ## Applications 
 
 ### Is there a local development experience for managed Service Fabric clusters? 
-The local development experience remains unchanged from existing Service Fabric clusters. Please see [Create a .Net Application](https://docs.microsoft.com/azure/service-fabric/service-fabric-quickstart-dotnet) for more details on the local development experience. 
+The local development experience remains unchanged from existing Service Fabric clusters. For more information, see [Create a .Net Application](https://docs.microsoft.com/azure/service-fabric/service-fabric-quickstart-dotnet) for more details on the local development experience. 
 
 ### Can I deploy my applications as an Azure Resource Manager resource? 
 In the preview, you will not be able to deploy applications as an Azure Resource Manager resource. Applications must be deployed by connecting directly to the cluster either through PowerShell or CLI. This functionality will be added before manged Service Fabric clusters enter general availability. 
