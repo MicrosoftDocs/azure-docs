@@ -21,7 +21,7 @@ ms.author: garye      # Your microsoft.com email alias
 
 *See [What is Azure Synapse Analytics?](../overview-what-is.md) for an example to follow.*
 
-*For more details, see [Global template for overview articles](https://review.docs.microsoft.com/help/contribute/global-overview-template?branch=master) in the Contributor Guide.*
+*For a more detailed template, see [Global template for overview articles](https://review.docs.microsoft.com/help/contribute/global-overview-template?branch=master) in the Contributor Guide.*
 
 ## Key features & benefits
 
