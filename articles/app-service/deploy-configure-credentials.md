@@ -113,12 +113,8 @@ The API in the previous section is backed Azure Role-Based Access Control (RBAC)
   
     You can disable this for [slots](https://docs.microsoft.com/en-us/azure/app-service/deploy-staging-slots) as well. See the `microsoft.web/sites/slots/basicPublishingCredentialsPolicies/ftp` and `microsoft.web/sites/slots/basicPublishingCredentialsPolicies/scm` actions   
 
-    ![Disable write actions in the Portal]({{site.baseurl}}/media/2020/08/rbac-ftp-list-operations-portal.png)
-
 10. Click **Review + create** at the bottom. Under **Permissions**, you will see the `basicPublishingCredentialsPolicies` APIs listed as NotActions.
-    
-    ![List of NotActions]({{site.baseurl}}/media/2020/08/rbac-ftp-list-notactions.png)
-
+  
 11. Finally, click **Create**. You can now assign this role to your organization's users.
 
 > More information on [setting up custom RBAC roles](https://docs.microsoft.com/en-us/azure/role-based-access-control/custom-roles-portal#step-2-choose-how-to-start).
