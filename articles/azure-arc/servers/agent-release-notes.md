@@ -1,11 +1,11 @@
 ---
-title: Release notes
+title: What's new with Azure Arc enabled servers (preview) agent
 description: This article has release notes for Azure Arc enabled servers (preview) agent. For many of the summarized issues there are links to additional details.
 ms.topic: conceptual
 ms.date: 08/31/2020
 ---
 
-# Release notes for Azure Arc enabled servers (preview) agent
+# What's new with Azure Arc enabled servers (preview) agent
 
 The Azure Arc enabled servers (preview) Connected Machine agent receives improvements on an ongoing basis. To stay up to date with the most recent developments, this article provides you with information about:
 
