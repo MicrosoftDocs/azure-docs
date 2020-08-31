@@ -33,6 +33,35 @@ When you create a new virtual machine (VM) in a Resource Group by deploying an i
 > After expanding the disks, you need to [expand the volume within the OS](#expand-the-volume-within-the-os) to take advantage of the larger disk.
 > 
 
+## Resize a managed disk with Azure portal
+
+1. Open the [Azure portal](https://portal.azure.com). Navigate to the virtual machine where you want to expand the disk, 
+and click **Stop** to deallocate the VM.
+2. Once the VM is stopped, click **Disks** from the Settings menu on the left blade.
+
+ ![Click disks](./media/expand-os-disk/select-disks.png)
+
+3. Click on the **Disk name** of the disk you wish to resize.
+
+ ![Click disk name](./media/expand-os-disk/disk-name.png)
+
+4. From the Settings menu on the left blade, click **Configuration**
+
+ ![Click configuration](./media/expand-os-disk/configuration.png)
+
+5. In the **Size (GiB)** text box, specify the desired disk size.
+   
+   > [!WARNING]
+   > The new size should be greater than the existing disk size. The maximum allowed is 2048 GB for OS disks. (It is possible to expand the VHD blob beyond that size, but the OS will only be able to work with the first 2048 GB of space.)
+   > 
+
+ ![Specify disk size](./media/expand-os-disk/size.png)
+
+  
+6. Click **Save** at the top of the page.
+
+ ![Click save](./media/expand-os-disk/save.png)
+
 
  
 
