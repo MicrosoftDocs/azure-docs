@@ -14,7 +14,7 @@ ms.author: manayar
 Enabling automatic VM guest patching for your Windows VMs helps ease update management by safely and automatically patching virtual machines to maintain security compliance.
 
 Automatic VM guest patching has the following characteristics:
-- Patches classified as 'Critical' or 'Security' are automatically downloaded and applied on the VM.
+- Patches classified as *Critical* or *Security* are automatically downloaded and applied on the VM.
 - Patches are applied during off-peak hours in the VM's time zone.
 - Patch orchestration is managed by Azure and patches are applied following availability-first principles.
 - Virtual machine health, as determined through platform health signals, is monitored to detect patching failures.
@@ -27,7 +27,7 @@ Automatic VM guest patching has the following characteristics:
 
 ## How does automatic VM guest patching work?
 
-If automatic VM guest patching is enabled on a VM, then the available 'Critical' and 'Security' patches are downloaded and applied automatically on the VM. This process kicks off automatically every month when new patches are released through Windows Update. Patch assessment and installation are automatic, and the process includes rebooting the VM as required.
+If automatic VM guest patching is enabled on a VM, then the available *Critical* and *Security* patches are downloaded and applied automatically on the VM. This process kicks off automatically every month when new patches are released through Windows Update. Patch assessment and installation are automatic, and the process includes rebooting the VM as required.
 
 The VM is assessed periodically to determine the applicable patches for that VM. The patches can be installed any day on the VM during off-peak hours for the VM. This automatic assessment ensures that any missing patches are discovered at the earliest possible opportunity.
 
@@ -48,7 +48,7 @@ For a group of virtual machines undergoing an update, the Azure platform will or
 - The success of an update is measured by tracking the VM’s health post update. VM Health is tracked through platform health indicators for the VM.
 
 **Within a region:**
-- VMs in different Availability Zones are not updated concurrently
+- VMs in different Availability Zones are not updated concurrently.
 - VMs not part of an availability set are batched on a best effort basis to avoid concurrent updates for all VMs in a subscription.
 
 **Within an availability set:**
