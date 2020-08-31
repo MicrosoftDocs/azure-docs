@@ -1,36 +1,6 @@
 - name: Azure Stack Edge and Data Box Gateway Documentation 
   href: /azure/databox-online/
   expanded: true
-<<<<<<< HEAD
-- name: Azure Stack Edge Rugged
-  items:
-  - name: Overview
-    items:
-    - name: What is Azure Stack Edge rugged series?
-      href: azure-stack-edge-r-series-overview.md
-  - name: Tutorials
-    items:
-    - name: 1 - Prepare 
-      href: data-box-gateway-deploy-prep.md
-    - name: 2A - Provision in Hyper-V
-      href: azure-stack-edge-r-series-placeholder.md
-    - name: 2B - Provision in VMware
-      href: azure-stack-edge-r-series-placeholder.md
-    - name: 3 - Connect, set up, activate
-      href: azure-stack-edge-r-series-placeholder.md
-    - name: 4 - Add, connect to share
-      href: azure-stack-edge-r-series-placeholder.md
-  - name: Concepts
-    items:
-    - name: Review requirements
-      href: azure-stack-edge-r-series-placeholder.md
-    - name: Understand limits
-      href: azure-stack-edge-r-series-placeholder.md
-    - name: Security overview
-      href: azure-stack-edge-r-series-placeholder.md
-    - name: View use cases
-      href: azure-stack-edge-r-series-placeholder.md
-=======
 - name: Azure Stack Edge with GPU (Preview)
   items:
   - name: Overview
@@ -89,41 +59,10 @@
       - name: Kubernetes workloads
         href: azure-stack-edge-gpu-kubernetes-workload-management.md  
   
->>>>>>> 7b0d370b4f6d4d16b57d747b44080c8eada529f9
   - name: How to
     items:
     - name: Deploy IoT Edge samples
       items:
-<<<<<<< HEAD
-        - name: Shares
-          href: azure-stack-edge-r-series-placeholder.md
-        - name: Users
-          href: azure-stack-edge-r-series-placeholder.md
-        - name: Bandwidth schedules
-          href: azure-stack-edge-r-series-placeholder.md
-        - name: Access, power, connectivity
-          href: azure-stack-edge-r-series-placeholder.md
-        - name: Via PowerShell 
-          href: azure-stack-edge-r-series-placeholder.md
-    - name: Monitor
-      href: azure-stack-edge-r-series-placeholder.md
-    - name: Troubleshoot
-      href: azure-stack-edge-r-series-placeholder.md
-    - name: Contact Microsoft Support
-      href: azure-stack-edge-contact-microsoft-support.md
-  - name: Release notes
-    items:
-      - name: 1911 - Current
-        href: data-box-gateway-1911-release-notes.md
-      - name: 1906
-        href: data-box-gateway-1906-release-notes.md
-      - name: 1905
-        href: data-box-gateway-1905-release-notes.md
-      - name: General availability (GA)
-        href: data-box-gateway-release-notes.md      
-
-- name: Azure Stack Edge Commercial
-=======
       - name: Module from Nvidia gallery
         href: azure-stack-edge-j-series-configure-gpu-modules.md 
       - name: GPU module from Git repo
@@ -238,7 +177,6 @@
       href: https://docs.microsoft.com/dotnet/api/overview/azure/databoxedge/databoxgateway?view=azure-dotnet 
 
 - name: Azure Stack Edge with FPGA
->>>>>>> 7b0d370b4f6d4d16b57d747b44080c8eada529f9
   items:
   - name: Overview
     items:
@@ -318,8 +256,6 @@
       href: data-box-gateway-1905-release-notes.md
     - name: General availability (GA)
       href: data-box-gateway-release-notes.md
-<<<<<<< HEAD
-=======
   - name: Reference
     items:
     - name: Azure PowerShell
@@ -328,7 +264,6 @@
       href: https://docs.microsoft.com/rest/api/databoxedgegateway
     - name: .NET SDK
       href: https://docs.microsoft.com/dotnet/api/overview/azure/databoxedge/databoxgateway?view=azure-dotnet   
->>>>>>> 7b0d370b4f6d4d16b57d747b44080c8eada529f9
 
 - name: Data Box Gateway
   items:
@@ -338,11 +273,7 @@
       href: data-box-gateway-overview.md
   - name: Tutorials
     items:
-<<<<<<< HEAD
-    - name: 1 - Prepare
-=======
     - name: 1 - Prepare 
->>>>>>> 7b0d370b4f6d4d16b57d747b44080c8eada529f9
       href: data-box-gateway-deploy-prep.md
     - name: 2A - Provision in Hyper-V
       href: data-box-gateway-deploy-provision-hyperv.md
@@ -364,11 +295,8 @@
       href: data-box-gateway-use-cases.md
   - name: How to
     items:
-<<<<<<< HEAD
-=======
     - name: Update
       href: data-box-gateway-apply-updates.md
->>>>>>> 7b0d370b4f6d4d16b57d747b44080c8eada529f9
     - name: Manage
       items:
         - name: Shares
@@ -386,12 +314,6 @@
     - name: Troubleshoot
       href: data-box-gateway-troubleshoot.md
     - name: Contact Microsoft Support
-<<<<<<< HEAD
-      href: data-box-edge-contact-microsoft-support.md
-  - name: Release notes
-    items:
-      - name: 1906 - Current
-=======
       href: azure-stack-edge-contact-microsoft-support.md
   - name: Release notes
     items:
@@ -400,16 +322,11 @@
       - name: 1911
         href: data-box-gateway-1911-release-notes.md
       - name: 1906
->>>>>>> 7b0d370b4f6d4d16b57d747b44080c8eada529f9
         href: data-box-gateway-1906-release-notes.md
       - name: 1905
         href: data-box-gateway-1905-release-notes.md
       - name: General availability (GA)
         href: data-box-gateway-release-notes.md
-<<<<<<< HEAD
-=======
-
->>>>>>> 7b0d370b4f6d4d16b57d747b44080c8eada529f9
 - name: Resources
   items:
   - name: Azure Stack Edge C# module samples (.NET)
