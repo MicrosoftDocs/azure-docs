@@ -58,7 +58,7 @@ The encoders input metadata is described [here](media-services-input-metadata-sc
 The encoders output metadata is described [here](media-services-output-metadata-schema.md).
 
 ### Generate thumbnails
-For information, see [How to generate thumbnails using Media Encoder Standard](media-services-advanced-encoding-with-mes.md#thumbnails).
+For information, see [How to generate thumbnails using Media Encoder Standard](media-services-advanced-encoding-with-mes.md).
 
 ### Trim videos (clipping)
 For information, see [How to trim videos using Media Encoder Standard](media-services-advanced-encoding-with-mes.md#trim_video).
