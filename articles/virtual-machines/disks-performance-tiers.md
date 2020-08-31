@@ -4,7 +4,7 @@ description: Learn about performance tiers for managed disks, as well as how to 
 author: roygara
 ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 08/18/2020
+ms.date: 08/31/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
@@ -12,9 +12,11 @@ ms.custom: references_regions
 
 # Performance tiers for managed disks (preview)
 
-Azure Disk Storage currently offers built-in bursting capabilities to achieve higher performance for handling short-term unexpected traffic. Premium SSDs have the flexibility to temporarily increase disk performance without increasing the disk size, allowing you to match your workload performance needs and reduce costs. This is beneficial for events that will require a consistently higher level of performance, like holiday shopping, performance testing, or running a training environment. During these events, you can temporarily select a higher performance tier as long as necessary, and return to the original tier when the additional performance is no longer necessary.
+Azure Disk Storage currently offers built-in bursting capabilities to achieve higher performance for handling short-term unexpected traffic. Premium SSDs have the flexibility to temporarily increase disk performance without increasing the actual disk size, allowing you to match your workload performance needs and reduce costs. This is ideal for events that temporarily require a consistently higher level of performance, such as holiday shopping, performance testing, or running a training environment. To handle these events, you can temporarily select a higher performance tier as long as necessary, and return to the original tier when the additional performance is no longer necessary.
 
-When you first deploy or provision a disk, the baseline performance tier for that disk is set based on the provisioned disk size. A higher performance tier can temporarily be selected when necessary to meet higher demand and return to the initial baseline performance tier once this period is complete. For example, if you provision a P10 disk (128 GiB), your baseline performance tier is set as P10 (500 IOPS and 100 MB/s). You can update the tier to match the performance of P50 (7500 IOPS and 250 MB/s) without increasing the disk size and return to P10 when higher performance is no longer needed. 
+## How it works
+
+When you first deploy or provision a disk, the baseline performance tier for that disk is set based on the provisioned disk size. A higher performance tier can be temporarily selected to meet higher demand and, when that performance is no longer required, you can return to the initial baseline performance tier. For example, if you provision a P10 disk (128 GiB), your baseline performance tier is set as P10 (500 IOPS and 100 MB/s). You can update the tier to match the performance of P50 (7500 IOPS and 250 MB/s) without increasing the disk size and return to P10 when the higher performance is no longer needed.
 
 | Disk size | Baseline performance tier | Can be upgraded to |
 |----------------|-----|-------------------------------------|
@@ -33,11 +35,15 @@ When you first deploy or provision a disk, the baseline performance tier for tha
 | 16 TiB | P70 | P80 |
 | 32 TiB | P80 | None |
 
-## Prerequisite
+## Restrictions
 
-You must get the feature enabled for your subscriptions before you can use performance tier. Please [sign up](https://aka.ms/perftiersignup) for access to our private preview.
+- Currently only supported for premium SSDs.
+- Disks must be detached from a running VM before changing tiers.
+- Use of the P60, P70, and P80 performance tiers is restricted to disks of 4096 GiB or greater.
 
-## Regions supported
+## Regional availability
+
+Adjusting the performance tier of a managed disk is currently only available to premium SSDs in the following regions:
 
 - West Central US 
 - East 2 US 
@@ -46,11 +52,9 @@ You must get the feature enabled for your subscriptions before you can use perfo
 - South East Australia 
 - South India
 
-## Restrictions
+## Prerequisite
 
-- Currently only supported for premium SSDs.
-- Disks should not be attached to running VMs while changing tier.
-- You have to resize a disk to size greater than 4096 GiB to use P60, P70, P80 tiers. 
+You must get the feature enabled for your subscriptions before you can use performance tier. Please [sign up](https://aka.ms/perftiersignup) for access to the preview.
 
 ## Create/update a data disk with a tier higher than the baseline tier
 
@@ -99,3 +103,10 @@ You must get the feature enabled for your subscriptions before you can use perfo
      ```cli
      az resource show -n $diskName -g $resourceGroupName --namespace Microsoft.Compute --resource-type disks --api-version 2020-06-30 --query [properties.tier] -o tsv
      ```
+
+## Next steps
+
+If you must resize a disk in order to take advantage of the larger performance tiers, see our articles on the subject:
+
+- [Expand virtual hard disks on a Linux VM with the Azure CLI](linux/expand-disks.md)
+- [Expand a managed disk attached to a Windows virtual machine](windows/expand-os-disk.md)
