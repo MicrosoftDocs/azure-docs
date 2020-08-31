@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 08/25/2020
+ms.date: 09/01/2020
 ms.author: markvi
 ms.reviewer: arvinh
 
@@ -214,7 +214,7 @@ The **summary** tab provides an overview of what happened and identifiers for th
 
 - There is currently no support for log analytics.
 
-- When you access the provisioning logs from the context of an app, it doesn’t automatically filter events to the specific app the way audit logs do.
+- You may see skipped events for users that are not in scope. This is expected, especially when the sync scope is set to all users and groups. Our service will evaluate all the objects in the tenant, even the ones that are out of scope. 
 
 ## Error Codes
 
