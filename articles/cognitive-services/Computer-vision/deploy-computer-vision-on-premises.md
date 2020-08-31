@@ -143,6 +143,9 @@ read:
 > [!IMPORTANT]
 > If the `billing` and `apikey` values are not provided, the services will expire after 15 min. Likewise, verification will fail as the services will not be available.
 
+> [!IMPORTANT]
+> When deploying multiple Read containers behind a load balancer, for example, under docker compose or Kubernetes, an external cache is needed. Because the processing container and the GET request container may not be the same one, an external cache is used to store the results and share accross containers. The detail of cache setting can be found at [Configure Computer Vision Docker containers](https://docs.microsoft.com/en-us/azure/cognitive-services/computer-vision/computer-vision-resource-container-config).
+
 Create a *templates* folder under the *read* directory. Copy and paste the following YAML into a file named `deployment.yaml`. The `deployment.yaml` file will serve as a Helm template.
 
 > Templates generate manifest files, which are YAML-formatted resource descriptions that Kubernetes can understand. [- Helm Chart Template Guide][chart-template-guide]
