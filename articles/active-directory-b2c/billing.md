@@ -86,7 +86,7 @@ To change your pricing tier, follow these steps.
  
 5. Select the pricing tier that includes the features you want to enable.
 
-   ![Change pricing tier](media/billing/select-tier.png)
+   ![Select the pricing tier](media/billing/select-tier.png)
 
 ## Switch to MAU billing (pre-November 2019 Azure AD B2C tenants)
 

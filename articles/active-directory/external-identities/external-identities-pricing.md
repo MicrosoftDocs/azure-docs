@@ -46,7 +46,7 @@ An Azure AD tenant must be linked to an Azure subscription for proper billing an
 
 2. Select the directory that contains your subscription: In the Azure portal toolbar, select the **Directory + Subscription** icon, and then select the directory that contains your subscription.
 
-    ![Subscription tenant, Directory + Subscription filter with subscription tenant selected](media/external-identities-pricing/portal-mau-pick-directory.png)
+    ![Select the Directory + Subscription icon](media/external-identities-pricing/portal-mau-pick-directory.png)
 
 3. Under **Azure Services**, select **Azure Active Directory**.
 
@@ -56,11 +56,11 @@ An Azure AD tenant must be linked to an Azure subscription for proper billing an
 
 6. In the tenant list, select the checkbox next to the tenant, and then select **Link subscription**.
 
-    ![Subscription tenant, Directory + Subscription filter with subscription tenant selected](media/external-identities-pricing/linked-subscriptions.png)
+    ![Select the tenant and link a subscription](media/external-identities-pricing/linked-subscriptions.png)
 
 7. In the Link a subscription pane, select a **Subscription** and a **Resource group**. Then select **Apply**.
 
-    ![Subscription tenant, Directory + Subscription filter with subscription tenant selected](media/external-identities-pricing/link-subscription-resource.png)
+    ![Select a subscription and resource group](media/external-identities-pricing/link-subscription-resource.png)
 
 After you complete these steps, your Azure subscription is billed based on your Azure Direct or Enterprise Agreement details, if applicable.
 
