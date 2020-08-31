@@ -46,7 +46,7 @@ gradle init --type basic
 
 When prompted to choose a **DSL**, select **Kotlin**.
 
-Create a folder for your sample app. From your working directory, run the following command:
+From your working directory, run the following command:
 
 ```console
 mkdir -p src/main/java
@@ -56,33 +56,53 @@ mkdir -p src/main/java
 
 This quickstart uses the Gradle dependency manager. You can find the client library and information for other dependency managers on the [Maven Central Repository](https://mvnrepository.com/artifact/com.azure/azure-ai-formrecognizer).
 
-In your project's *build.gradle.kts* file, be sure to include the client library as an `implementation` statement. 
+In your project's *build.gradle.kts* file, be sure to include the client library as an `implementation` statement, along with the required plugins and settings.
 
 ```kotlin
+plugins {
+    java
+    application
+}
+application {
+    mainClass.set("FormRecognizer")
+}
+repositories {
+    mavenCentral()
+}
 dependencies {
-    implementation group: 'com.azure', name: 'azure-ai-formrecognizer', version: '3.0.0'
+    implementation(group = "com.azure", name = "azure-ai-formrecognizer", version = "3.0.0")
 }
 ```
 
-Navigate to the new folder and create a file called *formrecognizer-quickstart.java*. Open it in your preferred editor or IDE and add the following `import` statements:
+Navigate to the new **src/main/java** folder and create a file called *FormRecognizer.java*. Open it in your preferred editor or IDE and add the following `import` statements:
 
 ```java
-import Azure.AI.FormRecognizer;
-import Azure.AI.FormRecognizer.Models;
+import com.azure.ai.formrecognizer.*;
+import com.azure.ai.formrecognizer.training.*;
+import com.azure.ai.formrecognizer.models.*;
+import com.azure.ai.formrecognizer.training.models.*;
 
 import java.util.concurrent.atomic.AtomicReference;
+import java.util.List;
+import java.util.Map;
+import java.time.LocalDate;
+
+import com.azure.core.credential.AzureKeyCredential;
 import com.azure.core.http.rest.PagedIterable;
 import com.azure.core.util.Context;
+import com.azure.core.util.polling.SyncPoller;
 ```
 
-In the application's `main` method, create variables for your resource's Azure endpoint and key. If you created the environment variable after you launched the application, you'll need to close and reopen the editor, IDE, or shell to access the variable. You'll define the methods later.
+Add a class and a `main` method, and create variables for your resource's Azure endpoint and key. If you created the environment variable after you launched the application, you'll need to close and reopen the editor, IDE, or shell to access the variable. You'll define the methods later.
 
 
 ```java
-public static void main(String[] args)
-{
-    String key = "<replace-with-your-form-recognizer-key>"
-    String endpoint = "<replace-with-your-form-recognizer-endpoint>";
+public class FormRecognizer {
+    public static void main(String[] args)
+    {
+        String key = "<replace-with-your-form-recognizer-key>";
+        String endpoint = "<replace-with-your-form-recognizer-endpoint>";
+    }
 }
 ```
 
@@ -130,12 +150,15 @@ Inside the `Main` method, add the following code. Here, you'll authenticate two 
 > Remember to remove the key from your code when you're done, and never post it publicly. For production, consider using a secure way of storing and accessing your credentials. For example, [Azure key vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview).
 
 ```java
-FormRecognizerClient recognizerClient = new FormRecognizerClientBuilder()
-    .credential(new AzureKeyCredential("{key}"))
-    .endpoint("{endpoint}")
+    FormRecognizerClient recognizerClient = new FormRecognizerClientBuilder()
+    .credential(new AzureKeyCredential(key))
+    .endpoint(endpoint)
     .buildClient();
     
-FormTrainingClient trainingClient = recognizerClient.getFormTrainingClient();
+    FormTrainingClient trainingClient = new FormTrainingClientBuilder()
+    .credential(new AzureKeyCredential(key))
+    .endpoint(endpoint)
+    .buildClient();
 ```
 
 ### Call client-specific methods
@@ -165,13 +188,13 @@ You'll also need to add references to the URLs for your training and testing dat
     AnalyzeReceipt(recognizerClient, receiptUrl);
 
     System.out.println("Train Model with training data...");
-    modelId = TrainModel(trainingClient, trainingDataUrl);
+    String modelId = TrainModel(trainingClient, trainingDataUrl);
 
     System.out.println("Analyze PDF form...");
     AnalyzePdfForm(recognizerClient, modelId, formUrl);
 
     System.out.println("Manage models...");
-    ManageModels(trainingClient, trainingDataUrl) ;
+    ManageModels(trainingClient, trainingDataUrl);
 ```
 
 
@@ -186,7 +209,7 @@ private static void GetContent(
     FormRecognizerClient recognizerClient, String invoiceUri)
 {
     String analyzeFilePath = invoiceUri;
-    SyncPoller<OperationResult, List<FormPage>> recognizeContentPoller =
+    SyncPoller<FormRecognizerOperationResult, List<FormPage>> recognizeContentPoller =
         recognizerClient.beginRecognizeContentFromUrl(analyzeFilePath);
     
     List<FormPage> contentResult = recognizeContentPoller.getFinalResult();
@@ -216,36 +239,20 @@ The returned value is a collection of **FormPage** objects: one for each page in
 ### Output
 
 ```console
-Form Page 1 has 18 lines.
-    Line 0 has 1 word, and text: 'Contoso'.
-    Line 1 has 1 word, and text: 'Address:'.
-    Line 2 has 3 words, and text: 'Invoice For: Microsoft'.
-    Line 3 has 4 words, and text: '1 Redmond way Suite'.
-    Line 4 has 3 words, and text: '1020 Enterprise Way'.
-    Line 5 has 3 words, and text: '6000 Redmond, WA'.
-    Line 6 has 3 words, and text: 'Sunnayvale, CA 87659'.
-    Line 7 has 1 word, and text: '99243'.
-    Line 8 has 2 words, and text: 'Invoice Number'.
-    Line 9 has 2 words, and text: 'Invoice Date'.
-    Line 10 has 3 words, and text: 'Invoice Due Date'.
-    Line 11 has 1 word, and text: 'Charges'.
-    Line 12 has 2 words, and text: 'VAT ID'.
-    Line 13 has 1 word, and text: '34278587'.
-    Line 14 has 1 word, and text: '6/18/2017'.
-    Line 15 has 1 word, and text: '6/24/2017'.
-    Line 16 has 1 word, and text: '$56,651.49'.
-    Line 17 has 1 word, and text: 'PT'.
-Table 0 has 2 rows and 6 columns.
-    Cell (0, 0) contains text: 'Invoice Number'.
-    Cell (0, 1) contains text: 'Invoice Date'.
-    Cell (0, 2) contains text: 'Invoice Due Date'.
-    Cell (0, 3) contains text: 'Charges'.
-    Cell (0, 5) contains text: 'VAT ID'.
-    Cell (1, 0) contains text: '34278587'.
-    Cell (1, 1) contains text: '6/18/2017'.
-    Cell (1, 2) contains text: '6/24/2017'.
-    Cell (1, 3) contains text: '$56,651.49'.
-    Cell (1, 5) contains text: 'PT'.
+Get form content...
+----Recognizing content ----
+Has width: 8.500000 and height: 11.000000, measured with unit: inch.
+Table has 2 rows and 6 columns.
+Cell has text Invoice Number.
+Cell has text Invoice Date.
+Cell has text Invoice Due Date.
+Cell has text Charges.
+Cell has text VAT ID.
+Cell has text 458176.
+Cell has text 3/28/2018.
+Cell has text 4/16/2018.
+Cell has text $89,024.34.
+Cell has text ET.
 ```
 
 ## Recognize receipts
@@ -258,40 +265,40 @@ To recognize receipts from a URI, use the **beginRecognizeReceiptsFromUrl** meth
 private static void AnalyzeReceipt(
     FormRecognizerClient recognizerClient, String receiptUri)
 {
-    SyncPoller<OperationResult, List<RecognizedReceipt>> syncPoller =
-        formRecognizerClient.beginRecognizeReceiptsFromUrl(receiptUri);
-    List<RecognizedReceipt> receiptPageResults = syncPoller.getFinalResult();
+    SyncPoller<FormRecognizerOperationResult, List<RecognizedForm>> syncPoller =
+    recognizerClient.beginRecognizeReceiptsFromUrl(receiptUri);
+    List<RecognizedForm> receiptPageResults = syncPoller.getFinalResult();
 ```
 
 The next block of code iterates through the receipts and prints their details to the console.
 
 ```java
     for (int i = 0; i < receiptPageResults.size(); i++) {
-        RecognizedReceipt recognizedReceipt = receiptPageResults.get(i);
-        Map<String, FormField> recognizedFields = recognizedReceipt.getRecognizedForm().getFields();
+        RecognizedForm recognizedForm = receiptPageResults.get(i);
+        Map<String, FormField> recognizedFields = recognizedForm.getFields();
         System.out.printf("----------- Recognized Receipt page %d -----------%n", i);
         FormField merchantNameField = recognizedFields.get("MerchantName");
         if (merchantNameField != null) {
-            if (merchantNameField.getFieldValue().getType() == FieldValueType.STRING) {
+            if (FieldValueType.STRING == merchantNameField.getValue().getValueType()) {
+                String merchantName = merchantNameField.getValue().asString();
                 System.out.printf("Merchant Name: %s, confidence: %.2f%n",
-                    merchantNameField.getFieldValue().asString(),
-                    merchantNameField.getConfidence());
+                    merchantName, merchantNameField.getConfidence());
             }
         }
         FormField merchantAddressField = recognizedFields.get("MerchantAddress");
         if (merchantAddressField != null) {
-            if (merchantAddressField.getFieldValue().getType() == FieldValueType.STRING) {
+            if (FieldValueType.STRING == merchantAddressField.getValue().getValueType()) {
+                String merchantAddress = merchantAddressField.getValue().asString();
                 System.out.printf("Merchant Address: %s, confidence: %.2f%n",
-                    merchantAddressField.getFieldValue().asString(),
-                    merchantAddressField.getConfidence());
+                    merchantAddress, merchantAddressField.getConfidence());
             }
         }
         FormField transactionDateField = recognizedFields.get("TransactionDate");
         if (transactionDateField != null) {
-            if (transactionDateField.getFieldValue().getType() == FieldValueType.DATE) {
+            if (FieldValueType.DATE == transactionDateField.getValue().getValueType()) {
+                LocalDate transactionDate = transactionDateField.getValue().asDate();
                 System.out.printf("Transaction Date: %s, confidence: %.2f%n",
-                    transactionDateField.getFieldValue().asDate(),
-                    transactionDateField.getConfidence());
+                    transactionDate, transactionDateField.getConfidence());
             }
         }
 ```
@@ -301,41 +308,41 @@ The next block of code iterates through the individual items detected on the rec
         FormField receiptItemsField = recognizedFields.get("Items");
         if (receiptItemsField != null) {
             System.out.printf("Receipt Items: %n");
-            if (receiptItemsField.getFieldValue().getType() == FieldValueType.LIST) {
-                List<FormField> receiptItems = receiptItemsField.getFieldValue().asList();
-                receiptItems.forEach(receiptItem -> {
-                    if (receiptItem.getFieldValue().getType() == FieldValueType.MAP) {
-                        receiptItem.getFieldValue().asMap().forEach((key, formField) -> {
-                            if (key.equals("Name")) {
-                                if (formField.getFieldValue().getType() == FieldValueType.STRING) {
-                                    System.out.printf("Name: %s, confidence: %.2fs%n",
-                                        formField.getFieldValue().asString(),
-                                        formField.getConfidence());
-                                }
+            if (FieldValueType.LIST == receiptItemsField.getValue().getValueType()) {
+                List<FormField> receiptItems = receiptItemsField.getValue().asList();
+                receiptItems.stream()
+                    .filter(receiptItem -> FieldValueType.MAP == receiptItem.getValue().getValueType())
+                    .map(formField -> formField.getValue().asMap())
+                    .forEach(formFieldMap -> formFieldMap.forEach((key, formField) -> {
+                        if ("Name".equals(key)) {
+                            if (FieldValueType.STRING == formField.getValue().getValueType()) {
+                                String name = formField.getValue().asString();
+                                System.out.printf("Name: %s, confidence: %.2fs%n",
+                                    name, formField.getConfidence());
                             }
-                            if (key.equals("Quantity")) {
-                                if (formField.getFieldValue().getType() == FieldValueType.INTEGER) {
-                                    System.out.printf("Quantity: %d, confidence: %.2f%n",
-                                        formField.getFieldValue().asInteger(), formField.getConfidence());
-                                }
+                        }
+                        if ("Quantity".equals(key)) {
+                            if (FieldValueType.FLOAT == formField.getValue().getValueType()) {
+                                Float quantity = formField.getValue().asFloat();
+                                System.out.printf("Quantity: %f, confidence: %.2f%n",
+                                    quantity, formField.getConfidence());
                             }
-                            if (key.equals("Price")) {
-                                if (formField.getFieldValue().getType() == FieldValueType.FLOAT) {
-                                    System.out.printf("Price: %f, confidence: %.2f%n",
-                                        formField.getFieldValue().asFloat(),
-                                        formField.getConfidence());
-                                }
+                        }
+                        if ("Price".equals(key)) {
+                            if (FieldValueType.FLOAT == formField.getValue().getValueType()) {
+                                Float price = formField.getValue().asFloat();
+                                System.out.printf("Price: %f, confidence: %.2f%n",
+                                    price, formField.getConfidence());
                             }
-                            if (key.equals("TotalPrice")) {
-                                if (formField.getFieldValue().getType() == FieldValueType.FLOAT) {
-                                    System.out.printf("Total Price: %f, confidence: %.2f%n",
-                                        formField.getFieldValue().asFloat(),
-                                        formField.getConfidence());
-                                }
+                        }
+                        if ("TotalPrice".equals(key)) {
+                            if (FieldValueType.FLOAT == formField.getValue().getValueType()) {
+                                Float totalPrice = formField.getValue().asFloat();
+                                System.out.printf("Total Price: %f, confidence: %.2f%n",
+                                    totalPrice, formField.getConfidence());
                             }
-                        });
-                    }
-                });
+                        }
+                }));
             }
         }
     }
@@ -345,45 +352,18 @@ The next block of code iterates through the individual items detected on the rec
 ### Output 
 
 ```console
-Form Page 1 has 18 lines.
-    Line 0 has 1 word, and text: 'Contoso'.
-    Line 1 has 1 word, and text: 'Address:'.
-    Line 2 has 3 words, and text: 'Invoice For: Microsoft'.
-    Line 3 has 4 words, and text: '1 Redmond way Suite'.
-    Line 4 has 3 words, and text: '1020 Enterprise Way'.
-    Line 5 has 3 words, and text: '6000 Redmond, WA'.
-    Line 6 has 3 words, and text: 'Sunnayvale, CA 87659'.
-    Line 7 has 1 word, and text: '99243'.
-    Line 8 has 2 words, and text: 'Invoice Number'.
-    Line 9 has 2 words, and text: 'Invoice Date'.
-    Line 10 has 3 words, and text: 'Invoice Due Date'.
-    Line 11 has 1 word, and text: 'Charges'.
-    Line 12 has 2 words, and text: 'VAT ID'.
-    Line 13 has 1 word, and text: '34278587'.
-    Line 14 has 1 word, and text: '6/18/2017'.
-    Line 15 has 1 word, and text: '6/24/2017'.
-    Line 16 has 1 word, and text: '$56,651.49'.
-    Line 17 has 1 word, and text: 'PT'.
-Table 0 has 2 rows and 6 columns.
-    Cell (0, 0) contains text: 'Invoice Number'.
-    Cell (0, 1) contains text: 'Invoice Date'.
-    Cell (0, 2) contains text: 'Invoice Due Date'.
-    Cell (0, 3) contains text: 'Charges'.
-    Cell (0, 5) contains text: 'VAT ID'.
-    Cell (1, 0) contains text: '34278587'.
-    Cell (1, 1) contains text: '6/18/2017'.
-    Cell (1, 2) contains text: '6/24/2017'.
-    Cell (1, 3) contains text: '$56,651.49'.
-    Cell (1, 5) contains text: 'PT'.
-Merchant Name: 'Contoso Contoso', with confidence 0.516
-Transaction Date: '6/10/2019 12:00:00 AM', with confidence 0.985
-Item:
-    Name: '8GB RAM (Black)', with confidence 0.916
-    Total Price: '999', with confidence 0.559
-Item:
-    Name: 'SurfacePen', with confidence 0.858
-    Total Price: '99.99', with confidence 0.386
-Total: '1203.39', with confidence '0.774'
+Analyze receipt...
+----------- Recognized Receipt page 0 -----------
+Merchant Name: Contoso Contoso, confidence: 0.62
+Merchant Address: 123 Main Street Redmond, WA 98052, confidence: 0.99
+Transaction Date: 2020-06-10, confidence: 0.90
+Receipt Items:
+Name: Cappuccino, confidence: 0.96s
+Quantity: null, confidence: 0.957s]
+Total Price: 2.200000, confidence: 0.95
+Name: BACON & EGGS, confidence: 0.94s
+Quantity: null, confidence: 0.927s]
+Total Price: null, confidence: 0.93
 ```
 
 ## Train a custom model
@@ -401,30 +381,30 @@ The following method trains a model on a given set of documents and prints the m
 
 ```java
 private static String TrainModel(
-    FormRecognizerClient trainingClient, String trainingDataUrl)
+    FormTrainingClient trainingClient, String trainingDataUrl)
 {
-    String trainingSetSource = "{unlabeled_training_set_SAS_URL}";
-    SyncPoller<OperationResult, CustomFormModel> trainingPoller =
-        formTrainingClient.beginTraining(trainingSetSource, false);
+    SyncPoller<FormRecognizerOperationResult, CustomFormModel> trainingPoller =
+        trainingClient.beginTraining(trainingDataUrl, false);
     
     CustomFormModel customFormModel = trainingPoller.getFinalResult();
     
     // Model Info
     System.out.printf("Model Id: %s%n", customFormModel.getModelId());
     System.out.printf("Model Status: %s%n", customFormModel.getModelStatus());
-    System.out.printf("Model created on: %s%n", customFormModel.getCreatedOn());
-    System.out.printf("Model last updated: %s%n%n", customFormModel.getCompletedOn());
+    System.out.printf("Training started on: %s%n", customFormModel.getTrainingStartedOn());
+    System.out.printf("Training completed on: %s%n%n", customFormModel.getTrainingCompletedOn());
 ```
 The returned **CustomFormModel** object contains information on the form types the model can recognize and the fields it can extract from each form type. The following code block prints this information to the console.
 
 ```java 
     System.out.println("Recognized Fields:");
-    // looping through the sub-models, which contains the fields they were trained on
+    // looping through the subModels, which contains the fields they were trained on
     // Since the given training documents are unlabeled, we still group them but they do not have a label.
-    customFormModel.getSubmodels().forEach(customFormSubModel -> {
+    customFormModel.getSubmodels().forEach(customFormSubmodel -> {
         // Since the training data is unlabeled, we are unable to return the accuracy of this model
-        customFormSubModel.getFieldMap().forEach((field, customFormModelField) ->
-            System.out.printf("Field: %s Field Label: %s%n",
+        System.out.printf("The subModel has form type %s%n", customFormSubmodel.getFormType());
+        customFormSubmodel.getFields().forEach((field, customFormModelField) ->
+            System.out.printf("The model found field '%s' with label: %s%n",
                 field, customFormModelField.getLabel()));
     });
 ```
@@ -438,58 +418,22 @@ Finally, this method returns the unique ID of the model.
 
 ### Output
 
-This response has been truncated for readability.
-
 ```console
-Merchant Name: 'Contoso Contoso', with confidence 0.516
-Transaction Date: '6/10/2019 12:00:00 AM', with confidence 0.985
-Item:
-    Name: '8GB RAM (Black)', with confidence 0.916
-    Total Price: '999', with confidence 0.559
-Item:
-    Name: 'SurfacePen', with confidence 0.858
-    Total Price: '99.99', with confidence 0.386
-Total: '1203.39', with confidence '0.774'
-Form Page 1 has 18 lines.
-    Line 0 has 1 word, and text: 'Contoso'.
-    Line 1 has 1 word, and text: 'Address:'.
-    Line 2 has 3 words, and text: 'Invoice For: Microsoft'.
-    Line 3 has 4 words, and text: '1 Redmond way Suite'.
-    Line 4 has 3 words, and text: '1020 Enterprise Way'.
-    ...
-Table 0 has 2 rows and 6 columns.
-    Cell (0, 0) contains text: 'Invoice Number'.
-    Cell (0, 1) contains text: 'Invoice Date'.
-    Cell (0, 2) contains text: 'Invoice Due Date'.
-    Cell (0, 3) contains text: 'Charges'.
-    ... 
-Custom Model Info:
-    Model Id: 95035721-f19d-40eb-8820-0c806b42798b
-    Model Status: Ready
-    Training model started on: 8/24/2020 6:36:44 PM +00:00
-    Training model completed on: 8/24/2020 6:36:50 PM +00:00
-Submodel Form Type: form-95035721-f19d-40eb-8820-0c806b42798b
-    FieldName: CompanyAddress
-    FieldName: CompanyName
-    FieldName: CompanyPhoneNumber
-    ... 
-Custom Model Info:
-    Model Id: e7a1181b-1fb7-40be-bfbe-1ee154183633
-    Model Status: Ready
-    Training model started on: 8/24/2020 6:36:44 PM +00:00
-    Training model completed on: 8/24/2020 6:36:52 PM +00:00
-Submodel Form Type: form-0
-    FieldName: field-0, FieldLabel: Additional Notes:
-    FieldName: field-1, FieldLabel: Address:
-    FieldName: field-2, FieldLabel: Company Name:
-    FieldName: field-3, FieldLabel: Company Phone:
-    FieldName: field-4, FieldLabel: Dated As:
-    FieldName: field-5, FieldLabel: Details
-    FieldName: field-6, FieldLabel: Email:
-    FieldName: field-7, FieldLabel: Hero Limited
-    FieldName: field-8, FieldLabel: Name:
-    FieldName: field-9, FieldLabel: Phone:
-    ...
+Train Model with training data...
+Model Id: 20c3544d-97b4-49d9-b39b-dc32d85f1358
+Model Status: ready
+Training started on: 2020-08-31T16:52:09Z
+Training completed on: 2020-08-31T16:52:23Z
+
+Recognized Fields:
+The subModel has form type form-0
+The model found field 'field-0' with label: Address:
+The model found field 'field-1' with label: Charges
+The model found field 'field-2' with label: Invoice Date
+The model found field 'field-3' with label: Invoice Due Date
+The model found field 'field-4' with label: Invoice For:
+The model found field 'field-5' with label: Invoice Number
+The model found field 'field-6' with label: VAT ID
 ```
 
 ### Train a model with labels
@@ -498,32 +442,33 @@ You can also train custom models by manually labeling the training documents. Tr
 
 ```java
 private static String TrainModelWithLabels(
-    FormRecognizerClient trainingClient, String trainingDataUrl)
+    FormTrainingClient trainingClient, String trainingDataUrl)
 {
     // Train custom model
     String trainingSetSource = trainingDataUrl;
-    SyncPoller<OperationResult, CustomFormModel> trainingPoller = client.beginTraining(trainingSetSource, true);
+    SyncPoller<FormRecognizerOperationResult, CustomFormModel> trainingPoller = trainingClient.beginTraining(trainingSetSource, true);
 
     CustomFormModel customFormModel = trainingPoller.getFinalResult();
 
     // Model Info
     System.out.printf("Model Id: %s%n", customFormModel.getModelId());
     System.out.printf("Model Status: %s%n", customFormModel.getModelStatus());
-    System.out.printf("Model created on: %s%n", customFormModel.getRequestedOn());
-    System.out.printf("Model last updated: %s%n%n", customFormModel.getCompletedOn());
+    System.out.printf("Training started on: %s%n", customFormModel.getTrainingStartedOn());
+    System.out.printf("Training completed on: %s%n%n", customFormModel.getTrainingCompletedOn());
 ```
 
 The returned **CustomFormModel** indicates the fields the model can extract, along with its estimated accuracy in each field. The following code block prints this information to the console.
 
 ```java
-    // looping through the sub-models, which contains the fields they were trained on
+    // looping through the subModels, which contains the fields they were trained on
     // The labels are based on the ones you gave the training document.
     System.out.println("Recognized Fields:");
     // Since the data is labeled, we are able to return the accuracy of the model
-    customFormModel.getSubmodels().forEach(customFormSubModel -> {
-        System.out.printf("Sub-model accuracy: %.2f%n", customFormSubModel.getAccuracy());
-        customFormSubModel.getFieldMap().forEach((label, customFormModelField) ->
-            System.out.printf("Field: %s Field Name: %s Field Accuracy: %.2f%n",
+    customFormModel.getSubmodels().forEach(customFormSubmodel -> {
+        System.out.printf("The subModel with form type %s has accuracy: %.2f%n",
+            customFormSubmodel.getFormType(), customFormSubmodel.getAccuracy());
+        customFormSubmodel.getFields().forEach((label, customFormModelField) ->
+            System.out.printf("The model found field '%s' to have name: %s with an accuracy: %.2f%n",
                 label, customFormModelField.getName(), customFormModelField.getAccuracy()));
     });
     return customFormModel.getModelId();
@@ -532,44 +477,22 @@ The returned **CustomFormModel** indicates the fields the model can extract, alo
 
 ### Output
 
-This response has been truncated for readability.
-
 ```console
-Form Page 1 has 18 lines.
-    Line 0 has 1 word, and text: 'Contoso'.
-    Line 1 has 1 word, and text: 'Address:'.
-    Line 2 has 3 words, and text: 'Invoice For: Microsoft'.
-    Line 3 has 4 words, and text: '1 Redmond way Suite'.
-    Line 4 has 3 words, and text: '1020 Enterprise Way'.
-    Line 5 has 3 words, and text: '6000 Redmond, WA'.
-    ...
-Table 0 has 2 rows and 6 columns.
-    Cell (0, 0) contains text: 'Invoice Number'.
-    Cell (0, 1) contains text: 'Invoice Date'.
-    Cell (0, 2) contains text: 'Invoice Due Date'.
-    ... 
-Merchant Name: 'Contoso Contoso', with confidence 0.516
-Transaction Date: '6/10/2019 12:00:00 AM', with confidence 0.985
-Item:
-    Name: '8GB RAM (Black)', with confidence 0.916
-    Total Price: '999', with confidence 0.559
-Item:
-    Name: 'SurfacePen', with confidence 0.858
-    Total Price: '99.99', with confidence 0.386
-Total: '1203.39', with confidence '0.774'
-Custom Model Info:
-    Model Id: 63c013e3-1cab-43eb-84b0-f4b20cb9214c
-    Model Status: Ready
-    Training model started on: 8/24/2020 6:42:54 PM +00:00
-    Training model completed on: 8/24/2020 6:43:01 PM +00:00
-Submodel Form Type: form-63c013e3-1cab-43eb-84b0-f4b20cb9214c
-    FieldName: CompanyAddress
-    FieldName: CompanyName
-    FieldName: CompanyPhoneNumber
-    FieldName: DatedAs
-    FieldName: Email
-    FieldName: Merchant
-    ... 
+Train Model with training data...
+Model Id: 20c3544d-97b4-49d9-b39b-dc32d85f1358
+Model Status: ready
+Training started on: 2020-08-31T16:52:09Z
+Training completed on: 2020-08-31T16:52:23Z
+
+Recognized Fields:
+The subModel has form type form-0
+The model found field 'field-0' with label: Address:
+The model found field 'field-1' with label: Charges
+The model found field 'field-2' with label: Invoice Date
+The model found field 'field-3' with label: Invoice Due Date
+The model found field 'field-4' with label: Invoice For:
+The model found field 'field-5' with label: Invoice Number
+The model found field 'field-6' with label: VAT ID
 ```
 
 ## Analyze forms with a custom model
@@ -586,9 +509,8 @@ You'll use the **beginRecognizeCustomFormsFromUrl** method. The returned value i
 private static void AnalyzePdfForm(
     FormRecognizerClient formClient, String modelId, String pdfFormUrl)
 {    
-    String modelId = modelId;
-    SyncPoller<OperationResult, List<RecognizedForm>> recognizeFormPoller =
-        client.beginRecognizeCustomFormsFromUrl(pdfFormUrl, modelId);
+    SyncPoller<FormRecognizerOperationResult, List<RecognizedForm>> recognizeFormPoller =
+    formClient.beginRecognizeCustomFormsFromUrl(modelId, pdfFormUrl);
 
     List<RecognizedForm> recognizedForms = recognizeFormPoller.getFinalResult();
 ```
@@ -596,78 +518,32 @@ private static void AnalyzePdfForm(
 The following code prints the analysis results to the console. It prints each recognized field and corresponding value, along with a confidence score.
 
 ```java
-    recognizedForms.forEach(form -> {
-        System.out.println("----------- Recognized Form -----------");
+    for (int i = 0; i < recognizedForms.size(); i++) {
+        final RecognizedForm form = recognizedForms.get(i);
+        System.out.printf("----------- Recognized custom form info for page %d -----------%n", i);
         System.out.printf("Form type: %s%n", form.getFormType());
-        form.getFields().forEach((label, formField) -> {
-            System.out.printf("Field %s has value %s with confidence score of %.2f.%n", label,
-                formField.getFieldValue(),
-                formField.getConfidence());
-        });
-        System.out.print("-----------------------------------");
-    });
+        form.getFields().forEach((label, formField) ->
+            // label data is populated if you are using a model trained with unlabeled data,
+            // since the service needs to make predictions for labels if not explicitly given to it.
+            System.out.printf("Field '%s' has label '%s' with a confidence "
+                + "score of %.2f.%n", label, formField.getLabelData().getText(), formField.getConfidence()));
+    }
 }
 ```
 
 ### Output
 
-This response has been truncated for readability.
-
 ```console
-Custom Model Info:
-    Model Id: 9b0108ee-65c8-450e-b527-bb309d054fc4
-    Model Status: Ready
-    Training model started on: 8/24/2020 7:00:31 PM +00:00
-    Training model completed on: 8/24/2020 7:00:32 PM +00:00
-Submodel Form Type: form-9b0108ee-65c8-450e-b527-bb309d054fc4
-    FieldName: CompanyAddress
-    FieldName: CompanyName
-    FieldName: CompanyPhoneNumber
-    ...
-Form Page 1 has 18 lines.
-    Line 0 has 1 word, and text: 'Contoso'.
-    Line 1 has 1 word, and text: 'Address:'.
-    Line 2 has 3 words, and text: 'Invoice For: Microsoft'.
-    Line 3 has 4 words, and text: '1 Redmond way Suite'.
-    ...
-
-Table 0 has 2 rows and 6 columns.
-    Cell (0, 0) contains text: 'Invoice Number'.
-    Cell (0, 1) contains text: 'Invoice Date'.
-    Cell (0, 2) contains text: 'Invoice Due Date'.
-    ...
-Merchant Name: 'Contoso Contoso', with confidence 0.516
-Transaction Date: '6/10/2019 12:00:00 AM', with confidence 0.985
-Item:
-    Name: '8GB RAM (Black)', with confidence 0.916
-    Total Price: '999', with confidence 0.559
-Item:
-    Name: 'SurfacePen', with confidence 0.858
-    Total Price: '99.99', with confidence 0.386
-Total: '1203.39', with confidence '0.774'
-Custom Model Info:
-    Model Id: dc115156-ce0e-4202-bbe4-7426e7bee756
-    Model Status: Ready
-    Training model started on: 8/24/2020 7:00:31 PM +00:00
-    Training model completed on: 8/24/2020 7:00:41 PM +00:00
-Submodel Form Type: form-0
-    FieldName: field-0, FieldLabel: Additional Notes:
-    FieldName: field-1, FieldLabel: Address:
-    FieldName: field-2, FieldLabel: Company Name:
-    FieldName: field-3, FieldLabel: Company Phone:
-    FieldName: field-4, FieldLabel: Dated As:
-    ... 
-Form of type: custom:form
-Field 'Azure.AI.FormRecognizer.Models.FieldValue:
-    Value: '$56,651.49
-    Confidence: '0.249
-Field 'Azure.AI.FormRecognizer.Models.FieldValue:
-    Value: 'PT
-    Confidence: '0.245
-Field 'Azure.AI.FormRecognizer.Models.FieldValue:
-    Value: '99243
-    Confidence: '0.114
-   ...
+Analyze PDF form...
+----------- Recognized custom form info for page 0 -----------
+Form type: form-0
+Field 'field-0' has label 'Address:' with a confidence score of 0.91.
+Field 'field-1' has label 'Invoice For:' with a confidence score of 1.00.
+Field 'field-2' has label 'Invoice Number' with a confidence score of 1.00.
+Field 'field-3' has label 'Invoice Date' with a confidence score of 1.00.
+Field 'field-4' has label 'Invoice Due Date' with a confidence score of 1.00.
+Field 'field-5' has label 'Charges' with a confidence score of 1.00.
+Field 'field-6' has label 'VAT ID' with a confidence score of 1.00.
 ```
 
 
@@ -677,7 +553,7 @@ This section demonstrates how to manage the custom models stored in your account
 
 ```java
 private static void ManageModels(
-    FormRecognizerClient trainingClient, String trainingFileUrl)
+    FormTrainingClient trainingClient, String trainingFileUrl)
 {
 ```
 
@@ -689,16 +565,15 @@ The following code block checks how many models you have saved in your Form Reco
     AtomicReference<String> modelId = new AtomicReference<>();
 
     // First, we see how many custom models we have, and what our limit is
-    AccountProperties accountProperties = client.getAccountProperties();
+    AccountProperties accountProperties = trainingClient.getAccountProperties();
     System.out.printf("The account has %s custom models, and we can have at most %s custom models",
         accountProperties.getCustomModelCount(), accountProperties.getCustomModelLimit());
 ```
 
-### Output 
+#### Output 
 
 ```console
-Account has 20 models.
-It can have at most 5000 models.
+The account has 12 custom models, and we can have at most 250 custom models
 ```
 
 ### List the models currently stored in the resource account
@@ -707,51 +582,48 @@ The following code block lists the current models in your account and prints the
 
 ```java    
     // Next, we get a paged list of all of our custom models
-    PagedIterable<CustomFormModelInfo> customModels = client.getModelInfos();
+    PagedIterable<CustomFormModelInfo> customModels = trainingClient.listCustomModels();
     System.out.println("We have following models in the account:");
     customModels.forEach(customFormModelInfo -> {
         System.out.printf("Model Id: %s%n", customFormModelInfo.getModelId());
         // get custom model info
         modelId.set(customFormModelInfo.getModelId());
-        CustomFormModel customModel = client.getCustomModel(customFormModelInfo.getModelId());
+        CustomFormModel customModel = trainingClient.getCustomModel(customFormModelInfo.getModelId());
         System.out.printf("Model Id: %s%n", customModel.getModelId());
         System.out.printf("Model Status: %s%n", customModel.getModelStatus());
-        System.out.printf("Created on: %s%n", customModel.getRequestedOn());
-        System.out.printf("Updated on: %s%n", customModel.getCompletedOn());
-        customModel.getSubmodels().forEach(customFormSubModel -> {
-            System.out.printf("Custom Model Form type: %s%n", customFormSubModel.getFormType());
-            System.out.printf("Custom Model Accuracy: %.2f%n", customFormSubModel.getAccuracy());
-            if (customFormSubModel.getFieldMap() != null) {
-                customFormSubModel.getFieldMap().forEach((fieldText, customFormModelField) -> {
+        System.out.printf("Training started on: %s%n", customModel.getTrainingStartedOn());
+        System.out.printf("Training completed on: %s%n", customModel.getTrainingCompletedOn());
+        customModel.getSubmodels().forEach(customFormSubmodel -> {
+            System.out.printf("Custom Model Form type: %s%n", customFormSubmodel.getFormType());
+            System.out.printf("Custom Model Accuracy: %.2f%n", customFormSubmodel.getAccuracy());
+            if (customFormSubmodel.getFields() != null) {
+                customFormSubmodel.getFields().forEach((fieldText, customFormModelField) -> {
                     System.out.printf("Field Text: %s%n", fieldText);
                     System.out.printf("Field Accuracy: %.2f%n", customFormModelField.getAccuracy());
                 });
             }
-
         });
     });
 ```
 
-### Output 
+#### Output 
 
 This response has been truncated for readability.
 
 ```console
-Custom Model Info:
-    Model Id: 05932d5a-a2f8-4030-a2ef-4e5ed7112515
-    Model Status: Creating
-    Training model started on: 8/24/2020 7:35:02 PM +00:00
-    Training model completed on: 8/24/2020 7:35:02 PM +00:00
-Custom Model Info:
-    Model Id: 150828c4-2eb2-487e-a728-60d5d504bd16
-    Model Status: Ready
-    Training model started on: 8/24/2020 7:33:25 PM +00:00
-    Training model completed on: 8/24/2020 7:33:27 PM +00:00
-Custom Model Info:
-    Model Id: 3303e9de-6cec-4dfb-9e68-36510a6ecbb2
-    Model Status: Ready
-    Training model started on: 8/24/2020 7:29:27 PM +00:00
-    Training model completed on: 8/24/2020 7:29:36 PM +00:00
+We have following models in the account:
+Model Id: 0b048b60-86cc-47ec-9782-ad0ffaf7a5ce
+Model Id: 0b048b60-86cc-47ec-9782-ad0ffaf7a5ce
+Model Status: ready
+Training started on: 2020-06-04T18:33:08Z
+Training completed on: 2020-06-04T18:33:10Z
+Custom Model Form type: form-0b048b60-86cc-47ec-9782-ad0ffaf7a5ce
+Custom Model Accuracy: 1.00
+Field Text: invoice date
+Field Accuracy: 1.00
+Field Text: invoice number
+Field Accuracy: 1.00
+...
 ```
 
 ### Delete a model from the resource account
@@ -760,15 +632,15 @@ You can also delete a model from your account by referencing its ID.
 
 ```java
     // Delete Custom Model
-    System.out.printf("Deleted model with model Id: %s operation completed with status: %s%n", modelId.get(),
-        client.deleteModelWithResponse(modelId.get(), Context.NONE).getStatusCode());
+    System.out.printf("Deleted model with model Id: %s, operation completed with status: %s%n", modelId.get(),
+    trainingClient.deleteModelWithResponse(modelId.get(), Context.NONE).getStatusCode());
 }
 ```
 
 
 ## Run the application
 
-You can build the app with:
+Navigate back to your main project directory. Then, build the app with the following command:
 
 ```console
 gradle build
