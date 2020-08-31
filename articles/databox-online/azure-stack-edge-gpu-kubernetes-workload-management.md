@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 08/12/2020
+ms.date: 08/31/2020
 ms.author: alkohli
 ---
 
@@ -29,40 +29,13 @@ The two common types of workloads that you can deploy on your Azure Stack Edge d
 
     You can create a Kubernetes Deployment to deploy a stateful application. 
 
-## Namespaces types
+## Deployment flow
 
-Kubernetes resources, such as pods and deployments, are logically grouped into a namespace. These groupings provide a way to logically divide a Kubernetes cluster and restrict access to create, view, or manage resources. Users can only interact with resources within their assigned namespaces.
-
-Namespaces are intended for use in environments with many users spread across multiple teams, or projects. For clusters with a few to tens of users, you should not need to create or think about namespaces at all. Start using namespaces when you need the features they provide.
-
-For more information, see [Kubernetes namespaces](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/).
-
-
-Your Azure Stack Edge device has the following namespaces:
-
-- **System namespace** - This namespace is where core resources exist, such as network features like DNS and proxy, or the Kubernetes dashboard. You typically don't deploy your own applications into this namespace. Use this namespace to debug any Kubernetes cluster issues. 
-
-    There are multiple system namespaces on your device and the names corresponding to these system namespaces are reserved. Here is a list of the reserved system namespaces: 
-	- kube-system
-	- metallb-system
-	- dbe-namespace
-	- default
-	- kubernetes-dashboard
-	- default
-	- kube-node-lease
-	- kube-public
-	- iotedge
-	- azure-arc
-
-    Make sure to not use any reserved names for user namespaces that you create. 
-<!--- **default namespace** - This namespace is where pods and deployments are created by default when none is provided and you have admin access to this namespace. When you interact with the Kubernetes API, such as with `kubectl get pods`, the default namespace is used when none is specified.-->
-
-- **User namespace** - These are the namespaces that you can create via **kubectl** to locally deploy applications.
+To deploy applications on an Azure Stack Edge device, you will follow these steps: 
  
-- **IoT Edge namespace** - You connect to this `iotedge` namespace to deploy applications via IoT Edge.
-
-- **Azure Arc namespace** - You connect to this `azure-arc` namespace to deploy applications via Azure Arc.
-
+1. **Configure access**: First, you will use the PowerShell runspace to create a user, create a namespace, and grant user access to that namespace.
+2. **Configure storage**: Next, you will use the Azure Stack Edge resource in the Azure portal to create persistent volumes using either static or dynamic provisioning for the stateful applications that you will deploy.
+3. **Configure networking**: Finally, you will use the services to expose applications externally and within the Kubernetes cluster.
  
 ## Deployment types
 
@@ -70,11 +43,11 @@ There are three primary ways of deploying your workloads. Each of these deployme
 
 ![Kubernetes workload deployment](./media/azure-stack-edge-gpu-kubernetes-workload-management/kubernetes-workload-management-1.png)
 
-- **Local deployment**: This is through command-line access tool such as `kubectl` that allows you to deploy K8 `yamls`. You connect to the K8 cluster on your Azure Stack Edge that you create by using the `kubeconfig` file. For more information, go to [Access a Kubernetes cluster via kubectl](azure-stack-edge-gpu-create-kubernetes-cluster.md).
+- **Local deployment**: This is through command-line access tool such as `kubectl` that allows you to deploy Kubernetes `yamls`. You connect to the Kubernetes cluster on your Azure Stack Edge that you create by using the `kubeconfig` file. For more information, go to [Access a Kubernetes cluster via kubectl](azure-stack-edge-gpu-create-kubernetes-cluster.md).
 
-- **IoT Edge deployment**: This is through IoT Edge, which connects to the Azure IoT Hub. You connect to the K8 cluster on your Azure Stack Edge device via the `iotedge` namespace. The IoT Edge agents deployed in this namespace are responsible for connectivity to Azure. You apply the `IoT Edge deployment.json` configuration using Azure DevOps CI/CD. Namespace and IoT Edge management is done through cloud operator.
+- **IoT Edge deployment**: This is through IoT Edge, which connects to the Azure IoT Hub. You connect to the Kubernetes cluster on your Azure Stack Edge device via the `iotedge` namespace. The IoT Edge agents deployed in this namespace are responsible for connectivity to Azure. You apply the `IoT Edge deployment.json` configuration using Azure DevOps CI/CD. Namespace and IoT Edge management is done through cloud operator.
 
-- **Azure/Arc deployment**: Azure Arc is a hybrid management tool that will allow you to deploy applications on your K8 clusters. You connect the K8 cluster on your Azure Stack Edge device via the `azure-arc namespace`.  Agents are deployed in this namespace that are responsible for connectivity to Azure. You apply the deployment configuration by using the GitOps-based configuration management. Azure Arc will also allow you to use Azure Monitor for containers to view and monitor your clusters. For more information, go to [What is Azure-Arc enabled Kubernetes?](https://docs.microsoft.com/azure/azure-arc/kubernetes/overview).
+- **Azure/Arc deployment**: Azure Arc is a hybrid management tool that will allow you to deploy applications on your Kubernetes clusters. You connect the Kubernetes cluster on your Azure Stack Edge device via the `azure-arc namespace`. Agents are deployed in this namespace that are responsible for connectivity to Azure. You apply the deployment configuration by using the GitOps-based configuration management. Azure Arc will also allow you to use Azure Monitor for containers to view and monitor your clusters. For more information, go to [What is Azure-Arc enabled Kubernetes?](https://docs.microsoft.com/azure/azure-arc/kubernetes/overview).
 
 ## Choose the deployment type
 

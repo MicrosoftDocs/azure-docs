@@ -20,7 +20,7 @@ ms.author: inhenkel
 
 Media Services meets the demanding requirements of the US Federal Risk & Authorization Management Program (FedRAMP) and of the US Department of Defense, from information impact levels 2 through 5. By deploying protected services including Azure Government, Office 365 U.S. Government, and Dynamics 365 Government, federal, and defense agencies can use a rich array of compliant services.
 
-## US Federal Risk & Authorization Management Program (FedRAMP) and US Department of Defense compliance
+## FedRAMP and US Department of Defense compliance
 
 Media Services Public services are compliant with the Department of Defense Cloud Computing Security Requirements Guide 2 (DoD CC SRG IL 2) and FedRAMP High.
 

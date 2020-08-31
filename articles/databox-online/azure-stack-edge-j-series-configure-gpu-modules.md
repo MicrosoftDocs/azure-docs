@@ -1,12 +1,12 @@
 ---
-title: Run a GPU module on Microsoft Azure Stack Edge device| Microsoft Docs
+title: Run a GPU module on Microsoft Azure Stack Edge GPU device| Microsoft Docs
 description: Describes how to configure and run a module on GPU on an Azure Stack Edge device via the Azure portal.
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: edge
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/25/2020
 ms.author: alkohli
 ---
