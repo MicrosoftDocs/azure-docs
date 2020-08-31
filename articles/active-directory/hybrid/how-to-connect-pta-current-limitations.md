@@ -38,7 +38,7 @@ The following scenarios are supported:
 
 The following scenarios are _not_ supported:
 
-- Detection of users with [leaked credentials](../identity-protection/overview-identity-protection.md#leaked-credentials).
+- Detection of users with [leaked credentials](../identity-protection/overview-identity-protection.md).
 - Azure AD Domain Services needs Password Hash Synchronization to be enabled on the tenant. Therefore tenants that use Pass-through Authentication _only_ don't work for scenarios that need Azure AD Domain Services.
 - Pass-through Authentication is not integrated with [Azure AD Connect Health](./whatis-azure-ad-connect.md).
 
