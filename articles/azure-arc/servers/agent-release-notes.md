@@ -1,15 +1,17 @@
 ---
 title: Release notes
-description: This article has release notes for Azure Arc for servers agent. For many of the summarized issues there are links to additional details.
+description: This article has release notes for Azure Arc enabled servers (preview) agent. For many of the summarized issues there are links to additional details.
 ms.topic: conceptual
 ms.date: 08/31/2020
 ---
 
-# Release notes for Azure Arc for servers agent
+# Release notes for Azure Arc enabled servers (preview) agent
 
-[Download and install](https://aka.ms/AzureConnectedMachineAgent) the latest release of the Azure Connected Machine agent package for Windows.
+The Azure Arc enabled servers (preview) Connected Machine agent receives improvements on an ongoing basis. To stay up to date with the most recent developments, this article provides you with information about:
 
-[Download and install](https://packages.microsoft.com/) the latest release of the Azure Connected Machine agent package for Linux.
+- The latest releases
+- Known issues
+- Bug fixes
 
 ## August 2020
 
