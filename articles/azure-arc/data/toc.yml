@@ -86,3 +86,13 @@
       items:
         - name: Troubleshoot PostgreSQL
           href: troubleshooting-postgresql.md
+- name: Reference
+  items:
+  - name: azdata
+    items:
+    - name: azdata
+      href: /sql/azdata/reference/reference-azdata?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
+    - name: notebook
+      href: /sql/azdata/reference/reference-azdata-notebook?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
+    - name: sql
+      href: /sql/azdata/reference/reference-azdata-sql?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
