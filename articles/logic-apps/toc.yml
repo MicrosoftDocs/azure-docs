@@ -68,6 +68,8 @@
       href: logic-apps-move-from-mabs.md
     - name: Export flows from Power Automate and deploy to Azure Logic Apps
       href: export-from-microsoft-flow-logic-app-template.md
+    - name: Manage Azure resources by creating automation tasks
+      href: create-automation-tasks-azure-resources.md
     - name: Control workflow execution
       items:
       - name: Conditional statements

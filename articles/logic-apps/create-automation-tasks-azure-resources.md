@@ -10,7 +10,11 @@ ms.date: 09/10/2020
 
 # Manage Azure resources by creating automation tasks (preview)
 
-To help you manage [Azure resources](../azure-resource-manager/management/overview.md#terminology) more easily, you can create and automate management tasks for a specific resource or resource group by using automation task templates, which vary based on the resource type. For example, for an [Azure storage account](../storage/common/storage-account-overview.md), you can set up an automation task that sends you the monthly cost for that storage account. For an [Azure virtual machine](https://azure.microsoft.com/services/virtual-machines/), you can turn on and turn off that virtual machine. Currently, here are the task templates available in this preview:
+To help you manage [Azure resources](../azure-resource-manager/management/overview.md#terminology) more easily, you can create and automate management tasks for a specific resource or resource group by using automation task templates, which vary based on the resource type. When you create an automation task for a resource in the Azure portal, you do so from that specific resource, for example, the actual storage account or virtual machine resource.
+
+Behind the scenes, an automation task is actually a logic app workflow that's run by the [Azure Logic Apps](../logic-apps/logic-apps-overview.md) service. You can view and edit the task's underlying workflow by opening the task in the Logic App Designer. After a task finishes at least one run, you can review the status, history, inputs, and outputs for each run.
+
+For example, for an [Azure storage account](../storage/common/storage-account-overview.md), you can set up an automation task that sends you the monthly cost for that storage account. For an [Azure virtual machine](https://azure.microsoft.com/services/virtual-machines/), you can turn on and turn off that virtual machine. Currently, here are the task templates available in this preview:
 
 * All Azure resources and resource groups:<p>
 
@@ -26,8 +30,6 @@ To help you manage [Azure resources](../azure-resource-manager/management/overvi
 
   * **Send monthly cost for resource**
   * **Delete old blobs**
-
-When you create an automation task for a resource in the Azure portal, you do so from that specific resource, for example, the actual storage account or virtual machine resource. Behind the scenes, an automation task is actually a logic app workflow that's run by the [Azure Logic Apps](../logic-apps/logic-apps-overview.md) service. You can view and edit the task's underlying workflow by opening the task in the Logic App Designer. After a task finishes at least one run, you can review the status, history, inputs, and outputs for each run.
 
 This article shows you how to complete the following tasks:
 
