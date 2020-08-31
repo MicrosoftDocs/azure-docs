@@ -12,6 +12,8 @@ ms.author: mbaldwin
 ---
 # Workflow
 
+Microsoft Azure Attestation receives evidence from enclavess and evaluates the evidence against Azure security baseline and configurable policies. Upon successful verficiation, Azure Attestation generates an attestation token to confirm trustworthiness of the enclave.
+
 The following actors are involved in an Azure Attestation work flow:
 
 - **Relying party**: The component which relies on Azure Attestation to verify enclave validity. 
@@ -29,7 +31,7 @@ Here are the general steps in a typical SGX enclave attestation workflow (using 
 1. Azure Attestation validates the submitted information and evaluates it against a configured policy. If the verification succeeds, Azure Attestation issues an attestation token and returns it to the client. If this step fails, Azure Attestation reports an error to the client. 
 1. The client sends the attestation token to relying party. The relying party calls public key metadata endpoint of Azure Attestation to retrieve signing certificates. The relying party then verifies the signature of the attestation token and ensures the enclave trustworthiness. 
 
-![Enclave validation flow](./media/validationflow.png)
+![Enclave validation flow](./media/validation-flow.png)
 
 
 ## Next steps
