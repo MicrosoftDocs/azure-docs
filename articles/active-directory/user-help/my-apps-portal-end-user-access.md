@@ -35,7 +35,7 @@ You can get to the **My Apps** portal from any of the following web browsers:
 - Google Chrome
 - Mozilla Firefox, version 26.0 or later
 
-## Install the My Apps Secure Sign-in Extension
+## Download and install the My Apps Secure Sign-in Extension
 
 Download and install the **My Apps Secure Sign-in Extension**, if you're prompted. The mobile version of the Edge browser is currently the only mobile browser for which you'll receive a prompt to install the extension.This extension helps you use any of your organization's cloud apps that require you to use a single sign-on process. If your organization has already set you up for single sign-on, the extension is installed automatically and you can skip this section.
 
