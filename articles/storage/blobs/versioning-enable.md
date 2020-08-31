@@ -21,6 +21,8 @@ This article shows how to enable or disable blob versioning for the storage acco
 
 You must register for the preview before enabling blob versioning. To learn more about the blob versioning, including how to register for the preview, see [Blob versioning (preview)](versioning-overview.md).
 
+[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
+
 ## Enable blob versioning
 
 # [Azure portal](#tab/portal)
