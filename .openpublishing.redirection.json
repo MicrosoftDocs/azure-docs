@@ -56406,27 +56406,27 @@
     },
     {
       "source_path": "articles/spring-cloud/spring-cloud-quickstart-launch-app-cli.md",
-      "redirect_url": "articles/spring-cloud/spring-cloud/spring-cloud-quickstart",
+      "redirect_url": "/azure/spring-cloud/spring-cloud-quickstart",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/spring-cloud/spring-cloud-quickstart-launch-app-portal.md",
-      "redirect_url": "articles/spring-cloud/spring-cloud/spring-cloud-quickstart",
+      "redirect_url": "/azure/spring-cloud/spring-cloud-quickstart",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/spring-cloud/spring-cloud-quickstart-launch-app-maven.md",
-      "redirect_url": "articles/spring-cloud/spring-cloud/spring-cloud-quickstart",
+      "redirect_url": "/azure/spring-cloud/spring-cloud-quickstart",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/spring-cloud/spring-cloud-launch-from-source.md",
-      "redirect_url": "articles/spring-cloud/spring-cloud/spring-cloud-quickstart",
+      "redirect_url": "/azure/spring-cloud/spring-cloud-quickstart",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/spring-cloud/spring-cloud-cli-reference.md",
-      "redirect_url": "https://docs.microsoft.com/cli/azure/ext/spring-cloud/spring-cloud?view=azure-cli-latest",
+      "redirect_url": "/cli/azure/ext/spring-cloud/spring-cloud?view=azure-cli-latest",
       "redirect_document_id": false
     }
   ]
