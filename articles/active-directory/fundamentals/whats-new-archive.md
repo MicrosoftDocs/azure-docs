@@ -761,7 +761,7 @@ For more information about the apps, see [SaaS application integration with Azur
 ### New Azure AD Global Reader role
 
 **Type:** New feature
-**Service category:** Azure AD RBAC
+**Service category:** Azure AD roles
 **Product capability:** Access Control
 
 Starting on September 24, 2019, we're going to start rolling out a new Azure Active Directory (AD) role called Global Reader. This rollout will start with production and Global cloud customers (GCC), finishing up worldwide in October.
@@ -862,7 +862,7 @@ For more information, see [Manage groups in the Azure portal](https://docs.micro
 ### New custom roles are available for app registration management (Public Preview)
 
 **Type:** New feature
-**Service category:** Azure AD RBAC
+**Service category:** Azure AD roles
 **Product capability:** Access Control
 
 Custom roles (available with an Azure AD P1 or P2 subscription) can now help provide you with fine-grained access, by letting you create role definitions with specific permissions and then to assign those roles to specific resources. Currently, you create custom roles by using permissions for managing app registrations and then assigning the role to a specific app. For more information about custom roles, see [Custom administrator roles in Azure Active Directory (preview)](https://docs.microsoft.com/azure/active-directory/users-groups-roles/roles-custom-overview).

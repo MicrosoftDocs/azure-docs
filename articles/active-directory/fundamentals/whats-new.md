@@ -176,7 +176,7 @@ To learn more about how to configure SAP SuccessFactors inbound provisioning to 
 ### Assign Azure AD built-in roles to cloud groups
 
 **Type:** New feature  
-**Service category:** Azure AD RBAC  
+**Service category:** Azure AD roles  
 **Product capability:** Access Control
 
 You can now assign Azure AD built-in roles to cloud groups with this new feature. For example, you can assign the SharePoint Administrator role to Contoso_SharePoint_Admins group. You can also use PIM to make the group an eligible member of the role, instead of granting standing access. To learn how to configure this feature, see [Use cloud groups to manage role assignments in Azure Active Directory (preview)](https://docs.microsoft.com/azure/active-directory/users-groups-roles/roles-groups-concept).
@@ -186,7 +186,7 @@ You can now assign Azure AD built-in roles to cloud groups with this new feature
 ### Insights Business Leader built-in role now available
 
 **Type:** New feature  
-**Service category:** Azure AD RBAC  
+**Service category:** Azure AD roles  
 **Product capability:** Access Control
  
 Users in the Insights Business Leader role can access a set of dashboards and insights via the [M365 Insights application](https://www.microsoft.com/microsoft-365/partners/workplaceanalytics). This includes full access to all dashboards and presented insights and data exploration functionality. However, users in this role don't have access to product configuration settings, which is the responsibility of the Insights Administrator role. To learn more about this role, see [Administrator role permissions in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#insights-business-leader)
@@ -196,7 +196,7 @@ Users in the Insights Business Leader role can access a set of dashboards and in
 ### Insights Administrator built-in role now available
 
 **Type:** New feature  
-**Service category:** Azure AD RBAC  
+**Service category:** Azure AD roles  
 **Product capability:** Access Control
  
 Users in the Insights Administrator role can access the full set of administrative capabilities in the [M365 Insights application](https://www.microsoft.com/microsoft-365/partners/workplaceanalytics). A user in this role can read directory information, monitor service health, file support tickets, and access the Insights administrator settings aspects. To learn more about this role, see [Administrator role permissions in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#insights-administrator)
@@ -206,7 +206,7 @@ Users in the Insights Administrator role can access the full set of administrati
 ### Application Admin and Cloud Application Admin can manage extension properties of applications
 
 **Type:** Changed feature  
-**Service category:** Azure AD RBAC  
+**Service category:** Azure AD roles  
 **Product capability:** Access Control
  
 Previously, only the Global Administrator could manage the [extension property](https://docs.microsoft.com/graph/api/application-post-extensionproperty?view=graph-rest-beta&tabs=http). We're now enabling this capability for the Application Administrator and Cloud Application Administrator as well.
@@ -372,7 +372,7 @@ For more information about how to better secure your organization by using autom
 ### View role assignments across all scopes and ability to download them to a csv file
 
 **Type:** Changed feature  
-**Service category:** Azure AD RBAC  
+**Service category:** Azure AD roles  
 **Product capability:** Access Control
  
 You can now view role assignments across all scopes for a role in the "Roles and administrators" tab in the Azure AD portal. You can also download those role assignments for each role into a CSV file. For guidance on viewing and adding role assignments, see [View and assign administrator roles in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-manage-roles-portal).
@@ -1027,7 +1027,7 @@ For more information, see [Azure AD authentication methods API overview](https:/
 
 **Type:** New feature
 
-**Service category:** Azure AD RBAC
+**Service category:** Azure AD roles
 
 **Product capability:** Access Control
 
@@ -1047,7 +1047,7 @@ For more information, see [Administrative units management in Azure Active Direc
 
 **Type:** New feature
 
-**Service category:** Azure AD RBAC
+**Service category:** Azure AD roles
 
 **Product capability:** Access Control
 
@@ -1061,7 +1061,7 @@ For more information, see [Administrative units management in Azure Active Direc
 
 **Type:** New feature
 
-**Service category:** Azure AD RBAC
+**Service category:** Azure AD roles
 
 **Product capability:** Access Control
 
@@ -1073,7 +1073,7 @@ Users in this role can enable, configure and manage services and settings relate
 
 **Type:** New feature
 
-**Service category:** Azure AD RBAC
+**Service category:** Azure AD roles
 
 **Product capability:** Access Control
 
