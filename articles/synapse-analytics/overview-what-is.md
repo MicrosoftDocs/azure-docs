@@ -19,7 +19,7 @@ Today enterprise analytics requires operating at massive scale on any kind of da
 
 Solutions like this are difficult to build, configure, secure, and maintain, which delays the swift extraction of intelligent insight.
 
-**Azure Synapse** is an integrated analytics service that accelerates time to insight from all data at any scale, across data warehouses and big data analytics systems​. It brings together the best of the **SQL** technologies used in enterprise data warehousing, **Spark** technologies used in big data analytics, and **Pipelines** to orchestrate activities and data movement.
+**Azure Synapse** is an integrated analytics service that accelerates time to insight from all data at any scale, across data warehouses and big data analytics systems​. It brings together the best of the **SQL** technologies used in enterprise data warehousing, **Spark** technologies used in big data analytics, and **Pipelines** for data integration and ETL/ELT.
 
 Azure Synapse comes with a web-native **Studio** user experience that provides a single experience and model for management, monitoring, coding, and security.
 
@@ -55,9 +55,9 @@ Azure Synapse removes the traditional technology barriers between using SQL and 
 * SQL and Spark can directly explore and analyze Parquet, CSV, TSV, and JSON files stored in the data lake.
 * Fast scalable load and unload for data going between SQL and Spark databases
 
-### Built-in orchestration via pipelines
+### Built-in data integration via pipelines
 
-Azure Synapse comes built-in with the same Data Integration engine and experiences as Azure Data Factory, allowing you to create rich data pipelines without using a separate orchestration engine.
+Azure Synapse comes built-in with the same Data Integration engine and experiences as Azure Data Factory, allowing you to create rich at-scale ETL pipelines without leaving Synapse Analytics.
 
 * Move data between Azure Synapse and 90+ on-premises data sources
 * Orchestrate Notebooks, Pipelines, Spark jobs, SQL Scripts, Stored procedures
