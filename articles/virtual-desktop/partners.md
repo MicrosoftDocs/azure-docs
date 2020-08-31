@@ -40,7 +40,7 @@ As a Windows Virtual Desktop approved provider, VMware can help customers that w
 
 10ZiG's world-market leadership in Thin and Zero Client endpoint devices and management software for virtual desktops is exemplified by how they work for their customers. Its Thin Client hardware comes with thoughtfully constructed benefit features and options designed to ensure customers receive the right Client devices based on their needs. 10ZiG customizes its devices to fit into customer environments with Windows-based and Linux-based Clients that provide the best possible performance in virtual desktops, both inside and outside the cloud.
 
-- [Go to the partner website](https://www.10zig.com/about/microsoft-wvd).
+- [Go to the partner website](https://www.10zig.com/about/microsoft-windows-virtual-desktop).
 
 ## Automai
 
@@ -304,6 +304,15 @@ sepago's innovation and development lab builds smart solutions using big data an
 
 - [See the joint solution brief](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4qMsm).
 - [Go to the partner website](https://www.sepago.de/en/).
+
+## SSH2
+
+SSH2 is a Windows Virtual Desktop value-added services provider that equips your IT teams with software to speed up the application delivery from the current platform to Windows Virtual Desktop on Azure. SSH2 lets IT accelerate application capture to streamline the migration process. SSH2’s appCURE captures running applications on the endpoint, enables updating and remediation to create a comprehensive step change in the speed in which end-user environments can be executed. 
+
+appCURE captures application details from running applications to ensure all points that may impact your end-user’s applications are understood. appCURE then updates and delivers them to your new Windows Virtual Desktop. By capturing all application integration points in your current environment, appCURE provides the speed to optimize IT resources and plan for your migrations better and quicker than ever before thus enabling organisations to get to production faster.
+
+- [See the joint solution brief]().
+- [Go to the partner page](https://www.ssh2.xyz/partners/).
 
 ## ThinPrint
 
