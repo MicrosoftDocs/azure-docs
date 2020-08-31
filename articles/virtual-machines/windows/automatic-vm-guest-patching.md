@@ -5,7 +5,7 @@ author: mayanknayar
 ms.service: virtual-machines-windows
 ms.workload: infrastructure
 ms.topic: how-to
-ms.date: 08/25/2020
+ms.date: 08/31/2020
 ms.author: manayar
 
 ---
@@ -71,17 +71,17 @@ Windows VMs on Azure now support the following patch orchestration modes:
 - This mode enables automatic VM guest patching for the Windows virtual machine and subsequent patch installation will be orchestrated by Azure as detailed above.
 - Setting this mode also disables the native Automatic Updates on the Windows virtual machine to avoid duplication.
 - This mode is only supported for VMs that are created using the supported OS platform images above.
-- To use this mode, set the property *osProfile.windowsConfiguration.enableAutomaticUpdates=true*, and set the *osProfile.windowsConfiguration.patchSettings.patchMode=AutomaticByPlatform* in the VM template.
+- To use this mode, set the property `osProfile.windowsConfiguration.enableAutomaticUpdates=true`, and set the property  `osProfile.windowsConfiguration.patchSettings.patchMode=AutomaticByPlatfom` in the VM template.
 
 **AutomaticByOS:**
 - This mode enables Automatic Updates on the Windows virtual machine, and patches will be installed on the VM through Automatic Updates.
 - This mode is the default if no other patch mode has been specified.
-- To use this mode set the property *osProfile.windowsConfiguration.enableAutomaticUpdates=true*, and set the *osProfile.windowsConfiguration.patchSettings.patchMode=AutomaticByOS* in the VM template.
+- To use this mode set the property `osProfile.windowsConfiguration.enableAutomaticUpdates=true`, and set the property  `osProfile.windowsConfiguration.patchSettings.patchMode=AutomaticByOS` in the VM template.
 
 **Manual:**
 - This mode disables Automatic Updates on the Windows virtual machine.
 - This mode should be set when using custom patching solutions.
-- To use this mode set the property *osProfile.windowsConfiguration.enableAutomaticUpdates=false*, and set the *osProfile.windowsConfiguration.patchSettings.patchMode=Manual* in the VM template.
+- To use this mode set the property `osProfile.windowsConfiguration.enableAutomaticUpdates=false`, and set the property  `osProfile.windowsConfiguration.patchSettings.patchMode=Manual` in the VM template.
 
 ## Requirements for enabling automatic VM guest patching
 
@@ -198,4 +198,5 @@ az vm update --resource-group myResourceGroup --name myVM --set osProfile.window
 >It can take up to three hours to enable automatic VM guest updates on a VM. As assessment and patch installation occur only during off-peak hours, your VM must be also be running during off-peak hours to apply patches.
 
 ## Next steps
-For more examples on how to create and manage Windows VMs review the [tutorial](tutorial-manage-vm.md).
+> [!div class="nextstepaction"]
+> [Learn more about creating and managing Windows virtual machines](tutorial-manage-vm.md)
