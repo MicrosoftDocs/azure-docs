@@ -61,18 +61,6 @@ For more details about Azure RBAC built-in roles definitions, see [Azure role-ba
 
 The new Azure RBAC permission model for key vault replaces the access policies permissions model. You have the option to choose whether to use access policies or Azure RBAC permissions on Key Vault.
 
-Register Azure RBAC Preview Feature using below script:
-
-PowerShell:
-```powershell
-Register-AzResourceProvider -ProviderNamespace Microsoft.KeyVault   
-```
-
-Azure CLI:
-```azurecli
-az provider register --namespace Microsoft.KeyVault 
-```
-
 ### Enable Azure RBAC Permissions on Key Vault
 
 Important: Setting Azure RBAC permission model invalidates all access policies permissions. It can cause outages when equivalent Azure RBAC roles are not assigned.
