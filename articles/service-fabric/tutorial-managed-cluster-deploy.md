@@ -66,7 +66,7 @@ In this step, you will create a managed Service Fabric cluster using the New-AzS
 For this step, provide your own values for the following  parameters: 
 * **Cluster Name**: Enter a unique name for your cluster, such as *myCluster*.
 * **Admin Password**: Enter a password for the admin to be used for RDP on the underlying VMs in the cluster.
-* **Client Certificate Thumbprint**: Provide the thumprint of the client certificate that you would like to use to access your cluster. If you do not have a certificate, follow [steps]() to create a self-signed certificate. 
+* **Client Certificate Thumbprint**: Provide the thumbprint of the client certificate that you would like to use to access your cluster. If you do not have a certificate, follow [steps]() to create a self-signed certificate. 
 * **Cluster SKU**: This is the type of Service Fabric cluster being deployed, basic SKU clusters are meant for test deployments only. 
 
 ```powershell
