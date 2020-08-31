@@ -33,7 +33,7 @@ Follow the steps below to use the module before the official release is availabl
 
 ## Add a node type to a Managed Service Fabric cluster
 
-You can add a node type to a managed Service Fabric cluster through ARM, PowerShell, or CLI. In this tutorial we will be adding a node type using the Azure PowerShell.
+You can add a node type to a managed Service Fabric cluster through an Azure Resource Manager template, PowerShell, or CLI. In this tutorial we will be adding a node type using the Azure PowerShell.
 
 To create a new node type, we will need to define three properties:
 * **Node Type Name**: This should be a unique name from any other node types that already exist in the cluster. 

@@ -1,13 +1,14 @@
 ---
-title: 'Quickstart: Deploy a Managed Service Fabric cluster by using an ARM template (Preview)'
-description: Learn how to quickly create a Managed Service Fabric using an ARM template.
+title: 'Quickstart: Deploy a Managed Service Fabric cluster by using an Azure Resource Manager template (Preview)'
+description: In this quickstart, you will learn how to create a Managed Service Fabric cluster using an ARM template.
 ms.topic: quickstart
 ms.date: 08/19/2020
+ms.custom: subject-armqs
 ---
 
-# Quickstart: Deploy a Managed Service Fabric cluster using an ARM template
+# Quickstart: Deploy a Managed Service Fabric cluster using an Azure Resource Manager template
 
-Service Fabric Managed clusters are an evolution of the Azure Service Fabric cluster resource model that streamlines your deployment and cluster management experience. Service Fabric managed clusters are a fully encapsulated resource that enable you to deploy a single Service Fabric cluster resource rather than having to deploy all of the underlying resources that make up a Service Fabric cluster. This article describes how to do deploy a Managed Service Fabric test cluster in Azure using an Azure Resource Manager (ARM template)
+Service Fabric Managed clusters are an evolution of the Azure Service Fabric cluster resource model that streamlines your deployment and cluster management experience. Service Fabric managed clusters are a fully encapsulated resource that enable you to deploy a single Service Fabric cluster resource rather than having to deploy all of the underlying resources that make up a Service Fabric cluster. This article describes how to do deploy a Managed Service Fabric test cluster in Azure using an Azure Resource Manager template (ARM template).
 
 The three-node Basic SKU cluster deployed in this tutorial is only intended to be used for instructional purposes (rather than production workloads). For more information about Managed Service Fabric cluster SKUs please see [PLACEHOLDER](https://docs.microsoft.com/en-us/azure/key-vault/certificates/quick-create-portal#:~:text=%20Quickstart%3A%20Set%20and%20retrieve%20a%20certificate%20from,vault%2C%20you%20just%20need%20to%20take...%20More%20).
 
@@ -74,5 +75,5 @@ Remove-AzResourceGroup -Name $resourceGroupName
 
 ## Next steps 
 
-In this quickstart, you deployed a managed Service Fabric cluster. I
+In this quickstart, you deployed a managed Service Fabric cluster. 
 <!-- LINKS - internal -->
