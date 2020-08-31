@@ -140,7 +140,7 @@ This container image has the following tags available:
 ## Speech-to-text
 
 The [Speech-to-text][sp-stt] container image can be found on the `containerpreview.azurecr.io` container registry. It resides within the `microsoft` repository and is named `cognitive-services-speech-to-text`. The fully qualified container image name is, `containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text`.
-*Fairfax* version of Speech-to-text images are supporte in v2.4.0, and can be found on `containerpreview.azurecr.io/microsoft/fairfax/cognitive-services-speech-to-text`.
+The *US Government Virginia* version of Speech-to-text images are supported in v2.4.0, and can be found on `containerpreview.azurecr.io/microsoft/fairfax/cognitive-services-speech-to-text`.
 
 This container image has the following tags available:
 
