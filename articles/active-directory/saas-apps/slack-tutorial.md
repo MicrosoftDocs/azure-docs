@@ -161,15 +161,15 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 2. Navigate to **Microsoft Azure AD** then go to **Team Settings**.
 
-     ![Configure single sign-on On App Side](./media/slack-tutorial/tutorial-slack-team-settings.png)
+     ![Configure single sign-on On Microsoft Azure AD](./media/slack-tutorial/tutorial-slack-team-settings.png)
 
 3. In the **Team Settings** section, click the **Authentication** tab, and then click **Change Settings**.
 
-    ![Configure single sign-on On App Side](./media/slack-tutorial/tutorial-slack-authentication.png)
+    ![Configure single sign-on On Team Settings](./media/slack-tutorial/tutorial-slack-authentication.png)
 
 4. On the **SAML Authentication Settings** dialog, perform the following steps:
 
-    ![Slack Configure single sign-on On App Side](./media/slack-tutorial/tutorial-slack-save-authentication.png)
+    ![Configure single sign-on On SAML Authentication Settings](./media/slack-tutorial/tutorial-slack-save-authentication.png)
 
     a.  In the **SAML 2.0 Endpoint (HTTP)** textbox, paste the value of **Login URL**, which you have copied from Azure portal.
 
@@ -179,7 +179,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     d. Configure the above three settings as appropriate for your Slack team. For more information about the settings, please find the **Slack's SSO configuration guide** here. `https://get.slack.help/hc/articles/220403548-Guide-to-single-sign-on-with-Slack%60`
 
-    ![Slack Totorial Configure single sign-on On App Side](./media/slack-tutorial/tutorial-slack-expand.png)
+    ![Configure single sign-on On App Side](./media/slack-tutorial/tutorial-slack-expand.png)
 
     e. Click on **expand** and enter `https://slack.com` in the **Service provider issuer** textbox.
 
