@@ -77,7 +77,7 @@ Azure doesn't currently support some of the features that on-premises Hyper-V su
 |---------|--------------|--------------|
 | Boot             | PCAT         | UEFI |
 | Disk controllers | IDE          | SCSI |
-| VM sizes         | All VM sizes | [See available sizes](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2#generation-2-vm-sizes) |
+| VM sizes         | All VM sizes | [See available sizes](https://docs.microsoft.com/azure/virtual-machines/linux/generation-2#generation-2-vm-sizes) |
 
 ### Generation 1 vs. generation 2 capabilities
 
