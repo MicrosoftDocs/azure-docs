@@ -70,7 +70,7 @@
       - name: VM from VHD upload
         href: ./../scripts/virtual-machines-windows-powershell-upload-generalized-script.md
       - name: Attach an OS disk
-        href: ./../scripts/virtual-machines-windows-powershell-sample-create-vm-from-managed-os-disks.md
+        href: ./../scripts/virtual-machines-powershell-sample-create-vm-from-managed-os-disks.md
       - name: VM from snapshot
         href: ./../scripts/virtual-machines-windows-powershell-sample-create-vm-from-snapshot.md
     - name: Manage storage

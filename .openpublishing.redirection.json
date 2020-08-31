@@ -27875,17 +27875,17 @@
     },
     {
       "source_path": "articles/storage/scripts/storage-windows-powershell-sample-create-managed-disk-from-snapshot.md",
-      "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot",
+      "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-powershell-sample-create-managed-disk-from-snapshot",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/storage/scripts/storage-windows-powershell-sample-create-managed-disk-from-vhd.md",
-      "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-vhd",
+      "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-powershell-sample-create-managed-disk-from-vhd",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/storage/scripts/storage-windows-powershell-sample-create-snapshot-from-vhd.md",
-      "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-snapshot-from-vhd",
+      "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-powershell-sample-create-snapshot-from-vhd",
       "redirect_document_id": true
     },
     {
@@ -31617,6 +31617,16 @@
       "source_path": "articles/virtual-machines/windows/classic/detach-disk.md",
       "redirect_url": "/azure/virtual-machines/windows/detach-disk",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-from-managed-os-disks.md",
+      "redirect_url": "azure/scripts/virtual-machines-powershell-sample-create-vm-from-managed-os-disks",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-linux-powershell-sample-create-vm-from-managed-os-disks.md",
+      "redirect_url": "azure/scripts/virtual-machines-powershell-sample-create-vm-from-managed-os-disks",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/virtual-machines/windows/classic/connect-vms.md",
