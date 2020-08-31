@@ -16,6 +16,7 @@ This article helps you configure a VPN client to connect to a virtual network us
 
 > [!NOTE]
 > Azure AD authentication is supported only for OpenVPN® protocol connections.
+> Azure AD authentication requires the Azure VPN client which is available only for Windows 10.
 >
 
 ## <a name="profile"></a>Working with client profiles
