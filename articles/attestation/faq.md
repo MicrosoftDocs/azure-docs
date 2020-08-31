@@ -22,7 +22,7 @@ If your Azure issue is not addressed in this article, you can also submit an Azu
 Azure PCK caching service defines the Azure security baseline for the [Azure Confidential computing (ACC)](../confidential-computing/overview.md) nodes from Intel and caches the data. The cached information will be further used by Azure Attestation in validating Trusted Execution Environments (TEEs).  
 
 Azure PCK caching service:
-   - Provides a Service Level Agreement (SLA)  
+   - Offers high availability 
    - Reduces dependencies on externally hosted services and internet connectivity.
    - Fetches the latest versions of Intel certificates, CRLs, Trusted Computing Base (TCB) information and Quoting Enclave identity of the ACC nodes from Intel. The service hence confirms the Azure security baseline to be referred by Azure Attestation while validating the TEEs, greatly reducing attestation failures due to invalidation or revocation of Intel certificates  
 
