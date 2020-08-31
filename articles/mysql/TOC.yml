@@ -402,8 +402,13 @@
           href: flexible-server/quickstart-create-server-portal.md
         - name: Azure CLI
           href: flexible-server/quickstart-create-server-cli.md
-        - name: ARM template
-          href: flexible-server/quickstart-create-arm-template.md
+      - name: Connect and query
+        expanded: true
+        items:
+          - name: PHP
+            href: flexible-server/connect-php.md
+          - name: MySQL Workbench
+            href: flexible-server/connect-workbench.md
   - name: Tutorials
     items:
     - name: Build PHP (Laravel) app with Flexible Server
@@ -432,6 +437,26 @@
         href: flexible-server/how-to-manage-portal.md
       - name: Azure CLI
         href: flexible-server/how-to-manage-cli.md
+    - name: Networking
+      items:
+      - name: Private access (VNet Integration)
+        items:
+        - name: Azure portal
+          href: flexible-server/how-to-manage-virtual-network-portal.md
+        - name: Azure CLI
+          href: flexible-server/how-to-manage-virtual-network-cli.md
+      - name: Public access (allowed IP addresses)
+        items:
+        - name: Azure portal
+          href: flexible-server/how-to-manage-firewall-portal.md
+        - name: Azure CLI
+          href: flexible-server/how-to-manage-firewall-cli.md
+      - name: TLS/SSL
+        items:
+        - name: Connect using TLS/SSL
+          href: flexible-server/how-to-connect-tls-ssl.md
+        - name: ARM template
+          href: flexible-server/quickstart-create-arm-template.md
 - name: Reference
   items:
   - name: Azure CLI
