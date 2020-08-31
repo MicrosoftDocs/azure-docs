@@ -21,7 +21,7 @@ You only use tutorials to show the single best procedure for completing an appro
 
 # Tutorial: <do something with X> 
 
-*This is an edited version of the tutorial template, [Global template for tutorial articles](https://review.docs.microsoft.com/help/contribute/global-tutorial-template?branch=master), in the Contributor Guide.
+*This is an edited version of the tutorial template, [Base template for tutorial articles](https://review.docs.microsoft.com/help/contribute/global-tutorial-template?branch=master), in the Contributor Guide.*
 
 <!---Required:
 Starts with "Tutorial: "

@@ -15,7 +15,7 @@ ms.author: garye      # Your microsoft.com email alias
 
 # Quickstart: what this quickstart does
 
-*For a more detailed template, see [Global template for quickstart articles](https://review.docs.microsoft.com/help/contribute/global-quickstart-template?branch=master) in the Contributor Guide.*
+*For a more detailed template, see [Base template for quickstart articles](https://review.docs.microsoft.com/help/contribute/global-quickstart-template?branch=master) in the Contributor Guide.*
 
 This quickstart describes *summary of what the user will accomplish with this quickstart.*
 
