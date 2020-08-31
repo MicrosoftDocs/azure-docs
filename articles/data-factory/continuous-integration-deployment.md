@@ -10,7 +10,7 @@ ms.author: daperlov
 ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
-ms.date: 04/30/2020
+ms.date: 08/31/2020
 ---
 
 # Continuous integration and delivery in Azure Data Factory
@@ -341,6 +341,8 @@ Below is the current default parameterization template. If you need to add only 
         "location": "="
     },
     "Microsoft.DataFactory/factories/pipelines": {
+    },
+    "Microsoft.DataFactory/factories/dataflows": {
     },
     "Microsoft.DataFactory/factories/integrationRuntimes":{
         "properties": {
