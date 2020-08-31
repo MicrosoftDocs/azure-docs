@@ -1,6 +1,7 @@
 ---
 title: 'Tutorial: Deploy Django app with App Serice and Azure Database for PostgreSQL Flexible Server (Preview) in virtual network'
 description:  Deploy Django app with App Serice and Azure Database for PostgreSQL Flexible Server (Preview)  in virtual network
+author: mksuni
 ms.author: sumuth
 ms.service: postgresql
 ms.devlang: azurecli
@@ -121,7 +122,7 @@ az webapp config appsettings set --settings DJANGO_ENV="production" DBHOST="<pos
 ```
 - For the `--location` argument, use the same location as you did for the database in the previous section.
 - Replace *\<app-name>* with a unique name across all Azure (the server endpoint is `https://\<app-name>.azurewebsites.net`). Allowed characters for *\<app-name>* are `A`-`Z`, `0`-`9`, and `-`. A good pattern is to use a combination of your company name and an app identifier.
-- Create the [App Service plan](overview-hosting-plans.md) *DjangoPostgres-tutorial-plan* in the Basic pricing tier (B1), if it doesn't exist. `--plan` and `--sku` are optional.
+- Create the [App Service plan](../../app-service/overview-hosting-plans.md) *DjangoPostgres-tutorial-plan* in the Basic pricing tier (B1), if it doesn't exist. `--plan` and `--sku` are optional.
 - Create the App Service app if it doesn't exist.
 - Enable default logging for the app, if not already enabled.
 - Upload the repository using ZIP deployment with build automation enabled.
@@ -165,7 +166,7 @@ Django database migrations ensure that the schema in the PostgreSQL on Azure dat
 **Congratulations!** You're running a Python Django web app in Azure App Service for Linux, with an active Postgres database.
 
 > [!NOTE]
-> App Service detects a Django project by looking for a *wsgi.py* file in each subfolder, which `manage.py startproject` creates by default. When App Service finds that file, it loads the Django web app. For more information, see [Configure built-in Python image](configure-language-python.md).
+> App Service detects a Django project by looking for a *wsgi.py* file in each subfolder, which `manage.py startproject` creates by default. When App Service finds that file, it loads the Django web app. For more information, see [Configure built-in Python image](../../app-service/configure-language-python.md).
 
 ## Make code changes and redeploy
 
@@ -289,9 +290,9 @@ The command uses the resource group name cached in the *.azure/config* file. By 
 Learn how to map a custom DNS name to your app:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Map custom DNS name to your app](app-service-web-tutorial-custom-domain.md)
+> [Tutorial: Map custom DNS name to your app](../../app-service/app-service-web-tutorial-custom-domain.md)
 
 Learn how App Service runs a Python app:
 
 > [!div class="nextstepaction"]
-> [Configure Python app](configure-language-python.md)
+> [Configure Python app](../../app-service/configure-language-python.md)
