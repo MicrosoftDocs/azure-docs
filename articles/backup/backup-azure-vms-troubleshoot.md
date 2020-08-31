@@ -130,6 +130,7 @@ Restart VSS (Volume Shadow Copy) service.
 - Navigate to Services.msc and restart 'Volume Shadow Copy service'.<br>
 (or)<br>
 - Run the following commands from an elevated command prompt:
+
  ```net stop VSS``` <br>
  ```net start VSS```
 
