@@ -129,8 +129,8 @@ This table provides details about job-related fields.
 | JobUniqueId                    | Text          | Unique ID to identify the job                                |
 | ProtectedContainerUniqueId     | Text          | Unique identifier of the protected server associated with the job |
 | RecoveryJobDestination         | Text          | Destination of a recovery job, where the data is recovered   |
-| RecoveryJobRPDateTime          | DateTime      | The date, time when the recovery point that is being recovered   was created |
-| RecoveryJobLocation            | Text          | The location where the recovery point that is being   recovered was stored |
+| RecoveryJobRPDateTime          | DateTime      | The date, time when the recovery point that's being recovered   was created |
+| RecoveryJobLocation            | Text          | The location where the recovery point that's being recovered was stored |
 | RecoveryLocationType           | Text          | Type of the Recovery Location                                |
 | SchemaVersion                  | Text          | Current version of the schema, for example **V2**            |
 | State                          | Text          | Current state of the job object, for example, Active,   Deleted |

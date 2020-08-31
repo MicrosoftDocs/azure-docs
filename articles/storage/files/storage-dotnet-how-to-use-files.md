@@ -8,6 +8,7 @@ ms.topic: conceptual
 ms.date: 07/14/2020
 ms.author: rogarana
 ms.subservice: files
+ms.custom: devx-track-csharp
 ---
 
 # Develop for Azure Files with .NET
