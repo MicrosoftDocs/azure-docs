@@ -40,7 +40,7 @@
         href: connect-aws.md
       - name: Azure Active Directory
         href: connect-azure-active-directory.md
-      - name: Office 365
+      - name: Office 365 (now with Teams!)
         href: connect-office-365.md
       - name: Cloud App Security
         href: connect-cloud-app-security.md
