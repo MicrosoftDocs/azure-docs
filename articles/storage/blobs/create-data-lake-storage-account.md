@@ -27,7 +27,7 @@ For information about how to choose between them, see [storage account overview]
 
 Create either a [general-purpose V2 account](../common/storage-account-create.md) or a [BlockBlobStorage](storage-blob-create-account-block-blob.md) account with the **Hierarchical namespace** setting enabled.
 
-Unlock Data Lake Storage capabilities when you create the account by enabling the **Hierarchical namespace** setting in the **Advanced** tab of the **Create storage account** page. You must enable this setting when you create the account. You can't enable it afterwords.
+Unlock Data Lake Storage capabilities when you create the account by enabling the **Hierarchical namespace** setting in the **Advanced** tab of the **Create storage account** page. You must enable this setting when you create the account. You can't enable it afterwards.
 
 The following image shows this setting in the **Create storage account** page.
 
