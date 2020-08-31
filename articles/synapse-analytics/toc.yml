@@ -380,6 +380,14 @@
       href: ../cosmos-db/synapse-link-frequently-asked-questions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: Synapse Link use cases
       href: ../cosmos-db/synapse-link-use-cases.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+  - name: Machine Learning
+    items:
+    - name: Overview
+    - name: Connected services
+    - name: Data prep and exploration
+    - name: Training
+    - name: Scoring
+    - name: Deploying and managing models
   - name: Tools integration (AI, ETL, BI)
     items:
     - name: Troubleshoot Synapse Analytics Studio
