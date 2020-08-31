@@ -88,7 +88,7 @@ This architecture can be implemented if you have configured connectivity with yo
 
 If your security requirements require client traffic to services exposed via private endpoints to be routed through a security appliance, deploy this scenario.
 
-The same considerations as in scenario 2 above apply. In this scenario, there are no virtual network peering charges. For more information about how to configure your DNS servers to allow on-premises workloads to access private endpoints, see [On-Premises workloads using a DNS forwarder](./private-endpoint-dns.md#on-premises-workloads-using-a-dns-forwarder).
+The same considerations as in scenario 2 above apply. In this scenario, there isn't virtual network peering charges. For more information about how to configure your DNS servers to allow on-premises workloads to access private endpoints, see [On-Premises workloads using a DNS forwarder](./private-endpoint-dns.md#on-premises-workloads-using-a-dns-forwarder).
 
 >[!NOTE]
 > If you want to implement this scenario using a third party NVA or Azure Firewall, network rules instead of application rules is required to SNAT traffic destined to the private endpoints. Otherwise communication between the virtual machines and private endpoints will fail.
@@ -594,7 +594,7 @@ In this section, you'll connect privately to the SQL Database using the private 
 
 5. Select the **Run** button under **Application rule log data**.
 
-6. In the log query output, verify **mydbserver.database.windows.net** is listed under **FQDN** and **SQLPrivateEndpoint** is listed under **RuleCollection**.
+6. In the log query output, verify **mydbserver.database.windows.net** is liste:1433
 
 ## Clean up resources
 
