@@ -250,23 +250,33 @@ Save your details by selecting _Save_ button.
 
 ### Configure application settings using Azure portal
 
-You can make the URL of your Azure Digital Twins instance accessible to your function by setting an environment variable. For more information on this, see [*Environment variables*](https://docs.microsoft.com/sandbox/functions-recipes/environment-variables). Application settings are exposed as environment variables to access the digital twins instance. You'll need ADT_SERVICE_URL and ADT_INSTANCE_URL to create an application setting.
+You can make the URL of your Azure Digital Twins instance accessible to your function by setting an environment variable. For more information on this, see [*Environment variables*](https://docs.microsoft.com/sandbox/functions-recipes/environment-variables). Application settings are exposed as environment variables to access the digital twins instance. 
+
+Once your Azure function is created, search for your function with function name in the search bar and select the function from the list.
+
+:::image type="content" source="media/how-to-create-azure-function/search-for-azure-function.png" alt-text="Azure portal: Search for existing azure function":::
+
+You'll need ADT_SERVICE_URL and ADT_INSTANCE_URL to create an application setting.
 
 You can find ADT_SERVICE_URL by selecting _Overview_ on the left navigation bar. Copy _URL_ to use it in the _Name_ field to create an application setting.
 
 :::image type="content" source="media/how-to-create-azure-function/adt-service-url.png" alt-text="Azure portal: Overview-> Copy _URL_ to use in the _Name_ field.":::
 
-You can find the ADT_INSTANCE_URL by appending **_https://_** to your Azure-Digital-Twins-instance-hostname. In the Azure portal, you can find hostname of your instance by searching for your instance in the search bar. Then, select _Overview_ on the left navigation bar to view the _Host name_.
+You can get ADT_INSTANCE_URL by appending **_https://_** to your instance host name. In the Azure portal, you can find your digital twins instance host name by searching for your instance in the search bar. Then, select _Overview_ on the left navigation bar to view the _Host name_. Copy this value to create an application setting.
 
 :::image type="content" source="media/how-to-create-azure-function/adt-hostname.png" alt-text="Azure portal: Overview-> Copy hostname to use in the _Value_ field.":::
 
-In the Azure portal, search for your Azure function in the search bar. Then, select _Configuration_ on the navigation bar on the left to create a new application setting. Now, in the _Application settings_ tab, select _+ New application setting_.
+Then, you can create an application setting using the above values. 
+
+* Search for your Azure function using function name in the search bar and select the function from the list
+* Select _Configuration_ on the navigation bar on the left to create a new application setting
+* In the _Application settings_ tab, select _+ New application setting_
 
 :::image type="content" source="media/how-to-create-azure-function/application-setting.png" alt-text="Azure portal: Configure application settings":::
 
-Use the values copied from above to create an application setting. \
+In the window that opens up, use the values copied from above to create an application setting. \
 _Name_  : ADT_SERVICE_URL \
-_Value_ : ADT_INSTANCE_URL
+_Value_ : https://<your-azure-digital-twins-hostname>
 
 Select _OK_ to create an application setting.
 
