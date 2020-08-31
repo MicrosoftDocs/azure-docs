@@ -12,7 +12,7 @@ This article describes how to write and convert [Log Alert](alerts-unified-log.m
 
 ## How to start writing an alert log query
 
-Alert queries start from [querying the log data in Log Analytics](alerts-log.md#create-a-log-alert-rule-with-the-Azure-portal) that indicates the issue. You can use query examples or [get started on writing your own query](../log-query/get-started-portal.md). 
+Alert queries start from [querying the log data in Log Analytics](alerts-log.md#create-a-log-alert-rule-with-the-azure-portal) that indicates the issue. You can use query examples or [get started on writing your own query](../log-query/get-started-portal.md). 
 
 The alert flow was built to transform the results that indicate the issue to an alert. For example, in a case of a query like:
 

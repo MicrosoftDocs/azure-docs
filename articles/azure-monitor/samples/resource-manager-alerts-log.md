@@ -110,7 +110,7 @@ The following sample creates a [number of results alert rule](../platform/alerts
 ```
 
 ## Example of metric measurement template (up to version 2018-04-16)
-The following sample creates a [metric measurement alert rule](../platform/alerts-unified-log.md#calculation-of-measure-based-on-a-number-column-such-as-cpu-counter-value).
+The following sample creates a [metric measurement alert rule](../platform/alerts-unified-log.md#calculation-of-measure-based-on-a-numeric-column-such-as-cpu-counter-value).
 
 ### Template file
 

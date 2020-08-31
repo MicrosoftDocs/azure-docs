@@ -103,7 +103,7 @@ This JSON can be saved and deployed using [Azure Resource Manager in Azure porta
 
 ## Example of template with cross-resource query (up to API version 2018-04-16)
 
-[Scheduled Query Rules creation](/rest/api/monitor/scheduledqueryrules/createorupdate) template based on [metric measurement](./alerts-unified-log.md#calculation-of-measure-based-on-a-number-column-such-as-cpu-counter-value) that queries [cross-resources](../log-query/cross-workspace-query.md) (sample data set as variables):
+[Scheduled Query Rules creation](/rest/api/monitor/scheduledqueryrules/createorupdate) template based on [metric measurement](./alerts-unified-log.md#calculation-of-measure-based-on-a-numeric-column-such-as-cpu-counter-value) that queries [cross-resources](../log-query/cross-workspace-query.md) (sample data set as variables):
 
 ```json
 {
