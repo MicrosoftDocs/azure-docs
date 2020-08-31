@@ -18,17 +18,17 @@ The tables below are a listing of the available container images offered by Azur
 
 The Microsoft Container Registry (MCR) syndicates all of the generally available containers for Cognitive Services. The containers are also available directly from the [Docker hub](https://hub.docker.com/_/microsoft-azure-cognitive-services).
 
-#### [LUIS](#tab/luis)
+**LUIS**
 
-| LUIS Container | Container Registry / Repository / Image Name |
+| Container | Container Registry / Repository / Image Name |
 |--|--|
 | LUIS | `mcr.microsoft.com/azure-cognitive-services/luis` |
 
 See [How to run and install LUIS containers](../../LUIS/luis-container-howto.md) for more information.
 
-#### [Text Analytics](#tab/text-analytics)
+**Text Analytics**
 
-| Text Analytics Container | Container Registry / Repository / Image Name |
+| Container | Container Registry / Repository / Image Name |
 |--|--|
 | Sentiment Analysis v3 (English) | `mcr.microsoft.com/azure-cognitive-services/sentiment:3.0-en` |
 | Sentiment Analysis v3 (Spanish) | `mcr.microsoft.com/azure-cognitive-services/sentiment:3.0-es` |
@@ -43,9 +43,21 @@ See [How to run and install LUIS containers](../../LUIS/luis-container-howto.md)
 
 See [How to run and install Text Analytics containers](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md) for more information.
 
----
+**Anomaly Detector** 
 
-#### Public "Ungated" preview (container registry: `mcr.microsoft.com`)
+| Container | Container Registry / Repository / Image Name |
+|--|--|
+| [Anomaly detector](../../anomaly-detector/anomaly-detector-container-howto.md) | `mcr.microsoft.com/azure-cognitive-services/anomaly-detector` |
+
+**Speech Service**
+
+| Container | Container Registry / Repository / Image Name |
+|--|--|
+| [Speech-to-text](../../speech-service/speech-container-howto.md?tab=stt) | `containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text` |
+| [Custom Speech-to-text](../../speech-service/speech-container-howto.md?tab=cstt) | `containerpreview.azurecr.io/microsoft/cognitive-services-custom-speech-to-text` |
+| [Text-to-speech](../../speech-service/speech-container-howto.md?tab=tts) | `containerpreview.azurecr.io/microsoft/cognitive-services-text-to-speech` |
+
+#### Public "Ungated" preview 
 
 The following preview containers are available publicly. The Microsoft Container Registry (MCR) syndicates all of the publicly available ungated containers for Cognitive Services. The containers are also available directly from the [Docker hub](https://hub.docker.com/_/microsoft-azure-cognitive-services).
 
@@ -53,19 +65,17 @@ The following preview containers are available publicly. The Microsoft Container
 |--|--|--|
 | [Text Analytics](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md) | Key Phrase Extraction | `mcr.microsoft.com/azure-cognitive-services/keyphrase` |
 | [Text Analytics](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md) | Language Detection | `mcr.microsoft.com/azure-cognitive-services/language` |
-| [Anomaly detector](../../anomaly-detector/anomaly-detector-container-howto.md) | Anomaly Detector | `mcr.microsoft.com/azure-cognitive-services/anomaly-detector` |
 
-#### Public "Gated" preview (container registry: `containerpreview.azurecr.io`)
 
-The following gated preview containers are hosted on the Container Preview registry, and require an application to access. See the following container articles for more information.
+#### Public "Gated" preview
+
+The following gated preview containers are hosted on the Microsoft Container Registry (MCR), and require an application to access. See the following container articles for more information.
 
 | Service | Container | Container Registry / Repository / Image Name |
 |--|--|--|
-| [Computer Vision](../../Computer-vision/computer-vision-how-to-install-containers.md) | Read | `containerpreview.azurecr.io/microsoft/cognitive-services-read` |
+| [Computer Vision](../../Computer-vision/computer-vision-how-to-install-containers.md) | Read | `azure-cognitive-services/vision/read:3.0` |
 | [Face](../../face/face-how-to-install-containers.md) | Face | `containerpreview.azurecr.io/microsoft/cognitive-services-face` |
 | [Form recognizer](https://go.microsoft.com/fwlink/?linkid=2083826&clcid=0x409) | Form Recognizer | `containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer` |
-| [Speech Service API](../../speech-service/speech-container-howto.md?tab=stt) | Speech-to-text | `containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text` |
-| [Speech Service API](../../speech-service/speech-container-howto.md?tab=cstt) | Custom Speech-to-text | `containerpreview.azurecr.io/microsoft/cognitive-services-custom-speech-to-text` |
-| [Speech Service API](../../speech-service/speech-container-howto.md?tab=tts) | Text-to-speech | `containerpreview.azurecr.io/microsoft/cognitive-services-text-to-speech` |
 | [Speech Service API](../../speech-service/speech-container-howto.md?tab=ctts) | Custom Text-to-speech | `containerpreview.azurecr.io/microsoft/cognitive-services-custom-text-to-speech` |
+| [Speech Service API](../../speech-service/speech-container-howto.md?tab=lid) | Language Detection | `mcr.microsoft.com/azure-cognitive-services/speech/language-detection` |
 | [Text Analytics for health](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=health) | Text Analytics for health | `containerpreview.azurecr.io/microsoft/cognitive-services-healthcare` |
