@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: end-user-help
-ms.date: 02/03/2020
+ms.date: 08/31/2020
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: "user-help, seo-update-azuread-jan"
@@ -21,51 +21,41 @@ You can use your work or school account with the web-based **My Apps** portal to
 - View and start many of your organization’s cloud-based apps
 - Update your profile and account information
 - See your **Groups** information
-- Perform **access reviews** for your apps and groups
 
 If you don’t have access to the **My Apps** portal, contact your Helpdesk for permission.
 
-[!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-portal.md)]
-
-> [!Important]
+> [!IMPORTANT]
 > This content is intended for My Apps users. If you're an administrator, you can find more information about how to set up and manage your cloud-based apps in the [Application Management Documentation](../manage-apps/index.yml).
 
 ## Supported browsers
 
 You can get to the **My Apps** portal from any of the following web browsers:
 
+- Microsoft Edge (the mobile version of Edge is currently the only supported mobile browser for the secure sign-in extension)
 - Google Chrome
-
 - Mozilla Firefox, version 26.0 or later
 
-- Microsoft Edge
+## Install the My Apps Secure Sign-in Extension
 
-- Internet Explorer, version 11 (limited support)
-
-## Download and install the My Apps Secure Sign-in Extension
-
-Download and install the My Apps Secure Sign-in Extension, if you're prompted. This extension helps you start any of your organization's cloud apps that require you to use a single sign-on process. If your organization has already set you up for single sign-on, the extension is installed automatically and you can skip this section.
+Download and install the **My Apps Secure Sign-in Extension**, if you're prompted. The mobile version of the Edge browser is currently the only mobile browser for which you'll receive a prompt to install the extension.This extension helps you use any of your organization's cloud apps that require you to use a single sign-on process. If your organization has already set you up for single sign-on, the extension is installed automatically and you can skip this section.
 
 This extension helps you:
 
 - Sign in directly to apps from the sign-in page.
-
 - Start any apps using the **Quick search** feature.
-
 - See the last apps you used in the **Recently Used** section.
-
-- Use internal company URLs while remote with [Application Proxy](../manage-apps/application-proxy.md).
+- Use internal company URLs when remote using [Application Proxy](../manage-apps/application-proxy.md).
 
 ### To download and install the extension
 
-Download and install the extension, based on the browser you're using:
+Download and install the extension, based on the browser you're using.
+
+- **Microsoft Edge** From the Microsoft Store, go to the [My Apps Secure Sign-in Extension](https://microsoftedge.microsoft.com/addons/detail/my-apps-secure-signin-ex/gaaceiggkkiffbfdpmfapegoiohkiipl) feature, and then select **Get** to get the extension for Microsoft Edge legacy browser.  
+If you are using the new Microsoft Edge browser (Edge on Chromium) then you can get the extension from [Microsoft Edge Addons Store](https://microsoftedge.microsoft.com/addons/category/EdgeExtensionsEditorsPick).
 
 - **Google Chrome.** From the Chrome Web Store, go to the [My Apps Secure Sign-in Extension](https://chrome.google.com/webstore/detail/my-apps-secure-sign-in-ex/ggjhpefgjjfobnfoldnjipclpcfbgbhl) feature, and then select **Add to Chrome**.
 
 - **Mozilla Firefox** From the **Firefox Add-ons** page, go to the [My Apps Secure Sign-in Extension](https://addons.mozilla.org/firefox/addon/access-panel-extension/) feature, and then select **Add to Firefox**.
-
-- **Microsoft Edge** From the Microsoft Store, go to the [My Apps Secure Sign-in Extension](https://www.microsoft.com/p/my-apps-secure-sign-in-extension/9pc9sckkzk84?rtc=1&activetab=pivot%3Aoverviewtab) feature, and then select **Get** to get the extension for Microsoft Edge legacy browser.  
-If you are using the new Microsoft Edge browser (Edge on Chromium) then you can get the extenion from [Microsoft Edge Addons Store](https://microsoftedge.microsoft.com/addons/category/EdgeExtensionsEditorsPick).
 
 An icon is added to the right of your **Address** bar, letting you sign-in and customize the extension.
 
@@ -81,7 +71,7 @@ You can choose how many apps to view in the **Recently Used** section and decide
 
     ![Settings page of the extension, showing the available customizations](media/my-apps-portal/my-apps-portal-extension-settings-page.png)
 
-## Access and use the My Apps portal by device
+## Access to the My Apps portal by device
 
 You can access and use the My Apps portal on your computer, from an Intune-managed browser, or from an iOS or Android mobile device.
 
@@ -93,7 +83,7 @@ If you have permission to access and use your organization's cloud-based apps, y
 
 1. Sign in to your work or school account on your computer.
 
-2. In a supported web browser, open and go to https://myapps.microsoft.com, or use the link provided by your organization if they direct you to a customized page, such as `https://myapps.microsoft.com/contoso.com`.
+2. In a supported web browser, go to https://myapps.microsoft.com, or use the link provided by your organization if they direct you to a customized page such as `https://myapps.microsoft.com/contoso.com`.
 
     The **Apps** page appears, showing all the cloud-based apps owned by your organization that are available for you to use.
 
@@ -147,12 +137,7 @@ View and use the **My Apps** portal on an Android device.
 
 If your administrator has given you permission, you can add a new app to the **Apps** page.
 
-1. From the **Apps** page, do one of the following:
-    - If you're in original My Apps experience, select **Add App** as shown.
-
-      ![Add apps page, in the My Apps portal](media/my-apps-portal/my-apps-portal-add-apps-page.png)
-
-    - If you're in the updated My Apps experience, select **Add self-service apps**.
+1. From the **Apps** page, select **Add self-service apps**.
 
        ![Add apps page, in the My Apps portal at myapplications.microsoft.com](media/my-apps-portal/my-apps-portal-add-app-link.png)
 
@@ -175,11 +160,11 @@ You can start any of the available cloud-based apps from the **My Apps** portal.
 After you get to the **My Apps** portal, you can:
 
 - Organize your apps into the various categories created and provided by your organization. For more information, see [Access and use collections in the My Apps portal](my-applications-portal-workspaces.md).
-
 - Review, update, or revoke permissions granted to applications. For more information, see [Edit or revoke application permissions in the My Apps portal](my-applications-portal-permissions-saved-accounts.md).
+- Access [**My Account**](my-account-portal-overview.md) (select **View account** on your account control menu in **My Apps**) for your account management tasks: checking for unusual sign-in activity, managing your password, or managing connected devices, subscriptions, organizations, and OFfice apps.
 
->[!Note]
->If you don't see any collections or categories available, it means that your administrator hasn't set up or shared any with you. Contact your organization's Helpdesk for additional assistance or permissions to see shared collections.
+>[!NOTE]
+>If you don't see any collections or categories available, it means that your administrator hasn't set up or shared any with you. Contact your organization's help desk for additional assistance or permissions to see shared collections.
 
 ## Next steps
 
