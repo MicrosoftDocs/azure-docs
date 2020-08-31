@@ -156,7 +156,7 @@
     - name: Troubleshoot
       items:
       - name: Device issues 
-        href: azure-stack-edge-troubleshoot.md
+        href: azure-stack-edge-gpu-troubleshoot.md
       - name: Ordering issues
         href: azure-stack-edge-troubleshoot-ordering.md       
       - name: Contact Microsoft Support

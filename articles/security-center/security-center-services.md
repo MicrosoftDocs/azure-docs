@@ -30,7 +30,7 @@ The two tabs below show the features of Azure Security Center that are available
 |[Fileless security alerts](alerts-reference.md#alerts-windows)|✔|✔|✔|Standard|
 |[Network-based security alerts](threat-protection.md#network-layer)|✔|✔|-|Standard|
 |[Just-In-Time VM access](security-center-just-in-time.md)|✔|-|-|Standard|
-|[Native vulnerability assessment](built-in-vulnerability-assessment.md)|✔|-|-|Standard|
+|[Native vulnerability assessment](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner)|✔|-|-|Standard|
 |[File Integrity Monitoring](security-center-file-integrity-monitoring.md)|✔|✔|✔|Standard|
 |[Adaptive application controls](security-center-adaptive-application.md)|✔|-|✔|Standard|
 |[Network map](security-center-network-recommendations.md#network-map)|✔|✔|-|Standard|
@@ -54,7 +54,7 @@ The two tabs below show the features of Azure Security Center that are available
 |[Fileless security alerts](alerts-reference.md#alerts-windows)|-|-|-|Standard|
 |[Network-based security alerts](threat-protection.md#network-layer)|✔|✔|-|Standard|
 |[Just-In-Time VM access](security-center-just-in-time.md)|✔|-|-|Standard|
-|[Native vulnerability assessment](built-in-vulnerability-assessment.md)|✔|-|-|Standard|
+|[Native vulnerability assessment](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner)|✔|-|-|Standard|
 |[File Integrity Monitoring](security-center-file-integrity-monitoring.md)|✔|✔|✔|Standard|
 |[Adaptive application controls](security-center-adaptive-application.md)|✔|-|✔|Standard|
 |[Network map](security-center-network-recommendations.md#network-map)|✔|✔|-|Standard|

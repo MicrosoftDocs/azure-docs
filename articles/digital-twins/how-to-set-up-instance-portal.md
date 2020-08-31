@@ -108,7 +108,7 @@ Start by navigating to [Azure Active Directory](https://portal.azure.com/#blade/
 In the *Register an application* page that follows, fill in the requested values:
 * **Name**: An Azure AD application display name to associate with the registration
 * **Supported account types**: Select *Accounts in this organizational directory only (Default Directory only - Single tenant)*
-* **Redirect URI**: An *Azure AD application reply URL* for the Azure AD application. You can use `http://localhost`.
+* **Redirect URI**: An *Azure AD application reply URL* for the Azure AD application. Add a *Public client/native (mobile & desktop)* URI for `http://localhost`.
 
 When you are finished, hit the *Register* button.
 

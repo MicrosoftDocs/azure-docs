@@ -1,13 +1,13 @@
 ---
-title: Azure Stack Edge share management | Microsoft Docs 
-description: Describes how to use the Azure portal to manage shares on your Azure Stack Edge.
+title: Azure Stack Edge GPU share management | Microsoft Docs 
+description: Describes how to use the Azure portal to manage shares on your Azure Stack Edge GPU.
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 12/12/2019
+ms.date: 08/28/2020
 ms.author: alkohli
 ---
 # Use the Azure portal to manage shares on your Azure Stack Edge

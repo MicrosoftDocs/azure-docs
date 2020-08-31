@@ -5,13 +5,15 @@ summary: Find articles to help you discover, assess, and migrate your on-premise
 
 metadata:
   title: Azure Migrate documentation
-  description: Learn how to use tools in the Azure Migrate hub to discover, assess, and migrate your on-premises environment to Azure.
+  description: Find Azure migration tutorials, resources, and migration assessment tools. Learn how to use tools in the Azure Migrate hub to discover, assess, and migrate your on-premises environment to Azure.
   ms.service: azure-migrate
   ms.topic: landing-page
   ms.collection: collection
   author: rayne-wiselman
   ms.author: raynew
   ms.date: 07/08/2020
+  ms.custom: seo-azure-migrate
+  keywords: azure migrate, azure migration, azure migrate assessment tool, azure migrate tool, azure migrate documentation, azure migration documentation
 
 landingContent:
   - title: About Azure Migrate
