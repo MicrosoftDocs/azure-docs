@@ -82,7 +82,7 @@ There's some limitations to implementation: a migration to a hub and spoke archi
 
 ## Scenario 4: On-premises traffic to private endpoints
 
-:::image type="content" source="./media/inspect-traffic-using-azure-firewall/on-prem.png" alt-text="On-premises traffic to private endpoints" border="true":::
+:::image type="content" source="./media/inspect-traffic-using-azure-firewall/on-premises.png" alt-text="On-premises traffic to private endpoints" border="true":::
 
 This architecture can be implemented if you have configured connectivity with your on-premises network using either: 
 
