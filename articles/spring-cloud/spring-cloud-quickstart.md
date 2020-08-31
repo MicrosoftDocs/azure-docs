@@ -41,17 +41,7 @@ https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.3.3
 
   ![Initializr page](media/spring-cloud-quickstart-java/initializr-page.png)
 
-1. Click **Generate** when all the dependencies are set. Download and unpack the package, then add the following dependency to the application `pom.xml` file.
-
-    ```xml
-        <dependency>
-            <groupId>com.microsoft.azure</groupId>
-            <artifactId>spring-cloud-starter-azure-spring-cloud-client</artifactId>
-            <version>2.3.0</version>
-        </dependency>
-    ```
-
-1. Create a web controller for a simple web application by adding `src/main/java/com/example/hellospring/HelloController.java` as follows:
+1. Click **Generate** when all the dependencies are set. Download and unpack the package, then create a web controller for a simple web application by adding `src/main/java/com/example/hellospring/HelloController.java` as follows:
 
     ```java
     package com.example.hellospring;
