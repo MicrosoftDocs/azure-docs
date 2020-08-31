@@ -10,7 +10,7 @@ ms.date: 08/20/2020
 # Move Azure Event Grid partner namespaces to another region
 You might want to move your resources to another region for a number of reasons. For example, to take advantage of a new Azure region, to meet internal policy and governance requirements, or in response to capacity planning requirements. 
 
-Here's are the high-level steps covered in this article: 
+Here are the high-level steps covered in this article: 
 
 - **Export the partner namespace** resource to an Azure Resource Manager template. Delete definitions for event channel resources in the template. An event channel may have a reference to the Azure Resource Manager ID of the partner topic, which is owned by a customer. So, they can't be created by using the template in the target region.  
 - **Use the template to deploy the partner namespace** to the target region. Then, create event channels in the new partner namespace in the target region. 
@@ -31,7 +31,7 @@ To get started, export a Resource Manager template for the partner namespace.
 3. Select the **partner namespace** that you want to export to a Resource Manager template. 
 4. On the **Event Grid Partner Namespace** page, select **Export Template** under **Settings** on the left menu, and then select **Download** on the toolbar. 
 
-    :::image type="content" source="./media/move-partner-namespaces-across-regions/download-template.png" alt-text="Export template -> Download":::   
+    :::image type="content" source="./media/move-partner-namespaces-across-regions/download-template.png" alt-text="Export template -> Download" lightbox="./media/move-partner-namespaces-across-regions/download-template.png":::   
 5. Locate the **.zip** file that you downloaded from the portal, and unzip that file to a folder of your choice. This zip file contains template and parameters JSON files. 
 1. Open the **template.json** in an editor of your choice. 
 8. Update `location` for the **topic** resource to the target region or location. To obtain location codes, see [Azure locations](https://azure.microsoft.com/global-infrastructure/locations/). The code for a region is the region name with no spaces, for example, `West US` is equal to `westus`.
@@ -87,4 +87,4 @@ You learned how to move an Event Grid partner namespace from one region to anoth
 - [Move custom topics across regions](move-custom-topics-across-regions.md). 
 - [Move domains across regions](move-domains-across-regions.md).
 
-To learn more about moving resources between regions and disaster recovery in Azure, see the following article: [Move resources to a new resource group or subscription](../azure-resource-manager/management/move-resource-group-and-subscription.md)
+To learn more about moving resources between regions and disaster recovery in Azure, see the following article: [Move resources to a new resource group or subscription](../azure-resource-manager/management/move-resource-group-and-subscription.md).
