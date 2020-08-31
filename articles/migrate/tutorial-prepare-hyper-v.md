@@ -33,6 +33,7 @@ The table summarizes the tasks you need to complete in Azure. Instructions follo
 **Create an Azure Migrate project** | An Azure Migrate project provides a central location for orchestrating and managing assessments and migrations with Azure Migrate tools, Microsoft tools, and third-party offerings. | Your Azure account needs Contributor or Owner permissions in the resource group in which the project resides.
 **Register appliance** | Azure Migrate uses a lightweight Azure Migrate appliance to discover and assess Hyper-V VMs. [Learn more](migrate-appliance-architecture.md#appliance-registration). | To register the appliance, your Azure account needs Contributor or Owner permissions on the Azure subscription.
 **Create Azure AD app** | When registering the appliance, Azure Migrate creates an Azure Active Directory (Azure AD) app that's used for communication between the agents running on the appliance and Azure Migrate. | Your Azure account needs permissions to create Azure AD apps.
+**Create a Key Vault** | The Key Vault is created as a part of appliance registration and is used for management of the certificate downloaded on the appliance during its configuration.| To allow Azure Migrate to create the Key Vault, your Azure account needs Contributor permissions on the resource group in which the Azure Migrate project resides.
 **Create a VM** | You need permissions to create a VM in the resource group and virtual network, and to write to an Azure managed disk. | You Azure account needs the Virtual Machine Contributor role.
 
 
@@ -69,13 +70,14 @@ The tenant/global admin can grant permissions as follows:
     ![Azure AD permissions](./media/tutorial-prepare-hyper-v/aad.png)
 
 > [!NOTE]
-> This is a default setting that isn't sensitive. [Learn more](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-applications-are-added#who-has-permission-to-add-applications-to-my-azure-ad-instance).
+> This is a default setting that isn't sensitive. [Learn more](../active-directory/develop/active-directory-how-applications-are-added.md#who-has-permission-to-add-applications-to-my-azure-ad-instance).
 
 
 
 #### Assign Application Developer role
 
-The tenant/global admin can assign the Application Developer role to an account. [Learn more](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal).
+The tenant/global admin can assign the Application Developer role to an account. [Learn more](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
+
 
 ### Assign Azure account permissions
 
@@ -101,7 +103,7 @@ You can prepare Hyper-V for VM assessment manually, or using a configuration scr
 **Verify PowerShell version** | Checks that you're running the script on a supported PowerShell version. | Check you're running PowerShell version 4.0 or later on the Hyper-V host.
 **Create an account** | Verifies that you (the user running the script) have administrative privileges on the Hyper-V host.<br/><br/>  Allows you to create a local user account (not administrator) that the Azure Migrate service uses to communicate with the Hyper-V host. This user account is added to these groups on the host:<br/><br/> - Remote Management Users<br/><br/> - Hyper-V Administrators<br/><br/>- Performance Monitor Users | Set up a domain or local user account with administrator permissions on the Hyper-V hosts/cluster.<br/><br/> - You need a single account for all hosts and clusters that you want to include in the discovery.<br/><br/> - The account can be  a local or domain account. We recommend it has Administrator permissions on the Hyper-V hosts or clusters.<br/><br/> Alternatively, if you don't want to assign Administrator permissions, the following permissions are needed: Remote Management Users; Hyper-V Administrators; Performance Monitor Users.
 **Enable PowerShell remoting** | Enables PowerShell remoting on the host , so that the Azure Migrate appliance can run PowerShell commands on the host, over a WinRM connection.| To set up, on each host, open a PowerShell console as admin, and run this command:<br/><br/>``` Enable-PSRemoting -force ```
-**Set up Hyper-V Integration Services** | Checks that the Hyper-V Integration Services is enabled on all VMs managed by the host. |  [Enable Hyper-V Integration Services](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services) on each VM.<br/><br/> If you're running Windows Server 2003, [follow these instructions](prepare-windows-server-2003-migration.md).
+**Set up Hyper-V Integration Services** | Checks that the Hyper-V Integration Services is enabled on all VMs managed by the host. |  [Enable Hyper-V Integration Services](/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services) on each VM.<br/><br/> If you're running Windows Server 2003, [follow these instructions](prepare-windows-server-2003-migration.md).
 **Delegate credentials if VM disks are located on remote SMB shares** | Script delegates credentials. | [Enable CredSSP](#enable-credssp-to-delegate-credentials) to delegate credentials.
 
 ### Run the script

@@ -5,7 +5,7 @@ description: Details on tools included in the Ubuntu Data Science Virtual Machin
 author: gvashishtha
 ms.service: machine-learning
 ms.subservice: data-science-vm
-ms.custom: tracking-python
+ms.custom: devx-track-python
 
 ms.author: gopalv
 ms.date: 09/11/2019
@@ -246,8 +246,6 @@ Operationalize the machine learning models that you have built by wrapping them 
 
 You can also build your models in R or Python on the VM, and then deploy them in production on Azure Machine Learning. We have installed libraries in R (**AzureML**) and Python (**azureml**) to enable this functionality.
 
-For information on how to deploy models in R and Python into Azure Machine Learning, see [Ten things you can do on the Data Science Virtual Machine](vm-do-ten-things.md).
-
 > [!NOTE]
 > These instructions were written for the Windows version of the Data Science Virtual Machine. But the information provided there on deploying models to Azure Machine Learning is applicable to the Linux VM.
 
@@ -261,8 +259,10 @@ The VM comes with machine learning tools and algorithms that have been pre-compi
 * **Python**: Anaconda Python comes bundled with machine learning algorithms with libraries like Scikit-learn. You can install other libraries by using the `pip install` command.
 * **LightGBM**: A fast, distributed, high-performance gradient boosting framework based on decision tree algorithms.
 * **R**: A rich library of machine learning functions is available for R. Pre-installed libraries include lm, glm, randomForest, and rpart. You can install other libraries by running this command:
-  
-        install.packages(<lib name>)
+
+    ```r
+    install.packages(<lib name>)
+    ```
 
 Here is some additional information about the first three machine learning tools in the list.
 

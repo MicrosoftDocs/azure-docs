@@ -16,7 +16,7 @@ The [Azure Maps Conversion service](https://docs.microsoft.com/rest/api/maps/con
 
 ## Prerequisites
 
-The Drawing package includes drawings saved in DWG format, which is the native file format for Autodesk’s AutoCAD® software, a [trademark of Autodesk,Inc](https://www.autodesk.com/company/legal-notices-trademarks/trademarks/guidelines-for-use#section12).
+The Drawing package includes drawings saved in DWG format, which is the native file format for Autodesk's AutoCAD® software, a [trademark of Autodesk,Inc](https://www.autodesk.com/company/legal-notices-trademarks/trademarks/guidelines-for-use#section12).
 
 You may choose any CAD software to produce the drawings in the Drawing package.  
 
@@ -217,7 +217,7 @@ The `buildingLevels` object contains a JSON array of buildings levels.
 |-----------|------|----------|-------------|
 |lat    | numeric |    true |    Decimal representation of degrees latitude at the facility drawing's origin. The origin coordinates must be in WGS84 Web Mercator (`EPSG:3857`).|
 |lon    |numeric|    true|    Decimal representation of degrees longitude at the facility drawing's origin. The origin coordinates must be in WGS84 Web Mercator (`EPSG:3857`). |
-|angle|    numeric|    true|   The clockwise angle, in degrees, between true north and the drawing’s vertical (Y) axis.   |
+|angle|    numeric|    true|   The clockwise angle, in degrees, between true north and the drawing's vertical (Y) axis.   |
 
 ### dwgLayers
 
@@ -274,7 +274,7 @@ Below is a sample manifest file for the sample Drawing package. To download the 
     "version": "1.1", 
     "directoryInfo": { 
         "name": "Contoso Building", 
-        "streetAddresss": "Contoso Way", 
+        "streetAddress": "Contoso Way", 
         "unit": "1", 
         "locality": "Contoso eastside", 
         "postalCode": "98052", 

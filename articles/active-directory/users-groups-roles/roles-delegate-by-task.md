@@ -35,23 +35,23 @@ Disable application proxy | Application administrator |
 Download connector service | Application administrator | 
 Read all configuration | Application administrator | 
 
-## B2C
+## External Identities/B2C
 
 Task | Least privileged role | Additional roles
 ---- | --------------------- | ----------------
-Create Azure AD B2C directories | All non-guest users ([see documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 
+Create Azure AD B2C directories | All non-guest users ([see documentation](../fundamentals/users-default-permissions.md)) | 
 Create B2C applications | Global Administrator | 
 Create enterprise applications | Cloud Application Administrator | Application Administrator
 Create, read, update, and delete B2C policies | B2C IEF Policy Administrator | 
 Create, read, update, and delete identity providers | External Identity Provider Administrator | 
-Create, read, update, and delete password reset user flows | B2C User Flow Administrator | 
-Create, read, update, and delete profile editing user flows | B2C User Flow Administrator | 
-Create, read, update, and delete sign-in user flows | B2C User Flow Administrator | 
-Create, read, update, and delete sign-up user flow |B2C User Flow Administrator | 
-Create, read, update, and delete user attributes | B2C User Flow Attribute Administrator | 
+Create, read, update, and delete password reset user flows | External ID User Flow Administrator | 
+Create, read, update, and delete profile editing user flows | External ID User Flow Administrator | 
+Create, read, update, and delete sign-in user flows | External ID User Flow Administrator | 
+Create, read, update, and delete sign-up user flow |External ID User Flow Administrator | 
+Create, read, update, and delete user attributes | External ID User Flow Attribute Administrator | 
 Create, read, update, and delete users | User Administrator
 Read all configuration | Global reader | 
-Read B2C audit logs | Global reader ([see documentation](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-faqs)) | 
+Read B2C audit logs | Global reader ([see documentation](../../active-directory-b2c/faq.md)) | 
 
 > [!NOTE]
 > Azure AD B2C Global readers do not have the same permissions as Azure AD global administrators. If you have Azure AD B2C global administrator privileges, make sure that you are in an Azure AD B2C directory and not an Azure AD directory.
@@ -61,7 +61,7 @@ Read B2C audit logs | Global reader ([see documentation](https://docs.microsoft.
 Task | Least privileged role | Additional roles
 ---- | --------------------- | ----------------
 Configure company branding | Global Administrator | 
-Read all configuration | Directory readers | Default user role ([see documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions))
+Read all configuration | Directory readers | Default user role ([see documentation](../fundamentals/users-default-permissions.md))
 
 ## Company properties
 
@@ -89,25 +89,25 @@ Seamless single sign-on | Hybrid Identity Administrator  |
 
 Task | Least privileged role | Additional roles
 ---- | --------------------- | ----------------
-Add or delete services | Owner ([see documentation](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-operations)) | 
-Apply fixes to sync error | Contributor ([see documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context)) | Owner
-Configure notifications | Contributor ([see documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context)) | Owner
-Configure settings | Owner ([see documentation](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-operations)) | 
-Configure sync notifications | Contributor ([see documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context)) | Owner
+Add or delete services | Owner ([see documentation](../hybrid/how-to-connect-health-operations.md)) | 
+Apply fixes to sync error | Contributor ([see documentation](../fundamentals/users-default-permissions.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context)) | Owner
+Configure notifications | Contributor ([see documentation](../fundamentals/users-default-permissions.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context)) | Owner
+Configure settings | Owner ([see documentation](../hybrid/how-to-connect-health-operations.md)) | 
+Configure sync notifications | Contributor ([see documentation](../fundamentals/users-default-permissions.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context)) | Owner
 Read ADFS security reports | Security Reader | Contributor, Owner
-Read all configuration | Reader ([see documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context)) | Contributor, Owner
-Read sync errors | Reader ([see documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context)) | Contributor, Owner
-Read sync services | Reader ([see documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context)) | Contributor, Owner
-View metrics and alerts | Reader ([see documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context)) | Contributor, Owner
-View metrics and alerts | Reader ([see documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context)) | Contributor, Owner
-View sync service metrics and alerts | Reader ([see documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context)) | Contributor, Owner
+Read all configuration | Reader ([see documentation](../fundamentals/users-default-permissions.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context)) | Contributor, Owner
+Read sync errors | Reader ([see documentation](../fundamentals/users-default-permissions.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context)) | Contributor, Owner
+Read sync services | Reader ([see documentation](../fundamentals/users-default-permissions.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context)) | Contributor, Owner
+View metrics and alerts | Reader ([see documentation](../fundamentals/users-default-permissions.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context)) | Contributor, Owner
+View metrics and alerts | Reader ([see documentation](../fundamentals/users-default-permissions.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context)) | Contributor, Owner
+View sync service metrics and alerts | Reader ([see documentation](../fundamentals/users-default-permissions.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context)) | Contributor, Owner
 
 ## Custom domain names
 
 Task | Least privileged role | Additional roles
 ---- | --------------------- | ----------------
 Manage domains | Global Administrator | 
-Read all configuration | Directory readers | Default user role ([see documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions))
+Read all configuration | Directory readers | Default user role ([see documentation](../fundamentals/users-default-permissions.md))
 
 ## Domain Services
 
@@ -123,7 +123,7 @@ Task | Least privileged role | Additional roles
 ---- | --------------------- | ----------------
 Disable device | Cloud device administrator | 
 Enable device | Cloud device administrator | 
-Read basic configuration | Default user role ([see documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 
+Read basic configuration | Default user role ([see documentation](../fundamentals/users-default-permissions.md)) | 
 Read BitLocker keys | Security Reader | Password administrator, Security administrator
 
 ## Enterprise applications
@@ -133,18 +133,18 @@ Task | Least privileged role | Additional roles
 Consent to any delegated permissions | Cloud application administrator | Application administrator
 Consent to application permissions not including Microsoft Graph | Cloud application administrator | Application administrator
 Consent to application permissions to Microsoft Graph | Privileged Role Administrator | 
-Consent to applications accessing own data | Default user role ([see documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 
+Consent to applications accessing own data | Default user role ([see documentation](../fundamentals/users-default-permissions.md)) | 
 Create enterprise application | Cloud application administrator | Application administrator
 Manage Application Proxy | Application administrator | 
 Manage user settings | Global Administrator | 
 Read access review of a group or of an app | Security Reader | Security Administrator, User Administrator
-Read all configuration | Default user role ([see documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 
-Update enterprise application assignments | Enterprise application owner ([see documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Cloud application administrator, Application administrator
-Update enterprise application owners | Enterprise application owner ([see documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Cloud application administrator, Application administrator
-Update enterprise application properties | Enterprise application owner ([see documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Cloud application administrator, Application administrator
-Update enterprise application provisioning | Enterprise application owner ([see documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Cloud application administrator, Application administrator
-Update enterprise application self-service | Enterprise application owner ([see documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Cloud application administrator, Application administrator
-Update single sign-on properties | Enterprise application owner ([see documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Cloud application administrator, Application administrator
+Read all configuration | Default user role ([see documentation](../fundamentals/users-default-permissions.md)) | 
+Update enterprise application assignments | Enterprise application owner ([see documentation](../fundamentals/users-default-permissions.md)) | Cloud application administrator, Application administrator
+Update enterprise application owners | Enterprise application owner ([see documentation](../fundamentals/users-default-permissions.md)) | Cloud application administrator, Application administrator
+Update enterprise application properties | Enterprise application owner ([see documentation](../fundamentals/users-default-permissions.md)) | Cloud application administrator, Application administrator
+Update enterprise application provisioning | Enterprise application owner ([see documentation](../fundamentals/users-default-permissions.md)) | Cloud application administrator, Application administrator
+Update enterprise application self-service | Enterprise application owner ([see documentation](../fundamentals/users-default-permissions.md)) | Cloud application administrator, Application administrator
+Update single sign-on properties | Enterprise application owner ([see documentation](../fundamentals/users-default-permissions.md)) | Cloud application administrator, Application administrator
 
 ## Entitlement management
 Task | Least privileged role | Additional roles
@@ -162,13 +162,13 @@ Create group | Groups administrator | User administrator
 Create, update, or delete access review of a group or of an app | User administrator | 
 Manage group expiration | User administrator | 
 Manage group settings | Groups Administrator | User Administrator | 
-Read all configuration (except hidden membership) | Directory readers | Default user role ([see documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions))
+Read all configuration (except hidden membership) | Directory readers | Default user role ([see documentation](../fundamentals/users-default-permissions.md))
 Read hidden membership | Group member | Group owner, Password administrator, Exchange administrator, SharePoint administrator, Teams administrator, User administrator
 Read membership of groups with hidden membership | Helpdesk Administrator | User administrator, Teams administrator
 Revoke license | License administrator | User administrator
-Update group membership | Group owner ([see documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | User administrator
-Update group owners | Group owner ([see documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | User administrator
-Update group properties | Group owner ([see documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | User administrator
+Update group membership | Group owner ([see documentation](../fundamentals/users-default-permissions.md)) | User administrator
+Update group owners | Group owner ([see documentation](../fundamentals/users-default-permissions.md)) | User administrator
+Update group properties | Group owner ([see documentation](../fundamentals/users-default-permissions.md)) | User administrator
 Delete group | Groups administrator | User administrator
 
 ## Identity Protection
@@ -191,7 +191,7 @@ Read vulnerabilities | Security Reader |
 Task | Least privileged role | Additional roles
 ---- | --------------------- | ----------------
 Assign license | License administrator | User administrator
-Read all configuration | Directory readers | Default user role ([see documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions))
+Read all configuration | Directory readers | Default user role ([see documentation](../fundamentals/users-default-permissions.md))
 Revoke license | License administrator | User administrator
 Try or buy subscription | Billing administrator | 
 
@@ -272,7 +272,7 @@ Task | Least privileged role | Additional roles
 ---- | --------------------- | ----------------
 Manage role assignments | Privileged role administrator | 
 Read access review of an Azure AD role  | Security Reader | Security administrator, Privileged role administrator
-Read all configuration | Default user role ([see documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 
+Read all configuration | Default user role ([see documentation](../fundamentals/users-default-permissions.md)) | 
 
 ## Security - Authentication methods
 
@@ -339,7 +339,7 @@ Delete users | User administrator |
 Invalidate refresh tokens of limited admins (see documentation) | User administrator | 
 Invalidate refresh tokens of non-admins (see documentation) | Password administrator | User administrator
 Invalidate refresh tokens of privileged admins (see documentation) | Privileged Authentication Administrator | 
-Read basic configuration | Default User role ([see documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions) | 
+Read basic configuration | Default User role ([see documentation](../fundamentals/users-default-permissions.md) | 
 Reset password for limited admins (see documentation) | User administrator | 
 Reset password of non-admins (see documentation) | Password administrator | User administrator
 Reset password of privileged admins | Privileged Authentication Administrator | 

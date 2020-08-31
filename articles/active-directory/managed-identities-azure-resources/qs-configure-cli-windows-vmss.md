@@ -3,18 +3,18 @@ title: Configure managed identities on virtual machine scale set - Azure CLI - A
 description: Step-by-step instructions for configuring system and user-assigned managed identities on an Azure virtual machine scale set, using Azure CLI.
 services: active-directory
 documentationcenter: 
-author: MarkusVi
-manager: MarkusVi
+author: barclayn
+manager: daveba
 editor: 
 
 ms.service: active-directory
 ms.subservice: msi
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/26/2019
-ms.author: markvi
+ms.author: barclayn
 ms.collection: M365-identity-device-management
 ---
 

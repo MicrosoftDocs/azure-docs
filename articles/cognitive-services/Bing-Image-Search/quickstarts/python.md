@@ -10,7 +10,7 @@ ms.subservice: bing-image-search
 ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: aahi
-ms.custom: seodec2018, tracking-python
+ms.custom: seodec2018, devx-track-python
 ---
 
 # Quickstart: Search for images using the Bing Image Search REST API and Python
@@ -146,7 +146,6 @@ Responses from the Bing Image Search API are returned as JSON. This sample respo
 > [Bing Image Search single-page app tutorial](../tutorial-bing-image-search-single-page-app.md)
 
 * [What is the Bing Image Search API?](../overview.md)  
-* [Pricing details for the Bing Search APIs](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/). 
-* [Get a free Cognitive Services access key](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api). 
-* [Azure Cognitive Services documentation](https://docs.microsoft.com/azure/cognitive-services).
-* [Bing Image Search API reference](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference).
+* [Pricing details for the Bing Search APIs](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/) 
+* [Azure Cognitive Services documentation](https://docs.microsoft.com/azure/cognitive-services)
+* [Bing Image Search API reference](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)

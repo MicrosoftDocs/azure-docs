@@ -15,6 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
+ms.custom: devx-track-csharp
 
 ---
 
@@ -27,7 +28,7 @@ This article describes general steps that you might take when configuring the Az
 
 You can consume telemetry data in one of the following ways:
 
-- Read data directly from Azure Table Storage (for example, using the Storage SDK). For the description of telemetry storage tables, see the **Consuming telemetry information** in [this](https://msdn.microsoft.com/library/mt742089.aspx) article.
+- Read data directly from Azure Table Storage (for example, using the Storage SDK). For the description of telemetry storage tables, see the **Consuming telemetry information** in [this](/previous-versions/azure/mt742089(v=azure.100)) article.
 
 Or
 

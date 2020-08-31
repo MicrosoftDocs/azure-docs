@@ -5,9 +5,8 @@ description: Learn how to use the location condition to control access to your c
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: article
-ms.workload: identity
-ms.date: 05/28/2020
+ms.topic: conceptual
+ms.date: 06/15/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -140,6 +139,30 @@ This option applies to:
 
 With this option, you can select one or more named locations. For a policy with this setting to apply, a user needs to connect from any of the selected locations. When you click **Select** the named network selection control that shows the list of named networks opens. The list also shows if the network location has been marked as trusted. The named location called **MFA Trusted IPs** is used to include the IP settings that can be configured in the multi-factor authentication service setting page.
 
+## IPv6 traffic
+
+By default, Conditional Access policies will apply to all IPv6 traffic. With the [named location preview](#preview-features), you can exclude specific IPv6 address ranges from a Conditional Access policy. This option is useful in cases where you don’t want policy to be enforced for specific IPv6 ranges. For example, if you want to not enforce a policy for uses on your corporate network, and your corporate network is hosted on public IPv6 ranges.  
+
+### When will my tenant have IPv6 traffic?
+
+Azure Active Directory (Azure AD) doesn’t currently support direct network connections that use IPv6. However, there are some cases that authentication traffic is proxied through another service. In these cases, the IPv6 address will be used during policy evaluation.
+
+Most of the IPv6 traffic that gets proxied to Azure AD comes from Microsoft Exchange Online. When available, Exchange will prefer IPv6 connections. **So if you have any Conditional Access policies for Exchange, that have been configured for specific IPv4 ranges, you’ll want to make sure you’ve also added your organizations IPv6 ranges.** Not including IPv6 ranges will cause unexpected behavior for the following two cases:
+
+- When a mail client is used to connect to Exchange Online with legacy authentication, Azure AD may receive an IPv6 address. The initial authentication request goes to Exchange and is then proxied to Azure AD.
+- When Outlook Web Access (OWA) is used in the browser, it will periodically verify all Conditional Access policies continue to be satisfied. This check is used to catch cases where a user may have moved from an allowed IP address to a new location, like the coffee shop down the street. In this case, if an IPv6 address is used and if the IPv6 address is not in a configured range, the user may have their session interrupted and be directed back to Azure AD to reauthenticate. 
+
+These are the most common reasons you may need to configure IPv6 ranges in your named locations. In addition, if you are using Azure VNets, you will have traffic coming from an IPv6 address. If you have VNet traffic blocked by a Conditional Access policy, check your Azure AD sign-in log. Once you’ve identified the traffic, you can get the IPv6 address being used and exclude it from your policy. 
+
+> [!NOTE]
+> If you want to specify an IP CIDR range for a single address, apply the /32 bit mask. If you say the IPv6 address 2607:fb90:b27a:6f69:f8d5:dea0:fb39:74a and wanted to exclude that single address as a range, you would use 2607:fb90:b27a:6f69:f8d5:dea0:fb39:74a/32.
+
+### Identifying IPv6 traffic in the Azure AD Sign-in activity reports
+
+You can discover IPv6 traffic in your tenant by going the [Azure AD sign-in activity reports](../reports-monitoring/concept-sign-ins.md). After you have the activity report open, add the “IP address” column. This column will give you to identify the IPv6 traffic.
+
+You can also find the client IP by clicking a row in the report, and then going to the “Location” tab in the sign-in activity details. 
+
 ## What you should know
 
 ### When is a location evaluated?
@@ -165,11 +188,11 @@ When you create or update named locations, for bulk updates, you can upload or d
 
 When you use a cloud hosted proxy or VPN solution, the IP address Azure AD uses while evaluating a policy is the IP address of the proxy. The X-Forwarded-For (XFF) header that contains the user’s public IP address is not used because there is no validation that it comes from a trusted source, so would present a method for faking an IP address.
 
-When a cloud proxy is in place, a policy that is used to require a domain joined device can be used, or the inside corpnet claim from AD FS.
+When a cloud proxy is in place, a policy that is used to require a hybrid Azure AD joined device can be used, or the inside corpnet claim from AD FS.
 
 ### API support and PowerShell
 
-API and PowerShell is not yet supported for named locations.
+A preview version of the Graph API for named locations is available, for more information see the [namedLocation API](/graph/api/resources/namedlocation?view=graph-rest-beta).
 
 ## Next steps
 

@@ -2,9 +2,9 @@
 title: Import a BACPAC file to create a database in Azure SQL Database
 description: Create a new database in Azure SQL Database or Azure SQL Managed Instance from a BACPAC file.
 services: sql-database
-ms.service: sql-database
-ms.subservice: migration
-ms.custom: sqldbrb=1
+ms.service: sql-db-mi
+ms.subservice: migrate
+ms.custom: sqldbrb=1, devx-track-azurecli, devx-track-azurepowershell
 ms.devlang: 
 ms.topic: conceptual
 author: stevestein

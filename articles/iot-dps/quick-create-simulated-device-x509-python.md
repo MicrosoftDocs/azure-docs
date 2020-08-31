@@ -8,7 +8,7 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps 
 ms.devlang: python
-ms.custom: mvc, tracking-python
+ms.custom: mvc, devx-track-python
 ---
 
 # Quickstart: Create and provision a simulated X.509 device using Python device SDK for IoT Hub Device Provisioning Service
@@ -82,6 +82,7 @@ This article demonstrates individual enrollments.
 
 3. In the output window, enter `i` for individual enrollment when prompted. The output window displays a locally generated X.509 certificate for your simulated device. 
     
+    ```output
     Copy the first certificate to clipboard. Begin with the first occurrence of:
     
         -----BEGIN CERTIFICATE----- 
@@ -90,7 +91,8 @@ This article demonstrates individual enrollments.
     
         -----END CERTIFICATE-----
         
-    Make sure to include both of those lines as well. 
+    Make sure to include both of those lines as well.
+    ``` 
 
     ![Dice device enrollment application](./media/python-quick-create-simulated-device-x509/dice-device-enrollment.png)
  

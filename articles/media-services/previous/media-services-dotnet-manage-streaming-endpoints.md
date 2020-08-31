@@ -17,13 +17,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
+ms.custom: devx-track-csharp
 
 ---
 
 # Manage streaming endpoints with .NET SDK  
 
 >[!NOTE]
->Make sure to review the [overview](media-services-streaming-endpoints-overview.md) article. Also, review [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint).
+>Make sure to review the [overview](media-services-streaming-endpoints-overview.md) article. Also, review [StreamingEndpoint](/rest/api/media/operations/streamingendpoint).
 
 The code in this article shows how to do the following tasks using the Azure Media Services .NET SDK:
 
@@ -148,4 +149,3 @@ Review Media Services learning paths.
 
 ## Provide feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-

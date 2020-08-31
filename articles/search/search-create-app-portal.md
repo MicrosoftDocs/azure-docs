@@ -1,19 +1,21 @@
 ---
-title: Create a search app in Azure portal
+title: Create a demo app in Azure portal
 titleSuffix: Azure Cognitive Search
-description: Run the Create app (preview) wizard to generate HTML pages and script for an operational web app. The page includes a search bar, results area, sidebar, and typeahead support.
+description: Run the Create demo app (preview) wizard to generate HTML pages and script for an operational web app. The page includes a search bar, results area, sidebar, and typeahead support.
 
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 06/07/2020
+ms.date: 07/01/2020
 ---
 
-# Quickstart: Create a search app in the portal (Azure Cognitive Search)
+# Quickstart: Create a demo app in the portal (Azure Cognitive Search)
 
-Use the Azure portal's **Create search app** wizard to generate a downloadable, "localhost"-style web app that runs in a browser. Depending on its configuration, the generated app is operational on first use, with a live connection to a remote index. A default app can include a search bar, results area, sidebar filters, and typeahead support.
+Use the Azure portal's **Create demo app** wizard to generate a downloadable, "localhost"-style web app that runs in a browser. Depending on its configuration, the generated app is operational on first use, with a live read-only connection to a remote index. A default app can include a search bar, results area, sidebar filters, and typeahead support.
+
+The demo app can help you visualize how an index will function in a client app, but it is not intended for production scenarios. Client apps should include security, error handling, and hosting logic that the generated HTML page doesn't provide. When you are ready to create a client app, see [Create your first search app using the .NET SDK](tutorial-csharp-create-first-app.md) for next steps.
 
 ## Prerequisites
 
@@ -25,7 +27,7 @@ Before you begin, you must have the following:
 
 + [Microsoft Edge (latest version)](https://www.microsoft.com/edge) or Google Chrome.
 
-+ A [search index](search-create-index-portal.md) to use as the basis of your generated application. 
++ A [search index](search-what-is-an-index.md) to use as the basis of your generated application. 
 
   This quickstart uses the built-in Real Estate sample data and index because it has thumbnail images (the wizard supports adding images to the results page). To create the index used in this exercise, run the **Import data** wizard, choosing the *realestate-us-sample* data source.
 
@@ -41,7 +43,7 @@ When the index is ready to use, move on to the next step.
 
 1. Choose *realestate-us-sample-index* from the list of existing indexes.
 
-1. On the index page, at the top, select **Create search app (preview)** to start the wizard.
+1. On the index page, at the top, select **Create demo app (preview)** to start the wizard.
 
 1. On the first wizard page, select **Enable Cross Origin Resource Sharing (CORS)** to add CORS support to your index definition. This step is optional, but your local web app won't connect to the remote index without it.
 
@@ -81,7 +83,7 @@ The following screenshot shows options in the wizard, juxtaposed with a rendered
 
 ## Create, download and execute
 
-1. Select **Create search app** to generate the HTML file.
+1. Select **Create demo app** to generate the HTML file.
 
 1. When prompted, select **Download your app** to download the file.
 
@@ -105,4 +107,4 @@ If you are using a free service, remember that you are limited to three indexes,
 While the default app is useful for initial exploration and small tasks, reviewing the APIs early on will help you understand the concepts and workflow on a deeper level:
 
 > [!div class="nextstepaction"]
-> [Create an index using .NET SDK](https://docs.microsoft.com/azure/search/search-create-index-dotnet)
+> [Create an index using .NET SDK](./search-get-started-dotnet.md)

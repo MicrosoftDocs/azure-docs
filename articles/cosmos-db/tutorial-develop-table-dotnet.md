@@ -6,8 +6,9 @@ ms.author: akshanka
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: dotnet
-ms.topic: sample
+ms.topic: tutorial
 ms.date: 12/03/2019
+ms.custom: devx-track-csharp
 ---
 # Get started with Azure Cosmos DB Table API and Azure Table storage using the .NET SDK
 
@@ -61,7 +62,7 @@ To obtain the NuGet package, follow these steps:
 
 1. Open the **Connection String** or **Access keys** pane. Use the copy button on the right side of the window to copy the **PRIMARY CONNECTION STRING**.
 
-   ![View and copy the PRIMARY CONNECTION STRING in the Connection String pane](./media/create-table-dotnet/connection-string.png)
+   :::image type="content" source="./media/create-table-dotnet/connection-string.png" alt-text="View and copy the PRIMARY CONNECTION STRING in the Connection String pane":::
    
 1. To configure your connection string, from visual studio right click on your project **CosmosTableSamples**.
 
@@ -249,7 +250,7 @@ Right click on your project **CosmosTableSamples**. Select **Add**, **New Item**
  }
 ```
 
-### Get an entity from a partition
+## Get an entity from a partition
 
 You can get entity from a partition by using the Retrieve method under the [TableOperation](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.tableoperation) class. The following code example gets the partition key row key, email and phone number of a customer entity. This example also prints out the request units consumed to query for the entity. To query for an entity, append the following code to **SamplesUtils.cs** file: 
 
@@ -416,7 +417,7 @@ namespace CosmosTableSamples
 
 Now build the solution and press F5 to run the project. When the project is run, you will see the following output in the command prompt:
 
-![Output from command prompt](./media/tutorial-develop-table-standard/output-from-sample.png)
+:::image type="content" source="./media/tutorial-develop-table-standard/output-from-sample.png" alt-text="Output from command prompt":::
 
 If you receive an error that says Settings.json file can’t be found when running the project, you can resolve it by adding the following XML entry to the project settings. Right click on CosmosTableSamples, select Edit CosmosTableSamples.csproj and add the following itemGroup: 
 
@@ -429,7 +430,7 @@ If you receive an error that says Settings.json file can’t be found when runni
 ```
 Now you can sign into the Azure portal and verify that the data exists in the table. 
 
-![Results in portal](./media/tutorial-develop-table-standard/results-in-portal.png)
+:::image type="content" source="./media/tutorial-develop-table-standard/results-in-portal.png" alt-text="Results in portal":::
 
 ## Next steps
 

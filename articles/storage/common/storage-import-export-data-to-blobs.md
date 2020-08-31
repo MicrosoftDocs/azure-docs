@@ -4,7 +4,7 @@ description: Learn how to create import and export jobs in Azure portal to trans
 author: alkohli
 services: storage
 ms.service: storage
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/12/2020
 ms.author: alkohli
 ms.subservice: common

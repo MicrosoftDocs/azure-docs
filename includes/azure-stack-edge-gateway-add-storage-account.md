@@ -2,7 +2,7 @@
 author: alkohli
 ms.service: databox  
 ms.topic: include
-ms.date: 12/31/2019
+ms.date: 08/30/2020
 ms.author: alkohli
 ---
 
@@ -31,4 +31,4 @@ ms.author: alkohli
 
     ![Add a storage account](media/azure-stack-edge-gateway-add-storage-account/add-storage-account-4.png)
 
-    You get the access keys by connecting to the device local APIs using Azure Resource Manager. 
+    You get the access keys by [Connecting to the device local APIs using Azure Resource Manager](../articles/databox-online/azure-stack-edge-j-series-connect-resource-manager.md). 

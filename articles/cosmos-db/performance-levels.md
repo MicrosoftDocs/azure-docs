@@ -6,13 +6,13 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/04/2018
 ms.author: sngun
+ms.custom: devx-track-csharp
 
 ---
 # Retiring the S1, S2, and S3 performance levels
 
 > [!IMPORTANT] 
 > The S1, S2, and S3 performance levels discussed in this article are being retired and are no longer available for new Azure Cosmos DB accounts.
->
 
 This article provides an overview of S1, S2, and S3 performance levels, and discusses how the collections that use these performance levels can be migrated to single partitioned collections. After reading this article, you'll be able to answer the following questions:
 
@@ -38,7 +38,7 @@ The S1, S2, and S3 performance levels do not offer the flexibility that the stan
 
 The following table compares the throughput and storage options available in single partition collections, partitioned collections, and S1, S2, S3 performance levels. Here is an example for US East 2 region:
 
-|   |Partitioned collection|Single partition collection|S1|S2|S3|
+| Quota name  |Partitioned collection|Single partition collection|S1|S2|S3|
 |---|---|---|---|---|---|
 |Maximum throughput|Unlimited|10K RU/s|250 RU/s|1 K RU/s|2.5 K RU/s|
 |Minimum throughput|2.5 K RU/s|400 RU/s|250 RU/s|1 K RU/s|2.5 K RU/s|
@@ -71,7 +71,7 @@ In each of these cases, after you migrate the collection, you will be able to cu
 
 Assuming you have 10 S1 collections, 1 GB of storage for each, in the US East region, and you migrate these 10 S1 collections to 10 single partition collections at 400 RU/sec (the minimum level). Your bill will look as follows if you keep the 10 single partition collections for a full month:
 
-![How S1 pricing for 10 collections compares to 10 collections using pricing for a single partition collection](./media/performance-levels/s1-vs-standard-pricing.png)
+:::image type="content" source="./media/performance-levels/s1-vs-standard-pricing.png" alt-text="How S1 pricing for 10 collections compares to 10 collections using pricing for a single partition collection" border="false":::
 
 <a name="more-storage-needed"></a>
 

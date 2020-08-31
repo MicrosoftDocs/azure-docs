@@ -14,12 +14,12 @@ There are two ways to call a child runbook, and there are distinct differences t
 
 |  | Inline | Cmdlet |
 |:--- |:--- |:--- |
-| Job |Child runbooks run in the same job as the parent. |A separate job is created for the child runbook. |
-| Execution |Parent runbook waits for the child runbook to complete before continuing. |Parent runbook continues immediately after child runbook is started *or* parent runbook waits for the child job to finish. |
-| Output |Parent runbook can directly get output from child runbook. |Parent runbook must retrieve output from child runbook job *or* parent runbook can directly get output from child runbook. |
-| Parameters |Values for the child runbook parameters are specified separately and can use any data type. |Values for the child runbook parameters have to be combined into a single hashtable. This hashtable can only include simple, array, and object data types that use JSON serialization. |
-| Automation Account |Parent runbook can only use child runbook in the same Automation account. |Parent runbooks can use a child runbook from any Automation account, from the same Azure subscription, and even from a different subscription to which you have a connection. |
-| Publishing |Child runbook must be published before parent runbook is published. |Child runbook is published any time before parent runbook is started. |
+| **Job** |Child runbooks run in the same job as the parent. |A separate job is created for the child runbook. |
+| **Execution** |Parent runbook waits for the child runbook to complete before continuing. |Parent runbook continues immediately after child runbook is started *or* parent runbook waits for the child job to finish. |
+| **Output** |Parent runbook can directly get output from child runbook. |Parent runbook must retrieve output from child runbook job *or* parent runbook can directly get output from child runbook. |
+| **Parameters** |Values for the child runbook parameters are specified separately and can use any data type. |Values for the child runbook parameters have to be combined into a single hashtable. This hashtable can only include simple, array, and object data types that use JSON serialization. |
+| **Automation Account** |Parent runbook can only use child runbook in the same Automation account. |Parent runbooks can use a child runbook from any Automation account, from the same Azure subscription, and even from a different subscription to which you have a connection. |
+| **Publishing** |Child runbook must be published before parent runbook is published. |Child runbook is published any time before parent runbook is started. |
 
 ## Invoke a child runbook using inline execution
 

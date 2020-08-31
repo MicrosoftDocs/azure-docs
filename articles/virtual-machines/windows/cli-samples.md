@@ -3,18 +3,18 @@ title: Azure CLI Samples Windows
 description: Azure CLI Samples Windows
 author: cynthn
 ms.service: virtual-machines-windows
-ms.topic: article
+ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 03/01/2019
 ms.author: cynthn
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 
 ---
 # Azure CLI Samples for Windows virtual machines
 
 The following table includes links to bash scripts built using the Azure CLI that deploy Windows virtual machines.
 
-| | |
+| Script | Description |
 |---|---|
 |**Create virtual machines**||
 | [Create a virtual machine](./../scripts/virtual-machines-windows-cli-sample-create-vm-quick-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | Creates a Windows virtual machine with minimal configuration. |

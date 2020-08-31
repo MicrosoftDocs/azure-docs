@@ -8,8 +8,8 @@ manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
-ms.topic: reference
-ms.date: 06/08/2020
+ms.topic: how-to
+ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -24,7 +24,7 @@ To get started, you'll need:
 
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * [An Azure AD B2C tenant](tutorial-create-tenant.md) that is linked to your Azure subscription.
-* A [trial account](https://www.twilio.com/try-twilio) at Trusona
+* A [trial account](https://www.trusona.com/aadb2c) at Trusona
 
 ## Scenario description
 
@@ -36,8 +36,7 @@ In this scenario, Trusona acts as an identity provider for Azure AD B2C to enabl
 
 ![Trusona architecture diagram](media/partner-trusona/trusona-architecture-diagram.png)
 
-
-|  |  |
+| Step | Description |
 |------|------|
 |1     | A user attempts to sign in to or sign up with the application. The user is authenticated via the Azure AD B2C sign-up and sign-in policy. During sign-up, the user's previously verified email address from the Trusona app is used.     |
 |2     | Azure B2C redirects the user to the Trusona OpenID Connect (OIDC) identity provider using the implicit flow.     |
@@ -122,25 +121,26 @@ In this scenario, Trusona acts as an identity provider for Azure AD B2C to enabl
 
 ### Create a user flow policy
 
-1. You should now see Trusona as a **new OpenID Connect Identity Provider** listed within your B2C identity providers.
+You should now see Trusona as a **new OpenID Connect Identity Provider** listed within your B2C identity providers.
 
-2. Select **User flows (policies)** from the left navigation panel.
+1. In your Azure AD B2C tenant, under **Policies**, select **User flows**.
 
-3. Select **Add** > **New user flow** > **Sign up and sign in**.
+1. Select **New user flow**.
 
-### Configure the Policy
+1. Select **Sign up and sign in**, select a version, and then select **Create**.
 
-1. Name your policy.
+1. Enter a **Name** for your policy.
 
-2. Select your newly created **Trusona Identity Provider**.
+1. In the **Identity providers** section, select your newly created **Trusona Identity Provider**.
 
-3. Because Trusona is inherently multi-factor, it's best to leave multi-factor authentication disabled.
+   > [!NOTE]
+   > Because Trusona is inherently multi-factor, it's best to leave multi-factor authentication disabled.
 
-4. Select **Create**.
+1. Select **Create**.
 
-5. Under **User Attributes and Claims**, choose **Show more**. In the form, select at least one attribute that you specified during the setup of your identity provider in earlier section.
+1. Under **User Attributes and Claims**, choose **Show more**. In the form, select at least one attribute that you specified during the setup of your identity provider in earlier section.
 
-6. Select **OK**.  
+1. Select **OK**.  
 
 ### Test the Policy
 

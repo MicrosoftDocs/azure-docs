@@ -6,11 +6,14 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 02/15/2020
 ms.author: brendm
-
+ms.custom: devx-track-java, devx-track-azurecli
 ---
+
 # Quickstart: Launch an existing Azure Spring Cloud application using the Azure portal
 
 This quickstart shows you how to deploy an existing Spring Cloud application to Azure. Azure Spring Cloud enables you to easily run Spring Cloud based microservice applications on Azure. 
+
+Before running this example, you can try the [basic quickstart](spring-cloud-quickstart.md).
 
 You can find the sample application code used in this tutorial in our [GitHub samples repository](https://github.com/Azure-Samples/PiggyMetrics). When you're finished, the provided sample application will be accessible online and ready to be managed via the Azure portal.
 
@@ -39,14 +42,6 @@ To complete this quickstart:
 4. [Install the Azure CLI version 2.0.67 or higher](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 5. [Sign up for an Azure subscription](https://azure.microsoft.com/free/)
 
-## Install the Azure CLI extension
-
-Install the Azure Spring Cloud extension for the Azure CLI using the following command
-
-```azurecli
-az extension add --name spring-cloud
-```
-
 ## Provision a service instance on the Azure portal
 
 1. In a new tab, open the [Azure portal](https://ms.portal.azure.com/). 
@@ -55,11 +50,11 @@ az extension add --name spring-cloud
 
 3. Select **Azure Spring Cloud** from the results.
 
- ![ASC icon](media/spring-cloud-quickstart-launch-app-portal/find-spring-cloud-start.png)
+ ![ASC start](media/spring-cloud-quickstart-launch-app-portal/find-spring-cloud-start.png)
 
 4. On the Azure Spring Cloud page, click **+ Add**.
 
- ![ASC icon](media/spring-cloud-quickstart-launch-app-portal/spring-cloud-add.png)
+ ![ASC add](media/spring-cloud-quickstart-launch-app-portal/spring-cloud-add.png)
 
 5. Fill out the form on the Azure Spring Cloud **Create** page.  Consider the following guidelines:
     - **Subscription**: Select the subscription you want to be billed for this resource.  Ensure that this subscription has been added to our allow-list for Azure Spring Cloud.
@@ -80,7 +75,7 @@ az extension add --name spring-cloud
 9. You can set **Enable tracing** to *yes* or *no* according to your requirements.  If you set **Enable tracing** to yes,  also select an existing application insight, or create a new one. Without the **Application Insights** specification there will be a validation error.
 
 
-    ![Tracing](media/spring-cloud-quickstart-launch-app-portal/tracing.png)
+    ![Tracing view](media/spring-cloud-quickstart-launch-app-portal/tracing.png)
 
 10. Click **Review and create**.
 
@@ -100,14 +95,14 @@ It takes about 5 minutes for the service to deploy.  Once it is deployed, the **
 
 3. Select **Apply** to save your changes.
 
-    ![Screenshot of ASC portal](media/spring-cloud-quickstart-launch-app-portal/portal-config.png)
+    ![ASC portal](media/spring-cloud-quickstart-launch-app-portal/portal-config.png)
 
 > [!div class="nextstepaction"]
 > [I ran into an issue](https://www.research.net/r/javae2e?tutorial=asc-portal-quickstart&step=config-server)
 
 ## Build and deploy microservice applications
 
-1. Open an [Azure Cloud Shell](https://shell.azure.com)  and clone the sample app repository to your local machine.  Here, we first create a temporary directory called `source-code` before cloning the app.
+1. Open an [Azure Cloud Shell](https://shell.azure.com) or your local shell with Azure CLI installed. Here, we first create a temporary directory called `source-code` before cloning the sample app.
 
     ```console
     mkdir source-code
@@ -122,21 +117,29 @@ It takes about 5 minutes for the service to deploy.  Once it is deployed, the **
     mvn clean package -DskipTests
     ```
 
-3. Assign names to your resource group and your service. Be sure to substitute the placeholders below with the resource group name and service name that you provisioned earlier in this tutorial.
+3. Install the Azure Spring Cloud extension for the Azure CLI using the following command
+
+    ```azurecli
+    az extension add --name spring-cloud
+    ```
+
+4. Assign names to your resource group and your service. Be sure to substitute the placeholders below with the resource group name and service name that you provisioned earlier in this tutorial.
 
     ```azurecli
     az configure --defaults group=<resource group name>
     az configure --defaults spring-cloud=<service instance name>
     ```
 
-4. Create the `gateway` application and deploy the JAR file.
+5. Create the `gateway` application and deploy the JAR file.
+
+    Using the Spring Cloud extension, create the app:
 
     ```azurecli
     az spring-cloud app create -n gateway
     az spring-cloud app deploy -n gateway --jar-path ./gateway/target/gateway.jar
     ```
 
-5. Following the same pattern, create the `account-service` and `auth-service` applications and deploy their JAR files.
+6. Following the same pattern, create the `account-service` and `auth-service` applications and deploy their JAR files.
 
     ```azurecli
     az spring-cloud app create -n account-service
@@ -145,7 +148,7 @@ It takes about 5 minutes for the service to deploy.  Once it is deployed, the **
     az spring-cloud app deploy -n auth-service --jar-path ./auth-service/target/auth-service.jar
     ```
 
-6. It takes a few minutes to finish deploying the applications. To confirm that they have deployed, go to the **Apps** blade in the Azure portal. You should see a line each of the three applications.
+7. It takes a few minutes to finish deploying the applications. To confirm that they have deployed, go to the **Apps** blade in the Azure portal. You should see a line each of the three applications.
 
 > [!div class="nextstepaction"]
 > [I ran into an issue](https://www.research.net/r/javae2e?tutorial=asc-portal-quickstart&step=deploy)
@@ -158,11 +161,11 @@ It takes about 5 minutes for the service to deploy.  Once it is deployed, the **
 
 3. Select **Assign Endpoint** to assign a public endpoint to gateway. This can take a few minutes.
 
-    ![Screenshot of ASC portal](media/spring-cloud-quickstart-launch-app-portal/portal-endpoint.png)
+    ![ASC portal endpoint](media/spring-cloud-quickstart-launch-app-portal/portal-endpoint.png)
 
 4. Enter the assigned public endpoint (labeled **URL**) into your browser to view your running application.
 
-    ![Screenshot of ASC portal](media/spring-cloud-quickstart-launch-app-portal/sample-app.png)
+    ![ASC portal sample app](media/spring-cloud-quickstart-launch-app-portal/sample-app.png)
 
 > [!div class="nextstepaction"]
 > [I ran into an issue](https://www.research.net/r/javae2e?tutorial=asc-portal-quickstart&step=public-endpoint)

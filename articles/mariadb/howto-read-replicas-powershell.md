@@ -4,8 +4,9 @@ description: Learn how to set up and manage read replicas in Azure Database for 
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
-ms.topic: conceptual
-ms.date: 6/10/2020
+ms.topic: how-to
+ms.date: 6/10/2020 
+ms.custom: devx-track-azurepowershell
 ---
 
 # How to create and manage read replicas in Azure Database for MariaDB using PowerShell

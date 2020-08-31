@@ -3,7 +3,7 @@ title: Monitor Java applications anywhere - Azure Monitor Application Insights
 description: Codeless application performance monitoring for Java applications running in any environment without instrumenting the app. Find the root cause of the issues d using distributed tracing and application map.
 ms.topic: conceptual
 ms.date: 04/16/2020
-
+ms.custom: devx-track-java
 ---
 
 # Configuration options - Java standalone agent for Azure Monitor Application Insights
@@ -29,14 +29,14 @@ You will find more details and additional configuration options below for more d
 
 ## Configuration file path
 
-By default, Application Insights Java 3.0 Preview expects the configuration file to be named `ApplicationInsights.json`, and to be located in the same directory as `applicationinsights-agent-3.0.0-PREVIEW.4.jar`.
+By default, Application Insights Java 3.0 Preview expects the configuration file to be named `ApplicationInsights.json`, and to be located in the same directory as `applicationinsights-agent-3.0.0-PREVIEW.5.jar`.
 
 You can specify your own configuration file path using either
 
 * `APPLICATIONINSIGHTS_CONFIGURATION_FILE` environment variable, or
 * `applicationinsights.configurationFile` Java system property
 
-If you specify a relative path, it will be resolved relative to the directory where `applicationinsights-agent-3.0.0-PREVIEW.4.jar` is located.
+If you specify a relative path, it will be resolved relative to the directory where `applicationinsights-agent-3.0.0-PREVIEW.5.jar` is located.
 
 ## Connection string
 
@@ -212,7 +212,7 @@ Here is an example how to set the sampling to **10% of all transactions** - plea
 
 ## HTTP Proxy
 
-If your application is behind a firewall and cannot connect directly to Application Insights (see [IP addresses used by Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/ip-addresses)), you can configure Application Insights Java 3.0 Preview to use an HTTP proxy:
+If your application is behind a firewall and cannot connect directly to Application Insights (see [IP addresses used by Application Insights](./ip-addresses.md)), you can configure Application Insights Java 3.0 Preview to use an HTTP proxy:
 
 ```json
 {

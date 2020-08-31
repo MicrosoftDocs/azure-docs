@@ -111,7 +111,7 @@ This error means that the attempt to upload custom setup execution logs to your 
 ## Virtual network configuration
 
 When you join SSIS IR to Azure Virtual Network, SSIS IR uses the virtual network that's under the user subscription. For more information, see [Join an Azure-SSIS Integration Runtime to a virtual network](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network).
-
+After SSIS IR starts successfully, if you encounter network connection problems, you can try to use [diagnose connectivity tool](ssis-integration-runtime-diagnose-connectivity-faq.md) to diagnose the problem yourself.
 When there's a Virtual Network-related issue, you'll see one of the following errors.
 
 ### InvalidVnetConfiguration

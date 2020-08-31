@@ -3,8 +3,9 @@ title: Debug Rendering
 description: Overview of server-side debugging rendering effects
 author: jumeder
 ms.author: jumeder
-ms.date: 04/09/2020
+ms.date: 06/15/2020
 ms.topic: article
+ms.custom: devx-track-csharp
 ---
 
 # Debug Rendering
@@ -40,16 +41,16 @@ void EnableDebugRenderingEffects(AzureSession session, bool highlight)
 ```cpp
 void EnableDebugRenderingEffects(ApiHandle<AzureSession> session, bool highlight)
 {
-    ApiHandle<DebugRenderingSettings> settings = *session->Actions()->DebugRenderingSettings();
+    ApiHandle<DebugRenderingSettings> settings = session->Actions()->GetDebugRenderingSettings();
 
     // Enable frame counter text overlay on the server side rendering
-    settings->RenderFrameCount(true);
+    settings->SetRenderFrameCount(true);
 
     // Enable polygon count text overlay on the server side rendering
-    settings->RenderPolygonCount(true);
+    settings->SetRenderPolygonCount(true);
 
     // Enable wireframe rendering of object geometry on the server
-    settings->RenderWireframe(true);
+    settings->SetRenderWireframe(true);
 }
 ```
 

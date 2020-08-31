@@ -199,20 +199,28 @@
       href: how-to-store-data-blob.md
     - name: Deploy blob storage modules
       href: how-to-deploy-blob.md
+  - name: Azure SQL Edge on IoT Edge
+    items:
+    - name: Understand Azure SQL at the edge
+      href: ../azure-sql-edge/overview.md?toc=/azure/iot-edge/toc.json&bc=/azure/iot-edge/breadcrumb/toc.json
+    - name: Deploy Azure SQL Edge modules
+      href: ../azure-sql-edge/deploy-portal.md?toc=/azure/iot-edge/toc.json&bc=/azure/iot-edge/breadcrumb/toc.json
   - name: Manage with DevOps tools
     items:
     - name: Azure DevOps Projects
       href: how-to-devops-project.md
     - name: Azure DevOps
       href: how-to-ci-cd.md
-    - name: IoT Edge plugin for Jenkins
-      href: how-to-devops-plugins.md
   - name: Troubleshoot
     items:
     - name: Standard diagnostic steps
       href: troubleshoot.md
     - name: Common error resolutions
       href: troubleshoot-common-errors.md
+- name: Reference
+  items:
+  - name: Azure CLI
+    href: /cli/azure/azure-cli-reference-for-IoT
 - name: Resources
   items:
   - name: Support and help options

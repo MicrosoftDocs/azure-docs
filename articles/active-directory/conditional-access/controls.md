@@ -5,8 +5,8 @@ description: Learn how custom controls in Azure Active Directory Conditional Acc
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: article
-ms.date: 03/18/2020
+ms.topic: conceptual
+ms.date: 08/26/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -30,11 +30,11 @@ Copy the JSON data and then paste it into the related textbox. Do not make any c
 
 The option to create a custom control is in the **Manage** section of the **Conditional Access** page.
 
-![Control](./media/controls/82.png)
+![Custom controls interface in Conditional Access](./media/controls/custom-controls-conditional-access.png)
 
 Clicking **New custom control**, opens a blade with a textbox for the JSON data of your control.  
 
-![Control](./media/controls/81.png)
+![New custom control](./media/controls/new-custom-controls-conditional-access.png)
 
 ## Deleting custom controls
 
@@ -50,7 +50,7 @@ To edit a custom control, you must delete the current control and create a new c
 
 ## Known limitations
 
-Custom controls cannot be used with Identity Protection's automation requiring Azure Multi-Factor Authentication, Azure AD self-service password reset (SSPR), satisfying multi-factor authentication claim requirements, or to elevate roles in Privileged Identity Manager (PIM).
+Custom controls cannot be used with Identity Protection's automation requiring Azure Multi-Factor Authentication, Azure AD self-service password reset (SSPR), satisfying multi-factor authentication claim requirements, to elevate roles in Privileged Identity Manager (PIM), as part of Intune device enrollment, or when joining devices to Azure AD.
 
 ## Next steps
 

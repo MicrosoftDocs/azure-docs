@@ -4,10 +4,11 @@ description: Learn how to develop .NET applications and services that use Azure 
 author: roygara
 ms.service: storage
 ms.devlang: dotnet
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/7/2019
 ms.author: rogarana
 ms.subservice: files
+ms.custom: devx-track-csharp
 ---
 
 # Develop for Azure Files with .NET
@@ -94,7 +95,7 @@ Next, save your credentials in your project's `App.config` file. In **Solution E
 ```
 
 > [!NOTE]
-> The latest version of the Azure storage emulator does not support Azure Files. Your connection string must target an Azure Storage Account in the cloud to work with Azure Files.
+> The latest versions of the Azure Storage Emulator and the Azurite open-source emulator do not support Azure Files. Your connection string must target an Azure Storage Account in the cloud to work with Azure Files.
 
 ## Add using directives
 

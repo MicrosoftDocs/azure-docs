@@ -24,27 +24,6 @@
     items:
     - name: Develop with Helm
       href: quickstart-helm.md
-    - name: Azure Dev Spaces
-      expanded: true
-      items:
-      - name: Use Azure Dev Spaces for team development
-        href: ../dev-spaces/quickstart-team-development.md
-        maintainContext: true
-      - name: Use Visual Studio Code
-        href: ../dev-spaces/quickstart-netcore.md
-        maintainContext: true
-      - name: Use Visual Studio
-        href: ../dev-spaces/quickstart-netcore-visualstudio.md
-        maintainContext: true
-      - name: Use the CLI
-        href: ../dev-spaces/quickstart-cli.md
-        maintainContext: true
-      - name: Use Azure Dev Spaces with Java
-        href: ../dev-spaces/quickstart-java.md
-        maintainContext: true
-      - name: Use Azure Dev Spaces Node.js
-        href: ../dev-spaces/quickstart-nodejs.md
-        maintainContext: true
 - name: Tutorials
   items:
   - name: 1 - Prepare application for AKS
@@ -73,8 +52,12 @@
   - name: Access and identity
     href: concepts-identity.md
   - name: Security
-    href: concepts-security.md
     items:
+    - name: Security for applications and clusters
+      href: concepts-security.md
+    - name: Security controls by Azure Policy
+      displayName: regulatory, compliance, standards, domains
+      href: ./security-controls-policy.md
   - name: Networking
     href: concepts-network.md
   - name: Storage
@@ -87,6 +70,9 @@
     items:
     - name: Overview
       href: best-practices.md
+    - name: Baseline architecture for an AKS cluster
+      href: /azure/architecture/reference-architectures/containers/aks/secure-baseline-aks/
+      maintainContext: True
     - name: For cluster operators
       items:
       - name: Multi-tenancy and cluster isolation
@@ -143,6 +129,8 @@
     href: security-hardened-vm-host-image.md
   - name: Azure Kubernetes Service Diagnostics overview
     href: concepts-diagnostics.md
+  - name: Sustainable software engineering
+    href: concepts-sustainable-software-engineering.md
 - name: How-to guides
   items:
   - name: Cluster operations
@@ -153,7 +141,9 @@
       href: upgrade-cluster.md
     - name: Use Uptime SLA
       href: uptime-sla.md
-    - name: Upgrade the node image (preview)
+    - name: Use proximity placement groups (preview)
+      href: reduce-latency-ppg.md
+    - name: Upgrade the node image
       href: node-image-upgrade.md
     - name: Process node OS updates
       href: node-updates-kured.md
@@ -182,6 +172,8 @@
     - name: Deploy AKS with Terraform
       href: ../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md
       maintainContext: true
+    - name: Use the Kubernetes resource viewer (Preview)
+      href: kubernetes-portal.md
     - name: Use the Kubernetes dashboard
       href: kubernetes-dashboard.md
   - name: Configure data volumes
@@ -198,6 +190,8 @@
       href: azure-nfs-volume.md
     - name: Azure NetApp Files
       href: azure-netapp-files.md
+    - name: Use Azure Ultra Disks (preview)
+      href: use-ultra-disks.md
   - name: Configure networking
     items:
     - name: Create or use existing virtual network
@@ -210,8 +204,6 @@
       href: internal-lb.md
     - name: Use a Standard Load Balancer
       href: load-balancer-standard.md
-    - name: Use a user defined route for egress
-      href: egress-outboundtype.md
     - name: Use a static IP address
       href: static-ip.md
     - name: Ingress
@@ -233,8 +225,14 @@
             href: ingress-tls.md
           - name: Use a static public IP address
             href: ingress-static-ip.md
-    - name: Egress traffic
-      href: egress.md
+    - name: Egress
+      items:
+        - name: Restrict and control cluster egress traffic
+          href: limit-egress-traffic.md
+        - name: Use a user defined route for egress
+          href: egress-outboundtype.md
+        - name: Use a basic load balancer and static IP address
+          href: egress.md
     - name: Customize CoreDNS
       href: coredns-custom.md
   - name: Security and authentication
@@ -247,6 +245,8 @@
       href: control-kubeconfig-access.md
     - name: Secure pod traffic with network policies
       href: use-network-policies.md
+    - name: Secure pods with Azure Policy (preview)
+      href: use-pod-security-on-azure-policy.md
     - name: Use pod security policies (preview)
       href: use-pod-security-policies.md
     - name: Define API server authorized IP ranges
@@ -255,14 +255,14 @@
       href: ../governance/policy/concepts/policy-for-kubernetes.md?toc=/azure/aks/toc.json
     - name: Update cluster credentials
       href: update-credentials.md
-    - name: Restrict and control cluster egress traffic
-      href: limit-egress-traffic.md
     - name: Enable Azure Active Directory integration
       items:
-        - name: AKS-managed AAD (preview)
+        - name: AKS-managed AAD
           href: managed-aad.md
-        - name: Use the Azure CLI
+        - name: AAD integration (legacy)
           href: azure-ad-integration-cli.md
+    - name: Use Azure RBAC for Kubernetes Authorization (preview)
+      href: manage-azure-rbac.md
     - name: Use Kubernetes RBAC with Azure AD integration
       href: azure-ad-rbac.md
       maintainContext: true
@@ -272,6 +272,8 @@
       href: private-clusters.md
     - name: BYOK for disks
       href: azure-disk-customer-managed-keys.md
+    - name: Enable host-based encryption
+      href: enable-host-encryption.md
   - name: Monitoring and logging
     items:
     - name: Azure Monitor for containers
@@ -292,64 +294,18 @@
       href: windows-container-powershell.md
     - name: Connect remotely
       href: rdp.md
-    - name: Known limitations
-      href: windows-node-limitations.md
+    - name: Windows Server containers FAQ
+      href: windows-faq.md
     - name: Use the Kubernetes dashboard
       href: kubernetes-dashboard.md
     - name: Create Dockerfiles for Windows Server containers
-      href: https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/manage-windows-dockerfile?context=/azure/aks/context/aks-context
+      href: /virtualization/windowscontainers/manage-docker/manage-windows-dockerfile?context=/azure/aks/context/aks-context
     - name: Optimize Dockerfiles for Windows Server containers
-      href: https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/optimize-windows-dockerfile?context=/azure/aks/context/aks-context
+      href: /virtualization/windowscontainers/manage-docker/optimize-windows-dockerfile?context=/azure/aks/context/aks-context
   - name: Develop and run applications
     items:
-    - name: Develop with Dev Spaces
-      href: ../dev-spaces/azure-dev-spaces.md
-      maintainContext: true
-      items:
-      - name: Java (VS Code & CLI)
-        items:
-        - name: 1 - Get started
-          href: ../dev-spaces/get-started-java.md
-          maintainContext: true
-        - name: 2 - Multi-service development
-          href: ../dev-spaces/multi-service-java.md
-          maintainContext: true
-        - name: 3 - Team development
-          href: ../dev-spaces/team-development-java.md
-          maintainContext: true
-      - name: .NET Core (VS Code & CLI)
-        items:
-        - name: 1 - Get started
-          href: ../dev-spaces/get-started-netcore.md
-          maintainContext: true
-        - name: 2 - Multi-service development
-          href: ../dev-spaces/multi-service-netcore.md
-          maintainContext: true
-        - name: 3 - Team development
-          href: ../dev-spaces/team-development-netcore.md
-          maintainContext: true
-      - name: .NET Core (Visual Studio 2017)
-        items:
-        - name: 1 - Get started
-          href: ../dev-spaces/get-started-netcore-visualstudio.md
-          maintainContext: true
-        - name: 2 - Multi-service development
-          href: ../dev-spaces/multi-service-netcore-visualstudio.md
-          maintainContext: true
-        - name: 3 - Team development
-          href: ../dev-spaces/team-development-netcore-visualstudio.md
-          maintainContext: true
-      - name: Node.js (VS Code & CLI)
-        items:
-        - name: 1 - Get started
-          href: ../dev-spaces/get-started-nodejs.md
-          maintainContext: true
-        - name: 2 - Multi-service development
-          href: ../dev-spaces/multi-service-nodejs.md
-          maintainContext: true
-        - name: 3 - Team development
-          href: ../dev-spaces/team-development-nodejs.md
-          maintainContext: true
+    - name: Use Local Process with Kubernetes with Visual Studio Code (preview)
+      href: https://code.visualstudio.com/docs/containers/local-process-kubernetes
     - name: Install existing applications with Helm
       href: kubernetes-helm.md
     - name: Use OpenFaaS
@@ -412,6 +368,8 @@
       href: ssh.md
     - name: Linux performance tools
       href: troubleshoot-linux.md
+    - name: Check for Resource Health events (preview)
+      href: aks-resource-health.md
 - name: Reference
   items:
   - name: Azure CLI
@@ -440,10 +398,10 @@
     href: https://azure.microsoft.com/pricing/details/container-service/
   - name: Support policies
     href: support-policies.md
-  - name: Roadmap
+  - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
-  - name: Provide product feedback
-    href: https://feedback.azure.com/forums/914020-azure-kubernetes-service-aks
+  - name: AKS Roadmap
+    href: https://github.com/Azure/AKS/projects/1
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-container-service
   - name: Videos

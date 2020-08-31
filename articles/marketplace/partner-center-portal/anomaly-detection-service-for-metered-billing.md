@@ -1,17 +1,17 @@
 ---
 title: Anomaly detection service for metered billing - Microsoft Azure Marketplace 
 description: Describes how anomaly detection works, when notifications are sent and what to do with them, and support options.
-author: anbene
-ms.author: dsindona 
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+ms.author: mingshen
+author: mingshen-ms
 ms.date: 06/10/2020
 ---
 
 # Anomaly detection service for metered billing
 
-The [Marketplace metering service](https://docs.microsoft.com/azure/marketplace/partner-center-portal/marketplace-metering-service-apis-faq) lets you create offers in the commercial marketplace program that are charged according to non-standard units. With metered billing, you send usage events for your customer’s usage to Microsoft and we prepare the billing based on that usage.
+The [Marketplace metering service](marketplace-metering-service-apis-faq.md) lets you create offers in the commercial marketplace program that are charged according to non-standard units. With metered billing, you send usage events for your customer’s usage to Microsoft and we prepare the billing based on that usage.
 
 Incorrect usage data could come from a variety of causes, such as bugs, misconfigurations in your consumption tracking, or fraud. Incorrect usage data would result in incorrect customer charges and billing disputes.
 
@@ -69,8 +69,8 @@ To submit a ticket:
     - **Commercial Marketplace** > **Metered Billing** > **Wrong usage sent for SaaS offer**
 3. Under **Next step**, select the **Review solutions** button to be directed to sign in to Partner Center to submit a support ticket.
 
-For more publisher support options, see [Support for the commercial marketplace program in Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/support).
+For more publisher support options, see [Support for the commercial marketplace program in Partner Center](support.md).
 
 ## Next step
 
-- Learn about the [Marketplace metering service API](https://docs.microsoft.com/azure/marketplace/partner-center-portal/marketplace-metering-service-apis).
+- Learn about the [Marketplace metering service API](marketplace-metering-service-apis.md).

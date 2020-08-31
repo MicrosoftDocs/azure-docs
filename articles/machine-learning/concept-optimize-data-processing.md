@@ -4,12 +4,12 @@ titleSuffix: Azure Machine Learning
 description: Learn best practices for optimizing data processing speeds and what integrations Azure Machine Learning supports for data processing at scale.
 services: machine-learning
 ms.service: machine-learning
-author: sgilley
 ms.author: sgilley
+author: sdgilley
 ms.subservice: core
 ms.reviewer: nibaccam
 ms.topic: conceptual
-ms.date: 05/29/2020
+ms.date: 06/26/2020
 
 # Customer intent: As a data scientist I want to optimize data processing speeds at scale
 ---
@@ -42,7 +42,18 @@ Typically an *out of memory* error occurs when your dataframe expands above the 
 
 One solution is to increase your RAM to fit the dataframe in memory. We recommend your compute size and processing power contain two times the size of RAM. So if your dataframe is 10 GB, use a compute target with at least 20 GB of RAM to ensure that the dataframe can comfortably fit in memory and be processed. 
 
-For multiple virtual CPUs, vCPU, keep in mind that you want one partition to comfortably fit into the RAM each vCPU can have on the machine. That is, if you have 16-GB RAM 4 vCPUs, you want  about 2-GB dataframes per each vCPU.
+For multiple virtual CPUs, vCPU, keep in mind that you want one partition to comfortably fit into the RAM each vCPU can have on the machine. That is, if you have 16-GB RAM 4 vCPUs, you want about 2-GB dataframes per each vCPU.
+
+### Local vs remote
+
+You may notice certain pandas dataframe commands perform faster when working on your local PC versus a remote VM you provisioned with Azure Machine Learning. 
+Your local PC typically has a page file enabled, which allows you to load more than what fits in physical memory, that is your hard drive is being used as an extension of your RAM. Currently, Azure Machine Learning VMs run without a page file, therefore can only load as much data as physical RAM available. 
+
+For compute-heavy jobs, we recommend you pick a larger VM to improve processing speeds.
+
+Learn more about the [available VM series and sizes](concept-compute-target.md#supported-vm-series-and-sizes) for Azure Machine Learning. 
+
+For RAM specifications, see the corresponding VM series pages such as, [Dv2-Dsv2 series](../virtual-machines/dv2-dsv2-series-memory.md) or [NC series](../virtual-machines/nc-series.md).
 
 ### Minimize CPU workloads
 
@@ -58,7 +69,7 @@ Indexing | Apply and use an index, a summary that tells you where to find the da
 
 If the previous recommendations aren't enough, and you can't get a virtual machine that fits your data, you can, 
 
-* Use a framework like `Spark` or `Dask` to process the data 'out of memory'. In this option, the dataframe is loaded into RAM partition by partition and processed, with the final result being gathered at the end. 
+* Use a framework like `Spark` or `Dask` to process the data 'out of memory'. In this option, the dataframe is loaded into RAM partition by partition and processed, with the final result being gathered at the end.  
 
 * Scale out to a cluster using a distributed framework. In this option, data processing loads are split up and processed on multiple CPUs that work in parallel, with the final result gathered at the end.
 
@@ -73,7 +84,9 @@ If you prefer `Spark` | `PySpark`
 For data less than 1 GB | `Pandas` locally **or** a remote Azure Machine Learning compute instance
 For data larger than 10 GB| Move to a cluster using `Ray`, `Dask`, or `Spark`
 
+You can create `Dask` clusters on Azure ML compute cluster with the [dask-cloudprovider](https://cloudprovider.dask.org/en/latest/#azure) package. Or you can run `Dask` locally on a compute instance.
+
 ## Next steps
 
 * [Data ingestion options with Azure Machine Learning](concept-data-ingestion.md).
-* [Data ingestion with Azure Data Factory](how-to-data-ingest-adf.md).
+* [Create and register datasets](how-to-create-register-datasets.md).

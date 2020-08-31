@@ -2,13 +2,12 @@
 title: Publishing guide for container offers in Azure Marketplace 
 description: This article describes the requirements to publish container offers in Azure Marketplace.
 services:  Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 04/15/2020
-ms.author: dsindona
-
 ---
 
 # Publishing guide for container offers
@@ -30,7 +29,7 @@ Microsoft currently supports free and bring-your-own-license (BYOL) licensing mo
 |:--- |:--- |  
 | Billing and metering | Support either the free or BYOL billing model.<br><br> |  
 | Image built from a Dockerfile | Container images must be based on the Docker image specification and built from a Dockerfile.<br> <br>For more information about building Docker images, see the "Usage" section of [Dockerfile reference](https://docs.docker.com/engine/reference/builder/#usage).<br><br> |  
-| Hosting in an Azure Container Registry repository | Container images must be hosted in an Azure Container Registry repository.<br> <br>For more information about working with Azure Container Registry, see [Quickstart: Create a private container registry by using the Azure portal](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal).<br><br> |  
+| Hosting in an Azure Container Registry repository | Container images must be hosted in an Azure Container Registry repository.<br> <br>For more information about working with Azure Container Registry, see [Quickstart: Create a private container registry by using the Azure portal](../container-registry/container-registry-get-started-portal.md).<br><br> |  
 | Image tagging | Container images must contain at least one tag (maximum number of tags: 16).<br><br>For more information about tagging an image, see the `docker tag` page on the [Docker Documentation](https://docs.docker.com/engine/reference/commandline/tag) site.<br><br> |  
 
 ## Next steps

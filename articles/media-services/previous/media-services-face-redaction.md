@@ -14,6 +14,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
+ms.custom: devx-track-csharp
 
 ---
 # Redact faces with Azure Media Analytics 
@@ -125,9 +126,11 @@ This is the output from an IDList with one ID selected.
 
 Example foo_IDList.txt
  
-     1
-     2
-     3
+```output
+1
+2
+3
+```
 
 ## Blur types
 

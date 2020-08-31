@@ -1,89 +1,95 @@
 ---
 title: Get started with Live Video Analytics on IoT Edge - Azure
-description: This quickstart shows how to get started with Live Video Analytics on IoT Edge, and detect motion in a live video stream.
+description: This quickstart shows how to get started with Live Video Analytics on IoT Edge. Learn how to detect motion in a live video stream.
 ms.topic: quickstart
 ms.date: 04/27/2020
 
 ---
 # Quickstart: Get started - Live Video Analytics on IoT Edge
 
-This quickstart walks you through the steps to get started with Live Video Analytics on IoT Edge. It uses an Azure VM as an IoT Edge device and a simulated live video stream. After completing the setup steps, you will be able to run a simulated live video stream through a media graph that detects and reports any motion in that stream. The diagram below shows a graphical representation of that media graph.
+This quickstart walks you through the steps to get started with Live Video Analytics on IoT Edge. It uses an Azure VM as an IoT Edge device. It also uses a simulated live video stream. 
+
+After completing the setup steps, you'll be able to run a simulated live video stream through a media graph that detects and reports any motion in that stream. The following diagram graphically represents that media graph.
 
 ![Live Video Analytics based on motion detection](./media/analyze-live-video/motion-detection.png)
 
 ## Prerequisites
 
-* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* [Visual Studio Code](https://code.visualstudio.com/) on your development machine with [Azure IoT Tools extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
-* The network, that your development machine is connected to, should permit AMQP protocol over port 5671 (so that Azure IoT Tools can communicate with Azure IoT Hub).
+* An Azure account that has an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) if you don't already have one.
+* [Visual Studio Code](https://code.visualstudio.com/) on your development machine. Make sure you have the [Azure IoT Tools extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
+* Make sure the network that your development machine is connected to permits Advanced Message Queueing Protocol (AMQP) over port 5671. This setup enables Azure IoT Tools to communicate with Azure IoT Hub.
 
 > [!TIP]
-> You might be prompted to install docker while installing Azure IoT Tools extension. Feel free to ignore it.
+> You might be prompted to install Docker while you're installing the Azure IoT Tools extension. Feel free to ignore the prompt.
 
 ## Set up Azure resources
 
-The following Azure resources are required for this tutorial.
+This tutorial requires the following Azure resources:
 
 * IoT Hub
 * Storage account
 * Azure Media Services account
-* Linux VM in Azure, with [IoT Edge runtime](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux) installed
+* A Linux VM in Azure, with [IoT Edge runtime](../../iot-edge/how-to-install-iot-edge-linux.md) installed
 
-For this quickstart we recommend that you use the [Live Video Analytics resources setup script](https://github.com/Azure/live-video-analytics/tree/master/edge/setup) to deploy the Azure resources mentioned above in your Azure subscription. To do so, follow the steps below:
+For this quickstart, we recommend that you use the [Live Video Analytics resources setup script](https://github.com/Azure/live-video-analytics/tree/master/edge/setup) to deploy the required resources in your Azure subscription. To do so, follow these steps:
 
-1. Browse to https://shell.azure.com.
-1. If this is the first time you are using Cloud Shell, you will prompted to select a subscription to create a storage account and Microsoft Azure Files share. Select "Create storage" to create a storage account for storing your Cloud Shell session information. This storage account is separate from the one the script will create to use with your Azure Media Services account.
-1. Select "Bash" as your environment in the drop-down on the left-hand side of the shell window.
+1. Go to [Azure Cloud Shell](https://shell.azure.com).
+1. If you're using Cloud Shell for the first time, you'll be prompted to select a subscription to create a storage account and a Microsoft Azure Files share. Select **Create storage** to create a storage account for your Cloud Shell session information. This storage account is separate from the account that the script will create to use with your Azure Media Services account.
+1. In the drop-down menu on the left side of the Cloud Shell window, select **Bash** as your environment.
 
-    ![Environment Selector](./media/quickstarts/env-selector.png)
+    ![Environment selector](./media/quickstarts/env-selector.png)
 
-1. Run the following command
+1. Run the following command.
 
     ```
     bash -c "$(curl -sL https://aka.ms/lva-edge/setup-resources-for-samples)"
     ```
     
-If the script completes successfully, you should see all the resources mentioned above in your subscription. As part of the script output, a table of resources will be generated which will list out the IoT hub name. Look for the resource type **"Microsoft.Devices/IotHubs"**, and note down the name. You will need this in the next step. The script will also generate a few configuration files in the ~/clouddrive/lva-sample/ directory - you will need these later in the quickstart.
+If the script finishes successfully, you should see all of the required resources in your subscription. In the script output, a table of resources lists the IoT hub name. Look for the resource type `Microsoft.Devices/IotHubs`, and note down the name. You'll need this name in the next step. 
+
+The script also generates a few configuration files in the *~/clouddrive/lva-sample/* directory. You'll need these files later in the quickstart.
 
 ## Deploy modules on your edge device
 
-Run the following command from Cloud Shell
+Run the following command from Cloud Shell.
 
 ```
 az iot edge set-modules --hub-name <iot-hub-name> --device-id lva-sample-device --content ~/clouddrive/lva-sample/edge-deployment/deployment.amd64.json
 ```
 
-The above command will deploy the following modules to the edge device (the Linux VM):
+This command deploys the following modules to the edge device, which is the Linux VM in this case.
 
-* Live Video Analytics on IoT Edge (module name "lvaEdge")
-* RTSP simulator (module name "rtspsim")
+* Live Video Analytics on IoT Edge (module name `lvaEdge`)
+* Real-Time Streaming Protocol (RTSP) simulator (module name `rtspsim`)
 
-The RTSP simulator module simulates a live video stream using a video file stored that was copied to your edge device when you ran the [Live Video Analytics resources setup script](https://github.com/Azure/live-video-analytics/tree/master/edge/setup). At this stage, you have the modules deployed but no media graphs are active.
+The RTSP simulator module simulates a live video stream by using a video file that was copied to your edge device when you ran the [Live Video Analytics resources setup script](https://github.com/Azure/live-video-analytics/tree/master/edge/setup). 
 
-## Configure Azure IoT Tools extension in Visual Studio Code
+Now the modules are deployed, but no media graphs are active.
 
-Start Visual Studio Code and follow the instructions below to connect to your Azure IoT Hub using the Azure IoT Tools extension.
+## Configure the Azure IoT Tools extension
 
-1. Navigate to the Explorer tab in Visual Studio Code via **View** > **Explorer** or simply press (Ctrl+Shift+E).
-1. In the Explorer tab, click "Azure IoT Hub" in the bottom-left corner.
-1. Click the More Options icon to see the context menu and select the "Set IoT Hub Connection String" option.
-1. An input box will pop up, then enter your IoT Hub Connection String. You can get the connection string for your IoT Hub from ~/clouddrive/lva-sample/appsettings.json in Cloud Shell.
-1. If the connection succeeds, the list of edge devices will be shown. There should be at least one device, named "lva-sample-device".
-1. You can now manage your IoT Edge devices and interact with Azure IoT Hub through context menu.
-1. You can view the modules deployed on the edge device by expanding the Modules node under "lva-sample-device".
+Follow these instructions to connect to your IoT hub by using the Azure IoT Tools extension.
 
-    ![lva-sample-device node](./media/quickstarts/lva-sample-device-node.png)
+1. In Visual Studio Code, select **View** > **Explorer**. Or select Ctrl+Shift+E.
+1. In the lower-left corner of the **Explorer** tab, select **Azure IoT Hub**.
+1. Select the **More Options** icon to see the context menu. Then select **Set IoT Hub Connection String**.
+1. When an input box appears, enter your IoT Hub connection string. In Cloud Shell, you can get the connection string from *~/clouddrive/lva-sample/appsettings.json*.
 
-## Use direct methods
+If the connection succeeds, the list of edge devices appears. You should see at least one device named **lva-sample-device**. You can now manage your IoT Edge devices and interact with Azure IoT Hub through the context menu. To view the modules deployed on the edge device, under **lva-sample-device**, expand the **Modules** node.
 
-You can use the module to analyze live video streams by invoking direct methods. Read [Direct Methods for Live Video Analytics on IoT Edge](direct-methods.md) to understand all the direct methods provided by the module. 
+![lva-sample-device node](./media/quickstarts/lva-sample-device-node.png)
+
+## Use direct method calls
+
+You can use the module to analyze live video streams by invoking direct methods. For more information, see [Direct methods for Live Video Analytics on IoT Edge](direct-methods.md). 
 
 ### Invoke GraphTopologyList
-This enumerates all the [graph topologies](media-graph-concept.md#media-graph-topologies-and-instances) in the module.
 
-1. Right-click on "lvaEdge" module and select "Invoke Module Direct Method" from the context menu.
-1. You will see an edit box pop in the top-middle of Visual Studio Code window. Enter "GraphTopologyList" in the edit box and press enter.
-1. Next, copy and paste the below JSON payload in the edit box and press enter.
+To enumerate all of the [graph topologies](media-graph-concept.md#media-graph-topologies-and-instances) in the module:
+
+1. In the Visual Studio Code, right-click the **lvaEdge** module and select **Invoke Module Direct Method**.
+1. In the box that appears, enter *GraphTopologyList*.
+1. Copy the following JSON payload and then paste it in the box. Then select the Enter key.
 
     ```
     {
@@ -91,7 +97,7 @@ This enumerates all the [graph topologies](media-graph-concept.md#media-graph-to
     }
     ```
 
-    Within a few seconds, you will see the OUTPUT window in Visual Studio Code popup with the following response
+    Within a few seconds, the **OUTPUT** window shows the following response.
 
     ```
     [DirectMethod] Invoking Direct Method [GraphTopologyList] to [lva-sample-device/lvaEdge] ...
@@ -104,12 +110,12 @@ This enumerates all the [graph topologies](media-graph-concept.md#media-graph-to
     }
     ```
     
-    The above response is expected as no graph topologies have been created.
+    This response is expected because no graph topologies have been created.
     
 
 ### Invoke GraphTopologySet
 
-Using the same steps as those outlined for invoking GraphTopologyList, you can invoke GraphTopologySet to set a [graph topology](media-graph-concept.md#media-graph-topologies-and-instances) using the following JSON as the payload.
+By using the steps for invoking `GraphTopologyList`, you can invoke `GraphTopologySet` to set a [graph topology](media-graph-concept.md#media-graph-topologies-and-instances). Use the following JSON as the payload.
 
 ```
 {
@@ -180,10 +186,9 @@ Using the same steps as those outlined for invoking GraphTopologyList, you can i
 
 ```
 
+This JSON payload creates a graph topology that defines three parameters. Two of those parameters have default values. The topology has one source (RTSP source) node, one processor (motion detection processor) node, and one sink (IoT Hub sink) node.
 
-The above JSON payload results in the creation of a graph topology that defines three parameters (two of which have default values). The topology has one source (RTSP source) node, one processor (motion detection processor) node, and one sink (IoT Hub sink) node.
-
-Within a few seconds, you will see the following response in the OUTPUT window:
+Within a few seconds, you see the following response in the **OUTPUT** window.
 
 ```
 [DirectMethod] Invoking Direct Method [GraphTopologySet] to [lva-sample-device/lvaEdge] ...
@@ -263,25 +268,26 @@ Within a few seconds, you will see the following response in the OUTPUT window:
 }
 ```
 
-The status returned is 201, indicating that a new topology was created. Try the following as next steps:
+The returned status is 201. This status indicates that a new topology was created. 
 
-* Invoke GraphTopologySet again and note that the status code returned is 200. Status code 200 indicates that an existing topology was successfully updated.
-* Invoke GraphTopologySet again but change the description string. Note the status code in the response is 200 and the description is updated to the new value.
-* Invoke GraphTopologyList as outlined in the previous section and note that now you can see the "MotionDetection" topology in the returned payload.
+Try the following next steps:
+
+1. Invoke `GraphTopologySet` again. The returned status code is 200. This code indicates that an existing topology was successfully updated.
+1. Invoke `GraphTopologySet` again, but change the description string. The returned status code is 200, and the description is updated to the new value.
+1. Invoke `GraphTopologyList` as outlined in the previous section. Now you can see the `MotionDetection` topology in the returned payload.
 
 ### Invoke GraphTopologyGet
 
-Now invoke GraphTopologyGet with the following payload
+Invoke `GraphTopologyGet` by using the following payload.
 
 ```
-
 {
     "@apiVersion" : "1.0",
     "name" : "MotionDetection"
 }
 ```
 
-Within a few seconds, you should see the following response in the OUTPUT window:
+Within a few seconds, you see the following response in the **OUTPUT** window:
 
 ```
 [DirectMethod] Invoking Direct Method [GraphTopologyGet] to [lva-sample-device/lvaEdge] ...
@@ -361,16 +367,16 @@ Within a few seconds, you should see the following response in the OUTPUT window
 }
 ```
 
-Note the following in the response payload:
+In the response payload, notice these details:
 
-* Status code is 200, indicating success.
-* The payload has the "created" and the "lastModified" timestamp.
+* The status code is 200, indicating success.
+* The payload includes the `created` time stamp and the `lastModified` time stamp.
 
 ### Invoke GraphInstanceSet
 
-Next, create a graph instance that references the above graph topology. As explained [here](media-graph-concept.md#media-graph-topologies-and-instances), graph instances let you analyze live video streams from many cameras with the same graph topology.
+Create a graph instance that references the preceding graph topology. Graph instances let you analyze live video streams from many cameras by using the same graph topology. For more information, see [Media graph topologies and instances](media-graph-concept.md#media-graph-topologies-and-instances).
 
-Invoke the direct method GraphInstanceSet with the following payload.
+Invoke the direct method `GraphInstanceSet` by using the following payload.
 
 ```
 {
@@ -386,12 +392,12 @@ Invoke the direct method GraphInstanceSet with the following payload.
 }
 ```
 
-Note the following:
+Notice that this payload:
 
-* The payload above specifies the topology name (MotionDetection) for which the instance needs to be created.
-* The payload contains parameter value for "rtspUrl", which did not have a default value in the graph topology payload.
+* Specifies the topology name (`MotionDetection`) for which the instance needs to be created.
+* Contains a parameter value for `rtspUrl`, which didn't have a default value in the graph topology payload.
 
-Within few seconds, you will see the following response in the OUTPUT window:
+Within few seconds, you see the following response in the **OUTPUT** window:
 
 ```
 [DirectMethod] Invoking Direct Method [GraphInstanceSet] to [lva-sample-device/lvaEdge] ...
@@ -417,20 +423,20 @@ Within few seconds, you will see the following response in the OUTPUT window:
 }
 ```
 
-Note the following in the response payload:
+In the response payload, notice that:
 
-* Status code is 201, indicating a new instance was created.
-* State is "Inactive", indicating that the graph instance was created but not activated. For more information, see [media graph states](media-graph-concept.md).
+* The status code is 201, indicating a new instance was created.
+* The state is `Inactive`, indicating that the graph instance was created but not activated. For more information, see [Media graph states](media-graph-concept.md).
 
-Try the following as next steps:
+Try the following next steps:
 
-* Invoke GraphInstanceSet again with the same payload and note that the returned status code is now 200.
-* Invoke GraphInstanceSet again but with a different description and note that the updated description in the response payload, indicating that the graph instance was successfully updated.
-* Invoke GraphInstanceSet but change the name to "Sample-Graph-2" and observe the response payload. Note that a new graph instance is created (that is, status code is 201).
+1. Invoke `GraphInstanceSet` again by using the same payload. Notice that the returned status code is 200.
+1. Invoke `GraphInstanceSet` again, but use a different description. Notice the updated description in the response payload, indicating that the graph instance was successfully updated.
+1. Invoke `GraphInstanceSet`, but change the name to `Sample-Graph-2`. In the response payload, notice the newly created graph instance (that is, status code 201).
 
 ### Invoke GraphInstanceActivate
 
-Now activate the graph instance - which starts the flow of live video through the module. Invoke the direct method GraphInstanceActivate with the following payload.
+Now activate the graph instance to start the flow of live video through the module. Invoke the direct method `GraphInstanceActivate` by using the following payload.
 
 ```
 {
@@ -439,7 +445,7 @@ Now activate the graph instance - which starts the flow of live video through th
 }
 ```
 
-Within few seconds, you should see the following response in the OUTPUT window:
+Within a few seconds, you see the following response in the **OUTPUT** window.
 
 ```
 [DirectMethod] Invoking Direct Method [GraphInstanceActivate] to [lva-sample-device/lvaEdge] ...
@@ -450,11 +456,11 @@ Within few seconds, you should see the following response in the OUTPUT window:
 }
 ```
 
-Status code of 200 in the response payload indicates that the graph instance was successfully activated.
+The status code of 200 indicates that the graph instance was successfully activated.
 
 ### Invoke GraphInstanceGet
 
-Now invoke the direct method GraphInstanceGet with the following payload:
+Now invoke the direct method `GraphInstanceGet` by using the following payload.
 
 ```
  {
@@ -463,7 +469,7 @@ Now invoke the direct method GraphInstanceGet with the following payload:
  }
  ```
 
-Within few seconds, you should see the following response in the OUTPUT window:
+Within a few seconds, you see the following response in the **OUTPUT** window.
 
 ```
 [DirectMethod] Invoking Direct Method [GraphInstanceGet] to [lva-sample-device/lvaEdge] ...
@@ -489,22 +495,24 @@ Within few seconds, you should see the following response in the OUTPUT window:
 }
 ```
 
-Note the following in the response payload:
+In the response payload, notice the following details:
 
-* Status code is 200, indicating success.
-* State is "Active", indicating the graph instance is now in "Active" state.
+* The status code is 200, indicating success.
+* The state is `Active`, indicating the graph instance is now active.
 
 ## Observe results
 
-The graph instance that we created and activated above uses the motion detection processor node to detect motion in the incoming live video stream and sends events to the IoT Hub sink node. These events are then relayed to your IoT Edge Hub, which can now be observed. To do so, follow these steps.
+The graph instance that we have created and activated uses the motion detection processor node to detect motion in the incoming live video stream. It sends events to the IoT Hub sink node. These events are relayed to IoT Edge Hub. 
 
-1. Open the Explorer pane in Visual Studio Code and look for Azure IoT Hub at the bottom-left corner.
-2. Expand the Devices node.
-3. Right-clink on lva-sample-device and chose the option "Start Monitoring Built-in Event Monitoring".
+To observe the results, follow these steps.
 
-![Start monitoring Iot Hub events](./media/quickstarts/start-monitoring-iothub-events.png)
+1. In Visual Studio Code, open the **Explorer** pane. In the lower-left corner, look for **Azure IoT Hub**.
+2. Expand the **Devices** node.
+3. Right-click **lva-sample-device** and then select **Start Monitoring Built-in Event Monitoring**.
 
-You will see the following messages in the OUTPUT window:
+    ![Start monitoring Iot Hub events](./media/quickstarts/start-monitoring-iothub-events.png)
+    
+The **OUTPUT** window displays the following message:
 
 ```
 [IoTHubMonitor] [7:44:33 AM] Message received from [lva-sample-device/lvaEdge]:
@@ -546,16 +554,16 @@ You will see the following messages in the OUTPUT window:
 }
 ```
 
-Note the following in the above message
+Notice these details:
 
-* The message contains a "body" section and an "applicationProperties" section. To understand what these sections represent, read the article [Create and Read IoT Hub message](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct).
-* "subject" in applicationProperties references the node in the MediaGraph from which the message was generated. In this case, the message is originating from the motion detection processor.
-* "eventType" in applicationProperties indicates that this is an Analytics event.
-* "eventTime" indicates the time when the event occurred.
-* "body" contains data about the analytics event. In this case, the event is an Inference event and hence the body contains "timestamp" and "inferences" data.
-* "inferences" section indicates that the "type" is "motion" and has additional data about the "motion" event.
+* The message contains a `body` section and an `applicationProperties` section. For more information, see [Create and read IoT Hub messages](../../iot-hub/iot-hub-devguide-messages-construct.md).
+* In `applicationProperties`, `subject` references the node in the `MediaGraph` from which the message was generated. In this case, the message originates from the motion detection processor.
+* In `applicationProperties`, `eventType` indicates that this event is an analytics event.
+* The `eventTime` value is the time when the event occurred.
+* The `body` section contains data about the analytics event. In this case, the event is an inference event, so the body contains `timestamp` and `inferences` data.
+* The `inferences` section indicates that the `type` is `motion`. It provides additional data about the `motion` event.
 
-If you let the MediaGraph run for sometime, you will see the following message as well in the Output window:
+If you let the media graph run for a while, you see the following message in the **OUTPUT** window.
 
 ```
 [IoTHubMonitor] [7:47:45 AM] Message received from [lva-sample-device/lvaEdge]:
@@ -573,19 +581,19 @@ If you let the MediaGraph run for sometime, you will see the following message a
 }
 ```
 
-Note the following in the above message
+In this message, notice the following details:
 
-* "subject" in applicationProperties indicates that the message was generated from the RTSP source node in the media graph.
-* "eventType" in applicationProperties indicates that this is a Diagnostic event.
-* "body" contains data about the diagnostic event. In this case, the event is MediaSessionEstablished and hence the body.
+* In `applicationProperties`, `subject` indicates that the message was generated from the RTSP source node in the media graph.
+* In `applicationProperties`, `eventType` indicates that this event is diagnostic.
+* The `body` contains data about the diagnostic event. In this case, the message contains the body because the event is `MediaSessionEstablished`.
 
 ## Invoke additional direct methods to clean up
 
-Now, invoke direct methods to deactivate and delete the graph instance (in that order).
+Invoke direct methods to first deactivate the graph instance and then delete it.
 
 ### Invoke GraphInstanceDeactivate
 
-Invoke the direct method GraphInstanceDeactivate with the following payload.
+Invoke the direct method `GraphInstanceDeactivate` by using the following payload.
 
 ```
 {
@@ -594,7 +602,7 @@ Invoke the direct method GraphInstanceDeactivate with the following payload.
 }
 ```
 
-Within few seconds, you should see the following response in the OUTPUT window:
+Within a few seconds, you see the following response in the **OUTPUT** window:
 
 ```
 [DirectMethod] Invoking Direct Method [GraphInstanceDeactivate] to [lva-sample-device/lvaEdge] ...
@@ -605,15 +613,13 @@ Within few seconds, you should see the following response in the OUTPUT window:
 }
 ```
 
-Status code of 200 indicates that the graph instance was successfully deactivated.
+The status code of 200 indicates that the graph instance was successfully deactivated.
 
-Try the following, as next steps.
-
-* Invoke GraphInstanceGet as indicated in the earlier sections and observe the "state" value.
+Next, try to invoke `GraphInstanceGet` as indicated previously in this article. Observe the `state` value.
 
 ### Invoke GraphInstanceDelete
 
-Invoke the direct method GraphInstanceDelete with the following payload
+Invoke the direct method `GraphInstanceDelete` by using the following payload.
 
 ```
 {
@@ -622,7 +628,7 @@ Invoke the direct method GraphInstanceDelete with the following payload
 }
 ```
 
-Within few seconds, you should see the following response in the OUTPUT window:
+Within a few seconds, you see the following response in the **OUTPUT** window:
 
 ```
 [DirectMethod] Invoking Direct Method [GraphInstanceDelete] to [lva-sample-device/lvaEdge] ...
@@ -633,11 +639,11 @@ Within few seconds, you should see the following response in the OUTPUT window:
 }
 ```
 
-Status code of 200 in the response indicates that the graph instance was successfully deleted.
+A status code of 200 indicates that the graph instance was successfully deleted.
 
 ### Invoke GraphTopologyDelete
 
-Invoke the direct method GraphTopologyDelete with the following payload:
+Invoke the direct method `GraphTopologyDelete` by using the following payload.
 
 ```
 {
@@ -646,7 +652,7 @@ Invoke the direct method GraphTopologyDelete with the following payload:
 }
 ```
 
-Within few seconds, you should see the following response in the OUTPUT window:
+Within a few seconds, you see the following response in the **OUTPUT** window.
 
 ```
 [DirectMethod] Invoking Direct Method [GraphTopologyDelete] to [lva-sample-device/lvaEdge] ...
@@ -657,18 +663,18 @@ Within few seconds, you should see the following response in the OUTPUT window:
 }
 ```
 
-Status code of 200 indicates that the graph topology was successfully deleted.
+A status code of 200 indicates that the graph topology was successfully deleted.
 
-Try the following as next steps.
+Try the following next steps:
 
-* Invoke GraphTopologyList and observe that there are no graph topologies in the module.
-* Invoke GraphInstanceList with the same payload as GraphTopologyList and observe that are no graph instances enumerated.
+1. Invoke `GraphTopologyList` and observe that the module contains no graph topologies.
+1. Invoke `GraphInstanceList` by using the same payload as `GraphTopologyList`. Observe that no graph instances are enumerated.
 
 ## Clean up resources
 
-If you're not going to continue to use this application, delete resources created in this quickstart.
+If you're not going to continue to use this application, delete the resources you created in this quickstart.
 
 ## Next steps
 
-* Learn how to record video using Live Video Analytics on IoT Edge
-* Learn more about diagnostic messages.
+* Learn how to [record video by using Live Video Analytics on IoT Edge](continuous-video-recording-tutorial.md).
+* Learn more about [diagnostic messages](monitoring-logging.md).

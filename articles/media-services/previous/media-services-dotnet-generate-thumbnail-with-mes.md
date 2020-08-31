@@ -15,6 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
+ms.custom: devx-track-csharp
 
 ---
 # How to generate thumbnails using Media Encoder Standard with .NET 
@@ -278,7 +279,7 @@ Note the use of {Resolution} macro in the FileName; it indicates to the encoder 
 While all of the above examples have discussed how you can submit an encoding task that only produces images, you can also combine video/audio encoding with thumbnail generation. The following JSON and XML preset tell **Media Encoder Standard** to generate a thumbnail during encoding.
 
 ### <a id="json"></a>JSON preset
-For information about schema, see [this](https://msdn.microsoft.com/library/mt269962.aspx) article.
+For information about schema, see [this](./media-services-mes-schema.md) article.
 
 ```json
 	{
@@ -343,7 +344,7 @@ For information about schema, see [this](https://msdn.microsoft.com/library/mt26
 ```
 
 ### <a id="xml"></a>XML preset
-For information about schema, see [this](https://msdn.microsoft.com/library/mt269962.aspx) article.
+For information about schema, see [this](./media-services-mes-schema.md) article.
 
 ```csharp
 	<?xml version="1.0" encoding="utf-16"?>
@@ -404,9 +405,12 @@ The following code example uses Media Services .NET SDK to perform the following
 * Create an encoding job.
 * Get a reference to the Media Encoder Standard encoder.
 * Load the preset [XML](media-services-dotnet-generate-thumbnail-with-mes.md#xml) or [JSON](media-services-dotnet-generate-thumbnail-with-mes.md#json) that contain the encoding preset as well as information needed to generate thumbnails. You can save this  [XML](media-services-dotnet-generate-thumbnail-with-mes.md#xml) or [JSON](media-services-dotnet-generate-thumbnail-with-mes.md#json) in a file and use the following code to load the file.
-  
-        // Load the XML (or JSON) from the local file.
-        string configuration = File.ReadAllText(fileName);  
+
+    ```csharp
+    // Load the XML (or JSON) from the local file.
+    string configuration = File.ReadAllText(fileName);  
+    ```
+
 * Add a single encoding task to the job. 
 * Specify the input asset to be encoded.
 * Create an output asset that contains the encoded asset.
@@ -570,4 +574,3 @@ You can check the [job progress](media-services-check-job-progress.md) while the
 
 ## See Also
 [Media Services Encoding Overview](media-services-encode-asset.md)
-

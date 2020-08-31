@@ -3,7 +3,7 @@ title: Tutorial`:` Use a managed identity to access Azure Key Vault - Windows - 
 description: A tutorial that walks you through the process of using a Windows VM system-assigned managed identity to access Azure Key Vault. 
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: daveba
 
@@ -14,7 +14,7 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/10/2020
-ms.author: markvi
+ms.author: barclayn
 ms.collection: M365-identity-device-management
 ---
 
@@ -71,7 +71,7 @@ Next, add a secret to the Key Vault, so that later you can retrieve the secret u
  
 ## Access data  
 
-This section shows how to get an access token using the VM identity and use it to retrieve the secret from the Key Vault. If you don’t have PowerShell 4.3.1 or greater installed, you'll need to [download and install the latest version](https://docs.microsoft.com/powershell/azure/overview).
+This section shows how to get an access token using the VM identity and use it to retrieve the secret from the Key Vault. If you don’t have PowerShell 4.3.1 or greater installed, you'll need to [download and install the latest version](https://docs.microsoft.com/powershell/azure/).
 
 First, we use the VM’s system-assigned managed identity to get an access token to authenticate to Key Vault:
  

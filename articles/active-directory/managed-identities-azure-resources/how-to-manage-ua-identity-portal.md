@@ -3,28 +3,26 @@ title: Manage a user-assigned managed identity in the Azure portal - Azure AD
 description: Step-by-step instructions on how to create, list, delete, and assign a role to a user-assigned managed identity.
 services: active-directory
 documentationcenter: 
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: 
 
 ms.service: active-directory
 ms.subservice: msi
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/16/2018
-ms.author: markvi
+ms.date: 08/26/2020
+ms.author: barclayn
 ms.collection: M365-identity-device-management
 ---
 
 # Create, list, delete or assign a role to a user-assigned managed identity using the Azure portal
 
-[!INCLUDE [preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
-
 Managed identities for Azure resources provide Azure services with a managed identity in Azure Active Directory. You can use this identity to authenticate to services that support Azure AD authentication, without needing credentials in your code. 
 
-In this article, you learn how to create, list, delete or assign a role to a user-assigned managed identity using the Azure Portal.
+In this article, you learn how to create, list, delete or assign a role to a user-assigned managed identity using the Azure portal.
 
 ## Prerequisites
 
@@ -38,13 +36,13 @@ To create a user-assigned managed identity, your account needs the [Managed Iden
 1. Sign in to the [Azure portal](https://portal.azure.com) using an account associated with the Azure subscription to create the user-assigned managed identity.
 2. In the search box, type *Managed Identities*, and under **Services**, click **Managed Identities**.
 3. Click **Add** and enter values in the following fields under **Create user assigned managed** identity pane:
-   - **Resource Name**: This is the name for your user-assigned managed identity, for example UAI1.
-   - **Subscription**: Choose the subscription to create the user-assigned managed identity under
-   - **Resource Group**: Create a new resource group to contain your user-assigned managed identity or choose **Use existing** to create the user-assigned managed identity in an existing resource group.
-   - **Location**: Choose a location to deploy the user-assigned managed identity, for example **West US**.
-4. Click **Create**.
-
-![Create a user-assigned managed identity](./media/how-to-manage-ua-identity-portal/create-user-assigned-managed-identity-portal.png)
+    - **Subscription**: Choose the subscription to create the user-assigned managed identity under.
+    - **Resource group**: Choose a resource group to create the user-assigned managed identity in or click **Create new** to create a new resource group.
+    - **Region**: Choose a region to deploy the user-assigned managed identity, for example **West US**.
+    - **Name**: This is the name for your user-assigned managed identity, for example UAI1.
+    ![Create a user-assigned managed identity](./media/how-to-manage-ua-identity-portal/create-user-assigned-managed-identity-portal.png)
+4. Click **Review + crate** to review the changes.
+5. Click **Create**.
 
 ## List user-assigned managed identities
 

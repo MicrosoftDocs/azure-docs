@@ -8,7 +8,8 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 02/10/2020
+ms.date: 06/20/2020
+ms.custom: "devx-track-javascript, devx-track-csharp"
 ---
 
 # Tutorial: Add paging to search results using the .NET SDK

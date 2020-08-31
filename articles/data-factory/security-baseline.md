@@ -510,7 +510,7 @@ If you are running your Integration Runtime in an Azure Virtual Machine (VM), on
 
 ### 3.13: Provide Microsoft with access to relevant customer data during support scenarios
 
-**Guidance**: In support scenarios where Microsoft needs to access customer data, Azure Customer Lockbox provides an interface for customers to review and approve or reject customer data access requests. Note that while Azure Lockbox is not available for Azure Data Factory itself, Azure Lockbox does support Azure SQL Databases and Azure Virtual Machines.
+**Guidance**: In support scenarios where Microsoft needs to access customer data, Azure Customer Lockbox provides an interface for customers to review and approve or reject customer data access requests. Note that while Azure Lockbox is not available for Azure Data Factory itself, Azure Lockbox does support Azure SQL Database and Azure Virtual Machines.
 
 * [Understand Customer Lockbox](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview)
 
@@ -596,15 +596,15 @@ Data discovery and classification features are not yet available for other Azure
 
 **Responsibility**: Customer
 
-### 4.6: Use Role-based access control to control access to resources
+### 4.6: Use Azure RBAC to control access to resources
 
-**Guidance**: Use Azure Active Directory (AD) role-based access control (RBAC) to control access to the Azure Data Factory control plane (the Azure portal).
+**Guidance**: Use Azure role-based access control (Azure RBAC) to control access to the Azure Data Factory control plane (the Azure portal).
 
 To create Data Factory instances, the user account that you use to sign in to Azure must be a member of the contributor or owner role, or an administrator of the Azure subscription.
 
-For your Data Factory data sources, such as Azure SQL Database, refer to the security baseline for that service for more information regarding RBAC.
+For your Data Factory data sources, such as Azure SQL Database, refer to the security baseline for that service for more information regarding Azure RBAC.
 
-* [How to configure RBAC in Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
+* [How to configure Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
 
 * [Roles and permissions for Azure Data Factory](https://docs.microsoft.com/azure/data-factory/concepts-roles-permissions)
 
@@ -670,7 +670,7 @@ You can store credentials or secret values in an Azure Key Vault and use them du
 
 If you are running your Integration Runtime in an Azure Virtual Machine (VM), follow recommendations from Azure Security Center on performing vulnerability assessments on your VMs. Use Azure Security recommended or third-party solution for performing vulnerability assessments for your virtual machines.
 
-* [How to run vulnerability assessments on your Azure SQL Databases](https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment)
+* [How to run vulnerability assessments on Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment)
 
 * [How to enable Advanced Data Security](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security)
 
@@ -982,15 +982,15 @@ For most scenarios, the Microsoft base VM templates combined with the Azure Auto
 
 ### 7.6: Securely store custom operating system images
 
-**Guidance**: If using custom images, use role-based access control (RBAC) to ensure only authorized users may access the images. For container images, store them in Azure Container Registry and leverage RBAC to ensure only authorized users may access the images.
+**Guidance**: If using custom images, use Azure role-based access control (Azure RBAC) to ensure only authorized users may access the images. For container images, store them in Azure Container Registry and leverage Azure RBAC to ensure only authorized users may access the images.
 
 The Data Factory Contributor role can be used to create and manage data factories, as well as child resources within them.
 
-* [Understand RBAC in Azure](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles)
+* [Understand Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles)
 
-* [Understand RBAC for Container Registry](https://docs.microsoft.com/azure/container-registry/container-registry-roles)
+* [Understand Azure RBAC for Container Registry](https://docs.microsoft.com/azure/container-registry/container-registry-roles)
 
-* [How to configure RBAC in Azure](https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal)
+* [How to configure Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal)
 
 * [Roles and permissions for Azure Data Factory](https://docs.microsoft.com/azure/data-factory/concepts-roles-permissions)
 

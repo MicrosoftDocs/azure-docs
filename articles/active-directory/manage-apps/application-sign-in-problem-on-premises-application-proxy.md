@@ -31,7 +31,7 @@ The following documents can help you to resolve some of the most common issues i
 
 ## I'm having a connectivity problem my application
   The following documents can help you to resolve some of the most common issues in this category.
-  * [I don't know what ports to open for my application](application-proxy-connectivity-ports-how-to.md)
+  * [I don't know what ports to open for my application](application-proxy-add-on-premises-application.md)
   * [I encountered a problem because there was no working connector in a connector group for my application](application-proxy-connectivity-no-working-connector.md)
 
 ## I'm having a problem configuring the Azure AD Application Proxy in the admin portal

@@ -111,8 +111,8 @@ Microsoft Translator V3 uses neural machine translation by default. As such, it 
 
 Neural translation with the V3 text API does not support the use of standard categories (SMT, speech, tech, generalnn).
 
-| |Endpoint|    GDPR Processor Compliance|    Use Translator Hub|    Use Custom Translator (Preview)|
-|:-----|:-----|:-----|:-----|:-----|
+| Version | Endpoint | GDPR Processor Compliance | Use Translator Hub | Use Custom Translator (Preview) |
+| :------ | :------- | :------------------------ | :----------------- | :------------------------------ |
 |Translator Version 2|    api.microsofttranslator.com|    No    |Yes    |No|
 |Translator Version 3|    api.cognitive.microsofttranslator.com|    Yes|    No|    Yes|
 

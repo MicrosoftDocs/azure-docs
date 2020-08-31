@@ -2,10 +2,10 @@
 title: Supported data stores in Azure Data Share
 description: Learn about the data stores that are supported for use Azure Data Share.
 ms.service: data-share
-author: joannapea
-ms.author: joanpo
+author: jifems
+ms.author: jife
 ms.topic: conceptual
-ms.date: 10/30/2019
+ms.date: 08/14/2020
 ---
 # Supported data stores in Azure Data Share
 
@@ -24,7 +24,7 @@ The below table details the supported data sources for Azure Data Share.
 | Azure Data Lake Storage Gen2 |✓ ||
 | Azure SQL Database |Public Preview | |
 | Azure Synapse Analytics (formerly Azure SQL DW) |Public Preview | |
-| Azure Data Explorer | |Public Preview |
+| Azure Data Explorer | |✓ |
 
 ## Data store support matrix
 
@@ -32,7 +32,7 @@ Azure Data Share offers data consumers flexibility when deciding on a data store
 
 The below table details different combinations and choices that data consumers have when accepting and configuring their data share. For more information on how to configure dataset mappings, see [how to configure dataset mappings](how-to-configure-mapping.md).
 
-|  | Azure Blob Storage | Azure Data Lake Storage Gen1 | Azure Data Lake Storage Gen2 | Azure SQL Database | Azure Synapse Analytics | Azure Data Explorer
+| Data store | Azure Blob Storage | Azure Data Lake Storage Gen1 | Azure Data Lake Storage Gen2 | Azure SQL Database | Azure Synapse Analytics | Azure Data Explorer
 |:--- |:--- |:--- |:--- |:--- |:--- |:--- |
 | Azure Blob storage | ✓ || ✓ ||
 | Azure Data Lake Storage Gen1 | ✓ | | ✓ ||
@@ -56,9 +56,7 @@ Sharing from SQL-based sources has pre-requisites related to firewall rules and 
 ## Share from Azure Data Explorer
 Azure Data Share supports the ability to share databases in-place from Azure Data Explorer clusters. Data provider can share at the database or cluster level. When shared at database level, data consumer will only be able to access the specific database(s) shared by the data provider. When shared at cluster level, data consumer can access all the databases from the provider's cluster, including any future databases created by the data provider.
 
-To access shared databases, data consumer needs to have its own Azure Data Explorer cluster. Data consumer's Azure Data Explorer cluster needs to locate in the same Azure data center as the data provider's Azure Data Explorer cluster. When sharing relationship is established, Azure Data Share creates a symbolic link between the provider and consumer's Azure Data Explorer clusters.
-
-Azure Data Explorer supports two modes of data ingestion: batch and streaming. Data received from batch in the shared database will appear between a few seconds to a few minutes on the data consumer side. Data received from streaming could take up to 24 hours to appear on the data consumer side. 
+To access shared databases, data consumer needs to have its own Azure Data Explorer cluster. Data consumer's Azure Data Explorer cluster needs to locate in the same Azure data center as the data provider's Azure Data Explorer cluster. When sharing relationship is established, Azure Data Share creates a symbolic link between the provider and consumer's Azure Data Explorer clusters. Data ingested using batch mode into the source Azure Data Explorer cluster will show up on the target cluster within a few seconds to a few minutes.
 
 ## Next steps
 

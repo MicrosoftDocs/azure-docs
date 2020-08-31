@@ -23,7 +23,11 @@ This article talks about the most recent Media Services v3 documentation updates
 
 ## June 2020
 
-The preview of Live Video Analytics on IoT Edge went public. See details in the [Live Video Analytics on IoT Edge](https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/) documentation.
+* The preview of Live Video Analytics on IoT Edge went public. See details in the [Live Video Analytics on IoT Edge](../live-video-analytics-edge/index.yml) documentation.
+* New quickstarts:
+
+    * [Use portal to upload, encode, and stream content](manage-assets-quickstart.md)
+    * [Use portal to encrypt content](encrypt-content-quickstart.md)
 
 ## April 2020
 

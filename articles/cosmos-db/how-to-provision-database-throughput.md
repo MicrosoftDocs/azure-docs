@@ -3,9 +3,10 @@ title: Provision database throughput in Azure Cosmos DB
 description: Learn how to provision throughput at the database level in Azure Cosmos DB using Azure portal, CLI, PowerShell and various other SDKs. 
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/28/2019
-ms.author: mjbrown
+ms.author: mjbrown 
+ms.custom: devx-track-azurecli, devx-track-csharp
 ---
 
 # Provision standard (manual) throughput on a database in Azure Cosmos DB
@@ -27,7 +28,7 @@ This article explains how to provision standard (manual) throughput on a databas
    * Enter a throughput (for example, 1000 RUs).
    * Select **OK**.
 
-    ![Screenshot of New Database dialog box](./media/how-to-provision-database-throughput/provision-database-throughput-portal-all-api.png)
+    :::image type="content" source="./media/how-to-provision-database-throughput/provision-database-throughput-portal-all-api.png" alt-text="Screenshot of New Database dialog box":::
 
 ## Provision throughput using Azure CLI or PowerShell
 

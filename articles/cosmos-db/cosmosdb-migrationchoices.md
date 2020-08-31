@@ -4,7 +4,7 @@ description: This doc describes the various options to migrate your on-premises 
 author: SnehaGunda
 ms.author: sngun
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/23/2019
 
 ---

@@ -26,7 +26,7 @@ When making your decision, consider the following two options:
 
 The main differences between these options are listed in the following table:
 
-|            | Azure Database for MariaDB | MariaDB on Azure VMs    |
+| Attribute          | Azure Database for MariaDB | MariaDB on Azure VMs    |
 |:-------------------|:-----------------------------|:--------------------|
 | Service-level agreement (SLA)                | Offers SLA of 99.99% availability| Up to 99.95% availability with two or more instances in the same availability set.<br/><br/>99.9% availability with a single instance VM using premium storage.<br/><br/>99.99% using Availability Zones with multiple instances in multiple availability sets.<br/><br/>See the [Virtual Machines SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/). |
 | Operating system patching        | Automatic  | Managed by customers |

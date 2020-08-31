@@ -1,7 +1,7 @@
 ---
 title: "Pattern: Logical operators in a policy definition"
 description: This Azure Policy pattern provides examples of how to use the logical operators in a policy definition.
-ms.date: 04/15/2020
+ms.date: 08/17/2020
 ms.topic: sample
 ---
 # Azure Policy pattern: logical operators
@@ -14,8 +14,8 @@ and **anyOf**. They're optional and can be nested to create complex scenarios.
 ## Sample 1: One logical operator
 
 This policy definition evaluates CosmosDB accounts to see if automatic failovers and multiple write
-locations are configured. When they aren't, the [audit](../concepts/effects.md#audit) triggers
-and creates a log entry when the non-compliant resource is created or updated.
+locations are configured. When they aren't, the [audit](../concepts/effects.md#audit) triggers and
+creates a log entry when the non-compliant resource is created or updated.
 
 :::code language="json" source="~/policy-templates/patterns/pattern-logical-operators-1.json":::
 

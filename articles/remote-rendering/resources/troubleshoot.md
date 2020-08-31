@@ -30,6 +30,14 @@ Check that your GPU supports hardware video decoding. See [Development PC](../ov
 
 If you are working on a laptop with two GPUs, it is possible that the GPU you are running on by default, does not provide hardware video decoding functionality. If so, try to force your app to use the other GPU. This is often possible in the GPU driver settings.
 
+## Retrieve session/conversion status fails
+
+Sending REST API commands too frequently will cause the server to throttle and return failure eventually. The http status code in the throttling case is 429 ("too many requests"). As a rule of thumb, there should be a delay of **5-10 seconds between subsequent calls**.
+
+Note this limit not only affects the REST API calls when called directly but also their C#/C++ counterparts, such as `Session.GetPropertiesAsync`, `Session.RenewAsync`, or `Frontend.GetAssetConversionStatusAsync`.
+
+If you experience server-side throttling, change the code to do the calls less frequently. The server will reset the throttling state every minute, so it is safe to rerun the code after a minute.
+
 ## H265 codec not available
 
 There are two reasons why the server might refuse to connect with a `codec not available` error.
@@ -100,7 +108,7 @@ If these two steps did not help, it is required to find out whether video frames
 
 **The model exceeds the limits of the selected VM, specifically the maximum number of polygons:**
 
-See specific [VM size limits](../reference/limits.md#overall-number-of-polygons).
+See specific [server size limits](../reference/limits.md#overall-number-of-polygons).
 
 **The model is not inside the camera frustum:**
 
@@ -145,11 +153,11 @@ Azure Remote Rendering hooks into the Unity render pipeline to do the frame comp
 
 If the rendered image looks like this:
 ![Checkerboard](../reference/media/checkerboard.png)
-then the renderer hits the [polygon limits for the standard VM size](../reference/vm-sizes.md). To mitigate, either switch to **premium VM** size or reduce the number of visible polygons.
+then the renderer hits the [polygon limits for the standard configuration size](../reference/vm-sizes.md). To mitigate, either switch to **premium** configuration size or reduce the number of visible polygons.
 
 ## The rendered image in Unity is upside-down
 
-Make sure to follow the [project setup guide](../tutorials/unity/project-setup.md) exactly. An upside down image indicates that Unity is required to create an off-screen render target. This behavior is currently not supported and creates a huge performance impact on HoloLens 2.
+Make sure to follow the [Unity Tutorial: View remote models](../tutorials/unity/view-remote-models/view-remote-models.md) exactly. An upside down image indicates that Unity is required to create an off-screen render target. This behavior is currently not supported and creates a huge performance impact on HoloLens 2.
 
 Reasons for this issue could be MSAA, HDR, or enabling post processing. Make sure that the low-quality profile is selected and set as default in the Unity. To do so go to *Edit > Project Settings... > Quality*.
 

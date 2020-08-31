@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.reviewer: milanga
+ms.custom: devx-track-csharp
 ---
 # Detect Face and Emotion with Azure Media Analytics
 
@@ -162,8 +163,8 @@ Below are recommended values for the aggregate window and interval settings. Agg
 
 || Defaults(s) | Max(s) | Min(s) |
 |--- | --- | --- | --- |
-| AggregateEmotionWindowMs |0.5 |2 |0.25|
-| AggregateEmotionIntervalMs |0.5 |1 |0.25|
+| **AggregateEmotionWindowMs** |0.5 |2 |0.25|
+| **AggregateEmotionIntervalMs** |0.5 |1 |0.25|
 
 ### JSON output
 JSON output for aggregate emotion (truncated):

@@ -1,6 +1,6 @@
 ---
-title: 'CLI: Connect an app to a SQL database'
-description: Learn how to use the Azure CLI to automate deployment and management of your App Service app. This sample shows how to connect an app to a SQL database.
+title: 'CLI: Connect an app to SQL Database'
+description: Learn how to use the Azure CLI to automate deployment and management of your App Service app. This sample shows how to connect an app to SQL Database.
 author: msangapu-msft
 tags: azure-service-management
 
@@ -12,9 +12,9 @@ ms.author: msangapu
 ms.custom: mvc, seodec18
 ---
 
-# Connect an App Service app to a SQL database using CLI
+# Connect an App Service app to SQL Database using CLI
 
-This sample script creates an Azure SQL database and an App Service app. It then links the SQL database to the app using app settings.
+This sample script creates a database in Azure SQL Database and an App Service app. It then links the database to the app using app settings.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -44,6 +44,6 @@ This script uses the following commands to create a resource group, App Service 
 
 ## Next steps
 
-For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure).
+For more information on the Azure CLI, see [Azure CLI documentation](/cli/azure).
 
 Additional App Service CLI script samples can be found in the [Azure App Service documentation](../samples-cli.md).

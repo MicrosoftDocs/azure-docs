@@ -12,7 +12,7 @@ metadata:
   ms.collection: collection
   author: memildin #Required; your GitHub user alias, with correct capitalization.
   ms.author: memildin #Required; microsoft alias of author; optional team alias.
-  ms.date: 11/04/2019 #Required; mm/dd/yyyy format.
+  ms.date: 08/17/2020 #Required; mm/dd/yyyy format.
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -34,18 +34,16 @@ landingContent:
     linkLists:
       - linkListType: whats-new
         links:
-          - text: Protect your containers
-            url: container-security.md
-          - text: Integrated vulnerability assessment for VMs
-            url: built-in-vulnerability-assessment.md
-          - text: Review the schemas for security alerts 
-            url: alerts-schemas.md
-          - text: Automate responses to alerts and recommendations
-            url: workflow-automation.md
-          - text: Export security alerts and recommendations
-            url: continuous-export.md
-          - text: Set up threat protection for Azure Key Vault 
-            url: advanced-threat-protection-key-vault.md
+          - text: Release notes for Security Center
+            url: release-notes.md
+          - text: Manage your resources with asset inventory
+            url: asset-inventory.md
+          - text: Adaptive application control page rewritten
+            url: security-center-adaptive-application.md
+          - text: Full descriptions of the new security controls
+            url: secure-score-security-controls.md#security-controls-and-their-recommendations
+          - text: Secure score API
+            url: secure-score-security-controls.md#getting-your-secure-score-from-the-rest-api
  
   # Card
   - title: Get started
@@ -72,6 +70,8 @@ landingContent:
             url: tutorial-security-policy.md
           - text: Use recommendations to enhance security
             url: security-center-using-recommendations.md
+          - text: Track with the secure score API
+            url: secure-score-security-controls.md#getting-your-secure-score-from-the-rest-api
 
   # Card
   - title: Mitigate threats

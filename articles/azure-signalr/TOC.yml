@@ -28,10 +28,6 @@
   items:
   - name: Build a serverless real-time app with authentication
     href: signalr-tutorial-authenticate-azure-functions.md
-  - name: Monitor
-    items:
-    - name: Use diagnostic logs to monitor SignalR Service
-      href: signalr-tutorial-diagnostic-logs.md
 
 - name: Samples
   items:
@@ -56,6 +52,8 @@
       href: signalr-concept-serverless-development-config.md
     - name: SignalR Service bindings for Azure Functions reference
       href: ../azure-functions/functions-bindings-signalr-service.md
+    - name: Upstream settings
+      href: concept-upstream.md
   - name: High availability
     items:
     - name: Resiliency and disaster recovery
@@ -86,12 +84,20 @@
       href: howto-private-endpoints.md
     - name: Manage network access control
       href: howto-network-access-control.md
+    - name: Use managed identity
+      href: howto-use-managed-identity.md
   - name: Integrate
     items:
     - name: Azure Functions bindings
       href: signalr-concept-azure-functions.md
     - name: Event Grid integration
-      href: signalr-howto-event-grid-integration.md
+      href: signalr-howto-event-grid-integration.md 
+  - name: Monitor
+    items:
+    - name: Use diagnostic logs to monitor SignalR Service
+      href: signalr-howto-diagnostic-logs.md
+    - name: Audit compliance using Azure Policy
+      href: signalr-howto-azure-policy.md
 
 - name: References
   items:

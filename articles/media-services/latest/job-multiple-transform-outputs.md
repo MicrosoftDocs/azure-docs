@@ -12,6 +12,7 @@ ms.workload:
 ms.topic: article
 ms.date: 02/17/2020
 ms.author: juliako
+ms.custom: devx-track-csharp
 ---
 
 # Create a job with multiple transform outputs
@@ -127,7 +128,7 @@ private static async Task<Job> SubmitJobAsync(IAzureMediaServicesClient client,
 ```
 ## Job error codes
 
-See [Error codes](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode).
+See [Error codes](/rest/api/media/jobs/get#joberrorcode).
 
 ## Next steps
 

@@ -3,11 +3,11 @@ title: Design Azure Cosmos DB tables for scaling and performance
 description: "Azure Table storage design guide: Scalable and performant tables in Azure Cosmos DB and Azure Table storage"
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
-ms.topic: conceptual
-ms.date: 05/21/2019
+ms.topic: how-to
+ms.date: 06/19/2020
 author: sakash279
 ms.author: akshanka
-ms.custom: seodec18
+ms.custom: "seodec18, devx-track-csharp"
 
 ---
 # Azure Table storage table design guide: Scalable and performant tables
@@ -313,7 +313,7 @@ One-to-many relationships between business domain objects occur frequently: for 
 
 Consider the example of a large multinational corporation with tens of thousands of departments and employee entities. Every department has many employees and each employee is associated with one specific department. One approach is to store separate department and employee entities, such as the following:  
 
-![Graphic showing a department entity and an employee entity][1]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE01.png" alt-text="Graphic showing a department entity and an employee entity":::
 
 This example shows an implicit one-to-many relationship between the types, based on the `PartitionKey` value. Each department can have many employees.  
 
@@ -321,7 +321,7 @@ This example also shows a department entity and its related employee entities in
 
 An alternative approach is to denormalize your data, and store only employee entities with denormalized department data, as shown in the following example. In this particular scenario, this denormalized approach might not be the best if you have a requirement to be able to change the details of a department manager. To do this, you would need to update every employee in the department.  
 
-![Graphic of employee entity][2]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE02.png" alt-text="Graphic of employee entity":::
 
 For more information, see the [Denormalization pattern](#denormalization-pattern) later in this guide.  
 
@@ -398,18 +398,18 @@ For example, if you have small tables that contain data that doesn't change ofte
 ### Inheritance relationships
 If your client application uses a set of classes that form part of an inheritance relationship to represent business entities, you can easily persist those entities in Table storage. For example, you might have the following set of classes defined in your client application, where `Person` is an abstract class.
 
-![Diagram of inheritance relationships][3]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE03.png" alt-text="Diagram of inheritance relationships":::
 
 You can persist instances of the two concrete classes in Table storage by using a single `Person` table. Use entities that look like the following:  
 
-![Graphic showing customer entity and employee entity][4]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE04.png" alt-text="Graphic showing customer entity and employee entity":::
 
 For more information about working with multiple entity types in the same table in client code, see [Work with heterogeneous entity types](#work-with-heterogeneous-entity-types) later in this guide. This provides examples of how to recognize the entity type in client code.  
 
 ## Table design patterns
 In previous sections, you learned about how to optimize your table design for both retrieving entity data by using queries, and for inserting, updating, and deleting entity data. This section describes some patterns appropriate for use with Table storage. In addition, you'll see how you can practically address some of the issues and trade-offs raised previously in this guide. The following diagram summarizes the relationships among the different patterns:  
 
-![Diagram of table design patterns][5]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE05.png" alt-text="Diagram of table design patterns":::
 
 The pattern map highlights some relationships between patterns (blue) and anti-patterns (orange) that are documented in this guide. There are of course many other patterns that are worth considering. For example, one of the key scenarios for Table storage is to use the [materialized view pattern](https://msdn.microsoft.com/library/azure/dn589782.aspx) from the [command query responsibility segregation](https://msdn.microsoft.com/library/azure/jj554200.aspx) pattern.  
 
@@ -419,14 +419,14 @@ Store multiple copies of each entity by using different `RowKey` values (in the 
 #### Context and problem
 Table storage automatically indexes entities by using the `PartitionKey` and `RowKey` values. This enables a client application to retrieve an entity efficiently by using these values. For example, using the following table structure, a client application can use a point query to retrieve an individual employee entity by using the department name and the employee ID (the `PartitionKey` and `RowKey` values). A client can also retrieve entities sorted by employee ID within each department.
 
-![Graphic of employee entity][6]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE06.png" alt-text="Graphic of employee entity":::
 
 If you also want to find an employee entity based on the value of another property, such as email address, you must use a less efficient partition scan to find a match. This is because Table storage doesn't provide secondary indexes. In addition, there's no option to request a list of employees sorted in a different order than `RowKey` order.  
 
 #### Solution
 To work around the lack of secondary indexes, you can store multiple copies of each entity, with each copy using a different `RowKey` value. If you store an entity with the following structures, you can efficiently retrieve employee entities based on email address or employee ID. The prefix values for `RowKey`, `empid_`, and `email_` enable you to query for a single employee, or a range of employees, by using a range of email addresses or employee IDs.  
 
-![Graphic showing employee entity with varying RowKey values][7]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE07.png" alt-text="Graphic showing employee entity with varying RowKey values":::
 
 The following two filter criteria (one looking up by employee ID, and one looking up by email address) both specify point queries:  
 
@@ -452,7 +452,7 @@ Consider the following points when deciding how to implement this pattern:
 * Padding numeric values in the `RowKey` (for example, the employee ID 000223) enables correct sorting and filtering based on upper and lower bounds.  
 * You don't necessarily need to duplicate all the properties of your entity. For example, if the queries that look up the entities by using the email address in the `RowKey` never need the employee's age, these entities can have the following structure:
 
-  ![Graphic of employee entity][8]
+  :::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE08.png" alt-text="Graphic of employee entity":::
 
 * Typically, it's better to store duplicate data and ensure that you can retrieve all the data you need with a single query, than to use one query to locate an entity and another to look up the required data.  
 
@@ -479,7 +479,7 @@ Store multiple copies of each entity by using different `RowKey` values in separ
 #### Context and problem
 Table storage automatically indexes entities by using the `PartitionKey` and `RowKey` values. This enables a client application to retrieve an entity efficiently by using these values. For example, using the following table structure, a client application can use a point query to retrieve an individual employee entity by using the department name and the employee ID (the `PartitionKey` and `RowKey` values). A client can also retrieve entities sorted by employee ID within each department.  
 
-![Graphic of employee entity][9]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE09.png" alt-text="Graphic of employee entity":::[9]
 
 If you also want to be able to find an employee entity based on the value of another property, such as email address, you must use a less efficient partition scan to find a match. This is because Table storage doesn't provide secondary indexes. In addition, there's no option to request a list of employees sorted in a different order than `RowKey` order.  
 
@@ -488,7 +488,7 @@ You're anticipating a high volume of transactions against these entities, and wa
 #### Solution
 To work around the lack of secondary indexes, you can store multiple copies of each entity, with each copy using different `PartitionKey` and `RowKey` values. If you store an entity with the following structures, you can efficiently retrieve employee entities based on email address or employee ID. The prefix values for `PartitionKey`, `empid_`, and `email_` enable you to identify which index you want to use for a query.  
 
-![Graphic showing employee entity with primary index and employee entity with secondary index][10]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE10.png" alt-text="Graphic showing employee entity with primary index and employee entity with secondary index":::
 
 The following two filter criteria (one looking up by employee ID, and one looking up by email address) both specify point queries:  
 
@@ -513,7 +513,8 @@ Consider the following points when deciding how to implement this pattern:
 * Padding numeric values in the `RowKey` (for example, the employee ID 000223) enables correct sorting and filtering based on upper and lower bounds.  
 * You don't necessarily need to duplicate all the properties of your entity. For example, if the queries that look up the entities by using the email address in the `RowKey` never need the employee's age, these entities can have the following structure:
   
-  ![Graphic showing employee entity with secondary index][11]
+  :::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE11.png" alt-text="Graphic showing employee entity with secondary index":::
+
 * Typically, it's better to store duplicate data and ensure that you can retrieve all the data you need with a single query, than to use one query to locate an entity by using the secondary index and another to look up the required data in the primary index.  
 
 #### When to use this pattern
@@ -552,7 +553,7 @@ To illustrate this approach, assume you have a requirement to be able to archive
 
 But you can't use an EGT to perform these two operations. To avoid the risk that a failure causes an entity to appear in both or neither tables, the archive operation must be eventually consistent. The following sequence diagram outlines the steps in this operation.  
 
-![Solution diagram for eventual consistency][12]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE12.png" alt-text="Solution diagram for eventual consistency":::
 
 A client initiates the archive operation by placing a message on an Azure queue (in this example, to archive employee #456). A worker role polls the queue for new messages; when it finds one, it reads the message and leaves a hidden copy on the queue. The worker role next fetches a copy of the entity from the **Current** table, inserts a copy in the **Archive** table, and then deletes the original from the **Current** table. Finally, if there were no errors from the previous steps, the worker role deletes the hidden message from the queue.  
 
@@ -592,7 +593,7 @@ Maintain index entities to enable efficient searches that return lists of entiti
 #### Context and problem
 Table storage automatically indexes entities by using the `PartitionKey` and `RowKey` values. This enables a client application to retrieve an entity efficiently by using a point query. For example, using the following table structure, a client application can efficiently retrieve an individual employee entity by using the department name and the employee ID (the `PartitionKey` and `RowKey`).  
 
-![Graphic of employee entity][13]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE13.png" alt-text="Graphic of employee entity":::
 
 If you also want to be able to retrieve a list of employee entities based on the value of another non-unique property, such as last name, you must use a less efficient partition scan. This scan finds matches, rather than using an index to look them up directly. This is because Table storage doesn't provide secondary indexes.  
 
@@ -611,7 +612,7 @@ Option 2: Create index entities in the same partition
 
 Use index entities that store the following data:  
 
-![Graphic showing employee entity, with string containing a list of employee IDs with same last name][14]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE14.png" alt-text="Graphic showing employee entity, with string containing a list of employee IDs with same last name":::
 
 The `EmployeeIDs` property contains a list of employee IDs for employees with the last name stored in the `RowKey`.  
 
@@ -633,9 +634,9 @@ Option 3: Create index entities in a separate partition or table
 
 For this option, use index entities that store the following data:  
 
-![Graphic showing employee entity, with string containing a list of employee IDs with same last name][15]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE15.png" alt-text="Graphic showing employee entity, with string containing a list of employee IDs with same last name":::
 
-The `EmployeeIDs` property contains a list of employee IDs for employees with the last name stored in the `RowKey`.  
+The `EmployeeIDs` property contains a list of employee IDs for employees with the last name stored in the `RowKey` and `PartitionKey`.  
 
 You can't use EGTs to maintain consistency, because the index entities are in a separate partition from the employee entities. Ensure that the index entities are eventually consistent with the employee entities.  
 
@@ -665,12 +666,12 @@ Combine related data together in a single entity to enable you to retrieve all t
 #### Context and problem
 In a relational database, you typically normalize data to remove duplication that occurs when queries retrieve data from multiple tables. If you normalize your data in Azure tables, you must make multiple round trips from the client to the server to retrieve your related data. For example, with the following table structure, you need two round trips to retrieve the details for a department. One trip fetches the department entity that includes the manager's ID, and the second trip fetches the manager's details in an employee entity.  
 
-![Graphic of department entity and employee entity][16]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE16.png" alt-text="Graphic of department entity and employee entity":::
 
 #### Solution
 Instead of storing the data in two separate entities, denormalize the data and keep a copy of the manager's details in the department entity. For example:  
 
-![Graphic of denormalized and combined department entity][17]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE17.png" alt-text="Graphic of denormalized and combined department entity":::
 
 With department entities stored with these properties, you can now retrieve all the details you need about a department by using a point query.  
 
@@ -698,18 +699,18 @@ In a relational database, it's natural to use joins in queries to return related
 
 Assume you are storing employee entities in Table storage by using the following structure:  
 
-![Graphic of employee entity][18]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE18.png" alt-text="Graphic of employee entity":::
 
 You also need to store historical data relating to reviews and performance for each year the employee has worked for your organization, and you need to be able to access this information by year. One option is to create another table that stores entities with the following structure:  
 
-![Graphic of employee review entity][19]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE19.png" alt-text="Graphic of employee review entity":::
 
 With this approach, you might decide to duplicate some information (such as first name and last name) in the new entity, to enable you to retrieve your data with a single request. However, you can't maintain strong consistency because you can't use an EGT to update the two entities atomically.  
 
 #### Solution
 Store a new entity type in your original table by using entities with the following structure:  
 
-![Graphic of employee entity with compound key][20]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE20.png" alt-text="Graphic of employee entity with compound key":::
 
 Notice how the `RowKey` is now a compound key, made up of the employee ID and the year of the review data. This enables you to retrieve the employee's performance and review data with a single request for a single entity.  
 
@@ -781,7 +782,7 @@ Many applications delete old data that no longer needs to be available to a clie
 
 One possible design is to use the date and time of the sign-in request in the `RowKey`:  
 
-![Graphic of login attempt entity][21]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE21.png" alt-text="Graphic of login attempt entity":::
 
 This approach avoids partition hotspots, because the application can insert and delete sign-in entities for each user in a separate partition. However, this approach can be costly and time consuming if you have a large number of entities. First, you need to perform a table scan in order to identify all the entities to delete, and then you must delete each old entity. You can reduce the number of round trips to the server required to delete the old entities by batching multiple delete requests into EGTs.  
 
@@ -811,14 +812,14 @@ Store complete data series in a single entity to minimize the number of requests
 #### Context and problem
 A common scenario is for an application to store a series of data that it typically needs to retrieve all at once. For example, your application might record how many IM messages each employee sends every hour, and then use this information to plot how many messages each user sent over the preceding 24 hours. One design might be to store 24 entities for each employee:  
 
-![Graphic of message stats entity][22]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE22.png" alt-text="Graphic of message stats entity":::
 
 With this design, you can easily locate and update the entity to update for each employee whenever the application needs to update the message count value. However, to retrieve the information to plot a chart of the activity for the preceding 24 hours, you must retrieve 24 entities.  
 
 #### Solution
 Use the following design, with a separate property to store the message count for each hour:  
 
-![Graphic showing message stats entity with separated properties][23]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE23.png" alt-text="Graphic showing message stats entity with separated properties":::
 
 With this design, you can use a merge operation to update the message count for an employee for a specific hour. Now, you can retrieve all the information you need to plot the chart by using a request for a single entity.  
 
@@ -847,7 +848,7 @@ An individual entity can have no more than 252 properties (excluding the mandato
 #### Solution
 By using Table storage, you can store multiple entities to represent a single large business object with more than 252 properties. For example, if you want to store a count of the number of IM messages sent by each employee for the last 365 days, you can use the following design that uses two entities with different schemas:  
 
-![Graphic showing message stats entity with Rowkey 01 and message stats entity with Rowkey 02][24]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE24.png" alt-text="Graphic showing message stats entity with Rowkey 01 and message stats entity with Rowkey 02":::
 
 If you need to make a change that requires updating both entities to keep them synchronized with each other, you can use an EGT. Otherwise, you can use a single merge operation to update the message count for a specific day. To retrieve all the data for an individual employee, you must retrieve both entities. You can do this with two efficient requests that use both a `PartitionKey` and a `RowKey` value.  
 
@@ -874,7 +875,7 @@ An individual entity can't store more than 1 MB of data in total. If one or seve
 #### Solution
 If your entity exceeds 1 MB in size because one or more properties contain a large amount of data, you can store data in Blob storage, and then store the address of the blob in a property in the entity. For example, you can store the photo of an employee in Blob storage, and store a link to the photo in the `Photo` property of your employee entity:  
 
-![Graphic showing employee entity with string for Photo pointing to Blob storage][25]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE25.png" alt-text="Graphic showing employee entity with string for Photo pointing to Blob storage":::
 
 #### Issues and considerations
 Consider the following points when deciding how to implement this pattern:  
@@ -899,12 +900,12 @@ When you have a high volume of inserts, increase scalability by spreading the in
 #### Context and problem
 Prepending or appending entities to your stored entities typically results in the application adding new entities to the first or last partition of a sequence of partitions. In this case, all of the inserts at any particular time are taking place in the same partition, creating a hotspot. This prevents Table storage from load-balancing inserts across multiple nodes, and possibly causes your application to hit the scalability targets for partition. For example, consider the case of an application that logs network and resource access by employees. An entity structure such as the following can result in the current hour's partition becoming a hotspot, if the volume of transactions reaches the scalability target for an individual partition:  
 
-![Graphic of employee entity][26]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE26.png" alt-text="Graphic of employee entity":::
 
 #### Solution
 The following alternative entity structure avoids a hotspot on any particular partition, as the application logs events:  
 
-![Graphic showing employee entity with RowKey compounding the Year, Month, Day, Hour, and Event ID][27]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE27.png" alt-text="Graphic showing employee entity with RowKey compounding the Year, Month, Day, Hour, and Event ID":::
 
 Notice with this example how both the `PartitionKey` and `RowKey` are compound keys. The `PartitionKey` uses both the department and employee ID to distribute the logging across multiple partitions.  
 
@@ -930,13 +931,13 @@ Typically, you should use Blob storage instead of Table storage to store log dat
 #### Context and problem
 A common use case for log data is to retrieve a selection of log entries for a specific date/time range. For example, you want to find all the error and critical messages that your application logged between 15:04 and 15:06 on a specific date. You don't want to use the date and time of the log message to determine the partition you save log entities to. That results in a hot partition because at any particular time, all the log entities will share the same `PartitionKey` value (see the [Prepend/append anti-pattern](#prepend-append-anti-pattern)). For example, the following entity schema for a log message results in a hot partition, because the application writes all log messages to the partition for the current date and hour:  
 
-![Graphic of log message entity][28]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE28.png" alt-text="Graphic of log message entity":::
 
 In this example, the `RowKey` includes the date and time of the log message to ensure that log messages are sorted in date/time order. The `RowKey` also includes a message ID, in case multiple log messages share the same date and time.  
 
 Another approach is to use a `PartitionKey` that ensures that the application writes messages across a range of partitions. For example, if the source of the log message provides a way to distribute messages across many partitions, you can use the following entity schema:  
 
-![Graphic of log message entity][29]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE29.png" alt-text="Graphic of log message entity":::
 
 However, the problem with this schema is that to retrieve all the log messages for a specific time span, you must search every partition in the table.
 
@@ -1533,35 +1534,4 @@ In this asynchronous example, you can see the following changes from the synchro
 * Instead of calling the `Execute` method to update the entity, the method now calls the `ExecuteAsync` method. The method uses the `await` modifier to retrieve results asynchronously.  
 
 The client application can call multiple asynchronous methods like this one, and each method invocation runs on a separate thread.  
-
-
-[1]: ./media/storage-table-design-guide/storage-table-design-IMAGE01.png
-[2]: ./media/storage-table-design-guide/storage-table-design-IMAGE02.png
-[3]: ./media/storage-table-design-guide/storage-table-design-IMAGE03.png
-[4]: ./media/storage-table-design-guide/storage-table-design-IMAGE04.png
-[5]: ./media/storage-table-design-guide/storage-table-design-IMAGE05.png
-[6]: ./media/storage-table-design-guide/storage-table-design-IMAGE06.png
-[7]: ./media/storage-table-design-guide/storage-table-design-IMAGE07.png
-[8]: ./media/storage-table-design-guide/storage-table-design-IMAGE08.png
-[9]: ./media/storage-table-design-guide/storage-table-design-IMAGE09.png
-[10]: ./media/storage-table-design-guide/storage-table-design-IMAGE10.png
-[11]: ./media/storage-table-design-guide/storage-table-design-IMAGE11.png
-[12]: ./media/storage-table-design-guide/storage-table-design-IMAGE12.png
-[13]: ./media/storage-table-design-guide/storage-table-design-IMAGE13.png
-[14]: ./media/storage-table-design-guide/storage-table-design-IMAGE14.png
-[15]: ./media/storage-table-design-guide/storage-table-design-IMAGE15.png
-[16]: ./media/storage-table-design-guide/storage-table-design-IMAGE16.png
-[17]: ./media/storage-table-design-guide/storage-table-design-IMAGE17.png
-[18]: ./media/storage-table-design-guide/storage-table-design-IMAGE18.png
-[19]: ./media/storage-table-design-guide/storage-table-design-IMAGE19.png
-[20]: ./media/storage-table-design-guide/storage-table-design-IMAGE20.png
-[21]: ./media/storage-table-design-guide/storage-table-design-IMAGE21.png
-[22]: ./media/storage-table-design-guide/storage-table-design-IMAGE22.png
-[23]: ./media/storage-table-design-guide/storage-table-design-IMAGE23.png
-[24]: ./media/storage-table-design-guide/storage-table-design-IMAGE24.png
-[25]: ./media/storage-table-design-guide/storage-table-design-IMAGE25.png
-[26]: ./media/storage-table-design-guide/storage-table-design-IMAGE26.png
-[27]: ./media/storage-table-design-guide/storage-table-design-IMAGE27.png
-[28]: ./media/storage-table-design-guide/storage-table-design-IMAGE28.png
-[29]: ./media/storage-table-design-guide/storage-table-design-IMAGE29.png
 

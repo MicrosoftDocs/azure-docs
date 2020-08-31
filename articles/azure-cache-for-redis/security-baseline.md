@@ -154,7 +154,7 @@ Only secure connections to your Redis Cache should be enabled
 
 DDoS Protection Standard should be enabled
 
-You may also use Azure Blueprints to simplify large scale Azure deployments by packaging key environment artifacts, such as Azure Resource Manager (ARM) templates, role-based access control (RBAC), and policies, in a single blueprint definition. Easily apply the blueprint to new subscriptions and environments, and fine-tune control and management through versioning.
+You may also use Azure Blueprints to simplify large scale Azure deployments by packaging key environment artifacts, such as Azure Resource Manager (ARM) templates, Azure role-based access control (Azure RBAC), and policies, in a single blueprint definition. Easily apply the blueprint to new subscriptions and environments, and fine-tune control and management through versioning.
 
 How to configure and manage Azure Policy:
 
@@ -476,7 +476,7 @@ https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-ris
 How to configure and enable Identity Protection risk policies:
 https://docs.microsoft.com/azure/active-directory/identity-protection/howto-identity-protection-configure-risk-policies
 
-How to onboard Azure Sentinel:https://docs.microsoft.com/azure/sentinel/quickstart-onboard
+How to onboard Azure Sentinel: https://docs.microsoft.com/azure/sentinel/quickstart-onboard
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -582,9 +582,9 @@ https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
 
 ### 4.6: Use Azure RBAC to control access to resources
 
-**Guidance**: Use Azure Active Directory (AAD) role-based access control (RBAC) to control access to the Azure Cache for Redis control plane (i.e. Azure portal). 
+**Guidance**: Use Azure role-based access control (Azure RBAC) to control access to the Azure Cache for Redis control plane (i.e. Azure portal). 
 
-How to configure RBAC in Azure:
+How to configure Azure RBAC:
 
 https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal
 

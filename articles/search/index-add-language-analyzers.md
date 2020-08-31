@@ -1,7 +1,7 @@
 ---
 title: Add language analyzers to string fields
 titleSuffix: Azure Cognitive Search
-description: Multi-lingual lexical text analysis for non-English queries and indexes in Azure Cognitive Search.
+description: Multi-lingual lexical analysis for non-English queries and indexes in Azure Cognitive Search.
 
 author: HeidiSteen
 manager: nitinme
@@ -54,9 +54,9 @@ Language analyzers are used as-is. For each field in the index definition, you c
 > [!NOTE]
 > It is not possible to use a different language analyzer at indexing time than at query time for a field. That capability is reserved for [custom analyzers](index-add-custom-analyzers.md). For this reason, if you try to set the **searchAnalyzer** or **indexAnalyzer** properties to the name of a language analyzer, the REST API will return an error response. You must use the **analyzer** property instead.
 
-Use the **searchFields** query parameter to specify which language-specific field to search against in your queries. You can review query examples that include the analyzer property in [Search Documents](https://docs.microsoft.com/rest/api/searchservice/search-documents). 
+Use the **searchFields** query parameter to specify which language-specific field to search against in your queries. You can review query examples that include the analyzer property in [Search Documents](/rest/api/searchservice/search-documents). 
 
-For more information about index properties, see [Create Index &#40;Azure Cognitive Search REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index). For more information about analysis in Azure Cognitive Search, see [Analyzers in Azure Cognitive Search](https://docs.microsoft.com/azure/search/search-analyzers).
+For more information about index properties, see [Create Index &#40;Azure Cognitive Search REST API&#41;](/rest/api/searchservice/create-index). For more information about analysis in Azure Cognitive Search, see [Analyzers in Azure Cognitive Search](./search-analyzers.md).
 
 <a name="language-analyzer-list"></a>
 
@@ -126,7 +126,6 @@ For more information about index properties, see [Create Index &#40;Azure Cognit
 
 ## See also  
 
-+ [Create Index &#40;Azure Cognitive Search REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index)  
++ [Create Index &#40;Azure Cognitive Search REST API&#41;](/rest/api/searchservice/create-index)  
 
-+ [AnalyzerName Class](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername)  
-
++ [AnalyzerName Class](/dotnet/api/microsoft.azure.search.models.analyzername)

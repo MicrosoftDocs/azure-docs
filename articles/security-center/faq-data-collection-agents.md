@@ -37,6 +37,25 @@ For more information on pricing, see [Security Center pricing](https://azure.mic
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 
+## What is the Log Analytics agent?
+
+To monitor for security vulnerabilities and threats, Azure Security Center depends on the [Log Analytics Agent](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent) - this is the same agent used by the Azure Monitor service. 
+
+The agent is sometimes referred to as the Microsoft Monitoring Agent (or "MMA"). 
+
+The agent collects various security-related configuration details and event logs from connected machines, and then copies the data to your Log Analytics workspace for further analysis. Examples of such data are: operating system type and version, operating system logs (Windows event logs), running processes, machine name, IP addresses, and logged in user.
+
+Ensure your machines are running one of the supported operating systems for the agent as described on the following pages:
+
+* [Log Analytics agent for Windows supported operating systems](../azure-monitor/platform/agents-overview.md#supported-operating-systems)
+
+* [Log Analytics agent for Linux supported operating systems](../azure-monitor/platform/agents-overview.md#supported-operating-systems)
+
+Learn more about the [data collected by the Log Analytics agent](security-center-enable-data-collection.md).
+
+
+
+
 ## What qualifies a VM for automatic provisioning of the Log Analytics agent installation?
 
 Windows or Linux IaaS VMs qualify if:
@@ -141,7 +160,7 @@ If you remove the Microsoft Monitoring Extension, Security Center is not able to
 
 You can turn off automatic provisioning for your subscriptions in the security policy but this is not recommended. Turning off automatic provisioning limits Security Center recommendations and alerts. To disable automatic provisioning:
 
-1. If your subscription is configured for the Standard tier, open the security policy for that subscription and select the **Free** tier.
+1. If your subscription is configured for the standard tier, open the security policy for that subscription and select the **Free** tier.
 
    ![Pricing tier][1]
 

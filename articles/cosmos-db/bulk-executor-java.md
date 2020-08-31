@@ -5,10 +5,11 @@ author: tknandu
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
-ms.topic: conceptual
-ms.date: 06/05/2020
+ms.topic: how-to
+ms.date: 08/26/2020
 ms.author: ramkris
 ms.reviewer: sngun
+ms.custom: devx-track-java
 ---
 
 # Use bulk executor Java library to perform bulk operations on Azure Cosmos DB data
@@ -38,7 +39,7 @@ Currently, the bulk executor library is supported only by Azure Cosmos DB SQL AP
 
 Now let's switch to working with code by downloading a sample Java application from GitHub. This application performs bulk operations on Azure Cosmos DB data. To clone the application, open a command prompt, navigate to the directory where you want to copy the application and run the following command:
 
-```
+```bash
  git clone https://github.com/Azure/azure-cosmosdb-bulkexecutor-java-getting-started.git 
 ```
 
@@ -119,13 +120,13 @@ The cloned repository contains two samples "bulkimport" and "bulkupdate" relativ
 
 5. After you have the bulk import application ready, build the command-line tool from source by using the 'mvn clean package' command. This command generates a jar file in the target folder:  
 
-   ```java
+   ```bash
    mvn clean package
    ```
 
 6. After the target dependencies are generated, you can invoke the bulk importer application by using the following command:  
 
-   ```java
+   ```bash
    java -Xmx12G -jar bulkexecutor-sample-1.0-SNAPSHOT-jar-with-dependencies.jar -serviceEndpoint *<Fill in your Azure Cosmos DB's endpoint>*  -masterKey *<Fill in your Azure Cosmos DB's master key>* -databaseId bulkImportDb -collectionId bulkImportColl -operation import -shouldCreateCollection -collectionThroughput 1000000 -partitionKey /profileid -maxConnectionPoolSize 6000 -numberOfDocumentsForEachCheckpoint 1000000 -numberOfCheckpoints 10
    ```
 
@@ -179,17 +180,18 @@ You can update existing documents by using the BulkUpdateAsync API. In this exam
    |int getNumberOfDocumentsUpdated()  |   The total number of documents that were successfully updated out of the documents supplied to the bulk update API call.      |
    |double getTotalRequestUnitsConsumed() |  The total request units (RU) consumed by the bulk update API call.       |
    |Duration getTotalTimeTaken()  |   The total time taken by the bulk update API call to complete execution.      |
-   |List\<Exception> getErrors()   |       Gets the list of errors if some documents out of the batch supplied to the bulk update API call failed to get inserted.      |
+   |List\<Exception> getErrors()   |       Gets the list of operational or networking issues related to the update operation.      |
+   |List\<BulkUpdateFailure> getFailedUpdates()   |       Gets the list of updates which could not be completed along with the specific exceptions leading to the failures.|
 
 3. After you have the bulk update application ready, build the command-line tool from source by using the 'mvn clean package' command. This command generates a jar file in the target folder:  
 
-   ```
+   ```bash
    mvn clean package
    ```
 
 4. After the target dependencies are generated, you can invoke the bulk update application by using the following command:
 
-   ```
+   ```bash
    java -Xmx12G -jar bulkexecutor-sample-1.0-SNAPSHOT-jar-with-dependencies.jar -serviceEndpoint **<Fill in your Azure Cosmos DB's endpoint>* -masterKey **<Fill in your Azure Cosmos DB's master key>* -databaseId bulkUpdateDb -collectionId bulkUpdateColl -operation update -collectionThroughput 1000000 -partitionKey /profileid -maxConnectionPoolSize 6000 -numberOfDocumentsForEachCheckpoint 1000000 -numberOfCheckpoints 10
    ```
 

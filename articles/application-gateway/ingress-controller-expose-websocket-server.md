@@ -73,7 +73,7 @@ spec:
 Given that all the prerequisites are fulfilled, and you have an Application Gateway controlled by a Kubernetes Ingress in your AKS, the deployment above would result in a WebSockets server exposed on port 80 of your Application Gateway's public IP and the `ws.contoso.com` domain.
 
 The following cURL command would test the WebSocket server deployment:
-```sh
+```shell
 curl -i -N -H "Connection: Upgrade" \
         -H "Upgrade: websocket" \
         -H "Origin: http://localhost" \

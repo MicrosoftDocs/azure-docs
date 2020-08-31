@@ -1,7 +1,7 @@
 ---
 title: Configuration management for the Microsoft Threat Modeling Tool 
 titleSuffix: Azure
-description: mitigations for threats exposed in the Threat Modeling Tool 
+description: Learn about configuration management for the Threat Modeling Tool. See mitigation information and view code examples.
 services: security
 documentationcenter: na
 author: jegeib
@@ -17,7 +17,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-
+ms.custom: "devx-track-javascript, devx-track-csharp"
 ---
 
 # Security Frame: Configuration Management | Mitigations 
@@ -285,7 +285,7 @@ this.Response.Headers["X-Content-Type-Options"] = "nosniff";
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | SQL Azure, OnPrem |
 | **Attributes**              | N/A, SQL Version - V12 |
-| **References**              | [How to configure an Azure SQL database firewall](https://azure.microsoft.com/documentation/articles/sql-database-firewall-configure/), [Configure a Windows Firewall for Database Engine Access](https://msdn.microsoft.com/library/ms175043) |
+| **References**              | [How to configure an Azure SQL Database firewall](https://azure.microsoft.com/documentation/articles/sql-database-firewall-configure/), [Configure a Windows Firewall for Database Engine Access](https://msdn.microsoft.com/library/ms175043) |
 | **Steps** | Firewall systems help prevent unauthorized access to computer resources. To access an instance of the SQL Server Database Engine through a firewall, you must configure the firewall on the computer running SQL Server to allow access |
 
 ## <a id="cors-api"></a>Ensure that only trusted origins are allowed if CORS is enabled on ASP.NET Web API

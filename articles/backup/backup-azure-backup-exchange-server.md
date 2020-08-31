@@ -26,14 +26,14 @@ Before you continue, make sure that all the [prerequisites](backup-azure-dpm-int
 * Agent and vault credentials have been downloaded to the DPM server.
 * The agent is installed on the DPM server.
 * The vault credentials were used to register the DPM server.
-* If you are protecting Exchange 2016, please upgrade to DPM 2012 R2 UR9 or later
+* If you're protecting Exchange 2016, upgrade to DPM 2012 R2 UR9 or later.
 
 ## DPM protection agent
 
 To install the DPM protection agent on the Exchange server, follow these steps:
 
-1. Make sure that the firewalls are correctly configured. See [Configure firewall exceptions for the agent](https://docs.microsoft.com/system-center/dpm/configure-firewall-settings-for-dpm?view=sc-dpm-2019).
-2. Install the agent on the Exchange server by clicking **Management > Agents > Install** in DPM Administrator Console. See [Install the DPM protection agent](https://docs.microsoft.com/system-center/dpm/deploy-dpm-protection-agent?view=sc-dpm-2019) for detailed steps.
+1. Make sure that the firewalls are correctly configured. See [Configure firewall exceptions for the agent](/system-center/dpm/configure-firewall-settings-for-dpm?view=sc-dpm-2019).
+2. Install the agent on the Exchange server by clicking **Management > Agents > Install** in DPM Administrator Console. See [Install the DPM protection agent](/system-center/dpm/deploy-dpm-protection-agent?view=sc-dpm-2019) for detailed steps.
 
 ## Create a protection group for the Exchange server
 
@@ -43,7 +43,7 @@ To install the DPM protection agent on the Exchange server, follow these steps:
 4. Select the Exchange server database that you want to protect and click **Next**.
 
    > [!NOTE]
-   > If you are protecting Exchange 2013, check the [Exchange 2013 prerequisites](https://docs.microsoft.com/system-center/dpm/back-up-exchange?view=sc-dpm-2016).
+   > If you're protecting Exchange 2013, check the [Exchange 2013 prerequisites](/system-center/dpm/back-up-exchange).
    >
    >
 
@@ -70,7 +70,7 @@ To install the DPM protection agent on the Exchange server, follow these steps:
 9. Select the database for **Copy Backup**, and then click **Next**.
 
    > [!NOTE]
-   > If you do not select "Full backup" for at least one DAG copy of a database, logs will not be truncated.
+   > If you don't select "Full backup" for at least one DAG copy of a database, logs won't be truncated.
    >
    >
 10. Configure the goals for **Short-Term backup**, and then click **Next**.

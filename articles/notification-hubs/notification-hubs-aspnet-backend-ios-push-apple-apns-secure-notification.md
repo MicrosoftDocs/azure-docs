@@ -4,10 +4,8 @@ description: Learn how to send secure push notifications to an iOS app from Azur
 documentationcenter: ios
 author: sethmanheim
 manager: femila
-editor: jwargo
 services: notification-hubs
 
-ms.assetid: 17d42b0a-2c80-4e35-a1ed-ed510d19f4b4
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: ios
@@ -46,7 +44,7 @@ It is important to note that in the preceding flow (and in this tutorial), we as
 This Secure Push tutorial shows how to send a push notification securely. The tutorial builds on the [Notify Users](notification-hubs-aspnet-backend-ios-apple-apns-notification.md) tutorial, so you should complete the steps in that tutorial first.
 
 > [!NOTE]
-> This tutorial assumes that you have created and configured your notification hub as described in [Getting Started with Notification Hubs (iOS)](notification-hubs-ios-apple-push-notification-apns-get-started.md).
+> This tutorial assumes that you have created and configured your notification hub as described in [Send push notifications to iOS apps using Azure Notification Hubs](ios-sdk-get-started.md).
 
 [!INCLUDE [notification-hubs-aspnet-backend-securepush](../../includes/notification-hubs-aspnet-backend-securepush.md)]
 
@@ -120,7 +118,7 @@ To achieve this goal, we have to write the logic to retrieve the secure content 
 4. Now we have to handle the incoming notification and use the method above to retrieve the content to display. First, we have to enable your iOS app to run in the background when receiving a push notification. In **XCode**, select your app project on the left panel, then click your main app target in the **Targets** section from the central pane.
 5. Then click your **Capabilities** tab at the top of your central pane, and check the **Remote Notifications** checkbox.
 
-    ![][IOS1]
+    ![Screenshot of XCode, with the app project selected and the Capabilities tab open. The Remote notifications check box is selected.][IOS1]
 
 6. In `AppDelegate.m` add the following method to handle push notifications:
 
