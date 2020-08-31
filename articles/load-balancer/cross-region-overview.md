@@ -1,5 +1,5 @@
 ---
-title: Cross-region load balancer Preview
+title: Cross-region load balancer (Preview)
 titleSuffix: Azure Load Balancer
 description: Overview of cross region load balancer tier for Azure Load Balancer.
 services: load-balancer
@@ -14,7 +14,7 @@ ms.date: 09/01/2020
 ms.author: allensu
 
 ---
-# Cross-region load balancer Preview
+# Cross-region load balancer (Preview)
 
 Azure Load Balancer distributes inbound flows that arrive at the load balancer's front end to backend pool instances.
 
