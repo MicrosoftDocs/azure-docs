@@ -319,7 +319,7 @@ method, or from the Experiment tab view in Azure Machine Learning studio client 
   * Import errors: Ex.`ImportError: cannot import name 'RollingOriginValidator'`,
   * Attribute errors: Ex. `AttributeError: 'SimpleImputer' object has no attribute 'add_indicator`
   
-  To work around this issue, take either of the following two steps depending on your AutoML SDK version:
+  To work around this issue, take either of the following two steps depending on your AutoML SDK training version:
   1. If your AutoML SDK training version is greater than 1.13.0, check to see if `pandas == 0.25.1` and `sckit-learn==0.22.1`. If there is a version mismatch, upgrade scikit-learn and/or pandas to correct version as shown below:
   
   ```bash
