@@ -37,7 +37,7 @@ only for specific scenarios:
 -   Shared key vault with common secrets, when applications need access
     to subsets of secrets in that key vault
 
-More about Azure Key Vault best practices:
+More about Azure Key Vault best practices, see:
 
 - [Azure Key Vault best practices](best-practices.md)
 - [Azure Key Vault service limits](service-limits.md)
