@@ -636,7 +636,7 @@
       - name: Set up continuous integration with Azure Pipelines
         href: ./service-fabric-tutorial-deploy-app-with-cicd-vsts.md
       - name: Deploy your Linux applications using Jenkins
-        href: service-fabric-cicd-your-linux-applications-with-jenkins.md
+        href: /azure/developer/jenkins/deploy-to-service-fabric-cluster
   - name: Set up and configure reverse proxy
     items:
     - name: Set up and configure reverse proxy 
@@ -672,7 +672,7 @@
         - name: Programmatically scale out
           href: service-fabric-cluster-programmatic-scaling.md
         - name: Scale up primary node type
-          href: service-fabric-scale-up-node-type.md
+          href: service-fabric-scale-up-primary-node-type.md
         - name: Add a node type
           href: virtual-machine-scale-set-scale-node-type-scale-out.md        
         - name: Remove a node type

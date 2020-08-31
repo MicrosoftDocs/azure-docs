@@ -136,7 +136,7 @@ Users don't have the option to register their mobile app when registering for se
 >
 > When configuring SSPR policies that include the Authenticator app as a method, at least one additional method should be selected when one method is required, and at least two additional methods should be selected when configuring two methods are required.
 >
-> This requirement is because the current SSPR registration experience doesn't include the option to register the authenticator app. The option to register the authenticator app is included with the new [combined registration experience](concept-registration-mfa-sspr-converged.md).
+> This requirement is because the current SSPR registration experience doesn't include the option to register the authenticator app. The option to register the authenticator app is included with the new [combined registration experience](./concept-registration-mfa-sspr-combined.md).
 >
 > Allowing policies that only use the Authenticator app (when one method is required), or the Authenticator app and only one additional method (when two methods are required), could lead to users being blocked from registering for  SSPR until they're configured to use the new combined registration experience.
 
@@ -188,13 +188,13 @@ Azure AD checks your current hybrid connectivity and provides one of the followi
 * Azure AD is online and is connected to your on-premises writeback client. However, it looks like the installed version of Azure AD Connect is out-of-date. Consider [Upgrading Azure AD Connect](../hybrid/how-to-upgrade-previous-version.md) to ensure that you have the latest connectivity features and important bug fixes.
 * Unfortunately, we can't check your on-premises writeback client status because the installed version of Azure AD Connect is out-of-date. [Upgrade Azure AD Connect](../hybrid/how-to-upgrade-previous-version.md) to be able to check your connection status.
 * Unfortunately, it looks like we can't connect to your on-premises writeback client right now. [Troubleshoot Azure AD Connect](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity) to restore the connection.
-* Unfortunately, we can't connect to your on-premises writeback client because password writeback has not been properly configured. [Configure password writeback](howto-sspr-writeback.md) to restore the connection.
+* Unfortunately, we can't connect to your on-premises writeback client because password writeback has not been properly configured. [Configure password writeback](./tutorial-enable-sspr-writeback.md) to restore the connection.
 * Unfortunately, it looks like we can't connect to your on-premises writeback client right now. This may be due to temporary issues on our end. If the problem persists, [Troubleshoot Azure AD Connect](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity) to restore the connection.
 
 To get started with SSPR writeback, complete the following tutorial:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Enable self-service password reset (SSPR) writeback](tutorial-enable-writeback.md)
+> [Tutorial: Enable self-service password reset (SSPR) writeback](./tutorial-enable-sspr-writeback.md)
 
 ### Write back passwords to your on-premises directory
 
@@ -220,7 +220,7 @@ Password reset and change are fully supported on all business-to-business (B2B) 
 
 * **Users from a partner organization with an existing Azure AD tenant**: If the organization you partner with has an existing Azure AD tenant, we respect whatever password reset policies are enabled on that tenant. For password reset to work, the partner organization just needs to make sure that Azure AD SSPR is enabled. There is no additional charge for Office 365 customers.
 * **Users who sign up through** self-service sign-up: If the organization you partner with used the [self-service sign-up](../users-groups-roles/directory-self-service-signup.md) feature to get into a tenant, we let them reset the password with the email they registered.
-* **B2B users**: Any new B2B users created by using the new [Azure AD B2B capabilities](../b2b/what-is-b2b.md) can also reset their passwords with the email they registered during the invite process.
+* **B2B users**: Any new B2B users created by using the new [Azure AD B2B capabilities](../external-identities/what-is-b2b.md) can also reset their passwords with the email they registered during the invite process.
 
 To test this scenario, go to https://passwordreset.microsoftonline.com with one of these partner users. If they have an alternate email or authentication email defined, password reset works as expected.
 

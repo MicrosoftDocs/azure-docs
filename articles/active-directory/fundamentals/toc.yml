@@ -35,8 +35,6 @@
       href: identity-secure-score.md
     - name: Secure remote workers
       href: concept-secure-remote-workers.md
-    - name: Continuous access evaluation
-      href: concept-fundamentals-continuous-access-evaluation.md
   - name: Groups and users
     items:
     - name: Groups and access management
@@ -49,6 +47,8 @@
     items:
     - name: Azure AD architecture
       href: active-directory-architecture.md
+    - name: Integrating all your apps with Azure AD
+      href: five-steps-to-full-application-integration-with-azure-ad.md
   - name: Deployment guide
     items:
     - name: Deployment 30, 90, and beyond

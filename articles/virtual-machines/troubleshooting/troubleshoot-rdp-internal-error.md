@@ -52,13 +52,13 @@ Connect to [Serial Console and open PowerShell instance](./serial-console-window
 
 #### Step: 1 Check the RDP port
 
-1. In a PowerShell instance, use the [NETSTAT](/windows-server/administration/windows-commands/netstat) to check whether port 8080 is used by other applications:
+1. In a PowerShell instance, use the [NETSTAT](/windows-server/administration/windows-commands/netstat) to check whether port 3389 is used by other applications:
 
     ```powershell
     Netstat -anob |more
     ```
 
-2. If Termservice.exe is using 8080 port, go to step 2. If another service or application other than Termservice.exe is using 8080 port, follow these steps:
+2. If Termservice.exe is using 3389 port, go to step 2. If another service or application other than Termservice.exe is using 3389 port, follow these steps:
 
     1. Stop the service for the application that is using the 3389 service:
 

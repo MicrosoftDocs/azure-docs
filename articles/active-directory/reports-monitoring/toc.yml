@@ -26,7 +26,8 @@
     href: tutorial-access-api-with-certificates.md
   - name: Stream logs to event hub
     href: tutorial-azure-monitor-stream-logs-to-event-hub.md
-
+  - name: Log analytics wizard
+    href: tutorial-log-analytics-wizard.md
 
 - name: Concepts
   items:

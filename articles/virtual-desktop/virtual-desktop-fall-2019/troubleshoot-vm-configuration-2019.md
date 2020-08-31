@@ -1,10 +1,7 @@
 ---
 title: Troubleshoot Windows Virtual Desktop (classic) session host - Azure
 description: How to resolve issues when you're configuring Windows Virtual Desktop (classic) session host virtual machines.
-services: virtual-desktop
 author: Heidilohr
-
-ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 05/11/2020
 ms.author: helohr
@@ -306,7 +303,7 @@ If you sign in to Windows 10 Enterprise multi-session using an administrative ac
 
 If the time limit expires, an error message will appear that says, "The remote session was disconnected because there are no Remote Desktop client access licenses available for this computer."
 
-If you see either of these messages, this means the image doesn't have the latest Windows updates installed or that you are setting the Remote Desktop licensing mode through group policy. Follow the steps in the next sections to check the group policy setting, identify the version of Windows 10 Enterprise multi-session, and install the corresponding update.  
+If you see either of these messages, this means the image doesn't have the latest Windows updates installed or that you are setting the Remote Desktop licensing mode through group policy. Follow the steps in the next sections to check the group policy setting, identify the version of Windows 10 Enterprise multi-session, and install the corresponding update.
 
 >[!NOTE]
 >Windows Virtual Desktop only requires an RDS client access license (CAL) when your host pool contains Windows Server session hosts. To learn how to configure an RDS CAL, see [License your RDS deployment with client access licenses](/windows-server/remote/remote-desktop-services/rds-client-access-license/).

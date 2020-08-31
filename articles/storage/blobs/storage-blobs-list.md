@@ -9,6 +9,7 @@ ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: tamram
 ms.subservice: blobs
+ms.custom: devx-track-csharp
 ---
 
 # List blobs with .NET
@@ -21,14 +22,14 @@ This article shows how to list blobs using the [Azure Storage client library for
 
 To list the blobs in a storage account, call one of these methods:
 
-# [.NET v12 SDK](#tab/dotnet)
+# [.NET v12](#tab/dotnet)
 
 - [BlobContainerClient.GetBlobs](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobs?view=azure-dotnet)
 - [BlobContainerClient.GetBlobsAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobsasync?view=azure-dotnet)
 - [BlobContainerClient.GetBlobsByHierarchy](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobsbyhierarchy?view=azure-dotnet)
 - [BlobContainerClient.GetBlobsByHierarchyAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobsbyhierarchyasync?view=azure-dotnet)
 
-# [.NET v11 SDK](#tab/dotnet11)
+# [.NET v11](#tab/dotnet11)
 
 - [CloudBlobClient.ListBlobs](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient.listblobs)
 - [CloudBlobClient.ListBlobsSegmented](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient.listblobssegmented)
@@ -80,11 +81,11 @@ The following example lists the blobs in the specified container using a flat li
 
 If you've enabled the hierarchical namespace feature on your account, directories are not virtual. Instead, they are concrete, independent objects. Therefore, directories appear in the list as zero-length blobs.
 
-# [.NET v12 SDK](#tab/dotnet)
+# [.NET v12](#tab/dotnet)
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_ListBlobsFlatListing":::
 
-# [.NET v11 SDK](#tab/dotnet11)
+# [.NET v11](#tab/dotnet11)
 
 ```csharp
 private static async Task ListBlobsFlatListingAsync(CloudBlobContainer container, int? segmentSize)
@@ -146,7 +147,7 @@ Blob name: FolderA/FolderB/FolderC/blob3.txt
 
 When you call a listing operation hierarchically, Azure Storage returns the virtual directories and blobs at the first level of the hierarchy. The [Prefix](/dotnet/api/microsoft.azure.storage.blob.cloudblobdirectory.prefix) property of each virtual directory is set so that you can pass the prefix in a recursive call to retrieve the next directory.
 
-# [.NET v12 SDK](#tab/dotnet)
+# [.NET v12](#tab/dotnet)
 
 To list blobs hierarchically, call the [BlobContainerClient.GetBlobsByHierarchy](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobsbyhierarchy?view=azure-dotnet), or the [BlobContainerClient.GetBlobsByHierarchyAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobsbyhierarchyasync?view=azure-dotnet) method.
 
@@ -154,7 +155,7 @@ The following example lists the blobs in the specified container using a hierarc
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_ListBlobsHierarchicalListing":::
 
-# [.NET v11 SDK](#tab/dotnet11)
+# [.NET v11](#tab/dotnet11)
 
 To list blobs hierarchically, set the `useFlatBlobListing` parameter of the listing method to **false**.
 

@@ -3,7 +3,7 @@ title: Data retention and storage in Azure Application Insights | Microsoft Docs
 description: Retention and privacy policy statement
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.custom: devx-track-javascript
+ms.custom: "devx-track-javascript, devx-track-csharp"
 ---
 
 # Data collection, retention, and storage in Application Insights
@@ -88,9 +88,6 @@ Microsoft uses the data only in order to provide the service to you.
 
 ## Where is the data held?
 * You can select the location when you create a new Application Insights resource. Know more about Application Insights availability per region [here](https://azure.microsoft.com/global-infrastructure/services/?products=all).
-
-#### Does that mean my app has to be hosted in the USA, Europe, or Southeast Asia?
-* No. Your application can run anywhere, either in your own on-premises hosts or in the cloud.
 
 ## How secure is my data?
 Application Insights is an Azure Service. Security policies are described in the [Azure Security, Privacy, and Compliance white paper](https://go.microsoft.com/fwlink/?linkid=392408).

@@ -42,7 +42,7 @@ Because filtering can remove many objects at the same time, you want to make sur
 
 To protect you from deleting many objects by accident, the feature "[prevent accidental deletes](how-to-connect-sync-feature-prevent-accidental-deletes.md)" is on by default. If you delete many objects due to filtering (500 by default), you need to follow the steps in this article to allow the deletes to go through to Azure AD.
 
-If you use a build before November 2015 ([1.0.9125](reference-connect-version-history.md#1091250)), make a change to a filter configuration, and use password hash synchronization, then you need to trigger a full sync of all passwords after you've completed the configuration. For steps on how to trigger a password full sync, see [Trigger a full sync of all passwords](tshoot-connect-password-hash-synchronization.md#trigger-a-full-sync-of-all-passwords). If you're on build 1.0.9125 or later, then the regular **full synchronization** action also calculates whether passwords should be synchronized and if this extra step is no longer required.
+If you use a build before November 2015 ([1.0.9125](reference-connect-version-history.md)), make a change to a filter configuration, and use password hash synchronization, then you need to trigger a full sync of all passwords after you've completed the configuration. For steps on how to trigger a password full sync, see [Trigger a full sync of all passwords](tshoot-connect-password-hash-synchronization.md#trigger-a-full-sync-of-all-passwords). If you're on build 1.0.9125 or later, then the regular **full synchronization** action also calculates whether passwords should be synchronized and if this extra step is no longer required.
 
 If **user** objects were inadvertently deleted in Azure AD because of a filtering error, you can recreate the user objects in Azure AD by removing your filtering configurations. Then you can synchronize your directories again. This action restores the users from the recycle bin in Azure AD. However, you can't undelete other object types. For example, if you accidentally delete a security group and it was used to ACL a resource, the group and its ACLs can't be recovered.
 
@@ -197,7 +197,7 @@ You can configure the sync engine to not synchronize new OUs after the filtering
 With this configuration, a new OU that was created under ManagedObjects isn't synchronized.
 
 ## Attribute-based filtering
-Make sure that you're using the November 2015 ([1.0.9125](reference-connect-version-history.md#1091250)) or later build for these steps to work.
+Make sure that you're using the November 2015 ([1.0.9125](reference-connect-version-history.md)) or later build for these steps to work.
 
 > [!IMPORTANT]
 >Microsoft recommends to not modify the default rules created by **Azure AD Connect**. If you want to modify the rule, then clone it, and disable the original rule. Make any changes to the cloned rule. Please note that by doing so (disabling original rule) you will miss any bug fixes or features enabled through that rule.

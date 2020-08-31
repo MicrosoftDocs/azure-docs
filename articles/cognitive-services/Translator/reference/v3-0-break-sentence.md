@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 01/21/2020
+ms.date: 08/06/2020
 ms.author: swmachan
 ---
 
@@ -57,7 +57,7 @@ The body of the request is a JSON array. Each array element is a JSON object wit
 The following limitations apply:
 
 * The array can have at most 100 elements.
-* The text value of an array element cannot exceed 10,000 characters including spaces.
+* The text value of an array element cannot exceed 50,000 characters including spaces.
 * The entire text included in the request cannot exceed 50,000 characters including spaces.
 * If the `language` query parameter is specified, then all array elements must be in the same language. Otherwise, language auto-detection is applied to each array element independently.
 

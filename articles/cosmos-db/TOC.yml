@@ -1,4 +1,4 @@
-  - name: Azure Cosmos DB Documentation
+  - name: Azure Cosmos DB documentation
     href: index.yml
   - name: Overview
     items:
@@ -125,20 +125,26 @@
         href: partition-data.md
       - name: Synthetic partition key
         href: synthetic-partition-keys.md
-    - name: Provisioned throughput
+    - name: Capacity
       items:
       - name: Request units
         displayName: RUs, RU
         href: request-units.md
-      - name: Provisioned throughput introduction
-        displayName: request units, RUs, RU, limits, database throughput, shared throughput, container throughput
-        href: set-throughput.md
-      - name: Provision autoscale throughput
-        href: provision-throughput-autoscale.md
-      - name: Choose between autoscale and standard (manual) throughput
-        href: how-to-choose-offer.md    
-      - name: Autoscale FAQ
-        href: autoscale-faq.md
+      - name: Provisioned throughput
+        items:
+        - name: Provisioned throughput introduction
+          displayName: request units, RUs, RU, limits, database throughput, shared throughput, container throughput
+          href: set-throughput.md
+        - name: Provision autoscale throughput
+          href: provision-throughput-autoscale.md
+        - name: Choose between autoscale and standard (manual) throughput
+          href: how-to-choose-offer.md    
+        - name: Autoscale FAQ
+          href: autoscale-faq.md
+      - name: Serverless
+        href: serverless.md
+      - name: Choose between provisioned throughput and serverless
+        href: throughput-serverless.md
     - name: SQL query
       items:
       - name: Getting started
@@ -223,21 +229,39 @@
             - name: Date and time functions
               displayName: date and time functions, date and time, datetime, system functions, built-in functions
               href: sql-query-date-time-functions.md
-            - name: GetCurrentDateTime
-              displayName: GetCurrentDateTime, get current date time, date and time functions, datetime
-              href: sql-query-getcurrentdatetime.md
-            - name: GetCurrentTimestamp
-              displayName: GetCurrentTimestamp, get current timestamp, timestamp, date and time functions, datetime
-              href: sql-query-getcurrenttimestamp.md
-            - name: DateTimeFromParts
-              displayName: DateTimeFromParts, date time from parts, date and time functions, datetime
-              href: sql-query-datetimefromparts.md
             - name: DateTimeAdd
               displayName: DateTimeAdd, date time add, timestamp, date and time functions, datetime
               href: sql-query-datetimeadd.md
             - name: DateTimeDiff
               displayName: DateTimeDiff, date time diff, date and time functions, datetime
               href: sql-query-datetimediff.md
+            - name: DateTimeFromParts
+              displayName: DateTimeFromParts, date time from parts, date and time functions, datetime
+              href: sql-query-datetimefromparts.md
+            - name: DateTimePart
+              displayName: DateTimePart, date time part, date and time functions, datetime
+              href: sql-query-datetimepart.md
+            - name: DateTimeToTicks
+              displayName: DateTimeToTicks, date time to ticks, date and time functions, datetime, ticks
+              href: sql-query-datetimetoticks.md
+            - name: DateTimeToTimestamp
+              displayName: DateTimeToTimestamp, date time to timestamp, date and time functions, datetime, timestamp
+              href: sql-query-datetimetotimestamp.md
+            - name: GetCurrentDateTime
+              displayName: GetCurrentDateTime, get current date time, date and time functions, datetime
+              href: sql-query-getcurrentdatetime.md
+            - name: GetCurrentTicks
+              displayName: GetCurrentTicks, get current ticks, date and time functions, datetime, ticks
+              href: sql-query-getcurrentticks.md
+            - name: GetCurrentTimestamp
+              displayName: GetCurrentTimestamp, get current timestamp, timestamp, date and time functions, datetime
+              href: sql-query-getcurrenttimestamp.md
+            - name: TicksToDateTime
+              displayName: TicksToDateTime, ticks to date time, date and time functions, datetime, ticks
+              href: sql-query-tickstodatetime.md
+            - name: TimestampToDateTime
+              displayName: TimestampToDateTime, timestamp to date time, date and time functions, datetime, timestamp
+              href: sql-query-timestamptodatetime.md
           - name: Mathematical functions
             items:
             - name: Mathematical functions
@@ -486,6 +510,8 @@
         href: unique-keys.md
       - name: Transactions and optimistic concurrency control
         href: database-transactions-optimistic-concurrency.md
+      - name: Attachments
+        href: attachments.md
     - name: Change feed
       items:
       - name: Change feed overview
@@ -944,26 +970,28 @@
         href: how-to-manage-conflicts.md
       - name: Convert session token format
         href: how-to-convert-session-token.md
-    - name: Provisioned throughput
+    - name: Capacity
       items:
-      - name: Provision standard (manual) throughput on a container
-        displayName: request units, RUs, RU, collection level
-        href: how-to-provision-container-throughput.md
-      - name: Provision standard (manual) throughput on a database
-        displayName: request units, RUs, RU, shared throughput, database level
-        href: how-to-provision-database-throughput.md
-      - name: Provision autoscale throughput on a database or container
-        displayName: request units, RUs, RU, shared throughput, database level, collection level, autoscale
-        href: how-to-provision-autoscale-throughput.md
-      - name: Estimate RU/s with Cosmos capacity planner
-        displayName: request units, RUs, RU, capacity
-        href: estimate-ru-with-capacity-planner.md
       - name: Find request unit charge
         displayName: request units, RUs, RU, charge, consumption
         href: find-request-unit-charge.md
-      - name: Scale using Azure Functions timer
-        displayName: request units, RUs, RU, timer
-        href: scale-on-schedule.md
+      - name: Provisioned throughput
+        items:
+        - name: Provision standard (manual) throughput on a container
+          displayName: request units, RUs, RU, collection level
+          href: how-to-provision-container-throughput.md
+        - name: Provision standard (manual) throughput on a database
+          displayName: request units, RUs, RU, shared throughput, database level
+          href: how-to-provision-database-throughput.md
+        - name: Provision autoscale throughput on a database or container
+          displayName: request units, RUs, RU, shared throughput, database level, collection level, autoscale
+          href: how-to-provision-autoscale-throughput.md
+        - name: Estimate RU/s with Cosmos capacity planner
+          displayName: request units, RUs, RU, capacity
+          href: estimate-ru-with-capacity-planner.md
+        - name: Scale using Azure Functions timer
+          displayName: request units, RUs, RU, timer
+          href: scale-on-schedule.md
     - name: Work with containers and items
       items:
       - name: Work with Cosmos DB data
@@ -1248,7 +1276,7 @@
         href: sql-api-sdk-dotnet-changefeed.md
       - name: .NET bulk executor library v2
         href: sql-api-sdk-bulk-executor-dot-net.md
-    - name: Java SDKs
+    - name: Java SDKs and Connectors
       items:
       - name: Java SDK v4
         href: sql-api-sdk-java-v4.md
@@ -1256,6 +1284,12 @@
         href: sql-api-sdk-async-java.md
       - name: Sync Java SDK v2
         href: sql-api-sdk-java.md  
+      - name: Spring Data Connector v2
+        href: sql-api-sdk-java-spring-v2.md                
+      - name: Spring Data Connector v3
+        href: sql-api-sdk-java-spring-v3.md        
+      - name: Spark Connector
+        href: sql-api-sdk-java-spark.md                
       - name: Java bulk executor library v2
         href: sql-api-sdk-bulk-executor-java.md      
     - name: Node.js

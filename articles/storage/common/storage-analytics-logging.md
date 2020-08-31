@@ -1,6 +1,6 @@
 ---
 title: Azure Storage Analytics logging
-description: Learn how to log details about requests made against Azure Storage.
+description: Use Storage Analytics to log details about Azure Storage requests. See what requests are logged, how logs are stored, how to enable Storage logging, and more.
 author: normesta
 ms.service: storage
 ms.subservice: common
@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 07/23/2020
 ms.author: normesta
 ms.reviewer: fryu
-ms.custom: monitoring
+ms.custom: "monitoring, devx-track-csharp"
 ---
 
 # Azure Storage analytics logging

@@ -6,11 +6,11 @@ author: mialdrid
 
 ms.service: expressroute
 ms.topic: overview
-ms.date: 09/18/2019
+ms.date: 08/25/2020
 ms.author: mialdrid
 
 ---
-# ExpressRoute overview
+# What is Azure ExpressRoute?
 ExpressRoute lets you extend your on-premises networks into the Microsoft cloud over a private connection facilitated by a connectivity provider. With ExpressRoute, you can establish connections to Microsoft cloud services, such as Microsoft Azure and Office 365.
 
 Connectivity can be from an any-to-any (IP VPN) network, a point-to-point Ethernet network, or a virtual cross-connection through a connectivity provider at a co-location facility. ExpressRoute connections do not go over the public Internet. This allows ExpressRoute connections to offer more reliability, faster speeds, consistent latencies, and higher security than typical connections over the Internet. For information on how to connect your network to Microsoft using ExpressRoute, see [ExpressRoute connectivity models](expressroute-connectivity-models.md).
@@ -107,6 +107,10 @@ You can pick a billing model that works best for you. Choose between the billing
 
 ## FAQ
 For frequently asked questions about ExpressRoute, see [ExpressRoute FAQ](expressroute-faqs.md).
+
+## <a name="new"></a>What's new?
+
+Subscribe to the RSS feed and view the latest ExpressRoute feature updates on the [Azure Updates](https://azure.microsoft.com/updates/?category=networking&query=ExpressRoute) page.
 
 ## Next steps
 * Learn about [ExpressRoute connectivity models](expressroute-connectivity-models.md).

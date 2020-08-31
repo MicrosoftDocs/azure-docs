@@ -25,8 +25,9 @@ This version of this article completes these steps by running an [**automated de
 * To view the manual CLI steps that the script runs through behind the scenes, see the CLI version of this article: [*How-to: Set up an instance and authentication (CLI)*](how-to-set-up-instance-cli.md).
 * To view the manual steps according to the Azure portal, see the portal version of this article: [*How-to: Set up an instance and authentication (portal)*](how-to-set-up-instance-portal.md).
 
-[!INCLUDE [digital-twins-setup-steps.md](../../includes/digital-twins-setup-steps.md)]
-[!INCLUDE [digital-twins-setup-role-cli.md](../../includes/digital-twins-setup-role-cli.md)]
+[!INCLUDE [digital-twins-setup-steps-prereq.md](../../includes/digital-twins-setup-steps-prereq.md)]
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## Run the deployment script
 
@@ -55,7 +56,7 @@ Here are the steps to run the deployment script in Cloud Shell.
     * For the instance: a *resource group* name. You can use an existing resource group, or enter a new name of one to create.
     * For the instance: a *name* for your Azure Digital Twins instance. The name of the new instance must be unique within the region for your subscription (meaning that if your subscription has another Azure Digital Twins instance in the region that's already using the name you choose, you'll be asked to pick a different name).
     * For the app registration: an *Azure AD application display name* to associate with the registration. This app registration is where you configure access permissions to the [Azure Digital Twins APIs](how-to-use-apis-sdks.md). Later, the client app will authenticate against the app registration, and as a result be granted the configured access permissions to the APIs.
-    * For the app registration: an *Azure AD application reply URL* for the Azure AD application. You can use `http://localhost`.
+    * For the app registration: an *Azure AD application reply URL* for the Azure AD application. Use `http://localhost`. The script will set up a *Public client/native (mobile & desktop)* URI for it.
 
 The script will create an Azure Digital Twins instance, assign your Azure user the *Azure Digital Twins Owner (Preview)* role on the instance, and set up an Azure AD app registration for your client app to use.
 
@@ -110,6 +111,8 @@ To verify that your instance was created, go to the [Azure Digital Twins page](h
 
 > [!NOTE]
 > Recall that the script currently assigns this required role to the same user that runs the script from Cloud Shell. If you need to assign this role to someone else who will be managing the instance, you can do this now via the Azure portal ([instructions](how-to-set-up-instance-portal.md#set-up-user-access-permissions)) or CLI ([instructions](how-to-set-up-instance-cli.md#set-up-user-access-permissions)).
+>
+> You can also use the portal or CLI to redo your own role assignment if there were any issues with scripted setup.
 
 ### Verify app registration
 

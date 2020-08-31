@@ -56,6 +56,16 @@ To set up single sign-on for an application:
     :::image type="content" source="media/add-application-portal-setup-sso/github-pricing.png" alt-text="Screenshot shows the Single sign-on option in the Enterprise subscription of the GitHub pricing page.":::
 
 
-## Next step
+> [!TIP]
+> You can automate app management using the Graph API, see [Automate app management with Microsoft Graph API](https://docs.microsoft.com/graph/application-saml-sso-configure-api).
 
-- [Delete an app](delete-application-portal.md)
+
+## Clean up resources
+
+When your done with this quickstart series, consider deleting the app to clean up your test tenant. Deleting the app is covered in the last quickstart in this series, see [Delete an app](delete-application-portal.md).
+
+## Next steps
+
+Advance to the next article to learn how to delete an app.
+> [!div class="nextstepaction"]
+> [Delete an app](delete-application-portal.md)
