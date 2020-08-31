@@ -1,6 +1,6 @@
 ---
 title: What's new with Azure Arc enabled servers (preview) agent
-description: This article has release notes for Azure Arc enabled servers (preview) agent. For many of the summarized issues there are links to additional details.
+description: This article has release notes for Azure Arc enabled servers (preview) agent. For many of the summarized issues, there are links to additional details.
 ms.topic: conceptual
 ms.date: 08/31/2020
 ---
@@ -23,7 +23,7 @@ Version: 0.11
 
 ### Known issues
 
-If you are using an older version of the agent on Linux and configured the agent to use a proxy server, you need to reconfigure the proxy server setting after the upgrade. To do this, run `sudo azcmagent_proxy add http://proxyserver.local:83`.
+If you are using an older version of the Linux agent and configured it to use a proxy server, you need to reconfigure the proxy server setting after the upgrade. To do this, run `sudo azcmagent_proxy add http://proxyserver.local:83`.
 
 ## Next Steps
 
