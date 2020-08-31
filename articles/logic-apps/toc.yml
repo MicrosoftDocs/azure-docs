@@ -173,29 +173,29 @@
         href: logic-apps-enterprise-integration-edifact_inputfile_unh2.5.md
       - name: Exchange RosettaNet messages
         href: logic-apps-enterprise-integration-rosettanet.md
-      - name: Exchange X12 messages
-        href: logic-apps-enterprise-integration-x12.md
-        items: 
-        - name: X12 encoding
-          href: logic-apps-enterprise-integration-x12-encode.md
-        - name: X12 decoding
-          href: logic-apps-enterprise-integration-x12-decode.md
-      - name: Batch and send EDI messages
-        href: logic-apps-scenario-edi-send-batch-messages.md
-      - name: Process flat files
-        href: logic-apps-enterprise-integration-flatfile.md
-      - name: Transform XML
-        href: logic-apps-enterprise-integration-transform.md
-      - name: Process XML
-        href: logic-apps-enterprise-integration-xml.md
-      - name: Validate XML
-        href: logic-apps-enterprise-integration-xml-validation.md
-      - name: Transform JSON
-        href: logic-apps-enterprise-integration-liquid-transform.md
-      - name: Troubleshoot B2B errors
-        href: logic-apps-enterprise-integration-b2b-list-errors-solutions.md
-      - name: Build a disaster recovery plan
-        href: logic-apps-enterprise-integration-b2b-business-continuity.md
+    - name: Exchange X12 messages
+      href: logic-apps-enterprise-integration-x12.md
+      items: 
+      - name: X12 encoding
+        href: logic-apps-enterprise-integration-x12-encode.md
+      - name: X12 decoding
+        href: logic-apps-enterprise-integration-x12-decode.md
+    - name: Batch and send EDI messages
+      href: logic-apps-scenario-edi-send-batch-messages.md
+    - name: Process flat files
+      href: logic-apps-enterprise-integration-flatfile.md
+    - name: Transform XML
+      href: logic-apps-enterprise-integration-transform.md
+    - name: Process XML
+      href: logic-apps-enterprise-integration-xml.md
+    - name: Validate XML
+      href: logic-apps-enterprise-integration-xml-validation.md
+    - name: Transform JSON
+      href: logic-apps-enterprise-integration-liquid-transform.md
+    - name: Troubleshoot B2B errors
+      href: logic-apps-enterprise-integration-b2b-list-errors-solutions.md
+    - name: Build a disaster recovery plan
+      href: logic-apps-enterprise-integration-b2b-business-continuity.md
   - name: Connectors - In-depth topics
     items: 
     - name: AS2
