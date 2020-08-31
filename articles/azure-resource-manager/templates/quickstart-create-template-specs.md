@@ -2,7 +2,7 @@
 title: Create and deploy template spec
 description: Learn how to create a template spec from ARM template. Then, deploy the template spec to a resource group in your subscription.
 author: tfitzmac
-ms.date: 08/26/2020
+ms.date: 08/27/2020
 ms.topic: quickstart
 ms.author: tomfitz
 ---
@@ -252,7 +252,7 @@ You can now deploy the template spec. Deploying the template spec is just like d
     ```
 
     > [!NOTE]
-    > There is a known issue with getting template spec id and then assign it to a variable in Windows PowerShell.
+    > There is a known issue with getting a template spec ID and assigning it to a variable in Windows PowerShell.
 
 1. Deploy the template spec.
 
