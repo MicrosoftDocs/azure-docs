@@ -32,11 +32,11 @@ You might consider executing a [manual failover](../database/high-availability-s
 
 ## Initiate manual failover on SQL Managed Instance
 
-The user initiating a failover will need to have one of the following RBAC roles:
+User initiating a failover will need to have one of the following RBAC roles:
 
 - Subscription Owner role, or
 - Managed Instance Contributor role, or
-- Custom role with the following permissions:
+- Custom role with the following permission:
   - `Microsoft.Sql/managedInstanes/failover/action`
 
 ### Using PowerShell
