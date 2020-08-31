@@ -1,6 +1,6 @@
 ---
-title: Use Azure Queue storage from Node.js - Azure Storage
-description: Learn how to use the Azure Queue service to create and delete queues. Learn to insert, get, and delete messages using Node.js.
+title: How to use Azure Queue storage from Node.js - Azure Storage
+description: Learn to use the Azure Queue service to create and delete queues. Learn to insert, get, and delete messages using Node.js.
 author: mhopkins-msft
 
 ms.author: mhopkins
@@ -12,7 +12,7 @@ ms.reviewer: dineshm
 ms.custom: seo-javascript-september2019, devx-track-javascript
 ---
 
-# Use Azure Queue storage to create and delete queues by using Node.js
+# How to use Azure Queue storage from Node.js
 
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
 
@@ -34,7 +34,7 @@ The [Azure Storage client library for JavaScript][Azure Storage client library f
 
 ### Use Node Package Manager (NPM) to obtain the package
 
-1. Use a command-line interface such as **PowerShell** (Windows), **Terminal** (Mac), or **Bash** (Unix), navigate to the folder where you created your sample application.
+1. Use a command-line interface such as PowerShell (Windows), Terminal (Mac), or Bash (Unix), navigate to the folder where you created your sample application.
 
 # [JavaScript v12](#tab/javascript)
 
@@ -343,13 +343,13 @@ To clear all messages from a queue without deleting it, call **clearMessages**.
 
 Now that you've learned the basics of queue storage, follow these links to learn about more complex storage tasks.
 
-* Visit the [Azure Storage Team Blog][Azure Storage Team Blog].
-* Visit the [Azure Storage client library for JavaScript][Azure Storage client library for JavaScript] repository on GitHub.
+* Visit the [Azure Storage Team Blog][Azure Storage Team Blog] to learn what's new
+* Visit the [Azure Storage client library for JavaScript][Azure Storage client library for JavaScript] repository on GitHub
 
-[Azure Storage client library for JavaScript]: https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage
+[Azure Storage client library for JavaScript]: https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage#azure-storage-client-library-for-javascript
 [using the REST API]: https://docs.microsoft.com/en-us/rest/api/storageservices/
 [Azure Portal]: https://portal.azure.com
-[Create a Node.js web app in Azure App Service](../../app-service/quickstart-nodejs.md)
-[Build and deploy a Node.js application to an Azure Cloud Service](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md)
 [Azure Storage Team Blog]: https://techcommunity.microsoft.com/t5/azure-storage/bg-p/AzureStorageBlog
 [Build and deploy a Node.js web app to Azure using Web Matrix]: https://www.microsoft.com/web/webmatrix/
+[Create a Node.js web app in Azure App Service]: (../../app-service/quickstart-nodejs.md)
+[Build and deploy a Node.js application to an Azure Cloud Service]: (../../cloud-services/cloud-services-nodejs-develop-deploy-app.md)
