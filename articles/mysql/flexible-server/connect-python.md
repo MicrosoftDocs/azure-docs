@@ -25,8 +25,8 @@ This article assumes that you're familiar with developing using Python, but you'
 - An Azure Database for MySQL Flexible Server. [Create an Azure Database for MySQL Flexible Server using Azure portal](./quickstart-create-server-portal.md) or [Create an Azure Database for MySQL Flexible Server using Azure CLI](./quickstart-create-server-cli.md).
 
 ## Preparing your client workstation
-- If you created your flexible server with *Private access (VNet Integration)*, you will need to connect to your server from a resource within the same VNet as your server. You can create a virtual machine and add it to the VNet created with your flexible server. Refer to [Create and manage Azure Database for MySQL Flexible Server virtual network using Azure CLI]<!-- FIX ME (./how-to-manage-virtual-network-cli.md).-->
-- If you created your flexible server with *Public access (allowed IP addresses)*, you can add your local IP address to the list of firewall rules on your server. Refer to [Create and manage Azure Database for MySQL Flexible Server firewall rules using the Azure CLI]<!--(./how-to-manage-firewall-cli.md).-->
+- If you created your flexible server with *Private access (VNet Integration)*, you will need to connect to your server from a resource within the same VNet as your server. You can create a virtual machine and add it to the VNet created with your flexible server. Refer to [Create and manage Azure Database for MySQL Flexible Server virtual network using Azure CLI](./how-to-manage-virtual-network-cli.md).
+- If you created your flexible server with *Public access (allowed IP addresses)*, you can add your local IP address to the list of firewall rules on your server. Refer to [Create and manage Azure Database for MySQL Flexible Server firewall rules using the Azure CLI](./how-to-manage-firewall-cli.md).
 
 ## Install Python and the MySQL connector
 
@@ -269,7 +269,7 @@ else:
 ```
 
 ## Next steps
-- [Encrypted connectivity using Transport Layer Security (TLS 1.2) in Azure Database for MySQL - Flexible Server]<!-- FIX ME(./how-to-connect-TLS-SSL.md).-->
+- [Encrypted connectivity using Transport Layer Security (TLS 1.2) in Azure Database for MySQL - Flexible Server](./how-to-connect-tls-ssl.md).
 - Learn more about [Networking in Azure Database for MySQL Flexible Server]<!-- FIX ME (./concepts-networking-overview.md). --->
-- [Create and manage Azure Database for MySQL Flexible Server firewall rules using the Azure portal]<!-- FIX ME(./how-to-manage-firewall-portal.md).-->
-- [Create and manage Azure Database for MySQL Flexible Server virtual network using Azure portal]<!-- FIX ME(./how-to-manage-virtual-network-portal.md).-->
+- [Create and manage Azure Database for MySQL Flexible Server firewall rules using the Azure portal](./how-to-manage-firewall-portal.md).
+- [Create and manage Azure Database for MySQL Flexible Server virtual network using Azure portal](./how-to-manage-virtual-network-portal.md).
