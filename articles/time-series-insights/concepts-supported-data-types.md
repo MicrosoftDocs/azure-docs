@@ -8,7 +8,7 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 08/12/2020
+ms.date: 08/27/2020
 ---
 
 # Supported data types
@@ -22,7 +22,7 @@ The following table lists the data types supported by Azure Time Series Insights
 | **double** | A double-precision 64-bit number  | `"value": 31.0482941` | value_double
 | **long** | A signed 64-bit integer  | `"value" : 31` | value_long
 | **string** | Text values, must consist of valid UTF-8. Null and empty strings are treated the same. |  `"site": "DIM_MLGGG"` | site_string
-| **dynamic** | A complex (non-primitive) type consisting of either an array or property bag (dictionary). Currently only stringified JSON arrays of primitives or arrays of objects not containing the TS ID or timestamp property(ies) will be stored as dynamic. Read this [article](./concepts-json-flattening-escaping-rules.md) to understand how objects will be flattened and arrays may be unrolled. Payload properties stored as this type are accessible through the Azure Time Series Insights Gen2 Explorer and the `GetEvents` Query API. |  `"values": "[197, 194, 189, 188]"` | values_dynamic
+| **dynamic** | A complex (non-primitive) type consisting of either an array or property bag (dictionary). Currently only stringified JSON arrays of primitives or arrays of objects not containing the TS ID or timestamp property(ies) will be stored as dynamic. Read this [article](./concepts-json-flattening-escaping-rules.md) to understand how objects will be flattened and arrays may be unrolled. Payload properties stored as this type are accessible through the Azure Time Series Insights Explorer and the `GetEvents` Query API. |  `"values": "[197, 194, 189, 188]"` | values_dynamic
 
 ## Sending mixed data types
 
