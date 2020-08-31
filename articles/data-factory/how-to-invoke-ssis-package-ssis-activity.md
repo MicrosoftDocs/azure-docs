@@ -12,7 +12,7 @@ ms.author: sawinark
 author: swinarko
 ms.reviewer: douglasl
 manager: mflasko
-ms.custom: seo-lt-2019
+ms.custom: seo-lt-2019, devx-track-azurepowershell
 ms.date: 07/20/2020
 ---
 

@@ -7,7 +7,7 @@ ms.date: 03/05/2020
 
 # About Azure file share backup
 
-Azure file share backup is a native, cloud based backup solution that protects your data in the cloud and eliminates additional maintenance overheads involved in on-premises backup solutions. The Azure Backup service smoothly integrates with Azure File Sync, and allows you to centralize your file share data as well as your backups. This simple, reliable, and secure solution enables you to configure protection for your enterprise file shares in few simple steps with an assurance that you can recover your data in case of any disaster scenario.
+Azure file share backup is a native, cloud based backup solution that protects your data in the cloud and eliminates additional maintenance overheads involved in on-premises backup solutions. The Azure Backup service smoothly integrates with Azure File Sync, and allows you to centralize your file share data as well as your backups. This simple, reliable, and secure solution enables you to configure protection for your enterprise file shares in a few simple steps with an assurance that you can recover your data in any disaster scenario.
 
 ## Key benefits of Azure file share backup
 
@@ -35,7 +35,7 @@ Azure file share backup is a native, cloud based backup solution that protects y
 5. Based on the policy specified, the Azure Backup scheduler triggers backups at the scheduled time. As part of that job, the file share snapshot is created using  the File share API. Only the snapshot URL is stored in the metadata store.
 
     >[!NOTE]
-    >The file share data is not transferred to the Backup service, since the Backup service creates and manages snapshots that are part of your storage account, and backups are not transferred to the vault.
+    >The file share data isn't transferred to the Backup service, since the Backup service creates and manages snapshots that are part of your storage account, and backups aren't transferred to the vault.
 
 6. You can restore the Azure file share contents (individual files or the full share) from snapshots available on the source file share. Once the operation is triggered, the snapshot URL is retrieved from the metadata store and the data is listed and transferred from the source snapshot to the target file share of your choice.
 
@@ -45,7 +45,7 @@ Azure file share backup is a native, cloud based backup solution that protects y
 
 ## Backup costs
 
-Currently you will be charged only for snapshots, since Azure file share backup is a snapshot-based solution. Storage charges incurred for snapshots are billed along with Azure Files Usage according to the pricing details mentioned [here](https://azure.microsoft.com/pricing/details/storage/files/).
+Currently you'll be charged only for snapshots, since Azure file share backup is a snapshot-based solution. Storage charges incurred for snapshots are billed along with Azure Files Usage according to the pricing details mentioned [here](https://azure.microsoft.com/pricing/details/storage/files/).
 
 ## Next steps
 

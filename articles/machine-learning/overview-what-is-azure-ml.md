@@ -15,7 +15,7 @@ ms.custom: devx-track-python
 
 In this article, you learn about Azure Machine Learning, a cloud-based environment you can use to train, deploy, automate, manage, and track ML models. 
 
-Azure Machine Learning can be used for any kind of machine learning, from classical ml to deep learning, supervised, and unsupervised learning. Whether you prefer to write Python or R code or zero-code/low-code options such as the [designer](tutorial-designer-automobile-price-train-score.md), you can build, train, and track highly accurate machine learning and deep-learning models in an Azure Machine Learning Workspace. 
+Azure Machine Learning can be used for any kind of machine learning, from classical ml to deep learning, supervised, and unsupervised learning. Whether you prefer to write Python or R code with the SDK or work with no-code/low-code options in [the studio](#build-ml-models-in-the-studio), you can build, train, and track machine learning and deep-learning models in an Azure Machine Learning Workspace. 
 
 Start training on your local machine and then scale out to the cloud. 
 
@@ -58,27 +58,31 @@ You can even use [MLflow to track metrics and deploy models](how-to-use-mlflow.m
 
 Start training on your local machine using the Azure Machine Learning <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">Python SDK</a> or <a href="https://azure.github.io/azureml-sdk-for-r/reference/index.html" target="_blank">R SDK</a>. Then, you can scale out to the cloud. 
 
-With many available [compute targets](how-to-set-up-training-targets.md), like Azure Machine Learning Compute and [Azure Databricks](/azure/azure-databricks/what-is-azure-databricks), and with [advanced hyperparameter tuning services](how-to-tune-hyperparameters.md), you can build better models faster by using the power of the cloud.
+With many available [compute targets](how-to-create-attach-compute-sdk.md), like Azure Machine Learning Compute and [Azure Databricks](/azure/azure-databricks/what-is-azure-databricks), and with [advanced hyperparameter tuning services](how-to-tune-hyperparameters.md), you can build better models faster by using the power of the cloud.
 
 You can also [automate model training and tuning](tutorial-auto-train-models.md) using the SDK.
 
-## Build ML models with no-code tools
+## Build ML models in the studio
 
-For code-free or low-code training and deployment, try:
+[Azure Machine Learning studio](https://www.ml.azure.com) is a web portal in Azure Machine Learning for low-code and no-code options for model training, deployment, and asset management. The studio integrates with the Azure Machine Learning SDK for a seamless experience. For more information, see [What is Azure Machine Learning studio](overview-what-is-machine-learning-studio.md).
 
 + **Azure Machine Learning designer (preview)**
 
-  Use the designer to prep data, train, test, deploy, manage, and track machine learning models without writing any code. There is no programming required, you visually connect datasets and modules to construct your model. Try out the [designer tutorial](tutorial-designer-automobile-price-train-score.md).
+  Use [the designer](concept-designer.md) to train and deploy machine learning models without writing any code. Try the [designer tutorial](tutorial-designer-automobile-price-train-score.md) to get started. 
 
-  Learn more in [the Azure Machine Learning designer overview article](concept-designer.md). 
+  ![Animated gif of the drag-and-drop interface of Azure Machine Learning designer](media/concept-designer/designer-drag-and-drop.gif)
 
-  ![Azure Machine Learning designer example](./media/overview-what-is-azure-ml/designer-drag-and-drop.gif)
++ **Track experiments**
 
-+ **Automated machine learning UI**
+  Learn how to [track and visualize data science experiments](tutorial-first-experiment-automated-ml.md) in the studio. 
 
-  Learn how to create [automated ML experiments](tutorial-first-experiment-automated-ml.md) in the easy-to-use interface. 
+    ![Run details in Azure Machine Learning studio](media/how-to-track-experiments/experimentation-tab.gif)
 
-  [![Azure Machine Learning studio navigation pane](./media/overview-what-is-azure-ml/azure-machine-learning-automated-ml-ui.jpg)](./media/overview-what-is-azure-ml/azure-machine-learning-automated-ml-ui.jpg)
+
++ **And much more...**
+
+  Visit Azure Machine Learning studio at [ml.azure.com](https://www.ml.azure.com). 
+
 
 ## MLOps: Deploy & lifecycle management
 When you have the right model, you can easily use it in a web service, on an IoT device, or from Power BI. For more information, see the article on [how to deploy and where](how-to-deploy-and-where.md).
