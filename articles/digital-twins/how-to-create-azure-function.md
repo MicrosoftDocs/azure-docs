@@ -67,7 +67,6 @@ For configuration of the Azure SDK pipeline to set up properly for Azure Functio
 * `System.Net.Http`
 * `Azure.Core.Pipeline`
 
-
 **Option 2. Add packages using `dotnet` command-line tool:**
 
 ```cmd/sh
@@ -248,6 +247,41 @@ On the _Add role assignment (Preview)_ window that opens up, select
 Save your details by selecting _Save_ button.
 
 :::image type="content" source="media/how-to-create-azure-function/add-role-assignment.png" alt-text="Azure portal: add role assignment (Preview) ":::
+
+### Configure application settings using Azure portal
+
+Lastly, you can make the URL of your Azure Digital Twins instance accessible to your function by setting an environment variable. For more information on this, see [*Environment variables*](https://docs.microsoft.com/sandbox/functions-recipes/environment-variables). 
+
+In the Azure portal, search for your Azure function in the search bar. On the window that opens, select _Configuration_ on the navigation bar on the left. You can now create an application settings by selecting _+ New application setting_.
+
+:::image type="content" source="media/how-to-create-azure-function/application-setting.png" alt-text="Azure portal: Configure application settings":::
+
+On the window that opens up, you can add/edit your application settings. Application settings are exposed as environment variables to access the digital twins instance.
+You'll need ADT_SERVICE_URL and ADT_INSTANCE_URL to create an application setting.
+
+You can find ADT_SERVICE_URL by selecting _Overview_ on the left navigation bar. Copy _URL_ to use it in the _Name_ field to create an application setting.
+
+:::image type="content" source="media/how-to-create-azure-function/adt-service-url.png" alt-text="Azure portal: Overview-> Copy _URL_ to use in the _Name_ field.":::
+
+You can find the ADT_INSTANCE_URL by appending **_https://_ to your Azure-Digital-Twins-instance-hostname**. You can find your instance _Host name_ by searching for your instance in the search bar. Then, select _Overview_ on the left navigation bar to view the _Host name_.
+
+:::image type="content" source="media/how-to-create-azure-function/adt-hostname.png" alt-text="Azure portal: Overview-> Copy hostname to use in the _Value_ field.":::
+
+Then, use the above ADT_SERVICE_URL and ADT_INSTANCE_URL values in the _Name_ and _Value_ fields to create an application setting. Select _OK_ to create an application setting.
+
+:::image type="content" source="media/how-to-create-azure-function/add-application-setting.png" alt-text="Azure portal: Add application settings.":::
+
+You can view your application settings with application name under the _Name_ field. Then, save your application settings by selecting _Save_ button.
+
+:::image type="content" source="media/how-to-create-azure-function/application-setting-save-details.png" alt-text="Azure portal: View the application created and restart the application":::
+
+Any changes in the application settings need an application restart. select _Continue_ to restart your application.
+
+:::image type="content" source="media/how-to-create-azure-function/save-application-setting.png" alt-text="Azure portal: Save application settings":::
+
+You can view that the application settings are updated by selecting _Notifications_ icon. If your application settings is not created, you can retry adding an application setting by following the above process.
+
+:::image type="content" source="media/how-to-create-azure-function/notifications-update-web-app-settings.png" alt-text="Azure portal: Notifications for updating application settings":::
 
 ## Next steps
 
