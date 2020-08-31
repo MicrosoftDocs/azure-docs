@@ -117,7 +117,7 @@ For Spring Boot version 2.3 add the following dependencies to the application PO
 ```
 ## Azure Spring Cloud client dependency
 
-Azure Spring Cloud hosts and manages Spring Cloud components. The components include Spring Cloud Service Registry and Spring Cloud Config Server. It is recommended to use Spring Boot 2.2 or 2.3. For Spring Boot version 2.1, you will need to clude the Azure Spring Cloud client library in your dependencies to allow communication with your Azure Spring Cloud service instance.
+Azure Spring Cloud hosts and manages Spring Cloud components. The components include Spring Cloud Service Registry and Spring Cloud Config Server. It is recommended to use Spring Boot 2.2 or 2.3. For Spring Boot 2.1, you will need to include the Azure Spring Cloud client library in your dependencies to allow communication with your Azure Spring Cloud service instance.
 
 The following table lists the correct Azure Spring Cloud versions for your app that uses Spring Boot and Spring Cloud.
 
