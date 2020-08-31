@@ -10,7 +10,7 @@ ms.custom: how-to
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 06/23/2020
+ms.date: 08/31/2020
 ---
 
 # Deploy a model to an Azure Kubernetes Service cluster
