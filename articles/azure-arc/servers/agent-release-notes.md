@@ -17,9 +17,9 @@ The Azure Arc enabled servers (preview) Connected Machine agent receives improve
 
 Version: 0.11
 
-| Change | Details |
-| :----- | :------ |
-| Support for Ubuntu 20.04, and and reliability improvements for extension deployments. |
+- Support for Ubuntu 20.04.
+
+- Reliability improvements for extension deployments.
 
 ### Known issues
 
