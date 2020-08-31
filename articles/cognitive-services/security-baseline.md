@@ -149,7 +149,7 @@ You may also use application security groups (ASG) to help simplify complex secu
 
 **Guidance**: Define and implement standard security configurations for network resources related to your Azure Cognitive Services container with Azure Policy. Use Azure Policy aliases in the "Microsoft.CognitiveServices" and "Microsoft.Network" namespaces to create custom policies to audit or enforce the network configuration of your Azure Cache for Redis instances.
 
-You can also use Azure Blueprints to simplify large-scale Azure deployments by packaging key environment artifacts, such as Azure Resource Manager templates, role-based access control (RBAC), and policies, in a single blueprint definition. Easily apply the blueprint to new subscriptions and environments, and fine-tune control and management through versioning.
+You can also use Azure Blueprints to simplify large-scale Azure deployments by packaging key environment artifacts, such as Azure Resource Manager templates, Azure role-based access control (Azure RBAC), and policies, in a single blueprint definition. Easily apply the blueprint to new subscriptions and environments, and fine-tune control and management through versioning.
 
 * [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
 
@@ -530,9 +530,9 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 
 **Responsibility**: Shared
 
-### 4.6: Use Role-based access control to control access to resources
+### 4.6: Use Azure RBAC to control access to resources
 
-**Guidance**: Use Azure Active Directory (Azure AD) role-based access control (RBAC) to control access to the Azure Cognitive Services control plane (i.e. Azure portal).
+**Guidance**: Use Azure role-based access control (Azure RBAC) to control access to the Azure Cognitive Services control plane (i.e. Azure portal).
 
 * [How to configure Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
 
