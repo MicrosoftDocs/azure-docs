@@ -16,7 +16,7 @@ ms.author: allensu
 ---
 # Cross-region load balancer (Preview)
 
-Azure Load Balancer distributes inbound flows that arrive at the load balancer's front end to backend pool instances.
+Azure Load Balancer distributes inbound flows that arrive at the load balancer's frontend to backend pool instances.
 
 Azure Standard Load Balancer supports cross-region load balancing enabling geo-redundant HA scenarios such as:
 
@@ -24,7 +24,7 @@ Azure Standard Load Balancer supports cross-region load balancing enabling geo-r
 * Load distribution across regions to the closest Azure region.
 * Ease of adoption.
 
-Cross-region load balancing offers the same benefits of high performance and low latency of your regional Standard Load Balancer. The Frontend IP configuration of your cross-region Load Balancer is static and advertised across the Azure regions of your choice.  
+Cross-region load balancing offers the same benefits of high performance and low latency of your regional standard load balancer. The frontend IP configuration of your cross-region load balancer is static and advertised across the Azure regions of your choice.  
 
 :::image type="content" source="./media/cross-region-overview/cross-region-load-balancer-1.png" alt-text="Cross-region load balancer" border="true":::
 
@@ -40,14 +40,16 @@ Cross-region load balancing offers the same benefits of high performance and low
 * Deploy your solution on existing regional Azure Load Balancers.
 
 ### Regional redundancy
-Regional redundancy can be achieved by adding a global frontend Public IP address to your existing Load Balancers. If a region goes down, the inbound traffic is routed to the next optimal healthy regional Load Balancer.  
+Regional redundancy can be achieved by adding a global frontend public IP address to your existing load balancers. If a region goes down, the inbound traffic is routed to the next optimal healthy regional load balancer.  
 
 The health probe of the cross-region load balancer gathers information about availability of the regional load balancer every 20 seconds. If one regional load balancer drops its availability to 0, cross-region load balancer will detect the failure. The regional load balancer is taken out of rotation. 
 
 :::image type="content" source="./media/cross-region-overview/cross-region-load-balancer-2.png" alt-text="Global region view" border="true":::
 
 ### Ultra-low latency
-The geo-proximity load-balancing algorithm based on the geographic location of your users and your regional deployments. For example, you have a cross-region load balancer set up with a West US and a North Europe standard public load balancer in the backend pool. If a user starts flow from Seattle, the cross-region load balancer will route the traffic to the West US load balancer because it’s located closest to Seattle. 
+The geo-proximity load-balancing algorithm based on the geographic location of your users and your regional deployments. 
+
+For example, you have a cross-region load balancer set up with a West US and a North Europe standard public load balancer in the backend pool. If a user starts flow from Seattle, the cross-region load balancer will route the traffic to the West US load balancer because it’s located closest to Seattle. 
 
 ### Deploy solution on existing regional Azure Load Balancers
 
@@ -100,7 +102,7 @@ Cross-region load balancer routes the traffic to the appropriate regional load b
 
 ## Limitations
 
-* Cross-region frontend IP configurations are public only. Internal front ends aren't currently supported. 
+* Cross-region frontend IP configurations are public only. An internal frontend is currently not supported.
 
 * Cross-region IPv6 frontend IP configurations aren't supported. 
 
@@ -112,7 +114,7 @@ Cross-region load balancer, shares the [SLA](https://azure.microsoft.com/support
  
 ## Next steps
 
-- See [Create a public Standard Load Balancer](quickstart-load-balancer-standard-public-portal.md) to get started with using a Load Balancer.
+- See [Create a public Standard Load Balancer](quickstart-load-balancer-standard-public-portal.md) to get started with using a load balancer.
 - Learn more about [Azure Load Balancer](load-balancer-overview.md).
 - Load balancer [FAQs](load-balancer-faqs.md)
 
