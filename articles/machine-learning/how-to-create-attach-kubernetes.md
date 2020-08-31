@@ -1,5 +1,5 @@
 ---
-title: Create or attach Azure Kubernetes Service
+title: Create and attach Azure Kubernetes Service
 titleSuffix: Azure Machine Learning
 description: 'Azure Kubernetes Service (AKS) can be used to deploy a machine learning model as a web service. Learn how to create a new AKS cluster through Azure Machine Learning. You will also learn how to attach an existing AKS cluster to your Azure Machine Learning workspace.'
 services: machine-learning
@@ -13,7 +13,7 @@ ms.reviewer: larryfr
 ms.date: 08/31/2020
 ---
 
-# Deploy a model to an Azure Kubernetes Service cluster
+# Create and attach an Azure Kubernetes Service cluster
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Azure Machine Learning can deploy trained machine learning models to Azure Kubernetes Service. However, you must first either __create__ an Azure Kubernetes Service (AKS) cluster from your Azure ML workspace, or __attach__ an existing AKS cluster. This article provides information on both creating and attaching a cluster.
