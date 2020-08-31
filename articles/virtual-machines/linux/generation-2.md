@@ -23,7 +23,8 @@ Generation 1 VMs are supported by all VM sizes in Azure (except for Mv2-series V
 
 * [B-series](../sizes-b-series-burstable.md)
 * [DCsv2-series](../dcv2-series.md)
-* [DSv2-series](../dv2-dsv2-series.md) and [Dsv3-series](../dv3-dsv3-series.md)
+* [Dsv2-series](../dv2-dsv2-series.md) 
+* [Dsv3-series](../dv3-dsv3-series.md)
 * [Dsv4-series](../dv4-dsv4-series.md)
 * [Ddsv4-series](../ddv4-ddsv4-series.md)
 * [Dasv4-series](../dav4-dasv4-series.md)
@@ -33,10 +34,12 @@ Generation 1 VMs are supported by all VM sizes in Azure (except for Mv2-series V
 * [GS-series](../sizes-previous-gen.md#gs-series)
 * [HB-series](../hb-series.md)
 * [HC-series](../hc-series.md)
-* [Ls-series](../sizes-previous-gen.md#ls-series) and [Lsv2-series](../lsv2-series.md)
+* [Ls-series](../sizes-previous-gen.md#ls-series) 
+* [Lsv2-series](../lsv2-series.md)
 * [M-series](../m-series.md)
 * [Mv2-series](../mv2-series.md)<sup>1</sup>
-* [NCv2-series](../ncv2-series.md) and [NCv3-series](../ncv3-series.md)
+* [NCv2-series](../ncv2-series.md)
+* [NCv3-series](../ncv3-series.md)
 * [ND-series](../nd-series.md)
 * [NVv3-series](../nvv3-series.md)
 
@@ -75,7 +78,7 @@ Azure doesn't currently support some of the features that on-premises Hyper-V su
 |---------|--------------|--------------|
 | Boot             | PCAT         | UEFI |
 | Disk controllers | IDE          | SCSI |
-| VM sizes         | All VM sizes | Only VMs that support premium storage |
+| VM sizes         | All VM sizes | [See available sizes](https://docs.microsoft.com/azure/virtual-machines/linux/generation-2#generation-2-vm-sizes) |
 
 ### Generation 1 vs. generation 2 capabilities
 
