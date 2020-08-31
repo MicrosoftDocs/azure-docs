@@ -8,7 +8,7 @@ ms.custom: devx-track-python
 
 # Quickstart: Create a function in Azure using Python that responds to HTTP requests
 
-In this article, you use command-line tools to create a Python function that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions. 
+In this article, you use command-line tools to create a Python function that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions.
 
 Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
 
@@ -24,10 +24,10 @@ Before you begin, you must have the following:
 
    | Python version | Core Tools version |
    | -------------- | ------------------ |
-   | Python 3.8     | [version 3.x](../articles/azure-functions/functions-run-local.md#v2) |
-   | Python 3.6<br/>Python 3.7 | [Version 2.7.1846 or a later version](../articles/azure-functions/functions-run-local.md#v2) |
+   | Python 3.8     | [version 3.x](functions-run-local.md#v2) |
+   | Python 3.6<br/>Python 3.7 | [Version 2.7.1846 or a later version](functions-run-local.md#v2) |
   
-+ The [Azure CLI](/cli/azure/install-azure-cli) version 2.4 or later. 
++ The [Azure CLI](/cli/azure/install-azure-cli) version 2.4 or later.
 
 + [Python 3.8 (64-bit)](https://www.python.org/downloads/release/python-382/), [Python 3.7 (64-bit)](https://www.python.org/downloads/release/python-375/), [Python 3.6 (64-bit)](https://www.python.org/downloads/release/python-368/), which are supported by Azure Functions.
 
@@ -117,7 +117,7 @@ Http Functions:
 
 Copy the URL of your `HttpExample` function from this output to a browser and append the query string `?name=<your-name>`, making the full URL like `http://localhost:7071/api/HttpExample?name=Functions`. The browser should display a message like `Hello Functions`:
 
-![Result of the function run locally in the browser](./media/functions-run-function-test-local-cli/function-test-local-browser.png)
+![Result of the function run locally in the browser](./media/functions-create-first-azure-function-azure-cli/function-test-local-browser.png)
 
 The terminal in which you started your project also shows log output as you make requests.
 

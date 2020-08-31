@@ -32,7 +32,7 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
 
 1. Choose the Azure icon in the Activity bar, then in the **Azure: Functions** area, select the **Create new project...** icon.
 
-    ![Choose Create a new project](media/functions-create-first-function-vs-code/create-new-project.png)
+    ![Choose Create a new project](./media/functions-create-first-function-vs-code/create-new-project.png)
 
 1. Choose a directory location for your project workspace and choose **Select**.
 
@@ -69,7 +69,7 @@ In this section, you create a function app and related resources in your Azure s
 
 1. Choose the Azure icon in the Activity bar, then in the **Azure: Functions** area, choose the **Deploy to function app...** button.
 
-    ![Publish your project to Azure](media/functions-publish-project-vscode/function-app-publish-project.png)
+    ![Publish your project to Azure](./media/functions-create-first-function-vs-code/function-app-publish-project.png)
 
 1. Provide the following information at the prompts:
 
@@ -97,7 +97,7 @@ In this section, you create a function app and related resources in your Azure s
 
 1. Select **View Output** in this notification to view the creation and deployment results, including the Azure resources that you created. If you miss the notification, select the bell icon in the lower right corner to see it again.
 
-    ![Create complete notification](media/functions-publish-project-vscode/function-create-notifications.png)
+    ![Create complete notification](./media/functions-create-first-function-vs-code/function-create-notifications.png)
 
 ## Run the function in Azure
 

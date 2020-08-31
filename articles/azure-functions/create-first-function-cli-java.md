@@ -8,7 +8,7 @@ ms.custom: devx-track-java
 
 # Quickstart: Create a function in Azure using Java that responds to HTTP requests
 
-In this article, you use command-line tools to create a Java function that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions. 
+In this article, you use command-line tools to create a Java function that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions.
 
 Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
 
@@ -23,14 +23,14 @@ Before you begin, you must have the following:
 
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-+ The [Azure Functions Core Tools](../articles/azure-functions/functions-run-local.md#v2) version 2.7.1846 or a later 2.x version.
++ The [Azure Functions Core Tools](functions-run-local.md#v2) version 2.7.1846 or a later 2.x version.
 
-+ The [Azure CLI](/cli/azure/install-azure-cli) version 2.4 or later. 
++ The [Azure CLI](/cli/azure/install-azure-cli) version 2.4 or later.
 
-+ The [Java Developer Kit](https://aka.ms/azure-jdks), version 8. 
++ The [Java Developer Kit](https://aka.ms/azure-jdks), version 8.
 
     > [!IMPORTANT]
-    > + Functions support for Java 11 is currently in preview, and the Maven archetype creates a Java 8 deployment by default. If you want to instead run your function app on Java 11, you must manually update the pom.xml file with Java 11 values. To learn more, see [Java versions](../articles/azure-functions/functions-reference-java.md#java-versions). 
+    > + Functions support for Java 11 is currently in preview, and the Maven archetype creates a Java 8 deployment by default. If you want to instead run your function app on Java 11, you must manually update the pom.xml file with Java 11 values. To learn more, see [Java versions](functions-reference-java.md#java-versions). 
     > + The `JAVA_HOME` environment variable must be set to the install location of the correct version of the JDK to complete this quickstart.
 
 + [Apache Maven](https://maven.apache.org), version 3.0 or above.
@@ -145,7 +145,7 @@ Http Functions:
 
 Copy the URL of your `HttpExample` function from this output to a browser and append the query string `?name=<your-name>`, making the full URL like `http://localhost:7071/api/HttpExample?name=Functions`. The browser should display a message like `Hello Functions`:
 
-![Result of the function run locally in the browser](./media/functions-run-function-test-local-cli/function-test-local-browser.png)
+![Result of the function run locally in the browser](./media/functions-create-first-azure-function-azure-cli/function-test-local-browser.png)
 
 The terminal in which you started your project also shows log output as you make requests.
 

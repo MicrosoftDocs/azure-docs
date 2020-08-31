@@ -20,7 +20,7 @@ Before you begin, you must have the following:
 
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-+ The [Azure Functions Core Tools](../articles/azure-functions/functions-run-local.md#v2) version 2.7.1846 or a later 2.x version.
++ The [Azure Functions Core Tools](functions-run-local.md#v2) version 2.7.1846 or a later 2.x version.
 
 + The [Azure CLI](/cli/azure/install-azure-cli) version 2.4 or later.
 
