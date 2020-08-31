@@ -31,6 +31,8 @@ If automatic VM guest patching has been enabled on a VM, then the available 'Cri
 
 If automatic VM guest patching has been enabled on a VM, the VM is assessed periodically to determine the applicable patches for that VM. The patches can be installed any day on the VM during off-peak hours for the VM. This automatic assessment ensures that any missing patches are discovered at the earliest possible opportunity.
 
+Patches are installed within 30 days of the monthly Windows Update release, following availability-first orchestration described below. Patches are installed only during off-peak hours for the VM, depending on the time zone of the VM. The VM must therefore be running during the off-peak hours for patches to be automatically installed. If a VM is powered off during a periodic assessment, the VM will be automatically assessed and applicable patches will be installed automatically during the next periodic assessment if the VM is powered on.
+
 ### Availability-first patching
 
 The patch installation process is orchestrated globally by Azure for all VMs that have automatic VM guest patching enabled. This orchestration follows availability-first principles across different levels of availability provided by Azure.
@@ -50,6 +52,8 @@ For a group of virtual machines undergoing an update, the Azure platform will or
 **Within an availability set:**
 - All VMs in a common availability set or scale set are not updated concurrently.
 -	VMs in a common availability set are updated within Update Domain boundaries such that VMs across multiple update domains are not updated concurrently.
+
+The patch installation date for a given VM may vary month-to-month, as a specific VM may be picked up in a different batch. However,  
 
 ## Supported OS images
 Only VMs created from certain OS platform images are currently supported in the preview. Custom images are currently not supported in the preview.
@@ -82,6 +86,9 @@ Windows VMs on Azure now support the following patch orchestration modes:
 - This mode disables Automatic Updates on the Windows virtual machine.
 - This mode should be set when using custom patching solutions.
 - To use this mode set the property `osProfile.windowsConfiguration.enableAutomaticUpdates=false`, and set the property  `osProfile.windowsConfiguration.patchSettings.patchMode=Manual` in the VM template.
+
+> [!NOTE]
+>The property `osProfile.windowsConfiguration.enableAutomaticUpdates` can currently only be set when the VM is first created. Switching from Manual to an Automatic mode or from either Automatic modes to Manual mode is currently not supported. Switching from AutomaticByOS mode to AutomaticByPlatfom mode is supported
 
 ## Requirements for enabling automatic VM guest patching
 
@@ -194,8 +201,70 @@ To modify an existing VM, use [az vm update](/cli/azure/vm#az-vm-update)`
 az vm update --resource-group myResourceGroup --name myVM --set osProfile.windowsConfiguration.enableAutomaticUpdates=true osProfile.windowsConfiguration.patchSettings.patchMode=AutomaticByPlatform
 ```
 
+## Enablement and assessment
+
 > [!NOTE]
->It can take up to three hours to enable automatic VM guest updates on a VM. As assessment and patch installation occur only during off-peak hours, your VM must be also be running during off-peak hours to apply patches.
+>It can take more than three hours to enable automatic VM guest updates on a VM, as the enablement is completed during the VM's off-peak hours. As assessment and patch installation occur only during off-peak hours, your VM must be also be running during off-peak hours to apply patches.
+
+When automatic VM guest patching is enabled for a VM, a VM extension of type `Microsoft.CPlat.Core.WindowsPatchExtension` is installed on the VM. This extension does not need to be manually installed or updated, as this extension is managed by the Azure platform as part of the automatic VM guest patching process.
+
+It can take more than three hours to enable automatic VM guest updates on a VM, as the enablement is completed during the VM's off-peak hours. The extension is also installed and updated during off-peak hours for the VM. If the VM's off-peak hours end before enablement can be completed, the enablement process will resume during the next available off-peak time. If the VM previously had Automatic Windows Update turned on through the AutomaticByOS patch mode, then Automatic Windows Update will be turned off for the VM when the extension is installed.
+
+To verify whether automatic VM guest patching has completed and the patching extension has been installed on the VM, you can review the VM's instance view. If the enablement process has been completed, the extension will be installed and the assessment results for the VM will be available under `patchStatus`. The VM's instance view can be accessed through multiple ways as described below.
+
+### REST API
+
+```
+GET on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVirtualMachine/instanceView?api-version=2020-06-01`
+```
+### Azure PowerShell
+Use the [Get-AzVM](/powershell/module/az.compute/get-azvm) cmdlet with the `-Status` parameter to access the instance view for your VM.
+
+```azurepowershell-interactive
+Get-AzVM -ResourceGroupName "myResourceGroup" -Name "myVM" -Status
+```
+
+PowerShell currently only provides information on the patch extension. Information about `patchStatus` will also be avaialable soon through PowerShell.
+
+### Azure CLI 2.0
+Use [az vm get-instance-view](/cli/azure/vm#az-vm-get-instance-view) to access the instance view for your VM.
+
+```azurecli-interactive
+az vm get-instance-view --resource-group myResourceGroup --name myVM
+```
+
+### Understanding the patch status for your VM
+
+The `patchStatus` section of the instance view response provides details on the latest assessment and the last patch installation for your VM.
+
+The assessment results for your VM can be reviewed under the `availablePatchSummary` section. An assessment is periodically conducted for a VM that has automatic VM guest patching enabled. The count of available patches after an assessment is provided under `criticalAndSecurityPatchCount` and `otherPatchCount` results. Automatic VM guest patching will install all patches assessed under the *Critical* and *Security* patch classifications. Any other assessed patch will be skipped.
+
+The patch installation results for your VM can be reviewed under the `lastPatchInstallationSummary` section. This section provides details on the last patch installation attempt on the VM, including the number of patches that were installed, pending, failed or skipped. Patches are installed only during the off-peak hours maintenance window for the VM. Pending and failed patches will be automatically retried during the next off-peak hours maintenance window.
+
+## On-demand patch assessment
+If automatic VM guest patching is already enabled for your VM, a periodic patch assessment is performed on the VM during the VM's off-peak hours. This process is automatic and the results of the latest assessment can be reviewed through the VM's instance view as described earlier in this document. You can also trigger an on-demand patch assessment for your VM at any time. Patch assessment can take a few minutes to complete and the status of the latest assessment is updated on the VM's instance view.
+
+> [!NOTE]
+>On-demand patch assessment does not automatically trigger patch installed. Assessed and applicable patches for the VM will only be installed during the VM's off-peak hours per the availability-first patching process described earlier in this document.
+
+### REST API
+```
+POST on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVirtualMachine/assessPatches?api-version=2020-06-01`
+```
+
+### Azure PowerShell
+Use the [Invoke-AzVmPatchAssessment](/powershell/module/az.compute/invoke-azvmpatchassessment) cmdlet to assess available patches for your virtual machine.
+
+```azurepowershell-interactive
+Invoke-AzVmPatchAssessment -ResourceGroupName "myResourceGroup" -VMName "myVM"
+```
+
+### Azure CLI 2.0
+Use [az vm assess-patches](/cli/azure/vm#az-vm-assess-patches) to assess available patches for your virtual machine.
+
+```azurecli-interactive
+az vm assess-patches --resource-group myResourceGroup --name myVM
+```
 
 ## Next steps
 > [!div class="nextstepaction"]
