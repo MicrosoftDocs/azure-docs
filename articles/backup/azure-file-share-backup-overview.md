@@ -45,7 +45,7 @@ Azure file share backup is a native, cloud based backup solution that protects y
 
 ## Backup costs
 
-Currently you will be charged only for snapshots, since Azure file share backup is a snapshot-based solution. Storage charges incurred for snapshots are billed along with Azure Files Usage according to the pricing details mentioned [here](https://azure.microsoft.com/pricing/details/storage/files/).
+Currently you'll be charged only for snapshots, since Azure file share backup is a snapshot-based solution. Storage charges incurred for snapshots are billed along with Azure Files Usage according to the pricing details mentioned [here](https://azure.microsoft.com/pricing/details/storage/files/).
 
 ## Next steps
 
