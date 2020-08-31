@@ -23,7 +23,7 @@ Azure Active Directory B2C (Azure AD B2C) pricing is based on monthly active use
 
 ## What do I need to do?
 
-To take advantage of MAU billing, your Azure AD B2C tenant must be linked to an Azure subscription. You might also need to switch your Azure AD B2C tenant to another pricing tier if you want to use Azure AD Premium P2 features, like risk-based Conditional Access.
+To take advantage of MAU billing, your Azure AD B2C tenant must be linked to an Azure subscription. You might also need to switch your Azure AD B2C tenant to another pricing tier if you want to use Azure AD B2C Premium P2 features, like risk-based Conditional Access.
 
 |If your tenant is:  |You need to:  |
 |---------|---------|
@@ -37,7 +37,7 @@ To take advantage of MAU billing, your Azure AD B2C tenant must be linked to an 
 
 MAU billing went into effect for Azure AD B2C tenants on **November 1, 2019**. Any Azure AD B2C tenants that you created and linked to a subscription on or after that date have been billed on a per-MAU basis. If you have an Azure AD B2C tenant that hasn't been linked to a subscription, you'll need to do so now. If you have an existing Azure AD B2C tenant that was linked to a subscription prior to November 1, 2019, we recommend you upgrade to the monthly active users (MAU) billing model, or you can stay on the per-authentication billing model.
   
-Your Azure AD B2C tenant must also be linked to the appropriate Azure pricing tier based on the features you want to use. Premium features require Azure AD [Azure AD Premium P1 or P2 pricing](https://azure.microsoft.com/pricing/details/active-directory-b2c/). You might need to upgrade your pricing tier as you use new features. For example, if you want to use risk-based Identity Protection and Conditional Access, you’ll need to select the Azure AD Premium P2 pricing tier for your tenant.
+Your Azure AD B2C tenant must also be linked to the appropriate Azure pricing tier based on the features you want to use. Premium features require Azure AD B2C [Premium P1 or P2 pricing](https://azure.microsoft.com/pricing/details/active-directory-b2c/). You might need to upgrade your pricing tier as you use new features. For example, Conditional Access, you’ll need to select the Azure AD B2C Premium P2 pricing tier for your tenant.
 
 ## Link an Azure AD B2C tenant to a subscription
 
@@ -55,14 +55,14 @@ A subscription linked to an Azure AD B2C tenant can be used for the billing of A
 ### Create the link
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Select the **Directory + subscription** filter in the top menu, and then select the directory that contains the Azure subscription you'd like to use (*not* the directory containing the Azure AD B2C tenant).
-1. Select **Create a resource**, enter `Active Directory B2C` in the **Search the Marketplace** field, and then select **Azure Active Directory B2C**.
-1. Select **Create**
-1. Select **Link an existing Azure AD B2C Tenant to my Azure subscription**.
-1. Select an **Azure AD B2C Tenant** from the dropdown. Only tenants for which you are a global administrator and that are not already linked to a subscription are shown. The **Azure AD B2C Resource name** field is populated with the domain name of the Azure AD B2C tenant you select.
-1. Select an active Azure **Subscription** of which you are an administrator.
-1. Under **Resource group**, select **Create new**, and then specify the **Resource group location**. The resource group settings here have no impact on your Azure AD B2C tenant location, performance, or billing status.
-1. Select **Create**.
+2. Select the **Directory + subscription** filter in the top menu, and then select the directory that contains the Azure subscription you'd like to use (*not* the directory containing the Azure AD B2C tenant).
+3. Select **Create a resource**, enter `Active Directory B2C` in the **Search the Marketplace** field, and then select **Azure Active Directory B2C**.
+4. Select **Create**.
+5. Select **Link an existing Azure AD B2C Tenant to my Azure subscription**.
+6. Select an **Azure AD B2C Tenant** from the dropdown. Only tenants for which you are a global administrator and that are not already linked to a subscription are shown. The **Azure AD B2C Resource name** field is populated with the domain name of the Azure AD B2C tenant you select.
+7. Select an active Azure **Subscription** of which you are an administrator.
+8. Under **Resource group**, select **Create new**, and then specify the **Resource group location**. The resource group settings here have no impact on your Azure AD B2C tenant location, performance, or billing status.
+9. Select **Create**.
 
     ![The Azure AD B2C Resource creation page in Azure portal](./media/billing/portal-01-create-b2c-resource-page.png)
 
@@ -70,21 +70,21 @@ After you complete these steps for an Azure AD B2C tenant, your Azure subscripti
 
 ## Change your Azure AD pricing tier
 
-A tenant must be linked to the appropriate Azure pricing tier based on the features you want to use with your Azure AD B2C tenant. Premium features require an Azure AD Premium P1 or P2 features, as described in the [Azure Active Directory B2C pricing](https://azure.microsoft.com/pricing/details/active-directory-b2c/). In some cases, you'll need to upgrade your pricing tier as you use new features. For example, if you want to use Identity Protection, risk-based Conditional Access, and any future Premium P2 capabilities with Azure AD B2C, you’ll need to select the Azure AD Premium P2 pricing tier for your tenant.
+A tenant must be linked to the appropriate Azure pricing tier based on the features you want to use with your Azure AD B2C tenant. Premium features require Azure AD B2C Premium P1 or P2, as described in the [Azure Active Directory B2C pricing](https://azure.microsoft.com/pricing/details/active-directory-b2c/). In some cases, you'll need to upgrade your pricing tier as you use new features. For example, if you want to use Identity Protection, risk-based Conditional Access, and any future Premium P2 capabilities with Azure AD B2C, you’ll need to select the Azure AD B2C Premium P2 pricing tier for your tenant.
 
 To change your pricing tier, follow these steps.
 
 1. Sign in to the Azure portal.
 
-1. Select the **Directory + subscription** filter in the top menu, and then select the directory that contains the Azure subscription your Azure B2C tenant is linked to (*don't* select the Azure AD B2C tenant itself).
+2. Select the **Directory + subscription** filter in the top menu, and then select the directory that contains the Azure subscription your Azure B2C tenant is linked to (*don't* select the Azure AD B2C tenant itself).
 
-1. In the search box at the top of the portal, enter the name of your Azure AD B2C tenant. Then select the tenant in the search results under **Resources**.
+3. In the search box at the top of the portal, enter the name of your Azure AD B2C tenant. Then select the tenant in the search results under **Resources**.
 
-1. On the resource **Overview** page, under **Pricing tier**, select **change**.
+4. On the resource **Overview** page, under **Pricing tier**, select **change**.
 
    ![Change pricing tier](media/billing/change-pricing-tier.png)
  
-1. Select the pricing tier that includes the features you want to enable.
+5. Select the pricing tier that includes the features you want to enable.
 
    ![Change pricing tier](media/billing/select-tier.png)
 
@@ -98,21 +98,21 @@ Here's how to make the switch to MAU billing for an existing Azure AD B2C resour
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as the subscription owner with administrative access to the Azure AD B2C resource.
 
-1. Select the **Directory + subscription** filter in the top menu, and then select the Azure AD B2C directory that you want to upgrade to MAU billing.<br/>
+2. Select the **Directory + subscription** filter in the top menu, and then select the Azure AD B2C directory that you want to upgrade to MAU billing.<br/>
 
     ![Directory and subscription filter in Azure portal](./media/billing/portal-mau-01-select-b2c-directory.png)
 
-2. In the left menu, select **Azure AD B2C**. Or, select **All services** and search for and select **Azure AD B2C**.
+3. In the left menu, select **Azure AD B2C**. Or, select **All services** and search for and select **Azure AD B2C**.
 
-3. On the **Overview** page of the Azure AD B2C tenant, select the link under **Resource name**. You're directed to the Azure AD B2C resource in your Azure AD tenant.<br/>
+4. On the **Overview** page of the Azure AD B2C tenant, select the link under **Resource name**. You're directed to the Azure AD B2C resource in your Azure AD tenant.<br/>
 
     ![Azure AD B2C resource link highlighted in Azure portal](./media/billing/portal-mau-02-b2c-resource-link.png)
 
-4. On the **Overview** page of the Azure AD B2C resource, under **Billable Units**, select the **Per Authentication (Change to MAU)** link.<br/>
+5. On the **Overview** page of the Azure AD B2C resource, under **Billable Units**, select the **Per Authentication (Change to MAU)** link.<br/>
 
     ![Change to MAU link highlighted in Azure portal](./media/billing/portal-mau-03-change-to-mau-link.png)
 
-5. Select **Confirm** to complete the upgrade to MAU billing.<br/>
+6. Select **Confirm** to complete the upgrade to MAU billing.<br/>
 
     ![MAU-based billing confirmation dialog in Azure portal](./media/billing/portal-mau-04-confirm-change-to-mau.png)
 
