@@ -64,9 +64,9 @@ You can also exercise date plane APIs by interacting with Azure Digital Twins th
 The Azure Digital Twins .NET (C#) SDK is part of the Azure SDK for .NET. It is open source, and is based on the Azure Digital Twins data plane APIs.
 
 > [!NOTE]
-> For in-depth information on SDK design, see the general [design principles for Azure SDKs](https://azure.github.io/azure-sdk/general_introduction.html) and the specific [.NET design guidelines](https://azure.github.io/azure-sdk/dotnet_introduction.html).
+> For more information on SDK design, see the general [design principles for Azure SDKs](https://azure.github.io/azure-sdk/general_introduction.html) and the specific [.NET design guidelines](https://azure.github.io/azure-sdk/dotnet_introduction.html).
 
-To use the SDK, include the NuGet package **Azure.DigitalTwins.Core** with your project. You will also need the **Azure.Identity** package.
+To use the SDK, include the NuGet package **Azure.DigitalTwins.Core** with your project. You will also need the latest version of the **Azure.Identity** package.
 
 * In Visual Studio, you can add packages with the NuGet Package Manager (accessed through *Tools > NuGet Package Manager > Manage NuGet Packages for Solution*). 
 * Using the .NET command-line tool, you can run:
@@ -144,7 +144,7 @@ You can also find additional samples in the [GitHub repo for the .NET (C#) SDK](
 
 #### Serialization Helpers
 
-As described earlier, the core SDK methods return twin data as JSON. However, the SDK also contains helper classes for serialization. These helper functions let you quickly create or deserialize twin data for access to basic information.
+Serialization helpers are helper functions available within the SDK for quickly creating or deserializing twin data for access to basic information. Since the core SDK methods return twin data as JSON by default, it can be helpful to use these helper classes to break the twin data down further.
 
 The available helper classes are:
 * `BasicDigitalTwin`: Represents the core data of a digital twin
@@ -231,7 +231,7 @@ foreach (string prop in rel.CustomProperties.Keys)
 
 ##### Create a relationship
 
-Using the `BasicDigitalTwin` class, you can also prepare data for creating relationships on a twin instance:
+Using the `BasicRelationship` class, you can also prepare data for creating relationships on a twin instance:
 
 ```csharp
 BasicRelationship rel = new BasicRelationship();

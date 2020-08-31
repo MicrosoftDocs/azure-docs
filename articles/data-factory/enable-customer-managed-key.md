@@ -15,7 +15,7 @@ ms.reviewer: mariozi
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Azure Data Factory encrypts data at rest, including entity definitions, any data cached while runs are in progress, and data cached for Data Preview. By default, data is encrypted with a randomly generated Microsoft-managed key that is uniquely assigned to your data factory. For additional security guarantees, you can now enable Bring Your Own Key (BYOK) with customer-managed keys feature in Azure Data Factory. When you specify a customer-managed key, Data Factory uses __both__ the factory system key and the CMK to encrypt customer data. Missing either would result in Deny of Access to data and factory.
+Azure Data Factory encrypts data at rest, including entity definitions and any data cached while runs are in progress. By default, data is encrypted with a randomly generated Microsoft-managed key that is uniquely assigned to your data factory. For additional security guarantees, you can now enable Bring Your Own Key (BYOK) with customer-managed keys feature in Azure Data Factory. When you specify a customer-managed key, Data Factory uses __both__ the factory system key and the CMK to encrypt customer data. Missing either would result in Deny of Access to data and factory.
 
 Azure Key Vault is required to store customer-managed keys. You can either create your own keys and store them in a key vault, or you can use the Azure Key Vault APIs to generate keys. Key vault and Data Factory must be in the same Azure Active Directory (Azure AD) tenant and in the same region, but they may be in different subscriptions. For more information about Azure Key Vault, see [What is Azure Key Vault?](../key-vault/general/overview.md)
 
@@ -71,7 +71,7 @@ You can either create your own keys and store them in a key vault, or you can us
 
     ![Screenshot Get Key URI from Key Vault](media/enable-customer-managed-key/04-get-key-identifier.png)
 
-1. Launch Azure Data Factory portal, and using the navigation bar on the left, jump to Data Factory Home Page
+1. Launch Azure Data Factory portal, and using the navigation bar on the left, jump to Data Factory Management Portal
 
 1. Click on the __Customer manged key__ icon
 

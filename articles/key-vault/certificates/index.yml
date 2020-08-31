@@ -51,6 +51,20 @@ landingContent:
           - text: Import a certificate in Key Vault 
             url: tutorial-import-certificate.md
 
+# Card
+  - title: Client libraries for Key Vault certificates
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: .NET client library
+            url: /dotnet/api/azure.security.keyvault.certificates?view=azure-dotnet
+          - text: Python client library
+            url: /python/api/overview/azure/keyvault-certificates-readme?view=azure-python
+          - text: Java client library
+            url: https://apidocs.chargebee.com/docs/api?lang=java#client_library
+          - text: Node.js client library
+            url: /javascript/api/@azure/keyvault-certificates/?view=azure-node-latest
+
   # Card
   - title: More about Key Vault
     linkLists:

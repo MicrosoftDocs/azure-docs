@@ -1,6 +1,6 @@
 ---
 title: 'Azure Bastion | Microsoft Docs'
-description: Learn about Azure Bastion
+description: Learn about Azure Bastion, which provides secure and seamless RDP/SSH connectivity to your virtual machines without exposing RDP/SSH ports externally.
 services: bastion
 author: cherylmc
 # Customer intent: As someone with a basic network background, but is new to Azure, I want to understand the capabilities of Azure Bastion so that I can securely connect to my Azure virtual machines.

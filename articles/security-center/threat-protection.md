@@ -225,7 +225,6 @@ Some network configurations may restrict Security Center from generating alerts 
 
 For a list of the Azure network layer alerts, see the [Reference table of alerts](alerts-reference.md#alerts-azurenetlayer).
 
-For details of how Security Center can use network-related signals to apply threat protection, see [Heuristic DNS detections in  Security Center](https://azure.microsoft.com/blog/heuristic-dns-detections-in-azure-security-center/).
 
 
 

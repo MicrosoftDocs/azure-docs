@@ -1,7 +1,7 @@
 ---
 title: "Pattern: Parameters in a policy definition"
 description: This Azure Policy pattern provides an example of how to use parameters in a policy definition.
-ms.date: 05/20/2020
+ms.date: 08/17/2020
 ms.topic: sample
 ---
 # Azure Policy pattern: parameters
