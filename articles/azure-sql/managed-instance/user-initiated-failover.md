@@ -32,7 +32,7 @@ You might consider executing a [manual failover](../database/high-availability-s
 
 ## Initiate manual failover on SQL Managed Instance
 
-### Permissions required
+### RBAC permissions required
 
 User initiating a failover will need to have one of the following RBAC roles:
 
