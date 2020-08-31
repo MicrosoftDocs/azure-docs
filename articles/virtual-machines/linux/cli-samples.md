@@ -1,6 +1,6 @@
 ---
 title: Azure CLI Samples 
-description: Azure CLI Samples
+description: CLI Samples for Azure virtual machines
 author: cynthn
 ms.service: virtual-machines-linux
 ms.topic: how-to
