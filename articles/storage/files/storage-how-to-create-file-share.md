@@ -262,6 +262,9 @@ Update-AzRmStorageShare `
     -AccessTier Cool
 ```
 
+> [!Note]  
+> The ability to set and change tiers via PowerShell is provided in the preview Az.Storage PowerShell module. These cmdlets or their output may change before being released in the generally available Az.Storage PowerShell module, so create scripts with this in mind.
+
 # [Azure CLI](#tab/azure-cli)
 The functionality to create or move a file share to a specific tier is available in the latest Azure CLI update. Updating Azure CLI is specific to the operating system/Linux distribution your are using. For instructions on how to update Azure CLI on your system, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
@@ -277,6 +280,10 @@ az storage share-rm create \
     --name $shareName \
     --access-tier "Hot"
 ```
+
+> [!Note]  
+> The ability to set a tier with the `--access-tier` parameter is provided a preview in the latest Azure CLI package. This command or its output may change before being marked as generally available, so create scripts with this in mind.
+
 ---
 
 ## Next steps

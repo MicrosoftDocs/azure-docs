@@ -33,7 +33,7 @@ With MABS V3 UR1, you can back up the ReFS volumes and workloads deployed on the
 > Backup of Hyper-V VMs stored on an ReFS volume is supported with MABS V3
 
 >[IMPORTANT]
->We have identified a few issues with backup of deduplicated ReFS volumes. We are working on fixing these, and will update this section as soon as we have a fix available. Until then, we are removing the support for backup of deduplicated ReFS volumes from MABSv3 UR1.
+>We've identified a few issues with backup of deduplicated ReFS volumes. We're working on fixing these, and will update this section as soon as we have a fix available. Until then, we're removing the support for backup of deduplicated ReFS volumes from MABSv3 UR1.
 
 ### Azure VMware Solution protection support
 
@@ -110,7 +110,7 @@ MABS V3 can be installed with SQL 2017 as the MABS database. You can upgrade the
 
 ### Windows Server 2019 support
 
-MABS V3 can be installed on Windows Server 2019. To use MABS V3 with WS2019, you can either upgrade your OS to WS2019 before installing/upgrading to MABS V3 or you can upgrade your OS post installing/upgrading V3 on WS2016.
+MABS V3 can be installed on Windows Server 2019. To use MABS V3 with WS2019, you can either upgrade your OS to WS2019 before installing/upgrading to MABS V3 or you can upgrade your OS after installing/upgrading V3 on WS2016.
 
 MABS V3 is a full release, and can be installed directly on Windows Server 2016, Windows Server 2019, or can be upgraded from MABS V2. Before you upgrade to or install Backup Server V3, read about the installation prerequisites.
 Find more information about the installation/upgrade steps for MABS [here](./backup-azure-microsoft-azure-backup.md#software-package).

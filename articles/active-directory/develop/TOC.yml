@@ -48,7 +48,7 @@
     - name: ASP.NET
       href: quickstart-v2-dotnet-native-aspnet.md
     - name: ASP.NET Core
-      href: https://azure.microsoft.com/resources/samples/active-directory-dotnet-native-aspnetcore-v2
+      href: https://docs.microsoft.com/samples/azure-samples/active-directory-dotnet-native-aspnetcore-v2/active-directory-dotnet-native-aspnetcore-v2/
   - name: Mobile and desktop apps
     items:
     - name: Android
@@ -273,7 +273,9 @@
           href: msal-net-adfs-support.md
         - name: Migrate to MSAL.NET
           href: msal-net-migration.md
-        - name: Migrate Xamarin apps using brokers to MSAL.NET
+        - name: Migrate Xamarin Android app using broker to MSAL.NET
+          href: msal-net-migration-android-broker.md
+        - name: Migrate Xamarin iOS app using broker to MSAL.NET
           href: msal-net-migration-ios-broker.md
         - name: Web browser considerations
           href: msal-net-web-browsers.md

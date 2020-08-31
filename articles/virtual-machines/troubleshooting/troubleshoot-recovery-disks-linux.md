@@ -35,7 +35,7 @@ The troubleshooting process is as follows:
 To perform these troubleshooting steps, you need the latest [Azure CLI](/cli/azure/install-az-cli2) installed and logged in to an Azure account using [az login](/cli/azure/reference-index).
 
 > [!Important]
-> The scripts in this article only apply to the VMs that use [Managed Disk](../linux/managed-disks-overview.md). 
+> The scripts in this article only apply to the VMs that use [Managed Disk](../managed-disks-overview.md). 
 
 In the following examples, replace parameter names with your own values, such as `myResourceGroup` and `myVM`.
 

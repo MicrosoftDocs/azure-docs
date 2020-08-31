@@ -15,6 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
+ms.custom: devx-track-csharp
 
 ---
 # Managing Assets and Related Entities with Media Services .NET SDK
