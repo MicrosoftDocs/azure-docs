@@ -2,7 +2,7 @@
 title: Create a template spec with linked templates
 description: Learn how to create a template spec with linked templates.
 ms.topic: conceptual
-ms.date: 08/26/2020
+ms.date: 08/31/2020
 
 ---
 
@@ -182,7 +182,7 @@ az group create \
   --name templateSpecRG \
   --location westus2
 
-az template-specs create \
+az ts create \
   --name webSpec \
   --version "1.0.0.0" \
   --resource-group templateSpecRG \
@@ -203,7 +203,7 @@ Get-AzTemplateSpec -ResourceGroupName templatespecRG -Name webSpec
 # [CLI](#tab/azure-cli)
 
 ```azurecli
-az template-specs show --name webSpec --resource-group templateSpecRG --version "1.0.0.0"
+az ts show --name webSpec --resource-group templateSpecRG --version "1.0.0.0"
 ```
 
 ---
@@ -241,7 +241,7 @@ az deployment group create \
 ```
 
 > [!NOTE]
-> There is a known issue with getting template spec id and then assign it to a variable in Windows PowerShell.
+> There is a known issue with getting a template spec ID and assigning it to a variable in Windows PowerShell.
 
 ---
 

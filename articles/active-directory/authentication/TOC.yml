@@ -116,6 +116,10 @@
             href: howto-authentication-passwordless-security-key-windows.md
           - name: SSO to on-premises resources
             href: howto-authentication-passwordless-security-key-on-premises.md
+          - name: Hybrid FAQs
+            href: howto-authentication-passwordless-faqs.md
+          - name: Troubleshoot hybrid
+            href: howto-authentication-passwordless-troubleshoot.md
       - name: Passwordless phone sign-in
         href: howto-authentication-passwordless-phone.md
       - name: Windows Hello for Business

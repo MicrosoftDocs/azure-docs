@@ -189,6 +189,8 @@ Backups run in accordance with the policy schedule. You can run a backup on-dema
 3. In **Backup Now**, choose the type of backup you want to perform. Then click **OK**. This backup will be retained according to the policy associated with this backup item.
 4. Monitor the portal notifications. You can monitor the job progress in the vault dashboard > **Backup Jobs** > **In progress**. Depending on the size of your database, creating the initial backup may take a while.
 
+By default, the retention of on-demand backups is 45 days.
+
 ## Run SAP HANA Studio backup on a database with Azure Backup enabled
 
 If you want to take a local backup (using HANA Studio) of a database that's being backed up with Azure Backup, do the following:
