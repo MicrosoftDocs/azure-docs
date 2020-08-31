@@ -6,7 +6,8 @@ author: mmccrory
 ms.service: cloud-services
 ms.topic: article
 ms.date: 12/01/2016
-ms.author: memccror
+ms.author: memccror 
+ms.custom: devx-track-azurepowershell
 
 ---
 # How to scale a cloud service in PowerShell

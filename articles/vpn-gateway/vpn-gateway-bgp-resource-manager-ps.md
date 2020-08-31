@@ -7,7 +7,8 @@ author: yushwang
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 04/12/2017
-ms.author: yushwang
+ms.author: yushwang 
+ms.custom: devx-track-azurepowershell
 
 ---
 # How to configure BGP on Azure VPN Gateways using PowerShell
