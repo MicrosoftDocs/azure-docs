@@ -1,20 +1,20 @@
 ---
-title: Set Azure Resource Manager password on your Azure Stack Edge device
-description: Describes how to connect to the Azure Resource Manager running on your Azure Stack Edge using Azure PowerShell.
+title: Set Azure Resource Manager password on your Azure Stack Edge GPU device
+description: Describes how to connect to the Azure Resource Manager running on your Azure Stack Edge GPU using Azure PowerShell.
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 02/24/2020
+ms.date: 08/28/2020
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to connect to Azure Resource Manager on my Azure Stack Edge device so that I can manage resources.
 ---
 
 # Set Azure Resource Manager password
 
-[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]
+<!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
 This article describes how to set your Azure Resource Manager password. You need to set this password when you are connecting to the device local APIs via the Azure Resource Manager.
 

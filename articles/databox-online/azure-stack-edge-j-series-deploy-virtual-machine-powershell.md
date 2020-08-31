@@ -1,13 +1,13 @@
 ---
-title: Deploy VMs on your Azure Stack Edge device via Azure PowerShell
-description: Describes how to create and manage virtual machines (VMs) on a Azure Stack Edge device using Azure PowerShell.
+title: Deploy VMs on your Azure Stack Edge GPU device via Azure PowerShell
+description: Describes how to create and manage virtual machines (VMs) on a Azure Stack Edge GPU device using Azure PowerShell.
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 01/19/2020
+ms.date: 08/28/2020
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to create and manage virtual machines (VMs) on my Azure Stack Edge device using APIs so that I can efficiently manage my VMs.
 ---

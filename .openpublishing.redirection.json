@@ -23474,6 +23474,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/active-directory/fundamentals/concept-continuous-access-evaluation.md",
+      "redirect_url": "/azure/active-directory/conditional-access/concept-continuous-access-evaluation",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/iot-hub/iot-hub-security-ground-up.md",
       "redirect_url": "/azure/iot-fundamentals/iot-security-ground-up",
       "redirect_document_id": true
@@ -29371,6 +29376,21 @@
     {
       "source_path": "articles/security-center/security-center-apply-system-updates.md",
       "redirect_url": "/azure/security-center/security-center-virtual-machine-protection",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security-center/security-center-vulnerability-assessment-recommendations.md",
+      "redirect_url": "/azure/security-center/deploy-vulnerability-assessment-vm",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security-center/built-in-vulnerability-assessment.md",
+      "redirect_url": "/azure/security-center/deploy-vulnerability-assessment-vm",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security-center/partner-vulnerability-assessment.md",
+      "redirect_url": "/azure/security-center/deploy-vulnerability-assessment-vm",
       "redirect_document_id": false
     },
     {
@@ -37330,22 +37350,27 @@
     {
       "source_path": "articles/active-directory/application-access-panel-self-service-applications-how-to.md",
       "redirect_url": "/azure/active-directory/manage-apps/access-panel-manage-self-service-access",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/application-access-panel-self-service-applications-problem.md",
-      "redirect_url": "/azure/active-directory/manage-apps/access-panel-troubleshoot-self-service-access",
-      "redirect_document_id": true
+      "redirect_url": "/azure/active-directory/manage-apps/access-panel-manage-self-service-access",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/manage-apps/access-panel-troubleshoot-self-service-access.md",
+      "redirect_url": "/azure/active-directory/manage-apps/access-panel-manage-self-service-access",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/application-access-panel-unexpected-application-appears.md",
       "redirect_url": "/azure/active-directory/manage-apps/access-panel-troubleshoot-unexpected-application",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/application-access-panel-unexpected-application-not-appearing.md",
       "redirect_url": "/azure/active-directory/manage-apps/access-panel-troubleshoot-application-not-appearing",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/application-access-panel-web-sign-in-problem.md",
