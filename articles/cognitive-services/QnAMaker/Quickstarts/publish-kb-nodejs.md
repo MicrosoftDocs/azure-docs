@@ -75,7 +75,7 @@ Create a file named `rest-apis.js` and add the following dependencies.
 
 :::code language="javascript" source="~/cognitive-services-quickstart-code/javascript/QnAMaker/rest/create-publish-kb.js" id="dependencies":::
 
-# Add utility functions
+## Add utility functions
 
 Add the following utility functions.
 
