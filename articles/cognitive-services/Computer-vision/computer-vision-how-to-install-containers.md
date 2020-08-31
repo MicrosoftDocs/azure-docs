@@ -31,7 +31,7 @@ You must meet the following prerequisites before using the containers:
 |Familiarity with Docker | You should have a basic understanding of Docker concepts, like registries, repositories, containers, and container images, as well as knowledge of basic `docker` commands.| 
 |Computer Vision resource |In order to use the container, you must have:<br><br>An Azure **Computer Vision** resource and the associated API key the endpoint URI. Both values are available on the Overview and Keys pages for the resource and are required to start the container.<br><br>**{API_KEY}**: One of the two available resource keys on the **Keys** page<br><br>**{ENDPOINT_URI}**: The endpoint as provided on the **Overview** page|
 
-## Request access to the private container registry
+## Request access to run the container
 
 Fill out and submit the [request form](https://aka.ms/cognitivegate) to request access to the container. 
 
