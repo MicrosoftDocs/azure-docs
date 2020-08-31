@@ -35,11 +35,11 @@ Viewing costs by using the management group scope is the only way to see aggrega
 
 In cost analysis, open the scope picker and select the management group that holds your AWS linked accounts. Here's an example image in the Azure portal:
 
-![Example of the Select scope view with linked accounts under a management group](./media/aws-integration-manage/select-scope01.png)
+:::image type="content" source="./media/aws-integration-manage/select-scope01.png" alt-text="Example of the Select scope view with linked accounts under a management group" :::
 
 Here's an example showing the management group cost in cost analysis, grouped by Provider (Azure and AWS).
 
-![Example showing Azure and AWS costs for a quarter in cost analysis](./media/aws-integration-manage/cost-analysis-aws-azure.png)
+:::image type="content" source="./media/aws-integration-manage/cost-analysis-aws-azure.png" alt-text="Example showing Azure and AWS costs for a quarter in cost analysis" lightbox="./media/aws-integration-manage/cost-analysis-aws-azure.png" :::
 
 > [!NOTE]
 > Management groups aren't currently supported for Microsoft Customer Agreement (MCA) customers. MCA customers can create the connector and view their AWS data. However, MCA customers can't view their Azure costs and AWS costs together under a management group.
@@ -50,17 +50,17 @@ To view AWS link account costs, open the scope picker and select the AWS linked 
 
 Here's an example that shows selecting an AWS linked account scope.
 
-![Example of the Select scope view that shows AWS linked accounts](./media/aws-integration-manage/select-scope02.png)
+:::image type="content" source="./media/aws-integration-manage/select-scope02.png" alt-text="Example of the Select scope view that shows AWS linked accounts" :::
 
 ### View AWS consolidated account costs
 
 To view AWS consolidated account costs, open the scope picker and select the AWS consolidated account. Here's an example that shows selecting an AWS consolidated account scope.
 
-![Example of the Select scope view with consolidated accounts](./media/aws-integration-manage/select-scope03.png)
+:::image type="content" source="./media/aws-integration-manage/select-scope03.png" alt-text="Example of the Select scope view with consolidated accounts" :::
 
 This scope provides an aggregated view of all AWS linked accounts associated with the AWS consolidated account. Here's an example showing costs for an AWS consolidated account, grouped by service name.
 
-![Example showing AWS consolidated costs in cost analysis](./media/aws-integration-manage/cost-analysis-aws-consolidated.png)
+:::image type="content" source="./media/aws-integration-manage/cost-analysis-aws-consolidated.png" alt-text="Example showing AWS consolidated costs in cost analysis" lightbox="./media/aws-integration-manage/cost-analysis-aws-consolidated.png" :::
 
 ### Dimensions available for filtering and grouping
 
@@ -90,7 +90,7 @@ The following table describes dimensions available to group and filter by in cos
 
 Use budgets to proactively manage costs and drive accountability in your organization. Budgets are set on the AWS consolidated account and AWS linked account scopes. Here's an example of budgets for an AWS consolidated account shown in Cost Management:
 
-![Example showing budgets for an AWS consolidated account](./media/aws-integration-manage/budgets-aws-consolidated-account01.png)
+:::image type="content" source="./media/aws-integration-manage/budgets-aws-consolidated-account01.png" alt-text="Example showing budgets for an AWS consolidated account" :::
 
 ## AWS data collection process
 

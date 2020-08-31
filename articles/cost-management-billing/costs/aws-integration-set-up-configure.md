@@ -150,9 +150,9 @@ Use the following information to create an AWS connector and start monitoring yo
 2. Go to **Cost Management + Billing** > **Cost Management**.
 3. Under **Settings**, select **Connectors for AWS**.  
 4. Select **+Add** at the top of the page to create a connector.  
-   ![Example showing the Connectors for AWS setting)](./media/aws-integration-setup-configure/aws-connector.png)
+    :::image type="content" source="./media/aws-integration-setup-configure/aws-connector.png" alt-text="Example showing the Connectors for AWS setting" :::
 1. On the **Create connector** page, in **Display name**, enter a name for your connector.  
-    ![Example of the page for creating an AWS connector](./media/aws-integration-setup-configure/create-aws-connector01.png)
+    :::image type="content" source="./media/aws-integration-setup-configure/create-aws-connector01.png" alt-text="Example of the page for creating an AWS connector" :::
 1. Optionally, select the default management group. It will store all discovered linked accounts. You can set it up later.
 1. In the **Billing** section, select **Auto-Renew** to **On** if you want to ensure continuous operation. If you select the automatic option, you must select a billing subscription.
 1. For **Role ARN**, enter the value that you used when you set up the role in AWS.
@@ -181,7 +181,7 @@ When you select a connector on the **Connectors for AWS** page, you can:
 - Select **Edit** to update the connector. You can't change the AWS account number, because it appears in the role ARN. But you can create a new connector.
 - Select **Verify** to rerun the verification test to make sure that Cost Management can collect data by using the connector settings.
 
-![Example AWS connector details](./media/aws-integration-setup-configure/aws-connector-details.png)
+:::image type="content" source="./media/aws-integration-setup-configure/aws-connector-details.png" alt-text="Example AWS connector details" :::
 
 ## Set up Azure management groups
 
@@ -191,9 +191,9 @@ If you want to separate costs, you can create a management group that holds just
 
 ## Set up an AWS consolidated account
 
-The AWS consolidated account combines billing and payment for multiple AWS accounts. It also acts as an AWS linked account.
+The AWS consolidated account combines billing and payment for multiple AWS accounts. It also acts as an AWS linked account. You can view the details for your AWS consolidated account using the link on the AWS connector page. 
 
-![Example details for an AWS consolidated account](./media/aws-integration-setup-configure/aws-consolidated-account01.png)
+:::image type="content" source="./media/aws-integration-setup-configure/aws-consolidated-account01.png" alt-text="Example details for an AWS consolidated account" :::
 
 From the page, you can:
 
@@ -215,7 +215,7 @@ From this page, you can:
 - Select **Update** to update the association of an AWS linked account with a management group.
 - Select **Access Control** to set a role assignment for the scope.
 
-![Example of the AWS Linked Account page](./media/aws-integration-setup-configure/aws-linked-account01.png)
+:::image type="content" source="./media/aws-integration-setup-configure/aws-linked-account01.png" alt-text="Example of the AWS Linked Account page" :::
 
 ### Permissions for an AWS linked account
 
