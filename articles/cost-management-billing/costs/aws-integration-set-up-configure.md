@@ -172,6 +172,9 @@ Assigning connector permissions to users after discovery occurs doesn't assign p
 - Check that new scopes are added to your scope picker. Select **Refresh** to view the latest data.
 - On the **Cloud connectors** page, select your connector and select **Go to billing account** to assign the linked account to management groups.
 
+> [!NOTE]
+> Management groups aren't currently supported for Microsoft Customer Agreement (MCA) customers. MCA customers can create the connector and view their AWS data. However, MCA customers can't view their Azure costs and AWS costs together under a management group.
+
 ## Manage AWS connectors
 
 When you select a connector on the **Connectors for AWS** page, you can:
