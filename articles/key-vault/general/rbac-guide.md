@@ -13,7 +13,7 @@ ms.author: mbaldwin
 ---
 # Provide access to Key Vault keys, certificates, and secrets with an Azure role-based access control (preview)
 
-Azure role-based access control (Azure RBAC)  is an authorization system built on [Azure Resource
+Azure role-based access control (Azure RBAC) is an authorization system built on [Azure Resource
 Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)
 that provides fine-grained access management of Azure resources.
 
@@ -44,16 +44,16 @@ More about Azure Key Vault best practices, see:
 
 ## Azure RBAC built-in roles for Key Vault data plane operations (preview)
 
-> | Built-in role | Description | ID |
-> | --- | --- | --- |
-> | Key Vault Administrator (preview) | Perform all data plane operations on a key vault and  all objects in it, including certificates, keys, and secrets. Cannot manage key vault resources or manage role assignments. Only works for key vaults that use the 'Azure role-based access control' permission model. | 00482a5a-887f-4fb3-b363-3b7fe8e74483 |
-> | Key Vault Certificates Officer (preview) | Perform any action on the certificates of a key vault, except manage permissions. Only works for key vaults that use the 'Azure role-based access control' permission model. | a4417e6f-fecd-4de8-b567-7b0420556985 |
-> | Key Vault Crypto Officer (preview)| Perform any action on the keys of a key vault, except manage permissions. Only works for key vaults that use the 'Azure role-based access control' permission model. | 14b46e9e-c2b7-41b4-b07b-48a6ebf60603 |
-> | Key Vault Crypto Service Encryption (preview) | Read metadata of keys and perform wrap/unwrap operations. Only works for key vaults that use the 'Azure role-based access control' permission model. | e147488a-f6f5-4113-8e2d-b22465e65bf6 |
-> | Key Vault Crypto User (preview) | Perform cryptographic operations using keys. Only works for key vaults that use the 'Azure role-based access control' permission model. | 12338af0-0e69-4776-bea7-57ae8d297424 |
-> | Key Vault Reader (preview)| Read metadata of key vaults and its certificates, keys, and secrets. Cannot read sensitive values such as secret contents or key material. Only works for key vaults that use the 'Azure role-based access control' permission model. | 21090545-7ca7-4776-b22c-e363652d74d2 |
-> | Key Vault Secrets Officer (preview)| Perform any action on the secrets of a key vault, except manage permissions. Only works for key vaults that use the 'Azure role-based access control' permission model. | b86a8fe4-44ce-4948-aee5-eccb2c155cd7 |
-> [Key Vault Secrets User (preview)| Read secret contents. Only works for key vaults that use the 'Azure role-based access control' permission model. | 4633458b-17de-408a-b874-0445c86b69e6 |
+| Built-in role | Description | ID |
+| --- | --- | --- |
+| Key Vault Administrator (preview) | Perform all data plane operations on a key vault and  all objects in it, including certificates, keys, and secrets. Cannot manage key vault resources or manage role assignments. Only works for key vaults that use the 'Azure role-based access control' permission model. | 00482a5a-887f-4fb3-b363-3b7fe8e74483 |
+| Key Vault Certificates Officer (preview) | Perform any action on the certificates of a key vault, except manage permissions. Only works for key vaults that use the 'Azure role-based access control' permission model. | a4417e6f-fecd-4de8-b567-7b0420556985 |
+| Key Vault Crypto Officer (preview)| Perform any action on the keys of a key vault, except manage permissions. Only works for key vaults that use the 'Azure role-based access control' permission model. | 14b46e9e-c2b7-41b4-b07b-48a6ebf60603 |
+| Key Vault Crypto Service Encryption (preview) | Read metadata of keys and perform wrap/unwrap operations. Only works for key vaults that use the 'Azure role-based access control' permission model. | e147488a-f6f5-4113-8e2d-b22465e65bf6 |
+| Key Vault Crypto User (preview) | Perform cryptographic operations using keys. Only works for key vaults that use the 'Azure role-based access control' permission model. | 12338af0-0e69-4776-bea7-57ae8d297424 |
+| Key Vault Reader (preview)| Read metadata of key vaults and its certificates, keys, and secrets. Cannot read sensitive values such as secret contents or key material. Only works for key vaults that use the 'Azure role-based access control' permission model. | 21090545-7ca7-4776-b22c-e363652d74d2 |
+| Key Vault Secrets Officer (preview)| Perform any action on the secrets of a key vault, except manage permissions. Only works for key vaults that use the 'Azure role-based access control' permission model. | b86a8fe4-44ce-4948-aee5-eccb2c155cd7 |
+| Key Vault Secrets User (preview)| Read secret contents. Only works for key vaults that use the 'Azure role-based access control' permission model. | 4633458b-17de-408a-b874-0445c86b69e6 |
 
 For more details about Azure RBAC built-in roles definitions, see [Azure role-based access control built-in roles](https://https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
 
@@ -67,11 +67,11 @@ Important: Setting Azure RBAC permission model invalidates all access policies p
 
 1.  Enable Azure RBAC permissions on new key vault:
 
-> ![Enable RBAC permissions - new vault](../media/rbac/image1.png)
+![Enable RBAC permissions - new vault](../media/rbac/image1.png)
 
 2.  Enable Azure RBAC permissions on existing key vault:
 
-> ![Enable RBAC permissions - existing vault](../media/rbac/image2.png)
+![Enable RBAC permissions - existing vault](../media/rbac/image2.png)
 
 ### Assign Role
 
@@ -112,7 +112,7 @@ Above role assignment provides ability to list key vault objects in key vault.
 
 3. Create Key Secrets Officer role "Key Vault Secrets Officer (preview)" for current user.
 
-> ![Role assignment - key vault](../media/rbac/image6.png)
+![Role assignment - key vault](../media/rbac/image6.png)
 
  Azure CLI:
 
@@ -124,7 +124,7 @@ After creating above role assignment you should be able to create/update/delete 
 
 4. Create new secret ( Secrets \> +Generate/Import) for testing secret level role assignment.
 
-> ![Add role - key vault](../media/rbac/image7.png)
+![Add role - key vault](../media/rbac/image7.png)
 
 ### Secret Scope Role Assignment
 
@@ -132,7 +132,7 @@ After creating above role assignment you should be able to create/update/delete 
 
 2. Click Access control(IAM)(preview) tab
 
-> ![Role assignment - secret](../media/rbac/image8.png)
+![Role assignment - secret](../media/rbac/image8.png)
 
 3. Create Key Secrets Officer role "Key Vault Secrets Officer (preview)" for current user, same like it was done above for the Key Vault.
 
@@ -224,5 +224,4 @@ For available actions check Appendix: **Available Actions**
 ## Learn more
 
 - [RBAC Overview](https://docs.microsoft.com/azure/role-based-access-control/overview)
-
 - [Custom Roles Tutorial](https://docs.microsoft.com/azure/role-based-access-control/tutorial-custom-role-cli)
