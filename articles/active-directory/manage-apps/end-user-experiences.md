@@ -38,8 +38,6 @@ For more information on Azure AD My Apps, see the [introduction to My Apps](../u
 
 For organizations that have deployed Office 365, applications assigned to users through Azure AD will also appear in the Office 365 portal at [https://portal.office.com/myapps](https://portal.office.com/myapps). This makes it easy and convenient for users in an organization to launch their apps without having to use a second portal, and is the recommended app launching solution for organizations using Office 365.
 
-![Screenshot shows the Office 365 portal](./media/end-user-experiences/microsoft-365-portal-office-com.png)
-
 For more information about the Office 365 application launcher, see [Have your app appear in the Office 365 app launcher](https://msdn.microsoft.com/office/office365/howto/connect-your-app-to-o365-app-launcher).
 
 ## Direct sign-on to federated apps
