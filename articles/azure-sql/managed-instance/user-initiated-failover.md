@@ -32,13 +32,12 @@ You might consider executing a [manual failover](../database/high-availability-s
 
 ## Initiate manual failover on SQL Managed Instance
 
-## Permissions required
+The user initiating a failover will need to have one of the following RBAC roles:
 
-Azure RBAC permission required to execute user-initiated manual failover is:
-
-Microsoft.Sql/managedInstanes/failover/action
-
-This permission is needed if, for example, you are creating a custom RBAC role. Please note that this permission is already included in the built-in [Managed Instance Contributor](../../role-based-access-control/built-in-roles.md#sql-managed-instance-contributor) role. 
+- Subscription Owner role, or
+- Managed Instance Contributor role, or
+- Custom role with the following permissions:
+  - `Microsoft.Sql/managedInstanes/failover/action`
 
 ### Using PowerShell
 
