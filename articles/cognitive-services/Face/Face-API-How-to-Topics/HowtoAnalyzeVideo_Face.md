@@ -11,6 +11,7 @@ ms.subservice: face-api
 ms.topic: sample
 ms.date: 03/01/2018
 ms.author: sbowles
+ms.custom: devx-track-csharp
 ---
 
 # Example: How to Analyze Videos in Real-time

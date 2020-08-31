@@ -10,6 +10,7 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 06/05/2020
 ms.author: trbye
+ms.custom: devx-track-csharp
 ---
 
 # Learn the basics of Speaker Recognition
