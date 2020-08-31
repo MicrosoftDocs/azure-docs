@@ -40,15 +40,16 @@ Before you can associate or add your subscription, do the following tasks:
 
 - Review the following list of changes that will occur after you associate or add your subscription, and how you might be affected:
 
-  - Users that have been assigned roles using RBAC will lose their access
+  - Users that have been assigned roles using Azure RBAC will lose their access
   - Service Administrator and Co-Administrators will lose access
   - If you have any key vaults, they'll be inaccessible and you'll have to fix them after association
   - If you have any managed identities for resources such as Virtual Machines or Logic Apps, you must re-enable or recreate them after the association
   - If you have a registered Azure Stack, you'll have to re-register it after association
+  - For more information, see [Transfer an Azure subscription to a different Azure AD directory (Preview)](../../role-based-access-control/transfer-subscription.md).
 
 - Sign in using an account that:
 
-  - Has an [Owner](../../role-based-access-control/built-in-roles.md#owner) role assignment for the subscription. For information about how to assign the Owner role, see [Manage access to Azure resources using RBAC and the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+  - Has an [Owner](../../role-based-access-control/built-in-roles.md#owner) role assignment for the subscription. For information about how to assign the Owner role, see [Add or remove Azure role assignments using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
   - Exists in both the current directory and in the new directory. The current directory is associated with the subscription. You'll associate the new directory with the subscription. For more information about getting access to another directory, see [Add Azure Active Directory B2B collaboration users in the Azure portal](../b2b/add-users-administrator.md).
 
 - Make sure you're not using an Azure Cloud Service Providers (CSP) subscription (MS-AZR-0145P, MS-AZR-0146P, MS-AZR-159P), a Microsoft Internal subscription (MS-AZR-0015P), or a Microsoft Imagine subscription (MS-AZR-0144P).
@@ -86,6 +87,8 @@ After you associate a subscription to a different directory, you might need to d
 - If you used system-assigned Managed Identities for resources, you must re-enable these identities. If you used user-assigned Managed Identities, you must re-create these identities. After re-enabling or recreating the Managed Identities, you must re-establish the permissions assigned to those identities. For more information, see [What is managed identities for Azure resources?](../managed-identities-azure-resources/overview.md).
 
 - If you've registered an Azure Stack using this subscription, you must re-register. For more information, see [Register Azure Stack with Azure](/azure-stack/operator/azure-stack-registration).
+
+- For more information, see [Transfer an Azure subscription to a different Azure AD directory (Preview)](../../role-based-access-control/transfer-subscription.md).
 
 ## Next steps
 
