@@ -10,44 +10,36 @@ ms.date: 09/21/2020
 # Backup and restore in Azure Database for PostgreSQL - Flexible Server
  
  ## Overview
- Backup and recoverability are an essential part of any business continuity strategy because they protect your data from accidental corruption or deletion. Azure Database for PostgreSQL Flexible Server, which is currently in preview, automatically backs up your server and retains the backups for the duration defined by you. During the restore process, you can specify the date and time to which you want to restore, flexible server automatically performs restore and recovery operations to the specific point-in-time. The overall time to restore and recover depends on the size of the database files and the amount of recovery. 
+ Backups form an essential part of any business continuity strategy. They help with protecting data from accidental corruption or deletion. Azure Database for PostgreSQL Flexible Server, which is currently in preview, automatically backs up your server and retains the backups for the duration of up to 35 days. During the restore process, you can specify the date and time to which you want to restore within the retention period The overall time to restore and recover depends on the size of the database files and the amount of recovery. 
 
-### Backup in flexible server
-Flexible Server takes snapshot backups of the data files and stores them in a zone redundant storage that is confined to a region. The server also performs continuous transaction logs backup and stores them in a zone redundant storage. These backups allow you to restore a server to any point-in-time within your configured backup retention period. All backups are encrypted using AES 256-bit encryption.
+### Backup process in flexible server
+The first snapshot backup is scheduled immediately after the flexible server is created. Subsequently, a daily snapshot backup of data files is performed. Backups are stored in a zone redundant storage within a region. Transaction logs (write ahead logs - WAL) are archived continuously to the zone redundant storage as well. These data and logs backups allow you to restore a server to any point-in-time within your configured backup retention period. All backups are encrypted using AES 256-bit encryption.
 
-The backups can only be used for restore operations in the Flexible server. You can also use [pg_dump](https://docs.microsoft.com/azure/postgresql/howto-migrate-using-dump-and-restore) from a PostgreSQL client to copy a database.
+If the database is configured with high availability, daily snapshots are performed from the primary and the continuous log backups are performed from the standby.
 
-### Backup frequency
+The backups can only be used for restore operations within the Flexible server. If you want to export or import data to the flexible server, you use [dump and restore](https://docs.microsoft.com/azure/postgresql/howto-migrate-using-dump-and-restore) methodology.
 
-The first full snapshot backup is scheduled immediately after a database server is created. Subsequently, a daily snapshot of data backup is performed.
-Transaction log backups occur continuously. If the database is configured with high availability, daily snapshots are performed from the primary and the continuous log backups are performed from the standby.
 
 ### Backup retention
 
-Database backups are stored in a zone redundant storage as multiple copies across availability zones and within a region. Backups are retained based on the backup retention period setting on the server. You can select a retention period between 7 and 35 days. The default retention period is seven days. You can set the retention period during server creation or later by updating the backup configuration using Azure portal.
+Backups are retained based on the backup retention period setting on the server. You can select a retention period between 7 and 35 days. The default retention period is seven days. You can set the retention period during server creation or you can update it at a later time.
 
-The backup retention period governs how far back in time a point-in-time restore can be retrieved, since it\'s based on backups available. The
-backup retention period can also be treated as a recovery window from a restore perspective. All backups required to perform a point-in-time
-restore within the backup retention period are retained in the backup storage. For example - if the backup retention period is set to seven days, the recovery window is considered as last seven days. In this scenario, all the data and logs required to restore and recover the server in last seven days are retained. 
+The backup retention period governs how far back in time a point-in-time restore can be retrieved, since it\'s based on backups available. The backup retention period can also be treated as a recovery window from a restore perspective. All backups required to perform a point-in-time restore within the backup retention period are retained in the backup storage. For example - if the backup retention period is set to seven days, the recovery window is considered as last seven days. In this scenario, all the data and logs required to restore and recover the server in last seven days are retained. 
 
 ### Backup storage cost
 
-Flexible server provides up to 100% of your provisioned server storage as backup storage at no additional cost. Any additional backup storage
-used is charged in GB per month. For example, if you have provisioned a server with 250 GiB of storage, you have 250 GiB of backup storage capacity at no additional charge. If the daily backup usage is 25 GiB, then you can have up to 10 days of free backup storage. Storage consumed for backups more than 250 GiB is charged as per the [pricing model](https://azure.microsoft.com/pricing/details/postgresql/).
+Flexible server provides up to 100% of your provisioned server storage as backup storage at no additional cost. Any additional backup storage used is charged in GB per month. For example, if you have provisioned a server with 250 GiB of storage, then you have 250 GiB of backup storage capacity at no additional charge. If the daily backup usage is 25 GiB, then you can have up to 10 days of free backup storage. Backup storage consumption exceeding 250 GiB is charged as per the [pricing model](https://azure.microsoft.com/pricing/details/postgresql/).
 
-You can use the [Backup storage used](https://docs.microsoft.com/azure/postgresql/concepts-monitoring) metric in Azure Monitor available in the Azure portal to monitor the backup storage consumed by a server. The Backup Storage used metric represents the sum of storage consumed by all the database backups and log backups retained based on the backup retention period set for the server.  Heavy transactional activity on the server can cause backup storage usage to increase irrespective of the total database size.
+You can use the [Backup storage used](https://docs.microsoft.com/azure/postgresql/concepts-monitoring) metric in the Azure portal to monitor the backup storage consumed by a server. The Backup Storage used metric represents the sum of storage consumed by all the database backups and log backups retained based on the backup retention period set for the server.  Heavy transactional activity on the server can cause backup storage usage to increase irrespective of the total database size.
 
-The primary means of controlling the backup storage cost is by setting the appropriate backup retention period and choosing the right backup
-redundancy options to meet your desired recovery goals.
+The primary means of controlling the backup storage cost is by setting the appropriate backup retention period and choosing the right backup redundancy options to meet your desired recovery goals.
 
 > [!IMPORTANT]
 > Geo-redundant backups are currently not supported with flexible server.
 
 ## Point-in-time restore
 
-In Flexible server, performing a point-in-time restore creates a new server from the flexible server\'s backups in the same region as your
-source server. It is created with the source server's configuration for the pricing tier, compute generation, number of vCores, storage
-size, backup retention period, and backup redundancy option. Also, tags and settings such as VNET and firewall settings are inherited from the source server.
+In Flexible server, performing a point-in-time restore creates a new server from the flexible server\'s backups in the same region as your source server. It is created with the source server's configuration for the pricing tier, compute generation, number of vCores, storage size, backup retention period, and backup redundancy option. Also, tags and settings such as VNET and firewall settings are inherited from the source server.
 
  ### Restore process
 The physical database files are first restored from the snapshot backups to the server's data location. The appropriate backup that was taken earlier than the desired point-in-time is automatically chosen and restored. Once the data files are restored, a recovery process is initiated to bring the database to a consistent state by rolling forward to a desired point-in-time using the transaction logs that happened after the restored time. 
@@ -57,16 +49,15 @@ The physical database files are first restored from the snapshot backups to the 
 > [!IMPORTANT]
 > Restore operations in flexible server creates a new database server and does not overwrite the existing database server.
 > 
-Point-in-time restore is useful in multiple scenarios. For example, when a user accidentally deletes data, drops an important table or database,
-or if an application accidentally overwrites good data with bad data due to an application defect. You will be able to restore and recover to the last transaction due to continuous backup of transaction logs.
+Point-in-time restore is useful in multiple scenarios. For example, when a user accidentally deletes data, drops an important table or database, or if an application accidentally overwrites good data with bad data due to an application defect. You will be able to restore to the last transaction due to continuous backup of transaction logs.
 
 You can choose between an earliest restore point and a custom restore point.
 
--   **Earliest restore point**: Depending on your retention period, the earliest time that you can restore will be autoselected for you. The timestamp to which you can restore is displayed on the portal. You can choose this option if you want to investigate or test data starting that point in time.
+-   **Earliest restore point**: Depending on your retention period, it will be the earliest time that you can restore. The oldest backup time will be auto-selected and is displayed on the portal. This is useful if you want to investigate or do some testing starting that point in time.
 
--   **Custom restore point**: This option allows you to choose any point-in-time within the retention period defined for this flexible server. By default, the latest time in UTC is autoselected, and useful if you want to restore to the last committed transaction. You can optionally choose other days and time. 
+-   **Custom restore point**: This option allows you to choose any point-in-time within the retention period defined for this flexible server. By default, the latest time in UTC is auto-selected, and useful if you want to restore to the last committed transaction. You can optionally choose other days and time. 
 
-The estimated time of recovery depends on several factors including the database sizes, the transaction log size, the network bandwidth, and the total number of databases recovering in the same region at the same time. The overall recovery time usually takes from few minutes up to 12 hours.
+The estimated time to recover depends on several factors including database size, volume of transaction logs to process, the network bandwidth, and the total number of databases recovering in the same region at the same time. The overall recovery time usually takes from few minutes up to few hours.
 
 
 > [!IMPORTANT]
@@ -77,7 +68,7 @@ The estimated time of recovery depends on several factors including the database
 
 ## Perform post-restore tasks
 
-After a restore from either recovery mechanism, you should perform the following tasks to get your users and applications back up and running:
+After restoring the database, you should perform the following tasks to get your users and applications back up and running:
 
 -   If the new server is meant to replace the original server, redirect clients and client applications to the new server.
 
