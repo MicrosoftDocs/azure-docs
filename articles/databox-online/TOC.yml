@@ -121,8 +121,8 @@
         href: azure-stack-edge-j-series-create-certificates-tool.md 
       - name: Troubleshoot certificate errors
         href: azure-stack-edge-j-series-certificate-troubleshooting.md 
-      - name: Develop C# module
-        href: azure-stack-edge-j-series-create-iot-edge-module.md 
+    - name: Develop C# module
+      href: azure-stack-edge-j-series-create-iot-edge-module.md 
     - name: Manage Edge compute 
       href: azure-stack-edge-j-series-manage-compute.md 
     - name: Manage storage gateway
