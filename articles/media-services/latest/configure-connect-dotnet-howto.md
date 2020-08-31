@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2019
 ms.author: juliako
-ms.custom: has-adal-ref
+ms.custom: "has-adal-ref, devx-track-csharp"
 ---
 # Connect to Media Services v3 API - .NET
 

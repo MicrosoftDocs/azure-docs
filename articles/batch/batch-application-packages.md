@@ -329,8 +329,8 @@ With application packages, you can help your customers select the applications f
 * The [Batch REST API][api_rest] also provides support to work with application packages. For example, see the [applicationPackageReferences][rest_add_pool_with_packages] element in [Add a pool to an account][rest_add_pool] for information about how to specify packages to install by using the REST API. See [Applications][rest_applications] for details about how to obtain application information by using the Batch REST API.
 * Learn how to programmatically [manage Azure Batch accounts and quotas with Batch Management .NET](batch-management-dotnet.md). The [Batch Management .NET][api_net_mgmt] library can enable account creation and deletion features for your Batch application or service.
 
-[api_net]: /dotnet/api/overview/azure/batch/client?view=azure-dotnet
-[api_net_mgmt]: /dotnet/api/overview/azure/batch/management?view=azure-dotnet
+[api_net]: /dotnet/api/overview/azure/batch/client
+[api_net_mgmt]: /dotnet/api/overview/azure/batch/management
 [api_rest]: /rest/api/batchservice/
 [batch_mgmt_nuget]: https://www.nuget.org/packages/Microsoft.Azure.Management.Batch/
 [github_samples]: https://github.com/Azure/azure-batch-samples

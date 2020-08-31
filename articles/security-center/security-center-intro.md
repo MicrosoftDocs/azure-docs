@@ -61,42 +61,38 @@ network security estate.
 It's a security basic to know and make sure your workloads are secure, and it starts with having tailored security policies in place. Because all the policies in Security Center are built on top of Azure Policy controls, you're getting the full range and flexibility of a **world-class policy solution**. In Security
 Center, you can set your policies to run on management groups, across subscriptions, and even for a whole tenant.
 
-![Security Center dashboard](media/security-center-intro/sc-dashboard.png)
+:::image type="content" source="./media/security-center-intro/sc-dashboard.png" alt-text="Policy management page":::
 
 Security Center helps you **identify Shadow IT subscriptions**. By looking at subscriptions labeled **not covered** in your dashboard, you can know immediately when there are newly created subscriptions and make sure they are covered by your policies, and protected by Azure Security Center.
 
-![Security Center policy dashboard](media/security-center-intro/sc-policy-dashboard.png)
-
-The advanced monitoring capabilities in Security Center also let you **track and manage compliance and governance over time**. The **overall compliance** provides you with a measure of how much your subscriptions are compliant with policies associated with your workload. 
-
-![Security Center policy over time](media/security-center-intro/sc-policy-time.png)
+:::image type="content" source="./media/security-center-intro/sc-policy-dashboard.png" alt-text="Security Center policy dashboard":::
 
 ### Continuous assessments
 
 Security Center continuously discovers new resources that are being deployed across your workloads and assesses whether they are configured according to security best practices, if not, they're flagged and you get a prioritized list of recommendations for what you need to fix in order to protect your machines.
 
+To help you understand how important each recommendation is to your overall security posture, Security Center groups the recommendations into security controls and adds a **secure score** value to each control. This is crucial in enabling you to **prioritize your security work**.
+
+:::image type="content" source="./media/security-center-intro/sc-secure-score.png" alt-text="Security Center secure score":::
+
+### Network map
+
 One of the most powerful tools Security Center provides for continuously monitoring the security status of your network is the **Network map**. The map enables you to see the topology of your workloads, so you can see if each node is properly configured. You can see how your nodes are connected, which helps
 you block unwanted connections that could potentially make it easier for an attacker to creep along your network.
 
-![Security Center network map](media/security-center-intro/sc-net-map.png)
+:::image type="content" source="./media/security-center-intro/sc-net-map.png" alt-text="Security Center network map":::
 
-Security Center makes mitigating your security alerts one step easier, by adding a **Secure Score**. The Secure Scores are now associated with each recommendation you receive to help you understand how important each
-recommendation is to your overall security posture. This is crucial in enabling you to **prioritize your security work**.
-
-![Security Center Secure Score](media/security-center-intro/sc-secure-score.png)
 
 ### Optimize and improve security by configuring recommended controls
 
 The heart of Azure Security Center's value lies in its recommendations. The recommendations are tailored to the particular security concerns found on your workloads, and Security Center does the security admin work for you, by not only finding your vulnerabilities, but providing you with specific instructions for
 how to get rid of them.
 
-![Security Center recommendations](media/security-center-intro/sc-recommendations.png)
-
 In this way, Security Center enables you not just to set security policies, but to apply secure configuration standards across your resources.
 
 The recommendations help you to reduce the attack surface across each of your resources. That includes Azure virtual machines, non-Azure servers, and Azure PaaS services such as SQL and Storage accounts and more - where each type of resource is assessed differently and has its own standards.
 
-![Security Center recommendation example](media/security-center-intro/sc-recommendation-example.png)
+:::image type="content" source="./media/security-center-intro/sc-recommendation-example.png" alt-text="Security Center recommendation example":::
 
 ## Protect against threats
 
@@ -104,9 +100,7 @@ Security Center's threat protection enables you to detect and prevent threats at
 
 Security Center's threat protection includes fusion kill-chain analysis, which automatically correlates alerts in your environment based on cyber kill-chain analysis, to help you better understand the full story of an attack campaign, where it started and what kind of impact it had on your resources.
 
-
-
-![Security Center attack recommendation](media/security-center-intro/sc-attack-recommendation.png)
+:::image type="content" source="./media/security-center-intro/sc-alerts.png" alt-text="Security alerts":::
 
 ### Integration with Microsoft Defender Advanced threat protection
 
@@ -123,8 +117,6 @@ Behavioral Analytics (UEBA) to perform anomaly detection on your Azure activity 
 
 Security Center helps you limit exposure to brute force attacks. By reducing access to virtual machine ports, using the just-in-time VM access, you can harden your network by preventing unnecessary access. You can set secure access policies on selected ports, for only authorized users, allowed source IP address
 ranges or IP addresses, and for a limited amount of time.
-
-![Security Center brute force](media/security-center-intro/sc-brute-force.png)
 
 ### Protect data services
 
