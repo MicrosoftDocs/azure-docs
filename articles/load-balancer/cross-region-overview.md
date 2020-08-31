@@ -24,7 +24,12 @@ Azure Standard Load Balancer supports cross-region load balancing enabling geo-r
 * Load distribution across regions to the closest Azure region.
 * Ease of adoption.
 
-Cross-region load balancing offers the same benefits of high performance and low latency of your regional standard load balancer. The frontend IP configuration of your cross-region load balancer is static and advertised across the Azure regions of your choice.  
+Cross-region load balancing offers the same benefits a regional standard load balancer:
+
+* High performance
+* Low latency 
+
+The frontend IP configuration of your cross-region load balancer is static and advertised across the Azure regions of your choice.  
 
 :::image type="content" source="./media/cross-region-overview/cross-region-load-balancer-1.png" alt-text="Cross-region load balancer" border="true":::
 
@@ -40,23 +45,28 @@ Cross-region load balancing offers the same benefits of high performance and low
 * Deploy your solution on existing regional Azure Load Balancers.
 
 ### Regional redundancy
-Regional redundancy can be achieved by adding a global frontend public IP address to your existing load balancers. If a region goes down, the inbound traffic is routed to the next optimal healthy regional load balancer.  
 
-The health probe of the cross-region load balancer gathers information about availability of the regional load balancer every 20 seconds. If one regional load balancer drops its availability to 0, cross-region load balancer will detect the failure. The regional load balancer is taken out of rotation. 
+Configure regional redundancy by adding a global frontend public IP address to your existing load balancers. 
+
+If a region fails, the traffic is routed to the next healthy regional load balancer.  
+
+The health probe of the cross-region load balancer gathers information about availability every 20 seconds. If one regional load balancer drops its availability to 0, cross-region load balancer will detect the failure. The regional load balancer is taken out of rotation. 
 
 :::image type="content" source="./media/cross-region-overview/cross-region-load-balancer-2.png" alt-text="Global region view" border="true":::
 
 ### Ultra-low latency
+
 The geo-proximity load-balancing algorithm based on the geographic location of your users and your regional deployments. 
 
-For example, you have a cross-region load balancer set up with a West US and a North Europe standard public load balancer in the backend pool. If a user starts flow from Seattle, the cross-region load balancer will route the traffic to the West US load balancer because it’s located closest to Seattle. 
+For example, you have a cross-region load balancer set up with a West US and a North Europe standard public load balancer in the backend pool. 
+
+If a user starts flow from Seattle, the cross-region load balancer will route the traffic to the West US load balancer because it’s located closest to Seattle. 
 
 ### Deploy solution on existing regional Azure Load Balancers
 
 Create a highly available, cross region solution from your existing deployment.
 
-The backend pool of cross-region load balancer is composed of front ends of Azure Standard Load Balancer. Add a cross-region load balancer in front of your existing regional load balancers.
-
+An Azure Standard Load Balancer frontend is associated with the backend pool of a cross-region load balancer. Add a cross-region load balancer in front of your existing regional load balancers.
 
 ## Availability
 
