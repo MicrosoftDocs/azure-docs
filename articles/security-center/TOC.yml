@@ -64,8 +64,6 @@
       href: security-center-recommendations.md
     - name: Overview of security policies
       href: tutorial-security-policy.md
-    - name: Built-in security policies
-      href: security-center-policy-definitions.md 
     - name: Use recommendations to enhance security
       href: security-center-using-recommendations.md
     - name: Security baseline

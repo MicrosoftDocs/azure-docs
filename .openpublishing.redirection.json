@@ -43584,6 +43584,11 @@
         "redirect_document_id": false
     },
     {
+        "source_path": "articles/security-center/security-center-policy-definitions.md",
+        "redirect_url": "/azure/security-center/policy-reference",
+        "redirect_document_id": false
+    },
+    {
         "source_path": "articles/service-bus-messaging/policy-samples.md",
         "redirect_url": "/azure/service-bus-messaging/policy-reference",
         "redirect_document_id": false
