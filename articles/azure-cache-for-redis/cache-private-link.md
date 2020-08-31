@@ -21,7 +21,7 @@ In this article, you'll learn how to create a virtual network and an Azure Cache
 * Azure subscription - [create one for free](https://azure.microsoft.com/free/)
 
 > [!NOTE]
-> This feature is currently public preview for limited regions. If you don't have the option to create a Private Endpoint, [contact us](mailto:azurecache@microsoft.com).
+> This feature is currently public preview for limited regions. If you don't have the option to create a Private Endpoint, [contact us](mailto:azurecache@microsoft.com). To use Private Endpoints, your Azure Cache for Redis instance needs to have been created after July 28th, 2020.
 >
 
 ## Create a Private Endpoint with a new Azure Cache for Redis Instance 
