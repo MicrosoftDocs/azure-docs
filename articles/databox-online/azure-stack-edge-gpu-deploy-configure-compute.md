@@ -76,7 +76,7 @@ It can take 20-30 minutes to configure compute since behind the scenes, virtual 
 
 After you have successfully configured the compute in Azure portal, a Kubernetes cluster and a default user associated with the IoT namespace (a system namespace controlled by Azure Stack Edge) exist. 
 
-## Get Kubernetes API endpoint
+## Get Kubernetes endpoints
 
 To configure a client to access Kubernetes cluster, you will need the Kubernetes endpoint. Follow these steps to get Kubernetes API endpoint from the local UI of your Azure Stack Edge device.
 
@@ -87,13 +87,21 @@ To configure a client to access Kubernetes cluster, you will need the Kubernetes
 
 3. Save the endpoint string. You will use this later when configuring a client to access the Kubernetes cluster via kubectl.
 
-4. While you are in the local web UI, select **advanced settings** and download a config file. 
+4. While you are in the local web UI, you can:
 
-    ![Device page in local UI](./media/azure-stack-edge-j-series-create-kubernetes-cluster/advanced-config-1.png)
+    - Go to Kubernetes API, select **advanced settings** and download an advanced configuration file for Kubernetes. 
 
-    If you have been provided a key from Microsoft (select users may have this), then you can use this config file.
+        ![Device page in local UI 1](./media/azure-stack-edge-gpu-deploy-configure-compute/download-advanced-config-1.png)
 
-    ![Device page in local UI](./media/azure-stack-edge-j-series-create-kubernetes-cluster/advanced-config-2.png)
+        If you have been provided a key from Microsoft (select users may have this), then you can use this config file.
+
+        ![Device page in local UI 2](./media/azure-stack-edge-gpu-deploy-configure-compute/download-advanced-config-2.png)
+
+    - You can also go to **Kubernetes dashboard** endpoint and download an `aseuser` config file. 
+    
+        ![Device page in local UI 3](./media/azure-stack-edge-gpu-deploy-configure-compute/download-aseuser-config-1.png)
+
+        The `aseuser` config file allows you to debug any issues related to `iotedge` namespace in your Kubernetes cluster. For more information, see [Debug Kubernetes issues](azure-stack-edge-gpu-connect-powershell-interface.md#debug-kubernetes-issues-related-to-iot-edge). 
 
 
 ## Next steps
@@ -102,7 +110,7 @@ In this tutorial, you learned how to:
 
 > [!div class="checklist"]
 > * Configure compute
-> * Get Kubernetes API endpoint
+> * Get Kubernetes endpoints
 
 
 To learn how to administer your Azure Stack Edge device, see:
