@@ -42,10 +42,10 @@ pod/nginx-azuredisk created
  you can make a change to the contents of the volume and easily 
 
 
-After the container is in running state, let's make a change to the mounted volume. We'll create a new file called `test.txt`.
+After the pod is in running state, let's make a change to the mounted volume. We'll create a new file called `test.txt`.
 
 ```bash
-kubectl exec nginx-azuredisk -- touch /mnt/azuredisk/test.txt
+$ kubectl exec nginx-azuredisk -- touch /mnt/azuredisk/test.txt
 ```
 
 You can now validate the disk is correctly mounted and contains your changes by running and verifying you have the same output: 
@@ -101,10 +101,8 @@ For details on all the parameters please see [Volume Snapshot Class parameters](
 To exemplify this capability, let's create a [volume snapshot class](https://github.com/kubernetes-sigs/azuredisk-csi-driver/blob/master/deploy/example/snapshot/storageclass-azuredisk-snapshot.yaml) with the [kubectl apply][kubectl-apply] command:
 
 ```console
-kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azuredisk-csi-driver/master/deploy/example/snapshot/storageclass-azuredisk-snapshot.yaml
-```
+$ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azuredisk-csi-driver/master/deploy/example/snapshot/storageclass-azuredisk-snapshot.yaml
 
-```bash
 volumesnapshotclass.snapshot.storage.k8s.io/csi-azuredisk-vsc created
 ```
 
@@ -367,7 +365,7 @@ The Azure disk CSI drivers also supports Windows in preview, if you wish to use 
 Once you have a windows node pool you can now just leverage the built-in storage classes like `managed-csi`. You can deploy an example [windows-based stateful set](https://github.com/kubernetes-sigs/azuredisk-csi-driver/blob/master/deploy/example/windows/statefulset.yaml) that saves timestamps into a file `data.txt` by deploying the below with the [kubectl apply][kubectl-apply] command:
 
  ```console
-kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azuredisk-csi-driver/master/deploy/example/windows/statefulset.yaml
+$ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azuredisk-csi-driver/master/deploy/example/windows/statefulset.yaml
 
 statefulset.apps/busybox-azuredisk created
 ```
@@ -378,9 +376,9 @@ You can now validate the contents of the volume by running:
 $ kubectl exec -it busybox-azuredisk-0 -- cat c:\\mnt\\azuredisk\\data.txt # on Linux/MacOS Bash
 $ kubectl exec -it busybox-azuredisk-0 -- cat c:\mnt\azuredisk\data.txt # on Windows Powershell/CMD
 
-2020-08-31 08:13:41Z
-2020-08-31 08:13:42Z
-2020-08-31 08:13:44Z
+2020-08-27 08:13:41Z
+2020-08-27 08:13:42Z
+2020-08-27 08:13:44Z
 (...)
 ```
 
