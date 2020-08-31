@@ -47,7 +47,12 @@ This command performs the following actions, which may take a few minutes:
 - Creates an empty database called **postgres**
 
 > [!NOTE]
-> Make a note of your password that will be generate for you if not provided. If you forget the password you would have to reset the password using ``` az postgres flexible-server update``` command
+> - Make a note of your password that will be generate for you if not provided. If you forget the password you would have to reset the password using ``` az postgres flexible-server update``` command
+> - If you are not using App Service Environment , you would need to enable Allow any Azure IPs . Create a private flexible server inside a virtual network (VNET) using the following command: 
+>  ```azurecli
+>  az postgres flexible-server firewall-rule list --resource-group myresourcegroup --server-name mydemoserver --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
+>  ```
+
 
 ## Create a Web App
 In this section, you create app host in App Service app, connect this app to the Postgres database, then deploy your code to that host. Make sure you're in the repository root of your application code in the terminal.
