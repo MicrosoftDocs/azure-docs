@@ -10,9 +10,9 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: end-user-help
-ms.date: 01/04/2019
+ms.date: 08/31/2020
 ms.author: curtand
-ms.reviewer: jairoc
+ms.reviewer: kasimpso
 ms.custom: "user-help, seo-update-azuread-jan"
 ---
 # Register your personal device on your organization's network
