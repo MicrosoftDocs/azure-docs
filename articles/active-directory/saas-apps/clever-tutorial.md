@@ -5,13 +5,11 @@ services: active-directory
 author: jeevansd
 manager: CelesteDG
 ms.reviewer: celested
-
-ms.assetid: 069ff13a-310e-4366-a147-d6ec5cca12a5
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/27/2020
+ms.date: 08/24/2020
 ms.author: jeedes
 ---
 
@@ -82,7 +80,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	a. In the **Sign on URL** text box, type a URL using the following pattern:
     `https://clever.com/in/<companyname>`
 
-    b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
+    b. In the **Identifier (Entity ID)** text box, type the URL:
     `https://clever.com/oauth/saml/metadata.xml`
 
     c. In the **Reply URL** text box, type a URL using the following pattern:
@@ -138,7 +136,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. On the **Instant Login** page, perform the following steps:
  
-	![Clever Instant Login](./media/clever-tutorial/ic798985.png "Instant Login")
+	![SSO configuration in Instant Login page](./media/clever-tutorial/ic798985.png "Instant Login")
 
 	a. Type the **Login URL**.
 

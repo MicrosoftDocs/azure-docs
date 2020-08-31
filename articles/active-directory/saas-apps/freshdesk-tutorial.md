@@ -5,13 +5,11 @@ services: active-directory
 author: jeevansd
 manager: CelesteDG
 ms.reviewer: celested
-
-ms.assetid: c2a3e5aa-7b5a-4fe4-9285-45dbe6e8efcc
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/27/2020
+ms.date: 08/24/2020
 ms.author: jeedes
 ---
 # Tutorial: Azure Active Directory integration with FreshDesk

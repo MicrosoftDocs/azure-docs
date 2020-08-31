@@ -5,13 +5,11 @@ services: active-directory
 author: jeevansd
 manager: CelesteDG
 ms.reviewer: celested
-
-ms.assetid: ffc5e73f-6c38-4bbb-876a-a7dd269d4e1c
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/27/2020
+ms.date: 08/24/2020
 ms.author: jeedes
 ---
 
@@ -46,6 +44,9 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 * Slack supports **Just In Time** user provisioning
 * Slack supports [**Automated** user provisioning](https://docs.microsoft.com/azure/active-directory/saas-apps/slack-provisioning-tutorial)
 * Once you configure Slack you can enforce Session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+
+> [!NOTE]
+> Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
 
 ## Adding Slack from the gallery
 
@@ -86,7 +87,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     a. In the **Sign on URL** text box, type a URL using the following pattern:
     `https://<DOMAIN NAME>.slack.com/sso/saml/start`
 
-    b. In the **Identifier (Entity ID)** text box, type a URL:
+    b. In the **Identifier (Entity ID)** text box, type the URL:
     `https://slack.com`
 	
     c. For **Reply URL**, enter one of the following URL pattern:

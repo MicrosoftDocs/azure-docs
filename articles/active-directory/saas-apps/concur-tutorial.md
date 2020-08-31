@@ -5,13 +5,11 @@ services: active-directory
 author: jeevansd
 manager: CelesteDG
 ms.reviewer: celested
-
-ms.assetid: 1eee0a5d-24fa-4986-9aef-3c543cfe3296
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/27/2020
+ms.date: 08/24/2020
 ms.author: jeedes
 ---
 
