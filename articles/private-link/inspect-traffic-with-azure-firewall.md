@@ -88,7 +88,7 @@ This architecture can be implemented if you have configured connectivity with yo
 
 If your security requirements require client traffic to services exposed via private endpoints to be routed through a security appliance, deploy this scenario.
 
-The same considerations as in scenario 2 above apply. In this scenario, there isn't virtual network peering charges. For more information about how to configure your DNS servers to allow on-premises workloads to access private endpoints, see [On-Premises workloads using a DNS forwarder](./private-endpoint-dns.md#on-premises-workloads-using-a-dns-forwarder).
+The same considerations as in scenario 2 above apply. In this scenario, there aren't virtual network peering charges. For more information about how to configure your DNS servers to allow on-premises workloads to access private endpoints, see [On-Premises workloads using a DNS forwarder](./private-endpoint-dns.md#on-premises-workloads-using-a-dns-forwarder).
 
 >[!NOTE]
 > If you want to implement this scenario using a third party NVA or Azure Firewall, network rules instead of application rules is required to SNAT traffic destined to the private endpoints. Otherwise communication between the virtual machines and private endpoints will fail.
@@ -151,13 +151,13 @@ Replace the following parameters in the steps with the information below:
 
 [!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
-1. Repeat steps 1 to 9 to create the virtual networks for hosting the virtual machine and private endpoint resources.
+10. Repeat steps 1 to 9 to create the virtual networks for hosting the virtual machine and private endpoint resources.
 
 ### Create virtual machine
 
 1. On the upper-left side of the screen in the Azure portal, select **Create a resource** > **Compute** > **Virtual machine**.
 
-1. In **Create a virtual machine - Basics**, enter or select this information:
+2. In **Create a virtual machine - Basics**, enter or select this information:
 
     | Setting | Value |
     | ------- | ----- |
@@ -179,11 +179,11 @@ Replace the following parameters in the steps with the information below:
     | Public inbound ports | Select **None**. |
     |||
 
-1. Select **Next: Disks**.
+3. Select **Next: Disks**.
 
-1. In **Create a virtual machine - Disks**, leave the defaults and select **Next: Networking**.
+4. In **Create a virtual machine - Disks**, leave the defaults and select **Next: Networking**.
 
-1. In **Create a virtual machine - Networking**, select this information:
+5. In **Create a virtual machine - Networking**, select this information:
 
     | Setting | Value |
     | ------- | ----- |
@@ -194,19 +194,19 @@ Replace the following parameters in the steps with the information below:
     | Select inbound ports | Select **SSH**.|
     ||
 
-1. Select **Review + create**. You're taken to the **Review + create** page where Azure validates your configuration.
+6. Select **Review + create**. You're taken to the **Review + create** page where Azure validates your configuration.
 
-1. When you see the **Validation passed** message, select **Create**.
+7. When you see the **Validation passed** message, select **Create**.
 
 ## Deploy the Firewall
 
 1. On the Azure portal menu or from the **Home** page, select **Create a resource**.
 
-1. Type **firewall** in the search box and press **Enter**.
+2. Type **firewall** in the search box and press **Enter**.
 
-1. Select **Firewall** and then select **Create**.
+3. Select **Firewall** and then select **Create**.
 
-1. On the **Create a Firewall** page, use the following table to configure the firewall:
+4. On the **Create a Firewall** page, use the following table to configure the firewall:
 
     | Setting | Value |
     | ------- | ----- |
@@ -222,9 +222,9 @@ Replace the following parameters in the steps with the information below:
     | Public IP address    |    Select **Add new** and in Name enter **myFirewall-ip**.    |
     | Forced tunneling    | Leave the default **Disabled**.    |
     |||
-1. Select **Review + create**. You're taken to the **Review + create** page where Azure validates your configuration.
+5. Select **Review + create**. You're taken to the **Review + create** page where Azure validates your configuration.
 
-1. When you see the **Validation passed** message, select **Create**.
+6. When you see the **Validation passed** message, select **Create**.
 
 ## Enable firewall logs
 
@@ -240,14 +240,14 @@ In this section, you enable the logs on the firewall.
 
 5. In **Diagnostics setting**, enter or select this information:
 
-| Setting | Value |
-| ------- | ----- |
-| Diagnostic setting name | Enter **myDiagSetting**. |
-| Category details | |
-| log | Select **AzureFirewallApplicationRule** and **AzureFirewallNetworkRule**. |
-| Destination details | Select **Send to Log Analytics**. |
-| Subscription | Select your subscription. |
-| Log Analytics workspace | Select your Log Analytics workspace. |
+    | Setting | Value |
+    | ------- | ----- |
+    | Diagnostic setting name | Enter **myDiagSetting**. |
+    | Category details | |
+    | log | Select **AzureFirewallApplicationRule** and **AzureFirewallNetworkRule**. |
+    | Destination details | Select **Send to Log Analytics**. |
+    | Subscription | Select your subscription. |
+    | Log Analytics workspace | Select your Log Analytics workspace. |
 
 6. Select **Save**.
 
@@ -257,7 +257,7 @@ In this section, you create a private SQL Database.
 
 1. On the upper-left side of the screen in the Azure portal, select **Create a resource** > **Databases** > **SQL Database**.
 
-1. In **Create SQL Database - Basics**, enter or select this information:
+2. In **Create SQL Database - Basics**, enter or select this information:
 
     | Setting | Value |
     | ------- | ----- |
@@ -276,9 +276,9 @@ In this section, you create a private SQL Database.
     | Compute + storage | Leave the default **General Purpose Gen5, 2 vCores, 32 GB Storage**. |
     |||
 
-1. Select **Review + create**. You're taken to the **Review + create** page where Azure validates your configuration.
+3. Select **Review + create**. You're taken to the **Review + create** page where Azure validates your configuration.
 
-1. When you see the **Validation passed** message, select **Create**.
+4. When you see the **Validation passed** message, select **Create**.
 
 ## Create private endpoint
 
@@ -543,9 +543,9 @@ Connect to the VM **myVm** from the internet as follows:
 
 * Replace **IPaddress** with the IP address from the previous step.
 
-```bash
-ssh username@IPaddress
-```
+    ```bash
+    ssh username@IPaddress
+    ```
 
 5. Enter the password you defined when creating **myVm**
 
@@ -594,7 +594,7 @@ In this section, you'll connect privately to the SQL Database using the private 
 
 5. Select the **Run** button under **Application rule log data**.
 
-6. In the log query output, verify **mydbserver.database.windows.net** is liste:1433
+6. In the log query output, verify **mydbserver.database.windows.net** is listed under **FQDN** and **SQLPrivateEndpoint** is listed under **RuleCollection**.
 
 ## Clean up resources
 
