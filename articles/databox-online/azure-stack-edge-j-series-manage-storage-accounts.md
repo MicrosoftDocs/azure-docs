@@ -1,5 +1,5 @@
 ---
-title: Azure Stack Edge storage account management | Microsoft Docs 
+title: Azure Stack Edge GPU storage account management | Microsoft Docs 
 description: Describes how to use the Azure portal to manage storage account on your Azure Stack Edge.
 services: databox
 author: alkohli
@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 12/11/2019
+ms.date: 08/28/2020
 ms.author: alkohli
 ---
 # Use the Azure portal to manage Edge storage accounts on your Azure Stack Edge

@@ -1,18 +1,18 @@
 ---
-title: Azure Stack Edge manage users | Microsoft Docs 
-description: Describes how to use the Azure portal to manage users on your Azure Stack Edge.
+title: Azure Stack Edge GPU manage users | Microsoft Docs 
+description: Describes how to use the Azure portal to manage users on your Azure Stack Edge GPU.
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 12/12/2019
+ms.date: 08/28/2020
 ms.author: alkohli
 ---
 # Use the Azure portal to manage users on your Azure Stack Edge
 
-[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]
+<!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
 This article describes how to manage users on your Azure Stack Edge. You can manage the Azure Stack Edge via the Azure portal or via the local web UI. Use the Azure portal to add, modify, or delete users.
 
