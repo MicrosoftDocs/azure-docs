@@ -83,11 +83,11 @@ Important: Setting Azure RBAC permission model invalidates all access policies p
 
 1.  Enable Azure RBAC permissions on new key vault:
 
-> ![](../media/rbac/image1.png)
+> ![Enable RBAC permissions - new vault](../media/rbac/image1.png)
 
 2.  Enable Azure RBAC permissions on existing key vault:
 
-> ![](../media/rbac/image2.png)
+> ![Enable RBAC permissions - existing vault](../media/rbac/image2.png)
 
 ### Assign Role
 
@@ -99,19 +99,19 @@ az role assignment create --role <role_name_or_id> --assignee <assignee> --scope
 
 In the Azure portal, the Azure role assignments screen is available for all resources on the Access control (IAM) tab.
 
-![](../media/rbac/image3.png)
+![Role assignment - (IAM) tab](../media/rbac/image3.png)
 
 ### Resource Group Scope Role Assignment
 
 1.  Go to key vault Resource Group.
 
-![](../media/rbac/image4.png)
+![Role assignment - resource group](../media/rbac/image4.png)
 
 2.  Click Access control (IAM) \> Add-role assignment\>Add
 
 3.  Create Key Vault Reader role "Key Vault Reader (preview)" for current user
 
-![](../media/rbac/image5.png)
+![Add role - resource group](../media/rbac/image5.png)
 
 Azure CLI:
 ```azurecli
@@ -128,7 +128,7 @@ Above role assignment provides ability to list key vault objects in key vault.
 
 3. Create Key Secrets Officer role "Key Vault Secrets Officer (preview)" for current user.
 
-> ![](../media/rbac/image6.png)
+> ![Role assignment - key vault](../media/rbac/image6.png)
 
  Azure CLI:
 
@@ -140,7 +140,7 @@ After creating above role assignment you should be able to create/update/delete 
 
 4. Create new secret ( Secrets \> +Generate/Import) for testing secret level role assignment.
 
-> ![](../media/rbac/image7.png)
+> ![Add role - key vault](../media/rbac/image7.png)
 
 ### Secret Scope Role Assignment
 
@@ -148,7 +148,7 @@ After creating above role assignment you should be able to create/update/delete 
 
 2. Click Access control(IAM)(preview) tab
 
-> ![](../media/rbac/image8.png)
+> ![Role assignment - secret](../media/rbac/image8.png)
 
 3. Create Key Secrets Officer role "Key Vault Secrets Officer (preview)" for current user, same like it was done above for the Key Vault.
 
@@ -168,15 +168,15 @@ az role assignment create --role "Key Vault Secrets Officer (preview)" --assigne
 
 Go to key vault Access control (IAM) tab and remove "Key Vault Secrets Officer (preview)" role assignment for this resource.
 
-![](../media/rbac/image9.png)
+![Remove assignment - key vault](../media/rbac/image9.png)
 
 Navigate to previously created secret. You should be able to see all secret properties.
 
-![](../media/rbac/image10.png)
+![Secret view with access](../media/rbac/image10.png)
 
 Create new secret ( Secrets \> +Generate/Import) should show below error:
 
-![](../media/rbac/image11.png)
+![Create new secret](../media/rbac/image11.png)
 
 2.  Validate secret editing without "Key Vault Secret Officer" role on secret level.
 
@@ -187,7 +187,7 @@ Create new secret ( Secrets \> +Generate/Import) should show below error:
 -   Navigate to previously created secret. You should not be able to see
     secret properties.
 
-![](../media/rbac/image12.png)
+![Secret view without access](../media/rbac/image12.png)
 
 3. Validate secrets read without reader role on key vault level.
 
@@ -195,7 +195,7 @@ Create new secret ( Secrets \> +Generate/Import) should show below error:
 
 -   Navigating to key vault's Secrets tab should show below error:
 
-![](../media/rbac/image13.png)
+![Secret tab - error](../media/rbac/image13.png)
 
 ### Creating Custom Roles 
 
