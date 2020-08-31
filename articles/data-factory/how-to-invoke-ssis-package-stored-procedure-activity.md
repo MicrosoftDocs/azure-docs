@@ -12,7 +12,8 @@ ms.tgt_pltfrm:
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 07/09/2020
-ms.author: sawinark
+ms.author: sawinark 
+ms.custom: devx-track-azurepowershell
 ---
 # Run an SSIS package with the Stored Procedure activity in Azure Data Factory
 

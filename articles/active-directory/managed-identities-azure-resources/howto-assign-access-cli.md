@@ -36,7 +36,7 @@ Once you've configured an Azure resource with a managed identity, you can give t
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-## Use RBAC to assign a managed identity access to another resource
+## Use Azure RBAC to assign a managed identity access to another resource
 
 After you've enabled managed identity on an Azure resource, such as an [Azure virtual machine](qs-configure-cli-windows-vm.md) or [Azure virtual machine scale set](qs-configure-cli-windows-vmss.md): 
 

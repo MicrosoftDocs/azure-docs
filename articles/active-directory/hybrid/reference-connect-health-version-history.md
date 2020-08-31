@@ -222,7 +222,7 @@ For feature feedback, vote at [Connect Health User Voice channel](https://feedba
 ## November 2015
 **New features:**
 
-* Support for [Azure role-based access control (Azure RBAC)](how-to-connect-health-operations.md#manage-access-with-role-based-access-control)
+* Support for [Azure role-based access control (Azure RBAC)](how-to-connect-health-operations.md#manage-access-with-azure-rbac)
 
 **New preview features:**
 
