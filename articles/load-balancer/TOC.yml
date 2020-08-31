@@ -16,6 +16,8 @@
     href: quickstart-load-balancer-standard-public-template.md
   - name: Create internal load balancer - Portal
     href: quickstart-load-balancer-standard-internal-portal.md
+  - name: Create internal load balancer - PowerShell
+    href: quickstart-load-balancer-standard-internal-powershell.md
   - name: Create internal load balancer - Azure CLI
     href: quickstart-load-balancer-standard-internal-cli.md
   expanded: true
