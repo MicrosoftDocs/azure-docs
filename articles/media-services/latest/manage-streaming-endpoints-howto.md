@@ -15,7 +15,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/11/2020
-ms.author: juliako
+ms.author: juliako 
+ms.custom: "devx-track-azurecli, devx-track-csharp"
 
 ---
 

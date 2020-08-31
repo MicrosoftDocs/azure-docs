@@ -8,7 +8,7 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: spot
 ms.date: 03/25/2020
 ms.reviewer: jagaveer
-ms.custom: jagaveer
+ms.custom: jagaveer, devx-track-azurecli, devx-track-azurepowershell
 
 ---
 
@@ -36,6 +36,11 @@ If you would like your instances in your Spot scale set to be deleted when they 
 
 Users can opt-in to receive in-VM notifications through [Azure Scheduled Events](../virtual-machines/linux/scheduled-events.md). This will notify you if your VMs are being evicted and you will have 30 seconds to finish any jobs and perform shutdown tasks prior to the eviction. 
 
+## Placement Groups
+Placement group is a construct similar to an Azure availability set, with its own fault domains and upgrade domains. By default, a scale set consists of a single placement group with a maximum size of 100 VMs. If the scale set property called `singlePlacementGroup` is set to *false*, the scale set can be composed of multiple placement groups and has a range of 0-1,000 VMs. 
+
+> [!IMPORTANT]
+> Unless you are using Infiniband with HPC, it is strongly recommended to set the scale set property `singlePlacementGroup` to *false* to enable multiple placement groups for better scaling across the region or zone. 
 
 ## Deploying Spot VMs in scale sets
 
@@ -61,6 +66,7 @@ az vmss create \
     --name myScaleSet \
     --image UbuntuLTS \
     --upgrade-policy-mode automatic \
+    --single-placement-group false \
     --admin-username azureuser \
     --generate-ssh-keys \
     --priority Spot \
@@ -86,14 +92,26 @@ $vmssConfig = New-AzVmssConfig `
 
 The process to create a scale set that uses Spot VMs is the same as detailed in the getting started article for [Linux](quick-create-template-linux.md) or [Windows](quick-create-template-windows.md). 
 
-For Spot template deployments, use`"apiVersion": "2019-03-01"` or later. Add the `priority`, `evictionPolicy` and `billingProfile` properties to the `"virtualMachineProfile":` section in your template: 
+For Spot template deployments, use`"apiVersion": "2019-03-01"` or later. 
+
+Add the `priority`, `evictionPolicy` and `billingProfile` properties to the `"virtualMachineProfile":`section and the `"singlePlacementGroup": false,` property to the `"Microsoft.Compute/virtualMachineScaleSets"` section in your template:
 
 ```json
-                "priority": "Spot",
+
+{
+  "type": "Microsoft.Compute/virtualMachineScaleSets",
+  },
+  "properties": {
+    "singlePlacementGroup": false,
+    }
+
+        "virtualMachineProfile": {
+              "priority": "Spot",
                 "evictionPolicy": "Deallocate",
                 "billingProfile": {
                     "maxPrice": -1
                 }
+            },
 ```
 
 To delete the instance after it has been evicted, change the `evictionPolicy` parameter to `Delete`.

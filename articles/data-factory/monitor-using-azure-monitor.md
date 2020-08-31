@@ -106,8 +106,8 @@ This solution provides you a summary of overall health of your Data Factory, wit
 Installing this solution creates a default set of views inside the workbooks section of the chosen Log Analytics workspace. As a result, the following metrics become enabled:
 
 * ADF Runs - 1) Pipeline Runs by Data Factory
-* ADF Runs - 2) Activity Runs by Data Factor
-* ADF Runs - 3) Trigger Runs by Data Factor
+* ADF Runs - 2) Activity Runs by Data Factory
+* ADF Runs - 3) Trigger Runs by Data Factory
 * ADF Errors - 1) Top 10 Pipeline Errors by Data Factory
 * ADF Errors - 2) Top 10 Activity Runs by Data Factory
 * ADF Errors - 3) Top 10 Trigger Errors by Data Factory
@@ -132,21 +132,21 @@ Here are some of the metrics emitted by Azure Data Factory version 2:
 
 | **Metric**                           | **Metric display name**                  | **Unit** | **Aggregation type** | **Description**                |
 |--------------------------------------|------------------------------------------|----------|----------------------|--------------------------------|
-| ActivityCanceledRuns                 | Canceled activity runs metrics           | Count    | Total                | The total number of activity runs that were canceled within a minute window. |
+| ActivityCancelledRuns                 | Cancelled activity runs metrics           | Count    | Total                | The total number of activity runs that were cancelled within a minute window. |
 | ActivityFailedRuns                   | Failed activity runs metrics             | Count    | Total                | The total number of activity runs that failed within a minute window. |
 | ActivitySucceededRuns                | Succeeded activity runs metrics          | Count    | Total                | The total number of activity runs that succeeded within a minute window. |
-| PipelineCanceledRuns                 | Canceled pipeline runs metrics           | Count    | Total                | The total number of pipeline runs that were canceled within a minute window. |
+| PipelineCancelledRuns                 | Cancelled pipeline runs metrics           | Count    | Total                | The total number of pipeline runs that were cancelled within a minute window. |
 | PipelineFailedRuns                   | Failed pipeline runs metrics             | Count    | Total                | The total number of pipeline runs that failed within a minute window. |
 | PipelineSucceededRuns                | Succeeded pipeline runs metrics          | Count    | Total                | The total number of pipeline runs that succeeded within a minute window. |
-| TriggerCanceledRuns                  | Canceled trigger runs metrics            | Count    | Total                | The total number of trigger runs that were canceled within a minute window. |
+| TriggerCancelledRuns                  | Cancelled trigger runs metrics            | Count    | Total                | The total number of trigger runs that were cancelled within a minute window. |
 | TriggerFailedRuns                    | Failed trigger runs metrics              | Count    | Total                | The total number of trigger runs that failed within a minute window. |
 | TriggerSucceededRuns                 | Succeeded trigger runs metrics           | Count    | Total                | The total number of trigger runs that succeeded within a minute window. |
-| SSISIntegrationRuntimeStartCanceled  | Canceled SSIS IR start metrics           | Count    | Total                | The total number of SSIS IR starts that were canceled within a minute window. |
-| SSISIntegrationRuntimeStartFailed    | Failed SSIS IR start metrics             | Count    | Total                | The total number of SSIS IR starts that failed within a minute window. |
-| SSISIntegrationRuntimeStartSucceeded | Succeeded SSIS IR start metrics          | Count    | Total                | The total number of SSIS IR starts that succeeded within a minute window. |
-| SSISIntegrationRuntimeStopStuck      | Stuck SSIS IR stop metrics               | Count    | Total                | The total number of SSIS IR stops that were stuck within a minute window. |
-| SSISIntegrationRuntimeStopSucceeded  | Succeeded SSIS IR stop metrics           | Count    | Total                | The total number of SSIS IR stops that succeeded within a minute window. |
-| SSISPackageExecutionCanceled         | Canceled SSIS package execution metrics  | Count    | Total                | The total number of SSIS package executions that were canceled within a minute window. |
+| SSISIntegrationRuntimeStartCancelled  | Cancelled SSIS integration runtime start metrics           | Count    | Total                | The total number of SSIS integration runtime starts that were cancelled within a minute window. |
+| SSISIntegrationRuntimeStartFailed    | Failed SSIS integration runtime start metrics             | Count    | Total                | The total number of SSIS integration runtime starts that failed within a minute window. |
+| SSISIntegrationRuntimeStartSucceeded | Succeeded SSIS integration runtime start metrics          | Count    | Total                | The total number of SSIS integration runtime starts that succeeded within a minute window. |
+| SSISIntegrationRuntimeStopStuck      | Stuck SSIS integration runtime stop metrics               | Count    | Total                | The total number of SSIS integration runtime stops that were stuck within a minute window. |
+| SSISIntegrationRuntimeStopSucceeded  | Succeeded SSIS integration runtime stop metrics           | Count    | Total                | The total number of SSIS integration runtime stops that succeeded within a minute window. |
+| SSISPackageExecutionCancelled         | Cancelled SSIS package execution metrics  | Count    | Total                | The total number of SSIS package executions that were cancelled within a minute window. |
 | SSISPackageExecutionFailed           | Failed SSIS package execution metrics    | Count    | Total                | The total number of SSIS package executions that failed within a minute window. |
 | SSISPackageExecutionSucceeded        | Succeeded SSIS package execution metrics | Count    | Total                | The total number of SSIS package executions that succeeded within a minute window. |
 
@@ -196,7 +196,7 @@ Sign in to the Azure portal and select **Monitor** > **Alerts** to create alerts
 
 ### Diagnostic settings
 
-Use diagnostic settings to configure diagnostic logs for noncompute resources. The settings for a resource control have the following features:
+Use diagnostic settings to configure diagnostic logs for non-compute resources. The settings for a resource control have the following features:
 
 * They specify where diagnostic logs are sent. Examples include an Azure storage account, an Azure event hub, or Monitor logs.
 * They specify which log categories are sent.

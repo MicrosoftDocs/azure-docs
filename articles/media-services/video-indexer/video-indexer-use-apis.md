@@ -11,6 +11,7 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/21/2020
 ms.author: juliako
+ms.custom: devx-track-csharp
 ---
 
 # Tutorial: Use the Video Indexer API

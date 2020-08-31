@@ -2,7 +2,8 @@
 title: Resource providers and resource types
 description: Describes the resource providers that support Resource Manager, their schemas and available API versions, and the regions that can host the resources.
 ms.topic: conceptual
-ms.date: 08/29/2019
+ms.date: 08/29/2019 
+ms.custom: devx-track-azurecli
 ---
 
 # Azure resource providers and types

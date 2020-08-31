@@ -47,7 +47,7 @@ The NPS extension is meant to work with your existing infrastructure. Make sure 
 
 ### Licenses
 
-The NPS Extension for Azure MFA is available to customers with [licenses for Azure Multi-Factor Authentication](multi-factor-authentication.md) (included with Azure AD Premium, EMS, or an MFA stand-alone license). Consumption-based licenses for Azure MFA such as per user or per authentication licenses are not compatible with the NPS extension. 
+The NPS Extension for Azure MFA is available to customers with [licenses for Azure Multi-Factor Authentication](./concept-mfa-howitworks.md) (included with Azure AD Premium, EMS, or an MFA stand-alone license). Consumption-based licenses for Azure MFA such as per user or per authentication licenses are not compatible with the NPS extension. 
 
 ### Software
 
@@ -287,7 +287,7 @@ You can choose to create this key and set it to FALSE while your users are onboa
 
 The following script is available to perform basic health check steps when troubleshooting the NPS extension.
 
-[MFA_NPS_Troubleshooter.ps1](https://docs.microsoft.com/samples/azure-samples/azure-mfa-nps-extension-health-check/azure-mfa-nps-extension-health-check/)
+[MFA_NPS_Troubleshooter.ps1](/samples/azure-samples/azure-mfa-nps-extension-health-check/azure-mfa-nps-extension-health-check/)
 
 ---
 
@@ -362,7 +362,7 @@ To check if you have a valid certificate, check the local Computer Account's Cer
 
 ## Managing the TLS/SSL Protocols and Cipher Suites
 
-It is recommended that older and weaker cipher suites be disabled or removed unless required by your organization. Information on how to complete this task can be found in the article [Managing SSL/TLS Protocols and Cipher Suites for AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/manage-ssl-protocols-in-ad-fs)
+It is recommended that older and weaker cipher suites be disabled or removed unless required by your organization. Information on how to complete this task can be found in the article [Managing SSL/TLS Protocols and Cipher Suites for AD FS](/windows-server/identity/ad-fs/operations/manage-ssl-protocols-in-ad-fs)
 
 ### Additional troubleshooting
 
@@ -370,7 +370,7 @@ Additional troubleshooting guidance and possible solutions can be found in the a
 
 ## Next steps
 
-- [Overview and configuration of Network Policy Server in Windows Server](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top)
+- [Overview and configuration of Network Policy Server in Windows Server](/windows-server/networking/technologies/nps/nps-top)
 
 - Configure alternate IDs for login, or set up an exception list for IPs that shouldn't perform two-step verification in [Advanced configuration options for the NPS extension for Multi-Factor Authentication](howto-mfa-nps-extension-advanced.md)
 

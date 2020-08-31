@@ -20,7 +20,7 @@ ms.custom: seodec18
 This tutorial shows how to create web apps and App Service plans in an [App Service Environment v1](app-service-app-service-environment-intro.md) (ASE). 
 
 > [!NOTE]
-> If you want to learn how to create a web app but don't need to do it in an App Service Environment, see [Create a .NET web app](../app-service-web-get-started-dotnet.md) or one of the related tutorials for other languages and frameworks.
+> If you want to learn how to create a web app but don't need to do it in an App Service Environment, see [Create a .NET web app](../quickstart-dotnetcore.md) or one of the related tutorials for other languages and frameworks.
 > 
 > 
 
@@ -36,7 +36,7 @@ This tutorial assumes you have created an App Service Environment. If you haven'
     If you have multiple subscriptions be aware that to create an app in your App Service Environment, you need to use the same subscription that you used when creating the environment. 
 3. Select or create a resource group.
    
-    *Resource groups* enable you to manage related Azure resources as a unit and are useful when establishing *role-based access control* (RBAC) rules for your apps. For more information, see [Azure Resource Manager overview][ResourceGroups]. 
+    *Resource groups* enable you to manage related Azure resources as a unit and are useful when establishing *Azure role-based access control (Azure RBAC)* rules for your apps. For more information, see [Azure Resource Manager overview][ResourceGroups]. 
 4. Select or create an App Service plan.
    
     *App Service plans* are managed sets of web apps.  Normally when you select pricing, the price charged is applied to the App Service plan rather than to the individual apps. In an ASE you pay for the compute instances allocated to the ASE rather than what you have listed with your ASP.  To scale up the number of instances of a web app you scale up the instances of your App Service plan and it affects all of the web apps in that plan.  Some features such as site slots or VNET Integration also have quantity restrictions within the plan.  For more information, see [Azure App Service plans overview](../overview-hosting-plans.md)
@@ -105,4 +105,4 @@ After creating your web app and App Service plan it is a good idea to scale it u
 [HowtoScale]: app-service-web-scale-a-web-app-in-an-app-service-environment.md
 [HowtoConfigureASE]: app-service-web-configure-an-app-service-environment.md
 [ResourceGroups]: ../../azure-resource-manager/management/overview.md
-[AzurePowershell]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
+[AzurePowershell]: /powershell/azure/?view=azps-3.8.0

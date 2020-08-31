@@ -5,13 +5,12 @@ description: Learn how to enable HTTPS in order to secure a web service that's d
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
-
 ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
 ms.date: 03/05/2020
-ms.custom: seodec18
+ms.topic: conceptual
+ms.custom: how-to
 ---
 
 # Use TLS to secure a web service through Azure Machine Learning

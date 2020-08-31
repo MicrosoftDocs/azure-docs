@@ -2,10 +2,10 @@
 title: Configure managed identities on an Azure VM using PowerShell - Azure AD
 description: Step-by-step instructions for configuring managed identities for Azure resources on an Azure VM using PowerShell.
 services: active-directory
-documentationcenter: 
-author: MarkusVi
+documentationcenter:
+author: barclayn
 manager: daveba
-editor: 
+editor:
 
 ms.service: active-directory
 ms.subservice: msi
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/26/2019
-ms.author: markvi
+ms.date: 08/19/2020
+ms.author: barclayn
 ms.collection: M365-identity-device-management
 ---
 
@@ -22,7 +22,7 @@ ms.collection: M365-identity-device-management
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Managed identities for Azure resources provide Azure services with an automatically managed identity in Azure Active Directory. You can use this identity to authenticate to any service that supports Azure AD authentication, without having credentials in your code. 
+Managed identities for Azure resources provide Azure services with an automatically managed identity in Azure Active Directory. You can use this identity to authenticate to any service that supports Azure AD authentication, without having credentials in your code.
 
 In this article, using PowerShell, you learn how to perform the following managed identities for Azure resources operations on an Azure VM.
 
@@ -43,11 +43,11 @@ In this section, you will learn how to enable and disable the system-assigned ma
 To create an Azure VM with the system-assigned managed identity enabled, your account needs the [Virtual Machine Contributor](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) role assignment.  No additional Azure AD directory role assignments are required.
 
 1. Refer to one of the following Azure VM Quickstarts, completing only the necessary sections ("Sign in to Azure", "Create resource group", "Create networking group", "Create the VM").
-    
-    When you get to the "Create the VM" section, make a slight modification to the [New-AzVMConfig](/powershell/module/az.compute/new-azvm) cmdlet syntax. Be sure to add a `-AssignIdentity:$SystemAssigned` parameter to provision the VM with the system-assigned identity enabled, for example:
-      
+
+    When you get to the "Create the VM" section, make a slight modification to the [New-AzVMConfig](/powershell/module/az.compute/new-azvm) cmdlet syntax. Be sure to add a `-IdentityType SystemAssigned` parameter to provision the VM with the system-assigned identity enabled, for example:
+
     ```powershell
-    $vmConfig = New-AzVMConfig -VMName myVM -AssignIdentity:$SystemAssigned ...
+    $vmConfig = New-AzVMConfig -VMName myVM -IdentityType SystemAssigned ...
     ```
 
    - [Create a Windows virtual machine using PowerShell](../../virtual-machines/windows/quick-create-powershell.md)
@@ -65,11 +65,11 @@ To enable system-assigned managed identity on a VM that was originally provision
    Connect-AzAccount
    ```
 
-2. First retrieve the VM properties using the `Get-AzVM` cmdlet. Then to enable a system-assigned managed identity, use the `-AssignIdentity` switch on the [Update-AzVM](/powershell/module/az.compute/update-azvm) cmdlet:
+2. First retrieve the VM properties using the `Get-AzVM` cmdlet. Then to enable a system-assigned managed identity, use the `-IdentityType` switch on the [Update-AzVM](/powershell/module/az.compute/update-azvm) cmdlet:
 
    ```powershell
    $vm = Get-AzVM -ResourceGroupName myResourceGroup -Name myVM
-   Update-AzVM -ResourceGroupName myResourceGroup -VM $vm -AssignIdentity:$SystemAssigned
+   Update-AzVM -ResourceGroupName myResourceGroup -VM $vm -IdentityType SystemAssigned
    ```
 
 
@@ -86,7 +86,7 @@ After you have enabled system assigned identity on a VM, you can add it to a gro
 
 2. Retrieve and note the `ObjectID` (as specified in the `Id` field of the returned values) of the VM's service principal:
 
-   ```powerhshell
+   ```powershell
    Get-AzADServicePrincipal -displayname "myVM"
    ```
 
@@ -116,8 +116,8 @@ If you have a Virtual Machine that no longer needs the system-assigned managed i
 
 2. Retrieve the VM properties using the `Get-AzVM` cmdlet and set the `-IdentityType` parameter to `UserAssigned`:
 
-   ```powershell   
-   $vm = Get-AzVM -ResourceGroupName myResourceGroup -Name myVM	
+   ```powershell
+   $vm = Get-AzVM -ResourceGroupName myResourceGroup -Name myVM
    Update-AzVm -ResourceGroupName myResourceGroup -VM $vm -IdentityType "UserAssigned"
    ```
 
@@ -138,14 +138,14 @@ In this section, you learn how to add and remove a user-assigned managed identit
 
 To assign a user-assigned identity to a VM, your account needs the [Virtual Machine Contributor](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) and [Managed Identity Operator](/azure/role-based-access-control/built-in-roles#managed-identity-operator) role assignments. No additional Azure AD directory role assignments are required.
 
-1. Refer to one of the following Azure VM Quickstarts, completing only the necessary sections ("Sign in to Azure", "Create resource group", "Create networking group", "Create the VM"). 
-  
+1. Refer to one of the following Azure VM Quickstarts, completing only the necessary sections ("Sign in to Azure", "Create resource group", "Create networking group", "Create the VM").
+
     When you get to the "Create the VM" section, make a slight modification to the [`New-AzVMConfig`](/powershell/module/az.compute/new-azvm) cmdlet syntax. Add the `-IdentityType UserAssigned` and `-IdentityID` parameters to provision the VM with a user-assigned identity.  Replace `<VM NAME>`,`<SUBSCRIPTION ID>`, `<RESROURCE GROUP>`, and `<USER ASSIGNED IDENTITY NAME>` with your own values.  For example:
-    
-    ```powershell 
+
+    ```powershell
     $vmConfig = New-AzVMConfig -VMName <VM NAME> -IdentityType UserAssigned -IdentityID "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESROURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER ASSIGNED IDENTITY NAME>..."
     ```
-    
+
     - [Create a Windows virtual machine using PowerShell](../../virtual-machines/windows/quick-create-powershell.md)
     - [Create a Linux virtual machine using PowerShell](../../virtual-machines/linux/quick-create-powershell.md)
 
@@ -199,7 +199,7 @@ Update-AzVm -ResourceGroupName myResourceGroup -VM $vm -IdentityType None
 ```
 If your VM has both system-assigned and user-assigned managed identities, you can remove all the user-assigned managed identities by switching to use only system-assigned managed identities.
 
-```powershell 
+```powershell
 $vm = Get-AzVm -ResourceGroupName myResourceGroup -Name myVm
 Update-AzVm -ResourceGroupName myResourceGroup -VirtualMachine $vm -IdentityType "SystemAssigned"
 ```
@@ -208,6 +208,6 @@ Update-AzVm -ResourceGroupName myResourceGroup -VirtualMachine $vm -IdentityType
 
 - [Managed identities for Azure resources overview](overview.md)
 - For the full Azure VM creation Quickstarts, see:
-  
-  - [Create a Windows virtual machine with PowerShell](../../virtual-machines/windows/quick-create-powershell.md) 
-  - [Create a Linux virtual machine with PowerShell](../../virtual-machines/linux/quick-create-powershell.md) 
+
+  - [Create a Windows virtual machine with PowerShell](../../virtual-machines/windows/quick-create-powershell.md)
+  - [Create a Linux virtual machine with PowerShell](../../virtual-machines/linux/quick-create-powershell.md)

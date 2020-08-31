@@ -19,7 +19,7 @@ ms.custom: contperfq4
 ---
 # What are security defaults?
 
-Managing security can be difficult with common identity-related attacks like password spray, replay, and phishing are becoming more and more popular. Security defaults make it easier to help protect your organization from these attacks with preconfigured security settings:
+Managing security can be difficult with common identity-related attacks like password spray, replay, and phishing becoming more and more popular. Security defaults make it easier to help protect your organization from these attacks with preconfigured security settings:
 
 - Requiring all users to register for Azure Multi-Factor Authentication.
 - Requiring administrators to perform multi-factor authentication.

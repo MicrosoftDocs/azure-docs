@@ -4,16 +4,15 @@ description: 'This topic describes how to deal with XML format in Azure Data Fac
 author: linda33wj
 manager: shwang
 ms.reviewer: craigg
-
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 07/16/2020
+ms.date: 08/10/2020
 ms.author: jingwang
-
 ---
 
 # XML format in Azure Data Factory
+
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Follow this article when you want to **parse the XML files**. 
@@ -81,9 +80,9 @@ Supported **XML read settings** under `formatSettings`:
 | ------------- | ------------------------------------------------------------ | -------- |
 | type          | The type of formatSettings must be set to **XmlReadSettings**. | Yes      |
 | validationMode | Specifies whether to validate the XML schema.<br>Allowed values are **none** (default, no validation), **xsd** (validate using XSD), **dtd** (validate using DTD). | No |
-| namespacePrefixes | Namespace URI to prefix mapping which is used to name fields when parsing the xml file.<br/>If an XML file has namespace and namespace is enabled, by default, the field name is the same as it is in the XML document.<br>If there is an item defined for the namespace URI in this map, the field name is `prefix:fieldName`. | No |
+| namespacePrefixes | Namespace URI to prefix mapping, which is used to name fields when parsing the xml file.<br/>If an XML file has namespace and namespace is enabled, by default, the field name is the same as it is in the XML document.<br>If there is an item defined for the namespace URI in this map, the field name is `prefix:fieldName`. | No |
 | compressionProperties | A group of properties on how to decompress data for a given compression codec. | No       |
-| preserveZipFileNameAsFolder<br>(*under `compressionProperties`*) | Applies when input dataset is configured with **ZipDeflate** compression. Indicates whether to preserve the source zip file name as folder structure during copy. When set to true (default), Data Factory writes unzipped files to `<path specified in dataset>/<folder named as source zip file>/`; when set to false, Data Factory writes unzipped files directly to `<path specified in dataset>`.  | No |
+| preserveZipFileNameAsFolder<br>(*under `compressionProperties`*) | Applies when input dataset is configured with **ZipDeflate** compression. Indicates whether to preserve the source zip file name as folder structure during copy.<br>- When set to **true (default)**, Data Factory writes unzipped files to `<path specified in dataset>/<folder named as source zip file>/`.<br>- When set to **false**, Data Factory writes unzipped files directly to `<path specified in dataset>`. Make sure you don’t have duplicated file names in different source zip files to avoid racing or unexpected behavior.  | No |
 
 ## Mapping data flow properties
 
@@ -91,7 +90,7 @@ In mapping data flows, you can read and write to XML format in the following dat
 
 ### Source properties
 
-The below table lists the properties supported by an XML source. You can edit these properties in the **Source options** tab. Learn more from [XML connector behavior](#xml-connector-behavior). When using inline dataset, you will see additional file settings which are the same as the properties described in [dataset properties](#dataset-properties) section. 
+The below table lists the properties supported by an XML source. You can edit these properties in the **Source options** tab. Learn more from [XML connector behavior](#xml-connector-behavior). When using inline dataset, you will see additional file settings, which are the same as the properties described in [dataset properties](#dataset-properties) section. 
 
 | Name | Description | Required | Allowed values | Data flow script property |
 | ---- | ----------- | -------- | -------------- | ---------------- |
@@ -103,7 +102,7 @@ The below table lists the properties supported by an XML source. You can edit th
 | Filter by last modified | Choose to filter files based upon when they were last altered | No | Timestamp | modifiedAfter <br>modifiedBefore |
 | Validation mode | Specifies whether to validate the XML schema. | No | `None` (default, no validation)<br>`xsd` (validate using XSD)<br>`dtd` (validate using DTD). | validationMode |
 | Namespaces | Whether to enable namespace when parsing the XML files. | No | `true` (default) or `false` | namespaces |
-| Namespace prefix pairs | Namespace URI to prefix mapping which is used to name fields when parsing the xml file.<br/>If an XML file has namespace and namespace is enabled, by default, the field name is the same as it is in the XML document.<br>If there is an item defined for the namespace URI in this map, the field name is `prefix:fieldName`. | No | Array with pattern`['URI1'->'prefix1','URI2'->'prefix2']` | namespacePrefixes |
+| Namespace prefix pairs | Namespace URI to prefix mapping, which is used to name fields when parsing the xml file.<br/>If an XML file has namespace and namespace is enabled, by default, the field name is the same as it is in the XML document.<br>If there is an item defined for the namespace URI in this map, the field name is `prefix:fieldName`. | No | Array with pattern`['URI1'->'prefix1','URI2'->'prefix2']` | namespacePrefixes |
 
 ### XML source script example
 
@@ -134,7 +133,7 @@ Note the following when using XML as source.
 
 - XML attributes:
 
-    - Attributes of an element are parsed as the sub-fields of the element in the hierarchy.
+    - Attributes of an element are parsed as the subfields of the element in the hierarchy.
     - The name of the attribute field follows the pattern `@attributeName`.
 
 - XML schema validation:

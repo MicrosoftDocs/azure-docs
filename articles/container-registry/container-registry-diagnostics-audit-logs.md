@@ -115,7 +115,7 @@ ContainerRegistryRepositoryEvents
 | project LoginServer, OperationName, Repository, Tag, Identity, CallerIpAddress
 ```
 
-### Reposity-level operation failures
+### Repository-level operation failures
 
 ```kusto
 ContainerRegistryRepositoryEvents 

@@ -5,7 +5,7 @@ author: emilyre
 ms.service: azure-australia
 ms.topic: conceptual
 ms.date: 07/22/2019
-ms.author: v-emread
+ms.author: yvettep
 ---
 
 # Gateway logging, auditing, and visibility in Azure Australia
@@ -41,7 +41,7 @@ The overall security requirements for Commonwealth systems are defined in the AC
 
 7. Commonwealth entities that have on-premises or Azure-based Security Information and Event Management (SIEM) capabilities can also forward logs to those systems
 
-8. Commonwealth entities should implement Network Watcher flow logs for Network Security Groups (NSGs) and Virtual Machines. These logs should be stored in a dedicated storage account containing only security logs, and access to the storage account should be secured with Role-Based Access Controls
+8. Commonwealth entities should implement Network Watcher flow logs for Network Security Groups (NSGs) and Virtual Machines. These logs should be stored in a dedicated storage account containing only security logs, and access to the storage account should be secured with role-based access control (RBAC)
 
 9. Commonwealth entities must implement ACSC Consumer Guidance to ensure Azure workloads meet the intent of the ISM for logging and monitoring. Commonwealth entities must also opt in to Azure capabilities that assist the ACSC to receive real-time monitoring, alerting, and logs associated with Australian Government usage of Azure
 
@@ -86,7 +86,7 @@ When implementing the components listed in this article, the following general g
 
 * Consolidate logs and minimise the number of instances of logging tools such as storage accounts, Log Analytics workspaces and Event Hubs
 
-* Restrict administrative privileges through Role-Based Access Controls
+* Restrict administrative privileges through role-based access control (RBAC)
 
 * Use Multi-Factor Authentication (MFA) for accounts administering or configuring resources in Azure
 

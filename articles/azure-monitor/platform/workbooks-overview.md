@@ -7,13 +7,17 @@ services: azure-monitor
 
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 10/23/2019
+ms.date: 07/23/2020
 ms.author: mbullwin
 ---
 
 # Azure Monitor Workbooks
 
 Workbooks provide a flexible canvas for data analysis and the creation of rich visual reports within the Azure portal. They allow you to tap into multiple data sources from across Azure, and combine them into unified interactive experiences. 
+
+Here is a video walkthrough on creating workbooks.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4B4Ap]
 
 ## Data sources
 
@@ -48,9 +52,9 @@ Workbooks provide a rich set of capabilities for visualizing your data. For deta
 
 To explore the workbooks experience, first navigate to the Azure Monitor service. This can be done by typing **Monitor** into the search box in the Azure portal.
 
-Then select **Workbooks (preview)**.
+Then select **Workbooks**.
 
-![Screenshot of Workbooks preview button highlighted in a red box](./media/workbooks-overview/workbooks-preview.png)
+![Screenshot of Workbooks button highlighted in a red box](./media/workbooks-overview/workbooks.png)
 
 ### Gallery
 

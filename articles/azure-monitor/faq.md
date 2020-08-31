@@ -77,6 +77,10 @@ Azure Data Explorer is a fast and highly scalable data exploration service for l
 ### How do I retrieve log data?
 All data is retrieved from a Log Analytics workspace using a log query written using Kusto Query Language (KQL). You can write your own queries or use solutions and insights that include log queries for a particular application or service. See [Overview of log queries in Azure Monitor](log-query/log-query-overview.md).
 
+### Can I delete data from a Log Analytics workspace?
+Data is removed from a workspace according to its [retention period](platform/manage-cost-storage.md#change-the-data-retention-period). You can delete specific data for privacy or compliance reasons. See [How to export and delete private data](platform/personal-data-mgmt.md#how-to-export-and-delete-private-data) for more information.
+
+
 ### What is a Log Analytics workspace?
 All log data collected by Azure Monitor is stored in a Log Analytics workspace. A workspace is essentially a container where log data is collected from a variety of sources. You may have a single Log Analytics workspace for all your monitoring data or may have requirements for multiple workspaces. See [Designing your Azure Monitor Logs deployment](platform/design-logs-deployment.md).
 
@@ -117,7 +121,7 @@ An action group is a collection of notifications and actions that can be trigger
 
 
 ### What is an action rule?
-An action rule allows you to modify the behavior of a set of alerts that match a certain criteria. This allows you to to perform such requirements as disable alert actions during a maintenance window. You can also apply an action group to a set of alerts rather than applying them directly to the alert rules. See [Action rules](platform/alerts-action-rules.md).
+An action rule allows you to modify the behavior of a set of alerts that match a certain criteria. This allows you to perform such requirements as disable alert actions during a maintenance window. You can also apply an action group to a set of alerts rather than applying them directly to the alert rules. See [Action rules](platform/alerts-action-rules.md).
 
 ## Agents
 
@@ -133,7 +137,7 @@ Azure Diagnostic extension is for Azure virtual machines and collects data to Az
 Traffic to Azure Monitor uses the Microsoft peering ExpressRoute circuit. See [ExpressRoute documentation](../expressroute/expressroute-faqs.md#supported-services) for a description of the different types of ExpressRoute traffic. 
 
 ### How can I confirm that the Log Analytics agent is able to communicate with Azure Monitor?
-From Control Panel on the agent computer, select **Security & Settings**, **Microsoft Monitoring Agent** . Under the **Azure Log Analytics (OMS)** tab, a green check mark icon confirms that the agent is able to communicate with Azure Monitor. A yellow warning icon means the agent is having issues. One common reason is the **Microsoft Monitoring Agent** service has stopped. Use service control manager to restart the service.
+From Control Panel on the agent computer, select **Security & Settings**, **Microsoft Monitoring Agent. Under the **Azure Log Analytics (OMS)** tab, a green check mark icon confirms that the agent is able to communicate with Azure Monitor. A yellow warning icon means the agent is having issues. One common reason is the **Microsoft Monitoring Agent** service has stopped. Use service control manager to restart the service.
 
 ### How do I stop the Log Analytics agent from communicating with Azure Monitor?
 For agents connected to Log Analytics directly, open the Control Panel and select **Security & Settings**, **Microsoft Monitoring Agent**. Under the **Azure Log Analytics (OMS)** tab, remove all workspaces listed. In System Center Operations Manager, remove the computer from the Log Analytics managed computers list. Operations Manager updates the configuration of the agent to no longer report to Log Analytics. 
@@ -203,7 +207,7 @@ View Designer is only available for users assigned with Contributor permissions 
 * [Set up an ASP.NET server](app/monitor-performance-live-website-now.md)
 * [Set up a Java server](app/java-agent.md)
 
-*How many Application Insights should I deploy?:*
+*How many Application Insights resources should I deploy:*
 
 * [How to design your Application Insights deployment: One versus many Application Insights resources?](app/separate-resources.md)
 
@@ -311,7 +315,7 @@ We look up the IP address (IPv4 or IPv6) of the web client using [GeoLite2](http
 
 * Browser telemetry: We collect the sender's IP address.
 * Server telemetry: The Application Insights module collects the client IP address. It is not collected if `X-Forwarded-For` is set.
-* To learn more about how IP address and geolocation data is collected in Application Insights refer to this [article](./app/ip-collection.md).
+* To learn more about how IP address and geolocation data are collected in Application Insights refer to this [article](./app/ip-collection.md).
 
 
 You can configure the `ClientIpHeaderTelemetryInitializer` to take the IP address from a different header. In some systems, for example, it is moved by a proxy, load balancer, or CDN to `X-Originating-IP`. [Learn more](https://apmtips.com/posts/2016-07-05-client-ip-address/).
@@ -505,6 +509,15 @@ Most Application Insights data has a latency of under 5 minutes. Some data can t
 [start]: app/app-insights-overview.md
 [windows]: app/app-insights-windows-get-started.md
 
+### HTTP 502 and 503 responses are not always captured by Application Insights
+
+"502 bad gateway" and "503 service unavailable" errors are not always captured by Application Insights. If only client-side JavaScript is being used for monitoring this would be expected behavior since the error response is returned prior to the page containing the HTML header with the monitoring JavaScript snippet being rendered. 
+
+If the 502 or 503 response was sent from a server with server-side monitoring enabled the errors would be collected by the Application Insights SDK. 
+
+However, there are still cases where even when server-side monitoring is enabled on an application's web server that a 502 or 503 error will not be captured by Application Insights. Many modern web servers do not allow a client to communicate directly, but instead employ solutions like reverse proxies to pass information back and forth between the client and the front-end web servers. 
+
+In this scenario, a 502 or 503 response could be returned to a client due to an issue at the reverse proxy layer and this would not be captured out-of-box by Application Insights. To help detect issues at this layer you may need to forward logs from your reverse proxy to Log Analytics and create a custom rule to check for 502/503 responses. To learn more about common causes of 502 and 503 errors consult the Azure App Service [troubleshooting article for "502 bad gateway" and "503 service unavailable"](../app-service/troubleshoot-http-502-http-503.md).     
 
 ## Azure Monitor for containers
 
@@ -651,13 +664,13 @@ See the [Network firewall requirements](insights/container-insights-onboard.md#n
 This Microsoft FAQ is a list of commonly asked questions about Azure Monitor for VMs. If you have any additional questions about the solution, go to the [discussion forum](https://feedback.azure.com/forums/34192--general-feedback) and post your questions. When a question is frequently asked, we add it to this article so that it can be found quickly and easily.
 
 ### Can I onboard to an existing workspace?
-If your virtual machines are already connected to a Log Analytics workspace, you may continue to use that workspace when onboarding to Azure Monitor for VMs, provided it is in one of the supported regions listed [here](insights/vminsights-enable-overview.md#prerequisites).
+If your virtual machines are already connected to a Log Analytics workspace, you may continue to use that workspace when onboarding to Azure Monitor for VMs, provided it is in one of the [supported regions](insights/vminsights-configure-workspace.md#supported-regions).
 
 
 ### Can I onboard to a new workspace? 
 If your VMs are not currently connected to an existing Log Analytics workspace, you need to create a new workspace to store your data. Creating a new default workspace is done automatically if you configure a single Azure VM for Azure Monitor for VMs through the Azure portal.
 
-If you choose to use the script-based method, these steps are covered in the [Enable Azure Monitor for VMs using Azure PowerShell or Resource Manager template](insights/vminsights-enable-at-scale-powershell.md) article. 
+If you choose to use the script-based method, these steps are covered in the [Enable Azure Monitor for VMs using Azure PowerShell or Resource Manager template](./insights/vminsights-enable-powershell.md) article. 
 
 ### What do I do if my VM is already reporting to an existing workspace?
 If you are already collecting data from your virtual machines, you may have already configured it to report data to an existing Log Analytics workspace.  As long as that workspace is in one of our supported regions, you can enable Azure Monitor for VMs to that pre-existing workspace.  If the workspace you are already using is not in one of our supported regions, you won't be able to onboard to Azure Monitor for VMs at this time.  We are actively working to support additional regions.
@@ -678,7 +691,7 @@ If you have initiated onboarding and see messages indicating the VM needs to be 
 ### I don't see some or any data in the performance charts for my VM
 Our performance charts have been updated to use data stored in the *InsightsMetrics* table.  To see data in these charts you will need to upgrade to use the new VM Insights solution.  Please refer to our [GA FAQ](insights/vminsights-ga-release-faq.md) for additional information.
 
-If you don't see performance data in the disk table or in some of the performance charts then your performance counters may not be configured in the workspace. To resolve, run the following [PowerShell script](insights/vminsights-enable-at-scale-powershell.md#enable-with-powershell).
+If you don't see performance data in the disk table or in some of the performance charts then your performance counters may not be configured in the workspace. To resolve, run the following [PowerShell script](./insights/vminsights-enable-powershell.md).
 
 
 ### How is Azure Monitor for VMs Map feature different from Service Map?

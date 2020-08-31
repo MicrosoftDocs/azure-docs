@@ -5,7 +5,8 @@ author: kummanish
 ms.author: manishku
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 03/30/2020
+ms.date: 03/30/2020 
+ms.custom: devx-track-azurecli
 ---
 
 # Data encryption for Azure Database for PostgreSQL Single server by using the Azure CLI
@@ -28,13 +29,13 @@ Learn how to use the Azure CLI to set up and manage data encryption for your Azu
    ```
 
 * In order to use an existing key vault, it must have the following properties to use as a customer-managed key:
-  * [Soft delete](../key-vault/general/overview-soft-delete.md)
+  * [Soft delete](../key-vault/general/soft-delete-overview.md)
 
       ```azurecli-interactive
       az resource update --id $(az keyvault show --name \ <key_vault_name> -o tsv | awk '{print $1}') --set \ properties.enableSoftDelete=true
       ```
 
-  * [Purge protected](../key-vault/general/overview-soft-delete.md#purge-protection)
+  * [Purge protected](../key-vault/general/soft-delete-overview.md#purge-protection)
 
       ```azurecli-interactive
       az keyvault update --name <key_vault_name> --resource-group <resource_group_name>  --enable-purge-protection true
@@ -87,6 +88,25 @@ After Azure Database for PostgreSQL Single server is encrypted with a customer's
 * [Create a read replica server](howto-read-replicas-cli.md)
 
 ### Once the server is restored, revalidate data encryption the restored server
+
+*	Assign identity for the replica server
+```azurecli-interactive
+az postgres server update --name  <server name>  -g <resoure_group> --assign-identity
+```
+
+*	Get the existing key that has to be used for the restored/replica server
+
+```azurecli-interactive
+az postgres server key list --name  '<server_name>'  -g '<resource_group_name>'
+```
+
+*	Set the policy for the new identity for the restored/replica server
+
+```azurecli-interactive
+az keyvault set-policy --name <keyvault> -g <resoure_group> --key-permissions get unwrapKey wrapKey --object-id <principl id of the server returned by the step 1>
+```
+
+* Re-validate the restored/replica server with the encryption key
 
 ```azurecli-interactive
 az postgres server key create –name  <server name> -g <resource_group> --kid <key url>

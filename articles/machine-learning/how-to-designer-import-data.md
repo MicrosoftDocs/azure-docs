@@ -5,12 +5,11 @@ description: Learn how to import data into Azure Machine Learning designer (prev
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
-
 author: peterclu
 ms.author: peterlu
 ms.date: 01/16/2020
-ms.custom: designer
+ms.topic: conceptual
+ms.custom: how-to, designer
 ---
 
 # Import data into Azure Machine Learning designer (preview)
@@ -20,13 +19,15 @@ In this article, you learn how to import your own data in the designer to create
 * **Azure Machine Learning datasets** - Register [datasets](concept-data.md#datasets) in Azure Machine Learning to enable advanced features that help you manage your data.
 * **Import Data module** - Use the [Import Data](algorithm-module-reference/import-data.md) module to directly access data from online datasources.
 
+[!INCLUDE [machine-learning-missing-ui](../../includes/machine-learning-missing-ui.md)]
+
 ## Use Azure Machine Learning datasets
 
 We recommend that you use [datasets](concept-data.md#datasets) to import data into the designer. When you register a dataset, you can take full advantage of advanced data features like [versioning and tracking](how-to-version-track-datasets.md) and [data monitoring](how-to-monitor-datasets.md).
 
 ### Register a dataset
 
-You can register existing datasets [programatically with the SDK](how-to-create-register-datasets.md#use-the-sdk) or [visually in Azure Machine Learning studio](how-to-create-register-datasets.md#use-the-ui).
+You can register existing datasets [programatically with the SDK](how-to-create-register-datasets.md#datasets-sdk) or [visually in Azure Machine Learning studio](how-to-create-register-datasets.md#datasets-ui).
 
 You can also register the output for any designer module as a dataset.
 
@@ -53,7 +54,7 @@ While we recommend that you use datasets to import data, you can also use the [I
 For detailed information on how to use the Import Data module, see the [Import Data reference page](algorithm-module-reference/import-data.md).
 
 > [!NOTE]
-> If your dataset has too many columns, you may encounter the following error: "Validation failed due to size limitation". To avoid this, [register the dataset in the Datasets interface](how-to-create-register-datasets.md#use-the-ui).
+> If your dataset has too many columns, you may encounter the following error: "Validation failed due to size limitation". To avoid this, [register the dataset in the Datasets interface](how-to-create-register-datasets.md#datasets-ui).
 
 ## Supported sources
 

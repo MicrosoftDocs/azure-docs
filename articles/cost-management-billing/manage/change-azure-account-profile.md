@@ -5,11 +5,13 @@ author: genlin
 ms.reviewer: dcscontentpm
 tags: billing
 ms.service: cost-management-billing
-ms.topic: conceptual
-ms.date: 06/22/2020
+ms.subservice: billing
+ms.topic: how-to
+ms.date: 08/03/2020
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 ---
+
 # Change the contact information for your Azure account
 
 This article helps you update contact information for your account in the Azure portal. The instructions to update the contact information vary by the billing account type. To learn more about billing accounts and identify your billing account type, see [View billing accounts in Azure portal](view-all-accounts.md).
@@ -18,7 +20,7 @@ This article helps you update contact information for your account in the Azure 
 
 *Bill-to address* - The bill-to address is the address and the contact information of the organization or the individual, who is responsible for the invoices generated for a billing account. For a billing account for a Microsoft Online Service Program (MOSP), there's one bill-to address, which is displayed on all the invoices generated for the account. For a billing account for a Microsoft Customer Agreement (MCA), there's a bill-to address for each billing profile and it's displayed in the invoice generated for the billing profile.
 
-*Contact email address for service and marketing emails* - You can specify an email address that's different from the email address that you sign in with, to receive important billing, service, and recommendation-related notifications about your Azure account.  
+*Contact email address for service and marketing emails* - You can specify an email address that's different from the email address that you sign in with to receive important billing, service, and recommendation-related notifications about your Azure account. Service notification emails, such as urgent security issues, price changes, or breaking changes to services in use by your account are always sent to your sign-in address.
 
 ## Update an MOSP billing account address
 

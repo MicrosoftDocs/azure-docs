@@ -165,5 +165,5 @@ Putting it all together, you'd pay about $57.00 to ingest 1,000 PDF documents of
 ## Next steps
 + [Azure Cognitive Search pricing page](https://azure.microsoft.com/pricing/details/search/)
 + [How to define a skillset](cognitive-search-defining-skillset.md)
-+ [Create Skillset (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
++ [Create Skillset (REST)](/rest/api/searchservice/create-skillset)
 + [How to map enriched fields](cognitive-search-output-field-mapping.md)

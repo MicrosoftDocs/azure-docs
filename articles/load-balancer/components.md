@@ -6,7 +6,7 @@ documentationcenter: na
 author: asudbring
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: overview
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/04/2020
@@ -70,7 +70,7 @@ A Load Balancer rule is used to define how incoming traffic is distributed to th
 For example, use a load balancing rule for port 80 to route traffic from your frontend IP to port 80 of your backend instances.
 
 <p align="center">
-  <img src="./media/load-balancer-components/lbrules.svg" width="512" title="Load Balancing rules">
+  <img src="./media/load-balancer-components/lbrules.svg" alt= "Figure depicts how Azure Load Balancer directs frontend port 80 to three instances of backend port 80." width="512" title="Load Balancing rules">
 </p>
 
 *Figure: Load Balancing rules*
@@ -92,7 +92,7 @@ The load-balancing decision is made per flow. This action is based on the follow
 The HA ports load-balancing rules help you with critical scenarios, such as high availability and scale for network virtual appliances (NVAs) inside virtual networks. The feature can help when a large number of ports must be load-balanced.
 
 <p align="center">
-  <img src="./media/load-balancer-components/harules.svg" width="512" title="HA Ports rules">
+  <img src="./media/load-balancer-components/harules.svg" alt="Figure depicts how Azure Load Balancer directs all frontend ports to three instances of all backend ports" width="512" title="HA Ports rules">
 </p>
 
 *Figure: HA Ports rules*
@@ -106,7 +106,7 @@ An inbound NAT rule forwards incoming traffic sent to Frontend IP address and po
 For example, if you would like Remote Desktop Protocol (RDP) or Secure Shell (SSH) sessions to separate VM instances in a backend pool. Multiple internal endpoints can be mapped to ports on the same Frontend IP address. The Frontend IP addresses can be used to remotely administer your VMs without an additional jump box.
 
 <p align="center">
-  <img src="./media/load-balancer-components/inboundnatrules.svg" width="512" title="Inbound NAT rules">
+  <img src="./media/load-balancer-components/inboundnatrules.svg" alt="Figure depicts how Azure Load Balancer directs frontend ports 3389, 443, and 80 to backend ports with the same values on separate servers." width="512" title="Inbound NAT rules">
 </p>
 
 *Figure: Inbound NAT rules*

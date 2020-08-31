@@ -6,8 +6,9 @@ author: anuragdalmia
 ms.reviewer: banders
 tags: billing
 ms.service: cost-management-billing
+ms.subservice: billing
 ms.topic: conceptual
-ms.date: 06/11/2020
+ms.date: 08/20/2020
 ms.author: andalmia
 ---
 

@@ -93,7 +93,7 @@ This app will have access to get secrets from Azure Key Vault. Use the starter a
     azure.keyvault.uri=https://<your-keyvault-name>.vault.azure.net
     ```
     > [!Note] 
-    > Must add key the vault url in `application.properties` as above. Otherwise, the key vault url may not be captured during runtime.
+    > Must add the key vault url in `application.properties` as above. Otherwise, the key vault url may not be captured during runtime.
 
 3. Add the code example to src/main/java/com/example/demo/DemoApplication.java. It retrieves the connection string from the Key Vault. 
 
@@ -109,13 +109,13 @@ This app will have access to get secrets from Azure Key Vault. Use the starter a
 
     @SpringBootApplication
     @RestController
-    public class SecretsApplication implements CommandLineRunner {
+    public class DemoApplication implements CommandLineRunner {
 
         @Value("${connectionString}")
         private String connectionString;
 
         public static void main(String[] args) {
-          SpringApplication.run(SecretsApplication.class, args);
+          SpringApplication.run(DemoApplication.class, args);
         }
 
         @GetMapping("get")

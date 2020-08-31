@@ -3,6 +3,7 @@ title: Red Hat reservation plan discounts - Azure
 description: Learn how Red Hat plan discounts are applied to Red Hat software on virtual machines.
 author: yashesvi
 ms.service: cost-management-billing
+ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 06/11/2020
 ms.author: banders

@@ -10,7 +10,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 07/15/2020
+ms.date: 08/28/2020
 ---
 
 # Copy and transform data in Azure Synapse Analytics (formerly Azure SQL Data Warehouse) by using Azure Data Factory
@@ -36,7 +36,7 @@ This Azure Synapse Analytics connector is supported for the following activities
 For Copy activity, this Azure Synapse Analytics connector supports these functions:
 
 - Copy data by using SQL authentication and Azure Active Directory (Azure AD) Application token authentication with a service principal or managed identities for Azure resources.
-- As a source, retrieve data by using a SQL query or stored procedure.
+- As a source, retrieve data by using a SQL query or stored procedure. You can also choose to parallel copy from an Azure Synapse Analytics source, see the [Parallel copy from Synapse Analytics](#parallel-copy-from-synapse-analytics) section for details.
 - As a sink, load data by using [PolyBase](#use-polybase-to-load-data-into-azure-sql-data-warehouse) or [COPY statement](#use-copy-statement) (preview) or bulk insert. We recommend PolyBase or COPY statement (preview) for better copy performance. The connector also supports automatically creating destination table if not exists based on the source schema.
 
 > [!IMPORTANT]
@@ -63,6 +63,7 @@ The following properties are supported for an Azure Synapse Analytics linked ser
 | servicePrincipalId  | Specify the application's client ID.                         | Yes, when you use Azure AD authentication with a service principal. |
 | servicePrincipalKey | Specify the application's key. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes, when you use Azure AD authentication with a service principal. |
 | tenant              | Specify the tenant information (domain name or tenant ID) under which your application resides. You can retrieve it by hovering the mouse in the top-right corner of the Azure portal. | Yes, when you use Azure AD authentication with a service principal. |
+| azureCloudType | For service principal authentication, specify the type of Azure cloud environment to which your Azure AD application is registered. <br/> Allowed values are **AzurePublic**, **AzureChina**, **AzureUsGovernment**, and **AzureGermany**. By default, the data factory's cloud environment is used. | No |
 | connectVia          | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Azure Integration Runtime or a self-hosted integration runtime (if your data store is located in a private network). If not specified, it uses the default Azure Integration Runtime. | No                                                           |
 
 For different authentication types, refer to the following sections on prerequisites and JSON samples, respectively:
@@ -250,6 +251,9 @@ For a full list of sections and properties available for defining activities, se
 
 ### Azure Synapse Analytics as the source
 
+>[!TIP]
+>To load data from Azure Synapse Analytics efficiently by using data partitioning, learn more from [Parallel copy from Synapse Analytics](#parallel-copy-from-synapse-analytics).
+
 To copy data from Azure Synapse Analytics, set the **type** property in the Copy Activity source to **SqlDWSource**. The following properties are supported in the Copy Activity **source** section:
 
 | Property                     | Description                                                  | Required |
@@ -258,7 +262,13 @@ To copy data from Azure Synapse Analytics, set the **type** property in the Copy
 | sqlReaderQuery               | Use the custom SQL query to read data. Example: `select * from MyTable`. | No       |
 | sqlReaderStoredProcedureName | The name of the stored procedure that reads data from the source table. The last SQL statement must be a SELECT statement in the stored procedure. | No       |
 | storedProcedureParameters    | Parameters for the stored procedure.<br/>Allowed values are name or value pairs. Names and casing of parameters must match the names and casing of the stored procedure parameters. | No       |
-| isolationLevel | Specifies the transaction locking behavior for the SQL source. The allowed values are: **ReadCommitted** (default), **ReadUncommitted**, **RepeatableRead**, **Serializable**, **Snapshot**. Refer to [this doc](https://docs.microsoft.com/dotnet/api/system.data.isolationlevel) for more details. | No |
+| isolationLevel | Specifies the transaction locking behavior for the SQL source. The allowed values are: **ReadCommitted**, **ReadUncommitted**, **RepeatableRead**, **Serializable**, **Snapshot**. If not specified, the database's default isolation level is used. Refer to [this doc](https://docs.microsoft.com/dotnet/api/system.data.isolationlevel) for more details. | No |
+| partitionOptions | Specifies the data partitioning options used to load data from Azure Synapse Analytics. <br>Allowed values are: **None** (default), **PhysicalPartitionsOfTable**, and **DynamicRange**.<br>When a partition option is enabled (that is, not `None`), the degree of parallelism to concurrently load data from an Azure Synapse Analytics is controlled by the [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) setting on the copy activity. | No |
+| partitionSettings | Specify the group of the settings for data partitioning. <br>Apply when the partition option isn't `None`. | No |
+| ***Under `partitionSettings`:*** | | |
+| partitionColumnName | Specify the name of the source column **in integer or  date/datetime type** that will be used by range partitioning for parallel copy. If not specified, the index or the primary key of the table is auto-detected and used as the partition column.<br>Apply when the partition option is `DynamicRange`. If you use a query to retrieve the source data, hook  `?AdfDynamicRangePartitionCondition ` in the WHERE clause. For an example, see the [Parallel copy from SQL database](#parallel-copy-from-synapse-analytics) section. | No |
+| partitionUpperBound | The maximum value of the partition column for partition range splitting. This value is used to decide the partition stride, not for filtering the rows in table. All rows in the table or query result will be partitioned and copied. If not specified, copy activity auto detect the value.  <br>Apply when the partition option is `DynamicRange`. For an example, see the [Parallel copy from SQL database](#parallel-copy-from-synapse-analytics) section. | No |
+| partitionLowerBound | The minimum value of the partition column for partition range splitting. This value is used to decide the partition stride, not for filtering the rows in table. All rows in the table or query result will be partitioned and copied. If not specified, copy activity auto detect the value.<br>Apply when the partition option is `DynamicRange`. For an example, see the [Parallel copy from SQL database](#parallel-copy-from-synapse-analytics) section. | No |
 
 **Example: using SQL query**
 
@@ -371,7 +381,7 @@ To copy data to Azure SQL Data Warehouse, set the sink type in Copy Activity to 
 | writeBatchSize    | Number of rows to inserts into the SQL table **per batch**.<br/><br/>The allowed value is **integer** (number of rows). By default, Data Factory dynamically determines the appropriate batch size based on the row size. | No.<br/>Apply  when using bulk insert.     |
 | writeBatchTimeout | Wait time for the batch insert operation to finish before it times out.<br/><br/>The allowed value is **timespan**. Example: "00:30:00" (30 minutes). | No.<br/>Apply  when using bulk insert.        |
 | preCopyScript     | Specify a SQL query for Copy Activity to run before writing data into Azure SQL Data Warehouse in each run. Use this property to clean up the preloaded data. | No                                            |
-| tableOption | Specifies whether to [automatically create the sink table](copy-activity-overview.md#auto-create-sink-tables) if not exists based on the source schema. Auto table creation is not supported when staged copy is configured in copy activity. Allowed values are: `none` (default), `autoCreate`. |No |
+| tableOption | Specifies whether to [automatically create the sink table](copy-activity-overview.md#auto-create-sink-tables) if not exists based on the source schema. Allowed values are: `none` (default), `autoCreate`. |No |
 | disableMetricsCollection | Data Factory collects metrics such as SQL Data Warehouse DWUs for copy performance optimization and recommendations. If you are concerned with this behavior, specify `true` to turn it off. | No (default is `false`) |
 
 #### SQL Data Warehouse sink example
@@ -386,6 +396,54 @@ To copy data to Azure SQL Data Warehouse, set the sink type in Copy Activity to 
         "rejectValue": 10.0,
         "rejectSampleValue": 100,
         "useTypeDefault": true
+    }
+}
+```
+
+## Parallel copy from Synapse Analytics
+
+The Azure Synapse Analytics connector in copy activity provides built-in data partitioning to copy data in parallel. You can find data partitioning options on the **Source** tab of the copy activity.
+
+![Screenshot of partition options](./media/connector-sql-server/connector-sql-partition-options.png)
+
+When you enable partitioned copy, copy activity runs parallel queries against your Azure Synapse Analytics source to load data by partitions. The parallel degree is controlled by the [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) setting on the copy activity. For example, if you set `parallelCopies` to four, Data Factory concurrently generates and runs four queries based on your specified partition option and settings, and each query retrieves a portion of data from your Azure Synapse Analytics.
+
+You are suggested to enable parallel copy with data partitioning especially when you load large amount of data from your Azure Synapse Analytics. The following are suggested configurations for different scenarios. When copying data into file-based data store, it's recommended to write to a folder as multiple files (only specify folder name), in which case the performance is better than writing to a single file.
+
+| Scenario                                                     | Suggested settings                                           |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| Full load from large table, with physical partitions.        | **Partition option**: Physical partitions of table. <br><br/>During execution, Data Factory automatically detects the physical partitions, and copies data by partitions. |
+| Full load from large table, without physical partitions, while with an integer or datetime column for data partitioning. | **Partition options**: Dynamic range partition.<br>**Partition column** (optional): Specify the column used to partition data. If not specified, the index or primary key column is used.<br/>**Partition upper bound** and **partition lower bound** (optional): Specify if you want to determine the partition stride. This is not for filtering the rows in table, all rows in the table will be partitioned and copied. If not specified, copy activity auto detect the values.<br><br>For example, if your partition column "ID" has values range from 1 to 100, and you set the lower bound as 20 and the upper bound as 80, with parallel copy as 4, Data Factory retrieves data by 4 partitions - IDs in range <=20, [21, 50], [51, 80], and >=81, respectively. |
+| Load a large amount of data by using a custom query, without physical partitions, while with an integer or date/datetime column for data partitioning. | **Partition options**: Dynamic range partition.<br>**Query**: `SELECT * FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition AND <your_additional_where_clause>`.<br>**Partition column**: Specify the column used to partition data.<br>**Partition upper bound** and **partition lower bound** (optional): Specify if you want to determine the partition stride. This is not for filtering the rows in table, all rows in the query result will be partitioned and copied. If not specified, copy activity auto detect the value.<br><br>During execution, Data Factory replaces `?AdfRangePartitionColumnName` with the actual column name and value ranges for each partition, and sends to Azure Synapse Analytics. <br>For example, if your partition column "ID" has values range from 1 to 100, and you set the lower bound as 20 and the upper bound as 80, with parallel copy as 4, Data Factory retrieves data by 4 partitions- IDs in range <=20, [21, 50], [51, 80], and >=81, respectively. |
+
+Best practices to load data with partition option:
+
+1. Choose distinctive column as partition column (like primary key or unique key) to avoid data skew. 
+2. If the table has built-in partition, use partition option "Physical partitions of table" to get better performance.
+3. If you use Azure Integration Runtime to copy data, you can set larger "[Data Integration Units (DIU)](copy-activity-performance-features.md#data-integration-units)" (>4) to utilize more computing resource. Check the applicable scenarios there.
+4. "[Degree of copy parallelism](copy-activity-performance-features.md#parallel-copy)" control the partition numbers, setting this number too large sometime hurts the performance, recommend setting this number as (DIU or number of Self-hosted IR nodes) * (2 to 4).
+5. Note Azure Synapse Analytics can execute a maximum of 32 queries at a moment, setting "Degree of copy parallelism" too large may cause Synapse throttling issue.
+
+**Example: full load from large table with physical partitions**
+
+```json
+"source": {
+    "type": "SqlDWSource",
+    "partitionOption": "PhysicalPartitionsOfTable"
+}
+```
+
+**Example: query with dynamic range partition**
+
+```json
+"source": {
+    "type": "SqlDWSource",
+    "query": "SELECT * FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition AND <your_additional_where_clause>",
+    "partitionOption": "DynamicRange",
+    "partitionSettings": {
+        "partitionColumnName": "<partition_column_name>",
+        "partitionUpperBound": "<upper_value_of_partition_column (optional) to decide the partition stride, not as data filter>",
+        "partitionLowerBound": "<lower_value_of_partition_column (optional) to decide the partition stride, not as data filter>"
     }
 }
 ```
@@ -441,7 +499,7 @@ If the requirements aren't met, Azure Data Factory checks the settings and autom
 
 3. If your source is a folder, `recursive` in copy activity must be set to true.
 
-4. `wildcardFolderPath` , `wildcardFilename`, `modifiedDateTimeStart`, `modifiedDateTimeEnd` and `additionalColumns` are not specified.
+4. `wildcardFolderPath` , `wildcardFilename`, `modifiedDateTimeStart`, `modifiedDateTimeEnd`, `prefix`, `enablePartitionDiscovery` and `additionalColumns` are not specified.
 
 >[!NOTE]
 >If your source is a folder, note PolyBase retrieves files from the folder and all of its subfolders, and it doesn't retrieve data from files for which the file name begins with an underline (_) or a period (.), as documented [here - LOCATION argument](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql?view=azure-sqldw-latest#arguments-2).
@@ -621,7 +679,7 @@ Using COPY statement supports the following configuration:
 
 3. If your source is a folder, `recursive` in copy activity must be set to true, and `wildcardFilename` need to be `*`. 
 
-4. `wildcardFolderPath` , `wildcardFilename` (other than `*`), `modifiedDateTimeStart`, `modifiedDateTimeEnd` and `additionalColumns` are not specified.
+4. `wildcardFolderPath` , `wildcardFilename` (other than `*`), `modifiedDateTimeStart`, `modifiedDateTimeEnd`, `prefix`, `enablePartitionDiscovery` and `additionalColumns` are not specified.
 
 The following COPY statement settings are supported under `allowCopyCommand` in copy activity:
 

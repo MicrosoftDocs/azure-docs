@@ -7,7 +7,8 @@ ms.service: virtual-machines-windows
 ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 04/06/2018
-ms.author: johnkem
+ms.author: johnkem 
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 
 ---
 # Azure Diagnostics Extension for Windows VMs

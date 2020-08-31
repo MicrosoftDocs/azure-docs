@@ -1,6 +1,6 @@
 ---
 title: Hot, cool, and archive access tiers for blobs - Azure Storage
-description: Hot, cool, and archive access tiers for Azure storage accounts.
+description: Read about hot, cool, and archive access tiers for Azure Blob storage. Review storage accounts that support tiering. Compare block blob storage options.
 author: mhopkins-msft
 
 ms.author: mhopkins
@@ -64,6 +64,9 @@ Example usage scenarios for the archive access tier include:
 - Long-term backup, secondary backup, and archival datasets
 - Original (raw) data that must be preserved, even after it has been processed into final usable form.
 - Compliance and archival data that needs to be stored for a long time and is hardly ever accessed.
+
+> [!NOTE]
+> The archive tier is not currently supported for ZRS, GZRS, or RA-GZRS accounts.
 
 ## Account-level tiering
 

@@ -91,7 +91,7 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 |Columnstore support|Yes|Yes|Yes|Yes|Yes|
 |In-memory OLTP storage (GB)|N/A|N/A|N/A|N/A|N/A|
 |Max data size (GB)|3072|3072|4096|4096|4096|
-|Max log size (GB)|922|922|1229|1229|1229|
+|Max log size (GB)|922|922|1024|1024|1024|
 |TempDB max data size (GB)|576|640|768|1024|1280|
 |Storage type|Remote SSD|Remote SSD|Remote SSD|Remote SSD|Remote SSD|
 |IO latency (approximate)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|
@@ -317,7 +317,7 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 |Columnstore support|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
 |In-memory OLTP storage (GB)|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Max data size (GB)|3072|3072|3072|4096|4096|4096|4096|
-|Max log size (GB)|922|922|922|1229|1229|1229|1229|
+|Max log size (GB)|922|922|922|1024|1024|1024|1024|
 |TempDB max data size (GB)|512|576|640|768|1024|1280|2560|
 |Storage type|Remote SSD|Remote SSD|Remote SSD|Remote SSD|Remote SSD|Remote SSD|Remote SSD|
 |IO latency (approximate)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|
@@ -481,7 +481,7 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 |Columnstore support|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
 |In-memory OLTP storage (GB)|15.77|18.14|20.51|25.25|37.94|52.23|131.64|
 |Max data size (GB)|3072|3072|3072|4096|4096|4096|4096|
-|Max log size (GB)|922|922|922|1229|1229|1229|1229|
+|Max log size (GB)|922|922|922|1024|1024|1024|1024|
 |TempDB max data size (GB)|512|576|640|768|1024|1280|2560|
 |Storage type|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|
 |IO latency (approximate)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|
@@ -519,7 +519,7 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 |Max concurrent logins|800|1,000|1,200|1,400|1,600|1,800|
 |Max concurrent sessions|30000|30000|30000|30000|30000|30000|
 |Number of replicas|4|4|4|4|4|4|
-|Multi-AZ|Yes|Yes|Yes|Yes|Yes|Yes|
+|Multi-AZ|No|No|No|No|No|No|
 |Read Scale-out|Yes|Yes|Yes|Yes|Yes|Yes|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 
@@ -548,7 +548,7 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 |Max concurrent logins|2,000|2,400|3,200|6,400|12,800|
 |Max concurrent sessions|30000|30000|30000|30000|30000|
 |Number of replicas|4|4|4|4|4|
-|Multi-AZ|Yes|Yes|Yes|Yes|Yes|
+|Multi-AZ|No|No|No|No|No|
 |Read Scale-out|Yes|Yes|Yes|Yes|Yes|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 

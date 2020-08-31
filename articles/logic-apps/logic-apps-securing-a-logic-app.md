@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: rarayudu, logicappspm
 ms.topic: conceptual
-ms.date: 07/03/2020
+ms.date: 08/20/2020
 ---
 
 # Secure access and data in Azure Logic Apps
@@ -105,45 +105,9 @@ In the body, include the `KeyType` property as either `Primary` or `Secondary`. 
 
 ### Enable Azure Active Directory OAuth
 
-If your logic app starts with a [Request trigger](../connectors/connectors-native-reqres.md), you can enable [Azure Active Directory Open Authentication](../active-directory/develop/index.yml) (Azure AD OAuth) by creating an authorization policy for inbound calls to the Request trigger. Before you enable this authentication, review these considerations:
+If your logic app starts with a [Request trigger](../connectors/connectors-native-reqres.md), you can enable [Azure Active Directory Open Authentication](../active-directory/develop/index.yml) (Azure AD OAuth) by defining or adding an authorization policy for inbound calls to the Request trigger. When your logic app receives an inbound request that includes an authentication token, Azure Logic Apps compares the token's claims against the claims in each authorization policy. If a match exists between the token's claims and all the claims in at least one policy, authorization succeeds for the inbound request. The token can have more claims than the number specified by the authorization policy.
 
-* An inbound call to your logic app can use only one authorization scheme, either Azure AD OAuth or [Shared Access Signatures (SAS)](#sas). Only [Bearer-type](../active-directory/develop/active-directory-v2-protocols.md#tokens) authorization schemes are supported for OAuth tokens, which are supported only for the Request trigger.
-
-* Your logic app is limited to a maximum number of authorization policies. Each authorization policy also has a maximum number of [claims](../active-directory/develop/developer-glossary.md#claim). For more information, see [Limits and configuration for Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#authentication-limits).
-
-* An authorization policy must include at least the **Issuer** claim, which has a value that starts with `https://sts.windows.net/` or `https://login.microsoftonline.com/` (OAuth V2) as the Azure AD issuer ID. For more information about access tokens, see [Microsoft identity platform access tokens](../active-directory/develop/access-tokens.md).
-
-To enable Azure AD OAuth, follow these steps to add one or more authorization policies to your logic app.
-
-1. In the [Azure portal](https://portal.microsoft.com), find and open your logic app in the Logic App Designer.
-
-1. On the logic app menu, under **Settings**, select **Authorization**. After the Authorization pane opens, select **Add policy**.
-
-   ![Select "Authorization" > "Add policy"](./media/logic-apps-securing-a-logic-app/add-azure-active-directory-authorization-policies.png)
-
-1. Provide information about the authorization policy by specifying the [claim types](../active-directory/develop/developer-glossary.md#claim) and values that your logic app expects in the authentication token presented by each inbound call to the Request trigger:
-
-   ![Provide information for authorization policy](./media/logic-apps-securing-a-logic-app/set-up-authorization-policy.png)
-
-   | Property | Required | Description |
-   |----------|----------|-------------|
-   | **Policy name** | Yes | The name that you want to use for the authorization policy |
-   | **Claims** | Yes | The claim types and values that your logic app accepts from inbound calls. Here are the available claim types: <p><p>- **Issuer** <br>- **Audience** <br>- **Subject** <br>- **JWT ID** (JSON Web Token ID) <p><p>At the minimum, the **Claims** list must include the **Issuer** claim, which has a value that starts with the `https://sts.windows.net/` or `https://login.microsoftonline.com/` as the Azure AD issuer ID. For more information about these claim types, see [Claims in Azure AD security tokens](../active-directory/azuread-dev/v1-authentication-scenarios.md#claims-in-azure-ad-security-tokens). You can also specify your own claim type and value. |
-   |||
-
-1. To add another claim, select from these options:
-
-   * To add another claim type, select **Add standard claim**, select the claim type, and specify the claim value.
-
-   * To add your own claim, select **Add custom claim**, and specify the custom claim value.
-
-1. To add another authorization policy, select **Add policy**. Repeat the previous steps to set up the policy.
-
-1. When you're done, select **Save**.
-
-Your logic app is now set up to use Azure AD OAuth for authorizing inbound requests. When your logic app receives an inbound request that includes an authentication token, Azure Logic Apps compares the token's claims against the claims in each authorization policy. If a match exists between the token's claims and all the claims in at least one policy, authorization succeeds for the inbound request. The token can have more claims than the number specified by the authorization policy.
-
-For example, suppose that your logic app has an authorization policy that requires two claim types, Issuer and Audience. This sample decoded [access token](../active-directory/develop/access-tokens.md) includes both those claim types:
+For example, suppose that your logic app has an authorization policy that requires two claim types, **Issuer** and **Audience**. This sample decoded [access token](../active-directory/develop/access-tokens.md) includes both those claim types:
 
 ```json
 {
@@ -186,6 +150,93 @@ For example, suppose that your logic app has an authorization policy that requir
 }
 ```
 
+#### Considerations for enabling Azure OAuth
+
+Before you enable this authentication, review these considerations:
+
+* An inbound call to your logic app can use only one authorization scheme, either Azure AD OAuth or [Shared Access Signatures (SAS)](#sas). Using one scheme doesn't disable the other, but using both at the same time causes an error because the service doesn't know which scheme to choose. Only [Bearer-type](../active-directory/develop/active-directory-v2-protocols.md#tokens) authorization schemes are supported for OAuth tokens, which are supported only for the Request trigger.
+
+* Your logic app is limited to a maximum number of authorization policies. Each authorization policy also has a maximum number of [claims](../active-directory/develop/developer-glossary.md#claim). For more information, see [Limits and configuration for Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#authentication-limits).
+
+* An authorization policy must include at least the **Issuer** claim, which has a value that starts with `https://sts.windows.net/` or `https://login.microsoftonline.com/` (OAuth V2) as the Azure AD issuer ID. For more information about access tokens, see [Microsoft identity platform access tokens](../active-directory/develop/access-tokens.md).
+
+<a name="define-authorization-policy-portal"></a>
+
+#### Define authorization policy in Azure portal
+
+To enable Azure AD OAuth for your logic app in the Azure portal, follow these steps to add one or more authorization policies to your logic app:
+
+1. In the [Azure portal](https://portal.microsoft.com), find and open your logic app in the Logic App Designer.
+
+1. On the logic app menu, under **Settings**, select **Authorization**. After the Authorization pane opens, select **Add policy**.
+
+   ![Select "Authorization" > "Add policy"](./media/logic-apps-securing-a-logic-app/add-azure-active-directory-authorization-policies.png)
+
+1. Provide information about the authorization policy by specifying the [claim types](../active-directory/develop/developer-glossary.md#claim) and values that your logic app expects in the authentication token presented by each inbound call to the Request trigger:
+
+   ![Provide information for authorization policy](./media/logic-apps-securing-a-logic-app/set-up-authorization-policy.png)
+
+   | Property | Required | Description |
+   |----------|----------|-------------|
+   | **Policy name** | Yes | The name that you want to use for the authorization policy |
+   | **Claims** | Yes | The claim types and values that your logic app accepts from inbound calls. Here are the available claim types: <p><p>- **Issuer** <br>- **Audience** <br>- **Subject** <br>- **JWT ID** (JSON Web Token ID) <p><p>At the minimum, the **Claims** list must include the **Issuer** claim, which has a value that starts with the `https://sts.windows.net/` or `https://login.microsoftonline.com/` as the Azure AD issuer ID. For more information about these claim types, see [Claims in Azure AD security tokens](../active-directory/azuread-dev/v1-authentication-scenarios.md#claims-in-azure-ad-security-tokens). You can also specify your own claim type and value. |
+   |||
+
+1. To add another claim, select from these options:
+
+   * To add another claim type, select **Add standard claim**, select the claim type, and specify the claim value.
+
+   * To add your own claim, select **Add custom claim**, and specify the custom claim value.
+
+1. To add another authorization policy, select **Add policy**. Repeat the previous steps to set up the policy.
+
+1. When you're done, select **Save**.
+
+<a name="define-authorization-policy-template"></a>
+
+#### Define authorization policy in Azure Resource Manager template
+
+To enable Azure AD OAuth in the ARM template for deploying your logic app, in the `properties` section for your [logic app's resource definition](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md#logic-app-resource-definition), add an `accessControl` object, if none exists, that contains a `triggers` object. In the `triggers` object, add an `openAuthenticationPolicies` object where you define one or more authorization policies by following this syntax:
+
+```json
+"resources": [
+   {
+      // Start logic app resource definition
+      "properties": {
+         "state": "<Enabled-or-Disabled>",
+         "definition": {<workflow-definition>},
+         "parameters": {<workflow-definition-parameter-values>},
+         "accessControl": {
+            "triggers": {
+               "openAuthenticationPolicies": {
+                  "policies": {
+                     "<policy-name>": {
+                        "type": "AAD",
+                        "claims": [
+                           {
+                              "name": "<claim-name>",
+                              "values": "<claim-value>"
+                           }
+                        ]
+                     }
+                  }
+               }
+            },
+         },
+      },
+      "name": "[parameters('LogicAppName')]",
+      "type": "Microsoft.Logic/workflows",
+      "location": "[parameters('LogicAppLocation')]",
+      "apiVersion": "2016-06-01",
+      "dependsOn": [
+      ]
+   }
+   // End logic app resource definition
+],
+```
+
+For more information about the `accessControl` section, see [Restrict inbound IP ranges in Azure Resource Manager template](#restrict-inbound-ip-template) and [Microsoft.Logic workflows template reference](/azure/templates/microsoft.logic/2019-05-01/workflows).
+
 <a name="restrict-inbound-ip"></a>
 
 ### Restrict inbound IP addresses
@@ -211,6 +262,8 @@ If you want your logic app to trigger only as a nested logic app, from the **All
 > [Logic Apps REST API: Workflow Triggers - Run](/rest/api/logic/workflowtriggers/run)
 > request or by using API Management. However, this scenario still requires [authentication](../active-directory/develop/authentication-vs-authorization.md)
 > against the Azure REST API. All events appear in the Azure Audit Log. Make sure that you set access control policies accordingly.
+
+<a name="restrict-inbound-ip-template"></a>
 
 #### Restrict inbound IP ranges in Azure Resource Manager template
 
@@ -246,7 +299,7 @@ If you [automate deployment for logic apps by using Resource Manager templates](
                   ]
                },
                "actions": {
-                  "allowedCallerIpAddresses:" : []
+                  "allowedCallerIpAddresses": []
                }
             },
             "endpointsConfiguration": {}
@@ -613,7 +666,7 @@ This example template that has multiple secured parameter definitions that use t
          "apiVersion": "2016-06-01",
          "properties": {
             "definition": {
-               "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-0601/workflowdefinition.json#",
+               "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
                "actions": {
                   "HTTP": {
                      "type": "Http",
@@ -672,7 +725,7 @@ Here are some ways that you can help secure endpoints that receive calls or requ
 
 * Add authentication to outbound requests.
 
-  When you work with an HTTP-based trigger or action that makes outbound calls, such as HTTP, HTTP + Swagger, or Webhook, you can add authentication to the request that's sent by your logic app. For example, you can select these authentication types:
+  When you use an HTTP-based trigger or action that makes outbound calls, for example, HTTP, you can add authentication to the request that's sent by your logic app. For example, you can select these authentication types:
 
   * [Basic authentication](#basic-authentication)
 
@@ -734,13 +787,13 @@ HTTP and HTTPS endpoints support various kinds of authentication. On some trigge
 
 This table identifies the authentication types that are available on the triggers and actions where you can select an authentication type:
 
-| Authentication type | Availability |
-|---------------------|--------------|
+| Authentication type | Supported triggers and actions |
+|---------------------|--------------------------------|
 | [Basic](#basic-authentication) | Azure API Management, Azure App Services, HTTP, HTTP + Swagger, HTTP Webhook |
 | [Client Certificate](#client-certificate-authentication) | Azure API Management, Azure App Services, HTTP, HTTP + Swagger, HTTP Webhook |
 | [Active Directory OAuth](#azure-active-directory-oauth-authentication) | Azure API Management, Azure App Services, Azure Functions, HTTP, HTTP + Swagger, HTTP Webhook |
 | [Raw](#raw-authentication) | Azure API Management, Azure App Services, Azure Functions, HTTP, HTTP + Swagger, HTTP Webhook |
-| [Managed identity](#managed-identity-authentication) | Azure API Management, Azure App Services, Azure Functions, HTTP, HTTP + Swagger, HTTP Webhook |
+| [Managed identity](#managed-identity-authentication) | Azure API Management, Azure App Services, Azure Functions, HTTP |
 |||
 
 <a name="basic-authentication"></a>
@@ -900,7 +953,7 @@ When you use [secured parameters](#secure-action-parameters) to handle and secur
 
 ### Managed identity authentication
 
-If the [Managed Identity](../active-directory/managed-identities-azure-resources/overview.md) option is available, your logic app can use the system-assigned identity or a *single* manually created user-assigned identity for authenticating access to other resources that are protected by Azure Active Directory (Azure AD) without signing in. Azure manages this identity for you and helps you secure your credentials because you don't have to provide or rotate secrets. Learn more about [Azure services that support managed identities for Azure AD authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
+If the [Managed Identity](../active-directory/managed-identities-azure-resources/overview.md) option is available on a [specific trigger or action](#add-authentication-outbound), your logic app can use the system-assigned identity or a *single* manually created user-assigned identity for authenticating access to other resources that are protected by Azure Active Directory (Azure AD) without signing in. Azure manages this identity for you and helps you secure your credentials because you don't have to provide or rotate secrets. Learn more about [Azure services that support managed identities for Azure AD authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
 
 1. Before your logic app can use a managed identity, follow the steps in [Authenticate access to Azure resources by using managed identities in Azure Logic Apps](../logic-apps/create-managed-service-identity.md). These steps enable the managed identity on your logic app and set up that identity's access to the target Azure resource.
 
@@ -947,7 +1000,7 @@ You can use Azure Logic Apps in [Azure Government](../azure-government/documenta
 
 * To run your own code or perform XML transformation, [create and call an Azure function](../logic-apps/logic-apps-azure-functions.md), rather than use the [inline code capability](../logic-apps/logic-apps-add-run-inline-code.md) or provide [assemblies to use as maps](../logic-apps/logic-apps-enterprise-integration-maps.md), respectively. Also, set up the hosting environment for your function app to comply with your isolation requirements.
 
-  For example, to meet Impact Level 5 requirements, create your function app with the [App Service plan](../azure-functions/functions-scale.md#app-service-plan) using the [**Isolated** pricing tier](../app-service/overview-hosting-plans.md) along with an [App Service Environment (ASE)](../app-service/environment/intro.md) that also uses the **Isolated** pricing tier. In this environment, function apps run on dedicated Azure virtual machines and dedicated Azure virtual networks, which provides network isolation on top of compute isolation for your apps and maximum scale-out capabilities. For more information, see [Azure Government Impact Level 5 Isolation Guidance - Azure Functions](../azure-government/documentation-government-impact-level-5.md#azure-functions).
+  For example, to meet Impact Level 5 requirements, create your function app with the [App Service plan](../azure-functions/functions-scale.md#app-service-plan) using the [**Isolated** pricing tier](../app-service/overview-hosting-plans.md) along with an [App Service Environment (ASE)](../app-service/environment/intro.md) that also uses the **Isolated** pricing tier. In this environment, function apps run on dedicated Azure virtual machines and dedicated Azure virtual networks, which provide network isolation on top of compute isolation for your apps and maximum scale-out capabilities. For more information, see [Azure Government Impact Level 5 Isolation Guidance - Azure Functions](../azure-government/documentation-government-impact-level-5.md#azure-functions).
 
   For more information, see these topics:<p>
 

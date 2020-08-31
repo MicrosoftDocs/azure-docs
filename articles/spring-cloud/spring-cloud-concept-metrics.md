@@ -125,6 +125,8 @@ The following tables show the available metrics and details.
 >| tomcat.sessions.active.current | tomcat.sessions.active.current | Count | Tomcat Session Active Count |
 
 ## See also
+* [Quickstart: Monitoring Azure Spring Cloud apps with logs, metrics, and tracing](spring-cloud-quickstart-logs-metrics-tracing.md)
+
 * [Getting started with Azure Metrics Explorer](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started)
 
 * [Analyze logs and metrics with diagnostics settings](https://docs.microsoft.com/azure/spring-cloud/diagnostic-services)

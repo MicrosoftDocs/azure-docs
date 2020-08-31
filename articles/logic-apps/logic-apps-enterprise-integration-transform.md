@@ -31,7 +31,7 @@ After you upload the transform/map into your integration account, you can use it
 
 Now that you've taken care of the prerequisites, it's time to create your Logic app:  
 
-1. Create a Logic app and [link it to your integration account](../logic-apps/logic-apps-enterprise-integration-accounts.md "Learn to link an integration account to a Logic app") that contains the map.
+1. Create a Logic app and [link it to your integration account](./logic-apps-enterprise-integration-create-integration-account.md "Learn to link an integration account to a Logic app") that contains the map.
 2. Add a **Request** trigger to your Logic app  
    ![Screenshot of the "Show Microsoft managed APIs" dropdown with the Request trigger selected. The dropdown is in a Logic app created using the Visual Studio Enterprise Integration SDK.](./media/logic-apps-enterprise-integration-transforms/transform-1.png)    
 3. Add the **Transform XML** action by first selecting **Add an action**   
@@ -135,4 +135,3 @@ By default, the response from the transformation starts with the Byte Order Mark
 ## Learn more
 * [Learn more about the Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "Learn about Enterprise Integration Pack")  
 * [Learn more about maps](../logic-apps/logic-apps-enterprise-integration-maps.md "Learn about enterprise integration maps")  
-
