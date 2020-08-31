@@ -7,7 +7,7 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 08/31/2020
 ms.author: aahi
 ---
 
@@ -22,6 +22,11 @@ ms.author: aahi
 **Q: Is there any difference between the Cognitive Services cloud and the containers?**
 
 **A:** Cognitive Services containers are an alternative to the Cognitive Services cloud. Containers offer the same capabilities as the corresponding cloud services. Customers can deploy the containers on-premises or in Azure. The core AI technology, pricing tiers, API keys, and API signature are the same between the container and the corresponding cloud services. Here are the [features and benefits](../cognitive-services-container-support.md#features-and-benefits) for choosing containers over their cloud service equivalent.
+
+**Q: How do I access and use a gated preview container?**
+
+**A:** Previously, gated preview containers were hosted on the `containerpreview.azurecr.io` repository. Starting September 22nd 2020, these containers are hosted on the Microsoft Container Registry, and authenticate using a key and endpoint for your Azure resource. You'll be able to run the container if your resource was created with the approved Azure subscription ID. You won't be able to run the container if your Azure subscription has not been approved.
+
 
 **Q: Will containers be available for all Cognitive Services and what are the next set of containers we should expect?**
 
