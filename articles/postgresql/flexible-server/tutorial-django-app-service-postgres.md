@@ -14,7 +14,7 @@ ms.custom: mvc, devx-track-azurecli
 > [!Note]
 > Azure Database for PostgreSQL Flexible Server is in public preview.
 
-In this tutorial you will learn how to deploy a Django applicaiton in Azure using App Services and Azure Database for PostgreSQL Flexible server in a virtual network.
+In this tutorial you will learn how to deploy a Django applicaton in Azure using App Services and Azure Database for PostgreSQL Flexible server in a virtual network.
 
 ## Prerequisites
 
