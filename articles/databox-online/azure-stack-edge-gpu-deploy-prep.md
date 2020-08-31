@@ -7,13 +7,13 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 06/11/2020
+ms.date: 08/29/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge so I can use it to transfer data to Azure. 
 ---
-# Tutorial: Prepare to deploy Azure Stack Edge  
+# Tutorial: Prepare to deploy Azure Stack Edge with GPU 
 
-This is the first tutorial in the series of deployment tutorials that are required to completely deploy Azure Stack Edge. This tutorial describes how to prepare the Azure portal to deploy a Azure Stack Edge resource.
+This is the first tutorial in the series of deployment tutorials that are required to completely deploy Azure Stack Edge with GPU. This tutorial describes how to prepare the Azure portal to deploy an Azure Stack Edge resource.
 
 You need administrator privileges to complete the setup and configuration process. The portal preparation takes less than 10 minutes.
 
@@ -41,8 +41,9 @@ For Azure Stack Edge deployment, you need to first prepare your environment. Onc
 |**[5. Configure device settings for Azure Stack Edge](azure-stack-edge-gpu-deploy-set-up-device-update-time.md)** |Assign a device name and DNS domain, configure update server and device time. |
 |**[6. Configure security settings for Azure Stack Edge](azure-stack-edge-gpu-deploy-configure-certificates.md)** |Configure certificates for your device. Use device generated certificates or bring your own certificates.   |
 |**[7. Activate Azure Stack Edge](azure-stack-edge-gpu-deploy-activate.md)** |Use the activation key from service to activate the device. The device is ready to set up SMB or NFS shares or connect via REST. |
-|**[8A. Transfer data with Edge shares](azure-stack-edge-j-series-deploy-add-shares.md)** |Add shares and connect to shares via SMB or NFS. |
-|**[8B. Transfer data with Edge storage accounts](azure-stack-edge-j-series-deploy-add-storage-accounts.md)** |Add storage accounts and connect to blob storage via REST APIs. |
+|**[8. Configure compute](azure-stack-edge-gpu-deploy-configure-compute.md)** |Configure the compute role on your device. This will also create a Kubernetes cluster. |
+|**[9A. Transfer data with Edge shares](azure-stack-edge-j-series-deploy-add-shares.md)** |Add shares and connect to shares via SMB or NFS. |
+|**[9B. Transfer data with Edge storage accounts](azure-stack-edge-j-series-deploy-add-storage-accounts.md)** |Add storage accounts and connect to blob storage via REST APIs. |
 
 
 You can now begin to gather information regarding the software configuration for your Azure Stack Edge device.
@@ -99,7 +100,7 @@ To create an Azure Stack Edge resource, take the following steps in the Azure po
 
 1. Use your Microsoft Azure credentials to sign in to the Azure portal at this URL: [https://portal.azure.com](https://portal.azure.com).
 
-2. In the left-pane, select **+ Create a resource**. Search for and select **Azure Stack Edge / Data Box Gateway**. Select **Create**.
+2. In the left-pane, select **+ Create a resource**. Search for and select **Azure Stack Edge / Data Box Gateway**. Select **Create**. If you see any issues, go to [Troubleshoot order issues](azure-stack-edge-troubleshoot-ordering.md).
 
 3. Pick the subscription that you want to use for the Azure Stack Edge device. Select the country to where you want to ship this physical device. Select **Show devices**.
 
@@ -113,7 +114,7 @@ To create an Azure Stack Edge resource, take the following steps in the Azure po
 
     ![Create a resource 3](media/azure-stack-edge-gpu-deploy-prep/create-resource-3.png)
 
-5. After the subscription is enabled, you should be able to able to proceed with the resource creation. In the **Select device type** blade, choose **Select**. 
+5. After the subscription is enabled, you should be able to able to proceed with the resource creation. In the **Select device type** blade, choose **Select**.
 
     ![Create a resource 4](media/azure-stack-edge-gpu-deploy-prep/create-resource-4.png)
 
@@ -160,6 +161,8 @@ The resource creation takes a few minutes. After the resource is successfully cr
 After the order is placed, Microsoft reviews the order and reaches out to you (via email) with shipping details.
 
 ![Notification for review of the Azure Stack Edge order](media/azure-stack-edge-deploy-prep/data-box-edge-resource4.png)
+
+If you run into any issues during the order process, see [Troubleshoot order issues](azure-stack-edge-troubleshoot-ordering.md).
 
 ## Get the activation key
 
