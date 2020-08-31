@@ -37,9 +37,7 @@ The preferred way to initially move data _into_ an ML pipeline is with `Dataset`
 
 
 > [!TIP]
-> An improved experience for passing temporary data between pipeline steps is available in the public preview classes,  `OutputFileDatasetConfig` and `OutputTabularDatasetConfig`.  These classes are experimental preview features, and may change at any time.
-> 
->For more information about experimental features, see https://aka.ms/azuremlexperimental.
+> An improved experience for passing temporary data between pipeline steps is available in the public preview classes,  [`OutputFileDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py) and [`OutputTabularDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.output_dataset_config.outputtabulardatasetconfig?view=azure-ml-py).  These classes are [experimental](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py#stable-vs-experimental) preview features, and may change at any time.
 
 The `AutoMLStep` is configured via an `AutoMLConfig` object. `AutoMLConfig` is a flexible class, as discussed in [Configure automated ML experiments in Python](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train#configure-your-experiment-settings). 
 
@@ -268,7 +266,7 @@ prepped_data = prepped_data_path.parse_parquet_files(file_extension=None)
 The snippet above creates a high-performing `PipelineOutputTabularDataset` from the `PipelineOutputFileDataset` output of the data preparation step.
 
 > [!TIP]
-> The public preview class `OutputFileDatasetConfig` also has the ability to convert an `OutputFileDatasetConfig` into an `OutputTabularDatasetConfig` for consumption in AutoML runs. Learn more about `OutputFileDatasetConfig` design patterns and methods in [the SDK reference documentation](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py).
+> The public preview class `OutputFileDatasetConfig` also has the ability to convert an `OutputFileDatasetConfig` into an [`OutputTabularDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.output_dataset_config.outputtabulardatasetconfig?view=azure-ml-py) for consumption in AutoML runs. Learn more about `OutputFileDatasetConfig` design patterns and methods in [the SDK reference documentation](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py).
 
 Another option is to use `Dataset` objects registered in the workspace:
 
