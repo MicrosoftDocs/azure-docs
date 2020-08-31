@@ -80,16 +80,7 @@ In this section, you configure Data Lake Storage Gen1 access from HDInsight clus
 
 From the Azure portal, you can either use an existing service principal or create a new one.
 
-To create a service principal from the Azure portal:
-
-1. Select **Data Lake Store access** from the Storage blade.
-1. On the **Data Lake Storage Gen1 access** blade, select **Create new**.
-1. Select **Service principal**, and then follow the instructions to create a service principal.
-1. Download the certificate if you decide to use it again in the future. Downloading the certificate is useful if you want to use the same service principal when you create additional HDInsight clusters.
-
-    ![Add service principal to HDInsight cluster](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.2.png "Add service principal to HDInsight cluster")
-
-1. Select **Access** to configure the folder access.  See [Configure file permissions](#configure-file-permissions).
+To create a service principal from the Azure portal, see [Create Service Principal and Certificates](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) using Azure Active Directory.
 
 To use an existing service principal from the Azure portal:
 
