@@ -79,38 +79,20 @@ Some organizations need to meet security requirements and would rather disable a
 
 ### FTP
 
-To disable FTP access to the site, copy the following snippet and paste it at resources.azure.com/raw. Replace the placeholders with your subscription, resource group, site name, and site’s location.
+To disable FTP access to the site, run the following CLI command. Replace the placeholders with your resource group and site name. 
 
-```
-PATCH https://management.azure.com/subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Web/sites/<site-name>/basicPublishingCredentialsPolicies/ftp/?api-version=2014-11-01
-{
-  "id": null,
-  "name": "<site-name>",
-  "type": "Microsoft.Web/sites",
-  "location": "<location>",
-  "properties": {
-    "allow": false
-  }
-}
+```bash
+az resource update --resource-group <resource-group> --name ftp --namespace Microsoft.Web --resource-type basicPublishingCredentialsPolicies --parent sites/<site-name> --set properties.allow=false
 ```
 
-Once you have replaced the placeholders, select the text and press Ctrl + S (for Send). On the right side panel, you can see the response code and body. To confirm that FTP access is blocked, you can try to authenticate using an FTP client such as FileZilla. To retrieve the publishing credentials, go to the overview blade of your site and click Download Publish Profile. Use the file’s FTP hostname, username, and password to authenticate, and you will get a 401 Unauthenticted.
+To confirm that FTP access is blocked, you can try to authenticate using an FTP client such as FileZilla. To retrieve the publishing credentials, go to the overview blade of your site and click Download Publish Profile. Use the file’s FTP hostname, username, and password to authenticate, and you will get a 401 error response, indicating that you are not authorized.
 
 ### WebDeploy and SCM
 
-To disable basic auth access to the WebDeploy port and SCM site, copy the following snippet and paste it at [resources.azure.com/raw](https://resources.azure.com/raw/). Replace the placeholders with your subscription, resource group, site name, and site's location. 
+To disable basic auth access to the WebDeploy port and SCM site, run the following CLI command. Replace the placeholders with your resource group and site name. 
 
 ```bash
-PATCH https://management.azure.com/subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Web/sites/<site-name>/basicPublishingCredentialsPolicies/scm/?api-version=2014-11-01
-{
-  "id": null,
-  "name": "<site-name>",
-  "type": "Microsoft.Web/sites",
-  "location": "<location>",
-  "properties": {
-    "allow": false
-  }
-}
+az resource update --resource-group <resource-group> --name scm --namespace Microsoft.Web --resource-type basicPublishingCredentialsPolicies --parent sites/<site-name> --set properties.allow=false
 ```
 
 To confirm that the publish profile credentials are blocked on WebDeploy, try [publishing a web app using Visual Studio 2019](https://docs.microsoft.com/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019).
