@@ -33,7 +33,7 @@ In this quickstart, you'll create an ExpressRoute circuit with *Equinix* as the 
 
 :::code language="json" source="~/quickstart-templates/101-expressroute-private-peering-vnet/azuredeploy.json" range="001-351" highlight="183-219":::
 
-Multiple Azures resources have been defined in the template:
+Multiple Azure resources have been defined in the template:
 
 * [**Microsoft.Network/expressRouteCircuits**](/azure/templates/microsoft.network/expressRouteCircuits)
 * [**Microsoft.Network/expressRouteCircuits/peerings**](/azure/templates/microsoft.network/expressRouteCircuits/peerings) (Used to enabled private peering on the circuit)
@@ -73,7 +73,7 @@ To find more templates that are related to ExpressRoute, see [Azure Quickstart T
 
 It takes about 20 minutes to deploy the template. When completed, the output is similar to:
 
-:::image type="content" source="./media/quickstart-create-expressroute-vnet/expressroute-arm-powershell-output.png" alt-text="ExpressRoute Resource Manager template PowerShell deployment output":::
+:::image type="content" source="./media/quickstart-create-expressroute-vnet/expressroute-powershell-output.png" alt-text="ExpressRoute Resource Manager template PowerShell deployment output":::
 
 Azure PowerShell is used to deploy the template. In addition to Azure PowerShell, you can also use the Azure portal, Azure CLI, and REST API. To learn other deployment methods, see [Deploy templates](../azure-resource-manager/templates/deploy-portal.md).
 
@@ -87,11 +87,11 @@ Azure PowerShell is used to deploy the template. In addition to Azure PowerShell
 
 1. The resource group should contain the following resources seen here:
 
-     :::image type="content" source="./media/quickstart-create-expressroute-vnet/expressroute-arm-resource-group.png" alt-text="ExpressRoute deployment resource group":::
+     :::image type="content" source="./media/quickstart-create-expressroute-vnet/expressroute-resource-group.png" alt-text="ExpressRoute deployment resource group":::
 
 1. Select the ExpressRoute circuit **er-ck01** to verify that the circuit status is **Enabled**, provider status is **Not provisioned** and private peering has the status of **Provisioned**.
 
-    :::image type="content" source="./media/quickstart-create-expressroute-vnet/expressroute-arm-circuit.png" alt-text="ExpressRoute deployment circuit":::
+    :::image type="content" source="./media/quickstart-create-expressroute-vnet/expressroute-circuit.png" alt-text="ExpressRoute deployment circuit":::
 
 > [!NOTE]
 > You will need to call the provider to complete the provisioning process before you can link the virtual network to the circuit.
