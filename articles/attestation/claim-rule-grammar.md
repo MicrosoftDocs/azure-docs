@@ -21,7 +21,7 @@ A claim is a set of properties grouped together to provide relevant information.
 - **type**: A string value that represents type of the claim.
 - **value**: A Boolean, integer, or string value that represents value of the claim.
 - **valueType**: The data type of  the information stored in the value property. Supported types are String, Integer, and Boolean. If not defined, the default value will be "String".
-- **issuer**: Information regarding the issuer of the claim. The issuer will be one of the following:
+- **issuer**: Information regarding the issuer of the claim. The issuer will be one of the following types:
   - **AttestationService**: Certain claims are made available to the policy author by Azure Attestation, which can be used by the attestation policy author to craft the appropriate policy.
   - **AttestationPolicy**: The policy (as defined by the administrator) itself can add claims to the incoming evidence during processing. The issuer in this case is set to "AttestationPolicy".
   - **CustomClaim**: The attestor (client) can also add additional claims to the attestation evidence. The issuer in this case is set to "CustomClaim".
@@ -74,9 +74,9 @@ The following are the operators that can be used to check conditions:
 
 | Valuetype | Operations Supported |
 |--|--|
-| Integer | == (equals), != (not equal), <= (less than or equal), < (less than), >= (greater than or equal), > (greater than) |
-| String | == (equals), != (not equal) |
-| Boolean | == (equals), != (not equal) |
+| Integer | == (equals), \!= (not equal), <= (less than or equal), < (less than), >= (greater than or equal), > (greater than) |
+| String | == (equals), \!= (not equal) |
+| Boolean | == (equals), \!= (not equal) |
 
 Evaluation of conditions list:
 
@@ -88,11 +88,11 @@ The set of actions that are allowed in a policy are described below.
 
 | Action Verb | Description | Policy sections to which these apply |
 |--|--|--|
-| permit() | The incoming claim set can be used to compute the **issuancerules**. Does not take any claim as a parameter | **Authorizationrules** |
-| deny() | The incoming claim set should not be used to compute the **issuancerules** Does not take any claim as a parameter | **Authorizationrules** |
-| add(claim) | Adds the claim to the incoming claims set. Any claim added to the incoming claims set will be available for the subsequent claim rules. |**Authorizationrules**, **issuancerules** |
-| issue(claim) | Adds the claim to the incoming and outgoing claims set | **Issuancerules** |
-| issueproperty(claim) | Adds the claim to the incoming and property claims set | **Issuancerules**
+| permit() | The incoming claim set can be used to compute **issuancerules**. Does not take any claim as a parameter | **authorizationrules** |
+| deny() | The incoming claim set should not be used to compute **issuancerules** Does not take any claim as a parameter | **authorizationrules** |
+| add(claim) | Adds the claim to the incoming claims set. Any claim added to the incoming claims set will be available for the subsequent claim rules. |**authorizationrules**, **issuancerules** |
+| issue(claim) | Adds the claim to the incoming and outgoing claims set | **issuancerules** |
+| issueproperty(claim) | Adds the claim to the incoming and property claims set | **issuancerules**
 
 ## Next steps
 

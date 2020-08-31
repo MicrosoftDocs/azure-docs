@@ -12,9 +12,9 @@ ms.author: mbaldwin
 ---
 # How to author and sign an attestation policy
 
-Attestation policy is a file which will be uploaded to Microsoft Azure Attestation. Azure Attestation offers the flexibility to upload a policy in an attestation-specific policy format. Alternatively, an encoded version of the policy, in JSON Web Signature, can also be uploaded. The policy administrator is responsible for writing the attestation policy. In most attestation scenarios, the relying party acts as the policy administrator. The client making the attestation call sends attestation evidence which the service parses and converts into incoming claims (set of properties, value). The service then processes the claims, based on what is defined in the policy, and returns the computed result.
+Attestation policy is a file uploaded to Microsoft Azure Attestation. Azure Attestation offers the flexibility to upload a policy in an attestation-specific policy format. Alternatively, an encoded version of the policy, in JSON Web Signature, can also be uploaded. The policy administrator is responsible for writing the attestation policy. In most attestation scenarios, the relying party acts as the policy administrator. The client making the attestation call sends attestation evidence, which the service parses and converts into incoming claims (set of properties, value). The service then processes the claims, based on what is defined in the policy, and returns the computed result.
 
-The policy contains rules that determine the authorization criteria, properties and the contents of the attestation token. A sample policy file looks as below:
+The policy contains rules that determine the authorization criteria, properties, and the contents of the attestation token. A sample policy file looks as below:
 
 ```
 version=1.0;
@@ -30,7 +30,7 @@ issuancerules
 };
 ```
  
-A policy file has 3 segments, as seen above:
+A policy file has three segments, as seen above:
 
 - **version**:  The version is the version number of the grammar that is followed. 
 
@@ -40,7 +40,7 @@ A policy file has 3 segments, as seen above:
 
     Currently the only version supported is version 1.0.
 
-- **authorizationrules**: A collection of claim rules that will be checked first, to determine if Azure Attestation should proceed to *issuancerules*. The claim rules apply in the order they are defined.
+- **authorizationrules**: A collection of claim rules that will be checked first, to determine if Azure Attestation should proceed to **issuancerules**. The claim rules apply in the order they are defined.
 
 - **issuancerules**: A collection of claim rules that will be evaluated to add additional information to the attestation result as defined in the policy. The claim rules apply in the order they are defined and are also optional.
 
@@ -76,7 +76,7 @@ See [claim and claim rules](claim-rule-grammar.md) for more information.
   };
   ```
 
-  If the incoming claim set contains a claim which matches the type, value and issuer, the permit() action will tell the policy engine to process the **issuancerules**.
+  If the incoming claim set contains a claim matching the type, value, and issuer, the permit() action will tell the policy engine to process the **issuancerules**.
   
 5. Add claim rules to **issuancerules**.
 
