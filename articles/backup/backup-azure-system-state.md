@@ -74,7 +74,7 @@ Now that you've created a vault, configure it for backing up Windows System Stat
 
     ![MARS installer is complete](./media/backup-try-azure-backup-in-10-mins/mars-installer-complete.png)
 
-    You don't need to install the agent yet. You can install the agent after you have downloaded the vault credentials.
+    You don't need to install the agent yet. You can install the agent after you've downloaded the vault credentials.
 
 6. On the **Prepare infrastructure** pane, select **Download**.
 

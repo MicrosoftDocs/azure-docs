@@ -2,7 +2,7 @@
 title: Create parameter file
 description: Create parameter file for passing in values during deployment of an Azure Resource Manager template
 ms.topic: conceptual
-ms.date: 06/19/2020
+ms.date: 08/31/2020
 ---
 # Create Resource Manager parameter file
 
@@ -178,10 +178,30 @@ The following example shows the formats of different parameter types.
 
 ## Deploy template with parameter file
 
-See:
+To pass a local parameter file with Azure CLI, use @ and the name of the parameter file.
 
-- [Deploy resources with ARM templates and Azure CLI](./deploy-cli.md#parameters)
-- [Deploy resources with ARM templates and Azure PowerShell](./deploy-powershell.md#pass-parameter-values)
+```azurecli
+az deployment group create \
+  --name ExampleDeployment \
+  --resource-group ExampleGroup \
+  --template-file storage.json \
+  --parameters @storage.parameters.json
+```
+
+For more information, see [Deploy resources with ARM templates and Azure CLI](./deploy-cli.md#parameters).
+
+To pass a local parameter file with Azure PowerShell, use the `TemplateParameterFile` parameter.
+
+```azurepowershell
+New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup `
+  -TemplateFile c:\MyTemplates\azuredeploy.json `
+  -TemplateParameterFile c:\MyTemplates\storage.parameters.json
+```
+
+For more information, see [Deploy resources with ARM templates and Azure PowerShell](./deploy-powershell.md#pass-parameter-values)
+
+> [!NOTE]
+> It's not possible to use a parameter file with the custom template blade in the portal.
 
 ## File name
 
@@ -193,7 +213,7 @@ To deploy to different environments, create more than one parameter file. When n
 
 You can use inline parameters and a local parameter file in the same deployment operation. For example, you can specify some values in the local parameter file and add other values inline during deployment. If you provide values for a parameter in both the local parameter file and inline, the inline value takes precedence.
 
-It's possible to use an external parameter file, by providing the URI to the file. When you do this, you can't pass other values either inline or from a local file. All inline parameters are ignored. Provide all parameter values in the external file.
+It's possible to use an external parameter file, by providing the URI to the file. When you use an external parameter file, you can't pass other values either inline or from a local file. All inline parameters are ignored. Provide all parameter values in the external file.
 
 ## Parameter name conflicts
 
