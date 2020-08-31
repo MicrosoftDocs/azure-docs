@@ -32,6 +32,14 @@ You might consider executing a [manual failover](../database/high-availability-s
 
 ## Initiate manual failover on SQL Managed Instance
 
+## Permissions required
+
+Azure RBAC permission required to execute user-initiated manual failover is:
+
+Microsoft.Sql/managedInstanes/failover/action
+
+This permission is needed if, for example, you are creating a custom RBAC role. Please note that this permission is already included in the built-in [Managed Instance Contributor](../../role-based-access-control/built-in-roles.md#sql-managed-instance-contributor) role. 
+
 ### Using PowerShell
 
 The minimum version of Az.Sql needs to be [v2.9.0](https://www.powershellgallery.com/packages/Az.Sql/2.9.0). Consider using [Azure Cloud Shell](../../cloud-shell/overview.md) from the Azure portal that always has the latest PowerShell version available. 
@@ -108,14 +116,6 @@ API response will be one of the following two:
 - One of the 400 request errors.
 
 Operation status can be tracked through reviewing API responses in response headers. For more information, see [Status of asynchronous Azure operations](../../azure-resource-manager/management/async-operations.md).
-
-## Permissions required
-
-Azure RBAC permission required to execute user-initiated manual failover is:
-
-Microsoft.Sql/managedInstanes/failover/action
-
-This is needed if, for example, you are creating a custom RBAC role. Please note that the permission to manually initiate failover is already included in the [Managed Instance Contributor](../../azure/role-based-access-control/built-in-roles.md#sql-managed-instance-contributor) role. 
 
 ## Monitor the failover
 
