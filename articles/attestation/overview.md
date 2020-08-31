@@ -60,7 +60,7 @@ Azure Attestation customers have expressed a requirement for Microsoft to be ope
 
 Azure Attestation is the preferred choice for attesting TEEs as it offers the following benefits: 
 
-- Free Azure service and will offer Service Level Agreement (SLA)
+- Free Azure service with high availability
 - Leverages Azure Active Directory for authenticating client requests. This enables Azure Attestation to perform attestation based on identity and ownership
 - Supports policies which allow tenant owners to restrict token generation
 - Offers protection of its data while in use with implementation in an SGX enclave
