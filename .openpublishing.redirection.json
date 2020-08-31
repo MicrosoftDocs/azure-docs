@@ -37373,16 +37373,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/active-directory/application-access-panel-unexpected-application-appears.md",
-      "redirect_url": "/azure/active-directory/manage-apps/access-panel-troubleshoot-unexpected-application",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/active-directory/application-access-panel-unexpected-application-not-appearing.md",
-      "redirect_url": "/azure/active-directory/manage-apps/access-panel-troubleshoot-application-not-appearing",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/active-directory/application-access-panel-web-sign-in-problem.md",
       "redirect_url": "/azure/active-directory/manage-apps/application-sign-in-other-problem-access-panel",
       "redirect_document_id": false
@@ -37610,7 +37600,17 @@
     {
       "source_path": "articles/active-directory/application-sign-in-other-problem-access-panel.md",
       "redirect_url": "/azure/active-directory/manage-apps/application-sign-in-other-problem-access-panel",
-      "redirect_document_id": true
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/manage-apps/access-panel-troubleshoot-application-not-appearing.md",
+      "redirect_url": "/azure/active-directory/manage-apps/application-sign-in-other-problem-access-panel",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/manage-apps/access-panel-troubleshoot-unexpected-application.md",
+      "redirect_url": "/azure/active-directory/manage-apps/application-sign-in-other-problem-access-panel",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/application-sign-in-other-problem-deeplink.md",
