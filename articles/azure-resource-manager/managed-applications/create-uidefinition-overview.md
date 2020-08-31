@@ -21,6 +21,7 @@ The template is as follows
     "version": "0.1.2-preview",
     "parameters": {
         "config": {
+            "isWizard": true,
             "basics": { }
         },
         "basics": [ ],
@@ -47,7 +48,7 @@ You can use a JSON editor to create your createUiDefinition then test it in the 
 
 ## Config
 
-The `config` property is optional and only used when you need to override the default behavior for the basics step. If `config` is used, it's the first property in the **createUiDefinition.json** file's `parameters` section. The following example shows the available properties.
+The `config` property is optional. Use it to either override the default behavior of the basics step, or to set your interface as a step-by-step wizard. If `config` is used, it's the first property in the **createUiDefinition.json** file's `parameters` section. The following example shows the available properties.
 
 ```json
 "config": {
@@ -98,9 +99,15 @@ The `config` property is optional and only used when you need to override the de
 },
 ```
 
-The `isWizard` property enables the tab wizard feature that confirms the current tab's validation is successful before navigation to the next tab is allowed. When the tab wizard is enabled, the **Basics** tab is available and all other tabs are disabled. When the **Next** button is selected the tab's icon indicates if a tab's validation passed or failed. After a tab's required fields are completed and validated the **Next** button allows navigation to the next tab. When all tabs pass validation, you can go to the **Review and Create** page and select the **Create** button to begin the deployment.
+### Wizard
+
+The `isWizard` property enables you to require successful validation of each step before proceeding to the next step. When the tab wizard is enabled, the **Basics** tab is available and all other tabs are disabled. When the **Next** button is selected the tab's icon indicates if a tab's validation passed or failed. After a tab's required fields are completed and validated the **Next** button allows navigation to the next tab. When all tabs pass validation, you can go to the **Review and Create** page and select the **Create** button to begin the deployment.
 
 :::image type="content" source="./media/create-uidefinition-overview/tab-wizard.png" alt-text="Tab wizard":::
+
+### Override basics
+
+The basics config lets you customize the basics step.
 
 For `description`, provide a markdown-enabled string that describes your resource. Multi-line format and links are supported.
 
