@@ -1,13 +1,13 @@
 ---
-title: Azure Stack Edge compute management | Microsoft Docs 
-description: Describes how to manage the Edge compute settings such as trigger, modules, view compute configuration, remove configuration via the Azure portal on your Azure Stack Edge.
+title: Azure Stack Edge GPU compute management | Microsoft Docs 
+description: Describes how to manage the Edge compute settings such as trigger, modules, view compute configuration, remove configuration via the Azure portal on your Azure Stack Edge GPU.
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 12/13/2019
+ms.date: 08/28/2020
 ms.author: alkohli
 ---
 # Manage compute on your Azure Stack Edge
