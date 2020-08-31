@@ -37,7 +37,7 @@ Most of the services exposed over private endpoints use HTTPS. The use of applic
 
 ## Scenario 1: Hub and spoke architecture - Dedicated virtual network for private endpoints
 
-:::image type="content" source="./media/inspect-traffic-using-azure-firewall/hubandspoke.png" alt-text="Dedicated Virtual Network for Private Endpoints" border="true":::
+:::image type="content" source="./media/inspect-traffic-using-azure-firewall/hub-and-spoke.png" alt-text="Dedicated Virtual Network for Private Endpoints" border="true":::
 
 This scenario is the most expandable architecture to connect privately to multiple Azure services using private endpoints. A route pointing to the network address space where the private endpoints are deployed is created. This configuration reduces administrative overhead and prevents running into the limit of 400 routes.
 
@@ -50,7 +50,7 @@ For more information on charges related to connections with peered virtual netwo
 
 ## Scenario 2: Hub and spoke architecture - Shared virtual network for private endpoints and virtual machines
 
-:::image type="content" source="./media/inspect-traffic-using-azure-firewall/sharedspoke.png" alt-text="Private Endpoints and Virtual Machines in same Virtual Network" border="true":::
+:::image type="content" source="./media/inspect-traffic-using-azure-firewall/shared-spoke.png" alt-text="Private Endpoints and Virtual Machines in same Virtual Network" border="true":::
 
 This scenario is implemented when:
 
@@ -72,6 +72,9 @@ For more information on charges related to connections with peered virtual netwo
 > This scenario can be implemented using any third party NVA or Azure Firewall network rules instead of application rules.
 
 ## Scenario 3: Single virtual network
+
+:::image type="content" source="./media/inspect-traffic-using-azure-firewall/single-vnet.png" alt-text="On-premises traffic to private endpoints" border="true":::
+
 There's some limitations to implementation: a migration to a hub and spoke architecture isn't possible. The same considerations as in scenario 2 apply. In this scenario, virtual network peering charges don't apply.
 
 >[!NOTE]
@@ -79,7 +82,7 @@ There's some limitations to implementation: a migration to a hub and spoke archi
 
 ## Scenario 4: On-premises traffic to private endpoints
 
-:::image type="content" source="./media/inspect-traffic-using-azure-firewall/onprem.png" alt-text="On-premises traffic to private endpoints" border="true":::
+:::image type="content" source="./media/inspect-traffic-using-azure-firewall/on-prem.png" alt-text="On-premises traffic to private endpoints" border="true":::
 
 This architecture can be implemented if you have configured connectivity with your on-premises network using either: 
 
