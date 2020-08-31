@@ -66,4 +66,6 @@ These links use the same access control mechanisms as My Apps and Office 365, an
 
 ## Next steps
 
-For deployment plans, see [Azure Active Directory deployment plans](../fundamentals/active-directory-deployment-plans.md)
+* [Quickstart Series on Application Management](view-applications-portal.md)
+* [What is single sign-on?](what-is-single-sign-on.md)
+* [Integrating Azure Active Directory with applications getting started guide](plan-an-application-integration.md)
