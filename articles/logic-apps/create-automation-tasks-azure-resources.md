@@ -10,6 +10,11 @@ ms.date: 09/10/2020
 
 # Manage Azure resources by creating automation tasks (preview)
 
+> [!IMPORTANT]
+> The automation tasks capability is currently in public preview. This preview version is provided without a service level agreement, 
+> and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 To help you manage [Azure resources](../azure-resource-manager/management/overview.md#terminology) more easily, you can create and automate management tasks for a specific resource or resource group by using automation task templates, which vary in availability based on the resource type. For example, for an [Azure storage account](../storage/common/storage-account-overview.md), you can set up an automation task that sends you the monthly cost for that storage account. For an [Azure virtual machine](https://azure.microsoft.com/services/virtual-machines/), you can turn on and turn off that virtual machine.
 
 Behind the scenes, an automation task is actually a workflow that's run by the [Azure Logic Apps](../logic-apps/logic-apps-overview.md) service. After you create the task, you can view and edit the underlying workflow by opening the task in the Logic App Designer. After a task finishes at least one run, you can review the status, history, inputs, and outputs for each run.
