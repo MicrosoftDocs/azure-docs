@@ -5,18 +5,45 @@ metadata:
   description: "Azure Database for MySQL - Flexible Server is a relational database service in the Microsoft cloud that is built for developers and powered by the MySQL community edition."
   author: mksuni
   ms.author: sumuth
-  ms.date: 09/20/2020
+  ms.date: 09/21/2020
   ms.service: mysql
   ms.topic: landing-page
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
-# Add Cards for Flexible Server Contentn
+# Add Cards for Flexible Server Content
 landingContent: 
   # Card 1
   - title: About Flexible Server (Preview)
-    linkLists:     
+    linkLists:
+      - linkListType: overview
+        links: 
+          - text: What is Flexible Server?
+            url: overview.md
+      - linkListType: quickstart
+        links:
+          - text: Create a flexible server - Azure portal
+            url: quickstart-create-server-portal.md
+          - text: Create a flexible server - Azure CLI
+            url: flexible-server\quickstart-create-server-cli.md
       - linkListType: whats-new
         links:
           - text: Check out our blog
             url: https://techcommunity.microsoft.com/t5/Azure-Database-for-MySQL/bg-p/ADforMySQL
+
+  # Card 1
+  - title: Manage
+    linkLists:
+      - linkListType: concept
+        links: 
+          - text: Compute and storage 
+            url: concepts-compute-storage.md
+          - text: Logging
+            url: concepts-slow-query-logs.md
+      - linkListType: how-to-guide
+        links:
+          - text: Manage server from Azure portal
+            url: how-to-manage-portal.md
+          - text: Manage server with Azure CLI
+            url: how-to-manage-cli.md
+
