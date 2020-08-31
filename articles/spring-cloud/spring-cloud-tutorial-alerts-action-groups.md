@@ -71,11 +71,11 @@ To configure an **Alert**, navigate back to the **Alerts** page, and click **Man
 
 1. Select a condition. This example uses **System CPU Usage Percentage**.
 
-   ![Screenshot Portal new alert rule](media/alerts-action-groups/alerts-3-1.png)
+   ![Screenshot Portal new alert rule 2](media/alerts-action-groups/alerts-3-1.png)
 
 1. Scroll down the **Configure signal logic** pane to set the **Threshold value** to monitor.
 
-   ![Screenshot Portal new alert rule](media/alerts-action-groups/alerts-3-2.png)
+   ![Screenshot Portal new alert rule 3](media/alerts-action-groups/alerts-3-2.png)
 
 1. Click **Done**.
 
@@ -83,7 +83,7 @@ For details of the conditions available to monitor, see [User portal metrics opt
 
  Under **ACTIONS**, click **Select action group**. From **ACTIONS** pane select the previously defined **Action Group**.
 
-   ![Screenshot Portal new alert rule](media/alerts-action-groups/alerts-3-3.png) 
+   ![Screenshot Portal new alert rule 4](media/alerts-action-groups/alerts-3-3.png) 
 
 1. Scroll down, and under **ALERT DETAILS**, name the alert rule.
 
@@ -91,15 +91,15 @@ For details of the conditions available to monitor, see [User portal metrics opt
 
 1. Click **Create alert rule**.
 
-   ![Screenshot Portal new alert rule](media/alerts-action-groups/alerts-3-4.png)
+   ![Screenshot Portal new alert rule 5](media/alerts-action-groups/alerts-3-4.png)
 
 Verify that the new alert rule is enabled.
 
-   ![Screenshot Portal new alert rule](media/alerts-action-groups/alerts-4.png)
+   ![Screenshot Portal new alert rule 6](media/alerts-action-groups/alerts-4.png)
 
 A rule can also be created using the **Metrics** page:
 
-   ![Screenshot Portal new alert rule](media/alerts-action-groups/alerts-5.png)
+   ![Screenshot Portal new alert rule 7](media/alerts-action-groups/alerts-5.png)
 
 ## Next steps
 

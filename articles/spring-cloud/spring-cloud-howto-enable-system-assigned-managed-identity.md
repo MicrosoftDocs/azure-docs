@@ -68,7 +68,7 @@ To remove system-assigned managed identity from an app that no longer needs it:
 1. Navigate to the desired Virtual Machine and select **Identity**.
 1. Under **System assigned**/**Status**, select **Off** and then click **Save**:
 
- ![Managed identity in portal](./media/spring-cloud-managed-identity/remove-identity.png)
+ ![Managed identity](./media/spring-cloud-managed-identity/remove-identity.png)
 
 ### Using Azure CLI
 To remove system-assigned managed identity from an app that no longer needs it, use the following command:
