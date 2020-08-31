@@ -79,7 +79,6 @@ New-AzPublicIpAddress -ResourceGroupName $rg -Name $pubIP -Location $loc -Alloca
 
 NOTE: The above options for zones are only valid selections in regions with [Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview?toc=/azure/virtual-network/toc.json#availability-zones).
 
----
 # [**Standard SKU - No Zones**](#tab/option-create-public-ip-standard)
 
 >[!NOTE]
