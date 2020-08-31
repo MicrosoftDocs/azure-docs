@@ -83,8 +83,6 @@ procedure.
 1. Step 3 of the procedure
 1. Step 4 of the procedure
 
-   ![Browser](media/contribute-how-to-mvc-tutorial/browser.png)
-
    <!---Use screenshots but be judicious to maintain a reasonable length. Make sure screenshots align to the [current standards](https://review.docs.microsoft.com/help/contribute/contribute-how-to-create-screenshot?branch=master).
 
    If users access your product/service via a web browser the first screenshot should always include the full browser window in Chrome or Safari. This is to show users that the portal is browser-based - OS and browser agnostic.
@@ -144,7 +142,7 @@ To avoid any costs associated with following the tutorial procedure, a Clean up 
 
 Advance to the next article to learn how to create...
 > [!div class="nextstepaction"]
-> [Next steps button](contribute-get-started-mvc.md)
+> *link to next article*
 
 <!---
 Tutorials should always have a Next steps H2 that points to the next logical tutorial in a series, or, if there are no other tutorials, to some other cool thing the customer can do. A single link in the blue box format should direct the customer to the next article - and you can shorten the title in the boxes if the original one doesn’t fit.

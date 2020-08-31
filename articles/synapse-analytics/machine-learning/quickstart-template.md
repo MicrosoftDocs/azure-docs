@@ -13,7 +13,7 @@ author: garyericson   # Your GitHub account name
 ms.author: garye      # Your microsoft.com email alias
 ---
 
-# Quickstart: Create a Synapse workspace
+# Quickstart: what this quickstart does
 
 *For a more detailed template, see [Global template for quickstart articles](https://review.docs.microsoft.com/help/contribute/global-quickstart-template?branch=master) in the Contributor Guide.*
 

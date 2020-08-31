@@ -15,11 +15,11 @@ ms.author: garye      # Your microsoft.com email alias
 
 # What is Machine Learning in Azure Synapse Analytics (workspaces preview)?
 
-[!INCLUDE [preview](includes/note-preview.md)]
+[!INCLUDE [preview](../includes/note-preview.md)]
 
 *Summary of machine learning capabilities in Synapse Analytics.*
 
-*See [What is Azure Synapse Analytics?](overview-what-is.md) for an example to follow.*
+*See [What is Azure Synapse Analytics?](../overview-what-is.md) for an example to follow.*
 
 *For more details, see [Global template for overview articles](https://review.docs.microsoft.com/help/contribute/global-overview-template?branch=master) in the Contributor Guide.*
 
