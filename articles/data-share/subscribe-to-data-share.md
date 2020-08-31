@@ -72,7 +72,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
    To open invitation from Azure portal directly, search for **Data Share Invitations** in Azure portal. This takes you to the list of Data Share invitations.
 
-   ![Invitations](./media/invitations.png "List of invitations") 
+   ![List of Invitations](./media/invitations.png "List of invitations") 
 
 1. Select the share you would like to view. 
 

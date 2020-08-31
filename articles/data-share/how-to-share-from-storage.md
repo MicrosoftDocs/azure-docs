@@ -69,15 +69,15 @@ Create an Azure Data Share resource in an Azure resource group.
 
 1. Select **Create**.   
 
-1. Fill out the details for your Data Share. Specify a name, share type, description of share contents, and terms of use (optional). 
+1. Fill out the details for your share. Specify a name, share type, description of share contents, and terms of use (optional). 
 
     ![EnterShareDetails](./media/enter-share-details.png "Enter Share details") 
 
 1. Select **Continue**.
 
-1. To add Datasets to your Data Share, select **Add Datasets**. 
+1. To add Datasets to your share, select **Add Datasets**. 
 
-    ![Datasets](./media/datasets.png "Datasets")
+    ![Add Datasets to your share](./media/datasets.png "Datasets")
 
 1. Select the dataset type that you would like to add. You will see a different list of dataset types depending on the share type (snapshot or in-place) you have selected in the previous step. 
 
@@ -134,7 +134,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
    To open invitation from Azure portal directly, search for **Data Share Invitations** in Azure portal. This takes you to the list of Data Share invitations.
 
-   ![Invitations](./media/invitations.png "List of invitations") 
+   ![List of Invitations](./media/invitations.png "List of invitations") 
 
 1. Select the share you would like to view. 
 
