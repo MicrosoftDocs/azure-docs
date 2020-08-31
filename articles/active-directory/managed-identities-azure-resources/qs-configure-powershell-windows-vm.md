@@ -3,7 +3,7 @@ title: Configure managed identities on an Azure VM using PowerShell - Azure AD
 description: Step-by-step instructions for configuring managed identities for Azure resources on an Azure VM using PowerShell.
 services: active-directory
 documentationcenter:
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor:
 
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/26/2019
-ms.author: markvi
+ms.date: 08/19/2020
+ms.author: barclayn
 ms.collection: M365-identity-device-management
 ---
 
@@ -44,10 +44,10 @@ To create an Azure VM with the system-assigned managed identity enabled, your ac
 
 1. Refer to one of the following Azure VM Quickstarts, completing only the necessary sections ("Sign in to Azure", "Create resource group", "Create networking group", "Create the VM").
 
-    When you get to the "Create the VM" section, make a slight modification to the [New-AzVMConfig](/powershell/module/az.compute/new-azvm) cmdlet syntax. Be sure to add a `-AssignIdentity:$SystemAssigned` parameter to provision the VM with the system-assigned identity enabled, for example:
+    When you get to the "Create the VM" section, make a slight modification to the [New-AzVMConfig](/powershell/module/az.compute/new-azvm) cmdlet syntax. Be sure to add a `-IdentityType SystemAssigned` parameter to provision the VM with the system-assigned identity enabled, for example:
 
     ```powershell
-    $vmConfig = New-AzVMConfig -VMName myVM -AssignIdentity:$SystemAssigned ...
+    $vmConfig = New-AzVMConfig -VMName myVM -IdentityType SystemAssigned ...
     ```
 
    - [Create a Windows virtual machine using PowerShell](../../virtual-machines/windows/quick-create-powershell.md)
@@ -65,11 +65,11 @@ To enable system-assigned managed identity on a VM that was originally provision
    Connect-AzAccount
    ```
 
-2. First retrieve the VM properties using the `Get-AzVM` cmdlet. Then to enable a system-assigned managed identity, use the `-AssignIdentity` switch on the [Update-AzVM](/powershell/module/az.compute/update-azvm) cmdlet:
+2. First retrieve the VM properties using the `Get-AzVM` cmdlet. Then to enable a system-assigned managed identity, use the `-IdentityType` switch on the [Update-AzVM](/powershell/module/az.compute/update-azvm) cmdlet:
 
    ```powershell
    $vm = Get-AzVM -ResourceGroupName myResourceGroup -Name myVM
-   Update-AzVM -ResourceGroupName myResourceGroup -VM $vm -AssignIdentity:$SystemAssigned
+   Update-AzVM -ResourceGroupName myResourceGroup -VM $vm -IdentityType SystemAssigned
    ```
 
 

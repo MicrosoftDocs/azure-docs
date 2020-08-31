@@ -3,7 +3,7 @@ title: Tutorial`:` Use a managed identity to access Azure Data Lake Store - Linu
 description: A tutorial that shows you how to use a Linux VM system-assigned managed identity to access Azure Data Lake Store.
 services: active-directory
 documentationcenter: 
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: 
 
@@ -14,7 +14,7 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/10/2020
-ms.author: markvi
+ms.author: barclayn
 ms.collection: M365-identity-device-management
 ---
 

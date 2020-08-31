@@ -13,9 +13,11 @@ ms.custom: devx-track-java
 
 This topic shows how to prepare an existing Java Spring application for deployment to Azure Spring Cloud. If configured properly, Azure Spring Cloud provides robust services to monitor, scale, and update your Java Spring Cloud application.
 
+Before running this example, you can try the [basic quickstart](spring-cloud-quickstart.md).
+
 Other examples explain how to deploy an application to Azure Spring Cloud when the POM file is configured. 
-* [Launch App using the Azure portal](spring-cloud-quickstart-launch-app-portal.md)
-* [Launch App using the Azure CLI](spring-cloud-quickstart-launch-app-cli.md)
+* [Launch your first App](spring-cloud-quickstart.md)
+* [Build and run Microservices](spring-cloud-quickstart-sample-app-introduction.md)
 
 This article explains the required dependencies and how to add them to the POM file.
 

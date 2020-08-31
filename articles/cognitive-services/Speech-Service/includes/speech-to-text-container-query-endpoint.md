@@ -6,6 +6,7 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 08/18/2020
 ms.author: aahi
+ms.custom: devx-track-csharp
 ---
 
 The container provides websocket-based query endpoint APIs, that are accessed through the [Speech SDK](../index.yml). By default, the Speech SDK uses online speech services. To use the container, you need to change the initialization method.

@@ -182,6 +182,8 @@
       href: geo-disaster-recovery.md      
   - name: Security 
     items: 
+    - name: Security baseline
+      href: security-baseline.md
     - name: Authenticate event delivery to event handlers
       href: security-authentication.md
     - name: Authenticate publishing clients
@@ -232,13 +234,23 @@
     href: custom-disaster-recovery.md
   - name: Track asynchronous REST operations
     href: ../azure-resource-manager/management/async-operations.md?toc=%2fazure%2fevent-grid%2ftoc.json
+  - name: Move
+    items:
+    - name: Move system topics across regions
+      href: move-system-topics-across-regions.md
+    - name: Move custom topics across regions
+      href: move-custom-topics-across-regions.md
+    - name: Move domains across regions
+      href: move-domains-across-regions.md
+    - name: Move partner namespaces across regions
+      href: move-partner-namespaces-across-regions.md
   - name: Secure
     items:
     - name: Configure private endpoints
       href: configure-private-endpoints.md
     - name: Configure IP firewall
       href: configure-firewall.md
-    - name: Secure Webhook with AAD
+    - name: Secure Webhook with Azure Active Directory
       href: secure-webhook-delivery.md
     - name: Event delivery with managed identity
       href: managed-service-identity.md

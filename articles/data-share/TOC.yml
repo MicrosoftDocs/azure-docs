@@ -1,6 +1,7 @@
 - name: Azure Data Share documentation
   href: index.yml
 - name: Overview
+  expanded: true
   items:
   - name: What is Azure Data Share?
     href: overview.md
@@ -8,6 +9,8 @@
     href: supported-data-stores.md
 - name: Quickstarts
   items:
+  - name: Create data share - Azure portal
+    href: share-your-data-portal.md
   - name: Create data share - ARM template
     displayName: Resource Manager
     href: share-your-data-arm.md
@@ -34,6 +37,11 @@
     href: samples-powershell.md
 - name: How-to guides
   items:
+  - name: Share and receive data by source
+    items:
+    - name: Share from Azure Data Explorer
+      href: /azure/data-explorer/data-share
+      maintainContext: true
   - name: Monitor
     href: how-to-monitor.md
   - name: Troubleshoot
@@ -52,6 +60,7 @@
     href: security.md
   - name: Disaster recovery
     href: disaster-recovery.md
+
 - name: Reference
   items:
   - name: .NET

@@ -3,7 +3,7 @@ title: Deploy a Windows Hybrid Runbook Worker in Azure Automation
 description: This article tells how to deploy a Hybrid Runbook Worker that you can use to run runbooks on Windows-based machines in your local datacenter or cloud environment.
 services: automation
 ms.subservice: process-automation
-ms.date: 06/24/2020
+ms.date: 08/20/2020
 ms.topic: conceptual
 ---
 # Deploy a Windows Hybrid Runbook Worker
@@ -23,6 +23,9 @@ The Hybrid Runbook Worker role depends on an Azure Monitor Log Analytics workspa
 If you don't have an Azure Monitor Log Analytics workspace, review the [Azure Monitor Log design guidance](../azure-monitor/platform/design-logs-deployment.md) before you create the workspace.
 
 If you have a workspace, but it is not linked to your Automation account, enabling an Automation feature adds functionality for Azure Automation, including support for the Hybrid Runbook Worker. When you enable one of the Azure Automation features in your Log Analytics workspace, specifically [Update Management](update-management/update-mgmt-overview.md) or [Change Tracking and Inventory](change-tracking.md), the worker components are automatically pushed to the agent machine.
+
+> [!NOTE]
+> When enabling Update Management or Change Tracking and Inventory feature, Azure Automation only supports certain regions for linking a Log Analytics workspace and an Automation account. For a list of the supported mapping pairs, see [Region mapping for Automation account and Log Analytics workspace](how-to/region-mappings.md). Before enabling either feature, review the [Azure pricing](https://azure.microsoft.com/pricing/details/automation/) information for Azure Automation.
 
    To add the Update Management feature to your workspace, run the following PowerShell cmdlet:
 
@@ -117,9 +120,6 @@ Download the **New-OnPremiseHybridWorker.ps1** script from the [PowerShell Galle
 | `SubscriptionID` | Mandatory | The identifier of the Azure subscription associated with your Automation account. |
 | `TenantID` | Optional | The identifier of the tenant organization associated with your Automation account. |
 | `WorkspaceName` | Optional | The Log Analytics workspace name. If you don't have a Log Analytics workspace, the script creates and configures one. |
-
-> [!NOTE]
-> When enabling features, Azure Automation only supports certain regions for linking a Log Analytics workspace and an Automation account. For a list of the supported mapping pairs, see [Region mapping for Automation account and Log Analytics workspace](how-to/region-mappings.md).
 
 ### Step 2 - Open Windows PowerShell command line shell
 

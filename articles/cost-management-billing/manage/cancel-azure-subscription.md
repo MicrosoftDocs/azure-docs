@@ -5,11 +5,12 @@ author: bandersmsft
 ms.reviewer: amberb
 tags: billing
 ms.service: cost-management-billing
+ms.subservice: billing
 ms.topic: conceptual
-ms.date: 08/10/2020
+ms.date: 08/20/2020
 ms.author: banders
-
 ---
+
 # Cancel your Azure subscription
 
 You can cancel your Azure subscription in the Azure portal if you no longer need the subscription.
