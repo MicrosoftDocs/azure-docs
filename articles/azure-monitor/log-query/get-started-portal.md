@@ -10,10 +10,9 @@ ms.date: 03/17/2020
 ---
 
 # Log Analytics tutorial
+Log Analytics is a tool in the Azure portal to edit and run log queries in Azure Monitor Logs and interactively analyze their results. You can use Log Analytics queries to search for terms, identify trends, analyze patterns, and provide many other insights from your data. 
 
-This tutorial shows you how to use Log Analytics to write, execute, and manage Azure Monitor log queries in the Azure portal. You can use Log Analytics queries to search for terms, identify trends, analyze patterns, and provide many other insights from your data. 
-
-In this tutorial, you learn how to use Log Analytics to:
+This tutorial walks you through the Log Analytics interface, gets you started with some basic queries, and shows you how you can work with the results. You will learn the following:
 
 > [!div class="checklist"]
 > * Understand the log data schema
@@ -23,14 +22,41 @@ In this tutorial, you learn how to use Log Analytics to:
 > * Save, load, export, and copy queries and results
 
 
+## Prerequisites
+To use Log Analytics, you need to be signed in to an Azure account. If you don't have an Azure account, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). To complete most of the steps in this tutorial, you can use the [Log Analytics demo environment](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring_Logs/DemoLogsBlade). This includes plenty of sample data supporting the sample queries. With the demo environment though, you won't be able to save queries or pin results to a dashboard. You should perform these steps in your own environment.
+
 ## Open Log Analytics
-To use Log Analytics, you need to be signed in to an Azure account. If you don't have an Azure account, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+Open the [Log Analytics demo environment](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring_Logs/DemoLogsBlade) or select **Logs** from the Azure Monitor menu. This will set the initial scope to a Log Analytics workspace meaning that your query will select from all data in that workspace. If you select **Logs** from an Azure resource's menu, the scope is set to that resource. You can change the current  See [Log query scope](scope.md) for details about the scope.
 
-To complete most of the steps in this tutorial, you can use [this demo environment](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring_Logs/DemoLogsBlade), which includes plenty of sample data. With the demo environment, you won't be able to save queries or pin results to a dashboard.
+You can view the scope in the top left corner of the screen. If you're using your own environment, you'll see an option to select a different scope, but this option isn't available in the demo environment.
 
-You can also use your own environment, if you're using Azure Monitor to collect log data on at least one Azure resource. To open a Log Analytics workspace, in your Azure Monitor left navigation, select **Logs**. 
+[![Scope](media/get-started-portal/scope.png)](media/get-started-portal/scope.png#lightbox)
 
-[![Log Analytics](media/log-analytics-overview/log-analytics.png)](media/log-analytics-overview/log-analytics.png#lightbox)
+## Table schema
+The left side of the screen includes the **Tables** tab which allows you to inspect the tables that are available in the current scope. These are groupd by **Solution** by default, but you change their grouping or filter them. For now, expand the **Security and Audit** solution and locate the **SecurityEvent** table.You can expand the table to view its schema, or hover over its name to show additional information about it. 
+
+[![Tables view](media/get-started-portal/table-details.png)](media/get-started-portal/table-details.png#lightbox)
+
+Click **Learn more** to go to the table reference that documents each table and its columns. Click **Preview data** to have a quick look at a few recent records in the table to determine 
+
+[![Sample data](media/get-started-portal/sample-data.png)](media/get-started-portal/sample-data.png#lightbox)
+
+## Write a query
+Let's go ahead and write a query using the **SecurityEvent** table. Double-click its name to add it to the query window. You can also type directly in the window and even get intellisense that will help complete the names of tables in the current scope and KQL commands.
+
+This is the simplest query that we can write. It just returns all the records in a table. Run it by clicking the **Run** button or by pressing Shift+Enter with the cursor positioned anywhere in the query text.
+
+[![Query results](media/get-started-portal/query-results.png)](media/get-started-portal/query-results.png#lightbox)
+
+We have a message here that we're not seeing all of the results. This is because Log Analytics can return a maximum of 10,000 records, and our query returned more records than that. We can try to filter it by reducing our time range.
+
+All tables in a Log Analytics workspace have a column called **TimeGenerated** which is the time that the record was created. All queries have a time range that limits the results to records with a **TimeGenerated** value within that range. The time range can either be set in the query or with the selector at the top of the screen.
+
+
+
+## Log Analytics interface
+Let's start with a walkthrough of the Log Anlaytics 
+
 
 ### 1. Top action bar
 The top action bar provides controls for working with the query in the query window and 
