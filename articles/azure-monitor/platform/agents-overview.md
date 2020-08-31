@@ -155,6 +155,7 @@ The following tables list the operating systems that are supported by the Azure 
 |:---|:---:|:---:|:---:|:---:
 | Amazon Linux 2017.09                                     |   | X |   |   |
 | CentOS Linux 7                                           | X | X |   | X |
+| CentOS Linux 7.8                                         | X | X | X | X |
 | CentOS Linux 7.6                                         | X | X | X | X |
 | CentOS Linux 6                                           | X | X |   |   |
 | CentOS Linux 6.5+                                        | X | X |   | X |
