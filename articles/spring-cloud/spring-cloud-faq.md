@@ -146,7 +146,7 @@ No.  Azure Spring Cloud abstracts the developer from the underlying architecture
 
 ### Does Azure Spring Cloud support building containers from source?
 
-Yes. For more information, see [Launch your Spring Cloud application from source code](spring-cloud-launch-from-source.md).
+Yes. For more information, see [Launch your Spring Cloud application from source code](spring-cloud-quickstart.md).
 
 ### Does Azure Spring Cloud support autoscaling in app instances?
 
