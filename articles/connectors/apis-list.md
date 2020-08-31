@@ -38,7 +38,7 @@ Connectors are available as built-in triggers and actions or as managed connecto
 
 <a name="managed-connectors"></a>
 
-* [**Managed connectors**](#managed-api-connectors): Deployed and managed by Microsoft, these connectors provide triggers and actions for accessing cloud services, on-premises systems, or both, including Office 365, Azure Blob Storage, SQL Server, Dynamics, Salesforce, SharePoint, and more. Some connectors specifically support business-to-business (B2B) communication scenarios and require an [integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) that's linked to your logic app. Before using certain connectors, you might have to first create connections, which are managed by Azure Logic Apps.
+* [**Managed connectors**](#managed-api-connectors): Deployed and managed by Microsoft, these connectors provide triggers and actions for accessing cloud services, on-premises systems, or both, including Microsoft 365, Azure Blob Storage, SQL Server, Dynamics, Salesforce, SharePoint, and more. Some connectors specifically support business-to-business (B2B) communication scenarios and require an [integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) that's linked to your logic app. Before using certain connectors, you might have to first create connections, which are managed by Azure Logic Apps.
 
   For example, if you're using Microsoft BizTalk Server, your logic apps can connect to and communicate with your BizTalk Server by using the [BizTalk Server on-premises connector](#on-premises-connectors). You can then extend or perform BizTalk-like operations in your logic apps by using the [integration account connectors](#integration-account-connectors).
 
@@ -48,7 +48,7 @@ Connectors are available as built-in triggers and actions or as managed connecto
 
   | Category | Description |
   |----------|-------------|
-  | [**Managed connectors**](#managed-api-connectors) | Create logic apps that use services such as Azure Blob Storage, Office 365, Dynamics, Power BI, OneDrive, Salesforce, SharePoint Online, and many more. |
+  | [**Managed connectors**](#managed-api-connectors) | Create logic apps that use services such as Azure Blob Storage, Microsoft 365, Dynamics, Power BI, OneDrive, Salesforce, SharePoint Online, and many more. |
   | [**On-premises connectors**](#on-premises-connectors) | After you install and set up the [on-premises data gateway][gateway-doc], these connectors help your logic apps access on-premises systems such as SQL Server, SharePoint Server, Oracle DB, file shares, and others. |
   | [**Integration account connectors**](#integration-account-connectors) | Available when you create and pay for an integration account, these connectors transform and validate XML, encode and decode flat files, and process business-to-business (B2B) messages with AS2, EDIFACT, and X12 protocols. |
   |||
@@ -135,7 +135,7 @@ Logic Apps provides these popular Standard connectors for automating tasks, proc
 | [![Azure Service Bus managed connector][azure-service-bus-icon]<br>**Azure Service Bus**][azure-service-bus-doc] | Manage asynchronous messages, sessions, and topic subscriptions with the most commonly used connector in Logic Apps. |
 | [![SQL Server managed connector][sql-server-icon]<br>**SQL Server**][sql-server-doc] | Connect to your SQL Server on premises or an Azure SQL Database in the cloud so that you can manage records, run stored procedures, or perform queries. |
 | [![Azure Blob Storage managed connector][azure-blob-storage-icon]<br>**Azure Blob<br>Storage**][azure-blob-storage-doc] | Connect to your storage account so that you can create and manage blob content. |
-| [![Office 365 Outlook managed connector][office-365-outlook-icon]<br>**Office 365<br>Outlook**][office-365-outlook-doc] | Connect to your Office 365 email account so that you can create and manage emails, tasks, calendar events and meetings, contacts, requests, and more. |
+| [![Office 365 Outlook managed connector][office-365-outlook-icon]<br>**Office 365<br>Outlook**][office-365-outlook-doc] | Connect to your work or school email account so that you can create and manage emails, tasks, calendar events and meetings, contacts, requests, and more. |
 | [![SFTP-SSH managed connector][sftp-ssh-icon]<br>**SFTP-SSH**][sftp-ssh-doc] | Connect to SFTP servers that you can access from the internet by using SSH so that you can work with your files and folders. |
 | [![SharePoint Online managed connector][sharepoint-online-icon]<br>**SharePoint<br>Online**][sharepoint-online-doc] | Connect to SharePoint Online so that you can manage files, attachments, folders, and more. |
 | [![Azure Queues managed connector][azure-queues-icon]<br>**Azure <br>Queues**][azure-queues-doc] | Connect to your Azure Storage account so that you can create and manage queues and messages. |
@@ -384,9 +384,9 @@ Here are the general kinds of triggers that Azure Logic Apps provides:
 
 Each connector's triggers and actions provide their own properties for you to configure. Many connectors also require that you first create a *connection* to the target service or system and provide authentication credentials or other configuration details before you can use a trigger or action in your logic app. For example, before you can access and working with your Office 365 Outlook email account, you must authorize a connection to that account.
 
-For connectors that use Azure Active Directory (Azure AD) OAuth, creating a connection means signing into the service, such as Office 365, Salesforce, or GitHub, where your access token is [encrypted](../security/fundamentals/encryption-overview.md) and securely stored in an Azure secret store. Other connectors, such as FTP and SQL, require a connection that has configuration details, such as the server address, username, and password. These connection configuration details are also encrypted and securely stored. Learn more about [encryption in Azure](../security/fundamentals/encryption-overview.md).
+For connectors that use Azure Active Directory (Azure AD) OAuth, creating a connection means signing into the service, such as Microsoft 365, Salesforce, or GitHub, where your access token is [encrypted](../security/fundamentals/encryption-overview.md) and securely stored in an Azure secret store. Other connectors, such as FTP and SQL, require a connection that has configuration details, such as the server address, username, and password. These connection configuration details are also encrypted and securely stored. Learn more about [encryption in Azure](../security/fundamentals/encryption-overview.md).
 
-Connections can access the target service or system for as long as that service or system allows. For services that use Azure AD OAuth connections, such as Office 365 and Dynamics, Azure Logic Apps refreshes access tokens indefinitely. Other services might have limits on how long Azure Logic Apps can use a token without refreshing. Generally, some actions invalidate all access tokens, such as changing your password.
+Connections can access the target service or system for as long as that service or system allows. For services that use Azure AD OAuth connections, such as Microsoft 365 and Dynamics, Azure Logic Apps refreshes access tokens indefinitely. Other services might have limits on how long Azure Logic Apps can use a token without refreshing. Generally, some actions invalidate all access tokens, such as changing your password.
 
 <a name="custom"></a>
 
@@ -591,7 +591,7 @@ Although you create connections from within a logic app, connections are separat
 [instagram-doc]: ./connectors-create-api-instagram.md "Connect to Instagram. Trigger or act on events"
 [mandrill-doc]: ./connectors-create-api-mandrill.md "Connect to Mandrill for communication"
 [mysql-doc]: /connectors/mysql/ "Connect to your on-premises MySQL database so that you can read and write data"
-[office-365-outlook-doc]: ./connectors-create-api-office365-outlook.md "Connect to your Office 365 account so that you can send and receive emails, manage your calendar and contacts, and more"
+[office-365-outlook-doc]: ./connectors-create-api-office365-outlook.md "Connect to your work or school account so that you can send and receive emails, manage your calendar and contacts, and more"
 [onedrive-doc]: ./connectors-create-api-onedrive.md "Connect to your personal Microsoft OneDrive so that you can upload, delete, list files, and more"
 [onedrive-for-business-doc]: ./connectors-create-api-onedriveforbusiness.md "Connect to your business Microsoft OneDrive so that you can upload, delete, list your files, and more"
 [oracle-db-doc]: ./connectors-create-api-oracledatabase.md "Connect to an Oracle database so that you can add, insert, delete rows, and more"
