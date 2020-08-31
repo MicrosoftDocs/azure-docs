@@ -635,7 +635,7 @@ The maximum number of ACLs that you can apply to a directory or file is 32 acces
 
 ### Provide feedback or report issues
 
-You can provide your feedback or report an issue at  [recursiveACLfeedback@microsoft.com](recursiveACLfeedback@microsoft.com).
+You can provide your feedback or report an issue at  [recursiveACLfeedback@microsoft.com](mailto:recursiveACLfeedback@microsoft.com).
 
 ## See also
 
