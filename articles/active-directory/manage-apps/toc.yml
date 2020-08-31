@@ -244,8 +244,6 @@
           href: access-panel-troubleshoot-application-not-appearing.md
         - name: Unexpected app appearing
           href: access-panel-troubleshoot-unexpected-application.md
-        - name: Error using self-service app access
-          href: access-panel-troubleshoot-self-service-access.md
       - name: Troubleshoot on-premises apps
         items:
         - name: Application Proxy troubleshooting

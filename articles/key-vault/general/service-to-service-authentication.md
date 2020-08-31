@@ -53,7 +53,7 @@ For .NET applications, the simplest way to work with a managed identity is throu
     string accessToken = await azureServiceTokenProvider2.GetAccessTokenAsync("https://management.azure.com/").ConfigureAwait(false);
     ```
 
-The `AzureServiceTokenProvider` class caches the token in memory and retrieves it from Azure AD just before expiration. So, you no longer have to check the expiration before calling the `GetAccessTokenAsync` method. Just call the method when you want to use the token.
+You do not need to check the expiration of the token before calling the `GetAccessTokenAsync` method, because `AzureServiceTokenProvider` caches the token in memory and retrieves it from Azure AD just before expiration. 
 
 The `GetAccessTokenAsync` method requires a resource identifier. To learn more about Microsoft Azure services, see [What is managed identities for Azure resources](../../active-directory/msi-overview.md).
 

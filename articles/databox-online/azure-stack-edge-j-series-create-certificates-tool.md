@@ -1,6 +1,6 @@
 ---
 title: Create certificates using Microsoft Azure Stack Hub Readiness Checker tool | Microsoft Docs
-description: Describes how to create certificate requests and then get and install certificates on your Azure Stack Edge device using the Azure Stack Hub Readiness Checker tool.
+description: Describes how to create certificate requests and then get and install certificates on your Azure Stack Edge GPU device using the Azure Stack Hub Readiness Checker tool.
 services: Azure Stack Edge
 author: alkohli
 
