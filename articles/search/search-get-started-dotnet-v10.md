@@ -10,6 +10,7 @@ ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 08/05/2020
+ms.custom: devx-track-csharp
 
 ---
 # Quickstart: Create a search index using the Microsoft.Azure.Search v10 client library

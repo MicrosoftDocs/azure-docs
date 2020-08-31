@@ -11,6 +11,7 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 02/18/2020
 ms.author: juliako
+ms.custom: devx-track-csharp
 ---
 
 # Upload and index your videos  

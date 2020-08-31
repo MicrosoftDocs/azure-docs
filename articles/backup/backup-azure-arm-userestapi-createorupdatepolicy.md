@@ -1,6 +1,6 @@
 ---
 title: Create backup policies using REST API
-description: In this article, you will learn how to create and manage backup policies (schedule and retention) using REST API.
+description: In this article, you'll learn how to create and manage backup policies (schedule and retention) using REST API.
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.assetid: 5ffc4115-0ae5-4b85-a18c-8a942f6d4870

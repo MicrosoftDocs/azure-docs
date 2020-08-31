@@ -109,13 +109,13 @@ This app will have access to get secrets from Azure Key Vault. Use the starter a
 
     @SpringBootApplication
     @RestController
-    public class SecretsApplication implements CommandLineRunner {
+    public class DemoApplication implements CommandLineRunner {
 
         @Value("${connectionString}")
         private String connectionString;
 
         public static void main(String[] args) {
-          SpringApplication.run(SecretsApplication.class, args);
+          SpringApplication.run(DemoApplication.class, args);
         }
 
         @GetMapping("get")
