@@ -7,12 +7,12 @@ ms.reviewer: dannyevers
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 08/31/2020
+ms.date: 09/03/2020
 ---
 
 # How to configure your SaaS offer listing details
 
-The information you provide on the **Offer listing** page for your software as a service (SaaS) offer will be displayed in the Microsoft commercial marketplace storefronts. This includes the descriptions of your offer, screenshots, and your marketing assets.
+The information you provide on the **Offer listing** page for your software as a service (SaaS) offer will be displayed in the Microsoft commercial marketplace online stores. This includes the descriptions of your offer, screenshots, and your marketing assets.
 
 > [!NOTE]
 > Offer listing content is not required to be in English if the offer description begins with the phrase, "This application is available only in [non-English language]." It is also acceptable to provide a *Useful Link URL* to offer content in a language other than the one used in the offer listing content.
@@ -25,7 +25,7 @@ On the **Offer listing** page, under **Marketplace details**, complete the follo
 1. In the **Search results summary** box, enter up to 50 characters of text. This summary is used in the marketplace listing search results.
 1. In the **Description** box, enter a description for your offer. This text box has rich text editor controls that you can use to make your description more engaging. You can also use HTML tags to format your description. You can enter up to 3,000 characters of text in this box, which includes HTML markup and spaces. For information about HTML formatting, see [HTML tags supported in the commercial marketplace offer descriptions](supported-html-tags.md).
 1. In the **Getting started instructions** box, provide instructions to help customers connect to your SaaS offer. You can add up to 3,000 characters of text and links to more detailed online documentation.
-1. (Optional) In the **Search keywords** boxes, enter up to three search keywords that customers can use to find your offer in the marketplace. You don't need to include the offer **Name** and **Description**: that text is automatically included in search.
+1. (Optional) In the **Search keywords** boxes, enter up to three search keywords that customers can use to find your offer in the commercial marketplace. You don't need to include the offer **Name** and **Description**: that text is automatically included in search.
 1. In the **Privacy policy link** box, enter a link (starting with https) to your organization's privacy policy. You're responsible to ensure your app complies with privacy laws and regulations, and for providing a valid privacy policy.
 
 ## Add links to supplemental online documentation (optional)
@@ -40,21 +40,21 @@ Under **Contact information**, provide information for the following contacts:
 
 - **Support contact**  (required) – For general support questions.
 - **Engineering contact**  (required) – For technical questions. We will use this information to contact you when there are issues with your offer, including certification issues.
-- **CSP Program contact** – (optional) – For support and business issues. This information is only shown to CSP partners.
+- **CSP Program contact** (optional) – For support and business issues. This information is only shown to CSP partners.
 
 For each contact, you'll provide a name, phone number, and email address (these won't be displayed publicly). A **Support URL** is required for the **Support Contact** (this will be displayed publicly).
 
 1. In the **Support contact** boxes, enter a name, email address, phone number, and the URL to your support page.
 1. In the **Engineering contact** boxes, enter a name, email address, and phone number.
 1. (Optional) In the **CSP Program Contact** boxes, enter a name, email address, and phone number.
-1. To extend your offer to the [Cloud Solution Provider (CSP)](cloud-solution-providers.md) program, in the **CSP Program Marketing Materials** box, provide a link to your marketing materials.
+1. To extend your offer to the [Cloud Solution Provider (CSP) program](cloud-solution-providers.md), in the **CSP Program Marketing Materials** box, provide a link to your marketing materials.
 
    > [!NOTE]
-   > The CSP program extends your offer to a broader range of qualified customers by enabling CSP partners to bundle, market, and resell your offer. These resellers will need access to materials for marketing your offer. For more information, see [Go-To-Market Services](https://partner.microsoft.com/reach-customers/gtm).
+   > The CSP program extends your offer to a broader range of qualified customers by enabling CSP partners to bundle, market, and resell your offer. These resellers will need access to materials for marketing your offer. For more information, see [Go-to-market with Microsoft](https://partner.microsoft.com/reach-customers/gtm).
 
 ## Add marketing documents
 
-You must add at least one and a maximum of three marketing documents for your offer. These documents must be in PDF format.
+You must add at least one and a maximum of three marketing documents for your offer. These documents must be in .PDF format.
 
 1. Under **Supporting documents**, drag and drop your PDF file onto the gray box.
 1. In the **Name** box that appears, enter a name for this document. Customers will see this name on your offer's details tab.

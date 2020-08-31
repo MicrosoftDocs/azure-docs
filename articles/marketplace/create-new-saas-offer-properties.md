@@ -7,14 +7,14 @@ ms.reviewer: dannyevers
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 08/31/2020
+ms.date: 09/02/2020
 ---
 
 # How to configure your SaaS offer properties
 
 This article describes how to configure the properties for a software as a service (SaaS) offer in the Microsoft commercial marketplace.
 
-On the **Properties** tab, you'll define the the categories and industries applicable to your offer, your app version, and legal contracts. Be sure to provide complete and accurate details about your offer on this page, so that it's displayed appropriately and offered to the right set of customers.
+On the **Properties** tab, you'll define the categories and industries applicable to your offer, your app version, and legal contracts. Be sure to provide complete and accurate details about your offer on this page, so that it's displayed appropriately and offered to the right set of customers.
 
 ## Select a category for your offer
 
@@ -92,4 +92,4 @@ You can choose to provide your own terms and conditions, instead of the standard
 
 ## Next steps
 
-- [Configure your SaaS offer listing details](create-new-saas-offer-listing.md)
+- [How to configure your SaaS offer listing details](create-new-saas-offer-listing.md)

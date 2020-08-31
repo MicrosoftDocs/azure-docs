@@ -11,13 +11,13 @@ ms.author: mingshen
 
 # Metered billing for SaaS using the commercial marketplace metering service
 
-With the commercial marketplace metering service, you can create software-as-a-service (SaaS) offers that are charged according to non-standard units. Before publishing a SaaS offer to the commercial marketplace, you define the billing dimensions such as bandwidth, tickets, or emails processed.  Customers then pay according to their consumption of these dimensions, with your system informing Microsoft via the commercial marketplace metering service API of billable events as they occur.  
+With the commercial marketplace metering service, you can create software as a service (SaaS) offers that are charged according to non-standard units. Before publishing a SaaS offer to the commercial marketplace, you define the billing dimensions such as bandwidth, tickets, or emails processed.  Customers then pay according to their consumption of these dimensions, with your system informing Microsoft via the commercial marketplace metering service API of billable events as they occur.  
 
 ## Prerequisites for metered billing
 
 For a SaaS offer to use metered billing, it must first:
 
-- Meet all of the offer requirements for a [sell through Microsoft (transactable) offer](./create-new-saas-offer.md#sell-through-microsoft) as outlined in [create a SaaS offer](./create-new-saas-offer.md).
+- Meet all of the offer requirements for a [sell through Microsoft (transactable) offer](./plan-saas-offer.md#listing-options) as outlined in [create a SaaS offer](./create-new-saas-offer.md).
 - Integrate with the [SaaS Fulfillment APIs](./pc-saas-fulfillment-api-v2.md) for customers to provision and connect to your offer.  
 - Be configured for the **flat rate** pricing model when charging customers for your service.  Dimensions are an optional extension to the flat rate pricing model. 
 
@@ -40,7 +40,7 @@ Understanding the offer hierarchy is important, when it comes to defining the of
 
 ## Sample offer
 
-As an example, Contoso is a publisher with a SaaS service called Contoso Notification Services (CNS). CNS allows its customers to send notifications either via email or text. Contoso is registered as a publisher in Partner Center for the commercial marketplace program to publish SaaS offers to Azure customers.  There are two plans associated with CNS, outlined below:
+As an example, Contoso is a publisher with a SaaS service called Contoso Notification Services (CNS). CNS lets its customers send notifications either via email or text. Contoso is registered as a publisher in Partner Center for the commercial marketplace program to publish SaaS offers to Azure customers.  There are two plans associated with CNS, outlined below:
 
 - Basic plan
     - Send 10000 emails and 1000 texts for $0/month (flat monthly fee)
@@ -102,7 +102,7 @@ Dimensions also have two special concepts, "enabled" and "infinite":
 Like flat rate pricing, billing dimension prices can be set per supported country or region. You need to use the pricing data import and export feature in Partner Center, as follows.
 
 1. Define the desired dimensions and mark which markets are supported. 
-1. Export this data into file.
+1. Export this data into a file.
 1. Add the correct prices per country/region and import the file in Partner Center.
 
 The UI of the meter will change to reflect that the prices of the dimension can only be seen in the file.
@@ -121,7 +121,7 @@ Metered billing using the commercial marketplace metering service is not compati
 
 ### Locking behavior
 
-Because a dimension used with the commercial marketplace metering service represents an understanding of how a customer will be paying for the service, all of the details for a dimension are no longer editable once you publish it.  It's important that you have your dimensions fully defined for a plan before you publish.
+Because a dimension used with the commercial marketplace metering service represents an understanding of how a customer will be paying for the service, all of the details for a dimension are no longer editable after you publish it.  It's important that you have your dimensions fully defined for a plan before you publish.
 
 Once an offer is published with a dimension, the offer-level details for that dimension can no longer be changed:
 
@@ -148,7 +148,7 @@ If you have one of the following issues, you can open a support ticket.
 - An issue that needs to be escalated because of an error or bug on your side (ex. wrong usage event).
 - Any other issues related to metered billing.
 
-Follow the instruction in [Support for the commercial marketplace program in Partner Center](./support.md) to understand publisher support options and open support ticket with Microsoft.
+To understand publisher support options and open a support ticket with Microsoft, follow the instructions in [Support for the commercial marketplace program in Partner Center](./support.md).
 
 ## Next steps
 
