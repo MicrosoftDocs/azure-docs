@@ -61,7 +61,7 @@ The following are currently supported:
 
 The following are planned but not yet supported:
 - CIS
--SELINUX
+- SELINUX
 
 Other hardening and customization methods are not supported nor planned for OMS Agent.  
 
