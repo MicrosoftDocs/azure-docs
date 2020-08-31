@@ -7,7 +7,7 @@ mnager: kumud
 ms.service: expressroute
 ms.topic: quickstart
 ms.custom: subject-armsq
-ms.date: 08/27/2020
+ms.date: 08/31/2020
 ms.author: duau
 ---
 
@@ -31,13 +31,13 @@ The template used in this quickstart is from [Azure Quickstart Templates](https:
 
 In this quickstart, you'll create an ExpressRoute circuit with *Equinix* as the service provider. The circuit will be using a *Premium SKU*, with a bandwidth of *50 Mbps*, and the peering location of *Washington DC*. Private peering will be enabled with a primary and secondary subnet of *192.168.10.16/30* and *192.168.10.20/30* respectively. A virtual network will also be created along with a *HighPerformance ExpressRoute gateway*.
 
-:::code language="json" source="~/quickstart-templates/101-expressroute-private-peering-vnet/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/101-expressroute-private-peering-vnet/azuredeploy.json" range="001-351" highlight="183-219":::
 
 Multiple Azures resources have been defined in the template:
 
 * [**Microsoft.Network/expressRouteCircuits**](/azure/templates/microsoft.network/expressRouteCircuits)
 * [**Microsoft.Network/expressRouteCircuits/peerings**](/azure/templates/microsoft.network/expressRouteCircuits/peerings) (Used to enabled private peering on the circuit)
-* [**Microsoft.Network/networkSecurityGroups**](/azure/templates/microsoft.network/networkSecurityGroups) (NSG is applied to the subnets in the virtual network)
+* [**Microsoft.Network/networkSecurityGroups**](/azure/templates/microsoft.network/networkSecurityGroups) (network security group is applied to the subnets in the virtual network)
 * [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualNetworks) 
 * [**Microsoft.Network/publicIPAddresses**](/azure/templates/microsoft.network/publicIPAddresses) (Public IP is used by the ExpressRoute gateway)
 * [**Microsoft.Network/virtualNetworkGateways**](/azure/templates/microsoft.network/virtualNetworkGateways) (ExpressRoute gateway is used to link VNet to the circuit)
@@ -73,7 +73,7 @@ To find more templates that are related to ExpressRoute, see [Azure Quickstart T
 
 It takes about 20 minutes to deploy the template. When completed, the output is similar to:
 
-:::image type="content" source="./media/quickstart-create-expressroute-vnet/er-arm-psoutput.png" alt-text="ExpressRoute Resource Manager template PowerShell deployment output":::
+:::image type="content" source="./media/quickstart-create-expressroute-vnet/expressroute-arm-powershell-output.png" alt-text="ExpressRoute Resource Manager template PowerShell deployment output":::
 
 Azure PowerShell is used to deploy the template. In addition to Azure PowerShell, you can also use the Azure portal, Azure CLI, and REST API. To learn other deployment methods, see [Deploy templates](../azure-resource-manager/templates/deploy-portal.md).
 
@@ -87,20 +87,23 @@ Azure PowerShell is used to deploy the template. In addition to Azure PowerShell
 
 1. The resource group should contain the following resources seen here:
 
-     :::image type="content" source="./media/quickstart-create-expressroute-vnet/er-arm-rg.png" alt-text="ExpressRoute deployment resource group":::
+     :::image type="content" source="./media/quickstart-create-expressroute-vnet/expressroute-arm-resource-group.png" alt-text="ExpressRoute deployment resource group":::
 
 1. Select the ExpressRoute circuit **er-ck01** to verify that the circuit status is **Enabled**, provider status is **Not provisioned** and private peering has the status of **Provisioned**.
 
-    :::image type="content" source="./media/quickstart-create-expressroute-vnet/er-arm-circuit.png" alt-text="ExpressRoute deployment circuit":::
+    :::image type="content" source="./media/quickstart-create-expressroute-vnet/expressroute-arm-circuit.png" alt-text="ExpressRoute deployment circuit":::
+
+> [!NOTE]
+> You will need to call the provider to complete the provisioning process before you can link the virtual network to the circuit.
 
 ## Clean up resources
 
-When you're done, delete the resource groups, ExpressRoute circuit, and all related resources using [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup).
+When you no longer need the resources that you created with the ExpressRoute circuit, delete the resource group. This removes the ExpressRoute circuit and all the related resources.
+
+To delete the resource group, call the `Remove-AzResourceGroup` cmdlet:
 
 ```azurepowershell-interactive
-$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
-Remove-AzResourceGroup -Name $resourceGroupName
-Write-Host "Press [ENTER] to continue..."
+Remove-AzResourceGroup -Name <your resource group name>
 ```
 
 ## Next steps
@@ -110,7 +113,7 @@ In this quickstart, you created a:
 * Virtual Network
 * VPN Gateway
 * Public IP
-* Network Security Group
+* network security groups
 
 To learn more about linking a virtual network to a circuit, continue to the ExpressRoute tutorials.
 
