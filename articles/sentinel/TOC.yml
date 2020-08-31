@@ -54,6 +54,8 @@
         href: connect-microsoft-defender-advanced-threat-protection.md
       - name: Azure ATP
         href: connect-azure-atp.md
+      - name: Azure Firewall
+        href: connect-azure-firewall.md
       - name: Azure Security Center
         href: connect-azure-security-center.md
       - name: Azure Security Center for IoT
