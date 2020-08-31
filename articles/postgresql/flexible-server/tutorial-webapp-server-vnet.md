@@ -48,7 +48,7 @@ This command performs the following actions, which may take a few minutes:
 
 > [!NOTE]
 > - Make a note of your password that will be generate for you if not provided. If you forget the password you would have to reset the password using ``` az postgres flexible-server update``` command
-> - If you are not using App Service Environment , you would need to enable Allow any Azure IPs . Create a private flexible server inside a virtual network (VNET) using the following command: 
+> - If you are not using App Service Environment , you would need to enable Allow access from any Azure IPs using this command. 
 >  ```azurecli
 >  az postgres flexible-server firewall-rule list --resource-group myresourcegroup --server-name mydemoserver --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
 >  ```
