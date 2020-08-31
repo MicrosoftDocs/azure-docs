@@ -1,11 +1,11 @@
 ---
 title: 'Tutorial: Share outside your org - Azure Data Share'
 description: Tutorial - Share data with customers and partners using Azure Data Share  
-author: joannapea
-ms.author: joanpo
+author: jifems
+ms.author: jife
 ms.service: data-share
 ms.topic: tutorial
-ms.date: 07/30/2020
+ms.date: 08/28/2020
 ---
 # Tutorial: Share data using Azure Data Share  
 
@@ -87,7 +87,7 @@ Create an Azure Data Share resource in an Azure resource group.
 
 1. When the deployment is complete, select **Go to resource**.
 
-## Create a Data Share
+## Create a share
 
 1. Navigate to your Data Share Overview page.
 

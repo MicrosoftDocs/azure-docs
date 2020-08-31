@@ -32,7 +32,7 @@ Ensure that all pre-requisites are complete before accepting a data share invita
 * Permission to write to the storage account, which is present in *Microsoft.Storage/storageAccounts/write*. This permission exists in the Contributor role. 
 * Permission to add role assignment to the storage account, which is present in *Microsoft.Authorization/role assignments/write*. This permission exists in the Owner role.  
 
-### Receive data into a SQL-based source:
+### Receive data into a SQL-based target:
 
 * Permission to write to databases on the SQL server, which is present in *Microsoft.Sql/servers/databases/write*. This permission exists in the Contributor role. 
 * Permission for the data share resource's managed identity to access the Azure SQL Database or Azure SQL Data Warehouse. This can be done through the following steps: 
