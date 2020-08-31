@@ -85,16 +85,18 @@ This command performs the following actions, which may take a few minutes:
 
 - Create the resource group if it doesn't already exist.
 - Generates a server name if it is not provided.
-- Create a new virtual network for your new postgreSQL server. Make a note of virtual network name and subnet name created for your server since you need to add the web app to the same virtual network.
-- Creates admin username , password for your server if not provided.
+- Create a new virtual network for your new postgreSQL server. **Make a note of virtual network name and subnet name** created for your server since you need to add the web app to the same virtual network.
+- Creates admin username , password for your server if not provided. **Make a note of the username and password** to use in the next step.
 - Create a database ```pollsdb``` for your Django sample application
 
 > [!NOTE]
 > Make a note of your password that will be generate for you if not provided. If you forget the password you would have to reset the password using ``` az postgres flexible-server update``` command
 
+
 ## Deploy the code to Azure App Service
 
 In this section, you create app host in App Service app, connect this app to the Postgres database, then deploy your code to that host.
+
 
 ### Create the App Service web app in a virtual network
 
@@ -129,9 +131,6 @@ az webapp config appsettings set --settings DJANGO_ENV="production" DBHOST="<pos
 > [!TIP]
 > Many Azure CLI commands cache common parameters, such as the name of the resource group and App Service plan, into the file *.azure/config*. As a result, you don't need to specify all the same parameter with later commands. For example, to redeploy the app after making changes, you can just run `az webapp up` again without any parameters.
 
-> [!NOTE]
-> If you attempt to visit the app's URL at this point, you encounter the error "DisallowedHost at /". This error happens because you have not yet configured the app to use the production settings discussed earlier, which you do in the following section.
-
 ### Run Django database migrations
 
 Django database migrations ensure that the schema in the PostgreSQL on Azure database match those described in your code.
@@ -155,8 +154,6 @@ Django database migrations ensure that the schema in the PostgreSQL on Azure dat
 
 1. The `createsuperuser` command prompts you for superuser credentials. For the purposes of this tutorial, use the default username `root`, press **Enter** for the email address to leave it blank, and enter `Pollsdb1` for the password.
 
-
-
 ### Create a poll question in the app
 
 1. In a browser, open the URL *http:\//\<app-name>.azurewebsites.net*. The app should display the message "No polls are available" because there are no specific polls yet in the database.
@@ -166,8 +163,6 @@ Django database migrations ensure that the schema in the PostgreSQL on Azure dat
 1. Browse again to *http:\//\<app-name>.azurewebsites.net/* to confirm that the questions are now presented to the user. Answer questions however you like to generate some data in the database.
 
 **Congratulations!** You're running a Python Django web app in Azure App Service for Linux, with an active Postgres database.
-
-
 
 > [!NOTE]
 > App Service detects a Django project by looking for a *wsgi.py* file in each subfolder, which `manage.py startproject` creates by default. When App Service finds that file, it loads the Django web app. For more information, see [Configure built-in Python image](configure-language-python.md).
