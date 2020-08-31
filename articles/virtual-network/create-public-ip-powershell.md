@@ -113,8 +113,8 @@ $alloc = 'Static'
 
 New-AzPublicIpAddress -ResourceGroupName $rg -Name $pubIP -Location $loc -AllocationMethod $alloc -SKU $sku
 ```
-
 NOTE: If it is acceptable for the IP address to change over time, **Dynamic** IP assignment can be selected by changing the AllocationMethod to 'Dynamic'.
+
 ---
 
 ## Additional Information 

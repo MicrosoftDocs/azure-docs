@@ -88,8 +88,8 @@ Use the following steps to create a basic static public IP address named **myBas
     | Subscription            | Select your subscription.   |
     | Resource group          | Select **Create new** , enter myResourceGroup, then select **OK** |
     | Location                | Select **East US 2**      |
-
 NOTE: If it is acceptable for the IP address to change over time, **Dynamic** IP assignment can be selected.
+
 ---
 
 ## Additional Information 

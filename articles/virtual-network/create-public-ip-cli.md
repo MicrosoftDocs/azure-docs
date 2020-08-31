@@ -93,8 +93,8 @@ Use [az network public-ip create](https://docs.microsoft.com/cli/azure/network/p
     --sku Standard
     --allocation-method Static
 ```
-
 NOTE: If it is acceptable for the IP address to change over time, **Dynamic** IP assignment can be selected by changing the allocation-method to 'Dynamic'.
+
 ---
 
 ## Additional Information 
