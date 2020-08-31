@@ -4,9 +4,9 @@ description: The Azure Cognitive Search security baseline provides procedural gu
 author: msmbaldwin
 ms.service: search
 ms.topic: conceptual
-ms.date: 08/28/2020
+ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
+ms.custom: subject-security-benchmark
 
 # Important: This content is machine generated; do not modify this topic directly. Contact mbaldwin for more information.
 
@@ -30,9 +30,9 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 
 **Guidance**: Configure your search service's firewall by restricting access to clients from specific public IP address ranges, select virtual networks, or specific Azure resources. You can also configure Private Endpoints so traffic to the search service from your enterprise travels exclusively over private networks.
 
-- [How to configure the Azure Cognitive Search firewall](service-configure-firewall.md)
++ [How to configure the Azure Cognitive Search firewall](service-configure-firewall.md)
 
-- [How to configure Private Endpoints for Azure Cognitive Search](service-create-private-endpoint.md)
++ [How to configure Private Endpoints for Azure Cognitive Search](service-create-private-endpoint.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -43,7 +43,7 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33329.).
 
-**Guidance**: Azure Cognitive Search cannot be deployed directly into a virtual network, but if your client application or data sources are in a virtual network, you can monitor and log traffic for those in-network components, including requests sent to a search service in the cloud. Standard recommendations include enabling a network security group flow log and sending logs to either Azure Storage or a Log Analytics workspace. You could optionally use Traffic Analytics for insights into traffic patterns.
+**Guidance**: Cognitive Search cannot be deployed directly into a virtual network, but if your client application or data sources are in a virtual network, you can monitor and log traffic for those in-network components, including requests sent to a search service in the cloud. Standard recommendations include enabling a network security group flow log and sending logs to either Azure Storage or a Log Analytics workspace. You could optionally use Traffic Analytics for insights into traffic patterns.
 
 + [How to enable network security group flow logs](../network-watcher/network-watcher-nsg-flow-logging-portal.md)
 
@@ -60,20 +60,24 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33331.).
 
-**Guidance**: None.
+**Guidance**: Cognitive Search does not provide a specific feature to combat a distributed denial-of-service attack, but you can enable DDoS Protection Standard on the virtual networks associated with your search service for general protection.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
++ [How to configure DDoS protection](../virtual-network/manage-ddos-protection.md)
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Currently not available
+
+**Responsibility**: Customer
 
 ### 1.5: Record network packets
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33332.).
 
-**Guidance**: For Azure Virtual Machines (VMs) that will be connecting to your Azure Cognitive Search service, enable network security group (NSG) flow logs for the NSGs protecting those VMs and send logs into an Azure Storage account for traffic audit. If required for investigating anomalous activity, enable Network Watcher packet capture.
+**Guidance**: For Azure Virtual Machines (VMs) that will be connecting to your Cognitive Search service, enable network security group (NSG) flow logs for the NSGs protecting those VMs and send logs into an Azure Storage account for traffic audit. If required for investigating anomalous activity, enable Network Watcher packet capture.
 
-+ [How to Enable NSG Flow Logs](../network-watcher/network-watcher-nsg-flow-logging-portal.md)+ [How to enable Network Watcher](../network-watcher/network-watcher-create.md)
++ [How to Enable NSG Flow Logs](../network-watcher/network-watcher-nsg-flow-logging-portal.md)
+
++ [How to enable Network Watcher](../network-watcher/network-watcher-create.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -84,9 +88,10 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33333.).
 
-**Guidance**: Cognitive Search does not support network intrusion detection, but as intrusion mitigation, you can configure firewall rules to specify which ports the search service accepts requests from. You can also configure a private endpoint to keep search traffic off the public internet.
+**Guidance**: Cognitive Search does not support network intrusion detection, but as an intrusion mitigation, you can configure firewall rules to specify which ports the search service accepts requests from. You can also configure a private endpoint to keep search traffic off the public internet.
 
 + [How to configure customer-managed keys for data encryption](search-security-manage-encryption-keys.md)
+
 + [How to get customer-managed key information from indexes and synonym maps](search-security-get-encryption-keys.md)
 
 **Azure Security Center monitoring**: Currently not available
@@ -109,158 +114,114 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33335.).
 
-**Guidance**: None.
+**Guidance**: For resources that need access to Cognitive Search, use Virtual Network service tags to define network access controls on network security groups or Azure Firewall. You can use service tags in place of specific IP addresses when creating security rules. By specifying the service tag name (for example, AzureCognitiveSearch) in the appropriate source or destination field of a rule, you can allow or deny the traffic for the corresponding service. Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
++ [Virtual network service tags](../virtual-network/service-tags-overview.md)
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Currently not available
 
-### 1.9: Maintain standard security configurations for network devices
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33336.).
-
-**Guidance**: None.
-
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
-
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Customer
 
 ### 1.10: Document traffic configuration rules
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33337.).
 
-**Guidance**: None.
+**Guidance**: Cognitive Search does not support deploying directly into a virtual network, but you can use tags for network resources associated with your search service in order to logically organize them according to a taxonomy.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
++ [How to create and use tags](../azure-resource-manager/management/tag-resources.md)
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-### 1.11: Use automated tools to monitor network resource configurations and detect changes
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33338.).
-
-**Guidance**: None.
-
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
-
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Customer
 
 ## Logging and monitoring
 
 *For more information, see the [Azure Security Benchmark: Logging and monitoring](/azure/security/benchmarks/security-control-logging-monitoring).*
-
-### 2.1: Use approved time synchronization sources
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33339.).
-
-**Guidance**: None.
-
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
-
-**Responsibility**: Unset. Please provide a value in the work item.
 
 ### 2.2: Configure central security log management
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33340.).
 
-**Guidance**: None.
+**Guidance**: Enable auditing for Cognitive Search to track indexing and query events and write them to an audit log in your Azure Storage Account, Log Analytics workspace, or Event Hubs.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
++ [How to collect and analyze log data for Cognitive Search](search-monitor-logs.md)
 
-**Responsibility**: Unset. Please provide a value in the work item.
++ [How to monitor query requests in Cognitive Search](search-monitor-queries.md)
+
++ [How to collect telemetry data for search traffic analytics](search-traffic-analytics.md)
+
+**Azure Security Center monitoring**: Currently not available
+
+**Responsibility**: Customer
 
 ### 2.3: Enable audit logging for Azure resources
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33341.).
 
-**Guidance**: None.
+**Guidance**: Diagnostic and operational logs provide insight into the detailed operations of Azure Cognitive Search and are useful for monitoring service and workloads accessing your service.  If you want to explore diagnostic data, you can configure a diagnostic setting to specify where logging information is collected.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+- [How to collect and analyze log data for Azure Cognitive Search](search-monitor-logs.md)
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Currently not available
 
-### 2.4: Collect security logs from operating systems
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33342.).
-
-**Guidance**: None.
-
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
-
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Customer
 
 ### 2.5: Configure security log storage retention
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33343.).
 
-**Guidance**: None.
+**Guidance**: Historical data that feeds into diagnostic metrics is preserved by Azure Cognitive Search for 30 days by default. For longer retention, be sure to enable the setting that specifies a storage option for persisting logged events and metrics.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+In Azure Monitor, set your Log Analytics workspace retention period according to your organization's compliance regulations. Use Azure Storage accounts for long-term and archival storage. 
 
-**Responsibility**: Unset. Please provide a value in the work item.
+- [Change the data retention period in Log Analytics](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period) 
+
+- [How to configure retention policy for Azure Storage account logs](../storage/common/storage-monitor-storage-account.md#configure-logging)
+
+**Azure Security Center monitoring**: Currently not available
+
+**Responsibility**: Customer
 
 ### 2.6: Monitor and review Logs
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33344.).
 
-**Guidance**: None.
+**Guidance**: Analyze and monitor logs from your Cognitive Search service for anomalous behavior. Use Azure Monitor's Log Analytics to review logs and perform queries on log data. Alternatively, you may enable and on-board data to Azure Sentinel or a third party SIEM.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
++ [How to collect and analyze log data for Cognitive Search](search-monitor-logs.md)
++ [How to monitor query requests in Cognitive Search](search-monitor-queries.md)
 
-**Responsibility**: Unset. Please provide a value in the work item.
++ [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
+
++ [Learn about Log Analytics](../azure-monitor/log-query/get-started-portal.md)
+
++ [How to perform custom queries in Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Customer
 
 ### 2.7: Enable alerts for anomalous activities
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33345.).
 
-**Guidance**: None.
+**Guidance**: Use Azure Security Center with Log Analytics workspace for monitoring and alerting on anomalous activity found in security logs and events. You can set up alerts for anomalous query or service activity, but not indexing. 
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
++ [How to create a query metric alert in Cognitive Search](search-monitor-queries.md#create-a-metric-alert)
 
-**Responsibility**: Unset. Please provide a value in the work item.
++ [How to manage alerts in Azure Security Center](../security-center/security-center-managing-and-responding-alerts.md)
 
-### 2.8: Centralize anti-malware logging
++ [How to alert on log analytics log data](../azure-monitor/learn/tutorial-response.md)
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33346.).
+**Azure Security Center monitoring**: Currently not available
 
-**Guidance**: None.
-
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
-
-**Responsibility**: Unset. Please provide a value in the work item.
-
-### 2.9: Enable DNS query logging
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33347.).
-
-**Guidance**: None.
-
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
-
-**Responsibility**: Unset. Please provide a value in the work item.
-
-### 2.10: Enable command-line audit logging
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33348.).
-
-**Guidance**: None.
-
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
-
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Customer
 
 ## Identity and access control
 
@@ -521,44 +482,11 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33371.).
 
-**Guidance**: None.
+**Guidance**: Currently not available; Azure Security Center does not yet support vulnerability assessment for Cognitive Search. Should support become available, you would be responsible for conducting the assessment. For clusters that store search service content, Microsoft is responsible for vulnerability management of those clusters.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Currently not available
 
-**Responsibility**: Unset. Please provide a value in the work item.
-
-### 5.2: Deploy automated operating system patch management solution
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33372.).
-
-**Guidance**: None.
-
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
-
-**Responsibility**: Unset. Please provide a value in the work item.
-
-### 5.3: Deploy an automated patch management solution for third-party software titles
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33373.).
-
-**Guidance**: None.
-
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
-
-**Responsibility**: Unset. Please provide a value in the work item.
-
-### 5.4: Compare back-to-back vulnerability scans
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33374.).
-
-**Guidance**: None.
-
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
-
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Shared
 
 ### 5.5: Use a risk-rating process to prioritize the remediation of discovered vulnerabilities
 
@@ -869,38 +797,29 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 
 *For more information, see the [Azure Security Benchmark: Malware defense](/azure/security/benchmarks/security-control-malware-defense).*
 
-### 8.1: Use centrally managed antimalware software
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33402.).
-
-**Guidance**: None.
-
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
-
-**Responsibility**: Unset. Please provide a value in the work item.
-
 ### 8.2: Pre-scan files to be uploaded to non-compute Azure resources
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33403.).
 
-**Guidance**: None.
+**Guidance**: Pre-scan any content being uploaded to non-compute Azure resources, such as Cognitive Search, App Service, Data Lake Storage, Blob Storage, Azure SQL Database, and so on. 
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+It is your responsibility to pre-scan any content being uploaded to non-compute Azure resources. Microsoft cannot access customer data, and therefore cannot conduct anti-malware scans of customer content on your behalf.
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Customer
 
 ### 8.3: Ensure antimalware software and signatures are updated
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33404.).
 
-**Guidance**: None.
+**Guidance**: This recommendation is intended for compute resources. Microsoft handles anti-malware for underlying platform. For any compute resources that are owned by your organization, follow recommendations in Azure Security Center, Compute &amp; Apps to ensure all endpoints are up to date with the latest signatures. For Linux, use third-party antimalware solution.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Shared
 
 ## Data recovery
 
@@ -959,66 +878,88 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33409.).
 
-**Guidance**: None.
+**Guidance**: Develop an incident response guide for your organization. Ensure there are written incident response plans that define all the roles of personnel as well as the phases of incident handling and management from detection to post-incident review.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
++ [Guidance on building your own security incident response process](https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/)
 
-**Responsibility**: Unset. Please provide a value in the work item.
++ [Microsoft Security Response Center's Anatomy of an Incident](https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/)
+
++ [Customer may also leverage NIST's Computer Security Incident Handling Guide to aid in the creation of their own incident response plan](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf)
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Customer
 
 ### 10.2: Create an incident scoring and prioritization procedure
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33410.).
 
-**Guidance**: None.
+**Guidance**: Azure Security Center assigns a severity to each alert to help you prioritize which alerts should be investigated first. The severity is based on how confident Security Center is in the finding or the analytically used to issue the alert as well as the confidence level that there was malicious intent behind the activity that led to the alert.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+Additionally, mark subscriptions using tags and create a naming system to identify and categorize Azure resources, especially those processing sensitive data. It's your responsibility to prioritize the remediation of alerts based on the criticality of the Azure resources and environment where the incident occurred.
 
-**Responsibility**: Unset. Please provide a value in the work item.
++ [Use tags to organize your Azure resources](../azure-resource-manager/management/tag-resources.md)
+
++ [Security alerts in Azure Security Center](../security-center/security-center-alerts-overview.md)
+
+**Azure Security Center monitoring**: Yes
+
+**Responsibility**: Customer
 
 ### 10.3: Test security response procedures
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33415.).
 
-**Guidance**: None.
+**Guidance**: Conduct exercises to test your systems’ incident response capabilities on a regular cadence. Identify weak points and gaps and revise plan as needed.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
++ Refer to NIST's publication: [Guide to Test, Training, and Exercise Programs for IT Plans and Capabilities](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf)
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Customer
 
 ### 10.4: Provide security incident contact details and configure alert notifications for security incidents
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33411.).
 
-**Guidance**: None.
+**Guidance**: Security incident contact information will be used by Microsoft to contact you if the Microsoft Security Response Center (MSRC) discovers that your data has been accessed by an unlawful or unauthorized party. Review incidents after the fact to ensure that issues are resolved.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
++ [How to set the Azure Security Center Security Contact](../security-center/security-center-provide-security-contact-details.md)
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Yes
+
+**Responsibility**: Customer
 
 ### 10.5: Incorporate security alerts into your incident response system
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33412.).
 
-**Guidance**: None.
+**Guidance**: Export your Azure Security Center alerts and recommendations using the Continuous Export feature. Continuous Export allows you to export alerts and recommendations either manually or on a continuous basis. You can use the Azure Security Center data connector to stream the alerts to Azure Sentinel.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
++ [How to configure continuous export](../security-center/continuous-export.md)
 
-**Responsibility**: Unset. Please provide a value in the work item.
++ [How to stream alerts into Azure Sentinel](../sentinel/connect-azure-security-center.md)
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Customer
 
 ### 10.6: Automate the response to security alerts
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33413.).
 
-**Guidance**: None.
+**Guidance**: Use the Workflow Automation feature in Azure Security Center to automatically trigger responses via "Logic Apps" on security alerts and recommendations.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
++ [How to configure Workflow Automation and Logic Apps](../security-center/workflow-automation.md)
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Currently not available
+
+**Responsibility**: Customer
 
 ## Penetration tests and red team exercises
 
@@ -1029,11 +970,11 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33414.).
 
-**Guidance**: None.
+**Guidance**: Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure your penetration tests are not in violation of Microsoft policies. Use Microsoft's strategy and execution of Red Teaming and live site penetration testing against Microsoft-managed cloud infrastructure, services, and applications.+ [Penetration Testing Rules of Engagement](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)+ [Microsoft Cloud Red Teaming](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Shared
 
 ## Next steps
 
