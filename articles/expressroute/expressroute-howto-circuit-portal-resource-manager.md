@@ -1,13 +1,14 @@
 ---
 title: 'Tutorial - Create and modify a circuit with ExpressRoute'
-description: In this tutorial, learn how to create, provision, verify, update, delete, and deprovision an ExpressRoute circuit.
+description: In this tutorial, you learn how to create, provision, verify, update, delete, and deprovision an ExpressRoute circuit.
 services: expressroute
-author: cherylmc
+author: duongau
 
 ms.service: expressroute
 ms.topic: tutorial
-ms.date: 10/20/2018
-ms.author: cherylmc
+ms.date: 08/28/2020
+ms.author: duau
+ms.custom: contperfq1
 
 ---
 
@@ -22,7 +23,15 @@ ms.author: cherylmc
 > * [PowerShell (classic)](expressroute-howto-circuit-classic.md)
 >
 
-This article helps you create an ExpressRoute circuit using the Azure portal and the Azure Resource Manager deployment model. You can also check the status, update, delete, or deprovision a circuit.
+This tutorial shows you how to create an ExpressRoute circuit using the Azure portal and the Azure Resource Manager deployment model. You can also check the status, update, delete, or deprovision a circuit.
+
+In this tutorial you learn how to:
+
+> [!div class="checklist"]
+> * Create an ExpressRoute circuit
+> * Get current status of a circuit
+> * Modify a circuit
+> * Deprovision and delete a circuit
 
 ## Before you begin
 
