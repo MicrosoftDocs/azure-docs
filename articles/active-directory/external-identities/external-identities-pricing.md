@@ -34,13 +34,13 @@ To take advantage of MAU billing, your Azure AD tenant must be linked to an Azur
 
 ## About monthly active users (MAU) billing
 
-Within your Azure AD tenant, guest user collaboration usage is billed based on the count of unique guest users with authentication activity within a calendar month. This model replaces the 1:5 ratio billing model, which allowed up to 5 guest users for each Azure AD Premium license in your tenant. When your tenant is linked to a subscription and you use External Identities features to collaborate with guest users, you'll be automatically billed using the MAU-based billing model.
+In your Azure AD tenant, guest user collaboration usage is billed based on the count of unique guest users with authentication activity within a calendar month. This model replaces the 1:5 ratio billing model, which allowed up to five guest users for each Azure AD Premium license in your tenant. When your tenant is linked to a subscription and you use External Identities features to collaborate with guest users, you'll be automatically billed using the MAU-based billing model.
   
 The pricing tier that applies to your guest users is based on the highest pricing tier assigned to your Azure AD tenant. For example, if the highest pricing tier in your tenant is Azure AD Premium P1, the Premium P1 pricing tier also applies to your guest users. If the highest pricing is Azure AD Free, you'll be asked to upgrade to a premium pricing tier when you try to use premium features for guest users.
 
 ## Link your Azure AD tenant to a subscription
 
-An Azure AD tenant must be linked to an Azure subscription for proper billing and access to features included in the subscription.
+An Azure AD tenant must be linked to an Azure subscription for proper billing and access to features.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) with an Azure account that's been assigned at least the [Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) role within the subscription or a resource group within the subscription.
 
@@ -62,7 +62,7 @@ An Azure AD tenant must be linked to an Azure subscription for proper billing an
 
     ![Subscription tenant, Directory + Subscription filter with subscription tenant selected](media/external-identities-pricing/link-subscription-resource.png)
 
-After you complete these steps, your Azure subscription is billed in accordance with your Azure Direct or Enterprise Agreement details, if applicable.
+After you complete these steps, your Azure subscription is billed based on your Azure Direct or Enterprise Agreement details, if applicable.
 
 ## Next steps
 
