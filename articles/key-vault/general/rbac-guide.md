@@ -152,15 +152,15 @@ az role assignment create --role "Key Vault Secrets Officer (preview)" --assigne
 
 Go to key vault Access control (IAM) tab and remove "Key Vault Secrets Officer (preview)" role assignment for this resource.
 
-    ![Remove assignment - key vault](../media/rbac/image9.png)
+   ![Remove assignment - key vault](../media/rbac/image9.png)
 
 Navigate to previously created secret. You can see all secret properties.
 
-    ![Secret view with access](../media/rbac/image10.png)
+   ![Secret view with access](../media/rbac/image10.png)
 
 Create new secret ( Secrets \> +Generate/Import) should show below error:
 
-    ![Create new secret](../media/rbac/image11.png)
+   ![Create new secret](../media/rbac/image11.png)
 
 2.  Validate secret editing without "Key Vault Secret Officer" role on secret level.
 
