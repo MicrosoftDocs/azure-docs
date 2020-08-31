@@ -52,8 +52,6 @@ To encode the incoming message, configure the schema in the EDIFACT agreement se
 
 1. Configure the schema in the EDIFACT agreement's send settings.
 
-1. Select EDIFACT agreement and click **Edit as JSON**.  Add UNH2.5 value in the Send Agreement **schemaReferences**
-
 1. Select the EDIFACT agreement, and select **Edit as JSON**. Add the UNH2.5 value to the Send Agreement's `schemaReferences` section:
 
    ![Add UNH2.5 to send agreement](./media/logic-apps-enterprise-integration-edifact_inputfile_unh2.5/image2.png)

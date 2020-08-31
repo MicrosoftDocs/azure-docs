@@ -4,7 +4,7 @@ description: Install the runtime, SDK, and tools and create a local development 
 author: peterpogorski
 ms.topic: conceptual
 ms.date: 06/16/2020
-ms.custom: sfrev
+ms.custom: sfrev, devx-track-azurepowershell
 ---
 # Prepare your development environment on Windows
 
