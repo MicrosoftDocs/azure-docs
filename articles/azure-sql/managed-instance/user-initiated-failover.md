@@ -111,7 +111,7 @@ Operation status can be tracked through reviewing API responses in response head
 
 ## Permissions required
 
-Azure RBAC permission required to execute user-initiated failover is:
+Azure RBAC permission required to execute user-initiated manual failover is:
 
 Microsoft.Sql/managedInstanes/failover/action
 
