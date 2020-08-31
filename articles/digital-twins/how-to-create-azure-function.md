@@ -171,9 +171,9 @@ Select **Azure** as the publishing target and select **Next**.
 
 :::image type="content" source="media/how-to-create-azure-function/publish-azure-function-3.png" alt-text="Visual Studio: publish function dialog, Create a new Azure Function":::
 
-:::image type="content" source="media/how-to-create-azure-function/publish-azure-function-4.png" alt-text="Visual Studio: publish function dialog, Fill in the fields and select create":::
+:::image type="content" source="media/how-to-create-azure-function/publish-azure-function-4.png" alt-text="Visual Studio: publish function dialog, Fill in the fields, and select create":::
 
-:::image type="content" source="media/how-to-create-azure-function/publish-azure-function-5.png" alt-text="Visual Studio: publish function dialog, Select your function app from the list and finish":::
+:::image type="content" source="media/how-to-create-azure-function/publish-azure-function-5.png" alt-text="Visual Studio: publish function dialog, Select your function app from the list, and finish":::
 
 On the following page, enter the desired name for the new function app, a resource group, and other details.
 For your Functions app to be able to access Azure Digital Twins, it needs to have a system-managed identity and have permissions to access your Azure Digital Twins instance.
@@ -201,7 +201,7 @@ Use the _principalId_ value in the following command to assign the function app'
 ```azurecli	
 az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<principal-ID>" --role "Azure Digital Twins Owner (Preview)"
 ```
-Lastly, you can make the URL of your Azure Digital Twins instance accessible to your function by setting an environment variable. For more information on this, see [*Environment variables*](https://docs.microsoft.com/sandbox/functions-recipes/environment-variables). 
+Lastly, you can make the URL of your Azure Digital Twins instance accessible to your function by setting an environment variable. For more information on setting an environment variables, see [*Environment variables*](https://docs.microsoft.com/sandbox/functions-recipes/environment-variables). 
 
 > [!TIP]
 > The Azure Digital Twins instance's URL is made by adding *https://* to the beginning of your Azure Digital Twins instance's *hostName*. To see the hostName, along with all the properties of your instance, you can run `az dt show --dt-name <your-Azure-Digital-Twins-instance>`.
@@ -221,7 +221,7 @@ On the function app window, select _Identity_ in the navigation bar on the left 
 Under _System assigned_ tab, toggle the _Status_ to On and _save_ it. You will see a pop-up to _Enable system assigned managed identity_.
 Select _Yes_ button. 
 
-:::image type="content" source="media/how-to-create-azure-function/enable-system-managed-identity.png" alt-text="Azure portal: enable system managed identity":::
+:::image type="content" source="media/how-to-create-azure-function/enable-system-managed-identity.png" alt-text="Azure portal: enable system-managed identity":::
 
 You can verify in the notifications that your function is successfully registered with Azure Active Directory.
 
@@ -254,7 +254,7 @@ You can make the URL of your Azure Digital Twins instance accessible to your fun
 
 Once your Azure function is created, search for your function with function name in the search bar and select the function from the list.
 
-:::image type="content" source="media/how-to-create-azure-function/search-for-azure-function.png" alt-text="Azure portal: Search for existing azure function":::
+:::image type="content" source="media/how-to-create-azure-function/search-for-azure-function.png" alt-text="Azure portal: Search for existing Azure function":::
 
 You'll need ADT_SERVICE_URL and ADT_INSTANCE_URL to create an application setting.
 
