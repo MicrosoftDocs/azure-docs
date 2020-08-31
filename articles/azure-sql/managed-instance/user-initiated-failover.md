@@ -115,7 +115,7 @@ Azure RBAC permission required to execute user-initiated manual failover is:
 
 Microsoft.Sql/managedInstanes/failover/action
 
-This is needed if, for example, you are creating a custom RBAC role. Please note that the permission to manually initiate failover is already included in the [Managed Instance Contributor] (../../azure/role-based-access-control/built-in-roles.md#sql-managed-instance-contributor) role. 
+This is needed if, for example, you are creating a custom RBAC role. Please note that the permission to manually initiate failover is already included in the [Managed Instance Contributor](../../azure/role-based-access-control/built-in-roles.md#sql-managed-instance-contributor) role. 
 
 ## Monitor the failover
 
