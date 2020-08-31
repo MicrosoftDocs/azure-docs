@@ -10,6 +10,7 @@ ms.topic: how-to
 ms.date: 08/10/2020
 ms.author: tamram
 ms.subservice: blobs
+ms.custom: devx-track-csharp
 ---
 
 # Enable and manage blob versioning (preview)
@@ -19,6 +20,8 @@ You can enable Blob storage versioning (preview) to automatically maintain previ
 This article shows how to enable or disable blob versioning for the storage account by using the Azure portal or an Azure Resource Manager template.
 
 You must register for the preview before enabling blob versioning. To learn more about the blob versioning, including how to register for the preview, see [Blob versioning (preview)](versioning-overview.md).
+
+[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
 ## Enable blob versioning
 

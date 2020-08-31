@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 08/19/2020
+ms.date: 08/31/2020
 
 ms.author: iainfou
 author: iainfoulds
@@ -316,7 +316,7 @@ You can choose to create this key and set it to *FALSE* while your users are onb
 
 The following script is available to perform basic health check steps when troubleshooting the NPS extension.
 
-[MFA_NPS_Troubleshooter.ps1](https://docs.microsoft.com/samples/azure-samples/azure-mfa-nps-extension-health-check/azure-mfa-nps-extension-health-check/)
+[MFA_NPS_Troubleshooter.ps1](/samples/azure-samples/azure-mfa-nps-extension-health-check/azure-mfa-nps-extension-health-check/)
 
 ### How do I verify that the client cert is installed as expected?
 
@@ -391,7 +391,7 @@ Additional troubleshooting guidance and possible solutions can be found in the a
 
 ## Next steps
 
-- [Overview and configuration of Network Policy Server in Windows Server](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top)
+- [Overview and configuration of Network Policy Server in Windows Server](/windows-server/networking/technologies/nps/nps-top)
 
 - Configure alternate IDs for login, or set up an exception list for IPs that shouldn't perform two-step verification in [Advanced configuration options for the NPS extension for Multi-Factor Authentication](howto-mfa-nps-extension-advanced.md)
 

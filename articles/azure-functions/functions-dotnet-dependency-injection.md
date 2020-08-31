@@ -1,12 +1,12 @@
 ---
 title: Use dependency injection in .NET Azure Functions
 description: Learn how to use dependency injection for registering and using services in .NET functions
-author: craigshoemaker
+author: ggailey777
 
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 08/15/2020
-ms.author: cshoe
+ms.author: glenga
 ms.reviewer: jehollan
 ---
 # Use dependency injection in .NET Azure Functions
@@ -248,7 +248,7 @@ public class HttpTrigger
 
 Refer to [Options pattern in ASP.NET Core](/aspnet/core/fundamentals/configuration/options) for more details regarding working with options.
 
-### Customizing configuration sources
+## Customizing configuration sources
 
 > [!NOTE]
 > Configuration source customization is available beginning in Azure Functions host versions 2.0.14192.0 and 3.0.14191.0.
@@ -275,7 +275,8 @@ namespace MyNamespace
 
             builder.ConfigurationBuilder
                 .AddJsonFile(Path.Combine(context.ApplicationRootPath, "appsettings.json"), optional: true, reloadOnChange: false)
-                .AddJsonFile(Path.Combine(context.ApplicationRootPath, $"appsettings.{context.EnvironmentName}.json"), optional: true, reloadOnChange: false);
+                .AddJsonFile(Path.Combine(context.ApplicationRootPath, $"appsettings.{context.EnvironmentName}.json"), optional: true, reloadOnChange: false)
+                .AddEnvironmentVariables();
         }
     }
 }

@@ -5,6 +5,7 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/05/2020
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ---
 
 # Textures
@@ -64,7 +65,7 @@ void LoadMyTexture(ApiHandle<AzureSession> session, std::string textureUri)
     ApiHandle<LoadTextureAsync> textureLoad = *session->Actions()->LoadTextureFromSASAsync(params);
     textureLoad->Completed([](ApiHandle<LoadTextureAsync> res)
     {
-        if (res->IsRanToCompletion())
+        if (res->GetIsRanToCompletion())
         {
             //use res->Result()
         }

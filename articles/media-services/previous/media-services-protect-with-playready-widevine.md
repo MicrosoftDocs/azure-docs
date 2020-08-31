@@ -15,6 +15,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
+ms.custom: devx-track-csharp
 
 ---
 # Use PlayReady and/or Widevine dynamic common encryption

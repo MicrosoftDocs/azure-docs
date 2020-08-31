@@ -16,6 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/08/2019
 ms.author: willzhan
+ms.custom: devx-track-csharp
 
 ---
 # Offline FairPlay Streaming for iOS with Media Services v3
