@@ -10,26 +10,32 @@ ms.workload: identity
 ms.service: active-directory
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 08/06/2020
+ms.date: 08/31/2020
 ms.author: curtand
 ms.reviewer: kexia
+metadata ms.custom: contperfq1
 ---
 
 # Common problems with two-factor verification and your work or school account
 
-There are some common two-factor verification problems that seem to happen more frequently than any of us would like. We've put together this article to address the most common problems and some possible fixes.
+Your Azure Active Directory (Azure AD) organization can turn on two-factor verification. There are some common two-factor verification problems that seem to happen more frequently than any of us would like. We've put together this article to describe fixes for the most common problems.
 
-This content is intended if you're using an account that's administered by your work or school organization (for example, alain@contoso.com). If you have two-factor verification problems with a personal Microsoft account you set up for a Microsoft service, such as danielle@outlook.com, see [Turning two-factor verification on or off for your Microsoft account](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off).
+When two-factor verification is on, your account sign-in requires a combination of the following data:
 
-If you're an administrator, you can find more information about how to set up and manage your Azure AD environment in the [Azure AD documentation](https://docs.microsoft.com/azure/active-directory).
+- Your user name
+- Your password
+- A mobile device or phone
 
-## My mobile device is lost or stolen
+Two-factor verification is more secure than just a password, because two-factor verification requires something you _know_ plus something you _have_. No hacker has your physical phone.
 
-If you've lost or had your mobile device stolen, you can either sign in using a different method or you can ask your organization's Help desk to clear your settings. We strongly recommend letting your organization's Help desk know if your phone was lost or stolen, so the appropriate updates can be made to your account. After your settings are cleared, you'll be prompted to [register for two-factor verification](multi-factor-authentication-end-user-first-time.md) the next time you sign in.
+>[!Important]
+>If you're an administrator, you can find more information about how to set up and manage your Azure AD environment in the [Azure AD documentation](../index.yml).
+
+This content is intended to assist you with your work or school account, which is the account provided to you by your organization (for example, dritan@contoso.com). If you're having problems with two-factor verification on a personal Microsoft account, which is an account that you set up for yourself (for example, danielle@outlook.com), see [Turning two-factor verification on or off for your Microsoft account](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off).
 
 ## I don't have my mobile device with me
 
-It happens to everyone. If you leave your mobile device at home, you can't use your phone to verify who you are. If you have another method to sign in to your account, such as your office phone, try to use that method now. If you never added an additional verification method, you'll have to contact your organization's Help desk and have them help you get back into your account.
+It happens. You left your mobile device at home, and now you can't use your phone to verify who you are. Maybe you previously added an alternative method to sign in to your account, such as through your office phone. If so, you can use this alternative method now. If you never added an alternative verification method, you can contact your organization's Help desk for assistance.
 
 ### To sign in to your work or school account using another verification method
 
@@ -43,54 +49,73 @@ It happens to everyone. If you leave your mobile device at home, you can't use y
 
 ## I can't turn two-factor verification off
 
-- If you're using two-factor verification with a personal account for a Microsoft service, like alain@outlook.com, you have the ability to turn the feature on and off. For instructions about how to control two-factor verification for your personal accounts, see [Turning two-factor verification on or off for your Microsoft account](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off).
+- If you're using two-factor verification with a personal account for a Microsoft service, like alain@outlook.com, you can [turn the feature on and off](https://account.live.com/proofs/Manage).
 
-- If you're using two-factor verification with your work or school account (for example, alain@contoso.com), it most likely means that your organization has decided you must use this added security feature. There is no way for you to individually turn it off.
+- If you're using two-factor verification with your work or school account, it most likely means that your organization has decided you must use this added security feature. There is no way for you to individually turn it off.
 
 If you can't turn off two-factor verification, it could also be because of the security defaults that have been applied at the organization level. For more information about security defaults, see [What are security defaults?](../fundamentals/concept-fundamentals-security-defaults.md)
 
-## I'm not getting the verification code sent to my mobile device
+## My device was lost or stolen
 
-Not getting your verification code is a common problem and it's typically related to your mobile device and its settings. Some possible things to try:
+If you've lost or had your mobile device stolen, you can take either of the following actions:
+
+- Sign in using a different method.
+- Ask your organization's Help desk to clear your settings.
+
+We strongly recommend letting your organization's Help desk know if your phone was lost or stolen. The Help desk can make the appropriate updates to your account. After your settings are cleared, you'll be prompted to [register for two-factor verification](multi-factor-authentication-end-user-first-time.md) the next time you sign in.
+
+## I'm not receiving the verification code sent to my mobile device
+
+Not receiving your verification code is a common problem. The problem is typically related to your mobile device and its settings. Here are some actions you can try.
 
 Try this | Guidance info
 --------- | ------------
-Restart your mobile device | Sometimes your device just needs a refresh. Restarting your device ends any background processes or services that are currently running and could cause problems, along with refreshing your device's core components, restarting them in case they crashed at some point.
+Restart your mobile device | Sometimes your device just needs a refresh. When you restart your device, all background processes and services are ended. The restart also shuts down the core components of your device. Any service or component is refreshed when you restart your device.
 Verify your security information is correct | Make sure your security verification method information is accurate, especially your phone numbers. If you put in the wrong phone number, all of your alerts will go to that incorrect number. Fortunately, that user won't be able to do anything with the alerts, but it also won't help you sign in to your account. To make sure your information is correct, see the instructions in the [Manage your two-factor verification method settings](multi-factor-authentication-end-user-manage-settings.md) article.
-Verify your notifications are turned on | Make sure your mobile device has notifications turned on and that you've selected a notification method that allows phone calls, your authentication app, and your messaging app (for text messages) to send visible alert notifications to your mobile device.
-Make sure you have a device signal and Internet connection | Make sure your phone calls and text messages are getting through to your mobile device. Have a friend call you and send you a text message to make sure you receive both. If you don't, first check to make sure your mobile device is turned on. If your device is turned on, but you're still not getting the call or text, it's most likely a problem with your network and you'll need to talk to your provider. If you often have signal-related problems, we recommend you install and use the [Microsoft Authenticator app](user-help-auth-app-download-install.md) on your mobile device. The authenticator app can generate random security codes for sign-in, without requiring any cell signal or Internet connection.
+Verify your notifications are turned on | Make sure your mobile device has notifications turned on. Ensure the following notification modes are allowed: <br/><br/> &bull; Phone calls <br/> &bull; Your authentication app <br/> &bull; Your text messaging app <br/><br/> Ensure these modes create an alert that is _visible_ on your device.
+Make sure you have a device signal and Internet connection | Make sure your phone calls and text messages are getting through to your mobile device. Have a friend call you and send you a text message to make sure you receive both. If you don't receive the call or text, first check to make sure your mobile device is turned on. If your device is turned on, but you're still not receiving the call or text, there's probably a problem with your network. You'll need to talk to your provider. If you often have signal-related problems, we recommend you install and use the [Microsoft Authenticator app](user-help-auth-app-download-install.md) on your mobile device. The authenticator app can generate random security codes for sign-in, without requiring any cell signal or Internet connection.
 Turn off Do not disturb | Make sure you haven't turned on the **Do not disturb** feature for your mobile device. When this feature is turned on, notifications aren't allowed to alert you on your mobile device. Refer to your mobile device's manual for instructions about how to turn off this feature.
 Unblock phone numbers | In the United States, voice calls from Microsoft come from the following numbers: +1 (866) 539 4191, +1 (855) 330 8653, and +1 (877) 668 6536.
-Check your battery-related settings | If you set up your battery optimization to stop lesser-used apps from remaining active in the background, your notification system has most likely been affected. Turn off battery optimization for your authentication app and your messaging app, and then try to sign in to your account again.
-Disable third-party security apps | If you have an app that checks text messages or phone calls to minimize unknown callers, they may prevent the verification code being received. Try disabling any non-Microsoft security apps on your phone, then request another verification code.
+Check your battery-related settings | If you set your battery optimization to stop less frequently used apps from remaining active in the background, your notification system has probably been affected. Try turning off battery optimization for both your authentication app and your messaging app. Then try to sign in to your account again.
+Disable third-party security apps | Some phone security apps block text messages and phone calls from annoying unknown callers. A security app might prevent your phone from receiving the verification code. Try disabling any third-party security apps on your phone, and then request that another verification code be sent.
 
-## I'm not getting prompted for my second verification information
+## I'm not being prompted for my second verification information
 
-Maybe you haven't set up your device yet. Your mobile device has to be set up to work with your specific additional security verification method. For the steps to make your mobile device available to use with your verification method, see [Manage your two-factor verification method settings](multi-factor-authentication-end-user-manage-settings.md). If you know you haven't set up your device or your account, you can follow the steps in the [Set up my account for two-step verification](multi-factor-authentication-end-user-first-time.md) article.
+You sign in to your work or school account by using your user name and password. Next you should be prompted for your additional security verification information. If you are not prompted, maybe you haven't yet set up your device. Your mobile device must be set up to work with your specific additional security verification method.
 
-## I got a new phone number and I want to add it
+Maybe you haven't set up your device yet. Your mobile device has to be set up to work with your specific additional security verification method. For the steps to make your mobile device available to use with your verification method, see [Manage your two-factor verification method settings](multi-factor-authentication-end-user-manage-settings.md). If you know that you haven't set up your device or your account yet, you can follow the steps in the [Set up my account for two-step verification](multi-factor-authentication-end-user-first-time.md) article.
 
-If you've gotten a new phone number, you'll need to update your security verification method details so your verification prompts go to the right location. To do update your verification method, follow the steps in the **Add or change your phone number** section of the [Manage your two-factor verification method settings](multi-factor-authentication-end-user-manage-settings.md#add-or-change-your-phone-number) article.
+## I have a new phone number and I want to add it
 
-## I got a new mobile device and I want to add it
+If you have a new phone number, you'll need to update your security verification method details. This enables your verification prompts to go to the right location. To update your verification method, follow the steps in the **Add or change your phone number** section of the [Manage your two-factor verification method settings](multi-factor-authentication-end-user-manage-settings.md#add-or-change-your-phone-number) article.
 
-If you've gotten a new mobile device, you'll need to set it up to work with two-factor verification. This is a multi-step solution:
+## I have a new mobile device and I want to add it
 
-1. Set up your device to work with your work or school account by following the steps in the [Set up my account for two-step verification](multi-factor-authentication-end-user-first-time.md) article.
+If you have a new mobile device, you'll need to set it up to work with two-factor verification. This is a multi-step solution:
 
-1. Update your account and device information in the **Additional security verification** page, deleting your old device and adding your new one. For more information, see the [Manage your two-factor verification method settings](multi-factor-authentication-end-user-manage-settings.md) article.
+1. Set up your device to work with your account by following the steps in the [Set up my account for two-step verification](multi-factor-authentication-end-user-first-time.md) article.
 
-1. Turn on two-factor verification for your trusted devices by following the steps in the **Turn on two-factor verification prompts on a trusted device** section of the [Manage your two-factor verification method settings](multi-factor-authentication-end-user-manage-settings.md#turn-on-two-factor-verification-prompts-on-a-trusted-device) article.
+1. Update your account and device information in the **Additional security verification** page. Perform the update by deleting your old device and adding your new one. For more information, see the [Manage your two-factor verification method settings](multi-factor-authentication-end-user-manage-settings.md) article.
 
-You can install the Microsoft Authenticator app on your mobile device by following the steps in the [Download and install the Microsoft Authenticator app](user-help-auth-app-download-install.md) article.
+Optional steps:
+
+- Install the Microsoft Authenticator app on your mobile device by following the steps in the [Download and install the Microsoft Authenticator app](user-help-auth-app-download-install.md) article.
+
+- Turn on two-factor verification for your trusted devices by following the steps in the **Turn on two-factor verification prompts on a trusted device** section of the [Manage your two-factor verification method settings](multi-factor-authentication-end-user-manage-settings.md#turn-on-two-factor-verification-prompts-on-a-trusted-device) article.
 
 ## I'm having problems signing in on my mobile device while traveling
 
-You might find it more difficult to use a mobile device-related verification method, like a text messaging, while you're in an international location. It's also possible that your mobile device can cause you to incur roaming charges. For this situation, we recommend you use the Microsoft Authenticator app, with the option to connect to a Wi-Fi hotspot. For more information about how to download, install, and set up the Microsoft Authenticator app on your mobile device, see the [Download and install the Microsoft Authenticator app](user-help-auth-app-download-install.md) article.
+You might find it more difficult to use a mobile device-related verification method, like a text messaging, while you're in an international location. It's also possible that your mobile device can cause you to incur roaming charges. For this situation, we recommend you use the Microsoft Authenticator app, with the option to connect to a Wi-Fi hot spot. For more information about how to set up the Microsoft Authenticator app on your mobile device, see the [Download and install the Microsoft Authenticator app](user-help-auth-app-download-install.md) article.
 
 ## I can't get my app passwords to work
 
-Make sure you typed the password correctly. If that doesn't fix it, try creating a new app password for the app by following the steps in the **Create and delete app passwords using the My Apps portal** section of the [Manage app passwords for two-step verification](multi-factor-authentication-end-user-app-passwords.md#create-and-delete-app-passwords-from-the-additional-security-verification-page) article.
+App passwords replace your normal password for older desktop applications that don't support two-factor verification. First, make sure you typed the password correctly. If that doesn't fix it, try creating a new app password for the app. Do this by following the steps in the **Create and delete app passwords using the My Apps portal** section of the [Manage app passwords for two-step verification](multi-factor-authentication-end-user-app-passwords.md#create-and-delete-app-passwords-from-the-additional-security-verification-page) article.
+
+## I can't turn off two-factor verification
+
+If you're using two-factor verification with your work or school account (for example, alain@contoso.com), it most likely means that your organization has decided you must use this added security feature. Because your organization has decided you must use this feature, there is no way for you to individually turn it off. If, however, you're using two-factor verification with a personal account, like alain@outlook.com, you have the ability to turn the feature on and off. For instructions about how to control two-factor verification for your personal accounts, see [Turning two-factor verification on or off for your Microsoft account](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off).
+
+If you can't turn off two-factor verification, it could also be because of the security defaults that have been applied at the organization level. For more information about security defaults, see [What are security defaults?](../fundamentals/concept-fundamentals-security-defaults.md)
 
 ## I didn't find an answer to my problem
 

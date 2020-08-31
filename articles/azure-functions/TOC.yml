@@ -103,6 +103,7 @@
           href: functions-bindings-example.md
         - name: Register binding extensions
           href: functions-bindings-register.md
+          displayName: bundles, extension bundles
         - name: Binding expression patterns
           href: functions-bindings-expressions-patterns.md
         - name: Use binding return values
@@ -174,6 +175,7 @@
               href: functions-develop-vs.md
             - name: Core Tools development
               href: functions-run-local.md
+              displayName: local, runtime
         - name: Create functions
           items:
             - name: HTTP trigger
@@ -272,8 +274,6 @@
           displayName: app setting, application setting
         - name: Set the runtime version
           href: set-runtime-version.md
-        - name: Manually register an extension
-          href: install-update-binding-extensions-manual.md
         - name: Disable a function
           href: disable-function.md
         - name: Geo-disaster recovery

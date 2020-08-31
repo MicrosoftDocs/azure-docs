@@ -7,7 +7,7 @@ ms.date: 07/27/2020
 
 # Create resource groups and resources at the subscription level
 
-To simplify the management of resources, you can use an Azure Resource Manager template (ARM template) to deploy resources at the level of your Azure subscription. For example, you can deploy [policies](../../governance/policy/overview.md) and [role-based access controls](../../role-based-access-control/overview.md) to your subscription, which applies them across your subscription. You can also create resource groups within the subscription and deploy resources to resource groups in the subscription.
+To simplify the management of resources, you can use an Azure Resource Manager template (ARM template) to deploy resources at the level of your Azure subscription. For example, you can deploy [policies](../../governance/policy/overview.md) and [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) to your subscription, which applies them across your subscription. You can also create resource groups within the subscription and deploy resources to resource groups in the subscription.
 
 > [!NOTE]
 > You can deploy to 800 different resource groups in a subscription level deployment.
@@ -468,7 +468,7 @@ New-AzSubscriptionDeployment `
 
 ## Access control
 
-To learn about assigning roles, see [Manage access to Azure resources using RBAC and Azure Resource Manager templates](../../role-based-access-control/role-assignments-template.md).
+To learn about assigning roles, see [Add Azure role assignments using Azure Resource Manager templates](../../role-based-access-control/role-assignments-template.md).
 
 The following example creates a resource group, applies a lock to it, and assigns a role to a principal.
 

@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
-ms.date: 7/9/2020
+ms.date: 8/7/2020
 ---
 # Azure SQL Database serverless
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -82,7 +82,7 @@ Memory for serverless databases is reclaimed more frequently than for provisione
 
 #### Cache reclamation
 
-Unlike provisioned compute databases, memory from the SQL cache is reclaimed from a serverless database when CPU or active cache utilization is low.  Note that when CPU utilization is low, active cache utilization can remain high depending on the usage pattern and prevent memory reclamation.
+Unlike provisioned compute databases, memory from the SQL cache is reclaimed from a serverless database when CPU or active cache utilization is low.
 
 - Active cache utilization is considered low when the total size of the most recently used cache entries falls below a threshold for a period of time.
 - When cache reclamation is triggered, the target cache size is reduced incrementally to a fraction of its previous size and reclaiming only continues if usage remains low.
@@ -90,6 +90,8 @@ Unlike provisioned compute databases, memory from the SQL cache is reclaimed fro
 - The cache size is never reduced below the min memory limit as defined by min vCores which can be configured.
 
 In both serverless and provisioned compute databases, cache entries may be evicted if all available memory is used.
+
+Note that when CPU utilization is low, active cache utilization can remain high depending on the usage pattern and prevent memory reclamation.  Also, there can be additional delay after user activity stops before memory reclamation occurs due to periodic background processes responding to prior user activity.  For example, delete operations generate ghost records that are marked for deletion, but are not physically deleted until the ghost cleanup process runs which can involve reading data pages into cache.
 
 #### Cache hydration
 
@@ -111,7 +113,7 @@ The following features do not support autopausing, but do support auto-scaling. 
 - Geo-replication (active geo-replication and auto-failover groups).
 - Long-term backup retention (LTR).
 - The sync database used in SQL data sync.  Unlike sync databases, hub and member databases support autopausing.
-- The job database used in elastic jobs.
+- The job database used in Elastic Jobs (preview).
 
 Autopausing is temporarily prevented during the deployment of some service updates which require the database be online.  In such cases, autopausing becomes allowed again once the service update completes.
 

@@ -66,9 +66,13 @@ $vm | Update-AzVM
 ```
 
 ### Prerequisites
+
 - The Windows VM Agent needs at least Windows Server 2008 (64-bit) to run, with the .Net Framework 4.0. See [Minimum version support for virtual machine agents in Azure](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support)
 
 - Ensure your VM has access to IP address 168.63.129.16. For more information see [What is IP address 168.63.129.16](../../virtual-network/what-is-ip-address-168-63-129-16.md).
+
+- Ensure that DHCP is enabled inside the guest VM. This is required to get the host or fabric address from DHCP for the IaaS VM Agent and extensions to work. If you need a static private IP, you should configure it through the Azure portal or PowerShell, and make sure the DHCP option inside the VM is enabled. [Learn more](https://docs.microsoft.com/azure/virtual-network/virtual-networks-static-private-ip-arm-ps#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface) about setting up a static IP address with PowerShell.
+
 
 ## Detect the VM Agent
 

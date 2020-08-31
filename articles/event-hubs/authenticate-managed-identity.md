@@ -3,6 +3,7 @@ title: Authentication a managed identity with Azure Active Directory
 description: This article provides information about authenticating a managed identity with Azure Active Directory to access Azure Event Hubs resources
 ms.topic: conceptual
 ms.date: 06/23/2020
+ms.custom: devx-track-csharp
 ---
 # Authenticate a managed identity with Azure Active Directory to access Event Hubs Resources
 Azure Event Hubs supports Azure Active Directory (Azure AD) authentication with [managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md). Managed identities for Azure resources can authorize access to Event Hubs resources using Azure AD credentials from applications running in Azure Virtual Machines (VMs), Function apps, Virtual Machine Scale Sets, and other services. By using managed identities for Azure resources together with Azure AD authentication, you can avoid storing credentials with your applications that run in the cloud.
@@ -26,7 +27,7 @@ For more information about assigning Azure roles, see [Authenticate with Azure A
 ## Use Event Hubs with managed identities
 To use Event Hubs with managed identities, you need to assign the identity the role and the appropriate scope. The procedure in this section uses a simple application that runs under a managed identity and accesses Event Hubs resources.
 
-Here we're using a sample web application hosted in [Azure App Service](https://azure.microsoft.com/services/app-service/). For step-by-step instructions for creating a web application, see [Create an ASP.NET Core web app in Azure](../app-service/app-service-web-get-started-dotnet.md)
+Here we're using a sample web application hosted in [Azure App Service](https://azure.microsoft.com/services/app-service/). For step-by-step instructions for creating a web application, see [Create an ASP.NET Core web app in Azure](../app-service/quickstart-dotnetcore.md)
 
 Once the application is created, follow these steps: 
 

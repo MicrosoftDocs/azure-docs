@@ -12,6 +12,7 @@ ms.workload:
 ms.topic: article
 ms.date: 02/17/2020
 ms.author: juliako
+ms.custom: devx-track-csharp
 ---
 
 # Create a job with multiple transform outputs

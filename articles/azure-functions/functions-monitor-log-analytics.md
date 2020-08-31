@@ -5,7 +5,7 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: cshoe
-ms.custom: devx-track-python
+ms.custom: "devx-track-csharp, devx-track-python"
 # Customer intent: As a developer, I want to monitor my functions so I can know if they're running correctly.
 ---
 

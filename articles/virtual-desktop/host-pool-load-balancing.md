@@ -1,10 +1,7 @@
 ---
 title: Windows Virtual Desktop host pool load-balancing - Azure
 description: Learn about host pool load-balancing methods for a Windows Virtual Desktop environment.
-services: virtual-desktop
 author: Heidilohr
-
-ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr

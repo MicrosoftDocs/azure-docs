@@ -69,6 +69,8 @@
           href: database/sql-vulnerability-assessment.md
         - name: Vulnerability assessment rules
           href: database/sql-database-vulnerability-assessment-rules.md
+        - name: Store vulnerability scans in storage
+          href: database/sql-database-vulnerability-assessment-storage.md
       - name: Logins, user accounts, roles, and permissions
         href: database/logins-create-manage.md
       - name: Azure AD Authentication
@@ -76,7 +78,7 @@
         items:
         - name: Configure Azure AD auth
           href: database/authentication-aad-configure.md
-        - name: Multi-factor AAD auth
+        - name: Multi-factor Azure AD auth
           href: database/authentication-mfa-ssms-overview.md
         - name: Configure multi-factor auth
           href: database/authentication-mfa-ssms-configure.md
@@ -84,6 +86,8 @@
           href: database/conditional-access-configure.md
         - name: Service principals (Applications)
           href: database/authentication-aad-service-principal.md
+        - name: Directory Readers role
+          href: database/authentication-aad-directory-readers-role.md
       - name: Transparent Data Encryption (TDE)
         items:
         - name: Overview
@@ -151,13 +155,15 @@
         href: database/long-term-backup-retention-configure.md
 
     - name: Security  
-      items: 
-      - name: Create Azure AD guest users and set as an Azure AD admin
-        href: database/authentication-aad-guest-users.md
+      items:
+      - name: Azure AD Authentication
+        items:
+        - name: Create Azure AD guest users and set as an Azure AD admin
+          href: database/authentication-aad-guest-users.md
+        - name: Assign Directory Readers role to groups
+          href: database/authentication-aad-directory-readers-role-tutorial.md
       - name: Configure TDE with BYOK
         href: database/transparent-data-encryption-byok-configure.md 
-      - name: Store vulnerability scans in storage
-        href: database/sql-database-vulnerability-assessment-storage.md
       - name: Always Encrypted
         items: 
         - name: Use the Azure key vault
@@ -219,12 +225,14 @@
         href: https://docs.microsoft.com/sql/relational-databases/clr-integration/common-language-runtime-integration-overview?toc=/azure/azure-sql/toc.json
       - name: Java
         items:
+        - name: Use Java and JDBC
+          href: database/connect-query-java.md
         - name: Use Spring Data JDBC
-          href: /azure/developer/java/spring-framework/configure-spring-data-jdbc-with-azure-sql-server?toc=/azure/azure-sql/toc.json
+          href: /azure/developer/java/spring-framework/configure-spring-data-jdbc-with-azure-sql-server?toc=/azure/azure-sql/toc.json&bc=/azure/bread/toc.json
         - name: Use Spring Data JPA
-          href: /azure/developer/java/spring-framework/configure-spring-data-jpa-with-azure-sql-server?toc=/azure/azure-sql/toc.json
+          href: /azure/developer/java/spring-framework/configure-spring-data-jpa-with-azure-sql-server?toc=/azure/azure-sql/toc.json&bc=/azure/bread/toc.json
         - name: Use Spring Data R2DBC
-          href: /azure/developer/java/spring-framework/configure-spring-data-r2dbc-with-azure-sql-server?toc=/azure/azure-sql/toc.json
+          href: /azure/developer/java/spring-framework/configure-spring-data-r2dbc-with-azure-sql-server?toc=/azure/azure-sql/toc.json&bc=/azure/bread/toc.json
 
 - name: SQL Database (SQL DB)
   items:
@@ -426,11 +434,11 @@
         - name: Java
           href: database/connect-query-java.md
         - name: Java with Spring Data JDBC
-          href: /azure/developer/java/spring-framework/configure-spring-data-jdbc-with-azure-sql-server?toc=/azure/azure-sql/toc.json
+          href: /azure/developer/java/spring-framework/configure-spring-data-jdbc-with-azure-sql-server?toc=/azure/azure-sql/toc.json&bc=/azure/bread/toc.json
         - name: Java with Spring Data JPA
-          href: /azure/developer/java/spring-framework/configure-spring-data-jpa-with-azure-sql-server?toc=/azure/azure-sql/toc.json
+          href: /azure/developer/java/spring-framework/configure-spring-data-jpa-with-azure-sql-server?toc=/azure/azure-sql/toc.json&bc=/azure/bread/toc.json
         - name: Java with Spring Data R2DBC
-          href: /azure/developer/java/spring-framework/configure-spring-data-r2dbc-with-azure-sql-server?toc=/azure/azure-sql/toc.json
+          href: /azure/developer/java/spring-framework/configure-spring-data-r2dbc-with-azure-sql-server?toc=/azure/azure-sql/toc.json&bc=/azure/bread/toc.json
         - name: Node.js
           href: database/connect-query-nodejs.md
         - name: PHP
@@ -560,7 +568,7 @@
         href: database/elastic-query-horizontal-partitioning.md
       - name: Query across tables with different schemas
         href: database/elastic-query-vertical-partitioning.md
-    - name: Elastic jobs
+    - name: Elastic jobs (preview)
       items:
       - name: Configure jobs
         href: database/elastic-jobs-overview.md 
@@ -801,6 +809,18 @@
               href: https://docs.microsoft.com/sql/machine-learning/tutorials/python-clustering-model-build?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
             - name: 4 - Deploy the model
               href: https://docs.microsoft.com/sql/machine-learning/tutorials/python-clustering-model-deploy?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
+          - name: NYC taxi tips (classification)
+            items:
+            - name: 1 - Introduction
+              href: https://docs.microsoft.com/sql/machine-learning/tutorials/python-taxi-classification-introduction?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
+            - name: 2 - Data exploration
+              href: https://docs.microsoft.com/sql/machine-learning/tutorials/python-taxi-classification-explore-data?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
+            - name: 3 - Feature engineering
+              href: https://docs.microsoft.com/sql/machine-learning/tutorials/python-taxi-classification-create-features?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
+            - name: 4 - Train and deploy
+              href: https://docs.microsoft.com/sql/machine-learning/tutorials/python-taxi-classification-train-model?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
+            - name: 5 - Predictions
+              href: https://docs.microsoft.com/sql/machine-learning/tutorials/python-taxi-classification-deploy-model?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
         - name: R
           items:
           - name: Ski rental (decision tree)
@@ -823,25 +843,52 @@
               href: https://docs.microsoft.com/sql/machine-learning/tutorials/r-clustering-model-build?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
             - name: 4 - Deploy the model
               href: https://docs.microsoft.com/sql/machine-learning/tutorials/r-clustering-model-deploy?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
-      - name: Manage Python, R packages
+          - name: NYC taxi tips (classification)
+            items:
+            - name: 1 - Introduction
+              href: https://docs.microsoft.com/sql/machine-learning/tutorials/r-taxi-classification-introduction?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
+            - name: 2 - Data exploration
+              href: https://docs.microsoft.com/sql/machine-learning/tutorials/r-taxi-classification-explore-data?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
+            - name: 3 - Feature engineering
+              href: https://docs.microsoft.com/sql/machine-learning/tutorials/r-taxi-classification-create-features?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
+            - name: 4 - Train and deploy
+              href: https://docs.microsoft.com/sql/machine-learning/tutorials/r-taxi-classification-train-model?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
+            - name: 5 - Predictions
+              href: https://docs.microsoft.com/sql/machine-learning/tutorials/r-taxi-classification-deploy-model?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
+      - name: How to
         items:
-        - name: Python
+        - name: Data exploration and modeling
           items:
-          - name: Get Python package information
-            href: https://docs.microsoft.com/sql/machine-learning/package-management/python-package-information?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
-          - name: Install with sqlmlutils
-            href: https://docs.microsoft.com/sql/machine-learning/package-management/install-additional-python-packages-on-sql-server?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
-        - name: R
+          - name: Python
+            items:
+            - name: Plot Histogram in Python
+              href: https://docs.microsoft.com/sql/machine-learning/data-exploration/python-plot-histogram?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
+            - name: Import data into pandas dataframe
+              href: https://docs.microsoft.com/sql/machine-learning/data-exploration/python-dataframe-pandas?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
+            - name: Insert dataframe into SQL
+              href: https://docs.microsoft.com/sql/machine-learning/data-exploration/python-dataframe-sql-server?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
+        - name: Predictions
           items:
-          - name: Get R package information
-            href: https://docs.microsoft.com/sql/machine-learning/package-management/r-package-information?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
-          - name: Install with sqlmlutils
-            href: https://docs.microsoft.com/sql/machine-learning/package-management/install-additional-r-packages-on-sql-server?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
-          - name: Create a miniCRAN repo
-            href: https://docs.microsoft.com/sql/machine-learning/package-management/create-a-local-package-repository-using-minicran?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
-          - name: Tips for using R packages
-            href: https://docs.microsoft.com/sql/machine-learning/package-management/tips-for-using-r-packages?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
-
+          - name: Native scoring with PREDICT T-SQL
+            href: https://docs.microsoft.com/sql/machine-learning/predictions/native-scoring-predict-transact-sql?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
+        - name: Package management
+          items:
+          - name: Install new Python packages
+            items:
+            - name: Get Python package information
+              href: https://docs.microsoft.com/sql/machine-learning/package-management/python-package-information?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
+            - name: Install with sqlmlutils
+              href: https://docs.microsoft.com/sql/machine-learning/package-management/install-additional-python-packages-on-sql-server?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
+          - name: Install new R packages
+            items:
+            - name: Get R package information
+              href: https://docs.microsoft.com/sql/machine-learning/package-management/r-package-information?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
+            - name: Install with sqlmlutils
+              href: https://docs.microsoft.com/sql/machine-learning/package-management/install-additional-r-packages-on-sql-server?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
+            - name: Create a miniCRAN repo
+              href: https://docs.microsoft.com/sql/machine-learning/package-management/create-a-local-package-repository-using-minicran?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
+            - name: Tips for using R packages
+              href: https://docs.microsoft.com/sql/machine-learning/package-management/tips-for-using-r-packages?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
 
     - name: Features
       items:
@@ -892,9 +939,11 @@
       href: managed-instance/threat-detection-configure.md
     - name: Connect applications
       href: managed-instance/connect-application-instance.md
-    - name: Create alerts
+    - name: Create alerts on managed instance
       href: managed-instance/alerts-create.md
-      
+    - name: Manually initiate a failover on managed instance
+      href: managed-instance/user-initiated-failover.md
+
   - name: Samples
     items:
     - name: Azure CLI
@@ -934,7 +983,7 @@
         href: virtual-machines/windows/create-sql-vm-resource-manager-template.md
     - name: Concepts
       items:
-      - name: Business Continuity
+      - name: Business continuity
         items:
         - name: Overview
           href: virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview.md
@@ -980,9 +1029,11 @@
         - name: License model
           displayName: ahb, ahub, payg, change, modify, update
           href: virtual-machines/windows/licensing-model-azure-hybrid-benefit-ahb-change.md
-        - name: Edition
+        - name: Change edition
           displayName: change, modify, update
           href: virtual-machines/windows/change-sql-server-edition.md
+        - name: Change version
+          href: virtual-machines/windows/change-sql-server-version.md
         - name: Storage
           href: virtual-machines/windows/storage-configuration.md
         - name: Azure Key Vault Integration
@@ -1018,6 +1069,8 @@
             href: virtual-machines/windows/automated-backup-sql-2014.md
         - name: Always On availability group
           items:
+          - name: Azure portal
+            href: virtual-machines/windows/availability-group-azure-portal-configure.md
           - name: PowerShell or Az CLI
             href: virtual-machines/windows/availability-group-az-commandline-configure.md
           - name: Azure Quickstart templates

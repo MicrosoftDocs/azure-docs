@@ -32,7 +32,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 The template used in this quickstart is from [Azure Quickstart templates](https://azure.microsoft.com/resources/templates/201-vmss-windows-webapp-dsc-autoscale/).
 
-:::code language="json" source="~/quickstart-templates/201-vmss-windows-webapp-dsc-autoscale/azuredeploy.json" range="1-397" highlight="236-325":::
+:::code language="json" source="~/quickstart-templates/201-vmss-windows-webapp-dsc-autoscale/azuredeploy.json":::
 
 These resources are defined in these templates:
 
@@ -44,7 +44,7 @@ These resources are defined in these templates:
 
 ### Define a scale set
 
-The highlighted portion is the scale set resource definition. To create a scale with a template, you define the appropriate resources. The core parts of the virtual machine scale set resource type are:
+To create a scale with a template, you define the appropriate resources. The core parts of the virtual machine scale set resource type are:
 
 | Property                     | Description of property                                  | Example template value                    |
 |------------------------------|----------------------------------------------------------|-------------------------------------------|

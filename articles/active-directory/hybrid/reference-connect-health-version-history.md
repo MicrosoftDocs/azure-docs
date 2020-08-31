@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 03/20/2019
+ms.date: 08/10/2020
 ms.author: billmath
 
 ms.collection: M365-identity-device-management
@@ -28,6 +28,14 @@ The Azure Active Directory team regularly updates Azure AD Connect Health with n
 
 Azure AD Connect Health for Sync is integrated with Azure AD Connect installation. Read more about [Azure AD Connect release history](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history)
 For feature feedback, vote at [Connect Health User Voice channel](https://feedback.azure.com/forums/169401-azure-active-directory/filters/new?category_id=165591)
+
+## April 2020
+**Agent Update**
+
+- Azure AD Connect Health agent for AD FS (version 3.1.77.0)
+
+   1.	Bug fix for “Invalid Service Principal Name (SPN) for AD FS service” alert, for which the alert was reporting incorrectly.
+
 
 ## July 2019
 **Agent Update**

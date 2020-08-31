@@ -1,6 +1,6 @@
 ---
 title: Overview of security in Azure Data Lake Storage Gen1 | Microsoft Docs
-description: Understand how Azure Data Lake Storage Gen1 is a more secure big data store
+description: Learn about security capabilities of Azure Data Lake Storage Gen1, including authentication, authorization, network isolation, data protection, and auditing.
 services: data-lake-store
 author: twooley
 
@@ -35,7 +35,7 @@ Each Azure subscription can be associated with an instance of Azure Active Direc
 
 After Azure Active Directory authenticates a user so that the user can access Data Lake Storage Gen1, authorization controls access permissions for Data Lake Storage Gen1. Data Lake Storage Gen1 separates authorization for account-related and data-related activities in the following manner:
 
-* [Role-based access control](../role-based-access-control/overview.md) (RBAC) provided by Azure for account management
+* [Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md) for account management
 * POSIX ACL for accessing data in the store
 
 ### RBAC for account management

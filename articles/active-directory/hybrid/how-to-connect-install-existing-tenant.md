@@ -19,7 +19,7 @@ ms.author: billmath
 ms.collection: M365-identity-device-management
 ---
 
-# Azure AD Connect: When you have an existent tenant
+# Azure AD Connect: When you have an existing tenant
 Most of the topics for how to use Azure AD Connect assumes you start with a new Azure AD tenant and that there are no users or other objects there. But if you have started with an Azure AD tenant, populated it with users and other objects, and now want to use Connect, then this topic is for you.
 
 ## The basics

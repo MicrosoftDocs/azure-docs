@@ -14,7 +14,7 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/13/2020
+ms.date: 08/10/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -42,7 +42,8 @@ During this phase, you plan the migration of your SAP workload to the Azure plat
 	- Security principles for running high-impact business data in Azure. To learn about data security, start with the [Azure security documentation](../../../security/index.yml).
 2.	Technical design document. This document should contain:
 	- A block diagram for the solution.
-	- The sizing of compute, storage, and networking components in Azure. For SAP sizing of Azure VMs, see [SAP support note #1928533](https://launchpad.support.sap.com/#/notes/1928533).
+	- The sizing of compute, storage, and networking components in Azure. For SAP sizing of Azure VMs, see [SAP 
+	-  note #1928533](https://launchpad.support.sap.com/#/notes/1928533).
 	- Business continuity and disaster recovery architecture.
 	- Detailed information about OS, DB, kernel, and SAP support pack versions. It's not necessarily true that every OS release supported by SAP NetWeaver or S/4HANA is supported on Azure VMs. The same is true for DBMS releases. Check the following sources to align and if necessary upgrade SAP releases, DBMS releases, and OS releases to ensure SAP and Azure support. You need to have release combinations supported by SAP and Azure to get full support from SAP and Microsoft. If necessary, you need to plan for upgrading some software components. More details on supported SAP, OS, and DBMS software are documented here:
 		- [SAP support note #1928533](https://launchpad.support.sap.com/#/notes/1928533). This note defines the minimum OS releases supported on Azure VMs. It also defines the minimum database releases required for most non-HANA databases. Finally, it provides the SAP sizing for SAP-supported Azure VM types.
@@ -54,9 +55,11 @@ During this phase, you plan the migration of your SAP workload to the Azure plat
 		- [SAP support note #2555629 - SAP HANA 2.0 Dynamic Tiering – Hypervisor and Cloud Support](https://launchpad.support.sap.com/#/notes/2555629)
 		- [SAP support note #1662610 - Support details for SIOS Protection Suite for Linux](https://launchpad.support.sap.com/#/notes/1662610)
 		- SAP notes for other SAP-specific products.	 
-	- We recommend strict three-tier designs for SAP production systems. We don't recommend combining ASCS and/or DBMS and/or app servers on one VM. Using multi-SID cluster configurations for SAP Central Services is supported on Windows guest operating systems on Azure. But this configuration isn't supported for SAP Central Services on Linux operating systems on Azure. You can find documentation for the Windows guest OS scenario in these articles:
+	- Using multi-SID cluster configurations for SAP Central Services is supported on Windows, SLES and RHEL guest operating systems on Azure. Keep in mind that the blast radius can increase the more ASCS/SCS you place on such a multi-SID cluster. You can find documentation for the respective guest OS scenario in these articles:
 		- [SAP ASCS/SCS instance multi-SID high availability with Windows Server Failover Clustering and shared disk on Azure](./sap-ascs-ha-multi-sid-wsfc-shared-disk.md)
 		- [SAP ASCS/SCS instance multi-SID high availability with Windows Server Failover Clustering and file share on Azure](./sap-ascs-ha-multi-sid-wsfc-file-share.md)
+		- [High availability for SAP NetWeaver on Azure VMs on SUSE Linux Enterprise Server for SAP applications multi-SID guide](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-multi-sid)
+		- [High availability for SAP NetWeaver on Azure VMs on Red Hat Enterprise Linux for SAP applications multi-SID guide](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-multi-sid)
 	- High availability and disaster recovery architecture.
 		- Based on RTO and RPO, define what the high availability and disaster recovery architecture needs to look like.
 		- For high availability within a zone, check what the desired DBMS has to offer in Azure. Most DBMS packages offer synchronous methods of a synchronous hot standby, which we recommend for production systems. Also check the SAP-related documentation for different databases, starting with [Considerations for Azure Virtual Machines DBMS deployment for SAP workloads](./dbms_guide_general.md) and related documents.
@@ -72,11 +75,11 @@ During this phase, you plan the migration of your SAP workload to the Azure plat
 4.	Design of foundation services. This design should include the following items:
 	- Active Directory and DNS design.
 	- Network topology within Azure and assignment of different SAP systems.
-	- [Role-based access](../../../role-based-access-control/overview.md) structure for teams that manage infrastructure and SAP applications in Azure.
+	- [Azure role-based access control (Azure RBAC)](../../../role-based-access-control/overview.md) structure for teams that manage infrastructure and SAP applications in Azure.
 	- Resource group topology.
 	- [Tagging strategy](../../../azure-resource-manager/management/tag-resources.md#tags-and-billing).
 	- Naming conventions for VMs and other infrastructure components and/or logical names.
-5.	Microsoft Premier Support contract. Identify your Microsoft Technical Account Manager (TAM). For SAP support requirements, see [SAP support note #2015553](https://launchpad.support.sap.com/#/notes/2015553).
+5.	Microsoft Professional or Premier Support contract. Identify your Microsoft Technical Account Manager (TAM) if you have a Premier support contract with Microsoft. For SAP support requirements, see [SAP support note #2015553](https://launchpad.support.sap.com/#/notes/2015553).
 6.	The number of Azure subscriptions and core quota for the subscriptions. [Open support requests to increase quotas of Azure subscriptions](../../../azure-portal/supportability/resource-manager-core-quotas-request.md) as needed.
 7.	Data reduction and data migration plan for migrating SAP data into Azure. For SAP NetWeaver systems, SAP has guidelines on how to limit the volume of large amounts of data. See [this SAP guide](https://wiki.scn.sap.com/wiki/download/attachments/247399467/DVM_%20Guide_7.2.pdf?version=1&modificationDate=1549365516000&api=v2) about data management in SAP ERP systems. Some of the content also applies to NetWeaver and S/4HANA systems in general.
 8.	An automated deployment approach. The goal of the automation of infrastructure deployments on Azure is to deploy in a deterministic way and get deterministic results. Many customers use PowerShell or CLI-based scripts. But there are various open-source technologies that you can use to deploy Azure infrastructure for SAP and even install SAP software. You can find examples on GitHub:
@@ -104,11 +107,12 @@ We recommend that you set up and validate a full HADR solution and security desi
            -  [Sizes for Windows virtual machines in Azure](../../sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json). It's important to consider the *max uncached disk throughput* for sizing.
            -  [Sizes for Linux virtual machines in Azure](../../sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json). It's important to consider the *max uncached disk throughput* for sizing.
    2. Storage.
-        - At a minimum, use [Azure Standard SSD storage](../../windows/disks-types.md#standard-ssd) for VMs that represent SAP application layers and for deployment of DBMSs that aren't performance sensitive.
-        - In general, we don't recommend the use of [Azure Standard HDD disks](../../windows/disks-types.md#standard-hdd).
-        - Use [Azure Premium Storage](../../windows/disks-types.md#premium-ssd) for any DBMS VMs that are remotely performance sensitive.
+        - Check the document [Azure Storage types for SAP workload](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide-storage)
+        - At a minimum, use [Azure Standard SSD storage](../../disks-types.md#standard-ssd) for VMs that represent SAP application layers and for deployment of DBMSs that aren't performance sensitive.
+        - In general, we don't recommend the use of [Azure Standard HDD disks](../../disks-types.md#standard-hdd).
+        - Use [Azure Premium Storage](../../disks-types.md#premium-ssd) for any DBMS VMs that are remotely performance sensitive.
         - Use [Azure managed disks](https://azure.microsoft.com/services/managed-disks/).
-        - Use Azure Write Accelerator for DBMS log drives with M-Series. Be aware of Write Accelerator limits and usage, as documented in [Write Accelerator](../../linux/how-to-enable-write-accelerator.md).
+        - Use Azure Write Accelerator for DBMS log drives with M-Series. Be aware of Write Accelerator limits and usage, as documented in [Write Accelerator](../../how-to-enable-write-accelerator.md).
         - For the different DBMS types, check the [generic SAP-related DBMS documentation](./dbms_guide_general.md) and the DBMS-specific documentation that the generic document points to.
         - For more information about SAP HANA, see [SAP HANA infrastructure configurations and operations on Azure](./hana-vm-operations.md).
         - Never mount Azure data disks to an Azure Linux VM by using the device ID. Instead, use the universally unique identifier (UUID). Be careful when you use graphical tools to mount Azure data disks, for example. Double-check the entries in /etc/fstab to make sure the UUID is used to mount the disks. You can find more details in [this article](../../linux/attach-disk-portal.md#connect-to-the-linux-vm-to-mount-the-new-disk).

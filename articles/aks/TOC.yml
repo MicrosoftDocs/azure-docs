@@ -129,6 +129,8 @@
     href: security-hardened-vm-host-image.md
   - name: Azure Kubernetes Service Diagnostics overview
     href: concepts-diagnostics.md
+  - name: Sustainable software engineering
+    href: concepts-sustainable-software-engineering.md
 - name: How-to guides
   items:
   - name: Cluster operations
@@ -141,7 +143,7 @@
       href: uptime-sla.md
     - name: Use proximity placement groups (preview)
       href: reduce-latency-ppg.md
-    - name: Upgrade the node image (preview)
+    - name: Upgrade the node image
       href: node-image-upgrade.md
     - name: Process node OS updates
       href: node-updates-kured.md
@@ -170,6 +172,8 @@
     - name: Deploy AKS with Terraform
       href: ../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md
       maintainContext: true
+    - name: Use the Kubernetes resource viewer (Preview)
+      href: kubernetes-portal.md
     - name: Use the Kubernetes dashboard
       href: kubernetes-dashboard.md
   - name: Configure data volumes
@@ -290,8 +294,8 @@
       href: windows-container-powershell.md
     - name: Connect remotely
       href: rdp.md
-    - name: Known limitations
-      href: windows-node-limitations.md
+    - name: Windows Server containers FAQ
+      href: windows-faq.md
     - name: Use the Kubernetes dashboard
       href: kubernetes-dashboard.md
     - name: Create Dockerfiles for Windows Server containers
@@ -364,6 +368,8 @@
       href: ssh.md
     - name: Linux performance tools
       href: troubleshoot-linux.md
+    - name: Check for Resource Health events (preview)
+      href: aks-resource-health.md
 - name: Reference
   items:
   - name: Azure CLI

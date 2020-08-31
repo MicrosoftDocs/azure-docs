@@ -114,6 +114,6 @@ Consider using [Redis data persistence](https://redis.io/topics/persistence) and
 ## Additional information
 
 - [Troubleshoot Azure Cache for Redis server-side issues](cache-troubleshoot-server.md)
-- [What Azure Cache for Redis offering and size should I use?](cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use)
+- [Choosing the right tier](cache-overview.md#choosing-the-right-tier)
 - [How to monitor Azure Cache for Redis](cache-how-to-monitor.md)
-- [How can I run Redis commands?](cache-faq.md#how-can-i-run-redis-commands)
+- [How can I run Redis commands?](cache-development-faq.md#how-can-i-run-redis-commands)

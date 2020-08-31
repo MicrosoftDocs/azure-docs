@@ -8,7 +8,7 @@
   - name: Commercial marketplace overview and benefits
     href: ./marketplace-publishers-guide.md
     items:
-    - name: One marketplace, two storefronts
+    - name: One marketplace, two online stores
       href: ./comparing-appsource-azure-marketplace.md
     - name: Publishing options and considerations
       href: ./determine-your-listing-type.md
@@ -272,7 +272,7 @@
       href: ./partner-center-portal/payout-policy-details.md
     - name: Tax details
       href: ./partner-center-portal/tax-details-paid-transactions.md
-  - name: CPP API Reference
+  - name: CPP API reference
     items:
     - name: Overview
       href: ./cloud-partner-portal-api-overview.md

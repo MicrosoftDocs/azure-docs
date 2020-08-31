@@ -672,7 +672,7 @@
         - name: Programmatically scale out
           href: service-fabric-cluster-programmatic-scaling.md
         - name: Scale up primary node type
-          href: service-fabric-scale-up-node-type.md
+          href: service-fabric-scale-up-primary-node-type.md
         - name: Add a node type
           href: virtual-machine-scale-set-scale-node-type-scale-out.md        
         - name: Remove a node type
