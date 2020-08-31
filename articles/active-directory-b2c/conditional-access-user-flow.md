@@ -20,15 +20,15 @@ ms.collection: M365-identity-device-management
 
 Conditional Access can be added to your Azure Active Directory B2C user flows to manage risky sign-ins to your applications. The integration of Identity Protection and Conditional Access in Azure AD B2C lets you set up policies that identify risky sign-in behavior and enforce policies that require further action from the user or administrator. These are the components that enable Conditional Access in Azure AD B2C user flows:
 
-- **User flow**. You can create a user flow that guides the user through the sign-in and sign-up process. In the user flow settings, you indicate whether to activate Conditional Access policies when a user follows the user flow.
-- **Application that directs users to the user flow**. You can configure your app to direct users to the appropriate sign-up and sign-in user flow by specifying the user flow endpoint in the app.
-- **Conditional Access policy**. You can [create a Conditional Access policy](conditional-access-identity-protection-setup.md) and specify the apps you want the policy to apply to. When the user follows the sign-in or sign-up user flow for your app, the Conditional Access policy uses Identity Protection signals to identify risky sign-ins, and presents the appropriate remediation action if necessary.
+- **User flow**. Create a user flow that guides the user through the sign-in and sign-up process. In the user flow settings,  indicate whether to activate Conditional Access policies when a user follows the user flow.
+- **Application that directs users to the user flow**. Configure your app to direct users to the appropriate sign-up and sign-in user flow by specifying the user flow endpoint in the app.
+- **Conditional Access policy**. [Create a Conditional Access policy](conditional-access-identity-protection-setup.md) and specify the apps you want the policy to apply to. When the user follows the sign-in or sign-up user flow for your app, the Conditional Access policy uses Identity Protection signals to identify risky sign-ins, and presents the appropriate remediation action if necessary.
 
 Conditional Access is supported in the latest versions of user flows. You can add Conditional Access policies to new user flows as you create them, or you can add them to existing user flows as long as the version supports Conditional Access. When adding Conditional Access to an existing user flow, there are two settings you'll need to review:
 
-- **Multi-factor authentication (MFA)**: End users can now use a one-time code via SMS/voice, or a one-time password via email for multi-factor authentication. MFA settings are independent from Conditional Access settings. You can set MFA to **Always On** so that MFA is always required regardless of your Conditional Access setup. You can also set MFA to **Conditional** so that MFA is required only when an active Conditional Access Policy requires it.
+- **Multi-factor authentication (MFA)**: Users can now use a one-time code via SMS or voice, or a one-time password via email for multi-factor authentication. MFA settings are independent from Conditional Access settings. You can set MFA to **Always On** so that MFA is always required regardless of your Conditional Access setup. Or, you can set MFA to **Conditional** so that MFA is required only when an active Conditional Access Policy requires it.
 
-- **Conditional Access**: This setting should always be **On**. Typically you would only turn this setting **Off** during troubleshooting, migration, or in legacy implementations.
+- **Conditional Access**: This setting should always be **On**. Typically you would only turn this setting **Off** during troubleshooting or migration, or for legacy implementations.
 
 Learn more about [Identity Protection and Conditional Access](conditional-access-identity-protection-overview.md) in Azure AD B2C, or see [how to set it up](conditional-access-identity-protection-setup.md).
 
