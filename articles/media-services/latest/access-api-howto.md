@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 05/21/2020
+ms.date: 08/31/2020
 ms.author: inhenkel
 ---
 # Get credentials to access Media Services API
