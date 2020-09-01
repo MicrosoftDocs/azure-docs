@@ -117,9 +117,9 @@ Service Fabric supports using tokens as credentials to download images for your 
     > [!NOTE]
     > The flag `UseDefaultRepositoryCredentials` set to true while `UseTokenAuthenticationCredentials` is true will cause an error during deployment.
 
-### Using token credentials outside of Azure Public Cloud
+### Using token credentials outside of Azure Global Cloud
 
-When using token-based registry credentials, Service Fabric fetches a token on behalf of the virtual machine to present to ACR. By default it requests a token whose audience is the public Azure cloud endpoint. If you are running in another cloud instance, like Azure Germany, or Azure Government, you will need to override the default of the parameter `DefaultMSIEndpointForTokenAuthentication`, which is
+When using token-based registry credentials, Service Fabric fetches a token on behalf of the virtual machine to present to ACR. By default it requests a token whose audience is the global Azure cloud endpoint. If you are running in another cloud instance, like Azure Germany, or Azure Government, you will need to override the default of the parameter `DefaultMSIEndpointForTokenAuthentication`, which is
 ```
 http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://management.core.windows.net/
 ```
@@ -130,7 +130,7 @@ with the appropriate resource endpoint for your environment. For example, for [A
 http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://management.core.cloudapi.de/
 ```
 
-You can read more about fetching VMSS tokens [here](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-use-vm-token).
+[Read more about fetching virtual machine scale set tokens](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-use-vm-token).
 
 ## Next steps
 
