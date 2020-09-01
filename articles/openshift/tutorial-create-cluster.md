@@ -173,6 +173,7 @@ Next, you will create a virtual network containing two empty subnets.
 Run the following command to create a cluster. If you choose to use either of the following options, modify the command accordingly:
 * Optionally, you can [pass your Red Hat pull secret](#get-a-red-hat-pull-secret-optional) which enables your cluster to access Red Hat container registries along with additional content. Add the `--pull-secret @pull-secret.txt` argument to your command.
 * Optionally, you can [use a custom domain](#prepare-a-custom-domain-for-your-cluster-optional). Add the `--domain foo.example.com` argument to your command, replacing `foo.example.com` with your own custom domain.
+* For more optional parameters for the cluster creation command, see [Azure CLI reference](https://docs.microsoft.com/cli/azure/openshift?view=azure-cli-latest).
 
 > [!NOTE]
 > If you're adding any optional arguments to your command, be sure to close the argument on the preceding line of the command with a trailing backslash.
