@@ -40,6 +40,9 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Once you configure Workday you can enforce Session Control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session Control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
+> [!NOTE]
+> Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
+
 ## Adding Workday from the gallery
 
 To configure the integration of Workday into Azure AD, you need to add Workday from the gallery to your list of managed SaaS apps.

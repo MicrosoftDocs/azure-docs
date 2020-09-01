@@ -34,7 +34,7 @@ To get started, you need the following items:
 
 In this tutorial, you configure and test Microsoft’s Conditional Access Policies and Intune with Workday’s Mobile Applications.
 
-* Workday Federated application can now be configured with Azure AD for enabling SSO. For details on how to configure, please follow the [link](workday-tutorial.md)
+* Workday Federated application can now be configured with Azure AD for enabling SSO. For more details on how to configure, please follow the [link](workday-tutorial.md)
 
 > [!NOTE] 
 > Workday does not support Intune’s App Protection Policies. You must use Mobile Device Management to utilize Conditional Access.
