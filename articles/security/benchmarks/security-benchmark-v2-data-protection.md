@@ -4,7 +4,7 @@ description: Azure Security Control Privileged Access
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 08/22/2020
+ms.date: 09/01/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
