@@ -7,7 +7,8 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 06/01/2020
 ms.author: ericrad
-ms.reviwer: mimckitt
+ms.reviwer: mimckitt 
+ms.custom: devx-track-azurepowershell
 
 ---
 
@@ -35,10 +36,10 @@ With Scheduled Events, your application can discover when maintenance will occur
 
 Scheduled Events provides events in the following use cases:
 
-- [Platform initiated maintenance](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates) (for example, VM reboot, live migration or memory preserving updates for host)
+- [Platform initiated maintenance](../maintenance-and-updates.md?bc=/azure/virtual-machines/windows/breadcrumb/toc.json&toc=/azure/virtual-machines/windows/toc.json) (for example, VM reboot, live migration or memory preserving updates for host)
 - Virtual machine is running on [degraded host hardware](https://azure.microsoft.com/blog/find-out-when-your-virtual-machine-hardware-is-degraded-with-scheduled-events) that is predicted to fail soon
 - User-initiated maintenance (for example, a user restarts or redeploys a VM)
-- [Spot VM](spot-vms.md) and [Spot scale set](../../virtual-machine-scale-sets/use-spot.md) instance evictions.
+- [Spot VM](../spot-vms.md) and [Spot scale set](../../virtual-machine-scale-sets/use-spot.md) instance evictions.
 
 ## The basics  
 
@@ -184,7 +185,7 @@ import json
 import socket
 import urllib2
 
-metadata_url = "http://169.254.169.254/metadata/scheduledevents?api-version=2019-01-01"
+metadata_url = "http://169.254.169.254/metadata/scheduledevents?api-version=2019-08-01"
 this_host = socket.gethostname()
 
 
@@ -228,4 +229,4 @@ if __name__ == '__main__':
 - Watch [Scheduled Events on Azure Friday](https://channel9.msdn.com/Shows/Azure-Friday/Using-Azure-Scheduled-Events-to-Prepare-for-VM-Maintenance) to see a demo. 
 - Review the Scheduled Events code samples in the [Azure Instance Metadata Scheduled Events GitHub repository](https://github.com/Azure-Samples/virtual-machines-scheduled-events-discover-endpoint-for-non-vnet-vm).
 - Read more about the APIs that are available in the [Instance Metadata Service](instance-metadata-service.md).
-- Learn about [planned maintenance for Windows virtual machines in Azure](planned-maintenance.md).
+- Learn about [planned maintenance for Windows virtual machines in Azure](../maintenance-and-updates.md?bc=/azure/virtual-machines/windows/breadcrumb/toc.json&toc=/azure/virtual-machines/windows/toc.json).

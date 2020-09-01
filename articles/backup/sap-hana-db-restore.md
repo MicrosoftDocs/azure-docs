@@ -9,7 +9,7 @@ ms.date: 11/7/2019
 
 This article describes how to restore SAP HANA databases running on an Azure Virtual Machine (VM), which the Azure Backup service has backed up to a Recovery Services vault. Restores can be used to create copies of the data for dev / test scenarios or to return to a previous state.
 
-For more information, on how to back up SAP HANA databases, see [Back up SAP HANA databases on Azure VMs](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database).
+For more information, on how to back up SAP HANA databases, see [Back up SAP HANA databases on Azure VMs](./backup-azure-sap-hana-database.md).
 
 ## Restore to a point in time or to a recovery point
 
@@ -23,7 +23,7 @@ Azure Backup can restore SAP HANA databases that are running on Azure VMs as fol
 
 Before restoring a database, note the following:
 
-* You can restore the database only to an SAP HANA instance that is in the same region
+* You can restore the database only to an SAP HANA instance that's in the same region
 
 * The target instance must be registered with the same vault as the source
 
@@ -133,7 +133,7 @@ To restore the backup data as files instead of a database, choose **Restore as F
 
     * Database backup files
     * Catalog files
-    * JSON metadata files (for each backup file that is involved)
+    * JSON metadata files (for each backup file that's involved)
 
     Typically, a network share path, or path of a mounted Azure file share when specified as the destination path, enables easier access to these files by other machines in the same network or with the same Azure file share mounted on them.
 
@@ -168,7 +168,7 @@ To restore the backup data as files instead of a database, choose **Restore as F
         hdbbackupdiag --generate --dataDir <DataFileDir> --logDirs <LogFilesDir> -d <PathToPlaceCatalogFile>
         ```
 
-        In the above command:
+        In the command above:
 
         * `<DataFileDir>` - the folder that contains the full backups
         * `<LogFilesDir>` - the folder that contains the log backups

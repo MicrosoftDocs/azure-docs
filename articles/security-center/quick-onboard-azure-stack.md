@@ -25,7 +25,7 @@ This quickstart shows you how to add the **Azure Monitor, Update and Configurati
 ## Prerequisites
 To get started with Security Center, you must have a subscription to Microsoft Azure. If you do not have a subscription, you can sign up for a [free account](https://azure.microsoft.com/pricing/free-trial/).
 
-You must have an Azure subscription on Security Center’s Standard tier before starting this quickstart. See [Onboard your Azure subscription to Security Center Standard](security-center-get-started.md) for upgrade instructions. You can try Security Center Standard tier at no cost for 30 days. To learn more, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/).
+You must have an Azure subscription on Security Center’s standard tier before starting this quickstart. See [Onboard your Azure subscription to Security Center Standard](security-center-get-started.md) for upgrade instructions. You can try Security Center standard tier at no cost for 30 days. To learn more, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/).
 
 ## Select your workspace in Azure Security Center
 
@@ -68,7 +68,7 @@ You must now add the **Azure Monitor, Update and Configuration Management** virt
 7. When you are done providing the necessary configuration settings, click **OK**.
 8. Once the extension installation completes, its status will show as **Provisioning Succeeded**. It might take up to one hour for the virtual machine to appear in the Security Center portal.
 
-For further information on installing and configuring the agent for Windows, see [Connect Windows computers](../azure-monitor/platform/agent-windows.md#install-the-agent-using-setup-wizard).
+For further information on installing and configuring the agent for Windows, see [Connect Windows computers](../azure-monitor/platform/agent-windows.md#install-agent-using-setup-wizard).
 
 For Linux troubleshooting of agent issues, see [Troubleshoot Azure Log Analytics Linux Agent](../azure-monitor/platform/agent-linux-troubleshoot.md).
 

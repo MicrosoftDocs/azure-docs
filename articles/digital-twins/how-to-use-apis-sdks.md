@@ -28,8 +28,8 @@ The most current control plane API version for public preview is _**2020-03-01-p
 To use the control plane APIs:
 * You can call the APIs directly by referencing the latest [Swagger folder](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins). This repo also includes a folder of examples that show the usage.
 * You can currently access SDKs for control APIs in...
-  - [.NET (C#)](https://www.nuget.org/packages/Microsoft.Azure.Management.DigitalTwins/1.0.0-preview.1) ([source](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Microsoft.Azure.Management.DigitalTwins))
-  - [Java](https://search.maven.org/artifact/com.microsoft.azure.digitaltwins.v2020_03_01_preview/azure-mgmt-digitaltwins) ([source](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins))
+  - [.NET (C#)](https://www.nuget.org/packages/Microsoft.Azure.Management.DigitalTwins/1.0.0-preview.1) ([source](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Microsoft.Azure.Management.DigitalTwins)) ([reference [auto-generated]](https://docs.microsoft.com/dotnet/api/overview/azure/digitaltwins/management?view=azure-dotnet-preview))
+  - [Java](https://search.maven.org/artifact/com.microsoft.azure.digitaltwins.v2020_03_01_preview/azure-mgmt-digitaltwins) ([source](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins)) ([reference [auto-generated]](https://docs.microsoft.com/java/api/overview/azure/digitaltwins/management?view=azure-java-preview))
   - [JavaScript](https://www.npmjs.com/package/@azure/arm-digitaltwins) ([source](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/digitaltwins/arm-digitaltwins))
   - [Python](https://pypi.org/project/azure-mgmt-digitaltwins/) ([source](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/digitaltwins/azure-mgmt-digitaltwins))
   - [Go - source](https://github.com/Azure/azure-sdk-for-go/tree/master/services/preview/digitaltwins/mgmt/2020-03-01-preview/digitaltwins)
@@ -44,7 +44,7 @@ The data plane APIs are used to manage the elements within your Azure Digital Tw
 * **Query** - The Query category lets developers [find sets of digital twins in the twin graph](how-to-query-graph.md) across relationships.
 * **EventRoutes** - The EventRoutes category contains APIs to [route data](concepts-route-events.md), through the system and to downstream services.
 
-The most current data plane API version for public preview is _**2020-05-31-preview**_.
+The most current data plane API version for public preview is _**2020-05-31-preview**_. The _2020-03-01-preview_ API version for data plane operations has now been deprecated.
 
 To use the data plane APIs:
 * You can call the APIs directly, by...
@@ -55,7 +55,7 @@ To use the data plane APIs:
    - you can find the SDK source, including a folder of samples, in GitHub: [Azure IoT Digital Twins client library for .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core). 
    - you can view the [SDK reference documentation](https://docs.microsoft.com/dotnet/api/overview/azure/digitaltwins?view=azure-dotnet-preview).
    - you can see detailed information and usage examples by continuing to the [.NET (C#) SDK (data plane)](#net-c-sdk-data-plane) section of this article.
-* You can generate an SDK for another language using AutoRest. Follow the instructions in [How-to: Create custom SDKs for Azure Digital Twins with AutoRest](how-to-create-custom-sdks.md).
+* You can generate an SDK for another language using AutoRest. Follow the instructions in [*How-to: Create custom SDKs for Azure Digital Twins with AutoRest*](how-to-create-custom-sdks.md).
 
 You can also exercise date plane APIs by interacting with Azure Digital Twins through the [CLI](how-to-use-cli.md).
 
@@ -64,19 +64,19 @@ You can also exercise date plane APIs by interacting with Azure Digital Twins th
 The Azure Digital Twins .NET (C#) SDK is part of the Azure SDK for .NET. It is open source, and is based on the Azure Digital Twins data plane APIs.
 
 > [!NOTE]
-> For in-depth information on SDK design, see the general [design principles for Azure SDKs](https://azure.github.io/azure-sdk/general_introduction.html) and the specific [.NET design guidelines](https://azure.github.io/azure-sdk/dotnet_introduction.html).
+> For more information on SDK design, see the general [design principles for Azure SDKs](https://azure.github.io/azure-sdk/general_introduction.html) and the specific [.NET design guidelines](https://azure.github.io/azure-sdk/dotnet_introduction.html).
 
-To use the SDK, include the NuGet package **Azure.DigitalTwins.Core** with your project. You will also need the **Azure.Identity** package.
+To use the SDK, include the NuGet package **Azure.DigitalTwins.Core** with your project. You will also need the latest version of the **Azure.Identity** package.
 
 * In Visual Studio, you can add packages with the NuGet Package Manager (accessed through *Tools > NuGet Package Manager > Manage NuGet Packages for Solution*). 
 * Using the .NET command-line tool, you can run:
 
     ```cmd/sh
-    dotnet add package Azure.DigitalTwins.Core --version 1.0.0-preview.2
+    dotnet add package Azure.DigitalTwins.Core --version 1.0.0-preview.3
     dotnet add package Azure.identity
     ```
 
-For a detailed walk-through of using the APIs in practice, see the [Tutorial: Code a client app](tutorial-code.md). 
+For a detailed walk-through of using the APIs in practice, see the [*Tutorial: Code a client app*](tutorial-code.md). 
 
 ### .NET SDK usage examples
 
@@ -138,13 +138,13 @@ await foreach (string twin in result)
 }
 ```
 
-See the [Tutorial: Code a client app](tutorial-code.md) for a walk-through of this sample app code. 
+See the [*Tutorial: Code a client app*](tutorial-code.md) for a walk-through of this sample app code. 
 
 You can also find additional samples in the [GitHub repo for the .NET (C#) SDK](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core/samples).
 
 #### Serialization Helpers
 
-As described earlier, the core SDK methods return twin data as JSON. However, the SDK also contains helper classes for serialization. These helper functions let you quickly create or deserialize twin data for access to basic information.
+Serialization helpers are helper functions available within the SDK for quickly creating or deserializing twin data for access to basic information. Since the core SDK methods return twin data as JSON by default, it can be helpful to use these helper classes to break the twin data down further.
 
 The available helper classes are:
 * `BasicDigitalTwin`: Represents the core data of a digital twin
@@ -231,7 +231,7 @@ foreach (string prop in rel.CustomProperties.Keys)
 
 ##### Create a relationship
 
-Using the `BasicDigitalTwin` class, you can also prepare data for creating relationships on a twin instance:
+Using the `BasicRelationship` class, you can also prepare data for creating relationships on a twin instance:
 
 ```csharp
 BasicRelationship rel = new BasicRelationship();
@@ -285,14 +285,14 @@ API metrics such as requests, latency, and failure rate can be viewed in the [Az
 
 From the portal homepage, search for your Azure Digital Twins instance to pull up its details. Select the **Metrics** option from the Azure Digital Twins instance's menu to bring up the *Metrics* page.
 
-:::image type="content" source="media/how-to-use-apis-sdks/metrics.png" alt-text="Metrics page of an Azure Digital Twins instance in the Azure portal":::
+:::image type="content" source="media/troubleshoot-metrics/azure-digital-twins-metrics.png" alt-text="Screenshot showing the metrics page for Azure Digital Twins":::
 
 From here, you can view the metrics for your instance and create custom views.
 
 ## Next steps
 
-See how to use the APIs to create an Azure Digital Twins instance:
-* [How-to: Create an Azure Digital Twins instance](how-to-set-up-instance.md)
+See how to use the APIs to set up an Azure Digital Twins instance and authentication:
+* [*How-to: Set up an instance and authentication*](how-to-set-up-instance-scripted.md)
 
 Or, walk through the steps to create a client app like the one used in this how-to:
-* [Tutorial: Code a client app](tutorial-code.md)
+* [*Tutorial: Code a client app*](tutorial-code.md)

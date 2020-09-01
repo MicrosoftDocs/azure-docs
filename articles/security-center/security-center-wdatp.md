@@ -38,7 +38,7 @@ By integrating Defender ATP with Azure Security Center, you can also benefit fro
 
 ## Platform support
 
-Microsoft Defender ATP in Security Center supports detection on Windows Server 2016, 2012 R2, and 2008 R2 SP1. For Azure VMs you need a Standard tier subscription and for Non-Azure VMs you need Standard tier in the workspace level only.
+Microsoft Defender ATP in Security Center supports detection on Windows Server 2016, 2012 R2, and 2008 R2 SP1. For Azure VMs you need a standard tier subscription and for Non-Azure VMs you need standard tier in the workspace level only.
 
 Server endpoint monitoring using this integration has been disabled for Office 365 GCC customers.
 
@@ -49,12 +49,13 @@ When you use Azure Security Center to monitor servers, a Microsoft Defender ATP 
 Once configured, you cannot change the location where your data is stored. If you need to move your data to another location, contact Microsoft Support to reset the tenant.
 
 
-## Onboarding servers to Security Center 
+## Onboard servers to Security Center 
 
 To onboard servers to Security Center, click **Go to Azure Security Center to onboard servers** from the Microsoft Defender ATP server onboarding.
 
-1. In the **Onboarding** area, select or create a workspace in which to store the data. <br>
-2. If you can't see all your workspaces, it may be due to a lack of permissions, make sure your workspace is set to Azure Security Standard tier. For more information, see [Upgrade to Security Center's Standard tier for enhanced security](security-center-pricing.md).
+1. In the **Onboarding** area, select or create a workspace in which to store the data.
+
+2. If you can't see all your workspaces, it may be due to a lack of permissions, make sure your workspace is set to Azure Security standard pricing tier. For more information, see [Upgrade to Security Center's standard tier for enhanced security](security-center-pricing.md).
     
 3. Select **Add servers** to view instructions on how to install the Log Analytics agent. 
 

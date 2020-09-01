@@ -6,11 +6,12 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 02/15/2020
 ms.author: brendm
-
+ms.custom: devx-track-java, devx-track-azurecli
 ---
+
 # Quickstart: Launch a Java Spring application using the Azure CLI
 
-Azure Spring Cloud enables you to easily run a Spring Boot based microservices application on Azure.
+Azure Spring Cloud enables you to easily run a Spring Boot based microservices application on Azure.  Before running this example, you can try the [basic quickstart](spring-cloud-quickstart.md).
 
 This quickstart shows you how to deploy an existing Java Spring Cloud application to Azure. When you're finished, you can continue to manage the application via the Azure CLI or switch to using the Azure portal.
 
@@ -24,9 +25,6 @@ Following this quickstart, you will learn how to:
 > * Assign public endpoint for your application
 
 ## Prerequisites
-
->[!Note]
-> Azure Spring Cloud is currently offered as a public preview. Public preview offerings allow customers to experiment with new features prior to their official release.  Public preview features and services are not meant for production use.  For more information about support during previews, please review our [FAQ](https://azure.microsoft.com/support/faq/) or file a [Support request](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) to learn more.
 
 >[!TIP]
 > The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article.  It has common Azure tools preinstalled, including the latest versions of Git, JDK, Maven, and the Azure CLI. If you are logged in to your Azure subscription, launch your [Azure Cloud Shell](https://shell.azure.com) from shell.azure.com.  You can learn more about Azure Cloud Shell by [reading our documentation](../cloud-shell/overview.md)
@@ -154,17 +152,17 @@ az spring-cloud app show --name gateway --query properties.url
 ```
 
 3. Navigate to the URL provided by the previous command to run the PiggyMetrics application.
-    ![Screenshot of PiggyMetrics running](media/spring-cloud-quickstart-launch-app-cli/launch-app.png)
+    ![PiggyMetrics running](media/spring-cloud-quickstart-launch-app-cli/launch-app.png)
 
 You can also navigate the Azure portal to find the URL. 
 1. Navigate to the service
 2. Select **Apps**
 3. Select **gateway**
 
-    ![Screenshot of PiggyMetrics running](media/spring-cloud-quickstart-launch-app-cli/navigate-app1.png)
+    ![PiggyMetrics navigate](media/spring-cloud-quickstart-launch-app-cli/navigate-app1.png)
     
 4. Find the URL on the **gateway Overview** page
-    ![Screenshot of PiggyMetrics running](media/spring-cloud-quickstart-launch-app-cli/navigate-app2-url.png)
+    ![PiggyMetrics navigate 2](media/spring-cloud-quickstart-launch-app-cli/navigate-app2-url.png)
 
 > [!div class="nextstepaction"]
 > [I ran into an issue](https://www.research.net/r/javae2e?tutorial=asc-cli-quickstart&step=public-endpoint)

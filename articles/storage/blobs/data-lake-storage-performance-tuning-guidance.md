@@ -1,6 +1,6 @@
 ---
 title: Optimize Azure Data Lake Storage Gen2 for performance | Microsoft Docs
-description: Azure Data Lake Storage Gen2 Performance Tuning Guidelines
+description: Understand how to optimize Azure Data Lake Storage Gen2 for performance. Ingest data, structure your dataset, and more.
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
@@ -42,7 +42,7 @@ Once you have addressed the source hardware and network connectivity bottlenecks
 |--------------------|------------------------------------------------------|------------------------------|
 | DistCp            | -m (mapper)	| [Link](data-lake-storage-use-distcp.md#performance-considerations-while-using-distcp)                             |
 | Azure Data Factory| parallelCopies	| [Link](../../data-factory/copy-activity-performance.md)                          |
-| Sqoop           | fs.azure.block.size, -m (mapper)	|	[Link](https://blogs.msdn.microsoft.com/bigdatasupport/2015/02/17/sqoop-job-performance-tuning-in-hdinsight-hadoop/)        |
+| Sqoop           | fs.azure.block.size, -m (mapper)	|	[Link](https://docs.microsoft.com/archive/blogs/shanyu/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs)        |
 
 ## Structure your data set
 
@@ -60,13 +60,13 @@ For Hive workloads, partition pruning of time-series data can help some queries 
 
 Those pipelines that ingest time-series data, often place their files with a very structured naming for files and folders. Below is a very common example we see for data that is structured by date:
 
-	\DataSet\YYYY\MM\DD\datafile_YYYY_MM_DD.tsv
+*\DataSet\YYYY\MM\DD\datafile_YYYY_MM_DD.tsv*
 
 Notice that the datetime information appears both as folders and in the filename.
 
 For date and time, the following is a common pattern
 
-	\DataSet\YYYY\MM\DD\HH\mm\datafile_YYYY_MM_DD_HH_mm.tsv
+*\DataSet\YYYY\MM\DD\HH\mm\datafile_YYYY_MM_DD_HH_mm.tsv*
 
 Again, the choice you make with the folder and file organization should optimize for the larger file sizes and a reasonable number of files in each folder.
 

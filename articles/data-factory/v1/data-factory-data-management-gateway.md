@@ -248,7 +248,9 @@ The **Setting Credentials** application uses the inbound port **8050** to relay 
 
 If you are using a third-party firewall, you can manually open the port 8050. If you run into firewall issue during gateway setup, you can try using the following command to install the gateway without configuring the firewall.
 
-    msiexec /q /i DataManagementGateway.msi NOFIREWALL=1
+```cmd
+msiexec /q /i DataManagementGateway.msi NOFIREWALL=1
+```
 
 If you choose not to open the port 8050 on the gateway machine, use mechanisms other than using the **Setting Credentials** application to configure data store credentials. For example, you could use [New-AzDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) PowerShell cmdlet. See Setting Credentials and Security section on how data store credentials can be set.
 

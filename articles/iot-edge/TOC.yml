@@ -211,8 +211,6 @@
       href: how-to-devops-project.md
     - name: Azure DevOps
       href: how-to-ci-cd.md
-    - name: IoT Edge plugin for Jenkins
-      href: how-to-devops-plugins.md
   - name: Troubleshoot
     items:
     - name: Standard diagnostic steps

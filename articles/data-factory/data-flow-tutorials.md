@@ -5,7 +5,7 @@ author: djpmsft
 ms.author: daperlov
 ms.service: data-factory
 ms.topic: tutorial
-ms.date: 05/25/2020
+ms.date: 08/11/2020
 ---
 
 # Mapping data flow video tutorials
@@ -31,6 +31,8 @@ As updates are constantly made to the product, some features have added or diffe
 [Monitor and manage mapping data flow performance](https://www.youtube.com/watch?v=fktIWdJiqTk)
 
 [Benchmark timings](http://youtu.be/6CSbWm4lRhw?hd=1)
+
+[Debugging workflows for data flows](https://youtu.be/y3suL7UsWVw)
 
 ## Transformation overviews
 
@@ -100,8 +102,6 @@ As updates are constantly made to the product, some features have added or diffe
 
 [Data lineage](https://www.youtube.com/watch?v=5KvqYF-y93s)
 
-[Optimization tips](https://www.youtube.com/watch?v=a2KtwUJngHo)
-
 [Iterate files with parameters](http://youtu.be/uEgz0ptYRDM?hd=1)
 
 [Decrease start-up times](https://youtu.be/FFCbU4ujCiY?t=528)
@@ -113,6 +113,8 @@ As updates are constantly made to the product, some features have added or diffe
 [Dynamically optimize data flow cluster size at runtime](https://www.youtube.com/watch?v=jWSkJdtiJNM)
 
 [Optimize data flow start-up times](https://www.youtube.com/watch?v=VT_2ZV3a7Fc)
+
+[Azure Integration Runtimes for Data Flows](https://mssqldude.wordpress.com/)
 
 ## Mapping data flow scenarios
 

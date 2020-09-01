@@ -13,7 +13,7 @@ ms.author: mimart
 ms.subservice: B2C
 ---
 
-# Localization
+# Localization element
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 

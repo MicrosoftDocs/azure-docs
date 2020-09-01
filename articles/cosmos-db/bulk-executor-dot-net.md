@@ -9,6 +9,7 @@ ms.topic: how-to
 ms.date: 03/23/2020
 ms.author: ramkris
 ms.reviewer: sngun
+ms.custom: devx-track-csharp
 ---
 
 # Use the bulk executor .NET library to perform bulk operations in Azure Cosmos DB
@@ -36,7 +37,7 @@ Currently, bulk executor library is supported by the Azure Cosmos DB SQL API and
 
 Now let's switch to working with code by downloading a sample .NET application from GitHub. This application performs bulk operations on the data stored in your Azure Cosmos account. To clone the application, open a command prompt, navigate to the directory where you want to copy it and run the following command:
 
-```
+```bash
 git clone https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started.git
 ```
 
@@ -200,4 +201,4 @@ Consider the following points for better performance when using the bulk executo
 
 ## Next steps
 
-* To learn about the Nuget package details and the release notes, see the [bulk executor SDK details](sql-api-sdk-bulk-executor-dot-net.md).
+* To learn about the NuGet package details and the release notes, see the [bulk executor SDK details](sql-api-sdk-bulk-executor-dot-net.md).

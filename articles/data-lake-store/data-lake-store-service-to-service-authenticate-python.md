@@ -7,7 +7,7 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.custom: has-adal-ref, tracking-python
+ms.custom: has-adal-ref, devx-track-python
 ---
 # Service-to-service authentication with Azure Data Lake Storage Gen1 using Python
 > [!div class="op_single_selector"]

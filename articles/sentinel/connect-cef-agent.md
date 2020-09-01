@@ -45,6 +45,16 @@ In this step, you will designate and configure the Linux machine that will forwa
 
 1. While the script is running, check to make sure you don't get any error or warning messages.
 
+> [!NOTE]
+> **Using the same machine to forward both plain Syslog *and* CEF messages**
+>
+> If you plan to use this log forwarder machine to forward [Syslog messages](connect-syslog.md) as well as CEF, then in order to avoid the duplication of events to the Syslog and CommonSecurityLog tables:
+>
+> 1. On each source machine that sends logs to the forwarder in CEF format, you must edit the Syslog configuration file to remove the facilities that are being used to send CEF messages. This way, the facilities that are sent in CEF won't also be sent in Syslog. See [Configure Syslog on Linux agent](../azure-monitor/platform/data-sources-syslog.md#configure-syslog-on-linux-agent) for detailed instructions on how to do this.
+>
+> 1. You must run the following command on those machines to disable the synchronization of the agent with the Syslog configuration in Azure Sentinel. This ensures that the configuration change you made in the previous step does not get overwritten.<br>
+> `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/OMS_MetaConfigHelper.py --disable'`
+
 Continue to [STEP 2: Configure your security solution to forward CEF messages](connect-cef-solution-config.md) .
 
 ## Deployment script explained
@@ -71,8 +81,10 @@ Choose a syslog daemon to see the appropriate description.
 
         Contents of the `security-config-omsagent.conf` file:
 
-            :rawmsg, regex, "CEF"|"ASA"
-            *.* @@127.0.0.1:25226
+        ```console
+        :rawmsg, regex, "CEF"|"ASA"
+        *.* @@127.0.0.1:25226
+        ```
 
 1. **Restarting the Syslog daemon**
 
@@ -103,9 +115,11 @@ Choose a syslog daemon to see the appropriate description.
 
         Contents of the `security-config-omsagent.conf` file:
 
-            filter f_oms_filter {match(\"CEF\|ASA\" ) ;};
-            destination oms_destination {tcp(\"127.0.0.1\" port("25226"));};
-            log {source(s_src);filter(f_oms_filter);destination(oms_destination);};
+        ```console
+        filter f_oms_filter {match(\"CEF\|ASA\" ) ;};
+        destination oms_destination {tcp(\"127.0.0.1\" port("25226"));};
+        log {source(s_src);filter(f_oms_filter);destination(oms_destination);};
+        ```
 
 1. **Restarting the Syslog daemon**
 

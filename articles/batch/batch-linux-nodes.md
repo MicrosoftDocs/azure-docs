@@ -3,7 +3,7 @@ title: Run Linux on virtual machine compute nodes
 description: Learn how to process your parallel compute workloads on pools of Linux virtual machines in Azure Batch.
 ms.topic: how-to
 ms.date: 06/01/2018
-ms.custom: H1Hack27Feb2017, tracking-python
+ms.custom: "H1Hack27Feb2017, devx-track-python, devx-track-csharp"
 ---
 # Provision Linux compute nodes in Batch pools
 
@@ -23,7 +23,7 @@ When you create a pool of compute nodes in Batch, you have two options from whic
 
 ### Virtual machine image reference
 
-The Batch service uses [virtual machine scale sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) to provide compute nodes in the Virtual Machine Configuration. You can specify an image from the [Azure Marketplace][vm_marketplace], or provide a custom image that you have prepared. For more details about custom images, see [Create a pool with the Shared Image Gallery](batch-sig-images.md).
+The Batch service uses [virtual machine scale sets](../virtual-machine-scale-sets/overview.md) to provide compute nodes in the Virtual Machine Configuration. You can specify an image from the [Azure Marketplace][vm_marketplace], or provide a custom image that you have prepared. For more details about custom images, see [Create a pool with the Shared Image Gallery](batch-sig-images.md).
 
 When you configure a virtual machine image reference, you specify the properties of the virtual machine image. The following properties are required when you create a virtual machine image reference:
 
@@ -288,11 +288,11 @@ The [Python code samples][github_samples_py] in the [azure-batch-samples][github
 [github_samples_pyclient]: https://github.com/Azure/azure-batch-samples/blob/master/Python/Batch/article_samples/python_tutorial_client.py
 [portal]: https://portal.azure.com
 [net_cloudpool]: /dotnet/api/microsoft.azure.batch.cloudpool
-[net_computenodeuser]: /dotnet/api/microsoft.azure.batch.computenodeuser?view=azure-dotnet
+[net_computenodeuser]: /dotnet/api/microsoft.azure.batch.computenodeuser
 [net_imagereference]: /dotnet/api/microsoft.azure.batch.imagereference
 [net_list_supported_images]: /dotnet/api/microsoft.azure.batch.pooloperations.listsupportedimages
 [net_pool_ops]: /dotnet/api/microsoft.azure.batch.pooloperations
-[net_ssh_key]: /dotnet/api/microsoft.azure.batch.computenodeuser.sshpublickey?view=azure-dotnet#Microsoft_Azure_Batch_ComputeNodeUser_SshPublicKey
+[net_ssh_key]: /dotnet/api/microsoft.azure.batch.computenodeuser.sshpublickey#Microsoft_Azure_Batch_ComputeNodeUser_SshPublicKey
 [nuget_batch_net]: https://www.nuget.org/packages/Microsoft.Azure.Batch/
 [rest_add_pool]: /rest/api/batchservice/pool/add
 [py_account_ops]: http://azure-sdk-for-python.readthedocs.org/en/dev/ref/azure.batch.operations.html#azure.batch.operations.AccountOperations
@@ -301,6 +301,6 @@ The [Python code samples][github_samples_py] in the [azure-batch-samples][github
 [py_batch_package]: https://pypi.python.org/pypi/azure-batch
 [py_computenodeuser]: /python/api/azure-batch/azure.batch.models.computenodeuser
 [py_imagereference]: /python/api/azure-mgmt-batch/azure.mgmt.batch.models.imagereference
-[py_list_supported_images]: /python/api/azure-batch/azure.batch.operations.AccountOperations?view=azure-python
+[py_list_supported_images]: /python/api/azure-batch/azure.batch.operations.AccountOperations
 [vm_marketplace]: https://azuremarketplace.microsoft.com/marketplace/apps/category/compute?filters=virtual-machine-images&page=1
 [vm_pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/

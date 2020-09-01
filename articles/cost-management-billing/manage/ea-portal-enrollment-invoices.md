@@ -3,9 +3,10 @@ title: Azure Enterprise enrollment invoices
 description: This article explains how to manage and act on your Azure Enterprise invoice.
 author: bandersmsft
 ms.author: banders
-ms.date: 07/06/2020
+ms.date: 08/20/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
+ms.subservice: enterprise
 ms.reviewer: boalcsva
 ---
 
@@ -223,7 +224,7 @@ There are no charges for data egress between services housed within the same dat
 
 ### Azure Prepayment and unbilled usage
 
-Azure Azure Prepayment is an amount paid up front for Azure services. The Azure Prepayment is consumed as services are used. First-party Azure services are billed against the Azure Prepayment. However, some charges are billed separately, and Azure Marketplace services don't consume Azure Prepayment.
+Azure Prepayment is an amount paid up front for Azure services. The Azure Prepayment is consumed as services are used. First-party Azure services are billed against the Azure Prepayment. However, some charges are billed separately, and Azure Marketplace services don't consume Azure Prepayment.
 
 ### Charges billed separately
 

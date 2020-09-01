@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/08/2020
+ms.date: 08/21/2020
 ms.author: b-juche
 ---
 # Resource limits for Azure NetApp Files
@@ -28,6 +28,7 @@ The following table describes resource limits for Azure NetApp Files:
 |----------------|---------------------|--------------------------------------|
 |  Number of NetApp accounts per Azure region   |  10    |  Yes   |
 |  Number of capacity pools per NetApp account   |    25     |   Yes   |
+|  Number of volumes per subscription   |    500     |   Yes   |
 |  Number of volumes per capacity pool     |    500   |    Yes     |
 |  Number of snapshots per volume       |    255     |    No        |
 |  Number of subnets delegated to Azure NetApp Files (Microsoft.NetApp/volumes) per Azure Virtual Network    |   1   |    No    |
@@ -56,7 +57,7 @@ The service dynamically adjusts the maxfiles limit for a volume based on its pro
 |    >= 3 TiB but < 4 TiB    |    80 million     |
 |    >= 4 TiB                |    100 million    |
 
-For any volume size, you can initiate a [support request](#limit_increase) to increase the maxfiles limit beyond 100 million.
+If you have already allocated at least 4 TiB of quota for a volume, you can initiate a [support request](#limit_increase) to increase the maxfiles limit beyond 100 million.
 
 ## Request limit increase <a name="limit_increase"></a> 
 

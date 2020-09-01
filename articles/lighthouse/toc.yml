@@ -41,7 +41,7 @@
     href: ./concepts/managed-applications.md
 - name: How-to guides
   items:
-  - name: Onboard a customer to Azure delegated resource management
+  - name: Onboard a customer to Azure Lighthouse
     displayName: resource management
     href: ./how-to/onboard-customer.md
   - name: Publish Managed Service offers to Azure Marketplace 
@@ -82,11 +82,11 @@
 - name: Reference
   items:
   - name: Azure CLI
-    href: /cli/azure/managedservices?view=azure-cli-latest
+    href: /cli/azure/managedservices
   - name: Azure PowerShell
-    href: /powershell/module/az.managedservices/?view=azps-2.4.0#managed_services
+    href: /powershell/module/az.managedservices#managed_services
   - name: Azure SDK for .NET
-    href: /dotnet/api/Microsoft.Azure.Management.ManagedServices?view=azure-dotnet
+    href: /dotnet/api/Microsoft.Azure.Management.ManagedServices
   - name: Azure SDK for .NET (NuGet)
     href: https://www.nuget.org/packages/Microsoft.Azure.Management.ManagedServices/
   - name: Azure SDK for Python
@@ -103,5 +103,5 @@
     href: https://azure.microsoft.com/roadmap/
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
-  - name: UserVoice
+  - name: Product feedback
     href: https://feedback.azure.com/forums/922753

@@ -16,10 +16,12 @@ ms.date: 04/01/2019
 ms.author: juliako
 
 ---
-# Access the Azure Media Services API with Azure AD authentication  
+# Access the Azure Media Services API with Azure AD authentication 
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)] 
 
 > [!NOTE]
-> No new features or functionality are being added to Media Services v2. <br/>Check out the latest version, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Also, see [migration guidance from v2 to v3](../latest/migrate-from-v2-to-v3.md)
+> No new features or functionality are being added to Media Services v2. <br/>Check out the latest version, [Media Services v3](../latest/index.yml). Also, see [migration guidance from v2 to v3](../latest/migrate-from-v2-to-v3.md)
 
 The Azure Media Services API is a RESTful API. You can use it to perform operations on media resources by using a REST API or by using available client SDKs. Azure Media Services offers a Media Services client SDK for Microsoft .NET. To be authorized to access Media Services resources and the Media Services API, you must first be authenticated. 
 
@@ -145,12 +147,11 @@ Solution: For the Media Services REST request to succeed, the calling user must 
 
 The following articles are overviews of Azure AD authentication concepts: 
 
-- [Authentication scenarios addressed by Azure AD](../../active-directory/develop/authentication-scenarios.md)
-- [Add, update, or remove an application in Azure AD](../../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md)
+- [Authentication scenarios addressed by Azure AD](../../active-directory/develop/authentication-vs-authorization.md)
+- [Add, update, or remove an application in Azure AD](../../active-directory/develop/quickstart-register-app.md)
 - [Configure and manage Role-Based Access Control by using PowerShell](../../role-based-access-control/role-assignments-powershell.md)
 
 ## Next steps
 
 * Use the Azure portal to [access Azure AD authentication to consume Azure Media Services API](media-services-portal-get-started-with-aad.md).
 * Use Azure AD authentication to [access Azure Media Services API with .NET](media-services-dotnet-get-started-with-aad.md).
-

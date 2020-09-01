@@ -148,8 +148,8 @@ Notice the elements that are included in an Azure Stream Analytics project.
 
    ```sql
    SELECT *
-   INTO BlobOutput
-   FROM IoTHubInput
+   INTO Output
+   FROM Input
    HAVING Temperature > 27
    ```
 

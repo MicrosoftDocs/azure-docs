@@ -1,5 +1,5 @@
 ---
-title: Quickstart -  Azure Key Vault client library for Python
+title: Quickstart – Azure Key Vault Python client library – manage keys
 description: Learn how to create, retrieve, and delete keys from an Azure key vault using the Python client library
 author: msmbaldwin
 ms.author: mbaldwin
@@ -7,11 +7,11 @@ ms.date: 3/30/2020
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: quickstart
-ms.custom: tracking-python
+ms.custom: devx-track-python
 
 ---
 
-# Quickstart: Azure Key Vault client library for Python
+# Quickstart: Azure Key Vault keys client library for Python
 
 Get started with the Azure Key Vault client library for Python. Follow the steps below to install the package and try out example code for basic tasks.
 
@@ -29,7 +29,7 @@ Azure Key Vault helps safeguard cryptographic keys and secrets used by cloud app
 
 - An Azure subscription - [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Python 2.7, 3.5.3, or later
-- [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) or [Azure PowerShell](/powershell/azure/overview)
+- [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) or [Azure PowerShell](/powershell/azure/)
 
 This quickstart assumes you are running [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) in a Linux terminal window.
 

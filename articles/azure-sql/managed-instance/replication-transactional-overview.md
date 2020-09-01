@@ -16,7 +16,9 @@ ms.date: 04/20/2020
 # Transactional replication with Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-Transactional replication is a feature of Azure SQL Managed Instance and SQL Server that enables you to replicate data from a table in Azure SQL Managed Instance or a SQL Server instance to tables placed on remote databases. This feature allows you to synchronize multiple tables in different databases.
+Transactional replication is a feature of Azure SQL Managed Instance and SQL Server that enables you to replicate data from a table in Azure SQL Managed Instance or a SQL Server instance to tables placed on remote databases. This feature allows you to synchronize multiple tables in different databases. 
+
+Transactional replication is currently in public preview for SQL Managed Instance. 
 
 ## Overview
 
@@ -98,11 +100,10 @@ Transactional replication is useful in the following scenarios:
 
 ### Compare Data Sync with Transactional Replication
 
-| | Data Sync | Transactional Replication |
+| Category | Data Sync | Transactional Replication |
 |---|---|---|
 | Advantages | - Active-active support<br/>- Bi-directional between on-premises and Azure SQL Database | - Lower latency<br/>- Transactional consistency<br/>- Reuse existing topology after migration |
 | Disadvantages | - 5 min or more latency<br/>- No transactional consistency<br/>- Higher performance impact | - Can’t publish from Azure SQL Database <br/>- High maintenance cost |
-| | | |
 
 ## Common configurations
 

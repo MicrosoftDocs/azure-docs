@@ -1,6 +1,6 @@
 ---
 title: Authorization - Microsoft Threat Modeling Tool - Azure | Microsoft Docs
-description: mitigations for threats exposed in the Threat Modeling Tool 
+description: Learn about authorization mitigation in the Threat Modeling Tool. See a list of potential threats and mitigation instructions.
 services: security
 documentationcenter: na
 author: jegeib
@@ -16,6 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
+ms.custom: devx-track-csharp
 
 ---
 
@@ -234,7 +235,7 @@ Please note that RLS as an out-of-the-box database feature is applicable only to
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
 | **References**              | [Use role assignments to manage access to your Azure subscription resources](https://azure.microsoft.com/documentation/articles/role-based-access-control-configure/)  |
-| **Steps** | Azure Role-Based Access Control (RBAC) enables fine-grained access management for Azure. Using RBAC, you can grant only the amount of access that users need to perform their jobs.|
+| **Steps** | Azure role-based access control (Azure RBAC) enables fine-grained access management for Azure. Using RBAC, you can grant only the amount of access that users need to perform their jobs.|
 
 ## <a id="cluster-rbac"></a>Restrict client's access to cluster operations using RBAC
 

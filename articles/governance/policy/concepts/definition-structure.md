@@ -1,7 +1,7 @@
 ---
 title: Details of the policy definition structure
 description: Describes how policy definitions are used to establish conventions for Azure resources in your organization.
-ms.date: 06/12/2020
+ms.date: 08/27/2020
 ms.topic: conceptual
 ---
 # Azure Policy definition structure
@@ -126,8 +126,8 @@ compliance results. The exception is **resource groups** and **subscriptions**. 
 that enforce location or tags on a resource group or subscription should set **mode** to `all` and
 specifically target the `Microsoft.Resources/subscriptions/resourceGroups` or
 `Microsoft.Resources/subscriptions` type. For an example, see
-[Pattern: Tags - Sample #1](../samples/pattern-tags.md). For a list of resources that support tags, see
-[Tag support for Azure resources](../../../azure-resource-manager/management/tag-support.md).
+[Pattern: Tags - Sample #1](../samples/pattern-tags.md). For a list of resources that support tags,
+see [Tag support for Azure resources](../../../azure-resource-manager/management/tag-support.md).
 
 ### <a name="resource-provider-modes"></a>Resource Provider modes (preview)
 
@@ -249,11 +249,13 @@ properties](#parameter-properties).
 ### strongType
 
 Within the `metadata` property, you can use **strongType** to provide a multi-select list of options
-within the Azure portal. **strongType** can be a supported _resource type_ or an allowed
-value. To determine if a _resource type_ is valid for **strongType**, use
-[Get-AzResourceProvider](/powershell/module/az.resources/get-azresourceprovider).
+within the Azure portal. **strongType** can be a supported _resource type_ or an allowed value. To
+determine if a _resource type_ is valid for **strongType**, use
+[Get-AzResourceProvider](/powershell/module/az.resources/get-azresourceprovider). The format for a
+_resource type_ **strongType** is `<Resource Provider>/<Resource Type>`. For example,
+`Microsoft.Network/virtualNetworks/subnets`.
 
-Some _resource types_ not returned by **Get-AzResourceProvider** are supported. Those are:
+Some _resource types_ not returned by **Get-AzResourceProvider** are supported. Those types are:
 
 - `Microsoft.RecoveryServices/vaults/backupPolicies`
 
@@ -351,7 +353,8 @@ supported conditions are:
 - `"less": "dateValue"` | `"less": "stringValue"` | `"less": intValue`
 - `"lessOrEquals": "dateValue"` | `"lessOrEquals": "stringValue"` | `"lessOrEquals": intValue`
 - `"greater": "dateValue"` | `"greater": "stringValue"` | `"greater": intValue`
-- `"greaterOrEquals": "dateValue"` | `"greaterOrEquals": "stringValue"` | `"greaterOrEquals": intValue`
+- `"greaterOrEquals": "dateValue"` | `"greaterOrEquals": "stringValue"` |
+  `"greaterOrEquals": intValue`
 - `"exists": "bool"`
 
 For **less**, **lessOrEquals**, **greater**, and **greaterOrEquals**, if the property type doesn't
@@ -387,7 +390,8 @@ The following fields are supported:
 - `location`
   - Use **global** for resources that are location agnostic.
 - `identity.type`
-  - Returns the type of [managed identity](../../../active-directory/managed-identities-azure-resources/overview.md)
+  - Returns the type of
+    [managed identity](../../../active-directory/managed-identities-azure-resources/overview.md)
     enabled on the resource.
 - `tags`
 - `tags['<tagName>']`
@@ -410,9 +414,9 @@ The following fields are supported:
 A parameter value can be passed to a tag field. Passing a parameter to a tag field increases the
 flexibility of the policy definition during policy assignment.
 
-In the following example, `concat` is used to create a tags field lookup for the tag named the
-value of the **tagName** parameter. If that tag doesn't exist, the **modify** effect is used to add
-the tag using the value of the same named tag set on the audited resources parent resource group by
+In the following example, `concat` is used to create a tags field lookup for the tag named the value
+of the **tagName** parameter. If that tag doesn't exist, the **modify** effect is used to add the
+tag using the value of the same named tag set on the audited resources parent resource group by
 using the `resourcegroup()` lookup function.
 
 ```json
@@ -440,8 +444,8 @@ using the `resourcegroup()` lookup function.
 ### Value
 
 Conditions can also be formed using **value**. **value** checks conditions against
-[parameters](#parameters), [supported template functions](#policy-functions), or literals.
-**value** is paired with any supported [condition](#conditions).
+[parameters](#parameters), [supported template functions](#policy-functions), or literals. **value**
+is paired with any supported [condition](#conditions).
 
 > [!WARNING]
 > If the result of a _template function_ is an error, policy evaluation fails. A failed evaluation
@@ -454,8 +458,8 @@ Conditions can also be formed using **value**. **value** checks conditions again
 #### Value examples
 
 This policy rule example uses **value** to compare the result of the `resourceGroup()` function and
-the returned **name** property to a **like** condition of `*netrg`. The rule denies any resource
-not of the `Microsoft.Network/*` **type** in any resource group whose name ends in `*netrg`.
+the returned **name** property to a **like** condition of `*netrg`. The rule denies any resource not
+of the `Microsoft.Network/*` **type** in any resource group whose name ends in `*netrg`.
 
 ```json
 {
@@ -514,8 +518,9 @@ of a _template function_ is an error, policy evaluation fails. A failed evaluati
 }
 ```
 
-The example policy rule above uses [substring()](../../../azure-resource-manager/templates/template-functions-string.md#substring)
-to compare the first three characters of **name** to **abc**. If **name** is shorter than three
+The example policy rule above uses
+[substring()](../../../azure-resource-manager/templates/template-functions-string.md#substring) to
+compare the first three characters of **name** to **abc**. If **name** is shorter than three
 characters, the `substring()` function results in an error. This error causes the policy to become a
 **deny** effect.
 
@@ -639,38 +644,7 @@ Example 4: Check that all object array members meet the condition expression
 }
 ```
 
-Example 5: Check that all string array members meet the condition expression
-
-```json
-{
-    "count": {
-        "field": "Microsoft.Sql/servers/securityAlertPolicies/emailAddresses[*]",
-        "where": {
-            "field": "Microsoft.Sql/servers/securityAlertPolicies/emailAddresses[*]",
-            "like": "*@contoso.com"
-        }
-    },
-    "equals": "[length(field('Microsoft.Sql/servers/securityAlertPolicies/emailAddresses[*]'))]"
-}
-```
-
-Example 6: Use **field** inside **value** to check that all array members meet the condition
-expression
-
-```json
-{
-    "count": {
-        "field": "Microsoft.Sql/servers/securityAlertPolicies/emailAddresses[*]",
-        "where": {
-            "value": "[last(split(first(field('Microsoft.Sql/servers/securityAlertPolicies/emailAddresses[*]')), '@'))]",
-            "equals": "contoso.com"
-        }
-    },
-    "equals": "[length(field('Microsoft.Sql/servers/securityAlertPolicies/emailAddresses[*]'))]"
-}
-```
-
-Example 7: Check that at least one array member matches multiple properties in the condition
+Example 5: Check that at least one array member matches multiple properties in the condition
 expression
 
 ```json
@@ -830,6 +804,14 @@ Policy, use one of the following methods:
   # Use Get-AzPolicyAlias to list aliases for a Namespace (such as Azure Compute -- Microsoft.Compute)
   (Get-AzPolicyAlias -NamespaceMatch 'compute').Aliases
   ```
+
+  > [!NOTE]
+  > To find aliases that can be used with the [modify](./effects.md#modify) effect, use the
+  > following command in Azure PowerShell **4.6.0** or higher:
+  >
+  > ```azurepowershell-interactive
+  > Get-AzPolicyAlias | Select-Object -ExpandProperty 'Aliases' | Where-Object { $_.DefaultMetadata.Attributes -eq 'Modifiable' }
+  > ```
 
 - Azure CLI
 

@@ -1,6 +1,6 @@
 ---
 title: Avere vFXT prerequisites - Azure
-description: Prerequisites for Avere vFXT for Azure
+description: Learn about tasks to perform before you create a cluster in Avere vFXT for Azure, including dealing with subscriptions, quotas, and storage service endpoints.
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: how-to
@@ -27,13 +27,13 @@ To create a new Azure subscription in the Azure portal:
 
 A user with owner permissions for the subscription should create the vFXT cluster. Cluster creation requires an owner to accept the software terms of service and to authorize changes to network and storage resources.
 
-There are some workarounds to allow a non-owner to create an Avere vFXT for Azure cluster. These scenarios involve restricting resources and assigning additional role-based access control (RBAC) roles to the creator. In all of these cases, a subscription owner also must [accept the Avere vFXT software terms](#accept-software-terms) ahead of time.
+There are some workarounds to allow a non-owner to create an Avere vFXT for Azure cluster. These scenarios involve restricting resources and assigning additional Azure roles to the creator. In all of these cases, a subscription owner also must [accept the Avere vFXT software terms](#accept-software-terms) ahead of time.
 
 | Scenario | Restrictions | Access roles required to create the Avere vFXT cluster |
 |----------|--------|-------|
 | Resource group administrator creates the vFXT | The virtual network, cluster controller, and cluster nodes must be created within the resource group. | [User Access Administrator](../role-based-access-control/built-in-roles.md#user-access-administrator) and [Contributor](../role-based-access-control/built-in-roles.md#contributor) roles, both scoped to the target resource group. |
 | Use an existing, external virtual network | The cluster controller and cluster nodes are created within the vFXT's resource group but use an existing virtual network in a different resource group. | (1) [User Access Administrator](../role-based-access-control/built-in-roles.md#user-access-administrator) and [Contributor](../role-based-access-control/built-in-roles.md#contributor) roles scoped to the vFXT resource group; and (2) [Virtual Machine Contributor](../role-based-access-control/built-in-roles.md#virtual-machine-contributor), [User Access Administrator](../role-based-access-control/built-in-roles.md#user-access-administrator), and [Avere Contributor](../role-based-access-control/built-in-roles.md#avere-contributor) roles scoped to the virtual network's resource group. |
-| Custom role for cluster creators | No resource placement restrictions. This method gives non-owners significant privileges. | Subscription owner creates a custom RBAC role as explained in [this article](avere-vfxt-non-owner.md). |
+| Custom role for cluster creators | No resource placement restrictions. This method gives non-owners significant privileges. | Subscription owner creates an Azure custom role as explained in [this article](avere-vfxt-non-owner.md). |
 
 ## Quota for the vFXT cluster
 

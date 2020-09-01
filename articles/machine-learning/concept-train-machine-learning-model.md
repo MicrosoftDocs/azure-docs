@@ -9,7 +9,7 @@ ms.author: larryfr
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/13/2020
-ms.custom: tracking-python
+ms.custom: devx-track-python
 ---
 
 # Train models with Azure Machine Learning
@@ -50,7 +50,7 @@ You may start with a run configuration for your local computer, and then switch 
 * [What is a run configuration?](concept-azure-machine-learning-architecture.md#run-configurations)
 * [Tutorial: Train your first ML model](tutorial-1st-experiment-sdk-train.md)
 * [Examples: Jupyter Notebook examples of training models](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training)
-* [How to: Set up and use compute targets for model training](how-to-set-up-training-targets.md)
+* [How to: Use compute targets for model training](how-to-set-up-training-targets.md)
 
 ### Automated Machine Learning
 
@@ -85,11 +85,33 @@ Machine learning pipelines can use the previously mentioned training methods (ru
 * [Tutorial: Use Azure Machine Learning Pipelines for batch scoring](tutorial-pipeline-batch-scoring-classification.md)
 * [Examples: Jupyter Notebook examples for machine learning pipelines](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/machine-learning-pipelines)
 * [Examples: Pipeline with automated machine learning](https://aka.ms/pl-automl)
-* [Examples: Pipeline with estimators](https://aka.ms/pl-estimator)
+* [Examples: Pipeline with estimators](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/aml-pipelines-how-to-use-estimatorstep.ipynb)
+
+### Understand what happens when you submit a training job
+
+The Azure training lifecycle consists of:
+
+1. Zipping the files in your project folder, ignoring those specified in _.amlignore_ or _.gitignore_
+1. Scaling up your compute cluster 
+1. Building or downloading the dockerfile to the compute node 
+    1. The system calculates a hash of: 
+        - The base image 
+        - Custom docker steps (see [Deploy a model using a custom Docker base image](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-custom-docker-image))
+        - The conda definition YAML (see [Create & use software environments in Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-use-environments))
+    1. The system uses this hash as the key in a lookup of the workspace Azure Container Registry (ACR)
+    1. If it is not found, it looks for a match in the global ACR
+    1. If it is not found, the system builds a new image (which will be cached and registered with the workspace ACR)
+1. Downloading your zipped project file to temporary storage on the compute node
+1. Unzipping the project file
+1. The compute node executing `python <entry script> <arguments>`
+1. Saving logs, model files, and other files written to `./outputs` to the storage account associated with the workspace
+1. Scaling down compute, including removing temporary storage 
+
+If you choose to train on your local machine ("configure as local run"), you do not need to use Docker. You may use Docker locally if you choose (see the section [Configure ML pipeline](https://docs.microsoft.com/azure/machine-learning/how-to-debug-pipelines#configure-ml-pipeline ) for an example).
 
 ## R SDK
 
-The R SDK enables you to use the R language with Azure Machine Learning. The SDK uses the reticulate package to bind to Azure Machine Learning's Python SDK. This allows you access to core objects and methods implemented in the Python SDK from any R environment.
+The R SDK enables you to use the R language with Azure Machine Learning. The SDK uses the reticulate package to bind to Azure Machine Learning's Python SDK. This gives you access to core objects and methods implemented in the Python SDK from any R environment.
 
 For more information, see the following articles:
 
@@ -98,7 +120,7 @@ For more information, see the following articles:
 
 ## Azure Machine Learning designer
 
-The designer lets you to train models using a drag and drop interface in your web browser.
+The designer lets you train models using a drag and drop interface in your web browser.
 
 + [What is the designer?](concept-designer.md)
 + [Tutorial: Predict automobile price](tutorial-designer-automobile-price-train-score.md)
@@ -127,6 +149,10 @@ The machine learning CLI is an extension for the Azure CLI. It provides cross-pl
 * [Use the CLI extension for Azure Machine Learning](reference-azure-machine-learning-cli.md)
 * [MLOps on Azure](https://github.com/microsoft/MLOps)
 
+## VS Code
+
+You can use the VS Code extension to run and manage your training jobs. See the [VS Code resource management how-to guide](how-to-manage-resources-vscode.md#experiments) to learn more.
+
 ## Next steps
 
-Learn how to [Set up training environments](how-to-set-up-training-targets.md).
+Learn how to [Use compute targets for model training](how-to-set-up-training-targets.md).

@@ -15,10 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/26/2019
 ms.author: juliako
+ms.custom: devx-track-csharp
 
 ---
 
-# Customizing Media Encoder Standard presets  
+# Customizing Media Encoder Standard presets
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]  
 
 ## Overview
 
@@ -27,7 +30,7 @@ This article shows how to perform advanced encoding with Media Encoder Standard 
 This article shows you how to customize a preset by taking the [H264 Multiple Bitrate 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) preset and reducing the number of layers. The [Customizing Media Encoder Standard presets](media-services-advanced-encoding-with-mes.md) article demonstrates custom presets that can be used to perform advanced encoding tasks.
 
 > [!NOTE]
-> The custom presets described in this article cannot be used in [Media Services V3](https://docs.microsoft.com/azure/media-services/latest/) transforms or the CLI commands. See the [migration guidance from v2 to v3](../latest/migrate-from-v2-to-v3.md) for more details.
+> The custom presets described in this article cannot be used in [Media Services V3](../latest/index.yml) transforms or the CLI commands. See the [migration guidance from v2 to v3](../latest/migrate-from-v2-to-v3.md) for more details.
 
 ## <a id="customizing_presets"></a> Customizing a MES preset
 

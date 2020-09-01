@@ -1,6 +1,6 @@
 ---
 title: Azure Resource Manager template samples - Azure Front Door
-description: Azure Resource Manager template samples for Azure Front Door
+description: Learn about Resource Manager template samples for Azure Front Door, including templates for creating a basic Front Door and configuring Front Door rate limiting.
 services: frontdoor
 documentationcenter: ""
 author: sharad4u
@@ -15,7 +15,7 @@ ms.author: sharadag
 
 The following table includes links to Azure Resource Manager deployment model templates for Azure Front Door. 
 
-| | |
+| Template | Description |
 | ---| ---|
 | [Create a basic Front Door](https://github.com/Azure/azure-quickstart-templates/tree/master/101-front-door-create-basic)| Creates a basic Front Door configuration with a single backend. |
 | [Create a Front Door with multiple backends and backend pools and URL based routing](https://github.com/Azure/azure-quickstart-templates/tree/master/101-front-door-create-multiple-backends)| Creates a Front Door with load balancing configured for multiple backends in ta backend pool and also across backend pools based on URL path. |

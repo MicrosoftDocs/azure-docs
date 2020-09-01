@@ -26,6 +26,19 @@ This page provides you with information about:
 - Deprecated functionality
 
 
+## February 2020
+
+### Fileless attack detection for Linux (preview)
+
+As attackers increasing employ stealthier methods to avoid detection, Azure Security Center is extending fileless attack detection for Linux, in addition to Windows. Fileless attacks exploit software vulnerabilities, inject malicious payloads into benign system processes, and hide in memory. These techniques:
+
+- minimize or eliminate traces of malware on disk
+- greatly reduce the chances of detection by disk-based malware scanning solutions
+
+To counter this threat, Azure Security Center released fileless attack detection for Windows in October 2018, and has now extended fileless attack detection on Linux as well. 
+
+
+
 ## January 2020
 
 ### Enhanced secure score (preview)
@@ -122,9 +135,9 @@ The new capabilities in this public preview release include:
 
 ### Virtual machine vulnerability assessment (preview)
 
-Applications that are installed in virtual machines could often have vulnerabilities that could lead to a breach of the virtual machine. We are announcing that the Security Center Standard tier includes built-in vulnerability assessment for virtual machines for no additional fee. The vulnerability assessment, powered by Qualys in the public preview, will allow you to continuously scan all the installed applications on a virtual machine to find vulnerable applications and present the findings in the Security Center portal’s experience. Security Center takes care of all deployment operations so that no extra work is required from the user. Going forward we are planning to provide vulnerability assessment options to support our customers’ unique business needs.
+Applications that are installed in virtual machines could often have vulnerabilities that could lead to a breach of the virtual machine. We are announcing that the Security Center standard tier includes built-in vulnerability assessment for virtual machines for no additional fee. The vulnerability assessment, powered by Qualys in the public preview, will allow you to continuously scan all the installed applications on a virtual machine to find vulnerable applications and present the findings in the Security Center portal’s experience. Security Center takes care of all deployment operations so that no extra work is required from the user. Going forward we are planning to provide vulnerability assessment options to support our customers’ unique business needs.
 
-[Learn more about vulnerability assessments for your Azure Virtual Machines](security-center-vulnerability-assessment-recommendations.md).
+[Learn more about vulnerability assessments for your Azure Virtual Machines](deploy-vulnerability-assessment-vm.md).
 
 
 ### Advanced data security for SQL servers on Azure Virtual Machines (preview)

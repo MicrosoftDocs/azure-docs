@@ -29,7 +29,7 @@ This tutorial requires the following Azure resources:
 * IoT Hub
 * Storage account
 * Azure Media Services account
-* A Linux VM in Azure, with [IoT Edge runtime](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux) installed
+* A Linux VM in Azure, with [IoT Edge runtime](../../iot-edge/how-to-install-iot-edge-linux.md) installed
 
 For this quickstart, we recommend that you use the [Live Video Analytics resources setup script](https://github.com/Azure/live-video-analytics/tree/master/edge/setup) to deploy the required resources in your Azure subscription. To do so, follow these steps:
 
@@ -79,7 +79,7 @@ If the connection succeeds, the list of edge devices appears. You should see at 
 
 ![lva-sample-device node](./media/quickstarts/lva-sample-device-node.png)
 
-## Use direct methods
+## Use direct method calls
 
 You can use the module to analyze live video streams by invoking direct methods. For more information, see [Direct methods for Live Video Analytics on IoT Edge](direct-methods.md). 
 
@@ -556,7 +556,7 @@ The **OUTPUT** window displays the following message:
 
 Notice these details:
 
-* The message contains a `body` section and an `applicationProperties` section. For more information, see [Create and read IoT Hub messages](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct).
+* The message contains a `body` section and an `applicationProperties` section. For more information, see [Create and read IoT Hub messages](../../iot-hub/iot-hub-devguide-messages-construct.md).
 * In `applicationProperties`, `subject` references the node in the `MediaGraph` from which the message was generated. In this case, the message originates from the motion detection processor.
 * In `applicationProperties`, `eventType` indicates that this event is an analytics event.
 * The `eventTime` value is the time when the event occurred.

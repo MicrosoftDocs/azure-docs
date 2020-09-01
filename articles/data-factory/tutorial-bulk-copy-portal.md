@@ -77,7 +77,9 @@ To verify and turn on this setting, go to your server > Security > Firewalls and
  
    The name of the Azure data factory must be **globally unique**. If you see the following error for the name field, change the name of the data factory (for example, yournameADFTutorialBulkCopyDF). See [Data Factory - Naming Rules](naming-rules.md) article for naming rules for Data Factory artifacts.
   
-       `Data factory name "ADFTutorialBulkCopyDF" is not available`
+    ```text
+    Data factory name "ADFTutorialBulkCopyDF" is not available
+    ```
 1. Select your Azure **subscription** in which you want to create the data factory. 
 1. For the **Resource Group**, do one of the following steps:
      

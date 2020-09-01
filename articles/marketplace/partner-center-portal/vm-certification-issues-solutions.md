@@ -1,11 +1,11 @@
 ---
 title: Virtual machine certification - issues and solutions 
 description: This article explains common error messages for VM images. It also discusses related solutions
-author: v-miegge 
-ms.author: v-krmall
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: troubleshooting
+author: iqshahmicrosoft
+ms.author: iqshah
 ms.date: 06/16/2020
 ---
 
@@ -79,7 +79,7 @@ If you're trying to install Visual Studio or any Office-licensed product, contac
 
 For more information about selecting an approved base, see [Create your Azure virtual machine technical assets](create-azure-vm-technical-asset.md#create-a-vm-image-using-an-approved-base).
 
-## Tool kit test case execution failed
+## Tool kit test case execution failed 
 
 The Microsoft Certification toolkit can help you run test cases and verify that your VHD or image is compatible with the Azure environment.
 
@@ -108,7 +108,7 @@ The following table lists common errors that are found while executing previous 
  
 |Scenario|Test case|Error|Solution|
 |---|---|---|---|
-|1|Linux Agent version test case|The minimum Linux agent version is 2.241 or later. This requirement has been mandatory since May 1, 2020.|The image must be updated with the required version to [submit the request](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).|
+|1|Linux Agent version test case|The minimum Linux agent version is 2.2.41 or later. This requirement has been mandatory since May 1, 2020.|Please update Linux agent version and it should be 2.241 or later. For more information you can visit [Linux Agent Version update page](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).|
 |2|Bash history test case|You'll see an error if the size of the bash history in your submitted image is more than 1 kilobyte (KB). The size is restricted to 1 KB to ensure that any potentially sensitive information isn't captured in your bash history file.|To resolve this problem, mount the VHD to any other working VM and make any changes you want (for example, delete the *.bash* history files) to reduce the size to less than or equal to 1 KB.|
 |3|Required kernel parameter test case|You'll receive this error when the value for **console** isn't set to **ttyS0**. Check by running the following command:<br>`cat /proc/cmdline`|Set the value for **console** to **ttyS0**, and resubmit the request.|
 |4|ClientAlive interval test case|If the toolkit result gives you a failed result for this test case, there is an inappropriate value for **ClientAliveInterval**.|Set the value for **ClientAliveInterval** to less than or equal to 235, and then resubmit the request.|
@@ -309,6 +309,61 @@ For solutions to errors that are related to the data disk, use the following tab
 If the Remote Desktop Protocol (RDP) option isn't enabled for the Windows image, you will receive this error. 
 
 Enable RDP access for Windows images before you submit them.
+
+## Bash history failed
+
+You'll see this error if the size of the bash history in your submitted image is more than 1 kilobyte (KB). The size is restricted to 1 KB to ensure that any potentially sensitive 
+information isn't captured in your bash history file.
+
+Below are the steps to delete the “Bash History”.
+
+Step 1.	Deploy the VM and click on “Run Command” option on Azure portal.
+![Run command on Azure portal](./media/vm-certification-issues-solutions-3.png)
+
+Step 2.	Select first option “RunShellScript” and run the below command.
+
+Command: “cat /dev/null > ~/.bash_history && history -c”
+![Bash History command on Azure portal](./media/vm-certification-issues-solutions-4.png)
+
+Step 3.	After successful executing the command, Restart the VM.
+
+Step 4.	Generalize the VM, take the Image VHD and Stop the VM.
+
+Step 5. 	Re-Submit the generalized image.
+
+## Requesting exceptions (custom templates) on VM images for selective tests
+
+Publishers can reach out to request exceptions for few tests performed during VM certification. Exceptions are provided in extremely rare cases when publisher provides evidence to support the request.
+The Certification team reserves the right to deny or approve exceptions at any point of time.
+
+In the sections below, we will talk about main scenarios where exceptions are requested and how to request exception.
+
+Scenarios for exception
+
+There are three scenarios/cases where publishers generally request these exceptions. 
+
+* **Exception for one or more test cases:** Publishers can reach out to [Marketplace Publisher Support](https://aka.ms/marketplacepublishersupport) request exceptions for test cases. 
+
+* **Locked Down VMs/No root access:** Few publishers have scenarios where VMs need to be locked as they have software such as firewalls installed on the VM. 
+       In this case, publishers can download the [Certified Test Tool](https://aka.ms/AzureCertificationTestTool) here, and provide the report at [Marketplace Publisher Support](https://aka.ms/marketplacepublishersupport)
+
+
+* **Custom Templates:** Some publishers publish VM images which require a custom ARM template to deploy the VMs. 
+In this case, Publishers are requested to provide the custom templates at [Marketplace Publisher Support](https://aka.ms/marketplacepublishersupport) so that same can be used by Certification team for validation. 
+
+### Information to provide for exception scenarios
+
+Publishers must reach out to the support at [Marketplace Publisher Support](https://aka.ms/marketplacepublishersupport) for requesting exceptions for the above scenario with the additional following information:
+
+   1.	Publisher ID – The publisher ID on Partner Center portal
+   2.	Offer ID/name – The Offer ID/name for which exception is requested 
+   3.	SKU/Plan ID – The plan ID/sku of the VM offer for which exception is requested
+   4.	 Version – The version of the VM offer for which exception is requested
+   5.	Exception Type –Tests, Locked Down VM, Custom Templates
+   6.	Reason of request – Reason for this exception and information on tests to be exempted 
+   7. Timeline - Date till which this exception has been requested 
+   8.	Attachment - Attach any importance evidence documents. For Locked Down VMs, attach the test report and for custom templates, provide the custom ARM template as attachment. Failure to attach report for Locked Down VMs and custom ARM template for custom templates will result in denial of request
+
 
 ## Next steps
 

@@ -1,11 +1,12 @@
 ---
+# This file is currently not connected to TOC. We are working on a new location Sept 2020
 title: How to Purchase Software on AppSource | Azure Marketplace
 description: Steps for one to purchase software on AppSource | Azure Marketplace. 
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 03/20/2020
 ---
 

@@ -10,6 +10,7 @@ ms.date: 06/15/2020
 ms.author: tamram
 ms.reviewer: wielriac
 ms.subservice: blobs
+ms.custom: devx-track-csharp
 ---
 
 # Overview of Azure page blobs
@@ -30,6 +31,10 @@ First party Microsoft services like Azure Site Recovery, Azure Backup, as well a
 * Live migration of application and data from on premises to cloud: Copy the on premises data and use REST APIs to write directly to an Azure page blob while the on premises VM continues to run. Once the target has caught up, you can quickly failover to Azure VM using that data. In this way, you can migrate your VMs and virtual disks from on premises to cloud with minimal downtime since the data migration occurs in the background while you continue to use the VM and the downtime needed for failover will be short (in minutes).
 * [SAS-based](../common/storage-sas-overview.md) shared access, which enables scenarios like multiple-readers and single-writer with support for concurrency control.
 
+## Pricing
+
+Both types of storage offered with page blobs have their own pricing model. Premium page blobs follow the managed disks pricing model, while standard page blobs are billed on used size and with each transaction. For more information, see the [Azure Page Blobs pricing page](https://azure.microsoft.com/pricing/details/storage/page-blobs/).
+
 ## Page blob features
 
 ### REST API
@@ -42,13 +47,13 @@ The following diagram describes the overall relationships between account, conta
 
 #### Creating an empty page blob of a specified size
 
-# [.NET v12 SDK](#tab/dotnet)
+# [.NET v12](#tab/dotnet)
 
 First, get a reference to a container. To create a page blob, call the [GetPageBlobClient](/dotnet/api/azure.storage.blobs.specialized.specializedblobextensions.getpageblobclient) method, and then call the [PageBlobClient.Create](/dotnet/api/azure.storage.blobs.specialized.pageblobclient.create) method. Pass in the max size for the blob to create. That size must be a multiple of 512 bytes.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_CreatePageBlob":::
 
-# [.NET v11 SDK](#tab/dotnet11)
+# [.NET v11](#tab/dotnet11)
 
 To create a page blob, we first create a **CloudBlobClient** object, with the base URI for accessing the blob storage for your storage account (*pbaccount* in figure 1) along with the **StorageCredentialsAccountAndKey** object, as shown in the following example. The example then shows creating a reference to a **CloudBlobContainer** object, and then creating the container (*testvhds*) if it doesn't already exist. Then using the **CloudBlobContainer** object, create a reference to a **CloudPageBlob** object by specifying the page blob name (os4.vhd) to access. To create the page blob, call [CloudPageBlob.Create](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.create), passing in the max size for the blob to create. The *blobSize* must be a multiple of 512 bytes.
 
@@ -79,13 +84,13 @@ pageBlob.Create(16 * OneGigabyteAsBytes);
 
 #### Resizing a page blob
 
-# [.NET v12 SDK](#tab/dotnet)
+# [.NET v12](#tab/dotnet)
 
 To resize a page blob after creation, use the [Resize](/dotnet/api/azure.storage.blobs.specialized.pageblobclient.resize?view=azure-dotnet) method. The requested size should be a multiple of 512 bytes.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_ResizePageBlob":::
 
-# [.NET v11 SDK](#tab/dotnet11)
+# [.NET v11](#tab/dotnet11)
 
 To resize a page blob after creation, use the [Resize](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.resize) method. The requested size should be a multiple of 512 bytes.
 
@@ -97,13 +102,13 @@ pageBlob.Resize(32 * OneGigabyteAsBytes);
 
 #### Writing pages to a page blob
 
-# [.NET v12 SDK](#tab/dotnet)
+# [.NET v12](#tab/dotnet)
 
 To write pages,  use the [PageBlobClient.UploadPages](/dotnet/api/azure.storage.blobs.specialized.pageblobclient.uploadpages) method.  
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_WriteToPageBlob":::
 
-# [.NET v11 SDK](#tab/dotnet11)
+# [.NET v11](#tab/dotnet11)
 
 To write pages,  use the [CloudPageBlob.WritePages](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.beginwritepages) method.  
 
@@ -119,20 +124,20 @@ As soon as a write request for a sequential set of pages succeeds in the blob se
 
 The below diagram shows 2 separate write operations:
 
-![](./media/storage-blob-pageblob-overview/storage-blob-pageblob-overview-figure2.png)
+![A diagram showing the two separate write options.](./media/storage-blob-pageblob-overview/storage-blob-pageblob-overview-figure2.png)
 
 1.	A Write operation starting at offset 0 of length 1024 bytes 
 2.	A Write operation starting at offset 4096 of length 1024 
 
 #### Reading pages from a page blob
 
-# [.NET v12 SDK](#tab/dotnet)
+# [.NET v12](#tab/dotnet)
 
 To read pages, use the [PageBlobClient.Download](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.download) method to read a range of bytes from the page blob. 
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_ReadFromPageBlob":::
 
-# [.NET v11 SDK](#tab/dotnet11)
+# [.NET v11](#tab/dotnet11)
 
 To read pages, use the [CloudPageBlob.DownloadRangeToByteArray](/dotnet/api/microsoft.azure.storage.blob.icloudblob.downloadrangetobytearray) method to read a range of bytes from the page blob. 
 
@@ -147,17 +152,17 @@ This allows you to download the full blob or range of bytes starting from any of
 
 The following figure shows a Read operation with an offset of 256 and a range size of 4352. Data returned is highlighted in orange. Zeros are returned for NUL pages.
 
-![](./media/storage-blob-pageblob-overview/storage-blob-pageblob-overview-figure3.png)
+![A diagram showing a Read operation with an offset of 256 and a range size of 4352](./media/storage-blob-pageblob-overview/storage-blob-pageblob-overview-figure3.png)
 
 If you have a sparsely populated blob, you may want to just download the valid page regions to avoid paying for egressing of zero bytes and to reduce download latency.  
 
-# [.NET v12 SDK](#tab/dotnet)
+# [.NET v12](#tab/dotnet)
 
 To determine which pages are backed by data, use [PageBlobClient.GetPageRanges](/dotnet/api/azure.storage.blobs.specialized.pageblobclient.getpageranges). You can then enumerate the returned ranges and download the data in each range. 
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_ReadValidPageRegionsFromPageBlob":::
 
-# [.NET v11 SDK](#tab/dotnet11)
+# [.NET v11](#tab/dotnet11)
 
 To determine which pages are backed by data, use [CloudPageBlob.GetPageRanges](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.getpageranges). You can then enumerate the returned ranges and download the data in each range. 
 

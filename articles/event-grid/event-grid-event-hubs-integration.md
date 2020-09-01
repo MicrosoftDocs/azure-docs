@@ -1,15 +1,11 @@
 ---
 title: 'Tutorial: Send Event Hubs data to data warehouse - Event Grid'
 description: 'Tutorial: Describes how to use Azure Event Grid and Event Hubs to migrate data to a SQL Data Warehouse. It uses an Azure Function to retrieve a Capture file.'
-services: event-grid
-author: spelluru
-manager: timlt
-
-ms.service: event-grid
 ms.topic: tutorial
-ms.date: 06/08/2020
-ms.author: spelluru
+ms.date: 07/07/2020
+ms.custom: devx-track-csharp
 ---
+
 # Tutorial: Stream big data into a data warehouse
 Azure [Event Grid](overview.md) is an intelligent event routing service that enables you to react to notifications (events) from apps and services. For example, it can trigger an Azure Function to process Event Hubs data that has been captured to an Azure Blob storage or Azure Data Lake Storage, and migrate the data to other data repositories. This [Event Hubs and Event Grid integration sample](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) shows you how to use Event Hubs with Event Grid to seamlessly migrate captured Event Hubs data from blob storage to a SQL Data Warehouse.
 

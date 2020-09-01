@@ -156,7 +156,7 @@ END
 
    The name of the Azure data factory must be **globally unique**. If you see a red exclamation mark with the following error, change the name of the data factory (for example, yournameADFIncCopyTutorialDF) and try creating again. See [Data Factory - Naming Rules](naming-rules.md) article for naming rules for Data Factory artifacts.
 
-       `Data factory name "ADFIncCopyTutorialDF" is not available`
+    *Data factory name "ADFIncCopyTutorialDF" is not available*
 4. Select your Azure **subscription** in which you want to create the data factory.
 5. For the **Resource Group**, do one of the following steps:
 

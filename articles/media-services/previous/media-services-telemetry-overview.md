@@ -20,9 +20,10 @@ ms.author: juliako
 
 # Azure Media Services telemetry  
 
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
-> No new features or functionality are being added to Media Services v2. <br/>Check out the latest version, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Also, see [migration guidance from v2 to v3](../latest/migrate-from-v2-to-v3.md)
+> No new features or functionality are being added to Media Services v2. <br/>Check out the latest version, [Media Services v3](../latest/index.yml). Also, see [migration guidance from v2 to v3](../latest/migrate-from-v2-to-v3.md)
 
 Azure Media Services (AMS) enables you to access telemetry/metrics data for its services. The current version of AMS lets you collect telemetry data for live **Channel**, **StreamingEndpoint**, and live **Archive** entities. 
 
@@ -48,7 +49,7 @@ Telemetry is written to an Azure Storage Table in the storage account that you s
 
 You can consume telemetry data in one of the following ways:
 
-- Read data directly from Azure Table Storage (e.g. using the Storage SDK). For the description of telemetry storage tables, see the **Consuming telemetry information** in [this](https://msdn.microsoft.com/library/mt742089.aspx) topic.
+- Read data directly from Azure Table Storage (e.g. using the Storage SDK). For the description of telemetry storage tables, see the **Consuming telemetry information** in [this](/previous-versions/azure/mt742089(v=azure.100)) topic.
 
 Or
 

@@ -3,7 +3,7 @@ title: Cluster configuration in Azure Kubernetes Services (AKS)
 description: Learn how to configure a cluster in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: conceptual
-ms.date: 07/02/2020
+ms.date: 08/06/2020
 ms.author: jpalma
 author: palma21
 ---
@@ -39,13 +39,13 @@ Register the `UseCustomizedUbuntuPreview` feature:
 az feature register --name UseCustomizedUbuntuPreview --namespace Microsoft.ContainerService
 ```
 
-It might take several minutes for the status to show as **Registered**. You can check the registration status by using the [az feature list](https://docs.microsoft.com/cli/azure/feature?view=azure-cli-latest#az-feature-list) command:
+It might take several minutes for the status to show as **Registered**. You can check the registration status by using the [az feature list](/cli/azure/feature?view=azure-cli-latest#az-feature-list) command:
 
 ```azurecli
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/UseCustomizedUbuntuPreview')].{Name:name,State:properties.state}"
 ```
 
-When the status shows as registered, refresh the registration of the `Microsoft.ContainerService` resource provider by using the [az provider register](https://docs.microsoft.com/cli/azure/provider?view=azure-cli-latest#az-provider-register) command:
+When the status shows as registered, refresh the registration of the `Microsoft.ContainerService` resource provider by using the [az provider register](/cli/azure/provider?view=azure-cli-latest#az-provider-register) command:
 
 ```azurecli
 az provider register --namespace Microsoft.ContainerService
@@ -76,7 +76,7 @@ If you want to create node pools with the AKS Ubuntu 16.04 image, you can do so 
 
 A container runtime is software that executes containers and manages container images on a node. The runtime helps abstract away sys-calls or operating system (OS) specific functionality to run containers on Linux or Windows. Today AKS is using [Moby](https://mobyproject.org/) (upstream docker) as its container runtime. 
     
-![Docker CRI](media/cluster-configuration/docker-cri.png)
+![Docker CRI 1](media/cluster-configuration/docker-cri.png)
 
 [`Containerd`](https://containerd.io/) is an [OCI](https://opencontainers.org/) (Open Container Initiative) compliant core container runtime that provides the minimum set of required functionality to execute containers and manage images on a node. It was [donated](https://www.cncf.io/announcement/2017/03/29/containerd-joins-cloud-native-computing-foundation/) to the Cloud Native Compute Foundation (CNCF) in March of 2017. The current Moby version that AKS uses today already leverages and is built on top of `containerd`, as shown above. 
 
@@ -84,7 +84,7 @@ With a containerd-based node and node pools, instead of talking to the `dockersh
 
 By using `containerd` for AKS nodes, pod startup latency improves and node resource consumption by the container runtime decreases. These improvements are enabled by this new architecture where kubelet talks directly to `containerd` through the CRI plugin while in Moby/docker architecture kubelet would talk to the `dockershim` and docker engine before reaching `containerd`, thus having extra hops on the flow.
 
-![Docker CRI](media/cluster-configuration/containerd-cri.png)
+![Docker CRI 2](media/cluster-configuration/containerd-cri.png)
 
 `Containerd` works on every GA version of kubernetes in AKS, and in every upstream kubernetes version above v1.10, and supports all kubernetes and AKS features.
 
@@ -117,14 +117,14 @@ az feature register --name UseCustomizedUbuntuPreview --namespace Microsoft.Cont
 
 ```
 
-It might take several minutes for the status to show as **Registered**. You can check the registration status by using the [az feature list](https://docs.microsoft.com/cli/azure/feature?view=azure-cli-latest#az-feature-list) command:
+It might take several minutes for the status to show as **Registered**. You can check the registration status by using the [az feature list](/cli/azure/feature?view=azure-cli-latest#az-feature-list) command:
 
 ```azurecli
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/UseCustomizedContainerRuntime')].{Name:name,State:properties.state}"
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/UseCustomizedUbuntuPreview')].{Name:name,State:properties.state}"
 ```
 
-When the status shows as registered, refresh the registration of the `Microsoft.ContainerService` resource provider by using the [az provider register](https://docs.microsoft.com/cli/azure/provider?view=azure-cli-latest#az-provider-register) command:
+When the status shows as registered, refresh the registration of the `Microsoft.ContainerService` resource provider by using the [az provider register](/cli/azure/provider?view=azure-cli-latest#az-provider-register) command:
 
 ```azurecli
 az provider register --namespace Microsoft.ContainerService
@@ -186,13 +186,13 @@ Register the `Gen2VMPreview` feature:
 az feature register --name Gen2VMPreview --namespace Microsoft.ContainerService
 ```
 
-It might take several minutes for the status to show as **Registered**. You can check the registration status by using the [az feature list](https://docs.microsoft.com/cli/azure/feature?view=azure-cli-latest#az-feature-list) command:
+It might take several minutes for the status to show as **Registered**. You can check the registration status by using the [az feature list](/cli/azure/feature?view=azure-cli-latest#az-feature-list) command:
 
 ```azurecli
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/Gen2VMPreview')].{Name:name,State:properties.state}"
 ```
 
-When the status shows as registered, refresh the registration of the `Microsoft.ContainerService` resource provider by using the [az provider register](https://docs.microsoft.com/cli/azure/provider?view=azure-cli-latest#az-provider-register) command:
+When the status shows as registered, refresh the registration of the `Microsoft.ContainerService` resource provider by using the [az provider register](/cli/azure/provider?view=azure-cli-latest#az-provider-register) command:
 
 ```azurecli
 az provider register --namespace Microsoft.ContainerService
@@ -228,6 +228,67 @@ az aks nodepool add --name gen2 --cluster-name myAKSCluster --resource-group myR
 
 If you want to create regular Gen1 node pools, you can do so by omitting the custom `--aks-custom-headers` tag.
 
+
+## Ephemeral OS (Preview)
+
+By default, the operating system disk for an Azure virtual machine is automatically replicated to Azure storage to avoid data loss should the VM need to be relocated to another host. However, since containers aren't designed to have local state persisted, this behavior offers limited value while providing some drawbacks, including slower node provisioning and higher read/write latency.
+
+By contrast, ephemeral OS disks are stored only on the host machine, just like a temporary disk. This provides lower read/write latency, along with faster node scaling and cluster upgrades.
+
+Like the temporary disk, an ephemeral OS disk is included in the price of the virtual machine, so you incur no additional storage costs.
+
+Register the `EnableEphemeralOSDiskPreview` feature:
+
+```azurecli
+az feature register --name EnableEphemeralOSDiskPreview --namespace Microsoft.ContainerService
+```
+
+It might take several minutes for the status to show as **Registered**. You can check the registration status by using the [az feature list](/cli/azure/feature?view=azure-cli-latest#az-feature-list) command:
+
+```azurecli
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EnableEphemeralOSDiskPreview')].{Name:name,State:properties.state}"
+```
+
+When the status shows as registered, refresh the registration of the `Microsoft.ContainerService` resource provider by using the [az provider register](/cli/azure/provider?view=azure-cli-latest#az-provider-register) command:
+
+```azurecli
+az provider register --namespace Microsoft.ContainerService
+```
+
+To install the aks-preview CLI extension, use the following Azure CLI commands:
+
+```azurecli
+az extension add --name aks-preview
+```
+
+To update the aks-preview CLI extension, use the following Azure CLI commands:
+
+```azurecli
+az extension update --name aks-preview
+```
+
+### Use Ephemeral OS on new clusters (Preview)
+
+Configure the cluster to use Ephemeral OS disks when the cluster is created. Use the `--aks-custom-headers` flag to set Ephemeral OS as the OS disk type for the new cluster.
+
+```azure-cli
+az aks create --name myAKSCluster --resource-group myResourceGroup -s Standard_DS3_v2 --aks-custom-headers EnableEphemeralOSDisk=true
+```
+
+If you want to create a regular cluster using network-attached OS disks, you can do so by omitting the custom `--aks-custom-headers` tag. You can also choose to add more ephemeral OS node pools as per below.
+
+### Use Ephemeral OS on existing clusters (Preview)
+Configure a new node pool to use Ephemeral OS disks. Use the `--aks-custom-headers` flag to set as the OS disk type as the OS disk type for that node pool.
+
+```azure-cli
+az aks nodepool add --name ephemeral --cluster-name myAKSCluster --resource-group myResourceGroup -s Standard_DS3_v2 --aks-custom-headers EnableEphemeralOSDisk=true
+```
+
+> [!IMPORTANT]
+> With ephemeral OS you can deploy VM and instance images up to the size of the VM cache. In the AKS case, the default node OS disk configuration uses 100GiB, which means that you need a VM size that has a cache larger than 100 GiB. The default Standard_DS2_v2 has a cache size of 86 GiB, which is not large enough. The Standard_DS3_v2 has a cache size of 172 GiB, which is large enough. You can also reduce the default size of the OS disk by using `--node-osdisk-size`. The minimum size for AKS images is 30GiB. 
+
+If you want to create node pools with network-attached OS disks, you can do so by omitting the custom `--aks-custom-headers` tag.
+
 ## Custom resource group name
 
 When you deploy an Azure Kubernetes Service cluster in Azure, a second resource group gets created for the worker nodes. By default, AKS will name the node resource group `MC_resourcegroupname_clustername_location`, but you can also provide your own name.
@@ -254,6 +315,7 @@ As you work with the node resource group, keep in mind that you can't:
 - See [Upgrade an Azure Kubernetes Service (AKS) cluster](upgrade-cluster.md) to learn how to upgrade your cluster to the latest version of Kubernetes.
 - Read more about [`containerd` and Kubernetes](https://kubernetes.io/blog/2018/05/24/kubernetes-containerd-integration-goes-ga/)
 - See the list of [Frequently asked questions about AKS](faq.md) to find answers to some common AKS questions.
+- Read more about [Ephemeral OS disks](../virtual-machines/ephemeral-os-disks.md).
 
 
 <!-- LINKS - internal -->

@@ -4,7 +4,7 @@ description: Learn how to configure Advanced Threat Protection to detect anomalo
 author: ajlam
 ms.author: andrela
 ms.service: mysql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 3/18/2020
 ---
 # Advanced Threat Protection for Azure Database for MySQL

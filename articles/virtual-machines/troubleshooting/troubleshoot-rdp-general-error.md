@@ -78,7 +78,7 @@ Before you follow these steps, take a snapshot of the OS disk of the affected VM
 1. Check if the RDP is disabled by group polices.
 
     ```
-    REM Get the group policy 
+    REM Get the group policy setting
     reg query "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v fDenyTSConnections
     ```
     If the group policy states that RDP is disabled (fDenyTSConnections value is 0x1), run the following command to enable the TermService service. If the registry key is not found, there is no group policy configured to disabled the RDP. You can move to the next step.
@@ -180,7 +180,7 @@ For more information, see [Remote Desktop disconnects frequently in Azure VM](tr
 
 #### Step 1: Turn on Remote Desktop
 
-1. [Attach the OS disk to a recovery VM](../windows/troubleshoot-recovery-disks-portal.md).
+1. [Attach the OS disk to a recovery VM](./troubleshoot-recovery-disks-portal-windows.md).
 2. Start a Remote Desktop connection to the recovery VM.
 3. Make sure that the disk is flagged as **Online** in the Disk Management console. Note the drive letter that is assigned to the attached OS disk.
 4. Start a Remote Desktop connection to the recovery VM.

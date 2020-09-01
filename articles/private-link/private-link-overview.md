@@ -35,36 +35,37 @@ Azure Private Link provides the following benefits:
 - **Extend to your own services**: Enable the same experience and functionality to render your service privately to consumers in Azure. By placing your service behind a standard Azure Load Balancer, you can enable it for Private Link. The consumer can then connect directly to your service using a private endpoint in their own virtual network. You can manage the connection requests using an approval call flow. Azure Private Link works for consumers and services belonging to different Azure Active Directory tenants. 
 
 ## Availability 
- The following table lists the Private Link services and the regions where they're available. 
+ The following table lists the Private Link services and the regions where they are available. 
 
 |Supported services  |Available regions | Additional considerations | Status  |
 |:-------------------|:-----------------|:----------------|:--------|
-|Private Link services behind standard Azure Load Balancer | All public regions  | Supported on Standard Load Balancer | GA <br/> [Learn more](https://docs.microsoft.com/azure/private-link/private-link-service-overview) |
+|Private Link services behind standard Azure Load Balancer | All public regions<br/> All Government regions  | Supported on Standard Load Balancer | GA <br/> [Learn more](https://docs.microsoft.com/azure/private-link/private-link-service-overview) |
 | Azure Storage       |  All public regions       |  Supported on Account Kind General Purpose V2 | GA <br/> [Learn more](/azure/storage/common/storage-private-endpoints)  |
 | Azure Data Lake Storage Gen2        |  All public regions      |  Supported on Account Kind General Purpose V2 | GA <br/> [Learn more](/azure/storage/common/storage-private-endpoints)  |
-|  Azure SQL Database         | All public regions      |  Supported for Proxy [connection policy](https://docs.microsoft.com/azure/azure-sql/database/connectivity-architecture#connection-policyhttps://docs.microsoft.com/azure/azure-sql/database/connectivity-architecture#connection-policy) | GA <br/> [Learn more](https://docs.microsoft.com/azure/sql-database/sql-database-private-endpoint-overview)      |
-|Azure Synapse Analytics (SQL Data Warehouse)| All public regions |  Supported for Proxy [connection policy](https://docs.microsoft.com/azure/azure-sql/database/connectivity-architecture#connection-policyhttps://docs.microsoft.com/azure/azure-sql/database/connectivity-architecture#connection-policy) |GA <br/> [Learn more](https://docs.microsoft.com/azure/sql-database/sql-database-private-endpoint-overview)|
-|Azure Cosmos DB|  All public regions | |GA <br/> [Learn more](https://docs.microsoft.com/azure/cosmos-db/how-to-configure-private-endpoints)|
-|  Azure Database for PostgreSQL - Single server         | All public regions      |  | GA <br/> [Learn more](https://docs.microsoft.com/azure/postgresql/concepts-data-access-and-security-private-link)      |
-|  Azure Database for MySQL         | All public regions      |  | GA <br/> [Learn more](https://docs.microsoft.com/azure/mysql/concepts-data-access-security-private-link)     |
-|  Azure Database for MariaDB         | All public regions      |  | GA <br/> [Learn more](https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-private-link)      |
-|  Azure Key Vault         | All public regions      |  | GA   <br/> [Learn more](https://docs.microsoft.com/azure/key-vault/private-link-service)   |
+|  Azure SQL Database         | All public regions <br/> All Government regions      |  Supported for Proxy [connection policy](https://docs.microsoft.com/azure/azure-sql/database/connectivity-architecture#connection-policyhttps://docs.microsoft.com/azure/azure-sql/database/connectivity-architecture#connection-policy) | GA <br/> [Learn more](https://docs.microsoft.com/azure/sql-database/sql-database-private-endpoint-overview)      |
+|Azure Synapse Analytics (SQL Data Warehouse)| All public regions <br/> All Government regions |  Supported for Proxy [connection policy](https://docs.microsoft.com/azure/azure-sql/database/connectivity-architecture#connection-policyhttps://docs.microsoft.com/azure/azure-sql/database/connectivity-architecture#connection-policy) |GA <br/> [Learn more](https://docs.microsoft.com/azure/sql-database/sql-database-private-endpoint-overview)|
+|Azure Cosmos DB|  All public regions<br/> All Government regions | |GA <br/> [Learn more](https://docs.microsoft.com/azure/cosmos-db/how-to-configure-private-endpoints)|
+|  Azure Database for PostgreSQL - Single server         | All public regions <br/> All Government regions     | Supported for General Purpose and Memory Optimized pricing tiers | GA <br/> [Learn more](https://docs.microsoft.com/azure/postgresql/concepts-data-access-and-security-private-link)      |
+|  Azure Database for MySQL         | All public regions<br/> All Government regions      |  | GA <br/> [Learn more](https://docs.microsoft.com/azure/mysql/concepts-data-access-security-private-link)     |
+|  Azure Database for MariaDB         | All public regions<br/> All Government regions     |  | GA <br/> [Learn more](https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-private-link)      |
+|  Azure Key Vault         | All public regions<br/> All Government regions      |  | GA   <br/> [Learn more](https://docs.microsoft.com/azure/key-vault/private-link-service)   |
 |Azure Kubernetes Service - Kubernetes API | All public regions      |  | GA   <br/> [Learn more](https://docs.microsoft.com/azure/aks/private-clusters)   |
-|Azure Search | All public regions |  | GA   <br/> [Learn more](https://docs.microsoft.com/azure/search/search-security-overview#endpoint-access)    |
-|Azure Container Registry | All public regions      | Supported with premium tier of container registry [Click for tiers](https://docs.microsoft.com/azure/container-registry/container-registry-skus)| GA   <br/> [Learn more](https://docs.microsoft.com/azure/container-registry/container-registry-private-link)   |
+|Azure Search | All public regions <br/> All Government regions | Supported with service in Private Mode | GA   <br/> [Learn more](https://docs.microsoft.com/azure/search/search-security-overview#endpoint-access)    |
+|Azure Container Registry | All public regions<br/> All Government regions    | Supported with premium tier of container registry. [Click for tiers](https://docs.microsoft.com/azure/container-registry/container-registry-skus)| GA   <br/> [Learn more](https://docs.microsoft.com/azure/container-registry/container-registry-private-link)   |
 |Azure App Configuration | All public regions      |  | Preview   |
-|Azure Backup | All public regions     |  | GA   <br/> [Learn more](https://docs.microsoft.com/azure/backup/private-endpoints)   |
-|Azure Event Hub | All public regions      |   | GA   <br/> [Learn more](https://docs.microsoft.com/azure/event-hubs/private-link-service)  |
-|Azure Service Bus | All public regions  | Supported with premium tier of Azure Service Bus. [Click for tiers](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging) | GA   <br/> [Learn more](https://docs.microsoft.com/azure/service-bus-messaging/private-link-service)    |
+|Azure Backup | All public regions<br/> All Government regions   |  | GA   <br/> [Learn more](https://docs.microsoft.com/azure/backup/private-endpoints)   |
+|Azure Event Hub | All public regions<br/>All Government regions      |   | GA   <br/> [Learn more](https://docs.microsoft.com/azure/event-hubs/private-link-service)  |
+|Azure Service Bus | All public region<br/>All Government regions  | Supported with premium tier of Azure Service Bus. [Click for tiers](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging) | GA   <br/> [Learn more](https://docs.microsoft.com/azure/service-bus-messaging/private-link-service)    |
 |Azure Relay | All public regions      |  | Preview <br/> [Learn more](https://docs.microsoft.com/azure/service-bus-relay/private-link-service)  |
-|Azure Event Grid| All public regions       |  | GA   <br/> [Learn more](https://docs.microsoft.com/azure/event-grid/network-security) |
-|Azure Web Apps | All public regions      |  | Preview   <br/> [Learn more](https://docs.microsoft.com/azure/app-service/networking/private-endpoint)   |
-|Azure Machine Learning | EAST US, WEST US 2, SOUTH CENTRAL US      |  | Preview   <br/> [Learn more](https://docs.microsoft.com/azure/machine-learning/how-to-configure-private-link)   |
+|Azure Event Grid| All public regions<br/> All Government regions       |  | GA   <br/> [Learn more](https://docs.microsoft.com/azure/event-grid/network-security) |
+|Azure Web Apps | All public regions      | Supported with PremiumV2 Windows and Linux and Elastic Premium Functions  | Preview   <br/> [Learn more](https://docs.microsoft.com/azure/app-service/networking/private-endpoint)   |
+|Azure Machine Learning | EAST US, SOUTH CENTRAL US, WEST US 2      |  | Preview   <br/> [Learn more](https://docs.microsoft.com/azure/machine-learning/how-to-configure-private-link)   |
 | Azure Automation  | All public regions |  | Preview | |
 | Azure IoT Hub | All public regions    |  | GA   <br/> [Learn more](https://docs.microsoft.com/azure/iot-hub/virtual-network-support ) |
 | Azure SignalR | EAST US, WEST US 2, SOUTH CENTRAL US      |  | Preview   <br/> [Learn more](https://aka.ms/asrs/privatelink)   |
 | Azure Monitor <br/>(Log Analytics & Application Insights) | All public regions      |  | GA   <br/> [Learn more](https://docs.microsoft.com/azure/azure-monitor/platform/private-link-security)   | 
-
+| Azure File Sync | All public regions      | |   GA   <br/> [Learn more](https://docs.microsoft.com/azure/storage/files/storage-sync-files-networking-endpoints?tabs=azure-portal)   |
+| Azure Batch | EAST US, WEST US 2, SOUTH CENTRAL US, WEST CENTRAL US, FRANCE CENTRAL, EAST ASIA, UK SOUTH, US GOV VIRGINIA, US GOV ARIZONA  | | GA <br/> [Learn more](https://docs.microsoft.com/azure/batch/private-connectivity) |
 
 For the most up-to-date notifications, check the [Azure Private Link updates page](https://azure.microsoft.com/updates/?product=private-link).
 

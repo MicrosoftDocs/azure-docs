@@ -6,7 +6,7 @@ ms.service: security
 ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
+ms.custom: subject-security-benchmark
 
 ---
 
@@ -546,9 +546,9 @@ https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
 
 ### 4.6: Use Azure RBAC to control access to resources
 
-**Guidance**: Use Azure role-based access control (RBAC) to control access to the Azure Database for MySQL control plane (e.g. Azure portal). For data plane access (within the database itself), use SQL queries to create users and configure user permissions. RBAC does not affect user permissions within the database.
+**Guidance**: Use Azure role-based access control (Azure RBAC) to control access to the Azure Database for MySQL control plane (e.g. Azure portal). For data plane access (within the database itself), use SQL queries to create users and configure user permissions. Azure RBAC does not affect user permissions within the database.
 
-How to configure RBAC in Azure: https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal
+How to configure Azure RBAC: https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal
 
 How to configure user access with SQL for Azure Database for MySQL: https://docs.microsoft.com/azure/mysql/howto-create-users
 

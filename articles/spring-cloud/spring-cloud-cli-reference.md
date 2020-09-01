@@ -6,16 +6,14 @@ ms.service: spring-cloud
 ms.topic: reference
 ms.date: 10/03/2019
 ms.author: brendm
+ms.custom: devx-track-java
 ---
 
 # az spring-cloud
 
 ## Manage Azure Spring Cloud using the Azure CLI
 
->[!Note]
-> Azure Spring Cloud is currently in preview.  These commands may be changed or removed in a future release.
-
-| az spring-cloud |  |
+| az spring-cloud | Commands |
 |------|------:|
 | [az spring-cloud create](#az-spring-cloud-create) | Create an Azure Spring Cloud instance. |
 | [az spring-cloud delete](#az-spring-cloud-delete) | Delete an Azure Spring Cloud instance. |
@@ -84,13 +82,13 @@ az spring-cloud create  --name -n
                         --no-wait
 ```
 
-| Required Parameters | |
-| --- | ---: |
+| Required Parameters | Description |
+| --- | :--- |
 | --name -n | Name for this Azure Spring Cloud instance. |
 | --resource-group -g | Specifies the resource group for this app.  Configure the default group using `az configure --defaults group=<name>` |
 
-| Optional Parameters | |
-| --- | ---: |
+| Optional Parameters | Description |
+| --- | :--- |
 | --location -l | Specifies server location for this app.  Find valid locations using `az account list-locations` |
 | --no-wait | Do not for long running operations to complete.
 
@@ -112,13 +110,13 @@ az spring cloud --name -n
                 --no-wait
 ```
 
-| Required Parameters | |
-| --- | ---: |
+| Required Parameters | Description |
+| --- | :--- |
 | --name -n | Name of the Azure Spring Cloud instance to be deleted. |
 | --resource-group -g | Name of the resource group to which the Azure Spring Cloud belongs. |
 
-| Optional Parameters | |
-| --- | ---: |
+| Optional Parameters | Description |
+| --- | :--- |
 | -no-wait | Do not wait for long running operations to finish. |
 
 ### Example
@@ -137,8 +135,8 @@ List all Azure Spring Cloud instances associated with the given resource group. 
 az spring-cloud list --resource-group -g
 ```
 
-| Required Parameters | |
-| --- | ---: |
+| Required Parameters | Description |
+| --- | :--- |
 | --resource-group -g | Name of the resource group. |
 
 ## az spring-cloud show
@@ -150,8 +148,8 @@ az spring-cloud show --name -n
                      -- resource-group -g
 ```
 
-| Required Parameters | |
-| --- | ---: |
+| Required Parameters | Description |
+| --- | :--- |
 | --name -n | Name of the Azure Spring Cloud instance. |
 | --resource-group -g | Name of the Resource Group to which the Azure Spring Cloud instance belongs.
 
@@ -170,14 +168,14 @@ az spring-cloud app create --name -n
                             --memory
 ```
 
-| Required Parameters | |
-| --- | ---: |
+| Required Parameters | Description |
+| --- | :--- |
 | --name -n | Name of the app. |
 | --resource-group -g | Name of the resource group.  You can configure the default group using `az configure --defaults group=<name>`. |
 | --service -s | Name of the Azure Spring Cloud.  You can configure the default service using `az configure --defaults spring-cloud=<name>`. |
 
-| Optional Parameters | |
-| --- | ---: |
+| Optional Parameters | Description |
+| --- | :--- |
 | --cpu | Number of virtual cores per instance.  Default: 1. |
 | --enable-persistent-storage | Boolean value.  If true, mounts a 50GB disk with default path. |
 | --instance-count | Number of instance.  Default: 1. |
@@ -208,8 +206,8 @@ az spring cloud app delete  --name -n
                             --service -s
 ```
 
-| Required Parameters | |
-| --- | ---: |
+| Required Parameters | Description |
+| --- | :--- |
 | --name -n | Name of the app. |
 | --resource-group -g | Name of the resource group.  You can configure the default group using `az configure --defaults group=<name>`. |
 | --service -s | Name of the Azure Spring Cloud.  You can configure the default service using `az configure --defaults spring-cloud=<name>`. |
@@ -235,14 +233,14 @@ az spring cloud app deploy  --name -n
                             --version
 ```
 
-| Required Parameters | |
-| --- | ---: |
+| Required Parameters | Description |
+| --- | :--- |
 | --name -n | Name of the app. |
 | --resource-group -g | Name of the resource group.  You can configure the default group using `az configure --defaults group=<name>`. |
 | --service -s | Name of the Azure Spring Cloud.  You can configure the default service using `az configure --defaults spring-cloud=<name>`. |
 
-| Optional Parameters | |
-| --- | ---: |
+| Optional Parameters | Description |
+| --- | :--- |
 | --cpu | Number of virtual CPI cores per instance. |
 | --deployment -d | Name of an existing app deployment.  Defaults to the production deployment if not specified. |
 | --env | Space-separated environment variables in 'key[=value]' format. |
@@ -284,8 +282,8 @@ az spring-cloud app list --resource-group -g
                          --service -s
 ```
 
-|Required Parameters | |
-| --- | ---: |
+|Required Parameters | Description |
+| --- | :--- |
 | --resource-group -g | Name of the resource group.  You can configure the default group using `az configure --defaults group=<name>`. |
 | --service -s | Name of the Azure Spring Cloud.  You can configure the default service using `az configure --defaults spring-cloud=<name>`. |
 
@@ -301,14 +299,14 @@ az spring-cloud app restart --name -n
                             --no-wait
 ```
 
-| Required Parameters | |
-| --- | ---: |
+| Required Parameters | Description |
+| --- | :--- |
 | --name -n | Name of the app. |
 | --resource-group -g | Name of the resource group.  You can configure the default group using `az configure --defaults group=<name>`. |
 | --service -s | Name of the Azure Spring Cloud.  You can configure the default service using `az configure --defaults spring-cloud=<name>`. |
 
-| Optional Parameters | |
-| --- | ---: |
+| Optional Parameters | Description |
+| --- | :--- |
 | --deployment -d | Name of the existing deployment of the app.  Defaults to the production deployment if not specified. |
 | --no-wait | Do not wait for long running operations to finish. |
 
@@ -327,14 +325,14 @@ az spring-cloud app scale --name -n
                           --no-wait
 ```
 
-| Required Parameters | |
-| --- | ---: |
+| Required Parameters | Description |
+| --- | :--- |
 | --name -n | Name of the app. |
 | --resource-group -g | Name of the resource group.  You can configure the default group using `az configure --defaults group=<name>`. |
 | --service -s | Name of the Azure Spring Cloud.  You can configure the default service using `az configure --defaults spring-cloud=<name>`. |
 
-| Optional Parameters | |
-| --- | ---: |
+| Optional Parameters | Description |
+| --- | :--- |
 | --cpu | Number of virtual CPU cores per app instance. |
 | --deployment -d | Name of the existing deployment of the app.  Defaults to the production deployment if not specified. |
 | --instance-count | Number of instances of this app. |
@@ -367,15 +365,15 @@ az spring-cloud app set-deployment --deployment -d
                                    --no-wait
 ```
 
-| Required Parameters | |
-| --- | ---: |
+| Required Parameters | Description |
+| --- | :--- |
 | --deployment -d | Name of an existing deployment of the app. |
 | --name -n | Name of the app. |
 | --resource-group -g | Name of the resource group.  You can configure the default group using `az configure --defaults group=<name>`. |
 | --service -s | Name of the Azure Spring Cloud.  You can configure the default service using `az configure --defaults spring-cloud=<name>`. |
 
-| Optional Parameters | |
-| --- | ---: |
+| Optional Parameters | Description |
+| --- | :--- |
 | --no-wait | Do not wait for long-running operations to finish. |
 
 ### Examples
@@ -396,8 +394,8 @@ az spring-cloud app show --name -n
                          --service -s
 ```
 
-| Required Parameters | |
-| --- | ---: |
+| Required Parameters | Description |
+| --- | :--- |
 | --name -n | Name of the app. |
 | --resource-group -g | Name of the resource group.  You can configure the default group using `az configure --defaults group=<name>`. |
 | --service -s | Name of the Azure Spring Cloud.  You can configure the default service using `az configure --defaults spring-cloud=<name>`. |
@@ -413,14 +411,14 @@ az spring-cloud app show-deploy-log --name -n
                                     --deployment -d
 ```
 
-| Required Parameters | |
-| --- | ---: |
+| Required Parameters | Description |
+| --- | :--- |
 | --name -n | Name of the app. |
 | --resource-group -g | Name of the resource group.  You can configure the default group using `az configure --defaults group=<name>`. |
 | --service -s | Name of the Azure Spring Cloud.  You can configure the default service using `az configure --defaults spring-cloud=<name>`. |
 
-| Optional Parameters | |
-| --- | ---: |
+| Optional Parameters | Description |
+| --- | :--- |
 | --deployment -d | Name of an existing deployment of the app.  Defaults to the production environment. |
 
 ## az spring-cloud app start
@@ -435,14 +433,14 @@ az spring-cloud app start --name -n
                           --no-wait
 ```
 
-| Required Parameters | |
-| --- | ---: |
+| Required Parameters | Description |
+| --- | :--- |
 | --name -n | Name of the app. |
 | --resource-group -g | Name of the resource group.  You can configure the default group using `az configure --defaults group=<name>`. |
 | --service -s | Name of the Azure Spring Cloud.  You can configure the default service using `az configure --defaults spring-cloud=<name>`. |
 
-| Optional Parameters | |
-| --- | ---: |
+| Optional Parameters | Description |
+| --- | :--- |
 | --deployment -d | Name of an existing deployment of the app.  Defaults to the production environment. |
 | --no-wait | Do not wait for long-running operations to finish. |
 
@@ -458,14 +456,14 @@ az spring-cloud app stop --name -n
                          --no-wait
 ```
 
-| Required Parameters | |
-| --- | ---: |
+| Required Parameters | Description |
+| --- | :--- |
 | --name -n | Name of the app. |
 | --resource-group -g | Name of the resource group.  You can configure the default group using `az configure --defaults group=<name>`. |
 | --service -s | Name of the Azure Spring Cloud.  You can configure the default service using `az configure --defaults spring-cloud=<name>`. |
 
-| Optional Parameters | |
-| --- | ---: |
+| Optional Parameters | Description |
+| --- | :--- |
 | --deployment -d | Name of an existing deployment of the app.  Defaults to the production environment. |
 | --no-wait | Do not wait for long-running operations to finish. |
 
@@ -486,14 +484,14 @@ az spring-cloud app update --name -n
                            --runtime-version
 ```
 
-| Required Parameters | |
-| --- | ---: |
+| Required Parameters | Description |
+| --- | :--- |
 | --name -n | Name of the app. |
 | --resource-group -g | Name of the resource group.  You can configure the default group using `az configure --defaults group=<name>`. |
 | --service -s | Name of the Azure Spring Cloud.  You can configure the default service using `az configure --defaults spring-cloud=<name>`. |
 
-| Optional Parameters | |
-| --- | ---: |
+| Optional Parameters | Description |
+| --- | :--- |
 | --deployment -d | Name of an existing deployment of the app.  Defaults to the production environment. |
 | --enable-persistent-storage | Boolean.  If true, mount a 50GB disk with the default path. |
 | --env | Space-separated environment variables in 'key[=value]' format. |
@@ -520,8 +518,8 @@ az spring-cloud app binding list --app
                                  --service -s
 ```
 
-| Required Parameters | |
-| --- | ---: |
+| Required Parameters | Description |
+| --- | :--- |
 | --app | Name of the app. |
 | --resource-group -g | Name of the resource group.  You can configure the default group using `az configure --defaults group=<name>`. |
 | --service -s | Name of the Azure Spring Cloud.  You can configure the default service using `az configure --defaults spring-cloud=<name>`. |
@@ -537,8 +535,8 @@ az spring-cloud app binding list --app
                                  --service -s
 ```
 
-| Required Parameters | |
-| --- | ---: |
+| Required Parameters | Description |
+| --- | :--- |
 | --app | Name of the app. |
 | --name | Name of the service binding to be removed. |
 | --resource-group -g | Name of the resource group.  You can configure the default group using `az configure --defaults group=<name>`. |
@@ -555,8 +553,8 @@ az spring-cloud app binding show --app
                                  --service -s
 ```
 
-| Required Parameters | |
-| --- | ---: |
+| Required Parameters | Description |
+| --- | :--- |
 | --app | Name of the app. |
 | --name | Name of the service binding. |
 | --resource-group -g | Name of the resource group.  You can configure the default group using `az configure --defaults group=<name>`. |
@@ -585,16 +583,16 @@ az spring-cloud app binding list --app
                                  --service -s
 ```
 
-| Required Parameters | |
-| --- | ---: |
+| Required Parameters | Description |
+| --- | :--- |
 | --api-type | Specify the API type using one of the following values:  cassandra, gremlin, mongo, sql, table. |
 | --app | Name of the app. |
 | --name | Name of the service binding. |
 | --resource-group -g | Name of the resource group.  You can configure the default group using `az configure --defaults group=<name>`. |
 | --service -s | Name of the Azure Spring Cloud.  You can configure the default service using `az configure --defaults spring-cloud=<name>`. |
 
-|Optional Parameters | |
-| --- | ---: |
+|Optional Parameters | Description |
+| --- | :--- |
 | --collection-name | Name of the collection.  Required when using Gremlin. |
 | --database-name | Name of the database.  Required when using Mongo, SQL, and Gremlin. |
 | --key-space | Cassandra key-space.  Required when using Cassandra. |
@@ -611,15 +609,15 @@ az spring-cloud app binding cosmos update --app
                                           --key-space
 ```
 
-| Required Parameters | |
-| --- | ---: |
+| Required Parameters | Description |
+| --- | :--- |
 | --app | Name of the app. |
 | --name | Name of the service binding. |
 | --resource-group -g | Name of the resource group.  You can configure the default group using `az configure --defaults group=<name>`. |
 | --service -s | Name of the Azure Spring Cloud.  You can configure the default service using `az configure --defaults spring-cloud=<name>`. |
 
-|Optional Parameters | |
-| --- | ---: |
+|Optional Parameters | Description |
+| --- | :--- |
 | --collection-name | Name of the collection.  Required when using Gremlin. |
 | --database-name | Name of the database.  Required when using Mongo, SQL, and Gremlin. |
 | --key-space | Cassandra key-space.  Required when using Cassandra. |
@@ -636,8 +634,8 @@ az spring-cloud app binding mysql add --app
                                       --username
 ```
 
-| Required Parameters | |
-| --- | ---: |
+| Required Parameters | Description |
+| --- | :--- |
 | --app | Name of the app. |
 | --database-name | Name of the database. |
 | --key | API key of the service. |
@@ -661,15 +659,15 @@ az spring-cloud app binding mysql update --add
                                          --username
 ```
 
-| Required Parameters | |
-| --- | ---: |
+| Required Parameters | Description |
+| --- | :--- |
 | --app | Name of the app. |
 | --name | Name of the service binding. |
 | --resource-group -g | Name of the resource group.  You can configure the default group using `az configure --defaults group=<name>`. |
 | --service -s | Name of the Azure Spring Cloud.  You can configure the default service using `az configure --defaults spring-cloud=<name>`. |
 
-| Optional Parameters | |
-| --- | ---: |
+| Optional Parameters | Description |
+| --- | :--- |
 | --database-name | Name of the database. |
 | --key | API key of the service. |
 | --username | Username for database access. |
@@ -687,31 +685,31 @@ az spring-cloud app binding redis add --app
                                       --disable-ssl
 ```
 
-| Required Parameters | |
-| --- | ---: |
+| Required Parameters | Description |
+| --- | :--- |
 | --app | Name of the app. |
 | --name | Name of the service binding. |
 | --resource-group -g | Name of the resource group.  You can configure the default group using `az configure --defaults group=<name>`. |
 | --resource-id | Azure resource ID of the service you want to bind with. |
 | --service -s | Name of the Azure Spring Cloud.  You can configure the default service using `az configure --defaults spring-cloud=<name>`. |
 
-| Optional Parameters | |
-| --- | ---: |
+| Optional Parameters | Description |
+| --- | :--- |
 | --disable-ssl | Disable TLS. |
 
 ## az spring-cloud app binding redis update
 
 Update a service binding for Azure Cache for Redis.
 
-| Required Parameters | |
-| --- | ---: |
+| Required Parameters | Description |
+| --- | :--- |
 | --app | Name of the app. |
 | --name | Name of the service binding. |
 | --resource-group -g | Name of the resource group.  You can configure the default group using `az configure --defaults group=<name>`. |
 | --service -s | Name of the Azure Spring Cloud.  You can configure the default service using `az configure --defaults spring-cloud=<name>`. |
 
-| Optional Parameters | |
-| --- | ---: |
+| Optional Parameters | Description |
+| --- | :--- |
 | --disable-ssl | Disable TLS. |
 
 ## az spring-cloud app deployment create
@@ -720,15 +718,15 @@ Create a staging deployment for the app.
 
 To deploy code or to update settings to an existing deployment, use `az spring-cloud app deploy --deployment <staging-deployment>` or `az spring-cloud app update --deployment <staging deployment>.
 
-| Required Parameters | |
-| --- | ---: |
+| Required Parameters | Description |
+| --- | :--- |
 | --app | Name of the app. |
 | --name | Name of the service binding. |
 | --resource-group -g | Name of the resource group.  You can configure the default group using `az configure --defaults group=<name>`. |
 | --service -s | Name of the Azure Spring Cloud.  You can configure the default service using `az configure --defaults spring-cloud=<name>`. |
 
-| Optional Parameters | |
-| --- | ---: |
+| Optional Parameters | Description |
+| --- | :--- |
 | --cpu | Number of virtual CPU cores per instance.  Default: 1 |
 | --env | Space-separated environment variables in 'key[=value]' format. |
 | --instance-count | Number of instances. Default: 1. |
@@ -766,8 +764,8 @@ az spring-cloud app deployment delete --app
                                       --service -s
 ```
 
-| Required Parameters | |
-| --- | ---: |
+| Required Parameters | Description |
+| --- | :--- |
 | --app | Name of the app. |
 | --name | Name of the deployment. |
 | --resource-group -g | Name of the resource group.  You can configure the default group using `az configure --defaults group=<name>`. |
@@ -783,8 +781,8 @@ az spring-cloud app deployment list --app
                                     --service -s
 ```
 
-| Required Parameters | |
-| --- | ---: |
+| Required Parameters | Description |
+| --- | :--- |
 | --app | Name of the app. |
 | --resource-group -g | Name of the resource group.  You can configure the default group using `az configure --defaults group=<name>`. |
 | --service -s | Name of the Azure Spring Cloud.  You can configure the default service using `az configure --defaults spring-cloud=<name>`. |
@@ -800,8 +798,8 @@ az spring-cloud app deployment show --app
                                     --service -s
 ```
 
-| Required Parameters | |
-| --- | ---: |
+| Required Parameters | Description |
+| --- | :--- |
 | --app | Name of the app. |
 | --name | Name of the deployment. |
 | --resource-group -g | Name of the resource group.  You can configure the default group using `az configure --defaults group=<name>`. |
@@ -816,8 +814,8 @@ az spring-cloud config-server clear --name
                                         --resource-group -g
 ```
 
-| Required Parameters | |
-| --- | ---: |
+| Required Parameters | Description |
+| --- | :--- |
 | --name | Name of the Azure Spring Cloud. |
 | --resource-group -g | Name of the resource group.  You can configure the default group using `az configure --defaults group=<name>`. |
 
@@ -832,14 +830,14 @@ az spring-cloud config-server set --config-file
                                   --no-wait
 ```
 
-| Required Parameters | |
-| --- | ---: |
+| Required Parameters | Description |
+| --- | :--- |
 | --config-file | File path to a YAML manifest for the configuration of the Config Server. |
 | --name | Name of the Azure Spring Cloud. |
 | --resource-group -g | Name of the resource group.  You can configure the default group using `az configure --defaults group=<name>`. |
 
-| Optional Parameters | |
-| --- | ---: |
+| Optional Parameters | Description |
+| --- | :--- |
 | --no-wait | Do not for long running operations to complete.
 
 ## az spring-cloud config-server show
@@ -851,8 +849,8 @@ az spring-cloud config-server show --name -n
                                    --resource-group -g
 ```
 
-| Required Parameters | |
-| --- | ---: |
+| Required Parameters | Description |
+| --- | :--- |
 | --name | Name of the Azure Spring Cloud. |
 | --resource-group -g | Name of the resource group.  You can configure the default group using `az configure --defaults group=<name>`. |
 
@@ -875,14 +873,14 @@ az spring-cloud config-server git set --name -n
                                       --username
 ```
 
-| Required Parameters | |
-| --- | ---: |
+| Required Parameters | Description |
+| --- | :--- |
 | --name | Name of the Azure Spring Cloud. |
 | --resource-group -g | Name of the resource group.  You can configure the default group using `az configure --defaults group=<name>`. |
 | --uri | URI of the added config. |
 
-| Optional Parameters | |
-| --- | ---: |
+| Optional Parameters | Description |
+| --- | :--- |
 | --defer | Temporarily store the object in the local cache instead of sending to Azure.  Use `az cache` to view / clear. |
 | --host-key | Host key for the added config. |
 | --host-key-algorithm | Host key algorithm for the added config. |
@@ -912,15 +910,15 @@ az spring-cloud config-server git repo add --name -n
                                            --username
 ```
 
-| Required Parameters | |
-| --- | ---: |
+| Required Parameters | Description |
+| --- | :--- |
 | --name | Name of the Azure Spring Cloud. |
 | --repo-name | URI of the repo. |
 | --resource-group -g | Name of the resource group.  You can configure the default group using `az configure --defaults group=<name>`. |
 | --uri | URI of the added config. |
 
-| Optional Parameters | |
-| --- | ---: |
+| Optional Parameters | Description |
+| --- | :--- |
 | --defer | Temporarily store the object in the local cache instead of sending to Azure.  Use `az cache` to view / clear. |
 | --host-key | Host key for the added config. |
 | --host-key-algorithm | Host key algorithm for the added config. |
@@ -942,13 +940,13 @@ az spring-cloud config-server git repo list --name -n
                                        --defer
 ```
 
-| Required Parameters | |
-| --- | ---: |
+| Required Parameters | Description |
+| --- | :--- |
 | --name | Name of the Azure Spring Cloud. |
 | --resource-group -g | Name of the resource group.  You can configure the default group using `az configure --defaults group=<name>`. |
 
-| Optional Parameters | |
-| --- | ---: |
+| Optional Parameters | Description |
+| --- | :--- |
 | --defer | Temporarily store the object in the local cache instead of sending to Azure.  Use `az cache` to view / clear. |
 
 ## az spring-cloud config-server git repo remove
@@ -962,14 +960,14 @@ az spring-cloud config-server git repo remove --name -n
                                          --defer
 ```
 
-| Required Parameters | |
-| --- | ---: |
+| Required Parameters | Description |
+| --- | :--- |
 | --name | Name of the Azure Spring Cloud. |
 | --repo-name | URI of the repo. |
 | --resource-group -g | Name of the resource group.  You can configure the default group using `az configure --defaults group=<name>`. |
 
-| Optional Parameters | |
-| --- | ---: |
+| Optional Parameters | Description |
+| --- | :--- |
 | --defer | Temporarily store the object in the local cache instead of sending to Azure.  Use `az cache` to view / clear. |
 
 ## az spring-cloud test-endpoint disable
@@ -981,8 +979,8 @@ az spring-cloud test-endpoint disable --name -n
                                       --resource-group -g
 ```
 
-| Required Parameters | |
-| --- | ---: |
+| Required Parameters | Description |
+| --- | :--- |
 | --name | Name of the Azure Spring Cloud. |
 | --resource-group -g | Name of the resource group.  You can configure the default group using `az configure --defaults group=<name>`. |
 
@@ -995,8 +993,8 @@ az spring-cloud test-endpoint enable --name -n
                                      --resource-group -g
 ```
 
-| Required Parameters | |
-| --- | ---: |
+| Required Parameters | Description |
+| --- | :--- |
 | --name | Name of the Azure Spring Cloud. |
 | --resource-group -g | Name of the resource group.  You can configure the default group using `az configure --defaults group=<name>`. |
 
@@ -1011,13 +1009,13 @@ az spring-cloud test-endpoint list --name -n
                                    --deployment -d
 ```
 
-| Required Parameters | |
-| --- | ---: |
+| Required Parameters | Description |
+| --- | :--- |
 | --name | Name of the Azure Spring Cloud. |
 | --resource-group -g | Name of the resource group.  You can configure the default group using `az configure --defaults group=<name>`. |
 
-| Optional Parameters | |
-| --- | ---: |
+| Optional Parameters | Description |
+| --- | :--- |
 | --app | Name of the app. |
 | --deployment -d | Name of an existing deployment of the app.  Defaults to production if unspecified. |
 
@@ -1031,8 +1029,8 @@ az spring-cloud test-endpoint renew-key --name -n
                                         --type
 ```
 
-| Required Parameters | |
-| --- | ---: |
+| Required Parameters | Description |
+| --- | :--- |
 | --name | Name of the Azure Spring Cloud. |
 | --resource-group -g | Name of the resource group.  You can configure the default group using `az configure --defaults group=<name>`. |
 | --type | Type of test endpoint key.  Allowed values:  Primary, Secondary. |

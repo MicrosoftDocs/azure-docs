@@ -19,7 +19,7 @@ Today enterprise analytics requires operating at massive scale on any kind of da
 
 Solutions like this are difficult to build, configure, secure, and maintain, which delays the swift extraction of intelligent insight.
 
-**Azure Synapse** is an integrated analytics service that accelerates time to insight from all data at any scale, across data warehouses and big data analytics systems​. It brings together the best of the **SQL** technologies used in enterprise data warehousing, **Spark** technologies used in big data analytics, and **Pipelines** to orchestrate activities and data movement.
+**Azure Synapse** is an integrated analytics service that accelerates time to insight from all data at any scale, across data warehouses and big data analytics systems​. It brings together the best of the **SQL** technologies used in enterprise data warehousing, **Spark** technologies used in big data analytics, and **Pipelines** for data integration and ETL/ELT.
 
 Azure Synapse comes with a web-native **Studio** user experience that provides a single experience and model for management, monitoring, coding, and security.
 
@@ -36,7 +36,7 @@ scenarios using standard T-SQL experiences familiar to data engineers. It also e
 
 * Synapse SQL offers both **serverless** and **provisioned** resource models, offering consumption and billing options to fit your needs. For predictable performance and cost, provision pools to reserve processing power for data stored in SQL tables. For unplanned or bursty workloads, use the serverless, always-available SQL endpoint.
 * Use built-in **streaming** capabilities to land data from cloud data sources into SQL tables
-* Integrate AI with SQL, by using **machine learning** models to score data using the T-SQL PREDICT function
+* Integrate AI with SQL, by using **machine learning** models to score data using the [T-SQL PREDICT function](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest)
 
 ### Industry-standard Apache Spark
 
@@ -55,13 +55,13 @@ Azure Synapse removes the traditional technology barriers between using SQL and 
 * SQL and Spark can directly explore and analyze Parquet, CSV, TSV, and JSON files stored in the data lake.
 * Fast scalable load and unload for data going between SQL and Spark databases
 
-### Built-in orchestration via pipelines
+### Built-in data integration via pipelines
 
-Azure Synapse comes built-in with the same Data Integration engine and experiences as Azure Data Factory, allowing you to create rich data pipelines without using a separate orchestration engine.
+Azure Synapse comes built-in with the same Data Integration engine and experiences as Azure Data Factory, allowing you to create rich at-scale ETL pipelines without leaving Synapse Analytics.
 
-* Move data between Azure Synapse and 90+ on-premises data sources
-* Orchestrate Notebooks, Pipelines, Spark jobs, SQL Scripts, Stored procedures
+* Ingest data from 90+ data sources
 * Code-Free ETL with Data flow activities
+* Orchestrate Notebooks, Spark jobs, Stored procedures, SQL scripts, and more
 
 ### Unified management, monitoring, and security
 

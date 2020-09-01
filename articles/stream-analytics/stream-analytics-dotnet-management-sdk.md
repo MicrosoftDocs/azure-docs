@@ -7,7 +7,7 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 12/06/2018
-ms.custom: seodec18
+ms.custom: "seodec18, devx-track-csharp"
 ---
 # Management .NET SDK: Set up and run analytics jobs using the Azure Stream Analytics API for .NET
 Learn how to set up and run analytics jobs using the Stream Analytics API for .NET using the Management .NET SDK. Set up a project, create input and output sources, transformations, and start and stop jobs. For your analytics jobs, you can stream data from Blob storage or from an event hub.
@@ -24,7 +24,7 @@ Before you begin this article, you must have the following requirements:
 
 * Install Visual Studio 2019 or 2015.
 * Download and install [Azure .NET SDK](https://azure.microsoft.com/downloads/).
-* Create an Azure Resource Group in your subscription. The following example is a sample Azure PowerShell script. For Azure PowerShell information, see [Install and configure Azure PowerShell](/powershell/azure/overview);  
+* Create an Azure Resource Group in your subscription. The following example is a sample Azure PowerShell script. For Azure PowerShell information, see [Install and configure Azure PowerShell](/powershell/azure/);  
 
    ```powershell
    # Log in to your Azure account

@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Google Cloud (G Suite) Connector | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Google Cloud (G Suite) Connector.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 38a6ca75-7fd0-4cdc-9b9f-fae080c5a016
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with Google Cloud (G Suite) Connector
@@ -226,15 +220,18 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     b. In the **Sign-in page URL** field in Google Cloud (G Suite) Connector, paste the value of **Login URL** which you have copied from Azure portal.
 
-    c. In the **Sign-out page URL** field in Google Cloud (G Suite) Connector, paste the value of **Logout URL** which you have copied from Azure portal.
+    c. In the **Sign-out page URL** field in Google Cloud (G Suite) Connector, paste the value of **Login URL** which you have copied from Azure portal.
 
-    d. In the **Change password URL** field in Google Cloud (G Suite) Connector, paste the value of **Change password URL** which you have copied from Azure portal.
+    > [!NOTE]
+    > Google cloud (G Suite) is based on SAML Logout protocol. So, In the **Sign-out page URL** field we need to use the SAML Logout URL i.e. the login URL as the value for the same.
 
-    e. In Google Cloud (G Suite) Connector, for the **Verification certificate**, upload the certificate that you have downloaded from Azure portal.
+    d. In Google Cloud (G Suite) Connector, for the **Verification certificate**, upload the certificate that you have downloaded from Azure portal.   
 
-	f. Check/Uncheck the **Use a domain specific issuer** option as per the note mentioned in the above **Basic SAML Configuration** section in the Azure AD.
+    e. Check/Uncheck the **Use a domain specific issuer** option as per the note mentioned in the above **Basic SAML Configuration** section in the Azure AD.
 
-    g. Click **Save Changes**.
+	f. In the **Change password URL** field in Google Cloud (G Suite) Connector, paste the value of **Change password URL** which you have copied from Azure portal.
+
+    g. Click **Save**.
 
 ### Create Google Cloud (G Suite) Connector test user
 

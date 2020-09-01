@@ -11,13 +11,16 @@ ms.author: yegu
 ---
 # How to set up geo-replication for Azure Cache for Redis
 
-Geo-replication provides a mechanism for linking two Premium tier Azure Cache for Redis instances. One cache is chosen as the primary linked cache, and the other as the secondary linked cache. The secondary linked cache becomes read-only, and data written to the primary cache is replicated to the secondary linked cache. This functionality can be used to replicate a cache across Azure regions. This article provides a guide to configuring geo-replication for your Premium tier Azure Cache for Redis instances.
+Geo-replication provides a mechanism for linking two Premium tier Azure Cache for Redis instances. One cache is chosen as the primary linked cache, and the other as the secondary linked cache. The secondary linked cache becomes read-only, and data written to the primary cache is replicated to the secondary linked cache. Data transfer between the primary and secondary cache instances is secured by TLS. Geo-replication can be used to set up a cache that spans two Azure regions. This article provides a guide to configuring geo-replication for your Premium tier Azure Cache for Redis instances.
+
+> [!NOTE]
+> Geo-replication is designed as a disaster-recovery solution. By default, your application will write to and read from the primary region. It can optionally be configured to read from the secondary region. Geo-replication doesn't provide automatic failover due to concerns over added network latency between regions if the rest of your application remains in the primary region. You'll need to manage and initiate the failover by unlinking the secondary cache. This will promote it to be the new primary instance.
 
 ## Geo-replication prerequisites
 
 To configure geo-replication between two caches, the following prerequisites must be met:
 
-- Both caches are [Premium tier](cache-premium-tier-intro.md) caches.
+- Both caches are [Premium tier](cache-overview.md#service-tiers) caches.
 - Both caches are in the same Azure subscription.
 - The secondary linked cache is either the same cache size or a larger cache size than the primary linked cache.
 - Both caches are created and in a running state.
@@ -179,5 +182,6 @@ Automatic failover across Azure regions isn't supported for geo-replicated cache
 To start a customer-initiated failover, first unlink the caches. Then, change your Redis client to use the connection endpoint of the (formerly linked) secondary cache. When the two caches are unlinked, the secondary cache becomes a regular read-write cache again and accepts requests directly from Redis clients.
 
 ## Next steps
+Learn more about Azure Cache for Redis features.
 
-Learn more about the [Azure Cache for Redis Premium tier](cache-premium-tier-intro.md).
+* [Azure Cache for Redis service tiers](cache-overview.md#service-tiers)

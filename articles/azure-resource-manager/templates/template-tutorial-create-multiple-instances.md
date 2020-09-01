@@ -4,7 +4,8 @@ description: Learn how to create an Azure Resource Manager template to create mu
 author: mumian
 ms.date: 04/23/2020
 ms.topic: tutorial
-ms.author: jgao
+ms.author: jgao 
+ms.custom: devx-track-azurecli
 ---
 
 # Tutorial: Create multiple resource instances with ARM templates
@@ -26,7 +27,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 To complete this article, you need:
 
-* Visual Studio Code with Resource Manager Tools extension. See [Use Visual Studio Code to create ARM templates](use-vs-code-to-create-template.md).
+* Visual Studio Code with Resource Manager Tools extension. See [Quickstart: Create Azure Resource Manager templates with Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
 
 ## Open a Quickstart template
 

@@ -9,17 +9,17 @@ ms.date: 04/27/2020
 
 This article lists the steps that will help you deploy Live Video Analytics on your IoT Edge device. You would do this, for example, if you have access to a local Linux machine, and/or have previously created an Azure Media Services account.
 
-
 ## Prerequisites
 
 * A Linux machine that meets the HW/SW constraints for Live Video Analytics
-* Azure subscription to which you have [owner privileges](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner)
-* [Create and setup IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-create-through-portal)
-* [Register IoT Edge device](https://docs.microsoft.com/azure/iot-edge/how-to-register-device)
-* [Install the Azure IoT Edge runtime on Debian-based Linux systems](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux)
+* Azure subscription to which you have [owner privileges](../../role-based-access-control/built-in-roles.md#owner)
+* [Create and setup IoT Hub](../../iot-hub/iot-hub-create-through-portal.md)
+* [Register IoT Edge device](../../iot-edge/how-to-register-device.md)
+* [Install the Azure IoT Edge runtime on Debian-based Linux systems](../../iot-edge/how-to-install-iot-edge-linux.md)
 * [Create an Azure Media Services account](../latest/create-account-howto.md)
+
     * Use one of these regions: East US 2, Central US, North Central US, Japan East, West US 2, West Central US, Canada East, UK South, France Central, France South, Switzerland North, Switzerland West, and Japan West.
-    * It is recommended that you use General-purpose v2 (GPv2) Storage accounts.
+    * It is recommended that you use General-purpose v2 (GPv2) Storage accounts
 
 ## Configuring Azure resources for using Live Video Analytics
 
@@ -29,7 +29,7 @@ See [Create custom Azure Resource Manager role](create-custom-azure-resource-man
 
 ### Set up a premium streaming endpoint
 
-If you intend to use Live Video Analytics to record video to the cloud, and subsequently play it back, then you should be updating your Media Service to use a [premium streaming endpoint](../latest/streaming-endpoint-concept.md#types).  
+If you intend to use Live Video Analytics to record video continuously to the cloud, and subsequently use [query APIs](playback-recordings-how-to.md#query-api) before playing it back, then we recommend updating your Media Service to use a [premium streaming endpoint](../latest/streaming-endpoint-concept.md#types).  
 
 This is an optional step. You can use this Azure CLI command to do so:
 
@@ -46,7 +46,7 @@ You can use this command to start the streaming endpoint
 az ams streaming-endpoint start --resource-group $RESOURCE_GROUP --account-name $AMS_ACCOUNT -n default --no-wait
 ```
 
-Follow the steps in this article to get credentials to access the Media Service APIs: [access the Media Service APIs](../latest/access-api-howto.md#use-the-azure-portal).
+Follow the steps in this article to get credentials to access the Media Service APIs: [access the Media Service APIs](../latest/access-api-howto.md?tabs=portal) and select the Portal tab.
 
 ## Create and use local user account for deployment
 To run the Live Video Analytics on IoT Edge module create a local user account with as few privileges as possible. As an example, run the following commands on your Linux machine:
@@ -81,8 +81,8 @@ The Live Video Analytics on IoT Edge exposes module twin properties that are doc
 
 ### Deploy using the Azure portal
 
-The Azure portal guides you through creating a deployment manifest and pushing the deployment to an IoT Edge device.
-Select your device
+The Azure portal guides you through creating a deployment manifest and pushing the deployment to an IoT Edge device.  
+#### Select your device and set modules
 
 1. Sign in to the [Azure portal](https://ms.portal.azure.com/) and navigate to your IoT hub.
 1. Select **IoT Edge** from the menu.
@@ -107,23 +107,13 @@ A deployment manifest is a JSON document that describes which modules to deploy,
     > [!TIP]
     > Don't select **Add** until you've specified values on the **Module Settings**, **Container Create Options**, and **Module Twin Settings** tabs as described in this procedure.
     
-    > [!IMPORTANT]
+    > [!WARNING]
     > Azure IoT Edge is case-sensitive when you make calls to modules. Make note of the exact string you use as the module name.`
 
 1. Open the **Environment Variables** tab.
    
-   Copy and paste the following JSON into the box, to provide the user ID and the group ID to be used to save the application data and the video outputs.
-    ```   
-   {
-        "LOCAL_USER_ID": 
-        {
-            "value": "1010"
-        },
-        "LOCAL_GROUP_ID": {
-            "value": "1010"
-        }
-    }
-     ``` 
+   Add the following values in the input boxes that you see
+   ![Environment Variables](./media/deploy-iot-edge-device/environment-variables.png) 
 
 1. Open the **Container Create Options** tab.
 
@@ -174,7 +164,7 @@ A deployment manifest is a JSON document that describes which modules to deploy,
     * {resourceGroupName} - this the resource group to which your Media Service account belongs
     * {AMS-account-name} - this is the name of your Media Services account
     
-    To get the other values, see [Access Azure Media Services API](../latest/access-api-howto.md#use-the-azure-portal).  
+    To get the other values, see [Access Azure Media Services API](../latest/access-api-howto.md?tabs=portal) and select the Portal tab.  
     * aadTenantId - this is the ID of your tenant and is the same as the "AadTenantId" from the above link.
     * aadServicePrincipalAppId - this is the app ID of the service principal for your Media Service Account and is the same as the "AadClientId" from the above link.
     * aadServicePrincipalSecret - this is the password of the service principal and is the same as the "AadSecret" from the above link.
@@ -196,8 +186,9 @@ A deployment manifest is a JSON document that describes which modules to deploy,
     "armEndpoint": "https://management.azure.com/",
     "allowUnsecuredEndpoints": true
     ```
-   [!Note]
-   The twin property **allowUnsecuredEndpoints** is set as true for the purpose of the tutorials and the quickstarts.   
+
+   > [!Note]
+   > The twin property **allowUnsecuredEndpoints** is set as true for the purpose of the tutorials and the quickstarts.   
    You should set this property to **false** when running in production environment. This will ensure that the application will block all unsecured endpoints and in order to run the graph topologies, valid connection credentials will be needed.  
    
     Select Add to add the module twin properties.
@@ -216,11 +207,11 @@ Review your deployment information, then select Create.
 
 After you create the deployment, you return to the IoT Edge page of your IoT hub.
 
-1.	Select the IoT Edge device that you targeted with the deployment to open its details.
-2.	In the device details, verify that the blob storage module is listed as both **Specified in deployment and Reported by device**.
+1. Select the IoT Edge device that you targeted with the deployment to open its details.
+2. In the device details, verify that the blob storage module is listed as both **Specified in deployment and Reported by device**.
 
 It may take a few moments for the module to be started on the device and then reported back to IoT Hub. Refresh the page to see an updated status.
-Status code: 200 –OK means that [the IoT Edge runtime](https://docs.microsoft.com/azure/iot-edge/iot-edge-runtime) is healthy and is operating fine.
+Status code: 200 –OK means that [the IoT Edge runtime](../../iot-edge/iot-edge-runtime.md) is healthy and is operating fine.
 
 ![Status](./media/deploy-iot-edge-device/status.png)
 
@@ -254,4 +245,7 @@ Next, lets test the sample by invoking a direct method. Read [direct methods for
 
 ## Next steps
 
-[Quickstart: Get started - Live Video Analytics on IoT Edge](get-started-detect-motion-emit-events-quickstart.md)
+Try [Quickstart: Get started - Live Video Analytics on IoT Edge](get-started-detect-motion-emit-events-quickstart.md#deploy-modules-on-your-edge-device)
+
+> [!TIP]
+> In the command, you will run next, use your `device-id` instead of the default `lva-sample-device`.

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Create an Azure internal Load Balancer by using PowerShell
 titleSuffix: Azure Load Balancer
 description: Learn how to create an internal load balancer by using the Azure PowerShell module with Azure Resource Manager
@@ -8,7 +8,7 @@ author: asudbring
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: how-to
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-azurepowershell
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/02/2020
@@ -245,7 +245,7 @@ Primary              : False
 
 Assign the NIC to a virtual machine by using the `Add-AzVMNetworkInterface` command.
 
-For step-by-step instructions to create a virtual machine and assign the NIC, see [Create an Azure VM by using PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md?toc=%2fazure%2fload-balancer%2ftoc.json).
+For step-by-step instructions to create a virtual machine and assign the NIC, see [Create an Azure VM by using PowerShell](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm.md?toc=%2fazure%2fload-balancer%2ftoc.json).
 
 ## Add the network interface
 

@@ -13,7 +13,7 @@ Backing up SharePoint to Azure with MABS is a similar process to backing up Shar
 
 ## SharePoint supported versions and related protection scenarios
 
-For a list of supported SharePoint versions and the MABS versions required to back them up see [the MABS protection matrix](https://docs.microsoft.com/azure/backup/backup-mabs-protection-matrix)
+For a list of supported SharePoint versions and the MABS versions required to back them up see [the MABS protection matrix](./backup-mabs-protection-matrix.md)
 
 ## Before you start
 
@@ -77,7 +77,7 @@ To back up the SharePoint farm, configure protection for SharePoint by using Con
 
     When you expand the SharePoint server  MABS queries VSS to see what data MABS can protect.  If the SharePoint database is remote, MABS connects to it. If SharePoint data sources don't appear, check that the VSS writer is running on the SharePoint server and any remote SQL Server, and ensure the MABS agent is installed on both the SharePoint server and remote SQL Server. Also, ensure that SharePoint databases aren't being protected elsewhere as SQL Server databases.
 
-1. In **Select data protection method**,  specify how you want to handle short and long\-term backup. Short\-term back up is always to disk first, with the option of backing up from the disk to the Azure cloud with Azure backup \(for short or long\-term\).
+1. In **Select data protection method**,  specify how you want to handle short and long\-term backup. Short\-term back up is always to disk first, with the option of backing up from the disk to the Azure cloud with Azure Backup \(for short or long\-term\).
 
 1. In **Select short\-term goals**, specify how you want to back up to short\-term storage on disk.   In **Retention range** you specify how long you want to keep the data on disk. In **Synchronization frequency**, you specify how often you want to run an incremental backup to disk. If you don't want to set a backup interval, you can check just before  a recovery point so that MABS will run an express full backup just before each recovery point is scheduled.
 
@@ -95,7 +95,7 @@ To back up the SharePoint farm, configure protection for SharePoint by using Con
 
 1. In **Specify online retention policy**, you can specify how the recovery points created from the daily/weekly/monthly/yearly backups are retained in Azure.
 
-1. In **Choose online replication**, specify how the initial full replication of data will occur. You can replicate over the network, or do an offline backup (offline seeding). Offline backup uses the Azure Import feature. [Read more](https://azure.microsoft.com/documentation/articles/backup-azure-backup-import-export/).
+1. In **Choose online replication**, specify how the initial full replication of data will occur. You can replicate over the network, or do an offline backup (offline seeding). Offline backup uses the Azure Import feature. [Read more](./backup-azure-backup-import-export.md).
 
 1. On the  **Summary** page, review your settings. After you click **Create Group**, initial replication of the data occurs. When it finishes, the protection group status will show as **OK** on the **Status** page. Backup then takes place in line with the protection group settings.
 
@@ -121,7 +121,7 @@ After the protection group's been created, the initial replication occurs and MA
 
 1. In the MABS Administrator Console, click **Monitoring** > **Action** > **Options** > **Alert Publishing** > **Publish Active Alerts**
 
-2. After you enable **Alert Publishing**, all existing MABS alerts that might require a user action are published to the **MABS Alerts** event log. The Operations Manager agent that is installed on the MABS server then publishes these alerts to the Operations Manager and continues to update the console as new alerts are generated.
+2. After you enable **Alert Publishing**, all existing MABS alerts that might require a user action are published to the **MABS Alerts** event log. The Operations Manager agent that's installed on the MABS server then publishes these alerts to the Operations Manager and continues to update the console as new alerts are generated.
 
 ## Restore a SharePoint item from disk by using MABS
 
@@ -154,7 +154,7 @@ In the following example, the *Recovering SharePoint item* has been accidentally
    >
 8. Select the **Recovery Process** that you want to use.
 
-   * Select **Recover without using a recovery farm** if the SharePoint farm hasn't changed and is the same as the recovery point that is being restored.
+   * Select **Recover without using a recovery farm** if the SharePoint farm hasn't changed and is the same as the recovery point that's being restored.
    * Select **Recover using a recovery farm** if the SharePoint farm has changed since the recovery point was created.
 
      ![Recovery Process](./media/backup-azure-backup-sharepoint/recovery-process.png)
@@ -162,7 +162,7 @@ In the following example, the *Recovering SharePoint item* has been accidentally
 
     ![Staging Location1](./media/backup-azure-backup-sharepoint/staging-location1.png)
 
-    MABS attaches the content database that is hosting the SharePoint item to the temporary SQL Server instance. From the content database, it recovers the item and puts it on the staging file location on MABS. The recovered item that's on the staging location now needs to be exported to the staging location on the SharePoint farm.
+    MABS attaches the content database that's hosting the SharePoint item to the temporary SQL Server instance. From the content database, it recovers the item and puts it on the staging file location on MABS. The recovered item that's on the staging location now needs to be exported to the staging location on the SharePoint farm.
 
     ![Staging Location2](./media/backup-azure-backup-sharepoint/staging-location2.png)
 10. Select **Specify recovery options**, and apply security settings to the SharePoint farm or apply the security settings of the recovery point. Click **Next**.

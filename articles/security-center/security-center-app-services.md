@@ -19,7 +19,7 @@ Azure App Service is a fully managed platform for building and hosting your web 
 
 To enable advanced threat protection for your Azure App Service plan, you must:
 
-* Subscribe to Azure Security Center's Standard pricing tier
+* Subscribe to Azure Security Center's standard pricing tier
 * Enable the App Service plan as shown below. Security Center is natively integrated with App Service, eliminating the need for deployment and onboarding - the integration is transparent.
 * Have an App Service plan that is associated with dedicated machines. Supported plans are: Basic, Standard, Premium, Isolated, or Linux. Security Center doesn't support the Free, Shared, or Consumption plans. For more information, see [App Service Plans](https://azure.microsoft.com/pricing/details/app-service/plans/).
 
@@ -28,13 +28,13 @@ With the App Service plan enabled, Security Center assesses the resources covere
 Security Center leverages the scale of the cloud, and the visibility that Azure has as a cloud provider, to monitor for common web app attacks. Security Center can discover attacks on your applications and identify emerging attacks - even while attackers are in the reconnaissance phase, scanning to identify vulnerabilities across multiple Azure-hosted applications. As an Azure-native service, Security Center is also in a unique position to offer host-based security analytics covering the underlying compute nodes for this PaaS, enabling Security Center to detect attacks against web applications that were already exploited. For more details, see [Threat protection for Azure App Service](threat-protection.md#app-services).
 
 
-## Enabling monitoring and protection of App Service
+## Enable monitoring and protection of App Service
 
 1. In the Azure portal, choose Security Center.
 2. Go to **Pricing & settings** and choose a subscription.
 3. Under **Pricing tier**, in the **App service** row, toggle your plan to **Enabled**.
 
-    [![Enabling app services in your Standard tier subscription](media/security-center-app-services/app-services-toggle.png)](media/security-center-app-services/app-services-toggle.png#lightbox)
+    [![Enabling app services in your standard tier subscription](media/security-center-app-services/app-services-toggle.png)](media/security-center-app-services/app-services-toggle.png#lightbox)
 
 
 >[!NOTE]

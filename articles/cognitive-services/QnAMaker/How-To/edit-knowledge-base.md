@@ -2,7 +2,7 @@
 title: Edit a knowledge base - QnA Maker
 description: QnA Maker allows you to manage the content of your knowledge base by providing an easy-to-use editing experience.
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 07/16/2020
 ---
 # Edit QnA pairs in your knowledge base
 
@@ -105,6 +105,10 @@ You can't link QnA pairs in the answer's metadata.
 ## Add metadata
 
 Add metadata pairs by first selecting **View options**, then selecting **Show metadata**. This displays the metadata column. Next, select the **+** sign to add a metadata pair. This pair consists of one key and one value.
+
+Learn more about metadata in the QnA Maker portal quickstart for metadata:
+* [Authoring - add metadata to QnA pair](../quickstarts/add-question-metadata-portal.md#add-metadata-to-filter-the-answers)
+* [Query prediction - filter answers by metadata](../quickstarts/get-answer-from-knowledge-base-using-url-tool.md)
 
 ## Save changes to the QnA pairs
 

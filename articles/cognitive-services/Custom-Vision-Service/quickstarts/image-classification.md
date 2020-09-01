@@ -1,18 +1,18 @@
 ---
-title: "Quickstart: Create image classification with Custom Vision SDK"
+title: "Quickstart: Create image classification with Custom Vision client library"
 description: "Quickstart: Create a project, add tags, upload images, train your project, and make a prediction using the Custom Vision SDK"
 author: PatrickFarley
 ms.author: pafarley
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 04/27/2020
-ms.custom: tracking-python
+ms.date: 08/17/2020
+ms.custom: "devx-track-python, devx-track-javascript, devx-track-csharp"
 
 zone_pivot_groups: programming-languages-set-one
 ---
 
-# Quickstart: Create an image classification project with the Custom Vision SDK
+# Quickstart: Create an image classification project with the Custom Vision client library
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [C# quickstart](../includes/quickstarts/csharp-tutorial.md)]

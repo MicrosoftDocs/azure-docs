@@ -7,7 +7,7 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 12/20/2019
 ms.author: robinsh
-ms.custom: mqtt
+ms.custom: "mqtt, devx-track-azurecli, devx-track-csharp"
 # intent: As a customer using Azure IoT Hub, I want to add information to the messages that come through my IoT hub and are sent to another endpoint. For example, I'd like to pass the IoT hub name to the application that reads the messages from the final endpoint, such as Azure Storage.
 ---
 # Tutorial: Use Azure IoT Hub message enrichments

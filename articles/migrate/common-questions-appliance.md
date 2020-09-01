@@ -34,10 +34,14 @@ The appliance can be deployed as follows:
 - If you don't want to use a template, or you're in Azure Government, you can deploy the appliance for VMware or Hyper-V using a PowerShell script.
 - For physical servers, you always deploy the appliance using a script.
 
-
 ## How does the appliance connect to Azure?
 
-The appliance can connect over the internet or by using Azure ExpressRoute with public/Microsoft peering.
+The appliance can connect via the internet or by using Azure ExpressRoute.
+
+- To use Azure ExpressRoute for Azure Migrate replication traffic, Microsoft peering or an existing public peering is required (Public peering is deprecated for new ER creations).
+- Replication over Azure ExpressRoute with (only) private peering enabled is not supported.
+
+Azure ExpressRoute with Microsoft peering configured is the recommended routing domain for replication traffic.
 
 ## Does appliance analysis affect performance?
 
@@ -49,14 +53,13 @@ When you use the downloaded template to create the appliance VM, you can add com
 
 ## What network connectivity is required?
 
-
 The appliance needs access to Azure URLs. [Review](migrate-appliance.md#url-access) the URL list.
 
 ## What data does the appliance collect?
 
 See the following articles for information about data that the Azure Migrate appliance collects on VMs:
 
-- **VMware VM**: [Review](migrate-appliance.md#collected-data---vmware) collected data. [
+- **VMware VM**: [Review](migrate-appliance.md#collected-data---vmware) collected data.
 - **Hyper-V VM**: [Review](migrate-appliance.md#collected-data---hyper-v) collected data.
 
 ## How is data stored?
@@ -94,9 +97,11 @@ These steps describe how the appliance connects to VMware vCenter Server:
 No. There's a one-to-one mapping between an [Azure Migrate appliance](migrate-appliance.md) and vCenter Server. To discover VMs on multiple vCenter Server instances, you must deploy multiple appliances. 
 
 ## Can an Azure Migrate project have multiple appliances?
+
 A project can have multiple appliances attached to it. However, an appliance can only be associated with one project. 
 
 ## Can the Azure Migrate appliance/Replication appliance connect to the same vCenter?
+
 Yes. You can add both the Azure Migrate appliance (used for assessment and agentless VMware migration), and the replication appliance (used for agent-based migration of VMware VMs) to the same vCenter server.
 
 

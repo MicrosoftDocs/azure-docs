@@ -3,9 +3,10 @@ title: Get started with the Azure Enterprise portal
 description: This article explains how Azure Enterprise Agreement (Azure EA) customers use the Azure Enterprise portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 07/06/2020
+ms.date: 08/20/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
+ms.subservice: enterprise
 ms.reviewer: boalcsva
 ---
 

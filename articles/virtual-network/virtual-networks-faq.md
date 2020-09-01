@@ -104,7 +104,7 @@ Yes. Subnets can be added to VNets at any time as long as the subnet address ran
 ### Can I modify the size of my subnet after I create it?
 Yes. You can add, remove, expand, or shrink a subnet if there are no VMs or services deployed within it.
 
-### Can I modify subnets after I created them?
+### Can I modify Vnet after I created them?
 Yes. You can add, remove, and modify the CIDR blocks used by a VNet.
 
 ### If I am running my services in a VNet, can I connect to the internet?
@@ -231,7 +231,7 @@ Yes. You can use REST APIs for VNets in the [Azure Resource Manager](/rest/api/v
 ### Is there tooling support for VNets?
 Yes. Learn more about using:
 - The Azure portal to deploy VNets through the [Azure Resource Manager](manage-virtual-network.md#create-a-virtual-network) and [classic](virtual-networks-create-vnet-classic-pportal.md) deployment models.
-- PowerShell to manage VNets deployed through the [Resource Manager](/powershell/module/az.network) and [classic](/powershell/module/servicemanagement/azure/?view=azuresmps-3.7.0) deployment models.
+- PowerShell to manage VNets deployed through the [Resource Manager](/powershell/module/az.network) and [classic](/powershell/module/servicemanagement/azure.service/?view=azuresmps-3.7.0) deployment models.
 - The Azure command-line interface (CLI) to deploy and manage VNets deployed through the [Resource Manager](/cli/azure/network/vnet) and [classic](../virtual-machines/azure-cli-arm-commands.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-resources) deployment models.  
 
 ## VNet peering
@@ -351,7 +351,7 @@ No, there is no additional cost for using VNet service endpoints.
 Yes, it is possible. Virtual networks and Azure service resources can be either in the same or different subscriptions. The only requirement is that both the virtual network and Azure service resources must be under the same Active Directory (AD) tenant.
 
 ### Can I turn on VNet service endpoints and set up VNet ACLs if the virtual network and the Azure service resources belong to different AD tenants?
-No, VNet service endpoints and VNet ACLs are not supported across AD tenants.
+Yes, it is possible when using service endpoints for Azure Storage and Azure Key Vault. For rest of services, VNet service endpoints and VNet ACLs are not supported across AD tenants.
 
 ### Can an on-premises device’s IP address that is connected through Azure Virtual Network gateway (VPN) or ExpressRoute gateway access Azure PaaS Service over VNet service endpoints?
 By default, Azure service resources secured to virtual networks are not reachable from on-premises networks. If you want to allow traffic from on-premises, you must also allow public (typically, NAT) IP addresses from your on-premises or ExpressRoute. These IP addresses can be added through the IP firewall configuration for the Azure service resources.
@@ -401,9 +401,8 @@ Azure Active Directory (Azure AD) doesn't support service endpoints natively. Co
 ### Are there any limits on how many VNet service endpoints I can set up from my VNet?
 There is no limit on the total number of VNet service endpoints in a virtual network. For an Azure service resource (such as an Azure Storage account), services may enforce limits on the number of subnets used for securing the resource. The following table shows some example limits: 
 
-|||
-|---|---|
 |Azure service|	Limits on VNet rules|
+|---|---|
 |Azure Storage|	100|
 |Azure SQL|	128|
 |Azure SQL Data Warehouse|	128|

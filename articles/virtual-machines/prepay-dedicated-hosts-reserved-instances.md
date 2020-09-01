@@ -11,10 +11,10 @@ ms.author: banders
 ---
 
 
-# Save costs with a Reserved Instance of Azure Dedicated Hosts
+# Save costs with Azure Dedicated Host reservations
 
 When you commit to a reserved instance of Azure Dedicated Hosts, you can save money. The reservation discount is applied automatically to the number of running dedicated hosts that match the reservation scope and attributes. You don't need to assign a reservation to a dedicated host to get the discounts. A reserved instance purchase covers only the compute part of your usage and does
-include software licensing costs. See the [Overview of Azure Dedicated Hosts for virtual machines](https://docs.microsoft.com/azure/virtual-machines/windows/dedicated-hosts).
+include software licensing costs. See the [Overview of Azure Dedicated Hosts for virtual machines](./windows/dedicated-hosts.md).
 
 ## Determine the right dedicated host SKU before you buy
 
@@ -22,7 +22,7 @@ include software licensing costs. See the [Overview of Azure Dedicated Hosts for
 Before you buy a reservation, you should determine which dedicated host you need. A SKU is defined for a dedicated host representing the VM series and
 type. 
 
-Start by going over the supported sizes for [Windows virtual machine](https://docs.microsoft.com/azure/virtual-machines/windows/sizes) or [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/sizes?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) to identify the VM series.
+Start by going over the supported sizes for [Windows virtual machine](./sizes.md) or [Linux](./sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) to identify the VM series.
 
 Next, check whether it is supported on Azure Dedicated Hosts. [Azure Dedicated Hosts pricing](https://aka.ms/ADHPricing) page has the complete list of dedicated hosts SKUs, their CPU information, and various pricing options (including reserved instances).
 
@@ -38,7 +38,7 @@ Reservation discounts don't apply for the following:
 
 - **Clouds** - Reservations aren't available for purchase in Germany or China regions.
 
-- **Insufficient quota** - A reservation that is scoped to a single subscription must have vCPU quota available in the subscription for the new reserved instance. For example, if the target subscription has a quota limit of 10 vCPUs for DSv3-Series, then you can't buy a reservation dedicated hosts supporting this series. The quota check for reservations includes the VMs and dedicated hosts already deployed in the subscription. You can [create quota increase request](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) to resolve this issue.
+- **Insufficient quota** - A reservation that is scoped to a single subscription must have vCPU quota available in the subscription for the new reserved instance. For example, if the target subscription has a quota limit of 10 vCPUs for DSv3-Series, then you can't buy a reservation dedicated hosts supporting this series. The quota check for reservations includes the VMs and dedicated hosts already deployed in the subscription. You can [create quota increase request](../azure-portal/supportability/resource-manager-core-quotas-request.md) to resolve this issue.
 
 - **Capacity restrictions** - In rare circumstances, Azure limits the purchase of new reservations for subset of dedicated host SKUs, because of low capacity in a region.
 
@@ -46,7 +46,7 @@ Reservation discounts don't apply for the following:
 
 You can buy a reserved instance of an Azure Dedicated Host instance in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22VirtualMachines%22%7D).
 
-Pay for the reservation [up front or with monthly payments](https://docs.microsoft.com/azure/billing/billing-monthly-payments-reservations). These requirements apply to buying a reserved Dedicated Host instance:
+Pay for the reservation [up front or with monthly payments](../cost-management-billing/reservations/prepare-buy-reservation.md). These requirements apply to buying a reserved Dedicated Host instance:
 
 - You must be in an Owner role for at least one EA subscription or a subscription with a pay-as-you-go rate.
 
@@ -85,7 +85,7 @@ If you have an EA agreement, you can use the **Add more option** to quickly ad
 
 Your usage data has an effective price of zero for the usage that gets a reservation discount. You can see which VM instance received the reservation discount for each reservation.
 
-For more information about how reservation discounts appear in usage data, see [Understand Azure reservation usage for your Enterprise enrollment](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage-ea) if you are an EA customer. If you have an individual subscription, see [Understand Azure reservation usage for your Pay-As-You-Go subscription](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage).
+For more information about how reservation discounts appear in usage data, see [Understand Azure reservation usage for your Enterprise enrollment](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md) if you are an EA customer. If you have an individual subscription, see [Understand Azure reservation usage for your Pay-As-You-Go subscription](../cost-management-billing/reservations/understand-reserved-instance-usage.md).
 
 ## Change a reservation after purchase
 
@@ -113,7 +113,7 @@ However, you can *exchange* a reservation if you want to make changes.
 
 ## Cancel, exchange, or refund reservations
 
-You can cancel, exchange, or refund reservations with certain limitations. For more information, see [Self-service exchanges and refunds for Azure Reservations](https://docs.microsoft.com/azure/billing/billing-azure-reservations-self-service-exchange-and-refund).
+You can cancel, exchange, or refund reservations with certain limitations. For more information, see [Self-service exchanges and refunds for Azure Reservations](../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
 
 ## Need help? Contact us.
 
@@ -121,26 +121,24 @@ If you have questions or need help, [create a support request](https://portal.a
 
 ## Next steps
 
-To learn how to manage a reservation, see [Manage Azure Reservations](https://docs.microsoft.com/azure/billing/billing-manage-reserved-vm-instance).
+To learn how to manage a reservation, see [Manage Azure Reservations](../cost-management-billing/reservations/manage-reserved-vm-instance.md).
 
 To learn more about Azure Reservations, see the following articles:
 
-- [What are Azure Reservations?](https://docs.microsoft.com/azure/billing/billing-save-compute-costs-reservations)
+- [What are Azure Reservations?](../cost-management-billing/reservations/save-compute-costs-reservations.md)
 
-- [Using Azure Dedicated Hosts](https://docs.microsoft.com/azure/virtual-machines/windows/dedicated-hosts)
+- [Using Azure Dedicated Hosts](./windows/dedicated-hosts.md)
 
 - [Dedicated Hosts Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/dedicated-host/)
 
-- [Manage Reservations in Azure](https://docs.microsoft.com/azure/billing/billing-manage-reserved-vm-instance)
+- [Manage Reservations in Azure](../cost-management-billing/reservations/manage-reserved-vm-instance.md)
 
-- [Understand how the reservation discount is applied](https://docs.microsoft.com/azure/billing/billing-understand-vm-reservation-charges)
+- [Understand how the reservation discount is applied](../cost-management-billing/manage/understand-vm-reservation-charges.md)
 
-- [Understand reservation usage for a subscription with pay-as-you-go rates](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage)
+- [Understand reservation usage for a subscription with pay-as-you-go rates](../cost-management-billing/reservations/understand-reserved-instance-usage.md)
 
-- [Understand reservation usage for your Enterprise enrollment](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage-ea)
+- [Understand reservation usage for your Enterprise enrollment](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md)
 
-- [Windows software costs not included with reservations](https://docs.microsoft.com/azure/billing/billing-reserved-instance-windows-software-costs)
+- [Windows software costs not included with reservations](../cost-management-billing/reservations/reserved-instance-windows-software-costs.md)
 
-- [Azure Reservations in Partner Center Cloud Solution Provider (CSP) program](https://docs.microsoft.com/partner-center/azure-reservations)
-
-
+- [Azure Reservations in Partner Center Cloud Solution Provider (CSP) program](/partner-center/azure-reservations)

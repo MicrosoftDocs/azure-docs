@@ -11,7 +11,7 @@ ms.date: 05/20/2020
 
 # Customer-owned storage accounts for log ingestion in Azure Monitor
 
-Azure Monitor uses storage accounts in the ingestion process of some data types such as [custom logs](data-sources-custom-logs.md) and some [Azure logs](azure-storage-iis-table.md). During the ingestion process, logs are first sent to a storage account and later ingested into Log Analytics or Application Insights. If you want control over your data during ingestion, you can use your own storage accounts instead of the service-managed storage. Using your own storage account gives you control over the access, content, encryption, and retention of the logs during ingestion. We refer to this as Bring Your Own Storage, or BYOS. 
+Azure Monitor uses storage accounts in the ingestion process of some data types such as [custom logs](data-sources-custom-logs.md) and some [Azure logs](./diagnostics-extension-logs.md). During the ingestion process, logs are first sent to a storage account and later ingested into Log Analytics or Application Insights. If you want control over your data during ingestion, you can use your own storage accounts instead of the service-managed storage. Using your own storage account gives you control over the access, content, encryption, and retention of the logs during ingestion. We refer to this as Bring Your Own Storage, or BYOS. 
 
 One scenario that requires BYOS is network isolation through Private Links. When using a VNet, network isolation is often a requirement, and access to the public internet is limited. In such cases, accessing Azure Monitor service storage for log ingestion is either completely blocked, or considered a bad practice. Instead, Logs should be ingested through a customer-owned storage account inside the VNet or easily accessible from it.
 
@@ -19,7 +19,7 @@ Another scenario is the encryption of logs with Customer-Managed Keys (CMK). Cus
 
 ## Data types supported
 
-Data types that are ingested from a storage account include the following. See [Collect data from Azure diagnostics extension to Azure Monitor Logs](azure-storage-iis-table.md) for more information about the ingestion of these types.
+Data types that are ingested from a storage account include the following. See [Collect data from Azure diagnostics extension to Azure Monitor Logs](./diagnostics-extension-logs.md) for more information about the ingestion of these types.
 
 | Type | Table information |
 |:-----|:------------------|
@@ -36,7 +36,7 @@ The storage account must meet the following requirements:
 
 - Accessible to resources on your VNet that write logs to the storage.
 - Must be on the same region as the workspace it’s linked to.
-- Explicitly allowed Log Analytics to read logs from the storage account by selecting *allow trusted MS services to access this storage account*.
+- Allow Azure Monitor access - If you chose to limit your storage account access to select networks, make sure to allow this exception: *allow trusted Microsoft services to access this storage account*.
 
 ## Process to configure customer-owned storage
 The basic process of using your own storage account for ingestion is as follows:
@@ -47,7 +47,12 @@ The basic process of using your own storage account for ingestion is as follows:
 
 The only method available to create and remove links is through the REST API. Details on the specific API request required for each process are provided in the sections below.
 
-## API request values
+## Command line and REST API
+
+### Command line
+To create and manage linked storage accounts, use [az monitor log-analytics workspace linked-storage](/cli/azure/monitor/log-analytics/workspace/linked-storage). This command can link and unlink storage accounts from a workspace and list the linked storage accounts.
+
+### Request and CLI values
 
 #### dataSourceType 
 
@@ -69,37 +74,9 @@ subscriptions/{subscriptionId}/resourcesGroups/{resourceGroupName}/providers/Mic
 ```
 
 
+## Get linked storage accounts
 
-## Get current links
-
-### Get linked storage accounts for a specific data source type
-
-#### API request
-
-```
-GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/linkedStorageAccounts/{dataSourceType}?api-version=2019-08-01-preview  
-```
-
-#### Response 
-
-```json
-{
-    "properties":
-    {
-        "dataSourceType": "CustomLogs",
-        "storageAccountIds  ": 
-        [  
-            "<storage_account_resource_id_1>",
-            "<storage_account_resource_id_2>"
-        ],
-    },
-    "id":"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/microsoft. operationalinsights/workspaces/{resourceName}/linkedStorageAccounts/CustomLogs",
-    "name": "CustomLogs",
-    "type": "Microsoft.OperationalInsights/workspaces/linkedStorageAccounts"
-}
-```
-
-### Get all linked storage accounts
+### Get linked storage accounts for all data source types
 
 #### API request
 
@@ -141,6 +118,34 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
             "type": "Microsoft.OperationalInsights/workspaces/linkedStorageAccounts"
         }
     ]
+}
+```
+
+
+### Get linked storage accounts for a specific data source type
+
+#### API request
+
+```
+GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/linkedStorageAccounts/{dataSourceType}?api-version=2019-08-01-preview  
+```
+
+#### Response 
+
+```json
+{
+    "properties":
+    {
+        "dataSourceType": "CustomLogs",
+        "storageAccountIds  ": 
+        [  
+            "<storage_account_resource_id_1>",
+            "<storage_account_resource_id_2>"
+        ],
+    },
+    "id":"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/microsoft. operationalinsights/workspaces/{resourceName}/linkedStorageAccounts/CustomLogs",
+    "name": "CustomLogs",
+    "type": "Microsoft.OperationalInsights/workspaces/linkedStorageAccounts"
 }
 ```
 
@@ -229,3 +234,4 @@ If the registered storage account of your workspace is on another region, you wi
 ## Next steps
 
 - For more information on setting up a private link, see [Use Azure Private Link to securely connect networks to Azure Monitor](private-link-security.md)
+

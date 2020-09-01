@@ -32,7 +32,7 @@ This guide is an introduction to the Azure platform for application developers. 
 
 With all the services that Azure offers, it can be an intimidating task to figure out which services you need to support your solution architecture. This section highlights the Azure services that developers commonly use. For a list of all Azure services, see the [Azure documentation](../../index.yml).
 
-First, you must decide on how to host your application in Azure. Do you need to manage your entire infrastructure as a virtual machine (VM). Can you use the platform management facilities that Azure provides? Maybe you need a serverless framework to host code execution only?
+First, you must decide on how to host your application in Azure. Do you need to manage your entire infrastructure as a virtual machine (VM)? Can you use the platform management facilities that Azure provides? Maybe you need a serverless framework to host code execution only?
 
 Your application needs cloud storage, which Azure provides several options for. You can take advantage of Azure's enterprise authentication. There are also tools for cloud-based development and monitoring, and most hosting services offer DevOps integration.
 
@@ -61,7 +61,7 @@ You can migrate your existing applications to App Service by using the [online m
 
 > **When to use**: Use App Service when you’re migrating existing web applications to Azure, and when you need a fully-managed hosting platform for your web apps. You can also use App Service when you need to support mobile clients or expose REST APIs with your app.
 >
-> **Get started**: App Service makes it easy to create and deploy your first [web app](../../app-service/app-service-web-get-started-dotnet.md), [mobile app](../../app-service-mobile/app-service-mobile-ios-get-started.md), or [API app](../../app-service/app-service-web-tutorial-rest-api.md).
+> **Get started**: App Service makes it easy to create and deploy your first [web app](../../app-service/quickstart-dotnetcore.md), [mobile app](../../app-service-mobile/app-service-mobile-ios-get-started.md), or [API app](../../app-service/app-service-web-tutorial-rest-api.md).
 >
 > **Try it now**: App Service lets you provision a short-lived app to try the platform without having to sign up for an Azure account. Try the platform and [create your Azure App Service app](https://tryappservice.azure.com/).
 
@@ -73,7 +73,7 @@ Because of the level of control that you have with VMs, you can run a wide range
 
 > **When to use**: Use Virtual Machines when you want full control over your application infrastructure or to migrate on-premises application workloads to Azure without having to make changes.
 >
-> **Get started**: Create a [Linux VM](../../virtual-machines/virtual-machines-linux-quick-create-portal.md) or [Windows VM](../../virtual-machines/virtual-machines-windows-hero-tutorial.md) from the Azure portal.
+> **Get started**: Create a [Linux VM](../../virtual-machines/linux/quick-create-portal.md) or [Windows VM](../../virtual-machines/windows/quick-create-portal.md) from the Azure portal.
 
 #### Azure Functions (serverless)
 
@@ -138,11 +138,6 @@ Docker containers, a form of OS virtualization, let you deploy applications in a
 
 Azure provides several ways to use containers in your applications.
 
-- **Azure Docker VM extension**: Lets you configure your VM with Docker tools to act as a Docker host.
-
-  > **When to use**: When you want to generate consistent container deployments for your applications on a VM, or when you want to use [Docker Compose](https://docs.docker.com/compose/overview/).
-  >
-  > **Get started**: [Create a Docker environment in Azure by using the Docker VM extension](../../virtual-machines/virtual-machines-linux-dockerextension.md).
 
 - **Azure Kubernetes Service**: Lets you create, configure, and manage a cluster of virtual machines  that are preconfigured to run containerized applications. To learn more about Azure Kubernetes Service, see [Azure Kubernetes Service introduction](../../aks/intro-kubernetes.md).
 
@@ -290,7 +285,7 @@ As well as defining individual Azure account identities, also called *users*, yo
 
 ### Manage your subscriptions
 
-A subscription is a logical grouping of Azure services that is linked to an Azure account. A single Azure account can contain multiple subscriptions. Billing for Azure services is done on a per-subscription basis. For a list of the available subscription offers by type, see [Microsoft Azure Offer Details](https://azure.microsoft.com/support/legal/offer-details/). Azure subscriptions have an Account Administrator who has full control over the subscription. They also have a Service Administrator who has control over all services in the subscription. For information about classic subscription administrators, see [Add or change Azure subscription administrators](../../cost-management-billing/manage/add-change-subscription-administrator.md). Individual accounts can be granted detailed control of Azure resources using [role-based access control (RBAC)](../../role-based-access-control/overview.md).
+A subscription is a logical grouping of Azure services that is linked to an Azure account. A single Azure account can contain multiple subscriptions. Billing for Azure services is done on a per-subscription basis. For a list of the available subscription offers by type, see [Microsoft Azure Offer Details](https://azure.microsoft.com/support/legal/offer-details/). Azure subscriptions have an Account Administrator who has full control over the subscription. They also have a Service Administrator who has control over all services in the subscription. For information about classic subscription administrators, see [Add or change Azure subscription administrators](../../cost-management-billing/manage/add-change-subscription-administrator.md). Individual accounts can be granted detailed control of Azure resources using [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md).
 
 #### Resource groups
 
@@ -302,7 +297,7 @@ The Azure Resource Explorer is a great tool for visualizing the resources that y
 
 When you allow access to Azure resources, it’s always a best practice to provide users with the least privilege that’s required to do a given task.
 
-- **Role-based access control (RBAC)**: In Azure, you can grant access to user accounts (principals) at a specified scope: subscription, resource group, or individual resources. RBAC lets you deploy resources into a resource group and grant permissions to a specific user or group. It also lets you limit access to only the resources that belong to the target resource group. You can also grant access to a single resource, such as a virtual machine or virtual network. To grant access, you assign a role to the user, group, or service principal. There are many predefined roles, and you can also define your own custom roles. To learn more, see [What is role-based access control (RBAC)?](../../role-based-access-control/overview.md).
+- **Role-based access control (RBAC)**: In Azure, you can grant access to user accounts (principals) at a specified scope: subscription, resource group, or individual resources. RBAC lets you deploy resources into a resource group and grant permissions to a specific user or group. It also lets you limit access to only the resources that belong to the target resource group. You can also grant access to a single resource, such as a virtual machine or virtual network. To grant access, you assign a role to the user, group, or service principal. There are many predefined roles, and you can also define your own custom roles. To learn more, see [What is Azure role-based access control (Azure RBAC)?](../../role-based-access-control/overview.md).
 
   > **When to use**: When you need fine-grained access management for users and groups or when you need to make a user an owner of a subscription.
   >

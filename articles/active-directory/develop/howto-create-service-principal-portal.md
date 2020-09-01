@@ -25,7 +25,7 @@ This article shows you how to use the portal to create the service principal in 
 > Instead of creating a service principal, consider using managed identities for Azure resources for your application identity. If your code runs on a service that supports managed identities and accesses resources that support Azure AD authentication, managed identities are a better option for you. To learn more about managed identities for Azure resources, including which services currently support it, see [What is managed identities for Azure resources?](../managed-identities-azure-resources/overview.md).
 
 ## App registration, app objects, and service principals
-There is no way to directly create a service principal using the Azure portal.  When you register an application through the Azure portal, an application object and service principal are automatically created your home directory or tenant.  For more information on the relationship between app registration, application objects, and service principals, read [Application and service principal objects in Azure Active Directory](app-objects-and-service-principals.md).
+There is no way to directly create a service principal using the Azure portal.  When you register an application through the Azure portal, an application object and service principal are automatically created in your home directory or tenant.  For more information on the relationship between app registration, application objects, and service principals, read [Application and service principal objects in Azure Active Directory](app-objects-and-service-principals.md).
 
 ## Permissions required for registering an app
 
@@ -83,7 +83,7 @@ You've created your Azure AD application and service principal.
 
 ## Assign a role to the application
 
-To access resources in your subscription, you must assign a role to the application. Decide which role offers the right permissions for the application. To learn about the available roles, see [RBAC: Built in Roles](../../role-based-access-control/built-in-roles.md).
+To access resources in your subscription, you must assign a role to the application. Decide which role offers the right permissions for the application. To learn about the available roles, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md).
 
 You can set the scope at the level of the subscription, resource group, or resource. Permissions are inherited to lower levels of scope. For example, adding an application to the *Reader* role for a resource group means it can read the resource group and any resources it contains.
 
@@ -174,7 +174,7 @@ If you choose not to use a certificate, you can create a new application secret.
    ![Copy the secret value because you can't retrieve this later](./media/howto-create-service-principal-portal/copy-secret.png)
 
 ## Configure access policies on resources
-Keep in mind, you might need to configure addition permissions on resources that your application needs to access. For example, you must also [update a key vault's access policies](/azure/key-vault/key-vault-secure-your-key-vault#data-plane-and-access-policies) to give your application access to keys, secrets, or certificates.  
+Keep in mind, you might need to configure additional permissions on resources that your application needs to access. For example, you must also [update a key vault's access policies](../../key-vault/general/secure-your-key-vault.md#data-plane-and-access-policies) to give your application access to keys, secrets, or certificates.  
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your key vault and select **Access policies**.  
 1. Select **Add access policy**, then select the key, secret, and certificate permissions you want to grant your application.  Select the service principal you created previously.
@@ -183,5 +183,5 @@ Keep in mind, you might need to configure addition permissions on resources that
 
 ## Next steps
 * Learn how to [use Azure PowerShell to create a service principal](howto-authenticate-service-principal-powershell.md).
-* To learn about specifying security policies, see [Azure Role-based Access Control](../../role-based-access-control/role-assignments-portal.md).  
+* To learn about specifying security policies, see [Azure role-based access control (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md).  
 * For a list of available actions that can be granted or denied to users, see [Azure Resource Manager Resource Provider operations](../../role-based-access-control/resource-provider-operations.md).

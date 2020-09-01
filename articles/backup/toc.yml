@@ -24,7 +24,7 @@
     href: tutorial-backup-vm-at-scale.md
   - name: Back up Azure VMs with PowerShell
     href: tutorial-backup-azure-vm.md
-  - name: Restore a disk
+  - name: Restore a VM with Azure CLI
     href: tutorial-restore-disk.md
   - name: Restore individual files
     href: tutorial-restore-files.md
@@ -89,6 +89,8 @@
       href: backup-azure-monitor-alert-faq.md
   - name: Backup architecture
     href: backup-architecture.md
+  - name: Guidance and best practices
+    href: guidance-best-practices.md
 - name: How to guides
   items:
   - name: Recovery Services vault
@@ -121,6 +123,8 @@
         href: backup-azure-vms-encryption.md
       - name: Configure app-consistent backups of Azure VMs running Linux
         href: backup-azure-linux-app-consistent.md
+      - name: Selective disk backup
+        href: selective-disk-backup-restore.md
     - name: Restore
       items:
       - name: About Azure VM restore
@@ -142,7 +146,11 @@
     - name: Overview
       href: backup-azure-sql-database.md
     - name: Backup
-      href: backup-sql-server-database-azure-vms.md
+      items:
+      - name: Back up multiple SQL Server VMs from the vault
+        href: backup-sql-server-database-azure-vms.md
+      - name: Backup a SQL Server VM from the VM pane
+        href: backup-sql-server-vm-from-vm-pane.md
     - name: Restore
       href: restore-sql-database-azure-vm.md
     - name: Manage
@@ -283,8 +291,10 @@
     items:
     - name: Overview
       href: offline-backup-overview.md
-    - name: Offline Backup with Azure Data Box
+    - name: Offline Backup with Azure Data Box (MARS)
       href: offline-backup-azure-data-box.md
+    - name: Offline Backup with Azure Data Box (DPM/MABS)
+      href: offline-backup-azure-data-box-dpm-mabs.md
     - name: Offline Backup with Import/Export (MARS)
       href: backup-azure-backup-import-export.md
     - name: Offline Backup with Import/Export (DPM/MABS)
@@ -323,11 +333,11 @@
         href: azure-policy-configure-diagnostics.md
     - name: PowerShell
       items:
-      - name: Azure VMs in the Azure portal
+      - name: Azure VMs
         href: backup-azure-vms-automation.md
-      - name: DPM in the Azure portal
+      - name: Data Protection Manager (DPM)
         href: backup-dpm-automation.md
-      - name: Windows Server in the Azure portal
+      - name: Windows Server using the MARS agent
         href: backup-client-automation.md
       - name: SQL in Azure VM backups
         href: backup-azure-sql-automation.md
@@ -369,10 +379,15 @@
       href: backup-azure-security-feature.md
     - name: Private Endpoints
       href: private-endpoints.md
-    - name: Encryption
+    - name: Encryption in Azure Backup
       href: backup-encryption.md
+    - name: Encryption using customer-managed keys
+      href: encryption-at-rest-with-cmk.md
     - name: Built-in security controls
       href: backup-security-controls.md
+    - name: Security controls by Azure Policy
+      displayName: regulatory, compliance, standards, domains
+      href: ./security-controls-policy.md
     - name: Security baseline
       href: security-baseline.md
   - name: Troubleshoot
@@ -420,7 +435,7 @@
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Microsoft Q&A question page
-    href: https://docs.microsoft.com/answers/topics/azure-backup.html
+    href: /answers/topics/azure-backup.html
   - name: Pricing calculator
     href: azure-backup-pricing.md
   - name: Service updates

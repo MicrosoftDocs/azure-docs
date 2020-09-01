@@ -6,6 +6,7 @@ ms.author: barbkess
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 01/14/2019
+ms.custom: devx-track-java
 ---
 
 # Stream Azure Spring Cloud app logs in real-time
@@ -81,7 +82,7 @@ az spring-cloud app logs -h
 ```
 
 ## Next steps
-
+* [Quickstart: Monitoring Azure Spring Cloud apps with logs, metrics, and tracing](spring-cloud-quickstart-logs-metrics-tracing.md)
 * [Analyze logs and metrics with diagnostics settings](./diagnostic-services.md)
 
  

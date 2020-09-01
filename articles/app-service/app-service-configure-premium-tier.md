@@ -39,7 +39,7 @@ When configuring the App Service plan in the <a href="https://portal.azure.com" 
 
 Select **Production**, then select **P1V2**, **P2V2**, or **P3V2**, then click **Apply**.
 
-![](media/app-service-configure-premium-tier/scale-up-tier-select.png)
+![Screenshot showing the recommended pricing tiers for your app.](media/app-service-configure-premium-tier/scale-up-tier-select.png)
 
 > [!IMPORTANT] 
 > If you don't see **P1V2**, **P2V2**, and **P3V2** as options, or if the options are greyed out, then **PremiumV2** likely isn't available in the underlying App Service deployment that contains the App Service plan. See [Scale up from an unsupported resource group and region combination](#unsupported) for more details.
@@ -54,15 +54,15 @@ In the <a href="https://portal.azure.com" target="_blank">Azure portal</a>, open
 
 In the left navigation of your App Service app page, select **Scale up (App Service plan)**.
 
-![](media/app-service-configure-premium-tier/scale-up-tier-portal.png)
+![Screenshot showing how to scale up your app service plan.](media/app-service-configure-premium-tier/scale-up-tier-portal.png)
 
 Select **Production**, then select **P1V2**, **P2V2**, or **P3V2**, then click **Apply**.
 
-![](media/app-service-configure-premium-tier/scale-up-tier-select.png)
+![Screenshot showing the recommended pricing tiers for your app.](media/app-service-configure-premium-tier/scale-up-tier-select.png)
 
 If your operation finishes successfully, your app's overview page shows that it's now in a **PremiumV2** tier.
 
-![](media/app-service-configure-premium-tier/finished.png)
+![Screenshot showing the PremiumV2 pricing tier on your app's overview page.](media/app-service-configure-premium-tier/finished.png)
 
 ### If you get an error
 
@@ -77,13 +77,13 @@ If your app runs in an App Service deployment where **PremiumV2** isn't availabl
 - Create a **new** resource group, and then create a **new** app and App Service plan in the **new** resource group, choosing your desired Azure region during the creation process.  You **must** select the **PremiumV2** plan at the time the new app service plan is created.  This ensures the combination of resource group, App Service plan, and Azure region will result in the App Service plan being created in an App Service deployment that supports **PremiumV2**.  Then redeploy your application code into the newly created app and app service plan. If desired you can subsequently scale the App Service plan down from **PremiumV2** to save costs, and you will still be able to successfully scale back up again in the future using **PremiumV2**.
 - If your app already runs in an existing **Premium** tier, then you can clone your app with all app settings, connection strings, and deployment configuration into a new app service plan that uses **PremiumV2**.
 
-    ![](media/app-service-configure-premium-tier/clone-app.png)
+    ![Screenshot showing how to clone your app.](media/app-service-configure-premium-tier/clone-app.png)
 
     In the **Clone app** page, you can create an App Service plan using **PremiumV2** in the region you want, and specify the app settings and configuration that you want to clone.
 
 ## Automate with scripts
 
-You can automate app creation in the **PremiumV2** tier with scripts, using the [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/overview).
+You can automate app creation in the **PremiumV2** tier with scripts, using the [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/).
 
 ### Azure CLI
 
@@ -112,4 +112,4 @@ New-AzAppServicePlan -ResourceGroupName <resource_group_name> `
 ## More resources
 
 [Scale up an app in Azure](manage-scale-up.md)  
-[Scale instance count manually or automatically](../monitoring-and-diagnostics/insights-how-to-scale.md)
+[Scale instance count manually or automatically](../azure-monitor/platform/autoscale-get-started.md)

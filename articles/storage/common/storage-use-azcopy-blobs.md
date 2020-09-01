@@ -4,7 +4,7 @@ description: This article contains a collection of AzCopy example commands that 
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/10/2020
+ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
@@ -106,7 +106,7 @@ You can upload the contents of a directory without copying the containing direct
 
 ### Upload specific files
 
-You can specify complete file names, or use partial names with wildcard characters (*).
+You can upload specific files by using complete file names, partial names with wildcard characters (*), or by using dates and times.
 
 #### Specify multiple complete file names
 
@@ -135,6 +135,18 @@ Use the [azcopy copy](storage-ref-azcopy-copy.md) command with the `--include-pa
 You can also exclude files by using the `--exclude-pattern` option. To learn more, see [azcopy copy](storage-ref-azcopy-copy.md) reference docs.
 
 The `--include-pattern` and `--exclude-pattern` options apply only to filenames and not to the path.  If you want to copy all of the text files that exist in a directory tree, use the `–recursive` option to get the entire directory tree, and then use the `–include-pattern` and specify `*.txt` to get all of the text files.
+
+#### Upload files that were modified after a date and time 
+
+Use the [azcopy copy](storage-ref-azcopy-copy.md) command with the `--include-after` option. Specify a date and time in ISO-8601 format (For example: `2020-08-19T15:04:00Z`). 
+
+|    |     |
+|--------|-----------|
+| **Syntax** | `azcopy copy '<local-directory-path>\*' 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-or-directory-name>'  --include-after <Date-Time-in-ISO-8601-format>` |
+| **Example** | `azcopy copy 'C:\myDirectory\*' 'https://mystorageaccount.blob.core.windows.net/mycontainer/FileDirectory'  --include-after '2020-08-19T15:04:00Z'` |
+| **Example** (hierarchical namespace) | `azcopy copy 'C:\myDirectory\*' 'https://mystorageaccount.dfs.core.windows.net/mycontainer/FileDirectory'   --include-after '2020-08-19T15:04:00Z'` |
+
+For detailed reference, see the [azcopy copy](storage-ref-azcopy-copy.md) reference docs.
 
 ## Download files
 
@@ -197,7 +209,7 @@ You can download the contents of a directory without copying the containing dire
 
 ### Download specific files
 
-You can specify complete file names, or use partial names with wildcard characters (*).
+You can download specific files by using complete file names, partial names with wildcard characters (*), or by using dates and times. 
 
 #### Specify multiple complete file names
 
@@ -227,6 +239,40 @@ You can also exclude files by using the `--exclude-pattern` option. To learn mor
 
 The `--include-pattern` and `--exclude-pattern` options apply only to filenames and not to the path.  If you want to copy all of the text files that exist in a directory tree, use the `–recursive` option to get the entire directory tree, and then use the `–include-pattern` and specify `*.txt` to get all of the text files.
 
+#### Download files that were modified after a date and time 
+
+Use the [azcopy copy](storage-ref-azcopy-copy.md) command with the `--include-after` option. Specify a date and time in ISO-8601 format (For example: `2020-08-19T15:04:00Z`). 
+
+|    |     |
+|--------|-----------|
+| **Syntax** | `azcopy copy 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-or-directory-name>/*' '<local-directory-path>' --include-after <Date-Time-in-ISO-8601-format>` |
+| **Example** | `azcopy copy 'https://mystorageaccount.blob.core.windows.net/mycontainer/FileDirectory/*' 'C:\myDirectory'  --include-after '2020-08-19T15:04:00Z'` |
+| **Example** (hierarchical namespace) | `azcopy copy 'https://mystorageaccount.dfs.core.windows.net/mycontainer/FileDirectory/*' 'C:\myDirectory'  --include-after '2020-08-19T15:04:00Z'` |
+
+For detailed reference, see the [azcopy copy](storage-ref-azcopy-copy.md) reference docs.
+
+#### Download previous versions of a blob
+
+If you've enabled [blob versioning](../blobs/versioning-enable.md), you can download one or more previous versions of a blob. 
+
+First, create a text file that contains a list of [version IDs](../blobs/versioning-overview.md). Each version ID must appear on a separate line. For example: 
+
+```
+2020-08-17T05:50:34.2199403Z
+2020-08-17T05:50:34.5041365Z
+2020-08-17T05:50:36.7607103Z
+```
+
+Then, use the [azcopy copy](storage-ref-azcopy-copy.md) command with the `--list-of-versions` option. Specify the location of the text file that contains the list of versions (For example: `D:\\list-of-versions.txt`).  
+
+|    |     |
+|--------|-----------|
+| **Syntax** | `azcopy copy 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>/<blob-path>' '<local-directory-path>' --list-of-versions '<list-of-versions-file>'`|
+| **Example** | `azcopy copy 'https://mystorageaccount.blob.core.windows.net/mycontainer/myTextFile.txt' 'C:\myDirectory\myTextFile.txt' --list-of-versions 'D:\\list-of-versions.txt'` |
+| **Example** (hierarchical namespace) | `azcopy copy 'https://mystorageaccount.dfs.core.windows.net/mycontainer/myTextFile.txt' 'C:\myDirectory\myTextFile.txt' --list-of-versions 'D:\\list-of-versions.txt'` |
+
+The name of each downloaded file begins with the version ID followed by the name of the blob. 
+
 ## Copy blobs between storage accounts
 
 You can use AzCopy to copy blobs to other storage accounts. The copy operation is synchronous so when the command returns, that indicates that all files have been copied. 
@@ -254,7 +300,7 @@ These examples also work with accounts that have a hierarchical namespace. [Mult
 >
 > |Scenario|Flag|
 > |---|---|
-> |Copy files as Append Blobs or Page Blobs.|**--blob-type**=\[BlockBlob\|PageBlob\|AppendBlob\]|
+> |Copy blobs as Block, Page, or Append Blobs.|**--blob-type**=\[BlockBlob\|PageBlob\|AppendBlob\]|
 > |Copy to a specific access tier (such as the archive tier).|**--block-blob-tier**=\[None\|Hot\|Cool\|Archive\]|
 > |Automatically decompress files.|**--decompress**=\[gzip\|deflate\]|
 > 

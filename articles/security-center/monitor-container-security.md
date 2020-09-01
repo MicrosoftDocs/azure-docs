@@ -16,7 +16,7 @@ ms.author: memildin
 This page explains how to use the container security features described in the [Container Security article](container-security.md) in our concepts section.
 
 
-## Scanning your ARM-based container registries for vulnerabilities 
+## Scan your ARM-based container registries for vulnerabilities 
 
 1. To enable vulnerability scans of your Azure Container Registry images:
 
@@ -33,13 +33,11 @@ This page explains how to use the container security features described in the [
 
 1. To trigger the scan of an image, push it to your registry. 
 
-    When the scan completes (typically after approximately 10 minutes), findings are available in Security Center recommendations.
-    
+    When the scan completes (typically after approximately 2 minutes, but can be up to 15 minutes), findings are available as Security Center recommendations like this:
 
 1. To view the findings, go to the **Recommendations** page. If issues were found, you'll see the following recommendation:
 
     ![Recommendation to remediate issues ](media/monitor-container-security/acr-finding.png)
-
 
 1. Select the recommendation. 
     The recommendation details page opens with additional information. This information includes the list of registries with vulnerable images ("Affected resources") and the remediation steps. 
@@ -85,7 +83,7 @@ This page explains how to use the container security features described in the [
     1. When you are sure the updated image has been pushed, scanned, and is no longer appearing in the recommendation, delete the “old” vulnerable image from your registry.
 
 
-## Hardening your containers' Docker hosts
+## Harden your containers' Docker hosts
 
 Security Center constantly monitors the configuration of your Docker hosts, and generates security recommendations that reflect industry standards.
 

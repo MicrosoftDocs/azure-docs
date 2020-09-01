@@ -10,7 +10,7 @@ ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 06/29/2020
 ms.author: pafarley
-ms.custom: tracking-python
+ms.custom: "devx-track-python, devx-track-javascript, devx-track-csharp"
 zone_pivot_groups: programming-languages-set-one
 ---
 
@@ -21,7 +21,7 @@ Get started with the Computer Vision client library. Follow these steps to insta
 Use the Computer Vision client library to:
 
 * Analyze an image for tags, text description, faces, adult content, and more.
-* Recognize printed and handwritten text with the Batch Read API.
+* Read printed and handwritten text with the Read API.
 
 ::: zone pivot="programming-language-csharp"
 

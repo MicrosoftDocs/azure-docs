@@ -1,6 +1,6 @@
 ---
 title: Create instance of DMS (Azure Resource Manager template)
-description: Learn how to create  Database Migration Service by using Azure Resource Manager template.
+description: Learn how to create Database Migration Service by using Azure Resource Manager template (ARM template).
 author: MashaMSFT
 ms.topic: quickstart
 ms.custom: subject-armqs
@@ -9,24 +9,28 @@ ms.date: 06/29/2020
 ms.service: dms
 ---
 
-# Create instance of Azure Database Migration Service (Azure Resource Manager template)
+# Quickstart: Create instance of Azure Database Migration Service using ARM template
 
-Use this Azure Resource Manager template to deploy an instance of the Azure Database Migration Service. 
+Use this Azure Resource Manager template (ARM template) to deploy an instance of the Azure Database Migration Service. 
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+
+If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
+
+[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-azure-database-migration-simple-deploy%2fazuredeploy.json)
 
 ## Prerequisites
 
 The Azure Database Migration Service ARM template requires the following: 
 
-- The latest version of the [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) and/or [PowerShell](/powershell/scripting/install/installing-powershell?view=powershell-7). 
+- The latest version of the [Azure CLI](/cli/azure/install-azure-cli) and/or [PowerShell](/powershell/scripting/install/installing-powershell). 
 - An Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Review the template
 
 The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-azure-database-migration-simple-deploy/).
 
-:::code language="json" source="~/quickstart-templates/101-azure-database-migration-simple-deploy/azuredeploy.json" highlight="33-75":::
+:::code language="json" source="~/quickstart-templates/101-azure-database-migration-simple-deploy/azuredeploy.json":::
 
 Three Azure resources are defined in the template: 
 
@@ -34,7 +38,7 @@ Three Azure resources are defined in the template:
 - [Microsoft.Network/virtualNetworks/subnets](/azure/templates/microsoft.network/virtualnetworks/subnets): Creates the subnet. 
 - [Microsoft.DataMigration/services](/azure/templates/microsoft.datamigration/services): Deploys an instance of the Azure Database Migration Service. 
 
-More Azure Database Migration Services templates can be found in the [quickstart template gallery](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Datamigration).
+More Azure Database Migration Services templates can be found in the [quickstart template gallery](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Datamigration&pageNumber=1&sort=Popular).
 
 
 ## Deploy the template
@@ -100,7 +104,7 @@ Write-Host "Press [ENTER] to continue..."
 For a step-by-step tutorial that guides you through the process of creating a template, see:
 
 > [!div class="nextstepaction"]
-> [ Tutorial: Create and deploy your first Azure Resource Manager template](/azure/azure-resource-manager/templates/template-tutorial-create-first-template)
+> [ Tutorial: Create and deploy your first ARM template](/azure/azure-resource-manager/templates/template-tutorial-create-first-template)
 
 For other ways to deploy Azure Database Migration Service, see: 
 - [Azure portal](quickstart-create-data-migration-service-portal.md)
