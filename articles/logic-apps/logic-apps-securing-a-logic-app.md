@@ -128,9 +128,9 @@ Before you enable this authentication, review these considerations:
 
 * An authorization policy must include at least the **Issuer** claim, which has a value that starts with `https://sts.windows.net/` or `https://login.microsoftonline.com/` (OAuth V2) as the Azure AD issuer ID. For more information about access tokens, see [Microsoft identity platform access tokens](../active-directory/develop/access-tokens.md).
 
-When your logic app receives an inbound request that includes an OAuth authentication token, Azure Logic Apps compares the token's claims against the claims in each authorization policy. If a match exists between the token's claims and all the claims in at least one policy, authorization succeeds for the inbound request. The token can have more claims than the number specified by the authorization policy.
+When your logic app receives an inbound request that includes an OAuth authentication token, Azure Logic Apps compares the token's claims against the claims in each authorization policy. If a match exists between the token's claims and all the claims in at least one policy, authorization succeeds for the inbound request. The token can have more claims than the number specified by the authorization policy. The outputs from the Request trigger include the authorization header from the authentication token.
 
-For example, suppose that your logic app has an authorization policy that requires two claim types, **Issuer** and **Audience**. This sample decoded [access token](../active-directory/develop/access-tokens.md) includes both those claim types:
+For example, suppose that your logic app has an authorization policy that requires two claim types, **Audience** and **Issuer**. This sample decoded [access token](../active-directory/develop/access-tokens.md) includes both those claim types where `aud` is the **Audience** value and `iss` is the **Issuer** value:
 
 ```json
 {
@@ -173,6 +173,8 @@ For example, suppose that your logic app has an authorization policy that requir
 }
 ```
 
+
+
 <a name="define-authorization-policy-portal"></a>
 
 #### Define authorization policy in Azure portal
@@ -192,7 +194,7 @@ To enable Azure AD OAuth for your logic app in the Azure portal, follow these st
    | Property | Required | Description |
    |----------|----------|-------------|
    | **Policy name** | Yes | The name that you want to use for the authorization policy |
-   | **Claims** | Yes | The claim types and values that your logic app accepts from inbound calls. Here are the available claim types: <p><p>- **Issuer** <br>- **Audience** <br>- **Subject** <br>- **JWT ID** (JSON Web Token ID) <p><p>At the minimum, the **Claims** list must include the **Issuer** claim, which has a value that starts with `https://sts.windows.net/` or `https://login.microsoftonline.com/` as the Azure AD issuer ID. For more information about these claim types, see [Claims in Azure AD security tokens](../active-directory/azuread-dev/v1-authentication-scenarios.md#claims-in-azure-ad-security-tokens). You can also specify your own claim type and value. |
+   | **Claims** | Yes | The claim types and values that your logic app accepts from inbound calls. Here are the available claim types: <p><p>- **Issuer** <br>- **Audience** <br>- **Subject** <br>- **JWT ID** (JSON Web Token ID) <p><p>At a minimum, the **Claims** list must include the **Issuer** claim, which has a value that starts with `https://sts.windows.net/` or `https://login.microsoftonline.com/` as the Azure AD issuer ID. For more information about these claim types, see [Claims in Azure AD security tokens](../active-directory/azuread-dev/v1-authentication-scenarios.md#claims-in-azure-ad-security-tokens). You can also specify your own claim type and value. |
    |||
 
 1. To add another claim, select from these options:
@@ -209,10 +211,19 @@ To enable Azure AD OAuth for your logic app in the Azure portal, follow these st
 
 #### Define authorization policy in Azure Resource Manager template
 
-To enable Azure AD OAuth in the ARM template for deploying your logic app, in the `properties` section for your [logic app's resource definition](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md#logic-app-resource-definition), add an `accessControl` object, if none exists, that contains a `triggers` object. In the `triggers` object, add an `openAuthenticationPolicies` object where you define one or more authorization policies by following this syntax:
+To enable Azure AD OAuth in the ARM template for deploying your logic app, follow these steps and the syntax below:
 
-> [!NOTE]
-> At the minimum, the `claims` array must include the `iss` claim, which has a value that starts with `https://sts.windows.net/` or `https://login.microsoftonline.com/` as the Azure AD issuer ID. For more information about these claim types, see [Claims in Azure AD security tokens](../active-directory/azuread-dev/v1-authentication-scenarios.md#claims-in-azure-ad-security-tokens). You can also specify your own claim type and value.
+1. In the `properties` section for your [logic app's resource definition](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md#logic-app-resource-definition), add an `accessControl` object, if none exists, that contains a `triggers` object.
+
+   For more information about the `accessControl` object, see [Restrict inbound IP ranges in Azure Resource Manager template](#restrict-inbound-ip-template) and [Microsoft.Logic workflows template reference](/azure/templates/microsoft.logic/2019-05-01/workflows).
+
+1. In the `triggers` object, add an `openAuthenticationPolicies` object that contains the `policies` object where you define one or more authorization policies.
+
+1. Provide a name for authorization policy, set the policy type to `AAD`, and include a `claims` array where you specify one or more claim types.
+
+   At a minimum, the `claims` array must include the Issuer claim type where you set the claim's `name` property to `iss` and set the `value` to start with `https://sts.windows.net/` or `https://login.microsoftonline.com/` as the Azure AD issuer ID. For more information about these claim types, see [Claims in Azure AD security tokens](../active-directory/azuread-dev/v1-authentication-scenarios.md#claims-in-azure-ad-security-tokens). You can also specify your own claim type and value.
+
+Here's the syntax to follow:
 
 ```json
 "resources": [
@@ -250,8 +261,6 @@ To enable Azure AD OAuth in the ARM template for deploying your logic app, in th
    // End logic app resource definition
 ],
 ```
-
-For more information about the `accessControl` section, see [Restrict inbound IP ranges in Azure Resource Manager template](#restrict-inbound-ip-template) and [Microsoft.Logic workflows template reference](/azure/templates/microsoft.logic/2019-05-01/workflows).
 
 <a name="azure-api-management"></a>
 
