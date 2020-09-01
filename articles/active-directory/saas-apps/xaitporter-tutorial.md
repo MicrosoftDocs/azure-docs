@@ -108,7 +108,7 @@ To configure Azure AD single sign-on with XaitPorter, perform the following step
 
 	![The Certificate download link](common/copy-metadataurl.png)
 
-6. Provide the **IP address** or the **App Federation Metadata Url** to the [SmartRecruiters support team](https://www.smartrecruiters.com/about-us/contact-us/), so that XaitPorter can ensure that IP address is reachable from your XaitPorter instance configuring whitelist at their side. 
+6. Provide the **IP address** or the **App Federation Metadata Url** to the [SmartRecruiters support team](https://www.smartrecruiters.com/about-us/contact-us/), so that XaitPorter can ensure that IP address is reachable from your XaitPorter instance configuring approved list at their side. 
 
 ### Configure XaitPorter Single Sign-On
 
@@ -209,4 +209,3 @@ When you click the XaitPorter tile in the Access Panel, you should be automatica
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
