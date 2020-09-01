@@ -21,7 +21,7 @@ landingContent:
       - linkListType: overview
         links:
           - text: What is Flexible Server?
-            url: overview-azure-pg-flexible-server.md
+            url: overview.md
       - linkListType: whats-new
         links:
           - text: Check out our blog
@@ -49,7 +49,7 @@ landingContent:
           - text: Restart a server
             url: how-to-restart-server-portal.md
           - text: Scale up
-            url: how-to-scale-compute-storage-portal
+            url: how-to-scale-compute-storage-portal.md
 # Card
   - title: Business continuity
     linkLists:
