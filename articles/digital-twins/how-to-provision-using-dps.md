@@ -15,7 +15,7 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Auto-provision and retire devices with Azure Digital Twins using Device Provisioning Service (DPS)
+# Auto-manage devices in Azure Digital Twins using Device Provisioning Service (DPS)
 
 In this article, you'll learn how to integrate Azure Digital Twins with [Device Provisioning Service (DPS)](../iot-dps/about-iot-dps.md).
 
