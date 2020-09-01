@@ -527,7 +527,7 @@ This Microsoft FAQ is a list of commonly asked questions about OpenTelemetry. If
 
 A new open source standard for observability. Learn more at https://opentelemetry.io/.
 
-### What is Microsoft / Azure Monitor investing in OpenTelemetry?
+### Why is Microsoft / Azure Monitor investing in OpenTelemetry?
 
 We believe it better serves our customers for three reasons:
    1. Enable support for more customer scenarios.
