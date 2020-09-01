@@ -12,12 +12,12 @@ ms.date: 09/01/2020
 Azure Storage encrypts all data in a storage account at rest. By default, data is encrypted with Microsoft-managed keys. For additional control over encryption keys, you can supply customer-managed keys to use for encryption at rest for both the OS and data disks for your AKS clusters. Learn more about customer-managed keys on [Linux][customer-managed-keys-linux] and [Windows][customer-managed-keys-windows].
 
 ## Limitations
-* Data Disk Encryption supported with Kubernetes version 1.17 and above
-* Encryption with customer-managed keys currently is for new AKS clusters only, existing clusters cannot be upgraded
+* Data disk encryption support is limited to AKS clusters running Kubernetes version 1.17 and above.
+* Encryption of OS and data disk with customer-managed keys can only be enabled when creating an AKS cluster.
 
 ## Prerequisites
 * You must enable soft delete and purge protection for *Azure Key Vault* when using Key Vault to encrypt managed disks.
-* You need the Azure CLI version 2.11.1 or later
+* You need the Azure CLI version 2.11.1 or later.
 
 ## Create an Azure Key Vault instance
 
