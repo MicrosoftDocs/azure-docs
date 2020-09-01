@@ -1,6 +1,6 @@
 ---
-title: Manage compute network on Azure Stack Edge to access modules| Microsoft Docs 
-description: Describes how to extend the compute network on your Azure Stack Edge to access modules via an external IP.
+title: Deploy Kubernetes stateless app on Azure Stack Edge GPU via IoT Edge module| Microsoft Docs 
+description: Describes how to deploy a Kubernetes stateless application on your Azure Stack Edge GPU device by using an IoT Edge module which is accessed via an external IP.
 services: databox
 author: alkohli
 
@@ -11,7 +11,7 @@ ms.date: 08/26/2020
 ms.author: alkohli
 ---
 
-# Use IoT Edge module to run a Kubernetes stateless application on your Azure Stack Edge device
+# Use IoT Edge module to run a Kubernetes stateless application on your Azure Stack Edge GPU device
 
 This article describes how you can use an IoT Edge module to deploy a stateless application on your Azure Stack Edge device.
 

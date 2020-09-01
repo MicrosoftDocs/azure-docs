@@ -95,6 +95,8 @@
       href: managed-identity.md
     - name: Use an access control policy
       href: group-permissions-for-apps.md
+    - name: Use an Azure role-based access control (preview)
+      href: rbac-guide.md
     - name: Troubleshooting access issues
       href: troubleshooting-access-issues.md
   - name: Develop
