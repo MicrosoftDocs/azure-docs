@@ -50,7 +50,7 @@ From a browser, navigate to the [Azure portal](https://portal.azure.com) and sig
 
 You can create an ExpressRoute circuit by selecting the option to create a new resource. 
 
-1. On the Azure portal menu select **Create a resource**. Select **Networking** > **ExpressRoute**, as shown in the following image:
+1. On the Azure portal menu, select **Create a resource**. Select **Networking** > **ExpressRoute**, as shown in the following image:
 
     :::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/create-expressroute-circuit-menu.png" alt-text="Create an ExpressRoute circuit":::
 
@@ -60,7 +60,7 @@ You can create an ExpressRoute circuit by selecting the option to create a new r
 
 3. When you're filling in the values on this page, make sure that you specify the correct SKU tier (Local, Standard, or Premium) and data metering billing model (Unlimited or Metered).
 
-    :::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-create-configuration.png" alt-text="Configure the resource group and region":::
+    :::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-create-configuration.png" alt-text="Configure the circuit":::
     
     * **Port type** determines if you are connecting to a service provider or directly into Microsoft's global network at a peering location.
     * **Create new or import from classic** determines if a new circuit is being created or if you are migrating a classic circuit to ARM.
@@ -92,7 +92,7 @@ All Expressroute circuits created in the subscription will show up here.
 
 **View the properties**
 
-You can view the properties of the circuit by selecting it. On the **Overview** page for your circuit, the service key appears in the service key field. You must copy the service key for your circuit and pass it down to the service provider to complete the provisioning process. The service key is specific to your circuit.
+You can view the properties of the circuit by selecting it. On the **Overview** page for your circuit, the service key appears in the service key field. Refer to the service key for your circuit and provide it to the service provider to complete the provisioning process. The service key is specific to your circuit.
 
 :::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-circuit-overview.png" alt-text="View properties":::
 
