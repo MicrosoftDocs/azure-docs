@@ -56,6 +56,8 @@
         href: how-to-set-up-instance-portal.md
     - name: Write app authentication code
       href: how-to-authenticate-client.md
+    - name: Move instance to a different region
+      href: how-to-move-regions.md
   - name: Design models
     items: 
     - name: Manage custom models
