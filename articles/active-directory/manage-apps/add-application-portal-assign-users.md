@@ -27,7 +27,7 @@ To assign users to an app that you added to your Azure AD tenant, you need:
 - Optional: Completion of [Configure an app](add-application-portal-configure.md).
 
 >[!IMPORTANT]
->Use a nonproduction environment to test the steps in this quickstart.
+>Use a non-production environment to test the steps in this quickstart.
 
 ## Assign users to an app
 1. In the Azure AD portal, select **Enterprise applications**. Then find and select the application you want to configure.

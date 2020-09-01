@@ -31,7 +31,7 @@ To set up SSO for an application that you added to your Azure AD tenant, you nee
 
 
 >[!IMPORTANT]
->Use a nonproduction environment to test the steps in this quickstart.
+>Use a non-production environment to test the steps in this quickstart.
 
 
 ## Enable single sign-on for an app

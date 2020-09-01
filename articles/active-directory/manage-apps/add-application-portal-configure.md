@@ -26,7 +26,7 @@ To configure the properties of an application in your Azure AD tenant, you need:
 - Optional: Completion of [Add an app](add-application-portal.md).
 
 >[!IMPORTANT]
->Use a nonproduction environment to test the steps in this quickstart.
+>Use a non-production environment to test the steps in this quickstart.
 
 ## Configure app properties
 
