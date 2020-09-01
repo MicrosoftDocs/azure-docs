@@ -83,6 +83,9 @@ Next, you will create a virtual network containing two empty subnets.
 1. **Create a resource group.**
 
     An Azure resource group is a logical group in which Azure resources are deployed and managed. When you create a resource group, you are asked to specify a location. This location is where resource group metadata is stored, it is also where your resources run in Azure if you don't specify another region during resource creation. Create a resource group using the [az group create](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-create) command.
+    
+    [!NOTE]
+    > Azure Red Hat OpenShift is not available in all regions where an Azure resource group can be created. See [Available regions](https://docs.openshift.com/aro/4/welcome/index.html#available-regions) for information on where Azure Red Hat OpenShift is supported.
 
     ```azurecli-interactive
     az group create --name $RESOURCEGROUP --location $LOCATION
