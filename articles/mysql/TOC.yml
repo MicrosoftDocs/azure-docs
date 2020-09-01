@@ -409,6 +409,8 @@
             href: flexible-server/connect-php.md
           - name: MySQL Workbench
             href: flexible-server/connect-workbench.md
+          - name: Python
+            href: flexible-server/connect-python.md
   - name: Tutorials
     items:
     - name: Build PHP (Laravel) app with Flexible Server
@@ -421,14 +423,14 @@
       href: flexible-server/concepts-limitations.md
     - name: Compute and storage
       href: flexible-server/concepts-compute-storage.md
-    - name: Manage
+    - name: Monitoring & Logs
       items:
-      - name: Logs and Diagnostics
-        items:
-        - name: Slow query logs
-          href: flexible-server/concepts-slow-query-logs.md
-        - name: Audit logs
-          href: flexible-server/concepts-audit-logs.md
+      - name: Slow query logs
+        href: flexible-server/concepts-slow-query-logs.md
+      - name: Audit logs
+        href: flexible-server/concepts-audit-logs.md
+      - name: Metrics
+        href: flexible-server/concepts-monitoring.md
   - name: How-to guides
     items:
     - name: Manage your server
@@ -457,6 +459,14 @@
           href: flexible-server/how-to-connect-tls-ssl.md
         - name: ARM template
           href: flexible-server/quickstart-create-arm-template.md
+      - name: Monitoring & Logs
+        items:
+        - name: Create alerts on metrics
+          href: flexible-server/how-to-alert-on-metric.md
+      - name: Troubleshoot
+        items:
+        - name: Connection errors
+          href: flexible-server/how-to-troubleshoot-common-connection-issues.md
 - name: Reference
   items:
   - name: Azure CLI
