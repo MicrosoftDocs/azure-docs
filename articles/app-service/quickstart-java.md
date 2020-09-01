@@ -10,7 +10,7 @@ ms.topic: quickstart
 ms.date: 08/01/2020
 ms.author: jafreebe
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
-zone_pivot_groups: app-service-platform-windows-linux
+zone_pivot_groups: app-service-platform-windows-linux, app-service-java-framework
 ---
 # Quickstart: Create a Java app on Azure App Service
 
@@ -51,7 +51,31 @@ You can run the maven command below to configure the deployment
 mvn com.microsoft.azure:azure-webapp-maven-plugin:1.9.1:config
 ```
 
-::: zone pivot="platform-windows" 
+::: zone pivot="platform-windows"
+
+::: zone pivot="framework-java-se"
+
+This is a snippet for Java SE
+
+```java
+public class JavaSE {
+    // ...
+}
+```
+
+::: zone-end
+::: zone pivot="framework-tomcat"
+
+This is a snippet for Tomcat. 
+
+```java
+public class TOMCAT {
+    // ...
+}
+```
+
+::: zone-end
+
 You will be asked to select 
 * **OS(Default: `linux`)**
 * **Java Version(Default: `1.8`)**

@@ -578,7 +578,16 @@ groups:
   - id: container-linux
     title: Linux container
   - id: container-windows
-    title: Windows container  
+    title: Windows container
+# Owner: jafreebe
+- id: app-service-java-framework
+  title: Java framework
+  prompt: Choose a Java framework
+  pivots:
+  - id: framework-java-se
+    title: Java SE
+  - id: framework-tomcat
+    title: Tomcat
 - id: programming-languages-spring-cloud
 # Owner: bmitchell287
   title: Programming languages
