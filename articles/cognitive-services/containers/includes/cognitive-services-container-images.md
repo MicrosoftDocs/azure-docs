@@ -47,7 +47,9 @@ See [How to run and install Text Analytics containers](../../text-analytics/how-
 
 | Container | Container Registry / Repository / Image Name |
 |--|--|
-| [Anomaly detector](../../anomaly-detector/anomaly-detector-container-howto.md) | `mcr.microsoft.com/azure-cognitive-services/anomaly-detector` |
+| Anomaly detector | `mcr.microsoft.com/azure-cognitive-services/anomaly-detector` |
+
+See [How to run and install Anomaly detector containers](../../anomaly-detector/anomaly-detector-container-howto.md) for more information.
 
 **Speech Service**
 
@@ -57,7 +59,7 @@ See [How to run and install Text Analytics containers](../../text-analytics/how-
 | [Custom Speech-to-text](../../speech-service/speech-container-howto.md?tab=cstt) | `containerpreview.azurecr.io/microsoft/cognitive-services-custom-speech-to-text` |
 | [Text-to-speech](../../speech-service/speech-container-howto.md?tab=tts) | `containerpreview.azurecr.io/microsoft/cognitive-services-text-to-speech` |
 
-#### Public "Ungated" preview 
+#### "Ungated" preview 
 
 The following preview containers are available publicly. The Microsoft Container Registry (MCR) syndicates all of the publicly available ungated containers for Cognitive Services. The containers are also available directly from the [Docker hub](https://hub.docker.com/_/microsoft-azure-cognitive-services).
 
@@ -67,13 +69,14 @@ The following preview containers are available publicly. The Microsoft Container
 | [Text Analytics](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md) | Language Detection | `mcr.microsoft.com/azure-cognitive-services/language` |
 
 
-#### Public "Gated" preview
+#### "Gated" preview
 
 The following gated preview containers are hosted on the Microsoft Container Registry (MCR), and require an application to access. See the following container articles for more information.
 
 | Service | Container | Container Registry / Repository / Image Name |
 |--|--|--|
-| [Computer Vision](../../Computer-vision/computer-vision-how-to-install-containers.md) | Read | `azure-cognitive-services/vision/read:3.0` |
+| [Computer Vision](../../Computer-vision/computer-vision-how-to-install-containers.md) | Read v3.0 | `mcr.microsoft.com/azure-cognitive-services/vision/read:3.0` |
+| [Computer Vision](../../Computer-vision/computer-vision-how-to-install-containers.md) | Read v3.1 | `mcr.microsoft.com/azure-cognitive-services/vision/read:3.1` |
 | [Face](../../face/face-how-to-install-containers.md) | Face | `containerpreview.azurecr.io/microsoft/cognitive-services-face` |
 | [Form recognizer](https://go.microsoft.com/fwlink/?linkid=2083826&clcid=0x409) | Form Recognizer | `containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer` |
 | [Speech Service API](../../speech-service/speech-container-howto.md?tab=ctts) | Custom Text-to-speech | `containerpreview.azurecr.io/microsoft/cognitive-services-custom-text-to-speech` |
