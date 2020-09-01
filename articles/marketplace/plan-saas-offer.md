@@ -25,7 +25,7 @@ The following table shows the listing options for SaaS offers in the commercial 
 | Contact me | The customer contacts you directly from information in your listing.``*`` |
 | Free trial | The customer is redirected to your target URL via Azure Active Directory (Azure AD).``*`` |
 | Get it now (Free) | The customer is redirected to your target URL via Azure AD.``*`` |
-| Sell through Microsoft  | Offers sold through Microsoft are called _transactable_ offers. An offer that is transactable is one in which Microsoft facilitates the exchange of money for a software license on the publisher’s behalf. We bill SaaS offers as a flat fee, and manage customer transactions on your behalf. Note that Azure infrastructure usage fees are billed to you, the partner, directly. You should account for infrastructure costs in your pricing model. This is explained in more detail in [SaaS billing](#saas-billing) below.  |
+| Sell through Microsoft  | Offers sold through Microsoft are called _transactable_ offers. An offer that is transactable is one in which Microsoft facilitates the exchange of money for a software license on the publisher’s behalf. We bill SaaS offers using the pricing model you choose, and manage customer transactions on your behalf. Note that Azure infrastructure usage fees are billed to you, the partner, directly. You should account for infrastructure costs in your pricing model. This is explained in more detail in [SaaS billing](#saas-billing) below.  |
 |||
 
 ``*`` Publishers are responsible for supporting all aspects of the software license transaction, including but not limited to order, fulfillment, metering, billing, invoicing, payment, and collection.
@@ -162,17 +162,17 @@ To help create your offer more easily, prepare some of these items ahead of time
   - **CSP Program contact** (optional): Provide the name, phone, and email if you opt in to the CSP program, so those partners can contact you with any questions. You can also include a URL to your marketing materials.
 - **Useful links** (optional): You can provide links to various resources for users of your offer. For example, forums, FAQs, and release notes.
 - **Supporting documents**: You can provide up to three customer-facing documents, such as whitepapers, brochures, checklists, or PowerPoint presentations.
-- **Media – Logos**: Provide logos as .png files in the following sizes:
-  - Small: 48 x 48 pixels (required)
-  - Medium: 90 x 90 pixels (required)
-  - Large: 216 x 216 pixels (required)
-  - Wide: 255 x 115 (optional)
+- **Media – Logos**: Provide a PNG file for the **Large** size logo. Partner Center will use this to create a **Small** and a **Medium** logo. You can optionally replace these with different images later.
+
+   - Large (from 216 x 216 to 350 x 350 px, required)
+   - Medium (90 x 90 px, optional)
+   - Small (48 x 48 px, optional)
 
   These logos are used in different places in the online stores:
 
-  -  The Small logo (48 x 48 pixels) appears in Azure Marketplace search results and on the Microsoft AppSource main page and search results page.
-  -  The Medium logo (90 x 90 pixels) appears when you create a new resource in Microsoft Azure.
-  -  The Large logo (between 216 x 216 and 350 x 350 pixels) appears on your offer listing page in Azure Marketplace and Microsoft AppSource.
+  -  The Small logo appears in Azure Marketplace search results and on the Microsoft AppSource main page and search results page.
+  -  The Medium logo appears when you create a new resource in Microsoft Azure.
+  -  The Large logo appears on your offer listing page in Azure Marketplace and Microsoft AppSource.
 
 - **Media - Screenshots**: You must add at least one and up to five screenshots with the following requirements, that show how your offer works:
   - 1280 x 720 pixels

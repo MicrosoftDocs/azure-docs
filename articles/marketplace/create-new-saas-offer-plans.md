@@ -62,7 +62,7 @@ You must associate a pricing model with each plan: either _flat rate_ or _per us
 
 ### Add a custom meter dimension
 
-This option is available only if you selected flat rate pricing.
+This option is available only if you selected flat rate pricing. For more information, see [Metered billing for SaaS using the commercial marketplace metering service](./partner-center-portal/saas-metered-billing.md).
 
 1. Under **Marketplace Metering Service dimensions**, select the **Add a Custom Meter Dimension (Max 30)** link.
 1. In the **ID** box, enter the immutable identifier reference while emitting usage events.
@@ -103,6 +103,9 @@ You can configure a free trial for each plan in your offer. Select the check box
 ## Choose who can see your plan
 
 You can configure each plan to be visible to everyone or to only a specific audience. You grant access to a private plan using tenant IDs with the option to include a description of each tenant ID you assign. You can add a maximum of 10 tenant IDs manually or up to 20,000 tenant IDs using a .CSV file.
+
+> [!NOTE]
+> If you publish a private plan, you can change its visibility to public later. However, once you publish a public plan, you cannot change its visibility to private.
 
 ### Make your plan public
 
