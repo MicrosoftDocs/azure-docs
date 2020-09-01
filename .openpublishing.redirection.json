@@ -56628,6 +56628,31 @@
       "source_path": "articles/load-balancer/quickstart-create-standard-load-balancer-powershell.md",
       "redirect_url": "/azure/load-balancer/quickstart-load-balancer-standard-public-powershell",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/spring-cloud/spring-cloud-quickstart-launch-app-cli.md",
+      "redirect_url": "/azure/spring-cloud/spring-cloud-quickstart",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/spring-cloud/spring-cloud-quickstart-launch-app-portal.md",
+      "redirect_url": "/azure/spring-cloud/spring-cloud-quickstart",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/spring-cloud/spring-cloud-quickstart-launch-app-maven.md",
+      "redirect_url": "/azure/spring-cloud/spring-cloud-quickstart",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/spring-cloud/spring-cloud-launch-from-source.md",
+      "redirect_url": "/azure/spring-cloud/spring-cloud-quickstart",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/spring-cloud/spring-cloud-cli-reference.md",
+      "redirect_url": "/cli/azure/ext/spring-cloud/spring-cloud?view=azure-cli-latest",
+      "redirect_document_id": false
     }
   ]
 }
