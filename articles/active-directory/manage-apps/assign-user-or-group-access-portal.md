@@ -49,7 +49,7 @@ To require user assignment for an application:
    > If the **User assignment required?** toggle isn't available, you can use PowerShell to set the appRoleAssignmentRequired property on the service principal.
 6. Select the **Save** button at the top of the screen.
 
-## Assign, or unassign, users or groups to an app using the Azure portal
+## Assign or unassign users, and groups, for an app using the Azure portal
 To learn how to assign, or unassign, a user or group using the Azure portal, see the [Quickstart Series on Application Management](add-application-portal-assign-users.md). 
 
 ## Assign users or groups to an app using PowerShell
