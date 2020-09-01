@@ -49,5 +49,4 @@ Use [Update](https://docs.microsoft.com/rest/api/analysisservices/servers/update
 
 [Authentication and user permissions](analysis-services-manage-users.md)  
 [Manage database roles and users](analysis-services-database-users.md)  
-[Role-Based Access Control](../role-based-access-control/overview.md)  
-
+[Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md)  

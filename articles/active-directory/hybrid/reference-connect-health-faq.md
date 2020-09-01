@@ -31,9 +31,11 @@ The following table lists the roles and supported operating system versions.
 
 |Role| Operating system / Version|
 |--|--|
-|Active Directory Federation Services (AD FS)| <ul> <li> Windows Server 2008 R2 </li><li> Windows Server 2012  </li> <li>Windows Server 2012 R2 </li> <li> Windows Server 2016  </li> </ul>|
+|Active Directory Federation Services (AD FS)| <ul><li> Windows Server 2012  </li> <li>Windows Server 2012 R2 </li> <li> Windows Server 2016  </li> <li> Windows Server 2019  </li> </ul>|
 |Azure AD Connect | Version 1.0.9125 or higher|
-|Active Directory Domain Services (AD DS)| <ul> <li> Windows Server 2008 R2 </li><li> Windows Server 2012  </li> <li>Windows Server 2012 R2 </li> <li> Windows Server 2016  </li> </ul>|
+|Active Directory Domain Services (AD DS)| <ul><li> Windows Server 2012  </li> <li>Windows Server 2012 R2 </li> <li> Windows Server 2016  </li> <li> Windows Server 2019  </li> </ul>|
+
+Windows Server Core installations are not supported.
 
 Note that the features provided by the service may differ based on the role and the operating system. In other words, all the features may not be available for all operating system versions. See the feature descriptions for details.
 
@@ -129,7 +131,7 @@ The health agent can fail to register due to the following possible reasons:
 
 * The agent cannot communicate with the required endpoints because a firewall is blocking traffic. This is particularly common on web application proxy servers. Make sure that you have allowed outbound communication to the required endpoints and ports. See the [requirements section](how-to-connect-health-agent-install.md#requirements) for details.
 * Outbound communication is subjected to an TLS inspection by the network layer. This causes the certificate that the agent uses to be replaced by the inspection server/entity, and the steps to complete the agent registration fail.
-* The user does not have access to perform the registration of the agent. Global admins have access by default. You can use [Azure role-based access control (Azure RBAC)](how-to-connect-health-operations.md#manage-access-with-role-based-access-control) to delegate access to other users.
+* The user does not have access to perform the registration of the agent. Global admins have access by default. You can use [Azure role-based access control (Azure RBAC)](how-to-connect-health-operations.md#manage-access-with-azure-rbac) to delegate access to other users.
 
 **Q: I am getting alerted that "Health Service data is not up to date." How do I troubleshoot the issue?**
 

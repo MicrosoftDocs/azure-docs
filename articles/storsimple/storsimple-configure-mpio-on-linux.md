@@ -1,6 +1,6 @@
 ---
 title: Configure MPIO on StorSimple Linux host
-description: Configure MPIO on StorSimple connected to a Linux host running CentOS 6.6
+description: Learn the steps required to configure Multipathing IO (MPIO) on your StorSimple Linux (Centos 6.6) host server.
 author: alkohli
 ms.assetid: ca289eed-12b7-4e2e-9117-adf7e2034f2f
 ms.service: storsimple

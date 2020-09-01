@@ -24,6 +24,7 @@ Before you restore a database, note the following:
 - You can restore the database to an instance of a SQL Server in the same Azure region.
 - The destination server must be registered to the same vault as the source.
 - To restore a TDE-encrypted database to another SQL Server, you need to first [restore the certificate to the destination server](/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server).
+- [CDC](https://docs.microsoft.com/sql/relational-databases/track-changes/enable-and-disable-change-data-capture-sql-server?view=sql-server-ver15) enabled databases should be restored using the [Restore as files](#restore-as-files) option.
 - Before you restore the "master" database, start the SQL Server instance in single-user mode by using the startup option **-m AzureWorkloadBackup**.
   - The value for **-m** is the name of the client.
   - Only the specified client name can open the connection.
@@ -158,7 +159,7 @@ If you've selected **Full & Differential** as the restore type, do the following
 
 ### Restore databases with large number of files
 
-If the total string size of files in a database is greater than a [particular limit](backup-sql-server-azure-troubleshoot.md#size-limit-for-files), Azure Backup stores the list of database files in a different pit component such that you can't set the target restore path during the restore operation. The files will be restored to the SQL default path instead.
+If the total string size of files in a database is greater than a [particular limit](backup-sql-server-azure-troubleshoot.md#size-limit-for-files), Azure Backup stores the list of database files in a different pit component so you can't set the target restore path during the restore operation. The files will be restored to the SQL default path instead.
 
   ![Restore Database with large file](./media/backup-azure-sql-database/restore-large-files.jpg)
 

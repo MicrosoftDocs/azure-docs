@@ -123,7 +123,7 @@ $publicSettings = $publicSettings.Replace('__VM_RESOURCE_ID__', $vm.Id)
 # If you have your own customized public settings, you can inline those rather than using the template above: $publicSettings = '{"ladCfg":  { ... },}'
 
 # Generate a SAS token for the agent to use to authenticate with the storage account
-$sasToken = New-AzStorageAccountSASToken -Service Blob,Table -ResourceType Service,Container,Object -Permission "racwdlup" -Context (Get-AzStorageAccount -ResourceGroupName $storageAccountResourceGroup -AccountName $storageAccountName).Context
+$sasToken = New-AzStorageAccountSASToken -Service Blob,Table -ResourceType Service,Container,Object -Permission "racwdlup" -Context (Get-AzStorageAccount -ResourceGroupName $storageAccountResourceGroup -AccountName $storageAccountName).Context -ExpiryTime $([System.DateTime]::Now.AddYears(10))
 
 # Build the protected settings (storage account SAS token)
 $protectedSettings="{'storageAccountName': '$storageAccountName', 'storageAccountSasToken': '$sasToken'}"
@@ -575,7 +575,7 @@ Assuming your protected settings are in the file ProtectedSettings.json and your
 az vm extension set --publisher Microsoft.Azure.Diagnostics --name LinuxDiagnostic --version 3.0 --resource-group <resource_group_name> --vm-name <vm_name> --protected-settings ProtectedSettings.json --settings PublicSettings.json
 ```
 
-The command assumes you are using the Azure Resource Management (ARM) mode of the Azure CLI. To configure LAD for classic deployment model (ASM) VMs, switch to "asm" mode (`azure config mode asm`) and omit the resource group name in the command. For more information, see the [cross-platform CLI documentation](/azure/xplat-cli-connect).
+The command assumes you are using the Azure Resource Management mode of the Azure CLI. To configure LAD for classic deployment model (ASM) VMs, switch to "asm" mode (`azure config mode asm`) and omit the resource group name in the command. For more information, see the [cross-platform CLI documentation](/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
 
 ### PowerShell
 

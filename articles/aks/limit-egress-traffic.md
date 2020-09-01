@@ -5,6 +5,7 @@ services: container-service
 ms.topic: article
 ms.author: jpalma
 ms.date: 06/29/2020
+ms.custom: fasttrack-edit
 author: palma21
 
 #Customer intent: As an cluster operator, I want to restrict egress traffic for nodes to only access defined ports and addresses and improve cluster security.
@@ -223,6 +224,8 @@ Azure Firewall provides an Azure Kubernetes Service (`AzureKubernetesService`) F
 
 > [!NOTE]
 > The FQDN tag contains all the FQDNs listed above and is kept automatically up to date.
+>
+> We recommend having a minimum of 20 Frontend IPs on the Azure Firewall for production scenarios to avoid incurring in SNAT port exhaustion issues.
 
 Below is an example architecture of the deployment:
 
@@ -361,7 +364,7 @@ Create an empty route table to be associated with a given subnet. The route tabl
 ```azure-cli
 # Create UDR and add a route for Azure Firewall
 
-az network route-table create -g $RG --name $FWROUTE_TABLE_NAME
+az network route-table create -g $RG -$LOC --name $FWROUTE_TABLE_NAME
 az network route-table route create -g $RG --name $FWROUTE_NAME --route-table-name $FWROUTE_TABLE_NAME --address-prefix 0.0.0.0/0 --next-hop-type VirtualAppliance --next-hop-ip-address $FWPRIVATE_IP --subscription $SUBID
 az network route-table route create -g $RG --name $FWROUTE_NAME_INTERNET --route-table-name $FWROUTE_TABLE_NAME --address-prefix $FWPUBLIC_IP/32 --next-hop-type Internet
 ```
@@ -407,7 +410,7 @@ Now an AKS cluster can be deployed into the existing virtual network. We'll also
 
 ### Create a service principal with access to provision inside the existing virtual network
 
-A service principal is used by AKS to create cluster resources. The service principal that is passed at create time is used to create underlying AKS resources such as Storage resources, IPs and Load Balancers used by AKS (you may also use a [managed identity](use-managed-identity.md) instead). If not granted the appropriate permissions below, you won't be able to provision the AKS Cluster.
+A service principal is used by AKS to create cluster resources. The service principal that is passed at create time is used to create underlying AKS resources such as Storage resources, IPs, and Load Balancers used by AKS (you may also use a [managed identity](use-managed-identity.md) instead). If not granted the appropriate permissions below, you won't be able to provision the AKS Cluster.
 
 ```azure-cli
 # Create SP and Assign Permission to Virtual Network
@@ -480,14 +483,14 @@ Add another IP address to the approved ranges with the following command
 CURRENT_IP=$(dig @resolver1.opendns.com ANY myip.opendns.com +short)
 
 # Add to AKS approved list
-az aks update -g $RG -n $AKS_NAME --api-server-authorized-ip-ranges $CURRENT_IP/32
+az aks update -g $RG -n $AKSNAME --api-server-authorized-ip-ranges $CURRENT_IP/32
 
 ```
 
  Use the [az aks get-credentials][az-aks-get-credentials] command to configure `kubectl` to connect to your newly created Kubernetes cluster. 
 
  ```azure-cli
- az aks get-credentials -g $RG -n $AKS_NAME
+ az aks get-credentials -g $RG -n $AKSNAME
  ```
 
 ### Deploy a public service
@@ -757,7 +760,7 @@ az network firewall nat-rule create --collection-name exampleset --destination-a
 
 Navigate to the Azure Firewall frontend IP address in a browser to validate connectivity.
 
-You should see the AKS voting app. In this example the Firewall public IP was `52.253.228.132`.
+You should see the AKS voting app. In this example, the Firewall public IP was `52.253.228.132`.
 
 
 ![aks-vote](media/limit-egress-traffic/aks-vote.png)

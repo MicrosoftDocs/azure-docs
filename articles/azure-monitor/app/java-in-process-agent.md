@@ -124,18 +124,17 @@ We support Micrometer, OpenTelemetry API, and the popular logging frameworks. Ap
 
 ### Supported custom telemetry
 
-The table below represents currently supported custom telemetry types that you can enable to supplement the Java 3.0 agent. To summarize, custom metrics are supported through micrometer, custom exceptions and traces can be enabled through logging frameworks, and any type of the custom telemetry is supported through the [Application Insights Java 2.x SDK](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent#sending-custom-telemetry-using-application-insights-java-sdk-2x). 
+The table below represents currently supported custom telemetry types that you can enable to supplement the Java 3.0 agent. To summarize, custom metrics are supported through micrometer, custom exceptions and traces can be enabled through logging frameworks, and any type of the custom telemetry is supported through the [Application Insights Java 2.x SDK](#sending-custom-telemetry-using-application-insights-java-sdk-2x). 
 
-
-|                 | Micrometer | Log4j, logback, JUL | 2.x SDK |
-|-----------------|------------|---------------------|---------|
-| Custom Events   |            |                     |  Yes    |
-| Custom Metrics  |  Yes       |                     |  Yes    |
-| Dependencies    |            |                     |  Yes    |
-| Exceptions      |            |  Yes                |  Yes    |   
-| Page Views      |            |                     |  Yes    |
-| Requests        |            |                     |  Yes    |
-| Traces          |            |  Yes                |  Yes    |
+|                     | Micrometer | Log4j, logback, JUL | 2.x SDK |
+|---------------------|------------|---------------------|---------|
+| **Custom Events**   |            |                     |  Yes    |
+| **Custom Metrics**  |  Yes       |                     |  Yes    |
+| **Dependencies**    |            |                     |  Yes    |
+| **Exceptions**      |            |  Yes                |  Yes    |
+| **Page Views**      |            |                     |  Yes    |
+| **Requests**        |            |                     |  Yes    |
+| **Traces**          |            |  Yes                |  Yes    |
 
 We're not planning to release an SDK with Application Insights 3.0 at this time.
 

@@ -7,7 +7,7 @@ tags: azure-resource-manager
 
 ms.service: key-vault
 ms.subservice: general
-ms.topic: tutorial
+ms.topic: overview
 ms.date: 07/27/2020
 ms.author: mbaldwin
 
@@ -45,7 +45,7 @@ Today, most of the TLS certificates used by Azure services chain up to the follo
 
 | Common name of the CA | Thumbprint (SHA1) |
 |--|--|
-| Baltimore CyberTrust Root | d4de20d05e66fc53fe1a50882c78db2852cae474 |
+| [Baltimore CyberTrust Root](https://cacerts.digicert.com/BaltimoreCyberTrustRoot.crt) | d4de20d05e66fc53fe1a50882c78db2852cae474 |
 
 TLS certificates used by Azure services will chain up to one of the following Root CAs:
 
@@ -70,7 +70,7 @@ We expect that **most Azure customers will not** be impacted.  However, your app
 
 Here are some ways to detect if your application is impacted:
 
-- Search your source code for the thumbprint, Common Name, and other cert properties of any of the Microsoft IT TLS CAs found here. If there is a match, then your application will be impacted. To resolve this problem, update the source code include the new CAs. As a best practice ensure that CAs can be added or edited on short notice. Industry regulations requires CA certificates to be replaced within 7 days and hence customers relying on pinning need to react swiftly.
+- Search your source code for the thumbprint, Common Name, and other cert properties of any of the Microsoft IT TLS CAs found [here](https://www.microsoft.com/pki/mscorp/cps/default.htm). If there is a match, then your application will be impacted. To resolve this problem, update the source code include the new CAs. As a best practice ensure that CAs can be added or edited on short notice. Industry regulations requires CA certificates to be replaced within 7 days and hence customers relying on pinning need to react swiftly.
 
 - If you have an application that integrates with Azure APIs or other Azure services and you are unsure if it uses certificate pinning, check with the application vendor.
 

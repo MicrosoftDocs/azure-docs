@@ -157,7 +157,7 @@ This article provides answers to some of the most common questions about running
 
 1. **Can I install a second instance of SQL Server on the same VM? Can I change installed features of the default instance?**
 
-   Yes. The SQL Server installation media is located in a folder on the **C** drive. Run **Setup.exe** from that location to add new SQL Server instances or to change other installed features of SQL Server on the machine. Note that some features, such as Automated Backup, Automated Patching, and Azure Key Vault Integration, only operate against the default instance, or a named instance that was configured properly (See Question 3). 
+   Yes. The SQL Server installation media is located in a folder on the **C** drive. Run **Setup.exe** from that location to add new SQL Server instances or to change other installed features of SQL Server on the machine. Note that some features, such as Automated Backup, Automated Patching, and Azure Key Vault Integration, only operate against the default instance, or a named instance that was configured properly (See Question 3). Customers using [Software Assurance through the Azure Hybrid Benefit](licensing-model-azure-hybrid-benefit-ahb-change.md) or the **pay-as-you-go** licensing model can install multiple instances of SQL Server on the virtual machine without incurring extra licensing costs. Additional SQL Server instances may strain system resources unless configured correctly. 
 
 1. **Can I uninstall the default instance of SQL Server?**
 

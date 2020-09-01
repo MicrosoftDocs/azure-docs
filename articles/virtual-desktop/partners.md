@@ -1,10 +1,7 @@
 ---
 title: Windows Virtual Desktop partner integrations - Azure
 description: Learn about Windows Virtual Desktop's partners and access documentation about how to integrate with them.
-services: virtual-desktop
 author: Heidilohr
-
-ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 07/17/2020
 ms.author: helohr
@@ -33,7 +30,7 @@ VMware Horizon Cloud on Microsoft Azure is a native cloud service that lets orga
 As a Windows Virtual Desktop approved provider, VMware can help customers that want to use Windows Virtual Desktop while still enjoying the additional functionality that comes with VMware Horizon, such as integrated and easy-to-use power management, cloud-based monitoring, and the Blast Extreme protocol. These features adapt to changing network conditions on the fly to provide a consistently excellent user experience. VMware Horizon Cloud also comes with VMware App Volumes and Dynamic Environment Manager, which add advanced application and user environment management capabilities that work with MSIX app attach and FSLogix.
 
 - [Go to the partner website](https://www.vmware.com/products/horizon-cloud-virtual-desktops.html).
-- [Read VMWare Horizon Cloud technical documentation](https://techzone.vmware.com/mastering-horizon-cloud-microsoft-azure).
+- [Read VMware Horizon Cloud technical documentation](https://techzone.vmware.com/mastering-horizon-cloud-microsoft-azure).
 
 ## 10ZiG
 
@@ -64,9 +61,9 @@ Automai lets you use the same scripts for performance testing, functional testin
 
 ![Cloudhouse logo](./media/partners/cloudhouse.png)
 
-Cloudhouse is a Windows Virtual Desktop value-added services provider that offers customers a turnkey application migration service that can move all applications, including ones that are incompatible with modern Windows operating systems, to the Windows Virtual Desktop environment, allowing customers to truly leverage multi-session Windows 10. 
+Cloudhouse is a Windows Virtual Desktop value-added services provider that offers customers a turnkey application migration service that can move all applications, including ones that are incompatible with modern Windows operating systems, to the Windows Virtual Desktop environment, allowing customers to truly leverage multi-session Windows 10.
 
-By leveraging proven Cloudhouse containerization technology, the Cloudhouse service takes all applications, including ones designed for Windows XP, Windows 7, or Windows 8, and deploys them to a modern Windows Virtual Desktop without needing to change code or impact user experience. Cloudhouse further adds to the value of Windows Virtual Desktop by isolating applications from the underlying operating system, allowing Windows Servicing updates to be rolled out without affecting the containerized application. 
+By leveraging proven Cloudhouse containerization technology, the Cloudhouse service takes all applications, including ones designed for Windows XP, Windows 7, or Windows 8, and deploys them to a modern Windows Virtual Desktop without needing to change code or impact user experience. Cloudhouse further adds to the value of Windows Virtual Desktop by isolating applications from the underlying operating system, allowing Windows Servicing updates to be rolled out without affecting the containerized application.
 
 - [Go to the partner website](https://cloudhouse.com/resources/migrate-everything-to-windows-10-on-microsoft-windows-virtua).
 
@@ -106,9 +103,9 @@ Wyse thin clients are designed with security in mind with limited attack surface
 
 ![deviceTRUST Logo](./media/partners/devicetrust.png)
 
-deviceTRUST is a Windows Virtual Desktop value-added services provider that contextualizes the corporate enterprise. It allows users the freedom to access their Windows Virtual Desktop from any location, on any device, over any network, while giving IT departments the information and control they need to meet their governance requirements. 
+deviceTRUST is a Windows Virtual Desktop value-added services provider that contextualizes the corporate enterprise. It allows users the freedom to access their Windows Virtual Desktop from any location, on any device, over any network, while giving IT departments the information and control they need to meet their governance requirements.
 
-deviceTRUST extends the value of Windows Virtual Desktop with their contextual security technology. deviceTRUST enables conditional access for a secure Windows Virtual Desktop access, conditional application access within Windows Virtual Desktop and to apply conditional Windows Virtual Desktop policies without any additional infrastructure. Using deviceTRUST enables a mobile, flexible workspace that meets all security, compliance, and regulatory requirements. 
+deviceTRUST extends the value of Windows Virtual Desktop with their contextual security technology. deviceTRUST enables conditional access for a secure Windows Virtual Desktop access, conditional application access within Windows Virtual Desktop and to apply conditional Windows Virtual Desktop policies without any additional infrastructure. Using deviceTRUST enables a mobile, flexible workspace that meets all security, compliance, and regulatory requirements.
 
 - [Go to the partner website](https://devicetrust.com/wvd).
 
@@ -116,7 +113,7 @@ deviceTRUST extends the value of Windows Virtual Desktop with their contextual s
 
 ![Ekran System Logo](./media/partners/ekran.png)
 
-Ekran System is a Windows Virtual Desktop value-add partner that lets IT teams monitor all remote user activity on Microsoft Azure virtual machines. With Ekran System, you can record on-screen activity for every user session in published applications or virtual desktops while collecting a wide range of context-rich metadata, such as application names, active window titles, visited URLs, and keystrokes. Advanced features offer in-depth visibility and quick incident response times, making Ekran System an efficient insider threat management and compliance solution.  
+Ekran System is a Windows Virtual Desktop value-add partner that lets IT teams monitor all remote user activity on Microsoft Azure virtual machines. With Ekran System, you can record on-screen activity for every user session in published applications or virtual desktops while collecting a wide range of context-rich metadata, such as application names, active window titles, visited URLs, and keystrokes. Advanced features offer in-depth visibility and quick incident response times, making Ekran System an efficient insider threat management and compliance solution.
 
 The unique floating endpoint licensing of Ekran System clients is automated to support dynamically changing virtual desktops. Ekran System lets you automatically unassign licenses from deleted non-persistent virtual desktops and remove them from your database. Ekran System seamlessly integrates with Azure Active Directory and Azure Sentinel.
 
@@ -139,7 +136,7 @@ When a user signs in to their virtual desktop, the FabulaTech software creates a
 ![Flexxible IT Logo](./media/partners/flexxible.png)
 
 Flexxible IT is a Windows Virtual Desktop value-add partner that offers organizations the ability to rapidly scale, monitor, and efficiently manage Windows Virtual Desktop and Citrix Workspace infrastructure. Flexxible|SUITE allows IT admins to intelligently provision and manage Windows Virtual Desktop workloads on-premises and hosted in Azure.
- 
+
 Flexxible IT's technology extends the value of both native Windows Virtual Desktop and Citrix Workspace by automating common processes to simplify infrastructure configuration, desktop provisioning, and day-to-day management. With no need for complex PowerShell scripts or time-consuming manual processes, SUITE provides scalable desktop deployment, extensive monitoring and reporting, and secure delegated management. These features allow you to focus on delivering enhanced levels of service and a quality Windows Virtual Desktop experience for your users.
 
 - [See the joint solution brief](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4yj7A).
@@ -160,7 +157,7 @@ As HP looked at industry trends, customer challenges, and the solutions virtuali
 ![IGEL logo](./media/partners/igel.png)
 
 IGEL is an approved and verified partner of Microsoft Azure and Windows Virtual Desktop services. IGEL offers IGEL OS, the next-gen edge OS for cloud workspaces designed to access virtual apps, desktops, and cloud workspaces from one or more user devices with a lightweight, simple, and secure Linux-based endpoint. A platform-independent software solution, IGEL OS and its server-based management and control software, IGEL Universal Management Suite (UMS), comprise an endpoint management and control solution that frees enterprises to take full advantage of Azure-based cloud instances and Windows Virtual Desktop desktops, including economical multi-session Windows Virtual Desktop, while reducing endpoint hardware and endpoint device management and operations costs.
- 
+
 IGEL OS supports all popular virtual apps, desktops, and cloud workspace client protocols from Citrix, Microsoft, and VMware. It includes integrated technologies from 85 peripheral, interface, and protocol partners to help organizations quickly adopt Windows Virtual Desktop services into their own unique user environments. IGEL OS is a read-only, modular endpoint OS, which helps protect it from tampering. It now also includes a complete "chain of trust" that verifies the integrity of all key major processes running on the endpoint, from the endpoint hardware (some selected models) or UEFI process all the way to the Azure cloud and Windows Virtual Desktop services. With IGEL OS, enterprises can subscribe to Windows Virtual Desktop from the Azure cloud with full confidence in the integrity, security, and manageability of their users' endpoint devices.
 
 - [See the joint solution brief](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4vviO).
@@ -170,9 +167,9 @@ IGEL OS supports all popular virtual apps, desktops, and cloud workspace client 
 
 ![Ivanti Logo](./media/partners/ivanti.png)
 
-Ivanti User Workspace Manager is a Windows Virtual Desktop value-added service that eases desktop deployment and management by separating user data from the desktop for seamless portability. With Ivanti, users can deliver complex projects like migrating to Windows 10, adopting Microsoft 365, or moving services to the cloud faster. 
+Ivanti User Workspace Manager is a Windows Virtual Desktop value-added service that eases desktop deployment and management by separating user data from the desktop for seamless portability. With Ivanti, users can deliver complex projects like migrating to Windows 10, adopting Microsoft 365, or moving services to the cloud faster.
 
-When used with Windows Virtual Desktop, Ivanti User Workspace Manager provides simple contextual management of the user desktop experience, eliminating long sign-in times and eradicating group policy nightmares. Ivanti User Workspace Manager out-of-the-box templates simplify installation for users through agents and the existing console. Ivanti User Workspace Manager delivers responsive, secure desktops that users love, saving money on servers, managing users more effectively, and reducing endpoint security risk. 
+When used with Windows Virtual Desktop, Ivanti User Workspace Manager provides simple contextual management of the user desktop experience, eliminating long sign-in times and eradicating group policy nightmares. Ivanti User Workspace Manager out-of-the-box templates simplify installation for users through agents and the existing console. Ivanti User Workspace Manager delivers responsive, secure desktops that users love, saving money on servers, managing users more effectively, and reducing endpoint security risk.
 
 - [Go to the partner website](https://www.ivanti.com/products/user-workspace-manager).
 
@@ -232,9 +229,9 @@ Nerdio extends the value of Windows Virtual Desktop by making it easy to provisi
 
 ![Numecent Logo](./media/partners/numecent.png)
 
-Numecent is a Windows Virtual Desktop value-added services provider that significantly reduces the total operating costs through rapid onboarding and migration of complicated or incompatible Windows apps in Windows Virtual Desktop environments. Numecent also minimizes the amount of configuration that users need to do, reduces application updates, and simplifies complex processes. Because Numecent Cloudpaging supports more applications seamlessly than any other application delivery tool, it reduces time and IT workloads in environments with a diverse set of applications. 
+Numecent is a Windows Virtual Desktop value-added services provider that significantly reduces the total operating costs through rapid onboarding and migration of complicated or incompatible Windows apps in Windows Virtual Desktop environments. Numecent also minimizes the amount of configuration that users need to do, reduces application updates, and simplifies complex processes. Because Numecent Cloudpaging supports more applications seamlessly than any other application delivery tool, it reduces time and IT workloads in environments with a diverse set of applications.
 
-When used with Windows Virtual Desktop, Cloudpaging further reduces costs by completing software asset lifecycle from deployment to upgrading, metering, and removing applications. Cloudpaging simplifies image management by dynamically provisioning apps as needed in real time to the Windows Virtual Desktop deployments. Cloudpaging helps applications run without administration or intervention through the periodic Windows 10 updates. Cloudpaging also reduces the licensing cost of expensive applications by enabling more efficient deployment and usage of these applications. 
+When used with Windows Virtual Desktop, Cloudpaging further reduces costs by completing software asset lifecycle from deployment to upgrading, metering, and removing applications. Cloudpaging simplifies image management by dynamically provisioning apps as needed in real time to the Windows Virtual Desktop deployments. Cloudpaging helps applications run without administration or intervention through the periodic Windows 10 updates. Cloudpaging also reduces the licensing cost of expensive applications by enabling more efficient deployment and usage of these applications.
 
 - [Go to the partner website](https://www.numecent.com/partners/cloudpaging-for-windows-applications-windows-virtual-desktop/).
 
@@ -242,9 +239,9 @@ When used with Windows Virtual Desktop, Cloudpaging further reduces costs by com
 
 ![PolicyPak Logo](./media/partners/policypak.png)
 
-PolicyPak Software is a Windows Virtual Desktop partner that performs total settings management for applications, desktop, browsers, Java, and security settings. PolicyPak keeps your desktop, system, and security settings in compliance. PolicyPak enhances the value of Windows Virtual Desktop by adding a suite of components to enhance Windows' built-in administration. Use your existing Active Directory Group Policy and/or Windows Intune to deliver PolicyPak's settings and increase administrators' ability to manage their Windows 10 machines. 
+PolicyPak Software is a Windows Virtual Desktop partner that performs total settings management for applications, desktop, browsers, Java, and security settings. PolicyPak keeps your desktop, system, and security settings in compliance. PolicyPak enhances the value of Windows Virtual Desktop by adding a suite of components to enhance Windows' built-in administration. Use your existing Active Directory Group Policy and/or Windows Intune to deliver PolicyPak's settings and increase administrators' ability to manage their Windows 10 machines.
 
-The top use cases for PolicyPak are to remove local admin rights and overcome UAC prompts, block ransomware, manage multiple browsers, manage Internet Explorer's Enterprise and Compatibility modes, reduce the number of GPOs, manage Windows 10 File Associations, manage Windows 10 Start Menu and Taskbar, and manage Windows 10 Features and Optional features.  
+The top use cases for PolicyPak are to remove local admin rights and overcome UAC prompts, block ransomware, manage multiple browsers, manage Internet Explorer's Enterprise and Compatibility modes, reduce the number of GPOs, manage Windows 10 File Associations, manage Windows 10 Start Menu and Taskbar, and manage Windows 10 Features and Optional features.
 
 - [See the joint solution brief](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4vviN).
 - [Go to partner website](https://www.policypak.com/integration/policypak-windows-virtual-desktop.html).
@@ -253,9 +250,9 @@ The top use cases for PolicyPak are to remove local admin rights and overcome UA
 
 ![PrinterLogic Logo](./media/partners/printerlogic.png)
 
-PrinterLogic is a Windows Virtual Desktop value-added service provider platform that empowers IT professionals to eliminate all print servers and deliver a highly available serverless printing infrastructure. PrinterLogic extends the value of Windows Virtual Desktop and Azure by making it easy to manage centrally and deploy printer objects to any printer or endpoint OS. 
+PrinterLogic is a Windows Virtual Desktop value-added service provider platform that empowers IT professionals to eliminate all print servers and deliver a highly available serverless printing infrastructure. PrinterLogic extends the value of Windows Virtual Desktop and Azure by making it easy to manage centrally and deploy printer objects to any printer or endpoint OS.
 
-Available as SaaS or as a web stack in your own private cloud, the PrinterLogic platform ensures users always have the right printers they need in their virtual sessions based on user ID, device name, or location. This functionality is complemented by a full suite of enterprise print management features such as print tracking and reporting, mobile printing, and secure badge release printing. 
+Available as SaaS or as a web stack in your own private cloud, the PrinterLogic platform ensures users always have the right printers they need in their virtual sessions based on user ID, device name, or location. This functionality is complemented by a full suite of enterprise print management features such as print tracking and reporting, mobile printing, and secure badge release printing.
 
 - [Go to partner website](https://www.printerlogic.com).
 
@@ -274,8 +271,8 @@ Printing is a fundamental task in just about every office and small business env
 
 ![RDPSoft logo](./media/partners/rdpsoft.png)
 
-RDPSoft is a Windows Virtual Desktop partner that provides powerful and inexpensive monitoring, management, and reporting solutions. Their Remote Desktop Commander offerings allow IT professionals to gain insight into the health, performance, user activity, licensing, and security of their Windows Virtual Desktop deployments. 
- 
+RDPSoft is a Windows Virtual Desktop partner that provides powerful and inexpensive monitoring, management, and reporting solutions. Their Remote Desktop Commander offerings allow IT professionals to gain insight into the health, performance, user activity, licensing, and security of their Windows Virtual Desktop deployments.
+
 RDPSoft's Remote Desktop Commander solutions enhance Windows Virtual Desktop administration. Premium Management features simplify delegation of Windows Virtual Desktop management tasks to support desk staff by providing remote assistance, user session, and process management. At the same time, the Remote Desktop Commander Suite collects rich metrics about per-user performance and load, user activity and auditing, Windows Virtual Desktop connection quality (latency and bandwidth), licensing, and security into a central Azure SQL Database instance for review. With RDPSoft, rich historic reporting and comprehensive dashboards are just a click away.
 
 - [Go to the partner website](https://www.rdpsoft.com/products/remote-desktop-commander/suite/).
@@ -317,7 +314,7 @@ ThinPrint's ezeep solution extends the value of Windows Virtual Desktop by enabl
 
 ![Tricerat Logo](./media/partners/tricerat.png)
 
-Tricerat offers a superior print management solution for Windows Virtual Desktop and other desktop platforms. Tricerat software has robust functionality, offering a better experience for both users and administrators. Administrators gain efficiencies through complete driver management, simplified deployment of print queues, and consistent management across hybrid platforms. User experience improves with shorter sign-in times, intelligent print queues based on user, device, and network location, and self-service options for quick printer selection. 
+Tricerat offers a superior print management solution for Windows Virtual Desktop and other desktop platforms. Tricerat software has robust functionality, offering a better experience for both users and administrators. Administrators gain efficiencies through complete driver management, simplified deployment of print queues, and consistent management across hybrid platforms. User experience improves with shorter sign-in times, intelligent print queues based on user, device, and network location, and self-service options for quick printer selection.
 
 With Tricerat, printing is seamless in Windows Virtual Desktop and beyond. Tricerat software allows administrators to easily connect on-premises printers to the cloud, extending enterprise print management from traditional environments to new, modern workspaces.
 
@@ -339,7 +336,7 @@ uberAgent is a monitoring and analytics product designed for end-user computing 
 
 Workspace 365 unites all your information (business data, documents, communication and micro apps) and provides access to any local, web, or hosted application in one workspace. It automatically adapts to your role, location, device, browser, and more to provide a personalized workspace. Users get a simplified and consistent experience, no matter what technology lies below the surface. You can integrate your current solutions, such as RDP, Citrix and legacy applications, and move them to Windows Virtual Desktop while maintaining the same user experience. Furthermore, you can integrate all your file locations, such as SharePoint, OneDrive, Teams, and file servers, in one document management app.
 
-With Workspace 365, IT admins can make Windows Virtual Desktop-enabled applications available to people based on permissions. The admin can then add those applications to a shared application group. When the Windows Virtual Desktop application is visible in Workspace 365, users can open it from their workspace without having to sign in again. 
+With Workspace 365, IT admins can make Windows Virtual Desktop-enabled applications available to people based on permissions. The admin can then add those applications to a shared application group. When the Windows Virtual Desktop application is visible in Workspace 365, users can open it from their workspace without having to sign in again.
 
 - [See the joint solution brief](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4vARh).
 - [Go to the partner website](https://workspace365.net/product-tour/hybrid-workspace-365/).

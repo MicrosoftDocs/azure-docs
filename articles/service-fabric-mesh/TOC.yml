@@ -87,8 +87,6 @@
     href: /rest/api/servicefabric/sfclient-index#service-fabric-resource-model
   - name: Service Fabric Maven CLI Reference
     href: service-fabric-mesh-reference-maven.md
-  - name: Resource Manager template
-    href: /azure/templates/microsoft.servicefabricmesh/allversions
 - name: Resources
   items:
   - name: Common questions

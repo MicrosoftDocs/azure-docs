@@ -35,10 +35,10 @@ East US, West US 2, West Europe, and Southeast Asia.
 
 ### What are the known limitations of Azure Spring Cloud?
 
-During preview release, Azure Spring Cloud has the following known limitations:
-
+Azure Spring Cloud has the following known limitations:
+	
 * `spring.application.name` will be overridden by the application name that's used to create each application.
-* `server.port` defaults to ports 80/443. If any other value is applied, it will be overridden to 80/443.
+* `server.port` defaults to port 1025. If any other value is applied, it will be overridden to 1025.
 * The Azure portal and Azure Resource Manager templates do not support uploading application packages. You can upload application packages only by deploying the application via the Azure CLI.
 
 ### What pricing tiers are available? 
@@ -83,6 +83,12 @@ Yes.
 ### When I delete/move an Azure Spring Cloud service instance, will its extension resources be deleted/moved as well?
 
 It depends on the logic of resource providers that own the extension resources. The extension resources of a `Microsoft.AppPlatform` instance do not belong to the same namespace, so the behavior varies by resource provider. For example, the delete/move operation will not cascade to the **diagnostics settings** resources. If a new Azure Spring Cloud instance is provisioned with the same resource ID as the deleted one, or if the previous Azure Spring Cloud instance is moved back, the previous **diagnostics settings** resources continue extending it.
+
+You can delete Spring Cloud's diagnostic settings by using Azure CLI:
+
+```azurecli
+ az monitor diagnostic-settings delete --name $diagnosticSettingName --resource $azureSpringCloudResourceId
+```
 
 ## Java runtime and OS versions
 
@@ -156,6 +162,21 @@ As you're migrating existing Spring Cloud microservices to Azure Spring Cloud, i
 * We recommend that you use official, stable Pivotal Spring libraries. Unofficial, beta, or forked versions of Pivotal Spring libraries have no service-level agreement (SLA) support.
 
 After the migration, monitor your CPU/RAM metrics and network traffic to ensure that the application instances are scaled appropriately.
+
+## Trouble Shooting
+
+### What are the impacts of service registry rarely unavailable?
+
+In some rarely happened scenario, you may see some errors like 
+```
+RetryableEurekaHttpClient: Request execution failure with status code 401; retrying on another server if available
+```
+from your logs of applications. This issue introduced by spring framework with very low rate due to network unstable or other network issues. 
+
+There should be no impacts to user experience, eureka client has both heartbeat and retry policy to take care of this. You could consider it as one transient error and skip it safely.
+
+We will enhance this part and avoid this error from users’ applications in short future.
+
 
 ## Next steps
 

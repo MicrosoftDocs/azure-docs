@@ -11,7 +11,7 @@ ms.date: 02/05/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common 
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Create an account that supports customer-managed keys for tables and queues
@@ -36,7 +36,7 @@ To register to use the account encryption key with Queue or Table storage, use P
 
 # [PowerShell](#tab/powershell)
 
-To register with PowerShell, call the [Get-AzProviderFeature](/powershell/module/az.resources/get-azproviderfeature) command.
+To register with PowerShell, call the [Register-AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature) command.
 
 ```powershell
 Register-AzProviderFeature -ProviderNamespace Microsoft.Storage `

@@ -95,6 +95,10 @@
       href: managed-identity.md
     - name: Use an access control policy
       href: group-permissions-for-apps.md
+    - name: Use an Azure role-based access control (preview)
+      href: rbac-guide.md
+    - name: Troubleshooting access issues
+      href: troubleshooting-access-issues.md
   - name: Develop
     items:
     - name: Azure Key Vault Developer's Guide
@@ -142,6 +146,8 @@
 
 - name: Reference
   items:
+  - name: Client libraries
+    href: client-libraries.md
   - name: REST API error codes - Azure Key Vault
     href: rest-error-codes.md
   - name: Common parameters and headers 

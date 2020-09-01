@@ -1,10 +1,7 @@
 ---
 title: Windows Virtual Desktop diagnostics log analytics - Azure
 description: How to use log analytics with the Windows Virtual Desktop diagnostics feature.
-services: virtual-desktop
 author: Heidilohr
-
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 05/27/2020
 ms.author: helohr
@@ -45,7 +42,7 @@ Before you can use Log Analytics, you'll need to create a workspace. To do that,
 - If you prefer using Azure portal, see [Create a Log Analytics workspace in Azure portal](../azure-monitor/learn/quick-create-workspace.md).
 - If you prefer PowerShell, see [Create a Log Analytics workspace with PowerShell](../azure-monitor/learn/quick-create-workspace-posh.md).
 
-After you've created your workspace, follow the instructions in [Connect Windows computers to Azure Monitor](../azure-monitor/platform/agent-windows.md#obtain-workspace-id-and-key) to get the following information:
+After you've created your workspace, follow the instructions in [Connect Windows computers to Azure Monitor](../azure-monitor/platform/log-analytics-agent.md#workspace-id-and-key) to get the following information:
 
 - The workspace ID
 - The primary key of your workspace
@@ -129,7 +126,7 @@ Access example queries through the Azure Monitor Log Analytics UI:
 1. Go to your Log Analytics workspace, and then select **Logs**. The example query UI is shown automatically.
 1. Change the filter to **Category**.
 1. Select **Windows Virtual Desktop** to review available queries.
-1. Select **Run** to run the selected query. 
+1. Select **Run** to run the selected query.
 
 Learn more about the sample query interface in [Saved queries in Azure Monitor Log Analytics](../azure-monitor/log-query/saved-queries.md).
 

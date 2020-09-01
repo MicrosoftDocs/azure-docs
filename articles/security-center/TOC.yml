@@ -40,6 +40,8 @@
     href: security-center-enable-data-collection.md
   - name: Set up email notifications
     href: security-center-provide-security-contact-details.md
+  - name: Create an auto-response to an alert with an ARM template
+    href: quickstart-automation-alert.md
 
 - name: Tutorials
   items:
@@ -66,6 +68,8 @@
       href: security-center-policy-definitions.md 
     - name: Use recommendations to enhance security
       href: security-center-using-recommendations.md
+    - name: Security baseline
+      href: security-baseline.md
   - name: Threat protection and security alerts
     items:
     - name: Overview of threat protection in security center
@@ -107,12 +111,12 @@
       href: update-regulatory-compliance-packages.md
   - name: Scan your VMs for vulnerabilities
     items:
-    - name: Vulnerability scanning overview
-      href: security-center-vulnerability-assessment-recommendations.md
-    - name: Integrated vulnerability scanner for VMs
-      href: built-in-vulnerability-assessment.md
-    - name: Using external scanners
-      href: partner-vulnerability-assessment.md
+    - name: Deploy the integrated vulnerability scanner to your VMs
+      href: deploy-vulnerability-assessment-vm.md
+    - name: Deploy a BYOL vulnerability solution to your VMs
+      href: deploy-vulnerability-assessment-byol-vm.md
+    - name: Review and remediate vulnerabilities on your VMs
+      href: remediate-vulnerability-findings-vm.md
   - name: Configure threat protection and handle alerts
     items:
     - name: Manage security alerts
@@ -153,6 +157,8 @@
       href: workflow-automation.md
     - name: Export recommendations
       href: continuous-export.md
+  - name: Manage your resources with asset inventory
+    href: asset-inventory.md
   - name: Integrate with other tools and services
     items:
     - name: Integrate with Windows Admin Center

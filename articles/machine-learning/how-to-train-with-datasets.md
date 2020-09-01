@@ -11,7 +11,7 @@ manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 07/31/2020
 ms.topic: conceptual
-ms.custom: how-to, tracking-python
+ms.custom: how-to, devx-track-python
 
 # Customer intent: As an experienced Python developer, I need to make my data available to my local or remote compute target to train my machine learning models.
 
@@ -113,7 +113,7 @@ The following example creates a FileDataset and mounts the dataset to the comput
 
 ### Create a FileDataset
 
-The following example creates an unregistered FileDataset from web urls. Learn more about [how to create datasets](https://aka.ms/azureml/howto/createdatasets) from other sources.
+The following example creates an unregistered FileDataset from web urls. Learn more about [how to create datasets](how-to-create-register-datasets.md) from other sources.
 
 ```Python
 from azureml.core.dataset import Dataset

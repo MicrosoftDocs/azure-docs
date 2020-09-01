@@ -66,6 +66,9 @@ To enable HTTPS on a custom domain, follow these steps:
 
 5. Proceed to [Validate the domain](#validate-the-domain).
 
+> [!NOTE]
+> For AFD managed certificates, DigiCert’s 64 character limit is enforced. Validation will fail if that limit is exceeded.
+
 
 ### Option 2: Use your own certificate
 

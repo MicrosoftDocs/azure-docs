@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.custom: mvc
+ms.custom: "mvc, devx-track-csharp"
 ms.date: 06/13/2019
 ms.author: juliako
 

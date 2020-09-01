@@ -7,7 +7,7 @@ ms.date: 06/23/2020
 
 # Service Bus queues, topics, and subscriptions
 
-Microsoft Azure Service Bus supports a set of cloud-based, message-oriented middleware technologies including reliable message queuing and durable publish/subscribe messaging. These "brokered" messaging capabilities can be thought of as decoupled messaging features that support publish-subscribe, temporal decoupling, and load balancing scenarios using the Service Bus messaging workload. Decoupled communication has many advantages; for example, clients and servers can connect as needed and perform their operations in an asynchronous fashion.
+Microsoft Azure Service Bus supports a set of cloud-based, message-oriented middleware technologies including reliable message queuing and durable publish/subscribe messaging. These "brokered" messaging capabilities can be thought of as decoupled messaging features that support publish-subscribe, temporal decoupling, and load-balancing scenarios using the Service Bus messaging workload. Decoupled communication has many advantages; for example, clients and servers can connect as needed and perform their operations in an asynchronous fashion.
 
 The messaging entities that form the core of the messaging capabilities in Service Bus are queues, topics and subscriptions, and rules/actions.
 
@@ -56,6 +56,19 @@ In many scenarios, messages that have specific characteristics must be processed
 For a full working example, see the [TopicSubscriptionWithRuleOperationsSample sample](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/Microsoft.Azure.ServiceBus/TopicSubscriptionWithRuleOperationsSample) on GitHub.
 
 For more information about possible filter values, see the documentation for the [SqlFilter](/dotnet/api/microsoft.azure.servicebus.sqlfilter) and [SqlRuleAction](/dotnet/api/microsoft.azure.servicebus.sqlruleaction) classes.
+
+## Java message service (JMS) 2.0 entities (Preview)
+
+The below entities are accessible through the Java message service (JMS) 2.0 API.
+
+  * Temporary queues
+  * Temporary topics
+  * Shared durable subscriptions
+  * Unshared durable subscriptions
+  * Shared non-durable subscriptions
+  * Unshared non-durable subscriptions
+
+Learn more about the [JMS 2.0 entities](java-message-service-20-entities.md) and about how to [utilize them](how-to-use-java-message-service-20.md).
 
 ## Next steps
 

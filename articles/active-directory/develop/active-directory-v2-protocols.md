@@ -26,7 +26,7 @@ In nearly all OAuth 2.0 and OpenID Connect flows, there are four parties involve
 
 ![Diagram showing the OAuth 2.0 roles](./media/active-directory-v2-flows/protocols-roles.svg)
 
-* The **Authorization Server** is the Microsoft identity platform endpoint and responsible for ensuring the user's identity, granting and revoking access to resources, and issuing tokens. The authorization server also known as the identity provider - it securely handles anything to do with the user's information, their access, and the trust relationships between parties in a flow.
+* The **Authorization Server** is the Microsoft identity platform endpoint and responsible for ensuring the user's identity, granting and revoking access to resources, and issuing tokens. The authorization server is also known as the identity provider - it securely handles anything to do with the user's information, their access, and the trust relationships between parties in a flow.
 * The **Resource Owner** is typically the end user. It's the party that owns the data and has the power to allow clients to access that data or resource.
 * The **OAuth Client** is your app, identified by its application ID. The OAuth client is usually the party that the end user interacts with, and it requests tokens from the authorization server. The client must be granted permission to access the resource by the resource owner.
 * The **Resource Server** is where the resource or data resides. It trusts the Authorization Server to securely authenticate and authorize the OAuth Client, and uses Bearer access tokens to ensure that access to a resource can be granted.

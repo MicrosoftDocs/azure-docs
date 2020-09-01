@@ -1,6 +1,6 @@
 ---
 title: Azure PowerShell Script Sample - Import an API | Microsoft Docs
-description: Azure PowerShell Script Sample - Import an API
+description: Learn how to import an API and add it to an API Management product. See a sample script and view additional available resources.
 services: api-management
 documentationcenter: ''
 author: vladvino

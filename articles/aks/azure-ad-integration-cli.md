@@ -23,6 +23,7 @@ For the complete sample script used in this article, see [Azure CLI samples - AK
 ## The following limitations apply:
 
 - Azure AD can only be enabled on RBAC-enabled cluster.
+- Azure AD legacy integration can only be enabled during cluster creation.
 
 ## Before you begin
 
@@ -276,7 +277,7 @@ For best practices on identity and resource control, see [Best practices for aut
 [az-ad-signed-in-user-show]: /cli/azure/ad/signed-in-user#az-ad-signed-in-user-show
 [install-azure-cli]: /cli/azure/install-azure-cli
 [az-ad-sp-credential-reset]: /cli/azure/ad/sp/credential#az-ad-sp-credential-reset
-[rbac-authorization]: concepts-identity.md#kubernetes-role-based-access-controls-rbac
+[rbac-authorization]: concepts-identity.md#kubernetes-role-based-access-control-rbac
 [operator-best-practices-identity]: operator-best-practices-identity.md
 [azure-ad-rbac]: azure-ad-rbac.md
 [managed-aad]: managed-aad.md

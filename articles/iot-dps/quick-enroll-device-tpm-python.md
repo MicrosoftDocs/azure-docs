@@ -8,7 +8,7 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps 
 ms.devlang: python
-ms.custom: mvc, tracking-python
+ms.custom: mvc, devx-track-python
 ---
 
 # Quickstart: Enroll TPM device to IoT Hub Device Provisioning Service using Python provisioning service SDK

@@ -6,7 +6,7 @@ ms.service: security
 ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
+ms.custom: subject-security-benchmark
 
 # Important: This content is machine generated; do not modify this topic directly. Contact mbaldwin for more information.
 
@@ -246,7 +246,7 @@ For more information, see the [Azure security baselines overview](https://docs.m
 
 ### 3.2: Change default passwords where applicable
 
-**Guidance**: Stream Analytics does not have the concept of default passwords as authentication is provided with Azure Active Directory and secured by role-based access controls (RBAC) to manage the service. Depending on the injection stream services and output services, you need to rotate credentials configured in the jobs.
+**Guidance**: Stream Analytics does not have the concept of default passwords as authentication is provided with Azure Active Directory and secured by role-based access control (RBAC) to manage the service. Depending on the injection stream services and output services, you need to rotate credentials configured in the jobs.
 
 * [Rotate login credentials for inputs and outputs of a Stream Analytics job](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-login-credentials-inputs-outputs)
 
@@ -440,11 +440,11 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 
 **Responsibility**: Customer
 
-### 4.6: Use Role-based access control to control access to resources
+### 4.6: Use Azure RBAC to control access to resources
 
-**Guidance**: Use role-based access control (RBAC) to control how users interact with the service.
+**Guidance**: Use Azure role-based access control (Azure RBAC) to control how users interact with the service.
 
-* [How to configure RBAC in Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
+* [How to configure Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
 
 **Azure Security Center monitoring**: Currently not available
 

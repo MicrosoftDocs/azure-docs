@@ -5,7 +5,7 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/24/2020
 ms.author: cshoe
-ms.custom: tracking-python
+ms.custom: "devx-track-csharp, devx-track-python"
 ---
 
 # Azure Cosmos DB input binding for Azure Functions 2.x and higher
@@ -38,8 +38,12 @@ namespace CosmosDBSamplesV2
 {
     public class ToDoItem
     {
+        [JsonProperty("id")]
         public string Id { get; set; }
+        
+        [JsonProperty("partitionKey")]
         public string PartitionKey { get; set; }
+        
         public string Description { get; set; }
     }
 }
