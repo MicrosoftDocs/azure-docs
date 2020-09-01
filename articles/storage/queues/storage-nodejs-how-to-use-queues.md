@@ -26,7 +26,7 @@ This guide shows you how to accomplish common scenarios using the Microsoft Azur
 
 ## Create a Node.js application
 
-To create a blank Node.js application, see [Create a Node.js web app in Azure App Service](../../app-service/quickstart-nodejs.md), [Build and deploy a Node.js application to an Azure Cloud Service](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md) using Windows PowerShell, or [Visual Studio Code](https://code.visualstudio.com/docs/nodejs/nodejs-tutorial).
+To create a blank Node.js application, see [Create a Node.js web app in Azure App Service][Create a Node.js web app in Azure App Service], [Build and deploy a Node.js application to an Azure Cloud Service][Build and deploy a Node.js application to an Azure Cloud Service] using Windows PowerShell, or [Visual Studio Code][Visual Studio Code].
 
 ## Configure your application to access storage
 
@@ -347,9 +347,7 @@ Now that you've learned the basics of queue storage, follow these links to learn
 * Visit the [Azure Storage client library for JavaScript][Azure Storage client library for JavaScript] repository on GitHub
 
 [Azure Storage client library for JavaScript]: https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage#azure-storage-client-library-for-javascript
-[using the REST API]: /rest/api/storageservices/
-[Azure Portal]: https://portal.azure.com
 [Azure Storage Team Blog]: https://techcommunity.microsoft.com/t5/azure-storage/bg-p/AzureStorageBlog
-[Build and deploy a Node.js web app to Azure using Web Matrix]: https://www.microsoft.com/web/webmatrix/
-[Create a Node.js web app in Azure App Service]: (../../app-service/quickstart-nodejs.md)
 [Build and deploy a Node.js application to an Azure Cloud Service]: (../../cloud-services/cloud-services-nodejs-develop-deploy-app.md)
+[Create a Node.js web app in Azure App Service]: (../../app-service/quickstart-nodejs.md)
+[Visual Studio Code]: https://code.visualstudio.com/docs/nodejs/nodejs-tutorial
