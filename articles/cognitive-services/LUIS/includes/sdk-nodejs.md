@@ -186,7 +186,7 @@ The entity creation code creates a machine-learning entity with subentities and 
 
 [!code-javascript[Create entities for the app](~/cognitive-services-quickstart-code/javascript/LUIS/sdk-3x/index.js?name=AuthoringAddEntities)]
 
-Put the following method above the `quickstart` method to find the Quantity subentity's id, in order to assign the features to that subentity.
+Put the following method above the `quickstart` method to find the Quantity subentity's ID, in order to assign the features to that subentity.
 
 [!code-javascript[Find subentity id](~/cognitive-services-quickstart-code/javascript/LUIS/sdk-3x/index.js?name=AuthoringSortModelObject)]
 
