@@ -1641,7 +1641,6 @@
       "redirect_document_id": false
     },
 
-
     {
       "source_path": "articles/cognitive-services/LUIS/tutorial-publish-settings.md",
       "redirect_url": "/azure/cognitive-services/LUIS/tutorial-machine-learned-entity#publish-the-app-to-access-it-from-the-http-endpoint"
@@ -9064,6 +9063,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-functions/functions-bindings-microsoft-graph.md",
+      "redirect_url": "/graph/tutorials/azure-functions",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-functions/create-visual-studio.md",
       "redirect_url": "/azure/azure-functions/functions-create-your-first-function-visual-studio",
       "redirect_document_id": false
@@ -12452,7 +12456,7 @@
       "source_path": "articles/virtual-machines/windows/reserved-vm-instance-size-flexibility.md",
       "redirect_url": "/azure/virtual-machines/reserved-vm-instance-size-flexibility",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path": "articles/virtual-machines/linux/managed-disks-overview.md",
       "redirect_url": "/azure/virtual-machines/managed-disks-overview",
@@ -15672,7 +15676,7 @@
       "source_path": "articles/event-hubs/get-started-node-send-v2.md",
       "redirect_url": "/azure/event-hubs/event-hubs-node-get-started-send",
       "redirect_document_id": false
-    },                
+    },
     {
       "source_path": "articles/event-hubs/get-started-capture-python-v2.md",
       "redirect_url": "/azure/event-hubs/event-hubs-capture-python",
@@ -15682,7 +15686,7 @@
       "source_path": "articles/event-hubs/get-started-python-send-v2.md",
       "redirect_url": "/azure/event-hubs/event-hubs-python-get-started-send",
       "redirect_document_id": false
-    },   
+    },
     {
       "source_path": "articles/data-factory/data-factory-sdks.md",
       "redirect_url": "https://azure.microsoft.com/services/data-factory/",
@@ -32459,9 +32463,9 @@
       "redirect_document_id": false
     },
     {
-        "source_path": "articles/governance/management-groups/create.md",
-        "redirect_url": "/azure/governance/management-groups/create-management-group-portal",
-        "redirect_document_id": false
+      "source_path": "articles/governance/management-groups/create.md",
+      "redirect_url": "/azure/governance/management-groups/create-management-group-portal",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/active-directory-saas-facebook-at-work-provisioning-tutorial.md",
@@ -33847,7 +33851,7 @@
       "source_path": "articles/virtual-machines/scripts/virtual-machines-linux-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md",
       "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-powershell-sample-copy-managed-disks-to-same-or-different-subscription",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path": "articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-copy-managed-disks-to-same-or-different-subscription.md",
       "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-cli-sample-copy-managed-disks-to-same-or-different-subscription",
@@ -47729,8 +47733,6 @@
       "redirect_document_id": true
     },
 
-
-
     {
       "source_path": "articles/iot-central/core/overview-iot-options.md",
       "redirect_url": "/azure/iot-fundamentals/iot-services-and-technologies/",
@@ -47806,8 +47808,6 @@
       "redirect_url": "/azure/iot-central/retail/tutorial-video-analytics-deploy",
       "redirect_document_id": true
     },
-
-    
 
     {
       "source_path": "articles/iot-accelerators/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2.md",
@@ -56384,7 +56384,6 @@
       "redirect_document_id": false
     },
     {
-      
       "source_path": "articles/azure-app-configuration/quickstart-azure-function-csharp.md",
       "redirect_url": "/azure/azure-app-configuration/quickstart-azure-functions-csharp",
       "redirect_document_id": false
