@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 08/28/2020
+ms.date: 09/01/2020
 ms.author: marsma
 ms.custom: aaddev, contperfq1
 ms.reviewer: lenalepa, aragra, sureshja
@@ -119,7 +119,7 @@ The **API permissions** pane of an app registration contains a [Configured permi
 
 The **Configured permissions** table on the **API permissions** pane shows the list of permissions that your application requires for basic operation - the *required resource access* (RRA) list. Users, or their admins, will need to consent to these permissions before using your app. Other, optional permissions can be requested later at runtime (using dynamic consent).
 
-This is the minimum list of permissions people will have to consent to for your app. There could be more, but these will always be required. For security and adoption reasons, never ask for anything you don’t need.
+This is the minimum list of permissions people will have to consent to for your app. There could be more, but these will always be required. For security and to help users and admins feel more comfortable using your app, never ask for anything you don’t need.
 
 You can add or remove the permissions that appear in this table by using the steps outlined above or from [Other permissions granted](#other-permissions-granted) (described in the next section). As an admin, you can grant admin consent for the full set of an API's permissions that appear in the table, and revoke consent for individual permissions.
 

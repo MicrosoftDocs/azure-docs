@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 08/28/2020
+ms.date: 09/01/2020
 ms.author: marsma
 ms.custom: aaddev, contperfq1
 ms.reviewer: aragra, lenalepa, sureshja
@@ -35,8 +35,6 @@ To provide scoped access to the resources in your web API, you first need to reg
 1. Skip the **Add credentials** section for now. Only if your API accesses a downstream API would it need its own credentials, a scenario not covered in this article.
 
 With your web API registered, you're ready to add the scopes that your API's code can use to provide granular permission to consumers of your API.
-
-You can add a scope by using the [Expose an API](#add-a-scope) pane in the Azure portal, or by editing the [application manifest](#add-a-scope---app-manifest) directly. Instructions for both methods follow.
 
 ## Add a scope
 
@@ -73,51 +71,13 @@ To add a scope by using the **Expose an API** pane in the Azure portal:
 
     If you followed this optional step, the client app is now a pre-authorized client app (PCA), and users won't be prompted for their consent when signing in to it.
 
-## Add a scope - App manifest
-
-The application manifest serves as a mechanism for updating the application entity that defines the attributes of an Azure AD app registration.
-
-To add a scope by editing the application manifest:
-
-1. Select your application in **App registrations** in the Azure portal.
-1. Under **Manage**, select **Manifest**.
-
-    A web-based manifest editor is displayed allowing you to edit the manifest in the portal. Optionally, you can **Download** and edit the manifest locally, and then use **Upload** to reapply it to your application.
-
-    :::image type="content" source="media/quickstart-configure-app-expose-web-apis/portal-02-app-manifest.png" alt-text="Screenshot of the app manifest pane showing a portion of its JSON in the Azure portal":::
-
-1. Add a second example scope, `Employees.Write.All`, by pasting the following JSON snippet into your manifest's `oauth2Permissions` collection.
-
-   Generate the `id` value programmatically or by using a GUID generation tool like Microsoft's [guidgen](https://www.microsoft.com/download/details.aspx?id=55984) (replace the example GUID value of `55555555-5555-5555-5555-555555555555`). Each scope needs a unique `id` value in GUID format.
-
-    ```json
-    "oauth2Permissions": [
-        {
-            "adminConsentDescription": "Allow the application to have write access to all Employee data.",
-            "adminConsentDisplayName": "Write access to Employee records",
-            "id": "55555555-5555-5555-5555-555555555555",
-            "isEnabled": true,
-            "type": "Admin",
-            "userConsentDescription": null,
-            "userConsentDisplayName": null,
-            "value": "Employees.Write.All"
-        }
-    ],
-    ```
-
-    The scope created by this snippet can be consented to only by tenant admins, specified by the `Admin` value in the `type` field. The two `userConsent*` fields are set to `null` since it can be consented to only by admins.
-
-1. Select **Save**.
-
-For more information about the application manifest, including its schema reference, see [Understanding the Azure AD app manifest](reference-app-manifest.md). For more information on the application entity and its schema, see Microsoft Graph's [Application][ms-graph-application] resource type reference documentation.
-
 ## Verify the exposed scopes
 
 If you successfully added both example scopes described in the previous sections, they'll appear in the **Expose an API** pane of your web API's app registration, similar to this image:
 
 :::image type="content" source="media/quickstart-configure-app-expose-web-apis/portal-03-scopes-list.png" alt-text="Screenshot of the Expose an API pane showing two exposed scopes.":::
 
-As shown in the image, a scope's full string is the concatenation of your web API's **Application ID URI** and the scope's **Scope name** (`value` in the application manifest).
+As shown in the image, a scope's full string is the concatenation of your web API's **Application ID URI** and the scope's **Scope name**.
 
 For example, if your web API's application ID URI is `https://contoso.com/api` and the scope name is `Employees.Read.All`, the full scope is:
 
