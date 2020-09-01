@@ -1,6 +1,6 @@
 ---
-title: Enable Azure Arc on Kubernetes on Azure Stack Edge device| Microsoft Docs
-description: Describes how to enable Azure Arc on an existing Kubernetes cluster on your Azure Stack Edge device.
+title: Enable Azure Arc on Kubernetes on Azure Stack Edge GPU device| Microsoft Docs
+description: Describes how to enable Azure Arc on an existing Kubernetes cluster on your Azure Stack Edge GPU device.
 services: databox
 author: alkohli
 
@@ -11,7 +11,7 @@ ms.date: 08/25/2020
 ms.author: alkohli
 ---
 
-# Enable Azure Arc on Kubernetes cluster on your Azure Stack Edge device
+# Enable Azure Arc on Kubernetes cluster on your Azure Stack Edge GPU device
 
 This article shows you how to enable Azure Arc on an existing Kubernetes cluster on your Azure Stack Edge device. 
 

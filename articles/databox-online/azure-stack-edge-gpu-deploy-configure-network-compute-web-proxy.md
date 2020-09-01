@@ -1,6 +1,6 @@
 ---
 title: Tutorial to configure network settings for Azure Stack Edge device with GPU in Azure portal | Microsoft Docs
-description: Tutorial to deploy Azure Stack Edge instructs you to configure network, compute network, and web proxy settings for your physical device.
+description: Tutorial to deploy Azure Stack Edge GPU instructs you to configure network, compute network, and web proxy settings for your physical device.
 services: databox
 author: alkohli
 
