@@ -109,8 +109,6 @@ First, **create a new instance of Azure Digital Twins in your target region**. T
 
 Once this is complete, you will need the **hostname** of your new instance to continue setting it up with your data. If you didn't make a note of this during setup, you can follow [these instructions](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values) to get it now from the Azure portal.
 
-<!-- You can keep the same app registration, right? -->
-
 ### Repopulate old instance
 
 Next, you will set up the new instance so that it is a copy of the original.
@@ -184,8 +182,6 @@ Otherwise, proceed, follow the steps in [*How-to: Manage endpoints and routes*](
 * You can reuse endpoint and route **names**, since they are scoped to a different instance.
 * Remember to add any required **filters** to the routes you create.
 
-<!-- Double check the name reuse -->
-
 #### Re-link connected resources
 
 If you have other apps or Azure resources that are connected to your original Azure Digital Twins instance, you'll need to edit the connection so that they reach your new instance instead. This may include other Azure services, or personal or company apps that you've set up to work with Azure Digital Twins.
@@ -193,8 +189,6 @@ If you have other apps or Azure resources that are connected to your original Az
 If you don't have any other resources connected to your original instance or you don't want to move them to the new instance, you can skip to the [next section](#verify).
 
 Otherwise, to proceed, consider the connected resources in your scenario. You do not need to delete and re-create any connected resources; instead, you just need to edit the points where they connect to an Azure Digital Twins instance through its **hostname**, and update this to use the hostname of the new instance instead of the original.
-
-<!-- Anything else changing? -->
 
 The exact resources you need to edit depends on your scenario, but here are some common integration points:
 * Azure Functions. If you have an Azure function whose code includes the hostname of the original instance, you should update this value to the new instance's hostname and re-publish the function.
@@ -204,8 +198,6 @@ The exact resources you need to edit depends on your scenario, but here are some
 * Azure Maps
 * Device Provisioning Service (DPS)
 * Personal or company apps outside of Azure, such as the **client app** created in [*Tutorial: Code a client app*](tutorial-code.md), that connect to the instance and call Azure Digital Twins APIs
-
-<!-- Is it correct that you should re-publish the Azure function? -->
 
 After completing this step, your new instance in the target region should be a copy of the original instance.
 
