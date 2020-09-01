@@ -73,7 +73,7 @@ In this section, you create a new build pipeline. You configure the pipeline to 
 
    Select **Show assistant** to open the **Tasks** palette.
 
-    ![Select Show assistant to open Tasks palette](./media/how-to-ci-continuous-integration-continuous-deploymentcd/show-assistant.png)
+    ![Select Show assistant to open Tasks palette](./media/how-to-ci-continuous-integration-continuous-deployment/show-assistant.png)
 
 7. To add a task, place your cursor at the end of the YAML or wherever you want the instructions for your task to be added. Search for and select **Azure IoT Edge**. Fill out the task's parameters as follows. Then, select **Add**.
 
@@ -125,7 +125,7 @@ In this section, you create a new build pipeline. You configure the pipeline to 
 
 Continue to the next section to build the release pipeline.
 
-[!INCLUDE [iot-edge-create-release-pipeline-for-continuous-deployment](../../includes/iot-edge-create-release-pipeline-for-cd.md)]
+[!INCLUDE [iot-edge-create-release-pipeline-for-continuous-deployment](../../includes/iot-edge-create-release-pipeline-for-continuous-deployment.md)]
 
 [!INCLUDE [iot-edge-verify-iot-edge-continuous-integration-continuous-deployment](../../includes/iot-edge-verify-iot-edge-continuous-integration-continuous-deployment.md)]
 
