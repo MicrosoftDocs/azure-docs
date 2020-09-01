@@ -949,6 +949,8 @@
       href: ./disk-encryption.md
     - name: LDAP sync in Ranger and Apache Ambari
       href: ./domain-joined/ldap-sync.md
+    - name: Double encryption in transit 
+      href: ./domain-joined/encryption-in-transit.md
   - name: How-to guides
     items:
     - name: Use ID Broker for credential management
