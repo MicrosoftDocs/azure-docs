@@ -27,10 +27,11 @@ To set up SSO for an application that you added to your Azure AD tenant, you nee
 - Optional: Completion of [View your apps](view-applications-portal.md).
 - Optional: Completion of [Add an app](add-application-portal.md).
 - Optional: Completion of [Configure an app](add-application-portal-configure.md).
+- Optional: Completion of [Assign users to an app](add-application-portal-assign-users.md).
 
 
 >[!IMPORTANT]
->Use a nonproduction environment to test the steps in this quickstart.
+>Use a non-production environment to test the steps in this quickstart.
 
 
 ## Enable single sign-on for an app
