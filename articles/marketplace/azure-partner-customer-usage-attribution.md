@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: vikrambmsft
 ms.author: vikramb
-ms.date: 04/14/2020
+ms.date: 09/01/2020
 ms.custom: devx-track-terraform
 ---
 
@@ -348,7 +348,7 @@ You can create a VM offer in marketplace using your custom VHD and mark it as Pr
 
 **Failed to update *contentVersion* property for the main template?**
 
-Likely a bug in some cases when the template is being deployed by using a TemplateLink from another template that expect older contentVersion for some reason. The workaround is to use the metadata property:
+This is likely a bug, in cases when the template is being deployed using a TemplateLink from another template that expects older contentVersion for some reason. The workaround is to use the metadata property:
 
 ```
 "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
