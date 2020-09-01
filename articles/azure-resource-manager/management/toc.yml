@@ -4,11 +4,6 @@
   items:
   - name: What is Resource Manager?
     href: overview.md
-- name: Samples
-  items:
-  - name: Azure Policy built-ins
-    displayName: samples, policies, definitions
-    href: ./policy-samples.md
 - name: Concepts
   items:
   - name: Subscription and service limits
@@ -17,8 +12,6 @@
     href: resource-name-rules.md
   - name: Resource Manager and classic deployment
     href: deployment-models.md
-  - name: Azure common security attributes
-    href: azure-resource-manager-security-controls.md
   - name: Resource providers by service
     href: azure-services-resource-providers.md
   - name: Extension resource types
@@ -30,6 +23,8 @@
     - name: Security controls by Azure Policy
       displayName: regulatory, compliance, standards, domains
       href: ./security-controls-policy.md
+    - name: Azure common security attributes
+      href: azure-resource-manager-security-controls.md
 - name: How to
   items:
   - name: Move - resource groups/subscriptions
@@ -172,6 +167,9 @@
     href: /java/api/com.microsoft.azure.management.resources
   - name: Python
     href: /python/api/overview/azure/resources?view=azure-python
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-reference.md
 - name: Resources
   items:
   - name: Azure Roadmap
