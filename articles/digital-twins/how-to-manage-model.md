@@ -171,9 +171,9 @@ Models are not necessarily returned in exactly the document form they were uploa
 
 Once a model is uploaded to your instance, the entire model interface is immutable. This means there is no traditional "editing" of models.
 
-Instead, if you want to make changes to a model in Azure Digital Twins, such as changing the `DisplayName` or `Description`, the way to do this is to upload a **newer version** of the same model. This will override the original model.
+Instead, if you want to make changes to a model in Azure Digital Twins, the way to do this is to upload a **newer version** of the same model. During preview, advancing a model version will only allow you to remove fields, not add new ones (to add new fields, you should just [create a brand new model](#create-models)).
 
-To do this, start with the DTDL of the original model. Update whatever fields you would like to change.
+To create a new version of an existing model, start with the DTDL of the original model. Update the fields you would like to change.
 
 Then, mark this as a newer version of the model by updating the `id` field of the model. The last section of the model ID, after the `;`, represents the model number. To indicate that this is now a more-updated version of this model, increment the number at the end of the `id` value to any number greater than the current version number.
 
@@ -274,6 +274,8 @@ Azure Digital Twins does not prevent this state, so be careful to patch twins ap
 ## Manage models with CLI
 
 Models can also be managed using the Azure Digital Twins CLI. The commands can be found in [*How-to: Use the Azure Digital Twins CLI*](how-to-use-cli.md).
+
+[!INCLUDE [digital-twins-known-issue-cloud-shell](../../includes/digital-twins-known-issue-cloud-shell.md)]
 
 ## Next steps
 

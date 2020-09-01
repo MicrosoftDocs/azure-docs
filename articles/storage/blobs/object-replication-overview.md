@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: tamram
 ms.subservice: blobs 
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Object replication for block blobs
@@ -27,6 +27,8 @@ The following diagram shows how object replication replicates block blobs from a
 :::image type="content" source="media/object-replication-overview/object-replication-diagram.svg" alt-text="Diagram showing how object replication works":::
 
 To learn how to configure object replication, see [Configure object replication](object-replication-configure.md).
+
+[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
 ## Object replication policies and rules
 
