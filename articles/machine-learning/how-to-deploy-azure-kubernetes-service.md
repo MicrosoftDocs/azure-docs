@@ -10,7 +10,7 @@ ms.custom: how-to
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 06/23/2020
+ms.date: 09/01/2020
 ---
 
 # Deploy a model to an Azure Kubernetes Service cluster
@@ -22,20 +22,7 @@ Learn how to use Azure Machine Learning to deploy a model as a web service on Az
 - __Autoscaling__ of the deployed service.
 - __Hardware acceleration__ options such as GPU and field-programmable gate arrays (FPGA).
 
-> [!IMPORTANT]
-> Cluster scaling is not provided through the Azure Machine Learning SDK. For more information on scaling the nodes in an AKS cluster, see 
-- [Manually scale the node count in an AKS cluster](../aks/scale-cluster.md)
-- [Set up cluster autoscaler in AKS](../aks/cluster-autoscaler.md)
-
-When deploying to Azure Kubernetes Service, you deploy to an AKS cluster that is __connected to your workspace__. There are two ways to connect an AKS cluster to your workspace:
-
-* Create the AKS cluster using the Azure Machine Learning SDK, the Machine Learning CLI, or [Azure Machine Learning studio](https://ml.azure.com). This process automatically connects the cluster to the workspace.
-* Attach an existing AKS cluster to your Azure Machine Learning workspace. A cluster can be attached using the Azure Machine Learning SDK, Machine Learning CLI, or Azure Machine Learning studio.
-
-The AKS cluster and the AML workspace can be in different resource groups.
-
-> [!IMPORTANT]
-> The creation or attachment process is a one time task. Once an AKS cluster is connected to the workspace, you can use it for deployments. You can detach or delete the AKS cluster if you no longer need it. Once detached or deleted, you will no longer be able to deploy to the cluster.
+When deploying to Azure Kubernetes Service, you deploy to an AKS cluster that is __connected to your workspace__. For information on connecting an AKS cluster to your workspace, see [Create and attach an Azure Kubernetes Service cluster](how-to-create-attach-kubernetes.md).
 
 > [!IMPORTANT]
 > We recommend that you debug locally before deploying to the web service. For more information, see [Debug Locally](https://docs.microsoft.com/azure/machine-learning/how-to-troubleshoot-deployment#debug-locally)
@@ -60,27 +47,9 @@ The AKS cluster and the AML workspace can be in different resource groups.
 
 - The __CLI__ snippets in this article assume that you've created an `inferenceconfig.json` document. For more information on creating this document, see [How and where to deploy models](how-to-deploy-and-where.md).
 
-- If you need a Standard Load Balancer(SLB) deployed in your cluster instead of a Basic Load Balancer(BLB), create a cluster in the AKS portal/CLI/SDK and then attach it to the AML workspace.
+- An Azure Kubernetes Service cluster connected to your workspace. For more information, see [Create and attach an Azure Kubernetes Service cluster](how-to-create-attach-kubernetes.md).
 
-- If you have an Azure Policy that restricts the creation of Public IP's, then AKS cluster creation will fail. AKS requires a Public IP for [egress traffic](https://docs.microsoft.com/azure/aks/limit-egress-traffic). This article also provides guidance to lockdown egress traffic from the cluster through the Public IP except for a few FQDN's. There are 2 ways to enable a Public IP:
-  - The cluster can use the Public IP created by default with the BLB or SLB, Or
-  - The cluster can be created without a Public IP and then a Public IP is configured with a firewall with a user defined route as documented [here](https://docs.microsoft.com/azure/aks/egress-outboundtype) 
-  
-  The AML control plane does not talk to this Public IP. It talks to the AKS control plane for deployments. 
-
-- If you attach an AKS cluster, which has an [authorized IP range enabled to access the API server](https://docs.microsoft.com/azure/aks/api-server-authorized-ip-ranges), enable the AML contol plane IP ranges for the AKS cluster. The AML control plane is deployed across paired regions and deploys inferencing pods on the AKS cluster. Without access to the API server, the inferencing pods cannot be deployed. Use the [IP ranges](https://www.microsoft.com/en-us/download/confirmation.aspx?id=56519) for both the [paired regions]( https://docs.microsoft.com/azure/best-practices-availability-paired-regions) when enabling the IP ranges in an AKS cluster.
-
-
-  Authroized IP ranges only works with Standard Load Balancer.
- 
- - Compute name MUST be unique within a workspace
-   - Name is required and must be between 3 to 24 characters long.
-   - Valid characters are upper and lower case letters, digits, and the - character.
-   - Name must start with a letter
-   - Name needs to be unique across all existing computes within an Azure region. You will see an alert if the name you choose is not unique
-   
- - If you want to deploy models to GPU nodes or FPGA nodes (or any specific SKU), then you must create a cluster with the specific SKU. There is no support for creating a secondary node pool in an existing cluster and deploying models in the secondary node pool.
-
+    - If you want to deploy models to GPU nodes or FPGA nodes (or any specific SKU), then you must create a cluster with the specific SKU. There is no support for creating a secondary node pool in an existing cluster and deploying models in the secondary node pool.
 
 ## Deploy to AKS
 
@@ -88,7 +57,6 @@ To deploy a model to Azure Kubernetes Service, create a __deployment configurati
 
 > [!NOTE]
 > The number of models to be deployed is limited to 1,000 models per deployment (per container).
-
 
 ### Using the SDK
 

@@ -24,11 +24,6 @@ Azure Kubernetes Service is good for high-scale production deployments. Use Azur
 - __Autoscaling__ of the deployed service.
 - __Hardware acceleration__ options such as GPU and field-programmable gate arrays (FPGA).
 
-> [!IMPORTANT]
-> Cluster scaling is not provided through the Azure Machine Learning SDK. For more information on scaling the nodes in an AKS cluster, see 
-> - [Manually scale the node count in an AKS cluster](../aks/scale-cluster.md)
-> - [Set up cluster autoscaler in AKS](../aks/cluster-autoscaler.md)
-
 ## Prerequisites
 
 - An Azure Machine Learning workspace. For more information, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
@@ -61,13 +56,19 @@ Azure Kubernetes Service is good for high-scale production deployments. Use Azur
    
  - If you want to deploy models to **GPU** nodes or **FPGA** nodes (or any specific SKU), then you must create a cluster with the specific SKU. There is no support for creating a secondary node pool in an existing cluster and deploying models in the secondary node pool.
  
-- When creating a cluster using Azure Machine Learning, you can select whether to create the cluster for __dev-test__ or __production__. If you want to create an AKS cluster for __development__, __validation__, and __testing__ instead of production, set the __cluster purpose__ to __dev-test__.
+- When creating or attaching a cluster, you can select whether to create the cluster for __dev-test__ or __production__. If you want to create an AKS cluster for __development__, __validation__, and __testing__ instead of production, set the __cluster purpose__ to __dev-test__. If you do not specify the cluster purpose, a __production__ cluster is created. 
 
-    A __dev-test__ cluster is not suitable for production level traffic and may increase inference times. Dev/test clusters also do not guarantee fault tolerance. We recommend at least 2 virtual CPUs for dev/test clusters.
+    > [!IMPORTANT]
+    > A __dev-test__ cluster is not suitable for production level traffic and may increase inference times. Dev/test clusters also do not guarantee fault tolerance.
 
-    If you do not specify the cluster purpose, a __production__ cluster is created. For a production cluster, make sure that the __number of nodes__ multiplied by the __number of cores__ for the VM is 12 or greater. For example, if you use a VM size of "Standard_D3_v2", which has 4 virtual cores, then you should select 3 or greater as the number of nodes.
+- When creating or attaching a cluster, if the cluster will be used for __production__, then it must contain at least 12 __virtual CPUs__. The number of virtual CPUs can be calculated by multiplying the __number of nodes__ in the cluster by the __number of cores__ provided by the VM size selected. For example, if you use a VM size of "Standard_D3_v2", which has 4 virtual cores, then you should select 3 or greater as the number of nodes.
 
-- The Azure Machine Learning SDK does not provide support scaling an AKS cluster. To scale the nodes in the cluster, use the UI for your AKS cluster in the Azure Machine Learning studio. You can only change the node count, not the VM size of the cluster.
+    For a __dev-test__ cluster, we recommand at least 2 virtual CPUs.
+
+- The Azure Machine Learning SDK does not provide support scaling an AKS cluster. To scale the nodes in the cluster, use the UI for your AKS cluster in the Azure Machine Learning studio. You can only change the node count, not the VM size of the cluster. For more information on scaling the nodes in an AKS cluster, see the following articles:
+
+    - [Manually scale the node count in an AKS cluster](../aks/scale-cluster.md)
+    - [Set up cluster autoscaler in AKS](../aks/cluster-autoscaler.md)
 
 ## Create a new AKS cluster
 
@@ -75,7 +76,7 @@ Azure Kubernetes Service is good for high-scale production deployments. Use Azur
 
 Creating or attaching an AKS cluster is a one time process for your workspace. You can reuse this cluster for multiple deployments. If you delete the cluster or the resource group that contains it, you must create a new cluster the next time you need to deploy. You can have multiple AKS clusters attached to your workspace.
 
-The following examples demonstrate how to create a new AKS cluster using the SDK and CLI:
+The following example demonstrates how to create a new AKS cluster using the SDK and CLI:
 
 # [Python](#tab/python)
 
@@ -122,19 +123,7 @@ For more information, see the [az ml computetarget create aks](https://docs.micr
 
 # [Portal](#tab/azure-portal)
 
-1. From Azure Machine Learning studio, select __Compute__, __Inference clusters__, and then select __Create__.
-
-    :::image type="content" source="media/how-to-create-attach-kubernetes/create-inference-compute.png" alt-text="{alt-text}":::
-
-1. Provide a unique __compute name__, select __Create new__, set the __region__, __size__, __purpose__, and __number of nodes__.
-
-    If you want to configure this cluster to use an existing virtual network, select __Advanced__ network configuration. For more information, see the [Network isolation during training & inference](how-to-enable-virtual-network.md) article.
-
-    If you want to secure communication with models deployed to this AKS cluster by using the HTTPS transport, select __Enable SSL configuration__. For more information, see the [Use TLS to secure a web service through Azure Machine Learning](how-to-secure-web-service.md) article.
-
-    :::image type="content" source="media/how-to-create-attach-kubernetes/new-aks-cluster.png" alt-text="{alt-text}":::
-
-1. Select __Create__ to create the new cluster.
+For information on creating an AKS cluster in the portal, see [Create compute targets in Azure Machine Learning studio](how-to-create-attach-compute-studio#inference-clusters).
 
 ---
 
@@ -146,14 +135,7 @@ If you already have AKS cluster in your Azure subscription, and it is version 1.
 
 > [!TIP]
 > The existing AKS cluster can be in a Azure region other than your Azure Machine Learning workspace.
->
-> If you want to secure your AKS cluster using an Azure Virtual Network, you must create the virtual network first. For more information, see [Secure experimentation and inference with Azure Virtual Network](how-to-enable-virtual-network.md#aksvnet).
 
-When attaching an AKS cluster to a workspace, you can define how you will use the cluster by setting the `cluster_purpose` parameter.
-
-If you do not set the `cluster_purpose` parameter, or set `cluster_purpose = AksCompute.ClusterPurpose.FAST_PROD`, then the cluster must have at least 12 virtual CPUs available.
-
-If you set `cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST`, then the cluster does not need to have 12 virtual CPUs. We recommend at least 2 virtual CPUs for dev/test. However a cluster that is configured for dev/test is not suitable for production level traffic and may increase inference times. Dev/test clusters also do not guarantee fault tolerance.
 
 > [!WARNING]
 > Do not create multiple, simultaneous attachments to the same AKS cluster from your workspace. For example, attaching one AKS cluster to a workspace using two different names. Each new attachment will break the previous existing attachment(s).
@@ -166,9 +148,9 @@ For more information on creating an AKS cluster using the Azure CLI or portal, s
 * [Create an AKS cluster (portal)](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough-portal?view=azure-cli-latest)
 * [Create an AKS cluster (ARM Template on Azure Quickstart templates)](https://github.com/Azure/azure-quickstart-templates/tree/master/101-aks-azml-targetcompute)
 
-The following examples demonstrate how to attach an existing AKS cluster to your workspace:
+The following example demonstrates how to attach an existing AKS cluster to your workspace:
 
-**Using the SDK**
+# [Python](#tab/python)
 
 ```python
 from azureml.core.compute import AksCompute, ComputeTarget
@@ -194,7 +176,7 @@ For more information on the classes, methods, and parameters used in this exampl
 * [AksCompute.ClusterPurpose](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.akscompute.clusterpurpose?view=azure-ml-py)
 * [AksCompute.attach](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computetarget?view=azure-ml-py#attach-workspace--name--attach-configuration-)
 
-**Using the CLI**
+# [Azure CLI](#tab/azure-cli)
 
 To attach an existing cluster using the CLI, you need to get the resource ID of the existing cluster. To get this value, use the following command. Replace `myexistingcluster` with the name of your AKS cluster. Replace `myresourcegroup` with the resource group that contains the cluster:
 
@@ -215,3 +197,14 @@ az ml computetarget attach aks -n myaks -i aksresourceid -g myresourcegroup -w m
 ```
 
 For more information, see the [az ml computetarget attach aks](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/attach?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-attach-aks) reference.
+
+# [Portal](#tab/azure-portal)
+
+For information on attaching an AKS cluster in the portal, see [Create compute targets in Azure Machine Learning studio](how-to-create-attach-compute-studio#inference-clusters).
+
+---
+
+## Next steps
+
+* [How and where to deploy a model](how-to-deploy-and-where.md)
+* [Deploy a model to an Azure Kubernetes Service cluster](how-to-deploy-azure-kubernetes-service.md)
