@@ -57,10 +57,6 @@ You can also [enable Azure Private Link](how-to-configure-private-link.md) to co
 > | Customer Managed Keys for workspace | ✔ | |
 > 
 
-> [!WARNING]
-> 
-> Azure Machine Learning compute instances preview is not supported in a workspace where Private Link is enabled.
-
 <a id="amlcompute"></a>
 
 ## Machine Learning studio
@@ -266,6 +262,7 @@ To use either a [managed Azure Machine Learning __compute target__](concept-comp
 > In the case of clusters these resources are deleted (and recreated) every time the cluster scales down to 0 nodes, however for an instance the resources are held onto till the instance is completely deleted (stopping does not remove the resources). 
 > These resources are limited by the subscription's [resource quotas](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
 
+To use a compute instance in a workspace where Private Link is enabled, the compute instance and workspace must be in the __eastus__, __westus2__, or __southcentralus__ regions.
 
 ### <a id="mlcports"></a> Required ports
 
