@@ -66,6 +66,8 @@
     href: ../../firewall/security-baseline.md
   - name: Azure Functions security baseline
     href: ../../azure-functions/security-baseline.md
+  - name: Azure IoT Hub security baseline
+    href: ../../iot-hub/security-baseline.md
   - name: Azure Machine Learning security baseline
     href: ../../machine-learning/security-baseline.md
   - name: Azure Policy security baseline
