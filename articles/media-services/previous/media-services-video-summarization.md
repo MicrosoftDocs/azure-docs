@@ -18,7 +18,9 @@ ms.author: juliako
 ms.reviewer: milanga
 ms.custom: devx-track-csharp
 ---
-# Use Azure Media Video Thumbnails to Create a Video Summarization  
+# Use Azure Media Video Thumbnails to Create a Video Summarization
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
 > The **Azure Media Video Thumbnails** media processor will be retired. For the retirement date, see the [legacy components](legacy-components.md) topic.
