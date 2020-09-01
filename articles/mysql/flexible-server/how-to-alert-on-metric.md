@@ -37,7 +37,7 @@ You can configure and get information about alert rules using:
 7. You will see a chart for the metric for the last six hours. Use the **Chart period** dropdown to select to see longer history for the metric.
 8. Select the **Threshold** type (ex. "Static" or "Dynamic"), **Operator** (ex. "Greater than"), and **Aggregation type** (ex. average). This will determine the logic that the metric alert rule will evaluate.
     - If you are using a **Static** threshold, continue to define a **Threshold value** (ex. 85 percent). The metric chart can help determine what might be a reasonable threshold.
-    - If you are using a **Dynamic** threshold, continue to define the **Threshold sensitivity**. The metric chart will display the calculated thresholds based on recent data. [Learn more about Dynamic Thresholds condition type and sensitivity options](../../alerts-dynamic-thresholds.md).
+    - If you are using a **Dynamic** threshold, continue to define the **Threshold sensitivity**. The metric chart will display the calculated thresholds based on recent data. [Learn more about Dynamic Thresholds condition type and sensitivity options](../../azure-monitor/platform/alerts-dynamic-thresholds.md).
 9. Refine the condition by adjusting **Aggregation granularity (Period)** interval over which data points are grouped using the aggregation type function (ex. "30 minutes"), and **Frequency** (ex "Every 15 Minutes").
 10. Click **Done**.
 11. Add an action group. An action group is a collection of notification preferences defined by the owner of an Azure subscription. Within the **Action Groups** section, choose **Select action group** to select an already existing action group to attach to the alert rule.
