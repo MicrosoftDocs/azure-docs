@@ -75,7 +75,7 @@ To reset the app-level credentials, select **Reset Credentials** in the same dia
 
 ## Disable basic authentication
 
-Some organizations need to meet security requirements and would rather disable access via FTP or WebDeploy. This way, the organization's members can only access its App Services through APIs that are controlled by Azure Active Directory (AAD).
+Some organizations need to meet security requirements and would rather disable access via FTP or WebDeploy. This way, the organization's members can only access its App Services through APIs that are controlled by Azure Active Directory (Azure AD).
 
 ### FTP
 
