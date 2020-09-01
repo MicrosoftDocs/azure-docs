@@ -1,5 +1,5 @@
 ---
-title: Supported countries and regions to publish commercial marketplace offers from
+title: Supported publisher countries and regions
 description: List of countries from which you can publish an offer to the Microsoft commercial marketplace.
 ms.reviewer: nanef 
 ms.service: marketplace 
@@ -10,7 +10,7 @@ ms.author: mingshen
 ms.date: 09/02/2020
 ---
 
-# Supported countries and regions to publish commercial marketplace offers from
+# Supported publisher countries and regions
 
 To publish an offer to the Microsoft commercial marketplace, you must have your residence in one of the following countries or regions.
 
