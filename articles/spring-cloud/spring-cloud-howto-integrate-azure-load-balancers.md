@@ -21,7 +21,7 @@ Azure already provides different load-balance solutions. There are three options
 
 ## Prerequisites
 
-* Azure Spring Cloud: [How to create an Azure spring cloud service](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-launch-app-portal)
+* Azure Spring Cloud: [How to create an Azure spring cloud service](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart)
 * Azure Traffic Manager: [How to create a traffic manager](https://docs.microsoft.com/azure/traffic-manager/quickstart-create-traffic-manager-profile/)
 * Azure App Gateway: [How to create an application gateway](https://docs.microsoft.com/azure/application-gateway/quick-create-portal)
 * Azure Front Door: [How to create a front door](https://docs.microsoft.com/azure/frontdoor/quickstart-create-front-door)
