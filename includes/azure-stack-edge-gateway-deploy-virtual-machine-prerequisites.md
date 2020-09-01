@@ -2,7 +2,7 @@
 author: alkohli
 ms.service: databox  
 ms.topic: include
-ms.date: 08/03/2020
+ms.date: 08/31/2020
 ms.author: alkohli
 ---
 
@@ -14,7 +14,7 @@ Make sure that the following steps can be used to access the device from your cl
 1. Verify that Azure Resource Manager communication is working. Type:     
 
     ```powershell
-    Add-AzureRmEnvironment -Name <Environment Name> -ARMEndpoint "https://management.<appliance name>.<DNSDomain>:30005/
+    Add-AzureRmEnvironment -Name <Environment Name> -ARMEndpoint "https://management.<appliance name>.<DNSDomain>"
     ```
 
 1. Call local device APIs to authenticate. Type: 

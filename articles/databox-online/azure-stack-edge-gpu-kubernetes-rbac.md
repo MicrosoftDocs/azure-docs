@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 08/27/2020
+ms.date: 08/31/2020
 ms.author: alkohli
 ---
 # Kubernetes Role-based Access Control on your Azure Stack Edge device
@@ -42,11 +42,9 @@ Your Azure Stack Edge device has the following namespaces:
 	- dbe-namespace
 	- default
 	- kubernetes-dashboard
-	- default
 	- kube-node-lease
 	- kube-public
-	- iotedge
-	- azure-arc
+
 
     Make sure to not use any reserved names for user namespaces that you create. 
 <!--- **default namespace** - This namespace is where pods and deployments are created by default when none is provided and you have admin access to this namespace. When you interact with the Kubernetes API, such as with `kubectl get pods`, the default namespace is used when none is specified.-->
@@ -91,7 +89,7 @@ Here is a diagram that depicts the implementation of RBAC on Azure Stack Edge de
 
 In this diagram, Alice, Bob, and Chuck have access to assigned user namespaces only, which in this case are `ns1`, `ns2`, and `ns3` respectively. Within these namespaces, they have admin access. The cluster admin on the other hand has admin access to system namespaces and cluster-wide resources.
 
-You can use `kubectl` commands to create namespaces, assign users, assign users, or download `kubeconfig` files. Here is a high level workflow:
+You can use `kubectl` commands to create namespaces and users, assign users to namespaces, or download `kubeconfig` files. Here is a high level workflow:
 
 1. Create a namespace and a user.  
 
@@ -118,7 +116,7 @@ When working with namespaces and users on your Azure Stack Edge devices, the fol
 - You can create user namespaces and within those namespaces create additional users and grant or revoke namespace access to those users.
 - You are not allowed to create any namespaces with names that are identical to those for any system namespace. The names for system namespaces are reserved.  
 - You are not allowed to create any user namespaces with names that are already in use by other user namespaces. For example, if you have a `test-ns` that you created, you cannot create another `test-ns` namespace.
-- You are not allowed to create users with names that are already reserved. For example, `aseuser` is a reserved cluster admin and cannot be used.
+- You are not allowed to create users with names that are already reserved. For example, `aseuser` is a reserved user and cannot be used.
 
 
 ## Next steps
