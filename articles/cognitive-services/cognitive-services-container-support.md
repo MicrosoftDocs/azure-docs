@@ -8,7 +8,7 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 05/07/2020
+ms.date: 9/01/2020
 ms.author: aahi
 #As a potential customer, I want to know more about how Cognitive Services provides and supports Docker containers for each service.
 ---
