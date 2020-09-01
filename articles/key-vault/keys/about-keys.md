@@ -15,9 +15,9 @@ ms.author: ambapat
 
 # About keys
 
-Azure Key Vault provides two types of containers to store and manage cryptographic keys:
+Azure Key Vault provides two types of resources to store and manage cryptographic keys:
 
-|Container type|Key protection methods|Data-plane endpoint base URL|
+|Resource type|Key protection methods|Data-plane endpoint base URL|
 |--|--|--|
 | **Vaults** | Software-protected<br/><br/>and<br/><br/>HSM-protected (with Premium SKU)</li></ul> | https://{vault-name}.vault.azure.net |
 | **Managed HSM pools** | HSM-protected | https://{hsm-name}.managedhsm.azure.net |
