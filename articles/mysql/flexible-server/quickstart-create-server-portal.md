@@ -31,17 +31,15 @@ Follow these steps to create a flexible server:
 
 1. Select **Databases** > **Azure Database for MySQL**. You can also enter **MySQL** in the search box to find the service.
 
-    <!--
     >[!div class="mx-imgBorder"]
-    > ![Azure Database for MySQL option](./media/quickstart-create-mysql-server-database-using-azure-portal/2_navigate-to-mysql.png) -->
+    > ![Azure Database for MySQL option](./media/quickstart-create-server-portal/navigate-to-mysql.png)
 
 1. Select **Flexible server** as the deployment option.
-    <!--    
+     
     >[!div class="mx-imgBorder"]
-    > ![Create server form](./media/quickstart-create-mysql-server-database-using-azure-portal/4-create-form.png)
-    -->
+    > ![Pick deployment option](./media/quickstart-create-server-portal/deployment-option.png)    
 
-1. Fill out the **Basics** form with the following information:
+1. Fill out the **Basics** form with the following information: 
 
     **Setting**|**Suggested Value**|**Description**
     ---|---|---
@@ -52,7 +50,10 @@ Follow these steps to create a flexible server:
     Password |Your password| A new password for the server admin account. It must contain between 8 and 128 characters. Your password must contain characters from three of the following categories: English uppercase letters, English lowercase letters, numbers (0 through 9), and non-alphanumeric characters (!, $, #, %, etc.).
     Region|The region closest to your users| The location that is closest to your users.
     Version|5.7| MySQL major version.
-    Compute + storage | **Burstable**, **Standard_B1ms**, **10 GiB**, **7 days** | The compute, storage, and backup configurations for your new server. Select **Configure server**. *Burstable*, *Standard_B1ms*, *10 GiB*, and *7 days* are the default values for **Compute tier**, **vCore**, **Storage**, and **Backup Retention Period**. You can leave those sliders as is or adjust them. To save this compute and storage selection, select **OK**. The next screenshot captures these selections.
+    Compute + storage | **Burstable**, **Standard_B1ms**, **10 GiB**, **7 days** | The compute, storage, and backup configurations for your new server. Select **Configure server**. *Burstable*, *Standard_B1ms*, *10 GiB*, and *7 days* are the default values for **Compute tier**, **vCore**, **Storage**, and **Backup Retention Period**. You can leave those sliders as is or adjust them. To save this compute and storage selection, select **Review + create** or **Networking** to continue with configurations. The next screenshot captures these selections.
+
+    >[!div class="mx-imgBorder"]
+    > ![Create server form](./media/quickstart-create-server-portal/create-form.png)   
 
 1. Configure Networking options
 
@@ -61,7 +62,8 @@ Follow these steps to create a flexible server:
     > [!NOTE]
     > The connectivity method cannot be changed after creating the server. For example, if you selected *Public access (allowed IP addresses)* during create then you cannot change to *Private access (VNet Integration)* after create. We highly recommend creating a server with Private access to securely access your server using VNet Integration. <!--Learn more about Private access in the [concepts article](./concepts-networking.md).-->
 
-    <!--![The "Networking" pane](./media/quickstart-create-database-portal/5-networking.png) -->
+    >[!div class="mx-imgBorder"]
+    > ![Create server form](./media/quickstart-create-server-portal/networking.png)  
 
     <!--![Select "Add current client IP address"](./media/quickstart-create-database-portal/6-add-client-ip.png)-->
 
