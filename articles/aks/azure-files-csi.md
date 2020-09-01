@@ -13,6 +13,8 @@ The Azure Files CSI Driver is a [CSI Specification](https://github.com/container
 
 To create an AKS cluster with CSI driver support, see [Enable CSI drivers for Azure Disks and Azure Files on AKS](csi-storage-drivers.md).
 
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+
 ## Create and use a persistent volume (PV) with Azure Files
 
 A persistent volume represents a piece of storage that is provisioned for use with Kubernetes pods. A persistent volume can be used by one or many pods, and can be dynamically or statically provisioned. If multiple pods need concurrent access to the same storage volume, you can use Azure Files to connect using the [Server Message Block (SMB) protocol][smb-overview]. This article shows you how to dynamically create an Azure Files share for use by multiple pods in an Azure Kubernetes Service (AKS) cluster. For static provisioning, see [Manually create and use a volume with Azure Files share](azure-files-volume.md).

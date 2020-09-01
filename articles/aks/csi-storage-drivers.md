@@ -13,20 +13,19 @@ author: palma21
 The Container Storage Interface (CSI) is a standard for exposing arbitrary block and file storage systems to containerized workloads on Kubernetes. By adopting and using CSI, Azure Kubernetes Service (AKS) now can write, deploy, and iterate plugins exposing new or improving existing storage systems in Kubernetes without having to touch the core Kubernetes code and waiting for its release cycles.
 
 The CSI storage driver support on AKS allows you to natively leverage:
-- *Azure Disks* can be used to create a Kubernetes *DataDisk* resource. Disks can use Azure Premium storage, backed by high-performance SSDs, or Azure Standard storage, backed by regular HDDs or standard SSDs. For most production and development workloads, use Premium storage. Azure Disks are mounted as *ReadWriteOnce*, so are only available to a single pod. For storage volumes that can be accessed by multiple pods simultaneously, use Azure Files.
-- *Azure Files* can be used to mount an SMB 3.0 share backed by an Azure Storage account to pods. Files let you share data across multiple nodes and pods. Files can use Azure Standard storage backed by regular HDDs, or Azure Premium storage, backed by high-performance SSDs.
+- [*Azure Disks*](azure-disk-csi.md) -  can be used to create a Kubernetes *DataDisk* resource. Disks can use Azure Premium storage, backed by high-performance SSDs, or Azure Standard storage, backed by regular HDDs or standard SSDs. For most production and development workloads, use Premium storage. Azure Disks are mounted as *ReadWriteOnce*, so are only available to a single pod. For storage volumes that can be accessed by multiple pods simultaneously, use Azure Files.
+- [*Azure Files*](azure-files-csi.md) can be used to mount an SMB 3.0 share backed by an Azure Storage account to pods. Files let you share data across multiple nodes and pods. Files can use Azure Standard storage backed by regular HDDs, or Azure Premium storage, backed by high-performance SSDs.
 
 > [!IMPORTANT]
-> Kubernetes will be transitioning to CSI storage drivers instead of in-tree drivers by default with kubernetes v1.21. These are the future of storage support in Kubernetes.
+> Starting in Kubernetes version 1.21, Kubernetes will use CSI drivers only and by default. These are the future of storage support in Kubernetes.
 
+## Limitations
 
-## Before you begin
+- This feature can only be set at cluster creation time.
+- The minimum kubernetes minor version that supports CSI drivers is v1.17.
+- During Preview the default storage class will still be the [same in-tree storage class](concepts-storage.md#storage-classes). After this feature is generally available, the default storage class will be the `managed-csi` storage class and in-tree storage classes will be removed.
 
-This feature can only be set at cluster creation time.
-
-> [!IMPORTANT]
-> The minimum kubernetes minor version that supports CSI drivers is v1.17.
-> During Preview the default storage class will still be the same in-tree storage class as until now. After this feature is generally available, the default storage class will be the `managed-csi` storage class and in-tree storage classes will be removed.
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ### Register the `EnableAzureDiskFileCSIDriver` preview feature
 
@@ -54,7 +53,7 @@ az provider register --namespace Microsoft.ContainerService
 
 ### Install aks-preview CLI extension
 
-To create an AKS cluster or a node pool that can use Ultra Disks, you need the latest *aks-preview* CLI extension. Install the *aks-preview* Azure CLI extension using the [az extension add][az-extension-add] command, or install any available updates using the [az extension update][az-extension-update] command:
+To create an AKS cluster or a node pool that can use the CSI storage drivers, you need the latest *aks-preview* CLI extension. Install the *aks-preview* Azure CLI extension using the [az extension add][az-extension-add] command, or install any available updates using the [az extension update][az-extension-update] command:
 
 ```azurecli-interactive
 # Install the aks-preview extension
@@ -86,7 +85,7 @@ az aks create -g MyResourceGroup -n MyManagedCluster --network-plugin azure -k 1
 If you want to create clusters in-tree storage drivers instead of CSI storage drivers, you can do so by omitting the custom `--aks-custom-headers` parameter.
 
 
-You can now check, for example, how many Azure disk-based volumes you can attach to this node by running:
+Check how many Azure disk-based volumes you can attach to this node by running:
 
 ```console
 $ kubectl get nodes
@@ -100,8 +99,8 @@ $ echo $(kubectl get CSINode <NODE NAME> -o jsonpath="{.spec.drivers[1].allocata
 
 ## Next steps
 
-- To know how to use CSI driver for Azure disks, see [Use Azure disk with CSI drivers](azure-disk-csi.md).
-- To know how to use CSI driver for Azure files, see [Use Azure files with CSI drivers](azure-files-csi.md).
+- Use the CSI drive for Azure disks, see [Use Azure disk with CSI drivers](azure-disk-csi.md).
+- Use the CSI drive for Azure files, see [Use Azure files with CSI drivers](azure-files-csi.md).
 - For more about storage best practices, see [Best practices for storage and backups in Azure Kubernetes Service (AKS)][operator-best-practices-storage]
 
 <!-- LINKS - external -->
