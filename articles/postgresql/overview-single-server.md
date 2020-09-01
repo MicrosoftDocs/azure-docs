@@ -10,13 +10,13 @@ ms.date: 09/21/2020
 ---
 # Azure Database for PostgreSQL Single Server
 
-[Azure Database for PostgreSQL](./overview-azure-pg.md) powered by the PostgreSQL community edition is available in three deployment modes:
+[Azure Database for PostgreSQL](./overview.md) powered by the PostgreSQL community edition is available in three deployment modes:
 
 - Single Server
 - Flexible Server (Preview)
 - Hyperscale (Citus)
 
-In this article, we will provide an overview and introduction to core concepts of single server deployment model. To learn about flexible server deployment mode, see [flexible server overview](./flexible-server/overview-azure-postgres-flexible-server.md) and Hyperscale (Citus) Overview respectively.
+In this article, we will provide an overview and introduction to core concepts of single server deployment model. To learn about flexible server deployment mode, see [flexible server overview](./flexible-server/overview.md) and Hyperscale (Citus) Overview respectively.
 
 ## Overview
 
@@ -47,7 +47,7 @@ The service performs automated patching of the underlying hardware, OS, and data
 
 ## Automatic backups
 
-The single server service automatically creates server backups and stores them in user configured locally redundant (LRS) or geo-redundant storage. Backups can be used to restore your server to any point-in-time within the backup retention period. The default backup retention period is seven days. The retention can be optionally configured up to 35 days. All backups are encrypted using AES 256-bit encryption. See [Backups](./concepts-backup-restore.md) for details.
+The single server service automatically creates server backups and stores them in user configured locally redundant (LRS) or geo-redundant storage. Backups can be used to restore your server to any point-in-time within the backup retention period. The default backup retention period is seven days. The retention can be optionally configured up to 35 days. All backups are encrypted using AES 256-bit encryption. See [Backups](./concepts-backup.md) for details.
 
 ## Adjust performance and scale within seconds
 

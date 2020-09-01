@@ -63,7 +63,7 @@ landingContent:
             url: concepts-backup-restore.md
       - linkListType: how-to-guide
         links:
-          - text:Manage high availability
+          - text: Manage high availability
             url: how-to-manage-high-availability-portal.md
           - text: Restore a server
             url: how-to-restore-server-portal.md

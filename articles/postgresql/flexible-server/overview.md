@@ -10,7 +10,7 @@ ms.date: 09/21/2020
 ---
 # Azure Database for PostgreSQL Flexible Server
 
-[Azure Database for PostgreSQL](./overview-azure-pg.md) powered by the PostgreSQL community edition is available in three deployment modes:
+[Azure Database for PostgreSQL](../overview.md) powered by the PostgreSQL community edition is available in three deployment modes:
 
 - Single Server
 - Flexible Server (Preview)
@@ -41,11 +41,11 @@ During planned or unplanned failover events, if the server goes down, the servic
 
 Picture below shows transition for VM and storage failure.
 
- ![Flexible server - VM and storage failures](./media/overview/overview-azure-pg-flex-vm-storage-failure.png)
+ ![Flexible server - VM and storage failures](./media/overview/overview-azure-postgres-flex-virtualmachine-storage-failure.png)
 
 If zone redundant high availability is configured, the service provisions and maintains a hot standby server across availability zone within the same Azure region. The data changes on the source server is synchronously replicated to the standby server to ensure zero data loss. With zone redundant high availability, once the planned or unplanned failover event is triggered, the standby server comes online immediately and is available to process incoming transactions. This allows the service resiliency from availability zone failure within an Azure region that supports multiple availability zones as shown in the picture below.
 
- ![Flexible server - HA](./media/overview/overview-azure-pg-flex-ha.png)
+ ![Flexible server - HA](./media/overview/overview-azure-postgres-flex-high-availability.png)
 
  See [High availability document](./concepts-high-availability.md) for more details.
 

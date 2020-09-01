@@ -42,7 +42,7 @@ The Single Server deployment option offers three pricing tiers: Basic, General P
 
 Single servers are best suited for cloud native applications designed to handle automated patching without the need for granular control on the patching schedule and custom PostgreSQL configuration settings.
 
-For detailed overview of single server deployment mode, refer [single server overview](./overview-azure-pg-single-server.md).
+For detailed overview of single server deployment mode, refer [single server overview](./overview-single-server.md).
 
 ### Azure Database for PostgreSQL - Flexible Server (Preview)
 
@@ -73,6 +73,6 @@ Applications built for PostgreSQL can run distributed queries on Hyperscale (Cit
 
 Learn more about the three deployment modes for Azure Database for PostgreSQL and choose the right options based on your needs.
 
-- [Single Server](./overview-azure-pg-single-server.md)
-- [Flexible Server](./overview-azure-pg-flexible-server.md)
+- [Single Server](./overview-single-server.md)
+- [Flexible Server](./flexible-server/overview.md)
 - Hyperscale (Citus)

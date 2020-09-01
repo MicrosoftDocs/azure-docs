@@ -13,8 +13,8 @@ ms.date: 09/21/2020
 With Azure, your PostgreSQL server workloads can run in a hosted virtual machine infrastructure as a service (IaaS) or as a hosted platform as a service (PaaS). PaaS has multiple deployment options, each with multiple service tiers. When you choose between IaaS and PaaS, you must decide if you want to manage your database, apply patches, and make backups, or if you want to delegate these operations to Azure.
 
 When making your decision, consider the following three options in PaaS or alternatively running on Azure VMs (IaaS)
-- [Azure database for PostgreSQL Single Server](./overview-azure-pg-single-server.md)
-- [Azure database for PostgreSQL Flexible Server](./overview-azure-pg-flexible-server.md)
+- [Azure database for PostgreSQL Single Server](./overview-single-server.md)
+- [Azure database for PostgreSQL Flexible Server](./flexible-server/overview.md)
 - [Azure database for PostgreSQL Hyperscale (Citus)]()
 
 **PostgreSQL on Azure VMs** option falls into the industry category of IaaS. With this service, you can run PostgreSQL Server inside a fully managed virtual machine on the Azure cloud platform. All recent versions and editions of PostgreSQL can be installed on an IaaS virtual machine. In the most significant difference from Azure Database for PostgreSQL, PostgreSQL on Azure VMs offers control over the database engine. However, this control comes at the cost of responsibility to manage the VMs and many database administration (DBA) tasks. These tasks include maintaining and patching database servers, database recovery, and high-availability design.
