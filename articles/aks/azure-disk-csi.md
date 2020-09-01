@@ -11,6 +11,8 @@ author: palma21
 # Use the Azure disk Container Storage Interface drivers (CSI) in Azure Kubernetes Service (AKS) (preview)
 The Azure Disk CSI Driver is a [CSI Specification](https://github.com/container-storage-interface/spec/blob/master/spec.md) compliant driver used by AKS to manage the lifecycle of Azure Disks. 
 
+The Container Storage Interface (CSI) is a standard for exposing arbitrary block and file storage systems to containerized workloads on Kubernetes. By adopting and using CSI, Azure Kubernetes Service (AKS) now can write, deploy, and iterate plugins exposing new or improving existing storage systems in Kubernetes without having to touch the core Kubernetes code and waiting for its release cycles.
+
 To create an AKS cluster with CSI driver support, see [Enable CSI drivers for Azure Disks and Azure Files on AKS](csi-storage-drivers.md).
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
@@ -41,10 +43,7 @@ persistentvolumeclaim/pvc-azuredisk created
 pod/nginx-azuredisk created
 ```
 
- you can make a change to the contents of the volume and easily 
-
-
-After the pod is in running state, let's make a change to the mounted volume. Create a new file called `test.txt`.
+After the pod is in running state, create a new file called `test.txt`.
 
 ```bash
 $ kubectl exec nginx-azuredisk -- touch /mnt/azuredisk/test.txt
@@ -66,9 +65,9 @@ The default storage classes suit the most common scenarios but not all. For some
 
 The default storage classes use a `volumeBindingMode: Immediate` that indicates that volume binding and dynamic provisioning occurs immediately once the PersistentVolumeClaim is created. In cases where your node pools are topology constrained, for example using Availability Zones, Persistent Volumes would be bound or provisioned without knowledge of the Pod's scheduling requirements (in this case to be in a specific zone).
 
-To address this scenario, use case you can use instead `volumeBindingMode: WaitForFirstConsumer` that will delay the binding and provisioning of a PersistentVolume until a Pod using the PersistentVolumeClaim is created. In this way, the PV will conform and be provisioned in the availability zone (or other topology) that is specified by the Pod's scheduling constraints. 
+To address this scenario, you can use `volumeBindingMode: WaitForFirstConsumer`, which will delay the binding and provisioning of a PersistentVolume until a Pod using the PersistentVolumeClaim is created. In this way, the PV will conform and be provisioned in the availability zone (or other topology) that is specified by the Pod's scheduling constraints. 
 
-Create a file named `sc-azuredisk-csi-waitforfirstconsumer.yaml`, and paste the following manifest.
+Create a file named `sc-azuredisk-csi-waitforfirstconsumer.yaml`, and paste the manifest below.
 The storage class the same as our `managed-csi` storage class but with a different `volumeBindingMode`. 
 
 ```yaml
@@ -150,7 +149,7 @@ Events:                                <none>
 
 ### Create a new PVC based on a volume snapshot
 
-You can create a new PVC based on a volume snapshot, use the snapshot created on the previous step and create a [new PVC](https://github.com/kubernetes-sigs/azuredisk-csi-driver/blob/master/deploy/example/snapshot/pvc-azuredisk-snapshot-restored.yaml) and [new pod](https://github.com/kubernetes-sigs/azuredisk-csi-driver/blob/master/deploy/example/snapshot/nginx-pod-restored-snapshot.yaml) to consume it.
+You can create a new PVC based on a volume snapshot. Use the snapshot created on the previous step and create a [new PVC](https://github.com/kubernetes-sigs/azuredisk-csi-driver/blob/master/deploy/example/snapshot/pvc-azuredisk-snapshot-restored.yaml) and [new pod](https://github.com/kubernetes-sigs/azuredisk-csi-driver/blob/master/deploy/example/snapshot/nginx-pod-restored-snapshot.yaml) to consume it.
 
 ```console
 $ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azuredisk-csi-driver/master/deploy/example/snapshot/pvc-azuredisk-snapshot-restored.yaml
@@ -177,7 +176,7 @@ As expected we can still see our previously created `test.txt` file.
 
 A cloned volume is defined as a duplicate of an existing Kubernetes Volume. For more information on cloning volumes in Kubernetes, see the conceptual documentation for [Volume Cloning](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#volume-cloning).
 
-The CSI driver for Azure Disks supports volume cloning, to demonstrate create a [cloned volume](https://github.com/kubernetes-sigs/azuredisk-csi-driver/blob/master/deploy/example/cloning/nginx-pod-restored-cloning.yaml) of the [previously created](#dynamically-create-azure-disk-pvs-using-the-built-in-storage-classes) `azuredisk-pvc` and [a new pod to consume it](https://github.com/kubernetes-sigs/azuredisk-csi-driver/blob/master/deploy/example/cloning/nginx-pod-restored-cloning.yaml).
+The CSI driver for Azure Disks supports volume cloning. To demonstrate create a [cloned volume](https://github.com/kubernetes-sigs/azuredisk-csi-driver/blob/master/deploy/example/cloning/nginx-pod-restored-cloning.yaml) of the [previously created](#dynamically-create-azure-disk-pvs-using-the-built-in-storage-classes) `azuredisk-pvc` and [a new pod to consume it](https://github.com/kubernetes-sigs/azuredisk-csi-driver/blob/master/deploy/example/cloning/nginx-pod-restored-cloning.yaml).
 
 
 
@@ -218,7 +217,7 @@ Filesystem      Size  Used Avail Use% Mounted on
 > [!IMPORTANT]
 Currently, the Azure disk CSI driver only supports resizing PVCs with no pods associated (and the volume not mounted to a specific node).
 
-As such lets delete the pod created earlier
+As such lets delete the pod created earlier:
 
 ```console
 $ kubectl delete -f https://raw.githubusercontent.com/kubernetes-sigs/azuredisk-csi-driver/master/deploy/example/nginx-pod-azuredisk.yaml
@@ -362,7 +361,7 @@ root@deployment-sharedisk-7454978bc6-xh7jp:/# dd if=/dev/zero of=/dev/sdx bs=102
 
 ## Windows Containers
 
-The Azure disk CSI driver also supports Windows in preview, if you wish to use windows containers follow the [Windows Containers tutorial](windows-container-cli.md) to add a Windows node pool.
+The Azure disk CSI driver also supports Windows in preview. If you wish to use windows containers follow the [Windows Containers tutorial](windows-container-cli.md) to add a Windows node pool.
 
 Once you have a windows node pool, you can now just leverage the built-in storage classes like `managed-csi`. You can deploy an example [windows-based stateful set](https://github.com/kubernetes-sigs/azuredisk-csi-driver/blob/master/deploy/example/windows/statefulset.yaml) that saves timestamps into a file `data.txt` by deploying the below with the [kubectl apply][kubectl-apply] command:
 
@@ -386,7 +385,7 @@ $ kubectl exec -it busybox-azuredisk-0 -- cat c:\mnt\azuredisk\data.txt # on Win
 
 ## Next steps
 
-- To know how to use CSI driver for Azure files, see [Use Azure files with CSI drivers](azure-files-csi.md).
+- To learn how to use CSI driver for Azure files, see [Use Azure files with CSI drivers](azure-files-csi.md).
 - For more about storage best practices, see [Best practices for storage and backups in Azure Kubernetes Service (AKS)][operator-best-practices-storage]
 
 
