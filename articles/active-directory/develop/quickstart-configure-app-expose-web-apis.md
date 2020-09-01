@@ -38,18 +38,20 @@ With your web API registered, you're ready to add the scopes that your API's cod
 
 ## Add a scope
 
-The code in a client application requests permission to perform operations defined by your web API by passing an access token along with its requests to the protected resource (the web API). Your web API then performs the requested operation only if the access token it receives contains the scopes required for the operation. Follow the steps in this section to create an example scope, `Employees.Read.All`.
+The code in a client application requests permission to perform operations defined by your web API by passing an access token along with its requests to the protected resource (the web API). Your web API then performs the requested operation only if the access token it receives contains the scopes required for the operation.
 
-To add a scope by using the **Expose an API** pane in the Azure portal:
+First, follow these steps to create an example scope named `Employees.Read.All`:
 
-1. Select your application in **App registrations** in the Azure portal.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/quickstart-configure-app-expose-web-apis/portal-01-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant containing your client app's registration.
+1. Select **Azure Active Directory** > **App registrations**, and then select your API's app registration.
 1. Select **Expose an API** > **Add a scope**.
 
-    :::image type="content" source="media/quickstart-configure-app-expose-web-apis/portal-01-expose-api.png" alt-text="An app registration's Expose an API pane in the Azure portal":::
+    :::image type="content" source="media/quickstart-configure-app-expose-web-apis/portal-02-expose-api.png" alt-text="An app registration's Expose an API pane in the Azure portal":::
 
 1. You're prompted to set an **Application ID URI** if you haven't yet configured one.
 
-   The application ID URI acts as the prefix for the scopes you'll reference in your API's code, and it must be globally unique. You can use the default value provided, which is in the form `api://<application-client-id>`, or specify a more readable URI like `https://contoso.com/api`.
+   The App ID URI acts as the prefix for the scopes you'll reference in your API's code, and it must be globally unique. You can use the default value provided, which is in the form `api://<application-client-id>`, or specify a more readable URI like `https://contoso.com/api`.
 
 1. Next, specify the scope's attributes in the **Add a scope** pane. For this walk-through, you can use the example values or specify your own.
 
@@ -71,9 +73,24 @@ To add a scope by using the **Expose an API** pane in the Azure portal:
 
     If you followed this optional step, the client app is now a pre-authorized client app (PCA), and users won't be prompted for their consent when signing in to it.
 
+### Add a scope requiring admin consent
+
+Now add another example scope, `Employees.Write.All`, that only admins can consent to. Scopes that require admin consent are typically used for providing access to higher-privileged operations, and often by client applications that run as backend services or daemons that don't sign in a user interactively.
+
+To add the `Employees.Write.All` example scope, follow the steps in the [Add a scope](#add-a-scope) section and specify these values in the **Add a scope** pane:
+
+| Field                          | Example value                                                      |
+|--------------------------------|--------------------------------------------------------------------|
+| **Scope name**                 | `Employees.Write.All`                                              |
+| **Who can consent**            | **Admins only**                                                    |
+| **Admin consent display name** | `Write access to Employee records`                                 |
+| **Admin consent description**  | `Allow the application to have write access to all Employee data.` |
+| **User consent display name**  | *None (leave empty)*                                               |
+| **User consent description**   | *None (leave empty)*                                               |
+
 ## Verify the exposed scopes
 
-If you successfully added both example scopes described in the previous sections, they'll appear in the **Expose an API** pane of your web API's app registration, similar to this image:
+If you successfully both example scopes described in the previous section, they'll appear in the **Expose an API** pane of your web API's app registration, similar to this image:
 
 :::image type="content" source="media/quickstart-configure-app-expose-web-apis/portal-03-scopes-list.png" alt-text="Screenshot of the Expose an API pane showing two exposed scopes.":::
 
