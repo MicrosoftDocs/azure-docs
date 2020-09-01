@@ -68,17 +68,40 @@ All tables in a Log Analytics workspace have a column called **TimeGenerated** w
 
 By default, the query will return records form the last 24 hours. Select the **Time range** dropdown and change it to **7 days**. Click **Run** again to return the results. You can see that results are returned, but we have a message here that we're not seeing all of the results. This is because Log Analytics can return a maximum of 10,000 records, and our query returned more records than that. 
 
-[![Query results filtered](media/get-started-portal/query-results-max.png)](media/get-started-portal/query-results-max.png#lightbox)
+[![Time range](media/get-started-portal/query-results-max.png)](media/get-started-portal/query-results-max.png#lightbox)
 
 
 ## Multiple query conditions
 Let's reduce our results further by adding another filter condition. A query can include any number of filters to target exactly the set of records that you want. Select **Success** under **ActivityStatusValue** and click **Apply & Run**. 
 
-[![Query results filtered](media/get-started-portal/query-results-filter-02.png)](media/get-started-portal/query-results-filter-02.png#lightbox)
+[![Query results multiple filters](media/get-started-portal/query-results-filter-02.png)](media/get-started-portal/query-results-filter-02.png#lightbox)
 
 
 ## Analyze results
 In addition to helping you write and run queries, Log Analytics provides features for working with the results. Start by expanding a record to view the values for all of its columns.
+
+[![Expand record](media/get-started-portal/expand-record.png)](media/get-started-portal/expand-record.png#lightbox)
+
+Click on the name of any column to sort the results by that column. Click on the filter icon next to it to provide a filter condition. This is similar to adding a filter condition to the query itself except that this filter is cleared if the query is run again. Use this method if you want to quickly analyze a set of records as part of interactive analysis.
+
+For example, set a filter on the **CallerIpAddress** column to limit the records to a single caller. 
+
+[![Query results filter](media/get-started-portal/query-results-filter.png)](media/get-started-portal/query-results-filter.png#lightbox)
+
+Instead of filtering the results, you can group records by a particular column. Clear the filter that you just created and then turn on the **Group columns** slider. 
+
+[![Group columns](media/get-started-portal/query-results-group-columns.png)](media/get-started-portal/query-results-group-columns.png#lightbox)
+
+Now drag the **CallerIpAddress** column into the grouping row. Results are now organized by that column, and you can collapse each group to help you with your analysis.
+
+[![Query results grouped](media/get-started-portal/query-results-grouped.png)](media/get-started-portal/query-results-grouped.png#lightbox)
+
+## Numeric data
+Let's have a look at a query that uses numerical data that we can view in a chart. 
+
+
+
+
 
 
 
