@@ -43,7 +43,7 @@ The .NET Feature Management libraries extend the framework with comprehensive fe
 
 ## Connect to an App Configuration store
 
-1. Right-click your project, and select **Manage NuGet Packages**. On the **Browse** tab, search and add the following NuGet packages to your project. If you can't find them, select the **Include prerelease** check box. Verify for `Microsoft.Extensions.DependencyInjection` that you are on the most recent stable build. 
+1. Right-click your project, and select **Manage NuGet Packages**. On the **Browse** tab, search and add the following NuGet packages to your project. Verify for `Microsoft.Extensions.DependencyInjection` that you are on the most recent stable build. 
 
     ```
     Microsoft.Extensions.DependencyInjection
@@ -60,7 +60,7 @@ The .NET Feature Management libraries extend the framework with comprehensive fe
     using Microsoft.Extensions.DependencyInjection;
     ```
 
-1. Update the `Function1` method to connect to App Configuration. Add two `static` properties, one named `FeatureManager` to create a singleton instance of `IFeatureManager` and another named `services` to create a singleton instance of `IServiceCollection`. Then connect to App Configuration in `Function1` by calling `AddAzureAppConfiguration()`. This process will load the configuration at application startup. The same configuration instance will be used for all Functions calls later.
+1. Add the `Function1` method to connect to App Configuration. Add two `static` properties, one named `FeatureManager` to create a singleton instance of `IFeatureManager` and another named `services` to create a singleton instance of `IServiceCollection`. Then connect to App Configuration in `Function1` by calling `AddAzureAppConfiguration()`. This process will load the configuration at application startup. The same configuration instance will be used for all Functions calls later.
 
     ```csharp
         private static IFeatureManager FeatureManager { set; get; }
@@ -144,7 +144,7 @@ The .NET Feature Management libraries extend the framework with comprehensive fe
 1. Return to your command prompt and cancel the running process by pressing `Ctrl-C`.  Restart your application by pressing F5. 
 
 1. Copy the URL of your function from the Azure Functions runtime output using the same process as in Step 3. Paste the URL for the HTTP request into your browser's address bar. The browser response should have changed, as shown in the image below.
-1. 
+ 
     ![Quickstart Function feature flag enabled](./media/quickstarts/functions-launch-enabled.png)
 
 ## Clean up resources
