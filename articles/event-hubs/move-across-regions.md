@@ -6,11 +6,9 @@ ms.date: 09/01/2020
 ---
 
 # Move an Azure Event Hubs namespace to another region
-There are various scenarios in which you'd want to move your existing Event Hubs namespace from one region to another. For example, you may want to create a namespace with the same configuration for testing. You may also want to create a secondary namespace in another region as part of [disaster recovery planning](event-hubs-geo-dr.md#setup-and-failover-flow).
-
 This article shows you how to export an Azure Resource Manager template for an existing Event Hubs namespace and then use the template to create a namespace with same configuration settings in another region. However, this process doesn't move events that aren't processed yet. You need to process the events from the original namespace before deleting it.
  
-You may want to move the Azure resource group that contains the namespace so that all related resources are moved to the new region in one step. The steps are similar for exporting a template at the resource group level and importing it to create a resource group with all the resources in the target region.
+If you have other resources in the Azure resource group that contains the Event Hubs namespace, you may want to export the template at the resource group level so that all related resources can be moved to the new region in one step. The steps in this article show you how to export a **namespace** to the template. The steps for exporting a **resource group** to the template are similar. 
 
 ## Prerequisites
 

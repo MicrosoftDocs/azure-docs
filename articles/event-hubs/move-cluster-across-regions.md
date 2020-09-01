@@ -6,11 +6,9 @@ ms.date: 09/01/2020
 ---
 
 # Move an Azure Event Hubs dedicated cluster to another region
-There are various scenarios in which you'd want to move your existing Event Hubs dedicated cluster from one region to another. For example, you may want to create a cluster with the same configuration for testing, or move the cluster to a region that's newly available and is closer to your customers than the current region. 
-
 This article shows you how to export an Azure Resource Manager template for an existing Event Hubs dedicated cluster and then use the template to create a cluster with same configuration settings in another region. However, this process doesn't move events that aren't processed yet. You need to process the events from the namespaces in the old cluster before deleting it.
 
-You may want to move the Azure resource group that contains the Event Hubs cluster so that all related resources (For example, namespaces and event hubs) are moved to the new region in one step. The steps are similar for exporting a template at the resource group level and importing it to create a resource group with all the resources in the target region. 
+If you have other resources such as namespaces and event hubs in the Azure resource group that contains the Event Hubs cluster, you may want to export the template at the resource group level so that all related resources can be moved to the new region in one step. The steps in this article show you how to export an **Event Hubs cluster** to the template. The steps for exporting a **resource group** to the template are similar. 
 
 ## Prerequisites
 Ensure that the dedicated cluster can be created in the target region. The easiest way to find out is to use the Azure portal to try to create an Event Hubs dedicated cluster. You see the list of regions that are supported at that point of time for creating the cluster. 
