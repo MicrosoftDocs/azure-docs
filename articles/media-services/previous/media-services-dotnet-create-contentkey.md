@@ -18,7 +18,10 @@ ms.author: juliako
 ms.custom: devx-track-csharp
 
 ---
-# Create ContentKeys with .NET 
+# Create ContentKeys with .NET
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+ 
 > [!div class="op_single_selector"]
 > * [REST](media-services-rest-create-contentkey.md)
 > * [.NET](media-services-dotnet-create-contentkey.md)
