@@ -49,7 +49,7 @@ To finish the configuration:
 
 ## Integrate Azure Spring Cloud with Azure App Gateway
 
-To integrate with azure spring cloud service, complete the following configurations:
+To integrate with Azure Spring Cloud service, complete the following configurations:
 
 ### Configure Backend Pool
 1. Specify **Target type** as *IP address* or *FQDN*.
