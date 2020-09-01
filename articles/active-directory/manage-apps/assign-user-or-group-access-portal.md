@@ -1,6 +1,6 @@
 ---
 title: Manage user assignment for an app in Azure Active Directory
-description: Learn how to assign and unassign users for an app using Azure Active Directory for identity management.
+description: Learn how to assign and unassign users, and groups, for an app using Azure Active Directory for identity management.
 services: active-directory
 author: kenwith
 manager: celestedg
@@ -15,7 +15,7 @@ ms.reviewer: luleon
 
 # Manage user assignment for an app in Azure Active Directory
 
-This article shows you how to assign users or groups to enterprise applications in Azure Active Directory (Azure AD), either from within the Azure portal or by using PowerShell. When you assign a user to an application, the application appears in the user's [My Apps](https://myapps.microsoft.com/) for easy access. If the application exposes roles, you can also assign a specific role to the user.
+This article shows you how to assign users, and groups, to enterprise applications in Azure Active Directory (Azure AD), either from within the Azure portal or by using PowerShell. When you assign a user to an application, the application appears in the user's [My Apps](https://myapps.microsoft.com/) for easy access. If the application exposes roles, you can also assign a specific role to the user.
 
 For greater control, certain types of enterprise applications can be configured to [require user assignment](#configure-an-application-to-require-user-assignment). 
 
@@ -52,7 +52,7 @@ To require user assignment for an application:
 ## Assign or unassign users, and groups, for an app using the Azure portal
 To learn how to assign, or unassign, a user or group using the Azure portal, see the [Quickstart Series on Application Management](add-application-portal-assign-users.md). 
 
-## Assign users or groups to an app using PowerShell
+## Assign users, and groups, to an app using PowerShell
 1. Open an elevated Windows PowerShell command prompt.
    > [!NOTE]
    > You need to install the AzureAD module (use the command `Install-Module -Name AzureAD`). If prompted to install a NuGet module or the new Azure Active Directory V2 PowerShell module, type Y and press ENTER.
@@ -113,7 +113,7 @@ This example assigns the user Britta Simon to the [Microsoft Workplace Analytics
     New-AzureADUserAppRoleAssignment -ObjectId $user.ObjectId -PrincipalId $user.ObjectId -ResourceId $sp.ObjectId -Id $appRole.Id
     ```
 
-## Unassign users or groups from an app using PowerShell
+## Unassign users, and groups, from an app using PowerShell
 
 1. Open an elevated Windows PowerShell command prompt.
    > [!NOTE]
