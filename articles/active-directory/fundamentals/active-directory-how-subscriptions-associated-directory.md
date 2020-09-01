@@ -1,5 +1,5 @@
 ---
-title: Add an existing Azure subscription to your tenant - Azure AD
+title: Add or associate an existing Azure subscription to your tenant - Azure AD
 description: Instructions about how to add an existing Azure subscription to your Azure Active Directory tenant.
 services: active-directory
 author: ajburnle
@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
-ms.date: 08/31/2020
+ms.date: 09/01/2020
 ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: "it-pro, seodec18, contperfq4"
 ms.collection: M365-identity-device-management
 ---
 
-# Associate or add an Azure subscription to your Azure Active Directory tenant
+# Add an Azure subscription to your Azure Active Directory tenant
 
 An Azure subscription has a trust relationship with Azure Active Directory (Azure AD). A subscription trusts Azure AD to authenticate users, services, and devices.
 
