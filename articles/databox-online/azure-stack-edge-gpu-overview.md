@@ -1,6 +1,6 @@
 ---
-title: Microsoft Azure Stack Edge overview | Microsoft Docs
-description: Describes Azure Stack Edge, a storage solution that uses a physical device for network-based transfer into Azure.
+title: Microsoft Azure Stack Edge with GPU overview | Microsoft Docs
+description: Describes Azure Stack Edge with GPU, a storage solution that uses a physical device for network-based transfer into Azure.
 services: databox
 author: alkohli
 

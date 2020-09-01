@@ -5,7 +5,7 @@ titleSuffix: Azure Media Services
 description: Learn about Streaming Endpoints (Origin), a dynamic packaging and streaming service that delivers content directly to a client player app or to a Content Delivery Network (CDN). 
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 
@@ -13,7 +13,7 @@ ms.service: media-services
 ms.workload: 
 ms.topic: article
 ms.date: 02/13/2020
-ms.author: juliako
+ms.author: inhenkel
 ---
 
 # Streaming Endpoints (Origin) in Azure Media Services

@@ -485,7 +485,7 @@ Create a custom initiative in Azure policy, add policies to it and onboard it to
 
 We've now also added the option to edit the custom recommendation metadata. Metadata options include severity, remediation steps, threats information, and more.  
 
-Learn more about [enhancing your custom recommendations with detailed information](custom-security-policies.md#enhancing-your-custom-recommendations-with-detailed-information).
+Learn more about [enhancing your custom recommendations with detailed information](custom-security-policies.md#enhance-your-custom-recommendations-with-detailed-information).
 
 
 
