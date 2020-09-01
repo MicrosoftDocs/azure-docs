@@ -1,6 +1,6 @@
 ---
-title: How to implement properties in Azure IoT Central Application
-description: How to implement read-only and writable properties in Azure IoT Central Application
+title: How to use properties in an Azure IoT Central solution
+description: How to use read-only and writable properties in Azure IoT Central solution
 author: v-krghan
 ms.author: v-krghan
 ms.date: 08/12/2020
@@ -10,38 +10,35 @@ services: iot-central
 
 ---
 
-# How to implement properties in Azure IoT Central Application
+# How to use properties in an Azure IoT Central solution
 
-This article shows you how, as a device developer, to implement various device properties in your Azure IoT Central application.
+This article shows you how to use device properties that are defined in a device template in your Azure IoT Central application.
 
-Properties are data fields that represent the state of your device. Properties are used to represent the durable state of the device, they also represent basic device properties, such as the firmware version of the device. You can declare properties as read-only or writable.
+You can also define cloud properties in an IoT Central application. Cloud property values are never exchanged with a device and are out of scope for this article.
 
-By default, properties are read-only. Read-only properties mean that the device reports property value updates to your IoT Central application. Your IoT Central application can't set the value of a read-only property.
+## Define your properties
 
-You can also mark a property as writeable on an interface. A device can receive an update to a writeable property from your IoT Central application as well as reporting property value updates to your application.
+Properties are data fields that represent the state of your device. Use properties to represent the durable state of the device, such as the on-off state of a device. Properties can also represent basic device properties, such as the software version of the device. You can declare properties as read-only or writable.
 
-For writable properties, the device application returns a desired state status code, version, and description to indicate whether it received and applied the property value. To learn more about writable properties [see](https://docs.microsoft.com/azure/iot-central/core/concepts-telemetry-properties-commands#writeable-property-types)
+The properties can be defined in an interface in a device template as below:
 
-
-## Prerequisites
-
-To complete the steps in this article, you need the following:
-
-* An Azure IoT Central application created using the **Custom application** template. For more information, see the [create an application quickstart](quick-deploy-iot-central.md).
-* A development machine with [Node.js](https://nodejs.org/) version 10.0.0 or later installed.
-
-
-## Create a device template
-
-Create a folder called `environmental-sensor` on your local machine.
-
-Download the [Environmental sensor capability model](https://raw.githubusercontent.com/Azure/IoTPlugandPlay/9004219bff1e958b7cd6ff2a52209f4b7ae19396/samples/EnvironmentalSensorInline.capabilitymodel.json) JSON file and save it in the `environmental-sensor` folder.
-
-Use a text editor to replace the two instances of `{YOUR_COMPANY_NAME_HERE}` with your company name in the `EnvironmentalSensorInline.capabilitymodel.json` file you downloaded. Use only the characters a-z, A-Z, 0-9, and underscore.
-
-Edit the custom **Environmental Sensor** interface section in the `EnvironmentalSensorInline.capabilitymodel.json` file to add the following properties and save the file.
 
 ```json
+{
+  "@type": "Property",
+  "displayName": "Device State",
+  "description": "The state of the device. Two states online/offline are available.",
+  "name": "state",
+  "schema": "boolean"
+},
+{
+  "@type": "Property",
+  "displayName": "Customer Name",
+  "description": "The name of the customer currently operating the device.",
+  "name": "name",
+  "schema": "string",
+  "writable": true
+},
 {
 "@type": "Property",
 "displayName": "Date ",
@@ -68,140 +65,89 @@ Edit the custom **Environmental Sensor** interface section in the `Environmental
 }
 ```
 
-In your Azure IoT Central application, create a device template called *Environmental sensor* by importing the `EnvironmentalSensorInline.capabilitymodel.json` device capability model file:
+This example shows five properties, a minimal field description has a:
 
-![Device template with imported device capability model](./media/howto-use-properties/device-template.png)
+- `@type` to specify the type of capability: `Property`
+- `name` for the property value.
+- `schema` specify the data type for the property. This value can be a primitive type, such as double, integer, boolean, or string. Complex object types, arrays, and maps are also supported.
+- `writable` By default, properties are read-only. You can mark a property as writeable, by using this field
 
-
-The **Environmental Sensor** interface defines the following properties:
-
-| Type | Display Name | Description |
-| ---- | ------------ | ----------- |
-| Property | Device State     | The state of the device. Two states online/offline are available. |
-| Property (writeable) | Customer Name    | The name of the customer currently operating the device. |
-| Property (writeable) | Brightness Level | The brightness level for the light on the device. Can be specified as 1 (high), 2 (medium), 3 (low). |
-|Property (writeable)  | Date    | The date on which the device is currently operating. |
-|Property (writeable)  | Location    | The current location of the device. |
-|Property (writeable)  | Vector level    | The Vector level of the device. |
+Optional fields, such as display name and description, let you add more details to the interface and capabilities.
 
 
-## Create view and publish the template
+You can create a property capability for the device template in your IoT Central application, as follows:
 
-Views let you interact with devices connected to your IoT Central application. views display properties, let you edit writeable properties.
+![Add a capability](./media/howto-use-properties/property.png)
 
-1. Select **Views** and then select the **Editing device and cloud data** tile.
+When you select the complex schema such as **Object**, you need to define the object as well.
 
-1. Enter _Properties_ as the form name.
+![Define object](./media/howto-use-properties/object.png)
 
-1. Select the **Brightness Level**, **Customer Name**, **Date**, **Location** and **Vector** properties. Then select **Add section**.
+## Implement read-only properties
 
-1. Save your changes.
+By default, properties are read-only. Read-only properties mean that the device reports property value updates to your IoT Central application. Your IoT Central application can't set the value of a read-only property.
 
-![Add a view to enable property editing](./media/howto-use-properties/properties-view.png)
 
-In the device template, select **Publish**. On the **Publish this device template to the application** panel, select **Publish**.
+The following snippet from a device capability model shows the definition of a read-only property type:
 
-![Published templates on the devices page](./media/howto-use-properties/published-templates.png)
+```json
+    {
+    "@type": "Property",
+    "name": "model",
+    "displayName": "Device model",
+    "schema": "string",
+    "comment": "Device model name or ID. Ex. Surface Book 2."
+    }
+```
+Read-only properties are sent by the device to IoT Central. The properties are sent as JSON payload, for more information, see [payloads](./concepts-telemetry-properties-commands.md).
 
-## Add a real device
 
-In your Azure IoT Central application, add a real device to the device template you created in the previous section:
+You can use the Azure IoT device SDK to send a property update to your IoT Central application.
 
-1. On the **Devices** page, select the **Environmental sensor** device template.
+Device twin properties can be sent to your Azure IoT Central application by using the below function:
 
-1. Select **+ New**.
-
-1. In the **Create a new device** dialog, make sure that **Environmental Sensor** is the template type and that **Simulate this device?** is set to **No**.
-
-1. Then select **Create**.
-
-Click on the device name, and then select **Connect**. Make a note of the device connection information on the **Device Connection** page - **ID scope**, **Device ID**, and **Primary key**. You need these values when you create your device code:
-
-![Device connection information](./media/howto-use-properties/device-connection.png)
-
-### Create a Node.js application
-
-The following steps show you how to create a Node.js client application that connects to the real device you added to the application. This Node.js application simulates the behavior of a real device.
-
-1. In your command-line environment, navigate to the `environmental-sensor` folder you created previously.
-
-1. To initialize your Node.js project and install the required dependencies, run the following commands - accept all the default options when you run `npm init`:
-
-    ```cmd/sh
-    npm init
-    npm install azure-iot-device azure-iot-device-mqtt azure-iot-provisioning-device-mqtt azure-iot-security-symmetric-key --save
-    ```
-
-1. Create a file called **environmentalSensor.js** in the `environmental-sensor` folder.
-
-1. Add the following `require` statements at the start of the **environmentalSensor.js** file:
-
-    ```javascript
-    "use strict";
-
-    // Use the Azure IoT device SDK for devices that connect to Azure IoT Central.
-    var iotHubTransport = require('azure-iot-device-mqtt').Mqtt;
-    var Client = require('azure-iot-device').Client;
-    var Message = require('azure-iot-device').Message;
-    var ProvisioningTransport = require('azure-iot-provisioning-device-mqtt').Mqtt;
-    var SymmetricKeySecurityClient = require('azure-iot-security-symmetric-key').SymmetricKeySecurityClient;
-    var ProvisioningDeviceClient = require('azure-iot-provisioning-device').ProvisioningDeviceClient;
-    ```
-
-1. Add the following variable declarations to the file:
-
-    ```javascript
-    var provisioningHost = 'global.azure-devices-provisioning.net';
-    var idScope = '{your Scope ID}';
-    var registrationId = '{your Device ID}';
-    var symmetricKey = '{your Primary Key}';
-    var provisioningSecurityClient = new SymmetricKeySecurityClient(registrationId, symmetricKey);
-    var provisioningClient = ProvisioningDeviceClient.create(provisioningHost, idScope, new ProvisioningTransport(), provisioningSecurityClient);
-    var hubClient;
-    ```
-
-    Update the placeholders `{your Scope ID}`, `{your Device ID}`, and `{your Primary Key}` with the values you made a note of previously.
-
-1. To send device twin properties to your Azure IoT Central application, add the following function to your file:
-
-    ```javascript
+```javascript
     // Send device twin reported properties.
     function sendDeviceProperties(twin, properties) {
       twin.properties.reported.update(properties, (err) => console.log(`Sent device properties: ${JSON.stringify(properties)}; ` +
         (err ? `error: ${err.toString()}` : `status: success`)));
     }
-    ```
+```
 
-    IoT Central uses device twins to synchronize property values between the device and the IoT Central application. Device property values use device twin reported properties. Writeable properties use both device twin reported and desired properties.
+IoT Central uses device twins to synchronize property values between the device and the IoT Central application. Device property values use device twin reported properties
 
-1. To define and handle the writeable properties your device responds to, add the following code. The message the device sends in response to the [writeable property update](concepts-telemetry-properties-commands.md#writeable-property-types) must include the `av` and `ac` fields. The `ad` field is optional:
+This article uses Node.js for simplicity, for complete information about device application examples see the [Create and connect a client application to your Azure IoT Central application (Node.js)](tutorial-connect-device-nodejs.md) and [Create and connect a client application to your Azure IoT Central application (Python)](tutorial-connect-device-python.md) tutorials.
 
-    ```javascript
+The following view in Azure IoT Central application shows the properties, you can see the view automatically makes the Device model property a _read-only device property_.
+
+![View of read-only property](./media/howto-use-properties/read-only.png)
+
+
+## Implement writable properties
+
+Writable properties are set by an operator in the IoT Central application on a form. IoT Central sends the property to the device. IoT Central expects an acknowledgment from the device. 
+
+The following snippet from a device capability model shows the definition of a writable property type:
+
+```json
+    {
+     "@type": "Property",
+     "displayName": "Brightness Level",
+     "description": "The brightness level for the light on the device. Can be specified as 1 (high), 2 (medium), 3 (low)",
+     "name": "brightness",
+     "writable": true,
+     "schema": "long"
+    }
+```
+
+To define and handle the writeable properties your device responds to, you can use the following code. The message the device sends in response to the [writeable property update](concepts-telemetry-properties-commands.md#writeable-property-types) must include the `av` and `ac` fields. The `ad` field is optional:
+
+```javascript
     // Add any writeable properties your device supports,
     // mapped to a function that's called when the writeable property
     // is updated in the IoT Central application.
     var writeableProperties = {
-      'name': (newValue, callback) => {
-      setTimeout(() => {
-        callback(newValue, 'completed', 200);
-          }, 1000);
-      },
       'brightness': (newValue, callback) => {
-        setTimeout(() => {
-        callback(newValue, 'completed', 200);
-        }, 5000);
-      },
-      'location': (newValue, callback) => {
-        setTimeout(() => {
-        callback(newValue, 'completed', 200);
-        }, 5000);
-      },
-      'vector': (newValue, callback) => {
-        setTimeout(() => {
-        callback(newValue, 'completed', 200);
-        }, 5000);
-      },
-      'date': (newValue, callback) => {
         setTimeout(() => {
         callback(newValue, 'completed', 200);
         }, 5000);
@@ -230,72 +176,19 @@ The following steps show you how to create a Node.js client application that con
         }
       });
     }
-    ```
-
-    When the operator sets a writeable property in the IoT Central application, the application uses a device twin desired property to send the value to the device. The device then responds using a device twin reported property. When IoT Central receives the reported property value, it updates the property view with a status of **synced**.
-
-    The names of the properties must match the names used in the device template.
-
-1. Add the following code to complete the connection to Azure IoT Central and hook up the functions in the client code:
-
-    ```javascript
-    // Handle device connection to Azure IoT Central.
-    var connectCallback = (err) => {
-      if (err) {
-        console.log(`Device could not connect to Azure IoT Central: ${err.toString()}`);
-      } else {
-        console.log('Device successfully connected to Azure IoT Central');
-
-        // Get device twin from Azure IoT Central.
-        hubClient.getTwin((err, twin) => {
-          if (err) {
-            console.log(`Error getting device twin: ${err.toString()}`);
-          } else {
-            // Send device properties once on device start up.
-            var properties = {
-              state: 'true',
-              processorArchitecture: 'ARM',
-              swVersion: '1.0.0'
-            };
-            sendDeviceProperties(twin, properties);
-
-            handleWriteablePropertyUpdates(twin);
-
-          }
-        });
-      }
-    };
-
-    // Start the device (register and connect to Azure IoT Central).
-    provisioningClient.register((err, result) => {
-      if (err) {
-        console.log('Error registering device: ' + err);
-      } else {
-        console.log('Registration succeeded');
-        console.log('Assigned hub=' + result.assignedHub);
-        console.log('DeviceId=' + result.deviceId);
-        var connectionString = 'HostName=' + result.assignedHub + ';DeviceId=' + result.deviceId + ';SharedAccessKey=' + symmetricKey;
-        hubClient = Client.fromConnectionString(connectionString, iotHubTransport);
-
-        hubClient.open(connectCallback);
-      }
-    });
-    ```
-
-## Run your Node.js application
-
-To start the device client application, run the following command in your command-line environment:
-
-```cmd/sh
-node environmentalSensor.js
 ```
 
-You can see the device connects to your Azure IoT Central application.
+When the operator sets a writeable property in the IoT Central application, the application uses a device twin desired property to send the value to the device. The device then responds using a device twin reported property. When IoT Central receives the reported property value, it updates the property view with a status of **Accepted**.
 
-![Device Connected](./media/howto-use-properties/deviceconnected.png)
+The names of the properties must match the names used in the device template.
 
-You can update writeable property values on the Properties page in your IoT Central application.
+The following view shows the writable properties. When you enter the value and **save**, the initial status is **pending**, when the device accepts the change, the status changes to **Accepted**.
 
-![Updated properties](./media/howto-use-properties/properties.png)
+![Pending status](./media/howto-use-properties/status-pending.png)
 
 
+![Accepted](./media/howto-use-properties/accepted.png)
+
+## Next steps
+
+Now that you've learned how to use properties in your Azure IoT Central application, you can see [Payloads](concepts-telemetry-properties-commands.md) and [Create and connect a client application to your Azure IoT Central application (Node.js)](tutorial-connect-device-nodejs.md).
