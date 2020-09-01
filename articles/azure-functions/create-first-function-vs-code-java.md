@@ -12,10 +12,8 @@ In this article, you use Visual Studio Code to create a Java function that respo
 
 Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
 
-There's also a [CLI-based version](create-first-function-cli-java.md) of this article.
-
 > [!NOTE]
-> If Visual Studio Code isn't your preferred development tool, check out our similar tutorials for Java developers using [Maven](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java), [Gradle](./functions-create-first-java-gradle.md) and [IntelliJ IDEA](/azure/developer/java/toolkit-for-intellij/quickstart-functions).
+> If Visual Studio Code isn't your preferred development tool, check out our similar tutorials for Java developers using [Maven](create-first-function-cli-java.md), [Gradle](./functions-create-first-java-gradle.md) and [IntelliJ IDEA](/azure/developer/java/toolkit-for-intellij/quickstart-functions).
 
 ## Configure your environment
 
