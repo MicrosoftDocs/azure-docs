@@ -36,3 +36,10 @@ The $export command can also be used to export de-identified data from the FHIR 
 
 > [!IMPORTANT]
 > Note that both raw export as well as de-identified export writes to the same Azure storage account specified as part of export configuration. It is recommended that you use different containers corresponding to different de-identified config and manage user access at the container level.
+
+## Next steps
+
+In this article, you learned how to exporting FHIR resources using $export command, including de-identified data. Next, you can configure your export data:
+ 
+>[!div class="nextstepaction"]
+>[configure export data](configure-export-data.md)
