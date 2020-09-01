@@ -99,25 +99,7 @@ To confirm that the publish profile credentials are blocked on WebDeploy, try [p
 
 ### Disable access to the API
 
-The API in the previous section is backed Azure Role-Based Access Control (RBAC), which means you can [create a custom role](https://docs.microsoft.com/en-us/azure/role-based-access-control/custom-roles#steps-to-create-a-custom-role) to block users from using the API and assign lower-priveldged users to the role so they cannot enable basic auth on any sites. To configure the custom role, follow the instructions below.
-
-1.  Open the [Azure portal](https://portal.azure.com/)
-2.  Open the subscription that you want to create the custom role in
-3.  On the left navigation panel, click **Access Control (IAM)**
-4.  Click **+ Add** and click **Add custom role** in the dropdown
-5.  Provide a name and description for the role.
-6.  For **Baseline permissions** you can clone one of your organization's existing roles, or one of the default roles
-7.  Click the **Permissions** tab, and click **Exclude permissions**
-8.  In the context blade, click the **Microsoft Web Apps**. This will open a list of all the RBAC actions for App Service
-9.  Search for the `microsoft.web/sites/basicPublishingCredentialsPolicies/ftp` and `microsoft.web/sites/basicPublishingCredentialsPolicies/scm` operations. Under these, check the box for **Write**. This will add the actions as *NotActions* for the role.
-  
-    You can disable this for [slots](https://docs.microsoft.com/en-us/azure/app-service/deploy-staging-slots) as well. See the `microsoft.web/sites/slots/basicPublishingCredentialsPolicies/ftp` and `microsoft.web/sites/slots/basicPublishingCredentialsPolicies/scm` actions   
-
-10. Click **Review + create** at the bottom. Under **Permissions**, you will see the `basicPublishingCredentialsPolicies` APIs listed as NotActions.
-  
-11. Finally, click **Create**. You can now assign this role to your organization's users.
-
-> More information on [setting up custom RBAC roles](https://docs.microsoft.com/en-us/azure/role-based-access-control/custom-roles-portal#step-2-choose-how-to-start).
+The API in the previous section is backed Azure Role-Based Access Control (RBAC), which means you can [create a custom role](https://docs.microsoft.com/en-us/azure/role-based-access-control/custom-roles#steps-to-create-a-custom-role) and assign lower-priveldged users to the role so they cannot enable basic auth on any sites. To configure the custom role, [follow these instructions](https://azure.github.io/AppService/2020/08/10/securing-data-plane-access.html#create-a-custom-rbac-role).
 
 You can also use [Azure Monitor](https://azure.github.io/AppService/2020/08/10/securing-data-plane-access.html#audit-with-azure-monitor) to audit any successful authentication requests and use [Azure Policy](https://azure.github.io/AppService/2020/08/10/securing-data-plane-access.html#enforce-compliance-with-azure-policy) to enforce this configuration for all sites in your subscription.
 
