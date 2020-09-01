@@ -15,28 +15,28 @@ To create an AKS cluster with CSI driver support, see [Enable CSI drivers for Az
 
 ## Create and use a persistent volume (PV) with Azure Files
 
-A persistent volume represents a piece of storage that has been provisioned for use with Kubernetes pods. A persistent volume can be used by one or many pods, and can be dynamically or statically provisioned. If multiple pods need concurrent access to the same storage volume, you can use Azure Files to connect using the [Server Message Block (SMB) protocol][smb-overview]. This article shows you how to dynamically create an Azure Files share for use by multiple pods in an Azure Kubernetes Service (AKS) cluster. For static provisioning, see [Manually create and use a volume with Azure Files share](azure-files-volume.md).
+A persistent volume represents a piece of storage that is provisioned for use with Kubernetes pods. A persistent volume can be used by one or many pods, and can be dynamically or statically provisioned. If multiple pods need concurrent access to the same storage volume, you can use Azure Files to connect using the [Server Message Block (SMB) protocol][smb-overview]. This article shows you how to dynamically create an Azure Files share for use by multiple pods in an Azure Kubernetes Service (AKS) cluster. For static provisioning, see [Manually create and use a volume with Azure Files share](azure-files-volume.md).
 
 For more information on Kubernetes volumes, see [Storage options for applications in AKS][concepts-storage].
 
 ## Dynamically create Azure Files PVs using the built-in storage classes
 A storage class is used to define how an Azure file share is created. A storage account is automatically created in the [node resource group][node-resource-group] for use with the storage class to hold the Azure file shares. Choose of the following [Azure storage redundancy][storage-skus] for *skuName*:
 
-* *Standard_LRS* - standard locally redundant storage (LRS)
-* *Standard_GRS* - standard geo-redundant storage (GRS)
-* *Standard_ZRS* - standard zone redundant storage (ZRS)
-* *Standard_RAGRS* - standard read-access geo-redundant storage (RA-GRS)
-* *Premium_LRS* - premium locally redundant storage (LRS)
+* *Standard_LRS* - standard locally redundant storage
+* *Standard_GRS* - standard geo-redundant storage
+* *Standard_ZRS* - standard zone redundant storage
+* *Standard_RAGRS* - standard read-access geo-redundant storage
+* *Premium_LRS* - premium locally redundant storage
 
 > [!NOTE]
 > Azure Files support premium storage, minimum premium file share is 100GB.
 
-When using storage CSI Drivers on AKS, you'll have 2 additional built-in `StorageClasses` that leverage the **Azure Files CSI storage drivers**. The additional CSI storage classes are created with the cluster alongside the in-tree default storage classes.
+When using storage CSI Drivers on AKS, there are 2 additional built-in `StorageClasses` that leverage the **Azure Files CSI storage drivers**. The additional CSI storage classes are created with the cluster alongside the in-tree default storage classes.
 
 - `azurefile-csi` - Uses Azure Standard storage to create an Azure File Share. The reclaim policy indicates that the underlying Azure File Share is deleted when the persistent volume that used it's deleted.
 - `azurefile-csi-premium` - Uses Azure Premium storage to create an Azure File Share. The reclaim policy indicates that the underlying Azure File Share is deleted when the persistent volume that used it's deleted.
 
-To leverage these storage classes, you just need to create a Persistent Volume Claim (PVC) and respective pod that references and leverages them. A persistent volume claim (PVC) is used to automatically provision storage based on a storage class. A PVC can use one of the pre-created storage classes or a user-defined storage class to create an Azure Files share for the desired SKU and size. When you create a pod definition, the persistent volume claim is specified to request the desired storage.
+To leverage these storage classes, create a [Persistent Volume Claim (PVC)](concepts-storage.md#persistent-volume-claims) and respective pod that references and leverages them. A persistent volume claim (PVC) is used to automatically provision storage based on a storage class. A PVC can use one of the pre-created storage classes or a user-defined storage class to create an Azure Files share for the desired SKU and size. When you create a pod definition, the persistent volume claim is specified to request the desired storage.
 
 Create an [example persistent volume claim and pod that prints the current date into an `outfile`](https://github.com/kubernetes-sigs/azurefile-csi-driver/blob/master/deploy/example/statefulset.yaml) with the [kubectl apply][kubectl-apply] command:
 
@@ -59,11 +59,11 @@ total 29
 
 ## Create a custom Storage class
 
-The default storage classes cater to the most common scenarios but not all. For some cases, you might want to have your own storage class customized with your own parameters. To exemplify, we'll use an example where you might want to config the `mountOptions` of the file share.
+The default storage classes cater to the most common scenarios but not all. For some cases, you might want to have your own storage class customized with your own parameters. For example, use the following manifest to configure the `mountOptions` of the file share.
 
 The default value for *fileMode* and *dirMode* is *0777* for Kubernetes mounted file shares. You can specify the different mount options on the storage class object.
 
-Create a file named `azure-file-sc.yaml` and copy in the following example manifest: 
+Create a file named `azure-file-sc.yaml` and paste the following example manifest: 
 
 ```yaml
 kind: StorageClass
@@ -96,7 +96,7 @@ storageclass.storage.k8s.io/my-azurefile created
 
 The Azure files CSI driver supports creating [snapshots of persistent volumes](https://kubernetes-csi.github.io/docs/snapshot-restore-feature.html) and the underlying file shares. 
 
-To exemplify this capability, let's create a [volume snapshot class](https://github.com/kubernetes-sigs/azurefile-csi-driver/blob/master/deploy/example/snapshot/volumesnapshotclass-azurefile.yaml) with the [kubectl apply][kubectl-apply] command:
+To exemplify this capability, create a [volume snapshot class](https://github.com/kubernetes-sigs/azurefile-csi-driver/blob/master/deploy/example/snapshot/volumesnapshotclass-azurefile.yaml) with the [kubectl apply][kubectl-apply] command:
 
 ```console
 $ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azurefile-csi-driver/master/deploy/example/snapshot/volumesnapshotclass-azurefile.yaml
@@ -145,12 +145,12 @@ Events:                                <none>
 
 ## Resize a Persistent Volume (PV)
 
-You may also request a larger volume for a PVC. To do so, edit the PVC object and specify a larger size. This change triggers the expansion of the underlying volume that backs the PersistentVolume. 
+You can instead request a larger volume for a PVC. Edit the PVC object and specify a larger size. This change triggers the expansion of the underlying volume that backs the PersistentVolume. 
 
 > [!NOTE] 
 > A new PersistentVolume is never created to satisfy the claim. Instead, an existing volume is resized.
 
-In AKS, the built-in `azurefile-csi` storage class already allows for expansion, so we'll just leverage the [PVC created earlier with this storage class](#dynamically-create-azure-files-pvs-using-the-built-in-storage-classes). The PVC requested a 100Gi file share, we can confirm that by running:
+In AKS, the built-in `azurefile-csi` storage class already allows for expansion, so leverage the [PVC created earlier with this storage class](#dynamically-create-azure-files-pvs-using-the-built-in-storage-classes). The PVC requested a 100Gi file share, we can confirm that by running:
 
 ```console 
 $ kubectl exec -it nginx-azurefile -- df -h /mnt/azurefile
@@ -159,7 +159,7 @@ Filesystem                                                                      
 //f149b5a219bd34caeb07de9.file.core.windows.net/pvc-5e5d9980-da38-492b-8581-17e3cad01770  100G  128K  100G   1% /mnt/azurefile
 ```
 
-Let's expand the PVC by increasing the `spec.resources.requests.storage` field:
+Expand the PVC by increasing the `spec.resources.requests.storage` field:
 
 ```console
 $ kubectl patch pvc pvc-azurefile --type merge --patch '{"spec": {"resources": {"requests": {"storage": "200Gi"}}}}'
