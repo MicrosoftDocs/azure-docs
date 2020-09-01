@@ -44999,13 +44999,18 @@
     },
     {
       "source_path": "articles/cognitive-services/Computer-vision/Home-v1.md",
-      "redirect_url": "/azure/cognitive-services/computer-vision/home",
+      "redirect_url": "/azure/cognitive-services/computer-vision/overview",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/Computer-vision/QuickStarts/quickstart-summary.md",
-      "redirect_url": "/azure/cognitive-services/computer-vision/home",
+      "redirect_url": "/azure/cognitive-services/computer-vision/overview",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Computer-vision/Home.md",
+      "redirect_url": "/azure/cognitive-services/computer-vision/overview",
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/cognitive-services/Computer-vision/Tutorials/PythonTutorial.md",
