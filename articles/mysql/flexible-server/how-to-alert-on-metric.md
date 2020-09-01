@@ -40,7 +40,7 @@ You can configure and get information about alert rules using:
     - If you are using a **Dynamic** threshold, continue to define the **Threshold sensitivity**. The metric chart will display the calculated thresholds based on recent data. [Learn more about Dynamic Thresholds condition type and sensitivity options](../../alerts-dynamic-thresholds.md).
 9. Refine the condition by adjusting **Aggregation granularity (Period)** interval over which data points are grouped using the aggregation type function (ex. "30 minutes"), and **Frequency** (ex "Every 15 Minutes").
 10. Click **Done**.
-11. An action group is a collection of notification preferences defined by the owner of an Azure subscription. Within the **Action Groups** section, choose **Select action group** to select an already existing action group to attach to the alert rule.
+11. Add an action group. An action group is a collection of notification preferences defined by the owner of an Azure subscription. Within the **Action Groups** section, choose **Select action group** to select an already existing action group to attach to the alert rule.
 12. You can also create a new action group to receive notifications on the alert. Refer to [create and manage action group](../../azure-monitor/platform/action-groups.md) for more information.
 13. To create a new action group, choose **+ Create action group**. Fill out the "Create action group" form with a **Subscription**, **Resource group**, **Action group name** and **Display Name**.
 14. Configure **Notifications** for action group.
