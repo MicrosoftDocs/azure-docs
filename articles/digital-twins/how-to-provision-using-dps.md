@@ -17,21 +17,21 @@ ms.service: digital-twins
 
 # Auto-provision and retire devices with Azure Digital Twins using Device Provisioning Service (DPS)
 
-In this article, you'll learn how to integrate Azure Digital Twins with [Device Provisioning Service (DPS)](https://docs.microsoft.com/en-us/azure/iot-dps/about-iot-dps).
+In this article, you'll learn how to integrate Azure Digital Twins with [Device Provisioning Service (DPS)](../iot-dps/about-iot-dps.md).
 
 The solution described in this article will allow you to automate the process to _provision_ and _retire_ IoT Hub devices in Azure Digital Twins, using Device Provisioning Service. 
 
-For more information about the _provision_ and _retire_ stages, and to better understand the set of general device management stages that are common to all enterprise IoT projects, see the [*Device Lifecycle* section](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-device-management-overview#device-lifecycle) of IoT Hub's device management documentation.
+For more information about the _provision_ and _retire_ stages, and to better understand the set of general device management stages that are common to all enterprise IoT projects, see the [*Device Lifecycle* section](../iot-hub/iot-hub-device-management-overview.mc#device-lifecycle) of IoT Hub's device management documentation.
 
 ## Prerequisites
 
 Before you can set up the provisioning, you need to have an **Azure Digital Twins instance**.
 
-If you do not have this set up already, you can create it by following the Azure Digital Twins [*Tutorial: Connect an end-to-end solution*](./tutorial-end-to-end.md). The tutorial will walk you through setting up an Azure Digital Twins instance and a connected Azure IoT Hub.
+If you do not have this set up already, you can create it by following the Azure Digital Twins [*Tutorial: Connect an end-to-end solution*](tutorial-end-to-end.md). The tutorial will walk you through setting up an Azure Digital Twins instance and a connected Azure IoT Hub.
 
 You will need the following values in the rest of this article from the step you just completed. If you need to gather these values again, use the links below to the corresponding sections in the setup article for finding them in the [Azure portal](https://portal.azure.com).
 * Azure Digital Twins instance **_host name_** ([find in portal](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values))
-* Azure Event Hubs connection string **_connection string_** ([find in portal](../event-hubs/event-hubs-get-connection-string#get-connection-string-from-the-portal))
+* Azure Event Hubs connection string **_connection string_** ([find in portal](../event-hubs/event-hubs-get-connection-string.md#get-connection-string-from-the-portal))
 
 This sample uses a device simulator that includes provisioning using the Device Provisioning Service. The device simulator is located here: [Azure Digital Twins and IoT Hub Integration Sample](https://docs.microsoft.com/samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/). Get the sample project on your machine by navigating to the sample link and selecting the *Download ZIP* button underneath the title. Unzip the downloaded folder.
 
@@ -68,7 +68,7 @@ The following sections describe the process steps to set up the auto-provision d
 
 When a new device is provisioned using Device Provisioning Service, a new twin for that device can be created in Azure Digital Twins.
 
-Create a Device Provisioning Service instance, which will be used to provision IoT devices. You can either use the Azure CLI instructions below, or use the Azure portal: [*Quickstart: Set up the IoT Hub Device Provisioning Service with the Azure portal*](../iot-dps/quick-setup-auto-provision).
+Create a Device Provisioning Service instance, which will be used to provision IoT devices. You can either use the Azure CLI instructions below, or use the Azure portal: [*Quickstart: Set up the IoT Hub Device Provisioning Service with the Azure portal*](../iot-dps/quick-setup-auto-provision.md).
 
 The following Azure CLI command will create a Device Provisioning Service. You will need to specify a name, resource group, and region.
 
@@ -78,9 +78,9 @@ az iot dps create --name <Device Provisioning Service name> --resource-group <re
 
 ### Create an Azure function
 
-Next, you'll create an HTTP request-triggered function inside a function app. You can use the function app created in the end-to-end tutorial ([*Tutorial: Connect an end-to-end solution*](./tutorial-end-to-end.md)), or your own.
+Next, you'll create an HTTP request-triggered function inside a function app. You can use the function app created in the end-to-end tutorial ([*Tutorial: Connect an end-to-end solution*](tutorial-end-to-end.md)), or your own.
 
-This function will be used by the Device Provisioning Service in a [Custom Allocation Policy](../iot-dps/how-to-use-custom-allocation-policies) provisioning a new device. For more information about using HTTP requests with Azure functions, see [*Azure Http request trigger for Azure Functions*](../azure-functions/functions-bindings-http-webhook-trigger.md).
+This function will be used by the Device Provisioning Service in a [Custom Allocation Policy](../iot-dps/how-to-use-custom-allocation-policies.md) provisioning a new device. For more information about using HTTP requests with Azure functions, see [*Azure Http request trigger for Azure Functions*](../azure-functions/functions-bindings-http-webhook-trigger.md).
 
 Inside your function app project, add a new function. Also, add a new Nuget package to the project: `Microsoft.Azure.Devices.Provisioning.Service`.
 
@@ -234,7 +234,7 @@ Save the file and then re-publish your function app. For instructions on publish
 
 ### Configure your function
 
-Next, you'll need to set environment variables in your function app from earlier, containing the reference to the Azure Digital Twins instance you've created. If you used the the end-to-end tutorial ([*Tutorial: Connect an end-to-end solution*](./tutorial-end-to-end.md)) the setting will already be configured.
+Next, you'll need to set environment variables in your function app from earlier, containing the reference to the Azure Digital Twins instance you've created. If you used the the end-to-end tutorial ([*Tutorial: Connect an end-to-end solution*](tutorial-end-to-end.md)) the setting will already be configured.
 
 Add the setting with this command:
 
@@ -242,7 +242,7 @@ Add the setting with this command:
 az functionapp config appsettings set --settings "ADT_SERVICE_URL=https://<Azure Digital Twins instance _host name_>" -g <resource group> -n <your App Service (function app) name>
 ```
 
-Ensure that the permissions and Managed Identity role assignment are configured correctly for the function app, as described in the section *Assign permissions to the function app* in the end-to-end tutorial ([*Tutorial: Connect an end-to-end solution*](./tutorial-end-to-end#assign-permissions-to-the-function-app)).
+Ensure that the permissions and Managed Identity role assignment are configured correctly for the function app, as described in the section *Assign permissions to the function app* in the end-to-end tutorial ([*Tutorial: Connect an end-to-end solution*](tutorial-end-to-end.md#assign-permissions-to-the-function-app)).
 
 <!-- 
 * Azure AD app registration **_Application (client) ID_** ([find in portal](../articles/digital-twins/how-to-set-up-instance-portal.md#collect-important-values))
@@ -253,7 +253,7 @@ az functionapp config appsettings set --settings "AdtAppId=<Application (client)
 
 ### Create Device Provisioning enrollment
 
-Next, you'll need to create an enrollment in Device Provisioning Service using a custom allocation function. You can find the instructions to do this in [*Create the enrollment*](../iot-dps/how-to-use-custom-allocation-policies#create-the-enrollment.md).
+Next, you'll need to create an enrollment in Device Provisioning Service using a custom allocation function. You can find the instructions to do this in [*Create the enrollment*](../iot-dps/how-to-use-custom-allocation-policies.md#create-the-enrollment).
 
 Link the enrollment to the function you just created, by selecting the function in the 'Select how you want to assign devices to hubs' field. The enrollment name and primary or secondary SAS key will be used later to configure the device simulator.
 
@@ -318,17 +318,17 @@ The following sections describe the process steps to set up the auto-retire devi
 
 You now need to create an Azure [Event Hub](../event-hubs/event-hubs-about.md), which will be used to receive the IoT Hub lifecycle events. 
 
-Go through the steps described in the [*Create an Event Hub*](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-create) quickstart, using the following information:
-* If you're using the end-to-end tutorial ([*Tutorial: Connect an end-to-end solution*](./tutorial-end-to-end.md)), you can reuse the resource group you created for the end-to-end tutorial.
+Go through the steps described in the [*Create an Event Hub*](../event-hubs/event-hubs-create.md) quickstart, using the following information:
+* If you're using the end-to-end tutorial ([*Tutorial: Connect an end-to-end solution*](tutorial-end-to-end.md)), you can reuse the resource group you created for the end-to-end tutorial.
 * Name your event hub *lifecycleevents*, and remember the namespace you created. You will use this when you set up the lifecycle function and IoT Hub route in the next sections.
 
 ### Create an Azure Function
 
-Next, you'll create an Event Hubs-triggered function inside a function app. You can use the function app created in the end-to-end tutorial ([*Tutorial: Connect an end-to-end solution*](./tutorial-end-to-end.md)), or your own. 
+Next, you'll create an Event Hubs-triggered function inside a function app. You can use the function app created in the end-to-end tutorial ([*Tutorial: Connect an end-to-end solution*](tutorial-end-to-end.md)), or your own. 
 
 Name your event hub trigger *lifecycleevents*, and connect the event hub trigger to the Event Hub you created in the previous step. If you used another Event Hub name, change it to match in the trigger name below.
 
-This function will use the IoT Hub Device Lifecycle Events to retire an existing device. For more about livecycle events, see [*IoT Hub Non-telemetry events*](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-messages-d2c#non-telemetry-events). For more information about using Event Hubs with Azure functions, see [*Azure Event Hubs trigger for Azure Functions*](../azure-functions/functions-bindings-event-hubs-trigger.md).
+This function will use the IoT Hub Device Lifecycle Events to retire an existing device. For more about livecycle events, see [*IoT Hub Non-telemetry events*](../iot-hub/iot-hub-devguide-messages-d2c.md#non-telemetry-events). For more information about using Event Hubs with Azure functions, see [*Azure Event Hubs trigger for Azure Functions*](../azure-functions/functions-bindings-event-hubs-trigger.md).
 
 Inside your published function app, add a new function class of type 'Event Hub Trigger', and paste in the code below.
 
@@ -460,13 +460,13 @@ Next, you will need to configure the function environment variable for connectin
 az functionapp config appsettings set --settings "EVENTHUB_CONNECTIONSTRING=<Event Hubs SAS connection string Listen>" -g <resource group> -n <your App Service (function app) name>
 ```
 
-Ensure that the permissions and Managed Identity role assignment are configured correctly for the function app, as described in the section *Assign permissions to the function app* in the end-to-end tutorial ([*Tutorial: Connect an end-to-end solution*](./tutorial-end-to-end#assign-permissions-to-the-function-app)).
+Ensure that the permissions and Managed Identity role assignment are configured correctly for the function app, as described in the section *Assign permissions to the function app* in the end-to-end tutorial ([*Tutorial: Connect an end-to-end solution*](./tutorial-end-to-end.md#assign-permissions-to-the-function-app)).
 
 ### Create an IoT Hub route for Lifecycle events
 
 Now you need to set up an IoT Hub route, to route device lifecycle events. In this case, you will specifically listen to device delete events, identified by `if (opType == "deleteDeviceIdentity")`. This will trigger the delete of the digital twin item, finalizing the retirement of a device and its digital twin.
 
-Instructions for creating an IoT Hub route are described in this article: [*Use IoT Hub message routing to send device-to-cloud messages to different endpoints*](../iot-hub/iot-hub-devguide-messages-d2c). The section *Non-telemetry events* explains that you can use **device lifecycle events** as the data source for the route.
+Instructions for creating an IoT Hub route are described in this article: [*Use IoT Hub message routing to send device-to-cloud messages to different endpoints*](../iot-hub/iot-hub-devguide-messages-d2c.md). The section *Non-telemetry events* explains that you can use **device lifecycle events** as the data source for the route.
 
 The steps you need to go through for this setup are:
 * Create a custom IoT Hub event hub endpoint. This endpoint should target the event hub you create in the 'Create an Event Hub' section.
@@ -517,7 +517,7 @@ Finally, delete the project sample folder you downloaded from your local machine
 
 The digital twins created for the devices are stored as a flat hierarchy in Azure Digital Twins, but they can be enriched with model information and a multi-level hierarchy for organization. To learn more about this concept, read:
 
-* [*Concept: Understand digital twins and their twin graph*](concepts-twins-graph)
+* [*Concept: Understand digital twins and their twin graph*](concepts-twins-graph.md)
 
 You can write custom logic to automatically provide this information using the model and graph data already stored in Azure Digital Twins. To read more about managing, upgrading, and retrieving information from the twins graph, see the following references:
 
