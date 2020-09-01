@@ -212,9 +212,9 @@
     - name: Azure DevOps
       items:
       - name: YAML
-        href: how-to-ci-cd.md
+        href: how-to-continuous-integration-continuous-deployment.md
       - name: Classic editor
-        href: how-to-ci-cd-classic.md
+        href: how-to-continuous-integration-continuous-deployment-classic.md
   - name: Troubleshoot
     items:
     - name: Standard diagnostic steps
