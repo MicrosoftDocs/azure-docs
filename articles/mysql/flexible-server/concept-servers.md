@@ -5,7 +5,7 @@ author: kummanish
 ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 08/27/2020
+ms.date: 09/21/2020
 ---
 
 # Server concepts in Azure Database for MySQL Flexible Server (Preview)
@@ -28,11 +28,11 @@ An Azure Database for MySQL Flexible Server:
 - Provides a virtual network integration for the database server access
 - Provides way to save costs by pausing the flexible server when not in use
 - Provides the scope for management policies that apply to its databases: login, firewall, users, roles, configurations, etc.
-- Is currently supported with MySQL 5.7.29 versions. For more information, see [Supported Azure Database for MySQL database versions](./concepts-supported-versions.md).
+- Is currently supported with version MySQL 5.7. For more information, see [Supported Azure Database for MySQL engine versions](./concepts-supported-versions.md).
 
-Within an Azure Database for MySQL Flexible Server, you can create one or multiple databases. You can opt to create a single database per server to use all the resources or to create multiple databases to share the resources. The pricing is structured per-server, based on the configuration of pricing tier, vCores, and storage (GB). For more information, see Pricing tiers.
+Within an Azure Database for MySQL Flexible Server, you can create one or multiple databases. You can opt to create a single database per server to use all the resources or to create multiple databases to share the resources. The pricing is structured per-server, based on the configuration of compute tier, vCores, and storage (GB). For more information, see [compute and storage](./concepts-compute-storage.md).
 
 ## How do I manage a server?
 
-You can manage Azure Database for MySQL Flexible Server by using the Azure portal or the Azure CLI.
+You can manage Azure Database for MySQL Flexible Server by using the [Azure portal](./quickstart-create-server-portal.md) or the [Azure CLI](./quickstart-create-server-cli.md).
 

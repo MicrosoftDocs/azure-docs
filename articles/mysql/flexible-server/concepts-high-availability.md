@@ -5,7 +5,7 @@ author: kummanish
 ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 08/27/2020
+ms.date: 09/21/2020
 ---
 
 # High availability concepts in Azure Database for MySQL Flexible Server (Preview)
@@ -63,7 +63,6 @@ During unplanned downtime events such as database crash or the server failure, t
 
 -   Standby replica will be deployed in an exact VM configuration as that of primary such as vCores, storage, network settings (VNET, Firewall), etc.
 -   Ability to remove standby replica by disabling high availability.
--   Ability to stop, start, and restart both primary and standby database servers.
 -   Automatic backups are performed from the primary database server and stored in a zone redundant storage.
 -   If there is a failover event, a new standby replica is provisioned in the original primary availability zone.
 -   Clients always connect to the primary database server.

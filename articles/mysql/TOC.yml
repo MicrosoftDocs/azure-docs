@@ -397,6 +397,12 @@
           href: flexible-server/quickstart-create-server-cli.md
   - name: Concepts
     items:
+    - name: DB & Servers
+      item:
+      - name: Servers
+        href: flexible-server/concepts-servers.md
+      - name: Supported versions
+        href: flexible-server/concepts-supported-versions.md    
     - name: Limitations
       href: flexible-server/concepts-limitations.md
     - name: Compute and storage
