@@ -97,7 +97,7 @@ The following steps show you how to create and display the Map control in a web 
 
 4. Save the file and open it in your browser. A simple is displayed.
 
-     :::image type="content" source="./media/tutorial-route-location/basic-map.png" alt-text="Basic map rendering of atlas.Map control":::
+     :::image type="content" source="./media/tutorial-route-location/basic-map.png" alt-text="Basic map rendering of Map control":::
 
 ## Define route display rendering
 
@@ -136,7 +136,7 @@ In this tutorial, we'll render the route using a line layer. The start and end p
     });
     ```
 
-    In the map control's `ready` event handler, a data source is created to store the route from start to end point. To define how the route line will be rendered, a line layer is created and attached to the data source. When adding the layer to the map a second parameter with the value of `'labels'` is passed, which tells the Map control to render this layer below the map labels. This will ensure that the route line doesn't cover up the road labels.
+    In the map control's `ready` event handler, a data source is created to store the route from start to end point. To define how the route line will be rendered, a line layer is created and attached to the data source.  To ensure that the route line doesn't cover up the road labels, we've passed a second parameter with the value of `'labels'`.
 
     Next, a symbol layer is created and attached to the data source. This layer specifies how the start and end points are rendered. In this case, expressions have been added to retrieve the icon image and text label information from properties on each point object.
 
@@ -163,7 +163,7 @@ In this tutorial, we'll render the route using a line layer. The start and end p
     });
     ```
 
-    This code creates two [GeoJSON Point objects](https://en.wikipedia.org/wiki/GeoJSON) to represent the start and end points of the route and adds the points to the datasource. A `title` and `icon` property is added to each point. The last block sets the camera view using the latitude and longitude of the start and end points, using the map control's [setCamera](/javascript/api/azure-maps-control/atlas.map#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) property.
+    This code creates two [GeoJSON Point objects](https://en.wikipedia.org/wiki/GeoJSON) to represent start and end points, which are then added to the data source. The last block of code sets the camera view using the latitude and longitude of the start and end points. For more information about the Map control's setCamera property, see [setCamera(CameraOptions | CameraBoundsOptions & AnimationOptions)](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-maps-typescript-latest#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) property.
 
 3. Save **MapRoute.html** and refresh your browser. The map is now centered over Seattle. The teardrop blue pin marks the start point. The round blue pin marks the end point.
 
@@ -212,7 +212,7 @@ This section shows you how to use the Azure Maps Route service API to get direct
 
 ## Next steps
 
-The next tutorial show you how to create a route query with restrictions, like mode of travel or type of cargo. You can then display multiple routes on the same map.
+The next tutorial shows you how to create a route query with restrictions, like mode of travel or type of cargo. You can then display multiple routes on the same map.
 
 > [!div class="nextstepaction"]
 > [Find routes for different modes of travel](./tutorial-prioritized-routes.md)
