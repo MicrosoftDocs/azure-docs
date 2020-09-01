@@ -64,22 +64,14 @@ You must add at least one and a maximum of three marketing documents for your of
 
 ### Add logos
 
-There are multiple places in the commercial marketplace where your offer's logo images appear.
+Under **Logos**, upload a **Large** logo in PNG format between 216 x 216 and 350 x 350 pixels. Partner Center will automatically create **Small** (48 x 48) and **Medium** (90 x 90) logos, which you can replace later if you want.
 
-1. Under **Logos**, upload logos with the following pixel sizes in .PNG format:
- 
-   - **Small** (48 x 48)
-   - **Medium** (90 x 90)
-   - **Large** (between 216 x 216 and 350 x 350)
+All three logo sizes are used in different places in the online stores.
 
-2. You can optionally provide a wide image (255 x 115).
-
-All three required logo sizes are used in different places in the storefronts.
-
-   - The **Small** logo appears in Azure Marketplace search results and on the Microsoft AppSource main page and search results pages.
-   - The **Medium** logo appears when you create a new resource in Microsoft Azure.
-   - The **Large** logo appears on your offer listing page in Azure Marketplace and Microsoft AppSource.
- 
+- The **Medium** logo appears when you create a new resource in Microsoft Azure.
+- The **Large** logo appears on your offer listing page in Azure Marketplace and Microsoft AppSource.
+- The **Small** logo appears in Azure Marketplace search results and on the Microsoft AppSource main page and search results pages.
+   
 ### Add screenshots
 
 You must add a minimum of one and a maximum of five screenshots that demonstrate your offer. All images must be 1280 x 720 pixels in size and in .PNG format.
