@@ -81,30 +81,15 @@ You can leave ADT Explorer running, as you will use it again later in this artic
 
 ### Download models, twins, and graph
 
-Next, download the various components of your solution to your machine.
+Next, download the models, twins, and graph in your solution to your machine.
 
-<!-- Model download possibly not necessary if included with graph download -->
-To download your **models**, use the *Download models* icon in the *MODEL VIEW* box.
-
-:::row:::
-    :::column:::
-        :::image type="content" source="media/how-to-move-regions/download-models.png" alt-text="In the Model View box, the first icon is highlighted. It shows an arrow pointing down out of a cloud." lightbox="media/how-to-move-regions/download-models.png":::
-    :::column-end:::
-    :::column:::
-    :::column-end:::
-:::row-end:::
-
-<!-- This will... download JSONs of the models to your machine? Can't verify, icon isn't doing anything -->
-
-To download your **twins and graph**, make sure the full graph is showing in the *GRAPH VIEW* box (you can do this by rerunning the default query of `SELECT * FROM digitaltwins` in the *QUERY EXPLORER* box).
+To download all of these at once, first make sure the full graph is showing in the *GRAPH VIEW* box (you can do this by rerunning the default query of `SELECT * FROM digitaltwins` in the *QUERY EXPLORER* box).
  
 Then, hit the *Export graph* icon in the *GRAPH VIEW* box.
 
 :::image type="content" source="media/how-to-move-regions/export-graph.png" alt-text="In the Graph View box, an icon is highlighted. It shows an arrow pointing down out of a cloud." lightbox="media/how-to-move-regions/export-graph.png":::
 
-This will enable a *Download* link in the *GRAPH VIEW*. Select it to download a JSON-based representation of the query result, including your models, twins, and relationships.
-
-<!-- Does it export models? Need to verify. -->
+This will enable a *Download* link in the *GRAPH VIEW*. Select it to download a JSON-based representation of the query result, including your models, twins, and relationships. This should download a *.json* file to your machine.
 
 ## Move
 
@@ -127,7 +112,7 @@ Once this is complete, you will need the **hostname** of your new instance to co
 
 Next, you will set up the new instance so that it is a copy of the original.
 
-#### Upload original models and graph using ADT Explorer
+#### Upload original models, twins, and graph using ADT Explorer
 
 In this section, you can re-upload your models, twins, and graph to the new instance. If you don't have any models, twins, or graphs in your original instance or you don't want to move them to the new instance, you can skip to the [next section](#recreate-endpoints-and-routes).
 
@@ -143,37 +128,15 @@ Since you're reusing the app registration, you only need to replace the *ADT URL
 
 Hit *Connect*. You may be asked to log in again with your Azure credentials, and/or grant this application consent for your instance.
 
-##### Upload models and graphs
+##### Upload models, twins, and graph
 
 Next, upload the solution components that you downloaded earlier to your new instance.
 
-To upload your **models**, hit the *Upload a Model* icon in the *MODEL VIEW* box.
-
-:::image type="content" source="media/how-to-move-regions/upload-model.png" alt-text="In the Model View box, the middle icon is highlighted. It shows an arrow pointing into a cloud." lightbox="media/how-to-move-regions/upload-model.png":::
- 
-1. In the file selector box that appears, navigate to your downloaded model files.
-2. Select all the model files you downloaded earlier from your original instance, and hit OK.
-3. Follow the popup dialog asking you to sign into your Azure account.
-
-<!-- May need to edit depending on what format the model files download in -->
-
-ADT Explorer will now upload these model files to your Azure Digital Twins instance. They should show up back in the *MODEL VIEW* box once they've been added.
-
-:::row:::
-    :::column:::
-        :::image type="content" source="media/how-to-move-regions/model-info.png" alt-text="A view of the 'Model View' box with two model definitions listed inside, Floor (dtmi:example:Floor;1) and Room (dtmi:example:Room;1)." lightbox="media/how-to-move-regions/model-info.png":::
-    :::column-end:::
-    :::column:::
-    :::column-end:::
-:::row-end:::
-
-Next, upload your **twins and graph**. In the *GRAPH VIEW* box, hit the *Import Graph* icon.
+To upload your **models, twins, and graph**, hit the *Import Graph* icon in the *GRAPH VIEW* box. This option will upload all three of these components at once (even models that are not currently being used in the graph).
 
 :::image type="content" source="media/how-to-move-regions/import-graph.png" alt-text="In the Graph View box, an icon is highlighted. It shows an arrow pointing into a cloud." lightbox="media/how-to-move-regions/import-graph.png":::
 
-In the file selector box, navigate to your downloaded graph. Select the graph file and hit OK.
-
-<!-- May need to edit depending on what format the graph downloads in -->
+In the file selector box, navigate to your downloaded graph. Select the graph *.json* file and hit *Open*.
 
 After a few seconds, ADT Explorer will open an *Import* view displaying a preview of the graph that is going to be loaded.
 
@@ -187,13 +150,27 @@ To confirm the graph upload, hit the *Save* icon in the upper right corner of th
     :::column-end:::
 :::row-end:::
 
-ADT Explorer will now upload the graph, including the twins and relationships, to your new Azure Digital Twins instance.
+ADT Explorer will now upload your models and graph (including the twins and relationships) to your new Azure Digital Twins instance. You should see a success message noting how many models, twins, and relationships were uploaded:
 
-To verify the graph, hit the *Run Query* button in the *GRAPH EXPLORER* box to run the default query that displays all twins and relationships in the graph.
+:::row:::
+    :::column:::
+        :::image type="content" source="media/how-to-move-regions/import-success.png" alt-text="Dialog box indicating graph import success. It reads 'Import successful. 2 models imported. 4 twins imported. 2 relationships imported.'" lightbox="media/how-to-move-regions/import-success.png":::
+    :::column-end:::
+    :::column:::
+    :::column-end:::
+    :::column:::
+    :::column-end:::
+:::row-end:::
+
+To verify everything was uploaded successfully, hit the *Run Query* button in the *GRAPH EXPLORER* box to run the default query that displays all twins and relationships in the graph. This will also refresh the list of models in the *MODEL VIEW*.
 
 :::image type="content" source="media/how-to-move-regions/run-query.png" alt-text="Highlight around the same 'Run Query' button from earlier, near the top of the window" lightbox="media/how-to-move-regions/run-query.png":::
 
-You should see your graph displayed in the *GRAPH EXPLORER* box. This confirms that your graph has been re-uploaded to the new instance in the target region.
+You should see your graph with all its twins and relationships displayed in the *GRAPH EXPLORER* box. You should also see your models listed in the *MODEL VIEW* box.
+
+:::image type="content" source="media/how-to-move-regions/post-upload.png" alt-text="A view of ADT Explorer showing 2 models highlighted in the 'Model View' box, and a graph highlighted in the 'Graph Explorer' box" lightbox="media/how-to-move-regions/post-upload.png":::
+
+This confirms that your models, twins, and graph have been re-uploaded to the new instance in the target region.
 
 #### Recreate endpoints and routes
 
