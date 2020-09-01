@@ -21,11 +21,11 @@ Azure Active Directory (Azure AD) self-service password reset (SSPR) lets users 
 
 If you have problems with SSPR, the following troubleshooting steps and common errors may help. If you can't find the answer to your problem, [our support teams are always available](#contact-microsoft-support) to assist you further.
 
-## Troubleshoot SSPR configuration in the Azure portal
+## SSPR configuration in the Azure portal
 
 If you have problems seeing or configuring SSPR options in the Azure portal, review the following troubleshooting steps:
 
-###  I don't see the **Password reset** section under Azure AD in the Azure portal.
+### I don't see the **Password reset** section under Azure AD in the Azure portal.
 
 You won't see if **Password reset** menu option if you don't have an Azure AD license assigned to the administrator performing the operation.
 
@@ -41,7 +41,7 @@ On-premises password writeback is only visible if you've downloaded Azure AD Con
 
 For more information, see [Getting started with Azure AD Connect](../hybrid/how-to-connect-install-express.md).
 
-## Troubleshoot SSPR reporting
+## SSPR reporting
 
 If you have problems with SSPR reporting in the Azure portal, review the following troubleshooting steps:
 
@@ -57,7 +57,7 @@ When a user registers, we currently log each individual piece of data that's reg
 
 If you want to aggregate this data and have greater flexibility in how you can view it, you can download the report and open the data as a pivot table in Excel.
 
-## Troubleshoot the SSPR registration portal
+## SSPR registration portal
 
 If your users have problems registering for SSPR, review the following troubleshooting steps:
 
@@ -77,7 +77,7 @@ Also review troubleshooting steps to make sure that the administrator performing
 
 Generic SSPR registration errors can be caused by many issues, but generally this error is caused by either a service outage or a configuration issue. If you continue to see this generic error when you retry the SSPR registration process, [contact Microsoft support](#contact-microsoft-support) for additional assistance.
 
-## Troubleshoot SSPR usage
+## SSPR usage
 
 If you or your users have problems using SSPR, review the following troubleshooting scenarios and resolution steps:
 
@@ -97,7 +97,7 @@ If you or your users have problems using SSPR, review the following troubleshoot
 | On-premises policy violation | The password doesn't meet the on-premises Active Directory password policy. The user must define a password that meets the complexity or strength requirements. |
 | Password doesn't comply with fuzzy policy | The password that was used appears in the [banned password list](./concept-password-ban-bad.md#how-are-passwords-evaluated) and can't be used. The user must define a password that meets or exceeds the banned password list policy. |
 
-## Troubleshoot self-service password reset errors that a user might see
+## SSPR errors that a user might see
 
 The following errors and technical details may be shown to a user as part of the SSPR process. Often, the error isn't something they can resolve themselves, as the SSPR feature needs to enabled, configured, or registered for their account.
 

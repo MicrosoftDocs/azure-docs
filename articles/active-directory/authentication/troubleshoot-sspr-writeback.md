@@ -21,7 +21,7 @@ Azure Active Directory (Azure AD) self-service password reset (SSPR) lets users 
 
 If you have problems with SSPR writeback, the following troubleshooting steps and common errors may help. If you can't find the answer to your problem, [our support teams are always available](#contact-microsoft-support) to assist you further.
 
-## Troubleshoot password writeback connectivity
+## Troubleshoot connectivity
 
 If you have problems with password writeback for Azure AD Connect, review the following steps that may help resolve the problem. To recover your service, we recommend that you follow these steps in order:
 
@@ -94,7 +94,7 @@ These steps should re-establish your connection with Azure AD and resolve your c
 
 If installing the latest version of the Azure AD Connect server doesn't resolve your problem, try disabling and then re-enabling password writeback as a final step after you install the latest release.
 
-## Verify that Azure AD Connect has the required permission for password writeback
+## Verify that Azure AD Connect has the required permissions
 
 Azure AD Connect requires AD DS **Reset password** permission to perform password writeback. To check if Azure AD Connect has the required permission for a given on-premises AD DS user account, use the **Windows Effective Permission** feature:
 
@@ -141,7 +141,7 @@ The following more specific issues may occur with password writeback. If you hav
 | Federated, pass-through authentication, or password-hash-synchronized users who attempt to reset their passwords see an error after they submit their password. The error indicates that there was a service problem. <br> <br> In addition to this problem, during password reset operations, you might see an error in your event logs from the Azure AD Connect service that indicates that there's a "Multiple matches found" error. | This indicates that the sync engine detected that the MV object is connected to more than one AD CS object via "Microsoft.InfromADUserAccountEnabled.xxx". This means that the user has an enabled account in more than one forest. This scenario isn't supported for password writeback. |
 | Password operations fail with a configuration error. The application event log contains Azure AD Connect error 6329 with the text "0x8023061f (The operation failed because password synchronization is not enabled on this Management Agent)". | This error occurs if the Azure AD Connect configuration is changed to add a new Active Directory forest (or to remove and readd an existing forest) after the password writeback feature has already been enabled. Password operations for users in these recently added forests fail. To fix the problem, disable and then re-enable the password writeback feature after the forest configuration changes have been completed. |
 
-## Password writeback event-log error codes
+## Password writeback event log error codes
 
 A best practice when you troubleshoot problems with password writeback is to inspect the application event log, on your Azure AD Connect machine. This event log contains events from two sources for password writeback. The *PasswordResetService* source describes operations and problems related to the operation of password writeback. The *ADSync* source describes operations and problems related to setting passwords in your Active Directory Domain Services environment.
 
