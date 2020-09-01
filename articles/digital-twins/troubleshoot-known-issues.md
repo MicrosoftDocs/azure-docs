@@ -16,15 +16,24 @@ This article provides information about known issues associated with Azure Digit
 
 Commands in Cloud Shell may intermittently fail with the error "400 Client Error: Bad Request for url: http://localhost:50342/oauth2/token" followed by full stack trace.
 
+For Azure Digital Twins specifically, this affects the following command groups:
+* `az dt route`
+* `az dt model`
+* `az dt twin`
+
 ### Troubleshooting steps
 
-This can be resolved by re-running the `az login` command and completing subsequent login steps.
+This can be resolved by re-running the `az login` command in Cloud Shell and completing subsequent login steps. After this, you should be able to re-run the command.
 
-After this, you should be able to re-run the command.
+An alternative solution is to [install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) on your machine so you can run Azure CLI commands locally. The local CLI does not experience this issue.
 
 ### Possible causes
 
 This is the result of a known issue in Cloud Shell: [*Getting token from Cloud Shell intermittently fails with 400 Client Error: Bad Request*](https://github.com/Azure/azure-cli/issues/11749).
+
+This presents a problem with Azure Digital Twins instance auth tokens and the Cloud Shell's default [managed identity](../active-directory/managed-identities-azure-resources/overview.md) based authentication. The troubleshooting step of running `az login` switches you out of managed identity authentication, thus stepping over this problem.
+
+This doesn't affect Azure Digital Twins commands from the `az dt` or `az dt endpoint` command groups, because they use a different type of authentication token (ARM-based), which doesn't have an issue with the Cloud Shell's managed identity authentication.
 
 ## Missing role assignment after scripted setup
 
