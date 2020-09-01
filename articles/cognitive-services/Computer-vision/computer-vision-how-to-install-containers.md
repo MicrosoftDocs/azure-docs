@@ -109,6 +109,13 @@ mcr.microsoft.com/azure-cognitive-services/vision/read:3.0 \
 --env ApiKey={API_KEY} \
 ```
 
+This command:
+
+* Runs the Read container from the container image.
+* Allocates 8 CPU core and 18 gigabytes (GB) of memory.
+* Exposes TCP port 5000 and allocates a pseudo-TTY for the container.
+* Automatically removes the container after it exits. The container image is still available on the host computer.
+
 # [Version 3.1](#tab/version-3-1)
 
 ```bash
@@ -119,15 +126,15 @@ mcr.microsoft.com/azure-cognitive-services/vision/read:3.1 \
 --env ApiKey={API_KEY} \
 ```
 
----
-
-
 This command:
 
 * Runs the Read container from the container image.
 * Allocates 8 CPU core and 18 gigabytes (GB) of memory.
 * Exposes TCP port 5000 and allocates a pseudo-TTY for the container.
 * Automatically removes the container after it exits. The container image is still available on the host computer.
+
+---
+
 
 More [examples](./computer-vision-resource-container-config.md#example-docker-run-commands) of the `docker run` command are available. 
 
