@@ -1,14 +1,13 @@
 ---
 title: Supported countries to publish commercial marketplace offers from
 description: List of countries from which you can publish an offer to the Microsoft commercial marketplace.
-ms.reviewer: dannyevers
 ms.reviewer: nanef 
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: mingshen-ms 
 ms.author: mingshen
-ms.date: 08/12/2020
+ms.date: 09/02/2020
 ---
 
 # Supported countries to publish commercial marketplace offers from
