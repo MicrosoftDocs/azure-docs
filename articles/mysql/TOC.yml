@@ -425,15 +425,14 @@
     - name: DB & Servers
       item:
       - name: Servers
-        href: flexible-server/concepts-servers.md
+        href: flexible-server/concept-servers.md
       - name: Supported versions
-        href: flexible-server/concepts-supported-versions.md    
+        href: flexible-server/concepts-supported-versions.md   
     - name: Limitations
       href: flexible-server/concepts-limitations.md
     - name: Compute and storage
       href: flexible-server/concepts-compute-storage.md
     - name: Business continuity
-      expanded: true
       item:
       - name: Business continuity overview
         href: flexible-server/concepts-business-continuity.md
