@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Create knowledge base - REST, Java - QnA Maker"
-description: This Java REST-based quickstart walks you through creating a sample QnA Maker knowledge base, programmatically, that will appear in your Azure Dashboard of your Cognitive Services API account..
+description: This Java REST-based quickstart walks you through creating a sample QnA Maker knowledge base, programmatically, that will appear in your Azure Dashboard of your Cognitive Services API account.
 ms.date: 12/16/2019
 ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: RESTCURL2020FEB27, devx-track-java
@@ -43,8 +43,8 @@ You must have a [QnA Maker service](../How-To/set-up-qnamaker-service-azure.md).
 
 Set the following values:
 
-* `<your-qna-maker-subscription-key>` - The **key** is a 32 character string and is available in the Azure portal, on the QnA Maker resource, on the Quickstart page. This is not the same as the prediction endpoint key.
-* `<your-resource-name>` - Your **resource name** is used to construct the authoring endpoint URL for authoring, in the format of `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com`. This is not the same URL used to query the prediction endpoint.
+* `<your-qna-maker-subscription-key>` - The **key** is a 32 character string and is available in the Azure portal, on the QnA Maker resource, on the Quickstart page. This key is not the same as the prediction endpoint key.
+* `<your-resource-name>` - Your **resource name** is used to construct the authoring endpoint URL for authoring, in the format of `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com`. This resource name is not the same as the one used to query the prediction endpoint.
 
 You do not need to add the final curly bracket to end the class; it is in the final code snippet at the end of this quickstart.
 
@@ -118,13 +118,13 @@ The main method creates the KB, then polls for the status. The operation ID is r
 
 ## Compile and run the program
 
-1. Make sure the gson library is in the `./libs` directory. At the command-line, compile the file `CreateKB.java`:
+1. Make sure the gson library is in the `./libs` directory. At the command line, compile the file `CreateKB.java`:
 
     ```bash
     javac -cp ".;libs/*" CreateKB.java
     ```
 
-2. Enter the following command at a command-line to run the program. It will send the request to the QnA Maker API to create the KB, then it will poll for the results every 30 seconds. Each response is printed to the console window.
+2. Enter the following command at a command line to run the program. It will send the request to the QnA Maker API to create the KB, then it will poll for the results every 30 seconds. Each response is printed to the console window.
 
     ```bash
     java -cp ",;libs/*" CreateKB
