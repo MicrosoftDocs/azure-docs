@@ -187,7 +187,7 @@ The following view shows the writable properties. When you enter the value and *
 ![Pending status](./media/howto-use-properties/status-pending.png)
 
 
-![Accepted](./media/howto-use-properties/accepted.png)
+![Accepted property](./media/howto-use-properties/accepted.png)
 
 ## Next steps
 
