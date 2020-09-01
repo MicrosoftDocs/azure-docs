@@ -721,6 +721,10 @@
               href: app/monitor-performance-live-website-now.md
         - name: Java
           href: app/java-on-premises.md
+    - name: OpenTelemetry
+      items: 
+      - name: FAQ
+        href: faq.md#opentelemetry
     - name: Create a resource (classic)
       href: app/create-new-resource.md
     - name: Create a resource (workspace-based)
