@@ -456,6 +456,10 @@
   items:
   - name: Documentation
     href: hyperscale/index.yml
+  - name: Overview
+    items:
+    - name: What is Hyperscale (Citus)?
+      href: hyperscale-overview.md
   - name: Quickstart
     items:
     - name: Create server group
