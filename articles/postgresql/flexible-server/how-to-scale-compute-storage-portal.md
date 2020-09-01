@@ -32,10 +32,10 @@ Follow these steps to choose the compute tier.
 2.  Click **Compute+storage**.
 
 3.  A page with current settings is displayed.
- ![compute+storage selection](./media/how-to-scale-compute-storage-portal/how-to-click-compute-storage.png)
+ ![compute+storage selection](./media/how-to-scale-compute-storage-portal/click-compute-storage.png)
 
 4.  You can choose the compute class between burstable, general purpose, and memory optimized tiers.
-   ![list compute tiers](./media/how-to-scale-compute-storage-portal/how-to-list-compute-tiers.png)
+   ![list compute tiers](./media/how-to-scale-compute-storage-portal/list-compute-tiers.png)
 
 
 5.  If you are good with the default vCores and memory sizes, you can skip the next step.
@@ -43,13 +43,13 @@ Follow these steps to choose the compute tier.
 6.  If you want to change the number of vCores, you can click the drop-down of **Compute size** and click the desired number of vCores/Memory from the list.
     
     - Burstable compute tier:
-    ![burstable compute](./media/how-to-scale-compute-storage-portal/how-to-compute-burstable-dropdown.png)
+    ![burstable compute](./media/how-to-scale-compute-storage-portal/compute-burstable-dropdown.png)
 
     - General purpose compute tier:
-    ![gp compute](./media/how-to-scale-compute-storage-portal/how-to-compute-gp-dropdown.png)
+    ![general-purpose compute](./media/how-to-scale-compute-storage-portal/compute-general-purpose-dropdown.png)
 
     - Memory optimized compute tier:
-    ![mo compute](./media/how-to-scale-compute-storage-portal/how-to-compute-mo-dropdown.png)
+    ![memory optimized compute](./media/how-to-scale-compute-storage-portal/compute-memory-optimized-dropdown.png)
 
 7.  Click **Save**. 
 8.  You will see a confirmation message. Click **OK** if you want to proceed. 
