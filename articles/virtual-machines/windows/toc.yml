@@ -141,9 +141,6 @@
       items:
       - name: Azure Monitor
         href: ./../scripts/virtual-machines-windows-cli-sample-create-vm-oms.md
-  - name: Azure Policy built-ins
-    displayName: samples, policies, definitions
-    href: ../policy-samples.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
 - name: Concepts
   items:
   - name: Images
@@ -657,6 +654,8 @@
       href: instance-metadata-service.md
     - name: Enable nested virtualization
       href: nested-virtualization.md
+    - name: Automatic VM guest patching (preview)
+      href: automatic-vm-guest-patching.md
   - name: Platform maintenance
     items:
     - name: Maintenance notifications
@@ -1045,6 +1044,9 @@
   - name: Resource Manager template
     displayName: ARM
     href: /azure/templates/microsoft.compute/allversions
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ../policy-reference.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
 - name: Resources
   items:
   - name: Q&A

@@ -52,10 +52,8 @@ Create the resources required to run an ML pipeline:
 * Configure a `Dataset` object to point to persistent data that lives in, or is accessible in, a datastore. Configure a `PipelineData` object for temporary data passed between pipeline steps. 
 
     > [!TIP]
-    > An improved experience for passing temporary data between pipeline steps is available in the public preview class,  `OutputFileDatasetConfig`.  This class is an experimental preview feature, and may change at any time.
-    > 
-    >For more information about experimental features, see https://aka.ms/azuremlexperimental.
-    
+    > An improved experience for passing temporary data between pipeline steps is available in the public preview class,  [`OutputFileDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py).  This class is an [experimental](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py#stable-vs-experimental) preview feature, and may change at any time.
+
 * Set up the [compute targets](concept-azure-machine-learning-architecture.md#compute-targets) on which your pipeline steps will run.
 
 ### Set up a datastore
