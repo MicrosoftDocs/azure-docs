@@ -21,9 +21,11 @@ ms.date: 07/31/2020
 
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-In this article, you learn how to create Azure Machine Learning datasets to access data for your local or remote experiments. To understand where datasets fit in Azure Machine Learning's overall data access workflow, see  the [Securely access data](concept-data.md#data-workflow) article.
+In this article, you learn how to create Azure Machine Learning datasets to access data for your local or remote experiments with the Azure Machine Learning Python SDK. To understand where datasets fit in Azure Machine Learning's overall data access workflow, see  the [Securely access data](concept-data.md#data-workflow) article.
 
 By creating a dataset, you create a reference to the data source location, along with a copy of its metadata. Because the data remains in its existing location, you incur no extra storage cost, and don't risk the integrity of your data sources. Also datasets are lazily evaluated, which aids in workflow performance speeds. You can create datasets from datastores, public URLs, and [Azure Open Datasets](../open-datasets/how-to-create-azure-machine-learning-dataset-from-open-dataset.md).
+
+For a low-code experience, [Create Azure Machine Learning datasets with the Azure Machine Learning studio.](how-to-data-access-ui.md#datasets-studio) 
 
 With Azure Machine Learning datasets, you can:
 
@@ -206,26 +208,6 @@ titanic_ds = titanic_ds.register(workspace=workspace,
                                  name='titanic_ds',
                                  description='titanic training data')
 ```
-
-<a name="datasets-ui"></a>
-## Create datasets in the studio
-The following steps and animation show how to create a dataset in [Azure Machine Learning studio](https://ml.azure.com).
-
-> [!Note]
-> Datasets created through Azure Machine Learning studio are automatically registered to the workspace.
-
-![Create a dataset with the UI](./media/how-to-create-register-datasets/create-dataset-ui.gif)
-
-To create a dataset in the studio:
-1. Sign in at https://ml.azure.com.
-1. Select **Datasets** in the **Assets** section of the left pane. 
-1. Select **Create Dataset** to choose the source of your dataset. This source can be local files, a datastore, or public URLs.
-1. Select **Tabular** or **File** for Dataset type.
-1. Select **Next** to open the **Datastore and file selection** form. On this form you select where to keep your dataset after creation, as well as select what data files to use for your dataset. 
-    1. Enable skip validation if your data is in a virtual network. Learn more about [virtual network isolation and privacy](how-to-enable-virtual-network.md#machine-learning-studio).
-1. Select **Next** to populate the **Settings and preview** and **Schema** forms; they are intelligently populated based on file type and you can further configure your dataset prior to creation on these forms. 
-1. Select **Next** to review the **Confirm details** form. Check your selections and create an optional data profile for your dataset. Learn more about [data profiling](how-to-use-automated-ml-for-ml-models.md#profile). 
-1. Select **Create** to complete your dataset creation.
 
 ## Create datasets with Azure Open Datasets
 
