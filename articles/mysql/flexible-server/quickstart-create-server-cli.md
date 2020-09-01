@@ -114,7 +114,7 @@ Once your VM is created, you can SSH into the machine and install the popular cl
 With mysql.exe, connect using the below command. Replace values with your actual server name and password. 
 
 ```bash
- mysql -h mydemoserver.mysql.database.azure.com -u myadmin -p
+ mysql -h mydemoserver.mysql.database.azure.com -u mydemouser -p
 ```
 
 ## Clean up resources
