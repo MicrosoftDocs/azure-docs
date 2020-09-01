@@ -384,7 +384,7 @@
         href: flexible-server/quickstart-create-server-arm-template.md
   - name: Tutorials
     items:
-    - name: Web app and database server in virtual network
+    - name: Configure Web app and database server in virtual network
       href: flexible-server/tutorial-webapp-server-vnet.md
     - name: Deploy Python (Django) app with database
       href: flexible-server/tutorial-django-app-service-postgres.md
