@@ -79,10 +79,10 @@ Here is an example of what can be added inside the `Hosting` section in the Clus
             "name": "DefaultContainerRepositoryPasswordType",
             "value": "PlainText"
           },
-	  {
+          {
 	    "name": "DefaultMSIEndpointForTokenAuthentication",
 	    "value": "URI"
-	  }
+          }
         ]
       },
 ]
