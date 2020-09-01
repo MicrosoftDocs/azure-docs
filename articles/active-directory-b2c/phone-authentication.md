@@ -45,17 +45,17 @@ If the user doesn't already have an account for your application, they can creat
 
 A one-time verification code is sent to the user's phone number. The user enters the **Verification Code** on the sign-up page, and then selects **Verify Code**. (If the user wasn't able to retrieve the code, they can select **Send New Code**.)
 
-![User starts phone sign-up](media/phone-authentication/phone-signup-verify-code.png)
+![User verifies code during phone sign-up](media/phone-authentication/phone-signup-verify-code.png)
 
  The user enters any other information requested on the sign-up page, for example, **Display Name**, **Given Name**, and **Surname** (Country and phone number remain populated). If the user wants to use a different phone number, they can choose **Change number** to restart sign-up. When finished, the user selects **Continue**.
 
-![User starts phone sign-up](media/phone-authentication/phone-signup-additional-info.png)
+![User provides additional info](media/phone-authentication/phone-signup-additional-info.png)
 
 Next, the user is asked to provide a recovery email. The user enters their email address, and then selects **Send verification code**. A code is sent to the user's email inbox, which they can retrieve and enter in the **Verification code** box. Then the user selects **Verify code**. 
 
 Once the code is verified, the user selects **Create** to create their account. Or if the user wants to use a different email address, they can choose **Change e-mail**.
 
-![Phone sign-in user experience](media/phone-authentication/email-verification.png)
+![User creates account](media/phone-authentication/email-verification.png)
 
 ### Phone sign-in
 
