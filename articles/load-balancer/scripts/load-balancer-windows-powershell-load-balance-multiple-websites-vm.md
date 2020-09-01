@@ -8,7 +8,8 @@ ms.devlang: powershell
 ms.topic: sample
 ms.workload: infrastructure
 ms.date: 04/20/2018
-ms.author: allensu
+ms.author: allensu 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Azure PowerShell script example: Load balance multiple websites
