@@ -13,6 +13,9 @@ ms.author: surmb
 
 This article describes how to use the Azure portal to configure an [Application Gateway v2 SKU](application-gateway-autoscaling-zone-redundant.md) instance to rewrite URL.
 
+>[!NOTE]
+> URL rewrite feature is in preview and is available only for Standard_v2 and WAF_v2 SKU of Application Gateway. It is not recommended for use in production environment. To learn more about previews, see [terms of use here](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Before you begin

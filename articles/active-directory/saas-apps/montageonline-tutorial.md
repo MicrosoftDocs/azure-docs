@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Montage Online | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Montage Online.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 5c5e8c6f-e4fb-43fe-8841-e371f568ebed
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with Montage Online
 

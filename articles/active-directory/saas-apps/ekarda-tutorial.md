@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Ekarda | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Ekarda.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 8e2945aa-46fc-41bc-a530-3807a5dcb76a
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 06/15/2020
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with Ekarda
@@ -151,12 +145,12 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Click on **Admin** -> **My Account**.
 
-    ![Ekarda Configuration](./media/ekarda-tutorial/ekarda.PNG)    
+    ![Ekarda Configuration](./media/ekarda-tutorial/ekarda.png)    
 
 1. At the bottom of the page you will find the **SAML SETTINGS** section where you will configure that SAML integration.
 1. On the following page, perform the following steps:
 
-    ![Ekarda Configuration](./media/ekarda-tutorial/ekarda1.PNG)
+    ![Ekarda Configuration](./media/ekarda-tutorial/ekarda1.png)
 
     a. Click on **Service Provider metadata** link and save it as file in your computer.
 
@@ -186,15 +180,16 @@ When you click the Ekarda tile in the Access Panel, you should be automatically 
 
 ## Additional resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Try Ekarda with Azure AD](https://aad.portal.azure.com/)
 
+- Use [Ekarda's enterprise eCard solution](https://ekarda.com/ecards-ecards-with-logo-for-business-corporate-enterprise) to provision any number of staff to send eCards that are branded with your company logo to their clients and colleagues. Learn more about provisioning [Ekarda as an SSO solution](https://support.ekarda.com/#SSO-Implementation).
+
 - [What is session control in Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 
 - [How to protect Ekarda with advanced visibility and controls](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-

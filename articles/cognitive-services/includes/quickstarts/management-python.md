@@ -157,6 +157,13 @@ Add the following code to the bottom of your script to call the above functions.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/azure_management_service/create_delete_resource.py?name=snippet_calls)]
 
+## Run the application
+
+Run your application from the command line with the `python` command.
+
+```console
+python <your-script-name>.py
+```
 
 ## See also
 

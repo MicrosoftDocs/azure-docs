@@ -12,11 +12,13 @@ ms.subservice:
 ms.workload: 
 ms.topic: article
 ms.custom: 
-ms.date: 07/15/2020
+ms.date: 08/31/2020
 ms.author: inhenkel
 ---
 
 # High Availability with Media Services and Video on Demand (VOD)
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 ## High availability for VOD
 
@@ -60,7 +62,7 @@ This high-level diagram shows the architecture of the sample provided to get you
 ### Monitoring
 
 * Subscribe for `JobStateChange` messages in each account via Azure Event Grid.
-    * [Register for events](https://review.docs.microsoft.com/azure/media-services/latest/reacting-to-media-services-events) via the Azure portal or the CLI (you can also do it with the EventGrid Management SDK)
+    * [Register for events](https://review.docs.microsoft.com/azure/media-services/latest/reacting-to-media-services-events) via the Azure portal or the CLI (you can also do it with the Event Grid Management SDK)
     * Use the [Microsoft.Azure.EventGrid SDK](https://www.nuget.org/packages/Microsoft.Azure.EventGrid/) (which supports Media Services events natively).
     * You can also consume Event Grid events via Azure Functions.
 
@@ -81,5 +83,4 @@ This high-level diagram shows the architecture of the sample provided to get you
 
 ## Next steps
 
-* [Build video-on-demand cross region streaming](media-services-high-availability-streaming.md)
 * Check out [code samples](/samples/browse/?products=azure-media-services)

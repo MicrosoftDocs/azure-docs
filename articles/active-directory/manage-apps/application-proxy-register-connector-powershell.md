@@ -33,6 +33,9 @@ For the [Application Proxy connector](application-proxy-connectors.md) to work, 
 
 There are two steps for an unattended installation. First, install the connector. Second, register the connector with Azure AD.
 
+> [!IMPORTANT]
+> If you are installing the connector for Azure Government cloud review the [pre-requisites](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-government-cloud#allow-access-to-urls) and [installation steps](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-government-cloud#install-the-agent-for-the-azure-government-cloud). This requires enabling access to a different set of URLs and an additional parameter to run the installation.
+
 ## Install the connector
 Use the following steps to install the connector without registering it:
 

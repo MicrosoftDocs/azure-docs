@@ -15,7 +15,7 @@ ms.date: 06/07/2020
 
 **Search explorer** is a built-in query tool used for running queries against a search index in Azure Cognitive Search. This tool makes it easy to learn query syntax, test a query or filter expression, or confirm data refresh by checking whether new content exists in the index.
 
-This quickstart uses an existing index to demonstrate Search explorer. Requests are formulated using the [Search REST API](https://docs.microsoft.com/rest/api/searchservice/), with responses returned as JSON documents.
+This quickstart uses an existing index to demonstrate Search explorer. Requests are formulated using the [Search REST API](/rest/api/searchservice/), with responses returned as JSON documents.
 
 ## Prerequisites
 
@@ -129,7 +129,7 @@ Add [**$orderby**](search-query-odata-orderby.md) to sort results by another fie
 
    ![Orderby expression](./media/search-explorer/search-explorer-example-ordery.png "Change the sort order")
 
-Both **$filter** and **$orderby** expressions are OData constructions. For more information, see [Filter OData syntax](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search).
+Both **$filter** and **$orderby** expressions are OData constructions. For more information, see [Filter OData syntax](/rest/api/searchservice/odata-expression-syntax-for-azure-search).
 
 <a name="start-search-explorer"></a>
 
@@ -143,7 +143,7 @@ In this quickstart, you used **Search explorer** to query an index using the RES
 
 + Free-form queries, similar to what you might enter in a commercial web browser, are useful for testing an end-user experience. For example, assuming the built-in realestate sample index, you could enter "Seattle apartments lake washington", and then you can use Ctrl-F to find terms within the search results. 
 
-+ Query and filter expressions are articulated in a syntax supported by Azure Cognitive Search. The default is a [simple syntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search), but you can optionally use [full Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) for more powerful queries. [Filter expressions](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) are an OData syntax.
++ Query and filter expressions are articulated in a syntax supported by Azure Cognitive Search. The default is a [simple syntax](/rest/api/searchservice/simple-query-syntax-in-azure-search), but you can optionally use [full Lucene](/rest/api/searchservice/lucene-query-syntax-in-azure-search) for more powerful queries. [Filter expressions](/rest/api/searchservice/odata-expression-syntax-for-azure-search) are an OData syntax.
 
 ## Clean up resources
 
@@ -155,7 +155,7 @@ If you are using a free service, remember that you are limited to three indexes,
 
 ## Next steps
 
-To learn more about query structures and syntax, use Postman or an equivalent tool to create query expressions that leverage more parts of the API. The [Search REST API](https://docs.microsoft.com/rest/api/searchservice/) is especially helpful for learning and exploration.
+To learn more about query structures and syntax, use Postman or an equivalent tool to create query expressions that leverage more parts of the API. The [Search REST API](/rest/api/searchservice/) is especially helpful for learning and exploration.
 
 > [!div class="nextstepaction"]
 > [Create a basic query in Postman](search-query-simple-examples.md)

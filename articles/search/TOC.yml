@@ -79,18 +79,15 @@
 - name: Samples
   items:
   - name: C# samples
-    href: https://docs.microsoft.com/samples/browse/?products=azure-cognitive-search&languages=csharp
+    href: /samples/browse/?languages=csharp&products=azure-cognitive-search
   - name: Java samples
-    href: https://docs.microsoft.com/samples/browse/?products=azure-cognitive-search&languages=java
+    href: /samples/browse/?languages=java&products=azure-cognitive-search
   - name: JavaScript samples
-    href: https://docs.microsoft.com/samples/browse/?products=azure-cognitive-search&languages=javascript
+    href: /samples/browse/?languages=javascript&products=azure-cognitive-search
   - name: Python samples
-    href: https://docs.microsoft.com/samples/browse/?products=azure-cognitive-search&languages=python
+    href: /samples/browse/?languages=python&products=azure-cognitive-search
   - name: REST samples
-    href: https://docs.microsoft.com/samples/browse/?languages=http&expanded=azure&products=azure-cognitive-search
-  - name: Azure Policy built-ins
-    displayName: samples, policies, definitions
-    href: ./policy-samples.md
+    href: /samples/browse/?expanded=azure&languages=http&products=azure-cognitive-search
 - name: Concepts
   items:
   - name: Full-text search
@@ -110,6 +107,13 @@
       href: knowledge-store-projection-overview.md
     - name: Incremental enrichment
       href: cognitive-search-incremental-indexing-conceptual.md
+  - name: Security
+    items:
+    - name: Security overview
+      href: search-security-overview.md
+    - name: Security controls by Azure Policy
+      displayName: regulatory, compliance, standards, domains
+      href: ./security-controls-policy.md
 - name: How-to guides
   items:
   - name: Create indexes and constructs
@@ -148,7 +152,7 @@
       href: search-howto-large-index.md
     - name: Handle concurrent updates
       href: search-howto-concurrency.md
-  - name: Ingest Azure data
+  - name: Ingest Azure-only data
     items:
     - name: Configure indexers
       href: search-indexer-overview.md
@@ -196,7 +200,7 @@
         href: search-howto-managed-identities-cosmos-db.md
       - name: SQL Database
         href: search-howto-managed-identities-sql.md
-  - name: Ingest using AI
+  - name: Use skills (AI)
     items:
     - name: Attach a Cognitive Services resource
       href: cognitive-search-attach-cognitive-services.md
@@ -208,7 +212,7 @@
         href: cognitive-search-concept-annotations-syntax.md
       - name: Map to index fields
         href: cognitive-search-output-field-mapping.md
-      - name: Extract information from images
+      - name: Process image files
         href: cognitive-search-concept-image-scenarios.md
       - name: Cache (incremental) enrichment
         href: search-howto-incremental-index.md
@@ -305,9 +309,15 @@
     - name: Preview feature list
       href: search-api-preview.md
     - name: Develop in .NET
-      href: search-howto-dotnet-sdk.md
+      items:
+      - name: Use Microsoft.Azure.Search (v10)
+        href: search-howto-dotnet-sdk.md
+      - name: Get started (v10)
+        href: search-get-started-dotnet-v10.md
     - name: Upgrade the SDK
       items:
+      - name: .NET SDK 11.0
+        href: search-dotnet-sdk-migration-version-11.md
       - name: .NET SDK 10.0
         href: search-dotnet-sdk-migration-version-10.md
       - name: .NET SDK 9.0
@@ -324,12 +334,12 @@
       href: search-api-migration.md
   - name: Security
     items:
-    - name: Overview
-      href: search-security-overview.md
     - name: Data encryption
       items:
       - name: Customer-managed keys
         href: search-security-manage-encryption-keys.md
+      - name: Get key information
+        href: search-security-get-encryption-keys.md
     - name: Inbound security
       items:
       - name: API access keys
@@ -342,7 +352,7 @@
       items:
       - name: Security filters
         href: search-security-trimming-for-azure-search.md
-      - name: Filter on AAD identities
+      - name: Filter on user identities
         href: search-security-trimming-for-azure-search-with-aad.md
   - name: Manage
     items:
@@ -393,25 +403,25 @@
   - name: .NET
     items:
     - name: Search API
-      href: https://docs.microsoft.com/dotnet/api/overview/azure/search.documents-readme?view=azure-dotnet
+      href: /dotnet/api/overview/azure/search.documents-readme?view=azure-dotnet
     - name: Management API
-      href: https://docs.microsoft.com/dotnet/api/overview/azure/search/management?view=azure-dotnet
+      href: /dotnet/api/overview/azure/search/management?view=azure-dotnet
   - name: Java
     items:
     - name: Management API
-      href: https://docs.microsoft.com/java/api/overview/azure/search/management?view=azure-java-stable
+      href: /java/api/overview/azure/search/management?view=azure-java-stable
   - name: JavaScript
     items:
     - name: Search API
-      href: https://docs.microsoft.com/javascript/api/overview/azure/search-documents-readme?view=azure-node-latest
+      href: /javascript/api/overview/azure/search-documents-readme?view=azure-node-latest
     - name: Management API
-      href: https://docs.microsoft.com/javascript/api/overview/azure/search/management?view=azure-node-latest
+      href: /javascript/api/overview/azure/search/management?view=azure-node-latest
   - name: Python
     items:
     - name: Search API
-      href: https://docs.microsoft.com/python/api/overview/azure/search-documents-readme?view=azure-python
+      href: /python/api/overview/azure/search-documents-readme?view=azure-python
     - name: Management API
-      href: https://docs.microsoft.com/python/api/overview/azure/search/management?view=azure-python
+      href: /python/api/overview/azure/search/management?view=azure-python
   - name: OData language reference
     items:
     - name: Overview
@@ -483,6 +493,9 @@
       items:
       - name: Named Entity Recognition
         href: cognitive-search-skill-named-entity-recognition.md
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-reference.md
 - name: Resources
   items:
   - name: Azure Community Support
@@ -504,7 +517,7 @@
   - name: Training
     items:
     - name: Introduction (Microsoft Learn)
-      href: https://docs.microsoft.com/learn/modules/intro-to-azure-search/
+      href: /learn/modules/intro-to-azure-search/
     - name: Add search to apps (Pluralsight)
       href: https://www.pluralsight.com/courses/azure-adding-search-abilities-apps
     - name: Developer course (Pluralsight)

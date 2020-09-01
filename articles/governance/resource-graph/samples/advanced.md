@@ -1,7 +1,7 @@
 ---
 title: Advanced query samples
 description: Use Azure Resource Graph to run some advanced queries, including working with columns, listing tags used, and matching resources with regular expressions.
-ms.date: 07/14/2020
+ms.date: 08/13/2020
 ms.topic: sample
 ---
 # Advanced Resource Graph query samples
@@ -26,6 +26,7 @@ We'll walk through the following advanced queries:
 - [Find storage accounts with a specific tag on the resource group](#join-findstoragetag)
 - [Combine results from two queries into a single result](#unionresults)
 - [Include the tenant and subscription names with DisplayNames](#displaynames)
+- [Summarize virtual machine by the power states extended property](#vm-powerstate)
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free)
 before you begin.
@@ -342,8 +343,9 @@ Search-AzGraph -Query "Resources | where type =~ 'microsoft.sql/servers/database
 
 ## <a name="join-vmpip"></a>List virtual machines with their network interface and public IP
 
-This query uses two **leftouter** `join` commands to bring together virtual machines, their related
-network interfaces, and any public IP address related to those network interfaces.
+This query uses two **leftouter** `join` commands to bring together virtual machines created with
+the Resource Manager deployment model, their related network interfaces, and any public IP address
+related to those network interfaces.
 
 ```kusto
 Resources
@@ -558,9 +560,43 @@ Search-AzGraph -Query "ResourceContainers | where type=='microsoft.resources/sub
 
 ---
 
+## <a name="vm-powerstate"></a>Summarize virtual machine by the power states extended property
+
+This query uses the [extended properties](../concepts/query-language.md#extended-properties) on
+virtual machines to summarize by power states.
+
+
+```kusto
+Resources
+| where type == 'microsoft.compute/virtualmachines'
+| summarize count() by tostring(properties.extended.instanceView.powerState.code)
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+```azurecli-interactive
+az graph query -q "Resources | where type == 'microsoft.compute/virtualmachines' | summarize count() by tostring(properties.extended.instanceView.powerState.code)"
+```
+
+# [Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell-interactive
+Search-AzGraph -Query "Resources | where type == 'microsoft.compute/virtualmachines' | summarize count() by tostring(properties.extended.instanceView.powerState.code)"
+```
+
+# [Portal](#tab/azure-portal)
+
+:::image type="icon" source="../media/resource-graph-small.png"::: Try this query in Azure Resource Graph Explorer:
+
+- Azure portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D%3D%20%27microsoft.compute%2Fvirtualmachines%27%20%7C%20summarize%20count%28%29%20by%20tostring%28properties.extended.instanceView.powerState.code%29" target="_blank">portal.azure.com <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+- Azure Government portal: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D%3D%20%27microsoft.compute%2Fvirtualmachines%27%20%7C%20summarize%20count%28%29%20by%20tostring%28properties.extended.instanceView.powerState.code%29" target="_blank">portal.azure.us <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+- Azure China 21Vianet portal: <a href="https://portal.azure.cn/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D%3D%20%27microsoft.compute%2Fvirtualmachines%27%20%7C%20summarize%20count%28%29%20by%20tostring%28properties.extended.instanceView.powerState.code%29" target="_blank">portal.azure.cn <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+
+---
+
 ## <a name="displaynames"></a>Include the tenant and subscription names with DisplayNames
 
-This query uses the new **Include** parameter with option _DisplayNames_ to add
+This query uses the **Include** parameter with option _DisplayNames_ to add
 **subscriptionDisplayName** and **tenantDisplayName** to the results. This parameter is only
 available for Azure CLI and Azure PowerShell.
 

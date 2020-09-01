@@ -6,6 +6,7 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 06/26/2020
+ms.custom: devx-track-java
 ---
 
 # Tutorial: Provision an Azure Spring Cloud instance with Terraform
@@ -31,7 +32,7 @@ This tutorial creates an Azure Spring Cloud instance using Terraform. The proced
 
 1. Sign in to the [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Open the [Azure Cloud Shell](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-java#use-azure-cloud-shell).
+1. Open the [Azure Cloud Shell](https://docs.microsoft.com/azure/app-service/quickstart-java#use-azure-cloud-shell).
 
 1. Start the Cloud Shell editor:
 

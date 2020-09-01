@@ -169,7 +169,7 @@ The following function deletes the specified resource from the given resource gr
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/azure_management_service/create_delete_resource.js?name=snippet_delete)]
 
-## Run the program
+## Run the application
 
 Add the following code to the bottom of your script to call your main `quickstart` function with error handling.
 

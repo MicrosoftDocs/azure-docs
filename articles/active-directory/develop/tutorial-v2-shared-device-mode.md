@@ -24,11 +24,11 @@ ms.custom: aaddev, identityplatformtop40
 
 ## Developer guide
 
-This guide provides developer guidance to implement shared-device mode in an Android application using the Microsoft Authentication Library (MSAL). See the [MSAL Android tutorial](https://docs.microsoft.com/azure/active-directory/develop/tutorial-v2-android) to see how to integrate MSAL with your Android app, sign in a user, call Microsoft graph, and sign out a user.
+This guide provides developer guidance to implement shared-device mode in an Android application using the Microsoft Authentication Library (MSAL). See the [MSAL Android tutorial](./tutorial-v2-android.md) to see how to integrate MSAL with your Android app, sign in a user, call Microsoft graph, and sign out a user.
 
 ### Download the sample
 
-Clone the [sample application](https://github.com/Azure-Samples/ms-identity-android-java/) from GitHub. The sample has the capability to work in [single or multi account mode](https://docs.microsoft.com/azure/active-directory/develop/single-multi-account).
+Clone the [sample application](https://github.com/Azure-Samples/ms-identity-android-java/) from GitHub. The sample has the capability to work in [single or multi account mode](./single-multi-account.md).
 
 ### Add the MSAL SDK to your local Maven repository
 
@@ -42,7 +42,7 @@ dependencies{
 
 ### Configure your app to use shared-device mode
 
-Refer to the [configuration documentation](https://docs.microsoft.com/azure/active-directory/develop/msal-configuration) for more information on setting up your config file.
+Refer to the [configuration documentation](./msal-configuration.md) for more information on setting up your config file.
 
 Set `"shared_device_mode_supported"` to `true` in your MSAL configuration file.
 
@@ -200,7 +200,7 @@ The following steps describe setting up your application in the Azure portal and
 
 First, register your application within your organizational tenant. Then provide these values below in auth_config.json in order for your application to run correctly.
 
-For information on how to do this, refer to [Register your application](https://docs.microsoft.com/azure/active-directory/develop/tutorial-v2-android#register-your-application).
+For information on how to do this, refer to [Register your application](./tutorial-v2-android.md#register-your-application).
 
 > [!NOTE]
 > When you register your app, please use the quickstart guide on the left-hand side and then select **Android**. This will lead you to a page where you'll be asked to provide the **Package Name** and **Signature Hash** for your app. These are very important to ensure your app configuration will work. You'll then receive a configuration object that you can use for your app that you'll cut and paste into your auth_config.json file.

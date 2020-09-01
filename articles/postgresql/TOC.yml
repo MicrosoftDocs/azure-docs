@@ -1,4 +1,4 @@
-- name: Azure DB for PostgreSQL Docs
+- name: Azure DB for PostgreSQL documentation
   href: index.yml
 - name: Overview
   items:
@@ -28,6 +28,12 @@
         href: connect-nodejs.md
       - name: Java
         href: connect-java.md
+      - name: Java with Spring Data JDBC
+        href: /azure/developer/java/spring-framework/configure-spring-data-jdbc-with-azure-postgresql?toc=/azure/postgresql/toc.json&bc=/azure/bread/toc.json
+      - name: Java with Spring Data JPA
+        href: /azure/developer/java/spring-framework/configure-spring-data-jpa-with-azure-postgresql?toc=/azure/postgresql/toc.json&bc=/azure/bread/toc.json
+      - name: Java with Spring Data R2DBC
+        href: /azure/developer/java/spring-framework/configure-spring-data-r2dbc-with-azure-postgresql?toc=/azure/postgresql/toc.json&bc=/azure/bread/toc.json
       - name: Ruby
         href: connect-ruby.md
       - name: PHP
@@ -38,7 +44,7 @@
         href: connect-go.md
   - name: Hyperscale (Citus)
     items:
-    - name: Create DB - Portal
+    - name: Create server group - Portal
       href: quickstart-create-hyperscale-portal.md
 - name: Tutorials
   items:
@@ -53,7 +59,7 @@
       - name: Azure PowerShell
         href: tutorial-design-database-using-powershell.md
     - name: 2 - Design Web App - Python
-      href: ../app-service/containers/tutorial-python-postgresql-app.md
+      href: ../app-service/tutorial-python-postgresql-app.md
       maintainContext: true
     - name: 3 - Monitor and tune
       href: tutorial-monitor-and-tune.md
@@ -67,9 +73,6 @@
   items:
   - name: Azure CLI
     href: sample-scripts-azure-cli.md
-  - name: Azure Policy built-ins
-    displayName: samples, policies, definitions
-    href: ./policy-samples.md
 - name: Concepts
   items:
   - name: Single server
@@ -113,7 +116,7 @@
       - name: Data Encryption
         href: concepts-data-encryption-postgresql.md
       - name: Infrastructure double encryption
-        href: concepts-infrastructure-double-encryption.md        
+        href: concepts-infrastructure-double-encryption.md
       - name: Security baseline for Azure Security Benchmark
         href: security-baseline.md
     - name: Business continuity
@@ -153,30 +156,32 @@
         href: concepts-aks.md
       - name: Java
         items:
+        - name: Use Java and JDBC
+          href: connect-java.md
         - name: Configure Spring Data JDBC
-          href: /java/azure/spring-framework/configure-spring-data-jdbc-with-azure-postgresql
+          href: /azure/developer/java/spring-framework/configure-spring-data-jdbc-with-azure-postgresql?toc=/azure/postgresql/toc.json&bc=/azure/bread/toc.json
         - name: Configure Spring Data JPA
-          href: /java/azure/spring-framework/configure-spring-data-jpa-with-azure-postgresql
+          href: /azure/developer/java/spring-framework/configure-spring-data-jpa-with-azure-postgresql?toc=/azure/postgresql/toc.json&bc=/azure/bread/toc.json
+        - name: Configure Spring Data R2DBC
+          href: /azure/developer/java/spring-framework/configure-spring-data-r2dbc-with-azure-mysql
     - name: Replication
       items:
       - name: Read replicas
         href: concepts-read-replicas.md
       - name: Logical decoding
         href: concepts-logical.md
-    - name: Move between regions
-      items:
-      - name: Azure portal
-        href: howto-move-regions-portal.md
   - name: Hyperscale (Citus)
     items:
-    - name: Nodes
-      href: concepts-hyperscale-nodes.md
     - name: Distributed data
-      href: concepts-hyperscale-distributed-data.md
-    - name: Choose a distribution column
-      href: concepts-hyperscale-choose-distribution-column.md
-    - name: Table colocation
-      href: concepts-hyperscale-colocation.md
+      items:
+      - name: Nodes and tables
+        href: concepts-hyperscale-nodes.md
+      - name: Determine application type
+        href: concepts-hyperscale-app-type.md
+      - name: Choose a distribution column
+        href: concepts-hyperscale-choose-distribution-column.md
+      - name: Table colocation
+        href: concepts-hyperscale-colocation.md
     - name: Data access and security
       items:
       - name: Firewall rules
@@ -255,6 +260,8 @@
       items:
       - name: Configure TLS
         href: howto-tls-configurations.md
+      - name: Azure PowerShell
+        href: howto-connection-string-powershell.md
     - name: Configure server parameters
       items:
       - name: Azure portal
@@ -335,16 +342,24 @@
         href: howto-read-replicas-cli.md
       - name: Manage read replicas Azure PowerShell
         href: howto-read-replicas-powershell.md
+    - name: Move between regions
+      items:
+      - name: Azure portal
+        href: howto-move-regions-portal.md
   - name: Hyperscale (Citus)
     items:
     - name: Create users
       href: howto-hyperscale-create-users.md
-    - name: Scale
+    - name: Server group size
       href: howto-hyperscale-scaling.md
     - name: Manage firewall
       items:
       - name: Azure portal
         href: howto-hyperscale-manage-firewall-using-portal.md
+    - name: Distributed data
+      items:
+      - name: Distribute and modify tables
+        href: howto-hyperscale-modify-distributed-tables.md
     - name: High availability
       href: howto-hyperscale-high-availability.md
     - name: Monitor
@@ -359,12 +374,25 @@
         href: howto-hyperscale-troubleshoot-common-connection-issues.md
 - name: Reference
   items:
-  - name: Azure CLI
-    href: /cli/azure/postgres
-  - name: REST API
-    href: /rest/api/postgresql
-  - name: Resource Manager template
-    href: /azure/templates/microsoft.dbforpostgresql/allversions
+  - name: Single server
+    items:
+      - name: Azure CLI
+        href: /cli/azure/postgres
+      - name: REST API
+        href: /rest/api/postgresql
+      - name: Resource Manager template
+        href: /azure/templates/microsoft.dbforpostgresql/allversions
+  - name: Hyperscale (Citus)
+    items:
+      - name: SQL API functions
+        href: reference-hyperscale-functions.md
+      - name: Server parameters
+        href: reference-hyperscale-parameters.md
+      - name: System tables
+        href: reference-hyperscale-metadata.md
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-reference.md
 - name: Resources
   items:
   - name: Build your skills with Microsoft Learn

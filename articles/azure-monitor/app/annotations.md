@@ -2,7 +2,7 @@
 title: Release annotations for Application Insights | Microsoft Docs
 description: Add deployment or build markers to your metrics explorer charts in Application Insights.
 ms.topic: conceptual
-ms.date: 07/01/2019
+ms.date: 08/14/2020
 
 ---
 
@@ -30,7 +30,7 @@ You only need to install the extension once for your Azure DevOps organization. 
 
 Create a separate API key for each of your Azure Pipelines release templates.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and open the Application Insights resource that monitors your application. Or if you don't have one, [create a new Application Insights resource](../../azure-monitor/app/app-insights-overview.md).
+1. Sign in to the [Azure portal](https://portal.azure.com) and open the Application Insights resource that monitors your application. Or if you don't have one, [create a new Application Insights resource](./app-insights-overview.md).
    
 1. Open the **API Access** tab and copy the **Application Insights ID**.
    
@@ -64,6 +64,10 @@ Create a separate API key for each of your Azure Pipelines release templates.
    ![In the Azure DevOps Variables tab, select Add, name the variable ApiKey, and paste the API key under Value.](./media/annotations/7-paste-api-key.png)
    
 1. Select **Save** in the main release template window to save the template.
+
+
+   > [!NOTE]
+   > Limits for API keys are described in the [REST API rate limits documentation](https://dev.applicationinsights.io/documentation/Authorization/Rate-limits).
 
 ## View annotations
 
@@ -111,5 +115,6 @@ You can modify the script, for example to create annotations for the past.
 
 ## Next steps
 
-* [Create work items](../../azure-monitor/app/diagnostic-search.md#create-work-item)
-* [Automation with PowerShell](../../azure-monitor/app/powershell.md)
+* [Create work items](./diagnostic-search.md#create-work-item)
+* [Automation with PowerShell](./powershell.md)
+

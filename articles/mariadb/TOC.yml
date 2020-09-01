@@ -1,4 +1,4 @@
-- name: Azure DB for MariaDB Docs
+- name: Azure DB for MariaDB documentation
   href: index.yml
 - name: Overview
   items:
@@ -38,9 +38,6 @@
   items:
   - name: Azure CLI
     href: sample-scripts-azure-cli.md
-  - name: Azure Policy built-ins
-    displayName: samples, policies, definitions
-    href: ./policy-samples.md
 - name: Concepts
   items:
   - name: DB & Servers
@@ -145,7 +142,11 @@
     - name: Create users
       href: howto-create-users.md
     - name: Connection strings
-      href: howto-connection-string.md
+      items:
+      - name: Connect applications
+        href: howto-connection-string.md
+      - name: Azure PowerShell
+        href: howto-connection-string-powershell.md
     - name: Configure SSL
       href: howto-configure-ssl.md
     - name: Configure TLS
@@ -240,6 +241,9 @@
     href: /azure/templates/microsoft.dbformariadb/allversions
   - name: Management stored procedures
     href: reference-stored-procedures.md
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-reference.md
 - name: Resources
   items:
   - name: Deployment templates

@@ -36,7 +36,7 @@ This tutorial uses Azure Cognitive Search and Azure Storage services.
 
 * [Download sample data](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/clinical-trials-pdf-19) consisting of 19 files.
 
-* [Create an Azure storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal) or [find an existing account](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/). 
+* [Create an Azure storage account](../storage/common/storage-account-create.md?tabs=azure-portal) or [find an existing account](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/). 
 
    Choose the same region as Azure Cognitive Search to avoid bandwidth charges.
    
@@ -70,7 +70,7 @@ In this section, Postman and a provided collection are used to create the search
 1. Under **Files** > **New**, select the collection to import.
 1. After the collection is imported, expand the actions list (...).
 1. Click **Edit**.
-1. Enter the name of your searchService (for example, if the endpoint is https://mydemo.search.windows.net, then the service name is "mydemo").
+1. Enter the name of your searchService (for example, if the endpoint is `https://mydemo.search.windows.net`, then the service name is "`mydemo`").
 1. Enter the apiKey with either the primary or secondary key of your search service.
 1. Enter the storageConnectionString from the keys page of your Azure Storage account.
 1. Enter the containerName for the container you created in the storage account.
@@ -255,5 +255,5 @@ If you are using a free service, remember that you are limited to three indexes,
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn more about skillsets](https://docs.microsoft.com/azure/search/cognitive-search-working-with-skillsets)
-> [Learn more about incremental enrichment and caching](https://docs.microsoft.com/azure/search/cognitive-search-incremental-indexing-conceptual)
+> [Learn more about skillsets](./cognitive-search-working-with-skillsets.md)
+> [Learn more about incremental enrichment and caching](./cognitive-search-incremental-indexing-conceptual.md)

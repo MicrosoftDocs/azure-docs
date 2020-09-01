@@ -179,6 +179,14 @@ The following method deletes the specified resource from the given resource grou
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/azure_management_service/create_delete_resource.cs?name=snippet_delete)]
 
+## Run the application
+
+Run the application from your application directory with the `dotnet run` command.
+
+```dotnet
+dotnet run
+```
+
 ## See also
 
 * [Azure Management SDK reference documentation](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/management?view=azure-dotnet)

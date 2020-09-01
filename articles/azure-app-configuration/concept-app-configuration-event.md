@@ -1,6 +1,6 @@
 ---
 title: Reacting to Azure App Configuration key-value events
-description: Use Azure Event Grid to subscribe to App Configuration events. 
+description: Use Azure Event Grid to subscribe to App Configuration events, which allow applications to react to changes in key-values without the need for complicated code.
 services: azure-app-configuration,event-grid 
 author: jimmyca
 

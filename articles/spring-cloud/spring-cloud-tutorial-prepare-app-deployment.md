@@ -6,15 +6,18 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 02/03/2020
 ms.author: brendm
-
+ms.custom: devx-track-java
 ---
+
 # Prepare a Java Spring application for deployment in Azure Spring Cloud
 
 This topic shows how to prepare an existing Java Spring application for deployment to Azure Spring Cloud. If configured properly, Azure Spring Cloud provides robust services to monitor, scale, and update your Java Spring Cloud application.
 
+Before running this example, you can try the [basic quickstart](spring-cloud-quickstart.md).
+
 Other examples explain how to deploy an application to Azure Spring Cloud when the POM file is configured. 
-* [Launch App using the Azure portal](spring-cloud-quickstart-launch-app-portal.md)
-* [Launch App using the Azure CLI](spring-cloud-quickstart-launch-app-cli.md)
+* [Launch your first App](spring-cloud-quickstart.md)
+* [Build and run Microservices](spring-cloud-quickstart-sample-app-introduction.md)
 
 This article explains the required dependencies and how to add them to the POM file.
 
@@ -33,8 +36,8 @@ Azure Spring Cloud supports only Spring Boot apps either Spring Boot version 2.1
 Spring Boot version | Spring Cloud version
 ---|---
 2.1 | Greenwich.RELEASE
-2.2 | Hoxton.RELEASE
-2.3 | Hoxton.SR5
+2.2 | Hoxton.SR8
+2.3 | Hoxton.SR8
 
 ### Dependencies for Spring Boot version 2.1
 
@@ -54,7 +57,7 @@ For Spring Boot version 2.1 add the following dependencies to the application PO
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
-                <version>Greenwich.SR4</version>
+                <version>Greenwich.RELEASE</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -80,7 +83,7 @@ For Spring Boot version 2.2 add the following dependencies to the application PO
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
-                <version>Hoxton.SR1</version>
+                <version>Hoxton.SR8</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -105,7 +108,7 @@ For Spring Boot version 2.3 add the following dependencies to the application PO
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
-                <version>Hoxton.SR5</version>
+                <version>Hoxton.SR8</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -114,49 +117,23 @@ For Spring Boot version 2.3 add the following dependencies to the application PO
 ```
 ## Azure Spring Cloud client dependency
 
-Azure Spring Cloud hosts and manages Spring Cloud components. The components include Spring Cloud Service Registry and Spring Cloud Config Server. Include the Azure Spring Cloud client library in your dependencies to allow communication with your Azure Spring Cloud service instance.
+Azure Spring Cloud hosts and manages Spring Cloud components. The components include Spring Cloud Service Registry and Spring Cloud Config Server. It is recommended to use Spring Boot 2.2 or 2.3. For Spring Boot 2.1, you will need to include the Azure Spring Cloud client library in your dependencies to allow communication with your Azure Spring Cloud service instance.
 
 The following table lists the correct Azure Spring Cloud versions for your app that uses Spring Boot and Spring Cloud.
 
-Spring Boot version | Spring Cloud version | Azure Spring Cloud version
+Spring Boot version | Spring Cloud version | Azure Spring Cloud client starter version
 ---|---|---
-2.1 | Greenwich.RELEASE | 2.1
-2.2 | Hoxton.RELEASE | 2.2
-2.3 | Hoxton.SR5 | 2.3
+2.1 | Greenwich.RELEASE | 2.1.2
+2.2 | Hoxton.SR8 | Not needed
+2.3	| Hoxton.SR8 | Not needed
 
-Include one of the following dependencies in your pom.xml file. Select the dependency whose Azure Spring Cloud version matches your own.
-
-### Dependency for Azure Spring Cloud version 2.1
-
-For Spring Boot version 2.1 add the following dependency to the application POM file.
+Include the following dependenciy in your pom.xml file if you are using Spring Boot 2.1.
 
 ```xml
 <dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>spring-cloud-starter-azure-spring-cloud-client</artifactId>
         <version>2.1.2</version>
-</dependency>
-```
-
-### Dependency for Azure Spring Cloud version 2.2
-
-For Spring Boot version 2.2 add the following dependency to the application POM file.
-
-```xml
-<dependency>
-        <groupId>com.microsoft.azure</groupId>
-        <artifactId>spring-cloud-starter-azure-spring-cloud-client</artifactId>
-        <version>2.2.1</version>
-</dependency>
-```
-
-For Spring Boot version 2.3 add the following dependency to the application POM file.
-
-```xml
-<dependency>
-        <groupId>com.microsoft.azure</groupId>
-        <artifactId>spring-cloud-starter-azure-spring-cloud-client</artifactId>
-        <version>2.3.0</version>
 </dependency>
 ```
 

@@ -1,7 +1,7 @@
 ---
 title: Programmatically create policies
 description: This article walks you through programmatically creating and managing policies for Azure Policy with Azure CLI, Azure PowerShell, and REST API.
-ms.date: 05/20/2020
+ms.date: 08/17/2020
 ms.topic: how-to
 ---
 # Programmatically create policies
@@ -19,8 +19,10 @@ Before you begin, make sure that the following prerequisites are met:
 1. If you haven't already, install the [ARMClient](https://github.com/projectkudu/ARMClient). It's a
    tool that sends HTTP requests to Azure Resource Manager-based APIs.
 
-1. Update your Azure PowerShell module to the latest version. See [Install Azure PowerShell module](/powershell/azure/install-az-ps)
-   for detailed information. For more information about the latest version, see [Azure PowerShell](https://github.com/Azure/azure-powershell/releases).
+1. Update your Azure PowerShell module to the latest version. See
+   [Install Azure PowerShell module](/powershell/azure/install-az-ps) for detailed information. For
+   more information about the latest version, see
+   [Azure PowerShell](https://github.com/Azure/azure-powershell/releases).
 
 1. Register the Azure Policy Insights resource provider using Azure PowerShell to validate that your
    subscription works with the resource provider. To register a resource provider, you must have
@@ -35,7 +37,8 @@ Before you begin, make sure that the following prerequisites are met:
    For more information about registering and viewing resource providers, see
    [Resource Providers and Types](../../../azure-resource-manager/management/resource-providers-and-types.md).
 
-1. If you haven't already, install Azure CLI. You can get the latest version at [Install Azure CLI on Windows](/cli/azure/install-azure-cli-windows).
+1. If you haven't already, install Azure CLI. You can get the latest version at
+   [Install Azure CLI on Windows](/cli/azure/install-azure-cli-windows).
 
 ## Create and assign a policy definition
 
@@ -77,7 +80,8 @@ HTTP requests.
    ```
 
    The command creates a policy definition named _Audit Storage Accounts Open to Public Networks_.
-   For more information about other parameters that you can use, see [New-AzPolicyDefinition](/powershell/module/az.resources/new-azpolicydefinition).
+   For more information about other parameters that you can use, see
+   [New-AzPolicyDefinition](/powershell/module/az.resources/new-azpolicydefinition).
 
    When called without location parameters, `New-AzPolicyDefinition` defaults to saving the policy
    definition in the selected subscription of the sessions context. To save the definition to a
@@ -188,7 +192,8 @@ resource group level.
 
    Replace example information in &lt;&gt; symbols with your own values.
 
-   For more information about making HTTP calls to the REST API, see [Azure REST API Resources](/rest/api/resources/).
+   For more information about making HTTP calls to the REST API, see
+   [Azure REST API Resources](/rest/api/resources/).
 
 ### Create and assign a policy definition with Azure CLI
 
@@ -229,8 +234,8 @@ To create a policy definition, use the following procedure:
    [az policy definition create](/cli/azure/policy/definition#az-policy-definition-create).
 
    When called without location parameters, `az policy definition creation` defaults to saving the
-   policy definition in the selected subscription of the sessions context. To save the definition
-   to a different location, use the following parameters:
+   policy definition in the selected subscription of the sessions context. To save the definition to
+   a different location, use the following parameters:
 
    - **subscription** - Save to a different subscription. Requires a _GUID_ value for the
      subscription ID or a _string_ value for the subscription name.
@@ -268,7 +273,8 @@ example:
 "/subscription/<subscriptionId>/providers/Microsoft.Authorization/policyDefinitions/Audit Storage Accounts Open to Public Networks"
 ```
 
-For more information about how you can manage resource policies with Azure CLI, see [Azure CLI Resource Policies](/cli/azure/policy?view=azure-cli-latest).
+For more information about how you can manage resource policies with Azure CLI, see
+[Azure CLI Resource Policies](/cli/azure/policy).
 
 ## Next steps
 
@@ -276,6 +282,6 @@ Review the following articles for more information about the commands and querie
 
 - [Azure REST API Resources](/rest/api/resources/)
 - [Azure PowerShell Modules](/powershell/module/az.resources/#policies)
-- [Azure CLI Policy Commands](/cli/azure/policy?view=azure-cli-latest)
+- [Azure CLI Policy Commands](/cli/azure/policy)
 - [Azure Policy Insights resource provider REST API reference](/rest/api/policy-insights)
 - [Organize your resources with Azure management groups](../../management-groups/overview.md).

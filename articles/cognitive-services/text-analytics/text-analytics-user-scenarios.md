@@ -24,7 +24,7 @@ Draw insights from customer and employee survey results by processing the raw te
 
 ## Analyze recorded inbound customer calls​
 
-Extract insights from customer services calls using Text to Speech, Sentiment Analysis, and Key Phrase Extraction. Display the results in Power BI dashboard or a portal to better understand customers, highlight customer service trends, and drive customer engagement.​ Send API requests as a batch for reporting, or in real-time for intervention. See the sample code [on GitHub](https://github.com/rlagh2/callcenteranalytics).​
+Extract insights from customer services calls using Speech-to-Text, Sentiment Analysis, and Key Phrase Extraction. Display the results in Power BI dashboard or a portal to better understand customers, highlight customer service trends, and drive customer engagement.​ Send API requests as a batch for reporting, or in real-time for intervention. See the sample code [on GitHub](https://github.com/rlagh2/callcenteranalytics).​
 
 ![An image describing how to automate getting insights from customer service calls using sentiment analysis](media/use-cases/azure-inbound.svg)
 

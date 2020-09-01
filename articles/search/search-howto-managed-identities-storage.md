@@ -15,8 +15,7 @@ ms.date: 05/18/2020
 # Set up a connection to an Azure Storage account using a managed identity (preview)
 
 > [!IMPORTANT] 
-> Support for setting up a connection to a data source using a managed identity is currently in a gated public preview. Preview functionality is provided without a service level agreement, and is not recommended for production workloads.
-> You can request access to the preview by filling out [this form](https://aka.ms/azure-cognitive-search/mi-preview-request).
+> Support for setting up a connection to a data source using a managed identity is currently in public preview. Preview functionality is provided without a service level agreement, and is not recommended for production workloads.
 
 This page describes how to set up an indexer connection to an Azure storage account using a managed identity instead of providing credentials in the data source object connection string.
 
@@ -49,19 +48,23 @@ In this step you will give your Azure Cognitive Search service permission to rea
     ![Add role assignment](./media/search-managed-identities/add-role-assignment-storage.png "Add role assignment")
 
 4. Select the appropriate role(s) based on the storage account type that you would like to index:
-    1. Azure Blob storage requires that you add your search service to the **Reader and Data Access** and **Storage Blob Data Reader** roles.
-    1. Azure Data Lake Storage Gen2 requires that you add your search service to the **Reader and Data Access** and **Storage Blob Data Reader** roles.
-    1. Azure Table storage requires that you add your search service only to the **Reader and Data Access** role.
+    1. Azure Blob storage requires that you add your search service to the **Storage Blob Data Reader** role.
+    1. Azure Data Lake Storage Gen2 requires that you add your search service to the **Storage Blob Data Reader** role.
+    1. Azure Table storage requires that you add your search service to the **Reader and Data Access** role.
 5.	Leave **Assign access to** as **Azure AD user, group or service principal**
 6.	Search for your search service, select it, then select **Save**
 
+    Example for Azure Blob storage and Azure Data Lake Storage Gen2:
+
+    ![Add Storage Blob Data Reader role assignment](./media/search-managed-identities/add-role-assignment-storage-blob-data-reader.png "Add Storage Blob Data Reader role assignment")
+
+    Example for Azure Table storage:
+
     ![Add reader and data access role assignment](./media/search-managed-identities/add-role-assignment-reader-and-data-access.png "Add reader and data access role assignment")
 
-Note that when connecting to Azure blob storage and Azure Data Lake Storage Gen2, you must also add the **Storage Blob Data Reader** role assignment.
-
-![Add Storage Blob Data Reader role assignment](./media/search-managed-identities/add-role-assignment-storage-blob-data-reader.png "Add Storage Blob Data Reader role assignment")
-
 ### 3 - Create the data source
+
+The [REST API](/rest/api/searchservice/create-data-source), Azure portal, and the [.NET SDK](/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet) support the managed identity connection string. Below is an example of how to create a data source to index data from a storage account using the [REST API](/rest/api/searchservice/create-data-source) and a managed identity connection string. The managed identity connection string format is the same for the REST API, .NET SDK, and the Azure portal.
 
 When indexing from a storage account, the data source must have the following required properties:
 
@@ -76,7 +79,7 @@ When indexing from a storage account, the data source must have the following re
         * *ResourceId=/subscriptions/**your subscription ID**/resourceGroups/**your resource group name**/providers/Microsoft.Storage/storageAccounts/**your storage account name**/;*
 * **container** specifies a container or table name in your storage account. By default, all blobs within the container are retrievable. If you only want to index blobs in a particular virtual directory, you can specify that directory using the optional **query** parameter.
 
-Example of how to create a blob data source object using the [REST API](https://docs.microsoft.com/rest/api/searchservice/create-data-source):
+Example of how to create a blob data source object using the [REST API](/rest/api/searchservice/create-data-source):
 
 ```
 POST https://[service name].search.windows.net/datasources?api-version=2020-06-30
@@ -90,8 +93,6 @@ api-key: [admin key]
     "container" : { "name" : "my-container", "query" : "<optional-virtual-directory-name>" }
 }   
 ```
-
-The Azure portal and the [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet) also support the managed identities connection string. The Azure portal requires a feature flag that will be provided to you when signing up for the preview using the link at the top of this page. 
 
 ### 4 - Create the index
 
@@ -113,7 +114,7 @@ Here's how to create an index with a searchable `content` field to store the tex
     }
 ```
 
-For more on creating indexes, see [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index)
+For more on creating indexes, see [Create Index](/rest/api/searchservice/create-index)
 
 ### 5 - Create the indexer
 
@@ -138,7 +139,7 @@ Example indexer definition for a blob indexer:
 
 This indexer will run every two hours (schedule interval is set to "PT2H"). To run an indexer every 30 minutes, set the interval to "PT30M". The shortest supported interval is 5 minutes. The schedule is optional - if omitted, an indexer runs only once when it's created. However, you can run an indexer on-demand at any time.   
 
-For more details on the Create Indexer API, check out [Create Indexer](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
+For more details on the Create Indexer API, check out [Create Indexer](/rest/api/searchservice/create-indexer).
 
 For more information about defining indexer schedules see [How to schedule indexers for Azure Cognitive Search](search-howto-schedule-indexers.md).
 

@@ -1,6 +1,6 @@
 ---
 title: Server-side encryption of Azure Managed Disks - Azure CLI
-description: Azure Storage protects your data by encrypting it at rest before persisting it to Storage clusters. You can rely on Microsoft-managed keys for the encryption of your managed disks, or you can use customer-managed keys to manage encryption with your own keys.
+description: Azure Storage protects your data by encrypting it at rest before persisting it to Storage clusters. You can use customer-managed keys to manage encryption with your own keys, or you can rely on Microsoft-managed keys for the encryption of your managed disks.
 author: roygara
 
 ms.date: 07/10/2020
@@ -27,7 +27,7 @@ The following sections describe each of the options for key management in greate
 
 ### Platform-managed keys
 
-By default, managed disks use platform-managed encryption keys. As of June 10, 2017, all new managed disks, snapshots, images, and new data written to existing managed disks are automatically encrypted-at-rest with platform-managed keys.
+By default, managed disks use platform-managed encryption keys. All managed disks, snapshots, images, and data written to existing managed disks are automatically encrypted-at-rest with platform-managed keys.
 
 ### Customer-managed keys
 
@@ -76,8 +76,7 @@ High security sensitive customers who are concerned of the risk associated with 
 
 ## Next steps
 
-- [Enable end-to-end encryption using encryption at host - CLI](disks-enable-host-based-encryption-cli.md)
-- [Enable double encryption at rest for managed disks - CLI](disks-enable-double-encryption-at-rest-cli.md)
-- [Enable customer-managed keys for managed disks - CLI](disks-enable-customer-managed-keys-cli.md)
-- [Enable customer-managed keys for managed disks - portal](disks-enable-customer-managed-keys-portal.md)
+- Enable end-to-end encryption using encryption at host with either [CLI](disks-enable-host-based-encryption-cli.md) or the [Azure portal](../disks-enable-host-based-encryption-portal.md).
+- Enable double encryption at rest for managed disks with either [CLI](disks-enable-double-encryption-at-rest-cli.md) or the [Azure portal](../disks-enable-double-encryption-at-rest-portal.md).
+- Enable customer-managed keys for managed disks with either [CLI](disks-enable-customer-managed-keys-cli.md) or the [Azure portal](../disks-enable-customer-managed-keys-portal.md).
 - [What is Azure Key Vault?](../../key-vault/general/overview.md)

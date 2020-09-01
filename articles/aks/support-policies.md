@@ -17,7 +17,7 @@ This article provides details about technical support policies and limitations f
 ## Service updates and releases
 
 * For release information, see [AKS release notes](https://github.com/Azure/AKS/releases).
-* For information on features in preview, see [AKS preview features and related projects](https://github.com/Azure/AKS/blob/master/previews.md).
+* For information on features in preview, see [AKS preview features and related projects](https://awesomeopensource.com/projects/aks?categoryPage=11).
 
 ## Managed features in AKS
 
@@ -146,7 +146,7 @@ AKS supports only stable features within the upstream Kubernetes project. Unless
 In two scenarios, alpha or beta features might be rolled out before they're generally available:
 
 * Customers have met with the AKS product, support, or engineering teams and have been asked to try these new features.
-* These features have been [enabled by a feature flag](https://github.com/Azure/AKS/blob/master/previews.md). Customers must explicitly opt in to use these features.
+* These features have been [enabled by a feature flag](https://awesomeopensource.com/projects/aks?categoryPage=11). Customers must explicitly opt in to use these features.
 
 ## Preview features or feature flags
 

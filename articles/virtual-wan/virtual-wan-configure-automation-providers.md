@@ -1,6 +1,6 @@
 ---
 title: 'Azure Virtual WAN partners automation guidelines | Microsoft Docs'
-description: This article helps partners set up Azure Virtual WAN automation.
+description: Set up an automation environment to connect and configure an on-premises VPN or SD-WAN CPE, or branch device, for Azure Virtual WAN.
 services: virtual-wan
 author: cherylmc
 

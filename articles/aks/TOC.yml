@@ -40,11 +40,6 @@
     href: tutorial-kubernetes-app-update.md
   - name: 7 - Upgrade cluster
     href: tutorial-kubernetes-upgrade-cluster.md
-- name: Samples
-  items:
-  - name: Azure Policy built-ins
-    displayName: samples, policies, definitions
-    href: ./policy-samples.md
 - name: Concepts
   items:
   - name: Clusters and workloads
@@ -52,8 +47,12 @@
   - name: Access and identity
     href: concepts-identity.md
   - name: Security
-    href: concepts-security.md
     items:
+    - name: Security for applications and clusters
+      href: concepts-security.md
+    - name: Security controls by Azure Policy
+      displayName: regulatory, compliance, standards, domains
+      href: ./security-controls-policy.md
   - name: Networking
     href: concepts-network.md
   - name: Storage
@@ -66,6 +65,9 @@
     items:
     - name: Overview
       href: best-practices.md
+    - name: Baseline architecture for an AKS cluster
+      href: /azure/architecture/reference-architectures/containers/aks/secure-baseline-aks/
+      maintainContext: True
     - name: For cluster operators
       items:
       - name: Multi-tenancy and cluster isolation
@@ -122,6 +124,8 @@
     href: security-hardened-vm-host-image.md
   - name: Azure Kubernetes Service Diagnostics overview
     href: concepts-diagnostics.md
+  - name: Sustainable software engineering
+    href: concepts-sustainable-software-engineering.md
 - name: How-to guides
   items:
   - name: Cluster operations
@@ -134,7 +138,7 @@
       href: uptime-sla.md
     - name: Use proximity placement groups (preview)
       href: reduce-latency-ppg.md
-    - name: Upgrade the node image (preview)
+    - name: Upgrade the node image
       href: node-image-upgrade.md
     - name: Process node OS updates
       href: node-updates-kured.md
@@ -163,6 +167,8 @@
     - name: Deploy AKS with Terraform
       href: ../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md
       maintainContext: true
+    - name: Use the Kubernetes resource viewer (Preview)
+      href: kubernetes-portal.md
     - name: Use the Kubernetes dashboard
       href: kubernetes-dashboard.md
   - name: Configure data volumes
@@ -283,8 +289,8 @@
       href: windows-container-powershell.md
     - name: Connect remotely
       href: rdp.md
-    - name: Known limitations
-      href: windows-node-limitations.md
+    - name: Windows Server containers FAQ
+      href: windows-faq.md
     - name: Use the Kubernetes dashboard
       href: kubernetes-dashboard.md
     - name: Create Dockerfiles for Windows Server containers
@@ -294,7 +300,7 @@
   - name: Develop and run applications
     items:
     - name: Use Local Process with Kubernetes with Visual Studio Code (preview)
-      href: ../dev-spaces/how-to/local-process-kubernetes-vs-code.md
+      href: https://code.visualstudio.com/docs/containers/local-process-kubernetes
     - name: Install existing applications with Helm
       href: kubernetes-helm.md
     - name: Use OpenFaaS
@@ -357,6 +363,8 @@
       href: ssh.md
     - name: Linux performance tools
       href: troubleshoot-linux.md
+    - name: Check for Resource Health events (preview)
+      href: aks-resource-health.md
 - name: Reference
   items:
   - name: Azure CLI
@@ -375,6 +383,9 @@
     href: /javascript/api/overview/azure/container-service
   - name: Resource Manager template
     href: /azure/templates/microsoft.containerservice/managedclusters
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-reference.md
 - name: Resources
   items:
   - name: Build your skill with Microsoft Learn

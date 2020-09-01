@@ -9,7 +9,7 @@ ms.service: cognitive-services
 ms.topic: quickstart
 ms.date: 07/29/2020
 ms.author: pafarley
-zone_pivot_groups: programming-languages-set-ten
+zone_pivot_groups: programming-languages-set-seventeen
 ---
 
 # Quickstart: Create a Cognitive Services resource using the Azure Management client library
@@ -19,12 +19,6 @@ Use this quickstart to create and manage Azure Cognitive Services resources usin
 ::: zone pivot="programming-language-csharp"
 
 [!INCLUDE [C# SDK quickstart](includes/quickstarts/management-csharp.md)]
-
-::: zone-end
-
-::: zone pivot="programming-language-java"
-
-[!INCLUDE [Java SDK quickstart](includes/quickstarts/management-java.md)]
 
 ::: zone-end
 

@@ -3,6 +3,7 @@ title: Event counters in Application Insights | Microsoft Docs
 description: Monitor system and custom .NET/.NET Core EventCounters in Application Insights.
 ms.topic: conceptual
 ms.date: 09/20/2019
+ms.custom: devx-track-csharp
 
 ---
 
@@ -41,10 +42,6 @@ For apps running in .NET Core 3.0, the following counters are collected automati
 |`System.Runtime` | `threadpool-queue-length` |
 |`System.Runtime` | `threadpool-completed-items-count` |
 |`System.Runtime` | `active-timer-count` |
-|`Microsoft.AspNetCore.Hosting` | `requests-per-second` |
-|`Microsoft.AspNetCore.Hosting` | `total-requests` |
-|`Microsoft.AspNetCore.Hosting` | `current-requests` |
-|`Microsoft.AspNetCore.Hosting` | `failed-requests` |
 
 > [!NOTE]
 > Counters of category Microsoft.AspNetCore.Hosting are only added in ASP.NET Core Applications.
@@ -120,7 +117,7 @@ customMetrics
 Like other telemetry, **customMetrics** also has a column `cloud_RoleInstance` that indicates the identity of the host server instance on which your app is running. The above query shows the counter value per instance, and can be used to compare performance of different server instances.
 
 ## Alerts
-Like other metrics, you can [set an alert](../../azure-monitor/platform/alerts-log.md) to warn you if an event counter goes outside a limit you specify. Open the Alerts pane and click Add Alert.
+Like other metrics, you can [set an alert](../platform/alerts-log.md) to warn you if an event counter goes outside a limit you specify. Open the Alerts pane and click Add Alert.
 
 ## Frequently asked questions
 
@@ -144,4 +141,5 @@ EventCounter doesn't require any special permissions, and is supported in all pl
 
 ## <a name="next"></a>Next steps
 
-* [Dependency tracking](../../azure-monitor/app/asp-net-dependencies.md)
+* [Dependency tracking](./asp-net-dependencies.md)
+

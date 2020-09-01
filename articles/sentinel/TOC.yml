@@ -40,7 +40,7 @@
         href: connect-aws.md
       - name: Azure Active Directory
         href: connect-azure-active-directory.md
-      - name: Office 365
+      - name: Office 365 (now with Teams!)
         href: connect-office-365.md
       - name: Cloud App Security
         href: connect-cloud-app-security.md
@@ -54,14 +54,16 @@
         href: connect-microsoft-defender-advanced-threat-protection.md
       - name: Azure ATP
         href: connect-azure-atp.md
+      - name: Azure Firewall
+        href: connect-azure-firewall.md
       - name: Azure Security Center
         href: connect-azure-security-center.md
       - name: Azure Security Center for IoT
         href: connect-asc-iot.md
+      - name: Azure Web Application Firewall (WAF)
+        href: connect-azure-waf.md
       - name: Domain name server
         href: connect-dns.md
-      - name: Microsoft web application firewall
-        href: connect-microsoft-waf.md
       - name: Windows firewall
         href: connect-windows-firewall.md
       - name: Windows security events
@@ -86,7 +88,7 @@
         href: connect-okta-single-sign-on.md
       - name: Orca Security
         href: connect-orca-security-alerts.md
-      - name: Perimeter 81 logs
+      - name: Perimeter 81
         href: connect-perimeter-81-logs.md
       - name: Proofpoint TAP
         href: connect-proofpoint-tap.md
@@ -106,7 +108,7 @@
         href: connect-symantec-vip.md
       - name: Syslog
         href: connect-syslog.md
-      - name: VMware Carbon Black
+      - name: VMware Carbon Black Cloud Endpoint Standard
         href: connect-vmware-carbon-black.md
       - name: Zimperium Mobile Threat Defense
         href: connect-zimperium-mtd.md
@@ -156,6 +158,8 @@
     href: customer-managed-keys.md
   - name: Create incidents from alerts
     href: create-incidents-from-alerts.md
+  - name: Manage your SOC better with incident metrics
+    href: manage-soc-with-incident-metrics.md
   - name: Hunting
     href: hunting.md
     items:
@@ -167,6 +171,10 @@
       href: livestream.md
   - name: Remove Azure Sentinel
     href: offboard.md
+- name: Reference (New!)
+  items:
+  - name: REST APIs
+    href: https://docs.microsoft.com/rest/api/securityinsights/
 - name: Resources
   items:
   - name: Useful resources

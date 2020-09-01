@@ -27,10 +27,10 @@ ms.collection: M365-identity-device-management
 
 The following documentation provides information on how to enable the device writeback feature in Azure AD Connect. Device Writeback is used in the following scenarios:
 
-* Enable [Windows Hello for Business using hybrid certificate trust deployment](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-hybrid-cert-trust-prereqs#device-registration)
+* Enable [Windows Hello for Business using hybrid certificate trust deployment](/windows/security/identity-protection/hello-for-business/hello-hybrid-cert-trust-prereqs#device-registration)
 * Enable Conditional Access based on devices to ADFS (2012 R2 or higher) protected applications (relying party trusts).
 
-This provides additional security and assurance that access to applications is granted only to trusted devices. For more information on Conditional Access, see [Managing Risk with Conditional Access](../active-directory-conditional-access-azure-portal.md) and [Setting up On-premises Conditional Access using Azure Active Directory Device Registration](../../active-directory/active-directory-device-registration-on-premises-setup.md).
+This provides additional security and assurance that access to applications is granted only to trusted devices. For more information on Conditional Access, see [Managing Risk with Conditional Access](../conditional-access/overview.md) and [Setting up On-premises Conditional Access using Azure Active Directory Device Registration](../devices/overview.md).
 
 > [!IMPORTANT]
 > <li>Devices must be located in the same forest as the users. Since devices must be written back to a single forest, this feature does not currently support a deployment with multiple user forests.</li>
@@ -57,7 +57,7 @@ Install Azure AD Connect using Custom or Express settings. Microsoft recommends 
 
     a. **Provide enterprise administrator credentials**: If the enterprise administrator credentials are provided for the forest where devices need to be written back, Azure AD Connect will prepare the forest automatically during the configuration of device writeback.
 
-    b. **Download PowerShell script**: Azure AD Connect auto-generates a PowerShell script that can prepare the active directory for device writeback. In case the enterprise administrator credentials cannot be provided in Azure AD Connect, it is suggested to download the PowerShell script. Provide the downloaded PowerShell script **CreateDeviceContainer.psq** to the enterprise administrator of the forest where devices will be written back to.
+    b. **Download PowerShell script**: Azure AD Connect auto-generates a PowerShell script that can prepare the active directory for device writeback. In case the enterprise administrator credentials cannot be provided in Azure AD Connect, it is suggested to download the PowerShell script. Provide the downloaded PowerShell script **CreateDeviceContainer.ps1** to the enterprise administrator of the forest where devices will be written back to.
     ![Prepare active directory forest](./media/how-to-connect-device-writeback/devicecontainercreds.png)
     
     The following operations are performed for preparing the active directory forest:
@@ -79,7 +79,7 @@ Device writeback should now be working properly. Be aware that it can take up to
    ![Active Directory Admin Center Registered Devices List](./media/how-to-connect-device-writeback/devicewriteback6.png)
 
 ## Enable Conditional Access
-Detailed instructions to enable this scenario are available within [Setting up On-premises Conditional Access using Azure Active Directory Device Registration](../../active-directory/active-directory-device-registration-on-premises-setup.md).
+Detailed instructions to enable this scenario are available within [Setting up On-premises Conditional Access using Azure Active Directory Device Registration](../devices/overview.md).
 
 ## Troubleshooting
 ### The writeback checkbox is still disabled
@@ -122,9 +122,8 @@ Verify configuration in Active Directory:
 ![Troubleshoot, verify permissions on Device Registration Configuration](./media/how-to-connect-device-writeback/troubleshoot6.png)
 
 ## Additional Information
-* [Managing Risk With Conditional Access](../active-directory-conditional-access-azure-portal.md)
-* [Setting up On-premises Conditional Access using Azure Active Directory Device Registration](../../active-directory/active-directory-device-registration-on-premises-setup.md)
+* [Managing Risk With Conditional Access](../conditional-access/overview.md)
+* [Setting up On-premises Conditional Access using Azure Active Directory Device Registration](../devices/overview.md)
 
 ## Next steps
 Learn more about [Integrating your on-premises identities with Azure Active Directory](whatis-hybrid-identity.md).
-
