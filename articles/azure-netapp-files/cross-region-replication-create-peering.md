@@ -18,6 +18,9 @@ ms.author: b-juche
 ---
 # Create replication peering for Azure NetApp Files
 
+> [!IMPORTANT]
+> The cross-region replication feature is currently in public preview. You need to submit a waitlist request for accessing the feature through the [Azure NetApp Files cross-region replication waitlist submission page](https://aka.ms/anfcrrpreviewsignup). Wait for an official confirmation email from the Azure NetApp Files team before using the cross-region replication feature.
+
 This article shows you how to set up cross-region replication by creating replication peering. 
 
 Setting up replication peering enables you to asynchronously replicate data from an Azure NetApp Files volume (source) to another Azure NetApp Files volume (destination). The source volume and the destination volume must be deployed in separate regions. The service level for the destination capacity pool can match that of the source capacity pool, or you can select a different service level.   

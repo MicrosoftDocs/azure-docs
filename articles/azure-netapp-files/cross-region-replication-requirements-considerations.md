@@ -23,7 +23,7 @@ You need to be aware of some requirements and considerations before [using the v
 
 ## Requirements and considerations 
 
-* You must have an active Azure subscription and your subscription must be whitelisted for Azure NetApp Files before using Azure NetApp Files replication. 
+* The cross-region replication feature is currently in public preview. You need to submit a waitlist request for accessing the feature through the [Azure NetApp Files cross-region replication waitlist submission page](https://aka.ms/anfcrrpreviewsignup). Wait for an official confirmation email from the Azure NetApp Files team before using the cross-region replication feature.
 * Azure NetApp Files replication is only available in certain fixed region pairs. See [Supported region pairs](cross-region-replication-introduction.md#supported-region-pairs). 
 * SMB volumes are supported along with NFS volumes. Replication of SMB volumes requires an Active Directory connection in the source and destination NetApp accounts. The destination AD connection must have access to the DNS servers or ADDS Domain Controllers that are reachable from the delegated subnet in the destination region. For more information, see [Requirements for Active Directory connections](azure-netapp-files-create-volumes-smb.md#requirements-for-active-directory-connections). 
 * The destination account must be in a different region from the source volume region. You can also select an existing NetApp account in a different region.  
