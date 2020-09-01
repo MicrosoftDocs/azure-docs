@@ -464,6 +464,8 @@
             - name: Output
               href: functions-bindings-storage-queue-output.md
               displayName: Queue storage
+        - name: RabbitMQ
+          href: https://github.com/azure/azure-functions-rabbitmq-extension
         - name: SendGrid
           href: functions-bindings-sendgrid.md
         - name: Service Bus
