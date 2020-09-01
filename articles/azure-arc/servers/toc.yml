@@ -16,12 +16,6 @@
       href: ./learn/tutorial-assign-policy-portal.md
     - name: Monitor machine
       href: ./learn/tutorial-enable-vm-insights.md
-- name: Samples
-  items:
-  - name: Azure Policy built-ins 
-    items:
-    - name: Arc enabled servers
-      href: policy-samples.md
 - name: Concepts
   items:
   - name: Security
@@ -57,3 +51,6 @@
       href: data-residency.md
     - name: REST
       href: /rest/api/hybridcompute
+    - name: Azure Policy built-ins 
+      displayName: samples, policies, definitions
+      href: policy-reference.md
