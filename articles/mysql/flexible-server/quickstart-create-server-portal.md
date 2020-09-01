@@ -46,7 +46,7 @@ Follow these steps to create a flexible server:
     Subscription|Your subscription name|The Azure subscription that you want to use for your server. If you have multiple subscriptions, choose the subscription in which you'd like to be billed for the resource.
     Resource group|*myresourcegroup*| A new resource group name or an existing one from your subscription.
     Server name |*mydemoserver*|A unique name that identifies your flexible server. The domain name *mysql.database.azure.com* is appended to the server name you provide. The server can contain only lowercase letters, numbers, and the hyphen (-) character. It must contain at least 3 through 63 characters.
-    Admin username |*myadmin*| Your own login account to use when you connect to the server. The admin login name can't be **azure_superuser**, **admin**, **administrator**, **root**, **guest**, or **public**.
+    Admin username |*mydemouser*| Your own login account to use when you connect to the server. The admin login name can't be **azure_superuser**, **admin**, **administrator**, **root**, **guest**, or **public**.
     Password |Your password| A new password for the server admin account. It must contain between 8 and 128 characters. Your password must contain characters from three of the following categories: English uppercase letters, English lowercase letters, numbers (0 through 9), and non-alphanumeric characters (!, $, #, %, etc.).
     Region|The region closest to your users| The location that is closest to your users.
     Version|5.7| MySQL major version.
@@ -84,12 +84,12 @@ If you created your flexible server with *Private access (VNet Integration)*, yo
 
 If you created your flexible server with *Public access (allowed IP addresses)*, you can add your local IP address to the list of firewall rules on your server.
 
-You can choose either [mysql.exe](https://dev.mysql.com/doc/refman/8.0/en/mysql.html) or MySQL Workbench <!-- [MySQL Workbench](./connect-workbench.md)--> to connect to the server from your local environment. 
+You can choose either [mysql.exe](https://dev.mysql.com/doc/refman/8.0/en/mysql.html) or [MySQL Workbench](./connect-workbench.md) to connect to the server from your local environment. 
 
 With mysql.exe, connect using the below command. Replace values with your actual server name and password. 
 
 ```bash
- mysql -h mydemoserver.mysql.database.azure.com -u myadmin -p
+ mysql -h mydemoserver.mysql.database.azure.com -u mydemouser -p
 ```
 ## Clean up resources
 You have successfully created an Azure Database for MySQL Flexible Server in a resource group.  If you don't expect to need these resources in the future, you can delete them by deleting the resource group or just delete the MySQL server. To delete the resource group, follow these steps:
@@ -99,11 +99,10 @@ You have successfully created an Azure Database for MySQL Flexible Server in a r
 1. In the Overview page of your resource group, select **Delete resource group**.
 1. In the confirmation dialog box, type the name of your resource group, and then select **Delete**.
 
-To delete the server, you can click on **Delete** button on **Overview** page of your server.
+To delete the server, you can click on **Delete** button on **Overview** page of your server as shown below:
 
-<!-- as shown below:
 > [!div class="mx-imgBorder"]
-> ![Delete your resources](media/quickstart-create-mysql-server-database-using-azure-portal/delete-server.png)-->
+> ![Delete your resources](./media/quickstart-create-server-portal/delete-server.png)
 
 ## Next steps
 > [!div class="nextstepaction"]
