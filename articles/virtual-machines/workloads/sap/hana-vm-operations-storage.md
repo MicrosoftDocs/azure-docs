@@ -86,7 +86,7 @@ The caching recommendations for Azure premium disks below are assuming the I/O c
 **Recommendation: As a result of these observed I/O patterns by SAP HANA, the caching for the different volumes using Azure premium storage should be set like:**
 
 - **/hana/data** - no caching or read caching
-- **/hana/log** - no caching - exception for M- and Mv2-Series where Write Accelerator should be enabled without read caching. 
+- **/hana/log** - no caching - exception for M- and Mv2-Series VMs where Azure Write Accelerator should be enabled 
 - **/hana/shared** - read caching
 - **OS disk** - don't change default caching that is set by Azure at creation time of the VM
 
