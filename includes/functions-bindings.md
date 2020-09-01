@@ -30,6 +30,8 @@ This table shows the bindings that are supported in the major versions of the Az
 | [Timer](../articles/azure-functions/functions-bindings-timer.md)                         |✔|✔|✔| | |
 | [Twilio](../articles/azure-functions/functions-bindings-twilio.md)                       |✔|✔| | |✔|
 
-<sup>1</sup> Starting with the version 2.x runtime, all bindings except HTTP and Timer must be registered. See [Register binding extensions](../articles/azure-functions/functions-bindings-register.md).  
-<sup>2</sup> Triggers not supported in the consumption plan and requires [runtime driven triggers](../articles/azure-functions/functions-networking-options.md#premium-plan-with-virtual-network-triggers).  
-<sup>3</sup> Supported in Kubernetes, IoT Edge, and self-hosted modes only.
+<sup>1</sup> Starting with the version 2.x runtime, all bindings except HTTP and Timer must be registered. See [Register binding extensions](../articles/azure-functions/functions-bindings-register.md).
+
+<sup>2</sup> Triggers aren't supported in the Consumption plan. Requires [runtime-driven triggers](../articles/azure-functions/functions-networking-options.md#premium-plan-with-virtual-network-triggers).
+
+<sup>3</sup> Supported only in Kubernetes, IoT Edge, and other self-hosted modes only.
