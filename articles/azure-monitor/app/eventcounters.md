@@ -100,7 +100,7 @@ The following example shows how to add/remove counters. This customization would
 To view EventCounter metrics in [Metric Explorer](../platform/metrics-charts.md), select Application Insights resource, and chose Log-based metrics as metric namespace. Then EventCounter metrics get displayed under Custom category.
 
 > [!div class="mx-imgBorder"]
-> ![Event counters reported in Application Insights](./media/event-counters/metrics-explorer-counter-list.png)
+> ![Event counters reported in Application Insights Metric Explorer](./media/event-counters/metrics-explorer-counter-list.png)
 
 ## Event counters in Analytics
 
@@ -113,7 +113,7 @@ customMetrics | summarize avg(value) by name
 ```
 
 > [!div class="mx-imgBorder"]
-> ![Event counters reported in Application Insights](./media/event-counters/analytics-event-counters.png)
+> ![Event counters reported in Application Insights Analytics](./media/event-counters/analytics-event-counters.png)
 
 To get a chart of a specific counter (for example: `ThreadPool Completed Work Item Count`) over the recent period, run the following query.
 
