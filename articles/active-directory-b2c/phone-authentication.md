@@ -1,5 +1,5 @@
 ---
-title: Phone sign-up and sign-in with custom policies (Preview)
+title: Phone sign-up and sign-in with custom policies
 titleSuffix: Azure AD B2C
 description: Send one-time passwords (OTP) in text messages to your application users' phones with custom policies in Azure Active Directory B2C.
 services: active-directory-b2c
@@ -14,13 +14,11 @@ ms.author: mimart
 ms.subservice: B2C
 ---
 
-# Set up phone sign-up and sign-in with custom policies in Azure AD B2C (Preview)
+# Set up phone sign-up and sign-in with custom policies in Azure AD B2C
 
 Phone sign-up and sign-in in Azure Active Directory B2C (Azure AD B2C) enables your users to sign up and sign in to your applications by using a one-time password (OTP) sent in a text message to their phone. One-time passwords can help minimize the risk of your users forgetting or having their passwords compromised.
 
 Follow the steps in this article to use the custom policies to enable your customers to sign up and sign in to your applications by using a one-time password sent to their phone.
-
-[!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
 ## Pricing
 
@@ -28,28 +26,46 @@ One-time passwords are sent to your users by using SMS text messages, and you ma
 
 ## User experience for phone sign-up and sign-in
 
-With phone sign-up and sign-in, the user can sign up for the app using a phone number as their primary identifier. A message in the browser indicates that a code will be send to the user's phone. The user selects Send code:
+With phone sign-up and sign-in, the user can sign up for the app using a phone number as their primary identifier. The end user's experience during sign-up and sign-in is described below. 
+
+> [!NOTE]
+> We suggest you include the following consent information in your sign-up and sign-in experience:
+>
+> *&lt;Your application name&gt;*
+>
+> *By providing your phone number, you consent to recieving a one-time passcode sent by text message to help you sign in to this application. Standard message and data rates may apply.*
+>
+> *For more information,*<br>*&lt;link to your Privacy Statement&gt;*<br>*&lt;link to your Terms of Service&gt;*
 
 ### Phone sign-up
 
-The user chooses **Sign up now**, and enters their Country and phone number and selects Continue. The user enters additional sign-up information and selects **Send Code**.  A one-time verification code is sent to their phone number. The user enters the verification code and signs in. The user retrieves the code and enters it in the sign up page and is then prompted for their phone number.
+If the user doesn't already have an account for your application, they can create one by choosing the **Sign up now** link. A sign-up page appears, where the user selects their **Country**, enters their phone number, and selects **Send Code**.
 
-![User starts phone sign-up](media/phone-authentication/phone-signup-screens.png)
+![User starts phone sign-up](media/phone-authentication/phone-signup-start.png)
 
-When the user selects Continue, additional sign-up prompts appear along with a Send Code. A one-time verification code is sent to the user’s phone. The user retrieves the code and enters it in the browser window:
+A one-time verification code is sent to the user's phone number. The user enters the **Verification Code** on the sign-up page, and then selects **Verify Code**. (If the user wasn't able to retrieve the code, they can select **Send New Code**.)
+
+![User starts phone sign-up](media/phone-authentication/phone-signup-verify-code.png)
+
+ The user enters any other information requested on the sign-up page, for example, **Display Name**, **Given Name**, and **Surname** (Country and phone number remain populated). If the user wants to use a different phone number, they can choose **Change number** to restart sign-up. When finished, the user selects **Continue**.
+
+![User starts phone sign-up](media/phone-authentication/phone-signup-additional-info.png)
+
+Next, the user is asked to provide a recovery email. The user enters their email address, and then selects **Send verification code**. A code is sent to the user's email inbox, which they can retrieve and enter in the **Verification code** box. Then the user selects **Verify code**. 
+
+Once the code is verified, the user selects **Create** to create their account. Or if the user wants to use a different email address, they can choose **Change e-mail**.
+
+![Phone sign-in user experience](media/phone-authentication/email-verification.png)
 
 ### Phone sign-in
 
-In the sign-in page, the user enters their phone number and selects **Continue**. Then the user enters their **Country**, selects **Continue**, and a one-time verification code is sent to their phone number. The user enters the verification code and signs in.
+If the user has an existing account with phone number as their identifier, the user enters their phone number and selects **Continue**. They confirm the country and phone number by selecting **Continue**, and a one-time verification code is sent to their phone. The user enters the verification code and selects **Continue** to sign in.
 
 ![Phone sign-in user experience](media/phone-authentication/phone-signin-screens.png)
 
-### Recovery email entry
+### Deleting a user account
 
-You can require a recovery email address as an additional form of verification. The user is prompted for their email address. When the user selects Send verification code, a one-time code is sent to their inbox. The user retrieves the code and enters it in the browser window. Then the user selects **Verify code** and is signed in.
-
-![Phone sign-in user experience](media/phone-authentication/additional-email-verification.png)
-
+There might be scenarios in which you want to manually delete an account in your Azure AD B2C directory. For details, see [Delete a consumer user](manage-users-portal.md#delete-a-consumer-user).
 
 ## Prerequisites
 
