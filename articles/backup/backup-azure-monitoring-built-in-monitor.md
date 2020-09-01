@@ -8,7 +8,7 @@ ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
 
 # Monitoring Azure Backup workloads
 
-Azure Backup provides multiple backup solutions based on the backup requirement and infrastructure topology (On-premises vs Azure). Any backup user or admin should see what is going on across all solutions and can expect to be notified in important scenarios. This article details the monitoring and notification capabilities provided by Azure Backup service.
+Azure Backup provides multiple backup solutions based on the backup requirement and infrastructure topology (On-premises vs Azure). Any backup user or admin should see what's going on across all solutions and can expect to be notified in important scenarios. This article details the monitoring and notification capabilities provided by Azure Backup service.
 
 ## Backup Jobs in Recovery Services vault
 
@@ -101,4 +101,4 @@ To inactivate/resolve an active alert, you can select the list item correspondin
 
 ## Next steps
 
-[Monitor Azure backup workloads using Azure Monitor](backup-azure-monitoring-use-azuremonitor.md)
+[Monitor Azure Backup workloads using Azure Monitor](backup-azure-monitoring-use-azuremonitor.md)
