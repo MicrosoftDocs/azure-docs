@@ -9,9 +9,9 @@
     href: supported-data-stores.md
 - name: Quickstarts
   items:
-  - name: Create data share - Azure portal
+  - name: Share data - Azure portal
     href: share-your-data-portal.md
-  - name: Create data share - ARM template
+  - name: Share data - ARM template
     displayName: Resource Manager
     href: share-your-data-arm.md
 - name: Tutorials
@@ -39,6 +39,10 @@
   items:
   - name: Share and receive data by source
     items:
+    - name: Share from Azure Storage
+      href: how-to-share-from-storage.md
+    - name: Share from Azure SQL Database or Synapse Analytics
+      href: how-to-share-from-sql.md
     - name: Share from Azure Data Explorer
       href: /azure/data-explorer/data-share
       maintainContext: true
