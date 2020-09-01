@@ -61,7 +61,7 @@ To learn how to assign, or unassign, a user or group using the Azure portal, see
 
     ```powershell
     # Assign the values to the variables
-    $username = "<You user's UPN>"
+    $username = "<Your user's UPN>"
     $app_name = "<Your App's display name>"
     $app_role_name = "<App role display name>"
 
