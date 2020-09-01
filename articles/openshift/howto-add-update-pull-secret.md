@@ -149,7 +149,7 @@ First, modify the Samples Operator configuration file. Then, you can run the fol
 oc edit configs.samples.operator.openshift.io/cluster -o yaml
 ```
 
-Change the `spec.architectures.managementState` and the `status.architecture.managementState` values from `Removed` to `Managed`. 
+Change the `spec.architectures.managementState` and `status.architecture.managementState` values from `Removed` to `Managed`. 
 
 The following YAML snippet shows only the relevant sections of the edited YAML file:
 
@@ -179,7 +179,7 @@ Second, run the following command to edit the Operator hub configuration file:
 oc edit operatorhub cluster -o yaml
 ```
 
-Change the `Spec.Sources.Disabled` and the `Status.Sources.Disabled` values from `true` to `false` for any sources you want enabled.
+Change the `Spec.Sources.Disabled` and `Status.Sources.Disabled` values from `true` to `false` for any sources you want enabled.
 
 The following YAML snippet shows only the relevant sections of the edited YAML file:
 
