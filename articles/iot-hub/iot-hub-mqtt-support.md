@@ -8,8 +8,6 @@ ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: robinsh
 ms.custom: [amqp, mqtt, 'Role: IoT Device', 'Role: Cloud Development', contperfq1]
-<!-- contperfq1 is the update for improving the content. --robinsh (so you know who to contact) -->
-<!-- amqp/mqtt was put in by Jimaco for tracking that -->
 ---
 # Communicate with your IoT hub using the MQTT protocol
 
