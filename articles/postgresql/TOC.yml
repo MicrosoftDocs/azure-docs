@@ -4,6 +4,8 @@
   items:
   - name: What is Azure DB for PostgreSQL?
     href: overview.md
+  - name: Choose deployment options
+    href: overview-postgres-choose-server-options.md
 - name: Shared Docs
   items:
   - name: Migration
@@ -11,7 +13,7 @@
       - name: Migrate data with pg_dump and pg_restore
         href: howto-migrate-using-dump-and-restore.md
         displayName: pg_dump, pg_restore
-      - name: Migrate data with pg_dump and psql 
+      - name: Migrate data with pg_dump and psql
         href: howto-migrate-using-export-and-import.md
         displayName: import , export
       - name: Minimal-downtime migration with DMS
@@ -21,6 +23,8 @@
   items:
   - name: Documentation
     href: single-server/index.yml
+  - name: Overview
+    href: overview-single-server.md
   - name: Quickstarts
     items:
     - name: Create Server and Database
@@ -384,19 +388,45 @@
       href: flexible-server/tutorial-webapp-server-vnet.md
     - name: Deploy Python (Django) app with database
       href: flexible-server/tutorial-django-app-service-postgres.md
+  - name: concepts
+    items:
+    - name: Business continuity
+      items:
+      - name: Overview
+        href: flexible-server/concepts-business-continuity.md
+      - name: Backup and restore
+        href: flexible-server/concepts-backup-restore.md
+      - name: High availability
+        href: flexible-server/concepts-high-availability.md
   - name: How-to guides
     items:
-    - name: Manage and scale a server
+    - name: Manage a server
       items:
       - name: Azure portal
         href: flexible-server/how-to-manage-server-portal.md
       - name: Azure CLI
         href: flexible-server/how-to-manage-server-cli.md
+    - name: Scale a server
+      items:
+      - name: Azure portal
+        href: flexible-server/how-to-scale-compute-storage-portal.md
+    - name: Restart a server
+      items:
+      - name: Azure portal
+        href: flexible-server/how-to-restart-server-portal.md
+    - name: Restore a server
+      items:
+      - name: Azure portal
+        href: flexible-server/how-to-restore-server-portal.md
+    - name: Manage high availability
+      items:
+      - name: Azure portal
+        href: flexible-server/how-to-manage-high-availability-portal.md
 - name: Hyperscale (Citus)
   items:
   - name: Documentation
     href: hyperscale/index.yml
-  - name: Quickstarts
+  - name: Quickstart
     items:
     - name: Create Server Group - Azure portal
       href: quickstart-create-hyperscale-portal.md

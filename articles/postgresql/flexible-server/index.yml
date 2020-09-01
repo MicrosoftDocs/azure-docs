@@ -1,9 +1,9 @@
 ### YamlMime:Landing
-title:  Flexible Server documentation
-summary: "Azure Database for PostgreSQL - Flexible Server is a fully managed PostgreSQL database as a service offering that can handle mission-critical workloads with predictable performance and dynamic scalability. Develop applications with Azure Database for PostgreSQL leveraging the open-source tools and platform of your choice. Learn how to use Azure Database for PostgreSQL with our quickstarts, tutorials, and samples."
-metadata: 
-  title: Azure Database for PostgreSQL - Flexible Server 
-  description: "Azure Database for PostgreSQL - Flexible Server is a relational database service in the Microsoft cloud that is built for developers and powered by the PostgreSQL community edition."
+title:  Flexible Server (Preview) documentation
+summary: "Azure Database for PostgreSQL - Flexible Server (Preview) is a fully managed PostgreSQL database as a service offering that can handle mission-critical workloads with predictable performance and dynamic scalability. Develop applications with Azure Database for PostgreSQL leveraging the open-source tools and platform of your choice. Learn how to use Flexible servers with our quickstarts, tutorials, and samples."
+metadata:
+  title: Azure Database for PostgreSQL - Flexible Server (Preview)
+  description: "Azure Database for PostgreSQL - Flexible Server (Preview) is a relational database service in the Microsoft cloud that is built for developers and powered by the PostgreSQL community edition."
   author: rachel-msft
   ms.author: raagyema
   ms.date: 09/21/2020
@@ -12,17 +12,58 @@ metadata:
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
-# Add Cards for Flexible Server Contentn
+# Add Cards for Flexible Server Contents
 
-landingContent: 
+landingContent:
   # Card
-  - title: Flexible Server (Preview)
+  - title: About Flexible Server (Preview)
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Flexible Server?
+            url: overview.md
+      - linkListType: whats-new
+        links:
+          - text: Check out our blog
+            url: https://techcommunity.microsoft.com/t5/Azure-Database-for-PostgreSQL/bg-p/ADforPostgreSQL
+
+
+
+# Card
+  - title: Get started
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Create a flexible server
+          - text: Create a Flexible Server using ARM Template
             url: quickstart-create-server-arm-template.md
-      - linkListType: whats-new
-        links: 
-          - text: Check out our blog
-            url: https://techcommunity.microsoft.com/t5/Azure-Database-for-PostgreSQL/bg-p/ADforPostgreSQL
+      - linkListType: concept
+        links:
+          - text: Business continuity concepts
+            url: concepts-business-continuity.md
+          - text: High availability concepts
+            url: concepts-high-availability.md
+          - text: Backup and restore
+            url: concepts-backup-restore.md
+      - linkListType: how-to-guide
+        links:
+          - text: Restart a server
+            url: how-to-restart-server-portal.md
+          - text: Scale up
+            url: how-to-scale-compute-storage-portal.md
+# Card
+  - title: Business continuity
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Business continuity concepts
+            url: concepts-business-continuity.md
+          - text: High availability concepts
+            url: concepts-high-availability.md
+          - text: Backup and restore
+            url: concepts-backup-restore.md
+      - linkListType: how-to-guide
+        links:
+          - text: Manage high availability
+            url: how-to-manage-high-availability-portal.md
+          - text: Restore a server
+            url: how-to-restore-server-portal.md
