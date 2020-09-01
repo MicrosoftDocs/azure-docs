@@ -82,6 +82,8 @@
       href: how-to-ingest-iot-hub-data.md
     - name: Integrate with Logic Apps
       href: how-to-integrate-logic-apps.md  
+    - name: Auto-manage devices with DPS
+      href: how-to-provision-using-dps.md
   - name: Connect output
     items:
     - name: Manage endpoints and routes
