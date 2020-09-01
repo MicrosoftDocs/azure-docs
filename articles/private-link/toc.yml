@@ -47,7 +47,9 @@
   - name: Disable network policies for a Private Link Service
     href: disable-private-link-service-network-policy.md
   - name: Manage private endpoints
-    href: manage-private-endpoint.md  
+    href: manage-private-endpoint.md
+  - name: Inspect traffic with Azure Firewall
+    href: inspect-traffic-with-azure-firewall.md
   - name: Troubleshoot
     items:
     - name: Troubleshoot Private Endpoint connectivity problems

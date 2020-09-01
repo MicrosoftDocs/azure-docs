@@ -76,7 +76,7 @@ This article provides the known issues and workarounds for Microsoft Azure Backu
 1. On Web Portal URL, the DPMReports Folder is present in the format of **`DPMReports_<GUID>`**
 
     >[!NOTE]
-    >There is always only one folder with this naming convention. If MABS is upgraded from a previous version, there might be another older folder as well, but you won't be able to open it.
+    >There's always only one folder with this naming convention. If MABS is upgraded from a previous version, there might be another older folder as well, but you won't be able to open it.
 
     ![DPMReports folder](./media/backup-mabs-release-notes-v3/dpm-reports-folder.png)
 

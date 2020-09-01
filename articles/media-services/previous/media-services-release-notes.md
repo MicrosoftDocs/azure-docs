@@ -14,9 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2019
 ms.author: juliako
+ms.custom: devx-track-csharp
 
 ---
 # Azure Media Services release notes
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 These release notes for Azure Media Services summarize changes from previous releases and known issues.
 

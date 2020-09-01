@@ -9,6 +9,7 @@ ms.date: 08/20/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
+ms.custom: devx-track-csharp
 ---
 
 # Copy a blob with .NET
