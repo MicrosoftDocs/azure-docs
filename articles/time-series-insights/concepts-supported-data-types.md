@@ -8,7 +8,7 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 08/12/2020
+ms.date: 08/31/2020
 ---
 
 # Supported data types
@@ -29,9 +29,10 @@ The following table lists the data types supported by Azure Time Series Insights
 
 > [!NOTE]
 > **String** type is not nullable:
->   * A [Time Series Expression (TSX)](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax) expressed in a [Time Series Query](https://docs.microsoft.com/rest/api/time-series-insights/reference-query-apis) comparing the value of an empty string (**''**) against **NULL** will behave the same way: `$event.siteid.String = NULL` is equivalent to `$event.siteid.String = ''`.
->   * The API may return **NULL** values even if original events contained empty strings.
->   * Do not take dependency on **NULL** values in **String** columns to do comparisons or evaluations, treat them the same way as empty strings.
+>
+> * A [Time Series Expression (TSX)](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax) expressed in a [Time Series Query](https://docs.microsoft.com/rest/api/time-series-insights/reference-query-apis) comparing the value of an empty string (**''**) against **NULL** will behave the same way: `$event.siteid.String = NULL` is equivalent to `$event.siteid.String = ''`.
+> * The API may return **NULL** values even if original events contained empty strings.
+> * Do not take dependency on **NULL** values in **String** columns to do comparisons or evaluations, treat them the same way as empty strings.
 
 ## Sending mixed data types
 
