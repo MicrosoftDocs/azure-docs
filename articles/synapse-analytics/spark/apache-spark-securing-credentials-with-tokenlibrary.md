@@ -7,7 +7,7 @@ ms.service:  synapse-analytics
 ms.topic: security
 ms.subservice: spark
 ms.date: 08/26/2020 
-ms.author: mlee3gsd 
+ms.author: martinle
 ms.reviewer: euang
 ---
 
