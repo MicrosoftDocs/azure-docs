@@ -98,7 +98,7 @@ You should see something similar to the following response:
 
 ```json
 {
-    "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ilg1ZVhrN...",
+    "id_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ilg1ZVhrN...",
     "token_type": "Bearer",
     "not_before": 1549647431,
     "expires_in": 3600,
@@ -108,7 +108,7 @@ You should see something similar to the following response:
 }
 ```
 
-When using https://jwt.ms to examine the access token that was returned, you should see something similar to the following example:
+When using https://jwt.ms to examine the ID token that was returned, you should see something similar to the following example:
 
 ```json
 {
