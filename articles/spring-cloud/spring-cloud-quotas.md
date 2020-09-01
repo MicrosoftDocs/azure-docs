@@ -11,6 +11,8 @@ ms.custom: devx-track-java
 
 # Quotas and Service Plans for Azure Spring Cloud
 
+**This article applies to:** ✔️ Java ✔️ C#
+
 All Azure services set default limits and quotas for resources and features.   Azure Spring Cloud offers two pricing tiers: Basic and Standard. We will detail limits for both tiers in this article.
 
 ## Azure Spring Cloud service tiers and limits

@@ -11,6 +11,8 @@ ms.custom: devx-track-java
 
 # Analyze logs and metrics with diagnostics settings
 
+**This article applies to:** ✔️ Java ✔️ C#
+
 Using the diagnostics functionality of Azure Spring Cloud, you can analyze logs and metrics with any of the following services:
 
 * Use Azure Log Analytics, where the data is written to Azure Storage. There is a delay when exporting logs to Log Analytics.
@@ -20,7 +22,7 @@ Using the diagnostics functionality of Azure Spring Cloud, you can analyze logs 
 Choose the log category and metric category you want to monitor.
 
 > [!TIP]
-> Just want to stream your logs? Check out this [Azure CLI command](https://docs.microsoft.com/cli/azure/ext/spring-cloud/spring-cloud/app?view=azure-cli-latest#ext-spring-cloud-az-spring-cloud-app-logs)!
+> Just want to stream your logs? Check out this [Azure CLI command](https://docs.microsoft.com/cli/azure/ext/spring-cloud/spring-cloud/app?view=azure-cli-latest&preserve-view=true#ext-spring-cloud-az-spring-cloud-app-logs)!
 
 ## Logs
 
@@ -198,3 +200,7 @@ AppPlatformLogsforSpring
 | extend Log = array_strcat(split(Log, '\\n'), '\n')
 ```
 You may be able to use the same strategy for other Java log libraries.
+
+## Next steps
+
+* [Quickstart: Deploy your first Azure Spring Cloud application](spring-cloud-quickstart.md)
