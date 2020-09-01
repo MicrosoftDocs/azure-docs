@@ -34,7 +34,6 @@ Create a file named `CreateKB.java`
 
 At the top of `CreateKB.java`, add the following lines to add necessary dependencies to the project:
 
-[!code-java[Add the required dependencies](~/samples-qnamaker-java/documentation-samples/quickstarts/create-knowledge-base/CreateKB.java?range=1-5 "Add the required dependencies")]
 :::code language="java" source="~/cognitive-services-quickstart-code/java/QnAMaker/rest/CreateKB.java" id="dependencies":::
 
 ## Add the required constants
