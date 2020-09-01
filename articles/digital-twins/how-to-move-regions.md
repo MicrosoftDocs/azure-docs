@@ -91,6 +91,9 @@ Then, hit the *Export graph* icon in the *GRAPH VIEW* box.
 
 This will enable a *Download* link in the *GRAPH VIEW*. Select it to download a JSON-based representation of the query result, including your models, twins, and relationships. This should download a *.json* file to your machine.
 
+>[!NOTE]
+>If the downloaded file appears to have a different file extension, try editing the extension directly and changing it to *.json*.
+
 ## Move
 
 Next, you will complete the "move" of your instance by creating a new instance in the target region, and populating it with the data and components from your original instance.
