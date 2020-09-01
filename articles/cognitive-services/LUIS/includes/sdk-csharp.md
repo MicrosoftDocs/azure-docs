@@ -6,9 +6,9 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.date: 8/13/2020
+ms.date: 09/01/2020
 ms.topic: include
-ms.custom: "include file, devx-track-dotnet"
+ms.custom: "include file, devx-track-dotnet, cog-serv-seo-aug-2020"
 ms.author: diberry
 ---
 
@@ -61,6 +61,7 @@ Create a new .NET Core application in your preferred editor or IDE.
     ...
     ```
 
+[Did you run into an issue creating the app?](#troubleshooting?create-app)
 
 ### Install the NuGet libraries
 
@@ -75,6 +76,8 @@ dotnet add package Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime --ver
 
 The Language Understanding (LUIS) authoring client is a [LUISAuthoringClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.luisauthoringclient?view=azure-dotnet) object that authenticates to Azure, which contains your authoring key.
 
+## Code examples for authoring
+
 Once the client is created, use this client to access functionality including:
 
 * Apps - [create](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.appsextensions.addasync?view=azure-dotnet), [delete](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.appsextensions.deleteasync?view=azure-dotnet), [publish](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.appsextensions.publishasync?view=azure-dotnet)
@@ -88,6 +91,8 @@ Once the client is created, use this client to access functionality including:
 ## Prediction Object model
 
 The Language Understanding (LUIS) prediction runtime client is a [LUISRuntimeClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.runtime.luisruntimeclient?view=azure-dotnet) object that authenticates to Azure, which contains your resource key.
+
+## Code examples for prediction runtime
 
 Once the client is created, use this client to access functionality including:
 
@@ -170,7 +175,7 @@ Add example utterances by creating a list of [ExampleLabelObject](https://docs.m
 
 :::image type="content" source="../media/quickstart-sdk/labeled-example-machine-learned-entity.png" alt-text="The entity value should be exactly as it appears in the text of the example utterance.":::
 
-Call [Examples.AddAsync](https://docs.microsoft.com//dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.examplesextensions.addasync?view=azure-dotnet) with the app ID, version ID, and the example. 
+Call [Examples.AddAsync](https://docs.microsoft.com//dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.examplesextensions.addasync?view=azure-dotnet) with the app ID, version ID, and the example.
 
 [!code-csharp[Add example utterance to a specific intent](~/cognitive-services-quickstart-code/dotnet/LanguageUnderstanding/sdk-3x//Program.cs?name=AuthoringAddLabeledExamples)]
 

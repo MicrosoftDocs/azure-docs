@@ -6,9 +6,9 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.date: 8/13/2020
+ms.date: 09/01/2020
 ms.topic: include
-ms.custom: include file, devx-track-javascript
+ms.custom: include file, devx-track-javascript, cog-serv-seo-aug-2020
 ms.author: diberry
 ---
 Use the Language Understanding (LUIS) client libraries for Node.js to:
@@ -37,13 +37,13 @@ Use the Language Understanding (LUIS) client libraries for Node.js to:
     mkdir quickstart-sdk && cd quickstart-sdk
     ```
 
-1. Initialize the directory as a JavaScript application by creating a `package.json` file. 
+1. Initialize the directory as a JavaScript application by creating a `package.json` file.
 
     ```console
     npm init -y
     ```
 
-1. Create a file named `index.js` for your JavaScript code. 
+1. Create a file named `index.js` for your JavaScript code.
 
     ```console
     touch index.js
@@ -55,7 +55,7 @@ Within the application directory, install the dependencies with the following co
 
 ```console
 npm install @azure/ms-rest-js
-npm install @azure/cognitiveservices-luis-authoring 
+npm install @azure/cognitiveservices-luis-authoring
 npm install @azure/cognitiveservices-luis-runtime
 ```
 
@@ -85,6 +85,8 @@ Your `package.json` should look like:
 
 The Language Understanding (LUIS) authoring client is a [LUISAuthoringClient](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/luisauthoringclient?view=azure-node-latest) object that authenticates to Azure, which contains your authoring key.
 
+## Code examples for authoring
+
 Once the client is created, use this client to access functionality including:
 
 * Apps - [add](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/apps?view=azure-node-latest#add-applicationcreateobject--msrest-requestoptionsbase-), [delete](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/apps?view=azure-node-latest#deletemethod-string--models-appsdeletemethodoptionalparams-), [publish](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/apps?view=azure-node-latest#publish-string--applicationpublishobject--msrest-requestoptionsbase-)
@@ -99,6 +101,8 @@ Once the client is created, use this client to access functionality including:
 
 The Language Understanding (LUIS) authoring client is a [LUISAuthoringClient](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-runtime/luisruntimeclient?view=azure-node-latest) object that authenticates to Azure, which contains your authoring key.
 
+## Code examples for prediction runtime
+
 Once the client is created, use this client to access functionality including:
 
 * [Prediction](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-runtime/predictionoperations?view=azure-node-latest#getslotprediction-string--string--predictionrequest--models-predictiongetslotpredictionoptionalparams-) by `staging` or `production` slot
@@ -112,16 +116,16 @@ Open the `index.js` file in your preferred editor or IDE named then add the foll
 
 [!code-javascript[Add NPM libraries to code file](~/cognitive-services-quickstart-code/javascript/LUIS/sdk-3x/index.js?name=Dependencies)]
 
-## Add boilerplate code 
+## Add boilerplate code
 
-1. Add the `quickstart` method and its call. This method holds most of the remaining code. This method is called at the end of the file. 
+1. Add the `quickstart` method and its call. This method holds most of the remaining code. This method is called at the end of the file.
 
     ```javascript
     const quickstart = async () => {
-    
+
         // add calls here
-    
-    
+
+
     }
     quickstart()
         .then(result => console.log("Done"))
@@ -130,7 +134,7 @@ Open the `index.js` file in your preferred editor or IDE named then add the foll
             })
     ```
 
-1. Add the remaining code in the quickstart method unless otherwise specified. 
+1. Add the remaining code in the quickstart method unless otherwise specified.
 
 ## Create variables for the app
 

@@ -6,9 +6,9 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.date: 08/13/2020
+ms.date: 09/01/2020
 ms.topic: include
-ms.custom: include file
+ms.custom: include file, cog-serv-seo-aug-2020
 ms.author: diberry
 ---
 Use the Language Understanding (LUIS) client libraries for Python to:
@@ -22,7 +22,7 @@ Use the Language Understanding (LUIS) client libraries for Python to:
 
 ## Prerequisites
 
-* The current version of [Python 3.x](https://www.python.org/). 
+* The current version of [Python 3.x](https://www.python.org/).
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
 * Once you have your Azure subscription, [create a Language Understanding authoring resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne) in the Azure portal to get your key and endpoint. Wait for it to deploy and click the **Go to resource** button.
     * You will need the key and endpoint from the resource you [create](../luis-how-to-azure-subscription.md#create-luis-resources-in-azure-portal) to connect your application to Language Understanding authoring. You'll paste your key and endpoint into the code below later in the quickstart. You can use the free pricing tier (`F0`) to try the service.
@@ -37,7 +37,7 @@ Use the Language Understanding (LUIS) client libraries for Python to:
     mkdir quickstart-sdk && cd quickstart-sdk
     ```
 
-1. Create a file named `authoring_and_predict.py` for your Python code. 
+1. Create a file named `authoring_and_predict.py` for your Python code.
 
     ```console
     touch authoring_and_predict.py
@@ -55,6 +55,8 @@ pip install azure-cognitiveservices-language-luis
 
 The Language Understanding (LUIS) authoring client is a [LUISAuthoringClient](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.authoring.luisauthoringclient?view=azure-python) object that authenticates to Azure, which contains your authoring key.
 
+## Code examples for authoring
+
 Once the client is created, use this client to access functionality including:
 
 * Apps - [create](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.authoring.operations.appsoperations?view=azure-python#add-application-create-object--custom-headers-none--raw-false----operation-config-), [delete](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.authoring.operations.appsoperations?view=azure-python#delete-app-id--force-false--custom-headers-none--raw-false----operation-config-), [publish](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.authoring.operations.appsoperations?view=azure-python#publish-app-id--version-id-none--is-staging-false--custom-headers-none--raw-false----operation-config-)
@@ -70,6 +72,8 @@ Once the client is created, use this client to access functionality including:
 
 The Language Understanding (LUIS) prediction runtime client is a [LUISRuntimeClient](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.runtime.luisruntimeclient?view=azure-python) object that authenticates to Azure, which contains your resource key.
 
+## Code examples for prediction runtime
+
 Once the client is created, use this client to access functionality including:
 
 * Prediction by [staging or production slot](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.runtime.operations.predictionoperations?view=azure-python#get-slot-prediction-app-id--slot-name--prediction-request--verbose-none--show-all-intents-none--log-none--custom-headers-none--raw-false----operation-config-)
@@ -79,24 +83,24 @@ Once the client is created, use this client to access functionality including:
 
 ## Add the dependencies
 
-Add the client libraries to the python file. 
+Add the client libraries to the python file.
 
 [!code-python[Add python libraries to code file](~/cognitive-services-quickstart-code/python/LUIS/sdk-3x/authoring_and_predict.py?name=Dependencies)]
 
 
-## Add boilerplate code 
+## Add boilerplate code
 
-1. Add the `quickstart` method and its call. This method holds most of the remaining code. This method is called at the end of the file. 
+1. Add the `quickstart` method and its call. This method holds most of the remaining code. This method is called at the end of the file.
 
     ```python
-    def quickstart(): 
+    def quickstart():
 
         # add calls here, remember to indent properly
-    
+
     quickstart()
     ```
 
-1. Add the remaining code in the quickstart method unless otherwise specified. 
+1. Add the remaining code in the quickstart method unless otherwise specified.
 
 ## Create variables for the app
 
@@ -158,7 +162,7 @@ Add example utterances by creating a list of [ExampleLabelObject](https://docs.m
 
 :::image type="content" source="../media/quickstart-sdk/labeled-example-machine-learned-entity.png" alt-text="The entity value should be exactly as it appears in the text of the example utterance.":::
 
-Call [examples.add](https://docs.microsoft.com//python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.authoring.operations.examplesoperations?view=azure-python#add-app-id--version-id--example-label-object--enable-nested-children-false--custom-headers-none--raw-false----operation-config-) with the app ID, version ID, and the example. 
+Call [examples.add](https://docs.microsoft.com//python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.authoring.operations.examplesoperations?view=azure-python#add-app-id--version-id--example-label-object--enable-nested-children-false--custom-headers-none--raw-false----operation-config-) with the app ID, version ID, and the example.
 
 [!code-python[Add example utterance to a specific intent](~/cognitive-services-quickstart-code/python/LUIS/sdk-3x/authoring_and_predict.py?name=AuthoringAddLabeledExamples)]
 
