@@ -73,11 +73,11 @@ Workday App does not support the following:
 * Require approved client app
 * Require app protection policy (Preview)
 
-Click on **Home > Microsoft Intune > condiional Access-Policies > Managed Devices Only > Cloud apps or actions.**
+Click on **Home > Microsoft Intune > conditional Access-Policies > Managed Devices Only > Cloud apps or actions.**
 
 ![Setup Conditional Access Policy](./media/workday-tutorial/managed-devices-only.png)
 
-Click on **Home > Microsoft Intune > condiional Access-Policies > Managed Devices Only > Grant.**
+Click on **Home > Microsoft Intune > conditional Access-Policies > Managed Devices Only > Grant.**
 
 ![Workday Setup Conditional Access Policy](./media/workday-tutorial/managed-devices-only-2.png)
 

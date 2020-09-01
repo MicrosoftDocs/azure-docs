@@ -216,13 +216,13 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     b. In the **IDP SSO Service URL (Will be Deprecated)** textbox, type **Login URL** value.
 
-    b. Select **Do Not Deflate SP-initiated Authentication Request (Will be Deprecated)**.
+    c. Select **Do Not Deflate SP-initiated Authentication Request (Will be Deprecated)**.
 
-    c. For **Authentication Request Signature Method**, select **SHA256**.
+    d. For **Authentication Request Signature Method**, select **SHA256**.
 
     ![Authentication Request Signature Method](./media/workday-tutorial/WorkdaySSOConfiguration.png "Authentication Request Signature Method")
 
-    d. Click **OK**.
+    e. Click **OK**.
 
     ![OK](./media/workday-tutorial/IC782933.png "OK")
 
