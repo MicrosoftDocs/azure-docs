@@ -23,7 +23,7 @@ For Azure Digital Twins specifically, this affects the following command groups:
 
 ### Troubleshooting steps
 
-This can be resolved by re-running the `az login` command in Cloud Shell and completing subsequent login steps. After this, you should be able to re-run the command.
+This can be resolved by rerunning the `az login` command in Cloud Shell and completing subsequent login steps. After this, you should be able to rerun the command.
 
 An alternative solution is to [install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) on your machine so you can run Azure CLI commands locally. The local CLI does not experience this issue.
 
@@ -37,7 +37,7 @@ This doesn't affect Azure Digital Twins commands from the `az dt` or `az dt endp
 
 ## Missing role assignment after scripted setup
 
-Some users may experience issues with the role assignment portion of [*How-to: Set up an instance and authentication (scripted)*](how-to-set-up-instance-scripted.md). The script does not indicate failure, but the *Azure Digital Twins Owner (Preview)* role is not successfully assigned to the user, and this will impact ability to create other resources down the road.
+Some users may experience issues with the role assignment portion of [*How-to: Set up an instance and authentication (scripted)*](how-to-set-up-instance-scripted.md). The script does not indicate failure, but the *Azure Digital Twins Owner (Preview)* role is not successfully assigned to the user, and this issue will impact ability to create other resources down the road.
 
 To determine whether your role assignment was successfully set up after running the script, follow the instructions in the [*Verify user role assignment*](how-to-set-up-instance-scripted.md#verify-user-role-assignment) section of the setup article. If your user is not shown with this role, this issue affects you.
 
@@ -51,7 +51,7 @@ Follow these instructions:
 
 ### Possible causes
 
-For users logged in with a personal [Microsoft account (MSA)](https://account.microsoft.com/account), your user's Principal ID that identifies you in commands like this may be different from your user's login email, making it difficult for the script to discover and use to assign the role properly.
+For users logged in with a personal [Microsoft account (MSA)](https://account.microsoft.com/account), your user's Principal ID that identifies you in commands like this may be different from your user's sign-in email, making it difficult for the script to discover and use to assign the role properly.
 
 ## Issue with interactive browser authentication
 
@@ -68,11 +68,11 @@ The issue includes an error response of "Azure.Identity.AuthenticationFailedExce
 
 ### Troubleshooting steps
 
-To resolve, update your applications to use Azure.Identity version **1.2.2**. With this version of the library, the browser should load and authenticate as expected.
+To resolve, update your applications to use `Azure.Identity` version **1.2.2**. With this version of the library, the browser should load and authenticate as expected.
 
 ### Possible causes
 
-This is related to an open issue with the latest version of the Azure.Identity library (version **1.2.0**): [*Fail to authenticate when using InteractiveBrowserCredential*](https://github.com/Azure/azure-sdk-for-net/issues/13940).
+This is related to an open issue with the latest version of the `Azure.Identity` library (version **1.2.0**): [*Fail to authenticate when using InteractiveBrowserCredential*](https://github.com/Azure/azure-sdk-for-net/issues/13940).
 
 You will see this issue if you use version **1.2.0** in your Azure Digital Twins application, or if you add the library to your project without specifying a version (as that also defaults to this latest version).
 
