@@ -55,8 +55,8 @@ A *sentinel key* is a special key used to signal when configuration has changed.
 
 1. Select **Apply**.
 
-    > [!NOTE]
-    > If you're not using a sentinel key, you'll need to manually register every key you want to watch.
+> [!NOTE]
+> If you're not using a sentinel key, you'll need to manually register every key you want to watch.
 
 ## Reload data from App Configuration
 
@@ -117,8 +117,8 @@ A *sentinel key* is a special key used to signal when configuration has changed.
 
     Also, the `SetCacheExpiration` method overrides the default cache expiration time of 30 seconds, specifying a time of 5 minutes instead. This reduces the number of requests made to App Configuration.
 
-> [!NOTE]
-> For testing purposes, you may want to lower the cache expiration time.
+    > [!NOTE]
+    > For testing purposes, you may want to lower the cache expiration time.
 
     To actually trigger a refresh operation, you'll need to configure a refresh middleware for the application to refresh the configuration data when any change occurs. You'll see how to do this in a later step.
 
