@@ -5,7 +5,7 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 8/24/2020
+ms.date: 9/21/2020
 ---
 
 # Limitations in Azure Database for MySQL - Flexible Server
@@ -22,7 +22,9 @@ This article describes storage engine support, privilege support, data manipulat
 
 Azure Database for MySQL supports tuning the values of server parameters. The min and max value of some parameters (ex. `max_connections`, `join_buffer_size`, `query_cache_size`) is determined by the pricing tier and vCores of the server. Refer to server parameters concepts <!-- [server parameters](./concepts-server-parameters.md)--> for more information about these limits.
 
-## Storage engine support
+## Storage engines
+
+MySQL supports many storage engines. On Azure Database for MySQL Flexible Server, the following storage engines are supported and unsupported:
 
 ### Supported
 - [InnoDB](https://dev.mysql.com/doc/refman/5.7/en/innodb-introduction.html)
@@ -34,55 +36,50 @@ Azure Database for MySQL supports tuning the values of server parameters. The mi
 - [ARCHIVE](https://dev.mysql.com/doc/refman/5.7/en/archive-storage-engine.html)
 - [FEDERATED](https://dev.mysql.com/doc/refman/5.7/en/federated-storage-engine.html)
 
-## Privilege support
+## Privileges & data manipulation support
+
+Many server parameters and settings can inadvertently degrade server performance or negate ACID properties of the MySQL server. As such, to maintain the service integrity and SLA at a product level, this service does not expose multiple roles. 
+
+The MySQL service does not allow direct access to the underlying file system. As a result, some data manipulation commands are not supported. 
 
 ### Unsupported
-- DBA role: 
-Many server parameters and settings can inadvertently degrade server performance or negate ACID properties of the DBMS. As such, to maintain the service integrity and SLA at a product level, this service does not expose the DBA role. The default user account, which is constructed when a new database instance is created, allows that user to perform most of DDL and DML statements in the managed database instance. 
-- SUPER privilege: 
-Similarly [SUPER privilege](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_super) is also restricted.
-- DEFINER: 
-Requires super privileges to create and is restricted. If importing data using a backup, remove the `CREATE DEFINER` commands manually or by using the `--skip-definer` command when performing a mysqldump.
-- System databases:
-In Azure Database for MySQL, the [mysql system database](https://dev.mysql.com/doc/refman/5.7/en/system-schema.html) is read-only as it is used to support various PaaS service functionality. Please note that you cannot change anything in the `mysql` system database.
 
-## Data manipulation statement support
+The following are unsupported:
+- DBA role: Restricted. Alternatively, you can use the administrator user, which is constructed when a new server is created, allows you to perform most of DDL and DML statements. 
+- SUPER privilege: Similarly, [SUPER privilege](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_super) is restricted.
+- DEFINER: Requires super privileges to create and is restricted. If importing data using a backup, remove the `CREATE DEFINER` commands manually or by using the `--skip-definer` command when performing a mysqldump.
+- System databases: The [mysql system database](https://dev.mysql.com/doc/refman/5.7/en/system-schema.html) is read-only as it is used to support various PaaS functionality. Please note that you cannot change anything in the `mysql` system database.
+- `SELECT ... INTO OUTFILE`: Not supported in the service.
 
 ### Supported
 - `LOAD DATA INFILE` is supported, but the `[LOCAL]` parameter must be specified and directed to a UNC path (Azure storage mounted through SMB).
 
-### Unsupported
-- `SELECT ... INTO OUTFILE`
-
 ## Functional limitations
 
-### Zone Redundant HA
-- Can only be set during server create.
+### Zone redundant HA
+- This configuration can only be set during server create.
 - Not supported in Burstable compute tier.
-- Servers configured with zone redundant HA do not support read replicas.
 
 ### Networking
-- The connectivity method cannot be changed after creating the server. For example, if you selected *Private access (VNet Integration)* during create then you cannot change to *Public access (allowed IP addresses)* after create.
+- Connectivity method cannot be changed after creating the server (ex. if the server is created with *Private access (VNet Integration)*, it cannot be changed to *Public access (allowed IP addresses)* after create).
 - SSL is enabled by default and cannot be disabled.
-- The minimum TLS version supported on the server is TLS1.2.
+- Minimum TLS version supported on the server is TLS1.2.
 
-### Start/stop operation
-- Start/stop for servers with Zone Redundant HA is currently not supported
-- Primary servers configured with replicas do not support start/stop. 
-- Replicas do not support start/stop.
+### Stop/start operation
+- Not supported with zone redundant HA configurations (both primary and standby).
+- Not supported with read replica configurations (both source and replicas).
 
 ### Scale operations
 - Decreasing server storage size is currently not supported.
 
 ### Read replicas
-- Primary servers configured with replicas do not support zone redundant HA. 
-- Replicas do not support zone redundant HA.
+- Not supported with zone redundant HA configurations (both primary and standby).
 
 ### Server version upgrades
-- Automated migration between major database engine versions is currently not supported. If you would like to upgrade to the next major version, take a dump and restore <!--  [dump and restore](./howto-migrate-using-dump-and-restore.md)--> it to a server that was created with the new engine version.
+- Automated migration between major database engine versions is currently not supported. If you would like to upgrade to the next major version, take a [dump and restore](../concepts-migrate-dump-restore.md) it to a server that was created with the new engine version.
 
 ### Restoring a server
-- When using the point-in-time-restore feature, the new server is created with the same compute and storage configurations as the source server it is based on. The restored server's compute can be scaled down after the server is created.
+- With point-in-time restore, new servers are created with the same compute and storage configurations as the source server it is based on. The newly restored server's compute can be scaled down after the server is created.
 - Restoring a deleted server is not supported.
 
 ## Next steps
