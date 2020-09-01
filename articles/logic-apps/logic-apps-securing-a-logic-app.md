@@ -173,8 +173,6 @@ For example, suppose that your logic app has an authorization policy that requir
 }
 ```
 
-
-
 <a name="define-authorization-policy-portal"></a>
 
 #### Define authorization policy in Azure portal
