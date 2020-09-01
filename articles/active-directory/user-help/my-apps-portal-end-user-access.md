@@ -37,7 +37,7 @@ You can get to the **My Apps** portal from any of the following web browsers:
 
 ## Download and install the My Apps Secure Sign-in Extension
 
-Download and install the **My Apps Secure Sign-in Extension**, if you're prompted. The mobile version of the Edge browser is currently the only supported mobile browser. This extension helps you use any of your organization's cloud apps that require you to use a single sign-on process. If your organization has already set you up for single sign-on, the extension is installed automatically and you can skip this section.
+Download and install the **My Apps Secure Sign-in Extension**, if you're prompted. This extension helps you use your desktop browser with any of your organization's cloud apps that require you to use a single sign-on process. If your organization has already set you up for single sign-on, the extension is installed automatically and you can skip this section.
 
 This extension helps you:
 
@@ -160,7 +160,11 @@ After you get to the **My Apps** portal, you can:
 
 - Organize your apps into the various categories created and provided by your organization. For more information, see [Access and use collections in the My Apps portal](my-applications-portal-workspaces.md).
 - Review, update, or revoke permissions granted to applications. For more information, see [Edit or revoke application permissions in the My Apps portal](my-applications-portal-permissions-saved-accounts.md).
-- Access [**My Account**](my-account-portal-overview.md) from the **My Apps** portal for your account management tasks: checking for unusual sign-in activity, managing your password, or managing connected devices, subscriptions, organizations, and OFfice apps.
+- Access [**My Account**](my-account-portal-overview.md) from the **My Apps** portal for account management:
+  
+  - Checking for unusual sign-in activity
+  - Managing your password
+  - Managing connected devices, subscriptions, organizations, and Office apps
 
 >[!NOTE]
 >If you don't see any collections or categories available, it means that your administrator hasn't set up or shared any with you. Contact your organization's help desk for additional assistance or permissions to see shared collections.
