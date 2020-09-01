@@ -594,6 +594,8 @@
         href: fastly-edge-cloud-tutorial.md
       - name: FCM HUB
         href: fcm-hub-tutorial.md
+      - name: Fexa
+        href: fexa-tutorial.md
       - name: Field iD
         href: field-id-tutorial.md
       - name: Fidelity NetBenefits
@@ -928,8 +930,6 @@
         href: kantegassoforjira-tutorial.md
       - name: Keeper Password Manager & Digital Vault
         href: keeperpasswordmanager-tutorial.md
-      - name: Kemp LoadMaster
-        href: kemp-tutorial.md
       - name: Khoros Care
         href: khoros-care-tutorial.md
       - name: Kindling
@@ -1666,8 +1666,6 @@
         href: tickitlms-learn-tutorial.md
       - name: Tidemark
         href: tidemark-tutorial.md
-      - name: TigerConnect Secure Messenger
-        href: tigertext-tutorial.md
       - name: TimeLive
         href: timelive-tutorial.md
       - name: TimeOffManager
@@ -1927,6 +1925,8 @@
         href: cernercentral-provisioning-tutorial.md
       - name: Cisco Webex
         href: cisco-webex-provisioning-tutorial.md
+      - name: Coda
+        href: coda-provisioning-tutorial.md
       - name: Comeet Recruiting Software
         href: comeet-recruiting-software-provisioning-tutorial.md
       - name: Concur

@@ -11,7 +11,7 @@ ms.date: 08/25/2020
 ms.author: alkohli
 ---
 
-# Deploy a GPU enabled IoT module from Azure Marketplace on Azure Stack Edge device
+# Deploy a GPU enabled IoT module from Azure Marketplace on Azure Stack Edge GPU device
 
 This article describes how to deploy a Graphics Processing Unit (GPU) enabled IoT Edge module from Azure Marketplace on your Azure Stack Edge device. 
 

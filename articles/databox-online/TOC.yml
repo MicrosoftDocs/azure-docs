@@ -73,17 +73,17 @@
       items:
       - name: Via kubectl
         items: 
-        - name: Access Kubernetes cluster
+        - name: Kubernetes cluster access
           href: azure-stack-edge-gpu-create-kubernetes-cluster.md 
-        - name: Expose stateless app
+        - name: Stateless app
           href: azure-stack-edge-j-series-deploy-stateless-application-kubernetes.md 
-        - name: Deploy stateful app (static provisioned)
+        - name: Static provisioned stateful app 
           href: azure-stack-edge-gpu-deploy-stateful-application-static-provision-kubernetes.md 
-        - name: Deploy stateful app (dynamic provisioned)
+        - name: Dynamic provisioned stateful app
           href: azure-stack-edge-gpu-deploy-stateful-application-dynamic-provision-kubernetes.md         
       - name: Via IoT Edge
         items:
-        - name: Expose stateless app
+        - name: Stateless app
           href: azure-stack-edge-gpu-deploy-stateless-application-iot-edge-module.md 
       - name: Via Azure Arc
         items:
@@ -121,8 +121,8 @@
         href: azure-stack-edge-j-series-create-certificates-tool.md 
       - name: Troubleshoot certificate errors
         href: azure-stack-edge-j-series-certificate-troubleshooting.md 
-      - name: Develop C# module
-        href: azure-stack-edge-j-series-create-iot-edge-module.md 
+    - name: Develop C# module
+      href: azure-stack-edge-j-series-create-iot-edge-module.md 
     - name: Manage Edge compute 
       href: azure-stack-edge-j-series-manage-compute.md 
     - name: Manage storage gateway
