@@ -14,17 +14,20 @@ ms.author: azhussai
 Azure Application Gateway is a layer 7 load-balancing solution, which enables scalable, highly available, and secure web application delivery on Azure.
 
 There are no upfront costs or termination costs associated with Application Gateway.
-You will be billed only for the resources pre-provisioned and utilized based on actual consumption calculated on a partial hour basis. Costs associated with Application Gateway are classified into two components: fixed costs and variable costs. Actual costs within each component will vary according to the SKU being utilized.
+You will be billed only for the resources pre-provisioned and utilized based on actual hourly consumption. Costs associated with Application Gateway are classified into two components: fixed costs and variable costs. Actual costs within each component will vary according to the SKU being utilized.
 
 This article describes the costs associated with each SKU and it is recommended that users utilize this document for planning and managing costs associated with the Azure Application Gateway.
 
+> [!NOTE]
+> A partial hour is billed as a full hour.
 
 ## V1 SKUs
 
 Standard Application Gateway and WAF V1 SKUs are billed as a combination of:
 
-1. Fixed Costs (Tier | Size | Instance Count
-Cost based on the time a particular type of Application Gateway/WAF is provisioned and running for processing requests.
+1. Fixed Costs
+
+    Cost based on the time a particular type of Application Gateway/WAF is provisioned and running for processing requests.
 The fixed cost component takes in consideration the following factors:
     * Tier - Standard Application Gateway or WAF
     * Size - Small, Medium & Large
@@ -32,7 +35,9 @@ The fixed cost component takes in consideration the following factors:
 
     For N instances, the costs associated will be N * cost of one Instance of a particular Tier(Standard & WAF) & Size(Small, Medium & Large) combination.
 
-2. Variable Costs – Cost based on the amount of data processed by the Application Gateway/WAF. Both the request and response bytes processed by the Application Gateway would be considered for billing.
+2. Variable Costs
+
+    Cost based on the amount of data processed by the Application Gateway/WAF. Both the request and response bytes processed by the Application Gateway would be considered for billing.
 
 Total Costs = Fixed Costs + Variable Costs
 
@@ -61,7 +66,7 @@ Monthly price estimates are based on 730 hours of usage per month.
 
 For more pricing information according to your region, see the [pricing page](https://azure.microsoft.com/pricing/details/application-gateway/).
 
-### WAF V1 
+### WAF V1
 
 Fixed Costs & Variable Costs will be calculated according to the provisioned Application Gateway type.
 
@@ -88,7 +93,7 @@ Monthly price estimates are based on 730 hours of usage per month.
 For more pricing information according to your region, see the [pricing page](https://azure.microsoft.com/pricing/details/application-gateway/).
 
 > [!NOTE]
-> Outbound data transfers - data going out of Azure data centers from application gateways will be charged at standard [data transfer rates](https://azure.microsoft.com/en-us/pricing/details/bandwidth/).
+> Outbound data transfers - data going out of Azure data centers from application gateways will be charged at standard [data transfer rates](https://azure.microsoft.com/pricing/details/bandwidth/).
 
 ### Example 1 (a) – Standard Application Gateway with 1 instance count
 
@@ -128,7 +133,6 @@ Fixed Price = $0.025 * 360 (Hours) =  $9
 
 Variable Costs = 10 * 1000 *  $0.008/GB + 5 * 1000 * $0.008/GB  = $120
 
-
 Total Costs = $9 + $120 = $129
 
 ###### Large Instance WAF Application Gateway
@@ -147,13 +151,14 @@ Application Gateway V2 and WAF V2 instances support autoscaling and guarantee hi
 ### Key Terms
 
 ##### Capacity Unit 
-Capacity Unit is the measure of processing capacity for an Application Gateway instance across multiple parameters. 
+Capacity Unit is the measure of capacity utilization for an Application Gateway instance across multiple parameters.
 
-A Capacity Unit is defined with the following limits across different parameters:
+A single Capacity Unit consists of the following parameters:
 * 2500 Persistent connections
 * 2.22-Mbps throughput
 * 1 Compute Unit
 
+If any one of these parameters are exceeded, then another n capacity unit(s) are necessary, even if the other two parameters don’t exceed this single capacity unit’s limits.
 The parameter with the highest utilization among the three above will be internally used for calculating capacity units, which is in turn billed.
 
 ##### Compute Unit
@@ -165,7 +170,7 @@ Compute unit guidance:
 * WAF_v2 - Each compute unit can support approximately 10 concurrent requests per second for 70-30% mix of traffic with 70% requests less than 2 KB GET/POST and remaining higher. WAF performance is not affected by response size currently.
 
 ##### Instance Count 
- Pre-provisioning of resources for Application Gateway V2 SKUs is defined in terms of Instance counts. Each Instance count guarantees a minimum of 10 capacity units in terms of processing capability. The same instance could potentially support more than 10 capacity units for different traffic patterns depending upon the Capacity Unit parameters.
+ Pre-provisioning of resources for Application Gateway V2 SKUs is defined in terms of Instance counts. Each Instance guarantees a minimum of 10 capacity units in terms of processing capability. The same instance could potentially support more than 10 capacity units for different traffic patterns depending upon the Capacity Unit parameters.
 
 Manually defined scale and limits set for autoscaling (minimum or maximum) are set in terms of Instance Count. The manually set scale for instance count and the minimum instance count in autoscale config will reserve 10 capacity units/Instance. These reserved CUs will be billed as long as the Application Gateway is active regardless of the actual resource consumption. If actual consumption crosses the 10 capacity units/Instance threshold, additional capacity units will be billed under the variable component.
 
@@ -177,13 +182,16 @@ V2 SKUs are billed based on the consumption and constitute of two parts:
 
     The number of instances running at any point of time is not considered as a factor for fixed costs for V2 SKUs. The fixed costs of running a Standard_V2 (or WAF_V2) would be same per hour regardless of the number of instances running within the same Azure region.
 
-2. Capacity Unit Costs – Cost based on the number of capacity units either reserved or created with autoscaling as required for processing the incoming requests.  Consumption based costs are computed hourly or partial hourly.
+2. Capacity Unit Costs – Cost based on the number of capacity units either reserved or created with autoscaling as required for processing the incoming requests.  Consumption based costs are computed hourly.
 
 Total Costs = Fixed Costs + Capacity Unit Costs
 
+> [!NOTE]
+> A partial hour is billed as a full hour.
+
 The following table shows example prices based on a snapshot of East US pricing and are for illustration purposes only.
 
-#### Fixed Costs
+#### Fixed Costs (East US region pricing)
 
 |              V2 SKU             |  Costs ($/hr)  |
 | ------------------------------- | ---------------|
@@ -192,7 +200,7 @@ The following table shows example prices based on a snapshot of East US pricing 
 
 Monthly price estimates are based on 730 hours of usage per month.
 
-#### Variable Costs
+#### Variable Costs (East US region pricing)
 
 |        Capacity Unit         |  Standard_V2 ($/hr)  |  WAF_V2 ($/hr) |
 | ---------------------------- | -------------------- | -------------- |
@@ -201,7 +209,7 @@ Monthly price estimates are based on 730 hours of usage per month.
 For more pricing information according to your region, see the [pricing page](https://azure.microsoft.com/pricing/details/application-gateway/).
 
 > [!NOTE]
-> Outbound data transfers - data going out of Azure data centers from application gateways will be charged at standard [data transfer rates](https://azure.microsoft.com/en-us/pricing/details/bandwidth/).
+> Outbound data transfers - data going out of Azure data centers from application gateways will be charged at standard [data transfer rates](https://azure.microsoft.com/pricing/details/bandwidth/).
 
 ### Example 1 (a) – Manual Scaling 
 Let’s assume you’ve provisioned a Standard_V2 Application Gateway with manual scaling set to 8 scale units for the entire month. During this time, it receives an average of 88.8-Mbps data transfer.
@@ -254,7 +262,7 @@ Total Costs = $179.58 + $204.4 = $383.98
 
 ### Example 2 – WAF_V2 instance with Autoscaling
 
-Let’s assume you’ve provisioned a WAF_V2 with autoscaling enabled and set the minimum scale unit config to 6 Units for the entire month. The request load has caused the WAF instance to scale up and utilize 65 Capacity units(scale up of 5 capacity units, while 60 units were reserved) for the entire month.
+Let’s assume you’ve provisioned a WAF_V2 with autoscaling enabled and set the minimum scale unit config to 6 Units for the entire month. The request load has caused the WAF instance to scale out and utilize 65 Capacity units(scale out of 5 capacity units, while 60 units were reserved) for the entire month.
 Your Application Gateway costs using the pricing mentioned above would be calculated as follows:
 
 Monthly price estimates are based on 730 hours of usage per month.
@@ -333,3 +341,40 @@ Variable Costs = $0.008  * 10(capacity units) * 1 (Hours)  + $0.008  * 20(capaci
 units) * 1 (Hours)  = $0.24
 
 Total Costs = $0.492 + $0.24 = $0.732
+
+
+## Monitoring Billed Usage
+
+You can view the amount of consumption for different parameters (compute unit, throughput & persistent connections) as well as the Compute Units being utilized as part of the Application Gateway metrics under the **Monitoring** section.
+
+![Diagram of metrics section.](./media/pricing/metrics-1.png)
+
+### Useful metrics for cost estimation
+
+* Current capacity units
+
+    Count of capacity units consumed to load balance the traffic across the three parameters - Persistent connections, Throughput and Compute unit
+
+* Fixed Billable Capacity Units
+
+    The minimum number of capacity units kept provisioned as per the Minimum scale units setting (one instance translates to 10 capacity units) in the Application Gateway configuration.
+
+* Estimated Billed Capacity units
+
+    Estimated Billed Capacity units indicates the number of capacity units using which the billing is estimated. This is calculated as the greater value between Current capacity units (capacity units required to load balance the traffic) and Fixed billable capacity units (minimum capacity units kept provisioned).
+
+More metrics such as throughput, current connections and compute units are also available to understand bottlenecks and estimate the number of capacity units required. Detailed information is available at [Application Gateway Metrics](https://docs.microsoft.com/azure/application-gateway/application-gateway-metrics#application-gateway-metrics)
+
+#### Example 1 (a) - Estimating Capacity Units being utilized
+
+**Observed Metrics:**
+
+Compute Units = 22.25
+
+Throughput = 16 Mbps (2000000B)
+
+Current Connections = 178.25k
+
+Capacity Units calculated = max (22.25, 16/2.22 , 178.25*1000/2500) = 71.3
+
+Observed Capacity Units in metrics = 72.3
