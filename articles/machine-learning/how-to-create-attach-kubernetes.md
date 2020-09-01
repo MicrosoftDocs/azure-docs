@@ -10,7 +10,7 @@ ms.custom: how-to
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 08/31/2020
+ms.date: 09/01/2020
 ---
 
 # Create and attach an Azure Kubernetes Service cluster
