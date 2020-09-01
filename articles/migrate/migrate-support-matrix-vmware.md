@@ -35,6 +35,7 @@ If you want to migrate VMware VMs to Azure, review the [migration support matrix
 **VMware** | **Details**
 --- | ---
 **VMware VMs** | All operating systems can be assessed for migration. 
+**Storage** | Disks attached to SCSI, IDE and SATA based controllers are supported.
 
 
 ## Azure Migrate appliance requirements
