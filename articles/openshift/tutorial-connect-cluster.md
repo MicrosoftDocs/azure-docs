@@ -99,3 +99,4 @@ In this part of the tutorial, you learned how to:
 Advance to the next tutorial:
 > [!div class="nextstepaction"]
 > [Delete an Azure Red Hat OpenShift cluster](tutorial-delete-cluster.md)
+
