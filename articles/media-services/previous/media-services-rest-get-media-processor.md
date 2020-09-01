@@ -18,6 +18,9 @@ ms.author: juliako
 
 ---
 # How to get a Media Processor instance
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 > [!div class="op_single_selector"]
 > * [.NET](media-services-get-media-processor.md)
 > * [REST](media-services-rest-get-media-processor.md)
