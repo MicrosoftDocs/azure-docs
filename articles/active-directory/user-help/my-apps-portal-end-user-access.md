@@ -50,13 +50,13 @@ This extension helps you:
 
 Download and install the extension, based on the browser you're using.
 
-- **Microsoft Edge** From the Microsoft Store, go to the [My Apps Secure Sign-in Extension](https://microsoftedge.microsoft.com/addons/detail/my-apps-secure-signin-ex/gaaceiggkkiffbfdpmfapegoiohkiipl) feature, and then select **Get** to get the extension for Microsoft Edge legacy browser.
+- **Microsoft Edge** - From the Microsoft Store, go to the [My Apps Secure Sign-in Extension](https://microsoftedge.microsoft.com/addons/detail/my-apps-secure-signin-ex/gaaceiggkkiffbfdpmfapegoiohkiipl) feature, and then select **Get** to get the extension for Microsoft Edge legacy browser.
 
-- **Google Chrome.** From the Chrome Web Store, go to the [My Apps Secure Sign-in Extension](https://chrome.google.com/webstore/detail/my-apps-secure-sign-in-ex/ggjhpefgjjfobnfoldnjipclpcfbgbhl) feature, and then select **Add to Chrome**.
+- **Google Chrome** - From the Chrome Web Store, go to the [My Apps Secure Sign-in Extension](https://chrome.google.com/webstore/detail/my-apps-secure-sign-in-ex/ggjhpefgjjfobnfoldnjipclpcfbgbhl) feature, and then select **Add to Chrome**.
 
-- **Mozilla Firefox** From the **Firefox Add-ons** page, go to the [My Apps Secure Sign-in Extension](https://addons.mozilla.org/firefox/addon/access-panel-extension/) feature, and then select **Add to Firefox**.
+- **Mozilla Firefox** - From the **Firefox Add-ons** page, go to the [My Apps Secure Sign-in Extension](https://addons.mozilla.org/firefox/addon/access-panel-extension/) feature, and then select **Add to Firefox**.
 
-An icon is added to the right of your **Address** bar, letting you sign-in and customize the extension.
+An icon is added to the right of your **Address** bar, letting you sign in and customize the extension.
 
 ## To change your My Apps portal using the extension
 
@@ -160,7 +160,7 @@ After you get to the **My Apps** portal, you can:
 
 - Organize your apps into the various categories created and provided by your organization. For more information, see [Access and use collections in the My Apps portal](my-applications-portal-workspaces.md).
 - Review, update, or revoke permissions granted to applications. For more information, see [Edit or revoke application permissions in the My Apps portal](my-applications-portal-permissions-saved-accounts.md).
-- Access [**My Account**](my-account-portal-overview.md) (select **View account** on your account control menu in **My Apps**) for your account management tasks: checking for unusual sign-in activity, managing your password, or managing connected devices, subscriptions, organizations, and OFfice apps.
+- Access [**My Account**](my-account-portal-overview.md) from the **My Apps** portal for your account management tasks: checking for unusual sign-in activity, managing your password, or managing connected devices, subscriptions, organizations, and OFfice apps.
 
 >[!NOTE]
 >If you don't see any collections or categories available, it means that your administrator hasn't set up or shared any with you. Contact your organization's help desk for additional assistance or permissions to see shared collections.
