@@ -108,10 +108,10 @@ Finland
 France
 * France Driver's License Number
 * France Health Insurance Number
-* France National ID card (CNI)
+* France National ID Card (CNI)
 * France Passport Number
 * France Social Security Number (INSEE)
-* France Tax Identification Number (numéro SPI)
+* France Tax Identification Number (Numéro SPI)
 * France Value Added Tax Number
 
 Germany
@@ -148,7 +148,7 @@ Israel
 * Israel Bank Account Number
 
 Italy
-* Italy Driver's license ID
+* Italy Driver's License ID
 * Italy Fiscal Code
 * Italy Value Added Tax Number
 

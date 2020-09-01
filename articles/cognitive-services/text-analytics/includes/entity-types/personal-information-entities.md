@@ -11,7 +11,7 @@ ms.author: aahi
 ---
 
 > [!NOTE]
-> To detect `PHI` (protected health information), use the `domain=phi` parameter and model version `2020-04-01` or later.
+> To detect protected health information (PHI), use the `domain=phi` parameter and model version `2020-04-01` or later.
 >
 > For example: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.1/entities/recognition/pii?domain=phi&model-version=2020-04-01`
  
