@@ -125,6 +125,10 @@ The following table describes the billing behavior for a blob or snapshot when i
 
 <sup>1</sup>If there are other previous versions or snapshots that have not been moved from their original tier, those versions or snapshots are charged based on the number of unique blocks they contain, as described in [Billing when the blob tier has not been explicitly set](#billing-when-the-blob-tier-has-not-been-explicitly-set).
 
+The following diagram illustrates how objects are billed when a blob with snapshots is moved to a different tier.
+
+:::image type="content" source="media/snapshots-overview/snapshot-billing-tiers.png" alt-text="Diagram showing how objects are billed when a blob with snapshots is explicitly tiered":::
+
 Explicitly setting the tier for a blob, version, or snapshot cannot be undone. If you move a blob to a new tier and then move it back to its original tier, you are charged for the full content length of the object even if it shares blocks with other objects in the original tier.
 
 Operations that explicitly set the tier of a blob, version, or snapshot include:
