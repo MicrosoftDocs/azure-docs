@@ -462,11 +462,11 @@
       - name: Monitoring & Logs
         items:
         - name: Create alerts on metrics
-          href: howto-alert-on-metric.md
+          href: how-to-alert-on-metric.md
       - name: Troubleshoot
         items:
         - name: Connection errors
-          href: howto-troubleshoot-common-connection-issues.md
+          href: how-to-troubleshoot-common-connection-issues.md
 - name: Reference
   items:
   - name: Azure CLI
