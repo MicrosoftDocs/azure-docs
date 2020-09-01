@@ -165,7 +165,7 @@ To configure the internal load balancer and create the availability group listen
 1. To monitor your deployment, either select the deployment from the **Notifications** bell icon in the top navigation banner or go to **Resource Group** in the Azure portal. Select **Deployments** under **Settings**, and choose the **Microsoft.Template** deployment. 
 
 >[!NOTE]
->If your deployment fails halfway through, you'll need to manually [remove the newly created listener](#remove-availability-group-listener) by using PowerShell before you redeploy the **101-sql-vm-aglistener-setup** quickstart template. 
+>If your deployment fails halfway through, you'll need to manually [remove the newly created listener](#remove-listener) by using PowerShell before you redeploy the **101-sql-vm-aglistener-setup** quickstart template. 
 
 ## Remove listener
 If you later need to remove the availability group listener that the template configured, you must go through the SQL VM resource provider. Because the listener is registered through the SQL VM resource provider, just deleting it via SQL Server Management Studio is insufficient. 
@@ -182,15 +182,15 @@ Remove-AzResource -ResourceId '/subscriptions/<SubscriptionID>/resourceGroups/<r
 This section discusses some known issues and their possible resolution. 
 
 **Availability group listener for availability group '\<AG-Name>' already exists**
-The selected availability group used in the Azure quickstart template for the availability group listener already contains a listener. Either it is physically within the availability group, or its metadata remains within the SQL VM resource provider. Remove the listener by using [PowerShell](#remove-availability-group-listener) before redeploying the **101-sql-vm-aglistener-setup** quickstart template. 
+The selected availability group used in the Azure quickstart template for the availability group listener already contains a listener. Either it is physically within the availability group, or its metadata remains within the SQL VM resource provider. Remove the listener by using [PowerShell](#remove-listener) before redeploying the **101-sql-vm-aglistener-setup** quickstart template. 
 
 **Connection only works from primary replica**
 This behavior is likely from a failed **101-sql-vm-aglistener-setup** template deployment that has left the configuration of the internal load balancer in an inconsistent state. Verify that the backend pool lists the availability set, and that rules exist for the health probe and for the load-balancing rules. If anything is missing, the configuration of the internal load balancer is an inconsistent state. 
 
-To resolve this behavior, remove the listener by using [PowerShell](#remove-availability-group-listener), delete the internal load balancer via the Azure portal, and start again at step 3. 
+To resolve this behavior, remove the listener by using [PowerShell](#remove-listener), delete the internal load balancer via the Azure portal, and start again at step 3. 
 
 **BadRequest - Only SQL virtual machine list can be updated**
-This error might occur when you're deploying the **101-sql-vm-aglistener-setup** template if the listener was deleted via SQL Server Management Studio (SSMS), but was not deleted from the SQL VM resource provider. Deleting the listener via SSMS does not remove the metadata of the listener from the SQL VM resource provider. The listener must be deleted from the resource provider through [PowerShell](#remove-availability-group-listener). 
+This error might occur when you're deploying the **101-sql-vm-aglistener-setup** template if the listener was deleted via SQL Server Management Studio (SSMS), but was not deleted from the SQL VM resource provider. Deleting the listener via SSMS does not remove the metadata of the listener from the SQL VM resource provider. The listener must be deleted from the resource provider through [PowerShell](#remove-listener). 
 
 **Domain account does not exist**
 This error can have two causes. Either the specified domain account doesn't exist, or it's missing the [User Principal Name (UPN)](/windows/desktop/ad/naming-properties#userprincipalname) data. The **101-sql-vm-ag-setup** template expects a domain account in the UPN form (that is, user@domain.com), but some domain accounts might be missing it. This typically happens when a local user has been migrated to be the first domain administrator account when the server was promoted to a domain controller, or when a user was created through PowerShell. 
