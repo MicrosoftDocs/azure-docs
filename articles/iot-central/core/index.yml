@@ -33,7 +33,7 @@ landingContent:
         links:
           - text: Create a new application
             url: quick-deploy-iot-central.md
-  - title: Develop devices
+  - title: Connect and develop devices
     linkLists:
       - linkListType: overview
         links:

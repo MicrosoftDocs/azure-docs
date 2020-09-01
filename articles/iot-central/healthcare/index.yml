@@ -31,7 +31,7 @@ landingContent:
             url: tutorial-continuous-patient-monitoring.md
 
   # Card (optional)
-  - title: Develop devices
+  - title: Connect and develop devices
     linkLists:
       - linkListType: overview
         links:

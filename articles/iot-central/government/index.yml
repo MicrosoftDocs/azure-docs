@@ -35,7 +35,7 @@ landingContent:
             url: tutorial-connected-waste-management.md
 
   # Card (optional)
-  - title: Develop devices
+  - title: Connect and develop devices
     linkLists:
       - linkListType: overview
         links:

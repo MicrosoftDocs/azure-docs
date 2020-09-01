@@ -47,7 +47,7 @@ landingContent:
             url: ../core/howto-connect-rigado-cascade-500.md
 
   # Card (optional)
-  - title: Develop devices
+  - title: Connect and develop devices
     linkLists:
       - linkListType: overview
         links:

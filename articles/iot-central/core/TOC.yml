@@ -6,7 +6,7 @@
     href: overview-iot-central.md
   - name: Tour of the UI
     href: overview-iot-central-tour.md
-  - name: Develop devices
+  - name: Connect and develop devices
     href: overview-iot-central-developer.md
   - name: Recent updates
     items:
@@ -39,7 +39,7 @@
       href: quick-monitor-devices.md
 - name: Tutorials
   items:
-    - name: Develop devices
+    - name: Connect and develop devices
       items:
       - name: Connect a  device (Node.js)
         href: tutorial-connect-device-nodejs.md
@@ -75,7 +75,7 @@
       href: concepts-iot-edge.md
 - name: How-to guides
   items:
-    - name: Develop devices
+    - name: Connect and develop devices
       items:
         - name: Set up a device template
           href: howto-set-up-template.md
