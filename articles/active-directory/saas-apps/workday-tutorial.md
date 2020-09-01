@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/31/2020
+ms.date: 08/31/2020
 ms.author: jeedes
 ---
 
@@ -36,7 +36,9 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Workday supports **SP** initiated SSO.
 
-* Once you configure Workday you can enforce Session Control, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session Control extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+* Workday Mobile application can now be configured with Azure AD for enabling SSO. For more details on how to configure, please follow the [link](workday-mobile-tutorial.md)
+
+* Once you configure Workday you can enforce Session Control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session Control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 ## Adding Workday from the gallery
 
@@ -77,7 +79,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	a. In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://impl.workday.com/<tenant>/login-saml2.flex`
 
-    b. In the **Identifier** text box, type a URL using the following pattern:
+    b. In the **Identifier** text box, type the URL:
     `http://www.workday.com`
 
 	c. In the **Reply URL** text box, type a URL using the following pattern:
@@ -100,9 +102,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. To modify the **Signing** options as per your requirement, click **Edit** button to open **SAML Signing Certificate** dialog.
 
-	![image](common/edit-certificate.png) 
+	![Ceritificate](common/edit-certificate.png) 
 
-	![image](./media/workday-tutorial/signing-option.png)
+	![SAML Signing Certificate](./media/workday-tutorial/signing-option.png)
 
 	a. Select **Sign SAML response and assertion** for **Signing Option**.
 
@@ -152,11 +154,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 3. In the **Redirection URLs** section, perform the following steps:
 
-    ![Redirection URLs](./media/workday-tutorial/IC7829581.png "Redirection URLs")
+    ![Redirection URLs](./media/workday-tutorial/redirect-1.png "Redirection URLs")
 
     a. Click **Add Row**.
 
-    b. In the **Login Redirect URL**, **Timeout Redirect URL** and **Mobile Redirect URL** textbox, paste the **Login URL** which you have copied from the **Set up Workday** section of Azure portal.
+    b. In the **Login Redirect URL**, **Timeout Redirect URL**, **Mobile App Login Redirect URL** and **Mobile Browser Login Redirect URL** textbox, paste the **Login URL** which you have copied from the **Set up Workday** section of Azure portal.
 
     c. In the **Logout Redirect URL** textbox, paste the **Logout URL** which you have copied from the **Set up Workday** section of Azure portal.
 
@@ -183,52 +185,37 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     b. In the Azure portal, on the **Set up Workday** section, copy the **Azure AD Identifier** value, and then paste it into the **Issuer** textbox.
 
-    ![SAML Identity Providers](./media/workday-tutorial/IC7829272.png "SAML Identity Providers")
+    c. Open the downloaded **Certificate** from the Azure portal into Notepad and paste the content into the **x.509 Certificate** textbox.
 
-    c. In the Azure portal, on the **Set up Workday** section, copy the **Logout URL** value, and then paste it into the **Logout Response URL** textbox.
+    ![SAML 509 Certificate](./media/workday-tutorial/saml-identity-provider-2.png "SAML Identity Providers")
 
-	d. In the Azure portal, on the **Set up Workday** section, copy the **Login URL** value, and then paste it into the **IdP SSO Service URL** textbox.
+    d. Click on **Enable IDP Initiated Logout** checkbox.
 
-	e. In **Used for Environments** textbox, select the environment name.
+    e. In the Azure portal, on the **Set up Workday** section, copy the **Logout URL** value, and then paste it into the **Logout Response URL** textbox.
 
-    f. Click **Identity Provider Public Key Certificate**, and then click **Create**.
+    f. In the **Service Provider ID** textbox, type **http://www.workday.com**.
 
-    ![Create](./media/workday-tutorial/IC782928.png "Create")
 
-    g. Click **Create x509 Public Key**.
+    g. Select **Do Not Deflate SP-initiated Authentication Request**.
 
-    ![Create](./media/workday-tutorial/IC782929.png "Create")
+    ![Workday](./media/workday-tutorial/saml-identity-provider-3.png "SAML Identity Providers")
 
-6. In the **View x509 Public Key** section, perform the following steps:
 
-    ![View x509 Public Key](./media/workday-tutorial/IC782930.png "View x509 Public Key")
+	h. In the Azure portal, on the **Set up Workday** section, copy the **Login URL** value, and then paste it into the **IdP SSO Service URL** textbox.
 
-    a. In the **Name** textbox, type a name for your certificate (for example: *PPE\_SP*).
+	i. In **Used for Environments** textbox, select the environment name.
 
-    b. In the **Valid From** textbox, type the valid from attribute value of your certificate.
+6. Perform the following steps:
 
-    c.  In the **Valid To** textbox, type the valid to attribute value of your certificate.
+    ![SSO configuration](./media/workday-tutorial/service-provider.png "SSO configuration")
 
-    > [!NOTE]
-    > You can get the valid from date and the valid to date from the downloaded certificate by double-clicking it.  The dates are listed under the **Details** tab.
-    >
-    >
+    a.  In the **Service Provider ID (Will be Deprecated)** textbox, type **http://www.workday.com**.
 
-    d.  Open your base-64 encoded certificate in notepad, and then copy the content of it.
+    b. In the **IDP SSO Service URL (Will be Deprecated)** textbox, type **Login URL** value.
 
-    e.  In the **Certificate** textbox, paste the content of your clipboard.
+    b. Select **Do Not Deflate SP-initiated Authentication Request (Will be Deprecated)**.
 
-    f.  Click **OK**.
-
-7. Perform the following steps:
-
-    ![SSO configuration](./media/workday-tutorial/WorkdaySSOConfiguratio.png "SSO configuration")
-
-    a.  In the **Service Provider ID** textbox, type **http://www.workday.com**.
-
-    b. Select **Do Not Deflate SP-initiated Authentication Request**.
-
-    c. As **Authentication Request Signature Method**, select **SHA256**.
+    c. For **Authentication Request Signature Method**, select **SHA256**.
 
     ![Authentication Request Signature Method](./media/workday-tutorial/WorkdaySSOConfiguration.png "Authentication Request Signature Method")
 
