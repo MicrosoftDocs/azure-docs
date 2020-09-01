@@ -3,9 +3,9 @@
 title: Auto-manage devices using DPS
 titleSuffix: Azure Digital Twins
 description: See how to set up an automated process to provision and retire IoT devices in Azure Digital Twins using Device Provisioning Service (DPS).
-author: michielvanschaik
-ms.author: mivansch # Microsoft employees only
-ms.date: 8/27/2020
+author: baanders
+ms.author: baanders # Microsoft employees only
+ms.date: 9/1/2020
 ms.topic: how-to
 ms.service: digital-twins
 
