@@ -6,16 +6,18 @@ ms.author: hophan
 ms.service: data-catalog
 ms.subservice: data-catalog-gen2
 ms.topic: overview
-ms.date: 08/27/2020
+ms.date: 09/01/2020
 ---
 
 # What is Azure Babylon?
 
-Azure Babylon is a new cloud service for use by data users. You use Azure Babylon to centrally manage data governance across your data estate, spanning both cloud and on-prem environments. This service enables business analysts to search for relevant data by using meaningful business terms. Technical users can view metadata and the lineage of data assets in a central catalog with the UI or Apache Atlas API.
+Azure Babylon is a new cloud service for use by data users. You use Azure Babylon to centrally manage data governance across your data estate, spanning both cloud and on-prem environments. This service enables business analysts to search for relevant data by using meaningful business terms.
+
+Technical users can view metadata and the lineage of data assets in a central catalog with the UI or Apache Atlas API.
 
 Subject-matter experts and owners can annotate data assets to share their tribal knowledge. They do so with the UI or at scale through automated classification, based on metadata and content inspection.
 
-The Azure Babylon Preview Program provides customers early access to preview releases in their Azure subscriptions for evaluation. You get product support and can provide feedback directly to the product team.
+The Azure Babylon preview provides customers early access to preview releases in their Azure subscriptions for evaluation. You get product support and can provide feedback directly to the product team.
 
 ## Transition from ADC Gen 2 to Babylon
 
@@ -40,9 +42,9 @@ We released the first version of Babylon under a private preview in April to a h
 
 Traditionally, discovering enterprise data sources has been an organic process based on tribal knowledge. For companies that want the most value from their information assets, this approach presents many challenges:
 
-* Because there's no central location to register data sources, users might not know that a data source exists unless they come into contact with it as part of another process.
+* Because there isn't a central location to register data sources, users might not know that a data source exists unless they come into contact with it as part of another process.
 * Unless users know the location of a data source, they can't connect to the data by using a client application. Data-consumption experiences require users to know the connection string or path.
-* Unless users know the location of a data source's documentation, the intended use of the data is hidden to them. Data sources and documentation might live in several places and be consumed through different kinds of experiences.
+* The intended use of the data is hidden to users unless they know the location of a data source's documentation. Data sources and documentation might live in several places and be consumed through different kinds of experiences.
 * If users have questions about an information asset, they must locate the expert or team that's responsible for the data and engage them offline. There's no explicit connection between data and the experts that have perspectives on its use.
 * Unless users understand the process for requesting access to the data source, discovering the data source and its documentation won't help them access the data.
 
@@ -51,11 +53,11 @@ Traditionally, discovering enterprise data sources has been an organic process b
 Although data consumers face the previously mentioned challenges, users who are responsible for producing and maintaining information assets face challenges of their own:
 
 * Annotating data sources with descriptive metadata is often a lost effort. Client applications typically ignore descriptions that are stored in the data source.
-* Creating documentation for data sources can be difficult and it's an ongoing responsibility to keep documentation in sync with data sources. Users may lack trust in documentation that's perceived as being out of date.
+* Creating documentation for data sources can be difficult and it's an ongoing responsibility to keep documentation in sync with data sources. Users might not trust documentation that's perceived as being out of date.
 * Creating and maintaining documentation for data sources is complex and time-consuming. Making that documentation readily available to everyone who uses the data source can be even more so.
 * Restricting access to data sources and ensuring that data consumers know how to request access is an ongoing challenge.
 
-When such challenges are combined, they present a significant barrier for companies who want to encourage and promote the use and understanding of enterprise data.
+When such challenges are combined, they present a significant barrier for companies that want to encourage and promote the use and understanding of enterprise data.
 
 ## Azure Babylon advantages
 
@@ -72,4 +74,4 @@ At the same time, users can contribute to the catalog by tagging, documenting, a
 ## Next steps
 
 To get started with Azure Babylon:
-[Create a Babylon account](overview.md)
+[Create a Babylon account](create-catalog-portal.md)

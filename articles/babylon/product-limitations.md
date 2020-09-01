@@ -7,7 +7,7 @@ ms.author: hophan
 ms.service: data-catalog
 ms.subservice: data-catalog-gen2
 ms.topic: overview
-ms.date: 08/28/2020
+ms.date: 09/01/2020
 ---
 
 # Product limitations for Azure Babylon (preview)
@@ -18,15 +18,15 @@ Read this document carefully. It includes warnings that Azure Babylon preview cu
 
 ### Use the feature flag when creating an Azure Babylon account
 
-* **Limitation**: The existence of Babylon isn't public knowledge; it's only available under NDA. Therefore, we don't want to expose any information about it in the Azure portal. To create a catalog instance, you need to use a special flag. This flag is needed only when you create a catalog. Once a catalog exists, you can view it in the Azure portal normally, without a flag. There are limitations to how many catalogs you can create in the preview.
+* **Limitation**: The existence of Babylon isn't public knowledge; it's only available under NDA. That's why we don't want to expose any information about it in the Azure portal. To create a catalog instance, you need to use a special flag. This flag is needed only when you create a catalog. Once a catalog exists, you can view it in the Azure portal normally, without a flag. There are limitations to how many catalogs you can create in the preview.
 
-* **Customer action**: When you create a catalog instance, go to the **Babylon** [instance screen in the Azure portal](https://aka.ms/babylonportal).
+* **Customer action**: To create a catalog instance, use the [**Babylon accounts**](https://aka.ms/babylonportal) page in the Azure portal.
 
 * **Solution**: After we publicly announce the existence of Babylon, this flag won't be necessary.
 
 ### Scanning from the UI
 
-* **Limitation**: We released features in the UX that allow you to set up scans for many Azure data stores. One of the limitations is that the person who is setting up the scan needs to be added to the Catalog resource permissions in the Azure portal as a Contributor in order for the scans to be allowed.
+* **Limitation**: We've released features in the UX that allow you to set up scans for many Azure data stores. To allow a scan, you must add the person who's setting up the scan to the Catalog resource permissions in the Azure portal as a Contributor.
 
 * **Solution**: Here are the steps to take for each person who needs to set up scans:
 
@@ -85,4 +85,4 @@ backlogged features are expected to be available for future preview releases.
 
 * **Limitation**: If a customer chooses to delete their Babylon account, then all data is instantly lost without possibility of recovery.
 
-* **Solution**: When Babylon is in public preview, it will support "soft delete", where Microsoft stores a deleted Babylon account for a period of time. Customers can then ask, before the end of the time window (typically 30 days), to have the Babylon account restored. After the time window, the account is irretrievably deleted.
+* **Solution**: While Babylon is in preview, it will support *soft delete*, where Microsoft stores a deleted Babylon account for a while (typically 30 days). Customers can then ask, before the end of the time window  to have the Babylon account restored. After the time window, the account is irretrievably deleted.
