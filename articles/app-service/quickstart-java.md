@@ -10,7 +10,7 @@ ms.topic: quickstart
 ms.date: 08/01/2020
 ms.author: jafreebe
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
-zone_pivot_groups: app-service-platform-windows-linux, app-service-java-framework
+zone_pivot_groups: app-service-platform-windows-linux
 ---
 # Quickstart: Create a Java app on Azure App Service
 
@@ -53,28 +53,15 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.9.1:config
 
 ::: zone pivot="platform-windows"
 
-::: zone pivot="framework-java-se"
+### [Java SE](#tab/javase)
 
-This is a snippet for Java SE
+This is content for Java SE, under Windows
 
-```java
-public class JavaSE {
-    // ...
-}
-```
+### [Tomcat](#tab/tomcat)
 
-::: zone-end
-::: zone pivot="framework-tomcat"
+This is content for Tomcat, under Windows
 
-This is a snippet for Tomcat. 
-
-```java
-public class TOMCAT {
-    // ...
-}
-```
-
-::: zone-end
+---
 
 You will be asked to select 
 * **OS(Default: `linux`)**
@@ -158,7 +145,18 @@ Confirm (Y/N)? :
 [INFO] Saving configuration to pom.
 ```
 ::: zone-end
-::: zone pivot="platform-linux"  
+::: zone pivot="platform-linux"
+
+
+### [Java SE](#tab/javase)
+
+This is content for Java SE, under Linux
+
+### [Tomcat](#tab/tomcat)
+
+This is content for Tomcat, under Linux
+
+---
 
 You will be asked to select 
 * **OS(Default: `linux`)**
