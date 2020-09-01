@@ -521,39 +521,47 @@ In this scenario, a 502 or 503 response could be returned to a client due to an 
 
 
 ## OpenTelemetry
-This Microsoft FAQ is a list of commonly asked questions about OpenTelemetry. If you have any additional questions, go to the [discussion forum](answers/questions/topics/single/24223.html) and post your questions. When a question is frequently asked, we add it to this article so that it can be found quickly and easily.
+This Microsoft FAQ is a list of commonly asked questions about OpenTelemetry. If you have any additional questions, go to the [discussion forum](https://docs.microsoft.com/answers/questions/topics/single/24223.html) and post your questions. When a question is frequently asked, we add it to this article so that it can be found quickly and easily.
 
 ### What is OpenTelemetry
+
 A new open source standard for observability. Learn more at https://opentelemetry.io/.
 
 ### What is Microsoft / Azure Monitor investing in OpenTelemetry?
+
 We believe it better serves our customers for three reasons:
-   1.	Enable support for more customer scenarios.
-   2.	Instrument without fear of vendor lock-in.
-   3.	Increase customer transparency and engagement.
+   1. Enable support for more customer scenarios.
+   2. Instrument without fear of vendor lock-in.
+   3. Increase customer transparency and engagement.
 
 It also aligns with Microsoft’s strategy to [embrace open source](https://opensource.microsoft.com/).
 
 ### What additional value does OpenTelemetry give me?
+
 In addition to the reasons above, OpenTelemetry is more efficient at-scale and provides consistent design/configurations across languages.
 
 ### How can I test out OpenTelemetry Private Previews?
-Sign-up to join our Azure Monitor Application Insights early adopter community at [https://aka.ms/AzMonOT](https://aka.ms/AzMonOT).
+Sign-up to join our Azure Monitor Application Insights early adopter community at [https://aka.ms/AzMonOtel](https://aka.ms/AzMonOtel).
 
 ### Can I use Private Preview builds in production environments?
+
 It’s not recommended. See [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/) for more information.
 
 ### What does GA mean in the context of OpenTelemetry?
-The OpenTelemetry community defines Generally Available (GA) [here](https://medium.com/opentelemetry/ga-planning-f0f6d7b5302). However, OpenTelemetry “GA” does not mean feature parity with the existing Application Insights SDKs. Azure Monitor will continue to recommend our current Application Insights SDKs for customers requiring features such as [pre-aggregated metrics](app/pre-aggregated-metrics-log-metrics.md#pre-aggregated-metrics), [live metrics](app/live-stream), [adaptive sampling](app/sampling.md#adaptive-sampling), [profiler](app/profiler-overview), and [snapshot debugger](app/snapshot-debugger) until the OpenTelemetry SDKs reach feature maturity.
+
+The OpenTelemetry community defines Generally Available (GA) [here](https://medium.com/opentelemetry/ga-planning-f0f6d7b5302). However, OpenTelemetry “GA” does not mean feature parity with the existing Application Insights SDKs. Azure Monitor will continue to recommend our current Application Insights SDKs for customers requiring features such as [pre-aggregated metrics](app/pre-aggregated-metrics-log-metrics.md#pre-aggregated-metrics), [live metrics](app/live-stream.md), [adaptive sampling](app/sampling.md#adaptive-sampling), [profiler](app/profiler-overview.md), and [snapshot debugger](app/snapshot-debugger.md) until the OpenTelemetry SDKs reach feature maturity.
 
 ### What’s the difference between OpenTelemetry SDK and auto-instrumentation?
+
 The OpenTelemetry specification defines [SDK](https://github.com/open-telemetry/opentelemetry-specification/blob/master/specification/glossary.md#telemetry-sdk). In short, “SDK” is a language-specific package that collects telemetry data across the various components of your application and sends the data to Azure Monitor via an exporter.
 The concept of [auto-instrumentation](https://github.com/open-telemetry/opentelemetry-java-instrumentation#introduction) (sometimes referred to as bytecode injection, codeless, or agent-based) refers to the capability to instrument your application without changing your code.
 
 ### What’s the OpenTelemetry Collector?
+
 The OpenTelemetry Collector is described in its [Github readme](https://github.com/open-telemetry/opentelemetry-collector#opentelemetry-collector). Currently Microsoft does not utilize the OpenTelemetry Collector and depends on direct exporters that send to Azure Monitor’s Application Insights.
 
 ### What’s the difference between OpenCensus and OpenTelemetry?
+
 [OpenCensus](https://opencensus.io/) is the precursor to [OpenTelemetry](https://opentelemetry.io/). Microsoft helped bring together [OpenTracing](https://opentracing.io/) and OpenCensus to create OpenTelemetry, a single observability standard for the world. Azure Monitor’s current [production-recommended Python SDK](app/opencensus-python.md) is based on OpenCensus, but eventually all Azure Monitor’s SDKs will be based on OpenTelemetry.
 
 
