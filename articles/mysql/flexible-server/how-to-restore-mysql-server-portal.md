@@ -32,7 +32,7 @@ Follow these steps to restore your flexible server using an earliest existing ba
 
 4.  Restore page will be shown with an option to choose between **Latest restore point** and Custom restore point.
 
-5.  Select **Earliest restore point**.
+5.  Select **Latest restore point**.
 
 
 6.  Provide a new server name in the **Restore to new server** field.

@@ -14,12 +14,14 @@ This article provides considerations and guidelines for working with Azure Datab
 
 ## What is an Azure Database for MySQL Flexible Server?
 
-An Azure Database for MySQL Flexible Server is a central administrative point for multiple databases. It is the same MySQL server construct that you may be familiar with in the on-premises world. Specifically, the flexible server is managed, provides out of the box performance, better server manageability and control, and exposes access and features at server-level.
+Azure Database for MySQL Flexible Server is a fully managed database service running community version of MySQL. In general, the service is designed to provide flexibility and configuration customizations based on the user requirements. It is the same MySQL server construct that you may be familiar with in the on-premises world. Specifically, the flexible server is managed, provides out of the box performance, better server manageability and control, and exposes access and features at server-level.
 
 An Azure Database for MySQL Flexible Server:
 
 - Is created within an Azure subscription.
 - Is the parent resource for databases.
+- Allows MySQL configuration exposed through Server parameters (link to Server parameter concepts).
+- Performs automated backups and supports point in time restores.
 - Provides a namespace for databases.
 - Is a container with strong lifetime semantics - delete a server and it deletes the contained databases.
 - Collocates resources in a region.
@@ -38,9 +40,6 @@ You can manage Azure Database for MySQL Flexible Server by using the [Azure port
 
 ## Next steps
 
-> [!div class="nextstepaction"]
->[Build a PHP app on Windows with MySQL](../../app-service/app-service-web-tutorial-php-mysql.md)
->[Build PHP app on Linux with MySQL](../../app-service/containers/tutorial-php-mysql-app.md)
->[Build Java based Spring App with MySQL](https://docs.microsoft.com/azure/developer/java/spring-framework/spring-app-service-e2e?tabs=bash)
-
+-   Learn about [Create Server](./quickstart-create-server-portal.md)
+-   Learn about [Monitoring and Alerts](./how-to-alert-on-metric.md)
 

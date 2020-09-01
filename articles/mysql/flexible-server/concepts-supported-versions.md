@@ -10,7 +10,7 @@ ms.date: 09/21/2020
 
 # Supported Azure Database for MySQL Flexible Server versions
 
-Azure Database for MySQL Flexible Server has been developed from [MySQL Community Edition](https://www.mysql.com/products/community/), using the InnoDB engine.
+Azure Database for MySQL Flexible Server is powered by [MySQL Community Edition](https://www.mysql.com/products/community/), using the InnoDB engine.
 
 MySQL uses the X.Y.Z naming scheme. X is the major version, Y is the minor version, and Z is the bug fix release. For more information about the scheme, see the [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/which-version.html).
 
@@ -22,6 +22,8 @@ Azure Database for MySQL currently supports the following versions:
 ## MySQL Version 5.7
 
 Bug fix release: 5.7.29
+
+The service performs automated patching of the underlying hardware, OS, and database engine. The patching includes security and software updates. For MySQL engine, minor version upgrades are also included as part of the planned maintenance release. Users can configure the patching schedule to be system managed or define their custom schedule. During the maintenance schedule, the patch is applied and server may require a restart as part of the patching process to complete the update. With the custom schedule, users can make their patching cycle predictable and choose a maintenance window with minimum impact to the business. In general, the service follows monthly release schedule as part of the continuous integration and release.
 
 Refer to the MySQL [release notes](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-29.html) to learn more about improvements and fixes in this version.
 
