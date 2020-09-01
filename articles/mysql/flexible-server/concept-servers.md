@@ -36,3 +36,11 @@ Within an Azure Database for MySQL Flexible Server, you can create one or multip
 
 You can manage Azure Database for MySQL Flexible Server by using the [Azure portal](./quickstart-create-server-portal.md) or the [Azure CLI](./quickstart-create-server-cli.md).
 
+## Next steps
+
+> [!div class="nextstepaction"]
+>[Build a PHP app on Windows with MySQL](../../app-service/app-service-web-tutorial-php-mysql.md)
+>[Build PHP app on Linux with MySQL](../../app-service/containers/tutorial-php-mysql-app.md)
+>[Build Java based Spring App with MySQL](https://docs.microsoft.com/azure/developer/java/spring-framework/spring-app-service-e2e?tabs=bash)
+
+

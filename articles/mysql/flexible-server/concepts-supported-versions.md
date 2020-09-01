@@ -29,3 +29,8 @@ Refer to the MySQL [release notes](https://dev.mysql.com/doc/relnotes/mysql/5.7/
 The service automatically manages patching for bug fix version updates. For example, 5.7.29 to 5.7.30.  
 
 ## Next steps
+
+> [!div class="nextstepaction"]
+>[Build a PHP app on Windows with MySQL](../../app-service/app-service-web-tutorial-php-mysql.md)
+>[Build PHP app on Linux with MySQL](../../app-service/containers/tutorial-php-mysql-app.md)
+>[Build Java based Spring App with MySQL](https://docs.microsoft.com/azure/developer/java/spring-framework/spring-app-service-e2e?tabs=bash)
