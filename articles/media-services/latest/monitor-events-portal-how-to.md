@@ -11,7 +11,7 @@ keywords: azure media services, stream, broadcast, live, offline
 
 ms.service: media-services
 ms.devlang: multiple
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 08/31/2020
