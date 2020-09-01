@@ -12,7 +12,8 @@ ms.date: 05/15/2020
 
 # Azure Monitor Frequently Asked Questions
 
-This Microsoft FAQ is a list of commonly asked questions about Azure Monitor.
+This Microsoft FAQ is a list of commonly asked questions about Azure Monitor. If you have any additional questions, go to the [discussion forum](https://docs.microsoft.com/answers/questions/topics/single/24223.html) and post your questions. When a question is frequently asked, we add it to this article so that it can be found quickly and easily.
+
 
 ## General
 
@@ -521,11 +522,10 @@ In this scenario, a 502 or 503 response could be returned to a client due to an 
 
 
 ## OpenTelemetry
-This Microsoft FAQ is a list of commonly asked questions about OpenTelemetry. If you have any additional questions, go to the [discussion forum](https://docs.microsoft.com/answers/questions/topics/single/24223.html) and post your questions. When a question is frequently asked, we add it to this article so that it can be found quickly and easily.
 
 ### What is OpenTelemetry
 
-A new open source standard for observability. Learn more at https://opentelemetry.io/.
+A new open source standard for observability. Learn more at [https://opentelemetry.io/](https://opentelemetry.io/).
 
 ### Why is Microsoft / Azure Monitor investing in OpenTelemetry?
 
@@ -554,7 +554,8 @@ The OpenTelemetry community defines Generally Available (GA) [here](https://medi
 ### What’s the difference between OpenTelemetry SDK and auto-instrumentation?
 
 The OpenTelemetry specification defines [SDK](https://github.com/open-telemetry/opentelemetry-specification/blob/master/specification/glossary.md#telemetry-sdk). In short, “SDK” is a language-specific package that collects telemetry data across the various components of your application and sends the data to Azure Monitor via an exporter.
-The concept of [auto-instrumentation](https://github.com/open-telemetry/opentelemetry-java-instrumentation#introduction) (sometimes referred to as bytecode injection, codeless, or agent-based) refers to the capability to instrument your application without changing your code.
+
+The concept of auto-instrumentation (sometimes referred to as bytecode injection, codeless, or agent-based) refers to the capability to instrument your application without changing your code. For example, check out the [OpenTelemetry Java Auto-instrumentation Readme](https://github.com/open-telemetry/opentelemetry-java-instrumentation/blob/master/README.md) for more information.
 
 ### What’s the OpenTelemetry Collector?
 
@@ -566,8 +567,6 @@ The OpenTelemetry Collector is described in its [Github readme](https://github.c
 
 
 ## Azure Monitor for containers
-
-This Microsoft FAQ is a list of commonly asked questions about Azure Monitor for containers. If you have any additional questions about the solution, go to the [discussion forum](https://feedback.azure.com/forums/34192--general-feedback) and post your questions. When a question is frequently asked, we add it to this article so that it can be found quickly and easily.
 
 ### Health feature is in private preview
 
@@ -708,7 +707,6 @@ See the [Network firewall requirements](insights/container-insights-onboard.md#n
 
 
 ## Azure Monitor for VMs
-This Microsoft FAQ is a list of commonly asked questions about Azure Monitor for VMs. If you have any additional questions about the solution, go to the [discussion forum](https://feedback.azure.com/forums/34192--general-feedback) and post your questions. When a question is frequently asked, we add it to this article so that it can be found quickly and easily.
 
 ### Can I onboard to an existing workspace?
 If your virtual machines are already connected to a Log Analytics workspace, you may continue to use that workspace when onboarding to Azure Monitor for VMs, provided it is in one of the [supported regions](insights/vminsights-configure-workspace.md#supported-regions).
