@@ -17,7 +17,7 @@ In Azure Security Center, there are a variety of alerts for many different resou
 
 Security alerts are triggered by advanced detections and are available only in the standard tier of Azure Security Center. A free trial is available. You can upgrade from the **Pricing & settings** page. Learn more about [Security Center pricing](https://azure.microsoft.com/pricing/details/security-center/).
 
-## Responding to today's threats <a name="respond-threats"> </a>
+## Respond to today's threats <a name="respond-threats"> </a>
 
 There have been significant changes in the threat landscape over the last 20 years. In the past, companies typically only had to worry about web site defacement by individual attackers who were mostly interested in seeing "what they could do". Today's attackers are much more sophisticated and organized. They often have specific financial and strategic goals. They also have more resources available to them, as they may be funded by nation states or organized crime.
 
