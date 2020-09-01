@@ -21,7 +21,7 @@ The template is as follows
     "version": "0.1.2-preview",
     "parameters": {
         "config": {
-            "isWizard": true,
+            "isWizard": false,
             "basics": { }
         },
         "basics": [ ],
@@ -52,7 +52,7 @@ The `config` property is optional. Use it to either override the default behavio
 
 ```json
 "config": {
-    "isWizard": true,
+    "isWizard": false,
     "basics": {
         "description": "Customized description with **markdown**, see [more](https://www.microsoft.com).",
         "subscription": {
@@ -101,7 +101,9 @@ The `config` property is optional. Use it to either override the default behavio
 
 ### Wizard
 
-The `isWizard` property enables you to require successful validation of each step before proceeding to the next step. When the tab wizard is enabled, the **Basics** tab is available and all other tabs are disabled. When the **Next** button is selected the tab's icon indicates if a tab's validation passed or failed. After a tab's required fields are completed and validated the **Next** button allows navigation to the next tab. When all tabs pass validation, you can go to the **Review and Create** page and select the **Create** button to begin the deployment.
+The `isWizard` property enables you to require successful validation of each step before proceeding to the next step. When the `isWizard` property isn't specified, the default is **false**, and step-by-step validation isn't required.
+
+When `isWizard` is enabled, set to **true**, the **Basics** tab is available and all other tabs are disabled. When the **Next** button is selected the tab's icon indicates if a tab's validation passed or failed. After a tab's required fields are completed and validated the **Next** button allows navigation to the next tab. When all tabs pass validation, you can go to the **Review and Create** page and select the **Create** button to begin the deployment.
 
 :::image type="content" source="./media/create-uidefinition-overview/tab-wizard.png" alt-text="Tab wizard":::
 
