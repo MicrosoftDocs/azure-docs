@@ -4,7 +4,7 @@ title: Streaming Locators in Azure Media Services | Microsoft Docs
 description: This article gives an explanation of what Streaming Locators are, and how they are used by Azure Media Services.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 
@@ -12,7 +12,8 @@ ms.service: media-services
 ms.workload: 
 ms.topic: article
 ms.date: 03/04/2020
-ms.author: juliako
+ms.author: inhenkel
+ms.custom: devx-track-csharp
 ---
 
 # Streaming Locators

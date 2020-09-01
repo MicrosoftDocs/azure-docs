@@ -3,6 +3,7 @@ title: Work with large data sets
 description: Understand how to get, format, page, and skip records in large data sets while working with Azure Resource Graph.
 ms.date: 08/10/2020
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ---
 # Working with large Azure resource data sets
 
@@ -37,8 +38,7 @@ az graph query -q "Resources | project name | order by name asc" --first 200 --o
 Search-AzGraph -Query "Resources | project name | order by name asc" -First 200
 ```
 
-In the
-[REST API](/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/resources/resources), the
+In the [REST API](/rest/api/azureresourcegraph/resourcegraph(2019-04-01)/resources/resources), the
 control is **$top** and is part of **QueryRequestOptions**.
 
 The control that is _most restrictive_ will win. For example, if your query uses the **top** or
@@ -78,14 +78,14 @@ az graph query -q "Resources | project name | order by name asc" --skip 10 --out
 Search-AzGraph -Query "Resources | project name | order by name asc" -Skip 10
 ```
 
-In the [REST API](/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/resources/resources), the control is **$skip** and is
+In the [REST API](/rest/api/azureresourcegraph/resourcegraph(2019-04-01)/resources/resources), the control is **$skip** and is
 part of **QueryRequestOptions**.
 
 ## Paging results
 
 When it's necessary to break a result set into smaller sets of records for processing or because a
 result set would exceed the maximum allowed value of _1000_ returned records, use paging. The
-[REST API](/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/resources/resources)
+[REST API](/rest/api/azureresourcegraph/resourcegraph(2019-04-01)/resources/resources)
 **QueryResponse** provides values to indicate of a results set has been broken up:
 **resultTruncated** and **$skipToken**. **resultTruncated** is a boolean value that informs the
 consumer if there are additional records not returned in the response. This condition can also be
@@ -111,7 +111,8 @@ Search-AzGraph -Query "Resources | project id, name | order by id asc" -First 10
 > The query must **project** the **id** field in order for pagination to work. If it's missing from
 > the query, the response won't include the **$skipToken**.
 
-For an example, see [Next page query](/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/resources/resources#next-page-query)
+For an example, see
+[Next page query](/rest/api/azureresourcegraph/resourcegraph(2019-04-01)/resources/resources#next-page-query)
 in the REST API docs.
 
 ## Formatting results

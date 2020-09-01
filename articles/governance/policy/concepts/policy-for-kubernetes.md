@@ -83,19 +83,19 @@ must enable the **Microsoft.ContainerService** and **Microsoft.PolicyInsights** 
 
      ```azurecli-interactive
      # Log in first with az login if you're not using Cloud Shell
-   
+
      # Provider register: Register the Azure Kubernetes Service provider
      az provider register --namespace Microsoft.ContainerService
-   
+
      # Provider register: Register the Azure Policy provider
      az provider register --namespace Microsoft.PolicyInsights
-   
+
      # Feature register: enables installing the add-on
      az feature register --namespace Microsoft.ContainerService --name AKS-AzurePolicyAutoApprove
-     
+
      # Use the following to confirm the feature has registered
      az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKS-AzurePolicyAutoApprove')].   {Name:name,State:properties.state}"
-     
+
      # Once the above shows 'Registered' run the following to propagate the update
      az provider register -n Microsoft.ContainerService
      ```
@@ -155,7 +155,7 @@ you want to manage.
      > definitions. The _deprecated_ v1 add-on will automatically be replaced with the v2 add-on
      > starting August 24, 2020. New v2 versions of the policy definitions must then be assigned. To
      > upgrade now, follow these steps:
-     > 
+     >
      > 1. Validate your AKS cluster has the v1 add-on installed by visiting the **Policies (preview)** page on your AKS cluster and has the "The current cluster uses Azure Policy add-on v1..." message.
      > 1. [Remove the add-on](#remove-the-add-on-from-aks).
      > 1. Select the **Enable add-on** button to install the v2 version of the add-on.
@@ -214,16 +214,16 @@ cluster service principal.
 
      ```azurecli-interactive
      # Log in first with az login if you're not using Cloud Shell
-     
+
      # Provider register: Register the Azure Policy provider
      az provider register --namespace 'Microsoft.PolicyInsights'
      ```
 
    - Azure PowerShell
-   
+
      ```azurepowershell-interactive
      # Log in first with Connect-AzAccount if you're not using Cloud Shell
-   
+
      # Provider register: Register the Azure Policy provider
      Register-AzResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'
      ```
@@ -235,7 +235,7 @@ cluster service principal.
 1. Your Kubernetes cluster enabled for Azure Arc. For more information, see
    [onboarding a Kubernetes cluster to Azure Arc](../../../azure-arc/kubernetes/connect-cluster.md).
 
-1. Have the fully qualified Azure Resource ID of the Azure Arc enabled Kubernetes cluster. 
+1. Have the fully qualified Azure Resource ID of the Azure Arc enabled Kubernetes cluster.
 
 1. Open ports for the add-on. The Azure Policy Add-on uses these domains and ports to fetch policy
    definitions and assignments and report compliance of the cluster back to Azure Policy.
@@ -261,7 +261,7 @@ cluster service principal.
 
    - Azure PowerShell
 
-     ```azure powershell-interactive
+     ```azurepowershell-interactive
      $sp = New-AzADServicePrincipal -Role "Policy Insights Data Writer (Preview)" -Scope "/subscriptions/<subscriptionId>/resourceGroups/<rg>/providers/Microsoft.Kubernetes/connectedClusters/<clusterName>"
 
      @{ appId=$sp.ApplicationId;password=[System.Runtime.InteropServices.Marshal]::PtrToStringAuto([System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($sp.Secret));tenant=(Get-AzContext).Tenant.Id } | ConvertTo-Json
@@ -333,16 +333,16 @@ cluster service principal.
 
      ```azurecli-interactive
      # Log in first with az login if you're not using Cloud Shell
-     
+
      # Provider register: Register the Azure Policy provider
      az provider register --namespace 'Microsoft.PolicyInsights'
      ```
 
    - Azure PowerShell
-   
+
      ```azurepowershell-interactive
      # Log in first with Connect-AzAccount if you're not using Cloud Shell
-   
+
      # Provider register: Register the Azure Policy provider
      Register-AzResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'
      ```
@@ -354,7 +354,7 @@ cluster service principal.
      ```bash
      # Get the kube-apiserver pod name
      kubectl get pods -n kube-system
-   
+
      # Find the aadClientID value
      kubectl exec <kube-apiserver pod name> -n kube-system cat /etc/kubernetes/azure.json
      ```
@@ -473,27 +473,27 @@ following steps:
 1. Set the **Scope** to the management group, subscription, or resource group of the Kubernetes
    cluster where the policy assignment will apply.
 
-   > [!NOTE]	
+   > [!NOTE]
    > When assigning the Azure Policy for Kubernetes definition, the **Scope** must include the
    > cluster resource. For an AKS Engine cluster, the **Scope** must be the resource group of the
    > cluster.
 
-1. Give the policy assignment a **Name** and **Description** that you can use to identify it easily.	
+1. Give the policy assignment a **Name** and **Description** that you can use to identify it easily.
 
-1. Set the [Policy enforcement](./assignment-structure.md#enforcement-mode) to one of the values	
-   below.	
+1. Set the [Policy enforcement](./assignment-structure.md#enforcement-mode) to one of the values
+   below.
 
-   - **Enabled** - Enforce the policy on the cluster. Kubernetes admission requests with violations	
-     are denied.	
+   - **Enabled** - Enforce the policy on the cluster. Kubernetes admission requests with violations
+     are denied.
 
    - **Disabled** - Don't enforce the policy on the cluster. Kubernetes admission requests with
      violations aren't denied. Compliance assessment results are still available. When rolling out
      new policy definitions to running clusters, _Disabled_ option is helpful for testing the policy
      definition as admission requests with violations aren't denied.
 
-1. Select **Next**.	
+1. Select **Next**.
 
-1. Set **parameter values**	
+1. Set **parameter values**
 
    - To exclude Kubernetes namespaces from policy evaluation, specify the list of namespaces in
      parameter **Namespace exclusions**. It's recommended to exclude: _kube-system_,

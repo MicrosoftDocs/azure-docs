@@ -1,19 +1,19 @@
 ---
-title: VM extension management with Azure Arc for servers
-description: Azure Arc for servers (preview) can manage deployment of virtual machine extensions that provide post-deployment configuration and automation tasks with non-Azure VMs.
+title: VM extension management with Azure Arc enabled servers (preview)
+description: Azure Arc enabled servers (preview) can manage deployment of virtual machine extensions that provide post-deployment configuration and automation tasks with non-Azure VMs.
 ms.date: 06/17/2020
 ms.topic: conceptual
 ---
 
-# Virtual machine extension management with Azure Arc for servers (preview)
+# Virtual machine extension management with Azure Arc enabled servers (preview)
 
 Virtual machine (VM) extensions are small applications that provide post-deployment configuration and automation tasks on Azure VMs. For example, if a virtual machine requires software installation, anti-virus protection, or to run a script inside of it, a VM extension can be used.
 
-Azure Arc for servers (preview) enables you to deploy Azure VM extensions to non-Azure Windows and Linux VMs, simplifying the management of your hybrid machine on-premises, edge, and other cloud environments through their lifecycle.
+Azure Arc enabled servers (preview) enables you to deploy Azure VM extensions to non-Azure Windows and Linux VMs, simplifying the management of your hybrid machine on-premises, edge, and other cloud environments through their lifecycle.
 
 ## Key benefits
 
-Azure Arc for servers (preview) VM extension support provides the following key benefits:
+Azure Arc enabled servers (preview) VM extension support provides the following key benefits:
 
 * Use [Azure Automation State Configuration](../../automation/automation-dsc-overview.md) to centrally store configurations and maintain the desired state of hybrid connected machines enabled through the DSC VM extension.
 
@@ -42,7 +42,7 @@ In this preview, we are supporting the following VM extensions on Windows and Li
 |Log Analytics agent |Linux |Microsoft.EnterpriseCloud.Monitoring |[Log Analytics VM extension for Linux](../../virtual-machines/extensions/oms-linux.md) |
 |Microsoft Dependency agent | Linux |Microsoft.Compute | [Dependency agent virtual machine extension for Linux](../../virtual-machines/extensions/agent-dependency-linux.md) |
 
-VM extensions can be run with Azure Resource Manager templates, from the Azure portal, or Azure PowerShell on hybrid servers managed by Arc for servers (preview).
+VM extensions can be run with Azure Resource Manager templates, from the Azure portal, or Azure PowerShell on hybrid servers managed by Arc enabled servers (preview).
 
 To learn about the Azure Connected Machine agent package and details about the Extension agent component, see [Agent overview](agent-overview.md#agent-component-details).
 
@@ -84,7 +84,7 @@ VM extensions can be applied your Arc for server (preview) managed machine throu
 
     ![Install Log Analytics VM extension](./media/manage-vm-extensions/mma-extension-config.png)
 
-    To complete the installation, you are required to provide the workspace ID and primary key. If you are not familiar with how to find this information, see [obtain workspace ID and key](../../azure-monitor/platform/agent-windows.md#obtain-workspace-id-and-key).
+    To complete the installation, you are required to provide the workspace ID and primary key. If you are not familiar with how to find this information, see [obtain workspace ID and key](../../azure-monitor/platform/log-analytics-agent.md#workspace-id-and-key).
 
 4. After confirming the required information provided, select **Create**. A summary of the deployment is displayed and you can review the status of the deployment.
 
@@ -93,7 +93,7 @@ VM extensions can be applied your Arc for server (preview) managed machine throu
 
 ## Azure Resource Manager templates
 
-VM extensions can be added to an Azure Resource Manager template and executed with the deployment of the template. With the VM extensions supported by Arc for servers (preview), you can deploy the supported VM extension on Linux or Windows machines using Azure PowerShell. Each sample below includes a template file and a parameters file with sample values to provide to the template.
+VM extensions can be added to an Azure Resource Manager template and executed with the deployment of the template. With the VM extensions supported by Arc enabled servers (preview), you can deploy the supported VM extension on Linux or Windows machines using Azure PowerShell. Each sample below includes a template file and a parameters file with sample values to provide to the template.
 
 >[!NOTE]
 >While multiple extensions can be batched together and processed, they are installed serially. Once the first extension installation is complete, installation of the next extension is attempted.
@@ -218,7 +218,7 @@ New-AzResourceGroupDeployment -ResourceGroupName "ContosoEngineering" -TemplateF
 
 To use the Custom Script Extension, the following sample is provided to run on Windows and Linux. If you are unfamiliar with the Custom Script extension, see [Custom Script extension for Windows](../../virtual-machines/extensions/custom-script-windows.md) or [Custom Script Extension for Linux](../../virtual-machines/extensions/custom-script-linux.md). There are a couple of differing characteristics that you should understand when using this extension with hybrid machines:
 
-* The list of supported operating systems with the Azure VM Custom Script extension is not applicable to Azure Arc for servers. The list of supported OSs for Arc for servers can be found [here](agent-overview.md#supported-operating-systems).
+* The list of supported operating systems with the Azure VM Custom Script extension is not applicable to Azure Arc enabled servers. The list of supported OSs for Arc enabled servers can be found [here](agent-overview.md#supported-operating-systems).
 
 * Configuration details regarding Azure Virtual Machine Scale Sets or Classic VMs are not applicable.
 
@@ -374,7 +374,7 @@ The Custom Script Extension configuration specifies things like script location 
 
 To use the PowerShell DSC Extension, the following sample is provided to run on Windows and Linux. If you are unfamiliar with the PowerShell DSC extension, see [DSC extension handler overview](../../virtual-machines/extensions/dsc-overview.md). There are a couple of differing characteristics that you should understand when using this extension with hybrid machines:
 
-* The list of supported operating systems with the Azure VM PowerShell DSC extension is not applicable to Azure Arc for servers. The list of supported OSs for Arc for servers can be found [here](agent-overview.md#supported-operating-systems).
+* The list of supported operating systems with the Azure VM PowerShell DSC extension is not applicable to Azure Arc enabled servers. The list of supported OSs for Arc enabled servers can be found [here](agent-overview.md#supported-operating-systems).
 
 * If your machines need to download a script externally and can only communicate through a proxy server, you need to [configure the Connected Machine agent](manage-agent.md#update-or-remove-proxy-settings) to set the proxy server environmental variable.
 

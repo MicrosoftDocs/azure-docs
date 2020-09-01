@@ -132,7 +132,7 @@ Azure Cosmos DB's API for MongoDB supports the following database commands:
 |$lookup    |    Yes|
 |$out        |Yes|
 |$indexStats|        No|
-|$facet    |No|
+|$facet    |Yes|
 |$bucket|    No|
 |$bucketAuto|    No|
 |$sortByCount|    Yes|

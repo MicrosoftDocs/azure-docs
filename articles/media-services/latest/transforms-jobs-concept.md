@@ -5,7 +5,7 @@ titleSuffix: Azure Media Services
 description: Learn how to create a Transforms to describe the rules for processing your videos in Azure Media Services.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 
@@ -13,7 +13,7 @@ ms.service: media-services
 ms.workload: 
 ms.topic: article
 ms.date: 08/19/2019
-ms.author: juliako
+ms.author: inhenkel
 ---
 
 # Transforms and Jobs in Media Services

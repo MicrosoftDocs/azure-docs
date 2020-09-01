@@ -31,7 +31,7 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 
 ---
 
-# [Option 1 (default): Create a internal load balancer (Standard SKU)](#tab/option-1-create-internal-load-balancer-standard)
+# [**Standard SKU**](#tab/option-1-create-internal-load-balancer-standard)
 
 >[!NOTE]
 >Standard SKU load balancer is recommended for production workloads.  For more information about skus, see **[Azure Load Balancer SKUs](skus.md)**.
@@ -275,7 +275,7 @@ These VMs are added to the backend pool of the load balancer that was created ea
     | Network security group | Select the existing **myNSG**|
 
 
-# [Option 2: Create a internal load balancer (Basic SKU)](#tab/option-1-create-internal-load-balancer-basic)
+# [**Basic SKU**](#tab/option-1-create-internal-load-balancer-basic)
 
 >[!NOTE]
 >Standard SKU load balancer is recommended for production workloads.  For more information about skus, see **[Azure Load Balancer SKUs](skus.md)**.

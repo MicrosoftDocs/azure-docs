@@ -8,7 +8,7 @@ ms.date: 08/12/2020
 # Tutorial: Create a policy assignment to identify non-compliant resources
 
 The first step in understanding compliance in Azure is to identify the status of your resources.
-This tutorial steps you through the process of creating a policy assignment to identify your Azure Arc for servers (preview)
+This tutorial steps you through the process of creating a policy assignment to identify your Azure Arc enabled servers (preview)
 machines and them to identify machines that do not have the Log Analytics agent installed on your Azure Arc enabled machines.
 
 At the end of this process, you'll successfully identify machines that don't have the Log Analytics agent for Windows or Linux installed. They're _non-compliant_ with the policy assignment.
@@ -57,7 +57,7 @@ disks_ policy definition.
    For a partial list of available built-in policies, see [Azure Policy samples](../../../governance/policy/samples/index.md).
 
 1. Search through the policy definitions list to find the _\[Preview]: Log Analytics agent should be installed on your Windows Azure Arc machines_
-   definition if you have enabled the Arc for servers (preview) agent on a Windows-based machine. For a Linux-based machine, find the corresponding _\[Preview]: Log Analytics agent should be installed on your Linux Azure Arc machines_ policy definition. Click on that policy and click **Select**.
+   definition if you have enabled the Arc enabled servers (preview) agent on a Windows-based machine. For a Linux-based machine, find the corresponding _\[Preview]: Log Analytics agent should be installed on your Linux Azure Arc machines_ policy definition. Click on that policy and click **Select**.
 
    :::image type="content" source="./media/tutorial-assign-policy-portal/select-available-definition.png" alt-text="Find the correct policy definition" border="false":::
 
@@ -119,7 +119,7 @@ To remove the assignment created, follow these steps:
 
 In this tutorial, you assigned a policy definition to a scope and evaluated its compliance report.
 The policy definition validates that all the resources in the scope are compliant and identifies
-which ones aren't. Now you are ready to monitor your Azure Arc for servers (Preview) machine with Azure Monitor for VMs.
+which ones aren't. Now you are ready to monitor your Azure Arc enabled servers (preview) machine with Azure Monitor for VMs.
 
 To learn how to monitor and view the performance, running process and their dependencies from your machine, continue to the tutorial:
 

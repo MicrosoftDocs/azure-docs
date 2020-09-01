@@ -13,6 +13,8 @@ ms.custom: devx-track-java
 
 Using the Azure Spring Cloud Maven plug-in, you can easily create and update your Azure Spring Cloud applications. By predefining a configuration, you can deploy applications to your existing Azure Spring Cloud service. In this article, you use a sample application called PiggyMetrics to demonstrate this feature.
 
+Before running this example, you can try the [basic quickstart](spring-cloud-quickstart.md).
+
 Following this quickstart, you will learn how to:
 
 > [!div class="checklist"]
@@ -21,10 +23,6 @@ Following this quickstart, you will learn how to:
 > * Clone and build microservices application locally
 > * Deploy each microservice
 > * Assign a public endpoint for your application
-
->[!Note]
-> Azure Spring Cloud is currently offered as a public preview. Public preview offerings allow customers to experiment with new features prior to their official release.  Public preview features and services are not meant for production use.  For more information about support during previews, please review our [FAQ](https://azure.microsoft.com/support/faq/) or file a [Support request](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) to learn more.
-
 
 >[!TIP]
 > Azure Cloud Shell is a free interactive shell that you can use to run the commands in this article. It has common Azure tools preinstalled, including the latest versions of Git, the Java Development Kit (JDK), Maven, and the Azure CLI. If you're signed in to your Azure subscription, launch [Azure Cloud Shell](https://shell.azure.com). For more information, see [Overview of Azure Cloud Shell](../cloud-shell/overview.md).
@@ -74,7 +72,7 @@ It takes about 5 minutes for the service to be deployed. After the service is de
 1. Clone the Git repository by running the following command:
 
     ```console
-    git clone https://github.com/Azure-Samples/PiggyMetrics
+    git clone https://github.com/Azure-Samples/piggymetrics
     ```
   
 1. Change directory and build the project by running the following command:

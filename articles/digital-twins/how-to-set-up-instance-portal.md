@@ -108,7 +108,7 @@ Start by navigating to [Azure Active Directory](https://portal.azure.com/#blade/
 In the *Register an application* page that follows, fill in the requested values:
 * **Name**: An Azure AD application display name to associate with the registration
 * **Supported account types**: Select *Accounts in this organizational directory only (Default Directory only - Single tenant)*
-* **Redirect URI**: An *Azure AD application reply URL* for the Azure AD application. You can use `http://localhost`.
+* **Redirect URI**: An *Azure AD application reply URL* for the Azure AD application. Add a *Public client/native (mobile & desktop)* URI for `http://localhost`.
 
 When you are finished, hit the *Register* button.
 
@@ -127,6 +127,9 @@ From the portal page for your app registration, select *API permissions* from th
 In the *Request API permissions* page that follows, switch to the *APIs my organization uses* tab and search for *azure digital twins*. Select *Azure Digital Twins* from the search results to proceed with assigning permissions for the Azure Digital Twins APIs.
 
 :::image type="content" source="media/how-to-set-up-instance/portal/request-api-permissions-1.png" alt-text="View of the 'Request API Permissions' page search result showing Azure Digital Twins":::
+
+>[!NOTE]
+> If you have an existing Azure Digital Twins instance from the previous public preview of the service (prior to July 2020) still in your subscription, you'll need to look for *Azure Smart Spaces Service* instead. This is an older name for the same set of APIs, and will not change your experience beyond this step.
 
 Next, you'll select which permissions to grant for these APIs. Expand the **Read (1)** permission and check the box that says *Read.Write* to grant this app registration reader and writer permissions.
 

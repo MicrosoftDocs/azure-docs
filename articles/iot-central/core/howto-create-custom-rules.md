@@ -7,7 +7,7 @@ ms.date: 12/02/2019
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.custom: mvc
+ms.custom: "mvc, devx-track-csharp"
 manager: philmea
 ---
 
