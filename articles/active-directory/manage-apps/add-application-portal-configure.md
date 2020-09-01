@@ -88,6 +88,6 @@ If you're not going to continue with the quickstart series, then consider deleti
 
 ## Next steps
 
-Advance to the next article to learn how to set up single sign-on for an app.
+Advance to the next article to learn how to assign users to the app.
 > [!div class="nextstepaction"]
-> [Set up single sign-on](add-application-portal-setup-sso.md)
+> [Assign users to an app](add-application-portal-assign-users.md)
