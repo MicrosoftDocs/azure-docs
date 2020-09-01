@@ -518,6 +518,7 @@ Lets you manage virtual machines, but not access to them, and not the virtual ne
 > | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/disks/write | Creates a new Disk or updates an existing one |
 > | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/disks/read | Get the properties of a Disk |
 > | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/disks/delete | Deletes the Disk |
+> | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/virtualMachines/runCommand/action | Allows the run of command line as NT Authority System |
 > | [Microsoft.DevTestLab](resource-provider-operations.md#microsoftdevtestlab)/schedules/* |  |
 > | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
 > | [Microsoft.Network](resource-provider-operations.md#microsoftnetwork)/applicationGateways/backendAddressPools/join/action | Joins an application gateway backend address pool. Not Alertable. |
