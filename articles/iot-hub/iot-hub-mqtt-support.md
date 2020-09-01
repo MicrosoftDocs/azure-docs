@@ -9,6 +9,7 @@ ms.date: 10/12/2018
 ms.author: robinsh
 ms.custom: [amqp, mqtt, 'Role: IoT Device', 'Role: Cloud Development', contperfq1]
 ---
+
 # Communicate with your IoT hub using the MQTT protocol
 
 IoT Hub enables devices to communicate with the IoT Hub device endpoints using:
