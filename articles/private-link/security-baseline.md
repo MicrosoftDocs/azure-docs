@@ -4,7 +4,7 @@ description: The Azure Private Link security baseline provides procedural guidan
 author: msmbaldwin
 ms.service: private-link
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 09/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 
@@ -328,7 +328,7 @@ Control access to Azure resources via Azure Active Directory role-based access c
 
 - [How to create additional Azure subscriptions](/azure/billing/billing-create-subscription)
 
-- [How to create Management Groups](../governance/management-groups/create.md)
+- [How to create Management Groups](/azure/governance/management-groups/create)
 
 - [How to create and use tags](/azure/azure-resource-manager/resource-group-using-tags)
 
@@ -436,7 +436,7 @@ Reconcile inventory on a regular basis and ensure unauthorized resources are del
 
 - [How to create additional Azure subscriptions](/azure/billing/billing-create-subscription)
 
-- [How to create Management Groups](../governance/management-groups/create.md)
+- [How to create Management Groups](/azure/governance/management-groups/create)
 
 - [How to create and use Tags](/azure/azure-resource-manager/resource-group-using-tags)
 
