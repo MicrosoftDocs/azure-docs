@@ -8,7 +8,7 @@ author: johndeu
 manager: johndeu
 ms.author: johndeu
 ms.date: 08/31/2020
-ms.topic: article
+ms.topic: conceptual
 # Use only one of the following. Use ms.service for services, ms.prod for on premises. Remove the # before the relevant field.
 ms.service: media-services
 # product-name-from-white-list

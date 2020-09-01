@@ -275,6 +275,8 @@ Azure Digital Twins does not prevent this state, so be careful to patch twins ap
 
 Models can also be managed using the Azure Digital Twins CLI. The commands can be found in [*How-to: Use the Azure Digital Twins CLI*](how-to-use-cli.md).
 
+[!INCLUDE [digital-twins-known-issue-cloud-shell](../../includes/digital-twins-known-issue-cloud-shell.md)]
+
 ## Next steps
 
 See how to create and manage digital twins based on your models:
