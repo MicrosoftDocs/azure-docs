@@ -4,6 +4,7 @@ description: 'Tutorial: This tutorial shows you how to capture data from your ev
 services: event-hubs
 ms.date: 06/23/2020
 ms.topic: tutorial
+ms.custom: devx-track-csharp
 ---
 
 # Tutorial: Migrate captured Event Hubs data to a SQL Data Warehouse using Event Grid and Azure Functions
