@@ -123,7 +123,7 @@ For more information, see the [az ml computetarget create aks](https://docs.micr
 
 # [Portal](#tab/azure-portal)
 
-For information on creating an AKS cluster in the portal, see [Create compute targets in Azure Machine Learning studio](how-to-create-attach-compute-studio#inference-clusters).
+For information on creating an AKS cluster in the portal, see [Create compute targets in Azure Machine Learning studio](how-to-create-attach-compute-studio.md#inference-clusters).
 
 ---
 
@@ -200,7 +200,7 @@ For more information, see the [az ml computetarget attach aks](https://docs.micr
 
 # [Portal](#tab/azure-portal)
 
-For information on attaching an AKS cluster in the portal, see [Create compute targets in Azure Machine Learning studio](how-to-create-attach-compute-studio#inference-clusters).
+For information on attaching an AKS cluster in the portal, see [Create compute targets in Azure Machine Learning studio](how-to-create-attach-compute-studio.md#inference-clusters).
 
 ---
 
