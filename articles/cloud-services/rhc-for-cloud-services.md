@@ -1,6 +1,6 @@
 ---
 title: RHC for Cloud Services (Classic)
-description: This article talks about Resource Health Check (RHC) Support for Azure Cloud Services (Classic)
+description: This article talks about Resource Health Check (RHC) Support for Microsoft Azure Cloud Services (Classic)
 services: cloud-services
 author: tanmaygore
 manager: vashan
@@ -12,8 +12,10 @@ ms.author: tanmaygore
 # Resource Health Check (RHC) Support for Azure Cloud Services (Classic)
 This article  talks about Resource Health Check (RHC) Support for [Microsoft Azure Cloud Services (Classic)](https://azure.microsoft.com/services/cloud-services)
 
-## Do Resource Health blade show me health status of my cloud services?
-Yes, Resource health blade now shows health status of your cloud services deployment and role instances
+[Azure Resource Health](https://docs.microsoft.com/azure/service-health/resource-health-overview) for cloud services helps you diagnose and get support for service problems that affect your Cloud Service deployment, Roles & Role Instances. It reports on the current and past health of your cloud services at Deployment, Role & Role Instance level.
+
+Azure status reports on service problems that affect a broad set of Azure customers. Resource Health gives you a personalized dashboard of the health of your resources. Resource Health shows all the times that your resources have been unavailable because of Azure service problems. This data makes it easy for you to see if an SLA was violated.
+
 
 ## How health is checked and reported?
 Resouce health is reported at a deployment or role level. The health check happens at role instance level, we aggregate the status and report it on Role level. E.g. If all role instances are available, then the role status is available. Similarly, we aggregate the health status of all roles and report it on deployment level. E.g. If all roles are available then deployment status becomes available. 
