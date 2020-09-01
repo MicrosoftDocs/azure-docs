@@ -7,7 +7,7 @@ ms.reviewer: dannyevers
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 09/03/2020
+ms.date: 09/02/2020
 ---
 
 # How to add a preview audience for your SaaS offer

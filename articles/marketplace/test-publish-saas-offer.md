@@ -7,7 +7,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: mingshen-ms 
 ms.author: mingshen
-ms.date: 09/03/2020
+ms.date: 09/02/2020
 ---
 
 # How to test and publish a SaaS offer to the commercial marketplace
