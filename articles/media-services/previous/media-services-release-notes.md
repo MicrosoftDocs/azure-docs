@@ -19,6 +19,8 @@ ms.custom: devx-track-csharp
 ---
 # Azure Media Services release notes
 
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 These release notes for Azure Media Services summarize changes from previous releases and known issues.
 
 > [!NOTE]
