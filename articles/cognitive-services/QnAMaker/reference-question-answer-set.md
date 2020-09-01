@@ -24,11 +24,11 @@ The **optional** settings for a pair include:
 * **Metadata**: Metadata are tags associated with a QnA pair and are represented as key-value pairs. Metadata tags are used to filter QnA pairs and limit the set over which query matching is performed.
 * **Multi-turn prompts**, used to continue a multi-turn conversation
 
-![QnA Maker knowledge bases](../media/qnamaker-concepts-knowledgebase/knowledgebase.png)
+![QnA Maker knowledge bases](media/qnamaker-concepts-knowledgebase/knowledgebase.png)
 
 ## Editorially add to knowledge base
 
-If you do not have pre-existing content to populate the knowledge base, you can add QnA pairs editorially in the QnA Maker portal. Learn how to update your knowledge base [here](../How-To/edit-knowledge-base.md).
+If you do not have pre-existing content to populate the knowledge base, you can add QnA pairs editorially in the QnA Maker portal. Learn how to update your knowledge base [here](How-To/edit-knowledge-base.md).
 
 ## Editing your knowledge base locally
 
@@ -41,4 +41,4 @@ Once you are done with your edits, reimport the TSV file from the **Settings** p
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Knowledge base lifecycle in QnA Maker](./development-lifecycle-knowledge-base.md)
+> [Knowledge base lifecycle in QnA Maker](Concepts/development-lifecycle-knowledge-base.md)
