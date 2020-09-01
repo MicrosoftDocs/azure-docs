@@ -42,7 +42,7 @@ The following table is a list of requirements for using Azure AD Connect Health.
 
 
 > [!NOTE]
-> If you have a highly locked-down and extremely restricted environment, you would require to whitelist the URLs mentioned in the Service endpoint lists below in addition to the ones listed in the Allowed IE enhanced Security configuration above. 
+> If you have a highly locked-down and extremely restricted environment, you would require to add the URLs mentioned in the Service endpoint lists below in addition to the ones listed in the Allowed IE enhanced Security configuration above. 
 >
 
 ### Outbound connectivity to the Azure service endpoints
