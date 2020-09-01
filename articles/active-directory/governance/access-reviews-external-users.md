@@ -81,3 +81,8 @@ When creating a new Access Review, in the “Upon completion settings” section
 This setting, currently in preview, allows you to identify, block, and delete external identities from your Azure AD tenant. External identities who are reviewed and denied continued access by the reviewer will be blocked and deleted, irrespective of the resource access or group membership they have. 
 This setting is best used as a last step after you have validated that the external users in-review no longer carries resource access and can safely be removed from your tenant or if you want to make sure they are removed, irrespective of their standing access.
 The “Disable and delete” feature blocks the external user first, taking away their ability to signing into your tenant and accessing resources. Resource access is not revoked in this stage, and in case you wanted to reinstantiate the external user, their ability to log on can be reconfigured. Upon no further action, a blocked external identity will be deleted from the directory after 30 days, removing the account as well as their access.
+
+## Next steps
+
+- [Access reviews - Graph API](/graph/api/resources/accessreviews-root?view=graph-rest-beta)
+- [Entitlement management - Graph API](/graph/api/resources/entitlementmanagement-root?view=graph-rest-beta)
