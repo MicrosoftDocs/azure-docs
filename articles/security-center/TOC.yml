@@ -111,12 +111,12 @@
       href: update-regulatory-compliance-packages.md
   - name: Scan your VMs for vulnerabilities
     items:
-    - name: Vulnerability scanning overview
-      href: security-center-vulnerability-assessment-recommendations.md
-    - name: Integrated vulnerability scanner for VMs
-      href: built-in-vulnerability-assessment.md
-    - name: Using external scanners
-      href: partner-vulnerability-assessment.md
+    - name: Deploy the integrated vulnerability scanner to your VMs
+      href: deploy-vulnerability-assessment-vm.md
+    - name: Deploy a BYOL vulnerability solution to your VMs
+      href: deploy-vulnerability-assessment-byol-vm.md
+    - name: Review and remediate vulnerabilities on your VMs
+      href: remediate-vulnerability-findings-vm.md
   - name: Configure threat protection and handle alerts
     items:
     - name: Manage security alerts
@@ -161,7 +161,7 @@
     href: asset-inventory.md
   - name: Integrate with other tools and services
     items:
-    - name: Integrate with Windows Admin Center
+    - name: Protect your Windows Admin Center servers
       href: windows-admin-center-integration.md
     - name: Protect your Azure App Service web apps and APIs
       href: security-center-app-services.md

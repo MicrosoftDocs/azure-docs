@@ -56,7 +56,7 @@ Here are the steps to run the deployment script in Cloud Shell.
     * For the instance: a *resource group* name. You can use an existing resource group, or enter a new name of one to create.
     * For the instance: a *name* for your Azure Digital Twins instance. The name of the new instance must be unique within the region for your subscription (meaning that if your subscription has another Azure Digital Twins instance in the region that's already using the name you choose, you'll be asked to pick a different name).
     * For the app registration: an *Azure AD application display name* to associate with the registration. This app registration is where you configure access permissions to the [Azure Digital Twins APIs](how-to-use-apis-sdks.md). Later, the client app will authenticate against the app registration, and as a result be granted the configured access permissions to the APIs.
-    * For the app registration: an *Azure AD application reply URL* for the Azure AD application. You can use `http://localhost`.
+    * For the app registration: an *Azure AD application reply URL* for the Azure AD application. Use `http://localhost`. The script will set up a *Public client/native (mobile & desktop)* URI for it.
 
 The script will create an Azure Digital Twins instance, assign your Azure user the *Azure Digital Twins Owner (Preview)* role on the instance, and set up an Azure AD app registration for your client app to use.
 
@@ -128,5 +128,9 @@ First, verify that the Azure Digital Twins permissions settings were properly se
 
 ## Next steps
 
-See how to connect your client application to your instance by writing the client app's authentication code:
+Test out individual REST API calls on your instance using the Azure Digital Twins CLI commands: 
+* [az dt reference](https://docs.microsoft.com/cli/azure/ext/azure-iot/dt?view=azure-cli-latest)
+* [*How-to: Use the Azure Digital Twins CLI*](how-to-use-cli.md)
+
+Or, see how to connect your client application to your instance by writing the client app's authentication code:
 * [*How-to: Write app authentication code*](how-to-authenticate-client.md)

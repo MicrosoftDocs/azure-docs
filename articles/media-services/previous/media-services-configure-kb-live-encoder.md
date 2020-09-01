@@ -16,7 +16,10 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ---
-# Use the Haivision KB live encoder to send a single bitrate live stream  
+# Use the Haivision KB live encoder to send a single bitrate live stream
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 > [!div class="op_single_selector"]
 > * [Haivision](media-services-configure-kb-live-encoder.md)
 > * [Wirecast](media-services-configure-wirecast-live-encoder.md)
