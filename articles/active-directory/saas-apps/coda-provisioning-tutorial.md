@@ -28,7 +28,7 @@ This tutorial describes the steps you need to perform in both Coda and Azure Act
 > * Create users in Coda
 > * Remove users in Coda when they do not require access anymore
 > * Keep user attributes synchronized between Azure AD and Coda
-> * [Single sign-on](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/coda-tutorial) to Coda (recommended)
+> * [Single sign-on](https://docs.microsoft.com/azure/active-directory/saas-apps/coda-tutorial) to Coda (recommended)
 
 ## Prerequisites
 
