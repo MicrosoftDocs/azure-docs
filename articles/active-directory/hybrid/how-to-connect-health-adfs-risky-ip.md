@@ -30,7 +30,7 @@ Additionally, it is possible for a single IP address to attempt multiple logins 
 
 > [!NOTE]
 > To use this report, you must ensure that AD FS auditing is enabled. For more information, see [Enable Auditing for AD FS](how-to-connect-health-agent-install.md#enable-auditing-for-ad-fs). <br />
-> To access preview, Global Admin or [Security Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#security-reader) permission is required.  
+> To access preview, Global Admin or [Security Reader](../../role-based-access-control/built-in-roles.md#security-reader) permission is required.  
 > 
 
 ## What is in the report?
@@ -112,9 +112,9 @@ You should add identified malicious IP address to the firewall or block in Excha
 - Audits is not enabled in AD FS farms.
 
 **Why am I seeing no access to the report?**  <br />
-Global Admin or [Security Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#security-reader) permission is required. Please contact your global admin to get access.
+Global Admin or [Security Reader](../../role-based-access-control/built-in-roles.md#security-reader) permission is required. Please contact your global admin to get access.
 
 
 ## Next steps
-* [Azure AD Connect Health](whatis-hybrid-identity-health.md)
+* [Azure AD Connect Health](./whatis-azure-ad-connect.md)
 * [Azure AD Connect Health Agent Installation](how-to-connect-health-agent-install.md)
