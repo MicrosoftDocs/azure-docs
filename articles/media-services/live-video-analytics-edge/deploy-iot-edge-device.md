@@ -9,7 +9,6 @@ ms.date: 04/27/2020
 
 This article lists the steps that will help you deploy Live Video Analytics on your IoT Edge device. You would do this, for example, if you have access to a local Linux machine, and/or have previously created an Azure Media Services account.
 
-
 ## Prerequisites
 
 * A Linux machine that meets the HW/SW constraints for Live Video Analytics
@@ -18,6 +17,7 @@ This article lists the steps that will help you deploy Live Video Analytics on y
 * [Register IoT Edge device](../../iot-edge/how-to-register-device.md)
 * [Install the Azure IoT Edge runtime on Debian-based Linux systems](../../iot-edge/how-to-install-iot-edge-linux.md)
 * [Create an Azure Media Services account](../latest/create-account-howto.md)
+
     * Use one of these regions: East US 2, Central US, North Central US, Japan East, West US 2, West Central US, Canada East, UK South, France Central, France South, Switzerland North, Switzerland West, and Japan West.
     * It is recommended that you use General-purpose v2 (GPv2) Storage accounts
 
@@ -46,7 +46,7 @@ You can use this command to start the streaming endpoint
 az ams streaming-endpoint start --resource-group $RESOURCE_GROUP --account-name $AMS_ACCOUNT -n default --no-wait
 ```
 
-Follow the steps in this article to get credentials to access the Media Service APIs: [access the Media Service APIs](../latest/access-api-howto.md#use-the-azure-portal).
+Follow the steps in this article to get credentials to access the Media Service APIs: [access the Media Service APIs](../latest/access-api-howto.md?tabs=portal) and select the Portal tab.
 
 ## Create and use local user account for deployment
 To run the Live Video Analytics on IoT Edge module create a local user account with as few privileges as possible. As an example, run the following commands on your Linux machine:
@@ -164,7 +164,7 @@ A deployment manifest is a JSON document that describes which modules to deploy,
     * {resourceGroupName} - this the resource group to which your Media Service account belongs
     * {AMS-account-name} - this is the name of your Media Services account
     
-    To get the other values, see [Access Azure Media Services API](../latest/access-api-howto.md#use-the-azure-portal).  
+    To get the other values, see [Access Azure Media Services API](../latest/access-api-howto.md?tabs=portal) and select the Portal tab.  
     * aadTenantId - this is the ID of your tenant and is the same as the "AadTenantId" from the above link.
     * aadServicePrincipalAppId - this is the app ID of the service principal for your Media Service Account and is the same as the "AadClientId" from the above link.
     * aadServicePrincipalSecret - this is the password of the service principal and is the same as the "AadSecret" from the above link.
@@ -186,6 +186,7 @@ A deployment manifest is a JSON document that describes which modules to deploy,
     "armEndpoint": "https://management.azure.com/",
     "allowUnsecuredEndpoints": true
     ```
+
    > [!Note]
    > The twin property **allowUnsecuredEndpoints** is set as true for the purpose of the tutorials and the quickstarts.   
    You should set this property to **false** when running in production environment. This will ensure that the application will block all unsecured endpoints and in order to run the graph topologies, valid connection credentials will be needed.  
@@ -206,8 +207,8 @@ Review your deployment information, then select Create.
 
 After you create the deployment, you return to the IoT Edge page of your IoT hub.
 
-1.	Select the IoT Edge device that you targeted with the deployment to open its details.
-2.	In the device details, verify that the blob storage module is listed as both **Specified in deployment and Reported by device**.
+1. Select the IoT Edge device that you targeted with the deployment to open its details.
+2. In the device details, verify that the blob storage module is listed as both **Specified in deployment and Reported by device**.
 
 It may take a few moments for the module to be started on the device and then reported back to IoT Hub. Refresh the page to see an updated status.
 Status code: 200 –OK means that [the IoT Edge runtime](../../iot-edge/iot-edge-runtime.md) is healthy and is operating fine.
@@ -243,6 +244,7 @@ Next, lets test the sample by invoking a direct method. Read [direct methods for
     ![The status 200 message](./media/deploy-iot-edge-device/connection-timeout.png) 
 
 ## Next steps
+
 Try [Quickstart: Get started - Live Video Analytics on IoT Edge](get-started-detect-motion-emit-events-quickstart.md#deploy-modules-on-your-edge-device)
 
 > [!TIP]

@@ -40,7 +40,7 @@
         href: connect-aws.md
       - name: Azure Active Directory
         href: connect-azure-active-directory.md
-      - name: Office 365
+      - name: Office 365 (now with Teams!)
         href: connect-office-365.md
       - name: Cloud App Security
         href: connect-cloud-app-security.md
@@ -56,6 +56,8 @@
         href: connect-azure-atp.md
       - name: Azure DDoS protection
         href: connect-azure-ddos-protection.md
+      - name: Azure Firewall
+        href: connect-azure-firewall.md
       - name: Azure Security Center
         href: connect-azure-security-center.md
       - name: Azure Security Center for IoT

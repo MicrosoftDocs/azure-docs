@@ -2,6 +2,7 @@
 title: Distributed Tracing in Azure Application Insights | Microsoft Docs
 description: Provides information about Microsoft's support for distributed tracing through our partnership in the OpenCensus project
 ms.topic: conceptual
+ms.custom: devx-track-dotnet
 author: nikmd23
 ms.author: nimolnar
 ms.date: 09/17/2018

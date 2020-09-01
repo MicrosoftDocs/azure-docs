@@ -178,7 +178,7 @@ IoT Hub can route messages to a customer-owned storage account. To allow the rou
 
 5. Navigate to **Custom endpoints** section and click **Add**. Select **Storage** as the endpoint type.
 
-6. On the page that shows up, provide a name for your endpoint, select the container that you intend to use in your blob storage, provide encoding, and file name format. Select **System Assigned** as the **Authentication type** to your storage endpoint. Click the **Create** button.
+6. On the page that shows up, provide a name for your endpoint, select the container that you intend to use in your blob storage, provide encoding, and file name format. Select **Identity-based** as the **Authentication type** to your storage endpoint. Click the **Create** button.
 
 Now your custom storage endpoint is set up to use your hub's system assigned identity, and it has permission to access your storage resource despite its firewall restrictions. You can now use this endpoint to set up a routing rule.
 
@@ -230,7 +230,7 @@ IoT Hub's file upload feature allows devices to upload files to a customer-owned
 
 4. On your IoT Hub's resource page, navigate to **File upload** tab.
 
-5. On the page that shows up, select the container that you intend to use in your blob storage, configure the **File notification settings**, **SAS TTL**, **Default TTL**, and **Maximum delivery count** as desired. Select **System Assigned** as the **Authentication type** to your storage endpoint. Click the **Create** button.
+5. On the page that shows up, select the container that you intend to use in your blob storage, configure the **File notification settings**, **SAS TTL**, **Default TTL**, and **Maximum delivery count** as desired. Select **Identity-based** as the **Authentication type** to your storage endpoint. Click the **Create** button.
 
 Now your storage endpoint for file upload is set up to use your hub's system assigned identity, and it has permission to access your storage resource despite its firewall restrictions.
 

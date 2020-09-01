@@ -1,12 +1,13 @@
 ---
-title: Understand your detailed usage and charges | Microsoft Docs
+title: Understand your detailed usage and charges
 description: Learn how to read and understand your detailed usage and charges file. View a list of terms and descriptions used in the file.
 author: bandersmsft
 ms.reviewer: micflan
 tags: billing
 ms.service: cost-management-billing
+ms.subservice: billing
 ms.topic: conceptual
-ms.date: 03/20/2020
+ms.date: 08/20/2020
 ms.author: banders
 ---
 

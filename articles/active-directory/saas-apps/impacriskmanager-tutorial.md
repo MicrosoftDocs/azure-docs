@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with IMPAC Risk Manager | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and IMPAC Risk Manager.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 4d77390e-898c-4258-a562-a1181dfe2880
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with IMPAC Risk Manager
 

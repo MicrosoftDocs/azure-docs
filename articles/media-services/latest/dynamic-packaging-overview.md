@@ -2,7 +2,7 @@
 title: Dynamic packaging in Azure Media Services v3
 titleSuffix: Azure Media Services
 description: This article gives an overview of dynamic packaging in Azure Media Services.
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 services: media-services
@@ -13,8 +13,8 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 08/13/2020 
-ms.author: juliako
+ms.date: 08/18/2020 
+ms.author: inhenkel
 #Customer intent: As a developer or content provider, I want to encode and stream on-demand or live content so my customers can view the content on a wide variety of clients (these clients understand different formats).
 ---
 
@@ -77,7 +77,7 @@ Your streaming client can specify the following Smooth Streaming formats:
 
 The following steps show a common Media Services streaming workflow where dynamic packaging is used along with the Standard Encoder in Azure Media Services.
 
-1. [Upload an input file](manage-asset-concept.md) such as a MP4, QuickTime/MOV, or other supported file format. This file is also referred to as the mezzanine or source file. For the list of supported formats, see [Formats Supported by the Standard Encoder](media-encoder-standard-formats.md).
+1. [Upload an input file](job-input-from-http-how-to.md) such as a MP4, QuickTime/MOV, or other supported file format. This file is also referred to as the mezzanine or source file. For the list of supported formats, see [Formats Supported by the Standard Encoder](media-encoder-standard-formats.md).
 1. [Encode](#encode-to-adaptive-bitrate-mp4s) your mezzanine file into an H.264/AAC MP4 adaptive bitrate set.
 
     If you already have encoded files and just want to copy and stream the files, use: [CopyVideo](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#copyvideo) and [CopyAudio](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#copyaudio) APIs. A new MP4 file with a streaming manifest (.ism file) will be created as a result.

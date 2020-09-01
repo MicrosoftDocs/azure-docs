@@ -8,9 +8,9 @@ ms.date: 07/08/2019
 
 This article explains how to use the Recovery Services vault **Overview** dashboard to monitor and manage your Recovery Services vaults. When you open a Recovery Services vault from the list, the **Overview** dashboard for the selected vault, opens. The dashboard provides various details about the vault. There are *tiles* that show: the status of critical and warning alerts, in-progress and failed backup jobs, and the amount of locally redundant storage (LRS) and geo-redundant storage (GRS) used. If you back up Azure VMs to the vault, the [**Backup Pre-Check Status** tile displays any critical or warning items](#backup-pre-check-status). The following image is the **Overview** dashboard for **Contoso-vault**. The **Backup Items** tile shows there are nine items registered to the vault.
 
-![recovery services vault dashboard](./media/backup-azure-manage-windows-server/rs-vault-blade.png)
+![Recovery Services vault dashboard](./media/backup-azure-manage-windows-server/rs-vault-blade.png)
 
-The prerequisites for this article are: an Azure subscription, a Recovery Services vault, and that there is at least one backup item configured for the vault.
+The prerequisites for this article are: an Azure subscription, a Recovery Services vault, and that there's at least one backup item configured for the vault.
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
 
@@ -26,11 +26,11 @@ To monitor alerts, or view management data about a Recovery Services vault, open
 
 3. In the **All services** dialog box, type **Recovery Services**. As you begin typing, the list filters based on your input. When the **Recovery Services vaults** option appears, select it to open the list of Recovery Services vaults in your subscription.
 
-    ![Create Recovery Services Vault step 1](./media/backup-azure-manage-windows-server/list-of-rs-vaults.png) <br/>
+    ![Create Recovery Services vault step 1](./media/backup-azure-manage-windows-server/list-of-rs-vaults.png) <br/>
 
 4. From the list of vaults, select a vault to open its **Overview** dashboard.
 
-    ![recovery services vault dashboard](./media/backup-azure-manage-windows-server/rs-vault-blade.png) <br/>
+    ![Recovery Services vault dashboard](./media/backup-azure-manage-windows-server/rs-vault-blade.png) <br/>
 
     The Overview dashboard uses tiles to provide alerts and backup job data.
 
@@ -59,17 +59,17 @@ The Backup Alerts menu, in the image above, is filtered by: Status is Active, Se
 
 ### Backup Pre-Check Status
 
-Backup Pre-Checks check your VMs' configuration for issues that can adversely affect backups. They aggregate this information so you can view it directly from the Recovery Services Vault dashboard and provide recommendations for corrective measures to ensure successful file-consistent or application-consistent backups. They require no infrastructure and have no additional cost.  
+Backup Pre-Checks check your VMs' configuration for issues that can adversely affect backups. They aggregate this information so you can view it directly from the Recovery Services vault dashboard and provide recommendations for corrective measures to ensure successful file-consistent or application-consistent backups. They require no infrastructure and have no additional cost.  
 
 Backup Pre-Checks run as part of the scheduled backup operations for your Azure VMs. They conclude with one of the following states:
 
 * **Passed**: This state indicates that your VM's configuration should lead to successful backups and no corrective action needs to be taken.
-* **Warning**: This state indicates one or more issues in the VM's configuration that *might* lead to backup failures. It provides *recommended* steps to ensure successful backups. For example, not having the latest VM Agent installed can cause backups to fail intermittently. This situation would provide a warning state.
-* **Critical**: This state indicates one or more critical issues in the VM's configuration that *will* lead to backup failures and provides *required* steps to ensure successful backups. For example, a network issue caused by an update to the NSG rules of a VM, will cause backups to fail, as it prevents the VM from communicating with the Azure Backup service. This situation would provide a critical state.
+* **Warning**: This state indicates one or more issues in the VM's configuration that *might* lead to backup failures. It provides *recommended* steps to ensure successful backups. For example, not having the latest VM Agent installed can cause backups to fail intermittently. This situation will provide a warning state.
+* **Critical**: This state indicates one or more critical issues in the VM's configuration that *will* lead to backup failures and provides *required* steps to ensure successful backups. For example, a network issue caused by an update to the NSG rules of a VM, will cause backups to fail, as it prevents the VM from communicating with the Azure Backup service. This situation will provide a critical state.
 
-Follow the steps below to start resolving any issues reported by Backup Pre-Checks for VM backups on your Recovery Services Vault.
+Follow the steps below to start resolving any issues reported by Backup Pre-Checks for VM backups on your Recovery Services vault.
 
-* Select the **Backup Pre-Check Status (Azure VMs)** tile on the Recovery Services Vault dashboard.
+* Select the **Backup Pre-Check Status (Azure VMs)** tile on the Recovery Services vault dashboard.
 * Select any VM with a Backup Pre-Check status of either **Critical** or **Warning**. This action will open the **VM details** pane.
 * Select the pane notification on the top of the pane to reveal the configuration issue description and remedial steps.
 
@@ -90,7 +90,7 @@ The Backup Alerts list displays the selected information for the filtered alerts
 | Alert Level | Events that generate alerts |
 | ----------- | ----------- |
 | Critical | You receive critical alerts when: Backup jobs fail, recovery jobs fail, and when you stop protection on a server, but retain the data.|
-| Warning | You receive warning alerts when: Backup jobs complete with warnings, for example when fewer than 100 files aren't backed up due to corruption issues, or when greater than 1,000,000 files are successfully backed up). |
+| Warning | You receive warning alerts when: Backup jobs complete with warnings. For example, when fewer than 100 files aren't backed up because of corruption issues, or when greater than 1,000,000 files are successfully backed up). |
 | Informational | currently, no informational alerts are in use. |
 
 ### Viewing alert details
