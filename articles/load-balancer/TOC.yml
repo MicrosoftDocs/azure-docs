@@ -9,13 +9,17 @@
   - name: Create public load balancer - Portal
     href: quickstart-load-balancer-standard-public-portal.md
   - name: Create public load balancer - PowerShell
-    href: quickstart-create-standard-load-balancer-powershell.md
+    href: quickstart-load-balancer-standard-public-powershell.md
   - name: Create public load balancer - Azure CLI
     href: quickstart-load-balancer-standard-public-cli.md
   - name: Create public load balancer - ARM template
     href: quickstart-load-balancer-standard-public-template.md
   - name: Create internal load balancer - Portal
     href: quickstart-load-balancer-standard-internal-portal.md
+  - name: Create internal load balancer - PowerShell
+    href: quickstart-load-balancer-standard-internal-powershell.md
+  - name: Create internal load balancer - Azure CLI
+    href: quickstart-load-balancer-standard-internal-cli.md
   expanded: true
 - name: Tutorials
   items:
@@ -43,8 +47,6 @@
     href: powershell-samples.md
 - name: Concepts
   items:
-  - name: What's new?
-    href: whats-new.md
   - name: Components
     href: components.md
   - name: Concepts
@@ -134,8 +136,10 @@
       href: load-balancer-troubleshoot.md
     - name: Troubleshoot common deployment errors
       href: load-balancer-common-deployment-errors.md
-    - name: Resolve common outbound connection issues
+    - name: Troubleshoot common outbound connection issues
       href: troubleshoot-outbound-connection.md
+    - name: Troubleshoot resource health and inbound availability issues
+      href: troubleshoot-rhc.md
 - name: Reference
   items:
   - name: Code samples

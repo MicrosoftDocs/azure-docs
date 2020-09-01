@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.custom: how-to
+ms.custom: how-to, contperfq1
 ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
@@ -256,5 +256,5 @@ titanic_ds = titanic_ds.register(workspace = workspace,
 ## Next steps
 
 * Learn [how to train with datasets](how-to-train-with-datasets.md).
-* Use automated machine learning to [train with TabularDatasets](https://aka.ms/automl-dataset).
-* For more dataset training examples, see the [sample notebooks](https://aka.ms/dataset-tutorial).
+* Use automated machine learning to [train with TabularDatasets](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb).
+* For more dataset training examples, see the [sample notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/work-with-data/).

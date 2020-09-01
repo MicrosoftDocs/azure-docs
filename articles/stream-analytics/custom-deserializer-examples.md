@@ -7,6 +7,7 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 1/28/2020
+ms.custom: devx-track-csharp
 ---
 
 # Read input in any format using .NET custom deserializers

@@ -16,7 +16,7 @@ This article shows how to enable and disable system-assigned managed identities 
 
 ## Prerequisites
 If you're unfamiliar with managed identities for Azure resources, see [overview section](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
-You'll need a deployed Azure Spring Cloud instance. Follow the [Quickstart to deploy by using the Azure CLI](spring-cloud-quickstart-launch-app-cli.md).
+You'll need a deployed Azure Spring Cloud instance. Follow the [Quickstart to deploy by using the Azure CLI](spring-cloud-quickstart.md).
 
 ## Add a system-assigned identity
 Creating an app with a system-assigned identity requires setting an additional property on the application.
@@ -68,7 +68,7 @@ To remove system-assigned managed identity from an app that no longer needs it:
 1. Navigate to the desired Virtual Machine and select **Identity**.
 1. Under **System assigned**/**Status**, select **Off** and then click **Save**:
 
- ![Managed identity in portal](./media/spring-cloud-managed-identity/remove-identity.png)
+ ![Managed identity](./media/spring-cloud-managed-identity/remove-identity.png)
 
 ### Using Azure CLI
 To remove system-assigned managed identity from an app that no longer needs it, use the following command:
