@@ -1,6 +1,7 @@
 ---
-title: Manage an Azure public IP | Microsoft Docs
-description:  Manage an Azure public IP.  Also learn how a public IP address is a resource with its own configurable settings.
+title: Manage public IP addresses | Microsoft Docs
+titleSuffix: Azure Virtual Network
+description:  Manage public IP addresses.  Also learn how a public IP address is a resource with its own configurable settings.
 services: virtual-network
 documentationcenter: na
 author: asudbring
