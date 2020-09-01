@@ -102,6 +102,16 @@ All search parameter types are supported.
 | `_contained`            | No        | No        | No        |         |
 | `_elements`             | No        | No        | No        |         |
 
+## Extended Operations
+
+All the operations that are supported that extend the RESTful API.
+
+| Search parameter type | Supported - PaaS | Supported - OSS (SQL) | Supported - OSS (Cosmos DB) | Comment |
+|-----------------------|-----------|-----------|-----------|---------|
+| $export (whole system)                | Yes       | Yes       | Yes       |         |
+| Patient/$export         | Yes       | Yes       | Yes       |         |
+| Group/$export               | Yes       | Yes       | Yes       |         |
+
 ## Persistence
 
 The Microsoft FHIR Server has a pluggable persistence module (see [`Microsoft.Health.Fhir.Core.Features.Persistence`](https://github.com/Microsoft/fhir-server/tree/master/src/Microsoft.Health.Fhir.Core/Features/Persistence)).
