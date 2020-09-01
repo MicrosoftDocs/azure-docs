@@ -55,7 +55,8 @@ The following example shows how to add/remove counters. This customization would
     {
         //... other code...
 
-        // The following code shows several customizations done to EventCounterCollectionModule.
+        // The following code shows how to configure the module to collect
+        // additional counters.
         services.ConfigureTelemetryModule<EventCounterCollectionModule>(
             (module, o) =>
             {
@@ -69,11 +70,6 @@ The following example shows how to add/remove counters. This customization would
                 module.Counters.Add(new EventCounterCollectionRequest("System.Runtime", "gen-0-size"));
             }
         );
-
-        var applicationInsightsServiceOptions = new ApplicationInsightsServiceOptions();
-        // The following option can be used to disable the module completely.
-        applicationInsightsServiceOptions.EnableEventCounterCollectionModule = false;
-        services.AddApplicationInsightsTelemetry(applicationInsightsServiceOptions);        
     }
 ```
 
