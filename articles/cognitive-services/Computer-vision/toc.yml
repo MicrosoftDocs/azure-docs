@@ -131,6 +131,8 @@
       href: spatial-analytics-container.md
     - name: Configure operations
       href: spatial-analytics-operations.md
+    - name: Deploy a people counting web app
+      href: Spatial-analytics-web-app.md
     - name: Logging and Troubleshooting
       href: spatial-analytics-logging.md
 - name: How-to guides
