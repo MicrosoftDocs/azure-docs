@@ -380,6 +380,8 @@
     items:
     - name: Create Server and Database
       items:
+      - name: Portal
+        href: flexible-server/quickstart-create-server-portal.md
       - name: ARM template
         href: flexible-server/quickstart-create-server-arm-template.md
   - name: Tutorials
@@ -388,8 +390,16 @@
       href: flexible-server/tutorial-webapp-server-vnet.md
     - name: Deploy Python (Django) app with database
       href: flexible-server/tutorial-django-app-service-postgres.md
-  - name: concepts
+  - name: Concepts
     items:
+    - name: Servers
+      href: flexible-server/concepts-servers.md
+    - name: Supported versions
+      href: flexible-server/concepts-supported-versions.md
+    - name: Compute and Storage
+      href: flexible-server/concepts-compute-storage.md
+    - name: Limits
+      href: flexible-server/concepts-limits.md
     - name: Business continuity
       items:
       - name: Overview
@@ -398,6 +408,11 @@
         href: flexible-server/concepts-backup-restore.md
       - name: High availability
         href: flexible-server/concepts-high-availability.md
+    - name: Monitor and tune
+      items:
+      - name: Logs
+        href: flexible-server/concepts-logging.md
+        displayName: monitor, server logs
   - name: How-to guides
     items:
     - name: Manage a server
@@ -422,6 +437,12 @@
       items:
       - name: Azure portal
         href: flexible-server/how-to-manage-high-availability-portal.md
+    - name: Monitor
+      items:
+      - name: Create alerts on metrics
+        href: flexible-server/howto-alert-on-metrics.md
+      - name: Configure and access logs
+        href: flexible-server/howto-configure-and-access-logs.md
 - name: Hyperscale (Citus)
   items:
   - name: Documentation
