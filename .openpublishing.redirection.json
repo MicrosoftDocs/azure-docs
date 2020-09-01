@@ -37163,8 +37163,13 @@
     },
     {
       "source_path": "articles/active-directory/active-directory-coreapps-remove-assignment-azure-portal.md",
-      "redirect_url": "/azure/active-directory/manage-apps/remove-user-or-group-access-portal",
-      "redirect_document_id": true
+      "redirect_url": "/azure/active-directory/manage-apps/assign-user-or-group-access-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/manage-apps/remove-user-or-group-access-portal.md",
+      "redirect_url": "/azure/active-directory/manage-apps/assign-user-or-group-access-portal",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/active-directory-coreapps-view-azure-portal.md",
