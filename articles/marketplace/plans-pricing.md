@@ -6,14 +6,14 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: mingshen
 ms.author: mingshen
-ms.date: 08/31/2020
+ms.date: 09/02/2020
 ---
 
 # Plans and pricing for commercial marketplace offers
 
 A plan defines an offer’s scope and limits, and the associated pricing when applicable. For example, depending on the offer type, you can select regional markets and choose whether a plan is visible to the public or only to a private audience. Some offer types support recurring subscriptions, some support usage-based pricing, and some let a customer purchase the offer with a license they have purchased directly from the publisher. This gives you the flexibility to provide your customers with different technical and pricing options, when applicable.
 
-You can create up to 100 plans for each offer that supports plans, and up to 45 of those plans can be [private](#plan-visibility). You can create paid plans only for Azure virtual machine offers, Azure application offers (managed applications), and software as a service (SaaS) offers. When you choose to sell any of these offers through Microsoft (transactable offers), you are required to create at least one plan. You can create plans for some of the other offer types, but the plans for those offer types do not including pricing options.
+You can create up to 100 plans for each offer that supports plans, and up to 45 of those plans can be [private](#plan-visibility). You can create paid plans only for Azure virtual machine offers, Azure application offers (managed applications), and software as a service (SaaS) offers. When you choose to sell any of these offers through Microsoft (transactable offers), you are required to create at least one plan. You can create plans for some of the other offer types, but the plans for those offer types do not include pricing options.
 
 > [!TIP]
 > A transactable offer is one in which Microsoft facilitates the exchange of money for a software license on the publisher’s behalf.
@@ -53,7 +53,7 @@ There are a few common details to complete for a new plan:
 -  **Plan summary**: (Callout 2 in the image above.) This summary appears in Azure Marketplace search results and can contain up to 100 characters.
    > [!NOTE]
    > This field doesn't apply to SaaS offers.
--  **Plan description**: (Callout 3 in the image above.) Add a plan description that explains what makes this plan unique from other plans for your offer. Use a maximum of 500 characters. This content will appear to your customers on the offer listing page(s) and they browse through and select a plan for your offer. 
+-  **Plan description**: (Callout 3 in the image above.) Add a plan description that explains what makes this plan unique from other plans for your offer. Use a maximum of 500 characters. This content will appear to your customers on the offer listing page(s) as they browse through and select a plan for your offer.
 
 The plan name and description appear on the offer listing page in the commercial marketplace online store(s). The following screenshot shows three plans for a SaaS offer listing in Azure Marketplace.
 
@@ -81,7 +81,7 @@ The commercial marketplace operates on an agency model, whereby publishers set p
 
 ### Pricing models
 
-You must associate a pricing model with each plan for the following plan types. Each of these offer types has different available pricing models:
+You must associate a pricing model with each plan for the following offer types. Each of these offer types have different available pricing models:
 
 -  **Azure managed application**: flat rate (monthly) and usage-based pricing (metering service dimensions).
 -  **Software as a service**: flat rate (monthly or annual), per user, and usage-based pricing (metering service dimensions). 
@@ -115,8 +115,8 @@ Prices set in United States Dollars (USD) are converted into the local currency 
     > [!NOTE]
     > You may need to enable editing in Excel before you can update the file.
 1.	On the **Pricing and availability** tab, under **Pricing**, select the **Import pricing data** link.
-1.	In the dialog box that appears, click **Yes**.
-1.	Select the exportedPrice.xlsx file you updated, and then click **Open**.
+1.	In the dialog box that appears, select **Yes**.
+1.	Select the exportedPrice.xlsx file you updated, and then select **Open**.
 
 
 

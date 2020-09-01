@@ -7,7 +7,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: mingshen-ms 
 ms.author: mingshen
-ms.date: 08/31/2020
+ms.date: 09/02/2020
 ---
 
 # How to test and publish a SaaS offer to the commercial marketplace
@@ -17,7 +17,7 @@ This article explains how to use Partner Center to submit your SaaS offer for pu
 ## Submit your offer for publishing
 
 1. Sign in to the commercial marketplace dashboard in [Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/overview).
-1. On the **Overview** tab, select the offer you want to publish.
+1. On the **Overview** page, select the offer you want to publish.
 1. In the upper-right corner of the portal, select **Review and publish**.
 2. Make sure that the **Status** column for each page says **Complete**. The three possible statuses are as follows:
 
@@ -29,13 +29,13 @@ This article explains how to use Partner Center to submit your SaaS offer for pu
 1. After all the pages are complete, in the **Notes for certification** box, provide testing instructions to the certification team to ensure that your app is tested correctly. Provide any supplementary notes helpful for understanding your app.
 1. To start the publishing process for your offer, select **Publish**. The **Offer overview** page appears and shows the offer's **Publish status**.
 
-Your offer's publish status will change as it moves through the publication process. For detailed information on this process, see [Review and publish an offer to the commercial marketplace](review-publish-offer.md#validation-and-publishing-steps).
+Your offer's publish status will change as it moves through the publication process. For detailed information on this process, see [Validation and publishing steps](review-publish-offer.md#validation-and-publishing-steps).
 
 ## Preview and test your offer
 
 When the offer is ready for your sign off, we’ll send you an email to request that you review and approve your offer preview. You can also refresh the **Offer overview** page in your browser to see if your offer has reached the Publisher sign-off phase. If it has, the **Go live** button and preview links will be available. There will be a link for either Microsoft AppSource preview, Azure Marketplace preview, or both depending on the options you chose when creating your offer. If you chose to sell your offer through Microsoft, anyone who has been added to the preview audience can test the acquisition and deployment of your offer to ensure it meets your requirements during this stage.
 
-The following screenshot shows the **Offer overview** page for a SaaS offer, with two preview links under the **Go live** button. The validation steps you’ll see on this page vary depending on the the selections you made when you created the offer.
+The following screenshot shows the **Offer overview** page for a SaaS offer, with two preview links under the **Go live** button. The validation steps you’ll see on this page vary depending on the selections you made when you created the offer.
 
 ![Illustrates the Offer overview page for an offer in Partner Center. The Go live button and preview links are shown.](media/publish-status-publisher-signoff.png)
 
@@ -58,7 +58,7 @@ After you approve your preview, select **Go live** to publish your offer live to
    > [!TIP]
    > If your offer is already live in the commercial marketplace, any updates you make won't go live until you select **Go live**.
 
-Now that you’ve chosen to go live with your offer, which makes it available in the commercial marketplace, we perform a series of final validation checks to ensure the live offer is configured just like the preview version of the offer. For details about these validation checks, see [How to review and publish an offer to the commercial marketplace](review-publish-offer.md#publish-phase).
+Now that you’ve chosen to go live with your offer, which makes it available in the commercial marketplace, we perform a series of final validation checks to ensure the live offer is configured just like the preview version of the offer. For details about these validation checks, see [Publish phase](review-publish-offer.md#publish-phase).
 
 After these validation checks are complete, your offer will be live in the marketplace.
 

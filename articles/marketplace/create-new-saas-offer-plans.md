@@ -7,7 +7,7 @@ ms.reviewer: dannyevers
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 08/31/2020
+ms.date: 09/02/2020
 ---
 
 # How to create plans for your SaaS offer
@@ -31,7 +31,7 @@ Offers sold through the Microsoft commercial marketplace must have at least one 
 
 On the **Plan listing** tab, you can define the plan name and description as you want them to appear in the commercial marketplace.
 
-1. In the **Plan name** box, the name you provided earlier for this plan appears here. You can change it at any time. This name will appear in the marketplace as the title of your offer's software plan.
+1. In the **Plan name** box, the name you provided earlier for this plan appears here. You can change it at any time. This name will appear in the commercial marketplace as the title of your offer's software plan.
 
 1. In the **Plan description** box, explain what makes this software plan unique and any differences from other plans within your offer. This description may contain up to 500 characters.
 1. Select **Save draft** before continuing to the next tab: **Pricing and availability**.
@@ -50,7 +50,7 @@ Every plan must be available in at least one market. On the **Pricing and availa
 
 ## Define a pricing model
 
-You must associate a pricing model with each plan: either _flat rate_ or _per user_. All plans in the same offer must use the same pricing model. For example, an offer cannot have one plan that's flat rate and another plan that’s per user. For more information, see [Pricing models](plan-saas-offer.md#saas-pricing-models).
+You must associate a pricing model with each plan: either _flat rate_ or _per user_. All plans in the same offer must use the same pricing model. For example, an offer cannot have one plan that's flat rate and another plan that’s per user. For more information, see [SaaS pricing models](plan-saas-offer.md#saas-pricing-models).
 
 > [!IMPORTANT]
 > After your offer is published, you cannot change the pricing model. In addition, all plans for the same offer must share the same pricing model.
@@ -145,4 +145,4 @@ The actions that are available in the **Action** column of the **Plan overview**
 ## Next steps
 
 - Learn [How to market your SaaS offer](create-new-saas-offer-marketing.md) through the **Co-sell with Microsoft** and **Resell through CSPs** programs.
-- [How to test and publish a SaaS offer](test-publish-saas-offer.md).
+- [How to test and publish a SaaS offer to the commercial marketplace](test-publish-saas-offer.md).
