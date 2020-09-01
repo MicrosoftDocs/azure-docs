@@ -73,9 +73,6 @@
   items:
   - name: Azure CLI
     href: sample-scripts-azure-cli.md
-  - name: Azure Policy built-ins
-    displayName: samples, policies, definitions
-    href: ./policy-samples.md
 - name: Concepts
   items:
   - name: Single server
@@ -393,6 +390,9 @@
         href: reference-hyperscale-parameters.md
       - name: System tables
         href: reference-hyperscale-metadata.md
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-reference.md
 - name: Resources
   items:
   - name: Build your skills with Microsoft Learn
