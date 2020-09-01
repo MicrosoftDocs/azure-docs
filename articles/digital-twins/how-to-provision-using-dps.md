@@ -21,7 +21,7 @@ In this article, you'll learn how to integrate Azure Digital Twins with [Device 
 
 The solution described in this article will allow you to automate the process to _provision_ and _retire_ IoT Hub devices in Azure Digital Twins, using Device Provisioning Service. 
 
-For more information about the _provision_ and _retire_ stages, and to better understand the set of general device management stages that are common to all enterprise IoT projects, see the [*Device Lifecycle* section](../iot-hub/iot-hub-device-management-overview.mc#device-lifecycle) of IoT Hub's device management documentation.
+For more information about the _provision_ and _retire_ stages, and to better understand the set of general device management stages that are common to all enterprise IoT projects, see the [*Device Lifecycle* section](../iot-hub/iot-hub-device-management-overview.md#device-lifecycle) of IoT Hub's device management documentation.
 
 ## Prerequisites
 
