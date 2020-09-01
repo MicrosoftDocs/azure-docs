@@ -935,7 +935,7 @@ For more information, see [How it works: Azure AD self-service password reset](h
 **Service category:** Authentications (Logins)
 **Product capability:** User Authentication
 
-Starting with Azure AD authentication library (ADAL.NET) version 5.0.0-preview, app developers must [serialize one cache per account for web apps and web APIs](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Token-cache-serialization#custom-token-cache-serialization-in-web-applications--web-api). Otherwise, some scenarios using the [on-behalf-of flow](https://docs.microsoft.com/en-us/azure/active-directory/develop/scenario-web-api-call-api-app-configuration?tabs=java) for Java, along with some specific use cases of `UserAssertion`, may result in an elevation of privilege. To avoid this vulnerability, ADAL.NET now ignores the Microsoft authentication library for dotnet (MSAL.NET) shared cache for on-behalf-of scenarios.
+Starting with Azure AD authentication library (ADAL.NET) version 5.0.0-preview, app developers must [serialize one cache per account for web apps and web APIs](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Token-cache-serialization#custom-token-cache-serialization-in-web-applications--web-api). Otherwise, some scenarios using the [on-behalf-of flow](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-api-call-api-app-configuration?tabs=java) for Java, along with some specific use cases of `UserAssertion`, may result in an elevation of privilege. To avoid this vulnerability, ADAL.NET now ignores the Microsoft authentication library for dotnet (MSAL.NET) shared cache for on-behalf-of scenarios.
 
 For more information about this issue, see [Azure Active Directory Authentication Library Elevation of Privilege Vulnerability](https://portal.msrc.microsoft.com/security-guidance/advisory/CVE-2019-1258).
 
@@ -1786,7 +1786,7 @@ For more information about how to better secure your organization through automa
 
 You can now view and manage your deleted Office 365 groups from the Azure AD portal. This change helps you to see which groups are available to restore, along with letting you permanently delete any groups that aren't needed by your organization.
 
-For more information, see [Restore expired or deleted groups](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/groups-restore-deleted#view-and-manage-the-deleted-microsoft-365-groups-that-are-available-to-restore).
+For more information, see [Restore expired or deleted groups](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-restore-deleted#view-and-manage-the-deleted-microsoft-365-groups-that-are-available-to-restore).
 
 ---
 
@@ -2446,7 +2446,7 @@ For more information about using custom extension properties for dynamic members
 **Service category:** Conditional Access
 **Product capability:** Identity security and protection
 
-The following apps are on the list of [approved client apps](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/concept-conditional-access-conditions#client-apps):
+The following apps are on the list of [approved client apps](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-conditions#client-apps):
 
 - Microsoft To-Do
 
