@@ -223,6 +223,12 @@
         href: ipv6-reserve-public-ip-address-prefix.md       
     - name: IP addressing
       items:
+      - name: Create public IP addresses - portal
+        href: create-public-ip-portal.md
+      - name: Create public IP addresses - PowerShell
+        href: create-public-ip-powershell.md
+      - name: Create public IP addresses - Azure CLI
+        href: create-public-ip-cli.md                
       - name: Manage public IP addresses
         href: virtual-network-public-ip-address.md
       - name: Manage public IP prefix
