@@ -64,9 +64,9 @@ You must add at least one and a maximum of three marketing documents for your of
 
 ### Add logos
 
-Under **Logos**, upload a **Large** logo in PNG format between 216 x 216 and 350 x 350 pixels. Partner Center will automatically create **Small** (48 x 48) and **Medium** (90 x 90)logos, which you can replace later if you want.
+Under **Logos**, upload a **Large** logo in PNG format between 216 x 216 and 350 x 350 pixels. Partner Center will automatically create **Small** (48 x 48) and **Medium** (90 x 90) logos, which you can replace later if you want.
 
-All three required logo sizes are used in different places in the online stores.
+All three logo sizes are used in different places in the online stores.
 
 - The **Medium** logo appears when you create a new resource in Microsoft Azure.
 - The **Large** logo appears on your offer listing page in Azure Marketplace and Microsoft AppSource.
