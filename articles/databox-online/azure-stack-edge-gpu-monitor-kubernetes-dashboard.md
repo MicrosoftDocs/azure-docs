@@ -97,6 +97,21 @@ To view the container logs, follow these steps on the dashboard:
     ![View container logs 2](./media/azure-stack-edge-gpu-monitor-kubernetes-dashboard/kubernetes-view-container-logs-1.png)
     
 
+## View CPU, memory usage
+
+The Kubernetes dashboard for Azure Stack Edge device also has a [Metrics server add-on](https://kubernetes.io/docs/tasks/debug-application-cluster/resource-metrics-pipeline/) that aggregates the CPU and memory usage across Kubernetes resources.
+ 
+For example, you can view the CPU and memory consumed across deployments in all namespaces. 
+
+![View CPU and memory usage across all deployments](./media/azure-stack-edge-gpu-monitor-kubernetes-dashboard/view-cpu-memory-all-1.png)
+
+You could also filter by a specific namespace. In the following example, you could view the CPU and memory consumption only for Azure Arc deployments.  
+
+![View CPU and memory usage for Azure Arc deployments](./media/azure-stack-edge-gpu-monitor-kubernetes-dashboard/view-cpu-memory-azure-arc-1.png)
+
+The Kubernetes metrics server provides autoscaling pipelines similar to that of the [Horizontal Pod Autoscaler](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/).
+
+
 ## Next steps
 
 Learn how to Troubleshoot Kubernetes issues <!--insert link-->.
