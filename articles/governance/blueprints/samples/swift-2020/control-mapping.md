@@ -188,7 +188,7 @@ virtual machines where an application allowed list is recommended but has not ye
 
 - Adaptive application controls for defining safe applications should be enabled on your machines
 
-## 1.1 Least Functionality | Authorized Software / Filtering
+## 1.1 Least Functionality | Authorized Software / Whitelisting
 
 Adaptive application control in Azure Security Center is an intelligent, automated end-to-end
 application filtering solution that can block or prevent specific software from running on your
