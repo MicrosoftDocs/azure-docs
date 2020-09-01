@@ -24,7 +24,7 @@ Generation 1 VMs are supported by all VM sizes in Azure (except for Mv2-series V
 
 * [B-series](../sizes-b-series-burstable.md)
 * [DCsv2-series](../dcv2-series.md)
-* [DSv2-series](../dv2-dsv2-series.md) 
+* [Dsv2-series](../dv2-dsv2-series.md) 
 * [Dsv3-series](../dv3-dsv3-series.md)
 * [Dsv4-series](../dv4-dsv4-series.md)
 * [Ddsv4-series](../ddv4-ddsv4-series.md)

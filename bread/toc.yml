@@ -117,6 +117,9 @@
   - name: ASC for IoT
     tocHref: /azure/asc-for-iot/
     topicHref: /azure/asc-for-iot/
+  - name: Attestation
+    tocHref: /azure/attestation/
+    topicHref: /azure/attestation/
   - name: Automation
     tocHref: /azure/automation/
     topicHref: /azure/automation/
