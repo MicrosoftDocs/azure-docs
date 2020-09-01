@@ -76,9 +76,6 @@
   items:
     - name: Azure CLI
       href: cli-samples.md
-    - name: Azure Policy built-ins
-      displayName: samples, policies, definitions
-      href: ./policy-samples.md
 - name: Concepts
   items:
     - name: Keys and values
@@ -151,6 +148,9 @@
       items:
         - name: REST API
           href: https://docs.microsoft.com/rest/api/appconfiguration/
+    - name: Azure Policy built-ins
+      displayName: samples, policies, definitions
+      href: ./policy-reference.md
 - name: Resources
   items:
     - name: Pricing

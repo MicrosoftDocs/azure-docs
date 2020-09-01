@@ -19,7 +19,7 @@ Instead of manually configuring your Spring Boot applications, you can automatic
 * An Azure Cache for Redis service instance
 * The Azure Spring Cloud extension for the Azure CLI
 
-If you don't have a deployed Azure Spring Cloud instance, follow the steps in the [quickstart on deploying an Azure Spring Cloud app](spring-cloud-quickstart-launch-app-portal.md).
+If you don't have a deployed Azure Spring Cloud instance, follow the steps in the [quickstart on deploying an Azure Spring Cloud app](spring-cloud-quickstart.md).
 
 ## Bind Azure Cache for Redis
 
