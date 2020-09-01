@@ -15,6 +15,19 @@ Before you begin this article, make sure you completed the previous article, [As
 
 After you assign share-level permissions with RBAC, you must configure proper Windows ACLs at the root, directory, or file level, to take advantage of granular access control. Think of the RBAC share-level permissions as the high-level gatekeeper that determines whether a user can access the share. While the Windows ACLs operate at a more granular level to determine what operations the user can do at the directory or file level. Both share-level and file/directory level permissions are enforced when a user attempts to access a file/directory, so if there is a difference between either of them, only the most restrictive one will be applied. For example, if a user has read/write access at the file-level, but only read at a share-level, then they can only read that file. The same would be true if it was reversed, and a user had read/write access at the share-level, but only read at the file-level, they can still only read the file.
 
+## RBAC permissions
+
+The following table contains the RBAC permissions related to this configuration:
+
+
+|Built-in roles  |Permissions  |Column3  |Column4  |
+|---------|---------|---------|---------|
+|Storage File Data SMB Share Reader     |Read         |         |         |
+|Storage File Data SMB Share Contributor     |Modify, Read, Write, Execute         |         |         |
+|Storage File Data SMB Share Elevated Contributor     |Modify, Read, Write, Edit permissions, Execute         |         |         |
+
+
+
 ## Supported permissions
 
 Azure Files supports the full set of basic and advanced Windows ACLs. You can view and configure Windows ACLs on directories and files in an Azure file share by mounting the share and then using Windows File Explorer, running the Windows [icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls) command, or the [Set-ACL](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-acl) command. 
