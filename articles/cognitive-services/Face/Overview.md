@@ -15,6 +15,9 @@ ms.author: pafarley
 
 # What is the Azure Face service?
 
+> [!WARNING]
+> On June 11, 2020, Microsoft announced that it will not sell facial recognition technology to police departments in the United States until strong regulation, grounded in human rights, has been enacted. As such, customers may not use facial recognition features or functionality included in Azure Services, such as Face or Video Indexer, if a customer is, or is allowing use of such services by or for, a police department in the United States.
+
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
 The Azure Cognitive Services Face service provides algorithms that detect, recognize, and analyze human faces in images. The ability to process human face information is important in many different software scenarios. Example scenarios include security, natural user interface, image content analysis and management, mobile apps, and robotics.
