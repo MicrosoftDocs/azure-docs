@@ -18,7 +18,7 @@ ms.date: 09/01/2020
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-xxx-md.md)]
 
-Private Link allows you to connect to various PaaS services in Azure via a private endpoint. For a list of PaaS services that support Private Link functionality, go to the [Private Link Documentation page]((https://docs.microsoft.com/azure/private-link/)). A private endpoint is a private IP address within a specific VNet and subnet.
+Private Link allows you to connect to various PaaS services in Azure via a private endpoint. For a list of PaaS services that support Private Link functionality, go to the [Private Link Documentation page](https://docs.microsoft.com/azure/private-link/). A private endpoint is a private IP address within a specific VNet and subnet.
 
 ## Secure communication between customer network and Azure Data Factory service
 To protect your Azure resources from attacks in public network or let them securely communicate with each other, you can set up an Azure Virtual Network (VNET) as a logical representation of your network in the cloud. You can also connect an on-premises network to your VNET by setting up IPSec VPN (site-to-site) or ExpressRoute (private peering). The Self-hosted Integration Runtime can be installed on an on- premise machine or virtual machine in Virtual Network to run copy activities between a cloud data store and a data store in a private network or dispatch transform activities against compute resources in an on-premises network or an Azure virtual network. 
