@@ -207,7 +207,7 @@ Lastly, you can make the URL of your Azure Digital Twins instance accessible to 
 > The Azure Digital Twins instance's URL is made by adding *https://* to the beginning of your Azure Digital Twins instance's *hostName*. To see the hostName, along with all the properties of your instance, you can run `az dt show --dt-name <your-Azure-Digital-Twins-instance>`.
 
 ```azurecli	
-az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "ADT_SERVICE_URL=https://<your-Azure-Digital-Twins-instance-URL>"
+az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "ADT_SERVICE_URL=https://<your-Azure-Digital-Twins-instance-hostname>"
 ```
 ### Option 2: Set up security access for the Azure function app using Azure portal
 
@@ -252,31 +252,25 @@ Save your details by selecting _Save_ button.
 
 You can make the URL of your Azure Digital Twins instance accessible to your function by setting an environment variable. For more information on this, see [*Environment variables*](https://docs.microsoft.com/sandbox/functions-recipes/environment-variables). Application settings are exposed as environment variables to access the digital twins instance. 
 
-Once your Azure function is created, search for your function with function name in the search bar and select the function from the list.
-
-:::image type="content" source="media/how-to-create-azure-function/search-for-azure-function.png" alt-text="Azure portal: Search for existing Azure function":::
-
-You'll need ADT_SERVICE_URL and ADT_INSTANCE_URL to create an application setting.
-
-You can find ADT_SERVICE_URL by selecting _Overview_ on the left navigation bar. Copy _URL_ to use it in the _Name_ field to create an application setting.
-
-:::image type="content" source="media/how-to-create-azure-function/adt-service-url.png" alt-text="Azure portal: Overview-> Copy _URL_ to use in the _Name_ field.":::
+You'll need ADT_INSTANCE_URL to create an application setting.
 
 You can get ADT_INSTANCE_URL by appending **_https://_** to your instance host name. In the Azure portal, you can find your digital twins instance host name by searching for your instance in the search bar. Then, select _Overview_ on the left navigation bar to view the _Host name_. Copy this value to create an application setting.
 
 :::image type="content" source="media/how-to-create-azure-function/adt-hostname.png" alt-text="Azure portal: Overview-> Copy hostname to use in the _Value_ field.":::
 
-Then, you can create an application setting using the above values. 
+You can now create an application setting following the steps below:
 
 * Search for your Azure function using function name in the search bar and select the function from the list
 * Select _Configuration_ on the navigation bar on the left to create a new application setting
 * In the _Application settings_ tab, select _+ New application setting_
 
+:::image type="content" source="media/how-to-create-azure-function/search-for-azure-function.png" alt-text="Azure portal: Search for existing Azure function":::
+
 :::image type="content" source="media/how-to-create-azure-function/application-setting.png" alt-text="Azure portal: Configure application settings":::
 
-In the window that opens up, use the values copied from above to create an application setting. \
+In the window that opens up, use the value copied from above to create an application setting. \
 _Name_  : ADT_SERVICE_URL \
-_Value_ : https://<your-azure-digital-twins-hostname>
+_Value_ : https://{your-azure-digital-twins-hostname}
 
 Select _OK_ to create an application setting.
 
@@ -286,7 +280,7 @@ You can view your application settings with application name under the _Name_ fi
 
 :::image type="content" source="media/how-to-create-azure-function/application-setting-save-details.png" alt-text="Azure portal: View the application created and restart the application":::
 
-Any changes to the application settings need an application restart. select _Continue_ to restart your application.
+Any changes to the application settings need an application restart. Select _Continue_ to restart your application.
 
 :::image type="content" source="media/how-to-create-azure-function/save-application-setting.png" alt-text="Azure portal: Save application settings":::
 
