@@ -198,7 +198,7 @@ Using the PySpark interactive command to submit the queries, follow these steps:
 
 5. If you need to install it later, you can navigate to **File** > **Preference** > **Settings**, then uncheck **Hdinsight: Enable Skip Pyspark Installation** in the settings. 
     
-     ![install pyspark kernel](./media/hdinsight-for-vscode/enable-skip-pyspark-installation.png)
+     ![enable skip pyspark installation](./media/hdinsight-for-vscode/enable-skip-pyspark-installation.png)
 
 6. If the installation is successful in step 4, the "PySpark installed successfully" message box is displayed in the lower right corner of the window. Click on **Reload** button to reload the window.
 
