@@ -36,7 +36,7 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Workday supports **SP** initiated SSO.
 
-* Workday Mobile application can now be configured with Azure AD for enabling SSO. For more details on how to configure, please follow the [link](workday-mobile-tutorial.md)
+* Workday Mobile application can now be configured with Azure AD for enabling SSO. For more details on how to configure, please follow [this](workday-mobile-tutorial.md) link.
 
 * Once you configure Workday you can enforce Session Control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session Control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
@@ -82,17 +82,14 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	a. In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://impl.workday.com/<tenant>/login-saml2.flex`
 
-    b. In the **Identifier** text box, type the URL:
-    `http://www.workday.com`
-
-	c. In the **Reply URL** text box, type a URL using the following pattern:
+	b. In the **Reply URL** text box, type a URL using the following pattern:
     `https://impl.workday.com/<tenant>/login-saml.htmld`
 
 	> [!NOTE]
 	> These values are not the real. Update these values with the actual Sign-on URL and Reply URL. Your reply URL must have a subdomain for example: www, wd2, wd3, wd3-impl, wd5, wd5-impl).
     > Using something like `http://www.myworkday.com` works but `http://myworkday.com` does not. Contact [Workday Client support team](https://www.workday.com/en-us/partners-services/services/support.html) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-6. Your Workday application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes, where as **nameidentifier** is mapped with **user.userprincipalname**. Workday application expects **nameidentifier** to be mapped with **user.mail**, **UPN**, etc., so you need to edit the attribute mapping by clicking on **Edit** icon and change the attribute mapping.
+1. Your Workday application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes, where as **nameidentifier** is mapped with **user.userprincipalname**. Workday application expects **nameidentifier** to be mapped with **user.mail**, **UPN**, etc., so you need to edit the attribute mapping by clicking on **Edit** icon and change the attribute mapping.
 
 	![image](common/edit-attribute.png)
 
@@ -151,28 +148,12 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. In a different web browser window, sign in to your Workday company site as an administrator.
 
-2. In the **Search box** search with the name **Edit Tenant Setup – Security** on the top left side of the home page.
+1. In the **Search box** search with the name **Edit Tenant Setup – Security** on the top left side of the home page.
 
     ![Edit Tenant Security](./media/workday-tutorial/IC782925.png "Edit Tenant Security")
 
-3. In the **Redirection URLs** section, perform the following steps:
 
-    ![Redirection URLs](./media/workday-tutorial/redirect-1.png "Redirection URLs")
-
-    a. Click **Add Row**.
-
-    b. In the **Login Redirect URL**, **Timeout Redirect URL**, **Mobile App Login Redirect URL** and **Mobile Browser Login Redirect URL** textbox, paste the **Login URL** which you have copied from the **Set up Workday** section of Azure portal.
-
-    c. In the **Logout Redirect URL** textbox, paste the **Logout URL** which you have copied from the **Set up Workday** section of Azure portal.
-
-    d. In **Used for Environments** textbox, select the environment name.  
-
-   > [!NOTE]
-   > The value of the Environment attribute is tied to the value of the tenant URL:  
-   > -If the domain name of the Workday tenant URL starts with impl for example: *https://www.myworkday.com/"tenant"/login-saml2.htmld*), the **Environment** attribute must be set to Implementation.  
-   > -If the domain name starts with something else, you need to contact [Workday Client support team](https://www.workday.com/en-us/partners-services/services/support.html) to get the matching **Environment** value.
-
-4. In the **SAML Setup** section, perform the following steps:
+1. In the **SAML Setup** section, perform the following steps:
 
     ![SAML Setup](./media/workday-tutorial/IC782926.png "SAML Setup")
 
@@ -180,7 +161,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     b.  Click **Add Row**.
 
-5. In the **SAML Identity Providers** section, perform the following steps:
+1. In the **SAML Identity Providers** section, perform the following steps:
 
     ![SAML Identity Providers](./media/workday-tutorial/IC7829271.png "SAML Identity Providers")
 
@@ -208,21 +189,22 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	i. In **Used for Environments** textbox, select the environment name.
 
-6. Perform the following steps:
+    > [!NOTE]
+    > The value of the Environment attribute is tied to the value of the tenant URL:  
+    > -If the domain name of the Workday tenant URL starts with impl for example: *https://www.myworkday.com/"tenant"/login-saml2.htmld*), the **Environment** attribute must be set to Implementation.  
+    > -If the domain name starts with something else, you need to contact [Workday Client support team](https://www.workday.com/en-us/partners-services/services/support.html) to get the matching **Environment** value.
 
-    ![SSO configuration](./media/workday-tutorial/service-provider.png "SSO configuration")
+    j.  In the **Service Provider ID (Will be Deprecated)** textbox, type **http://www.workday.com**.
 
-    a.  In the **Service Provider ID (Will be Deprecated)** textbox, type **http://www.workday.com**.
+    k. In the **IDP SSO Service URL (Will be Deprecated)** textbox, type **Login URL** value.
 
-    b. In the **IDP SSO Service URL (Will be Deprecated)** textbox, type **Login URL** value.
+    l. Select **Do Not Deflate SP-initiated Authentication Request (Will be Deprecated)**.
 
-    c. Select **Do Not Deflate SP-initiated Authentication Request (Will be Deprecated)**.
-
-    d. For **Authentication Request Signature Method**, select **SHA256**.
+    m. For **Authentication Request Signature Method**, select **SHA256**.
 
     ![Authentication Request Signature Method](./media/workday-tutorial/WorkdaySSOConfiguration.png "Authentication Request Signature Method")
 
-    e. Click **OK**.
+    n. Click **OK**.
 
     ![OK](./media/workday-tutorial/IC782933.png "OK")
 

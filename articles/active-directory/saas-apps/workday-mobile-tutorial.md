@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Workday Mobile Applications | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and Workday Mobile Applications.
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Workday Mobile Application | Microsoft Docs'
+description: Learn how to configure single sign-on between Azure Active Directory and Workday Mobile Application.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -13,7 +13,7 @@ ms.date: 08/31/2020
 ms.author: jeedes
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with Workday Mobile Applications
+# Tutorial: Azure Active Directory single sign-on (SSO) integration with Workday Mobile Application
 
 In this tutorial, you’ll learn how to integrate Azure Active Directory (Azure AD), Conditional Access, and Intune with the Workday Mobile Apps. When you integrate Workday’s Mobile Apps with Microsoft, you can:
 
@@ -34,13 +34,13 @@ To get started, you need the following items:
 
 In this tutorial, you configure and test Microsoft’s Conditional Access Policies and Intune with Workday’s Mobile Applications.
 
-* Workday Federated application can now be configured with Azure AD for enabling SSO. For more details on how to configure, please follow the [link](workday-tutorial.md)
+* Workday Federated application can now be configured with Azure AD for enabling SSO. For more details on how to configure, please follow [this](workday-tutorial.md) link.
 
 > [!NOTE] 
 > Workday does not support Intune’s App Protection Policies. You must use Mobile Device Management to utilize Conditional Access.
 
 
-### Ensure Users have Access to the Workday Mobile App:
+## Ensure Users have Access to the Workday Mobile App:
 
 Configure Workday to allow access to their Mobile App offerings. You will need to configure the following policies for Mobile:
 
@@ -57,11 +57,11 @@ You can configure these by following these instructions:
 
 Activate pending security policy changes by running **Activate Pending Security Policy Changes** task.
 
-### Open Workday Login Page in Mobile Browser:
+## Open Workday Login Page in Mobile Browser:
 
 To apply Conditional Access to Workday’s mobile app, it is required for the app to open in an external browser. This can be done by checking the box **Enable Mobile Browser SSO for Native Apps** in **Edit Tenant Setup - Security.** This will require an Intune approved browser to be installed on the device for iOS and in the Work Profile for Android
 
-### Setup Conditional Access Policy:
+## Setup Conditional Access Policy:
 
 This policy will only affect logging in on an iOS or Android device. If you would like to extend it to all platforms, simply select **Any Device.** This policy will require the device to be compliant with the policy and will verify this via Microsoft Intune. Due to Android having Work Profiles, this should block any users from logging into Workday (Web or App) unless they are logging in via their Work Profile and have installed the app via the Intune Company Portal. There is one additional step for iOS to make sure that the same situation will apply. Here are some screenshots of the Conditional Access setup.
 
@@ -81,13 +81,13 @@ Click on **Home > Microsoft Intune > conditional Access-Policies > Managed Devic
 
 ![Workday Setup Conditional Access Policy](./media/workday-tutorial/managed-devices-only-2.png)
 
-### Set Up Device Compliance Policy:
+## Set Up Device Compliance Policy:
 
 To ensure that iOS devices are only able to log in via an MDM managed Workday App, you must block the App Store app by adding **com.workday.workdayapp** to the list of restricted apps. This will ensure that only devices that have the Workday app installed through the company portal can access Workday. For browser, they will only be able to access Workday if the device is managed by Intune and they are using a managed browser.
 
 ![Workday Setup Device Compliance Policy](./media/workday-tutorial/ios-policy.png)
 
-### Set Up Microsoft Intune App Configuration Policies:
+## Set Up Microsoft Intune App Configuration Policies:
 
 | Scenario | Key Value Pairs                                                              	|   	|   	|   	|
 |----------------------------------------------------------------------------------------	|------------------------------------------------------------------------------	|---	|---	|---	|
@@ -98,7 +98,7 @@ To ensure that iOS devices are only able to log in via an MDM managed Workday Ap
 |Customize the app store URL to direct mobile users to the app store of your choice.|Use these values to change the app store URL:<br>●	Configuration Key = AppUpdateURL<br>●	Value Type = String<br> ●	Configuration Value = App store URL|
 |   	|   	|
 
-### iOS Configuration Policies:
+## iOS Configuration Policies:
 
 1. Go to https://portal.azure.com/ and log in
 2. Search for **Intune** or click the widget from the list.
@@ -131,7 +131,7 @@ To ensure that iOS devices are only able to log in via an MDM managed Workday Ap
 11. Click Assignments and choose who you want the app to apply to.
 12. Click Save.
 
-### Android Configuration Policies:
+## Android Configuration Policies:
 
 1. Go to `https://portal.azure.com/` and log in.
 2. Search for **Intune** or click the widget from the list.
