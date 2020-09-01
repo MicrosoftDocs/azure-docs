@@ -41,7 +41,7 @@ The device simulator is based on Node.js, version 10.0.x or later. [*Prepare you
 
 The image below illustrates both the device provision and retire flow.
 
-![A view of Azure services in an end-to-end scenario, highlighting Device Provisioning Service](media/flows.png)
+:::image type="content" source="media/flows.png" alt-text="A view of Azure services in an end-to-end scenario, highlighting Device Provisioning Service":::
 
 This article is divided into two sections:
 * [*Auto-provision device using Device Provisioning Service*](#auto-provision-device-using-device-provisioning-service)
@@ -53,7 +53,7 @@ For deeper explanations of each step in the architecture, see their individual s
 
 You will be attaching Device Provisioning Service to Azure Digital Twins to auto-provision devices through the path below.
 
-![Provision device flow](media/provision.png)
+:::image type="content" source="media/provision.png" alt-text="Provision device flow":::
 
 Here is a description of the process flow:
 1. Device contacts the DPS endpoint, passing identifying information to prove its identity.
@@ -288,7 +288,7 @@ node .\adt_custom_register.js
 ```
 
 You should see the device being registered and connected to IoT Hub, and then starting to send messages.
-![Command window showing device registration and sending messages](media/output.png)
+:::image type="content" source="media/output.png" alt-text="Command window showing device registration and sending messages":::
 
 ### Validate
 
@@ -299,13 +299,13 @@ az dt twin show -n <Digital Twins instance name> --twin-id <Device Registration 
 ```
 
 You should see the twin of the device being found in the Azure Digital Twins instance.
-![Command window showing newly created twin](media/show-provisioned-twin.png)
+:::image type="content" source="media/show-provisioned-twin.png" alt-text="Command window showing newly created twin":::
 
 ## Auto-retire device using IoT Hub Lifecycle events
 
 Next, you will be attaching IoT Hub Lifecycle events to Azure Digital Twins to auto-retire devices through the path below.
 
-![Retire device flow](media/retire.png)
+:::image type="content" source="media/retire.png" alt-text="Retire device flow":::
 
 Here is a description of the process flow:
 1. An external or manual process triggers the deletion of a device in IoT Hub.
@@ -471,7 +471,7 @@ Instructions for creating an IoT Hub route are described in this article: [*Use 
 The steps you need to go through for this setup are:
 * Create a custom IoT Hub event hub endpoint. This endpoint should target the event hub you create in the 'Create an Event Hub' section.
 * Add a Device Lifecycle Events route. Use the endpoint created in the previous step. You can limit the device lifecycle events to only send the delete events by adding the routing query `opType='deleteDeviceIdentity'`.
-    ![Add a route](media/lifecycle-route.png)
+    :::image type="content" source="media/lifecycle-route.png" alt-text="Add a route":::
 
 Once you have gone through these steps, everything is set to retire devices end-to-end.
 
@@ -490,7 +490,7 @@ az dt twin show -n <Digital Twins instance name> --twin-id <Device Registration 
 ```
 
 You should see that the twin of the device cannot be found in the Azure Digital Twins instance anymore.
-![Command window showing twin not found](media/show-retired-twin.png)
+:::image type="content" source="media/show-retired-twin.png" alt-text="Command window showing twin not found":::
 
 ## Clean up resources
 
