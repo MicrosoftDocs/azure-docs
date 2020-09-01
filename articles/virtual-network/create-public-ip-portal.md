@@ -1,5 +1,5 @@
 ---
-title: Create a Public IP - Azure portal
+title: Create a public IP - Azure portal
 description: Learn how to create a public IP in the Azure portal
 services: virtual-network
 documentationcenter: na
@@ -17,7 +17,7 @@ ms.author: blehr
 
 This article shows you how to create a public IP address resource using the Azure portal. For more information on which resources this can be associated to, the difference between Basic and Standard SKU, and other related information, please see [Public IP addresses](https://docs.microsoft.com/azure/virtual-network/public-ip-addresses).  For this example, we will focus on IPv4 addresses only; for more information on IPv6 addresses, see [IPv6 for Azure VNet](https://docs.microsoft.com/azure/virtual-network/ipv6-overview).
 
-# [**Standard SKU - Using Zones**](#tab/option-create-public-ip-standard-zones)
+# [**Standard SKU - Using zones**](#tab/option-create-public-ip-standard-zones)
 
 Use the following steps to create a standard zone-redundant public IP address named **myStandardZRPublicIP**.
 
@@ -40,9 +40,9 @@ Use the following steps to create a standard zone-redundant public IP address na
     | Location                | Select **East US 2**      |
     | Availability Zone       | Select **Zone-Redundant** or pick specific Zone (see note below) |
 
-NOTE: These are only valid selections in regions with [Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview?toc=/azure/virtual-network/toc.json#availability-zones).  (You can also select a specific zone in these regions, though it will not be resilient to zonal failure.)
+Note that these are only valid selections in regions with [Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview?toc=/azure/virtual-network/toc.json#availability-zones).  (You can also select a specific zone in these regions, though it will not be resilient to zonal failure.)
 
-# [**Standard SKU - No Zones**](#tab/option-create-public-ip-standard)
+# [**Standard SKU - No zones**](#tab/option-create-public-ip-standard)
 
 Use the following steps to create a standard public IP address as a non-zonal resource named **myStandardPublicIP**.
 
@@ -65,7 +65,7 @@ Use the following steps to create a standard public IP address as a non-zonal re
     | Location                | Select **East US 2**      |
     | Availability Zone       | Select **No Zone** (and see note below) |
 
-NOTE: This selection is valid in all regions and is the default selection for Standard Public IP addresses in regions without without [Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview?toc=/azure/virtual-network/toc.json#availability-zones).
+This selection is valid in all regions and is the default selection for Standard Public IP addresses in regions without without [Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview?toc=/azure/virtual-network/toc.json#availability-zones).
 
 # [**Basic SKU**](#tab/option-create-public-ip-basic)
 
@@ -89,11 +89,11 @@ Use the following steps to create a basic static public IP address named **myBas
     | Resource group          | Select **Create new** , enter myResourceGroup, then select **OK** |
     | Location                | Select **East US 2**      |
 
-NOTE: If it is acceptable for the IP address to change over time, **Dynamic** IP assignment can be selected.
+If it is acceptable for the IP address to change over time, **Dynamic** IP assignment can be selected.
 
 ---
 
-## Additional Information 
+## Additional information 
 
 For more details on the individual fields listed above, please see [Manage public IP addresses](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address#create-a-public-ip-address).
 

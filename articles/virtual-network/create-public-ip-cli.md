@@ -1,5 +1,5 @@
 ---
-title: Create a Public IP - Azure CLI
+title: Create a public IP - Azure CLI
 description: Learn how to create a public IP using Azure CLI
 services: virtual-network
 documentationcenter: na
@@ -37,7 +37,7 @@ Create a resource group with [az group create](https://docs.microsoft.com/cli/az
     --location eastus2
 ```
 ---
-# [**Standard SKU - Using Zones**](#tab/option-create-public-ip-standard-zones)
+# [**Standard SKU - Using zones**](#tab/option-create-public-ip-standard-zones)
 
 >[!NOTE]
 >The following command works for API version 2020-08-01 or later.  For more information about the API version currently being used, please refer to [Resource Providers and Types](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types).
@@ -65,9 +65,9 @@ In order to create a standard zonal public IP address in Zone 2 named **myStanda
     --zone 2
 ```
 
-NOTE: The above options for zones are only valid selections in regions with [Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview?toc=/azure/virtual-network/toc.json#availability-zones).
+Note that the above options for zones are only valid selections in regions with [Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview?toc=/azure/virtual-network/toc.json#availability-zones).
 
-# [**Standard SKU - No Zones**](#tab/option-create-public-ip-standard)
+# [**Standard SKU - No zones**](#tab/option-create-public-ip-standard)
 
 >[!NOTE]
 >The following command works for API version 2020-08-01 or later.  For more information about the API version currently being used, please refer to [Resource Providers and Types](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types).
@@ -80,7 +80,7 @@ Use [az network public-ip create](https://docs.microsoft.com/cli/azure/network/p
     --name myStandardPublicIP \
     --sku Standard
 ```
-NOTE: This selection is valid in all regions and is the default selection for Standard Public IP addresses in regions without [Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview?toc=/azure/virtual-network/toc.json#availability-zones).
+This selection is valid in all regions and is the default selection for Standard Public IP addresses in regions without [Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview?toc=/azure/virtual-network/toc.json#availability-zones).
 
 # [**Basic SKU**](#tab/option-create-public-ip-basic)
 
@@ -93,15 +93,15 @@ Use [az network public-ip create](https://docs.microsoft.com/cli/azure/network/p
     --sku Standard
     --allocation-method Static
 ```
-NOTE: If it is acceptable for the IP address to change over time, **Dynamic** IP assignment can be selected by changing the allocation-method to 'Dynamic'.
+If it is acceptable for the IP address to change over time, **Dynamic** IP assignment can be selected by changing the allocation-method to 'Dynamic'.
 
 ---
 
-## Additional Information 
+## Additional information 
 
 For more details on the individual variables listed above, please see [Manage public IP addresses](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address#create-a-public-ip-address).
 
 ## Next steps
-- Associate a [public IP address to a Virtual Machine](https://docs.microsoft.com/azure/virtual-network/associate-public-ip-address-vm#azure-portal)
+- Associate a [public IP address to a Virtual Machine](https://docs.microsoft.com/azure/virtual-network/associate-public-ip-address-vm#azure-portal).
 - Learn more about [public IP addresses](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) in Azure.
 - Learn more about all [public IP address settings](virtual-network-public-ip-address.md#create-a-public-ip-address).

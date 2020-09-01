@@ -1,5 +1,5 @@
 ---
-title: Create a Public IP - Azure PowerShell
+title: Create a public IP - Azure PowerShell
 description: Learn how to create a public IP using Azure PowerShell
 services: virtual-network
 documentationcenter: na
@@ -41,7 +41,7 @@ $loc = 'eastus2'
 New-AzResourceGroup -Name $rg -Location $loc
 ```
 ---
-# [**Standard SKU - Using Zones**](#tab/option-create-public-ip-standard-zones)
+# [**Standard SKU - Using zones**](#tab/option-create-public-ip-standard-zones)
 
 >[!NOTE]
 >The following command works for API version 2020-08-01 or later.  For more information about the API version currently being used, please refer to [Resource Providers and Types](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types).
@@ -77,9 +77,9 @@ $zone = 2
 New-AzPublicIpAddress -ResourceGroupName $rg -Name $pubIP -Location $loc -AllocationMethod $alloc -SKU $sku -zone $zone
 ```
 
-NOTE: The above options for zones are only valid selections in regions with [Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview?toc=/azure/virtual-network/toc.json#availability-zones).
+Note that the above options for zones are only valid selections in regions with [Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview?toc=/azure/virtual-network/toc.json#availability-zones).
 
-# [**Standard SKU - No Zones**](#tab/option-create-public-ip-standard)
+# [**Standard SKU - No zones**](#tab/option-create-public-ip-standard)
 
 >[!NOTE]
 >The following command works for API version 2020-08-01 or later.  For more information about the API version currently being used, please refer to [Resource Providers and Types](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types).
@@ -97,7 +97,7 @@ $alloc = 'Static'
 New-AzPublicIpAddress -ResourceGroupName $rg -Name $pubIP -Location $loc -AllocationMethod $alloc -SKU $sku
 ```
 
-NOTE: This selection is valid in all regions and is the default selection for Standard Public IP addresses in regions without [Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview?toc=/azure/virtual-network/toc.json#availability-zones).
+This selection is valid in all regions and is the default selection for Standard Public IP addresses in regions without [Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview?toc=/azure/virtual-network/toc.json#availability-zones).
 
 # [**Basic SKU**](#tab/option-create-public-ip-basic)
 
@@ -113,11 +113,11 @@ $alloc = 'Static'
 
 New-AzPublicIpAddress -ResourceGroupName $rg -Name $pubIP -Location $loc -AllocationMethod $alloc -SKU $sku
 ```
-NOTE: If it is acceptable for the IP address to change over time, **Dynamic** IP assignment can be selected by changing the AllocationMethod to 'Dynamic'.
+If it is acceptable for the IP address to change over time, **Dynamic** IP assignment can be selected by changing the AllocationMethod to 'Dynamic'.
 
 ---
 
-## Additional Information 
+## Additional information 
 
 For more details on the individual variables listed above, please see [Manage public IP addresses](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address#create-a-public-ip-address).
 

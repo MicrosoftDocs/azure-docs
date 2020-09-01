@@ -1,6 +1,6 @@
 ---
-title: Manage public IP addresses | Microsoft Docs
-description:  Manage public IP addresses.  Also learn how a public IP address is a resource with its own configurable settings.
+title: Manage a public IP | Microsoft Docs
+description:  Manage a public IP.  Also learn how a public IP address is a resource with its own configurable settings.
 services: virtual-network
 documentationcenter: na
 author: asudbring
