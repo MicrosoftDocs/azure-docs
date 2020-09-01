@@ -50,7 +50,7 @@ Follow these steps to create a flexible server:
     Password |Your password| A new password for the server admin account. It must contain between 8 and 128 characters. Your password must contain characters from three of the following categories: English uppercase letters, English lowercase letters, numbers (0 through 9), and non-alphanumeric characters (!, $, #, %, etc.).
     Region|The region closest to your users| The location that is closest to your users.
     Version|5.7| MySQL major version.
-    Compute + storage | **Burstable**, **Standard_B1ms**, **10 GiB**, **7 days** | The compute, storage, and backup configurations for your new server. Select **Configure server**. *Burstable*, *Standard_B1ms*, *10 GiB*, and *7 days* are the default values for **Compute tier**, **vCore**, **Storage**, and **Backup Retention Period**. You can leave those sliders as is or adjust them. To save this compute and storage selection, select **Review + create** or **Networking** to continue with configurations. The next screenshot captures these selections.
+    Compute + storage | **Burstable**, **Standard_B1ms**, **10 GiB**, **7 days** | The compute, storage, and backup configurations for your new server. Select **Configure server**. *Burstable*, *Standard_B1ms*, *10 GiB*, and *7 days* are the default values for **Compute tier**, **vCore**, **Storage**, and **Backup Retention Period**. You can leave those sliders as is or adjust them. To save this compute and storage selection, select **OK** to continue with configurations. The next screenshot captures these selections.
 
     >[!div class="mx-imgBorder"]
     > ![Create server form](./media/quickstart-create-server-portal/create-form.png)   
@@ -63,7 +63,7 @@ Follow these steps to create a flexible server:
     > The connectivity method cannot be changed after creating the server. For example, if you selected *Public access (allowed IP addresses)* during create then you cannot change to *Private access (VNet Integration)* after create. We highly recommend creating a server with Private access to securely access your server using VNet Integration. <!--Learn more about Private access in the [concepts article](./concepts-networking.md).-->
 
     >[!div class="mx-imgBorder"]
-    > ![Create server form](./media/quickstart-create-server-portal/networking.png)  
+    > ![Configure networking](./media/quickstart-create-server-portal/networking.png)  
 
     <!--![Select "Add current client IP address"](./media/quickstart-create-database-portal/6-add-client-ip.png)-->
 
