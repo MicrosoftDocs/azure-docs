@@ -3,7 +3,7 @@ title: Windows Virtual Desktop host pool Azure portal - Azure
 description: How to create a Windows Virtual Desktop host pool by using the Azure portal.
 author: Heidilohr
 ms.topic: tutorial
-ms.date: 08/28/2020
+ms.date: 09/01/2020
 ms.author: helohr
 manager: lizross
 ---
@@ -123,9 +123,9 @@ To set up your virtual machine within the host pool setup process:
 
 7. Choose what kind of OS disks you want your VMs to use: Standard SSD, Premium SSD, or Standard HDD.
 
-8. Under Network and security, select the **Virtual network** and **Subnet** where you want to put the virtual machines you create. Make sure the virtual network can connect to the domain controller, since you'll need to join the virtual machines inside the virtual network to the domain. The DNS servers of the virtual network selected should be configured to use IP of domain controller.
+8. Under Network and security, select the **Virtual network** and **Subnet** where you want to put the virtual machines you create. Make sure the virtual network can connect to the domain controller, since you'll need to join the virtual machines inside the virtual network to the domain. The DNS servers of the virtual network you selected should be configured to use the IP of the domain controller.
 
-9. Next, select whether or not you want a public IP for the virtual machines. We recommend you select **No**, because a private IP is more secure.
+9. Next, select whether you want a public IP for the virtual machines. We recommend you select **No** because a private IP is more secure.
 
 10. Select what kind of security group you want: **Basic**, **Advanced**, or **None**.
 
@@ -141,9 +141,9 @@ To set up your virtual machine within the host pool setup process:
 
 11. After that, select whether you want the virtual machines to be joined to a specific domain and organizational unit. If you choose **Yes**, specify the domain to join. You can optionally add a specific organizational unit you want the virtual machines to be in. If you choose **No**, the VMs will be joined to the domain matching the suffix of the **AD domain join UPN**.
 
-  - When specifying an OU, ensure you are using the full path (Distinguished Name) and do not wrap it in quotes.
+  - When specifying an OU, make sure you use the full path (Distinguished Name) and without quotation marks.
 
-12. Under Administrator account, enter the credentials for the Active Directory Domain admin of the virtual network you selected. This account cannot have MFA enabled. When joining to an Azure AD Domain Services domain, the account must be part of the AAD DC Administrators group and the account password must work in AAD DS.
+12. Under Administrator account, enter the credentials for the Active Directory Domain admin of the virtual network you selected. This account can't have multi-factored authentication (MFA) enabled. When joining to an Azure Active Directory Domain Services (Azure AD DS) domain, the account must be part of the Azure AD DC Administrators group and the account password must work in Azure AD DS.
 
 13. Select **Next: Workspace >**.
 
