@@ -97,12 +97,23 @@ After you have completed the tasks associated with the Pre-migration stage, 
 
 Migrate your data using your chosen [migration method](sql-server-to-managed-instance-overview.md#migration-options). 
 
+## Data sync and cutover
 
+When using online migration options (DMS online mode, Transactional Replication), the source you are migrating from would continue to change and drift from the target in terms of data and schema. During the Data sync phase, you need to ensure that all changes in the source are captured and applied to the target during the online migration process. After you verify that all changes in source have been applied to the target, you can cutover from the source to the target environment. It is important to plan the cutover process with the business / application teams to ensure the minimal interruption during the cutover does not affect the business continuity. 
 
-
-
+   > [!IMPORTANT]
+   > For details on the specific steps associated with performing a cutover as part of online migrations using DMS, see the information [here](https://docs.microsoft.com/en-us/azure/dms/tutorial-sql-server-managed-instance-online#performing-migration-cutover).
 
 
 ## Post-migration
+After you have successfully completed the Migration stage, you need to go through a series of post-migration tasks to ensure that everything is functioning as smoothly and efficiently as possible. 
+
+### Remediate applications 
+
+After the data is migrated to the target environment, all the applications that formerly consumed the source need to start consuming the target. Accomplishing this will in some cases require changes to the applications. 
+
+
+
+
 
 ## Next steps
