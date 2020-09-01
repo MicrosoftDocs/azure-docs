@@ -17,7 +17,7 @@ With the commercial marketplace metering service, you can create software as a s
 
 For a SaaS offer to use metered billing, it must first:
 
-- Meet all of the offer requirements for a [sell through Microsoft (transactable) offer](./plan-saas-offer.md#listing-options) as outlined in [create a SaaS offer](../create-new-saas-offer.md).
+- Meet all of the offer requirements for a [sell through Microsoft offer](../plan-saas-offer.md#listing-options) as outlined in [Create a SaaS offer in the commercial marketplace](../create-new-saas-offer.md).
 - Integrate with the [SaaS Fulfillment APIs](./pc-saas-fulfillment-api-v2.md) for customers to provision and connect to your offer.  
 - Be configured for the **flat rate** pricing model when charging customers for your service.  Dimensions are an optional extension to the flat rate pricing model. 
 
