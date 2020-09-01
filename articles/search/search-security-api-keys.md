@@ -17,7 +17,7 @@ All requests to a search service need a read-only api-key that was generated spe
 
 Keys are created with your search service during service provisioning. You can view and obtain key values in the [Azure portal](https://portal.azure.com).
 
-![Portal page, Settings, Keys section](media/search-manage/azure-search-view-keys.png)
+![Portal page, retrieve settings, keys section](media/search-manage/azure-search-view-keys.png)
 
 ## What is an api-key
 
@@ -43,7 +43,7 @@ You can obtain access keys in the portal or through the [Management REST API](/r
 2. List the [search services](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)  for your subscription.
 3. Select the service and on the Overview page, click **Settings** >**Keys** to view admin and query keys.
 
-   ![Portal page, Settings, Keys section](media/search-security-overview/settings-keys.png)
+   ![Portal page, view settings, keys section](media/search-security-overview/settings-keys.png)
 
 ## Create query keys
 
