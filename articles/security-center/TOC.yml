@@ -161,7 +161,7 @@
     href: asset-inventory.md
   - name: Integrate with other tools and services
     items:
-    - name: Integrate with Windows Admin Center
+    - name: Protect your Windows Admin Center servers
       href: windows-admin-center-integration.md
     - name: Protect your Azure App Service web apps and APIs
       href: security-center-app-services.md
