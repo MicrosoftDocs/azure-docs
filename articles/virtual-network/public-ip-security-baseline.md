@@ -4,7 +4,7 @@ description: The Azure Public IP security baseline provides procedural guidance 
 author: msmbaldwin
 ms.service: virtual-network
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 09/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 
@@ -328,7 +328,7 @@ Allowed resource types
 
 - [How to create additional Azure subscriptions](/azure/billing/billing-create-subscription)
 
-- [How to create management groups](../governance/management-groups/create.md)
+- [How to create management groups](/azure/governance/management-groups/create)
 
 - [How to create and use tags](/azure/azure-resource-manager/resource-group-using-tags)
 
