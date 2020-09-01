@@ -119,7 +119,8 @@ Service Fabric supports using tokens as credentials to download images for your 
 
 ### Using token credentials outside of Azure Global Cloud
 
-When using token-based registry credentials, Service Fabric fetches a token on behalf of the virtual machine to present to ACR. By default, Service Fabric requests a token whose audience is the global Azure cloud endpoint. If you are deploying to another cloud instance, like Azure Germany, or Azure Government, you will need to override the default of the parameter `DefaultMSIEndpointForTokenAuthentication`, which is
+When using token-based registry credentials, Service Fabric fetches a token on behalf of the virtual machine to present to ACR. By default, Service Fabric requests a token whose audience is the global Azure cloud endpoint. If you are deploying to another cloud instance, like Azure Germany, or Azure Government, you will need to override the default of the parameter `DefaultMSIEndpointForTokenAuthentication`. If you are not deploying to a special environment, do not override this parameter. If you are, you will replace the default, which is
+
 ```
 http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://management.core.windows.net/
 ```
