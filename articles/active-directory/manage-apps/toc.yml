@@ -16,6 +16,8 @@
       href: add-application-portal.md
     - name: Configure an app
       href: add-application-portal-configure.md
+    - name: Assign users to an app
+      href: add-application-portal-assign-users.md
     - name: Set up single sign-on
       href: add-application-portal-setup-sso.md
     - name: Delete an app
@@ -238,14 +240,6 @@
           href: application-types.md
         - name: Unexpected user assigned
           href: ways-users-get-assigned-to-applications.md
-      - name: Troubleshoot My Apps
-        items:
-        - name: App not appearing
-          href: access-panel-troubleshoot-application-not-appearing.md
-        - name: Unexpected app appearing
-          href: access-panel-troubleshoot-unexpected-application.md
-        - name: Error using self-service app access
-          href: access-panel-troubleshoot-self-service-access.md
       - name: Troubleshoot on-premises apps
         items:
         - name: Application Proxy troubleshooting

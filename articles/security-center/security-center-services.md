@@ -26,16 +26,16 @@ The two tabs below show the features of Azure Security Center that are available
 |**Feature**|**Azure Virtual Machines**|**Azure Virtual Machine Scale Sets**|**Non-Azure Machines**|**Pricing**
 |----|:----:|:----:|:----:|:----:|
 |[Microsoft Defender ATP integration](security-center-wdatp.md)|✔</br>(on supported versions)|✔</br>(on supported versions)|✔|Standard|
-|[Virtual Machine Behavioral Analytics (and security alerts)](threat-protection.md)|✔|✔|✔|Standard|
+|[Virtual machine behavioral analytics (and security alerts)](threat-protection.md)|✔|✔|✔|Standard|
 |[Fileless security alerts](alerts-reference.md#alerts-windows)|✔|✔|✔|Standard|
 |[Network-based security alerts](threat-protection.md#network-layer)|✔|✔|-|Standard|
 |[Just-In-Time VM access](security-center-just-in-time.md)|✔|-|-|Standard|
-|[Native vulnerability assessment](built-in-vulnerability-assessment.md)|✔|-|-|Standard|
+|[Native vulnerability assessment](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner)|✔|-|-|Standard|
 |[File Integrity Monitoring](security-center-file-integrity-monitoring.md)|✔|✔|✔|Standard|
 |[Adaptive application controls](security-center-adaptive-application.md)|✔|-|✔|Standard|
 |[Network map](security-center-network-recommendations.md#network-map)|✔|✔|-|Standard|
 |[Adaptive network hardening](security-center-adaptive-network-hardening.md)|✔|-|-|Standard|
-|[Regulatory Compliance dashboard & reports](security-center-compliance-dashboard.md)|✔|✔|✔|Standard|
+|[Regulatory compliance dashboard & reports](security-center-compliance-dashboard.md)|✔|✔|✔|Standard|
 |Recommendations and threat protection on Docker-hosted IaaS containers|-|-|-|Standard|
 |Missing OS patches assessment|✔|✔|✔|Azure: Free<br><br>Non-Azure: Standard|
 |Security misconfigurations assessment|✔|✔|✔|Azure: Free<br><br>Non-Azure: Standard|
@@ -50,16 +50,16 @@ The two tabs below show the features of Azure Security Center that are available
 |**Feature**|**Azure Virtual Machines**|**Azure Virtual Machine Scale Sets**|**Non-Azure Machines**|**Pricing**
 |----|:----:|:----:|:----:|:----:|
 |[Microsoft Defender ATP integration](security-center-wdatp.md)|-|-|-|Standard|
-|[Virtual Machine Behavioral Analytics  (and security alerts)](security-center-alerts-iaas.md)|✔</br>(on supported versions)|✔</br>(on supported versions)|✔|Standard|
+|[Virtual machine behavioral analytics (and security alerts)](security-center-alerts-iaas.md)|✔</br>(on supported versions)|✔</br>(on supported versions)|✔|Standard|
 |[Fileless security alerts](alerts-reference.md#alerts-windows)|-|-|-|Standard|
 |[Network-based security alerts](threat-protection.md#network-layer)|✔|✔|-|Standard|
 |[Just-In-Time VM access](security-center-just-in-time.md)|✔|-|-|Standard|
-|[Native vulnerability assessment](built-in-vulnerability-assessment.md)|✔|-|-|Standard|
+|[Native vulnerability assessment](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner)|✔|-|-|Standard|
 |[File Integrity Monitoring](security-center-file-integrity-monitoring.md)|✔|✔|✔|Standard|
 |[Adaptive application controls](security-center-adaptive-application.md)|✔|-|✔|Standard|
 |[Network map](security-center-network-recommendations.md#network-map)|✔|✔|-|Standard|
 |[Adaptive network hardening](security-center-adaptive-network-hardening.md)|✔|-|-|Standard|
-|[Regulatory Compliance dashboard & reports](security-center-compliance-dashboard.md)|✔|✔|✔|Standard|
+|[Regulatory compliance dashboard & reports](security-center-compliance-dashboard.md)|✔|✔|✔|Standard|
 |Recommendations and threat protection on Docker-hosted IaaS containers|✔|✔|✔|Standard|
 |Missing OS patches assessment|✔|✔|✔|Azure: Free<br><br>Non-Azure: Standard|
 |Security misconfigurations assessment|✔|✔|✔|Azure: Free<br><br>Non-Azure: Standard|
