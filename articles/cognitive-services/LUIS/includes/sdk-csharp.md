@@ -165,7 +165,7 @@ The entity creation code creates a machine-learning entity with subentities and 
 
 [!code-csharp[Create entities for the app](~/cognitive-services-quickstart-code/dotnet/LanguageUnderstanding/sdk-3x//Program.cs?name=AuthoringAddEntities)]
 
-Use the following method to the class to find the Quantity subentity's id, in order to assign the features to that subentity.
+Use the following method to the class to find the Quantity subentity's ID, in order to assign the features to that subentity.
 
 [!code-csharp[Find subentity id](~/cognitive-services-quickstart-code/dotnet/LanguageUnderstanding/sdk-3x//Program.cs?name=AuthoringSortModelObject)]
 
