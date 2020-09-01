@@ -72,7 +72,7 @@ Further, if a user has a vault with only a subset of the six Resource-specific e
 >
 > If a vault has an existing diagnostics setting with a **subset of Resource specific** categories enabled, configured to send data to a particular LA Workspace, say 'Workspace X', then the remediation task will fail (for that vault alone) if the destination LA Workspace provided in the Policy assignment is the **same** 'Workspace X'.
 >
->This is because, if the events enabled by two different diagnostics settings on the same resource **overlap** in some form, then the settings can't have the same LA Workspace as the destination. You will have to manually resolve this failure, by navigating to the relevant vault and configuring a diagnostics setting with a different LA Workspace as the destination.
+>This is because, if the events enabled by two different diagnostics settings on the same resource **overlap** in some form, then the settings can't have the same LA Workspace as the destination. You'll have to manually resolve this failure, by navigating to the relevant vault and configuring a diagnostics setting with a different LA Workspace as the destination.
 >
 > Note that the remediation task will **not** fail if the existing diagnostics setting as only AzureBackupReport enabled with Workspace X as the destination, since in this case, there will be no overlap between the events enabled by the existing setting and the events enabled by the setting created by the remediation task.
 

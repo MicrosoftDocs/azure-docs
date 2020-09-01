@@ -14,7 +14,7 @@ This article answers common questions about Azure Backup monitoring and reportin
 
 ### How do I check if reporting data has started flowing into a Log Analytics (LA) Workspace?
 
-Navigate to the LA Workspace you have configured, navigate to the **Logs** menu item, and run the query CoreAzureBackup | take 1. If you see a record being returned, it means data has started flowing into the workspace. The initial data push may take up to 24 hours.
+Navigate to the LA Workspace you've configured. Navigate to the **Logs** menu item, and run the query `CoreAzureBackup | take 1`. If you see a record being returned, it means data has started flowing into the workspace. The initial data push may take up to 24 hours.
 
 ### What is the frequency of data push to an LA Workspace?
 
@@ -45,13 +45,13 @@ If you're an [Azure Lighthouse](https://azure.microsoft.com/services/azure-light
 
 ## Recovery Services vault
 
-### How long does it take for the Azure backup agent job status to reflect in the portal?
+### How long does it take for the Azure Backup agent job status to reflect in the portal?
 
-The Azure portal can take up to 15 mins to reflect the Azure backup agent job status.
+The Azure portal can take up to 15 minutes to reflect the Azure Backup agent job status.
 
 ### When a backup job fails, how long does it take to raise an alert?
 
-An alert is raised within 20 mins of the Azure backup failure.
+An alert is raised within 20 minutes of the Azure Backup failure.
 
 ### Is there a case where an email won’t be sent if notifications are configured?
 

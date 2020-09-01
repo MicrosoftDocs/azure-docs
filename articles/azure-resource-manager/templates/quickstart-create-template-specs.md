@@ -2,7 +2,7 @@
 title: Create and deploy template spec
 description: Learn how to create a template spec from ARM template. Then, deploy the template spec to a resource group in your subscription.
 author: tfitzmac
-ms.date: 08/26/2020
+ms.date: 08/31/2020
 ms.topic: quickstart
 ms.author: tomfitz
 ---
@@ -70,7 +70,7 @@ These options are shown below.
 1. Then, create the template spec in that resource group. You give the new template spec the name **storageSpec**.
 
     ```azurecli
-    az template-specs create \
+    az ts create \
       --name storageSpec \
       --version "1.0" \
       --resource-group templateSpecRG \
@@ -248,11 +248,11 @@ You can now deploy the template spec. Deploying the template spec is just like d
 1. Get the resource ID of the template spec.
 
     ```azurecli
-    id = $(az template-specs show --name storageSpec --resource-group templateSpecRG --version "1.0" --query "id")
+    id = $(az ts show --name storageSpec --resource-group templateSpecRG --version "1.0" --query "id")
     ```
 
     > [!NOTE]
-    > There is a known issue with getting template spec id and then assign it to a variable in Windows PowerShell. The command hangs.
+    > There is a known issue with getting a template spec ID and assigning it to a variable in Windows PowerShell.
 
 1. Deploy the template spec.
 

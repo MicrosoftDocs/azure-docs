@@ -27,6 +27,7 @@ Our ISV partner network extends our solution capabilities to help you build seam
 | :--- | :--- |
 | ![logo](./media/partner-gallery/arkose-logo.png) | [Arkose Labs](./partner-arkose-labs.md) is a fraud prevention solution provider that helps organizations protect against bot attacks, account takeover attacks, and fraudulent account openings.
 | ![logo](./media/partner-gallery/experian-logo.png) | [Experian](./partner-experian.md) is an Identity verification and proofing provider that performs risk assessments based on user attributes to prevent fraud.|
+| ![logo](./media/partner-gallery/hypr-logo.png) | [HYPR](./partner-hypr.md) is a true passwordless authentication provider, which replaces passwords with Public key encryptions eliminating fraud, phishing, and credential reuse.|
 | ![logo](./media/partner-gallery/idology-logo.png) | [IDology](./partner-idology.md) is an Identity verification and proofing provider with ID verification solutions, Fraud prevention solutions, Compliance solutions, and others.|
 | ![logo](./media/partner-gallery/itsme-logo.png) | [itsme](./partner-itsme.md) is an Electronic Identification, Authentication and Trust Services (eiDAS) compliant digital ID solution to allow users to sign in securely without card readers, passwords, two-factor authentication, and multiple PIN codes. |
 | ![logo](./media/partner-gallery/jumio-logo.png) | [Jumio](./partner-jumio.md) is an ID verification service, which enables real-time automated ID verification, safeguarding customer data. |

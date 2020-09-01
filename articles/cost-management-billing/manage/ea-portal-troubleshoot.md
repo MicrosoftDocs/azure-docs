@@ -27,7 +27,7 @@ You use the Azure EA portal to grant access to users with different authenticati
 - Work or School Account Cross Tenant - For organizations that have set up Active Directory with Federation to the Cloud and will have accounts in multiple tenants.
 - Mixed Account - Allows you to add users with Microsoft Account and/or with a Work or School Account.
 
-The first work or school account added to the enrollment determines the _default_, or _master_ domain. To add a work or school account with another tenant, you must change the authentication level under the enrollment to cross-tenant authentication.
+The first work or school account added to the enrollment determines the _default_ domain. To add a work or school account with another tenant, you must change the authentication level under the enrollment to cross-tenant authentication.
 
 To update the Authentication Level:
 

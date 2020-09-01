@@ -37,9 +37,6 @@
     href: powershell-samples.md
   - name: Resource Manager templates
     href: template-samples.md
-  - name: Azure Policy built-ins
-    displayName: samples, policies, definitions
-    href: ./policy-samples.md
 - name: Concepts
   items:
   - name: Business continuity
@@ -97,7 +94,11 @@
   - name: Security
     items:
     - name: Network security groups
-      href: security-overview.md
+      items:
+      - name: Overview
+        href: security-overview.md
+      - name: How it works
+        href: network-security-group-how-it-works.md
     - name: Application security groups
       href: application-security-groups.md
     - name: Service tags 
@@ -222,6 +223,12 @@
         href: ipv6-reserve-public-ip-address-prefix.md       
     - name: IP addressing
       items:
+      - name: Create public IP addresses - portal
+        href: create-public-ip-portal.md
+      - name: Create public IP addresses - PowerShell
+        href: create-public-ip-powershell.md
+      - name: Create public IP addresses - Azure CLI
+        href: create-public-ip-cli.md                
       - name: Manage public IP addresses
         href: virtual-network-public-ip-address.md
       - name: Manage public IP prefix
@@ -429,6 +436,9 @@
     href: /azure/templates/microsoft.network/allversions
   - name: Code samples
     href: https://azure.microsoft.com/resources/samples/?service=virtual-network
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-reference.md
 - name: Resources
   items:
   - name: Build your skills with Microsoft Learn
