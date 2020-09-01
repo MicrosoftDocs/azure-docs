@@ -192,34 +192,47 @@ Using the PySpark interactive command to submit the queries, follow these steps:
         print(sortedCollection[i])
    ```
 
-4. The prompt to install PySpark kernel is displayed in the lower right corner of the window. You can click on **Install** button to proceed for the PySpark installations; or click on **Skip** button to skip this step.
+4. The prompt to install PySpark/Synapse Pyspark kernel is displayed in the lower right corner of the window. You can click on **Install** button to proceed for the PySpark/Synapse Pyspark installations; or click on **Skip** button to skip this step.
 
-   ![install pyspark kernel](./media/hdinsight-for-vscode/install-the-pyspark-kernel.png)
+     ![install pyspark kernel](./media/hdinsight-for-vscode/install-the-pyspark-kernel.png)
 
 5. If you need to install it later, you can navigate to **File** > **Preference** > **Settings**, then uncheck **Hdinsight: Enable Skip Pyspark Installation** in the settings. 
     
-    ![install pyspark kernel](./media/hdinsight-for-vscode/enable-skip-pyspark-installation.png)
+     ![install pyspark kernel](./media/hdinsight-for-vscode/enable-skip-pyspark-installation.png)
 
 6. If the installation is successful in step 4, the "PySpark installed successfully" message box is displayed in the lower right corner of the window. Click on **Reload** button to reload the window.
-    ![pyspark installed successfully](./media/hdinsight-for-vscode/pyspark-kernel-installed-successfully.png)
 
-7. [Connect](#connect-to-an-azure-account) to your Azure account, or link a cluster if you haven't yet done so.
+     ![pyspark installed successfully](./media/hdinsight-for-vscode/pyspark-kernel-installed-successfully.png)
 
-8. Select all the code, right-click the script editor, and select **Spark: PySpark Interactive** to submit the query. Or, use the Ctrl+Alt+I shortcut.
+7. From the menu bar, navigate to **View** > **Command Palette...** or use the **Shift + Ctrl + P** keyboard shortcut, and enter **Python: Select Interpreter to start Jupyter Server**.
 
-    ![pyspark interactive context menu](./media/hdinsight-for-vscode/pyspark-interactive-right-click.png)
+     ![select interpreter to start jupyter server](./media/hdinsight-for-vscode/select-interpreter-to-start-jupyter-server.png)
 
-9. Select the cluster, if you haven't specified a default cluster. After a few moments, the **Python Interactive** results appear in a new tab. Click on PySpark to switch the kernel to **PySpark**, and the code will run successfully. The tools also let you submit a block of code instead of the whole script file by using the context menu:
+8. Select the python option below.
 
-   ![pyspark interactive python interactive window](./media/hdinsight-for-vscode/pyspark-interactive-python-interactive-window.png)
+     ![choose the below option](./media/hdinsight-for-vscode/choose-the-below-option.png)
+    
+9. From the menu bar, navigate to **View** > **Command Palette...** or use the **Shift + Ctrl + P** keyboard shortcut, and enter **Developer: Reload Window**.
 
-10. Enter **%%info**, and then press Shift+Enter to view the job information (optional):
+     ![reload window](./media/hdinsight-for-vscode/reload-window.png)
 
-    ![pyspark interactive view job information](./media/hdinsight-for-vscode/pyspark-interactive-view-job-information.png)
+10. [Connect](#connect-to-an-azure-account) to your Azure account, or link a cluster if you haven't yet done so.
+
+11. Select all the code, right-click the script editor, and select **Spark: PySpark Interactive / Synapse: Pyspark Interactive** to submit the query. 
+
+     ![pyspark interactive context menu](./media/hdinsight-for-vscode/pyspark-interactive-right-click.png)
+
+12. Select the cluster, if you haven't specified a default cluster. After a few moments, the **Python Interactive** results appear in a new tab. Click on PySpark to switch the kernel to **PySpark / Synapse Pyspark**, and the code will run successfully. If you want to switch to Synapse Pyspark kernel, disabling auto-settings in Azure Portal is encouraged. Otherwise it may take a long while to wake up the cluster and set synapse kernel for the first time use. If The tools also let you submit a block of code instead of the whole script file by using the context menu:
+
+     ![pyspark interactive python interactive window](./media/hdinsight-for-vscode/pyspark-interactive-python-interactive-window.png)
+
+13. Enter **%%info**, and then press Shift+Enter to view the job information (optional):
+
+     ![pyspark interactive view job information](./media/hdinsight-for-vscode/pyspark-interactive-view-job-information.png)
 
 The tool also supports the **Spark SQL** query:
 
-   ![pyspark interactive view result](./media/hdinsight-for-vscode/pyspark-ineteractive-select-result.png)
+  ![pyspark interactive view result](./media/hdinsight-for-vscode/pyspark-ineteractive-select-result.png)
 
 
 ### Perform interactive query in PY file using a #%% comment
@@ -239,9 +252,13 @@ The tool also supports the **Spark SQL** query:
 
 1. You can create a Jupyter Notebook by command from the Command Palette or by creating a new .ipynb file in your workspace. For more information, see [Working with Jupyter Notebooks in Visual Studio Code](https://code.visualstudio.com/docs/python/jupyter-support)
 
-2. Click on PySpark to switch kernel to **PySpark**, and then click on **Run Cell**, after a while, the result will be displayed.
+2. Click on **Run cell** button, follow the prompts to **Set the default spark pool** (strongly encourage to set default cluster/pool every time before opening a notebook) and then, **Reload** window.
 
-   ![run ipynb results](./media/hdinsight-for-vscode/run-ipynb-file-results.png)
+     ![set the default spark pool and reload](./media/hdinsight-for-vscode/set-the-default-spark-pool-and-reload.png)
+
+3. Click on PySpark to switch kernel to **PySpark / Synapse Pyspark**, and then click on **Run Cell**, after a while, the result will be displayed.
+
+     ![run ipynb results](./media/hdinsight-for-vscode/run-ipynb-file-results.png)
 
 
 > [!NOTE]
