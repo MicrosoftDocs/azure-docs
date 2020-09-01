@@ -12,9 +12,9 @@ services: iot-edge
 
 # Continuous integration and continuous deployment to Azure IoT Edge devices
 
-You can easily adopt DevOps with your Azure IoT Edge applications with the built-in Azure IoT Edge tasks in Azure Pipelines. This article demonstrates how you can use the continuous integration and continuous deployment features of Azure Pipelines to build, test, and deploy applications quickly and efficiently to your Azure IoT Edge using YAML. Alternatively, you can [use the classic editor](how-to-ci-cd-classic.md).
+You can easily adopt DevOps with your Azure IoT Edge applications with the built-in Azure IoT Edge tasks in Azure Pipelines. This article demonstrates how you can use the continuous integration and continuous deployment features of Azure Pipelines to build, test, and deploy applications quickly and efficiently to your Azure IoT Edge using YAML. Alternatively, you can [use the classic editor](how-to-continuous-integration-continuous-deployment-classic.md).
 
-![Diagram - CI and CD branches for development and production](./media/how-to-ci-cd/cd.png)
+![Diagram - CI and CD branches for development and production](./media/how-to-continuous-integration-continuous-deployment/model.png)
 
 In this article, you learn how to use the built-in [Azure IoT Edge tasks](https://docs.microsoft.com/azure/devops/pipelines/tasks/build/azure-iot-edge) for Azure Pipelines to create build and release pipelines for your IoT Edge solution. Each Azure IoT Edge task added to your pipeline implements one of the following four actions:
 
@@ -53,27 +53,27 @@ In this section, you create a new build pipeline. You configure the pipeline to 
 
 1. Sign in to your Azure DevOps organization (`https://dev.azure.com/{your organization}`) and open the project that contains your IoT Edge solution repository.
 
-   ![Open your DevOps project](./media/how-to-ci-cd/init-project.png)
+   ![Open your DevOps project](./media/how-to-continuous-integration-continuous-deployment/initial-project.png)
 
 2. From the left pane menu in your project, select **Pipelines**. Select **Create Pipeline** at the center of the page. Or, if you already have build pipelines, select the **New pipeline** button in the top right.
 
-    ![Create a new build pipeline using the New pipeline button](./media/how-to-ci-cd/add-new-pipeline.png)
+    ![Create a new build pipeline using the New pipeline button](./media/how-to-continuous-integration-continuous-deployment/add-new-pipeline.png)
 
-3. On the **Where is your code?** page, select **Azure Repos Git `YAML`**. If you wish to use the classic editor to create your project's build pipelines, see the [classic editor guide](how-to-ci-cd-classic.md).
+3. On the **Where is your code?** page, select **Azure Repos Git `YAML`**. If you wish to use the classic editor to create your project's build pipelines, see the [classic editor guide](how-to-continuous-integration-continuous-deployment-classic.md).
 
 4. Select the repository you are creating a pipeline for.
 
-    ![Select the repository for your build pipeline](./media/how-to-ci-cd/select-a-repository.png)
+    ![Select the repository for your build pipeline](./media/how-to-continuous-integration-continuous-deployment/select-repository.png)
 
 5. On the **Configure your pipeline** page, select **Starter pipeline**. If you have a preexisting Azure Pipelines YAML file you wish to use to create this pipeline, you can select **Existing Azure Pipelines YAML file** and provide the branch and path in the repository to the file.
 
-    ![Select Starter pipeline or Existing Azure Pipelines YAML file to begin your build pipeline](./media/how-to-ci-cd/configure-pipeline.png)
+    ![Select Starter pipeline or Existing Azure Pipelines YAML file to begin your build pipeline](./media/how-to-continuous-integration-continuous-deployment/configure-pipeline.png)
 
 6. On the **Review your pipeline YAML** page, you can click the default name `azure-pipelines.yml` to rename your pipeline's configuration file.
 
    Select **Show assistant** to open the **Tasks** palette.
 
-    ![Select Show assistant to open Tasks palette](./media/how-to-ci-cd/show-assistant.png)
+    ![Select Show assistant to open Tasks palette](./media/how-to-ci-continuous-integration-continuous-deploymentcd/show-assistant.png)
 
 7. To add a task, place your cursor at the end of the YAML or wherever you want the instructions for your task to be added. Search for and select **Azure IoT Edge**. Fill out the task's parameters as follows. Then, select **Add**.
 
@@ -83,7 +83,7 @@ In this section, you create a new build pipeline. You configure the pipeline to 
    | .template.json file | Provide the path to the **deployment.template.json** file in the repository that contains your IoT Edge solution. |
    | Default platform | Select the appropriate operating system for your modules based on your targeted IoT Edge device. |
 
-    ![Use Tasks palette to add tasks to your pipeline](./media/how-to-ci-cd/add-build-task.png)
+    ![Use Tasks palette to add tasks to your pipeline](./media/how-to-continuous-integration-continuous-deployment/add-build-task.png)
 
    >[!TIP]
    > After each task is added, the editor will automatically highlight the added lines. To prevent accidental overwriting, deselect the lines and provide a new space for your next task before adding additional tasks.
@@ -121,13 +121,13 @@ In this section, you create a new build pipeline. You configure the pipeline to 
 
 10. The trigger for continuous integration is enabled by default for your YAML pipeline. If you wish to edit these settings, select your pipeline and click **Edit** in the top right. Select **More actions** next to the **Run** button in the top right and go to **Triggers**. **Continuous integration** shows as enabled under your pipeline's name. If you wish to see the details for the trigger, check the **Override the YAML continuous integration trigger from here** box.
 
-    ![To review your pipeline's trigger settings, see Triggers under More actions](./media/how-to-ci-cd/check-trigger-settings.png)
+    ![To review your pipeline's trigger settings, see Triggers under More actions](./media/how-to-continuous-integration-continuous-deployment/check-trigger-settings.png)
 
 Continue to the next section to build the release pipeline.
 
-[!INCLUDE [iot-edge-create-release-pipeline-for-cd](../../includes/iot-edge-create-release-pipeline-for-cd.md)]
+[!INCLUDE [iot-edge-create-release-pipeline-for-continuous-deployment](../../includes/iot-edge-create-release-pipeline-for-cd.md)]
 
-[!INCLUDE [iot-edge-verify-iot-edge-ci-cd](../../includes/iot-edge-verify-iot-edge-ci-cd.md)]
+[!INCLUDE [iot-edge-verify-iot-edge-continuous-integration-continuous-deployment](../../includes/iot-edge-verify-iot-edge-continuous-integration-continuous-deployment.md)]
 
 ## Next steps
 

@@ -14,11 +14,11 @@ Create a new pipeline, and add a new stage:
 
 1. In the **Releases** tab under **Pipelines**, choose **+ New pipeline**. Or, if you already have release pipelines, choose the **+ New** button and select **+ New release pipeline**.  
 
-    ![Add a release pipeline using the + New pipeline button](./media/iot-edge-create-release-pipeline-for-cd/add-release-pipeline.png)
+    ![Add a release pipeline using the + New pipeline button](./media/iot-edge-create-release-pipeline-for-continuous-deployment/add-release-pipeline.png)
 
 2. When prompted to select a template, choose to start with an **Empty job**.
 
-    ![Start with an empty job for your release pipeline](./media/iot-edge-create-release-pipeline-for-cd/start-with-empty-release-job.png)
+    ![Start with an empty job for your release pipeline](./media/iot-edge-create-release-pipeline-for-continuous-deployment/start-with-empty-release-job.png)
 
 3. Your new release pipeline initializes with one stage, called **Stage 1**. Rename Stage 1 to **dev** and treat it as a continuous deployment pipeline for your development environment. Usually, continuous deployment pipelines have multiple stages including **dev**, **staging**, and **prod**. You can use different names and create more based on your DevOps practice. Close the stage details window once it's renamed.
 
@@ -26,19 +26,19 @@ Create a new pipeline, and add a new stage:
 
 4. Link the release to the build artifacts that are published by the build pipeline. Click **Add** in artifacts area.
 
-   ![Click add in the artifacts area of the interface](./media/iot-edge-create-release-pipeline-for-cd/add-artifacts.png)
+   ![Click add in the artifacts area of the interface](./media/iot-edge-create-release-pipeline-for-continuous-deployment/add-artifacts.png)
 
 5. On the **Add an artifact page**, select **Build** as the **Source type**. Choose the project and the build pipeline you created. If you wish, you can change the **Source alias** to something more descriptive. Then, select **Add**.
 
-   ![On the add an artifact page, select Add to create the artifact](./media/iot-edge-create-release-pipeline-for-cd/add-an-artifact.png)
+   ![On the add an artifact page, select Add to create the artifact](./media/iot-edge-create-release-pipeline-for-continuous-deployment/add-artifact.png)
 
 6. Open the artifact triggers and select the toggle to enable the continuous deployment trigger. Now, a new release will be created each time a new build is available.
 
-   ![Open the artifact triggers and toggle to enable the continuous deployment trigger](./media/iot-edge-create-release-pipeline-for-cd/add-a-trigger.png)
+   ![Open the artifact triggers and toggle to enable the continuous deployment trigger](./media/iot-edge-create-release-pipeline-for-continuous-deployment/add-trigger.png)
 
 7. The **dev** stage is preconfigured with one job and zero tasks. From the pipeline menu, select **Tasks** then choose the **dev** stage. Select the **Agent job** and change its **Display name** to **QA**. You can configure details about the agent job, but the deployment task is platform insensitive so you can use any **Agent specification** in the chosen **Agent pool**.
 
-   ![View the tasks for your dev stage under the Tasks tab](./media/iot-edge-create-release-pipeline-for-cd/view-stage-tasks.png)
+   ![View the tasks for your dev stage under the Tasks tab](./media/iot-edge-create-release-pipeline-for-continuous-deployment/view-stage-tasks.png)
 
 8. On the QA job, select the plus sign (**+**) to add two tasks. Search for and add **Azure IoT Edge** twice.
 
@@ -60,7 +60,7 @@ Create a new pipeline, and add a new stage:
 
     If you have other variables in your project, you can specify the name and value in this tab. The **Generate deployment manifest** can only recognize the variables are in `${VARIABLE}` flavor. Make sure you are using this flavor in your `*.template.json` files.
 
-    ![Configure the variables for your release pipeline in the Variables tab](./media/iot-edge-create-release-pipeline-for-cd/configure-variables.png)
+    ![Configure the variables for your release pipeline in the Variables tab](./media/iot-edge-create-release-pipeline-for-continuous-deployment/configure-variables.png)
 
 10. Select the second **Azure IoT Edge** task and configure it with the following values:
 
@@ -75,6 +75,6 @@ Create a new pipeline, and add a new stage:
     | Device ID or target condition | Depending on the prior selection, specify a device ID or [target condition](../articles/iot-edge/module-deployment-monitoring.md#target-condition) to deploy to multiple devices. |
     | Advanced | For the IoT Edge deployment ID, specify `$(System.TeamProject)-$(Release.EnvironmentName)`. This variable maps the project and release name with your IoT Edge deployment ID. |
 
-    ![Add Azure IoT Edge tasks for your dev stage](./media/iot-edge-create-release-pipeline-for-cd/add-task-qa.png)
+    ![Add Azure IoT Edge tasks for your dev stage](./media/iot-edge-create-release-pipeline-for-continuous-deployment/add-quality-assurance-task.png)
 
 11. Select **Save** to save your changes to the new release pipeline. Return to the pipeline view by selecting **Pipeline** tab from the menu.

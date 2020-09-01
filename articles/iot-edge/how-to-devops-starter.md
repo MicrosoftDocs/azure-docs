@@ -55,11 +55,11 @@ DevOps Starter creates a CI/CD pipeline in Azure DevOps. You can create a new Az
 
    7. Select **Done** to finish creating your project.
 
-   ![Name and create application](media/how-to-devops-starter/select-devops.png)
+   ![Name and create project](media/how-to-devops-starter/create-project.png)
 
 After a few minutes, the DevOps Starter dashboard is displayed in the Azure portal. Select your project name to see the progress. You may need to refresh the page. A sample IoT Edge application is set up in a repository in your Azure DevOps organization, a build is executed, and your application is deployed to the IoT Edge device. This dashboard provides visibility into your code repository, the  CI/CD pipeline, and your application in Azure.
 
-   ![View application in Azure portal](./media/how-to-devops-starter/devops-portal.png)
+   ![View project in Azure portal](./media/how-to-devops-starter/portal.png)
 
 ## Commit code changes and execute CI/CD
 
@@ -114,7 +114,7 @@ In the previous sections, Azure DevOps Starter automatically configured a full C
 
 12. In the menu for your release pipeline, select **Tasks** then choose the **dev** stage from the dropdown list. DevOps Projects created a release stage for you that creates an IoT hub, creates an IoT Edge device in that hub, deploys the sample module from the build pipeline, and provisions a virtual machine to run as your IoT Edge device. To learn more about Azure IoT Edge tasks for CD, see [Configure Azure Pipelines for continuous deployment](how-to-ci-cd-classic.md#create-a-release-pipeline-for-continuous-deployment).
 
-    ![View continuous deployment tasks](media/how-to-devops-starter/dev-release.png)
+    ![View continuous deployment tasks](media/how-to-devops-starter/choose-release.png)
 
 13. On the right, select **View releases**. This view shows a history of releases.
 
