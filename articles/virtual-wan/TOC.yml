@@ -154,8 +154,6 @@
   items:
   - name: FAQ
     href: virtual-wan-faq.md
-  - name: Update announcements
-    href: https://azure.microsoft.com/updates/?category=networking&query=VIRTUAL%20WAN
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/virtual-wan
   - name: Subscription and service limits
