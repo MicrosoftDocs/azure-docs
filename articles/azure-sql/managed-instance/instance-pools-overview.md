@@ -73,6 +73,7 @@ There are several resource limitations regarding instance pools and instances in
 - In addition to instance-level limits, there are also two limits imposed *at the instance pool level*:
   - Total storage size per pool (8 TB).
   - Total number of databases per pool (100).
+- AAD Admin cannot be set at the instance pool level
 
 Total storage allocation and number of databases across all instances must be lower than or equal to the limits exposed by instance pools.
 
