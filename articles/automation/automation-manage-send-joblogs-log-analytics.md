@@ -3,7 +3,7 @@ title: Forward Azure Automation job data to Azure Monitor logs
 description: This article tells how to send job status and runbook job streams to Azure Monitor logs.
 services: automation
 ms.subservice: process-automation
-ms.date: 05/22/2020
+ms.date: 09/01/2020
 ms.topic: conceptual
 ---
 
@@ -17,37 +17,16 @@ Azure Automation can send runbook job status and job streams to your Log Analyti
 * Correlate jobs across Automation accounts.
 * Use custom views and search queries to visualize your runbook results, runbook job status, and other related key indicators or metrics.
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+## Configure diagnostic settings
 
-## Prerequisites and deployment considerations
+To start sending your Automation logs to Azure Monitor logs, review [create diagnostic settings](../azure-monitor/platform/diagnostic-settings.md) to understand the feature and methods to configure diagnostic settings to send platform logs.
 
-To start sending your Automation logs to Azure Monitor logs, you need:
+Automation diagnostic settings supports forwarding the following platform logs and metric data:
 
-* The latest release of [Azure PowerShell](/powershell/azure/).
-* A Log Analytics workspace. For more information, see [Get started with Azure Monitor logs](../azure-monitor/overview.md).
-* The resource ID for your Azure Automation account.
-
-Use the following command to find the resource ID for your Azure Automation account:
-
-```powershell-interactive
-# Find the ResourceId for the Automation account
-Get-AzResource -ResourceType "Microsoft.Automation/automationAccounts"
-```
-
-To find the resource ID for your Log Analytics workspace, run the following PowerShell command:
-
-```powershell-interactive
-# Find the ResourceId for the Log Analytics workspace
-Get-AzResource -ResourceType "Microsoft.OperationalInsights/workspaces"
-```
-
-If you have more than one Automation account or workspace in the output of the preceding commands, you can find the name and other related properties that are part of the full resource ID of your Automation account by performing the following:
-
-1. In the Azure portal, select your Automation account from the **Automation Accounts** page. 
-2. On the page of the selected Automation account, under **Account Settings**, select **Properties**.  
-3. In the **Properties** page, note the details shown below.
-
-    ![Automation account properties](media/automation-manage-send-joblogs-log-analytics/automation-account-properties.png).
+* JobLogs
+* JobStreams
+* DSCNodeStatus
+* Metrics - Total Jobs, Total Update Deployment Machine Runs, Total Update Deployment Runs
 
 ## Azure Monitor log records
 
@@ -97,39 +76,9 @@ Azure Automation diagnostics create two types of records in Azure Monitor logs, 
 | ResourceProvider | The resource provider. The value is MICROSOFT.AUTOMATION. |
 | ResourceType | The resource type. The value is AUTOMATIONACCOUNTS. |
 
-## Set up integration with Azure Monitor logs
-
-1. On your computer, start Windows PowerShell from the **Start** screen.
-2. Run the following PowerShell commands, and edit the values for `$automationAccountId` and `$workspaceId` with the values from the preceding section.
-
-   ```powershell-interactive
-   $workspaceId = "resource ID of the log analytics workspace"
-   $automationAccountId = "resource ID of your Automation account"
-
-   Set-AzDiagnosticSetting -ResourceId $automationAccountId -WorkspaceId $workspaceId -Enabled 1
-   ```
-
-After running this script, it can take an hour before you start to see records in Azure Monitor logs of new `JobLogs` or `JobStreams` being written.
-
-To see the logs, run the following query in log analytics log search:
-`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
-
-### Verify configuration
-
-To confirm that your Automation account is sending logs to your Log Analytics workspace, check that diagnostics are correctly configured on the Automation account by using the following PowerShell command.
-
-```powershell-interactive
-Get-AzDiagnosticSetting -ResourceId $automationAccountId
-```
-
-In the output, ensure that:
-
-* Under `Logs`, the value for `Enabled` is True.
-* `WorkspaceId` is set to the `ResourceId` value for your Log Analytics workspace.
-
 ## View Automation logs in Azure Monitor logs
 
-Now that you started sending your Automation job logs to Azure Monitor logs, let's see what you can do with these logs inside Azure Monitor logs.
+Now that you started sending your Automation job streams and logs to Azure Monitor logs, let's see what you can do with these logs inside Azure Monitor logs.
 
 To see the logs, run the following query:
 `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
@@ -169,17 +118,8 @@ When you're debugging a job, you might also want to look into the job streams. T
 Finally, you might want to visualize your job history over time. You can use this query to search for the status of your jobs over time.
 
 `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and ResultType != "started" | summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h)`
-<br> ![Log Analytics Historical Job Status Chart](media/automation-manage-send-joblogs-log-analytics/historical-job-status-chart.png)<br>
 
-## Remove diagnostic settings
-
-To remove the diagnostic setting from the Automation account, run the following command:
-
-```powershell-interactive
-$automationAccountId = "[resource ID of your Automation account]"
-
-Remove-AzDiagnosticSetting -ResourceId $automationAccountId
-```
+![Log Analytics Historical Job Status Chart](media/automation-manage-send-joblogs-log-analytics/historical-job-status-chart.png)
 
 ## Next steps
 
