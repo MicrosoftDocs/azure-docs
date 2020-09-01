@@ -416,7 +416,7 @@ In the `properties` section, this log contains additional information about mess
 
 #### Configurations
 
-IoT Hub configuration logs tracks events and error for the Automatic Device Management feature set.
+IoT Hub configuration logs track events and error for the Automatic Device Management feature set.
 
 ```json
 {
@@ -464,9 +464,9 @@ The device streams category tracks request-response interactions sent to individ
 
 ### SDK version
 
-For some operations, several categories return an `sdkVersion` property in their property bag. For these operations, when a device or backend app is using one of the Azure IoT SDKs, this property contains information about the SDK, the SDK version, and the platform on which the SDK is running. For example, the following example shows the `sdkVersion` property returned for the Node.js device SDK, "azure-iot-device/1.17.1 (node v10.16.0; Windows_NT 10.0.18363; x64)", and here is an example of the value returned for the .NET device SDK, ".NET/1.21.2 (.NET Framework 4.8.4200.0; Microsoft Windows 10.0.17763 WindowsProduct:0x00000004; X86)".
+Some operations return an `sdkVersion` property in their property bag. For these operations, when a device or backend app is using one of the Azure IoT SDKs, this property contains information about the SDK being used, the SDK version, and the platform on which the SDK is running. The following example shows the `sdkVersion` property returned for a `deviceConnect` operation using the Node.js device SDK, "azure-iot-device/1.17.1 (node v10.16.0; Windows_NT 10.0.18363; x64)", and here is an example of the value returned for the .NET SDK, ".NET/1.21.2 (.NET Framework 4.8.4200.0; Microsoft Windows 10.0.17763 WindowsProduct:0x00000004; X86)".
 
-The following table shows the SDK name value returned for different language SDKs:
+The following table shows the SDK name value returned for different SDKs:
 
 | SDK name | Language |
 |----------|----------|
@@ -484,7 +484,7 @@ The following table shows the SDK name value returned for different language SDK
 | C | Embedded C |
 | C + (OSSimplified = Azure RTOS) | Azure RTOS |
 
-You can extract the SDK version when you perform queries against diagnostic logs. The following query extracts the SDK version (and device ID) from the properties returned by Connections events. These properties are written to the results along with the time of the event and the resource ID of the IoT hub that the device is connecting to.
+You can extract the SDK version property when you perform queries against diagnostic logs. The following query extracts the SDK version property (and device ID) from the properties returned by Connections events. These properties are written to the results along with the time of the event and the resource ID of the IoT hub that the device is connecting to.
 
 ```kusto
 // SDK version of devices
