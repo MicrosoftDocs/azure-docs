@@ -122,9 +122,7 @@ We've made some improvements to Microsoft Teams for Windows Virtual Desktop. Mos
 
 To learn more, see [our blog post](https://azure.microsoft.com/updates/windows-virtual-desktop-media-optimization-for-microsoft-teams-is-now-available-in-public-preview/).
 
-## Next steps
-
-Learn about future plans at the [Microsoft 365 Windows Virtual Desktop roadmap](https://www.microsoft.com/microsoft-365/roadmap?filters=Windows%20Virtual%20Desktop).
+## Client updates
 
 Check out these articles to learn about updates for our clients for Windows Virtual Desktop and Remote Desktop Services:
 
@@ -133,3 +131,8 @@ Check out these articles to learn about updates for our clients for Windows Virt
 - [iOS](/windows-server/remote/remote-desktop-services/clients/ios-whatsnew)
 - [Android](/windows-server/remote/remote-desktop-services/clients/android-whatsnew)
 - [Web](/windows-server/remote/remote-desktop-services/clients/web-client-whatsnew)
+
+## Next steps
+
+Learn about future plans at the [Microsoft 365 Windows Virtual Desktop roadmap](https://www.microsoft.com/microsoft-365/roadmap?filters=Windows%20Virtual%20Desktop).
+
