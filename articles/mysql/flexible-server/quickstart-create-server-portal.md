@@ -41,6 +41,9 @@ Follow these steps to create a flexible server:
 
 1. Fill out the **Basics** form with the following information: 
 
+    >[!div class="mx-imgBorder"]
+    > ![Create server form](./media/quickstart-create-server-portal/create-form.png)    
+
     **Setting**|**Suggested Value**|**Description**
     ---|---|---
     Subscription|Your subscription name|The Azure subscription that you want to use for your server. If you have multiple subscriptions, choose the subscription in which you'd like to be billed for the resource.
@@ -50,10 +53,11 @@ Follow these steps to create a flexible server:
     Password |Your password| A new password for the server admin account. It must contain between 8 and 128 characters. Your password must contain characters from three of the following categories: English uppercase letters, English lowercase letters, numbers (0 through 9), and non-alphanumeric characters (!, $, #, %, etc.).
     Region|The region closest to your users| The location that is closest to your users.
     Version|5.7| MySQL major version.
-    Compute + storage | **Burstable**, **Standard_B1ms**, **10 GiB**, **7 days** | The compute, storage, and backup configurations for your new server. Select **Configure server**. *Burstable*, *Standard_B1ms*, *10 GiB*, and *7 days* are the default values for **Compute tier**, **vCore**, **Storage**, and **Backup Retention Period**. You can leave those sliders as is or adjust them. To save this compute and storage selection, select **OK** to continue with configurations.
+    Compute + storage | **Burstable**, **Standard_B1ms**, **10 GiB**, **7 days** | The compute, storage, and backup configurations for your new server. Select **Configure server**. *Burstable*, *Standard_B1ms*, *10 GiB*, and *7 days* are the default values for **Compute tier**, **vCore**, **Storage**, and **Backup Retention Period**. You can leave those sliders as is or adjust them. To save this compute and storage selection, select **Save** to continue with configurations. The below screenshot shows the compute and storage options.
 
     >[!div class="mx-imgBorder"]
-    > ![Create server form](./media/quickstart-create-server-portal/create-form.png)   
+    > ![Compute + storage](./media/quickstart-create-server-portal/compute-storage.png)
+
 
 1. Configure Networking options
 
