@@ -66,7 +66,7 @@ If your data is stored in a virtual network, you must use a workspace [managed i
 > [!IMPORTANT]
 > Configuring a managed identity __only enables access to the datastore from Azure Machine Learning studio__. It does not enable access to the data from the SDK.
 > 
-> For example, using a managed identity allows you to preview data in studio when the data source is behind a virtual network. To access the data using SDK, you must use the normal authentication method required by the individual service that the data is stored in. For example, if you register a datastore to access data in Azure Data Lake Store Gen2, you must still provide a service principal that is authorized to connect and access the data as documented in [Connect to Azure storage services](how-to-access-data.md#azure-data-lake-storage-generation-2).
+> To access the data using SDK, you must use the normal authentication method required by the individual service that the data is stored in. For example, if you register a datastore to access data in Azure Data Lake Store Gen2, you must still provide a service principal that is authorized to connect and access the data as documented in [Connect to Azure storage services](how-to-access-data.md#azure-data-lake-storage-generation-2).
 
 > [!WARNING]
 > While most of studio works with data stored in a virtual network, integrated notebooks __do not__. Integrated notebooks do not support using storage that is in a virtual network. Instead, you can use Jupyter Notebooks from a compute instance. For more information, see the [Access data in a Compute Instance notebook](#access-data-in-a-compute-instance-notebook) section.
