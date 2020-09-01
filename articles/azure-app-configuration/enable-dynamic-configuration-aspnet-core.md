@@ -157,8 +157,6 @@ A *sentinel key* is a special key used to signal when configuration has changed.
     }
     ```
     ---
-    <br>
-    
     > [!TIP]
     > To learn more about the options pattern when reading configuration values, please see [Options Patterns in ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/options?view=aspnetcore-3.1).
 
