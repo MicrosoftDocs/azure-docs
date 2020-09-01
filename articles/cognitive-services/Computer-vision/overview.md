@@ -11,7 +11,7 @@ ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: pafarley
-ms.custom: seodec18, cog-serv-seo-aug-2020
+ms.custom: [seodec18, cog-serv-seo-aug-2020]
 keywords: computer vision, computer vision applications, computer vision service
 #Customer intent: As a developer, I want to evaluate image processing functionality, so that I can determine if it will work for my information extraction or object detection scenarios.
 ---
@@ -27,6 +27,10 @@ You can create Computer Vision applications through a client library SDK or by c
 ## Computer Vision for digital asset management
 
 Computer Vision can power many digital asset management (DAM) scenarios. DAM is the business process of organizing, storing, and retrieving rich media assets and managing digital rights and permissions. For example, a company may want to group and identify images based on visible logos, faces, objects, colors, and so on. Or, you might want to automatically [generate captions for images](./Tutorials/storage-lab-tutorial.md) and attach keywords so they're searchable. For an all-in-one DAM solution using Cognitive Services, Azure Cognitive Search, and intelligent reporting, see the [Knowledge Mining Solution Accelerator Guide](https://github.com/Azure-Samples/azure-search-knowledge-mining) on GitHub. For other DAM examples, see the [Computer Vision Solution Templates](https://github.com/Azure-Samples/Cognitive-Services-Vision-Solution-Templates) repository.
+
+## Optical Character Recognition (OCR)
+
+Computer Vision includes [Optical Character Recognition (OCR)](concept-recognizing-text.md) capabilities. You can use the new Read API to extract printed and handwritten text from images and documents. It uses the latest models and works with text on a variety of surfaces and backgrounds. These inclue receipts, posters, business cards, letters, and whiteboards. The two OCR APIs support extracting printed text in [several languages](./language-support.md). Follow a [quickstart](#next-steps) to get started.
 
 ## Analyze images for insight
 
@@ -76,10 +80,6 @@ Analyze the contents of an image to generate an appropriate thumbnail for that i
 ### **[Get the area of interest](concept-generating-thumbnails.md#area-of-interest)**
 
 Analyze the contents of an image to return the coordinates of the *area of interest*. Instead of cropping the image and generating a thumbnail, Computer Vision returns the bounding box coordinates of the region, so the calling application can modify the original image as desired.
-
-## Optical Character Recognition (OCR)
-
-Computer Vision includes [Optical Character Recognition (OCR)](concept-recognizing-text.md) capabilities. You can use the new Read API to extract printed and handwritten text from images and documents. It uses the latest models and works with text on a variety of surfaces and backgrounds. These inclue receipts, posters, business cards, letters, and whiteboards. The two OCR APIs support extracting printed text in [several languages](./language-support.md). Follow a [quickstart](#next-steps) to get started.
 
 ## Moderate content in images
 
