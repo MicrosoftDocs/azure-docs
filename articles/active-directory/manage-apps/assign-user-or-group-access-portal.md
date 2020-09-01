@@ -53,7 +53,7 @@ To require user assignment for an application:
 6. Select the **Save** button at the top of the screen.
 
 ## Assign users or groups to an app via the Azure portal
-To learn how to assign a user or group using the Azure portal, see the [Quickstart Series on Application Management](add-applications-portal-assign-users.md). 
+To learn how to assign a user or group using the Azure portal, see the [Quickstart Series on Application Management](add-application-portal-assign-users.md). 
 
 ## Assign users or groups to an app via PowerShell
 1. Open an elevated Windows PowerShell command prompt.
