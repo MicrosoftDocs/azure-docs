@@ -14,7 +14,7 @@ ms.custom: mvc, seodec18
 
 [Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service. This tutorial shows you how to map an existing custom Domain Name System (DNS) name to App Service.
 
-![Screenshot that shows portal navigation to an Azure app.](./media/app-service-web-tutorial-custom-domain/app-with-custom-dns.png)
+![Screenshot that shows the Azure portal navigation to an Azure app.](./media/app-service-web-tutorial-custom-domain/app-with-custom-dns.png)
 
 In this tutorial, you learn how to:
 
@@ -55,7 +55,7 @@ Open the [Azure portal](https://portal.azure.com), and sign in with your Azure a
 
 1. On the **App Services** page, select the name of your Azure app.
 
-   ![Screenshot that shows portal navigation to an Azure app.](./media/app-service-web-tutorial-custom-domain/select-app.png)
+   ![Screenshot showing portal navigation to an Azure app.](./media/app-service-web-tutorial-custom-domain/select-app.png)
 
 You see the management page of the App Service app.
 
@@ -126,11 +126,11 @@ Map a subdomain to the app's default domain name (`<app-name>.azurewebsites.net`
 | Record type | Host | Value | Comments |
 | - | - | - |
 | CNAME | `www` | `<app-name>.azurewebsites.net` | The domain mapping itself. |
-| TXT | `asuid.www` | [The verification ID you got earlier](#get-domain-verification-id) | App Service accesses the `asuid.<subdomain>` TXT record to verify your ownership of the custom domain. |
+| TXT | `asuid.www` | [The verification ID you got earlier](#get-a-domain-verification-id) | App Service accesses the `asuid.<subdomain>` TXT record to verify your ownership of the custom domain. |
 
 After you add the CNAME and TXT records, the DNS records page looks like the following example:
 
-![Screenshot that shows portal navigation to an Azure app.](./media/app-service-web-tutorial-custom-domain/cname-record.png)
+![Screenshot that shows the portal navigation to an Azure app.](./media/app-service-web-tutorial-custom-domain/cname-record.png)
 
 #### Enable the CNAME record mapping in Azure
 
@@ -194,7 +194,7 @@ To map an A record to an app, usually to the root domain, create two records:
 | Record type | Host | Value | Comments |
 | - | - | - |
 | A | `@` | IP address from [Copy the app's IP address](#info) | The domain mapping itself (`@` typically represents the root domain). |
-| TXT | `asuid` | [The verification ID you got earlier](#get-domain-verification-id) | App Service accesses the `asuid.<subdomain>` TXT record to verify your ownership of the custom domain. For the root domain, use `asuid`. |
+| TXT | `asuid` | [The verification ID you got earlier](#get-a-domain-verification-id) | App Service accesses the `asuid.<subdomain>` TXT record to verify your ownership of the custom domain. For the root domain, use `asuid`. |
 
 > [!NOTE]
 > To add a subdomain (like `www.contoso.com`) by using an A record instead of a recommended [CNAME record](#map-a-cname-record), your A record and TXT record should look like the following table instead:
@@ -236,7 +236,7 @@ Back in the app's **Custom Domains** page in the Azure portal, add the fully qua
     
     If you missed a step or made a typo somewhere earlier, a verification error appears at the bottom of the page.
     
-    ![Screenshot that shows a verification error.](./media/app-service-web-tutorial-custom-domain/verification-error.png)
+    ![Screenshot showing a verification error.](./media/app-service-web-tutorial-custom-domain/verification-error.png)
     
 <a name="wildcard" aria-hidden="true"></a>
 
@@ -255,13 +255,13 @@ Map a wildcard name `*` to the app's default domain name (`<app-name>.azurewebsi
 | Record type | Host | Value | Comments |
 | - | - | - |
 | CNAME | `*` | `<app-name>.azurewebsites.net` | The domain mapping itself. |
-| TXT | `asuid` | [The verification ID you got earlier](#get-domain-verification-id) | App Service accesses the `asuid` TXT record to verify your ownership of the custom domain. |
+| TXT | `asuid` | [The verification ID you got earlier](#get-a-domain-verification-id) | App Service accesses the `asuid` TXT record to verify your ownership of the custom domain. |
 
 For the `*.contoso.com` domain example, the CNAME record will map the name `*` to `<app-name>.azurewebsites.net`.
 
 When the CNAME is added, the DNS records page looks like the following example:
 
-![Screenshot that shows the portal navigation to an Azure app.](./media/app-service-web-tutorial-custom-domain/cname-record-wildcard.png)
+![Screenshot that shows the navigation to an Azure app.](./media/app-service-web-tutorial-custom-domain/cname-record-wildcard.png)
 
 #### Enable the CNAME record mapping in the app
 
@@ -281,7 +281,7 @@ You can now add any subdomain that matches the wildcard name to the app (for exa
 
 1. Make sure that **Hostname record type** is set to **CNAME record (www\.example.com or any subdomain)**. Select **Add custom domain**.
 
-    ![Screenshot that shows adding a DNS name to the app.](./media/app-service-web-tutorial-custom-domain/validate-domain-name-cname-wildcard.png)
+    ![Screenshot that shows the addition of a DNS name to the app.](./media/app-service-web-tutorial-custom-domain/validate-domain-name-cname-wildcard.png)
 
     It might take some time for the new custom domain to be reflected in the app's **Custom Domains** page. Refresh the browser to update the data.
 
@@ -296,7 +296,7 @@ You can now add any subdomain that matches the wildcard name to the app (for exa
 
 Browse to the DNS names that you configured earlier (for example, `contoso.com`, `www.contoso.com`, `sub1.contoso.com`, and `sub2.contoso.com`).
 
-![Screenshot that shows the portal navigation to an Azure app.](./media/app-service-web-tutorial-custom-domain/app-with-custom-dns.png)
+![Screenshot that shows navigation to an Azure app.](./media/app-service-web-tutorial-custom-domain/app-with-custom-dns.png)
 
 ## Resolve 404 "Not Found"
 
