@@ -173,7 +173,7 @@ status:
   version: 4.3.27
 ```
 
-Second, run the following command to edit the Operator hub configuration file:  
+Second, run the following command to edit the Operator Hub configuration file:  
 
 ```console
 oc edit operatorhub cluster -o yaml
