@@ -151,6 +151,7 @@ Due to the ease of setup, the recommended approach is to perform the migration o
 7. Setup [log shipping](https://docs.microsoft.com/en-us/sql/database-engine/log-shipping/configure-log-shipping-sql-server?view=sql-server-ver15) between on-premise database and target SQL Server on Azure VM. Be sure not to re-initialise the database(s) as this has already been completed in the previous steps.
 
 **Cut-Over**
+
 8. Pause/Stop Applications using databases to be migrated.
 9. Ensure User database(s) are inactive using [single user mode](https://docs.microsoft.com/en-us/sql/relational-databases/databases/set-a-database-to-single-user-mode?view=sql-server-ver15). 
 10. When required, perform [controlled fail-over](https://docs.microsoft.com/en-us/sql/database-engine/log-shipping/fail-over-to-a-log-shipping-secondary-sql-server?view=sql-server-ver15) of on-premise database(s) to target SQL Server on Azure VM.
