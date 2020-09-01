@@ -1,6 +1,21 @@
 {
   "redirections": [
     {
+      "source_path": "articles/virtual-machines/windows/sa-copy-generalized.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/windows/sa-copy-generalized",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/sa-create-vm-specialized.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/windows/sa-create-vm-specialized",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/sa-upload-generalized.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/windows/sa-upload-generalized",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-api-management-certs.md",
       "redirect_url": "/previous-versions/azure/azure-api-management-certs",
       "redirect_document_id": false
