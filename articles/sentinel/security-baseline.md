@@ -4,7 +4,7 @@ description: The Azure Sentinel security baseline provides procedural guidance a
 author: msmbaldwin
 ms.service: azure-sentinel
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 09/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 
@@ -342,7 +342,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 - [How to create additional Azure subscriptions](/azure/billing/billing-create-subscription)
 
-- [How to create Management Groups](../governance/management-groups/create.md)
+- [How to create Management Groups](/azure/governance/management-groups/create)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -485,7 +485,7 @@ In addition, use Azure policy to put restrictions on the type of resources that 
 
 - [How to create additional Azure subscriptions](/azure/billing/billing-create-subscription)
 
-- [How to create Management Groups](../governance/management-groups/create.md)
+- [How to create Management Groups](/azure/governance/management-groups/create)
 
 - [How to create and use Tags](/azure/azure-resource-manager/resource-group-using-tags)
 
