@@ -60,7 +60,7 @@ Once the device is connected to the internet, Rigado will be able to push down a
 
 This update will apply the IoT Central connection details on the Cascade 500 device and it will appear in your devices list. 
 
-![Primary Key](./media/howto-connect-rigado-cascade-500/devices-list-c500.png)  
+![Devices list](./media/howto-connect-rigado-cascade-500/devices-list-c500.png)  
 
 You are now ready to use your C500 device in your IoT Central application!
 

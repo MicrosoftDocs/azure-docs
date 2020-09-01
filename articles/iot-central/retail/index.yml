@@ -70,7 +70,7 @@ landingContent:
           - text: Set up a template
             url: ../core/howto-set-up-template.md
           - text: Connect an Azure Sphere device
-            url: howto-connect-sphere.md
+            url: ../core/howto-connect-sphere.md
   - title: Stay connected
     linkLists:
       - linkListType: tutorial
