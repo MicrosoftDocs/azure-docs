@@ -11,9 +11,9 @@ ms.topic: conceptual
 ms.date: 08/01/2020
 ---
 
-# Accessing indexer resources via Azure network security mechanisms
+# Indexer access to data sources using Azure network security features
 
-Azure Cognitive Search indexers can make outbound calls to various Azure resources during execution. This article explains how you can enable indexer data access when resources are protected by IP firewalls, private endpoints, and other network-level security mechanisms. The possible resource types that an indexer might access in a typical run are listed in the table below.
+Azure Cognitive Search indexers can make outbound calls to various Azure resources during execution. This article explains the concepts behind indexer access to resources when those resources are protected by IP firewalls, private endpoints, and other network-level security mechanisms. The possible resource types that an indexer might access in a typical run are listed in the table below.
 
 | Resource | Purpose within indexer run |
 | --- | --- |

@@ -205,14 +205,6 @@
         href: search-howto-managed-identities-cosmos-db.md
       - name: SQL Database
         href: search-howto-managed-identities-sql.md
-    - name: Access secured data  
-      items:
-      - name: Access over an IP range
-        href: search-indexer-howto-access-ip-restricted.md
-      - name: Access through trusted service exception
-        href: search-indexer-howto-access-trusted-service-exception.md
-      - name: Access through private endpoints
-        href: search-indexer-howto-access-private.md
   - name: Use skills (AI)
     items:
     - name: Attach a Cognitive Services resource
@@ -367,6 +359,14 @@
         href: search-security-trimming-for-azure-search.md
       - name: Filter on user identities
         href: search-security-trimming-for-azure-search-with-aad.md
+    - name: Outbound security (indexers)  
+      items:
+      - name: Access over an IP range
+        href: search-indexer-howto-access-ip-restricted.md
+      - name: Access through trusted service exception
+        href: search-indexer-howto-access-trusted-service-exception.md
+      - name: Access through private endpoints
+        href: search-indexer-howto-access-private.md
   - name: Manage
     items:
     - name: Portal

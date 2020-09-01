@@ -15,7 +15,7 @@ ms.date: 08/01/2020
 
 IP firewall rules on Azure resources such as storage accounts, Cosmos DB accounts, and Azure SQL servers only permit traffic originating from specific IP ranges to access data.
 
-This guide will describe how to configure the IP rules, via Azure portal, for a storage account so that Azure Cognitive Search indexers can access the data securely. While specific to storage, this guide can be directly translated to other Azure resources that also offer IP firewall rules for securing access to data.
+This article will describe how to configure the IP rules, via Azure portal, for a storage account so that Azure Cognitive Search indexers can access the data securely. While specific to storage, this guide can be directly translated to other Azure resources that also offer IP firewall rules for securing access to data.
 
 > [!NOTE]
 > IP firewall rules for storage account are only effective if the storage account and the search service are in different regions. If your setup does not permit this, we recommend utilizing the [trusted service exception option](search-indexer-howto-access-trusted-service-exception.md).
@@ -42,7 +42,7 @@ Aliases:  contoso.search.windows.net
 
 ## Get the IP address ranges for "AzureCognitiveSearch" service tag
 
-The IP address ranges for the `AzureCognitiveSearch` service tag can be either obtained via the [discovery API (preview)](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#use-the-service-tag-discovery-api-public-preview) or the [downloadable JSON file](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files).
+The IP address ranges for the `AzureCognitiveSearch` service tag can be either obtained via the [discovery API (preview)](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview) or the [downloadable JSON file](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files).
 
 For this walkthrough, assuming the search service is the Azure Public cloud, the [Azure Public JSON file](https://www.microsoft.com/download/details.aspx?id=56519) should be downloaded.
 
@@ -71,11 +71,11 @@ For /32 IP addresses, drop the "/32" (52.253.133.74/32 -> 52.253.133.74), others
 
 ## Add the IP address ranges to IP firewall rules
 
-The easiest way to add IP address ranges to a storage account's firewall rule is via the Azure portal. Locate the storage account on the portal and navigate to the "Firewalls and virtual networks" tab.
+The easiest way to add IP address ranges to a storage account's firewall rule is via the Azure portal. Locate the storage account on the portal and navigate to the "**Firewalls and virtual networks**" tab.
 
    ![Firewall and virtual networks](media\search-indexer-howto-secure-access\storage-firewall.png "Firewall and virtual networks")
 
-Add the three IP addresses obtained previously (1 for the search service IP, 2 for the `AzureCognitiveSearch` service tag) in the address range and hit "Save"
+Add the three IP addresses obtained previously (1 for the search service IP, 2 for the `AzureCognitiveSearch` service tag) in the address range and click "**Save**"
 
    ![Firewall IP rules](media\search-indexer-howto-secure-access\storage-firewall-ip.png "Firewall IP rules")
 
