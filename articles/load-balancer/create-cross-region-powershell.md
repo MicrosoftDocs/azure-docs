@@ -1383,9 +1383,341 @@ New-AzLoadBalancer -ResourceGroupName $rg -Name $lbn -SKU $sku -Location $loc -F
 
 ## Create test virtual machine in region 1
 
+### Create a public IP address
+
+To access the test VM in region 1 from the internet, create a public ip address.
+
+Use [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) to:
+
+* Create a standard zone redundant public IP address named **myTestVMIP-R1**.
+* In **myResourceGroup-R1**.
+
+```azurepowershell-interactive
+## Variables for the command ##
+$rg = 'MyResourceGroupLB-R1'
+$loc = 'eastus'
+$pubIP = 'myTestVMIP-R1'
+$sku = 'Standard'
+$all = 'static'
+
+$publicIp = 
+New-AzPublicIpAddress -ResourceGroupName $rg -Name $pubIP -Location $loc -AllocationMethod $all -SKU $sku -Tier $tir
+```
+
+### Create network security group
+Create network security group to define inbound connections to your virtual network.
+
+#### Create a network security group rule for port 3389
+Create a network security group rule with [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig):
+
+* Named **myNSGRuleRDP**.
+* Description of **Allow RDP**.
+* Access of **Allow**.
+* Protocol **(*)**.
+* Direction **Inbound**.
+* Priority **2000**.
+* Source of the **Internet**.
+* Source port range of **(*)**.
+* Destination address prefix of **(*)**.
+* Destination **Port 3389**.
+
+```azurepowershell-interactive
+## Variables for command ##
+$rnm = 'myNSGRuleRDP'
+$des = 'Allow RDP'
+$acc = 'Allow'
+$pro = '*'
+$dir = 'Inbound'
+$pri = '2000'
+$spfx = 'Internet'
+$spr = '*'
+$dpfx = '*'
+$dpr = '3389'
+
+$rule1 = 
+New-AzNetworkSecurityRuleConfig -Name $rnm -Description $des -Access $acc -Protocol $pro -Direction $dir -Priority $pri -SourceAddressPrefix $spfx -SourcePortRange $spr -DestinationAddressPrefix $dpfx -DestinationPortRange $dpr
+```
+
+#### Create a network security group
+
+Create a network security group with [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup):
+
+* Named **myTestNSG-R1**.
+* In resource group **myResourceGroupLB-R1**.
+* In location **eastus**.
+* With security rules created in previous steps stored in a variable.
+
+```azurepowershell
+## Variables for command ##
+$rg = 'myResourceGroup-R1'
+$loc = 'eastus'
+$nmn = 'myTestNSG-R1'
+
+## $rule1 contains configuration information from the previous steps. ##
+$nsg = 
+New-AzNetworkSecurityGroup -ResourceGroupName $rg -Location $loc -Name $nmn -SecurityRules $rule1
+```
+
+### Create network interface
+
+Create a network interface with [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface):
+
+#### TestVM - Region 1
+
+* Named **myNicTestVM-R1**.
+* In resource group **myResourceGroupLB-R1**.
+* In location **eastus**.
+* In virtual network **myVNet-R1**.
+* In subnet **myBackendSubnet-R1**.
+* In network security group **myTestNSG-R1**.
+
+
+```azurepowershell-interactive
+## Variables for command ##
+$rg = 'myResourceGroupLB-R1'
+$loc = 'eastus'
+$nic1 = 'myNicTestVM-R1'
+$vnt = 'myVNet-R1'
+$pub = 'myTestVMIP-R1
+$ngn = 'myNSG-R1'
+
+## Command to get virtual network configuration. ##
+$vnet = 
+Get-AzVirtualNetwork -Name $vnt -ResourceGroupName $rg
+
+## Command to get load balancer configuration
+$bepool = 
+Get-AzLoadBalancer -Name $lb -ResourceGroupName $rg | Get-AzLoadBalancerBackendAddressPoolConfig
+
+## Command to get network security group configuration ##
+$nsg = 
+Get-AzNetworkSecurityGroup -Name $ngn -ResourceGroupName $rg
+
+## Command to get public IP configuration ##
+
+$publicIP = 
+Get-AzPublicIPAddress -ResourceGroupName $rg -Name $pub
+
+## Command to create network interface for VM1 ##
+$nicVM1 = 
+New-AzNetworkInterface -ResourceGroupName $rg -Location $loc -Name $nic1 -LoadBalancerBackendAddressPool $bepool -NetworkSecurityGroup $nsg -Subnet $vnet.Subnets[0] --PublicIpAddressId $publicIP.id
+```
+### Create region 1 test virtual machine
+
+Set an administrator username and password for the VMs with [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
+
+```azurepowershell
+$cred = Get-Credential
+```
+
+Create the virtual machines with:
+
+* [New-AzVM](/powershell/module/az.compute/new-azvm)
+* [New-AzVMConfig](/powershell/module/az.compute/new-azvmconfig)
+* [Set-AzVMOperatingSystem](/powershell/module/az.compute/set-azvmoperatingsystem)
+* [Set-AzVMSourceImage](/powershell/module/az.compute/set-azvmsourceimage)
+* [Add-AzVMNetworkInterface](/powershell/module/az.compute/add-azvmnetworkinterface)
+
+
+#### TestVM - Region 1
+
+* Named **myTestVM-R1**.
+* In resource group **myResourceGroupLB-R1**.
+* Attached to network interface **myNicTestVM-R1**.
+* In the **eastus** location.
+
+```azurepowershell-interactive
+## Variables used for command. ##
+$rg = 'myResourceGroupLB-R1'
+$vm = 'myTestVM-R1'
+$siz = 'Standard_DS1_v2'
+$pub = 'MicrosoftWindowsServer'
+$off = 'WindowsServer'
+$sku = '2019-Datacenter'
+$ver = 'latest'
+$zn = '1'
+$loc = 'eastus'
+
+## Create a virtual machine configuration. $cred and $nicVM1 are variables with configuration from the previous steps. ##
+
+$vmConfig = 
+New-AzVMConfig -VMName $vm -VMSize $siz | Set-AzVMOperatingSystem -Windows -ComputerName $vm -Credential $cred | Set-AzVMSourceImage -PublisherName $pub -Offer WindowsServer -Skus $sku -Version $ver | Add-AzVMNetworkInterface -Id $nicVM1.Id
+
+## Create the virtual machine ##
+New-AzVM -ResourceGroupName $rg -Zone $zn -Location $loc -VM $vmConfig
+```
+
 ## Create test virtual machine in region 2
 
+### Create a public IP address
+
+To access the test VM in region 1 from the internet, create a public ip address.
+
+Use [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) to:
+
+* Create a standard zone redundant public IP address named **myTestVMIP-R2**.
+* In **myResourceGroup-R2**.
+
+```azurepowershell-interactive
+## Variables for the command ##
+$rg = 'MyResourceGroupLB-R2'
+$loc = 'westus'
+$pubIP = 'myTestVMIP-R2'
+$sku = 'Standard'
+$all = 'static'
+
+$publicIp = 
+New-AzPublicIpAddress -ResourceGroupName $rg -Name $pubIP -Location $loc -AllocationMethod $all -SKU $sku -Tier $tir
+```
+
+### Create network security group
+Create network security group to define inbound connections to your virtual network.
+
+#### Create a network security group rule for port 3389
+Create a network security group rule with [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig):
+
+* Named **myNSGRuleRDP**.
+* Description of **Allow RDP**.
+* Access of **Allow**.
+* Protocol **(*)**.
+* Direction **Inbound**.
+* Priority **2000**.
+* Source of the **Internet**.
+* Source port range of **(*)**.
+* Destination address prefix of **(*)**.
+* Destination **Port 3389**.
+
+```azurepowershell-interactive
+## Variables for command ##
+$rnm = 'myNSGRuleRDP'
+$des = 'Allow RDP'
+$acc = 'Allow'
+$pro = '*'
+$dir = 'Inbound'
+$pri = '2000'
+$spfx = 'Internet'
+$spr = '*'
+$dpfx = '*'
+$dpr = '3389'
+
+$rule1 = 
+New-AzNetworkSecurityRuleConfig -Name $rnm -Description $des -Access $acc -Protocol $pro -Direction $dir -Priority $pri -SourceAddressPrefix $spfx -SourcePortRange $spr -DestinationAddressPrefix $dpfx -DestinationPortRange $dpr
+```
+
+#### Create a network security group
+
+Create a network security group with [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup):
+
+* Named **myTestNSG-R2**.
+* In resource group **myResourceGroupLB-R2**.
+* In location **westus**.
+* With security rules created in previous steps stored in a variable.
+
+```azurepowershell
+## Variables for command ##
+$rg = 'myResourceGroup-R2'
+$loc = 'westus'
+$nmn = 'myTestNSG-R2'
+
+## $rule1 contains configuration information from the previous steps. ##
+$nsg = 
+New-AzNetworkSecurityGroup -ResourceGroupName $rg -Location $loc -Name $nmn -SecurityRules $rule1
+```
+
+### Create network interface
+
+Create a network interface with [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface):
+
+#### TestVM - Region 2
+
+* Named **myNicTestVM-R2**.
+* In resource group **myResourceGroupLB-R2**.
+* In location **westus**.
+* In virtual network **myVNet-R2**.
+* In subnet **myBackendSubnet-R2**.
+* In network security group **myTestNSG-R2**.
+
+
+```azurepowershell-interactive
+## Variables for command ##
+$rg = 'myResourceGroupLB-R2'
+$loc = 'westus'
+$nic1 = 'myNicTestVM-R2'
+$vnt = 'myVNet-R2'
+$pub = 'myTestVMIP-R2'
+$ngn = 'myNSG-R2'
+
+## Command to get virtual network configuration. ##
+$vnet = 
+Get-AzVirtualNetwork -Name $vnt -ResourceGroupName $rg
+
+## Command to get load balancer configuration
+$bepool = 
+Get-AzLoadBalancer -Name $lb -ResourceGroupName $rg | Get-AzLoadBalancerBackendAddressPoolConfig
+
+## Command to get network security group configuration ##
+$nsg = 
+Get-AzNetworkSecurityGroup -Name $ngn -ResourceGroupName $rg
+
+## Command to get public IP configuration ##
+
+$publicIP = 
+Get-AzPublicIPAddress -ResourceGroupName $rg -Name $pub
+
+## Command to create network interface for VM1 ##
+$nicVM1 = 
+New-AzNetworkInterface -ResourceGroupName $rg -Location $loc -Name $nic1 -LoadBalancerBackendAddressPool $bepool -NetworkSecurityGroup $nsg -Subnet $vnet.Subnets[0] --PublicIpAddressId $publicIP.id
+```
+### Create region 2 test virtual machine
+
+Set an administrator username and password for the VMs with [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
+
+```azurepowershell
+$cred = Get-Credential
+```
+
+Create the virtual machines with:
+
+* [New-AzVM](/powershell/module/az.compute/new-azvm)
+* [New-AzVMConfig](/powershell/module/az.compute/new-azvmconfig)
+* [Set-AzVMOperatingSystem](/powershell/module/az.compute/set-azvmoperatingsystem)
+* [Set-AzVMSourceImage](/powershell/module/az.compute/set-azvmsourceimage)
+* [Add-AzVMNetworkInterface](/powershell/module/az.compute/add-azvmnetworkinterface)
+
+
+#### TestVM - Region 2
+
+* Named **myTestVM-R2**.
+* In resource group **myResourceGroupLB-R2**.
+* Attached to network interface **myNicTestVM-R2**.
+* In the **westus** location.
+
+```azurepowershell-interactive
+## Variables used for command. ##
+$rg = 'myResourceGroupLB-R2'
+$vm = 'myTestVM-R2'
+$siz = 'Standard_DS1_v2'
+$pub = 'MicrosoftWindowsServer'
+$off = 'WindowsServer'
+$sku = '2019-Datacenter'
+$ver = 'latest'
+$zn = '1'
+$loc = 'westus'
+
+## Create a virtual machine configuration. $cred and $nicVM1 are variables with configuration from the previous steps. ##
+
+$vmConfig = 
+New-AzVMConfig -VMName $vm -VMSize $siz | Set-AzVMOperatingSystem -Windows -ComputerName $vm -Credential $cred | Set-AzVMSourceImage -PublisherName $pub -Offer WindowsServer -Skus $sku -Version $ver | Add-AzVMNetworkInterface -Id $nicVM1.Id
+
+## Create the virtual machine ##
+New-AzVM -ResourceGroupName $rg -Zone $zn -Location $loc -VM $vmConfig
+```
+
 ## Test the cross-region load balancer
+
+
+
+
 
 ## Clean up resources
 
