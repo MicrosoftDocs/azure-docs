@@ -4,7 +4,7 @@ description: The Azure Kubernetes Service security baseline provides procedural 
 author: msmbaldwin
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 09/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 
@@ -758,7 +758,7 @@ Separate AKS clusters via networking by deploying them to distinct virtual netwo
 
 - [How to create additional Azure subscriptions](/azure/billing/billing-create-subscription)
 
-- [How to create Management Groups](../governance/management-groups/create.md)
+- [How to create Management Groups](/azure/governance/management-groups/create)
 
 - [Understand best practices for network connectivity and security in AKS](operator-best-practices-network.md)
 
@@ -1035,7 +1035,7 @@ Use taints, labels and/or tags to reconcile inventory on a regular basis and ens
 
 - [How to create additional Azure subscriptions](/azure/billing/billing-create-subscription)
 
-- [How to create Management Groups](../governance/management-groups/create.md)
+- [How to create Management Groups](/azure/governance/management-groups/create)
 
 - [How to create and user Tags](/azure/azure-resource-manager/resource-group-using-tags)
 
@@ -1237,7 +1237,7 @@ Separate AKS clusters with virtual networks, subnets which are tagged appropriat
 
 - [How to create additional Azure subscriptions](/azure/billing/billing-create-subscription)
 
-- [How to create Management Groups](../governance/management-groups/create.md)
+- [How to create Management Groups](/azure/governance/management-groups/create)
 
 - [Understand best practices for network connectivity and security in AKS](operator-best-practices-network.md)
 
