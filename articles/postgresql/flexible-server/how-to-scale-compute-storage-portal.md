@@ -32,7 +32,7 @@ Follow these steps to choose the compute tier.
 2.  Click **Compute+storage**.
 
 3.  A page with current settings is displayed.
- ![compute+storage selection](./media/how-to-scale-compute-storage-portal/click-compute-storage.png)
+ ![compute+storage view](./media/how-to-scale-compute-storage-portal/click-compute-storage.png)
 
 4.  You can choose the compute class between burstable, general purpose, and memory optimized tiers.
    ![list compute tiers](./media/how-to-scale-compute-storage-portal/list-compute-tiers.png)
@@ -64,16 +64,16 @@ Follow these steps to increase your storage size.
 2.  Click **Compute+storage**.
 
 3.  A page with current settings is displayed.
-![compute+storage selection](./media/how-to-scale-compute-storage-portal/how-to-click-compute-storage.png)
-4.  The field **Storage size in GiB** with a slide-bar is shown with the current size.
+![click compute+storage](./media/how-to-scale-compute-storage-portal/click-compute-storage.png)
+1.  The field **Storage size in GiB** with a slide-bar is shown with the current size.
 
-5.  Slide the bar to your desired size. Corresponding IOPS number is shown. The IOPS is dependent on the compute tier and size. The cost information is also shown. 
+2.  Slide the bar to your desired size. Corresponding IOPS number is shown. The IOPS is dependent on the compute tier and size. The cost information is also shown. 
 
- ![storage scale up](./media/how-to-scale-compute-storage-portal/how-to-storage-scaleup.png)
+ ![storage scale up](./media/how-to-scale-compute-storage-portal/storage-scaleup.png)
 
-6.  If you are good with the storage size, click **Save**. 
-7.  You will see a confirmation message. Click **OK** if you want to proceed. 
-8.  A notification about the scaling operation in progress.
+3.  If you are good with the storage size, click **Save**. 
+4.  You will see a confirmation message. Click **OK** if you want to proceed. 
+5.  A notification about the scaling operation in progress.
 
 ## Next steps
 
