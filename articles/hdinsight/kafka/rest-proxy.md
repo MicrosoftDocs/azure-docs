@@ -134,7 +134,7 @@ client_secret = 'password'
 kafkarest_endpoint = "https://<clustername>-kafkarest.azurehdinsight.net"
 #--------------------------Configure these properties-------------------------------#
 
-# Getting access token
+# Get access token
 # Scope
 scope = 'https://hib.azurehdinsight.net/.default'
 #Authority
@@ -163,13 +163,13 @@ topic_api_format = 'topics/{topic_name}'
 producer_api_format = 'producer/topics/{topic_name}'
 consumer_api_format = 'consumer/topics/{topic_name}/partitions/{partition_id}/offsets/{offset}?count={count}'  # by default count = 1
 
-# Request Header
+# Request header
 headers = {
     'Authorization': 'Bearer ' + accessToken,
     'Content-type': 'application/json'          # set Content-type to 'application/json'
 }
 
-# New Topic
+# New topic
 new_topic = 'hello_topic_' + get_random_string()
 print("Topic " + new_topic + " is going to be used for demo.")
 
@@ -205,7 +205,7 @@ else:
     sys.exit(1)
 
 # Produce messages to new_topic
-# Example payload of Producer REST api
+# Example payload of Producer REST API
 payload_json = {
     "records": [
         {
