@@ -57,10 +57,6 @@ You can also [enable Azure Private Link](how-to-configure-private-link.md) to co
 > | Customer Managed Keys for workspace | ✔ | |
 > 
 
-> [!WARNING]
-> 
-> Azure Machine Learning compute instances preview is not supported in a workspace where Private Link is enabled.
-
 <a id="amlcompute"></a>
 
 ## Machine Learning studio
