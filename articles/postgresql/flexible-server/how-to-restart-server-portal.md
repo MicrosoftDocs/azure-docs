@@ -27,16 +27,15 @@ Follow these steps to restart your flexible server.
 
 1.  In the [Azure portal](https://portal.azure.com/), choose your flexible server that you want to restart.
 
-2.  Click **Overview** from the left panel.
+2.  Click **Overview** from the left panel and click **Restart**.
    
-3.  From the overview page, click **Restart**.
-     ![Restart selection](./media/how-to-restart-server-portal/how-to-restart-base-page.png)
+     ![Restart selection](./media/how-to-restart-server-portal/restart-base-page.png)
 
-4.  A pop-up confirmation message will appear.
+3.  A pop-up confirmation message will appear.
 
-5.  Click **Yes** if you want to continue.
+4.  Click **Yes** if you want to continue.
    
- ![Restart confirm](./media/how-to-restart-server-portal/how-to-restart-pop-up.png)
+ ![Restart confirm](./media/how-to-restart-server-portal/restart-pop-up.png)
  
 6.  A notification will be shown that the restart operation has been
     initiated.

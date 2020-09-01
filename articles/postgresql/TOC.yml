@@ -418,7 +418,7 @@
       items:
       - name: Azure portal
         href: flexible-server/how-to-restore-server-portal.md
-    - name: Configure High availability
+    - name: Manage high availability
       items:
       - name: Azure portal
         href: flexible-server/how-to-manage-high-availability-portal.md
