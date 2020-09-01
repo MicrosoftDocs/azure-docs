@@ -1,6 +1,6 @@
 ---
 title: Overview of the Azure Security Benchmark
-description: Security Benchmark overview
+description: V2 Security Benchmark overview
 author: msmbaldwin
 manager: rkarlin
 
@@ -22,7 +22,7 @@ The following controls are included in the Azure Security Benchmark:
 
 - **Network security (NS)**: Network security focuses on the recommended common security controls to secure and protect Azure networks. This includes securing virtual network, establishing private connection, preventing and mitigating external attacks, securing DNS, and logging and monitoring Azure network traffic.  
 
-- **[Identity Management (IM)](security-benchmark-v2-identity-access-control.md)**: Identity management focuses on the recommended security controls to establish a secure identity management practice using Azure Active Directory. This includes the use of managed identities (and service principles) for applications, sign sign-on, strong authentications, conditional access, and account anomalies monitoring.  
+- **[Identity Management (IM)](security-benchmark-v2-identity-management.md)**: Identity management focuses on the recommended security controls to establish a secure identity management practice using Azure Active Directory. This includes the use of managed identities (and service principles) for applications, sign sign-on, strong authentications, conditional access, and account anomalies monitoring.  
 
 - **Privileged Access (PA)**: Privileged access focuses on the recommended security controls to manage the privileged access in Azure. This includes limiting privileged roles and accounts, emergency access setup, periodic review and reconciliation of user access, and use of specialized access workstation for privileged tasks.  
 
