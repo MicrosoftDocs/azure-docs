@@ -157,8 +157,8 @@ A *sentinel key* is a special key used to signal when configuration has changed.
     }
     ```
     ---
-
-    To learn more about the options pattern when reading configuration values, see [Options Patterns in ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/options?view=aspnetcore-3.1).
+    > [!Tip]
+    > To learn more about the options pattern when reading configuration values, see [Options Patterns in ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/options?view=aspnetcore-3.1).
 
 4. Update the `Configure` method, adding the `UseAzureAppConfiguration` middleware to allow the configuration settings registered for refresh to be updated while the ASP.NET Core web app continues to receive requests.
 
