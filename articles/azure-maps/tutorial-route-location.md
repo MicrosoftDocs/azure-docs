@@ -25,7 +25,7 @@ You can obtain the full source code for the sample [here](https://github.com/Azu
 
 ## Prerequisites
 
-1. [Make an Azure Maps account with S1 pricing tier](quick-demo-map-app.md#create-an-azure-maps-account)
+1. [Make an Azure Maps account](quick-demo-map-app.md#create-an-azure-maps-account)
 2. [Obtain a primary subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account), also known as the primary key or the subscription key.
 
 <a id="getcoordinates"></a>
@@ -173,7 +173,7 @@ In this tutorial, we'll render the route using a line layer. The start and end p
 
 ## Get route directions
 
-This section shows you how to use the Azure Maps Route service API to get directions from one point to another. Within this service, there are others APIs that allow you to plan *fastest*, *shortest*, *eco*, or *thrilling* routes between two locations. This service also lets users plan future routes by using Azure's extensive historic traffic database. Users can see the prediction of route durations for any given time. For more information, see [Get Route directions API](https://docs.microsoft.com/rest/api/maps/route/getroutedirections).
+This section shows you how to use the Azure Maps Route service API to get directions from one point to another. Within this service, there are others APIs that allow you to plan *fastest*, *shortest*, *eco*, or *thrilling* routes between two locations. This service also lets users plan future routes based on historical traffic conditions. Users can see the prediction of route durations for any given time. For more information, see [Get Route directions API](https://docs.microsoft.com/rest/api/maps/route/getroutedirections).
 
 1. In the `GetMap` function, inside the control's `ready` event handler, add the following to the JavaScript code.
 
