@@ -23,16 +23,23 @@ Generation 1 VMs are supported by all VM sizes in Azure (except for Mv2-series V
 
 * [B-series](../sizes-b-series-burstable.md)
 * [DCsv2-series](../dcv2-series.md)
-* [DSv2-series](../dv2-dsv2-series.md) and [Dsv3-series](../dv3-dsv3-series.md)
+* [Dsv2-series](../dv2-dsv2-series.md) 
+* [Dsv3-series](../dv3-dsv3-series.md)
+* [Dsv4-series](../dv4-dsv4-series.md)
+* [Ddsv4-series](../ddv4-ddsv4-series.md)
+* [Dasv4-series](../dav4-dasv4-series.md)
 * [Esv3-series](../ev3-esv3-series.md)
+* [Easv4-series](../eav4-easv4-series.md)
 * [Fsv2-series](../fsv2-series.md)
 * [GS-series](../sizes-previous-gen.md#gs-series)
 * [HB-series](../hb-series.md)
 * [HC-series](../hc-series.md)
-* [Ls-series](../sizes-previous-gen.md#ls-series) and [Lsv2-series](../lsv2-series.md)
+* [Ls-series](../sizes-previous-gen.md#ls-series) 
+* [Lsv2-series](../lsv2-series.md)
 * [M-series](../m-series.md)
 * [Mv2-series](../mv2-series.md)<sup>1</sup>
-* [NCv2-series](../ncv2-series.md) and [NCv3-series](../ncv3-series.md)
+* [NCv2-series](../ncv2-series.md)
+* [NCv3-series](../ncv3-series.md)
 * [ND-series](../nd-series.md)
 * [NVv3-series](../nvv3-series.md)
 
@@ -71,7 +78,7 @@ Azure doesn't currently support some of the features that on-premises Hyper-V su
 |---------|--------------|--------------|
 | Boot             | PCAT         | UEFI |
 | Disk controllers | IDE          | SCSI |
-| VM sizes         | All VM sizes | Only VMs that support premium storage |
+| VM sizes         | All VM sizes | [See available sizes](https://docs.microsoft.com/azure/virtual-machines/linux/generation-2#generation-2-vm-sizes) |
 
 ### Generation 1 vs. generation 2 capabilities
 
@@ -166,7 +173,7 @@ You can also create generation 2 VMs by using virtual machine scale sets. In the
     When the generation 2 VM is created, you can optionally generalize the image of this VM. By generalizing the image you can use it to create multiple VMs.
 
 * **How do I increase the OS disk size?**  
-  OS disks larger than 2 TB are new to generation 2 VMs. By default, OS disks are smaller than 2 TB for generation 2 VMs. You can increase the disk size up to a recommended maximum of 4 TB. Use the Azure CLI or the Azure portal to increase the OS disk size. For information about how to expand disks programmatically, see [Resize a disk](expand-disks.md).
+  OS disks larger than 2 TiB are new to generation 2 VMs. By default, OS disks are smaller than 2 TiB for generation 2 VMs. You can increase the disk size up to a recommended maximum of 4 TiB. Use the Azure CLI or the Azure portal to increase the OS disk size. For information about how to expand disks programmatically, see [Resize a disk](expand-disks.md).
 
   To increase the OS disk size from the Azure portal:
 
@@ -176,7 +183,7 @@ You can also create generation 2 VMs by using virtual machine scale sets. In the
   1. In the **Disks** section, select **Configuration**, and update the **Size** to the value you want.
   1. Go back to the VM properties page and **Start** the VM.
 
-  You might see a warning for OS disks larger than 2 TB. The warning doesn't apply to generation 2 VMs. However, OS disk sizes larger than 4 TB are *not recommended.*
+  You might see a warning for OS disks larger than 2 TiB. The warning doesn't apply to generation 2 VMs. However, OS disk sizes larger than 4 TiB are supported. 
 
 * **Do generation 2 VMs support accelerated networking?**  
     Yes. For more information, see [Create a VM with accelerated networking](../../virtual-network/create-vm-accelerated-networking-cli.md).

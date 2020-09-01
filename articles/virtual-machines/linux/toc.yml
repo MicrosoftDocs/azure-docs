@@ -152,9 +152,6 @@
         href: ../scripts/virtual-machines-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
       - name: Collect details about all VMs in a subscription with PowerShell
         href: ../scripts/virtual-machines-powershell-sample-collect-vm-details.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-  - name: Azure Policy built-ins
-    displayName: samples, policies, definitions
-    href: ../policy-samples.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
 - name: Concepts
   items:
   - name: Imaging
@@ -474,7 +471,7 @@
         href: cloudinit-bash-script.md
       - name: Prepare existing VM for cloud-init
         href: cloudinit-prepare-custom-image.md
-    - name: Create images without an
+    - name: Create images without a provisioning agent
       href: no-agent.md
     - name: Disable Linux Agent provisioning
       href: disable-provisioning.md
@@ -1150,6 +1147,9 @@
   - name: Resource Manager template
     displayName: ARM
     href: /azure/templates/microsoft.compute/allversions
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ../policy-reference.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
 - name: Resources
   items:
   - name: Q&A

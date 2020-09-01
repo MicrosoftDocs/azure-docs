@@ -16,6 +16,8 @@
       href: add-application-portal.md
     - name: Configure an app
       href: add-application-portal-configure.md
+    - name: Assign users to an app
+      href: add-application-portal-assign-users.md
     - name: Set up single sign-on
       href: add-application-portal-setup-sso.md
     - name: Delete an app
@@ -212,9 +214,7 @@
           href: application-sign-in-unexpected-user-consent-prompt.md
         - name: User consent error
           href: application-sign-in-unexpected-user-consent-error.md
-        - name: Problems signing in from custom portal
-          href: application-sign-in-other-problem-deeplink.md
-        - name: Problems signing in from access panel
+        - name: Problems signing in from My Apps
           href: application-sign-in-other-problem-access-panel.md
         - name: Error on application sign-in page
           href: application-sign-in-problem-application-error.md
@@ -240,16 +240,6 @@
           href: application-types.md
         - name: Unexpected user assigned
           href: ways-users-get-assigned-to-applications.md
-      - name: Troubleshoot My Apps
-        items:
-        - name: App not appearing
-          href: access-panel-troubleshoot-application-not-appearing.md
-        - name: Unexpected app appearing
-          href: access-panel-troubleshoot-unexpected-application.md
-        - name: Can't sign in
-          href: access-panel-troubleshoot-web-sign-in-problem.md
-        - name: Error using self-service app access
-          href: access-panel-troubleshoot-self-service-access.md
       - name: Troubleshoot on-premises apps
         items:
         - name: Application Proxy troubleshooting
