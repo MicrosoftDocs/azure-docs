@@ -36,7 +36,7 @@ Using these tools you can:
 
 
 
-## Setting up a continuous export
+## Set up a continuous export
 
 The steps below are necessary whether you're setting up a continuous export to Log Analytics workspace or Azure Event Hubs.
 
@@ -56,7 +56,7 @@ The steps below are necessary whether you're setting up a continuous export to L
 1. Select **Save**.
 
 
-## Setting up continuous export via the REST API
+## Set up continuous export via the REST API
 
 The continuous export feature can be configured and managed via the Azure Security Center [automations API](https://docs.microsoft.com/rest/api/securitycenter/automations). Use this API to create or update automations for exporting to any of the following possible destinations:
 
@@ -79,7 +79,7 @@ Learn more about the automations API in the [REST API documentation](https://doc
 
 
 
-## Configuring SIEM integration via Azure Event Hubs
+## Configure SIEM integration via Azure Event Hubs
 
 Azure Event Hubs is a great solution for programatically consuming any streaming data. For Azure Security Center alerts and recommendations, it's the preferred way to integrate with a third-party SIEM.
 
