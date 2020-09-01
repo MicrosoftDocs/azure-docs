@@ -128,7 +128,9 @@ The following is a list of key points to consider when reviewing migration metho
 
 Due to the ease of setup, the recommended approach is to perform the migration of user databases using SQL Server native [Backup](https://docs.microsoft.com/en-us/sql/t-sql/statements/backup-transact-sql?view=sql-server-ver15) locally and then copying the file to Azure. This method is recommended as it supports all versions of SQL from 2005 and larger database backups (>1TB), but if you have good connectivity to Azure and are on SQL Server 2014 and databases <1TB, then [SQL Server backup to URL](https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/sql-server-backup-to-url?redirectedfrom=MSDN&view=sql-server-ver15) is also a good option. DMA also provides functionality to migrate Windows and SQL Logins, maintaining existing passwords.
 
-[!TIP] For large data transfers or for limited to no network options see [Data transfer for large datasets with low or network bandwidth](https://github.com/MashaMSFT/azure-docs-pr/blob/20200713_sqlvmmig/articles/storage/common/storage-solution-large-dataset-low-network.md)
+> [!TIP] 
+> For large data transfers or for limited to no network options see [Data transfer for large datasets with low or network bandwidth](https://github.com/MashaMSFT/azure-docs-pr/blob/20200713_sqlvmmig/articles/storage/common/storage-solution-large-dataset-low-network.md)
+>
 
 **Offline Migration**
 
