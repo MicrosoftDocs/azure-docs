@@ -1,17 +1,17 @@
 ---
 title: Tutorial to transfer data to storage account with Azure Stack Edge GPU| Microsoft Docs
-description: Learn how to add and connect to storage accounts on Azure Stack Edge GPU device.
+description: Learn how to add and connect to local and Edge storage accounts on Azure Stack Edge GPU device.
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 02/11/2020
+ms.date: 08/31/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to add and connect to storage accounts on Azure Stack Edge so I can use it to transfer data to Azure.
 ---
-# Tutorial: Transfer data via storage accounts with Azure Stack Edge 
+# Tutorial: Transfer data via storage accounts with Azure Stack Edge GPU 
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 

@@ -149,6 +149,7 @@ Translator detects the following languages for translation and transliteration.
 |Kiswahili|	`sw`	|
 |Klingon|	`tlh-Latn`	|
 |Korean	|`ko`	|
+|Kurdish (Central)	|`ku-Arab`	|
 |Latvian|	`lv`	|
 |Lithuanian|	`lt`	|
 |Malay|	`ms`		|

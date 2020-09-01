@@ -238,12 +238,6 @@
           href: application-types.md
         - name: Unexpected user assigned
           href: ways-users-get-assigned-to-applications.md
-      - name: Troubleshoot My Apps
-        items:
-        - name: App not appearing
-          href: access-panel-troubleshoot-application-not-appearing.md
-        - name: Unexpected app appearing
-          href: access-panel-troubleshoot-unexpected-application.md
       - name: Troubleshoot on-premises apps
         items:
         - name: Application Proxy troubleshooting
