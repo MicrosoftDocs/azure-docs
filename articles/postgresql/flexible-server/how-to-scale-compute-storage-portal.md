@@ -42,13 +42,13 @@ Follow these steps to choose the compute tier.
 
 6.  If you want to change the number of vCores, you can click the drop-down of **Compute size** and click the desired number of vCores/Memory from the list.
     
-    6.1 Burstable compute tier:
+    - Burstable compute tier:
     ![burstable compute](./media/how-to-scale-compute-storage-portal/how-to-compute-burstable-dropdown.png)
 
-    6.2 General purpose compute tier:
+    - General purpose compute tier:
     ![gp compute](./media/how-to-scale-compute-storage-portal/how-to-compute-gp-dropdown.png)
 
-    6.3 Memory optimized compute tier:
+    - Memory optimized compute tier:
     ![mo compute](./media/how-to-scale-compute-storage-portal/how-to-compute-mo-dropdown.png)
 
 7.  Click **Save**. 

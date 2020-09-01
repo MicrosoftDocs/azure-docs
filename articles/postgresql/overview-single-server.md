@@ -16,7 +16,7 @@ ms.date: 09/21/2020
 - Flexible Server (Preview)
 - Hyperscale (Citus)
 
-In this article, we will provide an overview and introduction to core concepts of single server deployment model. To learn about flexible server deployment mode, see [flexible server overview](./overview-azure-pg-flexible-server.md) and Hyperscale (Citus) Overview respectively.
+In this article, we will provide an overview and introduction to core concepts of single server deployment model. To learn about flexible server deployment mode, see [flexible server overview](./flexible-server/overview-azure-postgres-flexible-server.md) and Hyperscale (Citus) Overview respectively.
 
 ## Overview
 
@@ -35,17 +35,17 @@ During planned or unplanned failover events, if the server goes down, the servic
 3. PostgreSQL database engine is brought online on the new compute container.
 4. Gateway service ensures transparent failover ensuring no application side changes requires.
    
- ![Azure Database for PostgresQL Single Server](./media/overview/overview-azure-pg-single-server.png)
+ ![Azure Database for PostgreSQL Single Server](./media/overview/overview-azure-postgres-single-server.png)
 
 The typical failover time ranges from 60-120 seconds. The cloud native design of the single server service allows it to support 99.99% of availability eliminating the cost of passive hot standby.
 
 Azure's industry leading 99.99% availability service level agreement (SLA), powered by a global network of Microsoft-managed datacenters, helps keep your applications running 24/7.
 
-## Automated Patching
+## Automated patching
 
 The service performs automated patching of the underlying hardware, OS, and database engine. The patching includes security and software updates. For PostgreSQL engine, minor version upgrades are automatic and included as part of the patching cycle. There is no user action or configuration settings required for patching. The patching frequency is service managed based on the criticality of the payload. In general, the service follows monthly release schedule as part of the continuous integration and release. Users can subscribe to the [planned maintenance notification]() to receive notification of the upcoming maintenance 72 hours before the event.
 
-## Automatic Backups
+## Automatic backups
 
 The single server service automatically creates server backups and stores them in user configured locally redundant (LRS) or geo-redundant storage. Backups can be used to restore your server to any point-in-time within the backup retention period. The default backup retention period is seven days. The retention can be optionally configured up to 35 days. All backups are encrypted using AES 256-bit encryption. See [Backups](./concepts-backup-restore.md) for details.
 
@@ -53,7 +53,7 @@ The single server service automatically creates server backups and stores them i
 
 The single server service is available in three SKU tiers: Basic, General Purpose, and Memory Optimized. The Basic tier is best suited for low-cost development and low concurrency workloads. The General Purpose and Memory Optimized are better suited for production workloads requiring high concurrency, scale, and predictable performance. You can build your first app on a small database for a few dollars a month, and then adjust the scale to meet the needs of your solution. The storage scaling is online and supports storage auto-growth. Dynamic scalability enables your database to transparently respond to rapidly changing resource requirements. You only pay for the resources you consume. See [Pricing tiers]() for details.
 
-## Enterprise grade Security, Compliance, and Governance
+## Enterprise grade security, compliance, and governance
 
 The single server service uses the FIPS 140-2 validated cryptographic module for storage encryption of data at-rest. Data, including backups, and temporary files created while running queries are encrypted. The service uses the AES 256-bit cipher included in Azure storage encryption, and the keys can be system managed (default) or [customer managed](). The service encrypts data in-motion with transport layer security (SSL/TLS) enforced by default. The service supports TLS versions 1.2, 1.1 and 1.0 with an ability to enforce [minimum TLS version]().
 
@@ -69,7 +69,7 @@ For more information about Azure Database for PostgreSQL security features, see 
 
 ## Monitoring and alerting
 
-The single server service is equipped with built-in performance monitoring and alerting features. All Azure metrics have a one-minute frequency, and each metric provides 30 days of history. You can configure alerts on the metrics. The service allows configuring slow query logs and comes with a differentiated [Query store](../../mysql/concepts-query-store.md) feature. Query Store simplifies performance troubleshooting by helping you quickly find the longest running and most resource-intensive queries. Using these tools, you can quickly optimize your workloads, and configure your server for best performance. See [Monitoring](../../mysql/concepts-monitoring.md) for details.
+The single server service is equipped with built-in performance monitoring and alerting features. All Azure metrics have a one-minute frequency, and each metric provides 30 days of history. You can configure alerts on the metrics. The service allows configuring slow query logs and comes with a differentiated [Query store](./concepts-query-store.md) feature. Query Store simplifies performance troubleshooting by helping you quickly find the longest running and most resource-intensive queries. Using these tools, you can quickly optimize your workloads, and configure your server for best performance. See [Monitoring](./concepts-monitoring.md) for details.
 
 ## Migration
 
@@ -80,7 +80,7 @@ The service runs community version of PostgreSQL. This allows full application c
 
 ## Contacts
 
-For any questions or suggestions you might have about working with Azure Database for PostgreSQL, send an email to the Azure Database for PostgreSQL Team ([@Ask Azure DB for PostgreSQL](mailto:AskAzureDBforMySQL@service.microsoft.com)). This email address is not a technical support alias.
+For any questions or suggestions you might have about working with Azure Database for PostgreSQL, send an email to the Azure Database for PostgreSQL Team ([@Ask Azure DB for PostgreSQL](mailto:AskAzureDBforPostgreSQL@service.microsoft.com)). This email address is not a technical support alias.
 
 In addition, consider the following points of contact as appropriate:
 
@@ -89,16 +89,7 @@ In addition, consider the following points of contact as appropriate:
 - To provide feedback or to request new features, create an entry via [UserVoice](https://feedback.azure.com/forums/597976-azure-database-for-postgresql).
 
 ## Next steps
+
 Now that you've read an introduction to Azure Database for PostgreSQL single server deployment mode, you're ready to:
 - Create your first server.
-- Create an Azure Database for PostgreSQL server using Azure portal
-- Create an Azure Database for PostgreSQL server using Azure CLI
-- Azure CLI samples for Azure Database for PostgreSQL
-- Build your first app using your preferred language:
-  - Python
-  - Node.JS
-  - Java
-  - Ruby
-  - PHP
-  - .NET (C#)
-  - Go
+  

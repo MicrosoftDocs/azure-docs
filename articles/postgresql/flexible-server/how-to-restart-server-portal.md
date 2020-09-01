@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 09/21/2020
 ---
 
-# Restart of a flexible server
+# Restart Flexible Server (Preview)
 
 This article provides step-by-step procedure to perform restart of the flexible server. This operation is useful to apply any static parameter changes that requires database server restart. The procedure is same for servers configured with zone redundant high availability. 
 
