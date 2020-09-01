@@ -1,13 +1,13 @@
 ---
 title: Create and manage a blob snapshot in .NET
 titleSuffix: Azure Storage
-description: Learn how to create a read-only snapshot of a blob to back up blob data at a given moment in time.
+description: Learn how to use the .NET client library to create a read-only snapshot of a blob to back up blob data at a given moment in time.
 services: storage
 author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/02/2020
+ms.date: 08/27/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
@@ -17,7 +17,7 @@ ms.custom: devx-track-csharp
 
 A snapshot is a read-only version of a blob that's taken at a point in time. This article shows how to create and manage blob snapshots using the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage?view=azure-dotnet).
 
-For more information about blob snapshots in Azure Storage, see [Create and manage a blob snapshot in .NET](snapshots-overview.md).
+For more information about blob snapshots in Azure Storage, see [Blob snapshots](snapshots-overview.md).
 
 ## Create a snapshot
 
@@ -158,5 +158,5 @@ await blockBlob.DeleteIfExistsAsync(DeleteSnapshotsOption.IncludeSnapshots, null
 ## Next steps
 
 - [Blob snapshots](snapshots-overview.md)
-- [Blob versions (preview)](versioning-overview.md)
+- [Blob versions](versioning-overview.md)
 - [Soft delete for blobs](storage-blob-soft-delete.md)
