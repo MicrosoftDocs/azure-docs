@@ -21,8 +21,8 @@ This article assumes that you're familiar with developing using Python, but you'
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- An Azure Database for MySQL Flexible Server. [Create an Azure Database for MySQL Flexible Server using Azure portal](./quickstart-create-server-portal.md) or [Create an Azure Database for MySQL Flexible Server using Azure CLI](./quickstart-create-server-cli.md).
+* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+* An Azure Database for MySQL Flexible Server. To create flexible server, refer to [Create an Azure Database for MySQL Flexible Server using Azure portal](./quickstart-create-server-portal.md) or [Create an Azure Database for MySQL Flexible Server using Azure CLI](./quickstart-create-server-cli.md).
 
 ## Preparing your client workstation
 - If you created your flexible server with *Private access (VNet Integration)*, you will need to connect to your server from a resource within the same VNet as your server. You can create a virtual machine and add it to the VNet created with your flexible server. Refer to [Create and manage Azure Database for MySQL Flexible Server virtual network using Azure CLI](./how-to-manage-virtual-network-cli.md).
@@ -65,8 +65,9 @@ Get the connection information you need to connect to Azure Database for MySQL F
    
    <!---![Azure Database for MySQL Flexible Server name](./media/connect-python/azure-database-for-mysql-server-overview-name-login.png)-->
 
-## Run the Python examples
+## Code samples
 
+### Run below mentioned Python code samples
 For each code example in this article:
 
 1. Create a new file in a text editor.
@@ -77,7 +78,7 @@ For each code example in this article:
    > [!NOTE]
    > On Windows, if *python.exe* is not found, you may need to add the Python path into your PATH environment variable, or provide the full path to *python.exe*, for example `C:\python27\python.exe createtable.py`.
 
-## Create a table and insert data
+### Create a table and insert data
 
 Use the following code to connect to the server and database, create a table, and load data by using an **INSERT** SQL statement. 
 
@@ -132,7 +133,7 @@ else:
   print("Done.")
 ```
 
-## Read data
+### Read data
 
 Use the following code to connect and read the data by using a **SELECT** SQL statement. 
 
@@ -182,7 +183,7 @@ else:
   print("Done.")
 ```
 
-## Update data
+### Update data
 
 Use the following code to connect and update the data by using an **UPDATE** SQL statement. 
 
@@ -225,7 +226,7 @@ else:
   print("Done.")
 ```
 
-## Delete data
+### Delete data
 
 Use the following code to connect and remove data by using a **DELETE** SQL statement. 
 
