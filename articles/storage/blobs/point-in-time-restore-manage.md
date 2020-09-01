@@ -180,4 +180,4 @@ $job | Wait-Job
 - [Point-in-time restore for block blobs (preview)](point-in-time-restore-overview.md)
 - [Soft delete](soft-delete-overview.md)
 - [Change feed (preview)](storage-blob-change-feed.md)
-- [Blob versioning (preview)](versioning-overview.md)
+- [Blob versioning](versioning-overview.md)

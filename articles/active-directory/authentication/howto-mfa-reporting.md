@@ -13,7 +13,8 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 
-ms.collection: M365-identity-device-management
+ms.collection: M365-identity-device-management 
+ms.custom: devx-track-azurepowershell
 ---
 # Use the sign-ins report to review Azure Multi-Factor Authentication events
 

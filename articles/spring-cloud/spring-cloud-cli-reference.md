@@ -13,9 +13,6 @@ ms.custom: devx-track-java
 
 ## Manage Azure Spring Cloud using the Azure CLI
 
->[!Note]
-> Azure Spring Cloud is currently in preview.  These commands may be changed or removed in a future release.
-
 | az spring-cloud | Commands |
 |------|------:|
 | [az spring-cloud create](#az-spring-cloud-create) | Create an Azure Spring Cloud instance. |
