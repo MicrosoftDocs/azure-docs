@@ -42,7 +42,7 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | `ar-LB` | Arabic (Lebanon)                  | No                                                |
 | `ar-PS` | Arabic (Palestine)                | No                                                |
 | `ar-QA` | Arabic (Qatar)                    | No                                                |
-| `ar-SA` | Arabic (Saudi Arabia)             | No                                                |
+| `ar-SA` | Arabic (Saudi Arabia)             | Language model                                    |
 | `ar-SY` | Arabic (Syria)                    | Language model                                    |
 | `ca-ES` | Catalan                           | Language model                                    |
 | `cs-CZ` | Czech (Czech Republic)            | Language Model                                    | 
@@ -99,7 +99,7 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | `sv-SE` | Swedish (Sweden)                  | Language model                                    |
 | `ta-IN` | Tamil (India)                     | Language model                                    |
 | `te-IN` | Telugu (India)                    | Language model                                    |
-| `th-TH` | Thai (Thailand)                   | No                                                |
+| `th-TH` | Thai (Thailand)                   | Language model                                    |
 | `tr-TR` | Turkish (Turkey)                  | Language model                                    |
 | `zh-CN` | Chinese (Mandarin, Simplified)    | Acoustic model<br>Language model                  |
 | `zh-HK` | Chinese (Cantonese, Traditional)  | Language model                                    |
