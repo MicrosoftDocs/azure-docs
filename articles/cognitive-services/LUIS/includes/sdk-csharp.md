@@ -61,8 +61,6 @@ Create a new .NET Core application in your preferred editor or IDE.
     ...
     ```
 
-[Did you run into an issue creating the app?](#troubleshooting?create-app)
-
 ### Install the NuGet libraries
 
 Within the application directory, install the Language Understanding (LUIS) client libraries for .NET with the following commands:
