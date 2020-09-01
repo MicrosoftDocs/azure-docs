@@ -151,6 +151,8 @@
       href: cloud-services-disaster-recovery-guidance.md
     - name: Workflow of classic VM architecture
       href: cloud-services-workflow-process.md
+    - name: RHC support for Cloud Services
+      href: rhc-for-cloud-services.md
     - name: Cloud Services FAQ
       items:
       - name: Application and service availability FAQ
