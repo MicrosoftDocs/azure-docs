@@ -4,7 +4,7 @@ description: This article provides concepts on how to securely integrate with ot
 services: synapse-analytics 
 author: mlee3gsd 
 ms.service:  synapse-analytics 
-ms.topic: security
+ms.topic: overview
 ms.subservice: spark
 ms.date: 08/26/2020 
 ms.author: martinle
