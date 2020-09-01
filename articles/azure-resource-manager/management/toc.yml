@@ -4,11 +4,6 @@
   items:
   - name: What is Resource Manager?
     href: overview.md
-- name: Samples
-  items:
-  - name: Azure Policy built-ins
-    displayName: samples, policies, definitions
-    href: ./policy-samples.md
 - name: Concepts
   items:
   - name: Subscription and service limits
@@ -172,6 +167,9 @@
     href: /java/api/com.microsoft.azure.management.resources
   - name: Python
     href: /python/api/overview/azure/resources?view=azure-python
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-reference.md
 - name: Resources
   items:
   - name: Azure Roadmap

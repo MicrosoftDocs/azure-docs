@@ -61,7 +61,7 @@ The schema for resource logs varies depending on the resource and log category. 
 | Azure Database for MySQL | [Azure Database for MySQL diagnostic logs](../../mysql/concepts-server-logs.md#diagnostic-logs) |
 | Azure Database for PostgreSQL | [Azure Database for PostgreSQL logs](../../postgresql/concepts-server-logs.md#resource-logs) |
 | Azure Databricks | [Diagnostic logging in Azure Databricks](https://github.com/MicrosoftDocs/databricks-pr/blob/live/databricks/administration-guide/account-settings/azure-diagnostic-logs.md) |
-| Digital Twins | [Setup Digital Twins Diagnostics](../../digital-twins/troubleshoot-diagnostics.md#log-schemas)
+| Azure Digital Twins | [Set up Azure Digital Twins Diagnostics](../../digital-twins/troubleshoot-diagnostics.md#log-schemas)
 | Event Hubs |[Azure Event Hubs logs](../../event-hubs/event-hubs-diagnostic-logs.md) |
 | Express Route | Schema not available. |
 | Azure Firewall | Schema not available. |
