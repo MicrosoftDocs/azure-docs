@@ -8,7 +8,7 @@ author: arv100kri
 ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 08/01/2020
+ms.date: 09/07/2020
 ---
 
 # Accessing data in storage accounts securely via trusted service exception
