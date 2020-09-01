@@ -33,7 +33,7 @@ With MABS V3 UR1, you can back up the ReFS volumes and workloads deployed on the
 > Backup of Hyper-V VMs stored on an ReFS volume is supported with MABS V3
 
 >[IMPORTANT]
->We have identified a few issues with backup of deduplicated ReFS volumes. We are working on fixing these, and will update this section as soon as we have a fix available. Until then, we are removing the support for backup of deduplicated ReFS volumes from MABSv3 UR1.
+>We've identified a few issues with backup of deduplicated ReFS volumes. We're working on fixing these, and will update this section as soon as we have a fix available. Until then, we're removing the support for backup of deduplicated ReFS volumes from MABSv3 UR1.
 
 ### Azure VMware Solution protection support
 

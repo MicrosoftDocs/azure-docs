@@ -20,10 +20,11 @@ ms.service: digital-twins
 To set up a full end-to-end solution driven by live data from your environment, you can connect your Azure Digital Twins instance to other Azure services for management of devices and data.
 
 In this tutorial, you will...
-* Set up an Azure Digital Twins instance
-* Learn about the sample building scenario and instantiate the pre-written components
-* Use an [Azure Functions](../azure-functions/functions-overview.md) app to route simulated telemetry from an [IoT Hub](../iot-hub/about-iot-hub.md) device into digital twin properties
-* Propagate changes through the **twin graph**, by processing digital twin notifications with Azure Functions, endpoints, and routes
+> [!div class="checklist"]
+> * Set up an Azure Digital Twins instance
+> * Learn about the sample building scenario and instantiate the pre-written components
+> * Use an [Azure Functions](../azure-functions/functions-overview.md) app to route simulated telemetry from an [IoT Hub](../iot-hub/about-iot-hub.md) device into digital twin properties
+> * Propagate changes through the **twin graph**, by processing digital twin notifications with Azure Functions, endpoints, and routes
 
 [!INCLUDE [Azure Digital Twins tutorial: sample prerequisites](../../includes/digital-twins-tutorial-sample-prereqs.md)]
 
@@ -368,6 +369,8 @@ Save the names that you gave to your event grid topic and your Azure Digital Twi
 
 Next, create an Azure Digital Twins route that sends events to the Azure Digital Twins endpoint you just created.
 
+[!INCLUDE [digital-twins-known-issue-cloud-shell](../../includes/digital-twins-known-issue-cloud-shell.md)]
+
 ```azurecli
 az dt route create --dt-name <your-Azure-Digital-Twins-instance> --endpoint-name <your-Azure-Digital-Twins-endpoint> --route-name <name-for-your-Azure-Digital-Twins-route>
 ```
@@ -458,5 +461,6 @@ Finally, delete the project sample folder you downloaded from your local machine
 In this tutorial, you created an end-to-end scenario that shows Azure Digital Twins being driven by live device data.
 
 Next, start looking at the concept documentation to learn more about elements you worked with in the tutorial:
+
 > [!div class="nextstepaction"]
 > [*Concepts: Custom models*](concepts-models.md)

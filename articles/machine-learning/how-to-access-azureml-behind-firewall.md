@@ -19,9 +19,9 @@ In this article, learn how to configure Azure Firewall to  control access to you
 
 While the information in this document is based on using [Azure Firewall](../firewall/tutorial-firewall-deploy-portal.md), you should be able to use it with other firewall products. If you have questions about how to allow communication through your firewall, please consult the documentation for the firewall you are using.
 
-## Network rules
+## Application rules
 
-On your firewall, create a network rule allowing traffic to and from the addresses in this article.
+On your firewall, create an _application rule_ allowing traffic to and from the addresses in this article.
 
 > [!TIP]
 > When adding the network rule, set the __Protocol__ to any, and the ports to `*`.

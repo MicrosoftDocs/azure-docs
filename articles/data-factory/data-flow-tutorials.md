@@ -102,8 +102,6 @@ As updates are constantly made to the product, some features have added or diffe
 
 [Data lineage](https://www.youtube.com/watch?v=5KvqYF-y93s)
 
-[Optimization tips](https://www.youtube.com/watch?v=a2KtwUJngHo)
-
 [Iterate files with parameters](http://youtu.be/uEgz0ptYRDM?hd=1)
 
 [Decrease start-up times](https://youtu.be/FFCbU4ujCiY?t=528)
@@ -116,7 +114,7 @@ As updates are constantly made to the product, some features have added or diffe
 
 [Optimize data flow start-up times](https://www.youtube.com/watch?v=VT_2ZV3a7Fc)
 
-[Azure Integration Runtimes for Data Flows](https://mssqldude.wordpress.com/)
+[Azure Integration Runtimes for Data Flows](https://www.youtube.com/watch?v=VT_2ZV3a7Fc)
 
 ## Mapping data flow scenarios
 

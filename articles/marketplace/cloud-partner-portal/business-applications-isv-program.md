@@ -1,4 +1,5 @@
 ---
+# This file is part of a direct campaign and currently not connected to TOC. Working on resolution Sept 2020
 title: Microsoft Business Applications Independent Software Vendor (ISV) Connect Program onboarding guide
 description: Here's how to onboard to the Business Applications ISV Connect Program.
 ms.service: marketplace
