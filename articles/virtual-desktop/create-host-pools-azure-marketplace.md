@@ -41,6 +41,9 @@ If you don't have an Azure subscription already, make sure to [create an account
 To start creating your new host pool:
 
 1. Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com/).
+   
+   >![NOTE]
+   > If you're signing in to the US Gov portal, go to [https://portal.azure.us/](https://portal.azure.us/) instead.
 
 2. Enter **Windows Virtual Desktop** into the search bar, then find and select **Windows Virtual Desktop** under Services.
 
@@ -66,7 +69,7 @@ To start creating your new host pool:
       > [!div class="mx-imgBorder"]
       > ![A screenshot of the assignment type field drop-down menu. The user has selected Automatic.](media/assignment-type-field.png)
 
-9. If you choose **Pooled**, enter the following information:
+9.  If you choose **Pooled**, enter the following information:
 
      - For **Max session limit**, enter the maximum number of users you want load-balanced to a single session host.
      - For **Load balancing algorithm**, choose either breadth-first or depth-first, based on your usage pattern.
