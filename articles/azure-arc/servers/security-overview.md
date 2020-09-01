@@ -33,9 +33,11 @@ The Azure Connected Machine agent is composed of three services which run on you
 
 * The Guest Configuration Extension service (ExtensionService) is responsible for installing, updating, and deleting extensions (agents, scripts, or other software) on the machine.
 
-The guest configuration and extension services run as Local System on Windows and as root on Linux.
+The guest configuration and extension services run as Local System on Windows, and as root on Linux.
 
 ## Using a managed identity with Arc enabled servers
+
+By default, the Azure Active Directory system assigned identity used by Arc can only be used to update the status of the Arc enabled server in Azure. For example, the *last seen* heartbeat status. You can optionally assign additional roles to the identity if an application on your server uses the system assigned identity to access other Azure services.
 
 While the Hybrid Instance Metadata Service can be accessed by any application running on the machine, only authorized applications can request an Azure AD token for the system assigned identity. On the first attempt to access the token URI, the service will generate a randomly generated cryptographic blob in a location on the file system that only trusted callers can read. The caller must then read the file (proving it has appropriate permission) and retry the request with the file contents in the authorization header to successfully retrieve an Azure AD token.
 
@@ -43,14 +45,10 @@ While the Hybrid Instance Metadata Service can be accessed by any application ru
 
 * On Linux, the caller must be a member of the **himds** group to read the blob.
 
-## What the Azure Active Directory system assigned identity can manage
-
-By default, the Azure Active Directory system assigned identity used by Arc can only be used to update the status of the Arc enabled server in Azure. For example, the *last seen* heartbeat status. You can optionally assign additional roles to the identity if an application on your server uses the system assigned identity to access other Azure services.
-
 ## Using disk encryption
 
 The Azure Connected Machine agent uses public key authentication to communicate with the Azure service. After you onboard a server to Azure Arc, a private key is saved to the disk and used whenever the agent communicates with Azure. If stolen, the private key can be used on another server to communicate with the service and act as if it were the original server. This includes getting access to the system assigned identity and any resources that identity has access to. The private key file is protected to only allow the **himds** account access to read it. To prevent offline attacks, we strongly recommend the use of full disk encryption (for example, BitLocker, dm-crypt, etc.) on the operating system volume of your server.
 
 ## Next steps
 
-Before evaluating or enabling Arc enabled servers (preview) across multiple hybrid machines, review the [Connected Machine agent overview](agent-overview.md) article to understand what is required, technical details about the agent, and deployment methods.
+Before evaluating or enabling Arc enabled servers (preview) across multiple hybrid machines, review [Connected Machine agent overview](agent-overview.md) to understand requirements, technical details about the agent, and deployment methods.
