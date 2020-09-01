@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: end-user-help
-ms.date: 08/31/2020
+ms.date: 09/08/2020
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: "user-help, seo-update-azuread-jan"
@@ -31,13 +31,13 @@ If you don’t have access to the **My Apps** portal, contact your Helpdesk for 
 
 You can get to the **My Apps** portal from any of the following web browsers:
 
-- Microsoft Edge (the mobile version of Edge is currently the only supported mobile browser for the secure sign-in extension)
+- Microsoft Edge (the mobile version of Edge is currently the only supported mobile browser)
 - Google Chrome
 - Mozilla Firefox, version 26.0 or later
 
 ## Download and install the My Apps Secure Sign-in Extension
 
-Download and install the **My Apps Secure Sign-in Extension**, if you're prompted. The mobile version of the Edge browser is currently the only mobile browser for which you'll receive a prompt to install the extension.This extension helps you use any of your organization's cloud apps that require you to use a single sign-on process. If your organization has already set you up for single sign-on, the extension is installed automatically and you can skip this section.
+Download and install the **My Apps Secure Sign-in Extension**, if you're prompted. The mobile version of the Edge browser is currently the only supported mobile browser. This extension helps you use any of your organization's cloud apps that require you to use a single sign-on process. If your organization has already set you up for single sign-on, the extension is installed automatically and you can skip this section.
 
 This extension helps you:
 
@@ -50,8 +50,7 @@ This extension helps you:
 
 Download and install the extension, based on the browser you're using.
 
-- **Microsoft Edge** From the Microsoft Store, go to the [My Apps Secure Sign-in Extension](https://microsoftedge.microsoft.com/addons/detail/my-apps-secure-signin-ex/gaaceiggkkiffbfdpmfapegoiohkiipl) feature, and then select **Get** to get the extension for Microsoft Edge legacy browser.  
-If you are using the new Microsoft Edge browser (Edge on Chromium) then you can get the extension from [Microsoft Edge Addons Store](https://microsoftedge.microsoft.com/addons/category/EdgeExtensionsEditorsPick).
+- **Microsoft Edge** From the Microsoft Store, go to the [My Apps Secure Sign-in Extension](https://microsoftedge.microsoft.com/addons/detail/my-apps-secure-signin-ex/gaaceiggkkiffbfdpmfapegoiohkiipl) feature, and then select **Get** to get the extension for Microsoft Edge legacy browser.
 
 - **Google Chrome.** From the Chrome Web Store, go to the [My Apps Secure Sign-in Extension](https://chrome.google.com/webstore/detail/my-apps-secure-sign-in-ex/ggjhpefgjjfobnfoldnjipclpcfbgbhl) feature, and then select **Add to Chrome**.
 
