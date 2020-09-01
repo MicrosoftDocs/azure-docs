@@ -152,7 +152,7 @@ The entity creation code creates a machine-learning entity with subentities and 
 
 [!code-python[Create entities for the app](~/cognitive-services-quickstart-code/python/LUIS/sdk-3x/authoring_and_predict.py?name=AuthoringAddEntities)]
 
-Put the following method above the `quickstart` method to find the Quantity subentity's id, in order to assign the features to that subentity.
+Put the following method above the `quickstart` method to find the Quantity subentity's ID, in order to assign the features to that subentity.
 
 [!code-python[Find subentity id](~/cognitive-services-quickstart-code/python/LUIS/sdk-3x/authoring_and_predict.py?name=AuthoringSortModelObject)]
 
