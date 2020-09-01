@@ -49,31 +49,25 @@ Use Standard Load Balancers to provide outbound rules for defining outbound NAT 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32350.).
 
-**Guidance**: The Load Balancer is
-a pass through service as it relies on the network security groups rules applied to backend
-resources and the configured outbound rules to control internet
-access.
+**Guidance**: The Load Balancer is a pass through service as it relies on the network security groups rules applied to backend resources and the configured outbound rules to control internet access.
+
 Review the outbound rules configured for your Standard Load Balancer through the Outbound Rules subblade of your Load Balancer and the Load Balancing Rules subblade where you may have Implicit outbound rules enabled.
+
 Monitor the count of your outbound connections to track how often your resources are reaching out to the internet. 
 
-Use Security Center and follow the network protection recommendations to help
-secure your Azure network resources.
+Use Security Center and follow the network protection recommendations to help secure your Azure network resources.
 
-Follow security recommendations for your backend
-resources and enable network security group flow logs and send the logs to an
-Azure Storage account for auditing.
+Follow security recommendations for your backend resources and enable network security group flow logs and send the logs to an Azure Storage account for auditing.
 
-Also send the flow logs to a Log
-Analytics workspace and then use Traffic Analytics to provide insights into
-traffic patterns in your Azure cloud. Advantages of Traffic Analytics include the ability to visualize network activity, identify hot spots and security
-threats, understand traffic flow patterns, and pinpoint network
-misconfigurations.
+Also send the flow logs to a Log Analytics workspace and then use Traffic Analytics to provide insights into traffic patterns in your Azure cloud. Advantages of Traffic Analytics include the ability to visualize network activity, identify hot spots and security threats, understand traffic flow patterns, and pinpoint network misconfigurations.
 
 - [How to enable network security group flow logs](../network-watcher/network-watcher-nsg-flow-logging-portal.md)
 
 - [How to enable and use Traffic Analytics](../network-watcher/traffic-analytics.md)
-Understand network security provided by Azure
-- [Security Center](/azure/security-center/security-center-network-recommendationsHow) do I check my outbound connection statistics: load-balancer-standard-diagnostics.md#how-do-i-check-my-outbound-connection-statistics
+
+- [Understand network security provided by Azure Security Center](../security-center/security-center-network-recommendations.md)
+
+- [How do I check my outbound connection statistics](load-balancer-standard-diagnostics.md#how-do-i-check-my-outbound-connection-statistics)
 
 **Azure Security Center monitoring**: Yes
 
@@ -287,9 +281,9 @@ Enable and on-board this data to Azure Sentinel or a third-party SIEM based on y
 
 - [How to collect Azure Virtual Machine internal host logs with Azure Monitor](../azure-monitor/learn/quick-collect-azurevm.md)
 
-- [How to get started with Azure Monitor and third-party SIEM integration](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-)
+- [How to get started with Azure Monitor and third-party SIEM integration](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)
 
-- [Platform Activity logs](../azure-monitor/platform/activity-log.md)) to tools/
+- [Platform Activity logs](../azure-monitor/platform/activity-log.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -780,6 +774,25 @@ Utilize the Security Center data connector to stream the alerts to Azure Sentine
 **Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
+
+## Penetration tests and red team exercises
+
+*For more information, see the [Azure Security Benchmark: Penetration tests and red team exercises](/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
+
+### 11.1: Conduct regular penetration testing of your Azure resources and ensure remediation of all critical security findings
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32435.).
+
+**Guidance**: Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure your penetration tests are not in violation of Microsoft policies. Use Microsoft's strategy and execution of Red Teaming and live site penetration testing against Microsoft-managed cloud infrastructure, services, and applications. 
+
+- [Penetration Testing Rules of Engagement](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1) 
+
+- [Microsoft Cloud Red Teaming](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Shared
 
 ## Next steps
 
