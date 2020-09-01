@@ -348,6 +348,6 @@ Now that you've learned the basics of queue storage, follow these links to learn
 
 [Azure Storage client library for JavaScript]: https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage#azure-storage-client-library-for-javascript
 [Azure Storage Team Blog]: https://techcommunity.microsoft.com/t5/azure-storage/bg-p/AzureStorageBlog
-[Build and deploy a Node.js application to an Azure Cloud Service]: (../../cloud-services/cloud-services-nodejs-develop-deploy-app.md)
-[Create a Node.js web app in Azure App Service]: (../../app-service/quickstart-nodejs.md)
+[Build and deploy a Node.js application to an Azure Cloud Service]: ../../cloud-services/cloud-services-nodejs-develop-deploy-app.md
+[Create a Node.js web app in Azure App Service]: ../../app-service/quickstart-nodejs.md
 [Visual Studio Code]: https://code.visualstudio.com/docs/nodejs/nodejs-tutorial
