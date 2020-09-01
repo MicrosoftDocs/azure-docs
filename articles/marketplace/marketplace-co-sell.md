@@ -11,9 +11,9 @@ ms.date: 09/02/2020
 
 # Co-sell partner engagement
 
-You can use the Microsoft Co-sell program to work directly with Microsoft sellers on joint selling opportunities and to unlock additional marketplace benefits. The program helps you reach a vast community of customers and create new sales opportunities to accelerate your business growth.
+You can use the Microsoft Co-sell program to work directly with Microsoft sellers on joint selling opportunities and unlock additional marketplace benefits. The program helps you reach a vast community of customers and create new sales opportunities to accelerate your business growth.
 
-The Co-sell program is available for **services** with Microsoft technology embedded and for repeatable, packaged **intellectual property (IP) solutions**. Offers in the Co-sell program are either **co-sell ready** or **co-sell incentivized**, depending on the requirements they meet.
+The Co-sell program is available for **services** with Microsoft technology embedded and for repeatable, packaged **intellectual property (IP) solutions** primarily instantiated now as commercial marketplace offers. Offers in the Co-sell program are either **co-sell ready** or **co-sell incentivized**, depending on the requirements they meet.
 
 Some IP solutions can qualify for Microsoft seller incentives when they're successfully sold and deployed with Microsoft field sales teams.
 
@@ -54,7 +54,7 @@ Start your co-sell journey directly in Partner Center, following the steps below
 
     [![This image shows the location of the Co-sell with Microsoft tab.](./media/co-sell/co-sell-with-microsoft-tab.png)](./media/co-sell/co-sell-with-microsoft-tab.png#lightbox)
 
-1. Provide details about your offer and upload collaterals in the **Documents** section. Microsoft sellers will use this information to recommend and sell your offer.
+1. Provide details about your offer and upload collateral in the **Documents** section. Microsoft sellers will use this information to recommend and sell your offer.
  
    [![This image shows the Documents section in the Co-sell tab.](./media/co-sell/co-sell-documents-section.png)](./media/co-sell/co-sell-documents-section.png#lightbox)
 
