@@ -43,7 +43,7 @@ Azure Backup enables data protection for various workloads (on-premises and clou
 
 ### Management plane
 
-* **Access control** – The Recovery Services vault provides the management capabilities and is accessible via the Azure portal, SDK, CLI, and even REST APIs. It's also an RBAC boundary, providing you the option to restrict access to backups only to authorized Backup Admins.
+* **Access control** – Vaults (Recovery Services and Backup vaults) provide the management capabilities and are accessible via the Azure portal, Backup Center, Vault dashboards, SDK, CLI, and even REST APIs. It's also an RBAC boundary, providing you the option to restrict access to backups only to authorized Backup Admins.
 
 * **Policy management** – Azure Backup Policies within each vault define when the backups should be triggered and how long they need to be retained. You can also manage these policies and apply them across multiple items.
 
@@ -53,7 +53,7 @@ Azure Backup enables data protection for various workloads (on-premises and clou
 
 ## Vault considerations
 
-Azure Backup uses Recovery Services vaults to orchestrate and manage backups. It also uses vaults to store backed-up data. Effective vault design helps organizations establish a structure to organize and manage backup assets in Azure to support your business priorities. Consider the following guidelines when creating a vault:  
+Azure Backup uses  vaults (Recovery Services and Backup vaults) to orchestrate and manage backups. It also uses vaults to store backed-up data. Effective vault design helps organizations establish a structure to organize and manage backup assets in Azure to support your business priorities. Consider the following guidelines when creating a vault:  
 
 ### Align to subscription design strategy
 
@@ -66,7 +66,8 @@ You can use a single vault or multiple vaults to organize and manage your backup
 * If your workloads are all managed by a single subscription and single resource, then you can use a single vault to monitor and manage your backup estate.
 
 * If your workloads are spread across subscriptions, then you can create multiple vaults, one or more per subscription.
-  * To simplify monitoring of operational activities across all the vaults, subscriptions and tenants, you can use Backup Explorer and reports. [Learn more here](monitor-azure-backup-with-backup-explorer.md) to get an aggregated view.
+  * Backup Center allows you to have a single pane of glass to manage all tasks related to Backup. [Learn more here]().
+  * You can customize your views with workbook templates. Backup Explorer is one such template for Azure VMs. [Learn more here](monitor-azure-backup-with-backup-explorer.md).
   * If you needed consistent policy across vaults, then you can use Azure policy to propagate backup policy across multiple vaults. You can write a custom [Azure Policy definition](../governance/policy/concepts/definition-structure.md) that uses the [‘deployifnotexists’](../governance/policy/concepts/effects.md#deployifnotexists) effect to propagate a backup policy across multiple vaults. You assign can [assign](../governance/policy/assign-policy-portal.md) this Azure Policy definition to a particular scope (subscription or RG), so that it deploys a 'backup policy' resource to all Recovery Services vaults in the scope of the Azure Policy assignment. The settings of the backup policy (such as backup frequency, retention, and so on) should be specified by the user as parameters in the Azure Policy assignment.
 
 * As your organizational footprint grows, you might want to move workloads across subscriptions for the following reasons: align by backup policy, consolidate vaults, trade-off on lower redundancy to save on cost (move from GRS to LRS).  Azure Backup supports moving a Recovery Services vault across Azure subscriptions, or to another resource group within the same subscription. [Learn more here](backup-azure-move-recovery-services-vault.md).
