@@ -39,14 +39,26 @@ In order to configure a compute instance as a remote Jupyter Notebook server you
 
 To connect to a compute instance:
 
-1. Open the command palette by selecting **View > Command Palette** from the menu bar.
-1. Enter into the text box `Python: Specify local or remote Jupyter Server for connections`.
+1. Open a Jupyter Notebook in Visual Studio Code.
+1. When the integrated notebook experience loads, select the **Jupyter Server**
+
+    > [!div class="mx-imgBorder"]
+    > ![Launch Azure Machine Learning remote Jupyter notebook server dropdown](media/how-to-set-up-vs-code-remote/launch-server-selection-dropdown.png)
+
+    Alternatively, you also use the command palette:
+
+    1. Open the command palette by selecting **View > Command Palette** from the menu bar.
+    1. Enter into the text box `Azure ML: Connect to Compute instance Jupyter server`.
+
 1. Choose `Azure ML Compute Instances` from the list of Jupyter server options.
 1. Select your subscription the list of subscriptions. If you have have previously configured your default Azure Machine Learning workspace, this step is skipped.
 1. Select the workspace that contains the compute instance you want to use.
 1. Select your compute instance from the list.
 1. For the changes to take effect, you have to reload Visual Studio Code.
-1. Open a Jupyter Notebook and run a cell to establish the connection with the compute instance
+1. Open a Jupyter Notebook and run a cell.
+
+> [!IMPORTANT]
+> You **MUST** run a cell in order to establish the connection.
 
 At this point, you can continue to run cells in your Jupyter notebook.
 
