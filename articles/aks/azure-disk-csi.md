@@ -62,7 +62,7 @@ test.txt
 
 ## Create a custom Storage class
 
-The default storage classes cater to the most common scenarios but not all. For some cases, you might want to have your own storage class customized with your own parameters. To exemplify, we have a scenario where you might want to change the `volumeBindingMode`. 
+The default storage classes suit the most common scenarios but not all. For some cases, you might want to have your own storage class customized with your own parameters. To exemplify, we have a scenario where you might want to change the `volumeBindingMode`. 
 
 The default storage classes use a `volumeBindingMode: Immediate` that indicates that volume binding and dynamic provisioning occurs immediately once the PersistentVolumeClaim is created. In cases where your node pools are topology constrained, for example using Availability Zones, Persistent Volumes would be bound or provisioned without knowledge of the Pod's scheduling requirements (in this case to be in a specific zone).
 

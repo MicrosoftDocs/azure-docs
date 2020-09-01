@@ -61,7 +61,7 @@ total 29
 
 ## Create a custom Storage class
 
-The default storage classes cater to the most common scenarios but not all. For some cases, you might want to have your own storage class customized with your own parameters. For example, use the following manifest to configure the `mountOptions` of the file share.
+The default storage classes suit the most common scenarios but not all. For some cases, you might want to have your own storage class customized with your own parameters. For example, use the following manifest to configure the `mountOptions` of the file share.
 
 The default value for *fileMode* and *dirMode* is *0777* for Kubernetes mounted file shares. You can specify the different mount options on the storage class object.
 
