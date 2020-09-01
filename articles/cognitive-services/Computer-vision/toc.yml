@@ -125,12 +125,14 @@
     - name: Use container instances
       href: deploy-computer-vision-on-container-instances.md
       displayName: container instances, container, containers, images
-  - name: People Analytics container
+  - name: Spatial Analytics container
     items:
     - name: Setup the host machine and run the container
-      href: people-analytics-container.md
-    - name: Configure AI skills
-      href: people-analytics-skills.md
+      href: spatial-analytics-container.md
+    - name: Configure operations
+      href: spatial-analytics-operations.md
+    - name: Logging and Troubleshooting
+      href: spatial-analytics-logging.md
 - name: How-to guides
   items:
   - name: Call the Computer Vision API
