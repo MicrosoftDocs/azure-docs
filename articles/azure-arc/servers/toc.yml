@@ -4,6 +4,8 @@
   items:
   - name: About Azure Arc enabled servers
     href: overview.md
+  - name: What's new with Connected Machine agent
+    href: agent-release-notes.md
 - name: Quickstarts
   items:
   - name: Enable Arc enabled servers agent

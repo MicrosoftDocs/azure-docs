@@ -1,13 +1,13 @@
 ---
 title: Tutorial to connect to, configure, activate Azure Stack Edge device with GPU in Azure portal | Microsoft Docs
-description: Tutorial to deploy Azure Stack Edge instructs you to connect, set up, and activate your physical device.
+description: Tutorial to deploy Azure Stack Edge GPU instructs you to connect, set up, and activate your physical device.
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 06/11/2020
+ms.date: 08/29/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge so I can use it to transfer data to Azure. 
 ---
@@ -54,16 +54,17 @@ Follow these steps to configure device related settings.
 
         ![Local web UI "Device" page](./media/azure-stack-edge-gpu-deploy-set-up-device-update-time/device-2.png)
 
-        If you have changed the device name and the DNS domain, the automatically generated self-signed certificates on the device will not work. You need to choose one of the following options: 
+        If you have changed the device name and the DNS domain, the automatically generated self-signed certificates on the device will not work. You need to choose one of the following options when you configure certificates.: 
         
         - Generate and download the device certificates. 
         - Bring your own certificates for the device including the signing chain.
+    
 
         ![Local web UI "Device" page](./media/azure-stack-edge-gpu-deploy-set-up-device-update-time/device-3.png)
 
-    4. When the device name and the DNS domain are changed, the SMB and NFS endpoints are created. 
+    4. When the device name and the DNS domain are changed, the SMB and NFS endpoints are created.  
 
-    4. After the settings are applied, go back to **Get started**.
+    5. After the settings are applied, go back to **Get started**.
 
 ## Configure update
 

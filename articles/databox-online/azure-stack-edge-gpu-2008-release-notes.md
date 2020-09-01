@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 08/27/2020
+ms.date: 08/29/2020
 ms.author: alkohli
 ---
 
@@ -42,7 +42,7 @@ The following table provides a summary of known issues for the Azure Stack Edge 
 |**11.**|Kubernetes |Kubernetes does not currently allow multi-protocol LoadBalancer services. For example, a DNS service that would have to listen on both TCP and UDP. |To work around this limitation of Kubernetes with MetalLB, two services (one for TCP, one for UDP) can be created on the same pod selector. These services use the same sharing key and spec.loadBalancerIP to share the same IP address. IPs can also be shared if you have more services than available IP addresses. <br> For more information, see [IP address sharing](https://metallb.universe.tf/usage/#ip-address-sharing).|
 |**12.**|Kubernetes cluster|Existing Azure IoT Edge marketplace modules will not run on the Kubernetes cluster as the hosting platform for IoT Edge on Azure Stack Edge device.|The modules will need to be modified before these are deployed on the Azure Stack Edge device. For more information, see Modify Azure IoT Edge modules from marketplace to run on Azure Stack Edge device.<!-- insert link-->|
 |**13.**|Kubernetes |File-based bind mounts are not supported with Azure IoT Edge on Kubernetes on Azure Stack Edge device.|IoT Edge uses a translation layer to translate `ContainerCreate` options to Kubernetes constructs. Creating `Binds` maps to hostpath directory or create and thus file-based bind mounts cannot be bound to paths in IoT Edge containers.|
-
+|**14.**|Kubernetes |If you bring your own certificates for IoT Edge and add those on your Azure Stack Edge device, the new certificates are not picked up as part of the Helm charts update.|To workaround this problem, [Connect to the PowerShell interface of the device](azure-stack-edge-gpu-connect-powershell-interface.md). Restart `iotedged` and `edgehub` pods.|
 
 ## Next steps
 
