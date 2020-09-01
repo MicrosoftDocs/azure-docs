@@ -73,9 +73,6 @@
   items:
   - name: Azure CLI
     href: sample-scripts-azure-cli.md
-  - name: Azure Policy built-ins
-    displayName: samples, policies, definitions
-    href: ./policy-samples.md
 - name: Concepts
   items:
   - name: Single server
@@ -166,7 +163,7 @@
         - name: Configure Spring Data JPA
           href: /azure/developer/java/spring-framework/configure-spring-data-jpa-with-azure-postgresql?toc=/azure/postgresql/toc.json&bc=/azure/bread/toc.json
         - name: Configure Spring Data R2DBC
-          href: /azure/developer/java/spring-framework/configure-spring-data-r2dbc-with-azure-postgresl?toc=/azure/postgresql/toc.json&bc=/azure/bread/toc.json
+          href: /azure/developer/java/spring-framework/configure-spring-data-r2dbc-with-azure-mysql
     - name: Replication
       items:
       - name: Read replicas
@@ -393,6 +390,9 @@
         href: reference-hyperscale-parameters.md
       - name: System tables
         href: reference-hyperscale-metadata.md
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-reference.md
 - name: Resources
   items:
   - name: Build your skills with Microsoft Learn

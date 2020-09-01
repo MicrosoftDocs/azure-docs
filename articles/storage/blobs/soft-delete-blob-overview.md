@@ -14,7 +14,7 @@ ms.subservice: blobs
 
 # Soft delete for blobs
 
-Soft delete for blobs protects your data from being accidentally or erroneously modified or deleted. When soft delete for blobs is enabled for a storage account, blobs, blob versions (preview), and snapshots in that storage account may be recovered after they are deleted, within a retention period that you specify.
+Soft delete for blobs protects your data from being accidentally or erroneously modified or deleted. When soft delete for blobs is enabled for a storage account, blobs, blob versions, and snapshots in that storage account may be recovered after they are deleted, within a retention period that you specify.
 
 If there is a possibility that your data may accidentally be modified or deleted by an application or another storage account user, Microsoft recommends turning on soft delete. For more information about enabling soft delete, see [Enable and manage soft delete for blobs](soft-delete-enable.md).
 
@@ -24,7 +24,7 @@ If there is a possibility that your data may accidentally be modified or deleted
 
 When soft delete for blobs is enabled on a storage account, you can recover objects after they have been deleted, within the specified data retention period. This protection extends to any blobs (block blobs, append blobs, or page blobs) that are erased as the result of an overwrite.
 
-If data in an existing blob or snapshot is deleted while blob soft delete is enabled but blob versioning (preview) is not enabled, then a soft deleted snapshot is generated to save the state of the overwritten data. After the specified retention period has expired, the object is permanently deleted.
+If data in an existing blob or snapshot is deleted while blob soft delete is enabled but blob versioning is not enabled, then a soft deleted snapshot is generated to save the state of the overwritten data. After the specified retention period has expired, the object is permanently deleted.
 
 If blob versioning and blob soft delete are both enabled on the storage account, then deleting a blob creates a new version instead of a soft-deleted snapshot. The new version is not soft-deleted and is not removed when the soft-delete retention period expires. Soft-deleted versions of a blob can be restored within the retention period by calling the [Undelete Blob](/rest/api/storageservices/undelete-blob) operation. The blob can subsequently be restored from one of its versions by calling the [Copy Blob](/rest/api/storageservices/copy-blob) operation. For more information about using blob versioning and soft delete together, see [Blob versioning and soft delete](versioning-overview.md#blob-versioning-and-soft-delete).
 
@@ -191,4 +191,4 @@ It is possible to take advantage of soft delete regardless of the API version yo
 ## Next steps
 
 - [Enable soft delete for blobs](soft-delete-enable.md)
-- [Blob versioning (preview)](versioning-overview.md)
+- [Blob versioning](versioning-overview.md)

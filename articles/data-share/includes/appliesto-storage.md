@@ -1,0 +1,1 @@
+<Token>**APPLIES TO:** ![yes](../media/applies-to/yes.png)Azure Blob Storage ![yes](../media/applies-to/yes.png)Azure Data Lake Storage Gen1 ![yes](../media/applies-to/yes.png)Azure Data Lake Storage Gen2</Token> 
