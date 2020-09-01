@@ -177,7 +177,7 @@ You can also create generation 2 VMs by using virtual machine scale sets. In the
     When the generation 2 VM is created, you can optionally generalize the image of this VM. By generalizing the image, you can use it to create multiple VMs.
 
 * **How do I increase the OS disk size?**  
-  OS disks larger than 2 TB are new to generation 2 VMs. By default, OS disks are smaller than 2 TB for generation 2 VMs. You can increase the disk size up to a recommended maximum of 4 TB. Use the Azure CLI or the Azure portal to increase the OS disk size. For information about how to expand disks programmatically, see [Resize a disk](expand-os-disk.md).
+  OS disks larger than 2 TiB are new to generation 2 VMs. By default, OS disks are smaller than 2 TiB for generation 2 VMs. You can increase the disk size up to a recommended maximum of 4 TiB. Use the Azure CLI or the Azure portal to increase the OS disk size. For information about how to expand disks programmatically, see [Resize a disk](expand-os-disk.md).
 
   To increase the OS disk size from the Azure portal:
 
@@ -187,7 +187,7 @@ You can also create generation 2 VMs by using virtual machine scale sets. In the
   1. In the **Disks** section, select **Configuration**, and update the **Size** to the value you want.
   1. Go back to the VM properties page and **Start** the VM.
   
-  You might see a warning for OS disks larger than 2 TB. The warning doesn't apply to generation 2 VMs. However, OS disk sizes larger than 4 TB are *not recommended.*
+  You might see a warning for OS disks larger than 2 TiB. The warning doesn't apply to generation 2 VMs. However, OS disk sizes larger than 4 TiB are not supported.
 
 * **Do generation 2 VMs support accelerated networking?**  
     Yes. For more information, see [Create a VM with accelerated networking](../../virtual-network/create-vm-accelerated-networking-cli.md).
