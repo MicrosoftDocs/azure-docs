@@ -12,11 +12,20 @@ ms.author: yelevin
 ---
 # Connect data from Azure DDoS Protection
 
+> [!IMPORTANT]
+> The Azure DDoS Protection data connector in Azure Sentinel is currently in public preview.
+> This feature is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 Distributed denial of service (DDoS) attacks attempt to exhaust an application's resources, making the application unavailable to legitimate users. DDoS attacks can be targeted at any endpoint that is publicly reachable through the internet. [Azure DDoS protection](../virtual-network/ddos-protection-overview.md), combined with application design best practices, provides a robust defense against DDoS attacks. You can connect Azure DDoS Protection logs to Azure Sentinel, enabling you to view log data in workbooks, use it to create custom alerts, and incorporate it to improve your investigations.
 
 ## Prerequisites
 
 - You must have read and write permissions on the Azure Sentinel workspace.
+
+- You must have a configured Azure DDoS Standard protection plan. [Learn more]()
+
+- You must have a configured virtual network with Azure DDoS Standard enabled. [Learn more]()
 
 ## Connect to Azure DDoS Protection
 	
@@ -26,18 +35,16 @@ Distributed denial of service (DDoS) attacks attempt to exhaust an application's
 
 1. Enable **Diagnostic logs** on all the firewalls whose logs you wish to connect:
 
-    1. Select the [Open Azure Public IP Address resource >](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Network%2FPublicIPAddresses) link, and choose an entry in the resource list.
+    1. Select the [Open Diagnostics settings >](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Network%2FPublicIPAddresses) link, and choose a **Public IP Address** resource from the list.
 
-    1. From the resource navigation menu, select **Diagnostic settings**.
-    
-    1. Select **+ Add diagnostic setting** at the bottom of the list.​
+    1. Select **+ Add diagnostic setting**.​
 
-    1. In the **Diagnostics settings** screen, enter a name in the  **Diagnostic setting name** field.
-    
-    1. Mark the **Send to Log Analytics** check box. Two new fields will be displayed below it. Choose the relevant **Subscription** and **Log Analytics Workspace** (where Azure Sentinel resides).​
+    1. In the **Diagnostics settings** screen:
+       - Enter a name in the  **Diagnostic setting name** field.
 
-    1. Mark the check boxes of the rule types whose logs you want to ingest. We recommend **DDoSProtectionNotifications**, **DDoSMitigationFlowLogs**, and **DDoSMitigationReports**.​
-        - ***Mor, are these rule types correct?***
+       - Mark the **Send to Log Analytics** check box. Two new fields will be displayed below it. Choose the relevant **Subscription** and **Log Analytics Workspace** (where Azure Sentinel resides).​
+
+       - Mark the check boxes of the rule types whose logs you want to ingest. We recommend **DDoSProtectionNotifications**, **DDoSMitigationFlowLogs**, and **DDoSMitigationReports**.​
 
     1. Click **Save** at the top of the screen. Repeat this process for any additional firewalls (public IP addresses) for which you have enabled DDoS protection.
 
