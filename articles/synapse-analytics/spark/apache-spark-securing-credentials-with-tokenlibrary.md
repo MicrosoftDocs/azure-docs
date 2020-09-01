@@ -22,8 +22,8 @@ Accessing files from the Azure Data Lake Storage within your workspace uses AAD 
 
 ## Accessing files from external sources
 Accessing data from external sources is a common pattern. 
-Unless the external data source allows anonymous access, chances are you need to secure your connection with a credential, secret, or connection string.  Azure Synapse Analytics provides linked services to simplify the integration process by storing the connection information in the linked service or referencing the connection information from Azure Key Vault. Once you have created a linked service, Apache spark can reference the linked service to apply the connection information in your code. 
-See linked services for more information.
+Unless the external data source allows anonymous access, chances are you need to secure your connection with a credential, secret, or connection string.  Azure Synapse Analytics provides linked services to simplify the integration process by storing the connection details in a linked service or Azure Key Vault. Once you have created a linked service, Apache spark can reference the linked service to apply the connection information in your code. 
+For more information, see [linked services](../../data-factory/concepts-linked-services.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
 
 
@@ -57,7 +57,7 @@ df.show()
 To connect to other linked services, you can make a direct call to the TokenLibrary.
 
 ### GetConnectionString
- To retrieve the connection string use the <b>getConnectionString</b> function and pass in the <b>linked service name</b>.
+ To retrieve the connection string, use the <b>getConnectionString</b> function and pass in the <b>linked service name</b>.
 
 ```scala
 // Scala : retrieve connectionstring from TokenLibrary
