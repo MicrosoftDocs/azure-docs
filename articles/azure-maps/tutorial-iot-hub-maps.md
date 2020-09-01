@@ -3,7 +3,7 @@ title: 'Tutorial: Implement IoT spatial analytics with Microsoft Azure Maps'
 description: Integrate IoT Hub with Microsoft Azure Maps service APIs.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 08/18/2020
+ms.date: 09/01/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
@@ -26,6 +26,20 @@ In this tutorial you will:
 > * Create a function in Azure Functions, implementing business logic based on Azure Maps spatial analytics.
 > * Subscribe to IoT device telemetry events from the Azure function via Event Grid.
 > * Filter the telemetry events using IoT Hub message routing.
+
+## Prerequisites
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+2. [Create an Azure Maps account](quick-demo-map-app.md#create-an-azure-maps-account).
+
+3. [Obtain a primary subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account), also known as the primary key or the subscription key. For more information on authentication in Azure Maps, see [manage authentication in Azure Maps](how-to-manage-authentication.md).
+
+4. [Create a resource group](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal#create-resource-groups). In this tutorial, we'll name our resource group *ContosoRental*, but you can choose whatever name you like.
+
+5. Download the [rentalCarSimulation C# project ](https://github.com/Azure-Samples/iothub-to-azure-maps-geofencing/tree/master/src/rentalCarSimulation).
+
+This tutorial uses the [Postman](https://www.postman.com/) application, but you may choose a different API development environment.
 
 ## Use case: rental car tracking
 
@@ -70,25 +84,11 @@ In this tutorial, we'll only track one vehicle. After we set up the Azure servic
 
 The following diagram gives you a high-level overview of the system.
 
-  ![System overview](./media/tutorial-iot-hub-maps/system-diagram.png)
+   :::image type="content" source="./media/tutorial-iot-hub-maps/system-diagram.png" border="false" alt-text="System overview":::
 
 The following figure highlights the geofence area in blue. The rental car's route is indicated by a green line.
 
-  ![Geofence route](./media/tutorial-iot-hub-maps/geofence-route.png)
-
-## Prerequisites
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-
-2. [Create an Azure Maps account](quick-demo-map-app.md#create-an-azure-maps-account).
-
-3. [Obtain a primary subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account), also known as the primary key or the subscription key. For more information on authentication in Azure Maps, see [manage authentication in Azure Maps](how-to-manage-authentication.md).
-
-4. [Create a resource group](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal#create-resource-groups). In this tutorial, we'll name our resource group *ContosoRental*, but you can choose whatever name you like.
-
-5. Download the [rentalCarSimulation C# project ](https://github.com/Azure-Samples/iothub-to-azure-maps-geofencing/tree/master/src/rentalCarSimulation).
-
-This tutorial uses the [Postman](https://www.postman.com/) application, but you may choose a different API development environment.
+   :::image type="content" source="./media/tutorial-iot-hub-maps/geofence-route.png" border="false" alt-text="Geofence route":::
 
 ## Create an Azure storage account
 
