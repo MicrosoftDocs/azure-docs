@@ -16,6 +16,8 @@
       href: add-application-portal.md
     - name: Configure an app
       href: add-application-portal-configure.md
+    - name: Assign users to an app
+      href: add-application-portal-assign-users.md
     - name: Set up single sign-on
       href: add-application-portal-setup-sso.md
     - name: Delete an app
