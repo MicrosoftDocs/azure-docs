@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Map existing custom DNS name'
-description: Learn how to add an existing custom DNS domain name (vanity domain) to a web app, mobile app backend, or API app in Azure App Service.
+description: Learn how to add an existing custom DNS domain name (vanity domain) to a web app, mobile app back end, or API app in Azure App Service.
 keywords: app service, azure app service, domain mapping, domain name, existing domain, hostname
 
 ms.assetid: dc446e0e-0958-48ea-8d99-441d2b947a7c
@@ -12,50 +12,50 @@ ms.custom: mvc, seodec18
 
 # Tutorial: Map an existing custom DNS name to Azure App Service
 
-[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service. This tutorial shows you how to map an existing custom DNS name to Azure App Service.
+[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service. This tutorial shows you how to map an existing custom Domain Name System (DNS) name to App Service.
 
-![Portal navigation to Azure app](./media/app-service-web-tutorial-custom-domain/app-with-custom-dns.png)
+![Screenshot that shows portal navigation to an Azure app.](./media/app-service-web-tutorial-custom-domain/app-with-custom-dns.png)
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Map a subdomain (for example, `www.contoso.com`) by using a CNAME record
-> * Map a root domain (for example, `contoso.com`) by using an A record
-> * Map a wildcard domain (for example, `*.contoso.com`) by using a CNAME record
-> * Redirect the default URL to a custom directory
-> * Automate domain mapping with scripts
+> * Map a subdomain (for example, `www.contoso.com`) by using a CNAME record.
+> * Map a root domain (for example, `contoso.com`) by using an A record.
+> * Map a wildcard domain (for example, `*.contoso.com`) by using a CNAME record.
+> * Redirect the default URL to a custom directory.
+> * Automate domain mapping with scripts.
 
 ## Prerequisites
 
 To complete this tutorial:
 
 * [Create an App Service app](./index.yml), or use an app that you created for another tutorial.
-* Purchase a domain name and make sure you have access to the DNS registry for your domain provider (such as GoDaddy).
+* Purchase a domain name, and make sure you have access to the DNS registry for your domain provider (such as GoDaddy).
 
   For example, to add DNS entries for `contoso.com` and `www.contoso.com`, you must be able to configure the DNS settings for the `contoso.com` root domain.
 
   > [!NOTE]
-  > If you don't have an existing domain name, consider [purchasing a domain using the Azure portal](manage-custom-dns-buy-domain.md).
+  > If you don't have an existing domain name, consider [purchasing a domain by using the Azure portal](manage-custom-dns-buy-domain.md).
 
 ## Prepare the app
 
-To map a custom DNS name to a web app, the web app's [App Service plan](https://azure.microsoft.com/pricing/details/app-service/) must be a paid tier (**Shared**, **Basic**, **Standard**, **Premium** or **Consumption** for Azure Functions). In this step, you make sure that the App Service app is in the supported pricing tier.
+To map a custom DNS name to a web app, the web app's [App Service plan](https://azure.microsoft.com/pricing/details/app-service/) must be a paid tier (Shared, Basic, Standard, Premium or Consumption for Azure Functions). In this step, you make sure that the App Service app is in the supported pricing tier.
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
 ### Sign in to Azure
 
-Open the [Azure portal](https://portal.azure.com) and sign in with your Azure account.
+Open the [Azure portal](https://portal.azure.com), and sign in with your Azure account.
 
 ### Select the app in the Azure portal
 
 Search for and select **App Services**.
 
-![Select App Services](./media/app-service-web-tutorial-custom-domain/app-services.png)
+![Screenshot that shows selecting App Services.](./media/app-service-web-tutorial-custom-domain/app-services.png)
 
 On the **App Services** page, select the name of your Azure app.
 
-![Portal navigation to Azure app](./media/app-service-web-tutorial-custom-domain/select-app.png)
+![Screenshot that shows portal navigation to an Azure app.](./media/app-service-web-tutorial-custom-domain/select-app.png)
 
 You see the management page of the App Service app.  
 
@@ -65,11 +65,11 @@ You see the management page of the App Service app.
 
 In the left navigation of the app page, scroll to the **Settings** section and select **Scale up (App Service plan)**.
 
-![Scale-up menu](./media/app-service-web-tutorial-custom-domain/scale-up-menu.png)
+![Screenshot that shows the Scale up (App Service plan) menu.](./media/app-service-web-tutorial-custom-domain/scale-up-menu.png)
 
 The app's current tier is highlighted by a blue border. Check to make sure that the app is not in the **F1** tier. Custom DNS is not supported in the **F1** tier. 
 
-![Check pricing tier](./media/app-service-web-tutorial-custom-domain/check-pricing-tier.png)
+![Screenshot that shows Recommended pricing tiers.](./media/app-service-web-tutorial-custom-domain/check-pricing-tier.png)
 
 If the App Service plan is not in the **F1** tier, close the **Scale up** page and skip to [Map a CNAME record](#cname).
 
@@ -77,37 +77,37 @@ If the App Service plan is not in the **F1** tier, close the **Scale up** page a
 
 ### Scale up the App Service plan
 
-Select any of the non-free tiers (**D1**, **B1**, **B2**, **B3**, or any tier in the **Production** category). For additional options, click **See additional options**.
+Select any of the non-free tiers (**D1**, **B1**, **B2**, **B3**, or any tier in the **Production** category). For additional options, select **See additional options**.
 
-Click **Apply**.
+Select **Apply**.
 
-![Check pricing tier](./media/app-service-web-tutorial-custom-domain/choose-pricing-tier.png)
+![Screenshot that shows checking the pricing tier.](./media/app-service-web-tutorial-custom-domain/choose-pricing-tier.png)
 
 When you see the following notification, the scale operation is complete.
 
-![Scale operation confirmation](./media/app-service-web-tutorial-custom-domain/scale-notification.png)
+![Screenshot that shows the scale operation confirmation.](./media/app-service-web-tutorial-custom-domain/scale-notification.png)
 
 <a name="cname" aria-hidden="true"></a>
 
 ## Get domain verification ID
 
-To add a custom domain to your app, you need to verify your ownership of the domain by adding a verification ID as a TXT record with your domain provider. In the left navigation of your app page, click **Custom domains**. Copy **Custom Domain Verification ID** in the **Custom Domains** page for the next step.
+To add a custom domain to your app, you need to verify your ownership of the domain by adding a verification ID as a TXT record with your domain provider. In the left navigation of your app page, select **Custom domains**. Copy **Custom Domain Verification ID** in the **Custom Domains** page for the next step.
 
-![Get Custom Domain Verification ID](./media/app-service-web-tutorial-custom-domain/get-custom-domain-verification-id.png)
+![Screenshot that shows a Custom Domain Verification ID.](./media/app-service-web-tutorial-custom-domain/get-custom-domain-verification-id.png)
 
 > [!WARNING]
-> Adding domain verification IDs to your custom domain can prevent dangling DNS entries and to avoid subdomain takeovers. For more information on this common high-severity threat, see [Subdomain takeover](../security/fundamentals/subdomain-takeover.md).
+> Adding domain verification IDs to your custom domain can prevent dangling DNS entries and help to avoid subdomain takeovers. For more information on this common high-severity threat, see [Subdomain takeover](../security/fundamentals/subdomain-takeover.md).
 
 ## Map your domain
 
-You can use either a **CNAME record** or an **A record** to map a custom DNS name to App Service. Follow the respective steps:
+You can use either a *CNAME record* or an *A record* to map a custom DNS name to App Service. Follow the respective steps:
 
 - [Map a CNAME record](#map-a-cname-record)
 - [Map an A record](#map-an-a-record)
 - [Map a wildcard domain (with a CNAME record)](#map-a-wildcard-domain)
 
 > [!NOTE]
-> You should use CNAME records for all custom DNS names except root domains (for example, `contoso.com`). For root domains, use A records.
+> Use CNAME records for all custom DNS names except root domains (for example, `contoso.com`). For root domains, use A records.
 
 ### Map a CNAME record
 
@@ -130,19 +130,19 @@ Map a subdomain to the app's default domain name (`<app-name>.azurewebsites.net`
 
 After you add the CNAME and TXT records, the DNS records page looks like the following example:
 
-![Portal navigation to Azure app](./media/app-service-web-tutorial-custom-domain/cname-record.png)
+![Screenshot that shows portal navigation to an Azure app.](./media/app-service-web-tutorial-custom-domain/cname-record.png)
 
 #### Enable the CNAME record mapping in Azure
 
 1. In the left navigation of the app page in the Azure portal, select **Custom domains**.
 
-    ![Custom domain menu](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
+    ![Screenshot that shows the Custom domains menu.](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
 
 1. In the **Custom domains** page of the app, add the fully qualified custom DNS name (`www.contoso.com`) to the list.
 
 1. Select **Add custom domain**.
 
-    ![Add host name](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
+    ![Screenshot that shows the Add host name item.](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
 
 1. Type the fully qualified domain name that you added a CNAME record for, such as `www.contoso.com`.
 
@@ -150,18 +150,18 @@ After you add the CNAME and TXT records, the DNS records page looks like the fol
 
 1. Make sure that **Hostname record type** is set to **CNAME (www\.example.com or any subdomain)**. Select **Add custom domain**.
 
-    ![Add DNS name to the app](./media/app-service-web-tutorial-custom-domain/validate-domain-name-cname.png)
+    ![Screenshot that shows the Add custom domain button.](./media/app-service-web-tutorial-custom-domain/validate-domain-name-cname.png)
 
-    It might take some time for the new custom domain to be reflected in the app's **Custom domains** page. Try refreshing the browser to update the data.
+    It might take some time for the new custom domain to be reflected in the app's **Custom domains** page. Refresh the browser to update the data.
 
-    ![CNAME record added](./media/app-service-web-tutorial-custom-domain/cname-record-added.png)
+    ![Screenshot that shows adding the CNAME record.](./media/app-service-web-tutorial-custom-domain/cname-record-added.png)
 
     > [!NOTE]
-    > A warning label for your custom domain means that it's not yet bound to a TLS/SSL certificate, and any HTTPS request from a browser to your custom domain will receive and error or warning, depending on the browser. To add a TLS binding, see [Secure a custom DNS name with a TLS/SSL binding in Azure App Service](configure-ssl-bindings.md).
+    > A warning label for your custom domain means that it's not yet bound to a TLS/SSL certificate. Any HTTPS request from a browser to your custom domain will receive an error or warning, depending on the browser. To add a TLS binding, see [Secure a custom DNS name with a TLS/SSL binding in Azure App Service](configure-ssl-bindings.md).
 
     If you missed a step or made a typo somewhere earlier, you see a verification error at the bottom of the page.
 
-    ![Verification error](./media/app-service-web-tutorial-custom-domain/verification-error-cname.png)
+    ![Screenshot that shows a verification error.](./media/app-service-web-tutorial-custom-domain/verification-error-cname.png)
 
 <a name="a" aria-hidden="true"></a>
 
@@ -177,11 +177,11 @@ To map an A record, you need the app's external IP address. You can find this IP
 
 In the left navigation of the app page in the Azure portal, select **Custom domains**.
 
-![Custom domain menu](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
+![Screenshot that shows the Custom domains menu.](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
 
 In the **Custom domains** page, copy the app's IP address.
 
-![Portal navigation to Azure app](./media/app-service-web-tutorial-custom-domain/mapping-information.png)
+![Screenshot that shows portal navigation to an Azure app.](./media/app-service-web-tutorial-custom-domain/mapping-information.png)
 
 #### Access DNS records with domain provider
 
@@ -207,7 +207,7 @@ To map an A record to an app, usually to the root domain, create two records:
 
 When the records are added, the DNS records page looks like the following example:
 
-![DNS records page](./media/app-service-web-tutorial-custom-domain/a-record.png)
+![Screenshot that shows a DNS records page.](./media/app-service-web-tutorial-custom-domain/a-record.png)
 
 <a name="enable-a" aria-hidden="true"></a>
 
@@ -217,26 +217,26 @@ Back in the app's **Custom domains** page in the Azure portal, add the fully qua
 
 1. Select **Add custom domain**.
 
-    ![Add host name](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
+    ![Screenshot that shows adding a host name.](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
 
 1. Type the fully qualified domain name that you configured the A record for, such as `contoso.com`. 
 
 1. Select **Validate**. The **Add custom domain** page is shown.
 
-1. Make sure that **Hostname record type** is set to **A record (example.com)**. Select **Add custom domain**.
+1. Make sure that **Hostname record type** is set to **A record (**example.com**)**. Select **Add custom domain**.
 
-    ![Add DNS name to the app](./media/app-service-web-tutorial-custom-domain/validate-domain-name.png)
+    ![Screenshot that shows adding a DNS name to the app.](./media/app-service-web-tutorial-custom-domain/validate-domain-name.png)
 
-    It might take some time for the new custom domain to be reflected in the app's **Custom domains** page. Try refreshing the browser to update the data.
+    It might take some time for the new custom domain to be reflected in the app's **Custom domains** page. Refresh the browser to update the data.
 
-    ![A record added](./media/app-service-web-tutorial-custom-domain/a-record-added.png)
+    ![Screenshot that shows adding an A record.](./media/app-service-web-tutorial-custom-domain/a-record-added.png)
 
     > [!NOTE]
-    > A warning label for your custom domain means that it's not yet bound to a TLS/SSL certificate, and any HTTPS request from a browser to your custom domain will receive and error or warning, depending on the browser. To add a TLS binding, see [Secure a custom DNS name with a TLS/SSL binding in Azure App Service](configure-ssl-bindings.md).
+    > A warning label for your custom domain means that it's not yet bound to a TLS/SSL certificate. Any HTTPS request from a browser to your custom domain will receive an error or warning, depending on the browser. To add a TLS binding, see [Secure a custom DNS name with a TLS/SSL binding in Azure App Service](configure-ssl-bindings.md).
     
     If you missed a step or made a typo somewhere earlier, you see a verification error at the bottom of the page.
     
-    ![Verification error](./media/app-service-web-tutorial-custom-domain/verification-error.png)
+    ![Screenshot that shows a verification error.](./media/app-service-web-tutorial-custom-domain/verification-error.png)
     
 <a name="wildcard" aria-hidden="true"></a>
 
@@ -261,7 +261,7 @@ For the `*.contoso.com` domain example, the CNAME record will map the name `*` t
 
 When the CNAME is added, the DNS records page looks like the following example:
 
-![Portal navigation to Azure app](./media/app-service-web-tutorial-custom-domain/cname-record-wildcard.png)
+![Screenshot that shows the portal navigation to an Azure app.](./media/app-service-web-tutorial-custom-domain/cname-record-wildcard.png)
 
 #### Enable the CNAME record mapping in the app
 
@@ -269,11 +269,11 @@ You can now add any subdomain that matches the wildcard name to the app (for exa
 
 1. In the left navigation of the app page in the Azure portal, select **Custom domains**.
 
-    ![Custom domain menu](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
+    ![Screenshot that shows the Custom domains menu.](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
 
 1. Select **Add custom domain**.
 
-    ![Add host name](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
+    ![Screenshot that shows adding a host name.](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
 
 1. Type a fully qualified domain name that matches the wildcard domain (for example, `sub1.contoso.com`), and then select **Validate**.
 
@@ -281,22 +281,22 @@ You can now add any subdomain that matches the wildcard name to the app (for exa
 
 1. Make sure that **Hostname record type** is set to **CNAME record (www\.example.com or any subdomain)**. Select **Add custom domain**.
 
-    ![Add DNS name to the app](./media/app-service-web-tutorial-custom-domain/validate-domain-name-cname-wildcard.png)
+    ![Screenshot that shows adding a DNS name to the app.](./media/app-service-web-tutorial-custom-domain/validate-domain-name-cname-wildcard.png)
 
     It might take some time for the new custom domain to be reflected in the app's **Custom domains** page. Try refreshing the browser to update the data.
 
 1. Select the **+** icon again to add another custom domain that matches the wildcard domain. For example, add `sub2.contoso.com`.
 
-    ![CNAME record added](./media/app-service-web-tutorial-custom-domain/cname-record-added-wildcard-2.png)
+    ![Screenshot that shows adding a CNAME record.](./media/app-service-web-tutorial-custom-domain/cname-record-added-wildcard-2.png)
 
     > [!NOTE]
-    > A warning label for your custom domain means that it's not yet bound to a TLS/SSL certificate, and any HTTPS request from a browser to your custom domain will receive and error or warning, depending on the browser. To add a TLS binding, see [Secure a custom DNS name with a TLS/SSL binding in Azure App Service](configure-ssl-bindings.md).
+    > A warning label for your custom domain means that it's not yet bound to a TLS/SSL certificate. Any HTTPS request from a browser to your custom domain will receive an error or warning, depending on the browser. To add a TLS binding, see [Secure a custom DNS name with a TLS/SSL binding in Azure App Service](configure-ssl-bindings.md).
     
 ## Test in browser
 
 Browse to the DNS name(s) that you configured earlier (for example, `contoso.com`,  `www.contoso.com`, `sub1.contoso.com`, and `sub2.contoso.com`).
 
-![Portal navigation to Azure app](./media/app-service-web-tutorial-custom-domain/app-with-custom-dns.png)
+![Screenshot that shows the portal navigation to an Azure app.](./media/app-service-web-tutorial-custom-domain/app-with-custom-dns.png)
 
 ## Resolve 404 "Not Found"
 
@@ -319,17 +319,17 @@ To do this, select **Application settings** in the left-hand navigation of your 
 
 At the bottom of the page, the root virtual directory `/` points to `site\wwwroot` by default, which is the root directory of your app code. Change it to point to the `site\wwwroot\public` instead, for example, and save your changes.
 
-![Customize virtual directory](./media/app-service-web-tutorial-custom-domain/customize-virtual-directory.png)
+![Screenshot that shows customizing a virtual directory.](./media/app-service-web-tutorial-custom-domain/customize-virtual-directory.png)
 
-Once the operation completes, your app should return the right page at the root path (for example, `http://contoso.com`).
+After the operation finishes, your app should return the right page at the root path (for example, `http://contoso.com`).
 
 ## Automate with scripts
 
 You can automate management of custom domains with scripts, using the [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/). 
 
-### Azure CLI 
+### Azure CLI
 
-The following command adds a configured custom DNS name to an App Service app. 
+The following command adds a configured custom DNS name to an App Service app.
 
 ```bash 
 az webapp config hostname add \
@@ -340,7 +340,7 @@ az webapp config hostname add \
 
 For more information, see [Map a custom domain to a web app](scripts/cli-configure-custom-domain.md).
 
-### Azure PowerShell 
+### Azure PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -360,13 +360,13 @@ For more information, see [Assign a custom domain to a web app](scripts/powershe
 In this tutorial, you learned how to:
 
 > [!div class="checklist"]
-> * Map a subdomain by using a CNAME record
-> * Map a root domain by using an A record
-> * Map a wildcard domain by using a CNAME record
-> * Redirect the default URL to a custom directory
-> * Automate domain mapping with scripts
+> * Map a subdomain by using a CNAME record.
+> * Map a root domain by using an A record.
+> * Map a wildcard domain by using a CNAME record.
+> * Redirect the default URL to a custom directory.
+> * Automate domain mapping with scripts.
 
-Advance to the next tutorial to learn how to bind a custom TLS/SSL certificate to a web app.
+Continue to the next tutorial to learn how to bind a custom TLS/SSL certificate to a web app.
 
 > [!div class="nextstepaction"]
 > [Secure a custom DNS name with a TLS/SSL binding in Azure App Service](configure-ssl-bindings.md)
