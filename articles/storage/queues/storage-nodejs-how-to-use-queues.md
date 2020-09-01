@@ -347,7 +347,7 @@ Now that you've learned the basics of queue storage, follow these links to learn
 * Visit the [Azure Storage client library for JavaScript][Azure Storage client library for JavaScript] repository on GitHub
 
 [Azure Storage client library for JavaScript]: https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage#azure-storage-client-library-for-javascript
-[using the REST API]: https://docs.microsoft.com/en-us/rest/api/storageservices/
+[using the REST API]: /rest/api/storageservices/
 [Azure Portal]: https://portal.azure.com
 [Azure Storage Team Blog]: https://techcommunity.microsoft.com/t5/azure-storage/bg-p/AzureStorageBlog
 [Build and deploy a Node.js web app to Azure using Web Matrix]: https://www.microsoft.com/web/webmatrix/
