@@ -175,7 +175,7 @@ Obtain the images with the Docker pull command to place in your private registry
 | IoT Edge runtime container | Docker pull command |
 | --- | --- |
 | [Azure IoT Edge Agent](https://hub.docker.com/_/microsoft-azureiotedge-agent) | `docker pull mcr.microsoft.com/azureiotedge-agent` |
-| [Azure IoT Edge HUb](https://hub.docker.com/_/microsoft-azureiotedge-hub) | `docker pull mcr.microsoft.com/azureiotedge-hub` |
+| [Azure IoT Edge Hub](https://hub.docker.com/_/microsoft-azureiotedge-hub) | `docker pull mcr.microsoft.com/azureiotedge-hub` |
 
 Next, be sure to update the image references in the deployment.template.json file for the edgeAgent and edgeHub system modules. Replace `mcr.microsoft.com` with your registry name and server for both modules.
 
@@ -314,9 +314,9 @@ You can do so in the **createOptions** of each module. For example:
 
 ### Consider tests and CI/CD pipelines
 
-For the most efficient IoT Edge deployment scenario, consider integrating your production deployment into your testing and CI/CD pipelines. Azure IoT Edge supports multiple CI/CD platforms, including Azure DevOps. For more information, see [Continuous integration and continuous deployment to Azure IoT Edge](how-to-ci-cd.md).
+For the most efficient IoT Edge deployment scenario, consider integrating your production deployment into your testing and CI/CD pipelines. Azure IoT Edge supports multiple CI/CD platforms, including Azure DevOps. For more information, see [Continuous integration and continuous deployment to Azure IoT Edge](how-to-continuous-integration-continuous-deployment.md).
 
 ## Next steps
 
 * Learn more about [IoT Edge automatic deployment](module-deployment-monitoring.md).
-* See how IoT Edge supports [Continuous integration and continuous deployment](how-to-ci-cd.md).
+* See how IoT Edge supports [Continuous integration and continuous deployment](how-to-continuous-integration-continuous-deployment.md).
