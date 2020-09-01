@@ -12,7 +12,7 @@ ms.custom: mvc, cli-validate, seodec18
 
 # Create a static HTML web app in Azure
 
-[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service. This quickstart shows how to deploy a basic HTML+CSS site to Azure App Service. You'll complete this quickstart in [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), but you can also run these commands locally with [Azure CLI](/cli/azure/install-azure-cli).
+[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service. This quickstart shows how to deploy a basic HTML+CSS site to Azure App Service. You'll complete this quickstart in [Cloud Shell](../cloud-shell/overview.md), but you can also run these commands locally with [Azure CLI](/cli/azure/install-azure-cli).
 
 ![Home page of sample app](media/quickstart-html/hello-world-in-browser-az.png)
 
@@ -54,7 +54,7 @@ The `az webapp up` command does the following actions:
 
 - Create an app with the specified name.
 
-- [Zip deploy](https://docs.microsoft.com/azure/app-service/deploy-zip) files from the current working directory to the web app.
+- [Zip deploy](./deploy-zip.md) files from the current working directory to the web app.
 
 This command may take a few minutes to run. While running, it displays information similar to the following example:
 
