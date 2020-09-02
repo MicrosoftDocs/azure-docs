@@ -7,7 +7,7 @@
   - name: Which MySQL option should I choose?
     href: select-right-deployment-type.md
     displayName: deployment choice, paas
-- name: Shared Docs
+- name: Shared documentation
   items:
   - name: Migration
     items:
@@ -32,7 +32,7 @@
   - name: Quickstarts
     expanded: true
     items:
-    - name: Create server and database
+    - name: Create a server
       items:
        - name: Azure portal
          href: quickstart-create-mysql-server-database-using-azure-portal.md
@@ -77,7 +77,7 @@
          href: connect-go.md
   - name: Tutorials
     items:
-    - name: Design a Database
+    - name: Design a database
       items:
       - name: Azure portal
         href: tutorial-design-database-using-portal.md
@@ -87,7 +87,7 @@
         href: tutorial-design-database-using-powershell.md
       - name: Azure Resource Manager template
         href: tutorial-provision-mysql-server-using-Azure-Resource-Manager-templates.md
-    - name: Build an PHP Web app with MySQL
+    - name: Build an PHP web app with MySQL
       items:
       - name: Wordpress in containers with MySQL
         href: ../app-service/containers/tutorial-multi-container-app.md
@@ -171,20 +171,20 @@
        - name: Query Store
          href: concepts-query-store.md
          displayName: performance, query store
-       - name: Query Performance Insights
+       - name: Query performance insights
          href: concepts-query-performance-insight.md
          displayName: query performance insights
-       - name: Performance Recommendations
+       - name: Performance recommendations
          href: concepts-performance-recommendations.md
          displayName:  recommendation
-     - name: Application Development
+     - name: Application development
        items:
        - name: Drivers and tools compatibility
          href: concepts-compatibility.md
          displayName: drivers, tools
-       - name: Application development
+       - name: How to develop
          href: concepts-database-application-development.md
-         displayName: developement 
+         displayName: developement
        - name: Application Best practices
          href: app-development-best-practices.md
          displayName: application
@@ -225,7 +225,7 @@
         - name: Configure Azure AD integration
           href: howto-configure-sign-in-azure-ad-authentication.md
           displayName:  active directory
-        - name: Connect with Managed Identity
+        - name: Connect with Managed identity
           href: howto-connect-with-managed-identity.md
           displayName: managed identity, msi
     - name: Restore a server
@@ -252,7 +252,7 @@
             displayName: connect , query , libraries, TLS, runtime
           - name: Web apps
             href: howto-connect-webapp.md
-            displayName: azure web app, security, web app, app service 
+            displayName: azure web app, security, web app, app service
           - name: Connect with redirection
             href: howto-redirection.md
             displayName: development, redirection , php
@@ -260,7 +260,7 @@
       items:
       - name: Azure portal
         href: howto-server-parameters.md
-        displayName: server parameters 
+        displayName: server parameters
       - name: Azure CLI
         href: howto-configure-server-parameters-using-cli.md
         displayName: server parameters, cli
@@ -327,7 +327,7 @@
         - name: Troubleshoot data encryption
           href: howto-data-encryption-troubleshoot.md
           displayName: encryption, security
-    - name: Advanced Threat Protection
+    - name: Advanced threat protection
       items:
       - name: Azure portal
         href: howto-database-threat-protection-portal.md
@@ -340,7 +340,7 @@
         - name: Azure CLI
           href: howto-manage-vnet-using-cli.md
           displayName: vnet, virtual network, service endpoint
-    - name: Private Link
+    - name: Private link
       items:
       - name: Azure portal
         href: howto-configure-privatelink-portal.md
@@ -348,7 +348,7 @@
       - name: Azure CLI
         href: howto-configure-privatelink-cli.md
         displayName: private link, private endpoint
-    - name: Data Encryption
+    - name: Data encryption
       items:
        - name: Azure portal
          href: howto-data-encryption-portal.md
@@ -396,7 +396,8 @@
   - name: Quickstarts
     expanded: true
     items:
-      - name: Create Server
+      - name: Create a server
+        expanded: true
         items:
         - name: Azure portal
           href: flexible-server/quickstart-create-server-portal.md
@@ -405,7 +406,6 @@
         - name: ARM template
           href: flexible-server/quickstart-create-arm-template.md
       - name: Connect and query
-        expanded: true
         items:
           - name: PHP
             href: flexible-server/connect-php.md
@@ -415,19 +415,16 @@
             href: flexible-server/connect-python.md
   - name: Tutorials
     items:
-    - name: Build PHP (Laravel) app with Flexible Server
+    - name: Build PHP (Laravel) app with Flexible server
       href: flexible-server/tutorial-php-database-app.md
     - name: Web app and database server in virtual network
-      href: flexible-server/tutorial-webapp-server-vnet.md      
+      href: flexible-server/tutorial-webapp-server-vnet.md
   - name: Concepts
-    expanded: true
     items:
-    - name: DB & Servers
-      items:
-      - name: Servers
-        href: flexible-server/concept-servers.md
-      - name: Supported versions
-        href: flexible-server/concepts-supported-versions.md   
+    - name: Servers
+      href: flexible-server/concept-servers.md
+    - name: Supported versions
+      href: flexible-server/concepts-supported-versions.md
     - name: Limitations
       href: flexible-server/concepts-limitations.md
     - name: Compute and storage
@@ -451,7 +448,7 @@
         href: flexible-server/concepts-monitoring.md
   - name: How-to guides
     items:
-    - name: Manage your server
+    - name: Manage a server
       items:
       - name: Azure portal
         href: flexible-server/how-to-manage-portal.md
@@ -521,8 +518,6 @@
         href: https://aka.ms/mysql-migrate-vid
       - name: Build and deploy Web Apps
         href: https://aka.ms/mysql-webapps-vid
-      - name: Connect containers using OSBA
-        href: https://aka.ms/mysql-osba-vid
   - name: Request a feature
     href: https://feedback.azure.com/forums/597982-azure-database-for-mysql
   - name: Region availability
