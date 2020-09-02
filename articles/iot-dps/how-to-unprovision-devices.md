@@ -52,22 +52,10 @@ To see a list of devices that have been provisioned through an enrollment group,
 With enrollment groups, there are two scenarios to consider:
 
 - To deprovision all of the devices that have been provisioned through an enrollment group:
-  1. Disable the enrollment group to blacklist its signing certificate. 
+  1. Disable the enrollment group to disallow its signing certificate. 
   2. Use the list of provisioned devices for that enrollment group to disable or delete each device from the identity registry of its respective IoT hub. 
   3. After disabling or deleting all devices from their respective IoT hubs, you can optionally delete the enrollment group. Be aware, though, that, if you delete the enrollment group and there is an enabled enrollment group for a signing certificate higher up in the certificate chain of one or more of the devices, those devices can re-enroll. 
 
 - To deprovision a single device from an enrollment group:
   1. Create a disabled individual enrollment for its leaf (device) certificate. This revokes access to the provisioning service for that device while still permitting access for other devices that have the enrollment group's signing certificate in their chain. Do not delete the disabled individual enrollment for the device. Doing so will allow the device to re-enroll through the enrollment group. 
   2. Use the list of provisioned devices for that enrollment group to find the IoT hub that the device was provisioned to and disable or delete it from that hub's identity registry. 
-  
-  
-
-
-
-
-
-
-
-
-
-
