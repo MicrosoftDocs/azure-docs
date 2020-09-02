@@ -155,7 +155,8 @@ When you're debugging a job, you might also want to look into the job streams. T
 ```kusto
 AzureDiagnostics
 | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobStreams" and JobId_g == "2ebd22ea-e05e-4eb9-9d76-d73cbd4356e0"
-| sort by TimeGenerated asc | project ResultDescription
+| sort by TimeGenerated asc
+| project ResultDescription
 ```
 
 ### View historical job status
