@@ -12,7 +12,7 @@ ms.date: 03/26/2020
 ---
 
 # Tutorial: Train and deploy a model from the CLI
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 In this tutorial, you use the machine learning extension for the Azure CLI to train, register, and deploy a model.
 

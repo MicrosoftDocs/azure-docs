@@ -16,7 +16,7 @@ ms.custom: how-to
 ---
 
 # Train and register a Keras classification model with Azure Machine Learning
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 This article shows you how to train and register a Keras classification model built on TensorFlow using Azure Machine Learning. It uses the popular [MNIST dataset](http://yann.lecun.com/exdb/mnist/) to classify handwritten digits using a deep neural network (DNN) built using the [Keras Python library](https://keras.io) running on top of [TensorFlow](https://www.tensorflow.org/overview).
 

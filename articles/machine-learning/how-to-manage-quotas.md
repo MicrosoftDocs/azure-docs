@@ -14,7 +14,7 @@ ms.custom: troubleshooting,contperfq4
 ---
 
 # Manage & increase quotas for resources with Azure Machine Learning
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 In this article, you will learn about preconfigured limits on Azure resources for your [Azure Machine Learning](overview-what-is-azure-ml.md) subscription and what quotas you can manage. These limits are put in place to prevent budget over-runs due to fraud, and to honor Azure capacity constraints. 
 

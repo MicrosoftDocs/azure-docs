@@ -44,7 +44,7 @@ The following screenshot shows the cost estimation by using the calculator:
 
 As you add new resources to your workspace, return to this calculator and add the same resource here to update your cost estimates.
 
-While the Enterprise edition is in preview, there is no ML surcharge. When the Enterprise edition becomes generally available, it will have a surcharge (for training and inferencing).  For more information, see [Azure Machine Learning pricing](https://azure.microsoft.com/pricing/details/machine-learning/).
+For more information, see [Azure Machine Learning pricing](https://azure.microsoft.com/pricing/details/machine-learning/).
 
 ## Get cost alerts
 

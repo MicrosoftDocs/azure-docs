@@ -15,7 +15,7 @@ ms.custom: how-to
 
 # Monitor and view ML run logs and metrics
 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 In this article, you learn how to monitor Azure Machine Learning runs and view their logs. Before you can view logs, you have to enable them first. For more information, see [Enable logging in Azure ML training runs](how-to-track-experiments.md).
 
