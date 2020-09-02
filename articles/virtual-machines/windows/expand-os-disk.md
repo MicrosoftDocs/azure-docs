@@ -1,6 +1,6 @@
 ---
 title: Expand the OS drive of a Windows VM in an Azure 
-description: Expand the size of the OS drive of a virtual machine using Azure Powershell in the  Resource Manager deployment model.
+description: Expand the size of the OS drive of a virtual machine using Azure PowerShell in the  Resource Manager deployment model.
 services: virtual-machines-windows
 documentationcenter: ''
 author: kirpasingh
@@ -41,11 +41,11 @@ When you create a new virtual machine (VM) in a Resource Group by deploying an i
     :::image type="content" source="./media/expand-os-disk/select-disks.png" alt-text="Screenshot that shows the Disks option selected in the Settings section of the menu.":::
 
  
-3. Select **Disk name** for the disk you wand to resize.
+3. Under **Disk name**, select the disk you wand to resize.
 
     :::image type="content" source="./media/expand-os-disk/disk-name.png" alt-text="Screenshot that shows the Disks pane with a disk name selected.":::
 
-4. In the left menu, under **Settings**, select **Configuration**.
+4. In the left menu under **Settings**, select **Configuration**.
 
     :::image type="content" source="./media/expand-os-disk/configuration.png" alt-text="Screenshot that shows the Configuration option selected in the Settings section of the menu.":::
 
@@ -66,33 +66,33 @@ When you create a new virtual machine (VM) in a Resource Group by deploying an i
 
 Open your PowerShell ISE or PowerShell window in administrative mode and follow the steps below:
 
-1. Sign in to your Microsoft Azure account in resource management mode and select your subscription as follows:
+1. Sign in to your Microsoft Azure account in resource management mode and select your subscription:
    
     ```powershell
     Connect-AzAccount
     Select-AzSubscription –SubscriptionName 'my-subscription-name'
     ```
 
-2. Set your resource group name and VM name as follows:
+2. Set your resource group name and VM name:
    
     ```powershell
     $rgName = 'my-resource-group-name'
     $vmName = 'my-vm-name'
     ```
 
-3. Obtain a reference to your VM as follows:
+3. Obtain a reference to your VM:
    
     ```powershell
     $vm = Get-AzVM -ResourceGroupName $rgName -Name $vmName
     ```
 
-4. Stop the VM before resizing the disk as follows:
+4. Stop the VM before resizing the disk:
    
     ```powershell
     Stop-AzVM -ResourceGroupName $rgName -Name $vmName
     ```
 
-5. Obtain a reference to the managed OS disk. Set the size of the managed OS disk to the desired value and update the Disk as follows:
+5. Obtain a reference to the managed OS disk. Set the size of the managed OS disk to the desired value and update the Disk:
    
     ```powershell
     $disk= Get-AzDisk -ResourceGroupName $rgName -DiskName $vm.StorageProfile.OsDisk.Name
@@ -100,10 +100,10 @@ Open your PowerShell ISE or PowerShell window in administrative mode and follow 
     Update-AzDisk -ResourceGroupName $rgName -Disk $disk -DiskName $disk.Name
     ```   
     > [!WARNING]
-    > The new size should be greater than the existing disk size. The maximum allowed is 2048 GB for OS disks. (It is possible to expand the VHD blob beyond that size, but the OS will only be able to work with the first 2048 GB of space.)
+    > The new size should be greater than the existing disk size. The maximum allowed is 2,048 GB for OS disks. (It is possible to expand the VHD blob beyond that size, but the OS works only with the first 2,048 GB of space.)
     > 
          
-6. Updating the VM may take a few seconds. Once the command finishes executing, restart the VM as follows:
+6. Updating the VM might take a few seconds. When the command finishes executing, restart the VM:
    
     ```powershell
     Start-AzVM -ResourceGroupName $rgName -Name $vmName
@@ -115,33 +115,33 @@ And that’s it! Now RDP into the VM, open Computer Management (or Disk Manageme
 
 Open your PowerShell ISE or PowerShell window in administrative mode and follow the steps below:
 
-1. Sign in to your Microsoft Azure account in resource management mode and select your subscription as follows:
+1. Sign in to your Microsoft Azure account in resource management mode and select your subscription:
    
     ```powershell
     Connect-AzAccount
     Select-AzSubscription –SubscriptionName 'my-subscription-name'
     ```
 
-2. Set your resource group name and VM name as follows:
+2. Set your resource group name and VM names:
    
     ```powershell
     $rgName = 'my-resource-group-name'
     $vmName = 'my-vm-name'
     ```
 
-3. Obtain a reference to your VM as follows:
+3. Obtain a reference to your VM:
    
     ```powershell
     $vm = Get-AzVM -ResourceGroupName $rgName -Name $vmName
     ```
 
-4. Stop the VM before resizing the disk as follows:
+4. Stop the VM before resizing the disk:
    
     ```powershell
     Stop-AzVM -ResourceGroupName $rgName -Name $vmName
     ```
 
-5. Set the size of the unmanaged OS disk to the desired value and update the VM as follows:
+5. Set the size of the unmanaged OS disk to the desired value and update the VM:
    
     ```powershell
     $vm.StorageProfile.OSDisk.DiskSizeGB = 1023
@@ -149,11 +149,11 @@ Open your PowerShell ISE or PowerShell window in administrative mode and follow 
     ```
    
     > [!WARNING]
-    > The new size should be greater than the existing disk size. The maximum allowed is 2,048 GB for OS disks. (It is possible to expand the VHD blob beyond that size, but the OS will only be able to work with the first 2,048 GB of space.)
+    > The new size should be greater than the existing disk size. The maximum allowed is 2,048 GB for OS disks. (It's possible to expand the VHD blob beyond that size, but the OS will only be able to work with the first 2,048 GB of space.)
     > 
     > 
    
-6. Updating the VM may take a few seconds. Once the command finishes executing, restart the VM as follows:
+6. Updating the VM might take a few seconds. When the command finishes executing, restart the VM:
    
     ```powershell
     Start-AzVM -ResourceGroupName $rgName -Name $vmName
@@ -228,7 +228,7 @@ Similarly, you can reference other data disks attached to the VM, either by usin
 
 ## Expand the volume within the OS
 
-Once you have expanded the disk for the VM, you need to go into the OS and expand the volume to encompass the new space. There are several methods for expanding a partition. This section covers connecting the VM using an RDP connection to expand the partition using **DiskPart**.
+When you have expanded the disk for the VM, you need to go into the OS and expand the volume to encompass the new space. There are several methods for expanding a partition. This section covers connecting the VM using an RDP connection to expand the partition using **DiskPart**.
 
 1. Open an RDP connection to your VM.
 
