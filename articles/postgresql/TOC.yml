@@ -86,7 +86,7 @@
         href: tutorial-design-database-using-azure-cli.md
       - name: Azure PowerShell
         href: tutorial-design-database-using-powershell.md
-    - name: Build and deploy python web app (Django)
+    - name: Build and deploy Python web app (Django)
       href: ../app-service/tutorial-python-postgresql-app.md
       displayName: python, django , connect
       maintainContext: true
@@ -244,7 +244,7 @@
       - name: Azure PowerShell
         href: howto-restore-server-powershell.md
         displayName: restore, georestore, geo-restore, outage
-    - name: Enable Authentication
+    - name: Enable authentication
       items:
         - name: Create users
           href: howto-create-users.md
@@ -392,7 +392,7 @@
     items:
     - name: Configure web app and database server in virtual network
       href: flexible-server/tutorial-webapp-server-vnet.md
-    - name: Deploy python (Django) app with database
+    - name: Deploy Python (Django) app with database
       href: flexible-server/tutorial-django-app-service-postgres.md
   - name: Concepts
     items:
