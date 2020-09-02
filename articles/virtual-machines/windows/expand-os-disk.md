@@ -14,26 +14,23 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 07/05/2018
+ms.date: 09/02/2020
 ms.author: kirpas
 ms.subservice: disks
 
 ---
 # How to expand the OS drive of a virtual machine
 
-When you create a new virtual machine (VM) in a Resource Group by deploying an image from [Azure Marketplace](https://azure.microsoft.com/marketplace/), the default OS drive is often 127 GB (some images have smaller OS disk sizes by default). Even though it’s possible to add data disks to the VM (how many depending upon the SKU you’ve chosen) and moreover it’s recommended to install applications and CPU intensive workloads on these addendum disks, oftentimes customers need to expand the OS drive to support certain scenarios such as following:
+When you create a new virtual machine (VM) in a resource group by deploying an image from [Azure Marketplace](https://azure.microsoft.com/marketplace/), the default OS drive is often 127 GB (some images have smaller OS disk sizes by default). Even though it's possible to add data disks to the VM (the number depends on the SKU you chose) and we recommend installing applications and CPU-intensive workloads on these addendum disks, often, customers need to expand the OS drive to support specific scenarios:
 
-- Support legacy applications that install components on OS drive.
-- Migrate a physical PC or virtual machine from on-premises with a larger OS drive.
-
+- To support legacy applications that install components on the OS drive.
+- To migrate a physical PC or VM from on-premises with a larger OS drive.
 
 > [!IMPORTANT]
 > Resizing the OS Disk of an Azure Virtual Machine requires the virtual machine to be deallocated.
 >
 > After expanding the disks, you need to [expand the volume within the OS](#expand-the-volume-within-the-os) to take advantage of the larger disk.
 > 
-
-[Azure App Service Migration Assistant](/learn/paths/migrate-dotnet-apps-azure/)
 
 ## Resize a managed disk in the Azure portal
 
