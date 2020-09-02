@@ -47,7 +47,7 @@ Type `spx` to see help for the Speech CLI.
 
 #### [Docker Install](#tab/dockerinstall)
 
-## Prerequisites
+#### Prerequisites
 
 > [!div class="checklist"]
 > * <a href="https://www.docker.com/get-started" target="_blank">Docker Desktop for your platform <span class="docon docon-navigate-external x-hidden-focus"></span></a>
