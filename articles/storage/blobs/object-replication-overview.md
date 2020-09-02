@@ -102,7 +102,7 @@ Register-AzProviderFeature -FeatureName AllowObjectReplication -ProviderNamespac
 # Register for change feed (preview)
 Register-AzProviderFeature -FeatureName Changefeed -ProviderNamespace Microsoft.Storage
 
-# Register for blob versioning (preview)
+# Register for Blob versioning
 Register-AzProviderFeature -FeatureName Versioning -ProviderNamespace Microsoft.Storage
 
 # Refresh the Azure Storage provider namespace

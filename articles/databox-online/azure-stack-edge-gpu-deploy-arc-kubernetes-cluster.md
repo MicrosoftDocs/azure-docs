@@ -1,17 +1,17 @@
 ---
-title: Enable Azure Arc on Kubernetes on Azure Stack Edge device| Microsoft Docs
-description: Describes how to enable Azure Arc on an existing Kubernetes cluster on your Azure Stack Edge device.
+title: Enable Azure Arc on Kubernetes on Azure Stack Edge GPU device| Microsoft Docs
+description: Describes how to enable Azure Arc on an existing Kubernetes cluster on your Azure Stack Edge GPU device.
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/25/2020
+ms.date: 09/01/2020
 ms.author: alkohli
 ---
 
-# Enable Azure Arc on Kubernetes cluster on your Azure Stack Edge device
+# Enable Azure Arc on Kubernetes cluster on your Azure Stack Edge GPU device
 
 This article shows you how to enable Azure Arc on an existing Kubernetes cluster on your Azure Stack Edge device. 
 
@@ -55,7 +55,7 @@ Before you can enable Azure Arc on Kubernetes cluster, make sure that you have c
 
 ## Register Kubernetes resource providers
 
-Before you configure the Kubernetes cluster via Azure Arc, you will need to enable and register `Microsoft.Kubernetes` and `Microsoft.KubernetesConfiguration` against your subscription. 
+Before you enable Azure Arc on the Kubernetes cluster, you will need to enable and register `Microsoft.Kubernetes` and `Microsoft.KubernetesConfiguration` against your subscription. 
 
 1. To enable a resource provider, in the Azure portal, go to the subscription that you are planning to use for the deployment. Go to **Resource Providers**. 
 1. In the right-pane, search for the providers you want to add. In this example, `Microsoft.Kubernetes` and `Microsoft.KubernetesConfiguration`.
@@ -84,7 +84,7 @@ You can also register resource providers via the `az cli`. For more information,
 
 1. To create a service principal, use the following command via the `az cli`.
 
-    `az as sp create-for-rbac --skip assignment --name "<Informative name for service principal>"`  
+    `az ad sp create-for-rbac --skip assignment --name "<Informative name for service principal>"`  
 
     For information on how to log into the `az cli`, [Start Cloud Shell in Azure portal](../cloud-shell/quickstart-powershell.md?view=azure-cli-latest#start-cloud-shell)
 
@@ -138,12 +138,12 @@ Follow these steps to configure the Kubernetes cluster for Azure Arc management:
 
     `Set-HcsKubernetesAzureArcAgent -SubscriptionId "<Your Azure Subscription Id>" -ResourceGroupName "<Resource Group Name>" -ResourceName "<Azure Arc resource name (shouldn't exist already)>" -Location "<Region associated with resource group>" -TenantId "<Tenant Id of service principal>" -ClientId "<App id of service principal>" -ClientSecret "<Password of service principal>"`
 
-    To deploy Azure Arc on Azure Stack Edge device, make sure that you are using a [Supported region for Azure Arc](../azure-arc/kubernetes/overview.md#supported-regions). Azure Arc is currently in preview. 
+    To deploy Azure Arc on Azure Stack Edge device, make sure that you are using a [Supported region for Azure Arc](../azure-arc/kubernetes/overview.md#supported-regions). Azure Arc is currently in preview. You can also figure out the exact name of the region to pass in the cmdlet by using the `az account list-locations` command.
     
     Here is an example:
    
     ```powershell
-    [10.128.44.240]: PS>Set-HcsKubernetesAzureArcAgent -SubscriptionId "062c67a6-019b-40af-a775-c4dc1abe56ed" -ResourceGroupName "myaserg1" -ResourceName "myasetestresarc" -Location "WestEurope" -TenantId "72f988bf-86f1-41af-91ab-2d7cd011db47" -ClientId "aa8a082e-0fa1-4a82-b51c-e8b2a9fdaa8b" -ClientSecret "<password>"
+    [10.128.44.240]: PS>Set-HcsKubernetesAzureArcAgent -SubscriptionId "062c67a6-019b-40af-a775-c4dc1abe56ed" -ResourceGroupName "myaserg1" -ResourceName "myasetestresarc" -Location "westeurope" -TenantId "72f988bf-86f1-41af-91ab-2d7cd011db47" -ClientId "aa8a082e-0fa1-4a82-b51c-e8b2a9fdaa8b" -ClientSecret "<password>"
         [10.128.44.240]: PS>
     ```
     
