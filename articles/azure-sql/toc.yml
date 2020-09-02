@@ -666,9 +666,6 @@
       href: database/powershell-script-content-guide.md?tabs=single-database
     - name: Azure Resource Manager
       href: database/arm-templates-content-guide.md?tabs=single-database
-    - name: Azure Policy built-ins
-      displayName: samples, policies, definitions
-      href: ./database/policy-samples.md
     - name: Code samples
       href: https://azure.microsoft.com/resources/samples/?service=sql-database
 
@@ -952,9 +949,6 @@
       href: database/powershell-script-content-guide.md?tabs=managed-instance
     - name: Azure Resource Manager
       href: database/arm-templates-content-guide.md?tabs=managed-instance
-    - name: Azure Policy built-ins
-      displayName: samples, policies, definitions
-      href: ./database/policy-samples.md
     - name: Code samples
       href: https://azure.microsoft.com/resources/samples/?service=sql-database
 
@@ -983,7 +977,7 @@
         href: virtual-machines/windows/create-sql-vm-resource-manager-template.md
     - name: Concepts
       items:
-      - name: Business Continuity
+      - name: Business continuity
         items:
         - name: Overview
           href: virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview.md
@@ -1029,9 +1023,11 @@
         - name: License model
           displayName: ahb, ahub, payg, change, modify, update
           href: virtual-machines/windows/licensing-model-azure-hybrid-benefit-ahb-change.md
-        - name: Edition
+        - name: Change edition
           displayName: change, modify, update
           href: virtual-machines/windows/change-sql-server-edition.md
+        - name: Change version
+          href: virtual-machines/windows/change-sql-server-version.md
         - name: Storage
           href: virtual-machines/windows/storage-configuration.md
         - name: Azure Key Vault Integration
@@ -1067,6 +1063,8 @@
             href: virtual-machines/windows/automated-backup-sql-2014.md
         - name: Always On availability group
           items:
+          - name: Azure portal
+            href: virtual-machines/windows/availability-group-azure-portal-configure.md
           - name: PowerShell or Az CLI
             href: virtual-machines/windows/availability-group-az-commandline-configure.md
           - name: Azure Quickstart templates
@@ -1120,6 +1118,9 @@
         href: https://docs.microsoft.com/sql/connect/sql-connection-libraries
       - name: REST
         href: /rest/api/
+      - name: Azure Policy built-ins
+        displayName: samples, policies, definitions
+        href: ./database/policy-reference.md
     - name: Resources
       items:
       - name: FAQ
@@ -1221,7 +1222,10 @@
     - name: Python
       href: /sql/connect/python/python-driver-for-sql-server
     - name: Ruby
-      href: /sql/connect/ruby/ruby-driver-for-sql-server 
+      href: /sql/connect/ruby/ruby-driver-for-sql-server
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./database/policy-reference.md
 
 - name: Resources
   items:

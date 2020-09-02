@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.date: 08/18/2020
 ms.author: tamram
 ms.subservice: common
-ms.custom: has-adal-ref
+ms.custom: "has-adal-ref, devx-track-csharp"
 ---
 
 # Acquire a token from Azure AD for authorizing requests from a client application

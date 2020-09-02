@@ -15,7 +15,7 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 08/17/2020
+ms.date: 08/28/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -87,6 +87,12 @@ For information on integration of Azure services into SAP components, see:
 
 ## Change Log
 
+- 08/28/2020: Change in [HA for SAP NW on Azure VMs on SLES with ANF](./high-availability-guide-suse-netapp-files.md) to fix typo
+- 08/25/2020: Change in [HA guide for SAP ASCS/SCS with WSFC and shared disk](./sap-high-availability-guide-wsfc-shared-disk.md), [Prepare Azure infrastructure for SAP ASCS/SCS with WSFC and shared disk](./sap-high-availability-infrastructure-wsfc-shared-disk.md) and [Install SAP NW HA with WSFC and shared disk](./sap-high-availability-guide-wsfc-shared-disk.md) to introduce the option of using Azure shared disk and document SAP ERS2 architecture
+- 08/25/2020: Release of [multi-SID HA guide for SAP ASCS/SCS with WSFC and Azure shared disk](./sap-ascs-ha-multi-sid-wsfc-azure-shared-disk.md)
+- 08/25/2020: Change in [HA guide for SAP ASCS/SCS with WSFC and Azure NetApp Files(SMB)](./high-availability-guide-windows-netapp-files-smb.md), [Prepare Azure infrastructure for SAP ASCS/SCS with WSFC and file share](./sap-high-availability-infrastructure-wsfc-file-share.md), [multi-SID HA guide for SAP ASCS/SCS with WSFC and shared disk](./sap-ascs-ha-multi-sid-wsfc-shared-disk.md) and [multi-SID HA guide for SAP ASCS/SCS with WSFC and SOFS file share](./sap-ascs-ha-multi-sid-wsfc-file-share.md) as a result of the content updates and restructuring in the HA guides for SAP ASCS/SCS with WFC and shared disk 
+- 08/21/2020: Adding new OS release into [Compatible Operating Systems for HANA Large Instances](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/os-compatibility-matrix-hana-large-instance) as available operating system for HLI units of type I and II
+- 08/18/2020: Release of [HA for SAP HANA scale-up with ANF on RHEL](./sap-hana-high-availability-netapp-files-red-hat.md)
 - 08/17/2020: Add information about using Azure Site Recovery for moving SAP NetWeaver systems from on-premises to Azure in article [Azure Virtual Machines planning and implementation for SAP NetWeaver](./planning-guide.md)
 - 08/14/2020: Adding disk configuration advice for Db2 in article [IBM Db2 Azure Virtual Machines DBMS deployment for SAP workload](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_ibm)
 - 08/11/2020: Adding RHEL 7.6 into [Compatible Operating Systems for HANA Large Instances](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/os-compatibility-matrix-hana-large-instance) as available operating system for HLI units of type I

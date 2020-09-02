@@ -27,8 +27,8 @@ For other Windows clients, see the article [Troubleshooting hybrid Azure Active 
 This article assumes that you have [configured hybrid Azure Active Directory joined devices](hybrid-azuread-join-plan.md) to support the following scenarios:
 
 - Device-based Conditional Access
-- [Enterprise roaming of settings](../active-directory-windows-enterprise-state-roaming-overview.md)
-- [Windows Hello for Business](../active-directory-azureadjoin-passport-deployment.md)
+- [Enterprise roaming of settings](./enterprise-state-roaming-overview.md)
+- [Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-identity-verification)
 
 This document provides troubleshooting guidance to resolve potential issues.
 

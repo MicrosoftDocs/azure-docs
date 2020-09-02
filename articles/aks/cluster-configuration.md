@@ -76,7 +76,7 @@ If you want to create node pools with the AKS Ubuntu 16.04 image, you can do so 
 
 A container runtime is software that executes containers and manages container images on a node. The runtime helps abstract away sys-calls or operating system (OS) specific functionality to run containers on Linux or Windows. Today AKS is using [Moby](https://mobyproject.org/) (upstream docker) as its container runtime. 
     
-![Docker CRI](media/cluster-configuration/docker-cri.png)
+![Docker CRI 1](media/cluster-configuration/docker-cri.png)
 
 [`Containerd`](https://containerd.io/) is an [OCI](https://opencontainers.org/) (Open Container Initiative) compliant core container runtime that provides the minimum set of required functionality to execute containers and manage images on a node. It was [donated](https://www.cncf.io/announcement/2017/03/29/containerd-joins-cloud-native-computing-foundation/) to the Cloud Native Compute Foundation (CNCF) in March of 2017. The current Moby version that AKS uses today already leverages and is built on top of `containerd`, as shown above. 
 
@@ -84,7 +84,7 @@ With a containerd-based node and node pools, instead of talking to the `dockersh
 
 By using `containerd` for AKS nodes, pod startup latency improves and node resource consumption by the container runtime decreases. These improvements are enabled by this new architecture where kubelet talks directly to `containerd` through the CRI plugin while in Moby/docker architecture kubelet would talk to the `dockershim` and docker engine before reaching `containerd`, thus having extra hops on the flow.
 
-![Docker CRI](media/cluster-configuration/containerd-cri.png)
+![Docker CRI 2](media/cluster-configuration/containerd-cri.png)
 
 `Containerd` works on every GA version of kubernetes in AKS, and in every upstream kubernetes version above v1.10, and supports all kubernetes and AKS features.
 
@@ -231,7 +231,7 @@ If you want to create regular Gen1 node pools, you can do so by omitting the cus
 
 ## Ephemeral OS (Preview)
 
-By default, the operating system disk for an Azure virtual machine is automatically replicated to Azure storage to avoid data loss should the VM need to be relocated to another host. However, since containers aren't designed to have local state persisted, this behavior offers limited value while providing some drawbacks, including slower node provisioning and lower read/write latency.
+By default, the operating system disk for an Azure virtual machine is automatically replicated to Azure storage to avoid data loss should the VM need to be relocated to another host. However, since containers aren't designed to have local state persisted, this behavior offers limited value while providing some drawbacks, including slower node provisioning and higher read/write latency.
 
 By contrast, ephemeral OS disks are stored only on the host machine, just like a temporary disk. This provides lower read/write latency, along with faster node scaling and cluster upgrades.
 

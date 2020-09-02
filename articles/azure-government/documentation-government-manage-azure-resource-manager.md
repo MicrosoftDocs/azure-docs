@@ -45,7 +45,7 @@ For detailed information on Resource Manager providers, API versions, and schema
 | Search |No |
 | Storage |Yes |
 | SQL Database |Yes |
-| SQL Data Warehouse |Yes |
+| Azure Synapse Analytics |Yes |
 | StorSimple |No |
 
 ## Web & Mobile

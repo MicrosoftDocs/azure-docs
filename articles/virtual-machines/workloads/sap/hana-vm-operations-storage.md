@@ -25,10 +25,10 @@ ms.custom: H1Hack27Feb2017
 Azure provides different types of storage that are suitable for Azure VMs that are running SAP HANA. The **SAP HANA certified Azure storage types** that can be considered for SAP HANA deployments list like: 
 
 - Azure premium SSD or premium storage 
-- [Ultra disk](../../linux/disks-enable-ultra-ssd.md)
+- [Ultra disk](../../disks-enable-ultra-ssd.md)
 - [Azure NetApp Files](https://azure.microsoft.com/services/netapp/) 
 
-To learn about these disk types, see the article [Azure Storage types for SAP workload](./planning-guide-storage.md) and [Select a disk type](../../linux/disks-types.md)
+To learn about these disk types, see the article [Azure Storage types for SAP workload](./planning-guide-storage.md) and [Select a disk type](../../disks-types.md)
 
 Azure offers two deployment methods for VHDs on Azure Standard and premium storage. We expect you to take advantage of [Azure managed disk](https://azure.microsoft.com/services/managed-disks/) for Azure block storage deployments. 
 
@@ -57,7 +57,7 @@ Given that low storage latency is critical for DBMS systems, even as DBMS, like 
 
 Some guiding principles in selecting your storage configuration for HANA can be listed like:
 
-- Decide on the type of storage based on [Azure Storage types for SAP workload](./planning-guide-storage.md) and [Select a disk type](../../linux/disks-types.md)
+- Decide on the type of storage based on [Azure Storage types for SAP workload](./planning-guide-storage.md) and [Select a disk type](../../disks-types.md)
 - The overall VM I/O throughput and IOPS limits in mind when sizing or deciding for a VM. Overall VM storage throughput is documented in the article [Memory optimized virtual machine sizes](../../sizes-memory.md)
 - When deciding for the storage configuration, try to stay below the overall throughput of the VM with your **/hana/data** volume configuration. Writing savepoints, SAP HANA can be aggressive issuing I/Os. It is easily possible to push up to throughput limits of your **/hana/data** volume when writing a savepoint. If your disk(s) that build the **/hana/data** volume have a higher throughput than your VM allows, you could run into situations where throughput utilized by the savepoint writing is interfering with throughput demands of the redo log writes. A situation that can impact the application throughput
 - If you are using Azure premium storage, the least expensive configuration is to use logical volume managers to build stripe sets to build the **/hana/data** and **/hana/log** volumes
@@ -86,7 +86,7 @@ The caching recommendations for Azure premium disks below are assuming the I/O c
 **Recommendation: As a result of these observed I/O patterns by SAP HANA, the caching for the different volumes using Azure premium storage should be set like:**
 
 - **/hana/data** - no caching or read caching
-- **/hana/log** - no caching - exception for M- and Mv2-Series where Write Accelerator should be enabled without read caching. 
+- **/hana/log** - no caching - exception for M- and Mv2-Series VMs where Azure Write Accelerator should be enabled 
 - **/hana/shared** - read caching
 - **OS disk** - don't change default caching that is set by Azure at creation time of the VM
 
@@ -216,7 +216,7 @@ For the other volumes, including **/hana/log** on Ultra disk, the configuration 
 
 
 ## Azure Ultra disk storage configuration for SAP HANA
-Another Azure storage type is called [Azure Ultra disk](../../windows/disks-types.md#ultra-disk). The significant difference between Azure storage offered so far and Ultra disk is that the disk capabilities are not bound to the disk size anymore. As a customer you can define these capabilities for Ultra disk:
+Another Azure storage type is called [Azure Ultra disk](../../disks-types.md#ultra-disk). The significant difference between Azure storage offered so far and Ultra disk is that the disk capabilities are not bound to the disk size anymore. As a customer you can define these capabilities for Ultra disk:
 
 - Size of a disk ranging from 4 GiB to 65,536 GiB
 - IOPS range from 100 IOPS to 160K IOPS (maximum depends on VM types as well)

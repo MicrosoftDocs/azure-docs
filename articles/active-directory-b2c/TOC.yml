@@ -81,6 +81,8 @@
     href: user-profile-attributes.md
   - name: SSO sessions
     href: session-overview.md
+  - name: Identity Protection and Conditional Access
+    href: conditional-access-identity-protection-overview.md
 - name: How-to guides
   items:
   - name: App integration
@@ -111,6 +113,8 @@
         href: configure-ropc.md
       - name: Set up self-serve password reset
         href: user-flow-self-service-password-reset.md
+    - name: Add Conditional Access
+      href: conditional-access-user-flow.md
     - name: UX customization
       items:
       - name: Customize the UI
@@ -164,6 +168,8 @@
       href: user-flow-custom-attributes.md
     - name: Pass through external IdP token
       href: idp-pass-through-user-flow.md
+  - name: Identity Protection and Conditional Access
+    href: conditional-access-identity-protection-setup.md
   - name: Custom policy
     items:
     - name: Create a policy
@@ -333,6 +339,9 @@
             href: aad-sspr-technical-profile.md
           - name: Claims transformation
             href: claims-transformation-technical-profile.md
+          - name: Conditional Access technical profile
+            href: conditional-access-technical-profile.md
+            displayName: ca
           - name: JWT token issuer
             href: jwt-issuer-technical-profile.md
           - name: OAuth1
@@ -371,12 +380,16 @@
       href: partner-arkose-labs.md
     - name: Experian
       href: partner-experian.md
+    - name: HYPR
+      href: partner-hypr.md
     - name: IDology
       href: partner-idology.md
     - name: itsme
       href: partner-itsme.md
     - name: LexisNexis
       href: partner-lexisnexis.md
+    - name: Jumio
+      href: partner-jumio.md
     - name: Onfido
       href: partner-onfido.md
     - name: Trusona
@@ -385,6 +398,8 @@
       href: partner-twilio.md
     - name: TypingDNA
       href: partner-typingdna.md
+    - name: WhoIAM
+      href: partner-whoiam.md
   - name: Use b2clogin.com
     items:
     - name: b2clogin.com overview

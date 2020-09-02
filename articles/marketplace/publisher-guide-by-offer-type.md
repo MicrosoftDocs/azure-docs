@@ -17,7 +17,7 @@ Before you can create an offer, and after you [decide on a publishing option](de
 
 A single offer type can be configured in different ways to enable different publishing options, calls-to-action, provisioning, or pricing. The publishing option and configuration of the offer type also align to the offer eligibility and technical requirements.
 
-Be sure to review the storefront and offer type eligibility requirements and the technical publishing requirements before creating your offer.
+Be sure to review the online store and offer type eligibility requirements and the technical publishing requirements before creating your offer.
 
 ## List of offer types
 
@@ -28,7 +28,7 @@ Azure Marketplace offer types are listed in the table below.
 | [**Virtual machines**](./marketplace-virtual-machines.md) | Use the virtual machine offer type when you deploy a virtual appliance to the subscription associated with your customer. |
 | [**Solution templates**](./marketplace-solution-templates.md) | Use the solution template (also known as Azure application) offer type when your solution requires additional deployment and configuration automation beyond a single VM. Solution templates can employ many different kinds of Azure resources, including but not limited to VMs.  |
 | [**Managed applications**](./marketplace-managed-apps.md) | Use the Azure app: managed app offer type when the following conditions are required: <br> <ul> <li> You deploy either a subscription-based solution for your customer using either a VM or an entire IaaS-based solution. </li> <li>You or your customer require that the solution is managed by a partner. </li> <ul> |
-| [**SaaS applications**](./partner-center-portal/create-new-saas-offer.md) | Use the SaaS app offer type to enable your customer to buy your SaaS-based, technical solution as a subscription. |
+| [**SaaS**](plan-saas-offer.md) | Use the software as a service (SaaS) offer type to enable your customer to buy your SaaS-based, technical solution as a subscription. |
 | [**Container offers**](./marketplace-containers.md) | Use the Container offer type when your solution is a Docker container image provisioned as a Kubernetes-based Azure container service. |
 | [**Azure IoT Edge modules**](./iot-edge-module.md) | Azure IoT Edge modules are the smallest computation units managed by IoT Edge, and can contain Microsoft services (such as Azure Stream Analytics), 3rd-party services, or your own solution-specific code. |
 | [**Consulting services**](./consulting-services.md) | Consulting services help to connect customers with services to support and extend their use of Azure, Dynamics 365, or Power Suite services.|
@@ -39,5 +39,5 @@ For information on single sign-on requirements by listing options and offer type
 
 ## Next steps
 
-- Review the eligibility requirements in the corresponding article for your offer type (following sections) to finalize the selection and configuration of your offer.
+- Review the eligibility requirements in the corresponding article for your offer type to finalize the selection and configuration of your offer.
 - Review the publishing patterns by storefront for examples on how your solution maps to an offer type and configuration.

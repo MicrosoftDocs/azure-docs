@@ -126,6 +126,8 @@ The JSON configuration for a virtual machine extension must be nested inside the
 
 
 ## Azure PowerShell deployment
+> [!WARNING]
+> PowerShell clients often add `\` to `"` in the settings.json which will cause akvvm_service fails with error: `[CertificateManagementConfiguration] Failed to parse the configuration settings with:not an object.`
 
 The Azure PowerShell can be used to deploy the Key Vault VM extension to an existing virtual machine or virtual machine scale set. 
 
@@ -200,7 +202,7 @@ The Azure CLI can be used to deploy the Key Vault VM extension to an existing vi
 Please be aware of the following restrictions/requirements:
 - Key Vault restrictions:
   - It must exist at the time of the deployment 
-  - The Key Vault Access Policy mustbe set for VM/VMSS Identity using a Managed Identity. See [Provide Key Vault authentication with a managed identity](../../key-vault/general/managed-identity.md)
+  - The Key Vault Access Policy must be set for VM/VMSS Identity using a Managed Identity. See [How to Authenticate to Key Vault](/azure/key-vault/general/authentication) and [Assign a Key Vault access policy](/azure/key-vault/general/assign-access-policy-cli).
 
 
 ## Troubleshoot and support

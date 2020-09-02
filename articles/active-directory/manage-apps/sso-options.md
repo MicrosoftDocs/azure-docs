@@ -15,9 +15,9 @@ ms.reviewer: arvindh, japere
 
 # Single sign-on options in Azure AD
 
-Single sign-on provides many of benefits over traditional sign-on methods.
+Single sign-on provides many benefits over traditional sign-on methods.
 
-- **With single sign-on**, users sign in once with one account to access domain-joined devices, company resources, software as a service (SaaS) applications, and web applications. After signing in, the user can launch applications from the Office 365 portal or the Azure AD MyApps access panel. Administrators can centralize user account management, and automatically add or remove user access to applications based on group membership.
+- **With single sign-on**, users sign in once with one account to access domain-joined devices, company resources, software as a service (SaaS) applications, and web applications. After signing in, the user can launch applications from the Office 365 portal or My Apps. Administrators can centralize user account management, and automatically add or remove user access to applications based on group membership.
 
 - **Without single sign-on**, users must remember application-specific passwords and sign in to each application. IT staff needs to create and update user accounts for each application such as Office 365, Box, and Salesforce. Users need to remember their passwords, plus spend the time to sign in to each application.
 
@@ -118,7 +118,7 @@ Passwords for each application can either be managed by the Azure AD administrat
 
 When the Azure AD administrator manages the credentials:  
 
-- The user doesn't need to reset or remember the user name and password. The user can access the application by clicking on it in their access panel or via a provided link.
+- The user doesn't need to reset or remember the user name and password. The user can access the application by clicking on it in their My Apps or via a provided link.
 - The administrator can do management tasks on the credentials. For example, the administrator can update application access according to user group memberships and employee status.
 - The administrator can use administrative credentials to provide access to applications shared among many users. For example, the administrator can allow everyone who can access an application to have access to a social media or document sharing application.
 

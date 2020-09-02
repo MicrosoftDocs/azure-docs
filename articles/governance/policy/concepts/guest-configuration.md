@@ -47,7 +47,7 @@ Connected Machines because it's included in the Arc Connected Machine agent.
 > The Guest Configuration extension and a managed identity is required to audit Azure virtual
 > machines. To deploy the extension at scale, assign the following policy initiative:
 > 
-> - [Deploy prerequisites to enable Guest Configuration policies on virtual machines](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F12794019-7a00-42cf-95c2-882eed337cc8)
+> `Deploy prerequisites to enable Guest Configuration policies on virtual machines`
 
 ### Limits set on the extension
 
@@ -93,7 +93,7 @@ The following table shows a list of supported operating systems on Azure images:
 |Microsoft|Windows Client|Windows 10|
 |OpenLogic|CentOS|7.3 and later|
 |Red Hat|Red Hat Enterprise Linux|7.4 - 7.8|
-|Suse|SLES|12 SP3 and later|
+|Suse|SLES|12 SP3-SP5|
 
 Custom virtual machine images are supported by Guest Configuration policies as long as they're one
 of the operating systems in the table above.
@@ -137,6 +137,11 @@ Group](../../../virtual-network/manage-network-security-group.md#create-a-securi
 [service tag](../../../virtual-network/service-tags-overview.md) "GuestAndHybridManagement" can be
 used to reference the Guest Configuration service.
 
+For Arc connected servers in private datacenters, allow traffic using the following patterns:
+
+- Port: Only TCP 443 required for outbound internet access
+- Global URL: `*.guestconfiguration.azure.com`
+
 ## Managed identity requirements
 
 Policy definitions in the initiative
@@ -157,42 +162,27 @@ identity](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBla
 
 ## Guest Configuration definition requirements
 
-Each audit run by Guest Configuration requires two policy definitions, a **DeployIfNotExists**
-definition and an **AuditIfNotExists** definition. The **DeployIfNotExists** policy definitions
-manage dependencies for performing audits on each machine.
+Guest Configuration policies use the **AuditIfNotExists** effect. When the definition is assigned,
+a back-end service automatically handles the lifecycle of all requirements in the `Microsoft.GuestConfiguration`
+Azure resource provider.
 
-The **DeployIfNotExists** policy definition validates and corrects the following items:
+The **AuditIfNotExists** policies won't return compliance results until all requirements are
+met on the machine. The requirments are described in section
+[Deploy requirements for Azure virtual machines](#deploy-requirements-for-azure-virtual-machines)
 
-- Validate the machine has been assigned a configuration to evaluate. If no assignment is currently
-  present, get the assignment and prepare the machine by:
-  - Authenticating to the machine using a
-    [managed identity](../../../active-directory/managed-identities-azure-resources/overview.md)
-  - Installing the latest version of the **Microsoft.GuestConfiguration** extension
-  - Installing [validation tools](#validation-tools) and dependencies, if needed
+> [!IMPORTANT]
+> In a prior release of Guest Configuration, an initiative was required to combine **DeployIfNoteExists**
+> and **AuditIfNotExists** definitions. **DeployIfNotExists** definitions are no longer required. The definitions
+> and intiaitives are labeled `[Deprecated]` but existing assignments will continue to function.
+>
+> A manual step is required. If you have previously assigned the policy initiatives in category
+> `Guest Configuration`, delete the policy assignment and assign the new definition. Guest Configuration
+> policies have a name pattern as follows:
+> `Audit <Windows/Linux> machines that <non-compliant condition>`
 
-If the **DeployIfNotExists** assignment is Non-compliant, a [remediation
-task](../how-to/remediate-resources.md#create-a-remediation-task) can be used.
-
-Once the **DeployIfNotExists** assignment is Compliant, the **AuditIfNotExists** policy assignment
-determines if the guest assignment is Compliant or Non-compliant. The validation tool provides the
-results to the Guest Configuration client. The client forwards the results to the Guest Extension,
-which makes them available through the Guest Configuration resource provider.
-
-Azure Policy uses the Guest Configuration resource providers **complianceStatus** property to report
+Azure Policy uses the Guest Configuration resource provider **complianceStatus** property to report
 compliance in the **Compliance** node. For more information, see [getting compliance
 data](../how-to/get-compliance-data.md).
-
-> [!NOTE]
-> The **DeployIfNotExists** policy is required for the **AuditIfNotExists** policy to return
-> results. Without the **DeployIfNotExists**, the **AuditIfNotExists** policy shows "0 of 0"
-> resources as status.
-
-All built-in policies for Guest Configuration are included in an initiative to group the definitions
-for use in assignments. The built-in initiative named _\[Preview\]: Audit Password security inside
-Linux and Windows machines_ contains 18 policies. There are six **DeployIfNotExists** and
-**AuditIfNotExists** pairs for Windows and three pairs for Linux. The
-[policy definition](definition-structure.md#policy-rule) logic validates that only the target
-operating system is evaluated.
 
 #### Auditing operating system settings following industry baselines
 
@@ -214,12 +204,16 @@ about file changes provide evidence why an assignment is an exception to the exp
 
 #### Applying configurations using Guest Configuration
 
-The latest feature of Azure Policy configures settings inside machines. The definition _Configure
-the time zone on Windows machines_ makes changes to the machine by configuring the time zone.
+Only the definition _Configure the time zone on Windows machines_ makes changes to the machine
+by configuring the time zone. Custom policy definitions for configuring settings inside machines aren't supported.
 
 When assigning definitions that begin with _Configure_, you must also assign the definition _Deploy
 prerequisites to enable Guest Configuration Policy on Windows VMs_. You can combine these
 definitions in an initiative if you choose.
+
+> [!NOTE]
+> The built-in time zone policy is the only definition that supports configuring settings
+> inside machines and custom policies that configure settings inside machines aren't supported.
 
 #### Assigning policies to machines outside of Azure
 

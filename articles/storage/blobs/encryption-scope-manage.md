@@ -5,7 +5,7 @@ services: storage
 author: tamram
 
 ms.service: storage
-ms.date: 08/04/2020
+ms.date: 08/25/2020
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
@@ -17,6 +17,8 @@ ms.subservice: common
 Encryption scopes (preview) enable you to manage encryption at the level of an individual blob or container. An encryption scope isolates blob data in a secure enclave within a storage account. You can use encryption scopes to create secure boundaries between data that resides in the same storage account but belongs to different customers. For more information about encryption scopes, see [Encryption scopes for Blob storage (preview)](../common/storage-service-encryption.md#encryption-scopes-for-blob-storage-preview).
 
 This article shows how to create an encryption scope. It also shows how to specify an encryption scope when you create a blob or container.
+
+[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
 ## Create an encryption scope
 

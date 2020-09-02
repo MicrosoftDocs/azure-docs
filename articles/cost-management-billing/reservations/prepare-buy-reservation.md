@@ -4,6 +4,7 @@ description: Learn about important points to help you buy an Azure reservation.
 author: bandersmsft
 ms.reviewer: yashar
 ms.service: cost-management-billing
+ms.subservice: reservations
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: banders
@@ -66,7 +67,7 @@ You can purchase reservations from Azure portal, APIs, PowerShell, CLI. Read the
 - [Cosmos DB](../../cosmos-db/cosmos-db-reserved-capacity.md)
 - [Databricks](prepay-databricks-reserved-capacity.md)
 - [Data Explorer](/azure/data-explorer/pricing-reserved-capacity)
-- [Disk Storage](../../virtual-machines/linux/disks-reserved-capacity.md)
+- [Disk Storage](../../virtual-machines/disks-reserved-capacity.md)
 - [Dedicated Host](../../virtual-machines/prepay-dedicated-hosts-reserved-instances.md)
 - [Software plans](../../virtual-machines/linux/prepay-suse-software-charges.md)
 - [Storage](../../storage/blobs/storage-blob-reserved-capacity.md)
