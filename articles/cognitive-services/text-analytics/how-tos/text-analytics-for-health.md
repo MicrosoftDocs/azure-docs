@@ -395,22 +395,19 @@ Relation extraction output contains URI references to the *source* of the relati
 
 ```json
 "relations": [
-  {
-      "relationType": "DosageOfMedication",
-      "score": 1.0,
-      "bidirectional": false,
-      "source": "#/documents/2/entities/0",
-      "target": "#/documents/2/entities/1",
-      "entities": [
-          {
-              "id": "0",
-              "role": "ATTRIBUTE"
-          },
-          {
-              "id": "1",
-              "role": "ENTITY"
-          }
-      ]
+                {
+                    "relationType": "DosageOfMedication",
+                    "bidirectional": false,
+                    "source": "#/documents/1/entities/0",
+                    "target": "#/documents/1/entities/1"
+                },
+                {
+                    "relationType": "FrequencyOfMedication",
+                    "bidirectional": false,
+                    "source": "#/documents/1/entities/2",
+                    "target": "#/documents/1/entities/1"
+                }
+            ]
   },
 ...
 ]

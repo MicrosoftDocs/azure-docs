@@ -23,13 +23,13 @@ If you need to move your Azure Digital Twins instance from one region to another
 This article provides guidance on how to do a complete move, copying over everything you'll need to make the new instance match the original.
 
 This process includes the following steps:
-1. Prepare: Download your original models, twins, and graph
-2. Move: Create a new Azure Digital Twins instance, in a new region
-3. Move: Repopulate the new Azure Digital Twins instance
-    - Upload original models, twins, and graph
-    - Recreate endpoints and routes
-    - Re-link connected resources
-4. Clean up source resources (optional): Delete original instance
+1. Prepare: Download your original models, twins, and graph.
+2. Move: Create a new Azure Digital Twins instance, in a new region.
+3. Move: Repopulate the new Azure Digital Twins instance.
+    - Upload original models, twins, and graph.
+    - Recreate endpoints and routes.
+    - Re-link connected resources.
+4. Clean up source resources (optional): Delete original instance.
 
 ## Prerequisites
 

@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 04/21/2020
 ms.author: rogarana
 ms.subservice: files
+ms.custom: contperfq1
 ---
 
 # Enable Azure Active Directory Domain Services authentication on Azure Files

@@ -64,7 +64,7 @@ az keyvault create --name <your-unique-keyvault-name> -g "myResourceGroup"
 
 ### Create a service principal
 
-The simplest way to authenticate a cloud-based .NET application is with a managed identity; see [Use an App Service managed identity to access Azure Key Vault](../general/managed-identity.md) for details. 
+The simplest way to authenticate a cloud-based application is with a managed identity; see [Authenticate to Azure Key Vault](../general/authentication.md) for details. 
 
 For the sake of simplicity however, this quickstart creates a desktop application, which requires the use of a service principal and an access control policy. Your service principal requires a unique name in the format "http://&lt;my-unique-service-principal-name&gt;".
 
@@ -229,8 +229,8 @@ print(" done.")
 
 ## Next steps
 
-In this quickstart you created a key vault, stored a key, and retrieved that key. To learn more about Key Vault and how to integrate it with your applications, continue on to the articles below.
+In this quickstart, you created a key vault, stored a key, and retrieved that key. To learn more about Key Vault and how to integrate it with your applications, continue on to the articles below.
 
-- Read an [Overview of Azure Key Vault](../general/overview.md)
-- See the [Azure Key Vault developer's guide](../general/developers-guide.md)
-- Review [Azure Key Vault best practices](../general/best-practices.md)
+- [Overview of Azure Key Vault](../general/overview.md)
+- [Azure Key Vault developer's guide](../general/developers-guide.md)
+- [Azure Key Vault best practices](../general/best-practices.md)
