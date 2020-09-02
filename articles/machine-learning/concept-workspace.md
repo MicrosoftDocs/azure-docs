@@ -122,7 +122,7 @@ When you create a new workspace, it automatically creates several Azure resource
 As of September 2020, all capabilities that were available in Enterprise edition workspaces are now also available in Basic edition workspaces. 
 New Enterprise workspaces can no longer be created.  Any SDK, CLI, or Azure Resource Manager calls that use the `sku` parameter will continue to work but a Basic workspace will be provisioned.
 
-In late December, all Enterprise Edition workspaces will be automatically migrated to Basic Edition. No downtime will occur during this process. This migration work will be automatic and seamless (customers will not experience downtime). On January 1, 2021, Enterprise Edition will be retired. 
+Beginning December 21st, all Enterprise Edition workspaces will be automatically set to Basic Edition, which has the same capabilities. No downtime will occur during this process. On January 1, 2021, Enterprise Edition will be formally retired. 
 
 In either editions, customers are responsible for the costs of Azure resources consumed and will not need to pay any additional charges for Azure Machine Learning. Please refer to the [Azure Machine Learning pricing page](https://azure.microsoft.com/pricing/details/machine-learning/) for more details.
 
