@@ -81,7 +81,9 @@ Azure DDoS Protection Basic is already enabled and available for no additional c
 
 ### 1.5: Record network packets
 
-**Guidance**: None.
+**Guidance**: If required for investigating anomalous activity, enable Network Watcher packet capture.
+
+- [How to create a Network Watcher instance](../network-watcher/network-watcher-create.md)
 
 **Azure Security Center monitoring**: No
 
