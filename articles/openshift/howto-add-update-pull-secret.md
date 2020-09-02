@@ -12,9 +12,9 @@ keywords: pull secret, aro, openshift, red hat
 
 # Add or update your Red Hat pull secret on an Azure Red Hat OpenShift 4 cluster
 
-This guide covers adding or updating your Red Hat pull secret for an existing Azure Red Hat OpenShift 4.x cluster.
+This guide covers adding or updating your Red Hat pull secret for an existing Azure Red Hat OpenShift (ARO) 4.x cluster.
 
-If you're creating a cluster for the first time, then you can add your pull secret when you create your cluster. For more information about creating an ARO cluster with a Red Hat pull secret, see [Create an Azure Red Hat OpenShift 4 cluster](tutorial-create-cluster.md#get-a-red-hat-pull-secret-optional).
+If you're creating a cluster for the first time, you can add your pull secret when you create your cluster. For more information about creating an ARO cluster with a Red Hat pull secret, see [Create an Azure Red Hat OpenShift 4 cluster](tutorial-create-cluster.md#get-a-red-hat-pull-secret-optional).
 
 ## Before you begin
 
@@ -25,13 +25,13 @@ When you create an ARO cluster without adding a Red Hat pull secret, a pull secr
 
 This section walks through updating that pull secret with additional values from your Red Hat pull secret.
 
-1. Fetch the secret named `pull-secret` in the openshift-config namespace and save it to a separate file by running the following command: 
+1. Fetch the secret named `pull-secret` in the `openshift-config` namespace and save it to a separate file by running the following command: 
 
     ```console
     oc get secrets pull-secret -n openshift-config -o template='{{index .data ".dockerconfigjson"}}' | base64 -d > pull-secret.json
     ```
 
-    Your output should be similar to the following (note that the actual secret value has been removed):
+    Your output should be similar to the following. (Note that the actual secret value has been removed.)
 
     ```json
     {
@@ -43,7 +43,7 @@ This section walks through updating that pull secret with additional values from
     }
     ```
 
-2. Navigate to your [Red Hat OpenShift cluster manager portal](https://cloud.redhat.com/openshift/install/azure/aro-provisioned) and click **Click Download pull secret.** Your Red Hat pull secret will look like the following (note that the actual secret values have been removed):
+2. Go to your [Red Hat OpenShift cluster manager portal](https://cloud.redhat.com/openshift/install/azure/aro-provisioned) and select **Download pull secret**. Your Red Hat pull secret will look like the following. (Note that the actual secret values have been removed.)
 
     ```json
     {
@@ -71,7 +71,7 @@ This section walks through updating that pull secret with additional values from
 3. Edit the pull secret file you got from your cluster by adding in the entries found in your Red Hat pull secret. 
 
     > [!IMPORTANT]
-    > Including the the `cloud.openshift.com` entry from your Red Hat pull secret will cause your cluster to start sending telemetry data to Red Hat. Only include this section if you would like to send telemetry data. Otherwise, leave the following section out.
+    > Including the `cloud.openshift.com` entry from your Red Hat pull secret will cause your cluster to start sending telemetry data to Red Hat. Include this section only if you want to send telemetry data. Otherwise, leave the following section out.    
     > ```json
     > {
     >         "cloud.openshift.com": {
@@ -82,13 +82,14 @@ This section walks through updating that pull secret with additional values from
 
     > [!CAUTION]
     > Do not remove or alter your the `arosvc.azurecr.io` entry from your pull secret. This section is needed for your cluster to function properly.
+
     ```json
     "arosvc.azurecr.io": {
                 "auth": "<my-aroscv.azurecr.io-secret>"
             }
     ```
 
-    Your final file should look like the following (note that the actual secret values have been removed):
+    Your final file should look like the following. (Note that the actual secret values have been removed.)
 
     ```json
     {
@@ -116,26 +117,27 @@ This section walks through updating that pull secret with additional values from
     }
     ```
 
-4. Ensure the file is valid json. There are many ways to validate your json. The following example uses jq:
+4. Ensure that the file is valid JSON. There are many ways to validate your JSON. The following example uses jq:
+
     ```json
     cat pull-secret.json | jq
     ```
 
     > [!NOTE]
-    > If an error is in the file it can be seen `parse error`.
+    > If an error is in the file, it appears as `parse error`.
 
 ## Add your pull secret to your cluster
 
-Run the following command to update your pull secret:
+Run the following command to update your pull secret.
 
 > [!NOTE]
-> Running this command will cause your cluster nodes to restart one by one as they update. 
+> Running this command will cause your cluster nodes to restart one by one as they're updated. 
 
 ```console
 oc set data secret/pull-secret -n openshift-config --from-file=.dockerconfigjson=./pull-secret.json
 ```
 
-Once the secret is set, you are ready to enable Red Hat certified operators.
+After the secret is set, you're ready to enable Red Hat Certified Operators.
 
 ### Modify the configuration files
 
@@ -147,9 +149,9 @@ First, modify the Samples Operator configuration file. Then, you can run the fol
 oc edit configs.samples.operator.openshift.io/cluster -o yaml
 ```
 
-Change the `spec.architectures.managementState` and the `status.architecture.managementState` values from `Removed` to `Managed`. 
+Change the `spec.architectures.managementState` and `status.architecture.managementState` values from `Removed` to `Managed`. 
 
-The following YAML snippet shows only the relevant sections of the edited yaml file.
+The following YAML snippet shows only the relevant sections of the edited YAML file:
 
 ```yaml
 apiVersion: samples.operator.openshift.io/v1
@@ -171,15 +173,15 @@ status:
   version: 4.3.27
 ```
 
-Second, run the following command to edit the operator hub configuration file:  
+Second, run the following command to edit the Operator Hub configuration file:  
 
 ```console
 oc edit operatorhub cluster -o yaml
 ```
 
-Change the `Spec.Sources.Disabled` and the `Status.Sources.Disabled` values from `true` to `false` for any sources you want enabled.
+Change the `Spec.Sources.Disabled` and `Status.Sources.Disabled` values from `true` to `false` for any sources you want enabled.
 
-The following YAML snippet shows only the relevant sections of the edited yaml file.
+The following YAML snippet shows only the relevant sections of the edited YAML file:
 
 ```yaml
 Name:         cluster
@@ -210,7 +212,7 @@ Save the file to apply your edits.
 
 ## Validate that your secret is working
 
-After adding your pull secret and modifying the correct configuration files, your cluster can take several minutes to update. To check that your cluster has been updated, run the following command to show the Certified Operators and Red Hat Operators sources available:
+After you add your pull secret and modify the correct configuration files, your cluster can take several minutes to be updated. To check that your cluster has been updated, run the following command to show the Certified Operators and Red Hat Operators sources available:
 
 ```console
 $ oc get catalogsource -A
@@ -222,7 +224,7 @@ openshift-marketplace   redhat-operators      Red Hat Operators     grpc   Red H
 
 If you don't see the Certified Operators and Red Hat Operators, wait a few minutes and try again.
 
-To ensure your pull secret has been updated and is working correctly, open OperatorHub and check for any Red Hat verified operator. For example, check to see if the OpenShift Container Storage operator is available, and see if you have permissions to install.
+To ensure that your pull secret has been updated and is working correctly, open OperatorHub and check for any Red Hat verified Operator. For example, check to see if the OpenShift Container Storage Operator is available, and see if you have permissions to install.
 
 ## Next steps
 To learn more about Red Hat pull secrets, see [Using image pull secrets](https://docs.openshift.com/container-platform/4.5/openshift_images/managing_images/using-image-pull-secrets.html).
