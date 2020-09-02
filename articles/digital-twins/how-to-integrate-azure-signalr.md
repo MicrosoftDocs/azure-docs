@@ -237,7 +237,7 @@ Using the Azure Cloud Shell or local Azure CLI, you can delete all Azure resourc
 * the Azure Digital Twins instance (from the end-to-end tutorial)
 * the IoT hub and the hub device registration  (from the end-to-end tutorial)
 * the event grid topic and associated subscriptions
-* the Azure Functions app, including associated resources like storage
+* the Azure Functions app, including all three functions and associated resources like storage
 * the Azure SignalR instance
 
 > [!IMPORTANT]
