@@ -42,7 +42,7 @@ The preview is turned on by default, so you can use it right away. You can check
 
 We appreciate your feedback so that we can improve our experience.
 
-## More information in user lists
+## More user properties
 
 We’ve made some changes to the columns available on the **All users** and **Deleted users** pages. In addition to the existing columns we provide for managing your list of users, we've added a few more columns.
 
@@ -71,7 +71,7 @@ Some columns are displayed by default. To add other columns, select **Columns** 
 
 ### Identity issuers
 
-You can select the **Identity issuer** property for any user no either page to view additional details about the identity issuer and other information including the sign-in type and an issuer assigned ID. If there are multiple issuers of the user's identity, we display `Multiple` in the **All users** and **Deleted users** pages.
+You can select **Identity issuer** for any user in either page to view additional details about the identity issuer including the sign-in type and the issuer assigned ID. If there are multiple issuers of the user's identity, you would select `Multiple` in the **All users** and **Deleted users** pages, and the details would list them all.
 
 > [!NOTE]
 > The **Source** column is replaced by multiple columns including **Creation type**, **Directory synced**, and **Identity issuer** for more granular filtering.
@@ -92,7 +92,7 @@ The following are the filterable properties on the **All users** page:
 - Directory synced status - Yes
 - Creation type - Invitation, Email verified, Local account
 - Invitation state (Coming soon) – Pending acceptance, Accepted
-- Administrative unit - Select the administrative unit to restrict the scope of the users you view. For more information, see [Administrative units management preview](directory-administrative-units.md).
+- Administrative unit - Select this option to restrict the scope of the users you view to a single administrative unit. For more information, see [Administrative units management preview](directory-administrative-units.md).
 
 ## Filtering Deleted Users page
 
