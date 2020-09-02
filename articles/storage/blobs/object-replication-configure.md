@@ -77,31 +77,7 @@ After you have configured object replication, the Azure portal displays the repl
 
 # [PowerShell](#tab/powershell)
 
-To create a replication policy with PowerShell, first install version [2.0.1-preview](https://www.powershellgallery.com/packages/Az.Storage/2.0.1-preview) or later of the Az.Storage PowerShell module. Follow these steps to install the preview module:
-
-1. Uninstall any previous installations of Azure PowerShell from Windows using the **Apps & features** setting under **Settings**.
-
-1. Make sure that you have the latest version of PowerShellGet installed. Open a Windows PowerShell window, and run the following command to install the latest version:
-
-    ```powershell
-    Install-Module PowerShellGet –Repository PSGallery –Force
-    ```
-
-    Close and reopen the PowerShell window after installing PowerShellGet.
-
-1. Install the latest version of Azure PowerShell:
-
-    ```powershell
-    Install-Module Az –Repository PSGallery –AllowClobber
-    ```
-
-1. Install the Az.Storage preview module:
-
-    ```powershell
-    Install-Module Az.Storage -Repository PSGallery -RequiredVersion 2.0.1-preview -AllowPrerelease -AllowClobber -Force
-    ```
-
-For more information about installing Azure PowerShell, see [Install Azure PowerShell with PowerShellGet](/powershell/azure/install-az-ps).
+To create a replication policy with PowerShell, first install version [2.5.0](https://www.powershellgallery.com/packages/Az.Storage/2.5.0) or later of the Az.Storage PowerShell module. For more information about installing Azure PowerShell, see [Install Azure PowerShell with PowerShellGet](/powershell/azure/install-az-ps).
 
 The following example shows how to create a replication policy on the source and destination accounts. Remember to replace values in angle brackets with your own values:
 
@@ -168,19 +144,9 @@ Set-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname `
 
 # [Azure CLI](#tab/azure-cli)
 
-To create a replication policy with Azure CLI, first install the preview extension for Azure Storage.:
+To create a replication policy with Azure CLI, first install Azure CLI version 2.11.1 or later. For more information, see [Get started with Azure CLI](/cli/azure/get-started-with-azure-cli).
 
-```azurecli
-az extension add -n storage-or-preview
-```
-
-Next, sign in with your Azure credentials:
-
-```azurecli
-az login
-```
-
-Enable blob versioning on the source and destination storage accounts, and enable change feed on the source account. Remember to replace values in angle brackets with your own values:
+Next, enable blob versioning on the source and destination storage accounts, and enable change feed on the source account. Remember to replace values in angle brackets with your own values:
 
 ```azurecli
 az storage blob service-properties update \
@@ -348,7 +314,7 @@ Set-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname `
 
 # [Azure CLI](#tab/azure-cli)
 
-N/A
+TBD
 
 ---
 

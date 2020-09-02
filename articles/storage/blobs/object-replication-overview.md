@@ -30,6 +30,15 @@ To learn how to configure object replication, see [Configure object replication]
 
 [!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
+## Prerequisites for object replication
+
+Object replication requires that the following Azure Storage features are also enabled:
+
+- [Change feed](storage-blob-change-feed.md): Must be enabled on the source account. To learn how to enable change feed, see [Enable and disable the change feed](storage-blob-change-feed.md#enable-and-disable-the-change-feed).
+- [Blob versioning](versioning-overview.md): Must be enabled on both the source and destination accounts. To learn how to enable versioning, see [Enable and manage blob versioning](versioning-enable.md).
+
+Enabling change feed and blob versioning may incur additional costs. For more details, refer to the [Azure Storage pricing page](https://azure.microsoft.com/pricing/details/storage/).
+
 ## Object replication policies and rules
 
 When you configure object replication, you create a replication policy that specifies the source storage account and the destination account. A replication policy includes one or more rules that specify a source container and a destination container and indicate which block blobs in the source container will be replicated.
@@ -54,38 +63,6 @@ When you create a replication rule, by default only new block blobs that are sub
 You can also specify one or more filters as part of a replication rule to filter block blobs by prefix. When you specify a prefix, only blobs matching that prefix in the source container will be copied to the destination container.
 
 The source and destination containers must both exist before you can specify them in a rule. After you create the replication policy, the destination container becomes read-only. Any attempts to write to the destination container fail with error code 409 (Conflict). However, you can call the [Set Blob Tier](/rest/api/storageservices/set-blob-tier) operation on a blob in the destination container to move it to the archive tier. For more information about the archive tier, see [Azure Blob storage: hot, cool, and archive access tiers](storage-blob-storage-tiers.md#archive-access-tier).
-
-## About the preview
-
-Object replication is supported for general-purpose v2 storage accounts only. Object replication is available in the following regions in preview:
-
-- France Central
-- Canada East
-- Canada Central
-- US East 2
-- US Central
-
-Both the source and destination accounts must reside in one of these regions in order to use object replication. The accounts can be in two different regions.
-
-During the preview, there are no additional costs associated with replicating data between storage accounts.
-
-> [!IMPORTANT]
-> The object replication preview is intended for non-production use only. Production service-level agreements (SLAs) are not currently available.
-
-### Prerequisites for object replication
-
-Object replication requires that the following Azure Storage features are enabled: 
-- [Change feed](storage-blob-change-feed.md)
-- [Versioning](versioning-overview.md)
-
-Before you configure object replication, enable its prerequisites. Change feed must be enabled on the source account, and blob versioning must be enabled on both the source and destination account. For more information about enabling these features, see these articles:
-
-- [Enable and disable the change feed](storage-blob-change-feed.md#enable-and-disable-the-change-feed)
-- [Enable and manage blob versioning](versioning-enable.md)
-
-Be sure to register for the change feed and blob versioning previews before you enable them.
-
-Enabling change feed and blob versioning may incur additional costs. For more details, refer to the [Azure Storage pricing page](https://azure.microsoft.com/pricing/details/storage/).
 
 ## Next steps
 
