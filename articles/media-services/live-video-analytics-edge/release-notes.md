@@ -2,7 +2,7 @@
 title: Live Video Analytics on IoT Edge release notes - Azure
 description: This topic provides release notes of Live Video Analytics on IoT Edge releases, improvements, bug fixes, and known issues.
 ms.topic: conceptual
-ms.date: 04/27/2020
+ms.date: 08/19/2020
 
 ---
 # Live Video Analytics on IoT Edge release notes
@@ -32,11 +32,12 @@ mcr.microsoft.com/media/live-video-analytics:1.0.3
 * You can now get high data content transfer performance between Live Video Analytics on IoT Edge and your custom extension using gRPC framework. See [this](analyze-live-video-use-your-grpc-model-quickstart.md) to get started.
 * Broader regional deployment of Live Video Analytics and only the cloud service has been updated.  
 * Live Video Analytics is now available in 25 additional regions across the globe. Here is the [list](https://azure.microsoft.com/global-infrastructure/services/?products=media-services) of all available regions.  
-* The [set up](https://aka.ms/lva-edge/setup-resources-for-samples) for quick starts has been updated as well. 
+* The [set up](https://aka.ms/lva-edge/setup-resources-for-samples) for quick starts has been updated as well with new regions support.
+    * There is no call to action for anyone who has already setup resources
 
 ## Bug fixes 
 
-None 
+* Remove the use of a deprecated azure extension in the set up script
 
 ## July 13, 2020
 

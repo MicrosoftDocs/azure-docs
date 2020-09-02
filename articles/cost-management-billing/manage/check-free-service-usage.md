@@ -4,11 +4,12 @@ description: Learn how to check free service usage in the Azure portal. There is
 author: amberbhargava
 tags: billing
 ms.service: cost-management-billing
+ms.subservice: billing
 ms.topic: conceptual
-ms.date: 02/12/2020
+ms.date: 08/20/2020
 ms.author: banders
-
 ---
+
 # Check usage of free services included with your Azure free account
 
 You're not charged for services included for free with your Azure free account, unless you exceed the limits of the services. To remain in the limits, you can use the Azure portal to track the free service usage.

@@ -2,8 +2,7 @@
 title: Azure subscription limits and quotas
 description: Provides a list of common Azure subscription and service limits, quotas, and constraints. This article includes information on how to increase limits along with maximum values.
 ms.topic: conceptual
-author: davidsmatlak
-ms.date: 06/04/2020
+ms.date: 09/02/2020
 ---
 
 # Azure subscription and service limits, quotas, and constraints
@@ -270,6 +269,10 @@ For limits specific to Media Services v2 (legacy), see [Media Services v2 (legac
 ### ExpressRoute limits
 
 [!INCLUDE [expressroute-limits](../../../includes/expressroute-limits.md)]
+
+### Virtual Network Gateway limits
+
+[!INCLUDE [virtual-wan-limits](../../../includes/azure-virtual-network-gateway-limits.md)]
 
 ### Virtual WAN limits
 

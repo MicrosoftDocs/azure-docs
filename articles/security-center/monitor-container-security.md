@@ -16,7 +16,7 @@ ms.author: memildin
 This page explains how to use the container security features described in the [Container Security article](container-security.md) in our concepts section.
 
 
-## Scanning your ARM-based container registries for vulnerabilities 
+## Scan your ARM-based container registries for vulnerabilities 
 
 1. To enable vulnerability scans of your Azure Container Registry images:
 
@@ -83,7 +83,7 @@ This page explains how to use the container security features described in the [
     1. When you are sure the updated image has been pushed, scanned, and is no longer appearing in the recommendation, delete the “old” vulnerable image from your registry.
 
 
-## Hardening your containers' Docker hosts
+## Harden your containers' Docker hosts
 
 Security Center constantly monitors the configuration of your Docker hosts, and generates security recommendations that reflect industry standards.
 

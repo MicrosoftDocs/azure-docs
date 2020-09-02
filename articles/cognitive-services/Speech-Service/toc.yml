@@ -3,10 +3,8 @@
 - name: Overview
   expanded: true
   items:
-  - name: What is the Speech service?
+  - name: Speech service overview
     href: overview.md
-  - name: Try the Speech service for free
-    href: get-started.md
   - name: Language and voice support
     displayName: languages,locales,voice,gender,language code,locale,locale code,neural voice,standard voice
     href: language-support.md
@@ -117,7 +115,7 @@
   items:
     - name: Text-to-speech documentation
       href: index-text-to-speech.yml
-    - name: What is text-to-speech?
+    - name: Text-to-speech overview
       href: text-to-speech.md
     - name: Text-to-speech quickstart
       href: get-started-text-to-speech.md
@@ -160,33 +158,29 @@
               href: how-to-audio-content-creation.md
     - name: Reference
       items:
-        - name: Speech SDK
-          items:
-            - name: C++
-              displayName: 'C++ SDK,C++ dev kit,reference,reference docs,ref documentation'
-              href: 'https://aka.ms/csspeech/cppref'
-            - name: 'C#'
-              displayName: CSharp SDK,.NET SDK,C# SDK,C# dev kit,reference,reference docs,ref documentation
-              href: 'https://aka.ms/csspeech/csharpref'
-            - name: Java
-              displayName: 'Java SDK,Java dev kit,reference,reference docs,ref documentation'
-              href: 'https://aka.ms/csspeech/javaref'
-            - name: JavaScript
-              displayName: Node, Node.js, NodeJS, JS SDK,JavaScript SDK,JavaScript dev kit,reference,reference docs,ref documentation
-              href: 'https://aka.ms/csspeech/javascriptref'
-            - name: Objective-C
-              displayName: Objective-C SDK,Objective-C dev kit,reference,reference docs,ref documentation
-              href: 'https://aka.ms/csspeech/objectivecref'
-            - name: Python
-              displayName: Python SDK,Python dev kit,reference,reference docs,ref documentation
-              href: 'https://aka.ms/csspeech/pythonref'
-            - name: Release notes
-              displayName: 'release notes,updates,what''s new,what is new,changes'
-              href: releasenotes.md
-        - name: REST APIs
-          items:
-            - name: Text-to-speech REST API
-              href: rest-text-to-speech.md
+        - name: C++
+          displayName: 'C++ SDK,C++ dev kit,reference,reference docs,ref documentation'
+          href: 'https://aka.ms/csspeech/cppref'
+        - name: 'C#'
+          displayName: CSharp SDK,.NET SDK,C# SDK,C# dev kit,reference,reference docs,ref documentation
+          href: 'https://aka.ms/csspeech/csharpref'
+        - name: Java
+          displayName: 'Java SDK,Java dev kit,reference,reference docs,ref documentation'
+          href: 'https://aka.ms/csspeech/javaref'
+        - name: JavaScript
+          displayName: Node, Node.js, NodeJS, JS SDK,JavaScript SDK,JavaScript dev kit,reference,reference docs,ref documentation
+          href: 'https://aka.ms/csspeech/javascriptref'
+        - name: Objective-C
+          displayName: Objective-C SDK,Objective-C dev kit,reference,reference docs,ref documentation
+          href: 'https://aka.ms/csspeech/objectivecref'
+        - name: Python
+          displayName: Python SDK,Python dev kit,reference,reference docs,ref documentation
+          href: 'https://aka.ms/csspeech/pythonref'
+        - name: Release notes
+          displayName: 'release notes,updates,what''s new,what is new,changes'
+          href: releasenotes.md
+        - name: Text-to-speech REST API
+          href: rest-text-to-speech.md
     - name: Resources
       items:
         - name: Standard voice support
@@ -204,49 +198,37 @@
   items:
     - name: Speech translation documentation
       href: index-speech-translation.yml
-    - name: Overview
-      items:
-        - name: What is speech translation?
-          href: speech-translation.md
-        - name: Speech translation basics
-          href: speech-translation-basics.md
-    - name: Quickstart
-      items:
-        - name: Translate speech-to-text
-          href: quickstarts/translate-speech-to-text.md
-        - name: Translate speech to multiple target languages
-          href: quickstarts/translate-speech-to-text-multiple-languages.md
-        - name: Translate speech-to-speech
-          href: quickstarts/translate-speech-to-speech.md
-    - name: Tutorials
+    - name: Speech translation overview
+      href: speech-translation.md
+    - name: Speech translation quickstart
+      href: get-started-speech-translation.md
+    - name: How-to guides
       items:
         - name: Translate and synthesize text with REST APIs
           href: ../translator/tutorial-build-flask-app-translation-synthesis.md?toc=%2fazure%2fcognitive-services%2fspeech-service%2ftoc.json&bc=%2fazure%2fcognitive-services%2fspeech-service%2fbreadcrumb%2ftoc.json
     - name: Reference
       items:
-        - name: Speech SDK
-          items:
-            - name: C++
-              displayName: 'C++ SDK,C++ dev kit,reference,reference docs,ref documentation'
-              href: 'https://aka.ms/csspeech/cppref'
-            - name: 'C#'
-              displayName: CSharp SDK,.NET SDK,C# SDK,C# dev kit,reference,reference docs,ref documentation
-              href: 'https://aka.ms/csspeech/csharpref'
-            - name: Java
-              displayName: 'Java SDK,Java dev kit,reference,reference docs,ref documentation'
-              href: 'https://aka.ms/csspeech/javaref'
-            - name: JavaScript
-              displayName: Node, Node.js, NodeJS, JS SDK,JavaScript SDK,JavaScript dev kit,reference,reference docs,ref documentation
-              href: 'https://aka.ms/csspeech/javascriptref'
-            - name: Objective-C
-              displayName: Objective-C SDK,Objective-C dev kit,reference,reference docs,ref documentation
-              href: 'https://aka.ms/csspeech/objectivecref'
-            - name: Python
-              displayName: Python SDK,Python dev kit,reference,reference docs,ref documentation
-              href: 'https://aka.ms/csspeech/pythonref'
-            - name: Release notes
-              displayName: 'release notes,updates,what''s new,what is new,changes'
-              href: releasenotes.md
+        - name: C++
+          displayName: 'C++ SDK,C++ dev kit,reference,reference docs,ref documentation'
+          href: 'https://aka.ms/csspeech/cppref'
+        - name: 'C#'
+          displayName: CSharp SDK,.NET SDK,C# SDK,C# dev kit,reference,reference docs,ref documentation
+          href: 'https://aka.ms/csspeech/csharpref'
+        - name: Java
+          displayName: 'Java SDK,Java dev kit,reference,reference docs,ref documentation'
+          href: 'https://aka.ms/csspeech/javaref'
+        - name: JavaScript
+          displayName: Node, Node.js, NodeJS, JS SDK,JavaScript SDK,JavaScript dev kit,reference,reference docs,ref documentation
+          href: 'https://aka.ms/csspeech/javascriptref'
+        - name: Objective-C
+          displayName: Objective-C SDK,Objective-C dev kit,reference,reference docs,ref documentation
+          href: 'https://aka.ms/csspeech/objectivecref'
+        - name: Python
+          displayName: Python SDK,Python dev kit,reference,reference docs,ref documentation
+          href: 'https://aka.ms/csspeech/pythonref'
+        - name: Release notes
+          displayName: 'release notes,updates,what''s new,what is new,changes'
+          href: releasenotes.md
     - name: Resources
       items:
         - name: Language support
@@ -522,17 +504,11 @@
         href: speech-container-faq.md
 - name: Speech SDK
   items:
-    - name: Overview
-      items:
-        - name: About the Speech SDK
-          href: speech-sdk.md
-        - name: Scenario availability
-          href: scenario-availability.md
-    - name: Quickstart
-      items:
-        - name: Setup Speech SDK
-          displayName: install the speech sdk, install the speech sdk java, install the speech sdk C#, install the speech sdk python, install the speech sdk C++, setup speech sdk, install, install C#, install C++, install Python, install Java, install Javascript
-          href: quickstarts/setup-platform.md
+    - name: Speech SDK overview
+      href: speech-sdk.md
+    - name: Setup Speech SDK
+      displayName: install the speech sdk, install the speech sdk java, install the speech sdk C#, install the speech sdk python, install the speech sdk C++, setup speech sdk, install, install C#, install C++, install Python, install Java, install Javascript
+      href: quickstarts/setup-platform.md
     - name: How-to guides
       items:
         - name: Enable logging

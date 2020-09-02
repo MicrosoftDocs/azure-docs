@@ -26,7 +26,7 @@ This article provides you with an overview of both notification emails.
 
 ## Users at risk detected email
 
-In response to a detected account at risk, Azure AD Identity Protection generates an email alert with **Users at risk detected** as subject. The email includes a link to the **[Users flagged for risk](../reports-monitoring/concept-user-at-risk.md)** report. As a best practice, you should immediately investigate the users at risk.
+In response to a detected account at risk, Azure AD Identity Protection generates an email alert with **Users at risk detected** as subject. The email includes a link to the **[Users flagged for risk](./overview-identity-protection.md)** report. As a best practice, you should immediately investigate the users at risk.
 
 The configuration for this alert allows you to specify at what user risk level you want the alert to be generated. The email will be generated when the user's risk level reaches what you have specified. For example, if you set the policy to alert on medium user risk and your user John's user risk score moves to medium risk due to a real-time sign-in risk, you will receive the users at risk detected email. If the user has subsequent risk detections that cause the user risk level calculation to be the specified risk level (or higher), you will receive additional user at risk detected emails when the user risk score is recalculated. For example, if a user moves to medium risk on January 1st, you will receive an email notification if your settings are set to alert on medium risk. If that same user then has another risk detection on January 5th that's also medium risk, and the user risk score is recalculated and is still medium, you will receive another email notification. 
 
@@ -67,4 +67,4 @@ Configure the weekly digest email in the **Azure portal** under **Azure Active D
 
 ## See also
 
-- [Azure Active Directory Identity Protection](../active-directory-identityprotection.md)
+- [Azure Active Directory Identity Protection](./overview-identity-protection.md)

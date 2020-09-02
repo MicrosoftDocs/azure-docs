@@ -6,7 +6,7 @@ ms.service: security
 ms.topic: conceptual
 ms.date: 04/10/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
+ms.custom: subject-security-benchmark
 
 ---
 
@@ -1008,11 +1008,15 @@ https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-m
 
 How to create a Key Vault:
 
-https://docs.microsoft.com/azure/key-vault/quick-create-portal
+https://docs.microsoft.com/azure/key-vault/general/quick-create-portal
 
-How to provide Key Vault authentication with a managed identity: 
+How to authenticate to Key Vault:
 
-https://docs.microsoft.com/azure/key-vault/managed-identity
+https://docs.microsoft.com/azure/key-vault/general/authentication
+
+How to assign a Key Vault access policy:
+
+https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal.md
 
 **Azure Security Center monitoring**: Yes
 
@@ -1024,16 +1028,13 @@ https://docs.microsoft.com/azure/key-vault/managed-identity
 
   
 
-How to integrate with Azure Managed Identities: 
+* [How to integrate with Azure Managed Identities](/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity)
 
-https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity  
+* [How to create a Key Vault](quick-create-portal.md)
 
-How to create a Key Vault: 
+* [How to authenticate to Key Vault](authentication.md)
 
-https://docs.microsoft.com/azure/key-vault/quick-create-portal    
-
-How to provide Key Vault authentication with a managed identity:  
-https://docs.microsoft.com/azure/key-vault/managed-identity
+* [How to assign a Key Vault access policy](assign-access-policy-portal.md)
 
 **Azure Security Center monitoring**: Not applicable
 

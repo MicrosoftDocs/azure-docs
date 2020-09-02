@@ -39,7 +39,7 @@ Updates in August include:
 
 ### Asset inventory - powerful new view of the security posture of your assets
 
-Security Center's asset inventory provides a way to view the security posture of the resources you've connected to Security Center.
+Security Center's asset inventory (currently in preview) provides a way to view the security posture of the resources you've connected to Security Center.
 
 Security Center periodically analyzes the security state of your Azure resources to identify potential security vulnerabilities. It then provides you with recommendations on how to remediate those vulnerabilities. When any resource has outstanding recommendations, they'll appear in the inventory.
 
@@ -155,11 +155,11 @@ When deploying a vulnerability assessment solution, Security Center previously p
 
 From this update, the check has been removed and you can now deploy vulnerability assessment tools to 'custom' Windows and Linux machines. Custom images are ones that you've modified from the marketplace defaults.
 
-Although you can now deploy the integrated vulnerability assessment extension (powered by Qualys) on many more machines, support is only available if you're using an OS listed in [Deploying the Qualys built-in vulnerability scanner](built-in-vulnerability-assessment.md#deploying-the-qualys-built-in-vulnerability-scanner).
+Although you can now deploy the integrated vulnerability assessment extension (powered by Qualys) on many more machines, support is only available if you're using an OS listed in [Deploy the integrated vulnerability scanner to standard tier VMs](deploy-vulnerability-assessment-vm.md#deploy-the-integrated-vulnerability-scanner-to-standard-tier-vms)
 
-Learn more about the [integrated vulnerability scanner for virtual machines (standard tier only)](built-in-vulnerability-assessment.md).
+Learn more about the [integrated vulnerability scanner for virtual machines (standard tier only)](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner).
 
-Learn more about using your own privately licensed vulnerability assessment solution from Qualys or Rapid7 in [Deploying a partner vulnerability scanning solution](partner-vulnerability-assessment.md).
+Learn more about using your own privately licensed vulnerability assessment solution from Qualys or Rapid7 in [Deploying a partner vulnerability scanning solution](deploy-vulnerability-assessment-vm.md).
 
 
 ### Threat protection for Azure Storage expanded to include Azure Files and Azure Data Lake Storage Gen2 (preview)
@@ -232,7 +232,7 @@ The adaptive application controls feature has received two significant updates:
 
     * Using a wildcard at the end of a path to allow all executables within this folder and sub-folders
 
-    * Using a wildcard in the middle of a path to enable a known executable name with a changing folder name (e.g. personal user folders with an known executable, automatically generated folder names, etc).
+    * Using a wildcard in the middle of a path to enable a known executable name with a changing folder name (e.g. personal user folders with an known executable, automatically generated folder names, etc.).
 
 
 [Learn more about adaptive application controls](security-center-adaptive-application.md).
@@ -411,7 +411,7 @@ To deploy the solution, use the new security recommendation:
 
 "Enable the built-in vulnerability assessment solution on virtual machines (powered by Qualys)"
 
-Learn more about [Security Center's integrated vulnerability assessment for virtual machines](built-in-vulnerability-assessment.md).
+Learn more about [Security Center's integrated vulnerability assessment for virtual machines](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner).
 
 
 
@@ -485,7 +485,7 @@ Create a custom initiative in Azure policy, add policies to it and onboard it to
 
 We've now also added the option to edit the custom recommendation metadata. Metadata options include severity, remediation steps, threats information, and more.  
 
-Learn more about [enhancing your custom recommendations with detailed information](custom-security-policies.md#enhancing-your-custom-recommendations-with-detailed-information).
+Learn more about [enhancing your custom recommendations with detailed information](custom-security-policies.md#enhance-your-custom-recommendations-with-detailed-information).
 
 
 
