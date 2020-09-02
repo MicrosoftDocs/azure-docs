@@ -30,6 +30,13 @@ For more information, see [Deploy an application with Azure Resource Manager tem
 
 * To use a template from a CLI, you need either [Azure PowerShell](https://docs.microsoft.com/powershell/azure/?view=azps-1.2.0) or the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
+* Some scenarios require you to ask for a quota increase. These scenarios are:
+
+    * __Private Link enabled workspace with a customer-managed key (CMK)__
+    * __Azure Container Registry for the workspace behind your virtual network__
+
+    For more information, see [Manage and increase quotas](how-to-manage-quotas#private-endpoint-and-private-dns-quota-increases).
+
 ## Workspace Resource Manager template
 
 The Azure Resource Manager template used throughout this document can be found in the [201-machine-learning-advanced](https://github.com/Azure/azure-quickstart-templates/blob/master/201-machine-learning-advanced/azuredeploy.json) directory of the Azure quickstart templates GitHub repository.
@@ -270,7 +277,8 @@ By setting the `vnetOption` parameter value to either `new` or `existing`, you a
 If your associated resources are not behind a virtual network, you can set the **privateEndpointType** parameter to `AutoAproval` or `ManualApproval` to deploy the workspace behind a private endpoint. This can be done for both new and existing workspaces. When updating an existing workspace, fill in the template parameters with the information from the existing workspace.
 
 > [!IMPORTANT]
-> Using Azure Private Link to create a private endpoint for Azure Machine Learning workspace is currently in public preview. This functionality is only available in the **US East**, **US South Central**, and **US West 2** regions. 
+> Using Azure Private Link to create a private endpoint for Azure Machine Learning workspace is currently in public preview. This functionality is available in all regions that Azure Machine Learning is supported in, excluding US Government and Azure China 21Vianet regions.
+> 
 > This preview is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 

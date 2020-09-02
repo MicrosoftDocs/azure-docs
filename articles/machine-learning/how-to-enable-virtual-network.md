@@ -40,8 +40,6 @@ A __virtual network__ acts as a security boundary, isolating your Azure resource
 
 You can also [enable Azure Private Link](how-to-configure-private-link.md) to connect to your workspace using a private endpoint. The private endpoint is a set of private IP addresses within your virtual network. [Learn how to set up this private endpoint.](how-to-configure-private-link.md)
 
-
-
 > [!TIP]
 > You can combine virtual network and Private Link together to protect communication between your workspace and other Azure resources. However, some combinations require an Enterprise edition workspace. Use the following table to understand what scenarios require Enterprise edition:
 >
@@ -261,8 +259,6 @@ To use either a [managed Azure Machine Learning __compute target__](concept-comp
 > 
 > In the case of clusters these resources are deleted (and recreated) every time the cluster scales down to 0 nodes, however for an instance the resources are held onto till the instance is completely deleted (stopping does not remove the resources). 
 > These resources are limited by the subscription's [resource quotas](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
-
-To use a compute instance in a workspace where Private Link is enabled, the compute instance and workspace must be in the __eastus__, __westus2__, or __southcentralus__ regions.
 
 ### <a id="mlcports"></a> Required ports
 
@@ -662,6 +658,7 @@ For information on using Azure Machine Learning with Azure Firewall, see [Use Az
 > * Your Azure Container Registry must be Premium version . For more information on upgrading, see [Changing SKUs](/azure/container-registry/container-registry-skus#changing-skus).
 > * Your Azure Container Registry must be in the same virtual network and subnet as the storage account and compute targets used for training or inference.
 > * Your Azure Machine Learning workspace must contain an [Azure Machine Learning compute cluster](how-to-create-attach-compute-sdk.md#amlcompute).
+> * You must request a quota allocation increase. For more information, see [Manage and increase quotas](how-to-manage-quotas#private-endpoint-and-private-dns-quota-increases).
 >
 >     When ACR is behind a virtual network, Azure Machine Learning cannot use it to directly build Docker images. Instead, the compute cluster is used to build the images.
 
