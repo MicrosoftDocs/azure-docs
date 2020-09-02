@@ -64,7 +64,7 @@ The detailed specifications of the available server types are as follows:
 | E48ds_v4             | 48     | 384               |
 | E64ds_v4             | 64     | 504               |
 
-To get more details about the compute series available, please refer to Azure VM documentation for [Burstable (B-series)](../../virtual-machines/sizes-b-series-burstable.md), [General Purpose (Ddsv4-series)](../../virtual-machines/ddv4-ddsv4-series.md), and [Memory Optimized (Edsv4-series)](../../virtual-machines/edv4-edsv4-series.md).
+To get more details about the compute series available, refer to Azure VM documentation for [Burstable (B-series)](../../virtual-machines/sizes-b-series-burstable.md), [General Purpose (Ddsv4-series)](../../virtual-machines/ddv4-ddsv4-series.md), and [Memory Optimized (Edsv4-series)](../../virtual-machines/edv4-edsv4-series.md).
 
 ## Storage
 
@@ -73,7 +73,7 @@ The storage you provision is the amount of storage capacity available to your fl
 >[!NOTE]
 > Storage can only be scaled up, not down.
 
-You can monitor the your storage consumption in the Azure portal (with Azure Monitor) using the storage limit, storage percentage, and storage used metrics. Refer to the [monitoring article](./concepts-monitoring.md) to learn about metrics. 
+You can monitor your storage consumption in the Azure portal (with Azure Monitor) using the storage limit, storage percentage, and storage used metrics. Refer to the [monitoring article](./concepts-monitoring.md) to learn about metrics. 
 
 ### Reaching the storage limit
 
@@ -94,7 +94,7 @@ We recommend that you <!--turn on storage auto-grow or to--> set up an alert to 
 Storage auto-grow is not yet available for Azure Database for MySQL Flexible Server.
 
 ## IOPS
-The minimum effective IOPS is 100 across all compute sizes and the max effective IOPS is determined by both of the following: 
+The minimum effective IOPS is 100 across all compute sizes and the max effective IOPS is determined by both of the following attributes: 
 - Compute: the max effective IOPS maybe limited by the maximum available IOPS of the selected compute size.
 - Storage: in all compute tiers, the IOPS scale with the provisioned storage size in a 3:1 ratio.
 
@@ -125,7 +125,7 @@ To learn more about the max effective IOPS per compute size, using the combinati
 | E48ds_v4             | 20000               | 
 | E64ds_v4             | 20000               |  
 
-The maximum effective IOPS is dependent on the maximum available IOPS per compute size. Please see to the formula below and refer to the column *Max uncached disk throughput: IOPS/MBps* in the [B-series](../../virtual-machines/sizes-b-series-burstable.md), [Ddsv4-series](../../virtual-machines/ddv4-ddsv4-series.md), and [Edsv4-series](../../virtual-machines/edv4-edsv4-series.md) documentation.
+The maximum effective IOPS is dependent on the maximum available IOPS per compute size. See to the formula below and refer to the column *Max uncached disk throughput: IOPS/MBps* in the [B-series](../../virtual-machines/sizes-b-series-burstable.md), [Ddsv4-series](../../virtual-machines/ddv4-ddsv4-series.md), and [Edsv4-series](../../virtual-machines/edv4-edsv4-series.md) documentation.
 
 **Max effective IOPS** = MINIMUM(*"Max uncached disk throughput: IOPS/MBps"* of compute size, storage provisioned in GiB * 3)
 
@@ -133,7 +133,7 @@ You can monitor your I/O consumption in the Azure portal (with Azure Monitor) us
 
 ## Backup
 
-The service automatically takes backups of your server. You can select a retention period from a range of 1 to 35 days. Learn more about backups in the backups article <!-- [concepts article](concepts-backup.md)-->.
+The service automatically takes backups of your server. You can select a retention period from a range of 1 to 35 days. Learn more about backups in the backups article<!-- [concepts article](concepts-backup.md)-->.
 
 ## Scale resources
 
@@ -150,7 +150,7 @@ Scaling storage and changing the backup retention period are online operations a
 
 For the most up-to-date pricing information, see the service [pricing page](https://azure.microsoft.com/pricing/details/MySQL/). To see the cost for the configuration you want, the [Azure portal](https://portal.azure.com/#create/Microsoft.MySQLServer/flexibleServers) shows the monthly cost on the **Compute + storage** tab based on the options you select. If you don't have an Azure subscription, you can use the Azure pricing calculator to get an estimated price. On the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) website, select **Add items**, expand the **Databases** category, choose **Azure Database for MySQL**, and **Flexible Server** as the deployment type to customize the options.
 
-If you would like to optimize cost for your server, you can consider following:
+If you would like to optimize server cost, you can consider following tips:
 
 - Scale down your compute tier or compute size (vCores) if compute is underutilized.
 - Consider switching to the Burstable compute tier if your workload doesn't need the full compute capacity continuously from the General Purpose and Memory Optimized tiers.
