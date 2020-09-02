@@ -21,7 +21,7 @@ To get started, export a Resource Manager template. This template contains setti
 3. Select > **Settings** > **Export template**.
 4. Choose **Download** in the **Export template** page.
 
-    :::image type="content" source="./media/move-cluster-across-regions/download-template.png" alt-text="Download Resource Manager template":::
+    :::image type="content" source="./media/move-cluster-across-regions/download-template.png" alt-text="Download Resource Manager template" lightbox="./media/move-cluster-across-regions/download-template.png":::
 5. Locate the .zip file that you downloaded from the portal, and unzip that file to a folder of your choice.
 
    This zip file contains the .json files that include the template and scripts to deploy the template.
@@ -43,7 +43,7 @@ Deploy the template to create an Event Hubs dedicated cluster in the target regi
     2. Select an existing **resource group** or create one. 
     3. Select the target **location** or region. If you selected an existing resource group, this setting is read-only. 
     4. In the **SETTINGS** section, do the following steps:    
-        1. enter the new **cluster name**. 
+        1. Enter the new **cluster name**. 
 
             :::image type="content" source="./media/move-cluster-across-regions/deploy-template.png" alt-text="Deploy Resource Manager template":::
     5. Select **Review + create** at the bottom of the page. 
@@ -58,7 +58,7 @@ To delete an Event Hubs cluster (source or target) by using the Azure portal:
 
 1. In the search window at the top of Azure portal, type **Event Hubs Clusters**, and select **Event Hubs Clusters** from search results. You see the Event Hubs cluster in a list.
 2. Select the cluster to delete, and select **Delete** from the toolbar. 
-3. On the **Delete Cluster*** page, confirm the deletion by typing the **cluster name**, and then select **Delete**. 
+3. On the **Delete Cluster** page, confirm the deletion by typing the **cluster name**, and then select **Delete**. 
 
 ## Next steps
 In this tutorial, you learned how to move an Event Hubs dedicated cluster from one region to another. 

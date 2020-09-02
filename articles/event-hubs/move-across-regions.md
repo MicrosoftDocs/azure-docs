@@ -46,7 +46,7 @@ Deploy the template to create an Event Hubs namespace in the target region.
     2. Select an existing **resource group** or create one. If the source namespace was in an Event Hubs cluster, select the resource group that contains cluster in the target region. 
     3. Select the target **location** or region. If you selected an existing resource group, this setting is read-only. 
     4. In the **SETTINGS** section, do the following steps:    
-        1. enter the new **namespace name**. 
+        1. Enter the new **namespace name**. 
 
             ![Deploy Resource Manager template](./media/move-across-regions/deploy-template.png)
         2. If your source namespace was in an **Event Hubs cluster**, enter names of **resource group** and **Event Hubs cluster** as part of **external ID**. 
@@ -73,7 +73,7 @@ To delete an Event Hubs namespace (source or target) by using the Azure portal:
 2. Select the target namespace to delete, and select **Delete** from the toolbar. 
 
     ![Delete namespace - button](./media/move-across-regions/delete-namespace-button.png)
-3. On the **Delete Namespace*** page, confirm the deletion by typing the **namespace name**, and then select **Delete**. 
+3. On the **Delete Namespace** page, confirm the deletion by typing the **namespace name**, and then select **Delete**. 
 
 ## Next steps
 
