@@ -4,6 +4,7 @@ description: List of countries from which you can publish an offer to the Micros
 ms.reviewer: nanef 
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
+ms.custom: references_regions
 ms.topic: how-to
 author: mingshen-ms 
 ms.author: mingshen
