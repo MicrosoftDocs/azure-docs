@@ -114,7 +114,7 @@ As updates are constantly made to the product, some features have added or diffe
 
 [Optimize data flow start-up times](https://www.youtube.com/watch?v=VT_2ZV3a7Fc)
 
-[Azure Integration Runtimes for Data Flows](https://mssqldude.wordpress.com/)
+[Azure Integration Runtimes for Data Flows](https://www.youtube.com/watch?v=VT_2ZV3a7Fc)
 
 ## Mapping data flow scenarios
 
@@ -124,7 +124,7 @@ As updates are constantly made to the product, some features have added or diffe
 
 [Clean addresses pattern](https://youtu.be/axEYbuU3lmw)
 
-[Deduplication](https://www.youtube.com/watch?v=OLenvYwg__I)
+[Deduplication](https://youtu.be/QOi26ETtPTw)
 
 [Merge files](http://youtu.be/WbDTBAyYte8)
 

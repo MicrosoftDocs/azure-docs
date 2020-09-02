@@ -11,7 +11,7 @@ editor: ''
 
 ms.service: media-services
 ms.workload: 
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/19/2019
 ms.author: inhenkel
 ---

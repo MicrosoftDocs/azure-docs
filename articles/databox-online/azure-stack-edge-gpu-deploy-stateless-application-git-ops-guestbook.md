@@ -53,7 +53,7 @@ Before you can deploy the stateless application, make sure that you have complet
       - In the local UI of your Azure Stack Edge device, go to **Overview** and note the Kubernetes software number. 
       - Verify these two versions for compatibility from the mapping provided in the Supported Kubernetes version <!--insert link-->.
 
-1. You have a [GitOps configuration that you can use to run an Azure Arc deployment](https://github.com/kagoyal/dbehaikudemo). You will use the following `yaml` files to deploy on your Azure Stack Edge device.
+1. You have a [GitOps configuration that you can use to run an Azure Arc deployment](https://github.com/kagoyal/dbehaikudemo). In this example, you will use the following `yaml` files to deploy on your Azure Stack Edge device.
 
     - `frontend-deployment.yaml`<!-- - The guestbook application has a web frontend serving the HTTP requests written in PHP. It is configured to connect to the redis-master Service for write requests and the redis-slave service for Read requests. This file describes a deployment that runs the frontend of the guestbook application.-->
     - `frontend-service.yaml` <!-- - This allows you to configure an externally visible frontend Service that can be accessed from outside the Kubernetes cluster on your device.-->
