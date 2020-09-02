@@ -40,7 +40,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + Enable registering credential-less ADLS Gen2 datastore.
     + Improved error message when trying to download or mount an incorrect dataset type.
     + Update timeseries dataset filter sample notebook with more examples of partition_timestamp that provides filter optimization.
-    + Change the sdk and cli to accept subscriptionId, resourceGroup, workspaceName, peConnectionName as parameters instead of ArmResourceId when deleting private endpoint connection.
+    + Change the sdk and cli commands to accept subscriptionId, resourceGroup, workspaceName, peConnectionName as parameters instead of ArmResourceId when deleting private endpoint connection.
     + Experimental Decorator shows class name for easier identification.
     + Descriptions for the Assets inside of Models are no longer automatically generated based on a Run.
   + **azureml-datadrift**
@@ -109,7 +109,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + Users are required to upgrade to sdk v1.10.0 or above to create an auto approved private endpoint. This includes the Notebook resource which is usable behind the VNet.
     + Expose NotebookInfo in the response of get workspace.
     + Changes to have calls to list compute targets and getting compute target succeed on a remote run. Sdk functions to get compute target and list workspace compute targets will now work in remote runs.
-    + Add deprecation mesages to the class descriptions for azureml.core.image classes.
+    + Add deprecation messages to the class descriptions for azureml.core.image classes.
     + Throw exception and clean up workspace and dependent resources if workspace private endpoint creation fails.
     + Support workspace sku upgrade in workspace update method.
   + **azureml-datadrift**
@@ -141,7 +141,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + Fixed a bug where runs may fail with service errors during specific forecasting runs
     + Improved error handling around specific models during `get_output`
     + Fixed call to fitted_model.fit(X, y) for classification with y transformer
-    + Enabled customized forward fill imputer for forcasting tasks
+    + Enabled customized forward fill imputer for forecasting tasks
     + A new ForecastingParameters class will be used instead of forecasting parameters in a dict format
     + Improved target lag autodetection
     + Added limited availability of multi-noded, multi-gpu distributed featurization with BERT
@@ -153,7 +153,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
   + **azureml-contrib-mir**
     + Added support for enable-app-insights flag in ManagedInferencing
   + **azureml-core**
-    + A validate paramter to these API's by allowing validation to be skipped when the data source is not accessible from the current compute.
+    + A validate parameter to these API's by allowing validation to be skipped when the data source is not accessible from the current compute.
       + TabularDataset.time_before(end_time, include_boundary=True, validate=True)
       + TabularDataset.time_after(start_time, include_boundary=True, validate=True)
       + TabularDataset.time_recent(time_delta, include_boundary=True, validate=True)
@@ -260,7 +260,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
 + **Bug fixes and improvements**
   + **azure-cli-ml**
     + Completed the removal of model profiling from mir contrib by cleaning up cli commands and package dependencies, Model profiling is available in core.
-    + Upgrades the min Azure Cli version to 2.3.0
+    + Upgrades the Azure CLI version to 2.3.0
   + **azureml-automl-core**
     + Better exception message on featurization step fit_transform() due to custom transformer parameters.
     + Add support for multiple languages for deep learning transformer models such as BERT in automated ML.
