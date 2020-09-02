@@ -41,6 +41,8 @@ The following example is a sample client principal object:
 
 ## Direct-access endpoint
 
+# [JavaScript](#tab/javascript)
+
 You can send a `GET` request to the `/.auth/me` route and receive direct access to the client principal data. When the state of your view relies on authorization data, use this approach for the best performance.
 
 For logged-in users, the response contains a client principal JSON object. Requests from unauthenticated users returns `null`.
@@ -57,6 +59,10 @@ async function getUserInfo() {
 
 console.log(getUserInfo());
 ```
+
+# [.NET](#tab/dotnet)
+
+While it is possible to use the HTTP Client in .NET to call the `/.auth/me` endpoint and retrieve the user information, a NuGet package has been provided that integrates the Static Web Apps authentication and authorization process with Blazor's authentication and authorization model. This in turn will expose the user information as a `ClientPrincipal` which can be inspected.
 
 ## API functions
 
@@ -137,6 +143,45 @@ In a C# function, the user information can be unpacked from the `x-ms-client-pri
 ---
 
 <sup>1</sup> The [fetch](https://caniuse.com/#feat=fetch) API and [await](https://caniuse.com/#feat=mdn-javascript_operators_await) operator aren't supported in Internet Explorer.
+
+# [.NET](#tab/dotnet)
+
+In a .NET function, the user information can be unpacked from the `x-ms-client-principal` header into a `ClaimsPrincipal` object, or your own custom type. The following code demonstrates how to unpack the header into an intermediary type, `ClientPrincipal`, which is then turned into a `ClaimsPrincipal` instance.
+
+```csharp
+  public static class StaticWebAppsAuth
+  {
+    private class ClientPrincipal
+    {
+        public string IdentityProvider { get; set; }
+        public string UserId { get; set; }
+        public string UserDetails { get; set; }
+        public IEnumerable<string> UserRoles { get; set; }
+    }
+    
+    public static ClaimsPrincipal Parse(HttpRequest req)
+    {
+        var header = req.Headers["x-ms-client-principal"];
+        var data = header.Value[0];
+        var decoded = System.Convert.FromBase64String(data);
+        var json = System.Text.ASCIIEncoding.ASCII.GetString(decoded);
+        var principal = JsonSerializer.Deserialize<ClientPrincipal>(json, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+  
+        principal.UserRoles = principal.UserRoles.Except(new string[] { "anonymous" }, StringComparer.CurrentCultureIgnoreCase);
+  
+        if (!principal.UserRoles.Any())
+        {
+            return new ClaimsPrincipal();
+        }
+  
+        var identity = new ClaimsIdentity(principal.IdentityProvider);
+        identity.AddClaim(new Claim(ClaimTypes.NameIdentifier, principal.UserId));
+        identity.AddClaim(new Claim(ClaimTypes.Name, principal.UserDetails));
+        identity.AddClaims(principal.UserRoles.Select(r => new Claim(ClaimTypes.Role, r)));
+        return new ClaimsPrincipal(identity);
+    }
+  }
+```
 
 ## Next steps
 
