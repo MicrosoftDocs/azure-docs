@@ -79,6 +79,9 @@ Alternatively, you can download the files from the **Models** asset page:
 
     ![Screenshot of download files for deployment in model detail page](./media/how-to-deploy-model-designer/download-artifacts-in-models-page.png)
 
+> [!NOTE]
+> The `score.py` files provide almost the same functions as the **Score Model** modules. But for some modules like **Score SVD Recommender*, **Score Wide and Deep Recommender**, and **Score Vowpal Wabbit Model** modules, user can set parameters for different score mode. Similarly, user can also change parameters in the `score.py` files to enable different score functions. See [Configure entry script file](#configure-entry-script-file) for how to set different parameters in the `score.py` files.
+
 ## Deploy your model
 
 You're now ready to deploy your model.
@@ -126,6 +129,101 @@ with open(sample_file_path, 'r') as f:
 score_result = service.run(json.dumps(sample_data))
 print(f'Inference result = {score_result}')
 ```
+
+## Technical notes
+
+### (Optional) Configure entry script file
+
+This section describes how to change parameters in entry script files to enable different score functions.
+
+Here is one example for Wide & Deep recommender. By default, the `score.py` file enables web service to predict ratings between users and items.
+
+The codes below shows how to change code to make item recommendations, and return recommended items.
+
+```python
+import os
+import json
+from pathlib import Path
+from collections import defaultdict
+from azureml.studio.core.io.model_directory import ModelDirectory
+from azureml.designer.modules.recommendation.dnn.wide_and_deep.score. \
+    score_wide_and_deep_recommender import ScoreWideAndDeepRecommenderModule
+from azureml.designer.serving.dagengine.utils import decode_nan
+from azureml.designer.serving.dagengine.converter import create_dfd_from_dict
+
+model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), 'trained_model_outputs')
+schema_file_path = Path(model_path) / '_schema.json'
+with open(schema_file_path) as fp:
+    schema_data = json.load(fp)
+
+
+def init():
+    global model
+    model = ModelDirectory.load(load_from_dir=model_path)
+
+
+def run(data):
+    data = json.loads(data)
+    input_entry = defaultdict(list)
+    for row in data:
+        for key, val in row.items():
+            input_entry[key].append(decode_nan(val))
+
+    data_frame_directory = create_dfd_from_dict(input_entry, schema_data)
+
+    # The parameter names can be inferred from Score Wide and Deep Recommender module parameters:
+    # convert the letters to lower cases and replace whitespaces to underscores.
+    score_params = dict(
+        trained_wide_and_deep_recommendation_model=model,
+        dataset_to_score=data_frame_directory,
+        training_data=None,
+        user_features=None,
+        item_features=None,
+        ################### Note #################
+        # Set 'Recommender prediction kind' parameter to enable item recommendation model
+        recommender_prediction_kind='Item Recommendation',
+        recommended_item_selection='From All Items',
+        maximum_number_of_items_to_recommend_to_a_user=5,
+        whether_to_return_the_predicted_ratings_of_the_items_along_with_the_labels='True')
+    result_dfd, = ScoreWideAndDeepRecommenderModule().run(**score_params)
+    result_df = result_dfd.data
+    return json.dumps(result_df.to_dict("list"))
+```
+
+For **Wide & Deep recommendation** and **Vowpal Wabbit** trained model, you can configure parameters using following tips:
+
+- The parameter names are the lowercases and underscores combination of the score module parameter names;
+- Mode type parameter values are strings of the corresponding option names. Take **Recommender prediction kind** in the above codes as example, the value can be `'Rating Prediction'`or `'Item Recommendation'`, and other values are not allowed.
+
+For **SVD recommendation** trained model, the parameter names and values maybe less obvious, and you can look up the tables below to decide how to set parameters.
+
+| Parameter name in the score module                           | Parameter name in the entry script file |
+| ------------------------------------------------------------ | --------------------------------------- |
+| Recommender prediction kind                                  | prediction_kind                         |
+| Recommended item selection                                   | recommended_item_selection              |
+| Minimum size of the recommendation pool for a single user    | min_recommendation_pool_size            |
+| Maximum number of items to recommend to a user               | max_recommended_item_count              |
+| Whether to return the predicted ratings of the items along with the labels | return_ratings                          |
+
+Following code shows how to set parameters for SVD recommender, which uses all 6 parameters to recommend rated items with predicted ratings attached.
+
+```python
+score_params = dict(
+        learner=model,
+        test_data=DataTable.from_dfd(data_frame_directory),
+        training_data=None,
+        # RecommenderPredictionKind has 2 members, 'RatingPrediction' and 'ItemRecommendation'. You
+        # can specify prediction_kind parameter with one of them.
+        prediction_kind=RecommenderPredictionKind.ItemRecommendation,
+        # RecommendedItemSelection has 3 members, 'FromAllItems', 'FromRatedItems', 'FromUndatedItems'.
+        # You can specify recommended_item_selection parameter with one of them.
+        recommended_item_selection=RecommendedItemSelection.FromRatedItems,
+        min_recommendation_pool_size=1,
+        max_recommended_item_count=3,
+        return_ratings=True,
+    )
+```
+
 
 ## Next steps
 
