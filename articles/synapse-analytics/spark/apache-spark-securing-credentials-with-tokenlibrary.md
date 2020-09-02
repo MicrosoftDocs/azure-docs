@@ -13,18 +13,15 @@ ms.reviewer: euang
 
 
 # Securing your credentials through linked services with the TokenLibrary
-
-## Prerequisite
-* Linked service - You must create a linked service to the external data source and reference the linked service from the Token Library. Learn more about [linked services](../../data-factory/concepts-linked-services.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
-
-## Accessing files within your workspace
-Accessing files from the Azure Data Lake Storage within your workspace uses AAD passthrough for authentication therefore, you will not need to supply any credentials or secrets. 
-
-## Accessing files from external sources
 Accessing data from external sources is a common pattern. 
 Unless the external data source allows anonymous access, chances are you need to secure your connection with a credential, secret, or connection string.  Azure Synapse Analytics provides linked services to simplify the integration process by storing the connection details in a linked service or Azure Key Vault. Once you have created a linked service, Apache spark can reference the linked service to apply the connection information in your code. 
 For more information, see [linked services](../../data-factory/concepts-linked-services.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+> [!NOTE]
+Accessing files from the Azure Data Lake Storage within your workspace uses AAD passthrough for authentication therefore, you will not need to use the TokenLibrary. 
 
+
+## Prerequisite
+* Linked service - You must create a linked service to the external data source and reference the linked service from the Token Library. Learn more about [linked services](../../data-factory/concepts-linked-services.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
 
 ## Connecting to ADLS Gen2 outside of Synapse workspace
