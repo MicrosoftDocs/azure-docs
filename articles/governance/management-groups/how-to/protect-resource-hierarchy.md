@@ -57,7 +57,7 @@ To configure this setting in Azure portal, follow these steps:
    > being viewed isn't the root management group or your security principal doesn't have the
    > necessary permissions to alter the hierarchy settings.
 
-1. Select a management group from your hieararchy and use the **Select** button.
+1. Select a management group from your hierarchy and use the **Select** button.
 
 ### Set default management group with REST API
 
