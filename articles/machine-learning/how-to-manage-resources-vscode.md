@@ -39,7 +39,6 @@ For more information, see [workspaces](concept-workspace.md).
     1. Choose your Azure subscription
     1. Choose or create a new resource group to provision the workspace in
     1. Select the location where to provision the workspace.
-    1. Choose between the *basic* and *enterprise* edition. Learn more about the different [Azure Machine Learning editions](concept-editions.md).
 
 Alternative methods to create a workspace include:
 
