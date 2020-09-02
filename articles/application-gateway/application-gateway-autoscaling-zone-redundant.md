@@ -42,7 +42,7 @@ With the v2 SKU, the pricing model is driven by consumption and is no longer att
 
 Each capacity unit is composed of at most: 1 compute unit, 2500 persistent connections, and 2.22-Mbps throughput.
 
-To learn more, see [understanding pricing](understanding-pricing.md).
+To learn more, see [Understanding pricing](understanding-pricing.md).
 
 ## Scaling Application Gateway and WAF v2
 

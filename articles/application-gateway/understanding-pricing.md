@@ -5,11 +5,15 @@ services: application-gateway
 author: azhar2005
 ms.service: application-gateway
 ms.topic: conceptual
+ms.custom: references_regions
 ms.date: 09/01/2020
 ms.author: azhussai
 ---
 
 # Understanding Pricing for Azure Application Gateway and Web Application Firewall
+
+>[!NOTE]
+>Prices shown in this article are examples and are for illustration purposes only. For pricing information according to your region, see the [Pricing page](https://azure.microsoft.com/pricing/details/application-gateway/).
 
 Azure Application Gateway is a layer 7 load-balancing solution, which enables scalable, highly available, and secure web application delivery on Azure.
 
@@ -25,17 +29,17 @@ This article describes the costs associated with each SKU and it is recommended 
 
 Standard Application Gateway and WAF V1 SKUs are billed as a combination of:
 
-1. Fixed Costs
+* Fixed Costs
 
     Cost based on the time a particular type of Application Gateway/WAF is provisioned and running for processing requests.
-The fixed cost component takes in consideration the following factors:
+    The fixed cost component takes in consideration the following factors:
     * Tier - Standard Application Gateway or WAF
     * Size - Small, Medium & Large
     * Instance Count - Number of instances to be deployed
 
     For N instances, the costs associated will be N * cost of one Instance of a particular Tier(Standard & WAF) & Size(Small, Medium & Large) combination.
 
-2. Variable Costs
+* Variable Costs
 
     Cost based on the amount of data processed by the Application Gateway/WAF. Both the request and response bytes processed by the Application Gateway would be considered for billing.
 
@@ -176,13 +180,17 @@ Manually defined scale and limits set for autoscaling (minimum or maximum) are s
 
 V2 SKUs are billed based on the consumption and constitute of two parts:
 
-1. Fixed Costs - Cost based on the time the Application Gateway V2 /WAF V2 is provisioned and available for processing requests. This ensures high availability - even if 0 instances are reserved by specifying 0 in minimum scale units as part of autoscaling. 
+* Fixed Costs
+
+    Cost based on the time the Application Gateway V2 /WAF V2 is provisioned and available for processing requests. This ensures high availability - even if 0 instances are reserved by specifying 0 in minimum scale units as part of autoscaling. 
     
     The fixed cost also includes the cost associated with the public IP attached to the Application Gateway.
 
     The number of instances running at any point of time is not considered as a factor for fixed costs for V2 SKUs. The fixed costs of running a Standard_V2 (or WAF_V2) would be same per hour regardless of the number of instances running within the same Azure region.
 
-2. Capacity Unit Costs – Cost based on the number of capacity units either reserved or created with autoscaling as required for processing the incoming requests.  Consumption based costs are computed hourly.
+* Capacity Unit Costs 
+
+    Cost based on the number of capacity units either reserved or created with autoscaling as required for processing the incoming requests.  Consumption based costs are computed hourly.
 
 Total Costs = Fixed Costs + Capacity Unit Costs
 
@@ -378,3 +386,10 @@ Current Connections = 178.25k
 Capacity Units calculated = max (22.25, 16/2.22 , 178.25*1000/2500) = 71.3
 
 Observed Capacity Units in metrics = 72.3
+
+## Next steps
+
+See the following articles to learn more about how pricing works in Azure Application Gateway:
+
+* [Azure Application Gateway pricing page](https://azure.microsoft.com/pricing/details/application-gateway/)
+* [Azure Application Gateway pricing calculator](https://azure.microsoft.com/en-us/pricing/calculator/?service=application-gateway)

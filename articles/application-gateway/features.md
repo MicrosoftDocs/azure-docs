@@ -143,7 +143,7 @@ For more information, see [Rewrite HTTP headers and URL](rewrite-http-headers-ur
 
 ## Sizing
 
-Application Gateway Standard_v2 can be configured for autoscaling or fixed size deployments. This SKU doesn't offer different instance sizes. For more information on v2 performance and pricing, see [autoscaling V2](application-gateway-autoscaling-zone-redundant.md) and [Understanding-pricing.md](understanding-pricing.md).
+Application Gateway Standard_v2 can be configured for autoscaling or fixed size deployments. This SKU doesn't offer different instance sizes. For more information on v2 performance and pricing, see [Autoscaling V2](application-gateway-autoscaling-zone-redundant.md) and [Understanding pricing](understanding-pricing.md).
 
 The Application Gateway Standard is offered in three sizes: **Small**, **Medium**, and **Large**. Small instance sizes are intended for development and testing scenarios.
 
