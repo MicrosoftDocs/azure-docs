@@ -60,7 +60,7 @@ Build succeeded.
 Within the application directory, install the Anomaly Detector client library for .NET with the following command:
 
 ```dotnetcli
-dotnet add package Microsoft.Azure.CognitiveServices.AnomalyDetector --version 0.8.0-preview
+dotnet add package Microsoft.Azure.CognitiveServices.AnomalyDetector --version 1.0.0
 ```
 
 From the project directory, open the *program.cs* file and add the following using `directives`:
