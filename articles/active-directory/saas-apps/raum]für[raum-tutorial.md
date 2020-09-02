@@ -139,11 +139,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
 1. In the **Add Assignment** dialog, click the **Assign** button.
 
-## Configure raum]für[raum SSO
+## Configure `raum]für[raum` SSO
 
 To configure single sign-on on **raum]für[raum** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [`raum]für[raum support team`](mailto:it@mediadialog.de). They set this setting to have the SAML SSO connection set properly on both sides.
 
-### Create raum]für[raum test user
+### Create `raum]für[raum` test user
 
 In this section, a user called Britta Simon is created in raum]für[raum. raum]für[raum supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in raum]für[raum, a new one is created after authentication.
 
@@ -161,7 +161,7 @@ When you click the raum]für[raum tile in the Access Panel, you should be automa
 
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-- [Try `raum]für[`raum` with Azure AD](https://aad.portal.azure.com/)
+- [Try `raum]für[raum` with Azure AD](https://aad.portal.azure.com/)
 
 - [What is session control in Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 
