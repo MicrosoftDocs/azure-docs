@@ -28,34 +28,15 @@ ExpressRoute Global Reach is designed to complement your service provider’s WA
 ![use case][3]
 
 ## Availability 
-ExpressRoute Global Reach currently is supported in the following places.
+ExpressRoute Global Reach is supported in all regions where ExpressRoute is currently supported. Refer to [ExpressRoute peering locations](expressroute-locations.md) for the current supported regions. 
 
-| **County** | **Azure regions** | **ExpressRoute Locations** |
-| --- | --- | --- |
-| **Australia** | Australia Central, Australia Central 2 | Canberra, Canberra2 |
-| **Canada** | Canada Central, Canada East | Montreal, Quebec City, Toronto, Vancouver |
-| **France** | France Central, France South | Marseille, Paris |
-| **Germany** | Germany North, Germany West Central | Berlin, Frankfurt, Munich |
-| **Hong Kong SAR** | East Asia | Hong Kong, Hong Kong2 |
-| **Ireland** | North Europe | Dublin |
-| **Japan** | Japan West, Japan East | Osaka, Tokyo, Tokyo2 |
-| **Korea** | Korea Central, Korea South | Busan, Seoul |
-| **Netherlands** | West Europe | Amsterdam, Amsterdam2 |
-| **New Zealand** | New Zealand North | --- |
-| **Norway** | Norway East, Norway West | Oslo, Stavanger |
-| **Singapore** | South East Asia | Singapore, Singapore2 |
-| **Sweden** | --- | Stockholm |
-| **Switzerland** | Switzerland North, Switzerland West | Geneva, Zurich |
-| **United Kingdom** | UK West, UK South | London, London2, Newport(Wales) |
-| **United States** | East US, West US, East US 2, West US 2, Central US, South Central US, North Central US, West Central US | Atlanta, Chicago, Dallas, Denver, Las Vegas, Los Angeles, Los Angeles2, Miami, Minneapolis, New York, Queretaro(Mexico), San Antonio, Seattle, Silicon Valley, Silicon Valley2, Washington DC, Washington DC2 |
-
-Your ExpressRoute circuits must be created at the [ExpressRoute peering locations](expressroute-locations.md) in the above countries or region. To enable ExpressRoute Global Reach between [different geopolitical regions](expressroute-locations.md), your circuits must be Premium SKU.
+> [!NOTE] 
+> To enable ExpressRoute Global Reach between [different geopolitical regions](expressroute-locations.md), your circuits must be **Premium SKU**.
 
 ## Next steps
 1. [View the Global Reach FAQ](expressroute-faqs.md#globalreach)
 2. [Learn how to enable Global Reach](expressroute-howto-set-global-reach.md)
 3. [Learn how to link an ExpressRoute circuit to your virtual network](expressroute-howto-linkvnet-arm.md)
-
 
 <!--Image References-->
 [1]: ./media/expressroute-global-reach/1.png "diagram without global reach"
