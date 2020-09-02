@@ -45,6 +45,7 @@ df.show()
 sc._jsc.hadoopConfiguration().set("spark.storage.synapse.linkedServiceName", "<lINKED SERVICE NAME>")
 sc._jsc.hadoopConfiguration().set("fs.azure.account.auth.type", "SAS")
 sc._jsc.hadoopConfiguration().set("fs.azure.sas.token.provider.type", "com.microsoft.azure.synapse.tokenlibrary.LinkedServiceBasedSASProvider")
+
 df = spark.read.csv("abfss://<CONTAINER>@<ACCOUNT>.dfs.core.windows.net/<DIRECTORY PATH>")
 
 df.show()
@@ -57,7 +58,8 @@ To connect to other linked services, you can make a direct call to the TokenLibr
  To retrieve the connection string, use the <b>getConnectionString</b> function and pass in the <b>linked service name</b>.
 
 ```scala
-// Scala : retrieve connectionstring from TokenLibrary
+// Scala
+// retrieve connectionstring from TokenLibrary
 
 import com.microsoft.azure.synapse.tokenlibrary.TokenLibrary
 
@@ -67,7 +69,7 @@ println(connectionString)
 
 ```python
 # Python
-# Pyspark retrieve connectionstring from TokenLibrary
+# retrieve connectionstring from TokenLibrary
 
 from pyspark.sql import SparkSession
 
@@ -78,7 +80,10 @@ print(connection_string)
 ```
 ```csharp
 // C#
+// retrieve connectionstring from TokenLibrary
+
 using Microsoft.Spark.Extensions.Azure.Synapse.Analytics.Utils;
+
 string connectionString = TokenLibrary.GetConnectionString(<LINKED SERVICE NAME>);
 Console.WriteLine(connectionString);
 ```
