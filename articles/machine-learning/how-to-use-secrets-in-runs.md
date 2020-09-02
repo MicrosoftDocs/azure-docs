@@ -20,7 +20,7 @@ In this article, you learn how to use secrets in training runs securely. Authent
 
 Instead, your Azure Machine Learning workspace has an associated resource called a [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview). Use this Key Vault to pass secrets to remote runs securely through a set of APIs in the Azure Machine Learning Python SDK.
 
-The basic flow for using secrets is:
+The standard flow for using secrets is:
  1. On local computer, log in to Azure and connect to your workspace.
  2. On local computer, set a secret in Workspace Key Vault.
  3. Submit a remote run.

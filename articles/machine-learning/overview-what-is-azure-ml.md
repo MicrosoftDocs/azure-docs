@@ -116,15 +116,6 @@ Azure Machine Learning works with other services on the Azure platform, and also
 
 Your Azure Storage account, compute targets, and other resources can be used securely inside a virtual network to train models and perform inference. For more information, see [Secure experimentation and inference in a virtual network](how-to-enable-virtual-network.md).
 
-## <a name="sku"></a>Basic & Enterprise editions
-
-Azure Machine Learning offers two editions tailored for your machine learning needs:
-+ **Basic**: Great for open-source development at cloud scale with a code-first experience.
-
-+ **Enterprise**: All of Basic plus a web interface (studio) + secure, comprehensive ML lifecycle management for all skill levels.
-
-To learn more about these editions and what capabilities they unlock, read the ["Azure Machine Learning Editions" article](concept-editions.md).
-
 ## Next steps
 
 - Create your first experiment with your preferred method:

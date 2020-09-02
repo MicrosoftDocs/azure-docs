@@ -40,7 +40,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + Enable registering credential-less ADLS Gen2 datastore.
     + Improved error message when trying to download or mount an incorrect dataset type.
     + Update timeseries dataset filter sample notebook with more examples of partition_timestamp that provides filter optimization.
-    + Change the sdk and cli to accept subscriptionId, resourceGroup, workspaceName, peConnectionName as parameters instead of ArmResourceId when deleting private endpoint connection.
+    + Change the sdk and cli commands to accept subscriptionId, resourceGroup, workspaceName, peConnectionName as parameters instead of ArmResourceId when deleting private endpoint connection.
     + Experimental Decorator shows class name for easier identification.
     + Descriptions for the Assets inside of Models are no longer automatically generated based on a Run.
   + **azureml-datadrift**
@@ -109,7 +109,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + Users are required to upgrade to sdk v1.10.0 or above to create an auto approved private endpoint. This includes the Notebook resource which is usable behind the VNet.
     + Expose NotebookInfo in the response of get workspace.
     + Changes to have calls to list compute targets and getting compute target succeed on a remote run. Sdk functions to get compute target and list workspace compute targets will now work in remote runs.
-    + Add deprecation mesages to the class descriptions for azureml.core.image classes.
+    + Add deprecation messages to the class descriptions for azureml.core.image classes.
     + Throw exception and clean up workspace and dependent resources if workspace private endpoint creation fails.
     + Support workspace sku upgrade in workspace update method.
   + **azureml-datadrift**
@@ -141,7 +141,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + Fixed a bug where runs may fail with service errors during specific forecasting runs
     + Improved error handling around specific models during `get_output`
     + Fixed call to fitted_model.fit(X, y) for classification with y transformer
-    + Enabled customized forward fill imputer for forcasting tasks
+    + Enabled customized forward fill imputer for forecasting tasks
     + A new ForecastingParameters class will be used instead of forecasting parameters in a dict format
     + Improved target lag autodetection
     + Added limited availability of multi-noded, multi-gpu distributed featurization with BERT
@@ -153,7 +153,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
   + **azureml-contrib-mir**
     + Added support for enable-app-insights flag in ManagedInferencing
   + **azureml-core**
-    + A validate paramter to these API's by allowing validation to be skipped when the data source is not accessible from the current compute.
+    + A validate parameter to these API's by allowing validation to be skipped when the data source is not accessible from the current compute.
       + TabularDataset.time_before(end_time, include_boundary=True, validate=True)
       + TabularDataset.time_after(start_time, include_boundary=True, validate=True)
       + TabularDataset.time_recent(time_delta, include_boundary=True, validate=True)
@@ -260,7 +260,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
 + **Bug fixes and improvements**
   + **azure-cli-ml**
     + Completed the removal of model profiling from mir contrib by cleaning up cli commands and package dependencies, Model profiling is available in core.
-    + Upgrades the min Azure Cli version to 2.3.0
+    + Upgrades the Azure CLI version to 2.3.0
   + **azureml-automl-core**
     + Better exception message on featurization step fit_transform() due to custom transformer parameters.
     + Add support for multiple languages for deep learning transformer models such as BERT in automated ML.
@@ -530,9 +530,9 @@ Get started [here](https://docs.microsoft.com/azure/machine-learning/how-to-run-
 
 Access the following web-based authoring tools from the studio:
 	
-| Web-based tool  | 	Description  | Edition | 
-|---|---|---|
-| Azure ML Studio Notebooks	  |  	First in-class authoring for notebook files and support all operation available in the Azure ML Python SDK. | Basic & Enterprise  |   
+| Web-based tool  | 	Description  |
+|---|---|
+| Azure ML Studio Notebooks	  |  	First in-class authoring for notebook files and support all operation available in the Azure ML Python SDK. | 
 
 ## 2020-04-27
 
@@ -1042,11 +1042,11 @@ From the studio, you can train, test, deploy, and manage Azure Machine Learning 
 
 Access the following web-based authoring tools from the studio:
 
-| Web-based tool | Description | Edition |
+| Web-based tool | Description | 
 |-|-|-|
-| Notebook VM(preview) | Fully managed cloud-based workstation | Basic & Enterprise |
-| [Automated machine learning](tutorial-first-experiment-automated-ml.md) (preview) | No code experience for automating machine learning model development | Enterprise |
-| [Designer](concept-designer.md) | Drag-and-drop machine learning modeling tool formerly known as the designer | Enterprise |
+| Notebook VM(preview) | Fully managed cloud-based workstation | 
+| [Automated machine learning](tutorial-first-experiment-automated-ml.md) (preview) | No code experience for automating machine learning model development | 
+| [Designer](concept-designer.md) | Drag-and-drop machine learning modeling tool formerly known as the designer | 
 
 
 ### Azure Machine Learning designer enhancements
@@ -1078,7 +1078,6 @@ Azure Machine Learning is now a resource provider for Event Grid, you can config
 
 + **New features**
   + Added dataset monitors through the [**azureml-datadrift**](https://docs.microsoft.com/python/api/azureml-datadrift) package, allowing for monitoring time series datasets for data drift or other statistical changes over time. Alerts and events can be triggered if drift is detected or other conditions on the data are met. See [our documentation](how-to-monitor-datasets.md) for details.
-  + Announcing two new editions (also referred to as a SKU interchangeably) in Azure Machine Learning. With this release, you can now create either a Basic or Enterprise Azure Machine Learning workspace. All existing workspaces will be defaulted to the Basic edition, and you can go to the Azure portal or to the studio to upgrade the workspace anytime. You can create either a Basic or Enterprise workspace from the Azure portal. Please read [our documentation](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace) to learn more. From the SDK, the edition of your workspace can be determined using the "sku" property of your workspace object.
   + We have also made enhancements to Azure Machine Learning Compute - you can now view metrics for your clusters (like total nodes, running nodes, total core quota) in Azure Monitor, besides viewing Diagnostic logs for debugging. In addition, you can also view currently running or queued runs on your cluster and details such as the IPs of the various nodes on your cluster. You can view these either in the portal or by using corresponding functions in the SDK or CLI.
 
   + **Preview features**
