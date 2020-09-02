@@ -104,7 +104,7 @@ Once you have found an error or warning, read backwards in the cloud-init log to
 2019-10-10 04:51:24,010 - util.py[DEBUG]: Running command ['mount', '-o', 'ro,sync', '-t', 'auto', u'/dev/sr0', '/run/cloud-init/tmp/tmpXXXXX'] with allowed return codes [0] (shell=False, capture=True)
 ```
 
-If you have access to the [Serial Console](./serial-console-grub-single-user-mode.md), you can try to rerun the command that cloud-init was trying to run.
+If you have access to the [Serial Console](../troubleshooting/serial-console-grub-single-user-mode.md), you can try to rerun the command that cloud-init was trying to run.
 
 The logging for `/var/log/cloud-init.log` can also be reconfigured within /etc/cloud/cloud.cfg.d/05_logging.cfg. For more details of cloud-init logging, refer to the [cloud-init documentation](https://cloudinit.readthedocs.io/en/latest/topics/logging.html). 
 
