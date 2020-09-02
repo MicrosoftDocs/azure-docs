@@ -17,7 +17,7 @@ Azure Key Vault allows you to store secrets and control their distribution in a 
 
 Authentication with Key Vault works in conjunction with [Azure Active Directory (Azure AD)](/azure/active-directory/fundamentals/active-directory-whatis), which is responsible for authenticating the identity of any given **security principal**.
 
-A security principal is an object that represents a user, group, service, or application that's requesting access to Azure resources. Azure assigns a a unique **object ID** to every security principal.
+A security principal is an object that represents a user, group, service, or application that's requesting access to Azure resources. Azure assigns a unique **object ID** to every security principal.
 
 * A **user** security principal identifies an individual who has a profile in Azure Active Directory.
 
@@ -39,7 +39,7 @@ For applications, there are two ways to obtain a service principal:
 
 Key Vault works with two separate levels of authorization:
 
-- **Access policies** control whether a user, group, or service principal is authorize to access secrets, keys, and certificates *within* an existing Key Vault resource (sometimes referred to "data plane" operations). Access policies are typically granted to users, groups, and applications.
+- **Access policies** control whether a user, group, or service principal is authorized to access secrets, keys, and certificates *within* an existing Key Vault resource (sometimes referred to "data plane" operations). Access policies are typically granted to users, groups, and applications.
 
     To assign access policies, see the following articles:
 

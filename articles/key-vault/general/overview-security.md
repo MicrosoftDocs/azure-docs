@@ -16,7 +16,7 @@ ms.author: mbaldwin
 
 # Azure Key Vault security
 
-You need to protect encryption keys and secrets like certificates, connection strings, and passwords in the cloud so you are using Azure Key Vault. Since you are storing sensitive and business critical data, you need to take steps to maximize the security of your vaults and the data stored in them. This article will cover some of the concepts that you should consider when designing your Azure Key Vault security.
+You use Azure Key Vault to protect encryption keys and secrets like certificates, connection strings, and passwords in the cloud. When storing sensitive and business critical data, you need to take steps to maximize the security of your vaults and the data stored in them.
 
 ## Identity and access management
 
@@ -89,7 +89,7 @@ Logging information can be accessed within 10 minutes after the key vault operat
 - Use standard Azure access control methods to secure your logs by restricting who can access them.
 - Delete logs that you no longer want to keep in your storage account.
 
-For recommendation on securely managing storage accounts review the [Azure Storage security guide](../../storage/blobs/security-recommendations.md)
+For recommendation on securely managing storage accounts, review the [Azure Storage security guide](../../storage/blobs/security-recommendations.md)
 
 ## Next Steps
 

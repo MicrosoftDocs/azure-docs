@@ -186,8 +186,8 @@ print(" done.")
 
 ## Next steps
 
-In this quickstart you created a key vault, stored a secret, and retrieved that secret. To learn more about Key Vault and how to integrate it with your applications, continue on to the articles below.
+In this quickstart, you created a key vault, stored a secret, and retrieved that secret. To learn more about Key Vault and how to integrate it with your applications, continue on to the articles below.
 
-- Read an [Overview of Azure Key Vault](../general/overview.md)
-- See the [Azure Key Vault developer's guide](../general/developers-guide.md)
-- Review [Azure Key Vault best practices](../general/best-practices.md)
+- [Overview of Azure Key Vault](../general/overview.md)
+- [Azure Key Vault developer's guide](../general/developers-guide.md)
+- [Azure Key Vault best practices](../general/best-practices.md)

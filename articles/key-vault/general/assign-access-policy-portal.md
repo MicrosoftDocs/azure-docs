@@ -31,7 +31,7 @@ For more information on creating groups in Azure Active Directory through the Az
 
 	![Select Access policies, selecting Add role assignment](../media/authentication/assign-policy-portal-01.png)
 
-1.	Select the desired permissions under **Certificate permissions**, **Key permissions**, and **Secret permissions**. You can also select a template that contains common permission combinations:
+1.	Select the permissions you want under **Certificate permissions**, **Key permissions**, and **Secret permissions**. You can also select a template that contains common permission combinations:
 
 	![Specifying access policy permissions](../media/authentication/assign-policy-portal-02.png)
 
@@ -45,7 +45,7 @@ For more information on creating groups in Azure Active Directory through the Az
 
 	![Adding the access policy with the service principal assigned](../media/authentication/assign-policy-portal-04.png)
 
-1. Back on the **Access policies** page, verify that your access policy is listed under **Current Access Policies**, then select **Save**. Access policies are not applied until you save them.
+1. Back on the **Access policies** page, verify that your access policy is listed under **Current Access Policies**, then select **Save**. Access policies aren't applied until you save them.
 
 	![Saving the access policy changes](../media/authentication/assign-policy-portal-05.png)
 

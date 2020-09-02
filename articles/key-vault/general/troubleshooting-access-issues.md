@@ -15,11 +15,11 @@ ms.topic: how-to
 
 ### How can I identify how and when key vaults are accessed?
 
-After you create one or more key vaults, you'll likely want to monitor how and when your key vaults are accessed, and by whom. You can do this by enabling logging for Azure Key Vault, for step-by-step guide to enable logging, [read more](https://docs.microsoft.com/azure/key-vault/general/logging).
+After you create one or more key vaults, you'll likely want to monitor how and when your key vaults are accessed, and by whom. You can do monitoring by enabling logging for Azure Key Vault, for step-by-step guide to enable logging, [read more](https://docs.microsoft.com/azure/key-vault/general/logging).
 
 ### How can I monitor vault availability, service latency periods or other performance metrics for key vault?
 
-As you start to scale your service the number of requests sent to your key vault will rise. This has a potential to increase the latency of your requests and in extreme cases, cause your requests to be throttled which will impact the performance of your service. You can monitor key vault performance metrics and get alerted for specific thresholds, for step-by-step guide to configure monitoring, [read more](https://docs.microsoft.com/azure/key-vault/general/alert).
+As you start to scale your service, the number of requests sent to your key vault will rise. Such demand has a potential to increase the latency of your requests and in extreme cases, cause your requests to be throttled which will impact the performance of your service. You can monitor key vault performance metrics and get alerted for specific thresholds, for step-by-step guide to configure monitoring, [read more](https://docs.microsoft.com/azure/key-vault/general/alert).
 
 ### How can I assign access control per key vault object? 
 
@@ -34,11 +34,11 @@ If you are creating an on-prem application, doing local development, or otherwis
 
 Give the AD group permissions to your key vault using the Azure CLI az keyvault set-policy command, or the Azure PowerShell Set-AzKeyVaultAccessPolicy cmdlet. See [Assign an access policy - CLI](assign-access-policy-cli.md) and [Assign an access policy - PowerShell](assign-access-policy-powershell.md).
 
-The application also needs at least one Identity and Access Management (IAM) role assigned to the key vault. Otherwise it will not be able to login and will fail with insufficient rights to access the subscription. Azure AD Groups with Managed Identities may require up to 8hr to refresh token and become effective.
+The application also needs at least one Identity and Access Management (IAM) role assigned to the key vault. Otherwise it will not be able to login and will fail with insufficient rights to access the subscription. Azure AD Groups with Managed Identities may require up to eight hours to refresh tokens and become effective.
 
 ### How can I redeploy Key Vault with ARM template without deleting existing access policies?
 
-Currently Key Vault ARM redoployment will delete any access policy in Key Vault and replace them with access policy in ARM template. There is no incremental option for Key Vault access policies. To preserve access policies in Key Vault you need read existing access policies in Key Vault and populate ARM template with those policies to avoid any access outages.
+Currently Key Vault ARM redeployment will delete any access policy in Key Vault and replace them with access policy in ARM template. There is no incremental option for Key Vault access policies. To preserve access policies in Key Vault, you need read existing access policies in Key Vault and populate ARM template with those policies to avoid any access outages.
 
 ### Recommended troubleshooting Steps for following error types
 
