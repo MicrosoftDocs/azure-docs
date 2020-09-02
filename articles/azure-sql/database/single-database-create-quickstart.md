@@ -71,34 +71,24 @@ To create a single database in the Azure portal this quickstart starts at the Az
 
 # [Azure CLI](#tab/azure-cli)
 
-You can create a single database using the Azure command-line interface (Azure CLI). This quickstart uses the [Azure Cloud Shell](../../cloud-shell/overview.md) in the portal. For detailed information about the Azure CLI, see [Azure Command-Line Interface (CLI) documentation](/cli/azure/what-is-azure-cli?view=azure-cli-latest).
+## Launch Azure Cloud Shell
 
-To run the following code sample in Azure Cloud Shell, select **Try it** in the code sample title bar. When the Cloud Shell opens, select **Copy** in the code sample title bar, and paste the code sample into the Cloud Shell window. In the code, replace `<Subscription ID>` with your Azure Subscription ID, and for `$startip` and `$endip`, replace `0.0.0.0` with the public IP address of the computer you're using.
+The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account. 
 
-Follow the onscreen prompts to sign in to Azure and run the code.
+To open the Cloud Shell, just select **Try it** from the upper right corner of a code block. You can also launch Cloud Shell in a separate browser tab by going to [https://shell.azure.com/bash](https://shell.azure.com/bash). Select **Copy** to copy the blocks of code, paste it into the Cloud Shell, and press **Enter** to run it.
 
-You can also use the Azure Cloud Shell from the Azure portal, by selecting the Cloud Shell icon on the top bar.
+## Set parameter values
 
-   ![Azure Cloud Shell](./media/single-database-create-quickstart/cloudshell.png)
-
-The first time you use Cloud Shell in the portal, select **Bash** in the **Welcome** dialog. Subsequent sessions will use Azure CLI in a Bash environment, or you can select **Bash** from the Cloud Shell control bar.
-
-The following Azure CLI code creates a resource group, server, single database, and server-level IP firewall rule for access to the server. Make sure to record the generated resource group and server names, so you can manage these resources later.
+The following values are used in subsequent commands to create the database and required resources. Server names need to be globally unique across all of Azure so the $RANDOM function is used to create the server name. Replace the 0.0.0.0 values in the ip address range to match your specific environment.
 
 ```azurecli-interactive
-#!/bin/bash
-
-# Sign in to Azure and set execution context (if necessary)
-az login
-az account set --subscription <Subscription ID>
-
 # Set the resource group name and location for your server
-resourceGroupName=myResourceGroup-$RANDOM
-location=westus2
+resourceGroupName=myResourceGroup
+location=eastus
 
 # Set an admin login and password for your database
 adminlogin=azureuser
-password=Azure1234567
+password=Azure1234567!
 
 # Set a server name that is unique to Azure DNS (<server_name>.database.windows.net)
 servername=server-$RANDOM
@@ -106,50 +96,61 @@ servername=server-$RANDOM
 # Set the ip address range that can access your database
 startip=0.0.0.0
 endip=0.0.0.0
+```
 
-# Create a resource group
-az group create \
-    --name $resourceGroupName \
-    --location $location
+## Create a resource group
 
-# Create a server in the resource group
+Create a resource group with the [az group create](/cli/azure/group?view=azure-cli-latest#az-group-create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. The following example creates a resource group named *myResourceGroup* in the *eastus* location:
+
+```azurecli-interactive
+az group create --name myResourceGroup --location eastus
+```
+
+## Create a server
+
+Create a server with the [az sql server create](/cli/azure/sqlserver?view=azure-cli-latest#az-sql-server-create) command.
+
+```azurecli-interactive
 az sql server create \
-    --name $servername \
+    --name $RANDOM \
     --resource-group $resourceGroupName \
     --location $location  \
     --admin-user $adminlogin \
     --admin-password $password
+```
 
-# Configure a server-level firewall rule for the server
+
+## Configure a firewall rule for the server
+
+Create a firewall rule with the [az sql server firewall-rule create](/cli/azure/sqlserver/firewall-rule?view=azure-cli-latest#az-sql-server-firewall-rule-create) command.
+
+```azurecli-interactive
 az sql server firewall-rule create \
     --resource-group $resourceGroupName \
     --server $servername \
     -n AllowYourIp \
     --start-ip-address $startip \
     --end-ip-address $endip
+```
 
-# Create a gen5 2 vCore database in the server
+
+## Create a single database
+
+Create a database with the [az sql db create](/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-create) command. The following code creates
+
+
+```azurecli-interactive
 az sql db create \
     --resource-group $resourceGroupName \
     --server $servername \
     --name mySampleDatabase \
     --sample-name AdventureWorksLT \
     --edition GeneralPurpose \
+    --compute-model Serverless \
     --family Gen5 \
-    --capacity 2 \
+    --capacity 2
 ```
 
-The preceding code uses these Azure CLI commands:
-
-| Command | Description |
-|---|---|
-| [az account set](/cli/azure/account?view=azure-cli-latest#az-account-set) | Sets a subscription to be the current active subscription. |
-| [az group create](/cli/azure/group#az-group-create) | Creates a resource group in which all resources are stored. |
-| [az sql server create](/cli/azure/sql/server#az-sql-server-create) | Creates a server that hosts databases and elastic pools. |
-| [az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule##az-sql-server-firewall-rule-create) | Creates a server-level firewall rule. |
-| [az sql db create](/cli/azure/sql/db#az-sql-db-create?view=azure-cli-latest) | Creates a database. |
-
-For more Azure SQL Database Azure CLI samples, see [Azure CLI samples](../database/az-cli-script-samples-content-guide.md).
 
 # [PowerShell](#tab/azure-powershell)
 
