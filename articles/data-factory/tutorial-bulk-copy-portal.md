@@ -57,7 +57,7 @@ Create a database in SQL Database with Adventure Works LT sample data following 
 
 **Prepare the sink Azure Synapse Analytics (formerly SQL DW)**:
 
-1. If you don't have an Azure Synapse Analytics (formerly SQL DW), see the [Create a SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-get-started-tutorial.md) article for steps to create one.
+1. If you don't have an Azure Synapse Analytics (formerly SQL DW) workspace, see the [Get started with Azure Synapse Analytics](..\synapse-analytics\get-started.md) article for steps to create one.
 
 1. Create corresponding table schemas in Azure Synapse Analytics (formerly SQL DW). You use Azure Data Factory to migrate/copy data in a later step.
 
