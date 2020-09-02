@@ -42,21 +42,6 @@ You can also [enable Azure Private Link](how-to-configure-private-link.md) to co
 
 
 
-> [!TIP]
-> You can combine virtual network and Private Link together to protect communication between your workspace and other Azure resources. However, some combinations require an Enterprise edition workspace. Use the following table to understand what scenarios require Enterprise edition:
->
-> | Scenario | Enterprise</br>edition | Basic</br>edition |
-> | ----- |:-----:|:-----:| 
-> | No virtual network or Private Link | ✔ | ✔ |
-> | Workspace without Private Link. Other resources (except Azure Container Registry) in a virtual network | ✔ | ✔ |
-> | Workspace without Private Link. Other resources with Private Link | ✔ | |
-> | Workspace with Private Link. Other resources (except Azure Container Registry) in a virtual network | ✔ | ✔ |
-> | Workspace and any other resource with Private Link | ✔ | |
-> | Workspace with Private Link. Other resources without Private Link or virtual network | ✔ | ✔ |
-> | Azure Container Registry in a virtual network | ✔ | |
-> | Customer Managed Keys for workspace | ✔ | |
-> 
-
 > [!WARNING]
 > 
 > Azure Machine Learning compute instances preview is not supported in a workspace where Private Link is enabled.
@@ -660,7 +645,6 @@ For information on using Azure Machine Learning with Azure Firewall, see [Use Az
 > [!IMPORTANT]
 > Azure Container Registry (ACR) can be put inside a virtual network, however you must meet the following prerequisites:
 >
-> * Your Azure Machine Learning workspace must be Enterprise edition. For information on upgrading, see [Upgrade to Enterprise edition](how-to-manage-workspace.md#upgrade).
 > * Your Azure Machine Learning workspace region should be [privated link enabled region](https://docs.microsoft.com/azure/private-link/private-link-overview#availability). 
 > * Your Azure Container Registry must be Premium version . For more information on upgrading, see [Changing SKUs](/azure/container-registry/container-registry-skus#changing-skus).
 > * Your Azure Container Registry must be in the same virtual network and subnet as the storage account and compute targets used for training or inference.

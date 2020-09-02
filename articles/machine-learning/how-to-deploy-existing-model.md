@@ -269,7 +269,7 @@ For more information on deployment, see [How and where to deploy models](how-to-
 
 ## Request-response consumption
 
-After deployment, the scoring URI is displayed. This URI can be used by clients to submit requests to the service. The following example is a basic Python client that submits data to the service and displays the response:
+After deployment, the scoring URI is displayed. This URI can be used by clients to submit requests to the service. The following example is a simple Python client that submits data to the service and displays the response:
 
 ```python
 import requests

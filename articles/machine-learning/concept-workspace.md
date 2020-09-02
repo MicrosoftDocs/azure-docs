@@ -115,7 +115,7 @@ When you create a new workspace, it automatically creates several Azure resource
 > [!NOTE]
 > In addition to creating new versions, you can also use existing Azure services.
 
-<a name="wheres-enterprise">
+<a name="wheres-enterprise"></a>
 
 ## What happened to enterprise
 

@@ -170,7 +170,7 @@ For more information on uploading existing images to an Azure Container Registry
 
 To use a custom image, you need the following information:
 
-* The __image name__. For example, `mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda:latest` is the path to a basic Docker Image provided by Microsoft.
+* The __image name__. For example, `mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda:latest` is the path to a simple Docker Image provided by Microsoft.
 
     > [!IMPORTANT]
     > For custom images that you've created, be sure to include any tags that were used with the image. For example, if your image was created with a specific tag, such as `:v1`. If you did not use a specific tag when creating the image, a tag of `:latest` was applied.
@@ -188,7 +188,7 @@ Microsoft provides several docker images on a publicly accessible repository, wh
 
 | Image | Description |
 | ----- | ----- |
-| `mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda` | Basic image for Azure Machine Learning |
+| `mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda` | Core image for Azure Machine Learning |
 | `mcr.microsoft.com/azureml/onnxruntime:latest` | Contains ONNX Runtime for CPU inferencing |
 | `mcr.microsoft.com/azureml/onnxruntime:latest-cuda` | Contains the ONNX Runtime and CUDA for GPU |
 | `mcr.microsoft.com/azureml/onnxruntime:latest-tensorrt` | Contains ONNX Runtime and TensorRT for GPU |

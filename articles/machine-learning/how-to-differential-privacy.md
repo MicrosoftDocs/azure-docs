@@ -152,7 +152,7 @@ You can use the library to compose more complex analysis graphs, with several me
 | Sum           |            | Imputation |
 | Variance/Covariance |      | Transform  |
 
-See the [basic data analysis notebook](https://github.com/opendifferentialprivacy/whitenoise-samples/blob/master/analysis/basic_data_analysis.ipynb) for more details.
+See the [data analysis notebook](https://github.com/opendifferentialprivacy/whitenoise-samples/blob/master/analysis/basic_data_analysis.ipynb) for more details.
 
 ## Approximate utility of differentially private releases
 
