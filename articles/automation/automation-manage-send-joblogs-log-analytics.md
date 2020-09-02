@@ -27,6 +27,8 @@ To start sending your Automation logs to Azure Monitor logs, you need:
 
 * The resource ID of your Azure Automation account.
 
+## How to find resource IDs
+
 1. Use the following command to find the resource ID for your Azure Automation account:
 
     ```powershell-interactive
