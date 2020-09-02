@@ -71,7 +71,11 @@ The following preview containers are available publicly. The Microsoft Container
 
 #### "Gated" preview
 
-The following gated preview containers are hosted on the Microsoft Container Registry (MCR), and require an application to access. See the following container articles for more information.
+Previously, gated preview containers were hosted on the `containerpreview.azurecr.io` repository. Starting September 22nd 2020, these containers are hosted on the Microsoft Container Registry (MCR), and downloading them doesn't require using the docker login command. To use the container you will need to:
+
+1. Complete a [request form](https://aka.ms/csgate) with your Azure Subscription ID and user scenario. 
+2. Upon approval, download the container from the MCR. 
+3. Use the key and endpoint from an appropriate Azure resource to authenticate the container at runtime. 
 
 | Service | Container | Container Registry / Repository / Image Name |
 |--|--|--|

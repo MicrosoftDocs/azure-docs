@@ -25,7 +25,7 @@ ms.author: aahi
 
 **Q: How do I access and use a gated preview container?**
 
-**A:** Previously, gated preview containers were hosted on the `containerpreview.azurecr.io` repository. Starting September 22nd 2020, these containers are hosted on the Microsoft Container Registry, and authenticate using a key and endpoint for your Azure resource. You'll be able to run the container if your resource was created with the approved Azure subscription ID. You won't be able to run the container if your Azure subscription has not been approved.
+**A:** Previously, gated preview containers were hosted on the `containerpreview.azurecr.io` repository. Starting September 22nd 2020, these containers are hosted on the Microsoft Container Registry, and downloading them doesn't require you to use the docker login command. You'll be able to run a gated preview container if your Azure resource was created with the approved Azure subscription ID. You won't be able to run the container if your Azure subscription has not been approved.
 
 
 **Q: Will containers be available for all Cognitive Services and what are the next set of containers we should expect?**

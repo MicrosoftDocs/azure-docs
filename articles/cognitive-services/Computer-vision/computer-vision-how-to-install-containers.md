@@ -15,6 +15,9 @@ ms.custom: seodec18
 
 # Install and run Read containers (Preview)
 
+> [!NOTE]
+> Starting September 22nd 2020, gated preview containers are hosted on the Microsoft Container Registry, and downloading them doesn't require you to use the docker login command.
+
 Containers enable you to run the Computer Vision APIs in your own environment. Containers are great for specific security and data governance requirements. In this article you'll learn how to download, install, and run a Computer Vision container.
 
 A single Docker container, *Read*, is available for Computer Vision. The *Read* container allows you to detect and extract *printed text* from images of various objects with different surfaces and backgrounds, such as receipts, posters, and business cards. Additionally, the *Read* container detects *handwritten text* in images and provides PDF, TIFF, and multi-page file support. For more information, see the [Read](concept-recognizing-text.md#read-api) API documentation.
