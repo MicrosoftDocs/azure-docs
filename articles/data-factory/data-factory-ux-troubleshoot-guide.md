@@ -93,7 +93,7 @@ Open **Command Prompt** and type **nslookup dpnortheurope.svc.datafactory.azure.
 
 If you see a normal DNS response, further contact your local IT support to check the firewall settings on whether HTTPS connection to this host name is blocked or not. If the issue could not be resolved, file a support ticket with the **Activity ID** from the ADF UX error message.
 
-If you see anything else than this, this usually means there is something wrong with your DNS server when resolving the DNS name. Usually changing ISP could be a possible workaround to try. If the issue persists, you could further try **nslookup datafactory.azure.com** and **nslookup azure.com** to see at which level your DNS resolution is failed and submit all information to your local IT support or your ISP for troubleshooting. If they believe the issue is still at Microsoft side, file a support ticket with the **Activity ID** from the ADF UX error message.
+If you see anything else than this, this usually means there is something wrong with your DNS server when resolving the DNS name. Usually changing ISP (Internet Service Provider) or DNS (e.g., to Google DNS 8.8.8.8) could be a possible workaround to try. If the issue persists, you could further try **nslookup datafactory.azure.com** and **nslookup azure.com** to see at which level your DNS resolution is failed and submit all information to your local IT support or your ISP for troubleshooting. If they believe the issue is still at Microsoft side, file a support ticket with the **Activity ID** from the ADF UX error message.
 
 ![Command response 2](media/data-factory-ux-troubleshoot-guide/command-response-2.png)
 
