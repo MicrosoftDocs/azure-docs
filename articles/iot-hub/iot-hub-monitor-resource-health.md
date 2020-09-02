@@ -473,10 +473,11 @@ The following table shows the SDK name used for different Azure IoT SDKs:
 | .NET | C# |
 | microsoft.azure.devices | C# |
 | microsoft.azure.devices.client | C# |
-| iothubclient | C/Python |
-| iothubserviceclient | C/Python |
+| iothubclient | C or Python V1 (deprecated) |
+| iothubserviceclient | C or Python V1 (deprecated) |
 | azure-iot-device | Node.js |
 | azure-iothub | Node.js |
+| azure-iot-device-iothub-py | Python |
 | com.microsoft.azure.iothub-java-client | Java |
 | com.microsoft.azure.iothub.service.sdk | Java |
 | com.microsoft.azure.sdk.iot.iot-device-client | Java |
