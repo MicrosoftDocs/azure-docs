@@ -71,7 +71,9 @@ $Vnet = New-AzVirtualNetwork -Name $NetworkName -ResourceGroupName $ResourceGrou
 $NIC = New-AzNetworkInterface -Name $NICName -ResourceGroupName $ResourceGroupName -Location $LocationName -SubnetId $Vnet.Subnets[0].Id
     
 $Credential = New-Object System.Management.Automation.PSCredential ($VMLocalAdminUser, $VMLocalAdminSecurePassword);
-    
+
+# Enable encryption at host by specifying EncryptionAtHost parameter
+
 $VirtualMachine = New-AzVMConfig -VMName $VMName -VMSize $VMSize -EncryptionAtHost
 $VirtualMachine = Set-AzVMOperatingSystem -VM $VirtualMachine -Windows -ComputerName $ComputerName -Credential $Credential -ProvisionVMAgent -EnableAutoUpdate
 $VirtualMachine = Add-AzVMNetworkInterface -VM $VirtualMachine -Id $NIC.Id
@@ -79,7 +81,11 @@ $VirtualMachine = Set-AzVMSourceImage -VM $VirtualMachine -PublisherName 'Micros
 
 $diskEncryptionSet=Get-AzDiskEncryptionSet -ResourceGroupName $ResourceGroupName -Name $diskEncryptionSetName
 
+# Enable encryption with a customer managed key for OS disk by setting DiskEncryptionSetId property 
+
 $VirtualMachine = Set-AzVMOSDisk -VM $VirtualMachine -Name $($VMName +"_OSDisk") -DiskEncryptionSetId $diskEncryptionSet.Id -CreateOption FromImage
+
+# Add a data disk encrypted with a customer managed key by setting DiskEncryptionSetId property 
 
 $VirtualMachine = Add-AzVMDataDisk -VM $VirtualMachine -Name $($VMName +"DataDisk1") -DiskSizeInGB 128 -StorageAccountType Premium_LRS -CreateOption Empty -Lun 0 -DiskEncryptionSetId $diskEncryptionSet.Id 
     
@@ -110,7 +116,9 @@ $Vnet = New-AzVirtualNetwork -Name $NetworkName -ResourceGroupName $ResourceGrou
 $NIC = New-AzNetworkInterface -Name $NICName -ResourceGroupName $ResourceGroupName -Location $LocationName -SubnetId $Vnet.Subnets[0].Id
     
 $Credential = New-Object System.Management.Automation.PSCredential ($VMLocalAdminUser, $VMLocalAdminSecurePassword);
-    
+
+# Enable encryption at host by specifying EncryptionAtHost parameter
+
 $VirtualMachine = New-AzVMConfig -VMName $VMName -VMSize $VMSize -EncryptionAtHost
 
 $VirtualMachine = Set-AzVMOperatingSystem -VM $VirtualMachine -Windows -ComputerName $ComputerName -Credential $Credential -ProvisionVMAgent -EnableAutoUpdate
@@ -181,13 +189,13 @@ $VMSS = Add-AzVmssNetworkInterfaceConfiguration -Name "myVMSSNetworkConfig" -Vir
 
 $diskEncryptionSet=Get-AzDiskEncryptionSet -ResourceGroupName $ResourceGroupName -Name $diskEncryptionSetName
 
-# Enable encryption with customer managed keys for OS disk by setting DiskEncryptionSetId property 
+# Enable encryption with a customer managed key for the OS disk by setting DiskEncryptionSetId property 
 
 $VMSS = Set-AzVmssStorageProfile $VMSS -OsDiskCreateOption "FromImage" -DiskEncryptionSetId $diskEncryptionSet.Id -ImageReferenceOffer 'WindowsServer' -ImageReferenceSku '2012-R2-Datacenter' -ImageReferenceVersion latest -ImageReferencePublisher 'MicrosoftWindowsServer'
 
 $VMSS = Set-AzVmssOsProfile $VMSS -ComputerNamePrefix $ComputerNamePrefix -AdminUsername $VMLocalAdminUser -AdminPassword $VMLocalAdminSecurePassword
 
-# Add a data disk encrypted with customer managed keys by setting DiskEncryptionSetId property 
+# Add a data disk encrypted with a customer managed key by setting DiskEncryptionSetId property 
 
 $VMSS = Add-AzVmssDataDisk -VirtualMachineScaleSet $VMSS -CreateOption Empty -Lun 1 -DiskSizeGB 128 -StorageAccountType Premium_LRS -DiskEncryptionSetId $diskEncryptionSet.Id
 ```
