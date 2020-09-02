@@ -41,7 +41,7 @@ If you do not want to allow all cookies, you can optionally just allow ADF UX:
 1. Visit **chrome://settings/cookies**.
 1. Select **add** under **Sites that can always use cookies** option 
 
-    ![Add ADF UX to allowed sites](media/data-factory-ux-troubleshoot-guide/chrome-only-adf-cookies-1.png)
+    ![Add ADF UX to allowed sites in Chrome](media/data-factory-ux-troubleshoot-guide/chrome-only-adf-cookies-1.png)
 1. Add **adf.azure.com** site, check **all cookies** option, and save. 
 
     ![Allow all cookies from ADF UX site](media/data-factory-ux-troubleshoot-guide/chrome-only-adf-cookies-2.png)
@@ -62,7 +62,7 @@ If you do not want to allow all cookies, you can optionally just allow ADF UX:
 1. Visit **edge://settings/content/cookies**.
 1. Under **Allow** section, select **Add** and add **adf.azure.com** site. 
 
-    ![Add ADF UX to allowed sites](media/data-factory-ux-troubleshoot-guide/edge-allow-adf-cookies.png)
+    ![Add ADF UX to allowed sites in Edge](media/data-factory-ux-troubleshoot-guide/edge-allow-adf-cookies.png)
 1. Refresh ADF UX and try again.
 
 ## Connection failed on ADF UX
