@@ -54,8 +54,8 @@ When choosing which secure access mechanism that an indexer should use, consider
 
 Azure Cognitive Search indexers are capable of efficiently extracting content from data sources, adding enrichments to the extracted content, optionally generating projections before writing the results to the search index. Depending on the number of responsibilities assigned to an indexer, it can run in one of two environments:
 
-1. An environment private to a specific search service. Indexers running in such environments share resources with other workloads (such as other customer initiated indexing or querying workload). Typically only indexers that do not require much resources (for example, do not use a skillset) run in this environment.
-2. A multi-tenant environment that hosts indexers that are resource hungry, such as ones with a skillset. Resource hungry resources run on this environment to offer optimal performance whilst ensuring that the search service resources are available for other workloads. This multi-tenant environment is managed and secured by Azure Cognitive Search, at no extra cost to the customer.
+- An environment private to a specific search service. Indexers running in such environments share resources with other workloads (such as other customer initiated indexing or querying workload). Typically only indexers that do not require much resources (for example, do not use a skillset) run in this environment.
+- A multi-tenant environment that hosts indexers that are resource hungry, such as ones with a skillset. Resource hungry resources run on this environment to offer optimal performance whilst ensuring that the search service resources are available for other workloads. This multi-tenant environment is managed and secured by Azure Cognitive Search, at no extra cost to the customer.
 
 For any given indexer run, Azure Cognitive Search determines the best environment in which to run the indexer.
 
@@ -63,15 +63,14 @@ For any given indexer run, Azure Cognitive Search determines the best environmen
 
 If the resource that your indexer is trying to access is restricted to only a certain set of IP ranges, then you need to expand the set to include the possible IP ranges from which an indexer request can originate. As stated above, there are two possible environments in which indexers run and from which access requests can originate. You will need to add the IP addresses of __both__ environments for indexer access to work.
 
-1. To obtain the IP address of the search service specific private environment, `nslookup` (or `ping`) the fully qualified domain name (FQDN) of your search service. The FQDN of a search service in the public cloud, for example, would be `<service-name>.search.windows.net`. This information is available on the Azure portal.
-
-2. The IP addresses of the multi-tenant environments are available via the `AzureCognitiveSearch` service tag. [Azure service tags](https://docs.microsoft.com/azure/virtual-network/service-tags-overview) have a published range of IP addresses for each service - this is available via a [discovery API (preview)](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#use-the-service-tag-discovery-api-public-preview) or a [downloadable JSON file](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files). In either case, IP ranges are broken down by region - you can pick only the IP ranges assigned for the region in which your search service is provisioned.
+- To obtain the IP address of the search service specific private environment, `nslookup` (or `ping`) the fully qualified domain name (FQDN) of your search service. The FQDN of a search service in the public cloud, for example, would be `<service-name>.search.windows.net`. This information is available on the Azure portal.
+- The IP addresses of the multi-tenant environments are available via the `AzureCognitiveSearch` service tag. [Azure service tags](https://docs.microsoft.com/azure/virtual-network/service-tags-overview) have a published range of IP addresses for each service - this is available via a [discovery API (preview)](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#use-the-service-tag-discovery-api-public-preview) or a [downloadable JSON file](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files). In either case, IP ranges are broken down by region - you can pick only the IP ranges assigned for the region in which your search service is provisioned.
 
 For certain data sources, the service tag itself can be used directly instead of enumerating the list of IP ranges (the IP address of the search service still needs to be used explicitly). These data sources restrict access by means of setting up a [Network Security Group rule](https://docs.microsoft.com/azure/virtual-network/security-overview), which natively support adding a service tag, unlike IP rules such as the ones offered by Azure Storage, CosmosDB, Azure SQL etc., The data sources that support the ability to utilize the `AzureCognitiveSearch` service tag directly in addition to search service IP address are:
 
-1. SQL server on IaaS VMs. Details outlined [here](https://docs.microsoft.com/azure/search/search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers#restrict-access-to-the-azure-cognitive-search)
+- [SQL server on IaaS VMs](https://docs.microsoft.com/azure/search/search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers#restrict-access-to-the-azure-cognitive-search)
 
-2. SQL managed instances. Details outlined [here](https://docs.microsoft.com/azure/search/search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers#verify-nsg-rules)
+- [SQL managed instances](https://docs.microsoft.com/azure/search/search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers#verify-nsg-rules)
 
 Details are described in the [how to guide](search-indexer-howto-access-ip-restricted.md).
 
