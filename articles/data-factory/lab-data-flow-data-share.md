@@ -46,49 +46,49 @@ In Azure Data Factory linked services define the connection information to exter
 1. Open the [Azure portal](https://portal.azure.com) in either Microsoft Edge or Google Chrome.
 1. Using the search bar at the top of the page, search for 'Data Factories'
 
-    ![Portal](media/lab-data-flow-data-share/portal1.png)
+    ![Portal 1](media/lab-data-flow-data-share/portal1.png)
 1. Click on your data factory resource to open up its resource blade.
 
-    ![Portal](media/lab-data-flow-data-share/portal2.png)
+    ![Portal 2](media/lab-data-flow-data-share/portal2.png)
 1. Click on **Author and Monitor** to open up the ADF UX. The ADF UX can also be accessed at adf.azure.com.
 
-    ![Portal](media/lab-data-flow-data-share/portal3.png)
+    ![Portal 3](media/lab-data-flow-data-share/portal3.png)
 1. You'll be redirected to the homepage of the ADF UX. This page contains quick-starts, instructional videos, and links to tutorials to learn data factory concepts. To start authoring, click on the pencil icon in left side-bar.
 
-    ![Portal](media/lab-data-flow-data-share/configure1.png)
+    ![Portal configure](media/lab-data-flow-data-share/configure1.png)
 
 ### Create an Azure SQL Database linked service
 
 1. The authoring page is where you create data factory resources such as pipelines, datasets, data flows, triggers and linked services. To create a linked service, click on the **Connections** button in the bottom-right corner.
 
-    ![Portal](media/lab-data-flow-data-share/configure2.png)
+    ![Portal configure 2](media/lab-data-flow-data-share/configure2.png)
 1. In the connections tab, click **New** to add a new linked service.
 
-    ![Portal](media/lab-data-flow-data-share/configure3.png)
+    ![Portal configure 3](media/lab-data-flow-data-share/configure3.png)
 1. The first linked service you'll configure is an Azure SQL DB. You can use the search bar to filter the data store list. Click on the **Azure SQL Database** tile and click continue.
 
-    ![Portal](media/lab-data-flow-data-share/configure4.png)
+    ![Portal configure 4](media/lab-data-flow-data-share/configure4.png)
 1. In the SQL DB configuration pane, enter 'SQLDB' as your linked service name. Enter in your credentials to allow data factory to connect to your database. If you're using SQL authentication, enter in the server name, the database, your user name and password. You can verify your connection information is correct by clicking **Test connection**. Click **Create** when finished.
 
-    ![Portal](media/lab-data-flow-data-share/configure5.png)
+    ![Portal configure 5](media/lab-data-flow-data-share/configure5.png)
 
 ### Create an Azure Synapse Analytics linked service
 
 1. Repeat the same process to add an Azure Synapse Analytics linked service. In the connections tab, click **New**. Select the **Azure Synapse Analytics (formerly SQL DW)** tile and click continue.
 
-    ![Portal](media/lab-data-flow-data-share/configure6.png)
+    ![Portal configure 6](media/lab-data-flow-data-share/configure6.png)
 1. In the linked service configuration pane, enter 'SQLDW' as your linked service name. Enter in your credentials to allow data factory to connect to your database. If you're using SQL authentication, enter in the server name, the database, your user name and password. You can verify your connection information is correct by clicking **Test connection**. Click **Create** when finished.
 
-    ![Portal](media/lab-data-flow-data-share/configure7.png)
+    ![Portal configure 7](media/lab-data-flow-data-share/configure7.png)
 
 ### Create an Azure Data Lake Storage Gen2 linked service
 
 1. The last linked service needed for this lab is an Azure Data Lake Storage gen2.  In the connections tab, click **New**. Select the **Azure Data Lake Storage Gen2** tile and click continue.
 
-    ![Portal](media/lab-data-flow-data-share/configure8.png)
+    ![Portal configure 8](media/lab-data-flow-data-share/configure8.png)
 1. In the linked service configuration pane, enter 'ADLSGen2' as your linked service name. If you're using Account key authentication, select your adls gen2 storage account from the **Storage account name** dropdown. You can verify your connection information is correct by clicking **Test connection**. Click **Create** when finished.
 
-    ![Portal](media/lab-data-flow-data-share/configure9.png)
+    ![Portal configure 9](media/lab-data-flow-data-share/configure9.png)
 
 ### Turn on data flow debug mode
 
@@ -96,7 +96,7 @@ In section *Transform data using mapping data flow*, you'll be building mapping 
 
 To turn on debug, click the **Data flow debug** slider in the factory top bar. Click ok when the confirmation dialog pop-ups. The cluster will take about 5-7 minutes to start up. Continue on to *Ingest data from Azure SQL DB into ADLS gen2 using the copy activity* while it is initializing.
 
-![Portal](media/lab-data-flow-data-share/configure10.png)
+![Portal configure 10](media/lab-data-flow-data-share/configure10.png)
 
 ## Ingest data using the copy activity
 
@@ -108,25 +108,25 @@ In Azure Data Factory, a pipeline is a logical grouping of activities that toget
 
 1. In the factory resources pane, click on the plus icon to open the new resource menu. Select **Pipeline**.
 
-    ![Portal](media/lab-data-flow-data-share/copy1.png)
+    ![Portal copy 1](media/lab-data-flow-data-share/copy1.png)
 1. In the **General** tab of the pipeline canvas, name your pipeline something descriptive such as 'IngestAndTransformTaxiData'.
 
-    ![Portal](media/lab-data-flow-data-share/copy2.png)
+    ![Portal copy 2](media/lab-data-flow-data-share/copy2.png)
 1. In the activities pane of the pipeline canvas, open the **Move and Transform** accordion and drag the **Copy data** activity onto the canvas. Give the copy activity a descriptive name such as 'IngestIntoADLS'.
 
-    ![Portal](media/lab-data-flow-data-share/copy3.png)
+    ![Portal copy 3](media/lab-data-flow-data-share/copy3.png)
 
 ### Configure Azure SQL DB source dataset
 
 1. Click on the **Source** tab of the copy activity. To create a new dataset, click **New**. Your source will be the table 'dbo.TripData' located in the linked service 'SQLDB' configured earlier.
 
-    ![Portal](media/lab-data-flow-data-share/copy4.png)
+    ![Portal copy 4](media/lab-data-flow-data-share/copy4.png)
 1. Search for **Azure SQL Database** and click continue.
 
-    ![Portal](media/lab-data-flow-data-share/copy5.png)
+    ![Portal copy 5](media/lab-data-flow-data-share/copy5.png)
 1. Call your dataset 'TripData'. Select 'SQLDB' as your linked service. Select table name 'dbo.TripData' from the table name dropdown. Import the schema **From connection/store**. Click OK when finished.
 
-    ![Portal](media/lab-data-flow-data-share/copy6.png)
+    ![Portal copy 6](media/lab-data-flow-data-share/copy6.png)
 
 You have successfully created your source dataset. Make sure in the source settings, the default value **Table** is selected in the use query field.
 
@@ -134,31 +134,31 @@ You have successfully created your source dataset. Make sure in the source setti
 
 1. Click on the **Sink** tab of the copy activity. To create a new dataset, click **New**.
 
-    ![Portal](media/lab-data-flow-data-share/copy7.png)
+    ![Portal copy 7](media/lab-data-flow-data-share/copy7.png)
 1. Search for **Azure Data Lake Storage Gen2** and click continue.
 
-    ![Portal](media/lab-data-flow-data-share/copy8.png)
+    ![Portal copy 8](media/lab-data-flow-data-share/copy8.png)
 1. In the select format pane, select **DelimitedText** as you're writing to a csv file. Click continue.
 
-    ![Portal](media/lab-data-flow-data-share/copy9.png)
+    ![Portal copy 9](media/lab-data-flow-data-share/copy9.png)
 1. Name your sink dataset 'TripDataCSV'. Select 'ADLSGen2' as your linked service. Enter where you want to write your csv file. For example, you can write your data to file `trip-data.csv` in container `staging-container`. Set **First row as header** to true as you want your output data to have headers. Since no file exists in the destination yet, set **Import schema** to **None**. Click OK when finished.
 
-    ![Portal](media/lab-data-flow-data-share/copy10.png)
+    ![Portal copy 10](media/lab-data-flow-data-share/copy10.png)
 
 ### Test the copy activity with a pipeline debug run
 
 1. To verify your copy activity is working correctly, click **Debug** at the top of the pipeline canvas to execute a debug run. A debug run allows you to test your pipeline either end-to-end or until a breakpoint before publishing it to the data factory service.
 
-    ![Portal](media/lab-data-flow-data-share/copy11.png)
+    ![Portal copy 11](media/lab-data-flow-data-share/copy11.png)
 1. To monitor your debug run, go to the **Output** tab of the pipeline canvas. The monitoring screen will autorefresh every 20 seconds or when you manually click the refresh button. The copy activity has a special monitoring view which can be access by clicking the eye-glasses icon in the **Actions** column.
 
-    ![Portal](media/lab-data-flow-data-share/copy12.png)
+    ![Portal copy 12](media/lab-data-flow-data-share/copy12.png)
 1. The copy monitoring view gives the activity's execution details and performance characteristics. You can see information such as data read/written, rows read/written, files read/written, and throughput. If you have configured everything correctly, you should see 49,999 rows written into one file in your ADLS sink.
 
-    ![Portal](media/lab-data-flow-data-share/copy13.png)
+    ![Portal copy 13](media/lab-data-flow-data-share/copy13.png)
 1. Before moving on to the next section, it's suggested that you publish your changes to the data factory service by clicking **Publish all** in the factory top bar. While not covered in this lab, Azure Data Factory supports full git integration. Git integration allows for version control, iterative saving in a repository, and collaboration on a data factory. For more information, see [source control in Azure Data Factory](https://docs.microsoft.com/azure/data-factory/source-control#troubleshooting-git-integration).
 
-    ![Portal](media/lab-data-flow-data-share/publish1.png)
+    ![Portal publish 1](media/lab-data-flow-data-share/publish1.png)
 
 ## Transform data using mapping data flow
 
@@ -170,28 +170,28 @@ The data flow created in this step inner joins the 'TripDataCSV' dataset created
 
 1. In the activities pane of the pipeline canvas, open the **Move and Transform** accordion and drag the **Data flow** activity onto the canvas.
 
-    ![Portal](media/lab-data-flow-data-share/dataflow1.png)
+    ![Portal data flow 1](media/lab-data-flow-data-share/dataflow1.png)
 1. In the side pane that opens, select **Create new data flow** and choose **Mapping data flow**. Click **OK**.
 
-    ![Portal](media/lab-data-flow-data-share/dataflow2.png)
+    ![Portal data flow 2](media/lab-data-flow-data-share/dataflow2.png)
 1. You'll be directed to the data flow canvas where you'll be building your transformation logic. In the general tab, name your data flow 'JoinAndAggregateData'.
 
-    ![Portal](media/lab-data-flow-data-share/dataflow3.png)
+    ![Portal data flow 3](media/lab-data-flow-data-share/dataflow3.png)
 
 ### Configure your trip data csv source
 
 1. The first thing you want to do is configure your two source transformations. The first source will point to the 'TripDataCSV' DelimitedText dataset. To add a source transformation, click on the **Add Source** box in the canvas.
 
-    ![Portal](media/lab-data-flow-data-share/dataflow4.png)
+    ![Portal data flow 4](media/lab-data-flow-data-share/dataflow4.png)
 1. Name your source 'TripDataCSV' and select the 'TripDataCSV' dataset from the source drop-down. If you remember, you didn't import a schema initially when creating this dataset as there was no data there. Since `trip-data.csv` exists now, click **Edit** to go to the dataset settings tab.
 
-    ![Portal](media/lab-data-flow-data-share/dataflow5.png)
+    ![Portal data flow 5](media/lab-data-flow-data-share/dataflow5.png)
 1. Go to tab **Schema** and click **Import schema**. Select **From connection/store** to import directly from the file store. 14 columns of type string should appear.
 
-    ![Portal](media/lab-data-flow-data-share/dataflow6.png)
+    ![Portal data flow 6](media/lab-data-flow-data-share/dataflow6.png)
 1. Go back to data flow 'JoinAndAggregateData'. If your debug cluster has started (indicated by a green circle next to the debug slider), you can get a snapshot of the data in the **Data Preview** tab. Click **Refresh** to fetch a data preview.
 
-    ![Portal](media/lab-data-flow-data-share/dataflow7.png)
+    ![Portal data flow 7](media/lab-data-flow-data-share/dataflow7.png)
 
 > [!Note]
 > Data preview does not write data.
@@ -200,84 +200,84 @@ The data flow created in this step inner joins the 'TripDataCSV' dataset created
 
 1. The second source you're adding will point at the SQL DB table 'dbo.TripFares'. Under your 'TripDataCSV' source, there will be another **Add Source** box. Click it to add a new source transformation.
 
-    ![Portal](media/lab-data-flow-data-share/dataflow8.png)
+    ![Portal data flow 8](media/lab-data-flow-data-share/dataflow8.png)
 1. Name this source 'TripFaresSQL'. Click **New** next to the source dataset field to create a new SQL DB dataset.
 
-    ![Portal](media/lab-data-flow-data-share/dataflow9.png)
+    ![Portal data flow 9](media/lab-data-flow-data-share/dataflow9.png)
 1. Select the **Azure SQL Database** tile and click continue. *Note: You may notice many of the connectors in data factory are not supported in mapping data flow. To transform data from one of these sources, ingest it into a supported source using the copy activity*.
 
-    ![Portal](media/lab-data-flow-data-share/dataflow10.png)
+    ![Portal data flow 10](media/lab-data-flow-data-share/dataflow10.png)
 1. Call your dataset 'TripFares'. Select 'SQLDB' as your linked service. Select table name 'dbo.TripFares' from the table name dropdown. Import the schema **From connection/store**. Click OK when finished.
 
-    ![Portal](media/lab-data-flow-data-share/dataflow11.png)
+    ![Portal data flow 11](media/lab-data-flow-data-share/dataflow11.png)
 1. To verify your data, fetch a data preview in the **Data Preview** tab.
 
-    ![Portal](media/lab-data-flow-data-share/dataflow12.png)
+    ![Portal data flow 12](media/lab-data-flow-data-share/dataflow12.png)
 
 ### Inner join TripDataCSV and TripFaresSQL
 
 1. To add a new transformation, click the plus icon in the bottom-right corner of 'TripDataCSV'. Under **Multiple inputs/outputs**, select **Join**.
 
-    ![Portal](media/lab-data-flow-data-share/join1.png)
+    ![Portal join 1](media/lab-data-flow-data-share/join1.png)
 1. Name your join transformation 'InnerJoinWithTripFares'. Select 'TripFaresSQL' from the right stream dropdown. Select **Inner** as the join type. To learn more about the different join types in mapping data flow, see [join types](https://docs.microsoft.com/azure/data-factory/data-flow-join#join-types).
 
     Select which columns you wish to match on from each stream via the **Join conditions** dropdown. To add an additional join condition, click on the plus icon next to an existing condition. By default, all join conditions are combined with an AND operator which means all conditions must be met for a match. In this lab, we want to match on columns `medallion`, `hack_license`, `vendor_id`, and `pickup_datetime`
 
-    ![Portal](media/lab-data-flow-data-share/join2.png)
+    ![Portal join 2](media/lab-data-flow-data-share/join2.png)
 1. Verify you successfully joined 25 columns together with a data preview.
 
-    ![Portal](media/lab-data-flow-data-share/join3.png)
+    ![Portal join 3](media/lab-data-flow-data-share/join3.png)
 
 ### Aggregate by payment_type
 
 1. After you complete your join transformation, add an aggregate transformation by clicking the plus icon next to 'InnerJoinWithTripFares. Choose **Aggregate** under **Schema modifier**.
 
-    ![Portal](media/lab-data-flow-data-share/agg1.png)
+    ![Portal agg 1](media/lab-data-flow-data-share/agg1.png)
 1. Name your aggregate transformation 'AggregateByPaymentType'. Select `payment_type` as the group by column.
 
-    ![Portal](media/lab-data-flow-data-share/agg2.png)
+    ![Portal agg 2](media/lab-data-flow-data-share/agg2.png)
 1. Go to the **Aggregates** tab. Here, you'll specify two aggregations:
     * The average fare grouped by payment type
     * The total trip distance grouped by payment type
 
     First, you'll create the average fare expression. In the text box labeled **Add or select a column**, enter 'average_fare'.
 
-    ![Portal](media/lab-data-flow-data-share/agg3.png)
+    ![Portal agg 3](media/lab-data-flow-data-share/agg3.png)
 1. To enter an aggregation expression, click the blue box labeled **Enter expression**. This will open up the data flow expression builder, a tool used to visually create data flow expressions using input schema, built-in functions and operations, and user-defined parameters. For more information on the capabilities of the expression builder, see the [expression builder documentation](https://docs.microsoft.com/azure/data-factory/concepts-data-flow-expression-builder).
 
     To get the average fare, use the `avg()` aggregation function to aggregate the `total_amount` column cast to an integer with `toInteger()`. In the data flow expression language, this is defined as `avg(toInteger(total_amount))`. Click **Save and finish** when you're done.
 
-    ![Portal](media/lab-data-flow-data-share/agg4.png)
+    ![Portal agg 4](media/lab-data-flow-data-share/agg4.png)
 1. To add an additional aggregation expression, click on the plus icon next to `average_fare`. Select **Add column**.
 
-    ![Portal](media/lab-data-flow-data-share/agg5.png)
+    ![Portal agg 5](media/lab-data-flow-data-share/agg5.png)
 1. In the text box labeled **Add or select a column**, enter 'total_trip_distance'. As in the last step, open the expression builder to enter in the expression.
 
     To get the total trip distance, use the `sum()` aggregation function to aggregate the `trip_distance` column cast to an integer with `toInteger()`. In the data flow expression language, this is defined as `sum(toInteger(trip_distance))`. Click **Save and finish** when you're done.
 
-    ![Portal](media/lab-data-flow-data-share/agg6.png)
+    ![Portal agg 6](media/lab-data-flow-data-share/agg6.png)
 1. Test your transformation logic in the **Data Preview** tab. As you can see, there are significantly fewer rows and columns than previously. Only the three group by and aggregation columns defined in this transformation continue downstream. As there are only five payment type groups in the sample, only five rows are outputted.
 
-    ![Portal](media/lab-data-flow-data-share/agg7.png)
+    ![Portal agg 7](media/lab-data-flow-data-share/agg7.png)
 
 ### Configure you Azure Synapse Analytics sink
 
 1. Now that we have finished our transformation logic, we are ready to sink our data in an Azure Synapse Analytics table. Add a sink transformation under the **Destination** section.
 
-    ![Portal](media/lab-data-flow-data-share/sink1.png)
+    ![Portal sink 1](media/lab-data-flow-data-share/sink1.png)
 1. Name your sink 'SQLDWSink'. Click **New** next to the sink dataset field to create a new Azure Synapse Analytics dataset.
 
-    ![Portal](media/lab-data-flow-data-share/sink2.png)
+    ![Portal sink 2](media/lab-data-flow-data-share/sink2.png)
 
 1. Select the **Azure Synapse Analytics (formerly SQL DW)** tile and click continue.
 
-    ![Portal](media/lab-data-flow-data-share/sink3.png)
+    ![Portal sink 3](media/lab-data-flow-data-share/sink3.png)
 1. Call your dataset 'AggregatedTaxiData'. Select 'SQLDW' as your linked service. Select **Create new table** and name the new table dbo.AggregateTaxiData. Click OK when finished
 
-    ![Portal](media/lab-data-flow-data-share/sink4.png)
+    ![Portal sink 4](media/lab-data-flow-data-share/sink4.png)
 1. Go to the **Settings** tab of the sink. Since we are creating a new table, we need to select **Recreate table** under table action. Unselect **Enable staging**, which toggles whether we are inserting row-by-row or in batch.
 
-    ![Portal](media/lab-data-flow-data-share/sink5.png)
+    ![Portal sink 5](media/lab-data-flow-data-share/sink5.png)
 
 You have successfully created your data flow. Now it's time to run it in a pipeline activity.
 
@@ -285,19 +285,19 @@ You have successfully created your data flow. Now it's time to run it in a pipel
 
 1. Go back to the tab for the **IngestAndTransformData** pipeline. Notice the green box on the 'IngestIntoADLS' copy activity. Drag it over to the 'JoinAndAggregateData' data flow activity. This creates an 'on success', which causes the data flow activity to only run if the copy is successful.
 
-    ![Portal](media/lab-data-flow-data-share/pipeline1.png)
+    ![Portal pipeline 1](media/lab-data-flow-data-share/pipeline1.png)
 1. As we did for the copy activity, click **Debug** to execute a debug run. For debug runs, the data flow activity will use the active debug cluster instead of spinning up a new cluster. This pipeline will take a little over a minute to execute.
 
-    ![Portal](media/lab-data-flow-data-share/pipeline2.png)
+    ![Portal pipeline 2](media/lab-data-flow-data-share/pipeline2.png)
 1. Like the copy activity, the data flow has a special monitoring view accessed by the eyeglasses icon on completion of the activity.
 
-    ![Portal](media/lab-data-flow-data-share/pipeline3.png)
+    ![Portal pipeline 3](media/lab-data-flow-data-share/pipeline3.png)
 1. In the monitoring view, you can see a simplified data flow graph along with the execution times and rows at each execution stage. If done correctly, you should have aggregated 49,999 rows into five rows in this activity.
 
-    ![Portal](media/lab-data-flow-data-share/pipeline4.png)
+    ![Portal pipeline 4](media/lab-data-flow-data-share/pipeline4.png)
 1. You can click a transformation to get additional details on its execution such as partitioning information and new/updated/dropped columns.
 
-    ![Portal](media/lab-data-flow-data-share/pipeline5.png)
+    ![Portal pipeline 5](media/lab-data-flow-data-share/pipeline5.png)
 
 You have now completed the data factory portion of this lab. Publish your resources if you wish to operationalize them with triggers. You successfully ran a pipeline that ingested data from Azure SQL Database to Azure Data Lake Storage using the copy activity and then aggregated that data into an Azure Synapse Analytics. You can verify the data was successfully written by looking at the SQL Server itself.
 
@@ -313,7 +313,7 @@ Once you have created a data share, you'll then switch hats and become the *data
 
 1. Using the search bar at the top of the page, search for **Data Shares**
 
-    ![Portal](media/lab-data-flow-data-share/portal-ads.png)
+    ![Portal ads](media/lab-data-flow-data-share/portal-ads.png)
 
 1. Select the data share account with 'Provider' in the name. For example, **DataProvider0102**. 
 
