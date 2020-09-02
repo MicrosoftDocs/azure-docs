@@ -488,8 +488,7 @@ You can extract the SDK version property when you perform queries against diagno
 
 ```kusto
 // SDK version of devices
-// List of devices and their SDK versions that c
-// this query only works if your device uses device to cloud twin operations
+// List of devices and their SDK versions that connect to IoT Hub
 AzureDiagnostics
 | where ResourceProvider == "MICROSOFT.DEVICES" and ResourceType == "IOTHUBS"
 | where Category == "Connections"
