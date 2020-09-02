@@ -71,7 +71,7 @@ Once the technical setup is in place, you should incorporate these leads into yo
 
 **Could not save the lead to Dynamics CRM. LastCRMError: The request channel timed out while waiting for a reply after 00:02:00. Increase the timeout value passed to the call to Request or increase the SendTimeout value on the Binding. The time allotted to this operation may have been a portion of a longer timeout.**  
 
-> Resolution: Sign in to Partner Center, check Storefront details >> Lead destination >> URL, check if it's a valid Dynamic CRM instance.
+> Resolution: Sign in to Partner Center, check Offer setup >> Customer leads >> URL, check if it's a valid Dynamic CRM instance.
 
 ## Frequently asked questions
 

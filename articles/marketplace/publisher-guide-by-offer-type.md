@@ -40,4 +40,4 @@ For information on single sign-on requirements by listing options and offer type
 ## Next steps
 
 - Review the eligibility requirements in the corresponding article for your offer type to finalize the selection and configuration of your offer.
-- Review the publishing patterns by storefront for examples on how your solution maps to an offer type and configuration.
+- Review the publishing patterns for each online store for examples on how your solution maps to an offer type and configuration.

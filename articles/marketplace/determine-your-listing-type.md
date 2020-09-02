@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: keferna
 ms.author: keferna
-ms.date: 07/30/2020
+ms.date: 09/02/2020
 ---
 
 # Determine your publishing option
@@ -58,20 +58,20 @@ The listing options that are available offer differentiated customer engagement 
 
 ## Selecting an online store
 
-Each online store serves unique customer requirements and targets specific audiences. Your offer type, transact capabilities, and category will determine where your offer will be published. Categories and subcategories are mapped to each online store based on the target audience:
+Each online store serves different customer requirements for business and IT solutions. Your offer type, transact capabilities, and category will determine where your offer will be published. Categories and subcategories are mapped to each online store based on the type of solution you publish:
 
-**Microsoft AppSource** targets business users looking for line-of-business or industry solutions and consulting services for Dynamics 365, Microsoft 365, and Power Platform.
+**Microsoft AppSource** offers business solutions, such as industry solutions and consulting services, for Dynamics 365, Microsoft 365, and Power Platform.
 
-**Azure Marketplace** targets IT professionals and developers looking for solutions built for or on Azure as well as consulting services that accelerate their use of Azure.
+**Azure Marketplace** offers IT solutions built for or on Azure as well as consulting services that accelerate your customers' use of Azure.
 
-Select the category and subcategory that best align with your target audience. For example, a web application firewall should be published to Azure Marketplace, under the Security category, as the intended audience is IT professionals. A contract management app should instead be published to AppSource under the Sales category, since the intended audience is business users. Selecting the incorrect category or subcategory may result in your offer being published to the wrong online store.
+Select the category and subcategory that best align with your solution type. For example, a web application firewall is an IT solution that should be published to Azure Marketplace, under the Security category. A contract management app should instead be published to AppSource under the Sales category, since it is a business solution. Selecting the incorrect category or subcategory may result in your offer being published to the wrong online store.
 
 ### Publishing to both online stores (SaaS offers only)
 
-SaaS offers can be published to Azure Marketplace or AppSource. If your SaaS offer is intended for *both* a technical audience (Azure Marketplace) and a business audience (AppSource), select a category and/or a subcategory applicable to each online store. Offers published to both online stores should have a value proposition that extends to IT professionals *and* business users.
+SaaS offers can be published to Azure Marketplace or AppSource. If your SaaS offer is *both* an IT solution (Azure Marketplace) and a business solution (AppSource), select a category and/or a subcategory applicable to each online store. Offers published to both online stores should have a value proposition as an IT solution *and* a business solution.
 
 > [!IMPORTANT]
-> SaaS offers with metered billing are available through Azure Marketplace and the Azure portal. SaaS offers with only private plans are available through the Azure portal.
+> SaaS offers with [metered billing](/partner-center-portal/saas-metered-billing.md) are available through Azure Marketplace and the Azure portal. SaaS offers with only private plans are available through the Azure portal.
 
 | Metered billing | Public plan | Private plan | Available in: |
 |---|---|---|---|
@@ -86,7 +86,7 @@ For example, an offer with metered billing and a private plan only (no public pl
 
 ### Categories
 
-Categories and subcategories are mapped to each online store based on the target audience. Select the categories and subcategories that best align with your offer and the intended audience. You can select:
+Categories and subcategories are mapped to each online store based on the solution type. Select the categories and subcategories that best align with your solution. You can select:
 
 - At least one and up to two categories. You have the option to choose a primary and a secondary category.
 - Up to two subcategories for each primary and/or secondary category. If you don’t select any subcategory, your offer will still be discoverable under the selected category.
@@ -95,6 +95,5 @@ Categories and subcategories are mapped to each online store based on the target
 
 ## Next steps
 
-- Once you decide on a publishing option, you are ready to [select the offer type](./publisher-guide-by-offer-type.md) that will be used to present your offer.
-- Review the eligibility requirements in the publishing options by offer type section to finalize the selection and configuration of your offer.
-- Review the publishing patterns by online store for examples on how your solution maps to an offer type and configuration.
+- Once you decide on a publishing option, review the [publishing guide by offer type](./publisher-guide-by-offer-type.md).
+

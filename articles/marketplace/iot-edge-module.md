@@ -35,7 +35,7 @@ The IoT Edge module offer type is a specific type of container running on an IoT
 
 **Selecting the right online store**
 
-IoT Edge Modules are only published to the Azure Marketplace; AppSource does not apply. For more information on the differences and target audience across online stores, see [Determine your publishing option](determine-your-listing-type.md).
+IoT Edge Modules are only published to the Azure Marketplace; AppSource does not apply. For more information on the differences across online stores, see [Determine your publishing option](determine-your-listing-type.md).
 
 **Billing options**
 
