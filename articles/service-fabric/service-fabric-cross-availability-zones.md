@@ -398,5 +398,16 @@ The Service Fabric nodeType must be enabled to support multiple availability zon
 > For best practice we recommend hierarchicalUpgradeDomain set to true or be omitted. Deployment will follow the zonal distribution of VMs impacting a smaller amount of replicas and/or instances making them safer.
 > Use hierarchicalUpgradeDomain set to false if deployment speed is a priority or only stateless workload runs on the node type with multiple AZ's.
 
+### Migration to the node type with multiple Availability Zones
+For all migration scenarios, a new nodeType needs to added which will have multiple availability zones supported. An existing nodeType can’t be migrated to support multiple zones.
+The article [here](https://docs.microsoft.com/azure/service-fabric/service-fabric-scale-up-primary-node-type ) captures the detailed steps of adding a new nodeType and also adding the other resources required for the new nodeType like the IP and LB resources. 
+The same article also describes now to retire the existing nodeType after the nodeType with multiple Availability zones is added to the cluster.
+
+* Migration from a nodeType which is using basic LB and IP resources:
+    This is already described [here](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cross-availability-zones#migrate-to-using-availability-zones-from-a-cluster-using-a-basic-sku-load-balancer-and-a-basic-sku-ip) for the solution with one node type per AZ. 
+    For the new node type, the only difference is that there is only 1 VMSS and 1 nodetype for all AZ’s instead of 1 each per AZ.
+* Migration from a nodeType which is using the Standard SKU LB and IP resources with NSG:
+    Follows the same procedure as described above with the exception that there is no need to add new LB, IP and NSG resources, and the same resources can be reused in the new nodeType.
+
 
 [sf-architecture]: ./media/service-fabric-cross-availability-zones/sf-cross-az-topology.png
