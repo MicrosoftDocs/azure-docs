@@ -18,8 +18,8 @@ Use the built-in examples in Azure Machine Learning designer to quickly get star
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have an Azure subscription, create a [free account](https://aka.ms/AMLFree).
-* An Azure Machine Learning workspace with the Enterprise SKU.
+* An Azure subscription. If you don't have an Azure subscription, create a [free account](https://aka.ms/AMLFree)
+* An Azure Machine Learning workspace 
 
 [!INCLUDE [machine-learning-missing-ui](../../includes/machine-learning-missing-ui.md)]
 
@@ -124,5 +124,5 @@ The sample datasets are available under **Datasets**-**Samples** category. You c
 
 ## Next steps
 
-Learn the basics of predictive analytics and machine learning with [Tutorial: Predict automobile price with the designer](tutorial-designer-automobile-price-train-score.md)
+Learn the fundamentals of predictive analytics and machine learning with [Tutorial: Predict automobile price with the designer](tutorial-designer-automobile-price-train-score.md)
 

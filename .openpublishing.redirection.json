@@ -911,6 +911,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/machine-learning/concept-editions.md",
+      "redirect_url": "/azure/machine-learning/concept-workspace#wheres-enterprise",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/machine-learning/how-to-monitor-data-drift.md",
       "redirect_url": "/azure/machine-learning/how-to-enable-data-collection",
       "redirect_document_id": false

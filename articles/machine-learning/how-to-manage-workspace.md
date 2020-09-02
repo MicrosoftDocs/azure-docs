@@ -44,8 +44,6 @@ To create a workspace, you need an Azure subscription. If you don't have an Azur
    Location | Select the location closest to your users and the data resources to create your workspace.
    Location | Select the location closest to your users and the data resources to create your workspace.
 
-    ![Configure your workspace](./media/how-to-manage-workspace/select-edition.png)
-
 1. When you're finished configuring the workspace, select **Review + Create**.
 2. Review the settings and make any additional changes or corrections. When you're satisfied with the settings, select **Create**.
 

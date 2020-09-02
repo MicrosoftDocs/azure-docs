@@ -46,10 +46,6 @@ To create an Azure Machine Learning pipeline, you need an Azure Machine Learning
 
 In order to use the designer, you first need an Azure Machine Learning workspace. The workspace is the top-level resource for Azure Machine Learning, it provides a centralized place to work with all the artifacts you create in Azure Machine Learning.
 
-If you have an Azure Machine Learning workspace with an Enterprise edition, [skip to the next section](#create-the-pipeline).
-
-[!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal-enterprise.md)]
-
 ### Create the pipeline
 
 1. Sign in to <a href="https://ml.azure.com?tabs=jre" target="_blank">ml.azure.com</a>, and select the workspace you want to work with.
