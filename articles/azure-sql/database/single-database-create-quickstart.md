@@ -27,9 +27,9 @@ This quickstart configures a firewall rule (on the server) to allow the computer
 
 # [Portal](#tab/azure-portal)
 
-To create a single database in the Azure portal this quickstart uses the Azure SQL page:
+To create a single database in the Azure portal this quickstart starts at the Azure SQL page.
 
-1. Browse to [Azure SQL Select SQL Deployment option](https://portal.azure.com/#create/Microsoft.AzureSQL).
+1. Browse to the [Select SQL Deployment option](https://portal.azure.com/#create/Microsoft.AzureSQL) page.
 1. Under **SQL databases**, leave **Resource type** set to **Single database**, and select **Create**.
 
    ![Add to Azure SQL](./media/single-database-create-quickstart/select-deployment.png)
@@ -71,7 +71,7 @@ To create a single database in the Azure portal this quickstart uses the Azure S
 
 # [Azure CLI](#tab/azure-cli)
 
-You can create an Azure resource group, server, and single database using the Azure command-line interface (Azure CLI). If you don't want to use the Azure Cloud Shell, [install Azure CLI](/cli/azure/install-azure-cli) on your computer.
+You can create a single database using the Azure command-line interface (Azure CLI). This quickstart uses the [Azure Cloud Shell](../../cloud-shell/overview.md) in the portal. For detailed information about the Azure CLI, see [Azure Command-Line Interface (CLI) documentation](/cli/azure/what-is-azure-cli?view=azure-cli-latest).
 
 To run the following code sample in Azure Cloud Shell, select **Try it** in the code sample title bar. When the Cloud Shell opens, select **Copy** in the code sample title bar, and paste the code sample into the Cloud Shell window. In the code, replace `<Subscription ID>` with your Azure Subscription ID, and for `$startip` and `$endip`, replace `0.0.0.0` with the public IP address of the computer you're using.
 
