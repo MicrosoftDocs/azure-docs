@@ -335,11 +335,11 @@ Once you have created a data share, you'll then switch hats and become the *data
 
 1. Select **Add datasets** 
 
-    ![Add dataset](media/lab-data-flow-data-share/add-dataset.png)
+    ![Add dataset 1](media/lab-data-flow-data-share/add-dataset.png)
 
 1. Select **Azure Synapse Analytics** (formerly SQL Data Warehouse) to select a table from Azure Synapse Analytics that your ADF transformations landed in.
 
-    ![Add dataset](media/lab-data-flow-data-share/add-dataset-sql.png)
+    ![Add dataset sql](media/lab-data-flow-data-share/add-dataset-sql.png)
 
 > [!NOTE]
 > SQL Data Warehouse is now known as Azure Synapse Analytics
@@ -366,7 +366,7 @@ Once you have created a data share, you'll then switch hats and become the *data
 
 1. Select **Add dataset** and select **Azure Data Lake Store Gen2**
 
-    ![Add dataset](media/lab-data-flow-data-share/add-dataset-adls.png)
+    ![Add dataset adls](media/lab-data-flow-data-share/add-dataset-adls.png)
 
 1. Select **Next**
 
