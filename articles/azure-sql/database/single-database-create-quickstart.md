@@ -16,11 +16,6 @@ ms.date: 08/20/2020
 
 In this quickstart, you create a [single database](single-database-overview.md) in Azure SQL Database using either the Azure portal, a PowerShell script, or an Azure CLI script. You then query the database using **Query editor** in the Azure portal.
 
-A single database is the quickest and simplest option for Azure SQL Database. 
-
-You can create a single database in the *provisioned* or *serverless* compute tier. A provisioned database is pre-allocated a fixed amount of compute resources, including CPU and memory, and uses one of two [purchasing models](purchasing-models.md). This quickstart creates a provisioned database using the [vCore-based](service-tiers-vcore.md) purchasing model, but you can also choose a [DTU-based](service-tiers-dtu.md) model.
-
-The serverless compute tier is only available in the vCore-based purchasing model, and has an autoscaled range of compute resources, including CPU and memory. To create a single database in the serverless compute tier, see [Create a serverless database](serverless-tier-overview.md#create-a-new-database-in-the-serverless-compute-tier).
 
 ## Prerequisite
 
@@ -28,7 +23,7 @@ The serverless compute tier is only available in the vCore-based purchasing mode
 
 ## Create a single database
 
-All the methods in this article set up a firewall rule (on the server) to allow the computer you're using to access the database. For more information about creating server-level firewall rules, see [Create a server-level firewall](../database/firewall-create-server-level-portal-quickstart.md). You can also set database-level firewall rules. See [Create a database-level firewall rule](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database).
+This quickstart configures a firewall rule (on the server) to allow the computer you're using to access the database. For more information about creating server-level firewall rules, see [Create a server-level firewall](../database/firewall-create-server-level-portal-quickstart.md). You can also set database-level firewall rules. See [Create a database-level firewall rule](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database).
 
 # [Portal](#tab/azure-portal)
 

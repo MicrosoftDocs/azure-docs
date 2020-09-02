@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 10/7/2019
 ms.author: rogarana
 ms.subservice: files
+ms.custom: devx-track-csharp
 ---
 
 # Develop for Azure Files with .NET
