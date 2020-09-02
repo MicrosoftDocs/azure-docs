@@ -4,7 +4,7 @@ description: The Azure Cognitive Search security baseline provides procedural gu
 author: msmbaldwin
 ms.service: search
 ms.topic: conceptual
-ms.date: 09/01/2020
+ms.date: 09/02/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 
@@ -30,9 +30,9 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 
 **Guidance**: Configure your search service's firewall by restricting access to clients from specific public IP address ranges, select virtual networks, or specific Azure resources. You can also configure Private Endpoints so traffic to the search service from your enterprise travels exclusively over private networks.
 
-+ [How to configure the Azure Cognitive Search firewall](service-configure-firewall.md)
+- [How to configure the Azure Cognitive Search firewall](service-configure-firewall.md)
 
-+ [How to configure Private Endpoints for Azure Cognitive Search](service-create-private-endpoint.md)
+- [How to configure Private Endpoints for Azure Cognitive Search](service-create-private-endpoint.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -45,11 +45,11 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 
 **Guidance**: Cognitive Search cannot be deployed directly into a virtual network, but if your client application or data sources are in a virtual network, you can monitor and log traffic for those in-network components, including requests sent to a search service in the cloud. Standard recommendations include enabling a network security group flow log and sending logs to either Azure Storage or a Log Analytics workspace. You could optionally use Traffic Analytics for insights into traffic patterns.
 
-+ [How to enable network security group flow logs](../network-watcher/network-watcher-nsg-flow-logging-portal.md)
+- [How to enable network security group flow logs](../network-watcher/network-watcher-nsg-flow-logging-portal.md)
 
-+ [How to enable and use Traffic Analytics](../network-watcher/traffic-analytics.md)
+- [How to enable and use Traffic Analytics](../network-watcher/traffic-analytics.md)
 
-+ [Understand network security provided by Azure Security Center](../security-center/security-center-network-recommendations.md)
+- [Understand network security provided by Azure Security Center](../security-center/security-center-network-recommendations.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -62,7 +62,7 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 
 **Guidance**: Cognitive Search does not provide a specific feature to combat a distributed denial-of-service attack, but you can enable DDoS Protection Standard on the virtual networks associated with your search service for general protection.
 
-+ [How to configure DDoS protection](../virtual-network/manage-ddos-protection.md)
+- [How to configure DDoS protection](../virtual-network/manage-ddos-protection.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -75,9 +75,9 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 
 **Guidance**: For Azure Virtual Machines (VMs) that will be connecting to your Cognitive Search service, enable network security group (NSG) flow logs for the NSGs protecting those VMs and send logs into an Azure Storage account for traffic audit. If required for investigating anomalous activity, enable Network Watcher packet capture.
 
-+ [How to Enable NSG Flow Logs](../network-watcher/network-watcher-nsg-flow-logging-portal.md)
+- [How to Enable NSG Flow Logs](../network-watcher/network-watcher-nsg-flow-logging-portal.md)
 
-+ [How to enable Network Watcher](../network-watcher/network-watcher-create.md)
+- [How to enable Network Watcher](../network-watcher/network-watcher-create.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -90,9 +90,9 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 
 **Guidance**: Cognitive Search does not support network intrusion detection, but as an intrusion mitigation, you can configure firewall rules to specify which IP addresses the search service accepts requests from. You can also configure a private endpoint to keep search traffic off the public internet.
 
-+ [How to configure customer-managed keys for data encryption](search-security-manage-encryption-keys.md)
+- [How to configure customer-managed keys for data encryption](search-security-manage-encryption-keys.md)
 
-+ [How to get customer-managed key information from indexes and synonym maps](search-security-get-encryption-keys.md)
+- [How to get customer-managed key information from indexes and synonym maps](search-security-get-encryption-keys.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -116,7 +116,7 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 
 **Guidance**: If you are leveraging indexers and skillsets in Cognitive Search, you can use service tags to represent a range of IP addresses that have permission to connect to external resources. By specifying the service tag name (for example, AzureCognitiveSearch) in the appropriate source or destination field of a rule, you can allow or deny traffic to that resource. 
 
-+ [Virtual network service tags](../virtual-network/service-tags-overview.md)
+- [Virtual network service tags](../virtual-network/service-tags-overview.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -129,9 +129,9 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 
 **Guidance**: Cognitive Search does not support deploying directly into a virtual network, because of this you can not leverage traditional networking features with it such as network security groups, route tables, or other network dependent appliances such as an Azure Firewall. However, you can set up firewall rules to restrict access to a search service, and you can leverage Private Link to require all inbound request go through a private endpoint. 
 
-+ [How to configure IP firewall rules for Cognitive Search](service-configure-firewall.md)
+- [How to configure IP firewall rules for Cognitive Search](service-configure-firewall.md)
 
-+ [How to create a private endpoint for Cognitive Search](service-create-private-endpoint.md)
+- [How to create a private endpoint for Cognitive Search](service-create-private-endpoint.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -150,11 +150,11 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 
 Alternatively, you can enable and on-board this data to Azure Sentinel or a third-party SIEM.
 
-+ [How to get started with Azure Monitor and third-party SIEM integration](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)
+- [How to get started with Azure Monitor and third-party SIEM integration](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)
 
-+ [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/platform/diagnostic-settings.md)
+- [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/platform/diagnostic-settings.md)
 
-+ [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
+- [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -197,15 +197,15 @@ In Azure Monitor, set your Log Analytics workspace retention period according to
 
 **Guidance**: Analyze and monitor logs from your Cognitive Search service for anomalous behavior. Use Azure Monitor's Log Analytics to review logs and perform queries on log data. Alternatively, you may enable and on-board data to Azure Sentinel or a third party SIEM.
 
-+ [How to collect and analyze log data for Cognitive Search](search-monitor-logs.md)
+- [How to collect and analyze log data for Cognitive Search](search-monitor-logs.md)
 
-+ [How to visualize search log data in Power BI](search-monitor-logs.md-powerbi)
+- [How to visualize search log data in Power BI](search-monitor-logs.md-powerbi)
 
-+ [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
+- [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-+ [Learn about Log Analytics](../azure-monitor/log-query/get-started-portal.md)
+- [Learn about Log Analytics](../azure-monitor/log-query/get-started-portal.md)
 
-+ [How to perform custom queries in Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
+- [How to perform custom queries in Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -218,11 +218,11 @@ In Azure Monitor, set your Log Analytics workspace retention period according to
 
 **Guidance**: Use Azure Security Center with Log Analytics workspace for monitoring and alerting on anomalous activity found in security logs and events. Alternatively, you can enable and on-board data to Azure Sentinel.
 
-+ [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
+- [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-+ [How to manage alerts in Azure Security Center](../security-center/security-center-managing-and-responding-alerts.md)
+- [How to manage alerts in Azure Security Center](../security-center/security-center-managing-and-responding-alerts.md)
 
-+ [How to alert on log analytics log data](../azure-monitor/learn/tutorial-response.md)
+- [How to alert on log analytics log data](../azure-monitor/learn/tutorial-response.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -241,7 +241,7 @@ In Azure Monitor, set your Log Analytics workspace retention period according to
 
 Azure Cognitive Search roles are associated with permissions that support service level management tasks.  These roles do not grant access to the service endpoint.  Access to operations such as index management, index population, and queries on search data are available via api-keys.
 
-+ [Set roles for administrative access to Azure Cognitive Search](ttps://docs.microsoft.com/azure/search/search-security-rbac)
+- [Set roles for administrative access to Azure Cognitive Search](search-security-rbac.md)
 
 - [Create and manage api-keys for an Azure Cognitive Search service](search-security-api-keys.md)
 
@@ -784,7 +784,7 @@ For any compute resources that are owned by your organization and used in your s
 
 **Guidance**: Content stored in a search service cannot be be backed up through Azure Backup or any other built-in mechanism, but you can rebuild an index from application source code and primary data sources, or build a custom tool to retrieve and store indexed content.
 
-+ [GitHub: Index-backup-restore sample](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/index-backup-restore)
+- [GitHub: Index-backup-restore sample](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/index-backup-restore)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -834,11 +834,11 @@ For any compute resources that are owned by your organization and used in your s
 
 **Guidance**: Develop an incident response guide for your organization. Ensure there are written incident response plans that define all the roles of personnel as well as the phases of incident handling and management from detection to post-incident review.
 
-+ [Guidance on building your own security incident response process](https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/)
+- [Guidance on building your own security incident response process](https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/)
 
-+ [Microsoft Security Response Center's Anatomy of an Incident](https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/)
+- [Microsoft Security Response Center's Anatomy of an Incident](https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/)
 
-+ [Customer may also leverage NIST's Computer Security Incident Handling Guide to aid in the creation of their own incident response plan](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf)
+- [Customer may also leverage NIST's Computer Security Incident Handling Guide to aid in the creation of their own incident response plan](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -853,9 +853,9 @@ For any compute resources that are owned by your organization and used in your s
 
 Additionally, mark subscriptions using tags and create a naming system to identify and categorize Azure resources, especially those processing sensitive data. It's your responsibility to prioritize the remediation of alerts based on the criticality of the Azure resources and environment where the incident occurred.
 
-+ [Use tags to organize your Azure resources](../azure-resource-manager/management/tag-resources.md)
+- [Use tags to organize your Azure resources](../azure-resource-manager/management/tag-resources.md)
 
-+ [Security alerts in Azure Security Center](../security-center/security-center-alerts-overview.md)
+- [Security alerts in Azure Security Center](../security-center/security-center-alerts-overview.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -868,7 +868,7 @@ Additionally, mark subscriptions using tags and create a naming system to identi
 
 **Guidance**: Conduct exercises to test your systems’ incident response capabilities on a regular cadence. Identify weak points and gaps and revise plan as needed.
 
-+ Refer to NIST's publication: [Guide to Test, Training, and Exercise Programs for IT Plans and Capabilities](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf)
+- [Refer to NIST's publication, "Guide to Test, Training, and Exercise Programs for IT Plans and Capabilities"](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -881,7 +881,7 @@ Additionally, mark subscriptions using tags and create a naming system to identi
 
 **Guidance**: Security incident contact information will be used by Microsoft to contact you if the Microsoft Security Response Center (MSRC) discovers that your data has been accessed by an unlawful or unauthorized party. Review incidents after the fact to ensure that issues are resolved.
 
-+ [How to set the Azure Security Center Security Contact](../security-center/security-center-provide-security-contact-details.md)
+- [How to set the Azure Security Center Security Contact](../security-center/security-center-provide-security-contact-details.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -894,9 +894,9 @@ Additionally, mark subscriptions using tags and create a naming system to identi
 
 **Guidance**: Export your Azure Security Center alerts and recommendations using the Continuous Export feature. Continuous Export allows you to export alerts and recommendations either manually or on a continuous basis. You can use the Azure Security Center data connector to stream the alerts to Azure Sentinel.
 
-+ [How to configure continuous export](../security-center/continuous-export.md)
+- [How to configure continuous export](../security-center/continuous-export.md)
 
-+ [How to stream alerts into Azure Sentinel](../sentinel/connect-azure-security-center.md)
+- [How to stream alerts into Azure Sentinel](../sentinel/connect-azure-security-center.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -909,7 +909,7 @@ Additionally, mark subscriptions using tags and create a naming system to identi
 
 **Guidance**: Use the Workflow Automation feature in Azure Security Center to automatically trigger responses via "Logic Apps" on security alerts and recommendations.
 
-+ [How to configure Workflow Automation and Logic Apps](../security-center/workflow-automation.md)
+- [How to configure Workflow Automation and Logic Apps](../security-center/workflow-automation.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -924,7 +924,7 @@ Additionally, mark subscriptions using tags and create a naming system to identi
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33414.).
 
-**Guidance**: Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure your penetration tests are not in violation of Microsoft policies. Use Microsoft's strategy and execution of Red Teaming and live site penetration testing against Microsoft-managed cloud infrastructure, services, and applications.+ [Penetration Testing Rules of Engagement](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)+ [Microsoft Cloud Red Teaming](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
+**Guidance**: Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure your penetration tests are not in violation of Microsoft policies. Use Microsoft's strategy and execution of Red Teaming and live site penetration testing against Microsoft-managed cloud infrastructure, services, and applications.Penetration Testing Rules of Engagement: https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1Microsoft Cloud Red Teaming: https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e
 
 **Azure Security Center monitoring**: Not applicable
 
