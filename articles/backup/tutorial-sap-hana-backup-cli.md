@@ -45,7 +45,7 @@ az backup vault create --resource-group saphanaResourceGroup \
     --location westus2
 ```
 
-By default, the Recovery Services vault is set for Geo-Redundant storage. Geo-Redundant storage ensures your backup data is replicated to a secondary Azure region that is hundreds of miles away from the primary region. If the storage redundancy setting needs to be modified, use the [az backup vault backup-properties set](/cli/azure/backup/vault/backup-properties?view=azure-cli-latest#az-backup-vault-backup-properties-set) cmdlet.
+By default, the Recovery Services vault is set for Geo-Redundant storage. Geo-Redundant storage ensures your backup data is replicated to a secondary Azure region that's hundreds of miles away from the primary region. If the storage redundancy setting needs to be modified, use the [az backup vault backup-properties set](/cli/azure/backup/vault/backup-properties?view=azure-cli-latest#az-backup-vault-backup-properties-set) cmdlet.
 
 ```azurecli
 az backup vault backup-properties set \
@@ -78,7 +78,7 @@ az backup container register --resource-group saphanaResourceGroup \
 ```
 
 >[!NOTE]
->If the VM is not in the same resource group as the vault, then *saphanaResourceGroup* refers to the resource group where the vault was created.
+>If the VM isn't in the same resource group as the vault, then *saphanaResourceGroup* refers to the resource group where the vault was created.
 
 Registering the SAP HANA instance automatically discovers all its current databases. However, to discover any new databases that may be added in the future refer to the [Discovering new databases added to the registered SAP HANA](tutorial-sap-hana-manage-cli.md#protect-new-databases-added-to-an-sap-hana-instance) instance section.
 
@@ -136,7 +136,7 @@ Name                                  Operation         Status     Item Name   S
 e0f15dae-7cac-4475-a833-f52c50e5b6c3  ConfigureBackup   Completed  hxe         2019-12-03T03:09:210831+00:00  
 ```
 
-The [az backup job list](/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-list) cmdlet lists out all the backup jobs (scheduled or on-demand) that have run or are currently running on the protected database, in addition to other operations like register, configure backup, delete backup data etc.
+The [az backup job list](/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-list) cmdlet lists out all the backup jobs (scheduled or on-demand) that have run or are currently running on the protected database, in addition to other operations like register, configure backup, and delete backup data.
 
 >[!NOTE]
 >Azure Backup doesn’t automatically adjust for daylight saving time changes when backing up a SAP HANA database running in an Azure VM.
@@ -145,7 +145,7 @@ The [az backup job list](/cli/azure/backup/job?view=azure-cli-latest#az-backup-j
 
 ## Trigger an on-demand backup
 
-While the above section details how to configure a scheduled backup, this section talks about triggering an on-demand backup. To do this, we use the [az backup protection backup-now](/cli/azure/backup/protection#az-backup-protection-backup-now) cmdlet.
+While the section above details how to configure a scheduled backup, this section talks about triggering an on-demand backup. To do this, we use the [az backup protection backup-now](/cli/azure/backup/protection#az-backup-protection-backup-now) cmdlet.
 
 >[!NOTE]
 > The retention policy of an on-demand backup is determined by the underlying retention policy for the database.
@@ -173,7 +173,7 @@ The response will give you the job name. This job name can be used to track the 
 >[!NOTE]
 >In addition to scheduling a full or differential backup, they can also be currently triggered manually. Log backups are automatically triggered and managed by SAP HANA internally.
 >
-> Incremental backups are not currently supported by Azure Backup.
+> Incremental backups aren't currently supported by Azure Backup.
 
 ## Next steps
 

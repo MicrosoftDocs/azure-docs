@@ -4,7 +4,7 @@ description: Learn how to enable synapse link for Azure Cosmos accounts, create 
 author: Rodrigossz
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 05/19/2020
+ms.date: 08/31/2020
 ms.author: rosouz
 ---
 
@@ -14,7 +14,7 @@ Synapse Link for Azure Cosmos DB is a cloud-native hybrid transactional and anal
 
 
 > [!IMPORTANT]
-> To use Azure Synapse Link, ensure you provision your Azure Cosmos account & Azure Synapse Analytics workspace in one of the above supported regions.For the list of supported regions, see [Azure service updates](https://azure.microsoft.com/updates/). 
+> To use Azure Synapse Link, ensure you provision your Azure Cosmos account & Azure Synapse Analytics workspace in one of the supported regions. Azure Synapse Link is currently available in the following Azure regions: US West Central, East US, West US2, North Europe, West Europe, South Central US, Southeast Asia, Australia East, East U2, UK South.
 
 Use the following steps to run analytical queries with the Synapse Link for Azure Cosmos DB:
 
@@ -224,4 +224,4 @@ To learn more, see the following docs:
 
 * [Apache Spark in Azure Synapse Analytics](../synapse-analytics/spark/apache-spark-concepts.md).
 
-* [SQL serverless/on-demand in Azure Synapse Analytics](../synapse-analytics/sql/on-demand-workspace-overview.md).
+* [SQL serverless runtime support in Azure Synapse Analytics](../synapse-analytics/sql/on-demand-workspace-overview.md).

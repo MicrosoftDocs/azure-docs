@@ -91,7 +91,7 @@ For Azure Stack Edge device, `Microsoft.DataBoxEdge` should be registered. To re
 Register-AzResourceProvider -ProviderNamespace Microsoft.DataBoxEdge
 ```
 
-For more information on how to register a resource provider, see [Resolve errors for resource provider registration](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-register-provider-errors).
+For more information on how to register a resource provider, see [Resolve errors for resource provider registration](../azure-resource-manager/templates/error-register-resource-provider.md).
 
 ## Manage connectivity mode
 

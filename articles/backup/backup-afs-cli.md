@@ -9,7 +9,7 @@ ms.date: 01/14/2020
 
 The Azure command-line interface (CLI) provides a command-line experience for managing Azure resources. It's a great tool for building custom automation to use Azure resources. This article details how to back up Azure file shares with Azure CLI. You can also perform these steps with [Azure PowerShell](./backup-azure-afs-automation.md) or in the [Azure portal](backup-afs.md).
 
-By the end of this tutorial, you will learn how to perform below operations with Azure CLI:
+By the end of this tutorial, you'll learn how to perform the operations below with Azure CLI:
 
 * Create a Recovery Services vault
 * Enable backup for Azure file shares
@@ -69,7 +69,7 @@ Name                                  ResourceGroup
 0caa93f4-460b-4328-ac1d-8293521dd928  azurefiles
 ```
 
-The **Name** attribute in the output corresponds to the name of the job that is created by the backup service for your **enable backup** operation. To track status of the job, use the [az backup job show](/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-show) cmdlet.
+The **Name** attribute in the output corresponds to the name of the job that's created by the backup service for your **enable backup** operation. To track status of the job, use the [az backup job show](/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-show) cmdlet.
 
 ## Trigger an on-demand backup for file share
 
@@ -93,7 +93,7 @@ Name                                  ResourceGroup
 9f026b4f-295b-4fb8-aae0-4f058124cb12  azurefiles
 ```
 
-The **Name** attribute in the output corresponds to the name of the job that is created by the backup service for your “on-demand backup” operation. To track the status of a job, use the [az backup job show](/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-show) cmdlet.
+The **Name** attribute in the output corresponds to the name of the job that's created by the backup service for your “on-demand backup” operation. To track the status of a job, use the [az backup job show](/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-show) cmdlet.
 
 ## Next steps
 

@@ -77,6 +77,10 @@ Azure Data Explorer is a fast and highly scalable data exploration service for l
 ### How do I retrieve log data?
 All data is retrieved from a Log Analytics workspace using a log query written using Kusto Query Language (KQL). You can write your own queries or use solutions and insights that include log queries for a particular application or service. See [Overview of log queries in Azure Monitor](log-query/log-query-overview.md).
 
+### Can I delete data from a Log Analytics workspace?
+Data is removed from a workspace according to its [retention period](platform/manage-cost-storage.md#change-the-data-retention-period). You can delete specific data for privacy or compliance reasons. See [How to export and delete private data](platform/personal-data-mgmt.md#how-to-export-and-delete-private-data) for more information.
+
+
 ### What is a Log Analytics workspace?
 All log data collected by Azure Monitor is stored in a Log Analytics workspace. A workspace is essentially a container where log data is collected from a variety of sources. You may have a single Log Analytics workspace for all your monitoring data or may have requirements for multiple workspaces. See [Designing your Azure Monitor Logs deployment](platform/design-logs-deployment.md).
 
@@ -652,7 +656,7 @@ You may see the following error: **The reply url specified in the request does n
 
 If after you enable Azure Monitor for containers for an AKS cluster, you delete the Log Analytics workspace the cluster was sending its data to, when attempting to upgrade the cluster it will fail. To work around this, you will have to disable monitoring and then re-enable it referencing a different valid workspace in your subscription. When you try to perform the cluster upgrade again, it should process and complete successfully.  
 
-### Which ports and domains do I need to open/whitelist for the agent?
+### Which ports and domains do I need to open/allow for the agent?
 
 See the [Network firewall requirements](insights/container-insights-onboard.md#network-firewall-requirements) for the proxy and firewall configuration information required for the containerized agent with Azure, Azure US Government, and Azure China 21Vianet clouds.
 

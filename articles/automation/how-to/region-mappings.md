@@ -18,6 +18,9 @@ In Azure Automation, you can enable the Update Management, Change Tracking and I
 
 ## Supported mappings
 
+> [!NOTE]
+> As shown in following table, only one mapping can exist between Log Analytics and Azure Automation.
+
 The following table shows the supported mappings:
 
 |**Log Analytics workspace region**|**Azure Automation region**|
