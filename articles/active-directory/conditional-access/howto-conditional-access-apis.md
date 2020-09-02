@@ -25,13 +25,13 @@ Microsoft Graph provides a unified programmability model that organizations can 
 
 The following examples are provided as is with no support. You can use these examples as a basis for tooling in your organization. 
 
-Many of the following examples use tools like [Logic Apps](../../logic-apps/logic-apps-overview.md), [OneDrive](https://www.microsoft.com/microsoft-365/onedrive/online-cloud-storage), [Teams](https://www.microsoft.com/microsoft-365/microsoft-teams/group-chat-software/), and [Azure Key Vault](../../key-vault/general/overview.md).
+Many of the following examples use tools like [Managed Identities](../managed-identities-azure-resources/overview.md), [Logic Apps](../../logic-apps/logic-apps-overview.md), [OneDrive](https://www.microsoft.com/microsoft-365/onedrive/online-cloud-storage), [Teams](https://www.microsoft.com/microsoft-365/microsoft-teams/group-chat-software/), and [Azure Key Vault](../../key-vault/general/overview.md).
 
-## Simple commands
+## Configure
 
 ### PowerShell
 
-For many administrators, PowerShell is already an understood scripting tool. The following example shows how to use the Azure AD PowerShell module to manage Conditional Access policies.
+For many administrators, PowerShell is already an understood scripting tool. The following example shows how to use the [Azure AD PowerShell module](https://www.powershellgallery.com/packages/AzureAD) to manage Conditional Access policies.
 
 https://github.com/videor/AutoPilotConditionalAccess/blob/master/AutoPilotConditionalAccess/azure-quickstart-templates/101-conditionalaccess-apis-tutorial/readme-powershell.md
 
@@ -41,31 +41,39 @@ This example shows the basic Create, Read, Update, and Delete (CRUD) options ava
 
 https://github.com/videor/AutoPilotConditionalAccess/tree/master/AutoPilotConditionalAccess/azure-quickstart-templates/101-conditionalaccess-apis-tutorial
 
-## Safe deployment practices
+### Configure using templates
+
+Use Conditional Access APIs to deploy Conditional Access policies in your pre-production environment using a template.
+
+https://github.com/videor/AutoPilotConditionalAccess/tree/master/AutoPilotConditionalAccess/azure-quickstart-templates/301-conditionalaccess-policy-template-automation
+
+## Test
 
 This example models safer deployment practices with approval workflows that can copy Conditional Access policies from one environment, like pre-production, to another, like your production environment.
 
 https://github.com/videor/AutoPilotConditionalAccess/tree/master/AutoPilotConditionalAccess/azure-quickstart-templates/301-conditionalaccess-policy-copy-paste-automation
 
-## Staged deployment
+## Deploy
 
-This example provides a mechanism to deploy Conditional Access policies gradually to your user population, allowing you to manage support impact and spot issues early.
+This example provides a mechanism to perform a staged deployment Conditional Access policies gradually to your user population, allowing you to manage support impact and spot issues early.
 
 https://github.com/videor/AutoPilotConditionalAccess/tree/master/AutoPilotConditionalAccess/azure-quickstart-templates/301-conditionalaccess-policy-blueprint-automation
 
-## Monitor change
+## Monitor
 
 This example provides a mechanism to monitor Conditional Access policy changes over time and can trigger alerts when key policies are changed. 
 
 https://github.com/videor/AutoPilotConditionalAccess/tree/master/AutoPilotConditionalAccess/azure-quickstart-templates/301-conditionalaccess-policy-alert-automation
 
-## Backup and restore
+## Manage
+
+### Backup and restore
 
 Automate the backup and restoration of Conditional Access policies with approvals in Teams using this example. 
 
 https://github.com/videor/AutoPilotConditionalAccess/tree/master/AutoPilotConditionalAccess/azure-quickstart-templates/301-conditionalaccess-policy-backup-restore-automation
 
-## Contingency planning
+### Contingency planning
 
 When something happens and you lose access ensure you are able to recover using [emergency access accounts](../users-groups-roles/directory-emergency-access.md), or [fall back to a contingency policy](../authentication/concept-resilient-controls.md) using the following examples. 
 
