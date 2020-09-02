@@ -369,6 +369,8 @@ Save the names that you gave to your event grid topic and your Azure Digital Twi
 
 Next, create an Azure Digital Twins route that sends events to the Azure Digital Twins endpoint you just created.
 
+[!INCLUDE [digital-twins-known-issue-cloud-shell](../../includes/digital-twins-known-issue-cloud-shell.md)]
+
 ```azurecli
 az dt route create --dt-name <your-Azure-Digital-Twins-instance> --endpoint-name <your-Azure-Digital-Twins-endpoint> --route-name <name-for-your-Azure-Digital-Twins-route>
 ```
