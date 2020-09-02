@@ -6,7 +6,7 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 08/11/2020
+ms.date: 09/02/2020
 ---
 
 # Control network traffic in Azure HDInsight
@@ -50,10 +50,6 @@ Forced tunneling is a user-defined routing configuration where all traffic from 
 Customers who are interested to setup forced tunneling, should use [custom metastores](./hdinsight-use-external-metadata-stores.md) and setup the appropriate connectivity from the cluster subnet or on-premise network to these custom metastores.
 
 To see an example of the UDR setup with Azure Firewall, see [Configure outbound network traffic restriction for Azure HDInsight clusters](hdinsight-restrict-outbound-traffic.md).
-
-## Required IP addresses
-
-If you use network security groups or user-defined routes to control traffic, look up your region in the published list of [HDInsight management IP addresses](./hdinsight-management-ip-addresses.md). If your region is not listed, you can use the [Service Tag Discovery API](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview) to find IP addresses for your desired region. If you are unable to use the API, download the [service tag JSON file](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) and search for your desired region. Then you can enter these IP addresses in the allow list for inbound traffic.
 
 ## Required ports
 
