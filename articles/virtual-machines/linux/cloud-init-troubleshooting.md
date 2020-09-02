@@ -52,7 +52,7 @@ When the VM fails to provision, Azure will show 'creating' status, for 20 minute
 
 While the VM is running, you will need the logs from the VM to understand why provisioning failed.  To understand why VM provisioning failed, do not stop the VM. Keep the VM running. You will need to keep the failed VM in a running state in order to collect logs. To collect the logs, use one of the following methods:
 
-- [Serial Console](./serial-console-grub-single-user-mode.md)
+- [Serial Console](../troubleshooting/serial-console-grub-single-user-mode.md)
 
 - [Enable Boot Diagnostics](./tutorial-monitor.md#enable-boot-diagnostics) before creating the VM and then [View](./tutorial-monitor.md#view-boot-diagnostics) them during the boot.
 
