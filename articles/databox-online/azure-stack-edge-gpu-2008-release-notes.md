@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 08/29/2020
+ms.date: 09/01/2020
 ms.author: alkohli
 ---
 
@@ -21,9 +21,15 @@ This **Azure Stack Edge 2008** release corresponds to the following software ver
 
 - **2.1.1328.1904**
 
+## What's new
 
+The following new features were added in Azure Stack Edge 2008 release:
 
-## Known issues in GA release
+- **Storage classes** - In the previous release, you could only statically provision storage via SMB or NFS shares for stateful applications deployed on the Kubernetes cluster running on your Azure Stack Edge device. In this release, Storage classes were added that let dynamically provision storage. For more information, see [Kubernetes storage management on your Azure Stack Edge GPU device](azure-stack-edge-gpu-kubernetes-storage.md#dynamicprovisioning). 
+- **Kubernetes dashboard with metrics server** - In this release, a Kubernetes Dashboard is added with a metrics server add-on. You can use the dashboard to get an overview of the applications running on your Azure Stack Edge device, view status of Kubernetes cluster resources, and see any errors that have occurred on the device. The Metrics server aggregates the CPU and memory usage across Kubernetes resources on the device. For more information, see [Use Kubernetes dashboard to monitor your Azure Stack Edge GPU device](azure-stack-edge-gpu-monitor-kubernetes-dashboard.md).
+- **Azure Arc for Azure Stack Edge** - Beginning this release, you can deploy application workloads on your Azure Stack Edge device via Azure Arc. Azure Arc is a hybrid management tool that allows you to deploy applications on your Kubernetes clusters. For more information, see [Deploy workloads via Azure Arc on your Azure Stack Edge device](azure-stack-edge-gpu-deploy-arc-kubernetes-cluster.md).  
+
+## Known issues 
 
 The following table provides a summary of known issues for the Azure Stack Edge device.
 
