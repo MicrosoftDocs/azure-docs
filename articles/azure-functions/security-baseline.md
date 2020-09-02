@@ -963,9 +963,9 @@ How to create an internal ASE:
 
 - [How to use managed identities for App Service and Azure Functions](../app-service/overview-managed-identity.md)
 
-* [How to authenticate to Key Vault](../../key-vault/general/authentication.md)
+* [How to authenticate to Key Vault](../key-vault/general/authentication.md)
 
-* [How to assign a Key Vault access policy](../../key-vault/general/assign-access-policy-portal.md)
+* [How to assign a Key Vault access policy](../key-vault/general/assign-access-policy-portal.md)
 
 - [Use Key Vault references for App Service and Azure Functions](../app-service/app-service-key-vault-references.md)
 
