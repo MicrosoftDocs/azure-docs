@@ -1752,6 +1752,8 @@
         href: visitly-tutorial.md
       - name: Visma
         href: visma-tutorial.md
+      - name: VMware Horizon - Unified Access Gateway
+        href: vmware-horizon-unified-access-gateway-tutorial.md
       - name: Vocoli
         href: vocoli-tutorial.md
       - name: Vodeclic
@@ -1925,8 +1927,6 @@
         href: cernercentral-provisioning-tutorial.md
       - name: Cisco Webex
         href: cisco-webex-provisioning-tutorial.md
-      - name: Coda
-        href: coda-provisioning-tutorial.md
       - name: Comeet Recruiting Software
         href: comeet-recruiting-software-provisioning-tutorial.md
       - name: Concur
