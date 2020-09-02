@@ -414,6 +414,9 @@
         href: flexible-server/concepts-high-availability.md
     - name: Monitor and tune
       items:
+      - name: Overview
+        href: flexible-server/concepts-monitoring.md
+        displayName: monitor, metrics
       - name: Logs
         href: flexible-server/concepts-logging.md
         displayName: monitor, server logs
