@@ -69,6 +69,8 @@
         href: tokens-overview.md
       - name: Request access token
         href: access-tokens.md
+  - name: Policy keys
+    href: policy-keys-overview.md
   - name: User flow and policy
     items:
     - name: User flows
