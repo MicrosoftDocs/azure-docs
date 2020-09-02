@@ -12,9 +12,10 @@ ms.author: jafreebe
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
 zone_pivot_groups: app-service-platform-windows-linux
 ---
+
 # Quickstart: Create a Java app on Azure App Service
 
-[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service.  This quickstart shows how to use the [Azure CLI](/cli/azure/get-started-with-azure-cli) with the [Azure Web App Plugin for Maven](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) to deploy a Java web archive (WAR) file.
+[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service.  This quickstart shows how to use the [Azure CLI](/cli/azure/get-started-with-azure-cli) with the [Azure Web App Plugin for Maven](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) to deploy a .jar file, or .war file. Use the tabs to switch between Java SE and Tomcat instructions.
 
 
 > [!NOTE]
@@ -31,7 +32,7 @@ zone_pivot_groups: app-service-platform-windows-linux
 
 # [Java SE](#tab/javase)
 
-Clone the [Spring Boot Getting Started](https://github.com/spring-guides/gs-spring-boot) sample project into the directory you created.
+Clone the [Spring Boot Getting Started](https://github.com/spring-guides/gs-spring-boot) sample project.
 
 ```bash
 git clone https://github.com/spring-guides/gs-spring-boot
@@ -162,7 +163,7 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.9.1:config
 
 1. When prompted, select **linux** by pressing enter.
 1. Use the default Java version, 1.8, by pressing enter.
-1. Use the default runtime stack, Tomcat 8.5, by pressing enter.
+1. Use the default web container, Tomcat 8.5, by pressing enter.
 1. Finally, press enter on the last prompt to confirm your selections.
 
     ```
@@ -182,15 +183,15 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.9.1:config
     [INFO] Total time: 50.785 s
     [INFO] Finished at: 2020-09-01T16:43:09-07:00
     [INFO] ------------------------------------------------------------------------
-```
+    ```
 
 ---
 
 ::: zone-end
 
-You can modify the configurations for App Service directly in your `pom.xml` if needed, some common ones are listed below:
+You can modify the configurations for App Service directly in your `pom.xml` if needed. Some common ones are listed below:
 
- Property | Required | Description | Version
+Property | Required | Description | Version
 ---|---|---|---
 `<schemaVersion>` | false | Specify the version of the configuration schema. Supported values are: `v1`, `v2`. | 1.5.2
 `<resourceGroup>` | true | Azure Resource Group for your Web App. | 0.1.0+
