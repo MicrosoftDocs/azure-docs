@@ -29,6 +29,8 @@
     href: fusion.md
   - name: Extend Azure Sentinel across workspaces and tenants
     href: extend-sentinel-across-workspaces-tenants.md
+  - name: Import threat intelligence into Azure Sentinel
+    href: import-threat-intelligence.md
 - name: How-to guides
   items:
   - name: Connect data sources
