@@ -1,6 +1,6 @@
 ---
-title: Securing access credentials with Linked Services in Apache Spark 
-description: This article provides concepts on how to securely integrate with other services using linked services and token library
+title: Securing access credentials with Linked Services in Apache Spark for Azure Synapse Analytics
+description: This article provides concepts on how to securely integrate Apache Spark for Synapse Analytics with other services using linked services and token library
 services: synapse-analytics 
 author: mlee3gsd 
 ms.service:  synapse-analytics 
