@@ -111,7 +111,7 @@ Enable replication as follows:
 >If you want to select a different availability option for a sets of virtual machines, go to step 1 and repeat the steps by selecting different availability options after starting replication for one set of virtual machines.
 
 
-    ![VM compute settings](./media/tutorial-migrate-vmware/compute-settings.png)
+ ![VM compute settings](./media/tutorial-migrate-vmware/compute-settings.png)
 
 11. In **Disks**, specify whether the VM disks should be replicated to Azure, and select the disk type (standard SSD/HDD or premium-managed disks) in Azure. Then click **Next**.
    
