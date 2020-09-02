@@ -1,19 +1,19 @@
 ---
-title: VM extension management with Azure Arc enabled servers (preview)
-description: Azure Arc enabled servers (preview) can manage deployment of virtual machine extensions that provide post-deployment configuration and automation tasks with non-Azure VMs.
-ms.date: 06/17/2020
+title: VM extension management with Azure Arc enabled servers
+description: Azure Arc enabled servers can manage deployment of virtual machine extensions that provide post-deployment configuration and automation tasks with non-Azure VMs.
+ms.date: 09/02/2020
 ms.topic: conceptual
 ---
 
-# Virtual machine extension management with Azure Arc enabled servers (preview)
+# Virtual machine extension management with Azure Arc enabled servers
 
 Virtual machine (VM) extensions are small applications that provide post-deployment configuration and automation tasks on Azure VMs. For example, if a virtual machine requires software installation, anti-virus protection, or to run a script inside of it, a VM extension can be used.
 
-Azure Arc enabled servers (preview) enables you to deploy Azure VM extensions to non-Azure Windows and Linux VMs, simplifying the management of your hybrid machine on-premises, edge, and other cloud environments through their lifecycle.
+Azure Arc enabled servers enables you to deploy Azure VM extensions to non-Azure Windows and Linux VMs, simplifying the management of your hybrid machine on-premises, edge, and other cloud environments through their lifecycle.
 
 ## Key benefits
 
-Azure Arc enabled servers (preview) VM extension support provides the following key benefits:
+Azure Arc enabled servers VM extension support provides the following key benefits:
 
 * Use [Azure Automation State Configuration](../../automation/automation-dsc-overview.md) to centrally store configurations and maintain the desired state of hybrid connected machines enabled through the DSC VM extension.
 
@@ -42,7 +42,7 @@ In this preview, we are supporting the following VM extensions on Windows and Li
 |Log Analytics agent |Linux |Microsoft.EnterpriseCloud.Monitoring |[Log Analytics VM extension for Linux](../../virtual-machines/extensions/oms-linux.md) |
 |Microsoft Dependency agent | Linux |Microsoft.Compute | [Dependency agent virtual machine extension for Linux](../../virtual-machines/extensions/agent-dependency-linux.md) |
 
-VM extensions can be run with Azure Resource Manager templates, from the Azure portal, or Azure PowerShell on hybrid servers managed by Arc enabled servers (preview).
+VM extensions can be run with Azure Resource Manager templates, from the Azure portal, or Azure PowerShell on hybrid servers managed by Arc enabled servers.
 
 To learn about the Azure Connected Machine agent package and details about the Extension agent component, see [Agent overview](agent-overview.md#agent-component-details).
 
@@ -70,7 +70,7 @@ To upgrade your machine to the version of the agent required, see [Upgrade agent
 
 ## Enable extensions from the portal
 
-VM extensions can be applied your Arc for server (preview) managed machine through the Azure portal.
+VM extensions can be applied your Arc for server managed machine through the Azure portal.
 
 1. From your browser, go to the [Azure portal](https://aka.ms/arcserver-preview).
 
@@ -93,7 +93,7 @@ VM extensions can be applied your Arc for server (preview) managed machine throu
 
 ## Azure Resource Manager templates
 
-VM extensions can be added to an Azure Resource Manager template and executed with the deployment of the template. With the VM extensions supported by Arc enabled servers (preview), you can deploy the supported VM extension on Linux or Windows machines using Azure PowerShell. Each sample below includes a template file and a parameters file with sample values to provide to the template.
+VM extensions can be added to an Azure Resource Manager template and executed with the deployment of the template. With the VM extensions supported by Arc enabled servers, you can deploy the supported VM extension on Linux or Windows machines using Azure PowerShell. Each sample below includes a template file and a parameters file with sample values to provide to the template.
 
 >[!NOTE]
 >While multiple extensions can be batched together and processed, they are installed serially. Once the first extension installation is complete, installation of the next extension is attempted.
@@ -702,6 +702,9 @@ To use the Azure Monitor Dependency agent extension, the following sample is pro
 }
 ```
 
+## Uninstall extension
+
+
 ## Troubleshooting
 
 Data about the state of extension deployments can be retrieved from the Azure portal.
@@ -720,4 +723,4 @@ The following troubleshooting steps apply to all VM extensions.
 
 - Learn how to manage your machine using [Azure Policy](../../governance/policy/overview.md), for such things as VM [guest configuration](../../governance/policy/concepts/guest-configuration.md), verifying the machine is reporting to the expected Log Analytics workspace, enable monitoring with [Azure Monitor with VMs](../../azure-monitor/insights/vminsights-enable-policy.md), and much more.
 
-- Learn more about the [Log Analytics agent](../../azure-monitor/platform/log-analytics-agent.md). The Log Analytics agent for Windows and Linux is required when you want to proactively monitor the OS and workloads running on the machine, manage it using Automation runbooks or solutions like Update Management, or use other Azure services like [Azure Security Center](../../security-center/security-center-intro.md).
+- Learn more about [the [Log Analytics agent]](../../azure-monitor/platform/log-analytics-agent.md). The Log Analytics agent for Windows and Linux is required when you want to collect operating system and workload monitoring data, manage it using Automation runbooks or features like Update Management, or use other Azure services like [Azure Security Center](../../security-center/security-center-intro.md).
