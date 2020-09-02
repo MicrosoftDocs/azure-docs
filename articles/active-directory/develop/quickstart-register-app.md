@@ -83,11 +83,12 @@ To configure application settings based on the platform or device you're targeti
 
     | Platform | Configuration settings |
     | -------- | ---------------------- |
-    | **Web** | Enter a **Redirect URI** for your app, the location where Microsoft identity platform redirects a user's client and sends security tokens after authentication.<br/><br/>Select this platform for standard web apps or a web API that backs another application (or web API). |
+    | **Web** | Enter a **Redirect URI** for your app, the location where Microsoft identity platform redirects a user's client and sends security tokens after authentication.<br/><br/>Select this platform for standard web applications that run on a server. |
     | **Single-page application** | Enter a **Redirect URI** for your app, the location where Microsoft identity platform redirects a user's client and sends security tokens after authentication.<br/><br/>Select this platform if you're building a client-side web app in JavaScript or with a framework like Angular, Vue.js, React.js, or Blazor WebAssembly. |
     | **iOS / macOS** | Enter the app **Bundle ID**, found in XCode in *Info.plist* or Build Settings.<br/><br/>A redirect URI is generated for you when you specify a Bundle ID. |
     | **Android** | Enter the app **Package name**, which you can find in the *AndroidManifest.xml* file, and generate and enter the **Signature hash**.<br/><br/>A redirect URI is generated for you when you specify these settings. |
     | **Mobile and desktop applications** | Select one of the **Suggested redirect URIs** or specify a **Custom redirect URI**.<br/>For desktop applications, we recommend:<br/>`https://login.microsoftonline.com/common/oauth2/nativeclient`<br/><br/>Select this platform for mobile applications that aren't using the latest Microsoft Authentication Library (MSAL) or are not using a broker. Also select this platform for desktop applications. |
+1. Select **Configure** to complete the platform configuration.
 
 ### Redirect URI restrictions
 
@@ -97,7 +98,7 @@ There are certain restrictions on the format of the redirect URIs you add to an 
 
 Credentials are used by confidential client applications that access a web API. Examples of confidential clients are web apps, other web APIs, or service- and daemon-type applications. Credentials allow your application to authenticate as itself, requiring no interaction from a user at runtime.
 
-You can add both certificates and client secrets (strings) as a credential to your confidential client app registration.
+You can add both certificates and client secrets (a string) as credentials to your confidential client app registration.
 
 :::image type="content" source="media/quickstart-register-app/portal-05-app-reg-04-credentials.png" alt-text="Screenshot of Azure portal showing the Certificates and secrets pane in an App registration":::
 
@@ -115,7 +116,7 @@ Sometimes called a *public key*, certificates are the recommended credential typ
 The client secret, known also as an *application password*, is a string value your app can use in place of a certificate to identity itself. It's the easier of the two credential types to use and is often used during development, but is considered less secure than a certificate. You should use certificates in your applications running in production.
 
 1. Select your application in **App registrations** in the Azure portal.
-1. Select**Certificates & secrets** >  **New client secret**.
+1. Select **Certificates & secrets** >  **New client secret**.
 1. Add a description for your client secret.
 1. Select a duration.
 1. Select **Add**.
