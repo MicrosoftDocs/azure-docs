@@ -16,7 +16,7 @@ ms.custom: how-to
 ---
 
 # Detect data drift (preview) on datasets
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 > [!IMPORTANT]
 > Detecting data drift on datasets is currently in public preview.

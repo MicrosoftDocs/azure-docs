@@ -15,7 +15,7 @@ ms.custom: how-to, devx-track-python
 ---
 
 # Build scikit-learn models at scale with Azure Machine Learning
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 In this article, learn how to run your scikit-learn training scripts with Azure Machine Learning.
 

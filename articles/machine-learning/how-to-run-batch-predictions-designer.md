@@ -13,7 +13,7 @@ ms.custom: how-to, designer
 ---
 
 # Run batch predictions using Azure Machine Learning designer
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
+
 
 In this article, you learn how to use the designer to create a batch prediction pipeline. Batch prediction lets you continuously score large datasets on-demand using a web service that can be triggered from any HTTP library.
 

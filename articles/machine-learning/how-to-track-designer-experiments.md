@@ -14,7 +14,7 @@ ms.custom: how-to
 ---
 
 # Enable logging in Azure Machine Learning designer pipelines
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 In this article, you learn how to add logging code to designer pipelines. You also learn how to view those logs using the Azure Machine Learning studio web portal.
 

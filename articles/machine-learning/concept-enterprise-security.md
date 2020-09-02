@@ -58,7 +58,6 @@ The following table lists some of the major Azure Machine Learning operations an
 | ---- |:----:|:----:|:----:|
 | Create workspace | ✓ | ✓ | |
 | Share workspace | ✓ | |  |
-| Upgrade workspace to Enterprise edition | ✓ | |
 | Create compute target | ✓ | ✓ | |
 | Attach compute target | ✓ | ✓ | |
 | Attach data stores | ✓ | ✓ | |

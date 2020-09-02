@@ -14,7 +14,7 @@ ms.custom: how-to
 ---
 
 # Create, review, and deploy automated machine learning models with Azure Machine Learning
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
+
 
 In this article, you learn how to create, explore, and deploy automated machine learning models without a single line of code in Azure Machine Learning studio.
 

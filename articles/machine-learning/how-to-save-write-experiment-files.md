@@ -15,7 +15,7 @@ ms.date: 03/10/2020
 
 ---
 # Where to save and write files for Azure Machine Learning experiments
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 In this article, you learn where to save input files, and where to write output files from your experiments to prevent storage limit errors and experiment latency.
 

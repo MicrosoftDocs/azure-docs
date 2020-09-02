@@ -14,7 +14,7 @@ ms.custom: how-to
 ---
 
 # Use TLS to secure a web service through Azure Machine Learning
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 This article shows you how to secure a web service that's deployed through Azure Machine Learning.
 

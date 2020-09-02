@@ -13,7 +13,7 @@ ms.custom: how-to, designer
 ---
 
 # Retrain models with Azure Machine Learning designer
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
+
 
 In this how-to article, you learn how to use Azure Machine Learning designer to retrain a machine learning model. You will use published pipelines to automate your workflow and set parameters to train your model on new data. 
 

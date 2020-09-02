@@ -15,7 +15,7 @@ ms.date: 07/10/2020
 ---
 
 # Tutorial: Forecast demand with automated machine learning
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
+
 
 In this tutorial, you use automated machine learning, or automated ML, in the Azure Machine Learning studio to create a time-series forecasting model to predict rental demand for a bike sharing service.
 
