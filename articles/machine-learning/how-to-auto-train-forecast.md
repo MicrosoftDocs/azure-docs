@@ -335,5 +335,8 @@ See the [forecasting sample notebooks](https://github.com/Azure/MachineLearningN
 
 ## Next steps
 
-* Follow the [tutorial](tutorial-auto-train-models.md) to learn how to create experiments with automated machine learning.
-* View the [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) reference documentation.
+* Learn more about [how and where to deploy a model](how-to-deploy-and-where.md).
+* Learn about [Interpretability: model explanations in automated machine learning (preview)](how-to-machine-learning-interpretability-automl.md). 
+* Learn how to train multiple models with AutoML in the [Many Models Solution Accelerator](https://aka.ms/many-models).
+* Follow the [tutorial](tutorial-auto-train-models.md) for an end to end example for creating experiments with automated machine learning.
+
