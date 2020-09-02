@@ -381,7 +381,7 @@ list(exp.get_runs(properties={"author":"azureml-user"},tags="worth another look"
 
 #### Using the CLI
 
-The Azure CLI supports [JMESPath](http://jmespath.org) queries, which can be used to filter runs based on properties and tags. To use a JMESPath query with the Azure CLI, specify it with the `--query` parameter. The following examples show basic queries using properties and tags:
+The Azure CLI supports [JMESPath](http://jmespath.org) queries, which can be used to filter runs based on properties and tags. To use a JMESPath query with the Azure CLI, specify it with the `--query` parameter. The following examples show some queries using properties and tags:
 
 ```azurecli-interactive
 # list runs where the author property = 'azureml-user'

@@ -31,7 +31,7 @@ Learn how to troubleshoot and solve, or work around, common Docker deployment er
 
 When deploying a model in Azure Machine Learning, the system performs a number of tasks.
 
-The recommended approach for model deployment is via the [Model.deploy()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) API using an [Environment](how-to-use-environments.md) object as an input parameter. In this case, the service creates a base docker image during deployment stage and mounts the required models all in one call. The basic deployment tasks are:
+The recommended approach for model deployment is via the [Model.deploy()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) API using an [Environment](how-to-use-environments.md) object as an input parameter. In this case, the service creates a base docker image during deployment stage and mounts the required models all in one call. The core deployment tasks are:
 
 1. Register the model in the workspace model registry.
 

@@ -36,9 +36,6 @@ An [Azure Machine learning dataset](how-to-create-register-datasets.md) is used 
 
 You can view data drift metrics with the Python SDK or in Azure Machine Learning studio.  Other metrics and insights are available through the [Azure Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) resource associated with the Azure Machine Learning workspace.
 
-> [!Important]
-> Monitoring data drift with the SDK is available in all editions. However, monitoring data drift through the studio on the web is Enterprise edition only.
-
 ## Prerequisites
 
 To create and work with dataset monitors, you need:
@@ -207,13 +204,12 @@ For a full example of setting up a `timeseries` dataset and data drift detector,
 
 ### <a name="studio-monitor"></a> Azure Machine Learning studio
 
-To set up alerts on your dataset monitor, the workspace that contains the dataset you want to create a monitor for must have Enterprise edition capabilities.
+1. Navigate to the [studio's homepage](https://ml.azure.com).
+1. Select the **Datasets** tab on the left. 
+1. Select **Dataset monitors**.
+   ![Monitor list](./media/how-to-monitor-datasets/monitor-list.png)
 
-After the workspace functionality is confirmed, navigate to the [studio's homepage](https://ml.azure.com) and select the **Datasets** tab on the left. Select **Dataset monitors**.
-
-![Monitor list](./media/how-to-monitor-datasets/monitor-list.png)
-
-Click on the **+Create monitor** button and continue through the wizard by clicking **Next**.  
+1. Click on the **+Create monitor** button and continue through the wizard by clicking **Next**.  
 
 :::image type="content" source="media/how-to-monitor-datasets/wizard.png" alt-text="Create a monitor wizard":::
 

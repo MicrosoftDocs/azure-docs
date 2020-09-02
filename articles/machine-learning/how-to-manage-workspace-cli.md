@@ -30,7 +30,7 @@ In this article, you learn how to create an Azure Machine Learning workspace usi
 > [!IMPORTANT]
 > If you are using the Azure Cloud Shell, you can skip this section. The cloud shell automatically authenticates you using the account you log into your Azure subscription.
 
-There are several ways that you can authenticate to your Azure subscription from the CLI. The most basic is to interactively authenticate using a browser. To authenticate interactively, open a command line or terminal and use the following command:
+There are several ways that you can authenticate to your Azure subscription from the CLI. The most simple is to interactively authenticate using a browser. To authenticate interactively, open a command line or terminal and use the following command:
 
 ```azurecli-interactive
 az login
@@ -103,9 +103,6 @@ For more information on working with resource groups, see [az group](https://doc
 ### Automatically create required resources
 
 To create a new workspace where the __services are automatically created__, use the following command:
-
-> [!TIP]
-> The commands in this section create a basic edition workspace. To create an enterprise workspace, use the `--sku enterprise` switch with the `az ml workspace create` command. For more information on Azure Machine Learning editions, see [What is Azure Machine Learning](overview-what-is-azure-ml.md#sku).
 
 ```azurecli-interactive
 az ml workspace create -w <workspace-name> -g <resource-group-name>
