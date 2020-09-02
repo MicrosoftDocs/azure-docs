@@ -154,7 +154,6 @@ users:
 ```
 -->
 
-
 On an Azure Stack Edge device that has the compute role configured, you can troubleshoot or monitor the device using two different set of commands.
 
 - Using `iotedge` commands. These commands are available for basic operations for your device.
