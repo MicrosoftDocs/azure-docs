@@ -35,7 +35,7 @@ Distributed denial of service (DDoS) attacks attempt to exhaust an application's
 
 1. Enable **Diagnostic logs** on all the firewalls whose logs you wish to connect:
 
-    1. Select the [Open Diagnostics settings >](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Network%2FPublicIPAddresses) link, and choose a **Public IP Address** resource from the list.
+    1. Select the **Open Diagnostics settings >** link, and choose a **Public IP Address** resource from the list.
 
     1. Select **+ Add diagnostic setting**.​
 
