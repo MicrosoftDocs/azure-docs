@@ -125,7 +125,7 @@ landingContent:
         links:
         - text: Azure CLI
           url: https://docs.microsoft.com/cli/azure/appconfig?view=azure-cli-latest
-        - text: Powershell
+        - text: PowerShell
           url: https://docs.microsoft.com/powershell/module/az.appconfiguration/
         - text: Terraform
           url: https://www.terraform.io/docs/providers/azurerm/r/app_configuration.html          
