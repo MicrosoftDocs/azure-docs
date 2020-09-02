@@ -156,7 +156,6 @@ customized core pricing, and their corresponding currency codes.
 | LI         | Liechtenstein        | CHF               |
 | LT         | Lithuania            | EUR               |
 | LU         | Luxembourg           | EUR               |
-| MK         | North Macedonia      | MKD               |
 | MY         | Malaysia             | MYR               |
 | MT         | Malta                | EUR               |
 | MX         | Mexico               | MXN               |
@@ -165,6 +164,7 @@ customized core pricing, and their corresponding currency codes.
 | NL         | Netherlands          | EUR               |
 | NZ         | New Zealand          | NZD               |
 | NG         | Nigeria              | NGN               |
+| MK         | North Macedonia      | MKD               |
 | NO         | Norway               | NOK               |
 | OM         | Oman                 | OMR               |
 | PK         | Pakistan             | PKR               |
