@@ -25,9 +25,9 @@ The solution described in this article will allow you push digital twin telemetr
 
 Here are the prerequisites you should complete before proceeding:
 
-* Before integrating your solution with Azure SignalR service in this article, you should complete the Azure Digital Twins [*Tutorial: Connect an end-to-end solution*](tutorial-end-to-end.md), because this how-to builds on top of it. The tutorial walks you through setting up an Azure Digital Twins instance that works with a virtual IoT device to trigger digital twin updates. This how-to will connect those updates to a sample web app using Azure SignalR Service.
-    - You'll need the name of your **event grid topic**
-* Have [Node.js](https://nodejs.org/) installed on your machine.
+* Before integrating your solution with Azure SignalR service in this article, you should complete the Azure Digital Twins [_**Tutorial: Connect an end-to-end solution**_](tutorial-end-to-end.md), because this how-to builds on top of it. The tutorial walks you through setting up an Azure Digital Twins instance that works with a virtual IoT device to trigger digital twin updates. This how-to will connect those updates to a sample web app using Azure SignalR Service.
+    - You'll need the name of the **event grid topic** you created in the tutorial.
+* Have [**Node.js**](https://nodejs.org/) installed on your machine.
 
 You can also go ahead and sign in to the [Azure portal](https://portal.azure.com/) with your Azure account.
 
@@ -44,7 +44,7 @@ First, download the required sample apps. You will need both of the following:
     - Navigate to the sample link and hit the *Download ZIP* button to download a copy of the sample to your machine, as _**Azure_Digital_Twins_samples.zip**_. Unzip the folder.
 * [**SignalR integration web app sample**](https://docs.microsoft.com/samples/azure-samples/digitaltwins-signalr-webapp-sample/digital-twins-samples/): This is a sample React web app that will consume Azure Digital Twins telemetry data from an Azure SignalR service.
     -  Navigate to the sample link and hit the *Download ZIP* button to download a copy of the sample to your machine, as _**Azure_Digital_Twins_SignalR_integration_web_app_sample.zip**_. Unzip the folder.
-    - 
+
 [!INCLUDE [Create instance](../azure-signalr/includes/signalr-quickstart-create-instance.md)]
 
 Leave the browser window open to the Azure portal, as you'll use it again in the next section.
@@ -62,7 +62,7 @@ First, go to the browser where the Azure portal is opened, and complete the foll
 
 1. Select the icon to copy the primary connection string.
 
-    :::image type="content" source="media/how-to-integrate-azure-signalr/signalr-keys.png" alt-text="Screenshot of the Azure portal that shows the Keys page for the SignalR instance. The 'Copy to clipboard' icon next to the Primary CONNECTION STRING is highlighted.":::
+    :::image type="content" source="media/how-to-integrate-azure-signalr/signalr-keys.png" alt-text="Screenshot of the Azure portal that shows the Keys page for the SignalR instance. The 'Copy to clipboard' icon next to the Primary CONNECTION STRING is highlighted." lightbox="media/how-to-integrate-azure-signalr/signalr-keys.png":::
 
 Next, start Visual Studio (or another code editor of your choice), and open the code solution in the *Azure_Digital_Twins_samples > ADTSampleApp* folder. Then do the following steps to create the functions:
 
@@ -142,7 +142,7 @@ Next, publish your function to Azure, using the steps described in the [*Publish
 
     :::image type="content" source="media/how-to-integrate-azure-signalr/functions-negotiate.png" alt-text="Azure portal view of the function app, with 'Functions' highlighted in the menu. The list of functions are shown on the page, and the 'negotiate' function is also highlighted.":::
 
-    Hit *Get function URL* and copy the value *through the /api part (don't include the last /negotiate?)*. You wil use this later.
+    Hit *Get function URL* and copy the value **up through _/api_ (don't include the last _/negotiate?_)**. You wil use this later.
 
     :::image type="content" source="media/how-to-integrate-azure-signalr/get-function-url.png" alt-text="Azure portal view of the 'negotiate' function. The 'Get function URL' buttom is highlighted, and the portion of the URL from the beginning through '/api'":::
 
@@ -225,7 +225,7 @@ To see the results in action, start the **SignalR integration web app sample**. 
 npm start
 ```
 
-The app displays a visual temperature gauge. Once the app is running, you should start seeing the temperature telemetry values from the device simulator that propagate through Azure Digital Twins being reflected by the web app in real time.
+This will open a browser window running the sample app, which displays a visual temperature gauge. Once the app is running, you should start seeing the temperature telemetry values from the device simulator that propagate through Azure Digital Twins being reflected by the web app in real time.
 
 :::image type="content" source="media/how-to-integrate-azure-signalr/signalr-webapp-output.png" alt-text="Excerpt from the sample client web app, showing a visual temperature gauge. The temperature reflected is 67.52":::
    
