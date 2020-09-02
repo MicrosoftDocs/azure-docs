@@ -16,7 +16,7 @@ ms.collection: M365-identity-device-management
 ---
 
 # Identity data storage for European customers in Azure Active Directory
-Identity data is stored by Azure AD in a geographical location  based on the address provided by your organization when subscribing for a Microsoft Online service such as  Office 365 and Azure. For information on where your identity data is stored, you can use the [Where is your data located?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) section of the Microsoft Trust Center.
+Identity data is stored by Azure AD in a geographical location  based on the address provided by your organization when subscribing for a Microsoft Online service such as Microsoft 365 and Azure. For information on where your identity data is stored, you can use the [Where is your data located?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) section of the Microsoft Trust Center.
 
 For customers who provided an address in Europe, Azure AD keeps most of the identity data within European datacenters. This document provides information on any data that is stored outside of Europe by Azure AD services.
 
