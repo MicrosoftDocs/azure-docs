@@ -12,7 +12,7 @@ ms.date: 09/01/2020
 ms.author: aahi
 ---
 
-# Telemetry and logging
+# Telemetry and troubleshooting
 
 ## Collecting System Health Telemetry with Telegraf
 
@@ -298,3 +298,71 @@ Check fetch log's lines, times, and sizes, replace ***DoPost*** to `true`, then 
  Once you create a Suport Ticket, you will be in contact with a Microsoft suport engineer which will colect the log file and will further investigate the issue at hand.
 
  ![Support Ticker](./media/SuportTicket.png)
+
+## Troubleshooting the Azure Stack Edge device
+
+The following section is provided for help with debugging and verification of the status of your Azure Stack Edge device.
+
+1.	How to access the Kubernetes API Endpoint: Follow these steps to access the URL for the Kubernetes API endpoint. 
+	* In the local web UI of your device, go to Devices page. 
+	* Under the Device endpoints, copy the Kubernetes API service endpoint. This endpoint is a string in the following format: https://compute..[device-IP-address].
+	* Save the endpoint string. You will use this later when configuring a client to access the Kubernetes cluster via kubectl.
+
+2.	Connect to PowerShell interface<br> 
+		Remotely, connect from a Windows client. After the Kubernetes cluster is created, you can manage the applications via this cluster. This will require you to connect to the PowerShell interface of the device. Depending on the operating system of client, the procedures to remotely connect to the device are different.<br>Follow these steps on the Windows client running PowerShell.
+		Before you begin, make sure that your Windows client is running Windows PowerShell 5.0 or later. Follow these steps to remotely connect from a Windows client. 
+	* Run a Windows PowerShell session as an Administrator. 
+	* Make sure that the Windows Remote Management service is running on your client. At the command prompt, type: 
+		```winrm quickconfig```<br>
+	Note:If you see complaints about firewall exception, see this link https://4sysops.com/archives/enabling-powershell-remoting-fails-due-to-public-network-connection-type/
+	* Assign a variable to the device IP address. $ip = "" Replace with the IP address of your device. 
+	* To add the IP address of your device to the client’s trusted hosts list, type the following command: Set-Item WSMan:\localhost\Client\TrustedHosts $ip -Concatenate -Force 
+	* Start a Windows PowerShell session on the device: Enter-PSSession -ComputerName $ip -Credential $ip\EdgeUser -ConfigurationName Minishell 
+	* Provide the password when prompted. Use the same password that is used to sign into the local web UI. The default local web UI password is Password1. 
+    <br><br>
+	##### Powershell Setup for Linux
+	This step is only required if you do not have a Windows client. Install Powershell from this location: https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell-core-on-linux?view=powershell-6
+		
+	* Download the Microsoft repository GPG keys
+	wget -q https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb
+	
+	* Register the Microsoft repository GPG keys
+	sudo dpkg -i packages-microsoft-prod.deb
+	
+	* Update the list of products
+	sudo apt-get update
+	
+	* Enable the "universe" repositories
+	sudo add-apt-repository universe
+	
+	* Install PowerShell
+	sudo apt-get install -y powershell
+	
+	* Start PowerShell
+	pwsh
+
+3.	Useful Commands:
+	* ```Get-HcsKubernetesUserConfig -AseUser``` <br>
+			This will produce the Kubernetes config needed in step 3. Copy this and save it in a file named config. Do not save the config file as .txt file, save the file without any file extension.<br>
+	* ```Get-HcsApplianceInfo``` <br>
+			To get the info about your device.<br>
+	* ```Enable-HcsSupportAccess``` <br>
+			This generates access credentials to start a support session.<br>
+    <br><br>
+4.	Access the Kubernetes cluster<br>
+	After the Kubernetes cluster is created, you can use the ```kubectl``` via cmdline to access the cluster.
+	* Create a namespace.<br>
+	```New-HcsKubernetesNamespace -Namespace```<br> 
+	* Create a user and get a config file.<br> ```New-HcsKubernetesUser -UserName``` <br>
+	This will produce the Kubernetes config. Copy this and save it in a file named config. Do not save the config file as .txt file, save the file without any file extension.
+	* Use the config file retrieved in the previous step. The config file should live in the .kube folder of your user profile on the local machine. Copy the file to that folder in your user profile.	
+	*Associate the namespace with the user you created.<br> ```Grant-HcsKubernetesNamespaceAccess -Namespace -UserName```<br>
+	* You can now install kubectl on your Windows client using the following command:
+	```curl https://storage.googleapis.com/kubernetesrelease/release/v1.15.2/bin/windows/amd64/kubectl.exe -O kubectl.exe```
+	* Add a DNS entry to the hosts file on your system. 
+    	* Run Notepad as administrator and open the hosts file located at C:\windows\system32\drivers\etc\hosts . 
+      	* Use the information that you saved from the Device page in the local UI in the earlier step to create the entry in the hosts file. For example, copy this endpoint https://compute.asedevice.microsoftdatabox.com/[10.100.10.10] to create the following entry with device IP address and DNS domain: 10.100.10.10     compute.asedevice.microsoftdatabox.com
+		* To verify that you can connect to the Kubernetes pods, type:
+	kubectl get pods -n "iotedge"
+		* To get container logs a module, run the following command: <br>
+	```kubectl logs <pod-name> -n <namespace> --all-containers```
