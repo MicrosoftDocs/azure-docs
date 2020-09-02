@@ -420,11 +420,27 @@
     - name: Web app and database server in virtual network
       href: flexible-server/tutorial-webapp-server-vnet.md      
   - name: Concepts
+    expanded: true
     items:
+    - name: DB & Servers
+      items:
+      - name: Servers
+        href: flexible-server/concept-servers.md
+      - name: Supported versions
+        href: flexible-server/concepts-supported-versions.md   
     - name: Limitations
       href: flexible-server/concepts-limitations.md
     - name: Compute and storage
       href: flexible-server/concepts-compute-storage.md
+    - name: Business continuity
+      items:
+      - name: Business continuity overview
+        href: flexible-server/concepts-business-continuity.md
+      - name: Backup and restore
+        href: flexible-server/concepts-backup-restore.md
+      - name: High availability
+        href: flexible-server/concepts-high-availability.md
+    - name: Manage
     - name: Monitoring & Logs
       items:
       - name: Slow query logs
@@ -441,6 +457,10 @@
         href: flexible-server/how-to-manage-portal.md
       - name: Azure CLI
         href: flexible-server/how-to-manage-cli.md
+    - name: Restore a server
+      items:
+      - name: Azure portal
+        href: flexible-server/how-to-restore-mysql-server-portal.md
     - name: Networking
       items:
       - name: Private access (VNet Integration)
