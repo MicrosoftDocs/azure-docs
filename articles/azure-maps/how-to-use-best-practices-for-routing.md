@@ -130,43 +130,23 @@ By default, the Route service will return an array of coordinates. The response 
 
 The following image shows the `points` element.
 
-
-
-![point list](media/how-to-use-best-practices-for-routing/points-list-is-hidden-img.png)
-
-
+![Points element](media/how-to-use-best-practices-for-routing/points-list-is-hidden-img.png)
 
 Expand the `point` element to see the list of coordinates for the path:
 
-
-
-![point list](media/how-to-use-best-practices-for-routing/points-list-img.png)
-
-
+![Expanded points element](media/how-to-use-best-practices-for-routing/points-list-img.png)
 
 The Route Directions APIs support different formats of instructions that can be used by specifying the **instructionsType** parameter. To format instructions for easy computer processing, use **instructionsType=coded**. Use **instructionsType=tagged** to display instructions as text for the user. Also, instructions can be formatted as text where some elements of the instructions are marked, and the instruction is presented with special formatting. For more information, see the [list of supported instruction types](https://docs.microsoft.com/rest/api/maps/route/postroutedirections#routeinstructionstype).
 
 When instructions are requested, the response returns a new element named `guidance`. The `guidance` element holds two pieces of information: turn-by-turn directions and summarized instructions.
 
-
-
 ![Instructions type](media/how-to-use-best-practices-for-routing/instructions-type-img.png)
-
-
 
 The `instructions` element holds turn-by-turn directions for the trip, and the `instructionGroups` has summarized instructions. Each instruction summary covers a segment of the trip that could cover multiple roads. The APIs can return details for sections of a route. such as, the coordinate range of a traffic jam or the current speed of traffic.
 
-
-
 ![Turn by turn instructions](media/how-to-use-best-practices-for-routing/instructions-turn-by-turn-img.png)
 
-
-
-
-
 ![Summarized Instructions](media/how-to-use-best-practices-for-routing/instructions-summary-img.png)
-
-
 
 ## Request a route for a commercial vehicle
 
@@ -182,11 +162,7 @@ https://atlas.microsoft.com/route/directions/json?subscription-key=<Your-Azure-M
 
 The Route API returns directions that accommodate the dimensions of the truck and the hazardous waste. You can read the route instructions by expanding the `guidance` element.
 
-
-
 ![Truck with class 1 hazwaste](media/how-to-use-best-practices-for-routing/truck-with-hazwaste-img.png)
-
-
 
 ### Sample query
 
@@ -218,19 +194,11 @@ https://atlas.microsoft.com/route/directions/json?subscription-key=<Your-Azure-M
 
 The response contains the sections that are suitable for traffic along the given coordinates.
 
-
-
-![traffic sections](media/how-to-use-best-practices-for-routing/traffic-section-type-img.png)
-
-
+![Traffic sections](media/how-to-use-best-practices-for-routing/traffic-section-type-img.png)
 
 This option can be used to color the sections when rendering the map, as in the image below: 
 
-
-
-![traffic sections](media/how-to-use-best-practices-for-routing/show-traffic-sections-img.png)
-
-
+![Colored sections rendered on map](media/how-to-use-best-practices-for-routing/show-traffic-sections-img.png)
 
 ## Calculate and optimize a multi-stop route
 
@@ -254,15 +222,9 @@ https://atlas.microsoft.com/route/directions/json?api-version=1.0&subscription-k
 
 The response describes the path length to be 140,851 meters, and that it would take 9,991 seconds to travel that path.
 
-
-
 ![Non-optimized response](media/how-to-use-best-practices-for-routing/non-optimized-response-img.png)
 
-
-
 The image below illustrates the path resulting from this query. This path is one possible route. It's not the optimal path based on time or distance.
-
-
 
 ![Non-optimized image](media/how-to-use-best-practices-for-routing/non-optimized-image-img.png)
 
@@ -280,19 +242,11 @@ https://atlas.microsoft.com/route/directions/json?api-version=1.0&subscription-k
 
 The response describes the path length to be 91,814 meters, and that it would take 7,797 seconds to travel that path. The travel distance and the travel time are both lower here because the API returned the optimized route.
 
-
-
-![Non-optimized response](media/how-to-use-best-practices-for-routing/optimized-response-img.png)
-
-
+![Optimized response](media/how-to-use-best-practices-for-routing/optimized-response-img.png)
 
 The image below illustrates the path resulting from this query.
 
-
-
-![Non-optimized image](media/how-to-use-best-practices-for-routing/optimized-image-img.png)
-
-
+![Optimized image](media/how-to-use-best-practices-for-routing/optimized-image-img.png)
 
 The optimal route has the following waypoint order: 0, 5, 1, 2, 4, 3, and 6.
 
@@ -312,11 +266,7 @@ When calling the [Post Route Directions API](https://docs.microsoft.com/rest/api
 
 The image below is an example of rendering alternative routes with specified deviation limits for the time and the distance.
 
-
-
 ![Alternative routes](media/how-to-use-best-practices-for-routing/alternative-routes-img.png)
-
-
 
 ## Use the Routing service in a web app
 
