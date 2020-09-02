@@ -69,7 +69,7 @@ This table is updated monthly and only reflects issues opened in May.
 |[54743](https://github.com/MicrosoftDocs/azure-docs/issues/54743)|fifteenjoy|Running Speech service containers fail|2020-05-13|Open|Issue|
 |[54550](https://github.com/MicrosoftDocs/azure-docs/issues/54550)|manish-95|Example for Pronunciation file|2020-05-11|Open|Issue|
 |[54522](https://github.com/MicrosoftDocs/azure-docs/issues/54522)|pjmlp|Java sample is incorrect.|2020-05-10|Open|Issue|
-|[54387](https://github.com/MicrosoftDocs/azure-docs/issues/54387)|ziadhassan7|Can't get pronounciation Score|2020-05-08|Closed|Issue|
+|[54387](https://github.com/MicrosoftDocs/azure-docs/issues/54387)|ziadhassan7|Can't get pronunciation Score|2020-05-08|Closed|Issue|
 |[54382](https://github.com/MicrosoftDocs/azure-docs/issues/54382)|jgtellez1|YAML file template|2020-05-07|Closed|Issue|
 |[54208](https://github.com/MicrosoftDocs/azure-docs/issues/54208)|paparush|C# Sample Code does not prompt user to speak.|2020-05-06|Closed|Issue|
 |[54132](https://github.com/MicrosoftDocs/azure-docs/pull/54132)|anthonsu|Upgrade TTS from v1.3 to v1.4|2020-05-05|Closed|Pull Request|
