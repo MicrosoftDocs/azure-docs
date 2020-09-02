@@ -3,7 +3,7 @@ title: Forward Azure Automation job data to Azure Monitor logs
 description: This article tells how to send job status and runbook job streams to Azure Monitor logs.
 services: automation
 ms.subservice: process-automation
-ms.date: 09/01/2020
+ms.date: 09/02/2020
 ms.topic: conceptual
 ---
 
@@ -17,9 +17,46 @@ Azure Automation can send runbook job status and job streams to your Log Analyti
 * Correlate jobs across Automation accounts.
 * Use custom views and search queries to visualize your runbook results, runbook job status, and other related key indicators or metrics.
 
-## Configure diagnostic settings
+## Prerequisites
 
-To start sending your Automation logs to Azure Monitor logs, review [create diagnostic settings](../azure-monitor/platform/diagnostic-settings.md) to understand the feature and methods to configure diagnostic settings to send platform logs.
+To start sending your Automation logs to Azure Monitor logs, you need:
+
+* The latest release of [Azure PowerShell](/powershell/azure/).
+
+* A Log Analytics workspace and it's resource ID. For more information, see [Get started with Azure Monitor logs](../azure-monitor/overview.md).
+
+* The resource ID of your Azure Automation account.
+
+1. Use the following command to find the resource ID for your Azure Automation account:
+
+    ```powershell-interactive
+    # Find the ResourceId for the Automation account
+    Get-AzResource -ResourceType "Microsoft.Automation/automationAccounts"
+    ```
+
+2. Copy the value for **ResourceID**.
+
+3. Use the following command to find the resource ID of your Log Analytics workspace:
+
+    ```powershell-interactive
+    # Find the ResourceId for the Log Analytics workspace
+    Get-AzResource -ResourceType "Microsoft.OperationalInsights/workspaces"
+    ```
+
+4. Copy the value for **ResourceID**.
+
+To return results from a specific resource group, include the `-ResourceGroupName` parameter. For more information, see [Get-AzResource](/powershell/module/az.resources/get-azresource).
+
+If you have more than one Automation account or workspace in the output of the preceding commands, you can find the name and other related properties that are part of the full resource ID of your Automation account by performing the following:
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. In the Azure portal, select your Automation account from the **Automation Accounts** page.
+1. On the page of the selected Automation account, under **Account Settings**, select **Properties**.
+1. In the **Properties** page, note the details shown below.
+
+    ![Automation account properties](media/automation-manage-send-joblogs-log-analytics/automation-account-properties.png).
+
+## Configure diagnostic settings
 
 Automation diagnostic settings supports forwarding the following platform logs and metric data:
 
@@ -27,6 +64,8 @@ Automation diagnostic settings supports forwarding the following platform logs a
 * JobStreams
 * DSCNodeStatus
 * Metrics - Total Jobs, Total Update Deployment Machine Runs, Total Update Deployment Runs
+
+To start sending your Automation logs to Azure Monitor logs, review [create diagnostic settings](../azure-monitor/platform/diagnostic-settings.md) to understand the feature and methods available to configure diagnostic settings to send platform logs.
 
 ## Azure Monitor log records
 
@@ -109,17 +148,38 @@ In addition to alerting on failures, you can find when a runbook job has a non-t
 
 ### View job streams for a job
 
-When you're debugging a job, you might also want to look into the job streams. The following query shows all the streams for a single job with GUID 2ebd22ea-e05e-4eb9-9d76-d73cbd4356e0:
+When you're debugging a job, you might also want to look into the job streams. The following query shows all the streams for a single job with GUID `2ebd22ea-e05e-4eb9-9d76-d73cbd4356e0`:
 
-`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobStreams" and JobId_g == "2ebd22ea-e05e-4eb9-9d76-d73cbd4356e0" | sort by TimeGenerated asc | project ResultDescription`
+```kusto
+AzureDiagnostics
+| where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobStreams" and JobId_g == "2ebd22ea-e05e-4eb9-9d76-d73cbd4356e0"
+| sort by TimeGenerated asc | project ResultDescription
+```
 
 ### View historical job status
 
 Finally, you might want to visualize your job history over time. You can use this query to search for the status of your jobs over time.
 
-`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and ResultType != "started" | summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h)`
+```kusto
+AzureDiagnostics
+| where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and ResultType != "started"
+| summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h)
+```
 
 ![Log Analytics Historical Job Status Chart](media/automation-manage-send-joblogs-log-analytics/historical-job-status-chart.png)
+
+### Filter job status output converted into a JSON object
+
+If you configure your runbook to format objects in the output stream in JSON format, it is necessary to parse that field to a JSON object to then access those properties. This is accomplished using [parsejson](../azure-monitor/log-query/json-data-structures.md#parsejson) to access a specific JSON element in a known path. For example, a runbook formats the *ResultDescription* field in the output stream in JSON format and you wanted to search for the status of your jobs that are in a failed state. Use this query to search the *ResultDescription* with a status of **Failed**:
+
+```kusto
+AzureDiagnostics
+| where Category == 'JobStreams'
+| extend jsonResourceDescription = parse_json(ResultDescription)
+| where jsonResourceDescription.Status == 'Failed'
+```
+
+![Log Analytics Historical Job Stream JSON format](media/automation-manage-send-joblogs-log-analytics/job-status-format-json.png)
 
 ## Next steps
 
