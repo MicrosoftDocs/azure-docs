@@ -9,6 +9,7 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
+ms.custom: devx-track-csharp
 #Customer intent: As a developer, I want to understand synonym implementation, benefits, and tradeoffs.
 ---
 # Example: Add synonyms for Azure Cognitive Search in C#

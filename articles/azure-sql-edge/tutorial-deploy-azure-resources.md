@@ -25,7 +25,7 @@ downloads/). You can find the download under "Tools For Visual Studio 2019".
 4. Install [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio/)
 5. Open Azure Data Studio and configure Python for notebooks. For details, see [Configure Python for Notebooks](/sql/azure-data-studio/sql-notebooks#configure-python-for-notebooks).This step can take several minutes.
 6. Install the latest version of [Azure CLI](https://github.com/Azure/azure-powershell/releases/tag/v3.5.0-February2020). The following scripts require that AZ PowerShell be the latest version (3.5.0, Feb 2020).
-7. Download the [DACPAC](https://github.com/microsoft/sql-server-samples/tree/master/samples/demos/azure-sql-edge-demos/iron-ore-silica-impurities/DACPAC) and [AMD/ARM Docker Image files](https://github.com/microsoft/sql-server-samples/tree/master/samples/demos/azure-sql-edge-demos/iron-ore-silica-impurities/tar-files) that will be utilized in the tutorial.
+7. Download the [DACPAC](https://github.com/microsoft/sql-server-samples/tree/master/samples/demos/azure-sql-edge-demos/iron-ore-silica-impurities/DACPAC) and [AMD/ARM Docker Image files](https://www.docker.com/blog/multi-arch-images/) that will be utilized in the tutorial.
 
 ## Deploy Azure resources using PowerShell Script
 

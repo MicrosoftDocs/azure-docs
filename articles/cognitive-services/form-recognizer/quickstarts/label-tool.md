@@ -77,7 +77,7 @@ You'll use the Docker engine to run the sample labeling tool. Follow these steps
     ```
     # [v2.1 preview](#tab/v2-1)    
     ```
-    docker run -it -p 3000:80 mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:2.1.012970002-amd64-preview    
+    docker run -it -p 3000:80 mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:2.1.012970002-amd64-preview eula=accept    
     ```
 
     --- 

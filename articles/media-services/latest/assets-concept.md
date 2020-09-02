@@ -11,14 +11,16 @@ editor: ''
 
 ms.service: media-services
 ms.workload: 
-ms.topic: article
-ms.date: 08/18/2020
+ms.topic: conceptual
+ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18
 
 ---
 
 # Assets in Azure Media Services v3
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 In Azure Media Services, an [Asset](/rest/api/media/assets) is a core concept. It is where you input media (for example, through upload or live ingest), output media (from a job output), and publish media from (for streaming). 
 

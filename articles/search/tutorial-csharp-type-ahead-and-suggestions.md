@@ -9,7 +9,7 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 07/15/2020
-ms.custom: devx-track-javascript
+ms.custom: "devx-track-javascript, devx-track-csharp"
 ---
 
 # Tutorial: Add autocomplete and suggestions using the .NET SDK

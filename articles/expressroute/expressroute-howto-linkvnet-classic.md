@@ -7,7 +7,8 @@ author: cherylmc
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 12/06/2019
-ms.author: cherylmc
+ms.author: cherylmc 
+ms.custom: devx-track-azurepowershell
 
 ---
 # Connect a virtual network to an ExpressRoute circuit using PowerShell (classic)

@@ -23,7 +23,7 @@ Azure Key Vault helps safeguard cryptographic keys and secrets used by cloud app
 - Simplify and automate tasks for TLS/SSL certificates.
 - Use FIPS 140-2 Level 2 validated HSMs.
 
-[API reference documentation](/python/api/overview/azure/keyvault-secrets-readme?view=azure-python) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/keyvault) | [Package (Python Package Index)](https://pypi.org/project/azure-keyvault/)
+[API reference documentation](/python/api/overview/azure/keyvault-secrets-readme?view=azure-python) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/keyvault/azure-keyvault-secrets) | [Package (Python Package Index)](https://pypi.org/project/azure-keyvault-secrets/)
 
 ## Prerequisites
 
@@ -69,7 +69,7 @@ pip install azure.identity
 
 The Azure Key Vault client library for Python allows you to manage keys and related assets such as certificates and secrets. The code samples below will show you how to create a client, set a secret, retrieve a secret, and delete a secret.
 
-The entire console app is available at https://github.com/Azure-Samples/key-vault-dotnet-core-quickstart/tree/master/key-vault-console-app.
+The sample app that demonstrates similar operations to what's shown in this article, as well as other Key Vault features, is available on [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/keyvault/azure-keyvault-secrets/samples).
 
 ## Code examples
 
@@ -95,7 +95,7 @@ client = SecretClient(vault_url=KVUri, credential=credential)
 
 ### Save a secret
 
-Now that your application is authenticated, you can put a secret into your keyvault using the client.SetSecret method](/dotnet/api/microsoft.azure.keyvault.keyvaultclientextensions.setsecretasync) This requires a name for the secret -- we're using "mySecret" in this sample.  
+Now that your application is authenticated, you can put a secret into your keyvault using the client.[set_secret method](/python/api/azure-keyvault-secrets/azure.keyvault.secrets.secretclient?view=azure-python#set-secret-name--value----kwargs-) This requires a name for the secret -- we're using "mySecret" in this sample.  
 
 ```python
 client.set_secret(secretName, secretValue)
@@ -109,7 +109,7 @@ az keyvault secret show --vault-name <your-unique-keyvault-name> --name mySecret
 
 ### Retrieve a secret
 
-You can now retrieve the previously set value with the [client.GetSecret method](/dotnet/api/microsoft.azure.keyvault.keyvaultclientextensions.getsecretasync).
+You can now retrieve the previously set value with the [get_secret method](/python/api/azure-keyvault-secrets/azure.keyvault.secrets.secretclient?view=azure-python#get-secret-name--version-none----kwargs-).
 
 ```python
 retrieved_secret = client.get_secret(secretName)
@@ -119,10 +119,10 @@ Your secret is now saved as `retrieved_secret.value`.
 
 ### Delete a secret
 
-Finally, let's delete the secret from your key vault with the [client.DeleteSecret method](/dotnet/api/microsoft.azure.keyvault.keyvaultclientextensions.getsecretasync).
+Finally, let's delete the secret from your key vault with the [begin_delete_secret method](/python/api/azure-keyvault-secrets/azure.keyvault.secrets.secretclient?view=azure-python#begin-delete-secret-name----kwargs-).
 
 ```python
-client.delete_secret(secretName)
+client.begin_delete_secret(secretName)
 ```
 
 You can verify that the secret is gone with the [az keyvault secret show](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-show) command:
@@ -179,15 +179,15 @@ retrieved_secret = client.get_secret(secretName)
 print(f"Your secret is '{retrieved_secret.value}'.")
 print(f"Deleting your secret from {keyVaultName} ...")
 
-client.delete_secret(secretName)
+client.begin_delete_secret(secretName)
 
 print(" done.")
 ```
 
 ## Next steps
 
-In this quickstart you created a key vault, stored a secret, and retrieved that secret. To learn more about Key Vault and how to integrate it with your applications, continue on to the articles below.
+In this quickstart, you created a key vault, stored a secret, and retrieved that secret. To learn more about Key Vault and how to integrate it with your applications, continue on to the articles below.
 
-- Read an [Overview of Azure Key Vault](../general/overview.md)
-- See the [Azure Key Vault developer's guide](../general/developers-guide.md)
-- Review [Azure Key Vault best practices](../general/best-practices.md)
+- [Overview of Azure Key Vault](../general/overview.md)
+- [Azure Key Vault developer's guide](../general/developers-guide.md)
+- [Azure Key Vault best practices](../general/best-practices.md)
