@@ -354,7 +354,6 @@ Below is a sample manifest file for the sample Drawing package. To download the 
             "nameAlt": "Basement01", 
             "nameSubtitle": "01", 
             "addressRoomNumber": "B01", 
-            "nonWheelchairAccessible": false, 
             "nonPublic": true, 
             "isRoutable": true, 
             "isOpenArea": true 
