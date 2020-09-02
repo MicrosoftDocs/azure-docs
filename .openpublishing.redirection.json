@@ -4532,6 +4532,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/virtual-machines/linux/serial-console-grub-single-user-mode.md",
+      "redirect_url": "/azure/virtual-machines/troubleshooting/serial-console-grub-single-user-mode",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/windows/troubleshoot-bitlocker-boot-error.md",
       "redirect_url": "/azure/virtual-machines/troubleshooting/troubleshoot-bitlocker-boot-error",
       "redirect_document_id": false
