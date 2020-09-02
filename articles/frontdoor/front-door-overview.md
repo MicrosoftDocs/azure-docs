@@ -80,7 +80,7 @@ For pricing information, see [Front Door Pricing](https://azure.microsoft.com/pr
 
 ## What's new?
 
-Subscribe to the RSS feed and view the latest Azure Load Balancer feature updates on the [Azure Updates](https://azure.microsoft.com/en-us/updates/?category=networking&query=Azure%20Front%20Door) page.
+Subscribe to the RSS feed and view the latest Azure Load Balancer feature updates on the [Azure Updates](https://azure.microsoft.com/updates/?category=networking&query=Azure%20Front%20Door) page.
 
 ## Next steps
 
