@@ -130,6 +130,7 @@
 
 - name: How-to guides
   items:
+  - name: Upgrade to advanced security
     href: security-center-onboarding.md
   - name: Configure security policies and compliance standards
     items:
