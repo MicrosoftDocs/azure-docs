@@ -12,7 +12,7 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 08/31/2020 
 ms.author: inhenkel
 #Customer intent: As a developer or content provider, I want to encode and stream on-demand or live content so my customers can view the content on a wide variety of clients (these clients understand different formats).
