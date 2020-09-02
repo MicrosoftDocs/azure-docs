@@ -177,7 +177,9 @@
       - name: DTDL validator (sample)
         href: https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator/
       - name: DPS and IoT Hub integration sample
-        href: https://github.com/Azure-Samples/digital-twins-iothub-integration    
+        href: https://github.com/Azure-Samples/digital-twins-iothub-integration 
+      - name: SignalR integration sample
+        href: https://docs.microsoft.com/samples/azure-samples/digitaltwins-signalr-webapp-sample/digital-twins-samples/  
   - name: Azure tools
     items: 
     - name: Azure Cloud Shell
