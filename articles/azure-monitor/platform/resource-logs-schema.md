@@ -60,7 +60,7 @@ The schema for resource logs varies depending on the resource and log category. 
 | Azure Data Explorer | [Azure Data Explorer logs](/azure/data-explorer/using-diagnostic-logs) |
 | Azure Database for MySQL | [Azure Database for MySQL diagnostic logs](../../mysql/concepts-server-logs.md#diagnostic-logs) |
 | Azure Database for PostgreSQL | [Azure Database for PostgreSQL logs](../../postgresql/concepts-server-logs.md#resource-logs) |
-| Azure Databricks | [Diagnostic logging in Azure Databricks](../../databricks/administration-guide/account-settings/azure-diagnostic-logs.md) |
+| Azure Databricks | [Diagnostic logging in Azure Databricks](https://docs.microsoft.com/azure/databricks/administration-guide/account-settings/azure-diagnostic-logs) |
 | Azure Digital Twins | [Set up Azure Digital Twins Diagnostics](../../digital-twins/troubleshoot-diagnostics.md#log-schemas)
 | Event Hubs |[Azure Event Hubs logs](../../event-hubs/event-hubs-diagnostic-logs.md) |
 | Express Route | Schema not available. |
