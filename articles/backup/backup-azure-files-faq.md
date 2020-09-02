@@ -25,7 +25,7 @@ Check if the Azure file share is already protected in the same Recovery Services
 
 Yes. Protection of Azure File Shares connected to Sync Groups is enabled.
 
-### When trying to back up file shares, I clicked on a Storage Account for discovering the file shares in it. However, I didn't protect them. How do I protect these file shares with any other vault?
+### When trying to back up file shares, I selected a Storage Account to discover the file shares in it. However, I didn't protect them. How do I protect these file shares with any other vault?
 
 When trying to back up, selecting a Storage Account to discover file shares within it registers the Storage Account with the vault from which this is done. If you choose to protect the file shares with a different vault, [unregister](manage-afs-backup.md#unregister-a-storage-account) the chosen Storage Account from this vault.
 
