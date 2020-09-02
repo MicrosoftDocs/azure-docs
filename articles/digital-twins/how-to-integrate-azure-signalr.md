@@ -29,15 +29,9 @@ The solution described in this article will allow you push digital twins telemet
 
 ## Solution architecture
 
-You will be attaching Azure SignalR Service to Azure Digital Twins through the path below.
+You will be attaching Azure SignalR Service to Azure Digital Twins through the path below as highlighted in the grey box.
 
-:::row:::
-    :::column:::
-        :::image type="content" source="media/how-to-integrate-azure-signalr/signalr-integration-topology.png" alt-text="A view of Azure services in an end-to-end scenario, highlighting Azure-SignalR" lightbox="media/how-to-integrate-azure-signalr/signalr-integration-topology.png":::
-    :::column-end:::
-    :::column:::
-    :::column-end:::
-:::row-end:::
+:::image type="content" source="media/how-to-integrate-azure-signalr/signalr-integration-topology.png" alt-text="A view of Azure services in an end-to-end scenario, highlighting Azure-SignalR" lightbox="media/how-to-integrate-azure-signalr/signalr-integration-topology.png":::
 
 ## Log in to Azure
 
@@ -45,21 +39,13 @@ Sign in to the Azure portal at <https://portal.azure.com/> with your Azure accou
 
 [!INCLUDE [Create instance](../azure-signalr/includes/signalr-quickstart-create-instance.md)]
 
-## Clone the sample application
+## Download the sample application
 
-While the service is deploying, let's switch to working with code. Clone the [sample app from GitHub](https://github.com/Azure-Samples/digital-twins-samples), if you haven't.
-
-1. Open a git terminal window. Change to a folder where you want to clone the sample project.
-
-1. Run the following command to clone the sample repository. This command creates a copy of the sample app on your computer.
-
-    ```bash
-    git clone https://github.com/Azure-Samples/digital-twins-samples
-    ```
+While the service is deploying, let's switch to working with code. Download the [sample app](https://docs.microsoft.com/en-us/samples/azure-samples/digital-twins-samples/digital-twins-samples/), if you no longer have it from the prerequisite tutorial.
 
 ## Configure and run the Azure Function app
 
-1. Start Visual Studio (or another code editor) and open the solution in the cloned repository.
+1. Start Visual Studio (or another code editor) and open the solution in the ADTSampleApp folder.
 
 1. In the browser where the Azure portal is opened, confirm the SignalR Service instance you deployed earlier was successfully created by searching for its name in the search box at the top of the portal. Select the instance to open it.
 
@@ -67,16 +53,79 @@ While the service is deploying, let's switch to working with code. Clone the [sa
 
 1. Select and copy the primary connection string.
 
-1. Back in Visual Studio, in Solution Explorer, rename *local.settings.sample.json* to *local.settings.json*.
+1. Back in Visual Studio, create a new C# sharp class called **SignalRFunctions.cs** in the SampleFunctionsApp project
 
-1. In **local.settings.json**, paste the connection string into the value of the **AzureSignalRConnectionString** setting. Save the file.
+1. Replace the contents of the class with the following code below
 
-1. Open **SignalRFunctions.cs**. There are two HTTP triggered functions in this function app:
+    ```C#
+    using System;
+    using System.Threading.Tasks;
+    using Microsoft.AspNetCore.Http;
+    using Microsoft.Azure.EventGrid.Models;
+    using Microsoft.Azure.WebJobs;
+    using Microsoft.Azure.WebJobs.Extensions.Http;
+    using Microsoft.Azure.WebJobs.Extensions.EventGrid;
+    using Microsoft.Azure.WebJobs.Extensions.SignalRService;
+    using Microsoft.Extensions.Logging;
+    using Newtonsoft.Json;
+    using Newtonsoft.Json.Linq;
+    using System.Collections.Generic;
+    
+    namespace SampleFunctionsApp
+    {
+        public static class SignalRFunctions
+        {
+            public static double temperature;
+    
+            [FunctionName("negotiate")]
+            public static SignalRConnectionInfo GetSignalRInfo(
+                [HttpTrigger(AuthorizationLevel.Anonymous, "post")] HttpRequest req,
+                [SignalRConnectionInfo(HubName = "dttelemetry")] SignalRConnectionInfo connectionInfo)
+            {
+                return connectionInfo;
+            }
+    
+            [FunctionName("broadcast")]
+            public static Task SendMessage(
+                [EventGridTrigger] EventGridEvent eventGridEvent,
+                [SignalR(HubName = "dttelemetry")] IAsyncCollector<SignalRMessage> signalRMessages,
+                ILogger log)
+            {
+                JObject eventGridData = (JObject)JsonConvert.DeserializeObject(eventGridEvent.Data.ToString());
+    
+                log.LogInformation($"Event grid message: {eventGridData}");
+    
+                var patch = (JObject)eventGridData["data"]["patch"][0];
+                if (patch["path"].ToString().Contains("/Temperature"))
+                {
+                    temperature = Math.Round(patch["value"].ToObject<double>(), 2);
+                }
+    
+                var message = new Dictionary<object, object>
+                {
+                    { "temperatureInFahrenheit", temperature},
+                };
+        
+                return signalRMessages.AddAsync(
+                    new SignalRMessage
+                    {
+                        Target = "newMessage",
+                        Arguments = new[] { message }
+                    });
+            }
+        }
+    }
+    ```
+
+1. This contains two Azure Functions:
 
     - **negotiate** - A HTTP trigger function. It uses the *SignalRConnectionInfo* input binding to generate and return valid connection information.
     - **broadcast** - An event grid trigger function. It receives an ADT telemetry data through the event grid and uses the *SignalR* output binding to broadcast the message to all connected client applications.
 
-
+1. In the .NET CLI run the following to install the SignalRService nuget package
+    ```bash
+    dotnet add package Microsoft.Azure.WebJobs.Extensions.SignalRService --version 1.2.0
+    ```
 
 1. Publish your functions to Azure using the steps similar to that of the [connect an end to end solution](https://docs.microsoft.com/en-us/azure/digital-twins/tutorial-end-to-end#publish-the-app)
 
@@ -107,7 +156,11 @@ On the *Create Event Subscription* page, fill in the fields as follows (fields f
 Back on the *Create Event Subscription* page, hit **Create**.
 
 ## Configure and run the web app
-1. Go to the folder where you cloned the repository, open the WebApp folder using Visual Studio Code or any editor of your choice
+1. Before configuring the web app, make sure the Device Simulator program is running
+
+1. Download the Web App sample from [here](https://docs.microsoft.com/en-us/samples/azure-samples/digitaltwins-signalr-webapp-sample/digital-twins-samples/?branch=master)
+
+1. Open the WebApp folder using Visual Studio Code or any editor of your choice
 
 1. In the src/App.js, replace the URL in the **HubConnectionBuilder** with the HTTP endpoint of the **negotiate** function
 
@@ -132,7 +185,10 @@ Back on the *Create Event Subscription* page, hit **Create**.
     ```bash
     npm start
     ```
-1. Once running, you should start seeing ADT telemetry being received in realtime
+
+1. Once running, you should start seeing ADT telemetry being received in realtime like in the screenshot below
+
+    ![Web App snippet](media/how-to-integrate-azure-signalr/signalr-webapp-output.png)
    
 ## Next steps
 
