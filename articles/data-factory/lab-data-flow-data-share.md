@@ -303,7 +303,7 @@ You have now completed the data factory portion of this lab. Publish your resour
 
 ## Share data using Azure Data Share
 
-In this section, you'll learn how to set up a new data share using the Azure portal. This will involve creating a new data share that will contain datasets from Azure Data Lake Store Gen2 and Azure SQL Data Warehouse. You'll then configure a snapshot schedule, which will give the data consumers an option to automatically refresh the data being shared with them. Then, you'll invite recipients to your data share. 
+In this section, you'll learn how to set up a new data share using the Azure portal. This will involve creating a new data share that will contain datasets from Azure Data Lake Store Gen2 and Azure Synapse Analytics (formerly SQL Data Warehouse). You'll then configure a snapshot schedule, which will give the data consumers an option to automatically refresh the data being shared with them. Then, you'll invite recipients to your data share. 
 
 Once you have created a data share, you'll then switch hats and become the *data consumer*. As the data consumer, you'll walk through the flow of accepting a data share invitation, configuring where you'd like the data to be received and mapping datasets to different storage locations. Then you'll trigger a snapshot, which will copy the data shared with you into the destination specified. 
 
@@ -325,7 +325,7 @@ Once you have created a data share, you'll then switch hats and become the *data
 
 1. Under **Share name**, specify a name of your choice. This is the share name that will be seen by your data consumer, so be sure to give it a descriptive name such as TaxiData.
 
-1. Under **Description**, put in a sentence which describes the contents of the data share. The data share will contain world-wide taxi trip data that is stored in a number of stores including Azure SQL Data Warehouse and Azure Data Lake Store. 
+1. Under **Description**, put in a sentence which describes the contents of the data share. The data share will contain world-wide taxi trip data that is stored in a number of stores including Azure Synapse Analytics and Azure Data Lake Store. 
 
 1. Under **Terms of use**, specify a set of terms that you would like your data consumer to adhere to. Some examples include "Do not distribute this data outside your organization" or "Refer to legal agreement". 
 
@@ -337,12 +337,12 @@ Once you have created a data share, you'll then switch hats and become the *data
 
     ![Add dataset](media/lab-data-flow-data-share/add-dataset.png)
 
-1. Select **Azure SQL Data Warehouse** to select a table from the Azure SQL Data Warehouse that your ADF transformations landed in.
+1. Select **Azure Synapse Analytics** to select a table from the Azure Synapse Analytics that your ADF transformations landed in.
 
     ![Add dataset](media/lab-data-flow-data-share/add-dataset-sql.png)
 
 > [!NOTE]
-> Azure SQL Data Warehouse is now known as Azure Synapse Analytics
+> Azure Synapse Analytics is now known as Azure Synapse Analytics
 
 1. You'll be given a script to run before you can proceed. The script provided creates a user in the SQL database to allow the Azure Data Share MSI to authenticate on its behalf. 
 
@@ -358,7 +358,7 @@ Once you have created a data share, you'll then switch hats and become the *data
     
 1. Switch back to Azure Data Share where you were adding datasets to your data share. 
 
-1. Select **EDW** for the SQL Data Warehouse, and select **AggregatedTaxiData** for the table. 
+1. Select **EDW**, then select **AggregatedTaxiData** for the table. 
 
 1. Select **Add dataset**
 
@@ -452,7 +452,7 @@ You may be prompted to select a subscription. Make sure you select the subscript
 
     ![unmapped datasets](media/lab-data-flow-data-share/unmapped.png)
 
-1. Select the SQL Data Warehouse Table and then select **+ Map to Target**.
+1. Select the Azure Synapse Analytics Table and then select **+ Map to Target**.
 
 1. On the right-hand side of the screen, select the **Target Data Type** drop down. 
 
@@ -478,7 +478,7 @@ You may be prompted to select a subscription. Make sure you select the subscript
 
 1. In the new tab you opened, navigate to **SQL databases**.
 
-1. Select the SQL database (there should only be one in your subscription). Be careful not to select the SQL Data Warehouse. 
+1. Select the SQL database (there should only be one in your subscription). Be careful not to select the data warehouse. 
 
 1. Select **Query editor (preview)**
 
