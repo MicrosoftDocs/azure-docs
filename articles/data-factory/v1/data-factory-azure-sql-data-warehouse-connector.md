@@ -29,7 +29,7 @@ robots: noindex
 This article explains how to use the Copy Activity in Azure Data Factory to move data to/from Azure Synapse Analytics. It builds on the [Data Movement Activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with the copy activity.
 
 > [!TIP]
-> To achieve best performance, use PolyBase to load data into Azure Synapse Analytics. The [Use PolyBase to load data into Azure Synapse Analytics](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) section has details. For a walkthrough with a use case, see [Load 1 TB into Azure Synapse Analytics under 15 minutes with Azure Data Factory](data-factory-load-sql-data-warehouse.md).
+> To achieve best performance, use PolyBase to load data into Azure Synapse Analytics. The [Use PolyBase to load data into Azure Synapse Analytics](data-factory-azure-synapse-analytics-connector.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) section has details. For a walkthrough with a use case, see [Load 1 TB into Azure Synapse Analytics under 15 minutes with Azure Data Factory](data-factory-load-sql-data-warehouse.md).
 
 ## Supported scenarios
 You can copy data **from Azure Synapse Analytics** to the following data stores:
@@ -60,7 +60,7 @@ Whether you use the tools or APIs, you perform the following steps to create a p
 3. Create **datasets** to represent input and output data for the copy operation. In the example mentioned in the last step, you create a dataset to specify the blob container and folder that contains the input data. And, you create another dataset to specify the table in the Azure Synapse Analytics that holds the data copied from the blob storage. For dataset properties that are specific to Azure Synapse Analytics, see [dataset properties](#dataset-properties) section.
 4. Create a **pipeline** with a copy activity that takes a dataset as an input and a dataset as an output. In the example mentioned earlier, you use BlobSource as a source and SqlDWSink as a sink for the copy activity. Similarly, if you are copying from Azure Synapse Analytics to Azure Blob Storage, you use SqlDWSource and BlobSink in the copy activity. For copy activity properties that are specific to Azure Synapse Analytics, see [copy activity properties](#copy-activity-properties) section. For details on how to use a data store as a source or a sink, click the link in the previous section for your data store.
 
-When you use the wizard, JSON definitions for these Data Factory entities (linked services, datasets, and the pipeline) are automatically created for you. When you use tools/APIs (except .NET API), you define these Data Factory entities by using the JSON format. For samples with JSON definitions for Data Factory entities that are used to copy data to/from Azure Synapse Analytics, see [JSON examples](#json-examples-for-copying-data-to-and-from-sql-data-warehouse) section of this article.
+When you use the wizard, JSON definitions for these Data Factory entities (linked services, datasets, and the pipeline) are automatically created for you. When you use tools/APIs (except .NET API), you define these Data Factory entities by using the JSON format. For samples with JSON definitions for Data Factory entities that are used to copy data to/from Azure Synapse Analytics, see [JSON examples](#json-examples-for-copying-data-to-and-from-azure-synapse-analytics) section of this article.
 
 The following sections provide details about JSON properties that are used to define Data Factory entities specific to Azure Synapse Analytics:
 
@@ -144,7 +144,7 @@ GO
 | Property | Description | Allowed values | Required |
 | --- | --- | --- | --- |
 | sqlWriterCleanupScript |Specify a query for Copy Activity to execute such that data of a specific slice is cleaned up. For details, see [repeatability section](#repeatability-during-copy). |A query statement. |No |
-| allowPolyBase |Indicates whether to use PolyBase (when applicable) instead of BULKINSERT mechanism. <br/><br/> **Using PolyBase is the recommended way to load data into Azure Synapse Analytics.** See [Use PolyBase to load data into Azure Synapse Analytics](#use-polybase-to-load-data-into-azure-sql-data-warehouse) section for constraints and details. |True <br/>False (default) |No |
+| allowPolyBase |Indicates whether to use PolyBase (when applicable) instead of BULKINSERT mechanism. <br/><br/> **Using PolyBase is the recommended way to load data into Azure Synapse Analytics.** See [Use PolyBase to load data into Azure Synapse Analytics](#use-polybase-to-load-data-into-azure-synapse-analytics) section for constraints and details. |True <br/>False (default) |No |
 | polyBaseSettings |A group of properties that can be specified when the **allowPolybase** property is set to **true**. |&nbsp; |No |
 | rejectValue |Specifies the number or percentage of rows that can be rejected before the query fails. <br/><br/>Learn more about the PolyBase's reject options in the **Arguments** section of [CREATE EXTERNAL TABLE (Transact-SQL)](https://msdn.microsoft.com/library/dn935021.aspx) topic. |0 (default), 1, 2, … |No |
 | rejectType |Specifies whether the rejectValue option is specified as a literal value or a percentage. |Value (default), Percentage |No |

@@ -1,6 +1,6 @@
 ---
 title: Transform data
-description: Learn how to transform data or process data in Azure Data Factory using Hadoop, Machine Learning, or Azure Data Lake Analytics.
+description: Transform data or process data in Azure Data Factory using Hadoop, Machine Learning, or Azure Data Lake Analytics.
 services: data-factory
 ms.service: data-factory
 ms.workload: data-services

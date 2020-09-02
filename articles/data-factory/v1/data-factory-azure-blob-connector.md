@@ -221,14 +221,14 @@ Let's look at how to quickly copy data to/from an Azure blob storage. In this wa
 5. On **Choose the input file or folder** page:
     1. Double-click **adfblobcontainer**.
     2. Select **input**, and click **Choose**. In this walkthrough, you select the input folder. You could also select the emp.txt file in the folder instead.
-        ![Copy Tool - Choose the input file or folder](./media/data-factory-azure-blob-connector/copy-tool-choose-input-file-or-folder.png)
+        ![Copy Tool - Choose the input file or folder 1](./media/data-factory-azure-blob-connector/copy-tool-choose-input-file-or-folder.png)
 6. On the **Choose the input file or folder** page:
     1. Confirm that the **file or folder** is set to **adfblobconnector/input**. If the files are in sub folders, for example, 2017/04/01, 2017/04/02, and so on, enter adfblobconnector/input/{year}/{month}/{day} for file or folder. When you press TAB out of the text box, you see three drop-down lists to select formats for year (yyyy), month (MM), and day (dd).
     2. Do not set **Copy file recursively**. Select this option to recursively traverse through folders for files to be copied to the destination.
     3. Do not the **binary copy** option. Select this option to perform a binary copy of source file to the destination. Do not select for this walkthrough so that you can see more options in the next pages.
     4. Confirm that the **Compression type** is set to **None**. Select a value for this option if your source files are compressed in one of the supported formats.
     5. Click **Next**.
-    ![Copy Tool - Choose the input file or folder](./media/data-factory-azure-blob-connector/chose-input-file-folder.png)
+    ![Copy Tool - Choose the input file or folder 2](./media/data-factory-azure-blob-connector/chose-input-file-folder.png)
 7. On the **File format settings** page, you see the delimiters and the schema that is auto-detected by the wizard by parsing the file.
     1. Confirm the following options:  
         a. The **file format** is set to **Text format**. You can see all the supported formats in the drop-down list. For example: JSON, Avro, ORC, Parquet.
