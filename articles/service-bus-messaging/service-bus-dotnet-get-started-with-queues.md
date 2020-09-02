@@ -25,7 +25,7 @@ In this tutorial, you create a .NET Core console application to send messages to
   - Get the connection string.
   - Create a Service Bus queue.
 
-## Send messages to the queue
+## Send messages
 To send messages to the queue, write a C# console application using Visual Studio.
 
 ### Create a console application
@@ -112,7 +112,7 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project for C#
 
     The next section describes how to retrieve these messages from the queue.
 
-## Receive messages from the queue
+## Receive messages
 In this section, you'll add code to retrieve messages from the queue.
 
 1. Add a method named `ReceiveMessagesAsync` and add the following code.

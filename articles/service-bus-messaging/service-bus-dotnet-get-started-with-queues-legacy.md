@@ -25,7 +25,7 @@ In this tutorial, you create .NET Core console applications to send messages to 
   - Get the connection string.
   - Create a Service Bus queue.
 
-## Send messages to the queue
+## Send messages
 
 To send messages to the queue, write a C# console application using Visual Studio.
 
@@ -183,7 +183,7 @@ The current size of the queue increments the **CURRENT** value in **Essentials**
 
 The next section describes how to retrieve these messages.
 
-## Receive messages from the queue
+## Receive messages
 
 To receive the messages you sent, create another **Console App (.NET Core)** application. Install the **Microsoft.Azure.ServiceBus** NuGet package, as you did for the sender application.
 
