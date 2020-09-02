@@ -578,7 +578,7 @@ groups:
   - id: container-linux
     title: Linux container
   - id: container-windows
-    title: Windows container 
+    title: Windows container  
 - id: programming-languages-spring-cloud
 # Owner: bmitchell287
   title: Programming languages
