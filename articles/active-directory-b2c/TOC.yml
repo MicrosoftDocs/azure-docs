@@ -169,9 +169,7 @@
     - name: Pass through external IdP token
       href: idp-pass-through-user-flow.md
   - name: Identity Protection and Conditional Access
-    items:
-    - name: Set up Identity Protection
-      href: conditional-access-identity-protection-setup.md
+    href: conditional-access-identity-protection-setup.md
   - name: Custom policy
     items:
     - name: Create a policy

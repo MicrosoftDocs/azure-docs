@@ -173,7 +173,8 @@ PipelineData("clean_data", datastore=def_blob_store, output_mode="upload", outpu
 ```
 
 > [!TIP]
-> An improved experience for passing intermediate data between pipeline steps is available with the public preview class, `OutputFileDatasetConfig`. Learn more about `OutputFileDatasetConfig` design patterns and methods in [the SDK reference documentation](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py).
+> An improved experience for passing intermediate data between pipeline steps is available with the public preview class, [`OutputFileDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py). For a code example using `OutputFileDatasetConfig`, see how to [build a two step ML pipeline](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/pipeline-with-datasets/pipeline-for-image-classification.ipynb).
+
 
 ### Use `PipelineData` as outputs of a training step
 Within your pipeline's `PythonScriptStep`, you can retrieve the available output paths using the program's arguments. If this step is the first and will initialize the output data, you must create the directory at the specified path. You can then write whatever files you wish to be contained in the `PipelineData`.
@@ -223,7 +224,7 @@ pipeline = Pipeline(workspace=ws, steps=[step1, step2])
 The value of a `PipelineData` input is the path to the previous output. 
 
 > [!TIP]
-> An improved experience for passing intermediate data between pipeline steps is available with the public preview class, `OutputFileDatasetConfig`. Learn more about `OutputFileDatasetConfig` design patterns and methods in [the SDK reference documentation](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py).
+> An improved experience for passing intermediate data between pipeline steps is available with the public preview class, [`OutputFileDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py). For a code example using `OutputFileDatasetConfig`, see how to [build a two step ML pipeline](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/pipeline-with-datasets/pipeline-for-image-classification.ipynb).
 
 If, as shown previously, the first step wrote a single file, consuming it might look like: 
 
@@ -245,7 +246,7 @@ step1_output_ds.register(name="processed_data", create_new_version=True)
 
 ```
 > [!TIP]
-> An improved experience for persisting your intermediate data outside of your pipeline runs is available with the public preview class, `OutputFileDatasetConfig`. Learn more about `OutputFileDatasetConfig` design patterns and methods in [the SDK reference documentation](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py).
+> An improved experience for persisting your intermediate data outside of your pipeline runs is available with the public preview class, [`OutputFileDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py). For a code example using `OutputFileDatasetConfig`, see how to [build a two step ML pipeline](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/pipeline-with-datasets/pipeline-for-image-classification.ipynb).
 
 ## Next steps
 
