@@ -61,7 +61,7 @@ landingContent:
       - linkListType: concept
         links:
           - text: Determine which authentication method is right for you
-            url: /azure/security/fundamentals/choose-ad-authn
+            url: ./choose-ad-authn.md
 
 
 
@@ -100,4 +100,3 @@ landingContent:
 
 
 
-     

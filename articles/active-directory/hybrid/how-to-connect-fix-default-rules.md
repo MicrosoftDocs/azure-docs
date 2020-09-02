@@ -84,7 +84,7 @@ Keep **Scoping filter** empty. This means that the rule applies to all the objec
 
 Keep **Join rules** empty. This means this rule uses the join condition defined in the standard default rule. This is another reason not to disable or delete the standard default rule. If there is no join condition, the attribute won't flow. 
 
-Add appropriate transformations for your attribute. You can assign a constant, to make a constant value flow to your target attribute. You can use direct mapping between the source or target attribute. Or, you can use an expression for the attribute. Here are various [expression functions](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-sync-functions-reference) you can use.
+Add appropriate transformations for your attribute. You can assign a constant, to make a constant value flow to your target attribute. You can use direct mapping between the source or target attribute. Or, you can use an expression for the attribute. Here are various [expression functions](./reference-connect-sync-functions-reference.md) you can use.
 
 #### Add an outbound sync rule
 To link the attribute to the target directory, you need to create an outbound rule. This means that the source is the metaverse, and the target is the connected system. To create an outbound rule, launch the **Synchronization Rules Editor**, change the **Direction** to **Outbound**, and select **Add new rule**. 
@@ -97,7 +97,7 @@ As with the inbound rule, you can use your own naming convention to name the rul
 
 Keep **Scoping filter** and **Join rules** empty. Fill in the transformation as constant, direct, or expression. 
 
-You now know how to make a new attribute for a user object flow from Active Directory to Azure Active Directory. You can use these steps to map any attribute from any object to source and target. For more information, see [Creating custom sync rules](how-to-connect-create-custom-sync-rule.md) and [Prepare to provision users](https://docs.microsoft.com/office365/enterprise/prepare-for-directory-synchronization).
+You now know how to make a new attribute for a user object flow from Active Directory to Azure Active Directory. You can use these steps to map any attribute from any object to source and target. For more information, see [Creating custom sync rules](how-to-connect-create-custom-sync-rule.md) and [Prepare to provision users](/office365/enterprise/prepare-for-directory-synchronization).
 
 ### Override the value of an existing attribute
 You might want to override the value of an attribute that has already been mapped. For example, if you always want to set a null value to an attribute in Azure AD, simply create an inbound rule only. Make the constant value, `AuthoritativeNull`, flow to the target attribute. 
@@ -189,6 +189,3 @@ To fix your rules to change them back to default settings, delete the modified r
 - [Hardware and prerequisites](how-to-connect-install-prerequisites.md) 
 - [Express settings](how-to-connect-install-express.md)
 - [Customized settings](how-to-connect-install-custom.md)
-
-
-

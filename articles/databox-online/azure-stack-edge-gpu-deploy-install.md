@@ -1,6 +1,6 @@
 ---
-title: Tutorial to install - Unpack, rack, cable Azure Stack Edge physical device | Microsoft Docs
-description: The second tutorial about installing Azure Stack Edge involves how to unpack, rack, and cable the physical device.
+title: Tutorial to install - Unpack, rack, cable Azure Stack Edge GPU physical device | Microsoft Docs
+description: The second tutorial about installing Azure Stack Edge GPU involves how to unpack, rack, and cable the physical device.
 services: databox
 author: alkohli
 

@@ -1,6 +1,6 @@
 ---
 title: "Quickstart - Deploy your first Azure Spring Cloud application"
-description: In this quickstart, we deploy a Spring Cloud hello application to the Azure Spring Cloud.
+description: In this quickstart, we deploy a Spring Cloud application to the Azure Spring Cloud.
 author: bmitchell287
 ms.service: spring-cloud
 ms.topic: quickstart
@@ -32,7 +32,7 @@ To complete this quickstart:
 * (Optional) [Install the Azure CLI version 2.0.67 or higher](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) and the Azure Spring Cloud extension with command: `az extension add --name spring-cloud`
 * (Optional) [Install the Azure Toolkit for IntelliJ](https://plugins.jetbrains.com/plugin/8053-azure-toolkit-for-intellij/) and [sign-in](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in)
 
-## Generate a Spring Cloud hello project
+## Generate a Spring Cloud project
 
 Start with [Spring Initializr](https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.3.3.RELEASE&packaging=jar&jvmVersion=1.8&groupId=com.example&artifactId=hellospring&name=hellospring&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.hellospring&dependencies=web,cloud-eureka,actuator,cloud-starter-sleuth,cloud-starter-zipkin) to generate a sample project with recommended dependencies for Azure Spring Cloud. The following image shows the Initializr set up for this sample project.
 ```url
@@ -41,17 +41,7 @@ https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.3.3
 
   ![Initializr page](media/spring-cloud-quickstart-java/initializr-page.png)
 
-1. Click **Generate** when all the dependencies are set. Download and unpack the package, then add the following dependency to the application `pom.xml` file.
-
-    ```xml
-        <dependency>
-            <groupId>com.microsoft.azure</groupId>
-            <artifactId>spring-cloud-starter-azure-spring-cloud-client</artifactId>
-            <version>2.3.0</version>
-        </dependency>
-    ```
-
-1. Create a web controller for a simple web application by adding `src/main/java/com/example/hellospring/HelloController.java` as follows:
+1. Click **Generate** when all the dependencies are set. Download and unpack the package, then create a web controller for a simple web application by adding `src/main/java/com/example/hellospring/HelloController.java` as follows:
 
     ```java
     package com.example.hellospring;
@@ -130,7 +120,7 @@ The following procedure builds and deploys the application using the Azure CLI. 
 
 The following procedure uses the IntelliJ plug-in for Azure Spring Cloud to deploy the sample app in the IntelliJ IDEA.  
 
-### Import hello project
+### Import project
 
 1. Open IntelliJ **Welcome** dialog, and select **Import Project** to open the import wizard.
 1. Select `hellospring` folder.
