@@ -89,7 +89,7 @@ The following operating systems are currently supported by the Azure Monitor age
   - Ubuntu 14.04 LTS, 16.04 LTS, 18.04 LTS
 
 > [!IMPORTANT]
-> <sup>1</sup>For these distributions to send Syslog data, you must remove rsyslog and install syslog-ng.
+> <sup>1</sup>For these distributions to send Syslog data, you must restart the rsyslog service one time after the agent is installed.
 
 
 ## Security

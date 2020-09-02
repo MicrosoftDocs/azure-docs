@@ -140,8 +140,8 @@ In the **Key Vault Status** page, click **Key Vault Repository** to create a new
 | Resource group | As a recommendation, select the same resource group as your App Service certificate. |
 | Location | Select the same location as your App Service app. |
 | Pricing tier | For information, see [Azure Key Vault pricing details](https://azure.microsoft.com/pricing/details/key-vault/). |
-| Access policies| Defines the applications and the allowed access to the vault resources. You can configure it later, following the steps at [Grant several applications access to a key vault](../key-vault/general/group-permissions-for-apps.md). |
-| Virtual Network Access | Restrict vault access to certain Azure virtual networks. You can configure it later, following the steps at [Configure Azure Key Vault Firewalls and Virtual Networks](../key-vault/general/network-security.md) |
+| Access policies| Defines the applications and the allowed access to the vault resources. You can configure it later, following the steps at [Assign a Key Vault access policy](/azure/key-vault/general/assign-access-policy-portal). |
+| Virtual Network Access | Restrict vault access to certain Azure virtual networks. You can configure it later, following the steps at [Configure Azure Key Vault Firewalls and Virtual Networks](/azure/key-vault/general/network-security) |
 
 Once you've selected the vault, close the **Key Vault Repository** page. The **Step 1: Store** option should show a green check mark for success. Keep the page open for the next step.
 
