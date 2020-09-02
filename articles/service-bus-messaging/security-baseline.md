@@ -4,7 +4,7 @@ description: The Service Bus security baseline provides procedural guidance and 
 author: msmbaldwin
 ms.service: service-bus-messaging
 ms.topic: conceptual
-ms.date: 09/01/2020
+ms.date: 09/02/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 
@@ -126,7 +126,7 @@ Service Bus should use a virtual network service endpointDiagnostic logs in Serv
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [Azure Built-in Policy for Service Bus namespace](policy-samples.md#azure-service-bus-messaging)
+- [Azure Built-in Policy for Service Bus namespace](/azure/service-bus-messaging/policy-samples#azure-service-bus-messaging)
 
 - [Azure Policy samples for networking](../governance/policy/samples/built-in-policies.md#network)
 
@@ -749,7 +749,7 @@ Allow access to Azure Service Bus namespaces via private endpoints
 
 Diagnostic logs in Service Bus should be enabledService Bus should use a virtual network service endpoint
 
-- [Azure Built-in policies for Service Bus ](policy-samples.md)
+- [Azure Built-in policies for Service Bus ](/azure/service-bus-messaging/policy-samples)
 
 - [How to view available Azure Policy aliases](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
 
