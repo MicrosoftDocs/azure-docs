@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/28/2020
+ms.date: 09/02/2020
 ms.author: tamram
 ms.subservice: blobs 
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
@@ -33,9 +33,11 @@ A storage account can serve as the source account for up to two destination acco
 
 When you configure object replication, you create a replication policy on the destination account via the Azure Storage resource provider. After the replication policy is created, Azure Storage assigns it a policy ID. You must then associate that replication policy with the source account by using the policy ID. The policy ID on the source and destination accounts must be the same in order for replication to take place.
 
-To configure an object replication policy, you must be assigned the Azure Resource Manager **Contributor** role, scoped to the level of the storage account or higher. For more information, see [Azure built-in roles](azure/role-based-access-control/built-in-roles.md).
+To configure an object replication policy for a storage account, you must be assigned the Azure Resource Manager **Contributor** role, scoped to the level of the storage account or higher. For more information, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md) in the Azure Role-Based Access Control (RBAC) documentation.
 
-### Configure replication when you have access to both storage accounts
+### Configure object replication when you have access to both storage accounts
+
+If you have access to both the source and destination storage accounts, then you can configure the object replication policy on both accounts.
 
 # [Azure portal](#tab/portal)
 
@@ -255,56 +257,94 @@ az storage account or-policy show \
 
 ---
 
-### Configure object replication when you have access to only the destination account
+### Configure object replication when you have access only to the destination account
 
-If you do not have permissions to the source storage account, then you can configure object replication on the destination account and provide a JSON file to another user to create the same policy on the source account. For example, if the source account is in a different Azure AD tenant from the destination account, then use this approach to configure object replication. Keep in mind that you must have access to the destination account in order to create the policy.
+If you do not have permissions to the source storage account, then you can configure object replication on the destination account and provide a JSON file that contains the policy definition to another user to create the same policy on the source account. For example, if the source account is in a different Azure AD tenant from the destination account, then use this approach to configure object replication. Keep in mind that you must have access to the destination account in order to create the policy.
+
+The following table summarizes which values to use for the policy ID in the JSON file in each scenario.
+
+| When you are creating the JSON file for this account... | Set the policy ID to this value... |
+|-|-|
+| Destination account | The string value "default". Azure Storage will create the policy ID for you. |
+| Source account | The policy ID returned when you download a JSON file containing the rules defined on the destination account. |
+
+The following example defines a replication policy on the destination account with a single rule that matches the prefix *b* and sets the minimum creation time for blobs that are to be replicated. Remember to replace values in angle brackets with your own values:
+
+```json
+{
+  "properties": {
+    "policyId": "default",
+    "sourceAccount": "<source-account>",
+    "destinationAccount": "<dest-account>",
+    "rules": [
+      {
+        "ruleId": "default",
+        "sourceContainer": "<source-container>",
+        "destinationContainer": "<destination-container>",
+        "filters": {
+          "prefixMatch": [
+            "b"
+          ],
+          "minCreationTime": "2020-08-028T00:00:00Z"
+        }
+      }
+    ]
+  }
+}
+```
+
+An easy way to create a JSON file that defines a replication policy is to first create a test replication policy between two storage accounts in the Azure portal. You can then export the replication rules and modify the JSON file as needed.
 
 # [Azure portal](#tab/portal)
 
-To configure object replication on the destination account with a JSON file, follow these steps:
+To configure object replication on the destination account with a JSON file in the Azure portal, follow these steps:
 
 1. Create a local JSON file that defines the replication policy on the destination account. Set the **policyId** field to **default** so that Azure Storage will define the policy ID.
-
-    The following example creates a replication policy on the destination account with a single rule that matches the prefix *prod_* and sets the minimum creation time for blobs that are to be replicated. Remember to replace values in angle brackets with your own values:
-
-    ```json
-    {
-      "properties": {
-        "policyId": "default",
-        "sourceAccount": "<source-account>",
-        "destinationAccount": "<dest-account>",
-        "rules": [
-          {
-            "ruleId": "default",
-            "sourceContainer": "<source-container>",
-            "destinationContainer": "<destination-container>",
-            "filters": {
-              "prefixMatch": [
-                "prod_"
-              ],
-              "minCreationTime": "2020-08-028T00:00:00Z"
-            }
-          }
-        ]
-      }
-    }
-    ```
-
 1. Navigate to the **Object replication** settings for the destination account in the Azure portal.
 1. Select **Upload replication rules**.
-1. Upload the JSON file to create the replication policy on the destination account.
+1. Upload the JSON file. The Azure portal displays the policy and rules that will be created, as shown in the following image.
 
-You can then export a JSON file that you can provide to another user to configure the source account. To download this JSON file, follow these steps:
+    :::image type="content" source="media/object-replication-configure/replication-rules-upload-portal.png" alt-text="Screenshot showing how to upload a JSON file to define a replication policy":::
+
+1. Select **Upload** to create the replication policy on the destination account.
+
+You can then export a JSON file containing the policy definition that you can provide to another user to configure the source account. To download this JSON file, follow these steps:
 
 1. Navigate to the **Object replication** settings for the destination account in the Azure portal.
-1. Select the **More** button next to the policy that you wish to download, then select **Download rules**.
-1. Save the JSON file to your local computer.
+1. Select the **More** button next to the policy that you wish to download, then select **Download rules**, as shown in the following image.
+
+    :::image type="content" source="media/object-replication-configure/replication-rules-download-portal.png" alt-text="Screenshot showing how to download replication rules to a JSON file":::
+
+1. Save the JSON file to your local computer to share with another user to configure the policy on the source account.
 
 The downloaded JSON file includes the policy ID that Azure Storage created for the policy on the destination account. You must use the same policy ID to configure object replication on the source account.
 
+Keep in mind that uploading a JSON file to create a replication policy for the destination account via the Azure portal does not automatically create the same policy in the source account. Another user must create the policy on the source account before Azure Storage begins replicating objects.
+
 # [PowerShell](#tab/powershell)
 
-N/A
+To download a JSON file that contains the replication policy definition for the destination account from PowerShell, call the [Get-AzStorageObjectReplicationPolicy](/powershell/module/az.storage/get-azstorageobjectreplicationpolicy) command to return the policy. Then convert the policy to JSON and save it as a local file, as shown in the following example. Remember to replace values in angle brackets and the file path with your own values:
+
+```powershell
+$rgName = "<resource-group>"
+$destAccountName = "<destination-storage-account>"
+
+$destPolicy = Get-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname `
+    -StorageAccountName $destAccountName
+$destPolicy | ConvertTo-Json -Depth 5 > c:\temp\json.txt
+```
+
+To use the JSON file to define the replication policy on the source account with PowerShell, retrieve the local file and convert from JSON to an object. Then call the [Set-AzStorageObjectReplicationPolicy](/powershell/module/az.storage/set-azstorageobjectreplicationpolicy) command to configure the policy on the source account, as shown in the following example. Remember to replace values in angle brackets and the file path with your own values:
+
+```powershell
+$object = Get-Content -Path C:\temp\json.txt | ConvertFrom-Json
+Set-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname `
+    -StorageAccountName $srcAccountName `
+    -PolicyId $object.PolicyId `
+    -SourceAccount $object.SourceAccount `
+    -DestinationAccount $object.DestinationAccount `
+    -Rule $object.Rules
+```
 
 # [Azure CLI](#tab/azure-cli)
 
