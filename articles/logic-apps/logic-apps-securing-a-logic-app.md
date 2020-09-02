@@ -118,13 +118,13 @@ In the body, include the `KeyType` property as either `Primary` or `Secondary`. 
 
 ### Enable Azure Active Directory Open Authentication (Azure AD OAuth)
 
-For inbound calls to the endpoint that's created by the Request trigger, you can enable [Azure Active Directory Open Authentication (Azure AD OAuth)](../active-directory/develop/index.yml) by defining or adding an authorization policy for the Request trigger. This way, inbound calls use OAuth [access tokens](../active-directory/develop/access-tokens.md), which are supported only on the Request trigger, for authorization.
+For inbound calls to the endpoint that's created by the Request trigger, you can enable [Azure Active Directory Open Authentication (Azure AD OAuth)](../active-directory/develop/index.yml) by defining or adding an authorization policy for your logic app. This way, inbound calls use OAuth [access tokens](../active-directory/develop/access-tokens.md), which are supported only on the Request trigger, for authorization.
 
-When your logic app receives an inbound request that includes an OAuth access token, Azure Logic Apps compares the token's claims against the claims specified by each authorization policy. If a match exists between the token's claims and all the claims in at least one policy, authorization succeeds for the inbound request. The token can have more claims than the number specified by the authorization policy.
+When your logic app receives an inbound request that includes an OAuth access token, the Azure Logic Apps service compares the token's claims against the claims specified by each authorization policy. If a match exists between the token's claims and all the claims in at least one policy, authorization succeeds for the inbound request. The token can have more claims than the number specified by the authorization policy.
 
 Before you enable Azure AD OAuth, review these considerations:
 
-* An inbound call to the request endpoint can use only one authorization scheme, either Azure AD OAuth or [Shared Access Signature (SAS)](#sas). Although using one scheme doesn't disable the other scheme, using both schemes at the same time causes an error because the service doesn't know which scheme to choose.
+* An inbound call to the request endpoint can use only one authorization scheme, either Azure AD OAuth or [Shared Access Signature (SAS)](#sas). Although using one scheme doesn't disable the other scheme, using both schemes at the same time causes an error because the Logic Apps service doesn't know which scheme to choose.
 
 * Only [Bearer-type](../active-directory/develop/active-directory-v2-protocols.md#tokens) authorization schemes are supported for Azure AD OAuth access tokens, which means that the `Authorization` header for the access token must specify the `Bearer` type.
 
@@ -207,6 +207,8 @@ To enable Azure AD OAuth for your logic app in the Azure portal, follow these st
 
 1. When you're done, select **Save**.
 
+1. To include the `Authorization` header from the access token in the Request trigger's outputs, see [Include 'Authorization' header in Request trigger outputs](#include-auth-header).
+
 <a name="define-authorization-policy-template"></a>
 
 #### Define authorization policy in Azure Resource Manager template
@@ -222,6 +224,8 @@ To enable Azure AD OAuth in the ARM template for deploying your logic app, follo
 1. Provide a name for authorization policy, set the policy type to `AAD`, and include a `claims` array where you specify one or more claim types.
 
    At a minimum, the `claims` array must include the Issuer claim type where you set the claim's `name` property to `iss` and set the `value` to start with `https://sts.windows.net/` or `https://login.microsoftonline.com/` as the Azure AD issuer ID. For more information about these claim types, see [Claims in Azure AD security tokens](../active-directory/azuread-dev/v1-authentication-scenarios.md#claims-in-azure-ad-security-tokens). You can also specify your own claim type and value.
+
+1. To include the `Authorization` header from the access token in the Request trigger's outputs, see [Include 'Authorization' header in Request trigger outputs](#include-auth-header).
 
 Here's the syntax to follow:
 
@@ -264,7 +268,7 @@ Here's the syntax to follow:
 
 <a name="include-auth-header"></a>
 
-#### Include 'Authorization' header in Request trigger's outputs
+#### Include 'Authorization' header in Request trigger outputs
 
 You can enable the Request trigger's outputs to include the `Authorization` header from the access token. In the Request trigger's underlying JSON definition, add the `operationOptions` property and set that property to `IncludeAuthorizationHeadersInOutputs`, for example:
 
