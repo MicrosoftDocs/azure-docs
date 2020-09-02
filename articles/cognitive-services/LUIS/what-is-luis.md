@@ -114,7 +114,7 @@ Use the [Azure Bot service](https://docs.microsoft.com/azure/bot-service/?view=a
 ## Integrate with other Cognitive Services
 
 Other Cognitive Services used with LUIS:
-* [QnA Maker](../qnamaker/overview/overview.md "QnA Maker") allows several types of text to combine into a question and answer knowledge base.
+* [QnA Maker](../QnAMaker/overview/overview.md "QnA Maker") allows several types of text to combine into a question and answer knowledge base.
 * [Speech service](../Speech-Service/overview.md "Speech service") converts spoken language requests into text.
 
 LUIS provides functionality from Text Analytics as part of your existing LUIS resources. This functionality includes [sentiment analysis](luis-how-to-publish-app.md#configuring-publish-settings "sentiment analysis") and [key phrase extraction](luis-reference-prebuilt-keyphrase.md "key phrase extraction") with the prebuilt keyPhrase entity.
