@@ -621,7 +621,7 @@ Azure AD B2C now supports monthly active users (MAU) billing. MAU billing is bas
 
 Starting on November 1, 2019, all new customers will automatically be billed using this method. This billing method benefits customers through cost benefits and the ability to plan ahead.
 
-For more information, see [Upgrade to monthly active users billing model](../../active-directory-b2c/billing.md#upgrade-to-monthly-active-users-billing-model).
+For more information, see [Upgrade to monthly active users billing model](../../active-directory-b2c/billing.md#switch-to-mau-billing-pre-november-2019-azure-ad-b2c-tenants).
 
 ---
 
