@@ -35,6 +35,9 @@ If the server parameter you want to update is not listed in the Azure portal, yo
     For example, you can change the character set of your server by setting of `init_connect` to `SET character_set_client=utf8;SET character_set_database=utf8mb4;SET character_set_connection=latin1;SET character_set_results=latin1;`
 4. Click **Save** to save your changes.
 
+>[!Note]
+> `init_connect` can be used to change parameters that do not require SUPER privilege(s) at the session level. To verify if you can set the parameter using `init_connect`, execute the `set session parameter_name=YOUR_DESIRED_VALUE;` command and if it errors out with **Access denied; you need SUPER privileges(s)** error, then you cannot set the parameter using `init_connect'.
+
 ## Working with the time zone parameter
 
 ### Populating the time zone tables
