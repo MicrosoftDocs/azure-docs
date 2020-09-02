@@ -222,6 +222,11 @@ To view the alerts, open **Security Center** in the Azure portal. Under **Threat
 
 The alerts include general information about the public IP address that’s under attack, geo and threat intelligence information, and remediations steps.
 
+## Visualize Azure DDOS metric information in Azure DDOS Monitor Workbook
+
+Azure Network Security has made a workbook of your DDOS metric information available. This workbook visualizes security-relevant Azure DDoS events across several filterable panels, Offering summary and investigation tabs across multiple workspaces. [Click here](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20DDoS%20Protection/Azure%20DDoS%20Protection%20Workbook) to read more and deploy the workbook
+
+
 ## Permissions
 
 To work with DDoS protection plans, your account must be assigned to the [network contributor](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) role or to a [custom](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) role that is assigned the appropriate actions listed in the following table:
