@@ -187,7 +187,7 @@ See [Manual approval of private endpoints using the Azure Resource Manager Clien
 ## Adding DNS records
 
 >[!NOTE]
-> This step isn't required if you're using an integrated DNS zone. However, if you have created your own Azure Private DNS zone or are using a custom private DNS zone, make sure entries are made as described in this section.
+> This step isn't required if you're using an integrated DNS zone. However, if you've created your own Azure Private DNS zone or are using a custom private DNS zone, make sure entries are made as described in this section.
 
 Once you've created the optional private DNS zone and the private endpoints for your vault, you'll need to add DNS records to your DNS zone. You can do this either manually or using a PowerShell script. This needs to be done for your Backup DNS zone only, those for Blobs and Queues will automatically be updated.
 
@@ -234,7 +234,7 @@ This requires you to make entries for each FQDN in your private endpoint into yo
 Once the private endpoints created for the vault in your VNet have been approved, you can start using them for performing your backups and restores.
 
 >[!IMPORTANT]
->Ensure that you have completed all the steps mentioned above in the document successfully before proceeding. To recap, you must have completed the steps in the following checklist:
+>Ensure that you've completed all the steps mentioned above in the document successfully before proceeding. To recap, you must have completed the steps in the following checklist:
 >
 >1. Created a (new) Recovery Services vault
 >1. Enabled the vault to use system assigned Managed Identity

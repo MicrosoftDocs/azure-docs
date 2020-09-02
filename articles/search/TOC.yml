@@ -88,9 +88,6 @@
     href: /samples/browse/?languages=python&products=azure-cognitive-search
   - name: REST samples
     href: /samples/browse/?expanded=azure&languages=http&products=azure-cognitive-search
-  - name: Azure Policy built-ins
-    displayName: samples, policies, definitions
-    href: ./policy-samples.md
 - name: Concepts
   items:
   - name: Full-text search
@@ -496,6 +493,9 @@
       items:
       - name: Named Entity Recognition
         href: cognitive-search-skill-named-entity-recognition.md
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-reference.md
 - name: Resources
   items:
   - name: Azure Community Support
