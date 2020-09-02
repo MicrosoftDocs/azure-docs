@@ -278,6 +278,20 @@ This article answers common questions about Azure Files features and functionali
 
     Yes, we support REST APIs that get, set, or copy NTFS ACLs for directories or files when using the [2019-07-07](https://docs.microsoft.com/rest/api/storageservices/versioning-for-the-azure-storage-services#version-2019-07-07) (or later) REST API. We also support persisting Windows ACLs in REST based tools: [AzCopy v10.4+](https://github.com/Azure/azure-storage-azcopy/releases).
 
+## Network File System
+
+### Can my current application take advantage of NFS?
+
+Any application using NFS version 4.1 should work with minimal or no modifications.
+
+### How do I backup data stored in NFS shares?
+
+Currently, there is no first party support for backup. There are third party options such as rsync, tar, or any tool that supports NFS 4.1 which can copy data.
+
+### Can I migrate existing data to an NFS share?
+
+Within a region, you can use standard tools like scp, rsync, or SSHFS to move data. Because Azure Files NFS can be accessed from multiple compute instances concurrently, you can improve copying speeds with parallel uploads. If you want to bring data from outside of a region, use a VPN or a Expressroute to mount to your file system from your on-premises data center.
+
 ## On-premises access
 
 * <a id="port-445-blocked"></a>
