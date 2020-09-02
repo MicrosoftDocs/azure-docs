@@ -1,6 +1,6 @@
 ---
-title: Manage private endpoints
-description: Learn how to managed private endpoints in Stream Analytics cluster
+title: Manage private endpoints in an Azure Stream Analytics cluster
+description: Learn how to managed private endpoints in an Azure Stream Analytics cluster.
 author: sidramadoss
 ms.author: sidram
 ms.reviewer: mamccrea
@@ -10,44 +10,52 @@ ms.custom: mvc
 ms.date: 09/22/2020
 ---
 
-# Manage private endpoints in Stream Analytics cluster
-<Token>**APPLIES TO:** ![yes](./media/applies-to/yes.png)Stream Analytics cluster</Token> 
+# Manage private endpoints in an Azure Stream Analytics cluster
 
-Stream Analytics allows you to connect your ASA jobs to your input and output resources that are behind a firewall or a Azure Virtual Network (VNet). This is a 2-step process:
-1. Create a private endpoint for a resource (e.g., Azure Event Hub, Azure SQL Database) in your ASA Cluster.
-2. Goto your resource (e.g., Azure Event Hub, Azure SQL Database) and approve the private endpoint connection you created in the previous step.
+You can connect your Azure Stream Analytics jobs running on a cluster to input and output resources that are behind a firewall or a Azure Virtual Network (VNet). First, you create a private endpoint for a resource, such as Azure Event Hub or Azure SQL Database, in your Stream Analytics cluster. Then, approve the private endpoint connection from your input or output.
 
-After approving the connection, any job running in your ASA cluster will be able to access the resource through the private endpoint.
+Once you approve the connection, any job running in your Stream Analytics cluster has access the resource through the private endpoint. This article shows you how to create and delete private endpoints in a Stream Analytics cluster.
 
 ## Create private endpoint in Stream Analytics cluster
-1. Sign in to the Azure portal.
-2. Locate and select your Stream Analytics cluster.
-3. Under **Settings**, select **Private endpoints**.
-4. Select **Add private endpoint** and choose the resource you want to access securely through a private endpoint.
-   |Setting|Value|
-    |---|---|
-    |Name|Enter any name for your private endpoint. If this name is taken, create a unique one.|
-    |Connection method|Select **Connect to an Azure resource in my directory**.<br><br>You can then choose one of your resources to securely connect to using the private endpoint. Or you can connect to someone else's resource by using a resource ID or alias that they've shared with you.|
-    |Subscription|Select your subscription.|
-    |Resource type|Choose the [resource type that maps to your resource](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#private-link-resource).|
-    |Resource|Select the resource you want to connect to using private endpoint.|
-    |Target sub-resource|The type of sub-resource for the resource selected above that your private endpoint will be able to access.|
-    ![image of private endpoint create experience](./media/private-endpoints/create-private-endpoint.png)
-5. You have now created a private endpoint in your ASA cluster. The next step is to approve this connection from the target resource side. For example, if you created a private endpoint to a Azure SQL DB instance in the previous step, you should go to this SQL DB instance and see a pending connection that should be approved. Note that it might take a few minutes for connection request to show up. 
-    ![approve private endpoint](./media/private-endpoints/approve-private-endpoint.png)
-6. You can go back to you ASA cluster and see the state change from **Pending customer approval** to **Pending DNS Setup** to **Setup complete** within couple of minutes.
 
-## Delete private endpoint in Stream Analytics cluster
-1. Sign in to the Azure portal.
-2. Locate and select your Stream Analytics cluster.
-3. Under **Settings**, select **Private endpoints**.
-4. Choose the private endpoint you want to delete.
+In this section, you learn how to create a private endpoint in a Stream Analytics cluster.
+
+1. In the Azure portal, locate and select your Stream Analytics cluster.
+
+1. Under **Settings**, select **Private endpoints**.
+
+1. Select **Add private endpoint** and enter the following information to choose the resource you want to access securely through a private endpoint.
+
+   |Setting|Value|
+   |---|---|
+   |Name|Enter any name for your private endpoint. If this name is taken, create a unique name.|
+   |Connection method|Select **Connect to an Azure resource in my directory**.<br><br>You can choose one of your resources to securely connect to using the private endpoint, or you can connect to someone else's resource by using a resource ID or alias that they've shared with you.|
+   |Subscription|Select your subscription.|
+   |Resource type|Choose the [resource type that maps to your resource](../private-link/private-endpoint-overview.md#private-link-resource).|
+   |Resource|Select the resource you want to connect to using private endpoint.|
+   |Target sub-resource|The type of sub-resource for the resource selected above that your private endpoint will be able to access.|
+
+   ![The private endpoint create experience](./media/private-endpoints/create-private-endpoint.png)
+
+1. You have now created a private endpoint in your Stream Analytics cluster. The next step is to approve this connection from the target resource side. For example, if you created a private endpoint to a Azure SQL Database instance in the previous step, you should go to this SQL Database instance and see a pending connection that should be approved. Note that it might take a few minutes for connection request to show up.
+
+    ![approve private endpoint](./media/private-endpoints/approve-private-endpoint.png)
+
+1. You can go back to you Stream Analytics cluster to see the state change from **Pending customer approval** to **Pending DNS Setup** to **Setup complete** within couple of minutes.
+
+## Delete a private endpoint in a Stream Analytics cluster
+
+1. In the Azure poral, locate and select your Stream Analytics cluster.
+
+1. Under **Settings**, select **Private endpoints**.
+
+1. Choose the private endpoint you want to delete and select **Delete**.
+
    ![delete private endpoint](./media/private-endpoints/delete-private-endpoint.png)
 
 ## Next steps
 
-You now have an overview of managing private endpoints in Azure Stream Analytics cluster. Next, you can learn how to scale your clusters and run jobs in your cluster:
+You now have an overview of how to manage private endpoints in an Azure Stream Analytics cluster. Next, you can learn how to scale your clusters and run jobs in your cluster:
 
-* [Scaling Stream Analytics cluster](stream-analytics-scale-cluster.md).
-* [Managing Stream Analytics jobs in a Stream Analytics cluster](stream-analytics-manage-jobs-cluster.md).
-* [Create a Stream Analytics job](stream-analytics-quick-create-portal.md).
+* [Scale an Azure Stream Analytics cluster](scale-cluster.md)
+* [Manage Stream Analytics jobs in a Stream Analytics cluster](manage-jobs-cluster.md)

@@ -1,6 +1,6 @@
 ---
-title: Manage jobs in Stream Analytics cluster
-description: Learn how to managed jobs in Stream Analytics cluster
+title: Manage jobs in an Azure Stream Analytics cluster
+description: Learn how to managed Stream Analytics jobs in an Azure Stream Analytics cluster
 author: sidramadoss
 ms.author: sidram
 ms.reviewer: mamccrea
@@ -10,38 +10,43 @@ ms.custom: mvc
 ms.date: 09/22/2020
 ---
 
-# Manage jobs in Stream Analytics cluster
-<Token>**APPLIES TO:** ![yes](./media/applies-to/yes.png)Stream Analytics cluster</Token> 
+# Manage jobs in an Azure Stream Analytics cluster
 
-Once you have created your Stream Analytics cluster, you can make use of it by running Stream Analytics jobs on it. This is a 2-step process:
-1. Add your Stream Analytics job to your Stream Analytics cluster.
-2. Start the Stream Analytics job
+You can run multiple Azure Stream Analytics jobs on a Stream Analytics cluster. Running jobs on a cluster is a simple 2-step process: add the job to the cluster and start the job. This article shows you how to add and remove jobs from an existing cluster. If you don't have a Stream Analytics cluster, you can follow the quickstart to create one.
 
-## Add Stream Analytics jobs to a cluster
-If you don't already have a Stream Analytics jobs, you can [create one easily](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-portal). Once you have a job that you want to add to a cluster, you can:
-1. Sign in to the Azure portal.
-2. Locate and select your Stream Analytics cluster.
-3. Under **Settings**, select **Stream Analytics jobs**. And then select **Add existing job**. 
-4. You can then select the subscription and the Stream Analytics job you want to add to this cluster. Only those Stream Analytics that are in the same region as the cluster can be added to the cluster.
-   ![add job to cluster](./media/manage-jobs-cluster/add-job.png) 
-5. After adding the job to a cluster, you can navigate to the job and [start it](https://docs.microsoft.com/azure/stream-analytics/start-job#azure-portal). The job will then start to run on your cluster.
+## Add a Stream Analytics job to a cluster
 
-All other operations such as monitoring, alerting, diagnostic logs continue to be a Stream Analytics job level.
+If you don't already have a Stream Analytics job, you can [create one](stream-analytics-quick-create-portal.md) using the Azure portal. Once you have a job that you want to add to a cluster, use the following steps to add the job to your cluster.
+
+1. In the Azure portal, locate and select your Stream Analytics cluster.
+
+1. Under **Settings**, select **Stream Analytics jobs**. Then, select **Add existing job**.
+
+1. Select the subscription and the Stream Analytics job you want to add to the cluster. Only Stream Analytics that are in the same region as the cluster can be added to the cluster.
+
+   ![Add job to cluster](./media/manage-jobs-cluster/add-job.png)
+
+1. After you have added the job to the cluster, navigate to the job resource and [start the job](start-job.md#azure-portal). The job will then start to run on your cluster.
+
+You can do all other operations, such as monitoring, alerting, and diagnostic logs, from the Stream Analytics job resource page.
 
 ## Remove a Stream Analytics job from a cluster
-Stream Analytics jobs must be in a stopped state before it can be removed from the cluster.
-1. Sign in to the Azure portal.
-2. Locate and select your Stream Analytics cluster.
-3. Under **Settings**, select **Stream Analytics jobs**.
-4. Select the jobs you want to remove from the cluster and then select **Remove**.
+
+Stream Analytics jobs must be in a stopped state before it can be removed from the cluster. If your job is still running, stop the job before you move on to the following steps.
+
+1. Locate and select your Stream Analytics cluster.
+
+1. Under **Settings**, select **Stream Analytics jobs**.
+
+1. Select the jobs you want to remove from the cluster, and then select **Remove**.
+
    ![remove job from cluster](./media/manage-jobs-cluster/remove-job.png)
 
-When a job is removed from a Stream Analytics cluster, it falls back to the standard multi-tenant environment.
+   When a job is removed from a Stream Analytics cluster, it returns to the standard multi-tenant environment.
 
 ## Next steps
 
 You now know how to add and remove jobs in your Azure Stream Analytics cluster. Next, you can learn how to manage private endpoints and scale your clusters:
 
-* [Scaling Stream Analytics cluster](stream-analytics-scale-cluster.md).
-* [Manage private endpoints](stream-analytics-privateendpoints.md).
-* [Create a Stream Analytics job](stream-analytics-quick-create-portal.md).
+* [Scale an Azure Stream Analytics cluster](scale-cluster.md)
+* [Manage private endpoints in an Azure Stream Analytics cluster](private-endpoints.md)
