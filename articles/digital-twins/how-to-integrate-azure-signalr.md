@@ -26,6 +26,7 @@ The solution described in this article will allow you push digital twin telemetr
 Here are the prerequisites you should complete before proceeding:
 
 * Before integrating your solution with Azure SignalR service in this article, you should complete the Azure Digital Twins [*Tutorial: Connect an end-to-end solution*](tutorial-end-to-end.md), because this how-to builds on top of it. The tutorial walks you through setting up an Azure Digital Twins instance that works with a virtual IoT device to trigger digital twin updates. This how-to will connect those updates to a sample web app using Azure SignalR Service.
+    - You'll need the name of your **event grid topic**
 * Have [Node.js](https://nodejs.org/) installed on your machine.
 
 You can also go ahead and sign in to the [Azure portal](https://portal.azure.com/) with your Azure account.
@@ -39,9 +40,9 @@ You will be attaching Azure SignalR Service to Azure Digital Twins through the p
 ## Download the sample applications
 
 First, download the required sample apps. You will need both of the following:
-* [Azure Digital Twins samples](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples/): This sample contains an *AdtSampleApp* holding two Azure functions for moving data around an Azure Digital Twins instance (you can learn about this scenario in more detail in [*Tutorial: Connect an end-to-end solution*](tutorial-end-to-end.md)). It also contains a *DeviceSimulator* sample application that simulates an IoT device, generating a new temperature value every second. 
+* [**Azure Digital Twins samples**](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples/): This sample contains an *AdtSampleApp* holding two Azure functions for moving data around an Azure Digital Twins instance (you can learn about this scenario in more detail in [*Tutorial: Connect an end-to-end solution*](tutorial-end-to-end.md)). It also contains a *DeviceSimulator* sample application that simulates an IoT device, generating a new temperature value every second. 
     - Navigate to the sample link and hit the *Download ZIP* button to download a copy of the sample to your machine, as _**Azure_Digital_Twins_samples.zip**_. Unzip the folder.
-* [Sample client web app](https://docs.microsoft.com/samples/azure-samples/digitaltwins-signalr-webapp-sample/digital-twins-samples/): This is a React web app that will consume Azure Digital Twins telemetry data from an Azure SignalR service.
+* [**SignalR integration web app sample**](https://docs.microsoft.com/samples/azure-samples/digitaltwins-signalr-webapp-sample/digital-twins-samples/): This is a sample React web app that will consume Azure Digital Twins telemetry data from an Azure SignalR service.
     -  Navigate to the sample link and hit the *Download ZIP* button to download a copy of the sample to your machine, as _**Azure_Digital_Twins_SignalR_integration_web_app_sample.zip**_. Unzip the folder.
     - 
 [!INCLUDE [Create instance](../azure-signalr/includes/signalr-quickstart-create-instance.md)]
@@ -54,7 +55,7 @@ In this section, you will set up two Azure functions:
 * **negotiate** - A HTTP trigger function. It uses the *SignalRConnectionInfo* input binding to generate and return valid connection information.
 * **broadcast** - An [Event Grid](../event-grid/overview.md) trigger function. It receives Azure Digital Twins telemetry data through the event grid, and uses the output binding of the *SignalR* instance you created in the previous step to broadcast the message to all connected client applications.
 
-First, go to the browser where the Azure portal is opened, and complete the following steps.
+First, go to the browser where the Azure portal is opened, and complete the following steps to get the **connection string** for the SignalR instance you've set up. You will need it to configure the functions.
 1. Confirm the SignalR Service instance you deployed earlier was successfully created. You can do this by searching for its name in the search box at the top of the portal. Select the instance to open it.
 
 1. Select **Keys** from the instance menu to view the connection strings for the SignalR Service instance.
@@ -63,11 +64,11 @@ First, go to the browser where the Azure portal is opened, and complete the foll
 
     :::image type="content" source="media/how-to-integrate-azure-signalr/signalr-keys.png" alt-text="Screenshot of the Azure portal that shows the Keys page for the SignalR instance. The 'Copy to clipboard' icon next to the Primary CONNECTION STRING is highlighted.":::
 
-Next, start Visual Studio (or another code editor of your choice), and open the code solution in the *Azure_Digital_Twins_samples > ADTSampleApp* folder. Then do the following steps:
+Next, start Visual Studio (or another code editor of your choice), and open the code solution in the *Azure_Digital_Twins_samples > ADTSampleApp* folder. Then do the following steps to create the functions:
 
 1. Create a new C# sharp class called **SignalRFunctions.cs** in the *SampleFunctionsApp* project.
 
-1. Replace the contents of the class with the following code:
+1. Replace the contents of the class file with the following code:
 
     ```C#
     using System;
@@ -129,28 +130,41 @@ Next, start Visual Studio (or another code editor of your choice), and open the 
     }
     ```
 
-1. In Visual Studio's console window or a command window on your machine, run the following command to install the `SignalRService` NuGet package:
+1. In Visual Studio's *Package Manager Console* window, or any command window on your machine in the *Azure_Digital_Twins_samples\AdtSampleApp\SampleFunctionsApp* folder, run the following command to install the `SignalRService` NuGet package to the project:
     ```cmd
     dotnet add package Microsoft.Azure.WebJobs.Extensions.SignalRService --version 1.2.0
     ```
 
-1. Publish your function to Azure, using the steps described in the [*Publish the app* section](tutorial-end-to-end.md#publish-the-app) of the *Connect an end-to-end solution* tutorial.
+    This should resolve any dependency issues in the class.
 
-1. Finally, add your Azure SignalR connection string from *step 3* earlier to the function's app settings, using the following Azure CLI command. The command can be run in [Azure Cloud Shell](https://shell.azure.com), or locally if you have the Azure CLI [installed on your machine](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest):
+Next, publish your function to Azure, using the steps described in the [*Publish the app* section](tutorial-end-to-end.md#publish-the-app) of the *Connect an end-to-end solution* tutorial. You can publish it to the same app service/function app that you used in the end-to-end tutorial prereq, or create a new one—but you may want to use the same one to minimize duplication. Also, finish out the app publish with the following steps:
+1. Collect the *negotiate* function's **HTTP endpoint URL**. To do this, go to the Azure portal's [Function apps](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Web%2Fsites/kind/functionapp) page and select your function app from the list. In the app menu, select *Functions* and choose the *negotiate* function.
+
+    :::image type="content" source="media/how-to-integrate-azure-signalr/functions-negotiate.png" alt-text="Azure portal view of the function app, with 'Functions' highlighted in the menu. The list of functions are shown on the page, and the 'negotiate' function is also highlighted.":::
+
+    Hit *Get function URL* and copy the value *through the /api part (don't include the last /negotiate?)*. You wil use this later.
+
+    :::image type="content" source="media/how-to-integrate-azure-signalr/get-function-url.png" alt-text="Azure portal view of the 'negotiate' function. The 'Get function URL' buttom is highlighted, and the portion of the URL from the beginning through '/api'":::
+
+1. Finally, add your Azure SignalR **connection string** from earlier to the function's app settings, using the following Azure CLI command. The command can be run in [Azure Cloud Shell](https://shell.azure.com), or locally if you have the Azure CLI [installed on your machine](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest):
  
     ```azurecli-interactive
     az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "AzureSignalRConnectionString=<your-Azure-SignalR-ConnectionString>"
     ```
 
+    The output of this command prints all the app settings set up for your Azure function. Look for `AzureSignalRConnectionString` at the bottom of the list to verify it was added.
+
+    :::image type="content" source="media/how-to-integrate-azure-signalr/output-app-setting.png" alt-text="Excerpt of output in a command window, showing a list item called 'AzureSignalRConnectionString'":::
+
 #### Connect the function to Event Grid
 
-Next, subscribe the *broadcast* Azure function to the event grid topic you created earlier in [*Tutorial: Connect an end-to-end solution*](./tutorial-end-to-end.md), so that telemetry data can flow from the *thermostat67* twin through the event grid topic to the function, which can then be broadcasted to all the clients.
+Next, subscribe the *broadcast* Azure function to the **event grid topic** you created during the [*Tutorial: Connect an end-to-end solution*](tutorial-end-to-end.md) prereq. This will allow telemetry data can flow from the *thermostat67* twin through the event grid topic to the function, which can be broadcast it to all the clients.
 
 To do this, you'll create an **Event Grid subscription** from your event grid topic to your *broadcast* Azure function as an endpoint.
 
 In the [Azure portal](https://portal.azure.com/), navigate to your event grid topic by searching for its name in the top search bar. Select *+ Event Subscription*.
 
-:::image type="content" source="media/tutorial-end-to-end/event-subscription-1b.png" alt-text="Azure portal: Event Grid event subscription":::
+:::image type="content" source="media/how-to-integrate-azure-signalr/event-subscription-1b.png" alt-text="Azure portal: Event Grid event subscription":::
 
 On the *Create Event Subscription* page, fill in the fields as follows (fields filled by default are not mentioned):
 * *EVENT SUBSCRIPTION DETAILS* > **Name**: Give a name to your event subscription.
@@ -159,15 +173,17 @@ On the *Create Event Subscription* page, fill in the fields as follows (fields f
     - Fill in your **Subscription**, **Resource group**, **Function app** and **Function** (*broadcast*). Some of these may auto-populate after selecting the subscription.
     - Hit **Confirm Selection**.
 
+:::image type="content" source="media/how-to-integrate-azure-signalr/create-event-subscription.png" alt-text="Azure portal view of creating an event subscription. The fields above are filled in, and the 'Confirm Selection' and 'Create' buttons are highlighted.":::
+
 Back on the *Create Event Subscription* page, hit **Create**.
 
 ## Configure and run the web app
 
-In this section, you will see the result in action. First, you'll start up the **simulated device sample app** that sends telemetry data through your Azure Digital Twins instance. Then, you'll configure the **sample client web app** to connect to the Azure SignalR flow you've set up. Then, you should be able to see the data updating the sample web app in real time.
+In this section, you will see the result in action. First, you'll start up the **simulated device sample app** that sends telemetry data through your Azure Digital Twins instance. Then, you'll configure the **sample client web app** to connect to the Azure SignalR flow you've set up. After that, you should be able to see the data updating the sample web app in real time.
 
 ### Run the device simulator
 
-During the [end-to-end tutorial prerequisite](tutorial-end-to-end.md#configure-and-run-the-simulation), you configured the device simulator to send data through an IoT Hub and to your Azure Digital Twins instance.
+During the end-to-end tutorial prerequisite, you [configured the device simulator](tutorial-end-to-end.md#configure-and-run-the-simulation) to send data through an IoT Hub and to your Azure Digital Twins instance.
 
 Now, all you have to do is start the simulator project, located in *Azure_Digital_Twins_samples > DeviceSimulator > DeviceSimulator.sln*. If you're using Visual Studio, you can open the project and then run it with this button in the toolbar:
 
@@ -179,31 +195,31 @@ You don't need to do anything else in this console, but leave it running while y
 
 ### Configure the sample client web app
 
-Next, open the **sample web app**. 
+Next, set up the **SignalR integration web app sample** with these steps:
 1. Using Visual Studio or any code editor of your choice, open the unzipped _**Azure_Digital_Twins_SignalR_integration_web_app_sample**_ folder that you downloaded in the [*Prerequisites*](#prerequisites) section.
 
-1. Open the *src/App.js* file, and replace the URL in `HubConnectionBuilder` with the HTTP endpoint of the **negotiate** function:
+1. Open the *src/App.js* file, and replace the URL in `HubConnectionBuilder` with the HTTP endpoint URL of the **negotiate** function that you saved earlier:
 
     ```javascript
         const hubConnection = new HubConnectionBuilder()
             .withUrl('<URL>')
             .build();
     ```
-1. In Visual Studio's console window or a command window on your machine, run the following command to install the dependent node packages:
+1. In Visual Studio's *Developer command prompt* or any command window on your machine, navigate to the *Azure_Digital_Twins_SignalR_integration_web_app_sample\src* folder. Run the following command to install the dependent node packages:
 
     ```cmd
     npm install
     ```
 
-Next, open your function app in the Azure portal.
+Next, set permissions in your function app in the Azure portal:
 1. In the Azure portal's [Function apps](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Web%2Fsites/kind/functionapp) page, select your function app instance.
-1. Select *CORS* from the instance menu, and add `http://localhost:3000` as an allowed origin. Check the box for *Enable Access-Control-Allow-Credentials* and hit *Save*.
+1. Scroll down in the instance menu and select *CORS*. On the CORS page, add `http://localhost:3000` as an allowed origin by entering it into the empty box. Check the box for *Enable Access-Control-Allow-Credentials* and hit *Save*.
 
-    :::image type="content" source="media/how-to-integrate-azure-signalr/cors-setting-azurefunction.png" alt-text="CORS Setting in Azure Function":::
+    :::image type="content" source="media/how-to-integrate-azure-signalr/cors-setting-azure-function.png" alt-text="CORS Setting in Azure Function":::
 
 ### See the results
 
-To see the results in action, start the sample web app using this command in a console window:
+To see the results in action, start the **SignalR integration web app sample**. You can do this from any console window at the *Azure_Digital_Twins_SignalR_integration_web_app_sample\src* location, by running this command:
 
 ```cmd
 npm start
@@ -215,11 +231,10 @@ The app displays a visual temperature gauge. Once the app is running, you should
    
 ## Next steps
 
-Learn about Azure SignalR Service Authentication with Azure Functions
+In this article, you set up Azure functions with SignalR to broadcast Azure Digital Twins telemetry events to a sample client application.
+
+Next, learn more about Azure SignalR Service:
+* [*What is Azure SignalR Service?*](../azure-signalr/signalr-overview.md)
+
+Or read more about Azure SignalR Service Authentication with Azure Functions:
 * [*Azure SignalR Service authentication*](../azure-signalr/signalr-tutorial-authenticate-azure-functions.md)
-
-Or, start looking at the concept documentation to learn more about elements you worked with in the tutorial:
-* [*Concepts: Custom models*](concepts-models.md)
-
-Or, go more in-depth on the processes in this tutorial by starting the how-to articles:
-* [*How-to: Use the Azure Digital Twins CLI*](how-to-use-cli.md)
