@@ -1,29 +1,30 @@
 ---
 title: What are Azure Cognitive Services?
 titleSuffix: Azure Cognitive Services
-description: Azure Cognitive Services are APIs, SDKs, and services that you can use with Microsoft Azure to build intelligent applications.
+description: Azure Cognitive Services are cloud services with REST APIs, and client library SDKs that you can use with Microsoft Azure to build intelligent applications.
 services: cognitive-services
 author: nitinme
 manager: nitinme
-
+keywords: cognitive services, cognitive intelligence, cognitives services, ai as a service, cognitive solutions, cognitive artificial intelligence, cognitive software, ai services, cognitive ai, cognitive understanding
 ms.service: cognitive-services
 ms.subservice:
 ms.topic: overview
 ms.date: 08/28/2020
 ms.author: nitinme
+ms.custom: cog-serv-seo-aug-2020
 ---
 
 # What are Azure Cognitive Services?
 
-Azure Cognitive Services are APIs, SDKs, and services available to help developers build intelligent applications without having direct AI or data science skills or knowledge. Azure Cognitive Services enable developers to easily add cognitive features into their applications. The goal of Azure Cognitive Services is to help developers create applications that can see, hear, speak, understand, and even begin to reason. The catalog of services within Azure Cognitive Services can be categorized into five main pillars - Vision, Speech, Language, Web Search, and Decision.
+Azure Cognitive Services are cloud services with REST APIs, and client library SDKs available to help developers build cognitive intelligent applications without having direct artificial intelligence (AI) or data science skills or knowledge. Azure Cognitive Services enable developers to easily add cognitive features into their applications. The goal of Azure Cognitive Services is to help developers create applications that can see, hear, speak, understand, and even begin to reason. The catalog of services within Azure Cognitive Services can be categorized into five main pillars - Vision, Speech, Language, Web Search, and Decision.
 
-Want to see what's new and updated Cognitive Services documentation? Check out, [What's new in Cognitive Services docs](whats-new-docs.md).
+The current list of new documentation is available at [What's new in Cognitive Services docs](whats-new-docs.md).
 
 ## Vision APIs
 
 |Service Name|Service Description|
 |:-----------|:------------------|
-|[Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/ "Computer Vision")|The Computer Vision service provides you with access to advanced algorithms for processing images and returning information.|
+|[Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/ "Computer Vision")|The Computer Vision service provides you with access to advanced cognitive algorithms for processing images and returning information.|
 |[Custom Vision Service](https://docs.microsoft.com/azure/cognitive-services/Custom-Vision-Service/home "Custom Vision Service")|The Custom Vision Service allows you to build custom image classifiers.|
 |[Face](https://docs.microsoft.com/azure/cognitive-services/face/ "Face")| The Face service provides access to advanced face algorithms, enabling face attribute detection and recognition.|
 |[Form Recognizer](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/ "Form Recognizer") (Preview)|Form Recognizer identifies and extracts key-value pairs and table data from form documents; then outputs structured data including the relationships in the original file.|
@@ -80,40 +81,40 @@ Want to see what's new and updated Cognitive Services documentation? Check out, 
 
 Once you are signed in with your Microsoft Account, you can access [My subscriptions](https://www.microsoft.com/cognitive-services/subscriptions "My subscriptions") to show the products you are using, the quota remaining, and the ability to add additional products to your subscription.
 
-## Upgrade to unlock limits
+## Upgrade to unlock higher limits
 
 All APIs have a free tier, which has usage and throughput limits.  You can increase these limits by using a paid offering and selecting the appropriate pricing tier option when deploying the service in the Azure portal. [Learn more about the offerings and pricing](https://azure.microsoft.com/pricing/details/cognitive-services/ "offerings and pricing"). You'll need to set up an Azure subscriber account with a credit card and a phone number. If you have a special requirement or simply want to talk to sales, click "Contact us" button at the top the pricing page.
 
 ## Regional availability
 
-The APIs in Cognitive Services are hosted on a growing network of Microsoft-managed data centers. You can find the regional availability for each API in [Azure region list](https://azure.microsoft.com/regions).
+The APIs in Cognitive Services are hosted on a growing network of Microsoft-managed data centers. You can find the regional availability for each API in [Azure region list](https://azure.microsoft.com/regions "Azure region list").
 
-Looking for a region we don't support yet? Let us know by filing a feature request on our [UserVoice forum](https://cognitive.uservoice.com/).
+Looking for a region we don't support yet? Let us know by filing a feature request on our [UserVoice forum](https://cognitive.uservoice.com/ "UserVoice forum").
 
 ## Supported cultural languages
 
- Cognitive Services supports a wide range of cultural languages at the service level. You can find the language availability for each API in the [supported languages list](language-support.md).
+ Cognitive Services supports a wide range of cultural languages at the service level. You can find the language availability for each API in the [supported languages list](language-support.md "supported languages list").
 
 ## Securing resources
 
-Azure Cognitive Services provides a layered security model, including [authentication](authentication.md) via Azure Active Directory credentials, a valid resource key, and [Azure Virtual Networks](cognitive-services-virtual-networks.md).
+Azure Cognitive Services provides a layered security model, including [authentication](authentication.md "authentication") via Azure Active Directory credentials, a valid resource key, and [Azure Virtual Networks](cognitive-services-virtual-networks.md "Azure Virtual Networks").
 
 ## Container support
 
- Cognitive Services provides containers for deployment in the Azure cloud or on-premises. Learn more about [Cognitive Services Containers](cognitive-services-container-support.md).
+ Cognitive Services provides containers for deployment in the Azure cloud or on-premises. Learn more about [Cognitive Services Containers](cognitive-services-container-support.md "Cognitive Services Containers").
 
 ## Certifications and compliance
 
 Cognitive Services has been awarded certifications such as CSA STAR Certification, FedRAMP Moderate, and HIPAA BAA.
 
-You can [download](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) certifications for your own audits and security reviews.
+You can [download](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942 "download") certifications for your own audits and security reviews.
 
-To understand privacy and data management, go to the [Trust Center](https://servicetrust.microsoft.com/).
+To understand privacy and data management, go to the [Trust Center](https://servicetrust.microsoft.com/ "Trust Center").
 
 ## Support
 
-Cognitive Services provide several [support options](cognitive-services-support-options.md).
+Cognitive Services provide several [support options](cognitive-services-support-options.md "support options").
 
 ## Next steps
 
-* [Create a Cognitive Services account](cognitive-services-apis-create-account.md)
+* [Create a Cognitive Services account](cognitive-services-apis-create-account.md "Create a Cognitive Services account")

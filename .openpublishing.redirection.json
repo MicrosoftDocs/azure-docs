@@ -1531,6 +1531,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/Welcome.md",
+      "redirect_url": "/azure/cognitive-services/what-are-cognitive-services",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/cognitive-services/immersive-reader/ios-quickstart.md",
       "redirect_url": "/azure/cognitive-services/immersive-reader/quickstarts/client-libraries?pivots=programming-language-swift",
       "redirect_document_id": false
@@ -4758,9 +4763,14 @@
     },
     {
       "source_path": "articles/key-vault/key-vault-group-permissions-for-apps.md",
-      "redirect_url": "/azure/key-vault/general/group-permissions-for-apps",
+      "redirect_url": "/azure/key-vault/general/assign-access-policy-cli",
       "redirect_document_id": false
     },
+    {
+      "source_path": "articles/key-vault/general/group-permissions-for-apps.md",
+      "redirect_url": "/azure/key-vault/general/assign-access-policy-cli",
+      "redirect_document_id": false
+    },    
     {
       "source_path": "articles/key-vault/key-vault-hsm-protected-keys.md",
       "redirect_url": "/azure/key-vault/keys/hsm-protected-keys",
@@ -4874,7 +4884,12 @@
 
     {
       "source_path": "articles/key-vault/managed-identity.md",
-      "redirect_url": "/azure/key-vault/general/managed-identity",
+      "redirect_url": "/azure/key-vault/general/assign-access-policy-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/key-vault/general/managed-identity.md",
+      "redirect_url": "/azure/key-vault/general/assign-access-policy-portal",
       "redirect_document_id": false
     },
     {
@@ -21395,6 +21410,26 @@
     {
       "source_path": "articles/marketplace/marketplace-terms.md",
       "redirect_url": "/legal/marketplace/terms",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/ccp-saas-offer.md",
+      "redirect_url": "/azure/marketplace/create-new-saas-offer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/partner-center-portal/create-new-saas-offer.md",
+      "redirect_url": "/azure/marketplace/create-new-saas-offer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/partner-center-portal/offer-creation-checklist.md",
+      "redirect_url": "/azure/marketplace/plan-saas-offer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/marketplace-saas-applications-technical-publishing-guide.md",
+      "redirect_url": "/azure/marketplace/plan-saas-offer",
       "redirect_document_id": false
     },
     {
