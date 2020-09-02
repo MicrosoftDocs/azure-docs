@@ -704,6 +704,15 @@ To use the Azure Monitor Dependency agent extension, the following sample is pro
 
 ## Uninstall extension
 
+Removing one or more extensions from an Arc enabled server can only be carried out from the Azure portal. Perform the following steps to remove an extension.
+
+1. From your browser, go to the [Azure portal](https://portal.azure.com).
+
+2. In the portal, browse to **Servers - Azure Arc** and select your hybrid machine from the list.
+
+3. Choose **Extensions**, then select an extension from the list of installed extensions.
+
+4. Select **Uninstall** and when prompted to verify, select **Yes** to proceed.
 
 ## Troubleshooting
 
