@@ -4,7 +4,7 @@ titleSuffix: Azure Network Watcher
 description: Learn how to migrate to Connection Monitor (Preview) from Network Performance Monitor.
 services: network-watcher
 documentationcenter: na
-author: vinigam
+author: vinynigam
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: how-to
