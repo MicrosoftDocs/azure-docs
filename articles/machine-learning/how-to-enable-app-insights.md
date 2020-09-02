@@ -14,7 +14,7 @@ ms.custom: how-to, devx-track-python
 ---
 
 # Monitor and collect data from ML web service endpoints
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 In this article, you learn how to collect data from and monitor models deployed to web service endpoints in Azure Kubernetes Service (AKS) or Azure Container Instances (ACI) by querying logs and enabling Azure Application Insights via 
 * [Azure Machine Learning Python SDK](#python)
