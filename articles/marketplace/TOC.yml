@@ -23,6 +23,8 @@
         href: ./standard-contract.md
       - name: Azure partner customer usage attribution
         href: ./azure-partner-customer-usage-attribution.md
+      - name: Supported countries and regions
+        href: ./sell-from-countries.md  
     - name: Publishing guides by offer type
       href: ./publisher-guide-by-offer-type.md
       items:

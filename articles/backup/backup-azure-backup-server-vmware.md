@@ -327,7 +327,7 @@ Add VMware VMs for backup. Protection groups gather multiple VMs and apply the s
 
    - The recommended disk allocations are based on the retention range you specified, the type of workload, and the size of the protected data. Make any changes required, and then select **Next**.
    - **Data size:** Size of the data in the protection group.
-   - **Disk space:** The recommended amount of disk space for the protection group. If you want to modify this setting, you should allocate total space that is slightly larger than the amount that you estimate each data source grows.
+   - **Disk space:** The recommended amount of disk space for the protection group. If you want to modify this setting, you should allocate total space that's slightly larger than the amount that you estimate each data source grows.
    - **Colocate data:** If you turn on colocation, multiple data sources in the protection can map to a single replica and recovery point volume. Colocation isn't supported for all workloads.
    - **Automatically grow:** If you turn on this setting, if data in the protected group outgrows the initial allocation, Azure Backup Server tries to increase the disk size by 25 percent.
    - **Storage pool details:** Shows the status of the storage pool, including total and remaining disk size.
@@ -435,7 +435,7 @@ To configure the disk exclusion, follow the steps below:
 
 Navigate to the MABS server where the VMware VM is configured for protection to configure disk exclusion.
 
-  1. Get the details of the VMware host that is protected on the MABS server.
+  1. Get the details of the VMware host that's protected on the MABS server.
 
         ```powershell
         $psInfo = get-DPMProductionServer
@@ -478,7 +478,7 @@ Navigate to the MABS server where the VMware VM is configured for protection to 
   4. To exclude the disk, navigate to the `Bin` folder and run the *ExcludeDisk.ps1* script with the following parameters:
 
         > [!NOTE]
-        > Before running this command, stop the DPMRA service on the MABS server. Otherwise, the script returns success, but does not update the exclusion list. Ensure there are no jobs in progress before stopping the service.
+        > Before running this command, stop the DPMRA service on the MABS server. Otherwise, the script returns success, but doesn't update the exclusion list. Ensure there are no jobs in progress before stopping the service.
 
      **To add/remove the disk from exclusion, run the following command:**
 

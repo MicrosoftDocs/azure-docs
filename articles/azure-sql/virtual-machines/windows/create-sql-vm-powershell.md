@@ -14,7 +14,8 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/21/2018
 ms.author: mathoma
-ms.reviewer: jroth
+ms.reviewer: jroth 
+ms.custom: devx-track-azurepowershell
 ---
 # How to use Azure PowerShell to provision SQL Server on Azure Virtual Machines
 

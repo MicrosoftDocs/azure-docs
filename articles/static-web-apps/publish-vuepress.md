@@ -73,7 +73,7 @@ Create a VuePress app from the Command Line Interface (CLI):
     echo 'node_modules' > .gitignore
     ```
 
-1. Initialize a git repo.
+1. Initialize a Git repo.
 
    ```bash
     git init

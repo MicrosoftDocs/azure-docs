@@ -155,12 +155,12 @@ To update the aks-preview CLI extension, use the following Azure CLI commands:
 az extension update --name aks-preview
 ```
 
-### Use the AKS specialized GPU image on new clusters (preview)
+### Use the AKS specialized GPU image on new clusters (preview)    
 
 Configure the cluster to use the AKS specialized GPU image when the cluster is created. Use the `--aks-custom-headers` flag for the GPU agent nodes on your new cluster to use the AKS specialized GPU image.
 
 ```azure-cli
-az aks create --name myAKSCluster --resource-group myResourceGroup --node-vm-size Standard_NC6s_v2 --node-count 1 --aks-custom-headers UseGPUDedicatedVHD=true
+az aks create --name myAKSCluster --resource-group myResourceGroup --node-vm-size Standard_NC6 --node-count 1 --aks-custom-headers UseGPUDedicatedVHD=true
 ```
 
 If you want to create a cluster using the regular AKS images, you can do so by omitting the custom `--aks-custom-headers` tag. You can also choose to add more specialized GPU node pools as per below.
@@ -175,6 +175,12 @@ az aks nodepool add --name gpu --cluster-name myAKSCluster --resource-group myRe
 ```
 
 If you want to create a node pool using the regular AKS images, you can do so by omitting the custom `--aks-custom-headers` tag. 
+
+> [!NOTE]
+> If your GPU sku requires generation 2 virtual machines, you can create doing:
+> ```azure-cli
+> az aks nodepool add --name gpu --cluster-name myAKSCluster --resource-group myResourceGroup --node-vm-size Standard_NC6s_v2 --node-count 1 --aks-custom-headers UseGPUDedicatedVHD=true,usegen2vm=true
+> ```
 
 ## Confirm that GPUs are schedulable
 

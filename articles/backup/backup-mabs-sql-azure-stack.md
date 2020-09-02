@@ -27,7 +27,7 @@ The management of SQL Server database backup to Azure and recovery from Azure in
   * MABS detects a failover and continues protection of the database.
   * MABS supports multi-site cluster configurations for an instance of SQL Server.
 * When you protect databases that use the AlwaysOn feature, MABS has the following limitations:
-  * MABS will honor the backup policy for availability groups that is set in SQL Server based on the backup preferences, as follows:
+  * MABS will honor the backup policy for availability groups that's set in SQL Server based on the backup preferences, as follows:
     * Prefer secondary - Backups should occur on a secondary replica except when the primary replica is the only replica online. If there are multiple secondary replicas available, then the node with the highest backup priority will be selected for backup. IF only the primary replica is available, then the backup should occur on the primary replica.
     * Secondary only - Backup shouldn't be performed on the primary replica. If the primary replica is the only one online, the backup shouldn't occur.
     * Primary - Backups should always occur on the primary replica.
@@ -95,7 +95,7 @@ The management of SQL Server database backup to Azure and recovery from Azure in
 
     ![Consistency check](./media/backup-azure-backup-sql/pg-consistent.png)
 
-    Azure Backup Server performs a consistency check on the integrity of the backup point. Azure Backup Server calculates the checksum of the backup file on the production server (SQL Server computer in this scenario) and the backed-up data for that file. If there is a conflict, it's assumed the backed-up file on Azure Backup Server is corrupt. Azure Backup Server rectifies the backed-up data by sending the blocks corresponding to the checksum mismatch. Because consistency checks are performance-intensive, you can schedule the consistency check or run it automatically.
+    Azure Backup Server performs a consistency check on the integrity of the backup point. Azure Backup Server calculates the checksum of the backup file on the production server (SQL Server computer in this scenario) and the backed-up data for that file. If there's a conflict, it's assumed the backed-up file on Azure Backup Server is corrupt. Azure Backup Server rectifies the backed-up data by sending the blocks corresponding to the checksum mismatch. Because consistency checks are performance-intensive, you can schedule the consistency check or run it automatically.
 
 10. To specify online protection of the datasources, select the databases to be protected to Azure and click **Next**.
 
@@ -151,7 +151,7 @@ While the previous steps created a backup policy, a “recovery point” is crea
 
 The following steps are required to recover a protected entity (SQL Server database) from Azure.
 
-1. Open the Azure Backup Server Management Console. Navigate to **Recovery** workspace where you can see the protected servers. Browse the required database (in this case ReportServer$MSDPM2012). Select a **Recovery from** time that is specified as an **Online** point.
+1. Open the Azure Backup Server Management Console. Navigate to **Recovery** workspace where you can see the protected servers. Browse the required database (in this case ReportServer$MSDPM2012). Select a **Recovery from** time that's specified as an **Online** point.
 
     ![Select Recovery point](./media/backup-azure-backup-sql/sqlbackup-restorepoint.png)
 2. Right-click the database name and click **Recover**.

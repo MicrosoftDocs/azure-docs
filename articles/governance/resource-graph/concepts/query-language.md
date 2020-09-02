@@ -1,7 +1,7 @@
 ---
 title: Understand the query language
 description: Describes Resource Graph tables and the available Kusto data types, operators, and functions usable with Azure Resource Graph.
-ms.date: 08/21/2020
+ms.date: 08/24/2020
 ms.topic: conceptual
 ---
 # Understanding the Azure Resource Graph query language
@@ -76,6 +76,29 @@ Resources
 > [!NOTE]
 > When limiting the `join` results with `project`, the property used by `join` to relate the two
 > tables, _subscriptionId_ in the above example, must be included in `project`.
+
+## <a name="extended-properties"></a>Extended properties (preview)
+
+As a _preview_ feature, some of the resource types in Resource Graph have additional type-related
+properties available to query beyond the properties provided by Azure Resource Manager. This set of
+values, known as _extended properties_, exists on a supported resource type in
+`properties.extended`. To see which resource types have _extended properties_, use the following
+query:
+
+```kusto
+Resources
+| where isnotnull(properties.extended)
+| distinct type
+| order by type asc
+```
+
+Example: Get count of virtual machines by `instanceView.powerState.code`:
+
+```kusto
+Resources
+| where type == 'microsoft.compute/virtualmachines'
+| summarize count() by tostring(properties.extended.instanceView.powerState.code)
+```
 
 ## Resource Graph custom language elements
 
@@ -154,10 +177,12 @@ explicitly defined as part of the request.
 
 As a **preview**, REST API version `2020-04-01-preview` adds a property to scope the query to a
 [management group](../../management-groups/overview.md). This preview API also makes the
-subscription property optional. If neither the management group or subscription list are defined,
-the query scope is all resources the authenticated user can access. The new `managementGroupId`
-property takes the management group ID, which is different from the name of the management group.
-When `managementGroupId` is specified, resources from the first 5000 subscriptions in or under the
+subscription property optional. If a management group or a subscription list isn't defined, the
+query scope is all resources, which includes
+[Azure Lighthouse](../../../lighthouse/concepts/azure-delegated-resource-management.md) delegated
+resources, that the authenticated user can access. The new `managementGroupId` property takes the
+management group ID, which is different from the name of the management group. When
+`managementGroupId` is specified, resources from the first 5000 subscriptions in or under the
 specified management group hierarchy are included. `managementGroupId` can't be used at the same
 time as `subscriptions`.
 

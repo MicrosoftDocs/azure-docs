@@ -34,7 +34,7 @@ To complete this tutorial series, you need:
 
 ## Initial setup
 
-In these tutorials, you update and use several configuration files. Initial versions of these files are available in the [LVA-gateway](https://github.com/Azure/live-video-analytics) GitHub repository. The repository also includes a scratchpad text file for you to download and use to record configuration values from the services you deploy.
+In these tutorials, you update and use several configuration files. Initial versions of these files are available in the [LVA-gateway](https://github.com/Azure/live-video-analytics/tree/master/ref-apps/lva-edge-iot-central-gateway) GitHub repository. The repository also includes a scratchpad text file for you to download and use to record configuration values from the services you deploy.
 
 Create a folder called *lva-configuration* on your local machine to save copies of these files. Then right-click on each of the following links and choose **Save as** to save the file into the *lva-configuration* folder:
 

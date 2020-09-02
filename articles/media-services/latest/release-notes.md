@@ -4,18 +4,20 @@ title: Azure Media Services v3 release notes | Microsoft Docs
 description: To stay up-to-date with the most recent developments, this article provides you with the latest updates on Azure Media Services v3.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 06/03/2020
-ms.author: juliako
+ms.date: 08/31/2020
+ms.author: inhenkel
 ---
 
 # Azure Media Services v3 release notes
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 >Get notified about when to revisit this page for updates by copying and pasting this URL: `https://docs.microsoft.com/api/search/rss?search=%22Azure+Media+Services+v3+release+notes%22&locale=en-us` into your RSS feed reader.
 
