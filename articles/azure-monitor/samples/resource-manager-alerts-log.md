@@ -14,8 +14,6 @@ This article includes samples of [Azure Resource Manager templates](../../azure-
 
 [!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-resource-manager-samples.md)]
 
-
-
 ## Example of number of results template (up to version 2018-04-16)
 The following sample creates a [number of results alert rule](../platform/alerts-unified-log.md#count-of-the-results-table-rows).
 

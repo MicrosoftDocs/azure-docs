@@ -42,7 +42,7 @@ Default webhook action properties and their custom JSON parameter names:
 | *SearchQuery* |#searchquery |Log search query used by the alert rule. |
 | *SearchResults* |"IncludeSearchResults": true|Records returned by the query as a JSON table, limited to the first 1,000 records. "IncludeSearchResults": true is added in a custom JSON webhook definition as a top-level property. |
 | *Dimensions* |"IncludeDimensions": true|Dimensions value combinations that triggered that alert as a JSON section. "IncludeDimensions": true is added in a custom JSON webhook definition as a top-level property. |
-| *Alert Type*| #alerttype | The type of log alert rule configured as [Metric measurement or Number of results](alerts-unified-log.md#measure)|
+| *Alert Type*| #alerttype | The type of log alert rule configured as [Metric measurement or Number of results](alerts-unified-log.md#measure).|
 | *WorkspaceID* |#workspaceid |ID of your Log Analytics workspace. |
 | *Application ID* |#applicationid |ID of your Application Insights app. |
 | *Subscription ID* |#subscriptionid |ID of your Azure subscription used. |

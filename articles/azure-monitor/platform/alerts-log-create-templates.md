@@ -195,7 +195,7 @@ This JSON can be saved and deployed using [Azure Resource Manager in Azure porta
 
 This JSON can be saved and deployed using [Azure Resource Manager in Azure portal](../../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template).
 
-## Sample log alert Template for all resource types (from API version 2020-05-01-preview)
+## Sample log alert template for all resource types (from API version 2020-05-01-preview)
 
 [Scheduled Query Rules creation](/rest/api/monitor/scheduledqueryrules/createorupdate) template for all resource types (sample data set as variables):
 

@@ -55,7 +55,7 @@ workspace('Contoso-workspace1').Perf
 ```
 
 >[!NOTE]
-> [Cross-resource queries](../log-query/cross-workspace-query.md) are supported in the new [scheduledQueryRules API](/rest/api/monitor/scheduledqueryrules). If you still use the [legacy Log Analytics Alert API](api-alerts.md) for creating log alerts, you can learn about switching [here](alerts-log-api-switch.md)
+> [Cross-resource queries](../log-query/cross-workspace-query.md) are supported in the new [scheduledQueryRules API](/rest/api/monitor/scheduledqueryrules). If you still use the [legacy Log Analytics Alert API](api-alerts.md) for creating log alerts, you can learn about switching [here](alerts-log-api-switch.md).
 
 ## Examples
 The following examples include log queries that use `search` and `union` and provide steps you can use to modify these queries for use in alert rules.
@@ -77,7 +77,7 @@ search *
 | summarize by $table
 ```
 
-The result of this query would show that the _CounterName_ property came from the _Perf_ table. 
+The result of this query would show that the _CounterName_ property came from the _Perf_ table.
 
 You can use this result to create the following query that you would use for the alert rule:
 
@@ -103,7 +103,7 @@ search ObjectName=="Memory" and CounterName=="% Committed Bytes In Use"
 | summarize by $table
 ```
 
-The result of this query would show that the _ObjectName_ and _CounterName_ property came from the _Perf_ table. 
+The result of this query would show that the _ObjectName_ and _CounterName_ property came from the _Perf_ table.
 
 You can use this result to create the following query that you would use for the alert rule:
 
@@ -134,7 +134,7 @@ search (ObjectName == "Processor" and CounterName == "% Idle Time" and InstanceN
 | summarize by $table
 ```
 
-The result of this query would show that all these properties came from the _Perf_ table. 
+The result of this query would show that all these properties came from the _Perf_ table.
 
 Now use `union` with `withsource` command to identify which  source table has contributed each row.
 
@@ -144,7 +144,7 @@ union withsource=table *
 | summarize by table
 ```
 
-The result of this query would show that these properties also came from the _Perf_ table. 
+The result of this query would show that these properties also came from the _Perf_ table.
 
 You can use these results to create the following query that you would use for the alert rule: 
 
@@ -187,7 +187,7 @@ search in (Heartbeat) OSType == 'Windows'
 | summarize by $table
 ```
  
-The result indicates that the properties in the right side of the join belong to Heartbeat table. 
+The result indicates that the properties in the right side of the join belong to _Heartbeat_ table.
 
 You can use these results to create the following query that you would use for the alert rule: 
 

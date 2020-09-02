@@ -12,7 +12,7 @@ ms.date: 10/29/2018
 
 This article shows you how to resolve common issues with log alerts in Azure Monitor. It also provides solutions to common problems with the functionality and configuration of log alerts.
 
-Log alerts allow users to use a [Log Analytics](../log-query/get-started-portal.md) query to evaluate resources logs every set frequency, and fire an alert based on the results. Rules can trigger run one or more actions using [Action Groups](./action-groups.md). [Learn more about functionality and terminology of log alerts](alerts-unified-log.md).
+Log alerts allow users to use a [Log Analytics](../log-query/get-started-portal.md) query to evaluate resources logs every set frequency, and fire an alert based on the results. Rules can trigger one or more actions using [Action Groups](./action-groups.md). [Learn more about functionality and terminology of log alerts](alerts-unified-log.md).
 
 > [!NOTE]
 > This article doesn't consider cases where the Azure portal shows an alert rule triggered and a notification is not performed by an associated action group. For such cases, see the details on troubleshooting [here](./alerts-troubleshoot.md#action-or-notification-on-my-alert-did-not-work-as-expected).
@@ -59,7 +59,7 @@ Azure Monitor processes terabytes of customers' logs from across the world, whic
 
 Logs are semi-structured data and inherently more latent than metrics. If you're experiencing many misfires in fired alerts, you should consider using [metric alerts](alerts-metric-overview.md). You can send data to the metric store from logs using [metric alerts for logs](alerts-metric-logs.md).
 
-Log alerts work best when you try to detect data in the log. It works less well when you try to detect lack of data in the logs. For example, alerting on virtual machine heartbeat. 
+Log alerts work best when you try to detect data in the logs. It works less well when you try to detect lack of data in the logs. For example, alerting on virtual machine heartbeat. 
 
 While there are builtin capabilities to prevent false alerts, they can still occur on very latent data (over ~30 minutes) and data with latency spikes.
 
@@ -124,10 +124,10 @@ If you've reached the quota limit, the following steps may help resolve the issu
 1. Try to use [splitting of alerts by dimensions](alerts-unified-log.md#split-by-alert-dimensions) to reduce rules count. These rules can monitor many resources and detection cases.
 1. If you need the quota limit to be increased, continue to open a support request, and provide the following information:
 
-    - Subscription IDs and Resource IDs for which the quota limit needs to be increased
-    - Reason for quota increase
+    - Subscription IDs and Resource IDs for which the quota limit needs to be increased.
+    - Reason for quota increase.
     - Resource type for the quota increase: **Log Analytics**, **Application Insights**, and so on.
-    - Requested quota limit
+    - Requested quota limit.
 
 
 ### To check the current usage of new log alert rules

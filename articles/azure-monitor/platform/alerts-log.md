@@ -11,12 +11,12 @@ ms.subservice: alerts
 
 ## Overview
 
-Log alerts allow users to use a [Log Analytics](../log-query/get-started-portal.md) query to evaluate resources logs every set frequency, and fire an alert based on the results. Rules can trigger run one or more actions using [Action Groups](./action-groups.md). [Learn more about functionality and terminology of log alerts](alerts-unified-log.md).
+Log alerts allow users to use a [Log Analytics](../log-query/get-started-portal.md) query to evaluate resources logs every set frequency, and fire an alert based on the results. Rules can trigger one or more actions using [Action Groups](./action-groups.md). [Learn more about functionality and terminology of log alerts](alerts-unified-log.md).
 
 This article shows you how to create and manage log alerts using Azure Monitor. Alert rules are defined by three components:
-- Target: A specific Azure resource to monitor
+- Target: A specific Azure resource to monitor.
 - Criteria: Logic to evaluate. If met, the alert fires.  
-- Action: Notifications or automation about the alert - email, SMS, webhook, and so on.
+- Action: Notifications or automation - email, SMS, webhook, and so on.
 
 You can also create log alert rules using Azure Resource Manager templates, which are described in [a separate article](alerts-log-create-templates.md).
 
@@ -39,7 +39,7 @@ Here the steps to get started writing queries for alerts:
 
 ### Log alert for Log Analytics and Application Insights
 
-1. If the query syntax is correct, then historical data for the query appears as a graph with the option to tweak the chart period from last six hours to last week.
+1. If the query syntax is correct, then historical data for the query appears as a graph with the option to tweak the chart period from the last six hours to last week.
  
     If your query results contain summarized data or [project](/azure/kusto/query/projectoperator) specific columns without time column, the chart shows a single value.
 
@@ -77,7 +77,7 @@ Here the steps to get started writing queries for alerts:
 
 1. Define the **Alert rule name**, **Description**, and select the alert **Severity**. These details are used in all alert actions. Additionally, you can choose to not activate the alert rule on creation by selecting **Enable rule upon creation**.
 
-1. Choose if you want to suppress rule actions for a time after an alert is fires, use the [**Suppress Alerts**](alerts-unified-log.md#state-and-resolving-alerts) option. The rule will still run and create alerts but actions won't be triggered to prevent noise. Mute actions value must be greater than the frequency of alert to be effective.
+1. Choose if you want to suppress rule actions for a time after an alert is fired, use the [**Suppress Alerts**](alerts-unified-log.md#state-and-resolving-alerts) option. The rule will still run and create alerts but actions won't be triggered to prevent noise. Mute actions value must be greater than the frequency of alert to be effective.
 
     ![Suppress Alerts for Log Alerts](media/alerts-log/AlertsPreviewSuppress.png)
 
@@ -129,7 +129,7 @@ Here the steps to get started writing queries for alerts:
    ![Select a resource - custom log search](media/alerts-log/AlertsPreviewResourceSelectionLog.png)
 
    > [!NOTE]
-   > The alerts portal lists saved queries from log analytics and Application Insights and they can be used as template alert queries.
+   > The alerts portal lists saved queries from Log Analytics and Application Insights and they can be used as template alert queries.
 
 1. Once selected, write, paste, or edit the alerting query in the **Search Query** field.
 
@@ -147,7 +147,7 @@ Here the steps to get started writing queries for alerts:
        - **Resource ID column** is selected automatically, if detected, and changes the context of the fired alert to the record's resource. 
        - **Resource ID column** can be de-selected to fire alerts on subscription or resource groups. De-selecting is useful when query results are based on cross-resources. For example, a query that check if 80% of the resource group's virtual machines are experiencing high CPU usage.
        - Up to six additional splittings can be also selected for any number or text columns types using the dimensions table.
-       - Alerts are fired separately according to splitting based on unique combinations and alert payload include this information.
+       - Alerts are fired separately according to splitting based on unique combinations and alert payload includes this information.
     
         ![Select aggregation parameters and splitting](media/alerts-log/SelectAggregationParametersAndSplitting.png)
 
@@ -155,7 +155,7 @@ Here the steps to get started writing queries for alerts:
 
         ![Preview chart](media/alerts-log/PreviewChart.png)
 
-    1. Next, based on the preview data set the **Alert logic**; [**Operator**, **Threshold Value**](alerts-unified-log.md#threshold-and-operator), and [**Frequency**](alerts-unified-log.md#frequency).
+    1. Next, based on the preview data, set the **Alert logic**; [**Operator**, **Threshold Value**](alerts-unified-log.md#threshold-and-operator), and [**Frequency**](alerts-unified-log.md#frequency).
 
         ![Preview chart with threshold and alert logic](media/alerts-log/ChartAndAlertLogic.png)
 
@@ -167,10 +167,10 @@ Here the steps to get started writing queries for alerts:
 
     ![Actions tab](media/alerts-log/ActionsTab.png)
 
-1. In the **Details** tab, define the **Alert rule details**, and **Project details**. You can optionally set whether to not **Start running now** or [**Mute Actions**](alerts-unified-log.md#state-and-resolving-alerts) for a period after the alert rule fires.
+1. In the **Details** tab, define the **Alert rule details**, and **Project details**. You can optionally set whether to not **Start running now**, or [**Mute Actions**](alerts-unified-log.md#state-and-resolving-alerts) for a period after the alert rule fires.
 
     > [!NOTE]
-    > Log alert rules are currently stateless and fires action every time an alert is created unless muting is defined.
+    > Log alert rules are currently stateless and fires an action every time an alert is created unless muting is defined.
 
     ![Details tab](media/alerts-log/DetailsTab.png)
 
@@ -179,7 +179,7 @@ Here the steps to get started writing queries for alerts:
     ![Tags tab](media/alerts-log/TagsTab.png)
 
 1. In the **Review + create** tab, a validation will run and inform of any issues. Review and approve the rule definition.
-1. If all fields are correct, select the **Create** button and complete the alert rule. All alerts can be viewed from the alerts management.
+1. If all fields are correct, select the **Create** button and complete the alert rule creation. All alerts can be viewed from the alerts management.
  
     ![Review and create tab](media/alerts-log/ReviewAndCreateTab.png)
 
@@ -190,7 +190,7 @@ Here the steps to get started writing queries for alerts:
 1. The alerts management displays all alerts that fired. [Learn more about the alert management](alerts-managing-alert-instances.md).
 
     > [!NOTE]
-    > Log alert rules are currently [stateless and do not resolved](alerts-unified-log.md#state-and-resolving-alerts).
+    > Log alert rules are currently [stateless and do not resolve](alerts-unified-log.md#state-and-resolving-alerts).
 
 1. Select **Manage rules** button on the top bar to edit rules:
 
@@ -201,7 +201,7 @@ Here the steps to get started writing queries for alerts:
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 > [!NOTE]
-> Powershell is not currently supported in the API version `2020-05-01-preview`
+> PowerShell is not currently supported in the API version `2020-05-01-preview`
 
 PowerShell cmdlets listed below are available to manage rules with the [Scheduled Query Rules API](/rest/api/monitor/scheduledqueryrules/).
 

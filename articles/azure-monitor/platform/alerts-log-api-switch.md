@@ -10,12 +10,12 @@ ms.subservice: alerts
 # Upgrade to the current Log Alerts API from legacy Log Analytics Alert API
 
 > [!NOTE]
-> Content stated applicable to users Azure public cloud only and **not** for Azure Government or Azure China cloud.  
+> This article is only relevant to Azure public (**not** to Azure Government or Azure China cloud).
 
 > [!NOTE]
 > Once a user chooses to switch preference to the current [scheduledQueryRules API](/rest/api/monitor/scheduledqueryrules) it is not possible to revert back to the older [legacy Log Analytics Alert API](api-alerts.md).
 
-In the past, users used the [legacy Log Analytics Alert API](api-alerts.md) based on SavedSearch to manage the log alert rules. Today all workspaces are created with [Azure Monitor - ScheduledQueryRules API](/rest/api/monitor/scheduledqueryrules). This article describes the benefits and the process to switch from the legacy Log Analytics Alert API to the current API.
+In the past, users used the [legacy Log Analytics Alert API](api-alerts.md) to manage log alert rules. Current workspaces use [ScheduledQueryRules API](/rest/api/monitor/scheduledqueryrules). This article describes the benefits and the process of switching from the legacy API to the current API.
 
 ## Benefits
 
