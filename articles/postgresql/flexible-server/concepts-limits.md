@@ -67,6 +67,7 @@ A PostgreSQL connection, even idle, can occupy about 10 MB of memory. Also, crea
 ### High availability
 
 - Zone-Redundant HA is currently not supported for Burstable servers.
+- The database server IP address changes when your server fails over to the HA standby. Ensure you use the DNS record instead of the server IP address.
 
 ### Availability zones
 
