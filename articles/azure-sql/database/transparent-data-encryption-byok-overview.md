@@ -129,6 +129,8 @@ After access to the key is restored, taking database back online requires additi
 
 Below is a view of the additional steps required on the portal to bring an inaccessible database back online.
 
+![TDE BYOK Inaccessible Database](./media/transparent-data-encryption-byok-overview/customer-managed-tde-inaccessible-database.jpg)
+
 
 ### Accidental TDE protector access revocation
 
