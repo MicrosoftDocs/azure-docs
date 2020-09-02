@@ -223,7 +223,7 @@ Filesystem      Size  Used Avail Use% Mounted on
 /dev/sdc        9.8G   42M  9.8G   1% /mnt/azuredisk
 ```
 > [!IMPORTANT]
-Currently, the Azure disk CSI driver only supports resizing PVCs with no pods associated (and the volume not mounted to a specific node).
+> Currently, the Azure disk CSI driver only supports resizing PVCs with no pods associated (and the volume not mounted to a specific node).
 
 As such lets delete the pod created earlier:
 

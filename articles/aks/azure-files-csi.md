@@ -248,3 +248,4 @@ $ kubectl exec -it busybox-azurefile-0 -- cat c:\mnt\azurefile\data.txt # on Win
 [az-feature-list]: /cli/azure/feature?view=azure-cli-latest#az-feature-list
 [az-provider-register]: /cli/azure/provider?view=azure-cli-latest#az-provider-register
 [node-resource-group]: faq.md#why-are-two-resource-groups-created-with-aks
+[storage-skus]: ../storage/common/storage-redundancy.md
