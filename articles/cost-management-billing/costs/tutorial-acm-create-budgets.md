@@ -15,7 +15,7 @@ ms.custom: seodec18
 
 Budgets in Cost Management help you plan for and drive organizational accountability. With budgets, you can account for the Azure services you consume or subscribe to during a specific period. They help you inform others about their spending to proactively manage costs, and to monitor how spending progresses over time. When the budget thresholds you've created are exceeded, only notifications are triggered. None of your resources are affected and your consumption isn't stopped. You can use budgets to compare and track spending as you analyze costs.
 
-Cost and usage data is typically available within 20 hours and budgets are evaluated against costs once a day. When a budget threshold is met, email notifications are normally sent within an hour of the evaluation.
+Cost and usage data is typically available within 8-24 hours and budgets are evaluated against these costs every 12-14 hours. Be sure to get familiar with [Cost and usage data updates](https://docs.microsoft.com/azure/cost-management-billing/costs/understand-cost-mgt-data#cost-and-usage-data-updates-and-retention) specifics. When a budget threshold is met, email notifications are normally sent within an hour of the evaluation.
 
 Budgets reset automatically at the end of a period (monthly, quarterly, or annually) for the same budget amount when you select an expiration date in the future. Because they reset with the same budget amount, you need to create separate budgets when budgeted currency amounts differ for future periods.
 
