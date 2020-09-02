@@ -9,7 +9,7 @@ ms.reviewer: luquinta
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 09/01/2020
+ms.date: 09/02/2020
 ---
 
 # Azure Machine Learning Curated Environments
@@ -91,7 +91,7 @@ This article lists the curated environments in Azure Machine Learning, and the p
 * inference-schema
 * pytorch-transformers
 * spacy
-* https://aka.ms/automl-resources/packages/en_core_web_sm-2.1.0.tar.gz
+* en_core_web_sm
 * py-cpuinfo
 
 ## AzureML-AutoML-DNN-GPU
@@ -131,13 +131,10 @@ This article lists the curated environments in Azure Machine Learning, and the p
 * horovod
 * pytorch-transformers
 * spacy
-* https://aka.ms/automl-resources/packages/en_core_web_sm-2.1.0.tar.gz
+* en_core_web_sm
 * py-cpuinfo
 
 ## AzureML-AutoML-DNN-Vision-GPU
-
-**Package channels:**
-
 
 **Conda Packages:**
 
@@ -292,9 +289,6 @@ This article lists the curated environments in Azure Machine Learning, and the p
 * pyarrow
 
 ## AzureML-Hyperdrive-ForecastDNN
-
-**Package channels:**
-
 
 **Conda Packages:**
 
