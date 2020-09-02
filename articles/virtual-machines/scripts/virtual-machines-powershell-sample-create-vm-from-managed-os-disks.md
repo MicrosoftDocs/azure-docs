@@ -1,25 +1,19 @@
 ---
-title: Make VM by attaching managed disk as OS disk (Linux) - PowerShell
+title: Make VM by attaching managed disk as OS disk - PowerShell
 description: Azure PowerShell Script Sample - Create a VM by attaching a managed disk as OS disk
-services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: ramankumarlive
 manager: kavithag
-editor: ramankum
-tags: azure-service-management
-
-ms.assetid:
-ms.service: virtual-machines-linux
-
+ms.service: virtual-machines-windows
+ms.subservice: disks
 ms.topic: sample
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: ramankum
 ms.custom: mvc, devx-track-azurepowershell
 ---
 
-# Create a virtual machine using an existing managed OS disk with PowerShell (Linux)
+# Create a virtual machine using an existing managed OS disk with PowerShell 
 
 This script creates a virtual machine by attaching an existing managed disk as OS disk. Use this script in preceding scenarios:
 * Create a VM from an existing managed OS disk that was copied from a managed disk in different subscription
@@ -34,7 +28,7 @@ This script creates a virtual machine by attaching an existing managed disk as O
 
 [!code-powershell[main](../../../powershell_scripts/virtual-machine/create-vm-from-snapshot/create-vm-from-snapshot.ps1 "Create VM from snapshot")]
 
-## Clean up deployment
+## Clean up deployment 
 
 Run the following command to remove the resource group, VM, and all related resources.
 
@@ -66,4 +60,4 @@ Set-AzVMPlan -VM $VirtualMachine -Publisher $Publisher -Product $Product -Name $
 
 For more information on the Azure PowerShell module, see [Azure PowerShell documentation](/powershell/azure/).
 
-Additional virtual machine PowerShell script samples can be found in the [Azure Linux VM documentation](../linux/powershell-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Additional virtual machine PowerShell script samples can be found in the [Azure Windows VM documentation](../windows/powershell-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
