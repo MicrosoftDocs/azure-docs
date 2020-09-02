@@ -56,7 +56,7 @@ mkdir -p src/main/java
 
 This quickstart uses the Gradle dependency manager. You can find the client library and information for other dependency managers on the [Maven Central Repository](https://mvnrepository.com/artifact/com.azure/azure-ai-formrecognizer).
 
-In your project's *build.gradle.kts* file, be sure to include the client library as an `implementation` statement, along with the required plugins and settings.
+In your project's *build.gradle.kts* file, include the client library as an `implementation` statement, along with the required plugins and settings.
 
 ```kotlin
 plugins {
@@ -74,7 +74,7 @@ dependencies {
 }
 ```
 
-Navigate to the new **src/main/java** folder and create a file called *FormRecognizer.java*. Open it in your preferred editor or IDE and add the following `import` statements:
+Navigate to the new **src/main/java** folder and create a file called *Management.java*. Open it in your preferred editor or IDE and add the following `import` statements:
 
 ```java
 import com.azure.ai.formrecognizer.*;

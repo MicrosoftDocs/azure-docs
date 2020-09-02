@@ -1,6 +1,6 @@
 ---
-title: Secure access to a key vault - Azure Key Vault | Microsoft Docs
-description: Manage access permissions for Azure Key Vault, keys, and secrets. Covers the authentication and authorization model for Key Vault, and how to secure your key vault.
+title: Secure access to a key vault
+description: The access model for Azure Key Vault, including Active Directory authentication and resource endpoints.
 services: key-vault
 author: ShaneBala-keyvault
 manager: ravijan
