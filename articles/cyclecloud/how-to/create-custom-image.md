@@ -59,6 +59,21 @@ or
 az vm image accept-terms --publisher PUBLISHER --offer OFFER --plan SKU
 ```
 
+### Use a Shared Image Gallery image with a Pricing Plan
+
+CycleCloud 8.0.2 and up support custom images created from images with a pricing plan. This requires using a custom template:
+
+``` ini
+[[node custom_image]]
+
+ ImageName = /subscriptions/xxxxxxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/galleries/MyGallery/images/MyImage/versions/1.0.0
+ ImagePlan.Publisher = PUBLISHER
+ ImagePlan.Product = PRODUCT (sometimes called OFFER)
+ ImagePlan.Plan = PLAN (sometimes called SKU)
+```
+
+If the Shared Image Gallery has the purchase-plan metadata on it, it is used automatically and you do not need to specify the plan details. 
+
 ## Create a Custom Image
 
 Custom Azure Images can be created for [Windows](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-custom-images) or for [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-custom-images).
