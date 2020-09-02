@@ -3,9 +3,9 @@
 title: Integrate with Azure SignalR Service
 titleSuffix: Azure Digital Twins
 description: See how to stream Azure Digital Twins telemetry to clients using Azure SignalR
-author: ayodejimarquis-msft
+author: dejimarquis
 ms.author: aymarqui # Microsoft employees only
-ms.date: 08/08/2020
+ms.date: 09/02/2020
 ms.topic: how-to
 ms.service: digital-twins
 
