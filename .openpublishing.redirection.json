@@ -21398,6 +21398,26 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/marketplace/ccp-saas-offer.md",
+      "redirect_url": "/azure/marketplace/create-new-saas-offer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/partner-center-portal/create-new-saas-offer.md",
+      "redirect_url": "/azure/marketplace/create-new-saas-offer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/partner-center-portal/offer-creation-checklist.md",
+      "redirect_url": "/azure/marketplace/plan-saas-offer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/marketplace-saas-applications-technical-publishing-guide.md",
+      "redirect_url": "/azure/marketplace/plan-saas-offer",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/marketplace/cloud-partner-portal-orig/setup-your-application-in-the-publishing-portal.md",
       "redirect_url": "/azure/marketplace/partner-center-portal/create-new-customer-engagement-offer",
       "redirect_document_id": true
