@@ -20,7 +20,7 @@ This article describes storage engine support, privilege support, data manipulat
 > [!NOTE]
 > If you are looking for min/max values for server parameters like `max_connections` and `innodb_buffer_pool_size`, this information has moved to the server parameters concepts <!-- **[server parameters](./concepts-server-parameters.md)** --> article.
 
-Azure Database for MySQL supports tuning the values of server parameters. The min and max value of some parameters (ex. `max_connections`, `join_buffer_size`, `query_cache_size`) is determined by the pricing tier and vCores of the server. Refer to server parameters concepts <!-- [server parameters](./concepts-server-parameters.md)--> for more information about these limits.
+Azure Database for MySQL supports tuning the values of server parameters. The min and max value of some parameters (ex. `max_connections`, `join_buffer_size`, `query_cache_size`) is determined by the compute tier and compute size of the server. Refer to server parameters concepts <!-- [server parameters](./concepts-server-parameters.md)--> for more information about these limits.
 
 ## Storage engines
 
