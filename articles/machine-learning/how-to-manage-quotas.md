@@ -94,8 +94,6 @@ To set quotas at the workspace level, go to any workspace in your subscription, 
 
 
 > [!NOTE]
-> This is an Enterprise edition feature only. If you have both a [Basic and an Enterprise edition](overview-what-is-azure-ml.md#sku) workspace in your subscription, you can use this to only set quotas on your Enterprise workspaces. Your Basic workspaces will continue to have the subscription level quota which is the default behavior.
->
 > You need subscription level permissions to set quota at the workspace level. This is enforced so that individual workspace owners do not edit or increase their quotas and start encroaching onto resources set aside for another workspace. Thus a subscription admin is best suited to allocate and distribute these quotas across workspaces.
 
 
