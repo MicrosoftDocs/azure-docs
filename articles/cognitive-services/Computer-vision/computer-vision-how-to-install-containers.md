@@ -63,14 +63,14 @@ Container images for Read are available.
 
 | Container | Container Registry / Repository / Image Name |
 |-----------|------------|
-| Read | `containerpreview.azurecr.io/microsoft/cognitive-services-read:latest` |
+| Read | `containerpreview.azurecr.io/microsoft/cognitive-services-read:2.0.013250001-amd64-preview` |
 
 Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image.
 
 ### Docker pull for the Read container
 
 ```bash
-docker pull containerpreview.azurecr.io/microsoft/cognitive-services-read:latest
+docker pull containerpreview.azurecr.io/microsoft/cognitive-services-read:2.0.013250001-amd64-preview
 ```
 
 [!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)]
