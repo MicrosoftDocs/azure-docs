@@ -1531,6 +1531,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/Welcome.md",
+      "redirect_url": "/azure/cognitive-services/what-are-cognitive-services",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/cognitive-services/immersive-reader/ios-quickstart.md",
       "redirect_url": "/azure/cognitive-services/immersive-reader/quickstarts/client-libraries?pivots=programming-language-swift",
       "redirect_document_id": false
