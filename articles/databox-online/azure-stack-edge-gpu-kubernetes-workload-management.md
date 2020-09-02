@@ -72,4 +72,4 @@ To deploy an app via IoT Edge, see:
 
 To deploy an app via Azure Arc, see:
 
-- [Deploy an application using Azure Arc](azure-stack-edge-deploy-arc-kubernetes-cluster.md).
+- [Deploy an application using Azure Arc](azure-stack-edge-gpu-deploy-arc-kubernetes-cluster.md).
