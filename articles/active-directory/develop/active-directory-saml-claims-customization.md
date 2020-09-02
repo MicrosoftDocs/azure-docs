@@ -83,11 +83,11 @@ You can also assign any constant (static) value to any claims which you define i
 
 1. Enter the constant value without quotes in the **Source attribute** as per your organization and click **Save**.
 
-    ![Open the User Attributes & Claims section in the Azure portal](./media/active-directory-saml-claims-customization/organization-attribute.png)
+    ![Org Attributes & Claims section in the Azure portal](./media/active-directory-saml-claims-customization/organization-attribute.png)
 
 1. The constant value will be displayed as below.
 
-    ![Open the User Attributes & Claims section in the Azure portal](./media/active-directory-saml-claims-customization/edit-attributes-claims.png)
+    ![Edit Attributes & Claims section in the Azure portal](./media/active-directory-saml-claims-customization/edit-attributes-claims.png)
 
 ### Special claims - transformations
 
@@ -116,7 +116,7 @@ To apply a transformation to a user attribute:
 2. Select the function from the transformation dropdown. Depending on the function selected, you will have to provide parameters and a constant value to evaluate in the transformation. Refer to the table below for more information about the available functions.
 3. To apply multiple transformation, click on **Add transformation**.You can apply a maximum of two transformation to a claim. For example, you could first extract the email prefix of the `user.mail`. Then, make the string upper case.
 
-   ![Edit the NameID (name identifier) value](./media/active-directory-saml-claims-customization/sso-saml-multiple-claims-transformation.png)
+   ![Multiple claims transformation](./media/active-directory-saml-claims-customization/sso-saml-multiple-claims-transformation.png)
 
 You can use the following functions to transform claims.
 
