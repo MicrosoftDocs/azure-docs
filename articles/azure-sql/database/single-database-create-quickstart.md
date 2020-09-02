@@ -154,29 +154,24 @@ az sql db create \
 
 # [PowerShell](#tab/azure-powershell)
 
-You can create a resource group, server, and single database using Windows PowerShell. If you don't want to use the Azure Cloud Shell, [install the Azure PowerShell module](/powershell/azure/install-az-ps).
+You can create a resource group, server, and single database using Windows PowerShell.
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+## Launch Azure Cloud Shell
 
-To run the following code sample in the Azure Cloud Shell, select **Try it** in the code title bar. When the Cloud Shell opens, select **Copy** in the code sample title bar, and paste the code sample into the Cloud Shell window. In the code, replace `<Subscription ID>` with your Azure Subscription ID, and for `$startIp` and `$endIp`, replace `0.0.0.0` with the public IP address of the computer you're using.
+The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account. 
 
-Follow the onscreen prompts to sign in to Azure and run the code.
+To open the Cloud Shell, just select **Try it** from the upper right corner of a code block. You can also launch Cloud Shell in a separate browser tab by going to [https://shell.azure.com/bash](https://shell.azure.com/bash). Select **Copy** to copy the blocks of code, paste it into the Cloud Shell, and press **Enter** to run it.
 
-You can also use Azure Cloud Shell from the Azure portal, by selecting the Cloud Shell icon on the top bar.
+## Set parameter values
 
-   ![Azure Cloud Shell](./media/single-database-create-quickstart/cloudshell.png)
+The following values are used in subsequent commands to create the database and required resources. Server names need to be globally unique across all of Azure so the Get-Random cmdlet is used to create the server name. Replace the 0.0.0.0 values in the ip address range to match your specific environment.
 
-The first time you use Cloud Shell from the portal, select **PowerShell** on the **Welcome** dialog. Subsequent sessions will use PowerShell, or you can select it from the Cloud Shell control bar.
-
-The following PowerShell code creates an Azure resource group, server, single database, and firewall rule for access to the server. Make sure to record the generated resource group and server names, so you can manage these resources later.
-
-   ```powershell-interactive
+```azurepowershell-interactive
    # Set variables for your server and database
-   $subscriptionId = '<SubscriptionID>'
-   $resourceGroupName = "myResourceGroup-$(Get-Random)"
-   $location = "West US"
+   $resourceGroupName = "myResourceGroup"
+   $location = "eastus"
    $adminLogin = "azureuser"
-   $password = "Azure1234567"
+   $password = "Azure1234567!"
    $serverName = "mysqlserver-$(Get-Random)"
    $databaseName = "mySampleDatabase"
 
@@ -187,46 +182,60 @@ The following PowerShell code creates an Azure resource group, server, single da
    # Show randomized variables
    Write-host "Resource group name is" $resourceGroupName
    Write-host "Server name is" $serverName
+```
 
-   # Connect to Azure
-   Connect-AzAccount
 
-   # Set subscription ID
-   Set-AzContext -SubscriptionId $subscriptionId
+## Create resource group
 
-   # Create a resource group
+Create an Azure resource group with [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). A resource group is a logical container into which Azure resources are deployed and managed.
+
+```azurepowershell-interactive
    Write-host "Creating resource group..."
    $resourceGroup = New-AzResourceGroup -Name $resourceGroupName -Location $location -Tag @{Owner="SQLDB-Samples"}
    $resourceGroup
+```
 
-   # Create a server with a system wide unique server name
-   Write-host "Creating primary server..."
+
+## Create a server
+ 
+
+```azurepowershell-interactive
+  Write-host "Creating primary server..."
    $server = New-AzSqlServer -ResourceGroupName $resourceGroupName `
       -ServerName $serverName `
       -Location $location `
       -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential `
       -ArgumentList $adminLogin, $(ConvertTo-SecureString -String $password -AsPlainText -Force))
    $server
+```
 
-   # Create a server firewall rule that allows access from the specified IP range
-   Write-host "Configuring firewall for primary server..."
+## Create a server firewall rule
+
+```azurepowershell-interactive
+   Write-host "Configuring server firewall rule..."
    $serverFirewallRule = New-AzSqlServerFirewallRule -ResourceGroupName $resourceGroupName `
       -ServerName $serverName `
       -FirewallRuleName "AllowedIPs" -StartIpAddress $startIp -EndIpAddress $endIp
    $serverFirewallRule
+```
 
-   # Create General Purpose Gen4 database with 1 vCore
+
+## Create General Purpose Gen4 database with 1 vCore
+
+
+```azurepowershell-interactive
    Write-host "Creating a gen5 2 vCore database..."
    $database = New-AzSqlDatabase  -ResourceGroupName $resourceGroupName `
       -ServerName $serverName `
       -DatabaseName $databaseName `
       -Edition GeneralPurpose `
-      -VCore 2 `
+      -ComputeModel Serverless `
       -ComputeGeneration Gen5 `
+      -VCore 2 `
       -MinimumCapacity 2 `
       -SampleName "AdventureWorksLT"
    $database
-   ```
+```
 
 The preceding code uses these PowerShell cmdlets:
 
