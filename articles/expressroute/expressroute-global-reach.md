@@ -28,10 +28,10 @@ ExpressRoute Global Reach is designed to complement your service provider’s WA
 ![use case][3]
 
 ## Availability 
-ExpressRoute Global Reach is supported in all regions where ExpressRoute is currently supported. Refer to [ExpressRoute peering locations](expressroute-locations.md) for the current supported regions. 
+ExpressRoute Global Reach is supported in all regions where ExpressRoute is currently supported. Refer to [ExpressRoute peering locations](expressroute-locations.md#locations) for the current supported regions. 
 
 > [!NOTE] 
-> To enable ExpressRoute Global Reach between [different geopolitical regions](expressroute-locations.md), your circuits must be **Premium SKU**.
+> To enable ExpressRoute Global Reach between [different geopolitical regions](expressroute-locations.md#locations), your circuits must be **Premium SKU**.
 
 ## Next steps
 1. [View the Global Reach FAQ](expressroute-faqs.md#globalreach)
