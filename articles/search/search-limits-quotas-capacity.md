@@ -104,10 +104,10 @@ Maximum running times exist to provide balance and stability to the service as a
 
 | Resource | Free | Basic | S1 | S2 | S3 | S3 HD | L1 | L2
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Private endpoint indexer support | No | Yes | Yes | Yes | Yes | No | No | No |
-| Private endpoint support for indexers with a skillset<sup>1</sup> | No | No | No | Yes | Yes | No | No | No |
-| Maximum private endpoints | N/A | 10 or 30 | 100 | 400 | 400 | N/A | N/A | N/A |
-| Maximum distinct resource types<sup>2</sup> | N/A | 4 | 7 | 15 | 15 | N/A | N/A | N/A |
+| Private endpoint indexer support | No | Yes | Yes | Yes | Yes | No | Yes | Yes |
+| Private endpoint support for indexers with a skillset<sup>1</sup> | No | No | No | Yes | Yes | No | Yes | Yes |
+| Maximum private endpoints | N/A | 10 or 30 | 100 | 400 | 400 | N/A | 20 | 20 |
+| Maximum distinct resource types<sup>2</sup> | N/A | 4 | 7 | 15 | 15 | N/A | 4 | 4 |
 
 <sup>1</sup> AI enrichment and image analysis are computationally intensive and consume disproportionate amounts of available processing power, and therefore for lower search service tiers setting them to run in the private environment might have adverse impact on performance and stability of the search service.
 
