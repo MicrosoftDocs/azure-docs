@@ -23,7 +23,7 @@ The solution described in this article will allow you push digital twins telemet
 
 ## Prerequisites
 
-1. Before you can integrate with Azure SignalR service, you need to have completed the Azure Digital Twins [*Tutorial: Connect an end-to-end solution*](./tutorial-end-to-end.md), because this tutorial builds on top of it. The tutorial walks you through setting up an Azure Digital Twins instance that works with a virtual IoT device to trigger digital twin updates.
+1. Before you can integrate with Azure SignalR service, you need to have completed the Azure Digital Twins [*Tutorial: Connect an end-to-end solution*](tutorial-end-to-end.md), because this tutorial builds on top of it. The tutorial walks you through setting up an Azure Digital Twins instance that works with a virtual IoT device to trigger digital twin updates.
 
 1. Have [Node.js](https://nodejs.org/) installed on your machine.
 
@@ -39,15 +39,17 @@ Sign in to the [Azure portal](https://portal.azure.com/) with your Azure account
 
 [!INCLUDE [Create instance](../azure-signalr/includes/signalr-quickstart-create-instance.md)]
 
-## Download the sample application
+## Download the sample applications
 
-While the service is deploying, download the [sample app](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples/), if you no longer have it from the prerequisite tutorial. Hit the *Download ZIP* button to download a copy of the sample to your machine, as _**Azure_Digital_Twins_samples.zip**_.
+While the service is deploying, download the required sample apps. You will need both of the following:
+* [Azure Digital Twins samples](https://docs.microsoft.com/en-us/samples/azure-samples/digital-twins-samples/digital-twins-samples/): This sample contains an *AdtSampleApp* holding two Azure functions for moving data around an Azure Digital Twins instance (you can learn about this scenario in more detail in [*Tutorial: Connect an end-to-end solution*](tutorial-end-to-end.md)). It also contains a *DeviceSimulator* sample application that simulates an IoT device, generating a new temperature value every second. 
+    - Navigate to the sample link and hit the *Download ZIP* button to download a copy of the sample to your machine, as _**Azure_Digital_Twins_samples.zip**_. Unzip the folder.
+* [Sample web app](https://docs.microsoft.com/samples/azure-samples/digitaltwins-signalr-webapp-sample/digital-twins-samples/): This is a React web app that will consume Azure Digital Twins telemetry data from an Azure SignalR service.
+    -  Navigate to the sample link and hit the *Download ZIP* button to download a copy of the sample to your machine, as _**Azure_Digital_Twins_SignalR_integration_web_app_sample.zip**_. Unzip the folder.
 
-Navigate to the folder and unzip it.
+## Configure and run the Azure Functions app
 
-## Configure and run the Azure Function app
-
-1. Start Visual Studio (or another code editor) and open the solution in the *ADTSampleApp* folder.
+1. Start Visual Studio (or another code editor of your choice), and open the code solution in the *Azure_Digital_Twins_samples > ADTSampleApp* folder.
 
 1. In the browser where the Azure portal is opened, confirm the SignalR Service instance you deployed earlier was successfully created by searching for its name in the search box at the top of the portal. Select the instance to open it.
 
@@ -160,11 +162,9 @@ Back on the *Create Event Subscription* page, hit **Create**.
 
 ## Configure and run the web app
 
-1. Before configuring the web app, make sure the Device Simulator program is running.
+1. Before configuring the web app, make sure the **device simulator** program is running.
 
-1. If you haven't already, download the Web App sample from [here](https://docs.microsoft.com/samples/azure-samples/digitaltwins-signalr-webapp-sample/digital-twins-samples/?branch=master).
-
-1. Open the *WebApp* folder, using Visual Studio Code or any editor of your choice.
+1. Next, open the **sample web app**. Using Visual Studio Code or any code editor of your choice, open the unzipped _**Azure_Digital_Twins_SignalR_integration_web_app_sample**_ folder that you downloaded in the [*Prerequisites*](#prerequisites) section.
 
 1. In *src/App.js*, replace the URL in **HubConnectionBuilder** with the HTTP endpoint of the **negotiate** function:
 
@@ -184,7 +184,7 @@ Back on the *Create Event Subscription* page, hit **Create**.
     npm install
     ```
 
-1. Start the web app using this command:
+1. Start the sample web app using this command:
 
     ```cmd
     npm start
