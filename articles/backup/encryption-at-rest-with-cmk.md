@@ -61,7 +61,7 @@ Azure Backup uses system assigned managed identity to authenticate the Recovery 
 
     ![Identity settings](./media/encryption-at-rest-with-cmk/managed-identity.png)
 
-1. Change the **Status** to **On** and click **Save**.
+1. Change the **Status** to **On** and select **Save**.
 
 1. An Object ID is generated, which is the system-assigned managed identity of the vault.
 
@@ -77,13 +77,13 @@ You now need to permit the Recovery Services vault to access the Azure Key Vault
 
     ![Assign key permissions](./media/encryption-at-rest-with-cmk/key-permissions.png)
 
-1. Go to **Select Principal** and search for your vault in the search box using its name or managed identity. Once it shows up, select the vault and click **Select** at the bottom of the pane.
+1. Go to **Select Principal** and search for your vault in the search box using its name or managed identity. Once it shows up, select the vault and choose **Select** at the bottom of the pane.
 
     ![Select principal](./media/encryption-at-rest-with-cmk/select-principal.png)
 
-1. Once done, click **Add** to add the new access policy.
+1. Once done, select **Add** to add the new access policy.
 
-1. Click **Save** to save changes made to the access policy of the Azure Key Vault.
+1. Select **Save** to save changes made to the access policy of the Azure Key Vault.
 
 ### Enable soft-delete and purge protection on the Azure Key Vault
 
@@ -143,7 +143,7 @@ To assign the key:
 
     ![Encryption settings](./media/encryption-at-rest-with-cmk/encryption-settings.png)
 
-1. Click **Update** under **Encryption Settings**.
+1. Select **Update** under **Encryption Settings**.
 
 1. In the Encryption Settings pane, select **Use your own key** and continue to specify the key using one of the following ways. **Ensure that the key you want to use is an RSA 2048 key, which is in an enabled state.**
 
@@ -155,7 +155,7 @@ To assign the key:
 
         ![Select key from key vault](./media/encryption-at-rest-with-cmk/key-vault.png)
 
-1. Click **Save**.
+1. Select **Save**.
 
 1. **Tracking progress of encryption key update:** You can track the progress of the key assignment using the **Activity Log** in the Recovery Services vault. The status should soon change to **Succeeded**. Your vault will now encrypt all the data with the specified key as KEK.
 
