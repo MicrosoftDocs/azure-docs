@@ -29,7 +29,7 @@ robots: noindex
 This article explains how to use the Copy Activity in Azure Data Factory to move data to/from Azure Synapse Analytics. It builds on the [Data Movement Activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with the copy activity.
 
 > [!TIP]
-> To achieve best performance, use PolyBase to load data into Azure Synapse Analytics. The [Use PolyBase to load data into Azure Synapse Analytics](data-factory-azure-synapse-analytics-connector.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) section has details. For a walkthrough with a use case, see [Load 1 TB into Azure Synapse Analytics under 15 minutes with Azure Data Factory](data-factory-load-sql-data-warehouse.md).
+> To achieve best performance, use PolyBase to load data into Azure Synapse Analytics. The [Use PolyBase to load data into Azure Synapse Analytics](data-factory-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-synapse-analytics) section has details. For a walkthrough with a use case, see [Load 1 TB into Azure Synapse Analytics under 15 minutes with Azure Data Factory](data-factory-load-sql-data-warehouse.md).
 
 ## Supported scenarios
 You can copy data **from Azure Synapse Analytics** to the following data stores:
