@@ -124,7 +124,7 @@ As updates are constantly made to the product, some features have added or diffe
 
 [Clean addresses pattern](https://youtu.be/axEYbuU3lmw)
 
-[Deduplication](https://www.youtube.com/watch?v=OLenvYwg__I)
+[Deduplication](https://youtu.be/QOi26ETtPTw)
 
 [Merge files](http://youtu.be/WbDTBAyYte8)
 
