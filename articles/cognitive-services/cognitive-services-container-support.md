@@ -8,13 +8,18 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 05/07/2020
+ms.date: 9/01/2020
 ms.author: aahi
 #As a potential customer, I want to know more about how Cognitive Services provides and supports Docker containers for each service.
 ---
 
 # Container support in Azure Cognitive Services
 
+![Legal ](./media/cognitive-services-container-support/banner.png)
+<!--
+> [!IMPORTANT]
+> On June 11, 2020, Microsoft announced that it will not sell facial recognition technology to police departments in the United States until strong regulation, grounded in human rights, has been enacted. As such, customers may not use facial recognition features or features included in Azure Services, such as Face or Video Indexer, if a customer is, or is allowing use of such services by or for, a police department in the United States.
+-->
 Container support in Azure Cognitive Services allows developers to use the same rich APIs that are available in Azure, and enables flexibility in where to deploy and host the services that come with [Docker containers](https://www.docker.com/what-container). Container support is currently available for a subset of Azure Cognitive Services, including parts of:
 
 > [!div class="checklist"]
