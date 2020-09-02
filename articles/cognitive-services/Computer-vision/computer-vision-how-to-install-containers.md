@@ -15,8 +15,7 @@ ms.custom: seodec18
 
 # Install and run Read containers (Preview)
 
-> [!NOTE]
-> Starting September 22nd 2020, gated preview containers are hosted on the Microsoft Container Registry, and downloading them doesn't require you to use the docker login command.
+[!INCLUDE [container hosting on the Microsoft Container Registry](../containers/includes/gated-container-hosting.md)]
 
 Containers enable you to run the Computer Vision APIs in your own environment. Containers are great for specific security and data governance requirements. In this article you'll learn how to download, install, and run a Computer Vision container.
 

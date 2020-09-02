@@ -44,6 +44,8 @@ The following prerequisites before using Speech containers:
 
 ## Request access to the container registry
 
+[!INCLUDE [container hosting on the Microsoft Container Registry](../containers/includes/gated-container-hosting.md)]
+
 Fill out and submit the [request form](https://aka.ms/cognitivegate) to request access to the container. 
 
 
