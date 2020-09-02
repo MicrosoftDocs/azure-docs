@@ -91,7 +91,7 @@ Azure DDoS Protection Basic is already enabled and available for no additional c
 
 ### 1.6: Deploy network-based intrusion detection/intrusion prevention systems (IDS/IPS)
 
-**Guidance**: Select an offer from the Azure Marketplace that supports IDS/IPS functionality with payload inspection capabilities.  When payload inspection is not a requirement, Azure Firewall threat intelligence can be used. Azure Firewall threat intelligence-based filtering is used to alert on and/or block traffic to and from known malicious IP addresses and domains. The IP addresses and domains are sourced from the Microsoft Threat Intelligence feed.
+**Guidance**: Select an offer from Azure Marketplace that supports IDS/IPS functionality with payload inspection capabilities.  When payload inspection is not a requirement, Azure Firewall threat intelligence can be used. Azure Firewall threat intelligence-based filtering is used to alert on and/or block traffic to and from known malicious IP addresses and domains. The IP addresses and domains are sourced from the Microsoft Threat Intelligence feed.
 
 Deploy the firewall solution of your choice at each of your organization's network boundaries to detect and/or block malicious traffic. 
 
@@ -725,7 +725,7 @@ In addition, use the Azure Resource Graph to query/discover resources within the
 
 **Guidance**: Define and implement standard security configurations for your Azure Iot Hub service with Azure Policy. Use Azure Policy aliases in the "Microsoft.Devices" namespace to create custom policies to audit or enforce the configuration of your Azure IoT Hub services.
 
-Azure Resource Manager has the ability to export the template in Java Script Object Notation (JSON), which should be reviewed to ensure that the configurations meet the security requirements for your organization.
+Azure Resource Manager has the ability to export the template in JavaScript Object Notation (JSON), which should be reviewed to ensure that the configurations meet the security requirements for your organization.
 
 You can also use the recommendations from Azure Security Center as a secure configuration baseline for your Azure resources.
 
