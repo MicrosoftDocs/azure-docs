@@ -33,13 +33,13 @@ What you do need is Postman or an equivalent tool for issuing HTTP request on GE
 
 After you specify the request header, you can reuse it for all of the queries in this article, swapping out only the **search=** string. 
 
-  ![Postman request header](media/search-query-lucene-examples/postman-header.png)
+  ![Postman request header set parameters](media/search-query-lucene-examples/postman-header.png)
 
 ### Set the request URL
 
 Request is a GET command paired with a URL containing the Azure Cognitive Search endpoint and search string.
 
-  ![Postman request header](media/search-query-lucene-examples/postman-basic-url-request-elements.png)
+  ![Postman request header GET](media/search-query-lucene-examples/postman-basic-url-request-elements.png)
 
 URL composition has the following elements:
 
