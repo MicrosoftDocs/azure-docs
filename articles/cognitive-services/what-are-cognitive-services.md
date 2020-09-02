@@ -1,7 +1,7 @@
 ---
 title: What are Azure Cognitive Services?
 titleSuffix: Azure Cognitive Services
-description: Azure Cognitive Services are APIs, SDKs, and services that you can use with Microsoft Azure to build intelligent applications.
+description: Azure Cognitive Services are cloud services with REST APIs, and client library SDKs that you can use with Microsoft Azure to build intelligent applications.
 services: cognitive-services
 author: nitinme
 manager: nitinme
@@ -16,9 +16,9 @@ ms.custom: cog-serv-seo-aug-2020
 
 # What are Azure Cognitive Services?
 
-Azure Cognitive Services are APIs, SDKs, and services available to help developers build intelligent applications without having direct AI or data science skills or knowledge. Azure Cognitive Services enable developers to easily add cognitive features into their applications. The goal of Azure Cognitive Services is to help developers create applications that can see, hear, speak, understand, and even begin to reason. The catalog of services within Azure Cognitive Services can be categorized into five main pillars - Vision, Speech, Language, Web Search, and Decision.
+Azure Cognitive Services areare cloud services with REST APIs, and client library SDKs available to help developers build intelligent applications without having direct artificial intelligence (AI) or data science skills or knowledge. Azure Cognitive Services enable developers to easily add cognitive features into their applications. The goal of Azure Cognitive Services is to help developers create applications that can see, hear, speak, understand, and even begin to reason. The catalog of services within Azure Cognitive Services can be categorized into five main pillars - Vision, Speech, Language, Web Search, and Decision.
 
-Want to see what's new and updated Cognitive Services documentation? Check out, [What's new in Cognitive Services docs](whats-new-docs.md).
+The current list of new documentation is available at [What's new in Cognitive Services docs](whats-new-docs.md).
 
 ## Vision APIs
 
@@ -81,7 +81,7 @@ Want to see what's new and updated Cognitive Services documentation? Check out, 
 
 Once you are signed in with your Microsoft Account, you can access [My subscriptions](https://www.microsoft.com/cognitive-services/subscriptions "My subscriptions") to show the products you are using, the quota remaining, and the ability to add additional products to your subscription.
 
-## Upgrade to unlock limits
+## Upgrade to unlock higher limits
 
 All APIs have a free tier, which has usage and throughput limits.  You can increase these limits by using a paid offering and selecting the appropriate pricing tier option when deploying the service in the Azure portal. [Learn more about the offerings and pricing](https://azure.microsoft.com/pricing/details/cognitive-services/ "offerings and pricing"). You'll need to set up an Azure subscriber account with a credit card and a phone number. If you have a special requirement or simply want to talk to sales, click "Contact us" button at the top the pricing page.
 
