@@ -51,8 +51,8 @@ The following factors determine the choice of the migration tool:
 
 |**Migration type**|**Solution**|**Considerations**|
 |---------|---------|---------|
-|Offline|[cqlsh COPY command](cassandra-import-data#migrate-data-using-cqlsh-copy-command.md)|&bull; Easy to set up <br/>&bull; Not suitable for large datasets <br/>&bull; Works only when the source is a Cassandra table|
-|Offline|[Copy table with Spark](cassandra-import-data#migrate-data-using-spark.md) |&bull; Can make use of Spark capabilities to parallelize transformation and ingestion <br/>&bull; Needs configuration with a custom retry policy to handle throttles|
+|Offline|[cqlsh COPY command](cassandra-import-data.md#migrate-data-using-cqlsh-copy-command)|&bull; Easy to set up <br/>&bull; Not suitable for large datasets <br/>&bull; Works only when the source is a Cassandra table|
+|Offline|[Copy table with Spark](cassandra-import-data.md#migrate-data-using-spark) |&bull; Can make use of Spark capabilities to parallelize transformation and ingestion <br/>&bull; Needs configuration with a custom retry policy to handle throttles|
 |Online|[Striim (from Oracle DB/Apache Cassandra)](cosmosdb-cassandra-api-migrate-data-striim.md)|&bull; Works with a large variety of sources like Oracle, DB2, SQL Server <br/>&bull; Easy to build ETL pipelines and provides a dashboard for monitoring <br/>&bull; Supports larger datasets <br/>&bull; Since this is a third-party tool, it needs to be purchased from the marketplace and installed in the user's environment|
 |Online|[Blitzz (from Oracle DB/Apache Cassandra)](oracle-migrate-cosmos-db-blitzz.md)|<br/>&bull; Supports larger datasets <br/>&bull; Since this is a third-party tool, it needs to be purchased from the marketplace and installed in the user's environment|
 
