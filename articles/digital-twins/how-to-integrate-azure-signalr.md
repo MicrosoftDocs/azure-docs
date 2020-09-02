@@ -228,7 +228,33 @@ npm start
 This will open a browser window running the sample app, which displays a visual temperature gauge. Once the app is running, you should start seeing the temperature telemetry values from the device simulator that propagate through Azure Digital Twins being reflected by the web app in real time.
 
 :::image type="content" source="media/how-to-integrate-azure-signalr/signalr-webapp-output.png" alt-text="Excerpt from the sample client web app, showing a visual temperature gauge. The temperature reflected is 67.52":::
-   
+
+## Clean up resources
+
+If you no longer need the resources created in this article, follow these steps to delete them. 
+
+Using the Azure Cloud Shell or local Azure CLI, you can delete all Azure resources in a resource group with the [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete) command. Removing the resource group will also remove...
+* the Azure Digital Twins instance (from the end-to-end tutorial)
+* the IoT hub and the hub device registration  (from the end-to-end tutorial)
+* the event grid topic and associated subscriptions
+* the Azure Functions app, including associated resources like storage
+* the Azure SignalR instance
+
+> [!IMPORTANT]
+> Deleting a resource group is irreversible. The resource group and all the resources contained in it are permanently deleted. Make sure that you do not accidentally delete the wrong resource group or resources. 
+
+```azurecli-interactive
+az group delete --name <your-resource-group>
+```
+
+If you're deleting your Azure Digital Twins instance, you can also delete the Azure AD app registration you created for it in the end-to-end tutorial, using this command:
+
+```azurecli
+az ad app delete --id <your-application-ID>
+```
+
+Finally, delete the project sample folders that you downloaded to your local machine (*Azure_Digital_Twins_samples.zip* and *Azure_Digital_Twins_SignalR_integration_web_app_sample.zip*).
+
 ## Next steps
 
 In this article, you set up Azure functions with SignalR to broadcast Azure Digital Twins telemetry events to a sample client application.
