@@ -276,10 +276,11 @@ To enable zones on a virtual machine scale set you must include the following th
 The Service Fabric nodeType must be enabled to support multiple availability zones.
 
 * The first value is **multipleAvailabilityZones** which should be set to true for the nodeType.
-* The second value is "hierarchicalUpgradeDomain" and is optional. Property can only be defined at the time of nodeType creation and can't be modified later.
+* The second value is "hierarchicalUpgradeDomain" and is optional. This property can only be defined at the time of cluster creation and can't be modified later.
       The property controls the logical grouping of VMs in upgrade domains.
           If value is set to false (flat mode): VMs under the node type will be grouped in UD ignoring the zone info in 5 UDs.
           If value is omitted or set to true (hierarchical mode): VMs will be grouped to reflect the zonal distribution in up to 15 UDs. Each of the 3 zones will have 5 UDs.
+      This property will not have any impact on the UD distribution for node types which do not have multiple zones enabled.
 * The Service Fabric cluster resource apiVersion should be "2020-12-01-preview" or higher.
 * The cluster code version should be "7.1.417.9590" or higher.
 
@@ -311,7 +312,7 @@ The Service Fabric nodeType must be enabled to support multiple availability zon
 
 >[!NOTE]
 > For best practice we recommend hierarchicalUpgradeDomain set to true or be omitted. Deployment will follow the zonal distribution of VMs impacting a smaller amount of replicas and/or instances making them safer.
-> Use hierarchicalUpgradeDomain set to false if deployment speed is a priority or only stateless workload runs on the node type
+> Use hierarchicalUpgradeDomain set to false if deployment speed is a priority or only stateless workload runs on the node type with multiple AZ's.
 
 
 ## Migrate to using Availability Zones from a cluster using a Basic SKU Load Balancer and a Basic SKU IP
