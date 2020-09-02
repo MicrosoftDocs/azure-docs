@@ -7,6 +7,7 @@ ms.date: 09/02/2020
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: lizross
+ms.custom: references_regions
 ---
 # What's new in Windows Virtual Desktop?
 
