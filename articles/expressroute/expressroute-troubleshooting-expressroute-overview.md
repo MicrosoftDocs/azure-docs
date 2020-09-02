@@ -2,12 +2,12 @@
 title: 'Azure ExpressRoute: Verify Connectivity - Troubleshooting Guide'
 description: This page provides instructions on troubleshooting and validating end to end connectivity of an ExpressRoute circuit.
 services: expressroute
-author: rambk
+author: duongau
 
 ms.service: expressroute
 ms.topic: troubleshooting
 ms.date: 10/31/2019
-ms.author: rambala
+ms.author: duau
 ms.custom: seodec18
 
 ---
