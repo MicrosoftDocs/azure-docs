@@ -35,7 +35,7 @@ Azure Private Link enables you to connect to your workspace using a private endp
 
 ## Prerequisites
 
-If you plan on using a private link enabled workspace, with a customer-managed key, you must request a quota allowance. For more information, see [Manage and increase quotas](how-to-manage-quotas#private-endpoint-and-private-dns-quota-increases).
+If you plan on using a private link enabled workspace, with a customer-managed key, you must request a quota allowance. For more information, see [Manage and increase quotas](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases).
 
 ## Create a workspace that uses a private endpoint
 
@@ -76,7 +76,7 @@ For information on enabling Private Link for the key vault, see [Integrate Key V
 
 To secure the Azure Kubernetes services used by your workspace, put it inside a virtual network. For more information, see [Use Azure Kubernetes Services with your workspace](how-to-enable-virtual-network.md#aksvnet).
 
-Azure Machine Learning now supports using an Azure Kubernetes Service that has private link enabled. However, using a private link enabled Azure Kubernetes Service cluster with Azure Machine Learning may require a quota increase. For more information, see [Manage and increase quotas](how-to-manage-quotas#private-endpoint-and-private-dns-quota-increases).
+Azure Machine Learning now supports using an Azure Kubernetes Service that has private link enabled. However, using a private link enabled Azure Kubernetes Service cluster with Azure Machine Learning may require a quota increase. For more information, see [Manage and increase quotas](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases).
 
 To create a private AKS cluster, see the [Create a private Azure Kubernetes Service cluster](https://docs.microsoft.com/azure/aks/private-clusters).
 

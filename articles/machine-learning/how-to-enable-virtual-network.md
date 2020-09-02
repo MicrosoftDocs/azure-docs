@@ -658,7 +658,7 @@ For information on using Azure Machine Learning with Azure Firewall, see [Use Az
 > * Your Azure Container Registry must be Premium version . For more information on upgrading, see [Changing SKUs](/azure/container-registry/container-registry-skus#changing-skus).
 > * Your Azure Container Registry must be in the same virtual network and subnet as the storage account and compute targets used for training or inference.
 > * Your Azure Machine Learning workspace must contain an [Azure Machine Learning compute cluster](how-to-create-attach-compute-sdk.md#amlcompute).
-> * You must request a quota allocation increase. For more information, see [Manage and increase quotas](how-to-manage-quotas#private-endpoint-and-private-dns-quota-increases).
+> * You must request a quota allocation increase. For more information, see [Manage and increase quotas](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases).
 >
 >     When ACR is behind a virtual network, Azure Machine Learning cannot use it to directly build Docker images. Instead, the compute cluster is used to build the images.
 
