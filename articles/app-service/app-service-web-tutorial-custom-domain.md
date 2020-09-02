@@ -107,7 +107,7 @@ You can use either a CNAME record or an A record to map a custom DNS name to App
 - [Map a wildcard domain (with a CNAME record)](#map-a-wildcard-domain)
 
 > [!NOTE]
-> Use CNAME records for all custom DNS names except root domains (for example, `contoso.com`). For root domains, use A records.
+> You should use CNAME records for all custom DNS names except root domains (for example, `contoso.com`). For root domains, use A records.
 
 ### Map a CNAME record
 
