@@ -103,6 +103,18 @@ Users' access to applications can still be limited even when tenant-wide admin c
 
 For more a broader overview including how to handle additional complex scenarios, see [using Azure AD for application access management](what-is-access-management.md).
 
+## Disable all future user consent operations to any application
+
+Disabling user consent for your entire directory prevent end users from consenting to any application. Administrators can still consent on user’s behalf. To learn more about application consent, and why you may or may not want to consent, read [Understanding user and admin consent](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview).
+
+To **disable all future user consent operations in your entire directory**, follow these steps:
+1.  Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
+2.  Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
+3.  Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
+4.  click **Users and groups** in the navigation menu.
+5.  click **User settings**.
+6.  Disable all future user consent operations by setting the **Users can allow apps to access their data** toggle to **No** and click the **Save** button.
+
 ## Next steps
 
 [Five steps to securing your identity infrastructure](https://docs.microsoft.com/azure/security/fundamentals/steps-secure-identity#before-you-begin-protect-privileged-accounts-with-mfa)
