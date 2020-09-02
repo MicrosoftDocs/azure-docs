@@ -36,13 +36,12 @@ Deploy the template to create an Event Hubs namespace in the target region.
 
 
 1. In the Azure portal, select **Create a resource**.
-2. In **Search the Marketplace**, type **template deployment**, and then press **ENTER**.
-3. Select **Template deployment**.
-4. Select **Create**.
+2. In **Search the Marketplace**, type **template deployment**, and select **Template deployment (deploy using custom templates)**.
 5. Select **Build your own template in the editor**.
 6. Select **Load file**, and then follow the instructions to load the **template.json** file that you downloaded in the last section.
-7. Select **Save** to save the template. 
-8. On the **Custom deployment** page, follow these steps: 
+1. Update the value of the `location` property to point to the new region. To obtain location codes, see [Azure locations](https://azure.microsoft.com/global-infrastructure/locations/). The code for a region is the region name with no spaces, for example, `West US` is equal to `westus`.
+1. Select **Save** to save the template. 
+1. On the **Custom deployment** page, follow these steps: 
     1. Select an Azure **subscription**. 
     2. Select an existing **resource group** or create one. If the source namespace was in an Event Hubs cluster, select the resource group that contains cluster in the target region. 
     3. Select the target **location** or region. If you selected an existing resource group, this setting is read-only. 
@@ -74,7 +73,7 @@ To delete an Event Hubs namespace (source or target) by using the Azure portal:
 2. Select the target namespace to delete, and select **Delete** from the toolbar. 
 
     ![Delete namespace - button](./media/move-across-regions/delete-namespace-button.png)
-3. On the **Delete Resources*** page, verify the selected resources, and confirm the deletion by typing **yes**, and then select **Delete**. 
+3. On the **Delete Namespace*** page, confirm the deletion by typing the **namespace name**, and then select **Delete**. 
 
 ## Next steps
 
