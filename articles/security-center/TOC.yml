@@ -3,31 +3,66 @@
 - name: Overview
   expanded: true
   items:
+
   - name: About Security Center
-    href: security-center-intro.md
-  - name: Supported platforms
-    href: security-center-os-coverage.md
-  - name: Security Center features
     items:
+    - name: What is Azure Security Center?
+      href: security-center-intro.md
+    - name: Supported platforms
+      href: security-center-os-coverage.md
     - name: Feature coverage for VMs
       href: security-center-services.md
     - name: Feature coverage for Azure PaaS resources
       href: features-paas.md
   - name: What's new in Security Center?
     href: release-notes.md
-  - name: Security recommendations
-    href: recommendations-reference.md
-  - name: Security alerts and the intent kill chain
-    href: alerts-reference.md    
-  - name: Permissions
-    href: security-center-permissions.md
-  - name: Pricing
-    href: security-center-pricing.md
+  - name: Security Center fundamentals
+    items:
+    - name: Security Center's overview page
+      href: overview-page.md
+    - name: Security recommendations
+      href: recommendations-reference.md
+    - name: Security alerts and the intent kill chain
+      href: alerts-reference.md    
+    - name: How Microsoft secures customer data
+      href: security-center-data-security.md
+    - name: Permissions
+      href: security-center-permissions.md
+    - name: Pricing
+      href: security-center-pricing.md
+  - name: Azure Defender
+    items:
+    - name: Overview of Azure Defender and pricing
+      href: defender-overview.md
+    - name: Azure Defender for servers
+      href: defender-for-servers-intro.md
+    - name: Azure Defender for 
+      href: defender-for-app-services-intro.md
+    - name: Azure Defender for Storage
+      href: defender-for-storage-intro.md
+    - name: Azure Defender for SQL
+      href: defender-for-sql-intro.md
+    - name: Azure Defender for Key Vault
+      href: defender-for-key-vault-intro.md
+    - name: Azure Defender for Kubernetes
+      href: defender-for-kubernetes-intro.md
+    - name: Azure Defender for container registries
+      href: defender-for-container-registries-intro.md
+
 
 - name: Quickstarts
   items:
-  - name: Azure subscriptions
+  - name: Connect your machines to Security Center
+    href: quickstart-onboard-machines.md
+  - name: Onboard your Azure subscriptions
     href: security-center-get-started.md
+  - name: Connect your AWS and GCP clouds
+    items:
+    - name: Connect AWS accounts
+      href: quickstart-onboard-aws.md
+    - name: Connect GCP accounts
+      href: quickstart-onboard-gcp.md
+  - name: Upgrade to advanced security    
   - name: Windows computers
     href: quick-onboard-windows-computer.md
   - name: Linux computers
@@ -80,8 +115,6 @@
       href: alerts-schemas.md
     - name: Security incidents overview
       href: security-center-alerts-cloud-smart.md
-  - name: Data security
-    href: security-center-data-security.md
   - name: Just-in-time VM access
     href: just-in-time-explained.md
   - name: Cross-tenant management
@@ -97,7 +130,6 @@
 
 - name: How-to guides
   items:
-  - name: Upgrade to advanced security
     href: security-center-onboarding.md
   - name: Configure security policies and compliance standards
     items:
