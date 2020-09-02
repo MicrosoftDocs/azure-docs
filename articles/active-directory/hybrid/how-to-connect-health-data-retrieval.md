@@ -21,7 +21,7 @@ ms.collection: M365-identity-device-management
 
 The [European Union General Data Protection Regulation (GDPR)](https://ec.europa.eu/info/law/law-topic/data-protection_en) gives rights to people (known in the regulation as data subjects) to manage the personal data that has been collected by an employer or other type of agency or organization (known as the data controller or just controller). Personal data is defined broadly under the GDPR as any data that relates to an identified or identifiable natural person. The GDPR gives data subjects specific rights to their personal data; these rights include obtaining copies of it, requesting changes to it, restricting the processing of it, deleting it, or receiving it in an electronic format so it can be moved to another controller. 
 
-Similarly, the [California Consumer Privacy Act (CCPA)](https://docs.microsoft.com/en-us/microsoft-365/compliance/offering-ccpa?view=o365-worldwide), provides privacy rights and obligations to California consumers, including rights similar to GDPR's Data Subject Rights, such as the right to delete, access and receive (portability) their personal information. 
+Similarly, the [California Consumer Privacy Act (CCPA)](https://docs.microsoft.com/microsoft-365/compliance/offering-ccpa?view=o365-worldwide), provides privacy rights and obligations to California consumers, including rights similar to GDPR's Data Subject Rights, such as the right to delete, access and receive (portability) their personal information. 
 
 This document describes how to use Azure AD Connect to retrieve data to assist you in the type of requests outlined above.
 
