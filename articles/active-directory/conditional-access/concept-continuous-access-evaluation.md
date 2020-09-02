@@ -105,7 +105,7 @@ If you are not using CAE-capable clients, your default access token lifetime wil
 1. In this case, the resource provider denies access, and sends a 401+ claim challenge back to the client.
 1. The CAE-capable client understands the 401+ claim challenge. It bypasses the caches and goes back to step 1, sending its refresh token along with the claim challenge back to Azure AD. Azure AD will then reevaluate all the conditions and prompt the user to reauthenticate in this case.
 
-### User condition change flow (public preview):
+### User condition change flow (Preview):
 
 In the following example, a Conditional Access administrator has configured a location based Conditional Access policy to only allow access from specific IP ranges:
 
