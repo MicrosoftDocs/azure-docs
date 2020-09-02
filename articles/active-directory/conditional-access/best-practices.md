@@ -17,12 +17,12 @@ ms.collection: M365-identity-device-management
 ---
 # Best practices for Conditional Access in Azure Active Directory
 
-With [Azure Active Directory (Azure AD) Conditional Access](../active-directory-conditional-access-azure-portal.md), you can control how authorized users access your cloud apps. This article provides you with information about:
+With [Azure Active Directory (Azure AD) Conditional Access](./overview.md), you can control how authorized users access your cloud apps. This article provides you with information about:
 
 - Things you should know 
 - What it is you should avoid doing when configuring Conditional Access policies. 
 
-This article assumes that you are familiar with the concepts and the terminology outlined in [What is Conditional Access in Azure Active Directory?](../active-directory-conditional-access-azure-portal.md)
+This article assumes that you are familiar with the concepts and the terminology outlined in [What is Conditional Access in Azure Active Directory?](./overview.md)
 
 ## What's required to make a policy work?
 
@@ -151,5 +151,5 @@ For more information, see [Migrate classic policies in the Azure portal](policy-
 
 If you want to know:
 
-- How to configure a Conditional Access policy, see [Require MFA for specific apps with Azure Active Directory Conditional Access](app-based-mfa.md).
+- How to configure a Conditional Access policy, see [Require MFA for specific apps with Azure Active Directory Conditional Access](../authentication/tutorial-enable-azure-mfa.md).
 - How to plan your Conditional Access policies, see [How to plan your Conditional Access deployment in Azure Active Directory](plan-conditional-access.md).

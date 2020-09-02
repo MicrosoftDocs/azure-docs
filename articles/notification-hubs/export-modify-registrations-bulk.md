@@ -14,6 +14,7 @@ ms.date: 08/04/2020
 ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 03/18/2019
+ms.custom: devx-track-csharp
 ---
 
 # Export and import Azure Notification Hubs registrations in bulk
@@ -46,7 +47,7 @@ private static void SerializeToBlob(CloudBlobContainer container, RegistrationDe
     StringBuilder builder = new StringBuilder();
     foreach (var registrationDescription in descriptions)
     {
-        builder.AppendLine(RegistrationDescription.Serialize());
+        builder.AppendLine(registrationDescription.Serialize());
     }
 
     var inputBlob = container.GetBlockBlobReference(INPUT_FILE_NAME);
@@ -211,7 +212,7 @@ namespace ConsoleApplication1
             StringBuilder builder = new StringBuilder();
             foreach (var registrationDescription in descriptions)
             {
-                builder.AppendLine(RegistrationDescription.Serialize());
+                builder.AppendLine(registrationDescription.Serialize());
             }
 
             var inputBlob = container.GetBlockBlobReference(INPUT_FILE_NAME);

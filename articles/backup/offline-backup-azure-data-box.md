@@ -190,7 +190,7 @@ To ensure you can mount your Data Box device as a Local System by using the NFS 
 
     ![Fetch Data Box jobs for subscription ID](./media/offline-backup-azure-data-box/fetching-databox-jobs.png)
 
-1. Select the correct Data Box order for which you have unpacked, connected, and unlocked your Data Box disk. Select **Next**.
+1. Select the correct Data Box order for which you've unpacked, connected, and unlocked your Data Box disk. Select **Next**.
 
     ![Select Data Box orders](./media/offline-backup-azure-data-box/select-databox-order.png)
 
@@ -254,13 +254,13 @@ When you configure offline backup, you might face a problem because of a bug in 
 
 To see if your problem is the same as the one previously described, do one of the following steps.
 
-#### Step 1
+#### Step 1 of verification
 
 Check to see if the following error message appears in the MAB console when you configured offline backup.
 
 ![Unable to create Offline Backup policy for the current Azure account](./media/offline-backup-azure-data-box/unable-to-create-policy.png)
 
-#### Step 2
+#### Step 2 of verification
 
 1. Open the **Temp** folder in the installation path. The default temp folder path is *C:\Program Files\Microsoft Azure Recovery Services Agent\Temp*. Look for the *CBUICurr* file, and open the file.
 
@@ -270,11 +270,11 @@ Check to see if the following error message appears in the MAB console when you 
 
 As a workaround to resolve this problem, do the following steps and retry the policy configuration.
 
-#### Step 1
+#### Step 1 of workaround
 
 Sign in to PowerShell that appears on the MAB UI by using a different account with admin access on the subscription that will have the import or export job created.
 
-#### Step 2
+#### Step 2 of workaround
 
 If no other server has offline seeding configured and no other server is dependent on the `AzureOfflineBackup_<Azure User Id>` application, delete this application. Select **Azure portal** > **Azure Active Directory** > **App registrations**.
 

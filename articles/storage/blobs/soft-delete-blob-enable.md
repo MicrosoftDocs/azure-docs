@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 07/15/2020
 ms.author: tamram
 ms.subservice: blobs 
-ms.custom: devx-track-azurecli
+ms.custom: "devx-track-azurecli, devx-track-csharp"
 ---
 
 # Enable and manage soft delete for blobs
 
-Blob soft delete protects your data from being accidentally or erroneously modified or deleted. When blob soft delete is enabled for a storage account, blobs, blob versions (preview), and snapshots in that storage account may be recovered after they are deleted, within a retention period that you specify.
+Blob soft delete protects your data from being accidentally or erroneously modified or deleted. When blob soft delete is enabled for a storage account, blobs, blob versions, and snapshots in that storage account may be recovered after they are deleted, within a retention period that you specify.
 
 If there is a possibility that your data may accidentally be modified or deleted by an application or another storage account user, Microsoft recommends turning on blob soft delete. This article shows how to enable soft delete for blobs. For more details about blob soft delete, see [Soft delete for blobs](soft-delete-blob-overview.md).
 
@@ -130,7 +130,7 @@ block_blob_service.set_blob_service_properties(
     delete_retention_policy=DeleteRetentionPolicy(enabled=True, days=7))
 ```
 
-# [.NET v12 SDK](#tab/dotnet)
+# [.NET v12](#tab/dotnet)
 
 To enable soft delete, update a blob client's service properties:
 
@@ -144,7 +144,7 @@ To recover to a specific blob version, first call Undelete on a blob, then copy 
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/DataProtection.cs" id="Snippet_RecoverSpecificBlobVersion":::
 
-# [.NET v11 SDK](#tab/dotnet11)
+# [.NET v11](#tab/dotnet11)
 
 To enable soft delete, update a blob client's service properties:
 
@@ -191,4 +191,4 @@ blockBlob.StartCopy(copySource);
 ## Next steps
 
 - [Soft delete for Blob storage](soft-delete-overview.md)
-- [Blob versioning (preview)](versioning-overview.md)
+- [Blob versioning](versioning-overview.md)

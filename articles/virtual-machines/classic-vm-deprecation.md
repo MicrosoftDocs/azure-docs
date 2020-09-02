@@ -34,13 +34,22 @@ The following Azure services and functionality will **NOT** be impacted by this 
 
 - Start planning your migration to Azure Resource Manager, today. 
 
+- Make a list of all affected VMs. 
+    - VM type “Virtual Machines (classic)” on the [Azure Portal VM Blade](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.ClassicCompute%2FVirtualMachines) are all the affected VMs within the subscription. 
+    - You can also query Azure Resource Graph using [Portal](https://portal.azure.com/#blade/HubsExtension/ArgQueryBlade/query/resources%0A%7C%20where%20type%20%3D%3D%20%22microsoft.classiccompute%2Fvirtualmachines%22) or [Power Shell](https://docs.microsoft.com/azure/governance/resource-graph/concepts/work-with-data) to view the list of all flagged Virtual Machines (Classic) & it's related information for the selected subscriptions. 
+    - We sent out emails to subscriptions owners with the list of all subcriptions containing these Virtual Machines (Classic). Please use them to build this list. 
+
 - [Learn more](./windows/migration-classic-resource-manager-overview.md) about migrating your classic [Linux](./linux/migration-classic-resource-manager-plan.md) and [Windows](./windows/migration-classic-resource-manager-plan.md) VMs to Azure Resource Manager.
 
-- For more information, refer to the [Frequently asked questions about classic to Azure Resource Manager migration](./windows/migration-classic-resource-manager-faq.md)
+- For more information, refer to the [Frequently asked questions about classic to Azure Resource Manager migration](./migration-classic-resource-manager-faq.md)
 
+- We recommend starting the planning using the [Platform support migration tool](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-overview) to migrate your existing VMs with 3 easy steps "Validate, Prepare & Commit". 
+    - The tool is designed to migrate your VMs within minimal to no downtime. 
+    - The first step "Validate" has no impact on your existing deployment and provides a list of all unsupported scenarios for migration. 
+    - Go through the [list of workarounds](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-overview#unsupported-features-and-configurations) to fix you deployment and make it ready for migration. 
+    - Ideally after all validation errors are fixed, you should not encounter any issues during the prepare & commit steps. After commit is successful, your deployment is live migrated to Azure Resource Manager and can now be managed using new APIs exposed by Azure Resource Manager. 
+    - If this tool is not suitable for your migration, then you can explore [other compute offering](https://docs.microsoft.com/azure/architecture/guide/technology-choices/compute-decision-tree) for this migration. Since there are many azure compute offerings each very different from one another, we are unable to provide platform supported migration path to these offering.  
 - For technical questions, issues, and adding subscriptions to the allow list, [contact support](https://ms.portal.azure.com/#create/Microsoft.Support/Parameters/{"pesId":"6f16735c-b0ae-b275-ad3a-03479cfa1396","supportTopicId":"8a82f77d-c3ab-7b08-d915-776b4ff64ff4"}).
-
-- For other questions not part of FAQ and feedback, comment below.
 
 - Complete the migration as soon as possible to prevent business impact and leverage improved performance, security & new features provided by Azure Resource Manager. 
 
@@ -52,5 +61,5 @@ The following Azure services and functionality will **NOT** be impacted by this 
 
 - [Microsoft Fast Track](https://www.microsoft.com/fasttrack): Microsoft Fast Track team can provide technical assistance during migration to eligible customers. 
 
-- If your company/organization has partnered with microsoft and/or work with Microsoft representative like (Cloud Solution Architect (CSA), Technical Account Managers (TAMs)), please work with them for additional resources for migration. 
+- If your company/organization has partnered with Microsoft and/or work with Microsoft representative like (Cloud Solution Architect (CSA), Technical Account Managers (TAMs)), please work with them for additional resources for migration. 
 

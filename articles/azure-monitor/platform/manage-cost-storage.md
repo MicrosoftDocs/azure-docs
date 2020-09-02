@@ -262,8 +262,7 @@ Heartbeat
 The get a count of nodes sending data in the last 24 hours use the query: 
 
 ```kusto
-union * 
-| where TimeGenerated > ago(24h)
+find where TimeGenerated > ago(24h) project Computer
 | extend computerName = tolower(tostring(split(Computer, '.')[0]))
 | where computerName != ""
 | summarize nodes = dcount(computerName)
@@ -272,15 +271,14 @@ union *
 To get a list of nodes sending any data (and the amount of data sent by each) the follow query can be used:
 
 ```kusto
-union * 
-| where TimeGenerated > ago(24h)
+find where TimeGenerated > ago(24h) project _BilledSize, Computer
 | extend computerName = tolower(tostring(split(Computer, '.')[0]))
 | where computerName != ""
 | summarize TotalVolumeBytes=sum(_BilledSize) by computerName
 ```
 
 > [!TIP]
-> Use these `union *` queries sparingly as scans across data types are [resource intensive](https://docs.microsoft.com/azure/azure-monitor/log-query/query-optimization#query-performance-pane) to execute. If you do not need results **per computer** then query on the Usage data type (see below).
+> Use these `find` queries sparingly as scans across data types are [resource intensive](https://docs.microsoft.com/azure/azure-monitor/log-query/query-optimization#query-performance-pane) to execute. If you do not need results **per computer** then query on the Usage data type (see below).
 
 ## Understanding ingested data volume
 
@@ -342,8 +340,7 @@ Usage
 The `Usage` data type does not include information at the computer level. To see the **size** of ingested data per computer, use the `_BilledSize` [property](log-standard-properties.md#_billedsize), which provides the size in bytes:
 
 ```kusto
-union * 
-| where TimeGenerated > ago(24h)
+find where TimeGenerated > ago(24h) project _BilledSize, _IsBillable, Computer
 | where _IsBillable == true 
 | extend computerName = tolower(tostring(split(Computer, '.')[0]))
 | summarize BillableDataBytes = sum(_BilledSize) by  computerName 
@@ -355,8 +352,7 @@ The `_IsBillable` [property](log-standard-properties.md#_isbillable) specifies w
 To see the **count** of billable events ingested per computer, use 
 
 ```kusto
-union * 
-| where TimeGenerated > ago(24h)
+find where TimeGenerated > ago(24h) project _IsBillable, Computer
 | where _IsBillable == true 
 | extend computerName = tolower(tostring(split(Computer, '.')[0]))
 | summarize eventCount = count() by computerName  
@@ -364,15 +360,14 @@ union *
 ```
 
 > [!TIP]
-> Use these `union  *` queries sparingly as scans across data types are [resource intensive](https://docs.microsoft.com/azure/azure-monitor/log-query/query-optimization#query-performance-pane) to execute. If you do not need results **per computer** then query on the Usage data type.
+> Use these `find` queries sparingly as scans across data types are [resource intensive](https://docs.microsoft.com/azure/azure-monitor/log-query/query-optimization#query-performance-pane) to execute. If you do not need results **per computer** then query on the Usage data type.
 
 ### Data volume by Azure resource, resource group, or subscription
 
 For data from nodes hosted in Azure you can get the **size** of ingested data __per computer__, use the _ResourceId [property](log-standard-properties.md#_resourceid), which provides the full path to the resource:
 
 ```kusto
-union * 
-| where TimeGenerated > ago(24h)
+find where TimeGenerated > ago(24h) project _ResourceId, _BilledSize, _IsBillable
 | where _IsBillable == true 
 | summarize BillableDataBytes = sum(_BilledSize) by _ResourceId | sort by BillableDataBytes nulls last
 ```
@@ -380,22 +375,20 @@ union *
 For data from nodes hosted in Azure you can get the **size** of ingested data __per Azure subscription__, get subscription ID the `_ResourceId` property as:
 
 ```kusto
-union * 
-| where TimeGenerated > ago(24h)
+find where TimeGenerated > ago(24h) project _ResourceId, _BilledSize, _IsBillable
 | where _IsBillable == true 
 | summarize BillableDataBytes = sum(_BilledSize) by _ResourceId
-| extend subscriptionId = split(_ResourceId, "/")[2] 
+| extend subscriptionId = tostring(split(_ResourceId, "/")[2]) 
 | summarize BillableDataBytes = sum(BillableDataBytes) by subscriptionId | sort by BillableDataBytes nulls last
 ```
 
 Similarly, to get data volume by resource group this would be:
 
 ```kusto
-union * 
-| where TimeGenerated > ago(24h)
+find where TimeGenerated > ago(24h) project _ResourceId, _BilledSize, _IsBillable
 | where _IsBillable == true 
 | summarize BillableDataBytes = sum(_BilledSize) by _ResourceId
-| extend resourceGroup = split(_ResourceId, "/")[4] 
+| extend resourceGroup = tostring(split(_ResourceId, "/")[4] )
 | summarize BillableDataBytes = sum(BillableDataBytes) by resourceGroup | sort by BillableDataBytes nulls last
 ```
 
@@ -407,7 +400,7 @@ You can also parse the `_ResourceId` more fully if needed as well using
 ```
 
 > [!TIP]
-> Use these `union  *` queries sparingly as scans across data types are [resource intensive](https://docs.microsoft.com/azure/azure-monitor/log-query/query-optimization#query-performance-pane) to execute. If you do not need results per subscription, resouce group or resource name, then query on the Usage data type.
+> Use these `find` queries sparingly as scans across data types are [resource intensive](https://docs.microsoft.com/azure/azure-monitor/log-query/query-optimization#query-performance-pane) to execute. If you do not need results per subscription, resouce group or resource name, then query on the Usage data type.
 
 > [!WARNING]
 > Some of the fields of the Usage data type, while still in the schema, have been deprecated and will their values are no longer populated. 
@@ -457,8 +450,7 @@ To do this, use the `_IsBillable` [property](log-standard-properties.md#_isbilla
 data per hour (which is the granularity at which nodes are counted and billed):
 
 ```kusto
-union * 
-| where _IsBillable == true 
+find where TimeGenerated > ago(24h) project Computer, TimeGenerated
 | extend computerName = tolower(tostring(split(Computer, '.')[0]))
 | where computerName != ""
 | summarize billableNodes=dcount(computerName) by bin(TimeGenerated, 1h) | sort by TimeGenerated asc
@@ -582,9 +574,9 @@ To alert if the billable data volume ingested in the last 24 hours was greater t
 - **Define alert condition** specify your Log Analytics workspace as the resource target.
 - **Alert criteria** specify the following:
    - **Signal Name** select **Custom log search**
-   - **Search query** to `Usage | where IsBillable | summarize DataGB = sum(Quantity / 1000.) | where DataGB > 50`. If you want a differetn 
+   - **Search query** to `Usage | where IsBillable | summarize DataGB = sum(Quantity / 1000.) | where DataGB > 50`. 
    - **Alert logic** is **Based on** *number of results* and **Condition** is *Greater than* a **Threshold** of *0*
-   - **Time period** of *1440* minutes and **Alert frequency** to every *1440* minutesto run once a day.
+   - **Time period** of *1440* minutes and **Alert frequency** to every *1440* minutes to run once a day.
 - **Define alert details** specify the following:
    - **Name** to *Billable data volume greater than 50 GB in 24 hours*
    - **Severity** to *Warning*
@@ -611,7 +603,7 @@ When data collection stops, the OperationStatus is **Warning**. When data collec
 |Reason collection stops| Solution| 
 |-----------------------|---------|
 |Daily cap of your workspace was reached|Wait for collection to automatically restart, or increase the daily data volume limit described in manage the maximum daily data volume. The daily cap reset time is shows on the **Daily Cap** page. |
-| Your workspace has hit the [Data Ingestion Volume Rate](https://docs.microsoft.com/azure/azure-monitor/service-limits#log-analytics-workspaces) | The default ingestion volume rate limit for data sent from Azure resources using diagnostic settings is approximately 6 GB/min per workspace. This is an approximate value since the actual size can vary between data types depending on the log length and its compression ratio. This limit does not apply to data that is sent from agents or Data Collector API. If you send data at a higher rate to a single workspace, some data is dropped, and an event is sent to the Operation table in your workspace every 6 hours while the threshold continues to be exceeded. If your ingestion volume continues to exceed the rate limit or you are expecting to reach it sometime soon, you can request an increase to your workspace by sending an email to LAIngestionRate@microsoft.com or opening a support request. The event to look for that indicates a data ingestion rate limit can be found by the query `Operation | where OperationCategory == "Ingestion" | where Detail startswith "The rate of data crossed the threshold"`. |
+| Your workspace has hit the [Data Ingestion Volume Rate](https://docs.microsoft.com/azure/azure-monitor/service-limits#log-analytics-workspaces) | A default ingestion volume rate threshold of 500 MB (compressed) applies to workspaces, which is approximately **6 GB/min** uncompressed -- the actual size can vary between data types depending on the log length and its compression ratio. This threshold applies to all ingested data whether sent from Azure resources using [Diagnostic settings](diagnostic-settings.md), [Data Collector API](data-collector-api.md) or agents. When you send data to a workspace at a volume rate higher than 80% of the threshold configured in your workspace, an event is sent to the *Operation* table in your workspace every 6 hours while the threshold continues to be exceeded. When ingested volume rate is higher than threshold, some data is dropped and an event is sent to the *Operation* table in your workspace every 6 hours while the threshold continues to be exceeded. If your ingestion volume rate continues to exceed the threshold or you are expecting to reach it sometime soon, you can request to increase it in your workspace by opening a support request. To be notified on such an event in your workspace, create a [log alert rule](alerts-log.md) using the following query with alert logic based on number of results greater than zero, evaluation period of 5 minutes and frequency of 5 minutes. Ingestion volume rate reached 80% of threshold: `Operation | where OperationCategory == "Ingestion" | where Detail startswith "The data ingestion volume rate crossed 80% of the threshold"`. Ingestion volume rate reached threshold: `Operation | where OperationCategory == "Ingestion" | where Detail startswith "The data ingestion volume rate crossed the threshold"`. |
 |Daily limit of legacy Free pricing tier  reached |Wait until the following day for collection to automatically restart, or change to a paid pricing tier.|
 |Azure subscription is in a suspended state due to:<br> Free trial ended<br> Azure pass expired<br> Monthly spending limit reached (for example on an MSDN or Visual Studio subscription)|Convert to a paid subscription<br> Remove limit, or wait until limit resets|
 

@@ -1,6 +1,6 @@
 ---
 title: Performance tuning - Storm with Azure Data Lake Storage Gen1
-description: Learn about performance tuning guidelines for a Storm cluster on Azure Data Lake Storage Gen1.
+description: Understand the factors that should be considered when you tune the performance of an Azure Storm topology, including troubleshooting common issues.
 
 author: stewu
 ms.service: data-lake-store

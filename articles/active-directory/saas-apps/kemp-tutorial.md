@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Kemp LoadMaster Azure AD integration | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Kemp LoadMaster Azure AD integration.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: f42e1731-0477-4955-9571-b69a0f3de0bc
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 07/28/2020
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory SSO integration with Kemp LoadMaster Azure AD integration

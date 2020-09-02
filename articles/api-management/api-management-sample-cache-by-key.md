@@ -10,6 +10,7 @@ editor: ''
 ms.assetid: 772bc8dd-5cda-41c4-95bf-b9f6f052bc85
 ms.service: api-management
 ms.devlang: dotnet
+ms.custom: devx-track-csharp
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na

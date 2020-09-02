@@ -6,11 +6,13 @@ author: bandersmsft
 ms.reviewer: sasrin
 tags: billing
 ms.service: cost-management-billing
+ms.subservice: billing
 ms.topic: conceptual
-ms.date: 02/10/2020
+ms.date: 08/20/2020
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 ---
+
 # Upgrade your Azure free account or Azure for Students Starter account
 
 You can upgrade your [Azure free account](https://azure.microsoft.com/free/) or [Azure for Students Starter account](https://azure.microsoft.com/offers/ms-azr-0144p/) to [pay-as-you-go rates](https://azure.microsoft.com/offers/ms-azr-0003p/) in the Azure portal.

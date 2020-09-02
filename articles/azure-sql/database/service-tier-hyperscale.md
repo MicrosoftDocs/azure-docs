@@ -100,7 +100,9 @@ Azure Storage contains all data files in a database. Page servers keep data file
 
 ## Backup and restore
 
-Backups are file-snapshot based and hence they're nearly instantaneous. Storage and compute separation enables pushing down the backup/restore operation to the storage layer to reduce the processing burden on the primary compute replica. As a result, database backup doesn't impact performance of the primary compute node. Similarly, restores are done by reverting to file snapshots, and as such aren't a size of data operation. Restore is a constant-time operation, and even multiple-terabyte databases can be restored in minutes instead of hours or days. Creation of new databases by restoring an existing backup also takes advantage of this feature: creating database copies for development or testing purposes, even of terabyte sized databases, is doable in minutes.
+Backups are file-snapshot based and hence they're nearly instantaneous. Storage and compute separation enables pushing down the backup/restore operation to the storage layer to reduce the processing burden on the primary compute replica. As a result, database backup doesn't impact performance of the primary compute node. Similarly, point in time recovery (PITR) is done by reverting to file snapshots, and as such is not a size of data operation. Restore of a Hyperscale database in the same Azure region is a constant-time operation, and even multiple-terabyte databases can be restored in minutes instead of hours or days. Creation of new databases by restoring an existing backup also takes advantage of this feature: creating database copies for development or testing purposes, even of terabyte sized databases, is doable in minutes.
+
+For geo-restore of Hyperscale databases, see [Restoring a Hyperscale database to a different region](#restoring-a-hyperscale-database-to-a-different-region).
 
 ## Scale and performance advantages
 
@@ -151,7 +153,7 @@ For Hyperscale SLA, see [SLA for Azure SQL Database](https://azure.microsoft.com
 
 ## Disaster recovery for Hyperscale databases
 
-### Restoring a Hyperscale database to a different geography
+### Restoring a Hyperscale database to a different region
 
 If you need to restore a Hyperscale database in Azure SQL Database to a region other than the one it's currently hosted in, as part of a disaster recovery operation or drill, relocation, or any other reason, the primary method is to do a geo-restore of the database. This involves exactly the same steps as what you would use to restore any other database in SQL Database to a different region:
 
