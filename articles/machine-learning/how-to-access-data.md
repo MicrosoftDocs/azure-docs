@@ -89,7 +89,7 @@ If your data storage account is in a **virtual network**, additional configurati
 
 * For the studio experience, see [Network isolation & privacy](how-to-enable-virtual-network.md#machine-learning-studio) to ensure that a managed identity is used to configure your datastore. 
 
-* For the SDK experience, see [Use datastores and datasets](how-to-enable-virtual-network.md##use-datastores-and-datasets) to ensure that the appropriate configuration steps are applied.  
+* For the SDK experience, see [Use datastores and datasets](how-to-enable-virtual-network.md#use-datastores-and-datasets) to ensure that the appropriate configuration steps are applied.  
 
 ### Access validation
 
