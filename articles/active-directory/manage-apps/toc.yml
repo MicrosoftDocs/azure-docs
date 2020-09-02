@@ -201,11 +201,7 @@
     - name: Troubleshoot
       items:
       - name: Troubleshoot adding apps
-        items:
-        - name: Common problems - gallery apps
-          href: adding-gallery-app-common-problems.md
-        - name: Common problems - non-gallery apps
-          href: adding-non-gallery-app-common-problems.md
+        href: troubleshoot-adding-apps.md
       - name: Troubleshoot user sign-in
         items:
         - name: Unexpected consent prompt
