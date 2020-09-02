@@ -104,7 +104,7 @@ To enable debugging, make the following changes to the Python script(s) used by 
         print(f'Debugger attached = {debugpy.is_client_connected()}')
     ```
 
-The following Python example shows a basic `train.py` file that enables debugging:
+The following Python example shows a simple `train.py` file that enables debugging:
 
 ```python
 # Copyright (c) Microsoft. All rights reserved.

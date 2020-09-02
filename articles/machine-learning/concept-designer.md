@@ -113,5 +113,5 @@ The designer creates the same [PublishedPipeline](https://docs.microsoft.com/pyt
 
 ## Next steps
 
-* Learn the basics of predictive analytics and machine learning with [Tutorial: Predict automobile price with the designer](tutorial-designer-automobile-price-train-score.md)
+* Learn the fundamentals of predictive analytics and machine learning with [Tutorial: Predict automobile price with the designer](tutorial-designer-automobile-price-train-score.md)
 * Learn how to modify existing [designer samples](samples-designer.md) to adapt them to your needs.
