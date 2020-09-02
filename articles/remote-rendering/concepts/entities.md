@@ -16,7 +16,7 @@ An *Entity* represents a movable object in space and is the fundamental building
 
 Entities have a transform defined by a position, rotation, and scale. By themselves entities do not have any observable functionality. Instead, behavior is added through components, which are attached to entities. For instance, attaching a [CutPlaneComponent](../overview/features/cut-planes.md)  will create a cut plane at the position of the entity.
 
-The most important aspect of the entity itself is the hierarchy and the resulting hierarchical transform. For example, when multiple entities are attached as children to a shared parent entity, all of these entities can be moved, rotated, and scaled in unison by changing the transform of the parent entity. Also, the entity's `enabled` state can be used to turn off visibility and responses to ray casts for a full subgraph in the hierarchy.
+The most important aspect of the entity itself is the hierarchy and the resulting hierarchical transform. For example, when multiple entities are attached as children to a shared parent entity, all of these entities can be moved, rotated, and scaled in unison by changing the transform of the parent entity. Also, the entity's `enabled` state can be used to turn off visibility and responses to ray casts for a full sub graph in the hierarchy.
 
 An entity is uniquely owned by its parent, meaning that when the parent is destroyed with `Entity.Destroy()`, so are its children and all connected [components](components.md). Thus, removing a model from the scene is accomplished by calling `Destroy` on the root node of a model, returned by `AzureSession.Actions.LoadModelAsync()` or its SAS variant `AzureSession.Actions.LoadModelFromSASAsync()`.
 
