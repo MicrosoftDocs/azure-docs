@@ -115,7 +115,7 @@ The Azure Storage account created by default with the workspace is a general-pur
 
 If you want to use an existing Azure Storage account, it cannot be a premium account (Premium_LRS and Premium_GRS). It also cannot have a hierarchical namespace (used with Azure Data Lake Storage Gen2). Neither premium storage or hierarchical namespaces are supported with the _default_ storage account of the workspace. You can use premium storage or hierarchical namespace with _non-default_ storage accounts.
 
-<a name="wheres-enterprise">
+<a name="wheres-enterprise"></a>
 
 ## What happened to enterprise
 
