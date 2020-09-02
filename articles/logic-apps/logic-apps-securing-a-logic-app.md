@@ -57,7 +57,7 @@ Here are additional ways that you can limit access to triggers that receive inbo
 
 ### Generate shared access signatures (SAS)
 
-Every request endpoint on a logic app has an [Shared Access Signature (SAS)](/rest/api/storageservices/constructing-a-service-sas) in the endpoint's URL, which follows this format:
+Every request endpoint on a logic app has a [Shared Access Signature (SAS)](/rest/api/storageservices/constructing-a-service-sas) in the endpoint's URL, which follows this format:
 
 `https://<request-endpoint-URI>sp=<permissions>sv=<SAS-version>sig=<signature>`
 
@@ -266,7 +266,25 @@ Here's the syntax to follow:
 
 #### Include 'Authorization' header in Request trigger's outputs
 
-You can enable the Request trigger's outputs to include the `Authorization` header from the access token. In the Request trigger's underlying JSON definition, add the `operationOptions` property and set that property to `IncludeAuthorizationHeadersInOutputs`. For more information, see [Schema reference for trigger and action types - Operation options](../logic-apps/logic-apps-workflow-actions-triggers.md#operation-options).
+You can enable the Request trigger's outputs to include the `Authorization` header from the access token. In the Request trigger's underlying JSON definition, add the `operationOptions` property and set that property to `IncludeAuthorizationHeadersInOutputs`, for example:
+
+```json
+"triggers": {
+   "manual": {
+      "inputs": {
+         "schema": {}
+      },
+      "kind": "Http",
+      "type": "Request",
+      "operationOptions": "IncludeAuthorizationHeadersInOutputs"
+   }
+}
+```
+
+For more information, see these topics:
+
+* [Schema reference for trigger and action types -Request trigger](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger)
+* [Schema reference for trigger and action types - Operation options](../logic-apps/logic-apps-workflow-actions-triggers.md#operation-options)
 
 <a name="azure-api-management"></a>
 
