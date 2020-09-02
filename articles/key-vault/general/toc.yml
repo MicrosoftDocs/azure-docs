@@ -42,9 +42,6 @@
   items:
   - name: Key Vault Code Samples
     href: https://docs.microsoft.com/samples/browse/?expanded=azure&products=azure-key-vault
-  - name: Azure Policy built-ins
-    displayName: samples, policies, definitions
-    href: ../policy-samples.md?toc=/azure/key-vault/general/toc.json&bc=/azure/key-vault/breadcrumb/toc.json
 
 - name: Concepts 
   items:
@@ -99,6 +96,8 @@
         href: assign-access-policy-powershell.md
       - name: Portal
         href: assign-access-policy-portal.md
+    - name: Use an Azure role-based access control (preview)
+      href: rbac-guide.md
     - name: Troubleshoot access issues
       href: troubleshooting-access-issues.md
   - name: Develop
@@ -173,6 +172,9 @@
   - name: Resource Manager template
     href: /azure/templates/microsoft.keyvault/allversions
     displayName: ARM
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ../policy-reference.md?toc=/azure/key-vault/general/toc.json&bc=/azure/key-vault/breadcrumb/toc.json
 
 - name: Resources
   items:
