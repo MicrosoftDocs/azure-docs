@@ -22,7 +22,7 @@ The two tabs below show the features of Azure Security Center that are available
 ## Supported features for virtual machines and servers <a name="vm-server-features"></a>
 
 ### [**Windows machines**](#tab/features-windows)
-
+ 
 |**Feature**|**Azure Virtual Machines**|**Azure Virtual Machine Scale Sets**|**Non-Azure Machines**|**Pricing**
 |----|:----:|:----:|:----:|:----:|
 |[Microsoft Defender ATP integration](security-center-wdatp.md)|✔</br>(on supported versions)|✔</br>(on supported versions)|✔|Standard|
