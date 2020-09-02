@@ -25,7 +25,7 @@ This article describes how to use the enhanced user management preview in the Az
 
 Changes in the preview include:
 
-- More user information including object ID, directory sync status, creation type, and identity issuer
+- More visible user properties including object ID, directory sync status, creation type, and identity issuer
 - Search now allows combined search of names, emails, and object IDs
 - Enhanced filtering by user type (member and guest), directory sync status, and creation type
 
