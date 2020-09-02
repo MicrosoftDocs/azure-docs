@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Get a phone number
+title: Quickstart - Get a phone number from Azure Communication Services
 description: Learn how to buy a Communication Services phone number using the Azure portal.
 author: ddematheu2
 manager: nimag
@@ -9,14 +9,12 @@ ms.author: dademath
 ms.date: 07/09/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
+ms.custom: references_regions
+
 ---
 # Quickstart: Get a phone number using the Azure portal
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
-
-> [!WARNING]
-> This document is under construction and needs the following items to be addressed:
-> - Screenshot updates
 
 Get started with Azure Communication Services by using the Azure portal to purchase a telephone number.
 
@@ -33,7 +31,7 @@ First, go to your Communication Services resource on the [Azure Portal](https://
 
 Navigate to the Phone Numbers blade in the resource menu:
 
-![Azure Communication Resource Main](../media/manage-phone-azure-portal-phPage.png)
+![Azure Communication Resource Main](../media/manage-phone-azure-portal-phone-page.png)
 
 Press the **Get** button to launch the wizard. The wizard on the "Phone numbers" blade will walk you through a series of questions that allows you to get the phone number that best fits your scenario. 
 

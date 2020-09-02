@@ -47,4 +47,4 @@ In this quickstart, you learned how to send SMS messages using Azure Communicati
 > [Plan your PSTN Solution](../../concepts/telephony-and-sms/plan-your-telephony-and-SMS-solution.md)
 
 > [!div class="nextstepaction"]
-> [Learn more about SMS](../../concepts/telephony-and-sms/sms.md)
+> [Learn more about SMS](../../concepts/telephony-and-sms/sms-concepts.md)

@@ -1,5 +1,5 @@
 ---
-title: SMS SDK overview
+title: SMS SDK overview for Azure Communication Services
 description: Provides an overview of the SMS SDK and its offerings.
 author: mikben
 manager: jken
@@ -34,6 +34,11 @@ The following list presents the set of features which are currently available in
 
 ## Next steps
 
-- Familiarize yourself with general [SMS concepts](../telephony-and-sms/sms.md)
+> [!div class="nextstepaction"]
+> [Get started with sending sms](../../quickstarts/telephony-and-sms/send-sms.md)
+
+The following documents may be interesting to you:
+
+- Familiarize yourself with general [SMS concepts](../telephony-and-sms/sms-concepts.md)
 - Get an SMS capable [phone number](../../quickstarts/telephony-and-sms/get-a-phone-number.md)
-- Get started with [sending sms](../../quickstarts/telephony-and-sms/send-sms.md)
+- [Plan your SMS solution](../telephony-and-sms/plan-your-telephony-and-SMS-solution.md)

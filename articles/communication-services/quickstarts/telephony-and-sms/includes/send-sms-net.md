@@ -1,11 +1,11 @@
 ---
 title: include file
 description: include file
-services: Communication Services
+services: azure-communication-services
 author: dademath
 manager: nimag
-ms.service: Communication Services
-ms.subservice: Communication Services
+ms.service: azure-communication-services
+ms.subservice: azure-communication-services
 ms.date: 07/28/2020
 ms.topic: include
 ms.custom: include file
@@ -57,6 +57,14 @@ While still in the application directory, install the Azure Communication Servic
 dotnet add package Azure.Communication.Sms
 ```
 
+Add a `using` directive to the top of **Program.cs** to include the `Azure.Communication` namespace.
+
+```csharp
+
+using Azure.Communication.Sms;
+
+```
+
 ## Object model
 
 The following classes and interfaces handle some of the major features of the Azure Communication Services SMS SDK for C#.
@@ -68,26 +76,15 @@ The following classes and interfaces handle some of the major features of the Az
 
 ## Authenticate the client
 
-Add a `using` directive to the top of **Program.cs** to include the `Azure.Communication` namespace. Then replace the body of the `Main` method with code to initialize an `SmsClient` with your connection string. The code below retrieves the connection string for the resource from the environment variable created in the [Configure your storage connection string](#configure-your-connection-string) section.
+ Open **Program.cs** in a text editor and replace the body of the `Main` method with code to initialize an `SmsClient` with your connection string. The code below retrieves the connection string for the resource from an environment variable named `COMMUNICATION_SERVICES_CONNECTION_STRING`. Learn how to [manage you resource's connection string](../../create-a-communication-resource.md#store-your-connection-string).
+
 
 ```csharp
+// This code demonstrates how to fetch your connection string
+// from an environment variable.
+string connectionString = Environment.GetEnvironmentVariable("COMMUNICATION_SERVICES_CONNECTION_STRING");
 
-using Azure.Communication.Sms;
-
-namespace SmsQuickstart
-{
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            // This code demonstrates how to fetch your connection string
-            // from an environment variable.
-            string connectionString = Environment.GetEnvironmentVariable("COMMUNICATION_SERVICES_CONNECTION_STRING");
-            SmsClient smsClient = new SmsClient(connectionString);
-        }
-    }
-}
-
+SmsClient smsClient = new SmsClient(connectionString);
 ```
 
 ## Send an SMS message
@@ -95,14 +92,12 @@ namespace SmsQuickstart
 Send an SMS message by calling the [Send](../../../references/overview.md) method. Add this code to the end of `Main` method in **Program.cs**:
 
 ```csharp
-
 smsClient.Send(
     from: new PhoneNumber("<leased-phone-number>"),
-    to: new PhoneNumber("<to-phone-number>"), 
-    message: "Hello World via SMS", 
+    to: new PhoneNumber("<to-phone-number>"),
+    message: "Hello World via SMS",
     new SendSmsOptions { EnableDeliveryReport = true } // optional
 );
-
 ```
 
 You should replace `<leased-phone-number>` with an SMS-enabled phone number associated with your Communication Services resource and `<to-phone-number>` with the phone number you wish to send a message to. All phone number parameters should adhere to the [E.164 standard](../../../concepts/telephony-and-sms/plan-your-telephony-and-sms-solution.md#optional-reading-international-public-telecommunication-numbering-plan-e164).

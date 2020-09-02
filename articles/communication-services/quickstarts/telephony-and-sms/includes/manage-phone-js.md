@@ -28,6 +28,4 @@ phoneManagement.phone().getAcquiredTelephoneNumbers(INSERT LOCALE).then(numbers 
 2. We then use the client to access the `Phone Manager`.
 3. We use the getAcquiredTelephoneNUmbers method of the manager to get the numbers owned by the resource. Here, you need to pass a valid locale value which will determine the locale in which the phone information is returned. (ex. "en-us")
 
-## Assigning Your Phone Number
-
-TODO
+<!--TODO: Assignment -->

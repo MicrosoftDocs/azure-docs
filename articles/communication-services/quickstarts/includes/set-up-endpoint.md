@@ -1,1 +1,0 @@
-TODO: This includes has been deprecated in favor of listing endpoints as a prereq - link to the resource provisioning quickstart as a prereq instead

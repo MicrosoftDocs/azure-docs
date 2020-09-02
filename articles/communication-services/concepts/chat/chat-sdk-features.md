@@ -1,6 +1,6 @@
 ---
-title: Chat SDK Overview
-description: TODO
+title: Chat SDK overview for Azure Communication Services
+description: Learn about the Azure Communication Services chat SDK.
 author: mikben
 manager: jken
 services: azure-communication-services
@@ -11,12 +11,17 @@ ms.topic: overview
 ms.service: azure-communication-services
 
 ---
-# Chat SDK Overview
+
+# Chat SDK overview
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 
-The following list presents the set of features which are currently available in our SDKs. To take a look at upcoming features, check out the [product roadmap](../../roadmap.md). 
+Azure Communication Services Chat SDKs can be used to add rich, real-time chat to your applications. These SDKs give you access to the same technology that powers Skype and Teams without requiring you to manage the underlying infrastructure yourself.
+
+## Chat SDK capabilities
+
+The following list presents the set of features which are currently available in the Communication Services chat SDKs. To take a look at upcoming features, check out the [product roadmap](../../roadmap.md). 
 
 | Group of features | Capability                                                                                                          | JS  | Java | .NET | Python |
 | ----------------- | ------------------------------------------------------------------------------------------------------------------- | --- | ----- | ---- | -----  |
@@ -44,9 +49,13 @@ The following list presents the set of features which are currently available in
 | Events             | Use Event Grid to subscribe to user activity happening in chat threads and integrate custom notification services or business logic     | ✔️   | ✔️  | ✔️    | ✔️  |
 | Monitoring        | Monitor usage in terms of messages sent                                                                               | ✔️   | ✔️  | ✔️    | ✔️  |
 |                    | Monitor the quality and status of API requests made by your app and configure alerts via the portal                                                          | ✔️   | ✔️  | ✔️    | ✔️  |
-|Additional features | Use [Cognitive Services APIs](https://docs.microsoft.com/en-us/azure/cognitive-services/) along with chat SDK to enable intelligent features - *language translation & sentiment analysis of the incoming message on a client, speech to text conversion to compose a message while the member speaks, etc.*                                                                                         | ✔️   | ✔️  | ✔️    | ✔️  |
+|Additional features | Use [Cognitive Services APIs](https://docs.microsoft.com/azure/cognitive-services/) along with chat SDK to enable intelligent features - *language translation & sentiment analysis of the incoming message on a client, speech to text conversion to compose a message while the member speaks, etc.*                                                                                         | ✔️   | ✔️  | ✔️    | ✔️  |
 
 ## Next steps
 
+> [!div class="nextstepaction"]
+> [Get started with chat](../../quickstarts/chat/get-started-with-chat.md)
+
+The following documents may be interesting to you:
+
 - Familiarize yourself with [chat concepts](../chat/about-chat.md)
-- Get started with [chat](../../quickstarts/chat/get-started-with-chat.md)

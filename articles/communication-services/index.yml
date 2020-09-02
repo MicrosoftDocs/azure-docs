@@ -72,7 +72,7 @@ landingContent:
       - linkListType: concept
         links:
           - text: SMS concepts
-            url: concepts/telephony-and-sms/sms.md
+            url: concepts/telephony-and-sms/sms-concepts.md
           - text: SMS SDK overview
             url: concepts/telephony-and-sms/sms-sdk-features.md
           - text: Calling SDK overview

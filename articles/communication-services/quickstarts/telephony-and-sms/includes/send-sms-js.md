@@ -1,11 +1,11 @@
 ---
 title: include file
 description: include file
-services: Communication Services
+services: azure-communication-services
 author: dademath
 manager: nimag
-ms.service: Communication Services
-ms.subservice: Communication Services
+ms.service: azure-communication-services
+ms.subservice: azure-communication-services
 ms.date: 07/28/2020
 ms.topic: include
 ms.custom: include file
@@ -72,7 +72,7 @@ The following classes and interfaces handle some of the major features of the Az
 
 ## Authenticate the client
 
-Import the **SmsClient** from the client library and instantiate it with your connection string. The code below retrieves the connection string for the resource from an environment variable named `COMMUNICATION_SERVICES_CONNECTION_STRING`. Learn how to [manage you resource's connection string](../create-a-communication-resource.md#store-your-connection-string).
+Import the **SmsClient** from the client library and instantiate it with your connection string. The code below retrieves the connection string for the resource from an environment variable named `COMMUNICATION_SERVICES_CONNECTION_STRING`. Learn how to [manage you resource's connection string](../../create-a-communication-resource.md#store-your-connection-string).
 
 Add the following code to **send-sms.js**:
 

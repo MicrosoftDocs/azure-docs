@@ -70,7 +70,7 @@
       - name: SMS SDK overview
         href: concepts/telephony-and-sms/sms-sdk-features.md
       - name: SMS concepts
-        href: concepts/telephony-and-sms/sms.md
+        href: concepts/telephony-and-sms/sms-concepts.md
       - name: Plan your telephony and SMS solution 
         href: concepts/telephony-and-sms/plan-your-telephony-and-sms-solution.md
       - name: Push Notifications Overview*

@@ -1,11 +1,11 @@
 ---
 title: include file
 description: include file
-services: Communication Services
+services: azure-communication-services
 author: chrwhit
 manager: nimag
-ms.service: Communication Services
-ms.subservice: Communication Services
+ms.service: azure-communication-services
+ms.subservice: azure-communication-services
 ms.date: 08/20/2020
 ms.topic: include
 ms.custom: include file
@@ -29,6 +29,7 @@ Completing this quickstart incurs a small cost of a few USD cents or less in you
 
 ### Prerequisite check
 
+- In a terminal or command window, run `mvn -v` to check that maven is installed.
 - To view the phone numbers associated with your Communication Services resource, sign in to the [Azure portal](https://portal.azure.com/), locate your Communication Services resource and open the **phone numbers** tab from the left navigation pane.
 
 ## Setting Up
@@ -41,9 +42,9 @@ Open your terminal or command window and navigate to the directory where you wou
 mvn archetype:generate -DgroupId=com.communication.quickstart -DartifactId=communication-quickstart -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.4 -DinteractiveMode=false
 ```
 
-You'll notice that the 'generate' goal created a directory with the same name as the artifactId. Under this directory, the src/main/java directory contains the project source code, the src/test/java directory contains the test source, and the pom.xml file is the project's Project Object Model, or POM.
+The 'generate' goal will create a directory with the same name as the artifactId. Under this directory, the **src/main/java** directory contains the project source code, the **src/test/java directory** contains the test source, and the **pom.xml** file is the project's Project Object Model, or POM.
 
-### Add the package references for the SMS SDK
+### Install the package
 
 Open the **pom.xml** file in your text editor. Add the following dependency element to the group of dependencies.
 
@@ -51,7 +52,7 @@ Open the **pom.xml** file in your text editor. Add the following dependency elem
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-communication-sms</artifactId>
-    <version>1.0.0-beta.1</version> 
+    <version>1.0.0-beta.1</version>
 </dependency>
 <dependency>
     <groupId>com.azure</groupId>
@@ -59,16 +60,20 @@ Open the **pom.xml** file in your text editor. Add the following dependency elem
     <version>1.3.0</version>
 </dependency>
 ```
+
 ### Set up the app framework
 
-From the project directory:
+Add the `azure-core-http-netty` dependency to your **pom.xml** file.
 
-1. Navigate to the */src/main/java/com/communication/quickstart* directory
-1. Open the *App.java* file in your editor
-1. Replace the `System.out.println("Hello world!");` statement
-1. Add `import` directives
+```xml
+<dependency>
+    <groupId>com.azure</groupId>
+    <artifactId>azure-core-http-netty</artifactId>
+    <version>1.3.0</version>
+</dependency>
+```
 
-Here's the code:
+Open **/src/main/java/com/communication/quickstart/App.java** in a text editor, add import directives and remove the `System.out.println("Hello world!");` statement:
 
 ```java
 
@@ -87,9 +92,8 @@ import com.azure.core.http.netty.NettyAsyncHttpClientBuilder;
 
 public class App
 {
-    public static void main( String[] args ) throws IOException
+    public static void main( String[] args ) throws IOException, NoSuchAlgorithmException, InvalidKeyException
     {
-        System.out.println("Azure Communication Services - Sms Quickstart");
         // Quickstart code goes here
     }
 }
@@ -107,49 +111,34 @@ The following classes and interfaces handle some of the major features of the Az
 | [SendSmsResponse](../../../references/overview.md) | This class contains the response from the SMS service.
 | [CommunicationClientCredential](../../../references/overview.md)| This class handles signing requests.
 
-## Get access key and endpoint
+## Authenticate the client
+
+Instantiate an `SmsClient` with your connection string. The code below retrieves the connection string for the resource from an environment variable named `COMMUNICATION_SERVICES_CONNECTION_STRING`. Learn how to [manage you resource's connection string](../../create-a-communication-resource.md#store-your-connection-string).
+
+Add the following code to the `main` method:
 
 ```java
-
-// This code demonstrates how to fetch your service endpoint
+// This code demonstrates how to fetch your connection string
 // from an environment variable.
-String endpoint = System.getenv("COMMUNICATION_SERVICES_ENDPOINT");
+String connectionString = System.getenv("COMMUNICATION_SERVICES_CONNECTION_STRING");
 
-// This code demonstrates how to fetch your access key
-// from an environment variable.
-String accessKey = System.getenv("COMMUNICATION_SERVICES_ACCESS_KEY");
+// Create an HttpClient builder of your choice and customize it
+HttpClient httpClient = new NettyAsyncHttpClientBuilder().build();
 
-// Instantiate the user token client
-CustomHttpClientBuilder yourHttpClientBuilder = new CustomHttpClientBuilder();
-HttpClient httpClient = yourHttpClientBuilder.build();
-
+// Configure and build a new SmsClient
+SmsClient client = new SmsClientBuilder()
+    .connectionString(connectionString)
+    .httpClient(httpClient);
+    .buildClient();
 ```
+
+You can initialize the client with any custom HTTP client the implements the `com.azure.core.http.HttpClient` interface. The above code demonstrates use of the [Azure Core Netty HTTP client](https://docs.microsoft.com/en-us/java/api/overview/azure/core-http-netty-readme?view=azure-java-stable) that is provided by `azure-core`.
 
 ## Send an SMS message
 
+Send an SMS message by calling the [sendMessage](../../../references/overview.md) method. Add this code to the end of `main` method:
+
 ```java
-
-CommunicationClientCredential credential = null;
-try {
-    credential = new CommunicationClientCredential(accessKey);
-} catch (NoSuchAlgorithmException e) {
-    System.out.println(e.getMessage());
-} catch (InvalidKeyException e) {
-    System.out.println(e.getMessage());
-}
-
-// Create a new SmsClientBuilder to instantiate an SmsClient
-SmsClientBuilder smsClientBuilder = new SmsClientBuilder();
-
-// Set the endpoint, access key, and the HttpClient
-smsClientBuilder.endpoint(endpoint)
-    .credential(credential)
-    .httpClient(httpClient);
-
-// Build a new SmsClient
-SmsClient smsClient = smsClientBuilder.buildClient();
-
-// Currently, the SMS SDK only supports one phone number
 List<String> to = new ArrayList<String>();
 to.add("<to-phone-number>");
 
@@ -160,38 +149,42 @@ options.setEnableDeliveryReport(true);
 
 // Send the message and check the response for a message id
 SendSmsResponse response = smsClient.sendMessage(
-    "<leased-phone-number>", 
-    to, 
+    "<leased-phone-number>",
+    to,
     "your message",
-    options /* Optional */);
+    options);
 
 System.out.println("MessageId: " + response.getMessageId());
-
 ```
 
 You should replace `<leased-phone-number>` with an SMS enabled phone number associated with your Communication Services resource and `<to-phone-number>` with the phone number you wish to send a message to. All phone number parameters should adhere to the [E.164 standard](../../../concepts/telephony-and-sms/plan-your-telephony-and-sms-solution.md#optional-reading-international-public-telecommunication-numbering-plan-e164).
 
 The `enableDeliveryReport` parameter is an optional parameter that you can use to configure Delivery Reporting. This is useful for scenarios where you want to emit events when SMS messages are delivered. See the [Handle SMS Events](../handle-sms-events.md) quickstart to configure Delivery Reporting for your SMS messages.
 
-> [!WARNING]
-> the signature of the `sendMessage` method changes when configuring delivery reporting. Need to confirm that this is how our SDK is to be used.
+<!--todo: the signature of the `sendMessage` method changes when configuring delivery reporting. Need to confirm that this is how our SDK is to be used.-->
 
 ## Run the code
 
-Navigate to the directory containing the *pom.xml* file and compile the project by using the following `mvn` command.
+Navigate to the directory containing the **pom.xml** file and compile the project using the `mvn` command.
 
 ```console
+
 mvn compile
+
 ```
 
 Then, build the package.
 
 ```console
+
 mvn package
+
 ```
 
 Run the following `mvn` command to execute the app.
 
 ```console
+
 mvn exec:java -Dexec.mainClass="com.communication.quickstart.App" -Dexec.cleanupDaemonThreads=false
+
 ```

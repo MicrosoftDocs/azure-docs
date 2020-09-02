@@ -1,11 +1,11 @@
 ---
 title: include file
 description: include file
-services: Communication Services
+services: azure-communication-services
 author: Daniel Doolabh
 manager: nimag
-ms.service: Communication Services
-ms.subservice: Communication Services
+ms.service: azure-communication-services
+ms.subservice: azure-communication-services
 ms.date: 08/20/2020
 ms.topic: include
 ms.custom: include file
@@ -18,7 +18,7 @@ Completing this quickstart incurs a small cost of a few USD cents or less in you
 
 <!--**TODO: update all these reference links as the resources go live**
 
-[API reference documentation](../../../references/overview.md) | [Library source code](#todo-sdk-repo) | [Package (PiPy)](#todo-nuget) | [Samples](#todo-samples)-->
+[API reference documentation](../../../references/overview.md) | [Library source code](#todo-sdk-repo) | [Package (PiPy)](#todo-nuget) | [Samples](#todo-samples)--> 
 
 ## Prerequisites
 
@@ -77,7 +77,7 @@ The following classes and interfaces handle some of the major features of the Az
 
 ## Authenticate the client
 
-Instantiate an **SmsClient** with your connection string.
+Instantiate an **SmsClient** with your connection string. The code below retrieves the connection string for the resource from an environment variable named `COMMUNICATION_SERVICES_CONNECTION_STRING`. Learn how to [manage you resource's connection string](../../create-a-communication-resource.md#store-your-connection-string).
 
 ```python
 # This code demonstrates how to fetch your connection string
@@ -90,7 +90,7 @@ sms_client = SmsClient.from_connection_string(connection_string)
 
 ## Send an SMS message
 
-Send an SMS message by calling the [Send](../../../references/overview.md) method. Add this code to the end of `Main` method in **send-sms.py**:
+Send an SMS message by calling the [Send](../../../references/overview.md) method. Add this code to the end of `try` block in **send-sms.py**:
 
 ```python
 
@@ -111,7 +111,7 @@ smsresponse = sms_client.sms.send(request)
 
 You should replace `<leased-phone-number>` with an SMS enabled phone number associated with your communication service and `<to-phone-number>` with the phone number you wish to send a message to. All phone number parameters should adhere to the [E.164 standard](../../../concepts/telephony-and-sms/plan-your-telephony-and-sms-solution.md#optional-reading-international-public-telecommunication-numbering-plan-e164).
 
-**The send_sms_options parameter is an optional parameter that you can use to configure Delivery Reporting.** This is useful for scenarios where you want to emit events when SMS messages are delivered. See the [Handle SMS Events](../handle-sms-events.md) quickstart to configure Delivery Reporting for your SMS messages.
+The `send_sms_options` parameter is an optional parameter that you can use to configure Delivery Reporting. This is useful for scenarios where you want to emit events when SMS messages are delivered. See the [Handle SMS Events](../handle-sms-events.md) quickstart to configure Delivery Reporting for your SMS messages.
 
 ## Run the code
 

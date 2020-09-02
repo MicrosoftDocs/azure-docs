@@ -1,11 +1,11 @@
 ---
 title: include file
 description: include file
-services: Communication Services
+services: azure-communication-services
 author: matthewrobertson
 manager: nimag
-ms.service: Communication Services
-ms.subservice: Communication Services
+ms.service: azure-communication-services
+ms.subservice: azure-communication-services
 ms.date: 08/20/2020
 ms.topic: include
 ms.custom: include file
@@ -93,7 +93,7 @@ CommunicationIdentityClient client = new CommunicationIdentityClientBuilder()
     .buildClient();
 ```
 
-You can initialize the client with any custom HTTP client the implements the `com.azure.core.http.HttpClient` interface. The above code uses demonstrates use of the [Azure Core Netty HTTP client](https://docs.microsoft.com/en-us/java/api/overview/azure/core-http-netty-readme?view=azure-java-stable) that is provided by `azure-core`.
+You can initialize the client with any custom HTTP client the implements the `com.azure.core.http.HttpClient` interface. The above code demonstrates use of the [Azure Core Netty HTTP client](https://docs.microsoft.com/java/api/overview/azure/core-http-netty-readme?view=azure-java-stable) that is provided by `azure-core`.
 
 ## Create a user
 

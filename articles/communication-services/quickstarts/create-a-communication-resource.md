@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Create and manage communication services resources
+title: Quickstart - Create and manage resources in Azure Communication Services
 description: In this quickstart, you'll learn how to create and manage your first Azure Communication Services resource.
 author: mikben
 manager: jken
@@ -12,13 +12,9 @@ ms.service: azure-communication-services
 zone_pivot_groups: acs-plat-azp-net
 ---
 
-# Quickstart: Create and Manage Communication Services Resources
+# Quickstart: Create and manage Communication Services resources
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
-
-> [!WARNING]
-> This document is under construction and needs the following items to be addressed: 
-> - Screenshots
 
 Get started with Azure Communication Services by provisioning your first Communication Services resource. Communication services resources can be provisioned through the Azure Portal or with the .NET management SDK. The management SDK allows you to create, configure, update and delete your resources and interfaces with [Azure Resource Manager (ARM)](https://docs.microsoft.com/azure/azure-resource-manager/management/overview), Azure's deployment and management service. All functionality available in the SDKs is available in the Azure Portal. 
 
@@ -39,8 +35,7 @@ Connection strings allow the Communication Services SDKs to connect and authenti
 
 After navigating to your Communication Services resource, select **Keys** from the navigation menu and copy the **Connection string** or **Endpoint** values for usage by the Communication Services SDKs. Note that you have access to primary and secondary keys. This can be useful in scenarios where you would like to provide temporary access to your Communication Services resources to a third party or staging environment.
 
-![Screenshot of Key page](./media/key.png)
-
+![Screenshot of Communication Services Key page.](./media/key.png)
 
 ## Store your connection string
 

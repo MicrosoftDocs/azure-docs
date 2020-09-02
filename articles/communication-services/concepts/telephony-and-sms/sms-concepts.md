@@ -1,5 +1,5 @@
 ---
-title: SMS concepts
+title: SMS concepts in Azure Communication Services
 description: Learn about Communication Services SMS concepts.
 author: mikben
 manager: jken
@@ -10,15 +10,16 @@ ms.date: 03/10/2020
 ms.topic: overview
 ms.service: azure-communication-services
 ---
-# SMS Concepts
+# SMS concepts
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
+
 Azure Communication Services enables you to send and receive SMS text messages using the Communication Services SMS SDKs. These SDKs can be used to support customer service scenarios, appointment reminders, two-factor authentication, and other real-time communication needs. Communication Services SMS allows you to reliably send messages while exposing deliverability and response rate insights surrounding your campaigns.
 
-## SMS SDK Capabilities
+## SMS SDK capabilities
 
-Key Features of Azure Communication Services SMS SDKs include:
+Key features of Azure Communication Services SMS SDKs include:
 
 | |
 | ------------ |
@@ -32,6 +33,11 @@ Key Features of Azure Communication Services SMS SDKs include:
 
 ## Next steps
 
+> [!div class="nextstepaction"]
+> [Get started with sending sms](../../quickstarts/telephony-and-sms/send-sms.md)
+
+The following documents may be interesting to you:
+
 - Familiarize yourself with the [SMS SDK](../telephony-and-sms/sms-sdk-features.md)
 - Get an SMS capable [phone number](../../quickstarts/telephony-and-sms/get-a-phone-number.md)
-- Get started with [sending sms](../../quickstarts/telephony-and-sms/send-sms.md)
+- [Plan your SMS solution](../telephony-and-sms/plan-your-telephony-and-SMS-solution.md)

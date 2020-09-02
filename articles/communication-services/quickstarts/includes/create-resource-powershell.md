@@ -1,3 +1,11 @@
+---
+author: mikben
+ms.service: azure-communication-services
+ms.topic: include
+ms.date: 9/1/2020
+ms.author: mikben
+---
+
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet/).
