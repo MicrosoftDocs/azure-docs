@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 09/01/2020
 ms.author: alkohli
 ---
 
@@ -72,4 +72,4 @@ To deploy an app via IoT Edge, see:
 
 To deploy an app via Azure Arc, see:
 
-- [Deploy an application using Azure Arc](azure-stack-edge-gpu-deploy-sample-module.md).
+- [Deploy an application using Azure Arc](azure-stack-edge-gpu-deploy-arc-kubernetes-cluster.md).
