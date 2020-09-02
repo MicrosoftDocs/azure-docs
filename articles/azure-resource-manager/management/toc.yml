@@ -12,8 +12,6 @@
     href: resource-name-rules.md
   - name: Resource Manager and classic deployment
     href: deployment-models.md
-  - name: Azure common security attributes
-    href: azure-resource-manager-security-controls.md
   - name: Resource providers by service
     href: azure-services-resource-providers.md
   - name: Extension resource types
@@ -25,6 +23,8 @@
     - name: Security controls by Azure Policy
       displayName: regulatory, compliance, standards, domains
       href: ./security-controls-policy.md
+    - name: Azure common security attributes
+      href: azure-resource-manager-security-controls.md
 - name: How to
   items:
   - name: Move - resource groups/subscriptions
