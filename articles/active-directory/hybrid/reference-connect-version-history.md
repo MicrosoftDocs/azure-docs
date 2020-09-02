@@ -43,7 +43,7 @@ Not all releases of Azure AD Connect will be made available for auto upgrade. Th
 >
 >If you have enabled Azure AD Connect for sync you will soon automatically begin receiving Health notifications that warn you about upcoming deprecations when you are running one of the older versions.
 >
->Please refer to [this article](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-upgrade-previous-version) to learn more about how to upgrade Azure AD Connect to the latest version.
+>Please refer to [this article](./how-to-upgrade-previous-version.md) to learn more about how to upgrade Azure AD Connect to the latest version.
 >
 >For version history information on deprecated versions, see [Azure AD Connect version release history archive](reference-connect-version-history-archive.md)
 
@@ -69,7 +69,7 @@ This is a bug fix release. There are no functional changes in this release.
 ### Functional changes
 This release includes a public preview of the functionality to export the configuration of an existing Azure AD Connect server into a .JSON file which can then be used when installing a new Azure AD Connect server to create a copy of the original server.
 
-A detailed description of this new feature can be found in [this article](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-import-export-config)
+A detailed description of this new feature can be found in [this article](./how-to-connect-import-export-config.md)
 
 ### Fixed issues
 - Fixed a bug where there would be a false warning about the local DB size on the localized builds during upgrade.
