@@ -13,7 +13,7 @@ ms.date: 9/21/2020
 > [!IMPORTANT] 
 > Azure Database for MySQL Flexible Server is currently in public preview
 
-This article describes storage engine support, privilege support, data manipulation statement support, and functional limitations in Azure Database for MySQL Flexible Servers. [General limitations](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.7/en/limits.html) in the MySQL database engine are also applicable. If you'd like to learn about resource (compute, memory, storage) tiers, see the [compute and storage](concepts-compute-storage.md) article.
+This article describes limitations in the Azure Database for MySQL Flexible Server service. [General limitations](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.7/en/limits.html) in the MySQL database engine are also applicable. If you'd like to learn about resource (compute, memory, storage) tiers, see the [compute and storage](concepts-compute-storage.md) article.
 
 ## Server parameters
 
@@ -38,17 +38,17 @@ MySQL supports many storage engines. On Azure Database for MySQL Flexible Server
 
 ## Privileges & data manipulation support
 
-Many server parameters and settings can inadvertently degrade server performance or negate ACID properties of the MySQL server. As such, to maintain the service integrity and SLA at a product level, this service does not expose multiple roles. 
+Many server parameters and settings can inadvertently degrade server performance or negate ACID properties of the MySQL server. To maintain the service integrity and SLA at a product level, this service does not expose multiple roles. 
 
-The MySQL service does not allow direct access to the underlying file system. As a result, some data manipulation commands are not supported. 
+The MySQL service does not allow direct access to the underlying file system. Some data manipulation commands are not supported. 
 
 ### Unsupported
 
 The following are unsupported:
-- DBA role: Restricted. Alternatively, you can use the administrator user, which is constructed when a new server is created, allows you to perform most of DDL and DML statements. 
+- DBA role: Restricted. Alternatively, you can use the administrator user (created during new server creation), allows you to perform most of DDL and DML statements. 
 - SUPER privilege: Similarly, [SUPER privilege](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_super) is restricted.
 - DEFINER: Requires super privileges to create and is restricted. If importing data using a backup, remove the `CREATE DEFINER` commands manually or by using the `--skip-definer` command when performing a mysqldump.
-- System databases: The [mysql system database](https://dev.mysql.com/doc/refman/5.7/en/system-schema.html) is read-only as it is used to support various PaaS functionality. Please note that you cannot change anything in the `mysql` system database.
+- System databases: The [mysql system database](https://dev.mysql.com/doc/refman/5.7/en/system-schema.html) is read-only and used to support various PaaS functionality. You cannot make changes to the `mysql` system database.
 - `SELECT ... INTO OUTFILE`: Not supported in the service.
 
 ### Supported
@@ -61,7 +61,7 @@ The following are unsupported:
 - Not supported in Burstable compute tier.
 
 ### Networking
-- Connectivity method cannot be changed after creating the server (ex. if the server is created with *Private access (VNet Integration)*, it cannot be changed to *Public access (allowed IP addresses)* after create).
+- Connectivity method cannot be changed after creating the server. If the server is created with *Private access (VNet Integration)*, it cannot be changed to *Public access (allowed IP addresses)* after create, and vice versa
 - SSL is enabled by default and cannot be disabled.
 - Minimum TLS version supported on the server is TLS1.2.
 
@@ -70,17 +70,17 @@ The following are unsupported:
 - Not supported with read replica configurations (both source and replicas).
 
 ### Scale operations
-- Decreasing server storage size is currently not supported.
+- Decreasing server storage provisioned is not supported.
 
 ### Read replicas
 - Not supported with zone redundant HA configurations (both primary and standby).
 
 ### Server version upgrades
-- Automated migration between major database engine versions is currently not supported. If you would like to upgrade to the next major version, take a [dump and restore](../concepts-migrate-dump-restore.md) it to a server that was created with the new engine version.
+- Automated migration between major database engine versions is not supported. If you would like to upgrade the major version, take a [dump and restore](../concepts-migrate-dump-restore.md) it to a server that was created with the new engine version.
 
 ### Restoring a server
 - With point-in-time restore, new servers are created with the same compute and storage configurations as the source server it is based on. The newly restored server's compute can be scaled down after the server is created.
-- Restoring a deleted server is not supported.
+- Restoring a deleted server isn't supported.
 
 ## Next steps
 
