@@ -10,8 +10,7 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/01/2020
 ms.author: erhopf
-ms.custom: devx-track-csharp
-ms.custom: cog-serv-seo-aug-2020
+ms.custom: devx-track-csharp, cog-serv-seo-aug-2020
 keywords: speech translation
 ---
 

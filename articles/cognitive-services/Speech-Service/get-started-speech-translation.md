@@ -10,9 +10,8 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/01/2020
 ms.author: trbye
-ms.custom: "devx-track-javascript, devx-track-csharp"
+ms.custom: "devx-track-javascript, devx-track-csharp, cog-serv-seo-aug-2020"
 zone_pivot_groups: programming-languages-set-two-with-js
-ms.custom: cog-serv-seo-aug-2020
 keywords: speech translation
 ---
 
