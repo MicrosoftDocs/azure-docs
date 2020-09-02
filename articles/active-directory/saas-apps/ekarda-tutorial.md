@@ -164,9 +164,9 @@ In this section, a user called B.Simon is created in ekarda. ekarda supports jus
 
 ## Test SSO
 
-In this section, you test your Azure AD single sign-on configuration by using the Access Panel.
+In this section, you test your Azure AD single sign-on configuration by using the My Apps portal.
 
-When you select the ekarda tile in the Access Panel, you should be automatically signed in to the ekarda site for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you select the ekarda tile in the My Apps portal, you should be automatically signed in to the ekarda site for which you set up SSO. For more information about the My Apps portal, see [Introduction to the My Apps portal](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## Additional resources
 
