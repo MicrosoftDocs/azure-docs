@@ -264,14 +264,14 @@ Now, select machines for migration.
 
     ![Compute settings](./media/tutorial-migrate-physical-virtual-machines/compute-settings.png)
 
-14. In **Disks**, specify whether the VM disks should be replicated to Azure, and select the disk type (standard SSD/HDD or premium managed disks) in Azure. Then click **Next**.
+13. In **Disks**, specify whether the VM disks should be replicated to Azure, and select the disk type (standard SSD/HDD or premium managed disks) in Azure. Then click **Next**.
     - You can exclude disks from replication.
     - If you exclude disks, won't be present on the Azure VM after migration. 
 
     ![Disk settings](./media/tutorial-migrate-physical-virtual-machines/disks.png)
 
 
-15. In **Review and start replication**, review the settings, and click **Replicate** to start the initial replication for the servers.
+14. In **Review and start replication**, review the settings, and click **Replicate** to start the initial replication for the servers.
 
 > [!NOTE]
 > You can update replication settings any time before replication starts, **Manage** > **Replicating machines**. Settings can't be changed after replication starts.
