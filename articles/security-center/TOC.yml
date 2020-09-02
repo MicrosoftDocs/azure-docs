@@ -49,7 +49,6 @@
     - name: Azure Defender for container registries
       href: defender-for-container-registries-intro.md
 
-
 - name: Quickstarts
   items:
   - name: Connect your machines to Security Center
@@ -62,13 +61,8 @@
       href: quickstart-onboard-aws.md
     - name: Connect GCP accounts
       href: quickstart-onboard-gcp.md
-  - name: Upgrade to advanced security    
-  - name: Windows computers
-    href: quick-onboard-windows-computer.md
-  - name: Linux computers
-    href: quick-onboard-linux-computer.md
-  - name: Azure Stack virtual machines
-    href: quick-onboard-azure-stack.md
+  - name: Enable Azure Defender    
+    href: security-center-onboarding.md
   - name: Automate onboarding using PowerShell
     href: security-center-powershell-onboarding.md
   - name: Configure your data collection
@@ -91,83 +85,29 @@
 
 - name: Concepts
   items:
-  - name: Secure score, recommendations, and policies
+  - name: Cloud Security Posture Management
     items:
+    - name: Manage your resources with asset inventory
+      href: asset-inventory.md
     - name: Secure score
       href: secure-score-security-controls.md
     - name: Overview of security recommendations
       href: security-center-recommendations.md
     - name: Overview of security policies
       href: tutorial-security-policy.md
+    - name: Built-in security policies
+      displayName: samples, definitions
+      href: ./policy-reference.md
     - name: Use recommendations to enhance security
       href: security-center-using-recommendations.md
     - name: Security baseline
       href: security-baseline.md
-  - name: Threat protection and security alerts
-    items:
-    - name: Overview of threat protection in security center
-      href: threat-protection.md
-    - name: Security alerts overview
-      href: security-center-alerts-overview.md      
-    - name: Reference list of alerts
-      href: alerts-reference.md
-    - name: Alerts schemas
-      href: alerts-schemas.md
-    - name: Security incidents overview
-      href: security-center-alerts-cloud-smart.md
-  - name: Just-in-time VM access
-    href: just-in-time-explained.md
-  - name: Cross-tenant management
-    href: security-center-cross-tenant-management.md
-  - name: Container security
-    items:
-    - name: Container security overview
-      href: container-security.md    
-    - name: Integration with Azure Container Registry
-      href: azure-container-registry-integration.md
-    - name: Integration with Azure Kubernetes Service
-      href: azure-kubernetes-service-integration.md
-
-- name: How-to guides
-  items:
-  - name: Upgrade to advanced security
-    href: security-center-onboarding.md
-  - name: Configure security policies and compliance standards
-    items:
-    - name: Create custom security policies
-      href: custom-security-policies.md
-    - name: Manage policies with the Azure Policy REST API
-      href: configure-security-policy-azure-policy.md
-    - name: Choose standards for your compliance dashboard
-      href: update-regulatory-compliance-packages.md
-  - name: Scan your VMs for vulnerabilities
-    items:
-    - name: Deploy the integrated vulnerability scanner to your VMs
-      href: deploy-vulnerability-assessment-vm.md
-    - name: Deploy a BYOL vulnerability solution to your VMs
-      href: deploy-vulnerability-assessment-byol-vm.md
-    - name: Review and remediate vulnerabilities on your VMs
-      href: remediate-vulnerability-findings-vm.md
-  - name: Configure threat protection and handle alerts
-    items:
-    - name: Manage security alerts
-      href: security-center-managing-and-responding-alerts.md
-    - name: Create and manage alerts suppression rules
-      href: alerts-suppression-rules.md
-    - name: Set up advanced threat protection for Azure Key Vault
-      href: advanced-threat-protection-key-vault.md
-    - name: Manage security incidents
-      href: security-center-incident.md
-    - name: Generate threat intelligence reports
-      href: security-center-threat-report.md
-    - name: Validate your alert configuration (EICAR test file)
-      href: security-center-alert-validation.md
-    - name: Use advanced data security for SQL on Azure VMs
-      href: security-center-iaas-advanced-data.md
-    - name: Automate responses to alerts
-      href: workflow-automation.md
-    - name: Export alerts
-      href: continuous-export.md
+    - name: Cross-tenant management
+      href: security-center-cross-tenant-management.md
+    - name: Protect your Windows Admin Center servers
+      href: windows-admin-center-integration.md
+    - name: Integrate security solutions and data sources
+      href: security-center-partner-integration.md
   - name: Use security recommendations to improve security
     items:
     - name: Remediate recommendations
@@ -184,38 +124,100 @@
       href: security-center-sql-service-recommendations.md
     - name: Protect identity and access
       href: security-center-identity-access.md
-    - name: Automate responses to recommendations
-      href: workflow-automation.md
-    - name: Export recommendations
-      href: continuous-export.md
-  - name: Manage your resources with asset inventory
-    href: asset-inventory.md
-  - name: Integrate with other tools and services
+    - name: Manage security recommendations
+      items:
+      - name: Automate responses to recommendations
+        href: workflow-automation.md
+      - name: Export recommendations
+        href: continuous-export.md
+      - name: Exempt a resource from a recommendation
+        href: exempt-a-resource.md
+  - name: Azure Defender alerts
     items:
-    - name: Protect your Windows Admin Center servers
-      href: windows-admin-center-integration.md
-    - name: Protect your Azure App Service web apps and APIs
-      href: security-center-app-services.md
-    - name: Integrate with Microsoft Defender ATP
-      href: security-center-wdatp.md
-    - name: Integrate security solutions and data sources
-      href: security-center-partner-integration.md
-  - name: Apply cloud defenses
+    - name: Azure Defender alerts overview
+      href: security-center-alerts-overview.md      
+    - name: Reference list of alerts
+      href: alerts-reference.md
+    - name: Alerts schemas
+      href: alerts-schemas.md
+    - name: Security incidents overview
+      href: security-center-alerts-cloud-smart.md
+  - name: Container security overview
+    href: container-security.md    
+
+- name: How-to guides
+  items:
+  - name: Use the Azure Defender dashboard
+    href: azure-defender-dashboard.md
+  - name: Configure security policies and compliance standards
     items:
-    - name: Manage just-in-time access
-      href: security-center-just-in-time.md
+    - name: Create custom security policies
+      href: custom-security-policies.md
+    - name: Manage policies with the Azure Policy REST API
+      href: configure-security-policy-azure-policy.md
+    - name: Choose standards for your compliance dashboard
+      href: update-regulatory-compliance-packages.md
+  - name: Use Azure Defender for servers
+    items:
+    - name: Vulnerability scanning for VMs
+      items:
+      - name: Scan your VMs with the integrated VA solution
+        href: deploy-vulnerability-assessment-vm.md
+      - name: Scan your VMs with a BYOL VA solution
+        href: deploy-vulnerability-assessment-byol-vm.md
+      - name: Review and remediate vulnerabilities on your VMs
+        href: remediate-vulnerability-findings-vm.md
+    - name: Secure management ports with just-in-time VM access
+      displayName: JIT, jit
+      items:
+      - name: Overview of just-in-time VM access
+        href: just-in-time-explained.md
+      - name: Manage just-in-time access
+        href: security-center-just-in-time.md
     - name: Adaptive application controls
       href: security-center-adaptive-application.md
     - name: File integrity monitoring
-      href: security-center-file-integrity-monitoring.md
-    - name: Compare baselines using File Integrity Monitoring
-      href: security-center-file-integrity-monitoring-baselines.md
+      items:
+      - name: Overview of file integrity monitoring
+        href: security-center-file-integrity-monitoring.md
+      - name: Compare baselines using File Integrity Monitoring
+        href: security-center-file-integrity-monitoring-baselines.md
     - name: Adaptive network hardening
       href: security-center-adaptive-network-hardening.md
+    - name: Integrate Microsoft Defender ATP
+      href: security-center-wdatp.md
+  - name: Use Azure Defender for Key Vault
+    href: advanced-threat-protection-key-vault.md
+  - name: Use Azure Defender for SQL
+    items:
+    - name: Configure Azure Defender for SQL on Azure VMs
+      href: security-center-iaas-advanced-data.md
+    - name: Customize the information protection policy
+      href: security-center-info-protection-policy.md      
+  - name: Use Azure Defender for App Services
+    href: security-center-app-services.md
+  - name: Use Azure Defender for container registries
+    href: azure-container-registry-integration.md
+  - name: Use Azure Defender for Kubernetes
+    href: azure-kubernetes-service-integration.md
+  - name: Handle Azure Defender alerts
+    items:
+    - name: Manage security alerts
+      href: security-center-managing-and-responding-alerts.md
+    - name: Create and manage alerts suppression rules
+      href: alerts-suppression-rules.md
+    - name: Manage security incidents
+      href: security-center-incident.md
+    - name: Generate threat intelligence reports
+      href: security-center-threat-report.md
+    - name: Validate your alert configuration (EICAR test file)
+      href: security-center-alert-validation.md
+    - name: Automate responses to alerts
+      href: workflow-automation.md
+    - name: Export alerts
+      href: continuous-export.md
   - name: Monitor your containers
     href: monitor-container-security.md
-  - name: Customize the information protection policy
-    href: security-center-info-protection-policy.md
   - name: Manage investigation user data
     href: security-center-investigation-user-data.md
   - name: Gain tenant-wide visibility
@@ -247,9 +249,6 @@
     href: security-center-features-retirement-july2019.md
   - name: Endpoint protection assessment and recommendations 
     href: security-center-endpoint-protection.md
-  - name: Azure Policy built-ins
-    displayName: samples, policies, definitions
-    href: ./policy-reference.md
 
 - name: Resources
   items:
