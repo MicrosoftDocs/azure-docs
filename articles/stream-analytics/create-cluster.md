@@ -45,7 +45,7 @@ In this section, you create a Stream Analytics cluster resource.
 
 1. Select **Review + create**. You can skip the **Tags** sections.
 
-1. Review the cluster settings, and then select **Create**. Cluster creation is a long running operation and can take approximately 60 minutes to complete. Wait for the portal page to display **Your deployment is complete**. In the mean time, you can create and develop [Stream Analytics jobs](stream-analytics-quick-create-porta.md#create-a-stream-analytics-job) that you want to run on this cluster if you haven't already.
+1. Review the cluster settings, and then select **Create**. Cluster creation is a long running operation and can take approximately 60 minutes to complete. Wait for the portal page to display **Your deployment is complete**. In the mean time, you can create and develop [Stream Analytics jobs](stream-analytics-quick-create-portal.md#create-a-stream-analytics-job) that you want to run on this cluster if you haven't already.
 
 1. Select **Go to resource** to go to the Stream Analytics cluster page.
 
