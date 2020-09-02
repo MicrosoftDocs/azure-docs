@@ -11,11 +11,11 @@ ms.date: 04/14/2020
 
 # Publishing guide by offer type
 
-This article describes the offer types that are available in the commercial marketplace. The *offer type* defines the offer structure, which includes the metadata, artifacts, and other content used to present the offer in the marketplace.
+This article describes the offer types that are available in the commercial marketplace. The *offer type* defines the offer structure, which includes the metadata, artifacts, and other content presented in the commercial marketplace.
 
-Before you can create an offer, and after you [decide on a publishing option](determine-your-listing-type.md), you must choose an offer type that will be used to present your offer. The offer type will correspond to the type of solution, app, or service offer that you wish to publish, as well as its alignment to Microsoft products and services.
+After you [decide on a publishing option](determine-your-listing-type.md), you must choose an offer type before you start creating your offer. The offer type will correspond to the type of solution, app, or service offer that you wish to publish, as well as its alignment to Microsoft products and services.
 
-A single offer type can be configured in different ways to enable different publishing options, calls-to-action, provisioning, or pricing. The publishing option and configuration of the offer type also align to the offer eligibility and technical requirements.
+You can configure a single offer type in different ways to enable different publishing options, calls-to-action, provisioning, or pricing. The publishing option and configuration of the offer type also align to the offer eligibility and technical requirements.
 
 Be sure to review the online store and offer type eligibility requirements and the technical publishing requirements before creating your offer.
 
@@ -40,4 +40,4 @@ For information on single sign-on requirements by listing options and offer type
 ## Next steps
 
 - Review the eligibility requirements in the corresponding article for your offer type to finalize the selection and configuration of your offer.
-- Review the publishing patterns by storefront for examples on how your solution maps to an offer type and configuration.
+- Review the publishing patterns for each online store for examples on how your solution maps to an offer type and configuration.
