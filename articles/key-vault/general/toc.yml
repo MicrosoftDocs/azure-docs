@@ -91,13 +91,17 @@
     items:
     - name: Authenticate to Key Vault
       href: authentication.md
-    - name: Use an App Service managed identity
-      href: managed-identity.md
-    - name: Use an access control policy
-      href: group-permissions-for-apps.md
+    - name: Assign an access policy
+      items:
+      - name: CLI
+        href: assign-access-policy-cli.md
+      - name: PowerShell
+        href: assign-access-policy-powershell.md
+      - name: Portal
+        href: assign-access-policy-portal.md
     - name: Use an Azure role-based access control (preview)
       href: rbac-guide.md
-    - name: Troubleshooting access issues
+    - name: Troubleshoot access issues
       href: troubleshooting-access-issues.md
   - name: Develop
     items:
