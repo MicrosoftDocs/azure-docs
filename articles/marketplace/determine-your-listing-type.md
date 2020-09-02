@@ -64,7 +64,7 @@ Each online store serves different customer requirements for business and IT sol
 
 **Azure Marketplace** offers IT solutions built for or on Azure as well as consulting services that accelerate your customers' use of Azure.
 
-Select the category and subcategory that best align with your solution type. For example, a web application firewall is an IT solution that should be published to Azure Marketplace, under the Security category. A contract management app should instead be published to AppSource under the Sales category, since it is a business solution. Selecting the incorrect category or subcategory may result in your offer being published to the wrong online store.
+Select the category and subcategory that best align with your solution type. For example, a web application firewall is an IT solution that should be published to Azure Marketplace, under the Security category. A contract management app is a business solution that should be published to AppSource under the Sales category. Selecting the incorrect category or subcategory may result in your offer being published to the wrong online store.
 
 ### Publishing to both online stores (SaaS offers only)
 
@@ -88,7 +88,7 @@ For example, an offer with metered billing and a private plan only (no public pl
 
 Categories and subcategories are mapped to each online store based on the solution type. Select the categories and subcategories that best align with your solution. You can select:
 
-- At least one and up to two categories. You have the option to choose a primary and a secondary category.
+- At least one and up to two categories. You can choose a primary and a secondary category.
 - Up to two subcategories for each primary and/or secondary category. If you don’t select any subcategory, your offer will still be discoverable under the selected category.
 
 [!INCLUDE [categories and subcategories](./includes/categories.md)]
