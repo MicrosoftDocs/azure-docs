@@ -77,7 +77,7 @@ The toolkit is a set of PowerShell scripts that can be run from a command in Pow
    Test-AzTemplate -TemplatePath /path/to/template
    ```
 
-## Run on macOS
+## Install on macOS
 
 1. If you don't already have PowerShell, [install PowerShell on macOS](/powershell/scripting/install/installing-powershell-core-on-macos).
 
