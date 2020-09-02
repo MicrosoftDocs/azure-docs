@@ -82,6 +82,8 @@
     items:
     - name: Ingest telemetry from IoT Hub
       href: how-to-ingest-iot-hub-data.md
+    - name: Auto-manage devices with DPS
+      href: how-to-provision-using-device-provisioning-service.md
     - name: Integrate with Logic Apps
       href: how-to-integrate-logic-apps.md  
   - name: Connect output
