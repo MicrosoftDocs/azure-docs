@@ -17,7 +17,7 @@ As customers embark on their modern data warehouse and analytics projects, they 
 
 From enabling code-free ETL/ELT to creating a comprehensive view over your data, improvements in Azure Data Factory will empower your data engineers to confidently bring in more data, and thus more value, to your enterprise. Azure Data Share will allow you to do business to business sharing in a governed manner.
 
-In this workshop, you'll use Azure Data Factory (ADF) to ingest data from Azure SQL Database into Azure Data Lake Storage gen2 (ADLS gen2). Once you land the data in the lake, you'll transform it via mapping data flows, data factory's native transformation service, and sink it into Azure Synapse Analytics (formerly SQL DW). Then, you'll share the table with transformed data along with some additional data using Azure Data Share. 
+In this workshop, you'll use Azure Data Factory (ADF) to ingest data from Azure SQL Database into Azure Data Lake Storage Gen2 (ADLS Gen2). Once you land the data in the lake, you'll transform it via mapping data flows, data factory's native transformation service, and sink it into Azure Synapse Analytics (formerly SQL DW). Then, you'll share the table with transformed data along with some additional data using Azure Data Share. 
 
 The data used in this lab is New York City taxi data. To import it into your database in SQL Database, download the [taxi-data bacpac file](https://github.com/djpmsft/ADF_Labs/blob/master/sample-data/taxi-data.bacpac).
 
@@ -86,7 +86,7 @@ In Azure Data Factory linked services define the connection information to exter
 1. The last linked service needed for this lab is an Azure Data Lake Storage gen2.  In the connections tab, click **New**. Select the **Azure Data Lake Storage Gen2** tile and click continue.
 
     ![Portal configure 8](media/lab-data-flow-data-share/configure8.png)
-1. In the linked service configuration pane, enter 'ADLSGen2' as your linked service name. If you're using Account key authentication, select your adls gen2 storage account from the **Storage account name** dropdown. You can verify your connection information is correct by clicking **Test connection**. Click **Create** when finished.
+1. In the linked service configuration pane, enter 'ADLSGen2' as your linked service name. If you're using Account key authentication, select your ADLS Gen2 storage account from the **Storage account name** dropdown. You can verify your connection information is correct by clicking **Test connection**. Click **Create** when finished.
 
     ![Portal configure 9](media/lab-data-flow-data-share/configure9.png)
 
@@ -94,13 +94,13 @@ In Azure Data Factory linked services define the connection information to exter
 
 In section *Transform data using mapping data flow*, you'll be building mapping data flows. A best practice before building mapping data flows is to turn on debug mode, which allows you to test transformation logic in seconds on an active spark cluster.
 
-To turn on debug, click the **Data flow debug** slider in the factory top bar. Click ok when the confirmation dialog pop-ups. The cluster will take about 5-7 minutes to start up. Continue on to *Ingest data from Azure SQL DB into ADLS gen2 using the copy activity* while it is initializing.
+To turn on debug, click the **Data flow debug** slider in the factory top bar. Click ok when the confirmation dialog pop-ups. The cluster will take about 5-7 minutes to start up. Continue on to *Ingest data from Azure SQL DB into ADLS Gen2 using the copy activity* while it is initializing.
 
 ![Portal configure 10](media/lab-data-flow-data-share/configure10.png)
 
 ## Ingest data using the copy activity
 
-In this section, you'll create a pipeline with a copy activity that ingests one table from an Azure SQL DB into an ADLS gen2 storage account. You'll learn how to add a pipeline, configure a dataset and debug a pipeline via the ADF UX. The configuration pattern used in this section can be applies to copying from a relational data store to a file-based data store.
+In this section, you'll create a pipeline with a copy activity that ingests one table from an Azure SQL DB into an ADLS Gen2 storage account. You'll learn how to add a pipeline, configure a dataset and debug a pipeline via the ADF UX. The configuration pattern used in this section can be applies to copying from a relational data store to a file-based data store.
 
 In Azure Data Factory, a pipeline is a logical grouping of activities that together perform a task. An activity defines an operation to perform on your data. A dataset points to the data you wish to use in a linked service.
 
@@ -130,7 +130,7 @@ In Azure Data Factory, a pipeline is a logical grouping of activities that toget
 
 You have successfully created your source dataset. Make sure in the source settings, the default value **Table** is selected in the use query field.
 
-### Configure ADLS Gen 2 sink dataset
+### Configure ADLS Gen2 sink dataset
 
 1. Click on the **Sink** tab of the copy activity. To create a new dataset, click **New**.
 
@@ -376,7 +376,7 @@ Once you have created a data share, you'll then switch hats and become the *data
 
 1. Select **Add datasets**
 
-1. Review the datasets that have been added. You should have a SQL table and an ADLSGen2 folder added to your data share. 
+1. Review the datasets that have been added. You should have a SQL table and an ADLS Gen2 folder added to your data share. 
 
 1. Select **Continue**
 
