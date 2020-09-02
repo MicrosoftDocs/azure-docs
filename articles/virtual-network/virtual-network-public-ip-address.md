@@ -1,6 +1,7 @@
 ---
-title: Create, change, or delete an Azure public IP address | Microsoft Docs
-description: Create, change, or delete a public IP address. Also learn how a public IP address is a resource with its own configurable settings.
+title: Manage public IP addresses | Microsoft Docs
+titleSuffix: Azure Virtual Network
+description:  Manage public IP addresses.  Also learn how a public IP address is a resource with its own configurable settings.
 services: virtual-network
 documentationcenter: na
 author: asudbring
@@ -19,7 +20,7 @@ ms.date: 08/06/2019
 ms.author: kumud
 ---
 
-# Create, change, or delete a public IP address
+# Manage public IP addresses
 
 Learn about a public IP address and how to create, change, and delete one. A public IP address is a resource with its own configurable settings. Assigning a public IP address to an Azure resource that supports public IP addresses enables:
 - Inbound communication from the Internet to the resource, such as Azure Virtual Machines (VM), Azure Application Gateways, Azure Load Balancers, Azure VPN Gateways, and others. You can still communicate with some resources, such as VMs, from the Internet, if a VM doesn't have a public IP address assigned to it, as long as the VM is part of a load balancer back-end pool, and the load balancer is assigned a public IP address. To determine whether a resource for a specific Azure service can be assigned a public IP address, or whether it can be communicated with through the public IP address of a different Azure resource, see the documentation for the service.

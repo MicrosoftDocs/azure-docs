@@ -345,3 +345,7 @@ To work around this warning, determine what the text encoding for this blob is a
 ## Warning: Cosmos DB collection 'X' has a Lazy indexing policy. Some data may be lost
 
 Collections with [Lazy](/azure/cosmos-db/index-policy#indexing-mode) indexing policies can't be queried consistently, resulting in your indexer missing data. To work around this warning, change your indexing policy to Consistent.
+
+## Warning: The document contains very long words (longer than 64 characters). These words may result in truncated and/or unreliable model predictions.
+
+This warning is passed from the Text Analytics service.  In some cases, it is safe to ignore this warning, such as when your document contains a long URL (which likely isn't a key phrase or driving sentiment, etc.).  Be aware that when a word is longer than 64 characters, it will be truncated to 64 characters which can affect model predictions.  

@@ -3,7 +3,7 @@ title: 'Quickstart: Set up high availability with Azure Front Door Service'
 description: This quickstart describes how to use Azure Front Door Service for your highly available and high-performance global web application.
 services: front-door
 documentationcenter: ''
-author: sharad4u
+author: duongau
 editor: ''
 ms.assetid:
 ms.service: frontdoor
@@ -12,7 +12,7 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2020
-ms.author: sharadag
+ms.author: duau
 # Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
 ---
 
