@@ -80,7 +80,7 @@ With Spark in Azure Synapse Analytics, it's easy to transform nested structures 
 
 [![Flowchart showing steps for Spark transformations](./media/how-to-complex-schema/spark-transform-steps.png)](./media/how-to-complex-schema/spark-transform-steps.png#lightbox)
 
-### Step 1: Define a function to flatten the nested schema
+### Define a function to flatten the nested schema
 
 You can use this function without change. Create a cell in a [PySpark notebook](quickstart-apache-spark-notebook.md) with the following function:
 
@@ -115,7 +115,7 @@ def flatten_df(nested_df):
     return nested_df.select(columns)
 ```
 
-### Step 2: Use the function to flatten the nested schema
+### Use the function to flatten the nested schema
 
 In this step, you flatten the nested schema of the data frame (**df**) into a new data frame (`df_flat`):
 
@@ -127,7 +127,7 @@ display(df_flat.limit(10))
 
 The display function should return 10 columns and 1 row. The array and its nested elements are still there.
 
-### Step 3: Transform the array
+### Transform the array
 
 Here, you transform the array, `context_custom_dimensions`, in the data frame `df_flat`, into a new data frame `df_flat_explode`. In the following code, you also define which column to select:
 
