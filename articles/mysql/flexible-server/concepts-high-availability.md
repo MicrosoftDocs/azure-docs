@@ -41,6 +41,9 @@ Applications are connected to the primary server using the database server name.
 
 Planned downtime events include activities scheduled by Azure such as periodic software updates, minor version upgrades or that are initiated by customers such as scale compute and scale storage operations. All these changes are first applied to the standby replica. During that time, the applications continue to access primary server. Once the standby replica is updated, primary server connections are drained, a failover is triggered which activates the standby replica to be the primary with the same database server name by updating the DNS record. Client connections are disconnected and they will have to reconnect and can resume their operations. A new standby server will be established in the same zone as the old primary. The overall failover time is expected to be 60-120 s. 
 
+>[!NOTE]
+> In case of the compute scaling operation, we scale the secondary replica server followed by the primary server. There is no failover involved.
+
 ### Reducing planned downtime with managed maintenance window
 
 Flexible servers offer maintenance scheduling capability wherein you can choose a 30-minute window in a day of your preference during which the Azure maintenance works such as patching or minor version upgrades would happen. For your flexible servers configured with high availability, these maintenance activities are performed on the standby replica first. 
