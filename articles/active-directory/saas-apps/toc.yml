@@ -1342,6 +1342,8 @@
         href: raketa-tutorial.md
       - name: Rally Software
         href: rally-software-tutorial.md
+      - name: raum]für[raum
+        href: raum]für[raum-tutorial.md
       - name: Real Links
         href: real-links-tutorial.md
       - name: Recognize
@@ -1925,8 +1927,6 @@
         href: cernercentral-provisioning-tutorial.md
       - name: Cisco Webex
         href: cisco-webex-provisioning-tutorial.md
-      - name: Coda
-        href: coda-provisioning-tutorial.md
       - name: Comeet Recruiting Software
         href: comeet-recruiting-software-provisioning-tutorial.md
       - name: Concur
