@@ -15,7 +15,7 @@ Monitoring data about your servers helps you troubleshoot and optimize for your 
 > Azure Database for PostgreSQL - Flexible Server is in preview.
 
 ## Metrics
-Azure Database for PostgreSQL provides various metrics that give insight into the behavior of the resources supporting the PostgreSQL server. Each metric is emitted at a one-minute frequency, and has up to [93 days of history](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics#retention-of-metrics). You can configure alerts on the metrics. Other options include setting up automated actions, performing advanced analytics, and archiving history. For more information, see the [Azure Metrics Overview](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+Azure Database for PostgreSQL provides various metrics that give insight into the behavior of the resources supporting the PostgreSQL server. Each metric is emitted at a one-minute frequency, and has up to [93 days of history](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics#retention-of-metrics). You can configure alerts on the metrics. Other options include setting up automated actions, performing advanced analytics, and archiving history. For more information, see the [Azure Metrics Overview](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/data-platform-metrics).
 
 ### List of metrics
 The following metrics are available for PostgreSQL flexible server:
