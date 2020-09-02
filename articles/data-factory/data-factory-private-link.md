@@ -44,7 +44,7 @@ Here are the benefits for enabling Private Link Service for each of the communic
 3. (To be enabled) Interactive authoring using Self-hosted Integration Runtime go through Private Link such as test connection, browse folder list and table list, get schema and preview data.
 4. (To be enabled) The new version of Self-hosted Integration Runtime can be automatically downloaded from the download center if you enable auto-update.
 > [!NOTE]
-> We currently support item 1 and 2. For item 3 and 4, you still need to configure above domain and port in VNET or your corporate firewall. The support of item 3 and 4 are coming soon.
+> We currently support item 1 and 2. For item 3 and 4, you still need to configure above domain and port in VNET or your corporate firewall. 
 
 > [!WARNING]
 > When you create Linked Service, please make sure the credential is stored in Azure Key Vault. Otherwise it doesn’t work when you enable Private Link Service in Azure Data Factory.
