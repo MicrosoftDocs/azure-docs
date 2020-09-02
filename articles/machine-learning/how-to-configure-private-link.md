@@ -115,8 +115,8 @@ For information on securing Azure Container Registry inside the virtual network,
           "type": "SystemAssigned"
       },
       "sku": {
-          "tier": "enterprise",
-          "name": "enterprise"
+          "tier": "Basic",
+          "name": "Basic"
       },
       "properties": {
           "sharedPrivateLinkResources":
