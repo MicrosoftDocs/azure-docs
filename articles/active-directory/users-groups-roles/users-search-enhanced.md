@@ -1,5 +1,5 @@
 ---
-title: Enhanced user management (preview) - Azure Active Directory | Microsoft Docs
+title: User management enhancements (preview) - Azure Active Directory | Microsoft Docs
 description: Describes how Azure Active Directory enables user search, filtering, and more information about your users.
 services: active-directory
 documentationcenter: ''
@@ -19,7 +19,7 @@ ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
 
-# Enhanced user management (preview) in Azure Active Directory
+# User management enhancements (preview) in Azure Active Directory
 
 This article described recent improvements to the **All users** and **Deleted users** pages as part of the enhanced user management preview in the Azure Active Directory (Azure AD) portal. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -32,7 +32,7 @@ Changes in the preview include:
 > [!NOTE]
 > This preview is currently not available for Azure AD B2C tenants.
 
-## Finding the preview
+## Find the preview
 
 The preview is turned on by default, so you can use it right away. You can check out the latest features and improvements by selecting **Preview features** on the **All users** page. All pages that have been updated as part of this preview will display a preview tag. If you are having any issues, you can switch back to the legacy experience:
 
@@ -42,11 +42,13 @@ The preview is turned on by default, so you can use it right away. You can check
 
 We appreciate your feedback so that we can improve our experience.
 
-## More user information in All users and Deleted users
+## More information in user lists
 
 We’ve made some changes to the columns available on the **All users** and **Deleted users** pages. In addition to the existing columns we provide for managing your list of users, we've added a few more columns.
 
-### All Users page columns
+### All users page
+
+The following are the displayed user properties on the **All users** page:
 
 - Name: The display name of the user.
 - User principal name: The user principal name (UPN) of the user.
@@ -58,29 +60,29 @@ We’ve made some changes to the columns available on the **All users** and **De
 - Company name: The company name which the user is associated.
 - Mail:  The email of the user.
 
-### Deleted Users page
+### Deleted users page
 
-The **Deleted users** page includes all the columns that are available on the **All users** page, and a few additional columns. The following are the additional columns you’ll find on the **Deleted** users page:
+The **Deleted users** page includes all the columns that are available on the **All users** page, and a few additional columns, namely:
 
 - Deletion date: The date the user was first deleted from the organization (the user is restorable).
 - Permanent deletion date: The date the user was permanently deleted from the organization.
 
-Some columns are displayed by default, so they will be visible on the users pages. To add other columns, select **Columns** on the page, select the column names you’d like to add, and select **OK** to save your preferences.
+Some columns are displayed by default. To add other columns, select **Columns** on the page, select the column names you’d like to add, and select **OK** to save your preferences.
 
 ### Identity issuers
 
-You can select the **Identity issuer** property for any user no either page to view additional details about the identity issuer and other information including the sign-in type and the issuer assigned ID. If there are multiple issuers of the user's identity, we display `Multiple` in the **All users** and **Deleted users** pages.
+You can select the **Identity issuer** property for any user no either page to view additional details about the identity issuer and other information including the sign-in type and an issuer assigned ID. If there are multiple issuers of the user's identity, we display `Multiple` in the **All users** and **Deleted users** pages.
 
 > [!NOTE]
 > The **Source** column is replaced by multiple columns including **Creation type**, **Directory synced**, and **Identity issuer** for more granular filtering.
 
 ## User list search
 
-Search capabilities have been improved so that when you enter a search string, the search automatically performs a "starts with" search that will match names, emails, and object IDs. You can enter any of these attributes into search box, and the search will automatically look across all these properties to return any matching results. You can perform the same search on both the **All users** and **Deleted users** pages.
+When you enter a search string, the search automatically performs a "starts with" search that can match names, emails, or object IDs. You can enter any of these attributes into search box, and the search will automatically look across all these properties to return any matching results. You can perform the same search on both the **All users** and **Deleted users** pages.
 
 ## User list filtering
 
-Filtering capabilities have been enhanced to provide more filtering options for the All Users and Deleted Users pages. You can now filter by multiple properties simultaneously. In addition, you can now filter by even more properties.
+Filtering capabilities have been enhanced to provide more filtering options for the **All users** and **Deleted users** pages. You can now filter by multiple properties simultaneously, and can filter by more properties.
 
 ### Filtering All Users page
 
