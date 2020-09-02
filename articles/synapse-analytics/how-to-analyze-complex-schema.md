@@ -19,7 +19,7 @@ This article is relevant for Parquet files and containers in [Azure Synapse Link
 
 Complex data types are increasingly common and represent a challenge for data engineers. Analyzing nested schema and arrays can involve time-consuming and complex SQL queries. Additionally, it can be difficult to rename or cast the nested columns data type. Also, when you're working with deeply nested objects, you can encounter performance problems.
 
-Data engineers need to understand how to efficiently process complex data types and make them easily accessible to everyone. In the following example, you use Synapse Spark to read and transform objects into a flat structure through data frames. You use Synapse SQL serverless to query such objects directly and return those results as a regular table.
+Data engineers need to understand how to efficiently process complex data types and make them easily accessible to everyone. In the following example, you use Spark in Azure Synapse Analytics to read and transform objects into a flat structure through data frames. You use the serverless model of SQL in Azure Synapse Analytics to query such objects directly, and return those results as a regular table.
 
 ## What are arrays and nested structures?
 
@@ -76,7 +76,7 @@ The preceding data frame counts for 5 columns and 1 row only. After transformati
 
 ## Flatten nested structures and explode arrays with Apache Spark
 
-With Synapse Spark, it's easy to transform nested structures into columns and array elements into multiple rows. Use the following steps for implementation.
+With Spark in Azure Synapse Analytics, it's easy to transform nested structures into columns and array elements into multiple rows. Use the following steps for implementation.
 
 [![Flowchart showing steps for Spark transformations](./media/how-to-complex-schema/spark-transform-steps.png)](./media/how-to-complex-schema/spark-transform-steps.png#lightbox)
 
@@ -157,9 +157,9 @@ The function `printSchema` of the data frame `df_flat_explode_flat` returns the 
 
 [![Code showing the final schema](./media/how-to-complex-schema/schema-final.png)](./media/how-to-complex-schema/schema-final.png#lightbox)
 
-## Read arrays and nested structures directly with SQL serverless
+## Read arrays and nested structures directly with the serverless model of SQL
 
-With SQL serverless, you can query and create views and tables over such objects.
+With the serverless model of SQL, you can query and create views and tables over such objects.
 
 First, depending how the data has been stored, users should use the following taxonomy. Everything shown in uppercase is specific to your use case:
 
@@ -211,7 +211,7 @@ There are two different types of operations:
   with ( ProfileType varchar(50) '$.customerInfo.ProfileType', 
   ```
 
-  If the array had 5 elements with 4 nested structures, Azure SQL Database serverless returns 5 rows and 4 columns. Azure SQL Database serverless can query in place, map the array in 2 rows, and display all nested structures into columns.
+  If the array had 5 elements with 4 nested structures, the serverless model of SQL returns 5 rows and 4 columns. The serverless model of SQL can query in place, map the array in 2 rows, and display all nested structures into columns.
 
 ## Next steps
 
