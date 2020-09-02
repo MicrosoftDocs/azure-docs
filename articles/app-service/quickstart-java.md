@@ -74,31 +74,30 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.9.1:config
 # [Java SE](#tab/javase)
 
 1. When prompted, select **windows** by entering `2`.
-1. Use the default Java version, 1.8, by pressing enter.
-1. Use the default web container, Tomcat 8.5, by pressing enter.
-1. Finally, press enter on the last prompt to confirm your selections.
+2. Use the default Java version, 1.8, by pressing enter.
+3. Finally, press enter on the last prompt to confirm your selections.
 
-After making the three selections, you will see a summary. Yours will look similar to the snippet shown below.
+    Your summary output will look similar to the snippet shown below.
 
-```
-Please confirm webapp properties
-AppName : helloworld-1599003152123
-ResourceGroup : helloworld-1599003152123-rg
-Region : westeurope
-PricingTier : PremiumV2_P1v2
-OS : Windows
-Java : 1.8
-WebContainer : tomcat 8.5
-Deploy to slot : false
-Confirm (Y/N)? : Y
-[INFO] Saving configuration to pom.
-[INFO] ------------------------------------------------------------------------
-[INFO] BUILD SUCCESS
-[INFO] ------------------------------------------------------------------------
-[INFO] Total time: 03:03 min
-[INFO] Finished at: 2020-09-01T16:35:30-07:00
-[INFO] ------------------------------------------------------------------------
-```
+    ```
+    Please confirm webapp properties
+    AppName : spring-boot-1599007390755
+    ResourceGroup : spring-boot-1599007390755-rg
+    Region : westeurope
+    PricingTier : PremiumV2_P1v2
+    OS : Windows
+    Java : 1.8
+    WebContainer : java 8
+    Deploy to slot : false
+    Confirm (Y/N)? : Y
+    [INFO] Saving configuration to pom.
+    [INFO] ------------------------------------------------------------------------
+    [INFO] BUILD SUCCESS
+    [INFO] ------------------------------------------------------------------------
+    [INFO] Total time: 41.118 s
+    [INFO] Finished at: 2020-09-01T17:43:45-07:00
+    [INFO] ------------------------------------------------------------------------
+    ```
 
 # [Tomcat](#tab/tomcat)
 
@@ -107,27 +106,27 @@ Confirm (Y/N)? : Y
 1. Use the default web container, Tomcat 8.5, by pressing enter.
 1. Finally, press enter on the last prompt to confirm your selections.
 
-After making the three selections, you will see a summary. Your output will look similar to the snippet shown below.
+    Your summary output will look similar to the snippet shown below.
 
-```
-Please confirm webapp properties
-AppName : helloworld-1599003152123
-ResourceGroup : helloworld-1599003152123-rg
-Region : westeurope
-PricingTier : PremiumV2_P1v2
-OS : Windows
-Java : 1.8
-WebContainer : tomcat 8.5
-Deploy to slot : false
-Confirm (Y/N)? : Y
-[INFO] Saving configuration to pom.
-[INFO] ------------------------------------------------------------------------
-[INFO] BUILD SUCCESS
-[INFO] ------------------------------------------------------------------------
-[INFO] Total time: 03:03 min
-[INFO] Finished at: 2020-09-01T16:35:30-07:00
-[INFO] ------------------------------------------------------------------------
-```
+    ```
+    Please confirm webapp properties
+    AppName : helloworld-1599003152123
+    ResourceGroup : helloworld-1599003152123-rg
+    Region : westeurope
+    PricingTier : PremiumV2_P1v2
+    OS : Windows
+    Java : 1.8
+    WebContainer : tomcat 8.5
+    Deploy to slot : false
+    Confirm (Y/N)? : Y
+    [INFO] Saving configuration to pom.
+    [INFO] ------------------------------------------------------------------------
+    [INFO] BUILD SUCCESS
+    [INFO] ------------------------------------------------------------------------
+    [INFO] Total time: 03:03 min
+    [INFO] Finished at: 2020-09-01T16:35:30-07:00
+    [INFO] ------------------------------------------------------------------------
+    ```
 
 ---
 
@@ -137,9 +136,27 @@ Confirm (Y/N)? : Y
 ### [Java SE](#tab/javase)
 
 1. When prompted, select **linux** by pressing enter.
-1. Use the default Java version, 1.8, by pressing enter.
-1. Use the default web container, Tomcat 8.5, by pressing enter.
-1. Finally, press enter on the last prompt to confirm your selections.
+2. Use the default Java version, 1.8, by pressing enter.
+3. Finally, press enter on the last prompt to confirm your selections.
+
+    ```
+    Please confirm webapp properties
+    AppName : spring-boot-1599007116351
+    ResourceGroup : spring-boot-1599007116351-rg
+    Region : westeurope
+    PricingTier : PremiumV2_P1v2
+    OS : Linux
+    RuntimeStack : JAVA 8-jre8
+    Deploy to slot : false
+    Confirm (Y/N)? : Y
+    [INFO] Saving configuration to pom.
+    [INFO] ------------------------------------------------------------------------
+    [INFO] BUILD SUCCESS
+    [INFO] ------------------------------------------------------------------------
+    [INFO] Total time: 20.925 s
+    [INFO] Finished at: 2020-09-01T17:38:51-07:00
+    [INFO] ------------------------------------------------------------------------
+    ```
 
 ### [Tomcat](#tab/tomcat)
 
@@ -148,23 +165,23 @@ Confirm (Y/N)? : Y
 1. Use the default runtime stack, Tomcat 8.5, by pressing enter.
 1. Finally, press enter on the last prompt to confirm your selections.
 
-```
-Please confirm webapp properties
-AppName : helloworld-1599003744223
-ResourceGroup : helloworld-1599003744223-rg
-Region : westeurope
-PricingTier : PremiumV2_P1v2
-OS : Linux
-RuntimeStack : TOMCAT 8.5-jre8
-Deploy to slot : false
-Confirm (Y/N)? : Y
-[INFO] Saving configuration to pom.
-[INFO] ------------------------------------------------------------------------
-[INFO] BUILD SUCCESS
-[INFO] ------------------------------------------------------------------------
-[INFO] Total time: 50.785 s
-[INFO] Finished at: 2020-09-01T16:43:09-07:00
-[INFO] ------------------------------------------------------------------------
+    ```
+    Please confirm webapp properties
+    AppName : helloworld-1599003744223
+    ResourceGroup : helloworld-1599003744223-rg
+    Region : westeurope
+    PricingTier : PremiumV2_P1v2
+    OS : Linux
+    RuntimeStack : TOMCAT 8.5-jre8
+    Deploy to slot : false
+    Confirm (Y/N)? : Y
+    [INFO] Saving configuration to pom.
+    [INFO] ------------------------------------------------------------------------
+    [INFO] BUILD SUCCESS
+    [INFO] ------------------------------------------------------------------------
+    [INFO] Total time: 50.785 s
+    [INFO] Finished at: 2020-09-01T16:43:09-07:00
+    [INFO] ------------------------------------------------------------------------
 ```
 
 ---
