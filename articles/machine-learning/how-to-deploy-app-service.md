@@ -15,7 +15,7 @@ ms.custom: how-to, devx-track-python
 ---
 
 # Deploy a machine learning model to Azure App Service (preview)
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Learn how to deploy a model from Azure Machine Learning as a web app in Azure App Service.
 
