@@ -74,7 +74,7 @@ When you're printing the schema of the object's data frame (called **df**) with 
 
 The preceding data frame counts for 5 columns and 1 row only. After transformation, the curated data frame will have 13 columns and 2 rows, in a tabular format.
 
-## Flatten nested structures and explode arrays with Apache Spark
+## Flatten nested structures and explode arrays
 
 With Spark in Azure Synapse Analytics, it's easy to transform nested structures into columns and array elements into multiple rows. Use the following steps for implementation.
 
@@ -157,7 +157,7 @@ The function `printSchema` of the data frame `df_flat_explode_flat` returns the 
 
 [![Code showing the final schema](./media/how-to-complex-schema/schema-final.png)](./media/how-to-complex-schema/schema-final.png#lightbox)
 
-## Read arrays and nested structures directly with the serverless model of SQL
+## Read arrays and nested structures directly
 
 With the serverless model of SQL, you can query and create views and tables over such objects.
 
