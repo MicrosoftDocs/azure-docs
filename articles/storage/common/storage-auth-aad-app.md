@@ -7,10 +7,10 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/18/2020
+ms.date: 09/02/2020
 ms.author: tamram
 ms.subservice: common
-ms.custom: "has-adal-ref, devx-track-csharp"
+ms.custom: "devx-track-csharp"
 ---
 
 # Acquire a token from Azure AD for authorizing requests from a client application
@@ -23,7 +23,7 @@ For an overview of the OAuth 2.0 code grant flow, see [Authorize access to Azure
 
 ## Assign a role to an Azure AD security principal
 
-To authenticate a security principal from your Azure Storage application, first configure role-based access control (RBAC) settings for that security principal. Azure Storage defines Azure built-in roles that encompass permissions for containers and queues. When the Azure role is assigned to a security principal, that security principal is granted access to that resource. For more information, see [Manage access rights to Azure Blob and Queue data with RBAC](storage-auth-aad-rbac.md).
+To authenticate a security principal from your Azure Storage application, first configure role-based access control (RBAC) settings for that security principal. Azure Storage defines built-in roles that encompass permissions for containers and queues. When the RBAC role is assigned to a security principal, that security principal is granted access to that resource. For more information, see [Manage access rights to Azure Blob and Queue data with RBAC](storage-auth-aad-rbac.md).
 
 ## Register your application with an Azure AD tenant
 
