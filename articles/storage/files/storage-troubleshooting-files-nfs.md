@@ -9,8 +9,13 @@ ms.author: jeffpatt
 ms.subservice: files
 ---
 
-# Troubleshoot Azure file shares using SMB
+# Troubleshoot Azure NFS file shares
 
-- Mount failure due to secure transfer required
-- Mount failure due to networking configurations
-- Mount failure due to lack of NFS package
+
+## Mount failure due to secure transfer required
+
+
+## Mount failure due to networking configurations
+
+
+## Mount failure due to lack of NFS package
