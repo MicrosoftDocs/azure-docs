@@ -172,7 +172,7 @@ AzureDiagnostics
 
 ### Filter job status output converted into a JSON object
 
-If you configure your runbook to format objects in the output stream in JSON format, it is necessary to parse that field to a JSON object to then access those properties. This is accomplished using [parsejson](../azure-monitor/log-query/json-data-structures.md#parsejson) to access a specific JSON element in a known path. For example, a runbook formats the *ResultDescription* field in the output stream in JSON format and you wanted to search for the status of your jobs that are in a failed state. Use this query to search the *ResultDescription* with a status of **Failed**:
+If you configure your runbook to format objects in the output stream in JSON format, it is necessary to parse that field to a JSON object to then access those properties. This is accomplished using [parsejson](../azure-monitor/log-query/json-data-structures.md#parsejson) to access a specific JSON element in a known path. For example, a runbook formats the *ResourceDescription* field in the output stream in JSON format, and you wanted to search for the status of your jobs that are in a failed state. Use this example query to search the *ResourceDescription* with a status of **Failed**:
 
 ```kusto
 AzureDiagnostics
