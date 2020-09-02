@@ -19,7 +19,9 @@ ms.reviewer: anilmur
 
 ---
 
-# Comparison of Azure on demand media encoders  
+# Comparison of Azure on demand media encoders
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]  
 
 This topic compares the encoding capabilities of **Media Encoder Standard** and **Media Encoder Premium Workflow**.
 

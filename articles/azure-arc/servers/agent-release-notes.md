@@ -25,6 +25,6 @@ Version: 0.11
 
 If you are using an older version of the Linux agent and configured it to use a proxy server, you need to reconfigure the proxy server setting after the upgrade. To do this, run `sudo azcmagent_proxy add http://proxyserver.local:83`.
 
-## Next Steps
+## Next steps
 
 Before evaluating or enabling Arc enabled servers (preview) across multiple hybrid machines, review [Connected Machine agent overview](agent-overview.md) to understand requirements, technical details about the agent, and deployment methods.

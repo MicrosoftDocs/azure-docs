@@ -19,7 +19,7 @@ The Spark connector enables databases in Azure SQL Database, Azure SQL Managed I
 
 ## Download and build a Spark connector
 
-To get started, download the Spark connector from the [azure-sqldb-spark repository](https://github.com/Azure/azure-sqldb-spark) on GitHub.
+To get started, download the Spark connector from the [azure-sqldb-spark repository](https://github.com/microsoft/sql-spark-connector) on GitHub.
 
 ### Official supported versions
 
