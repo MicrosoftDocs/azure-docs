@@ -15,7 +15,7 @@ ms.custom: how-to, racking-python
 ---
 
 # Deploy a machine learning model to Azure Functions (preview)
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Learn how to deploy a model from Azure Machine Learning as a function app in Azure Functions.
 
