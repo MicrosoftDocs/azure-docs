@@ -33,7 +33,7 @@ In Azure, the feature that enables storing customer data in a single region is c
 >
 > You can store your customers' IP addresses with your Network Watcher instance so that Network Watcher can monitor reachability, latency, and network topology changes related to these customer IP addresses. These customer IP addresses might be classified as customer data. As of July 15, 2020, Network Watcher stored this data in a single region. Customer data, including this data, is no longer being replicated to Hong Kong. This customer data is and was encrypted at rest.
 > 
-> If this customer data were accessed by a third party, the third party would know the IP address but would not be able access to the machine or device associated with the IP address. We don't believe that any third parties have accessed this customer data in Hong Kong.
+> If this customer data were accessed by a third party, the third party would know the IP address but would not be able to access the machine or device associated with the IP address. We don't believe that any third parties have accessed this customer data in Hong Kong.
 
 ## Next steps
 
