@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 09/02/2020
 ms.author: aahi
 ---
 
@@ -108,17 +108,17 @@ Container images for Speech are available in the following Container Registry.
 |-----------|------------|
 | Text-to-speech | `containerpreview.azurecr.io/microsoft/cognitive-services-text-to-speech:latest` |
 
-# [Custom Text-to-speech](#tab/ctts)
-
-| Container | Repository |
-|-----------|------------|
-| Custom Text-to-speech | `containerpreview.azurecr.io/microsoft/cognitive-services-custom-text-to-speech:latest` |
-
 # [Neural Text-to-speech](#tab/ntts)
 
 | Container | Repository |
 |-----------|------------|
 | Neural Text-to-speech | `containerpreview.azurecr.io/microsoft/cognitive-services-neural-text-to-speech:latest` |
+
+# [Custom Text-to-speech](#tab/ctts)
+
+| Container | Repository |
+|-----------|------------|
+| Custom Text-to-speech | `containerpreview.azurecr.io/microsoft/cognitive-services-custom-text-to-speech:latest` |
 
 ***
 
@@ -200,19 +200,6 @@ For all of the supported locales and corresponding voices of the **text-to-speec
 > [!IMPORTANT]
 > When constructing a *Text-to-speech* HTTP POST, the [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md) message requires a `voice` element with a `name` attribute. The value is the corresponding container locale and voice, also known as the ["short name"](language-support.md#standard-voices). For example, the `latest` tag would have a voice name of `en-US-AriaRUS`.
 
-# [Custom Text-to-speech](#tab/ctts)
-
-#### Docker pull for the Custom Text-to-speech container
-
-Use the [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image from Container Preview registry.
-
-```Docker
-docker pull containerpreview.azurecr.io/microsoft/cognitive-services-custom-text-to-speech:latest
-```
-
-> [!NOTE]
-> The `locale` and `voice` for custom Speech containers is determined by the custom model ingested by the container.
-
 # [Neural Text-to-speech](#tab/ntts)
 
 #### Docker pull for the Neural Text-to-speech container
@@ -244,6 +231,19 @@ For all of the supported locales and corresponding voices of the **neural text-t
 
 > [!IMPORTANT]
 > When constructing a *Neural Text-to-speech* HTTP POST, the [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md) message requires a `voice` element with a `name` attribute. The value is the corresponding container locale and voice, also known as the ["short name"](language-support.md#neural-voices). For example, the `latest` tag would have a voice name of `en-US-AriaNeural`.
+
+# [Custom Text-to-speech](#tab/ctts)
+
+#### Docker pull for the Custom Text-to-speech container
+
+Use the [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image from Container Preview registry.
+
+```Docker
+docker pull containerpreview.azurecr.io/microsoft/cognitive-services-custom-text-to-speech:latest
+```
+
+> [!NOTE]
+> The `locale` and `voice` for custom Speech containers is determined by the custom model ingested by the container.
 
 ***
 
@@ -375,6 +375,25 @@ This command:
 * Exposes TCP port 5000 and allocates a pseudo-TTY for the container.
 * Automatically removes the container after it exits. The container image is still available on the host computer.
 
+# [Neural Text-to-speech](#tab/ntts)
+
+To run the *Neural Text-to-speech* container, execute the following `docker run` command.
+
+```bash
+docker run --rm -it -p 5000:5000 --memory 12g --cpus 6 \
+containerpreview.azurecr.io/microsoft/cognitive-services-neural-text-to-speech \
+Eula=accept \
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
+```
+
+This command:
+
+* Runs a *Neural Text-to-speech* container from the container image.
+* Allocates 6 CPU cores and 12 gigabytes (GB) of memory.
+* Exposes TCP port 5000 and allocates a pseudo-TTY for the container.
+* Automatically removes the container after it exits. The container image is still available on the host computer.
+
 # [Custom Text-to-speech](#tab/ctts)
 
 The *Custom Text-to-speech* container relies on a custom voice model. The custom model has to have been [trained](how-to-custom-voice-create-voice.md) using the [custom voice portal](https://aka.ms/custom-voice-portal). The custom voice **Model ID** is required to run the container. It can be found on the **Training** page of the custom voice portal. From the custom voice portal, navigate to the **Training** page and select the model.
@@ -416,25 +435,6 @@ This command:
 * Exposes TCP port 5000 and allocates a pseudo-TTY for the container.
 * Downloads the model given the `ModelId` (if not found on the volume mount).
 * If the custom model was previously downloaded, the `ModelId` is ignored.
-* Automatically removes the container after it exits. The container image is still available on the host computer.
-
-# [Neural Text-to-speech](#tab/ntts)
-
-To run the *Neural Text-to-speech* container, execute the following `docker run` command.
-
-```bash
-docker run --rm -it -p 5000:5000 --memory 12g --cpus 6 \
-containerpreview.azurecr.io/microsoft/cognitive-services-neural-text-to-speech \
-Eula=accept \
-Billing={ENDPOINT_URI} \
-ApiKey={API_KEY}
-```
-
-This command:
-
-* Runs a *Neural Text-to-speech* container from the container image.
-* Allocates 6 CPU cores and 12 gigabytes (GB) of memory.
-* Exposes TCP port 5000 and allocates a pseudo-TTY for the container.
 * Automatically removes the container after it exits. The container image is still available on the host computer.
 
 ***
