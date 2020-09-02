@@ -32,7 +32,7 @@ To retrieve the email addresses for all of your users that are configured in Azu
 1.	Start at the Azure Active Directory Connect health blade and select **Sync Services** from the left-hand navigation bar.
  ![Sync Services](./media/how-to-connect-health-data-retrieval/retrieve1.png)
 
-2.	Click on the **Alerts** tile.
+2.	Click on the **Alerts** tile.</br>
  ![Alert](./media/how-to-connect-health-data-retrieval/retrieve3.png)
 
 3.	Click on **Notification Settings**.
