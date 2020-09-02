@@ -11,6 +11,8 @@ ms.subservice: files
 
 # How to create an NFS share
 
+Azure file shares using NFS are currently only available on premium file shares.
+
 ## Limitations
 
 [!INCLUDE [files-nfs-limitations](../../../includes/files-nfs-limitations.md)]
@@ -41,15 +43,8 @@ Now that you have created a FileStorage account and configured the networking, y
 1. For **Root Squash** make a selection.
 1. Select **Create**.
 
-:::image type="content" source="media/storage-files-how-to-create-mount-nfs-shares/create-nfs-file-share.png" alt-text="Screenshot of file share creation blade":::
-
-1. Once the file share is created, select the share and select **Connect from Linux**.
-1. Enter the mount path you'd like to use, then copy the script.
-1. Remote into your VM and use the provided mounting script.
-
-:::image type="content" source="media/storage-files-how-to-create-mount-nfs-shares/mount-nfs-file-share-script.png" alt-text="Screenshot of file share connect blade":::
-
-You have now mounted your NFS share to your VM.
+    :::image type="content" source="media/storage-files-how-to-create-mount-nfs-shares/create-nfs-file-share.png" alt-text="Screenshot of file share creation blade":::
 
 ## Next steps
 
+Now that you've created an NFS share, to use it you have to mount it to your VM. For details, see [How to mount an NFS share](storage-files-how-to-mount-nfs-shares.md).

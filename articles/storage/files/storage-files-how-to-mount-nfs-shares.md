@@ -9,7 +9,9 @@ ms.author: rogarana
 ms.subservice: files
 ---
 
-# How to create an NFS share
+# How to mount an NFS share
+
+[Azure Files](storage-files-introduction.md) is Microsoft's easy to use cloud file system. Azure file shares can be mounted in Linux distributions using either the server message block protocol (SMB) or the network file system (NFS) protocol. This article is focused on mounting with NFS, for details on mounting with SMB, see [Use Azure Files with Linux](storage-how-to-use-files-linux.md).
 
 ## Limitations
 
@@ -51,3 +53,4 @@ You have now mounted your NFS share to your VM.
 
 ## Next steps
 
+If you experience any issues mounting your NFS share, see [Troubleshoot Azure NFS file shares](storage-troubleshooting-files-nfs.md).
