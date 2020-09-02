@@ -84,7 +84,7 @@ Your custom branding won't immediately appear when your users go to sites such a
         
         - **Show option to remain signed in.** You can choose to let your users remain signed in to Azure AD until explicitly signing out. If you choose **No**,  this option is hidden, and users must sign in each time the browser is closed and reopened.
 
-            To learn more about configuring and troubleshooting the option to remain signed in, see [Configure the 'Stay signed in?' prompt for Azure AD accounts](keep-me-signed-in.md)
+            This capability is only available on the default branding object and not on any language-specific object. To learn more about configuring and troubleshooting the option to remain signed in, see [Configure the 'Stay signed in?' prompt for Azure AD accounts](keep-me-signed-in.md)
         
             >[!NOTE]
             >Some features of SharePoint Online and Office 2010 depend on users being able to choose to remain signed in. If you set this option to **No**, your users may see additional and unexpected prompts to sign-in.
@@ -130,7 +130,7 @@ You can't change your original configuration's language from your default langua
 
     The **Contoso – Company branding** page updates to show your new French configuration.
 
-    ![Contoso - Company branding page, with default configuration shown](media/customize-branding/company-branding-french-config.png)
+    ![Contoso - Company branding page, with the new language configuration shown](media/customize-branding/company-branding-french-config.png)
 
 ## Add your custom branding to pages
 Add your custom branding to pages by modifying the end of the URL with the text, `?whr=yourdomainname`. This modification works on several pages, including the Multi-Factor Authentication (MFA) setup page, the Self-service Password Reset (SSPR) setup page, and the sign in page.
