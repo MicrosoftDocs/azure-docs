@@ -224,7 +224,7 @@ The alerts include general information about the public IP address that’s unde
 
 ## Visualize Azure DDOS metric information in Azure DDOS Monitor Workbook
 
-Azure Network Security has made a workbook of your DDOS metric information available. This workbook visualizes security-relevant Azure DDoS events across several filterable panels, Offering summary and investigation tabs across multiple workspaces. [Click here](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20DDoS%20Protection/Azure%20DDoS%20Protection%20Workbook) to read more and deploy the workbook
+Azure Network Security has made a workbook for your DDOS metric information available. This workbook visualizes security-relevant Azure DDoS events across several filterable panels, Offering summary and investigation tabs across multiple workspaces. [Click here](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20DDoS%20Protection/Azure%20DDoS%20Protection%20Workbook) to read more and deploy the workbook
 
 
 ## Permissions
