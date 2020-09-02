@@ -61,7 +61,7 @@ Before working with keys, secrets or certificates in your key vault, you'll crea
 - [Set and retrieve a certificate with CLI](../certificates/quick-create-cli.md)
 - [Set and retrieve a certificate with PowerShell](../certificates/quick-create-powershell.md)
 - [Set and retrieve a certificate with the Azure portal](../certificates/quick-create-portal.md)
-- [Keys operations with REST](/rest/api/keyvault/#certificate-operations)
+- [Certificate operations with REST](/rest/api/keyvault/#certificate-operations)
 - [Set and retrieve a certificate with Python](../certificates/quick-create-python.md)
 
 ## Coding with Key Vault
