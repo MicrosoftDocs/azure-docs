@@ -29,7 +29,7 @@ When users register for SSPR, they're prompted to choose the authentication meth
 
 Security questions can be less secure than other methods because some people might know the answers to another user's questions. If you use security questions with SSPR, it's recommended to use them in conjunction with another method. A user can be prompted to use the Microsoft Authenticator App or phone authentication to verify their identity during the SSPR process, and choose security questions only if they don't have their phone or registered device with them.
 
-### Predefined questions
+## Predefined questions
 
 The following predefined security questions are available for use as a verification method with SSPR. All of these security questions are translated and localized into the full set of Office 365 languages based on the user's browser locale:
 
@@ -69,13 +69,13 @@ The following predefined security questions are available for use as a verificat
 * When you were young, what did you want to be when you grew up?
 * Who is the most famous person you have ever met?
 
-### Custom security questions
+## Custom security questions
 
 For additional flexibility, you can define your own custom security questions. The maximum length of a custom security question is 200 characters.
 
 Custom security questions aren't automatically localized like with the default security questions. All custom questions are displayed in the same language as they're entered in the administrative user interface, even if the user's browser locale is different. If you need localized questions, you should use the predefined questions.
 
-### Security question requirements
+## Security question requirements
 
 For both default and custom security questions, the following requirements and limitations apply:
 

@@ -27,7 +27,7 @@ To use the Authenticator app at a sign-in prompt rather than a username and pass
 > [!NOTE]
 > Users don't have the option to register their mobile app when they enable SSPR. Instead, users can register their mobile app at [https://aka.ms/mfasetup](https://aka.ms/mfasetup) or as part of the combined security info registration at [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo).
 
-### Notification through mobile app
+## Notification through mobile app
 
 The Authenticator app can help prevent unauthorized access to accounts and stop fraudulent transactions by pushing a notification to your smartphone or tablet. Users view the notification, and if it's legitimate, select **Verify**. Otherwise, they can select **Deny**.
 
@@ -36,7 +36,7 @@ The Authenticator app can help prevent unauthorized access to accounts and stop 
 > [!NOTE]
 > If your organization has staff working in or traveling to China, the *Notification through mobile app* method on Android devices doesn't work in that country/region as Google play services(including push notifications) are blocked in the region. However iOS notification do work. For Android devices ,alternate authentication methods should be made available for those users.
 
-### Verification code from mobile app
+## Verification code from mobile app
 
 The Authenticator app can be used as a software token to generate an OATH verification code. After entering your username and password, you enter the code provided by the Authenticator app into the sign-in interface. The verification code provides a second form of authentication.
 

@@ -29,7 +29,7 @@ To work properly, phone numbers must be in the format *+CountryCode PhoneNumber*
 >
 > Password reset doesn't support phone extensions. Even in the *+1 4251234567X12345* format, extensions are removed before the call is placed.
 
-### Mobile phone verification
+## Mobile phone verification
 
 For Azure Multi-Factor Authentication or SSPR, users can choose to receive a text message with a verification code to enter in the sign-in interface, or receive a phone call with a prompt to enter their defined pin code.
 
@@ -39,21 +39,21 @@ If users don't want their mobile phone number to be visible in the directory but
 
 Microsoft doesn't guarantee consistent SMS or voice-based Azure Multi-Factor Authentication prompt delivery by the same number. In the interest of our users, we may add or remove short codes at any time as we make route adjustments to improve SMS deliverability. Microsoft doesn't support short codes for countries / regions besides the United States and Canada.
 
-#### Text message verification
+### Text message verification
 
 With text message verification during SSPR or Azure Multi-Factor Authentication, an SMS is sent to the mobile phone number containing a verification code. To complete the sign-in process, the verification code provided is entered into the sign-in interface.
 
-#### Phone call verification
+### Phone call verification
 
 With phone call verification during SSPR or Azure Multi-Factor Authentication, an automated voice call is made to the phone number registered by the user. To complete the sign-in process, the user is prompted to enter their pin number followed by # on their keypad.
 
-### Office phone verification
+## Office phone verification
 
 The office phone attribute is managed by the Azure AD administrator and can't be registered by a user themselves.
 
 With phone call verification during SSPR or Azure Multi-Factor Authentication, an automated voice call is made to the phone number registered by the user. To complete the sign-in process, the user is prompted to enter their pin number followed by # on their keypad.
 
-### Troubleshooting phone options
+## Troubleshooting phone options
 
 If you have problems with phone authentication for Azure AD, review the following troubleshooting steps:
 
