@@ -464,19 +464,19 @@ The device streams category tracks request-response interactions sent to individ
 
 ### SDK version
 
-Some operations return an `sdkVersion` property in their property bag. For these operations, when a device or backend app is using one of the Azure IoT SDKs, this property contains information about the SDK being used, the SDK version, and the platform on which the SDK is running. The following example shows the `sdkVersion` property returned for a `deviceConnect` operation using the Node.js device SDK, "azure-iot-device/1.17.1 (node v10.16.0; Windows_NT 10.0.18363; x64)", and here is an example of the value returned for the .NET SDK, ".NET/1.21.2 (.NET Framework 4.8.4200.0; Microsoft Windows 10.0.17763 WindowsProduct:0x00000004; X86)".
+Some operations return an `sdkVersion` property in their `properties` object. For these operations, when a device or backend app is using one of the Azure IoT SDKs, this property contains information about the SDK being used, the SDK version, and the platform on which the SDK is running. The following example shows the `sdkVersion` property emitted for a `deviceConnect` operation when using the Node.js device SDK: `"azure-iot-device/1.17.1 (node v10.16.0; Windows_NT 10.0.18363; x64)"`. Here's an example of the value emitted for the .NET (C#) SDK: `".NET/1.21.2 (.NET Framework 4.8.4200.0; Microsoft Windows 10.0.17763 WindowsProduct:0x00000004; X86)"`.
 
-The following table shows the SDK name value returned for different SDKs:
+The following table shows the SDK name used for different Azure IoT SDKs:
 
-| SDK name | Language |
+| SDK name in sdkVersion property | Language |
 |----------|----------|
 | .NET | C# |
 | microsoft.azure.devices | C# |
 | microsoft.azure.devices.client | C# |
 | iothubclient | C/Python |
 | iothubserviceclient | C/Python |
-| azure-iot-device | NodeJS |
-| azure-iothub | NodeJS |
+| azure-iot-device | Node.js |
+| azure-iothub | Node.js |
 | com.microsoft.azure.iothub-java-client | Java |
 | com.microsoft.azure.iothub.service.sdk | Java |
 | com.microsoft.azure.sdk.iot.iot-device-client | Java |
@@ -484,7 +484,7 @@ The following table shows the SDK name value returned for different SDKs:
 | C | Embedded C |
 | C + (OSSimplified = Azure RTOS) | Azure RTOS |
 
-You can extract the SDK version property when you perform queries against diagnostic logs. The following query extracts the SDK version property (and device ID) from the properties returned by Connections events. These properties are written to the results along with the time of the event and the resource ID of the IoT hub that the device is connecting to.
+You can extract the SDK version property when you perform queries against diagnostic logs. The following query extracts the SDK version property (and device ID) from the properties returned by Connections events. These two properties are written to the results along with the time of the event and the resource ID of the IoT hub that the device is connecting to.
 
 ```kusto
 // SDK version of devices
