@@ -75,9 +75,6 @@
   items:
     - name: Code samples
       href: event-hubs-samples.md
-    - name: Azure Policy built-ins
-      displayName: samples, policies, definitions
-      href: ./policy-samples.md
 - name: Concepts
   items:
     - name: Event Hubs terminology
@@ -290,6 +287,9 @@
       href: event-hubs-quotas.md
     - name: Apache Kafka configurations
       href: apache-kafka-configurations.md
+    - name: Azure Policy built-ins
+      displayName: samples, policies, definitions
+      href: ./policy-reference.md
 - name: Resources
   items:
     - name: Build your skills with Microsoft Learn

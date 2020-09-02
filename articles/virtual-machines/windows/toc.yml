@@ -70,23 +70,23 @@
       - name: VM from VHD upload
         href: ./../scripts/virtual-machines-windows-powershell-upload-generalized-script.md
       - name: Attach an OS disk
-        href: ./../scripts/virtual-machines-windows-powershell-sample-create-vm-from-managed-os-disks.md
+        href: ./../scripts/virtual-machines-powershell-sample-create-vm-from-managed-os-disks.md
       - name: VM from snapshot
         href: ./../scripts/virtual-machines-windows-powershell-sample-create-vm-from-snapshot.md
     - name: Manage storage
       items:
       - name: Create a managed disk from a VHD
-        href: ../scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-vhd.md
+        href: ../scripts/virtual-machines-powershell-sample-create-managed-disk-from-vhd.md
       - name: Create a managed disk from a snapshot
-        href: ../scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot.md
+        href: ../scripts/virtual-machines-powershell-sample-create-managed-disk-from-snapshot.md
       - name: Copy a managed disk
         href: ../scripts/virtual-machines-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md
       - name: Export a snapshot as a VHD to a storage account
         href: ../scripts/virtual-machines-powershell-sample-copy-snapshot-to-storage-account.md
       - name: Export the VHD of a managed disk to a storage account
-        href: ../scripts/virtual-machines-windows-powershell-sample-copy-managed-disks-vhd.md
+        href: ../scripts/virtual-machines-powershell-sample-copy-managed-disks-vhd.md
       - name: Create a snapshot from a VHD
-        href: ../scripts/virtual-machines-windows-powershell-sample-create-snapshot-from-vhd.md
+        href: ../scripts/virtual-machines-powershell-sample-create-snapshot-from-vhd.md
       - name: Copy a snapshot
         href: ../scripts/virtual-machines-powershell-sample-copy-snapshot-to-same-or-different-subscription.md
     - name: Secure
@@ -118,15 +118,15 @@
     - name: Manage storage
       items:
       - name: Create managed disk from a VHD
-        href: ../scripts/virtual-machines-windows-cli-sample-create-managed-disk-from-vhd.md
+        href: ../scripts/virtual-machines-cli-sample-create-managed-disk-from-vhd.md
       - name: Create a managed disk from a snapshot
-        href: ../scripts/virtual-machines-windows-cli-sample-create-managed-disk-from-snapshot.md
+        href: ../scripts/virtual-machines-cli-sample-create-managed-disk-from-snapshot.md
       - name: Copy managed disk
         href: ../scripts/virtual-machines-cli-sample-copy-managed-disks-to-same-or-different-subscription.md
       - name: Export a snapshot as VHD to a storage account
         href: ../scripts/virtual-machines-cli-sample-copy-snapshot-to-storage-account.md
       - name: Export the VHD of a managed disk to a storage account
-        href: ../scripts/virtual-machines-windows-cli-sample-copy-managed-disks-vhd.md
+        href: ../scripts/virtual-machines-cli-sample-copy-managed-disks-vhd.md
       - name: Copy snapshot
         href: ../scripts/virtual-machines-cli-sample-copy-snapshot-to-same-or-different-subscription.md
     - name: Network
@@ -141,9 +141,6 @@
       items:
       - name: Azure Monitor
         href: ./../scripts/virtual-machines-windows-cli-sample-create-vm-oms.md
-  - name: Azure Policy built-ins
-    displayName: samples, policies, definitions
-    href: ../policy-samples.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
 - name: Concepts
   items:
   - name: Images
@@ -175,7 +172,7 @@
     - name: VM sizes
       href: ../sizes.md
     - name: Generation 2 VMs
-      href: generation-2.md
+      href: ../generation-2.md
     - name: General purpose
       items:
       - name: Overview
@@ -624,7 +621,7 @@
   - name: Manage VMs
     items:
     - name: VM usage
-      href: vm-usage.md
+      href: ../vm-usage.md
     - name: Common PowerShell tasks
       href: ps-common-ref.md
     - name: Change VM size
@@ -1047,6 +1044,9 @@
   - name: Resource Manager template
     displayName: ARM
     href: /azure/templates/microsoft.compute/allversions
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ../policy-reference.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
 - name: Resources
   items:
   - name: Q&A
