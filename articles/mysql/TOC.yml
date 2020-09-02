@@ -423,7 +423,7 @@
     expanded: true
     items:
     - name: DB & Servers
-      item:
+      items:
       - name: Servers
         href: flexible-server/concept-servers.md
       - name: Supported versions
@@ -433,7 +433,7 @@
     - name: Compute and storage
       href: flexible-server/concepts-compute-storage.md
     - name: Business continuity
-      item:
+      items:
       - name: Business continuity overview
         href: flexible-server/concepts-business-continuity.md
       - name: Backup and restore
