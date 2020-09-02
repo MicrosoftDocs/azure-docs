@@ -239,81 +239,6 @@ To set one or more node types as primary in a cluster resource, set the "isPrima
     ],
 }
 ```
-## (Preview) Enable multiple Availability zones in single VMSS
-
-The previously mentioned solution uses one nodeType per AZ. The following solution will allow users to deploy 3 AZ's in the same nodeType.
-
-Full sample template is present [here](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/crossAZ/15-VM-Windows-Multiple-AZ-Secure).
-
-### Configuring zones on a virtual machine scale set
-To enable zones on a virtual machine scale set you must include the following three values in the virtual machine scale set resource.
-
-* The first value is the **zones** property, which specifies the Availability Zones present in the virtual machine scale set.
-* The second value is the "singlePlacementGroup" property, which must be set to true.
-* The third value is "zoneBalance" and is optional, which ensures strict zone balancing if set to true. Read about [zoneBalancing](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones#zone-balancing).
-* The FaultDomain and UpgradeDomain overrides are not required to be configured.
-
-```json
-{
-    "apiVersion": "2018-10-01",
-    "type": "Microsoft.Compute/virtualMachineScaleSets",
-    "name": "[parameters('vmNodeType1Name')]",
-    "location": "[parameters('computeLocation')]",
-    "zones": ["1", "2", "3"],
-    "properties": {
-        "singlePlacementGroup": "true",
-        "zoneBalance": false
-    }
-}
-```
-
->[!NOTE]
-> * The VMSS should be configured with atleast 3 Availability zones.
-> * VMSS with Bronze durability, should have atleast 2 VMs per Availability zone.
-> * VMSS with Silver durability and above, should have atleast 5 VMs per Availability zone.
-
-### Enabling the support for multiple zones in the Service Fabric nodeType
-The Service Fabric nodeType must be enabled to support multiple availability zones.
-
-* The first value is **multipleAvailabilityZones** which should be set to true for the nodeType.
-* The second value is "hierarchicalUpgradeDomain" and is optional. This property can only be defined at the time of cluster creation and can't be modified later.
-      The property controls the logical grouping of VMs in upgrade domains.
-          If value is set to false (flat mode): VMs under the node type will be grouped in UD ignoring the zone info in 5 UDs.
-          If value is omitted or set to true (hierarchical mode): VMs will be grouped to reflect the zonal distribution in up to 15 UDs. Each of the 3 zones will have 5 UDs.
-      This property will not have any impact on the UD distribution for node types which do not have multiple zones enabled.
-* The Service Fabric cluster resource apiVersion should be "2020-12-01-preview" or higher.
-* The cluster code version should be "7.1.417.9590" or higher.
-
-```json
-{
-    "apiVersion": "2020-12-01-preview",
-    "type": "Microsoft.ServiceFabric/clusters",
-    "name": "[parameters('clusterName')]",
-    "location": "[parameters('clusterLocation')]",
-    "dependsOn": [
-        "[concat('Microsoft.Storage/storageAccounts/', parameters('supportLogStorageAccountName'))]"
-    ],
-    "properties": {
-        "clusterCodeVersion": "7.1.417.9590",
-        "hierarchicalUpgradeDomain": true,
-        "nodeTypes": [
-          {
-                "name": "[parameters('vmNodeType0Name')]",
-                "multipleAvailabilityZones": true,
-          }
-        ]
-}
-```
-
->[!NOTE]
-> * Public IP and Load Balancer Resources should be using the Standard SKU as described earlier in the article.
-> * "multipleAvailabilityZones" property on the nodeType can only be defined at the time of nodeType creation and can't be modified later. Hence, existing nodeTypes can't be configured with this property.
-> * When "hierarchicalUpgradeDomain" is omitted or set to true, the cluster and application deployments will be slower as there are more upgrade domains in the cluster. It is important to correctly adjust the upgrade policy timeouts to incorporate for the upgrade time duration for 15 upgrade domains.
-
->[!NOTE]
-> For best practice we recommend hierarchicalUpgradeDomain set to true or be omitted. Deployment will follow the zonal distribution of VMs impacting a smaller amount of replicas and/or instances making them safer.
-> Use hierarchicalUpgradeDomain set to false if deployment speed is a priority or only stateless workload runs on the node type with multiple AZ's.
-
 
 ## Migrate to using Availability Zones from a cluster using a Basic SKU Load Balancer and a Basic SKU IP
 To migrate a cluster, which was using a Load Balancer and IP with a basic SKU, you must first create an entirely new Load Balancer and IP resource using the standard SKU. It is not possible to update these resources in-place.
@@ -397,5 +322,81 @@ $PublicIP.DnsSettings.Fqdn = $primaryDNSFqdn
 Set-AzureRmPublicIpAddress -PublicIpAddress $PublicIP
 
 ```
+
+## (Preview) Enable multiple Availability zones in single VMSS
+
+The previously mentioned solution uses one nodeType per AZ. The following solution will allow users to deploy 3 AZ's in the same nodeType.
+
+Full sample template is present [here](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/crossAZ/15-VM-Windows-Multiple-AZ-Secure).
+
+### Configuring zones on a virtual machine scale set
+To enable zones on a virtual machine scale set you must include the following three values in the virtual machine scale set resource.
+
+* The first value is the **zones** property, which specifies the Availability Zones present in the virtual machine scale set.
+* The second value is the "singlePlacementGroup" property, which must be set to true.
+* The third value is "zoneBalance" and is optional, which ensures strict zone balancing if set to true. Read about [zoneBalancing](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones#zone-balancing).
+* The FaultDomain and UpgradeDomain overrides are not required to be configured.
+
+```json
+{
+    "apiVersion": "2018-10-01",
+    "type": "Microsoft.Compute/virtualMachineScaleSets",
+    "name": "[parameters('vmNodeType1Name')]",
+    "location": "[parameters('computeLocation')]",
+    "zones": ["1", "2", "3"],
+    "properties": {
+        "singlePlacementGroup": "true",
+        "zoneBalance": false
+    }
+}
+```
+
+>[!NOTE]
+> * The VMSS should be configured with atleast 3 Availability zones.
+> * VMSS with Bronze durability, should have atleast 2 VMs per Availability zone.
+> * VMSS with Silver durability and above, should have atleast 5 VMs per Availability zone.
+
+### Enabling the support for multiple zones in the Service Fabric nodeType
+The Service Fabric nodeType must be enabled to support multiple availability zones.
+
+* The first value is **multipleAvailabilityZones** which should be set to true for the nodeType.
+* The second value is "hierarchicalUpgradeDomain" and is optional. This property can only be defined at the time of cluster creation and can't be modified later.
+      The property controls the logical grouping of VMs in upgrade domains.
+          If value is set to false (flat mode): VMs under the node type will be grouped in UD ignoring the zone info in 5 UDs.
+          If value is omitted or set to true (hierarchical mode): VMs will be grouped to reflect the zonal distribution in up to 15 UDs. Each of the 3 zones will have 5 UDs.
+      This property will not have any impact on the UD distribution for node types which do not have multiple zones enabled.
+* The Service Fabric cluster resource apiVersion should be "2020-12-01-preview" or higher.
+* The cluster code version should be "7.1.417.9590" or higher.
+
+```json
+{
+    "apiVersion": "2020-12-01-preview",
+    "type": "Microsoft.ServiceFabric/clusters",
+    "name": "[parameters('clusterName')]",
+    "location": "[parameters('clusterLocation')]",
+    "dependsOn": [
+        "[concat('Microsoft.Storage/storageAccounts/', parameters('supportLogStorageAccountName'))]"
+    ],
+    "properties": {
+        "clusterCodeVersion": "7.1.417.9590",
+        "hierarchicalUpgradeDomain": true,
+        "nodeTypes": [
+          {
+                "name": "[parameters('vmNodeType0Name')]",
+                "multipleAvailabilityZones": true,
+          }
+        ]
+}
+```
+
+>[!NOTE]
+> * Public IP and Load Balancer Resources should be using the Standard SKU as described earlier in the article.
+> * "multipleAvailabilityZones" property on the nodeType can only be defined at the time of nodeType creation and can't be modified later. Hence, existing nodeTypes can't be configured with this property.
+> * When "hierarchicalUpgradeDomain" is omitted or set to true, the cluster and application deployments will be slower as there are more upgrade domains in the cluster. It is important to correctly adjust the upgrade policy timeouts to incorporate for the upgrade time duration for 15 upgrade domains.
+
+>[!NOTE]
+> For best practice we recommend hierarchicalUpgradeDomain set to true or be omitted. Deployment will follow the zonal distribution of VMs impacting a smaller amount of replicas and/or instances making them safer.
+> Use hierarchicalUpgradeDomain set to false if deployment speed is a priority or only stateless workload runs on the node type with multiple AZ's.
+
 
 [sf-architecture]: ./media/service-fabric-cross-availability-zones/sf-cross-az-topology.png
