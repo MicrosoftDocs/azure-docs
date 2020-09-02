@@ -132,6 +132,12 @@ From this page, you can optionally limit the users and groups that will be subje
 
 ## Troubleshooting
 
+### Supported location policies
+For CAE, we only have insight into named location and have no insights into other location settings like MFA trusted IP setting or country locations. [Trusted IPs](https://docs.microsoft.com/en-us/azure/active-directory/authentication/howto-mfa-mfasettings#trusted-ips) is a feature that customer can configure a range of IPs, but it is not a name location policy. When user come from MFA trusted IP or all trusted locations that include MFA Trusted Ips or country location, CAE will not be enforced after user move to a different location. In those case, we will issue 1-hour CAE token without instant IP enforcement check. 
+
+> [!IMPORTANT]
+> When configuring locations for continuous access evaluation, use only the [IP based Conditional Access location condition](../conditional-access/location-condition.md). Do not use country location conditions or the trusted ips feature that is available in Azure Multi-Factor Authentication's service settings page.
+
 ### IP address configuration
 
 Your identity provider and resource providers may see different IP addresses. This mismatch may happen due to network proxy implementations in your organization or incorrect IPv4/IPv6 configurations between your identity provider and resource provider. For example:
@@ -143,7 +149,7 @@ Your identity provider and resource providers may see different IP addresses. Th
 If this scenario exists in your environment to avoid infinite loops, Azure AD will issue a one hour CAE token and will not enforce client location change. Even in this case, security is improved compared to traditional one hour tokens since we are still evaluating the [other events](#critical-event-evaluation) besides client location change events.
 
 > [!IMPORTANT]
-> When configuring locations for continuous access evaluation, use only the [IP based Conditional Access location condition](../conditional-access/location-condition.md). Do not use country location conditions or the trusted ips feature that is available in Azure Multi-Factor Authentication's service settings page.
+> Please follow the instruction [here](../conditional-access/location-condition#preview-features) to configure your IPv6 addresses in your location policies.
 
 ### Office and Web Account Manager settings
 
