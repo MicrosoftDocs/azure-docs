@@ -17,7 +17,7 @@ Accessing data from external sources is a common pattern.
 Unless the external data source allows anonymous access, chances are you need to secure your connection with a credential, secret, or connection string.  Azure Synapse Analytics provides linked services to simplify the integration process by storing the connection details in a linked service or Azure Key Vault. Once you have created a linked service, Apache spark can reference the linked service to apply the connection information in your code. 
 For more information, see [linked services](../../data-factory/concepts-linked-services.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 > [!NOTE]
-Accessing files from the Azure Data Lake Storage within your workspace uses AAD passthrough for authentication therefore, you will not need to use the TokenLibrary. 
+> Accessing files from the Azure Data Lake Storage within your workspace uses AAD passthrough for authentication therefore, you will not need to use the TokenLibrary. 
 
 
 ## Prerequisite
