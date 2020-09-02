@@ -21,7 +21,7 @@ ms.collection: M365-identity-device-management
 
 # User management enhancements (preview) in Azure Active Directory
 
-This article described recent improvements to the **All users** and **Deleted users** pages as part of the enhanced user management preview in the Azure Active Directory (Azure AD) portal. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+This article describes how to use the enhanced user management preview in the Azure Active Directory (Azure AD) portal. The **All users** and **Deleted users** pages have been updated to provide more information and make it easier to find users. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Changes in the preview include:
 
