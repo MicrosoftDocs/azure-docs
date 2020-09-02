@@ -92,7 +92,7 @@ The following are the filterable properties on the **All users** page:
 - Directory synced status - Yes
 - Creation type - Invitation, Email verified, Local account
 - Invitation state (Coming soon) – Pending acceptance, Accepted
-- Administrative unit - Select the Administrative unit for which to scope the users view. See Administrative units Preview to learn more.
+- Administrative unit - Select the administrative unit to restrict the scope of the users you view. For more information, see [Administrative units management preview](directory-administrative-units.md).
 
 ## Filtering Deleted Users page
 
@@ -109,7 +109,7 @@ The **Deleted users** page has additional filters not in the **All users** page.
 
 Question | Answer
 -------- | ------
-What happen to the bulk capabilities for users and guests? | The bulk operations are all still available for users and guests, including bulk create, bulk invite, bulk delete, and download users. We’ve just merged them into a menu called **Bulk activities**. You can find the **Bulk activities** options at the top of the **All users** page.
+What happen to the bulk capabilities for users and guests? | The bulk operations are all still available for users and guests, including bulk create, bulk invite, bulk delete, and download users. We’ve just merged them into a menu called **Bulk operations**. You can find the **Bulk operations** options at the top of the **All users** page.
 What happened to the Source column? | The **Source** column has been replaced with other columns that provide similar information, while allowing you to filter on those values independently. Examples include **Creation type**, **Directory synced** and **Identity issuer**.
 What happened to the User Name column? | The **User Name** column is still there, but it’s been renamed to **User Principal Name**. This  better reflects the information contained in that column. You’ll also notice that the full User Principal Name is now displayed for B2B guests. This matches what you’d get in MS Graph.  
 Why can I only perform a "starts with" search and not a "contains" search? | There are some limitations that prevent us from allowing you to perform a "contains" search. We’ve heard the feedback, so stay tuned.
@@ -118,6 +118,6 @@ Why can I only filter the **Directory synced** column by Yes? | There are some l
 
 ## Next steps
 
-* [Application Management in Azure Active Directory](../manage-apps/what-is-application-management.md)
-* [Protecting apps with Conditional Access](../conditional-access/overview.md)
-* [Self-service group management/SSAA](groups-self-service-management.md)
+- [Application Management in Azure Active Directory](../manage-apps/what-is-application-management.md)
+- [Protecting apps with Conditional Access](../conditional-access/overview.md)
+- [Self-service group management/SSAA](groups-self-service-management.md)
