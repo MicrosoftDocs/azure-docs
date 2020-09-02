@@ -337,12 +337,12 @@ Once you have created a data share, you'll then switch hats and become the *data
 
     ![Add dataset](media/lab-data-flow-data-share/add-dataset.png)
 
-1. Select **Azure Synapse Analytics** to select a table from the Azure Synapse Analytics that your ADF transformations landed in.
+1. Select **Azure Synapse Analytics** (formerly SQL Data Warehouse) to select a table from Azure Synapse Analytics that your ADF transformations landed in.
 
     ![Add dataset](media/lab-data-flow-data-share/add-dataset-sql.png)
 
 > [!NOTE]
-> Azure Synapse Analytics is now known as Azure Synapse Analytics
+> SQL Data Warehouse is now known as Azure Synapse Analytics
 
 1. You'll be given a script to run before you can proceed. The script provided creates a user in the SQL database to allow the Azure Data Share MSI to authenticate on its behalf. 
 
