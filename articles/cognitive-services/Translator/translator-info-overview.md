@@ -23,7 +23,7 @@ The Translator is part of the [Azure Cognitive Services](https://docs.microsoft.
 
 The Translator is a cloud-based machine translation service. The core service is the Translator, which powers a number of Microsoft products and services, and is used by thousands of businesses worldwide in their applications and workflows, which allows their content to reach a global audience.
 
-Speech translation, powered by the Translator, is also available through the [Microsoft Speech Service](https://docs.microsoft.com/azure/cognitive-services/speech-service/). It combines functionality from the Translator Speech API and the Custom Speech Service into a unified and fully customizable service. Speech Service is replacing the Translator Speech API, which will be decommissioned on October 15, 2019.
+Speech translation, powered by the Translator, is also available through the [Microsoft Speech Service](https://docs.microsoft.com/azure/cognitive-services/speech-service/). It combines functionality from the Translator Speech API and the Custom Speech Service into a unified and fully customizable service. 
 
 ## Language support
 
