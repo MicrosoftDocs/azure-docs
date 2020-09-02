@@ -15,13 +15,16 @@ The Container Storage Interface (CSI) is a standard for exposing arbitrary block
 
 To create an AKS cluster with CSI driver support, see [Enable CSI drivers for Azure Disks and Azure Files on AKS](csi-storage-drivers.md).
 
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+>[!NOTE]
+> *"In-tree drivers"* refers to the current storage drivers that are part of the core kubernetes code vs. the new CSI drivers which are plugins.
 
 ## Create and use a persistent volume (PV) with Azure Files
 
-A persistent volume represents a piece of storage that is provisioned for use with Kubernetes pods. A persistent volume can be used by one or many pods, and can be dynamically or statically provisioned. If multiple pods need concurrent access to the same storage volume, you can use Azure Files to connect using the [Server Message Block (SMB) protocol][smb-overview]. This article shows you how to dynamically create an Azure Files share for use by multiple pods in an Azure Kubernetes Service (AKS) cluster. For static provisioning, see [Manually create and use a volume with Azure Files share](azure-files-volume.md).
+A [persistent volume](concepts-storage.md#persistent-volumes) represents a piece of storage that is provisioned for use with Kubernetes pods. A persistent volume can be used by one or many pods, and can be dynamically or statically provisioned. If multiple pods need concurrent access to the same storage volume, you can use Azure Files to connect using the [Server Message Block (SMB) protocol][smb-overview]. This article shows you how to dynamically create an Azure Files share for use by multiple pods in an Azure Kubernetes Service (AKS) cluster. For static provisioning, see [Manually create and use a volume with Azure Files share](azure-files-volume.md).
 
 For more information on Kubernetes volumes, see [Storage options for applications in AKS][concepts-storage].
+
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ## Dynamically create Azure Files PVs using the built-in storage classes
 A storage class is used to define how an Azure file share is created. A storage account is automatically created in the [node resource group][node-resource-group] for use with the storage class to hold the Azure file shares. Choose of the following [Azure storage redundancy][storage-skus] for *skuName*:
@@ -37,8 +40,10 @@ A storage class is used to define how an Azure file share is created. A storage 
 
 When using storage CSI Drivers on AKS, there are 2 additional built-in `StorageClasses` that leverage the **Azure Files CSI storage drivers**. The additional CSI storage classes are created with the cluster alongside the in-tree default storage classes.
 
-- `azurefile-csi` - Uses Azure Standard storage to create an Azure File Share. The reclaim policy indicates that the underlying Azure File Share is deleted when the persistent volume that used it's deleted.
-- `azurefile-csi-premium` - Uses Azure Premium storage to create an Azure File Share. The reclaim policy indicates that the underlying Azure File Share is deleted when the persistent volume that used it's deleted.
+- `azurefile-csi` - Uses Azure Standard storage to create an Azure File Share. 
+- `azurefile-csi-premium` - Uses Azure Premium storage to create an Azure File Share. 
+
+The reclaim policy on both storage classes indicates that the underlying Azure File Share is deleted when the respective persistent volume is deleted and also that the file share size can be expandable.
 
 To leverage these storage classes, create a [Persistent Volume Claim (PVC)](concepts-storage.md#persistent-volume-claims) and respective pod that references and leverages them. A persistent volume claim (PVC) is used to automatically provision storage based on a storage class. A PVC can use one of the pre-created storage classes or a user-defined storage class to create an Azure Files share for the desired SKU and size. When you create a pod definition, the persistent volume claim is specified to request the desired storage.
 

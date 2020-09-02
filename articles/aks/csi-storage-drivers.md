@@ -18,6 +18,8 @@ The CSI storage driver support on AKS allows you to natively leverage:
 
 > [!IMPORTANT]
 > Starting in Kubernetes version 1.21, Kubernetes will use CSI drivers only and by default. These are the future of storage support in Kubernetes.
+>
+> *"In-tree drivers"* refers to the current storage drivers that are part of the core kubernetes code vs. the new CSI drivers which are plugins.
 
 ## Limitations
 

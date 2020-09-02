@@ -15,11 +15,14 @@ The Container Storage Interface (CSI) is a standard for exposing arbitrary block
 
 To create an AKS cluster with CSI driver support, see [Enable CSI drivers for Azure Disks and Azure Files on AKS](csi-storage-drivers.md).
 
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+>[!NOTE]
+> *"In-tree drivers"* refers to the current storage drivers that are part of the core kubernetes code vs. the new CSI drivers which are plugins.
 
 ## Create and use CSI persistent volumes (PV) with Azure disks 
 
 A [persistent volume](concepts-storage.md#persistent-volumes) represents a piece of storage that is provisioned for use with Kubernetes pods. A persistent volume can be used by one or many pods, and can be dynamically or statically provisioned. This article shows you how to dynamically create persistent volumes with Azure disks for use by a single pod in an Azure Kubernetes Service (AKS) cluster. For static provisioning, see [Manually create and use a volume with Azure disks](azure-disk-volume.md).
+
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 For more information on Kubernetes volumes, see [Storage options for applications in AKS][concepts-storage].
 
@@ -28,8 +31,13 @@ For more information on Kubernetes volumes, see [Storage options for application
 A storage class is used to define how a unit of storage is dynamically created with a persistent volume. For more information on Kubernetes storage classes, see [Kubernetes Storage Classes][kubernetes-storage-classes]. 
 When using storage CSI Drivers on AKS, there are 2 additional built-in `StorageClasses` that leverage the **Azure Disk CSI storage drivers**. The additional CSI storage classes are created with the cluster alongside the in-tree default storage classes.
 
-- `managed-csi` - Uses Azure StandardSSD locally redundant storage (LRS) to create a Managed Disk. The reclaim policy indicates that the underlying Azure Disk is deleted when the persistent volume that used it is deleted. The storage class also configures the persistent volumes to be expandable, you just need to edit the persistent volume claim with the new size.
-- `managed-csi-premium` - Uses Azure Premium locally redundant storage (LRS) to create Managed Disk. The reclaim policy again indicates that the underlying Azure Disk is deleted when the persistent volume that used it's deleted. Similarly, this storage class allows for persistent volumes to be expanded.
+>[!NOTE]
+> *"In-tree drivers"* refers to the current storage drivers that are part of the core kubernetes code vs. CSI drivers which are plugins.
+
+- `managed-csi` - Uses Azure StandardSSD locally redundant storage (LRS) to create a Managed Disk.
+- `managed-csi-premium` - Uses Azure Premium locally redundant storage (LRS) to create Managed Disk. 
+
+The reclaim policy in both storage classes indicates that the underlying Azure Disk is deleted when the respective persistent volume is deleted. The storage classes also configure the persistent volumes to be expandable, you just need to edit the persistent volume claim with the new size.
 
 To leverage these storage classes, you just need to create a [Persistent Volume Claim (PVC)](concepts-storage.md#persistent-volume-claims) and respective pod that references and leverages them. A persistent volume claim (PVC) is used to automatically provision storage based on a storage class. A PVC can use one of the pre-created storage classes or a user-defined storage class to create an Azure-managed disk for the desired SKU and size. When you create a pod definition, the persistent volume claim is specified to request the desired storage.
 
