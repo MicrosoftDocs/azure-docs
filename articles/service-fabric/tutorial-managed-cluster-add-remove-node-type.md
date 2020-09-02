@@ -2,7 +2,7 @@
 title: Add and remove node types of a Managed Service Fabric cluster (preview)
 description: In this tutorial, learn how to add and remove node types of a Managed Service Fabric cluster.
 ms.topic: tutorial
-ms.date: 07/31/2020
+ms.date: 09/1/2020
 ---
 
 # Tutorial: Add and remove node types of a Managed Service Fabric cluster (preview)
@@ -24,7 +24,7 @@ This part of the series covers how to:
 
 ## Prerequisites
 > [!Note]
-> This tutorial uses Azure PowerShell commands which have not yet been released. They will become released as part of the Azure PowerShell module on 9/16/2020.
+> This tutorial uses Azure PowerShell commands which have not yet been released. They will become released as part of the Azure PowerShell module on 9/22/2020.
 
 Follow the steps below to use the module before the official release is available:
 * [Download and load Modules](https://github.com/a-santamaria/ServiceFabricManagedClustersClients#download-and-load-modules)
@@ -61,16 +61,9 @@ To remove a node type:
 ```powershell
 $resourceGroup = "myResourceGroup"
 $clusterName = "myCluster"
-$nodeTypeName = "nt3"
+$nodeTypeName = "nt2"
 
 Remove-AzServiceFabricManagedNodeType -ResourceGroupName $resourceGroup -ClusterName $clusterName  -Name $nodeTypeName
-```
-
-<!-- This command is only used if the customer does not have the PowerShell module installed.-->
-To delete a node type obtaining the resource ID for the target node type, simply remove the resource.
-
-```powershell
-Remove-AzResource -ResourceId <your-resource-id> -ApiVersion 2020-01-01-preview
 ```
 
 ## Next steps

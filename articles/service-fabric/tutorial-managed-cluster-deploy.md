@@ -31,7 +31,7 @@ Before you begin this tutorial:
 * [Install the Service Fabric SDK](service-fabric-get-started.md)
 
 > [!Note]
-> This tutorial uses Azure PowerShell commands which have not yet been released. They will become released as part of the Azure PowerShell module on 9/16/2020.
+> This tutorial uses Azure PowerShell commands which have not yet been released. They will become released as part of the Azure PowerShell module on 9/22/2020.
 
 Follow the steps below to use the module before the official release is available:
 * [Download and load Modules](https://github.com/a-santamaria/ServiceFabricManagedClustersClients#download-and-load-modules)
@@ -66,7 +66,7 @@ In this step, you will create a managed Service Fabric cluster using the New-AzS
 For this step, provide your own values for the following  parameters: 
 * **Cluster Name**: Enter a unique name for your cluster, such as *myCluster*.
 * **Admin Password**: Enter a password for the admin to be used for RDP on the underlying VMs in the cluster.
-* **Client Certificate Thumbprint**: Provide the thumbprint of the client certificate that you would like to use to access your cluster. If you do not have a certificate, follow [steps]() to create a self-signed certificate. 
+* **Client Certificate Thumbprint**: Provide the thumbprint of the client certificate that you would like to use to access your cluster. If you do not have a certificate, follow [set and retrieve a certificate](https://docs.microsoft.com/azure/key-vault/certificates/quick-create-portal) to create a self-signed certificate. 
 * **Cluster SKU**: This is the type of Service Fabric cluster being deployed, basic SKU clusters are meant for test deployments only. 
 
 ```powershell
@@ -78,9 +78,9 @@ $clusterSku = "Standard"
 New-AzServiceFabricManagedCluster -ResourceGroupName $resourceGroup -Location $location -ClusterName $clusterName -ClientCertThumbprint $thumbprint -ClientCertIsAdmin -AdminPassword $password -Sku $clusterSKU -Verbose
 ```
 
-### Add a Node Type to the Managed Service Fabric cluster
+### Add a Primary Node Type to the Managed Service Fabric cluster
 
-In this step, you will add a node type to the Service Fabric cluster that you have just created. 
+In this step, you will add a primary node type to the Service Fabric cluster that you have just created. Every Service Fabric cluster must have at least one primary node type.
 
 For this step, provide your own values for the following  parameters: 
 * **Node Type Name**: Enter a unique name for the node type to be added to your cluster, such as "NT1".

@@ -2,7 +2,7 @@
 title: 'Quickstart: Deploy a Managed Service Fabric cluster by using an Azure Resource Manager template (Preview)'
 description: In this quickstart, you will learn how to create a Managed Service Fabric cluster using an ARM template.
 ms.topic: quickstart
-ms.date: 08/19/2020
+ms.date: 09/01/2020
 ms.custom: subject-armqs
 ---
 

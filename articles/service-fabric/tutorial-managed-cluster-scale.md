@@ -2,7 +2,7 @@
 title: Scale out a Managed Service Fabric cluster (preview)
 description: In this tutorial, learn how to scale out a node type of a Managed Service Fabric cluster.
 ms.topic: tutorial
-ms.date: 07/31/2020
+ms.date: 09/1/2020
 ---
 
 # Tutorial: Scale out a Managed Service Fabric cluster (preview)
@@ -42,20 +42,6 @@ $nodeTypeName = "FE"
 $instanceCount = "7"
 
 Set-AzServiceFabricManagedNodeType -ResourceGroupName $resourceGroup -ClusterName $clusterName -name $nodeTypeName -InstanceCount $instanceCount -Verbose
-```
-
-The cluster will begin upgrading automatically and after a few minutes you will see the additional nodes.
-
-## Scale a Managed Service Fabric cluster (Without preview modules)
-If you do not wish to install the pre-release modules, you can still scale your node type. Get the Azure resource for the target node type, and set the property `vmInstanceCount` to the desired number of nodes. Trigger the changes by setting the resource. 
-
-<!-- Any suggestions for an easy way to ge the resource ID? -->
-
-```powershell
-$be = Get-AzResource -ResourceId <your-resource-id> -ApiVersion 2020-01-01-preview
-$be.Properties
-$be.Properties.vmInstanceCount = 5
-$be | Set-AzResource
 ```
 
 The cluster will begin upgrading automatically and after a few minutes you will see the additional nodes.
