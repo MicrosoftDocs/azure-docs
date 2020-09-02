@@ -16,7 +16,7 @@ ms.author: vinigam
 ---
 # Migrate to Connection Monitor (Preview) from Connection Monitor
 
-You can migrate existing connection monitors to new, improved Connection Monitor (Preview) with a few clicks and with zero downtime. To learn more about the benefits, see [Connection Monitor (Preview)](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview).
+You can migrate existing connection monitors to new, improved Connection Monitor (Preview) with only a few clicks and with zero downtime. To learn more about the benefits, see [Connection Monitor (Preview)](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview).
 
 ## Key points to note
 
@@ -33,9 +33,9 @@ The migration helps produce the following results:
 
 If you're using a custom workspace, ensure that Network Watcher is enabled in your subscription and in the region of your Log Analytics workspace. 
 
-## Perform the migration
+## Migrate the connection monitors
 
-1. To migrate from the older connection monitor to the newer one, select **Connection Monitor**, and then select **Migrate Connection Monitors**.
+1. To migrate the older connection monitors to the newer one, select **Connection Monitor**, and then select **Migrate Connection Monitors**.
 
 	![Screenshot showing the migration of connection monitors to Connection Monitor (Preview).](./media/connection-monitor-2-preview/migrate-cm-to-cm-preview.png)
 	
