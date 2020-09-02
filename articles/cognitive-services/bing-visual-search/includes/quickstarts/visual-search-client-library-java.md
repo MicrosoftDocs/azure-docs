@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/26/2020
-ms.custom: devx-track-java
+ms.custom: "devx-track-java, devx-track-csharp"
 ms.author: aahi
 ---
 
