@@ -19,7 +19,7 @@ Azure Cognitive Services Translator is a cloud-based machine translation service
 
 ## About Microsoft Translator
 
-Azure Cognitive Services Translator is a cloud-based machine translation service. The core service is Translator, which powers a number of Microsoft products and services, and is used by thousands of businesses worldwide in their applications and workflows, which allows their content to reach a global audience.
+Azure Cognitive Services Translator is a cloud-based machine translation service. Translator powers a number of Microsoft products and services, and is used by thousands of businesses worldwide in their applications and workflows, which allows their content to reach a global audience.
 
 Speech translation, powered by Translator, is also available through the [Microsoft Speech Service](https://docs.microsoft.com/azure/cognitive-services/speech-service/). It combines functionality from the Translator Speech API and the Custom Speech Service into a unified and fully customizable service. 
 
@@ -39,7 +39,7 @@ Learn more about [how NMT works](https://www.microsoft.com/en-us/translator/mt.a
 
 ## Language customization
 
-An extension of the core Translator service, Custom Translator can be used in conjunction with Translator to help you customize the neural translation system and improve the translation for your specific terminology and style.
+An extension of the Translator service, Custom Translator can be used in conjunction with Translator to help you customize the neural translation system and improve the translation for your specific terminology and style.
 
 With Custom Translator, you can build translation systems that handle the terminology used in your own business or industry. Your customized translation system will then easily integrate into your existing applications, workflows, and websites, across multiple types of devices, through the regular Translator, by using the category parameter.
 
