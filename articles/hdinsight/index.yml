@@ -78,7 +78,7 @@ landingContent:
             url: ./hadoop/apache-hadoop-connect-hive-jdbc-driver.md
 
 # Card
-  - title: Intergration
+  - title: Integration
     linkLists:
       - linkListType: how-to-guide
         links:     
@@ -92,7 +92,7 @@ landingContent:
             url: ./hdinsight-hadoop-create-linux-clusters-adf.md 
       - linkListType: concept
         links:
-          - text: Seleting the right VM size
+          - text: Selecting the right VM size
             url: ./hdinsight-selecting-vm-size.md
           - text: HDInsight supported VM types
             url: ./hdinsight-supported-node-configuration.md
@@ -108,7 +108,7 @@ landingContent:
             url: ./kafka/apache-kafka-introduction.md
           - text: Create Kafka clusters and manage Kafka topics
             url: ./kafka/apache-kafka-get-started.md
-          - text: Use producer and consumper APIs
+          - text: Use producer and consumer APIs
             url: ./kafka/apache-kafka-producer-consumer-api.md
       - linkListType: how-to-guide
         links:
@@ -176,7 +176,7 @@ landingContent:
             url: ./r-server/machine-learning-services-quickstart-job-rstudio.md
 
   # Card
-  - title: Apache Strom
+  - title: Apache Storm
     linkLists:
       - linkListType: get-started
         links:
