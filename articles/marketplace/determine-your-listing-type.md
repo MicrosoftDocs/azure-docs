@@ -71,7 +71,7 @@ Select the category and subcategory that best align with your solution type. For
 SaaS offers can be published to Azure Marketplace or AppSource. If your SaaS offer is *both* an IT solution (Azure Marketplace) and a business solution (AppSource), select a category and/or a subcategory applicable to each online store. Offers published to both online stores should have a value proposition as an IT solution *and* a business solution.
 
 > [!IMPORTANT]
-> SaaS offers with [metered billing](/partner-center-portal/saas-metered-billing.md) are available through Azure Marketplace and the Azure portal. SaaS offers with only private plans are available through the Azure portal.
+> SaaS offers with [metered billing](partner-center-portal/saas-metered-billing.md) are available through Azure Marketplace and the Azure portal. SaaS offers with only private plans are available through the Azure portal.
 
 | Metered billing | Public plan | Private plan | Available in: |
 |---|---|---|---|

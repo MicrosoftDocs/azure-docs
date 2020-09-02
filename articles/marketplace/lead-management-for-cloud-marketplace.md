@@ -43,15 +43,15 @@ Once the technical setup is in place, you should incorporate these leads into yo
 
 **Could not save the lead to Dynamics CRM. Check the Dynamics CRM account settings. LastCRMError: Unable to sign in to Dynamics CRM, LastCRMException:** 
 
-> If O365 authentication was selected, check if the user account and password is valid. If AAD was selected, check if the tenant ID, application ID and application secret key matches what was set up on AAD. Follow instructions [here](./partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics.md). If the account username/password is valid, please make sure it has access to Dynamics 365 and has a license assigned (Steps 11-15 if using Azure Active Directory or Security Settings if using an Office user). 
+> If O365 authentication was selected, check if the user account and password is valid. If Azure AD was selected, check if the tenant ID, application ID and application secret key matches what was set up on Azure AD. Follow instructions [here](./partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics.md). If the account username/password is valid, please make sure it has access to Dynamics 365 and has a license assigned (Steps 11-15 if using Azure Active Directory or Security Settings if using an Office user). 
 
 **Could not save the lead to Dynamics CRM. User does not have create permissions for the leadsourcecode attribute in the lead entity** 
 
-> The application/user is missing security role(s) to Microsoft Marketplace lead writer. Follow steps 11-15 if using Azure Active Directory or Security Settings if using an Office user [here](./partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics.md).
+> The application/user is missing security role(s) to Microsoft Marketplace lead writer. Follow steps 11-15 if using Azure Active Directory, or Security Settings if using an Office user [here](./partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics.md).
 
 **Could not save the lead to Dynamics CRM using AAD. Exception:: Tenant not found. This instance may happen if there are no active subscriptions for the tenant.**  
 
-> The Directory Id provided in the lead management section is not a valid directory. Please get the Directory Id based on the instructions at Step 2 (under Azure Active Directory, from [here](./partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics.md).
+> The Directory Id provided in the lead management section is not a valid directory. Please get the Directory Id based on the instructions at Step 2 (under Azure Active Directory) [here](./partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics.md).
 
 **Could not save the lead to Dynamics CRM. LastCRMError: SecLib::RetrievePrivilegeForUser failed - no roles are assigned to user.**  
 
