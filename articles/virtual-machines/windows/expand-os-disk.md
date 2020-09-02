@@ -33,6 +33,8 @@ When you create a new virtual machine (VM) in a Resource Group by deploying an i
 > After expanding the disks, you need to [expand the volume within the OS](#expand-the-volume-within-the-os) to take advantage of the larger disk.
 > 
 
+[Azure App Service Migration Assistant](/learn/paths/migrate-dotnet-apps-azure/)
+
 ## Resize a managed disk in the Azure portal
 
 1. In the [Azure portal](https://portal.azure.com), go to the virtual machine in which you want to expand the disk. Select **Stop** to deallocate the VM.
@@ -41,7 +43,7 @@ When you create a new virtual machine (VM) in a Resource Group by deploying an i
     :::image type="content" source="./media/expand-os-disk/select-disks.png" alt-text="Screenshot that shows the Disks option selected in the Settings section of the menu.":::
 
  
-3. Under **Disk name**, select the disk you wand to resize.
+3. Under **Disk name**, select the disk you want to resize.
 
     :::image type="content" source="./media/expand-os-disk/disk-name.png" alt-text="Screenshot that shows the Disks pane with a disk name selected.":::
 
