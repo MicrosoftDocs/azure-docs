@@ -215,7 +215,7 @@ For available actions check Appendix: **Available Actions**
 
 -   2000 Azure role assignments per subscription
 
--   Role assignments latency: with 99% guarantee, it will take 10 minutes (600 seconds) after role assignments is changed for role to be applied
+-   Role assignments latency: at current expected performance, it will take up to 10 minutes (600 seconds) after role assignments is changed for role to be applied
 
 ## Learn more
 
