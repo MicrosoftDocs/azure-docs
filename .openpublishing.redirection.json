@@ -27833,28 +27833,58 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "/articles/virtual-machines/scripts/virtual-machines-windows-cli-sample-create-managed-disk-from-vhd.md",
+      "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-cli-sample-create-managed-disk-from-vhd",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "/articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-managed-disk-from-vhd.md",
+      "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-cli-sample-create-managed-disk-from-vhd",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "/articles/virtual-machines/scripts/virtual-machines-windows-cli-sample-create-managed-disk-from-snapshot.md",
+      "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-cli-sample-create-managed-disk-from-snapshot",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "/articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-managed-disk-from-snapshot.md",
+      "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-cli-sample-create-managed-disk-from-snapshot",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "/articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot.md",
+      "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-powershell-sample-create-managed-disk-from-snapshot",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "/articles/virtual-machines/scripts/virtual-machines-linux-powershell-sample-create-managed-disk-from-snapshot.md",
+      "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-powershell-sample-create-managed-disk-from-snapshot",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/storage/scripts/storage-linux-cli-sample-copy-managed-disks-to-same-or-different-subscription.md",
       "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-cli-sample-copy-managed-disks-to-same-or-different-subscription",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/storage/scripts/storage-linux-cli-sample-copy-snapshot-to-same-or-different-subscription.md",
-      "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-linux-cli-sample-copy-snapshot-to-same-or-different-subscription",
+      "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-cli-sample-copy-snapshot-to-same-or-different-subscription",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/storage/scripts/storage-linux-cli-sample-copy-snapshot-to-storage-account.md",
-      "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-linux-cli-sample-copy-snapshot-to-storage-account",
+      "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-cli-sample-copy-snapshot-to-storage-account",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/storage/scripts/storage-linux-cli-sample-create-managed-disk-from-snapshot.md",
-      "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-managed-disk-from-snapshot",
+      "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-cli-sample-create-managed-disk-from-snapshot",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/storage/scripts/storage-linux-cli-sample-create-managed-disk-from-vhd.md",
-      "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-managed-disk-from-vhd",
+      "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-cli-sample-create-managed-disk-from-vhd",
       "redirect_document_id": true
     },
     {
@@ -27874,17 +27904,17 @@
     },
     {
       "source_path": "articles/storage/scripts/storage-windows-powershell-sample-create-managed-disk-from-snapshot.md",
-      "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot",
+      "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-powershell-sample-create-managed-disk-from-snapshot",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/storage/scripts/storage-windows-powershell-sample-create-managed-disk-from-vhd.md",
-      "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-vhd",
+      "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-powershell-sample-create-managed-disk-from-vhd",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/storage/scripts/storage-windows-powershell-sample-create-snapshot-from-vhd.md",
-      "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-snapshot-from-vhd",
+      "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-powershell-sample-create-snapshot-from-vhd",
       "redirect_document_id": true
     },
     {
@@ -31616,6 +31646,16 @@
       "source_path": "articles/virtual-machines/windows/classic/detach-disk.md",
       "redirect_url": "/azure/virtual-machines/windows/detach-disk",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-from-managed-os-disks.md",
+      "redirect_url": "azure/scripts/virtual-machines-powershell-sample-create-vm-from-managed-os-disks",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-linux-powershell-sample-create-vm-from-managed-os-disks.md",
+      "redirect_url": "azure/scripts/virtual-machines-powershell-sample-create-vm-from-managed-os-disks",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/virtual-machines/windows/classic/connect-vms.md",
@@ -35435,6 +35475,36 @@
     {
       "source_path": "articles/virtual-machines/windows/premium-storage.md",
       "redirect_url": "/azure/virtual-machines/windows/disks-types#premium-ssd",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/vm-usage.md",
+      "redirect_url": "/azure/virtual-machines/vm-usage",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-vhd.md",
+      "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-powershell-sample-create-managed-disk-from-vhd",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-linux-powershell-sample-create-managed-disk-from-vhd.md",
+      "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-powershell-sample-create-managed-disk-from-vhd",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/vm-usage.md",
+      "redirect_url": "/azure/virtual-machines/vm-usage",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/generation-2.md",
+      "redirect_url": "/azure/virtual-machines/generation-2",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/generation-2.md",
+      "redirect_url": "/azure/virtual-machines/generation-2",
       "redirect_document_id": false
     },
     {

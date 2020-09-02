@@ -1,7 +1,7 @@
 ---
-title: Managed disk VHD to another region's account (Linux) - PowerShell
+title: Managed disk VHD to another region's account (Windows) - PowerShell
 description: Azure PowerShell script sample -  Export/Copy the VHD of a managed disk to a storage account in same or different region
-services: virtual-machines-linux
+services: virtual-machines-windows
 documentationcenter: storage
 author: ramankumarlive
 manager: kavithag
@@ -9,16 +9,16 @@ manager: kavithag
 tags: azure-service-management
 
 ms.assetid:
-ms.service: virtual-machines-linux
+ms.service: virtual-machines-windows
 
 ms.topic: sample
-ms.tgt_pltfrm: vm-linux
+ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 09/17/2018
 ms.author: ramankum
 ---
 
-# Export/Copy the VHD of a managed disk to a storage account in different region with PowerShell (Linux)
+# Export/Copy the VHD of a managed disk to a storage account in different region with PowerShell (Windows)
 
 This script exports the VHD of a managed disk to a storage account in different region. It first generates the SAS URI of the managed disk and then uses it to copy the underlying VHD to a storage account in different region. Use this script to copy managed disks to another region for regional expansion.  
 
@@ -45,10 +45,10 @@ This script uses the following commands to generate SAS URI of a managed disk an
 
 ## Next steps
 
-[Create a managed disk from a VHD](virtual-machines-linux-powershell-sample-create-managed-disk-from-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[Create a managed disk from a VHD](virtual-machines-windows-powershell-sample-create-managed-disk-from-vhd.md?toc=%2fpowershell%2fmodule%2ftoc.json)
 
-[Create a virtual machine from a managed disk](./virtual-machines-linux-powershell-sample-create-vm-from-managed-os-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[Create a virtual machine from a managed disk](./virtual-machines-powershell-sample-create-vm-from-managed-os-disks.md?toc=%2fpowershell%2fmodule%2ftoc.json)
 
 For more information on the Azure PowerShell module, see [Azure PowerShell documentation](/powershell/azure/).
 
-Additional virtual machine PowerShell script samples can be found in the [Azure Linux VM documentation](../linux/powershell-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Additional virtual machine PowerShell script samples can be found in the [Azure Windows VM documentation](../windows/powershell-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
