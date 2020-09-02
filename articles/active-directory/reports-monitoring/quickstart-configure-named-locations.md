@@ -16,7 +16,7 @@ ms.topic: quickstart
 ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-#Customer intent: As an IT administrator, I want to label trusted IP address ranges in my organization so that I can whitelist them and configure location-based Conditional Access.
+#Customer intent: As an IT administrator, I want to label trusted IP address ranges in my organization so that I can allow them and configure location-based Conditional Access.
 ms.collection: M365-identity-device-management
 ---
 
