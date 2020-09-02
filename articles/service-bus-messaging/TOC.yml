@@ -26,7 +26,7 @@
         href: service-bus-resource-manager-namespace-queue.md
     - name: Send and receive messages
       items:
-      - name: .NET
+      - name: .NET (Azure.Messaging.ServiceBus)
         href: service-bus-dotnet-get-started-with-queues.md
       - name: Java
         href: service-bus-java-how-to-use-queues.md
@@ -38,6 +38,10 @@
         href: service-bus-python-how-to-use-queues.md
       - name: Ruby
         href: service-bus-ruby-how-to-use-queues.md
+    - name: Send and receive messages (old versions/packages)
+      items:
+      - name: .NET (Microsoft.Azure.ServiceBus)
+        href: service-bus-dotnet-get-started-with-queues-legacy.md
   - name: Services Bus topics and subscriptions
     items:
     - name: Create topics and subscriptions
