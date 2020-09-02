@@ -181,7 +181,7 @@ Microsoft receives payments from customers in their local currency, and pays you
 > [!NOTE]
 > Microsoft converts offer prices using the Microsoft Treasury exchange rates.
 
-[![The currency conversion flow.](media/marketplace-geo-availability-currencies/currency-exchange-flow.png =500x)](media/marketplace-geo-availability-currencies/currency-exchange-flow.png#lightbox)
+[![The currency conversion flow.](media/marketplace-geo-availability-currencies/currency-exchange-flow.png)](media/marketplace-geo-availability-currencies/currency-exchange-flow.png#lightbox)
 
 ## Retrieving currency information by API
 
