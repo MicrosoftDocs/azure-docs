@@ -479,11 +479,11 @@ Microsoft manages the underlying infrastructure for Azure Backup and has impleme
 
 ### 4.6: Use Azure RBAC to control access to resources
 
-**Guidance**: Azure role-based access control (Azure RBAC) enables fine-grained access management for Azure. Using RBAC, you can segregate duties within your team and grant only the amount of access to users that they need to perform their jobs.
+**Guidance**: Azure role-based access control (Azure RBAC) enables fine-grained access management for Azure. Using Azure RBAC, you can segregate duties within your team and grant only the amount of access to users that they need to perform their jobs.
 
 Azure Backup provides three built-in roles to control backup management operations: Backup Contributor, Backup Operator, and Backup Reader. You can map Backup built-in roles to various backup management actions.
 
-- [How to configure RBAC in Azure](../role-based-access-control/role-assignments-portal.md)
+- [How to configure Azure RBAC](../role-based-access-control/role-assignments-portal.md)
 
 - [Use Role-Based Access Control to manage Azure Backup recovery points](./backup-rbac-rs-vault.md)
 
