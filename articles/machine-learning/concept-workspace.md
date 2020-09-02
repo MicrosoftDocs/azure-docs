@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
-ms.date: 07/08/2020
+ms.date: 09/22/2020
 # As a data scientist, I want to understand the purpose of a workspace for Azure Machine Learning.
 ---
 
@@ -115,7 +115,16 @@ The Azure Storage account created by default with the workspace is a general-pur
 
 If you want to use an existing Azure Storage account, it cannot be a premium account (Premium_LRS and Premium_GRS). It also cannot have a hierarchical namespace (used with Azure Data Lake Storage Gen2). Neither premium storage or hierarchical namespaces are supported with the _default_ storage account of the workspace. You can use premium storage or hierarchical namespace with _non-default_ storage accounts.
 
+<a name="wheres-enterprise">
 
+## What happened to enterprise
+
+In September 2020, all capabilities accessible in "enterprise edition" workspaces are now also available in Basic Edition workspaces. 
+New Enterprise workspaces can no longer be created.  Any SDK, CLI, or Azure Resource Manager calls that use the SKU parameter will continue to work but a Basic workspace will be provisioned.
+
+In late December, all Enterprise Edition workspaces will be automatically migrated to Basic Edition. No downtime will occur during this process. This migration work will be automatic and seamless (customers will not experience downtime). On January 1, 2021, Enterprise Edition will be retired. 
+
+In either editions, customers are responsible for the costs of Azure Resources consumed and will not need to pay any additional charges for Azure Machine Learning. Please refer to the [Azure Machine Learning pricing page](https://azure.microsoft.com/pricing/details/machine-learning/) for more details.
 
 ## Next steps
 
