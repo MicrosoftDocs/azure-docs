@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: Create a Babylon Account'
-description: This tutorial describes how create a Babylon account. 
+title: "Quickstart: Create a Babylon account"
+description: This tutorial describes how top create a Babylon account. 
 author: hophan
 ms.author: hophan
 ms.service: data-catalog
@@ -22,7 +22,7 @@ In this quickstart, you create a Babylon account.
 
 ## Sign in to Azure
 
-Sign in to the [Azure portal](portal.azure.com) with your Azure account.
+Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
 
 ## Configure your subscription
 
@@ -77,7 +77,7 @@ If you no longer need this Babylon account, delete it with the following steps:
 
 In this quickstart, you learned how to create a Babylon account.
 
-Advance to the next article to learn how to create a custom classification.
+Advance to the next article to learn how to set catalog permissions.
 
 > [!div class="nextstepaction"]
-> [Create a custom classification](create-a-custom-classification.md)
+> [Set catalog permissions](catalog-permissions.md)
