@@ -16,7 +16,7 @@ ms.date: 07/09/2020
 
 # Use differential privacy in Azure Machine Learning (preview)
 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Learn how to apply differential privacy best practices to Azure Machine Learning models by using the WhiteNoise Python packages.
 
