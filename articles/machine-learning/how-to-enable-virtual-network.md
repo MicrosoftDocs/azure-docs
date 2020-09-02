@@ -723,8 +723,8 @@ For information on using Azure Machine Learning with Azure Firewall, see [Use Az
             "type": "SystemAssigned"
         },
         "sku": {
-            "tier": "enterprise",
-            "name": "enterprise"
+            "tier": "Basic",
+            "name": "Basic"
         },
         "properties": {
             "sharedPrivateLinkResources":
