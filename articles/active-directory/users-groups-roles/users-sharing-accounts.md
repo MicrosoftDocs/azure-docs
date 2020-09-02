@@ -4,16 +4,16 @@ description: Describes how Azure Active Directory enables organizations to secur
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 editor: ''
 
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: how-to
-ms.date: 08/01/2019
+ms.date: 09/02/2020
 ms.author: curtand
-ms.reviewer: jeffsta
+ms.reviewer: krbain
 ms.custom: it-pro
 
 ms.collection: M365-identity-device-management
