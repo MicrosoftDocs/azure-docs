@@ -59,8 +59,8 @@ To configure and test Azure AD SSO with raum]für[raum, complete the following b
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
     1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
     1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
-1. **[Configure `raum]für[raum` SSO](#configure-raum]für[raum-sso)** - to configure the single sign-on settings on application side.
-    1. **[Create `raum]für[raum` test user](#create-raum]für[raum-test-user)** - to have a counterpart of B.Simon in raum]für[raum that is linked to the Azure AD representation of user.
+1. **[Configure raumfurraum SSO](#configure-raumfurraum-sso)** - to configure the single sign-on settings on application side.
+    1. **[Create raumfurraum test user](#create-raumfurraum-test-user)** - to have a counterpart of B.Simon in raum]für[raum that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
 ## Configure Azure AD SSO
@@ -99,7 +99,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     |`https://<CUSTOMER_NAME>.rfr.md.intra/saml.php`|
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [`raum]für[raum Client support team`](mailto:it@mediadialog.de) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [raumfurraum Client support team](mailto:it@mediadialog.de) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
@@ -139,11 +139,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
 1. In the **Add Assignment** dialog, click the **Assign** button.
 
-## Configure `raum]für[raum` SSO
+## Configure raumfurraum SSO
 
-To configure single sign-on on **raum]für[raum** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [`raum]für[raum support team`](mailto:it@mediadialog.de). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **raum]für[raum** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [raumfurraum support team](mailto:it@mediadialog.de). They set this setting to have the SAML SSO connection set properly on both sides.
 
-### Create `raum]für[raum` test user
+### Create raumfurraum test user
 
 In this section, a user called Britta Simon is created in raum]für[raum. raum]für[raum supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in raum]für[raum, a new one is created after authentication.
 
@@ -161,9 +161,7 @@ When you click the raum]für[raum tile in the Access Panel, you should be automa
 
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-- [Try `raum]für[raum` with Azure AD](https://aad.portal.azure.com/)
+- [Try raumfurraum with Azure AD](https://aad.portal.azure.com/)
 
 - [What is session control in Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-
-- [How to protect `raum]für[raum` with advanced visibility and controls](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 
