@@ -98,22 +98,22 @@ There are multiple ways to create a workspace:
 
 When you create a new workspace, it automatically creates several Azure resources that are used by the workspace:
 
++ [Azure Storage account](https://azure.microsoft.com/services/storage/): Is used as the default datastore for the workspace.  Jupyter notebooks that are used with your Azure Machine Learning compute instances are stored here as well. 
+  
+  > [!IMPORTANT]
+  > By default, the storage account is a general-purpose v1 account. You can [upgrade this to general-purpose v2](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade) after the workspace has been created. 
+  > Do not enable hierarchical namespace on the storage account after upgrading to general-purpose v2.
+
+  To use an existing Azure Storage account, it cannot be a premium account (Premium_LRS and Premium_GRS). It also cannot have a hierarchical namespace (used with Azure Data Lake Storage Gen2). Neither premium storage or hierarchical namespaces are supported with the _default_ storage account of the workspace. You can use premium storage or hierarchical namespace with _non-default_ storage accounts.
+  
 + [Azure Container Registry](https://azure.microsoft.com/services/container-registry/): Registers docker containers that you use during training and when you deploy a model. To minimize costs, ACR is **lazy-loaded** until deployment images are created.
-+ [Azure Storage account](https://azure.microsoft.com/services/storage/): Is used as the default datastore for the workspace.  Jupyter notebooks that are used with your Azure Machine Learning compute instances are stored here as well.
+
 + [Azure Application Insights](https://azure.microsoft.com/services/application-insights/): Stores monitoring information about your models.
+
 + [Azure Key Vault](https://azure.microsoft.com/services/key-vault/): Stores secrets that are used by compute targets and other sensitive information that's needed by the workspace.
 
 > [!NOTE]
 > In addition to creating new versions, you can also use existing Azure services.
-
-### Azure storage account
-
-The Azure Storage account created by default with the workspace is a general-purpose v1 account. You can upgrade this to general-purpose v2 after the workspace has been created by following the steps in the [Upgrade to a general-purpose v2 storage account](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade) article.
-
-> [!IMPORTANT]
-> Do not enable hierarchical namespace on the storage account after upgrading to general-purpose v2.
-
-If you want to use an existing Azure Storage account, it cannot be a premium account (Premium_LRS and Premium_GRS). It also cannot have a hierarchical namespace (used with Azure Data Lake Storage Gen2). Neither premium storage or hierarchical namespaces are supported with the _default_ storage account of the workspace. You can use premium storage or hierarchical namespace with _non-default_ storage accounts.
 
 <a name="wheres-enterprise">
 
