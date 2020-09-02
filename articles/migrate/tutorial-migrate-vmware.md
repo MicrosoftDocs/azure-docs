@@ -91,7 +91,7 @@ Enable replication as follows:
 7. In **Virtual Network**, select the Azure VNet/subnet which the Azure VMs join after migration.
 8. In **Availability options**, select the relevant availability option. All the VMs selected in the previous blade will use this availability option. If you want different availability options for different sets of VMs, select each set of VMs separately and start replication separately.
     - If you've selected Availability Zones, ensure that the [target region supports Availability Zones](https://go.microsoft.com/fwlink/?linkid=2141016).
-    - If you've selected Availability Sets, ensure you've created Availability Sets in the target Resource Group.
+    - If you've selected Availability Sets, ensure that you've created Availability Sets in the target Resource Group.
 
 9. In **Azure Hybrid Benefit**:
 
