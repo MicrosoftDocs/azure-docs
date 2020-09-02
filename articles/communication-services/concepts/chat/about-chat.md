@@ -17,7 +17,7 @@ ms.service: azure-communication-services
 
 Azure Communication Services Chat SDKs can be used to add rich, real-time chat to your applications. These SDKs give you access to the same technology that powers Skype and Teams without requiring you to manage the underlying infrastructure yourself.
 
-See the [Comunication Services chat SDK Overview](./chat-sdk-features.md) to learn more about SDK capabilities.
+See the [Communication Services chat SDK Overview](./chat-sdk-features.md) to learn more about SDK capabilities.
 
 ## Chat Overview 
 
@@ -83,7 +83,7 @@ Apart from messages being sent by members in chat thread, Chat also exposes syst
 
 ## Real-time Signaling Events 
 
-Chat JS SDK comes with real-time signalling features which allows clients to listen for live updates to a chat thread, without having to poll the APIs. The available events are:
+Chat JS SDK comes with real-time signaling features which allows clients to listen for live updates to a chat thread, without having to poll the APIs. The available events are:
 
  - `ChatMessageReceived` - when a new message is sent to a chat thread that the user is member of. This event is not sent for auto generated system messages which we discussed in the previous topic.  
  - `ChatMessageEdited` - when a message is edited in a chat thread that the user is member of. 

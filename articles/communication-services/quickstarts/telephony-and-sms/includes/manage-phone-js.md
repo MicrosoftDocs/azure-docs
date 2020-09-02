@@ -1,3 +1,17 @@
+---
+title: include file
+description: include file
+services: azure-communication-services
+author: chrwhit
+manager: nimag
+ms.service: azure-communication-services
+ms.subservice: azure-communication-services
+ms.date: 08/20/2020
+ms.topic: include
+ms.custom: include file
+ms.author: chrwhit
+---
+
 ## Listing Your Owned Phone Numbers
 
 To list all the phone numbers owned by your Azure Communications Services resource, use the code snippet below:

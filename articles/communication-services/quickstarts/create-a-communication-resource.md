@@ -16,13 +16,13 @@ zone_pivot_groups: acs-plat-azp-net
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
-Get started with Azure Communication Services by provisioning your first Communication Services resource. Communication services resources can be provisioned through the Azure Portal or with the .NET management SDK. The management SDK allows you to create, configure, update and delete your resources and interfaces with [Azure Resource Manager (ARM)](https://docs.microsoft.com/azure/azure-resource-manager/management/overview), Azure's deployment and management service. All functionality available in the SDKs is available in the Azure Portal. 
+Get started with Azure Communication Services by provisioning your first Communication Services resource. Communication services resources can be provisioned through the Azure portal or with the .NET management SDK. The management SDK allows you to create, configure, update and delete your resources and interfaces with [Azure Resource Manager (ARM)](https://docs.microsoft.com/azure/azure-resource-manager/management/overview), Azure's deployment and management service. All functionality available in the SDKs is available in the Azure portal. 
 
 > [!WARNING]
 > Note that Communication Services availability is restricted to the US geography during public preview. Also note that communication resources cannot be transferred to a different subscription during public preview.
 
 ::: zone pivot="platform-azp"
-[!INCLUDE [Azure Portal](./includes/create-resource-azp.md)]
+[!INCLUDE [Azure portal](./includes/create-resource-azp.md)]
 ::: zone-end
 
 ::: zone pivot="platform-net"

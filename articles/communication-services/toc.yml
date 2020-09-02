@@ -27,8 +27,6 @@
     items:
       - name: Add chat to your app
         href: quickstarts/chat/get-started-with-chat.md
-      - name: Handle chat events
-        href: quickstarts/chat/handle-chat-events.md
   - name: Telephony and SMS
     items:
       - name: Get a telephone number
@@ -54,8 +52,6 @@
     href: tutorials/trusted-service-tutorial.md
   - name: Add push notifications to enable calling alerts*
     href: tutorials/trusted-service-tutorial.md
-  - name: Use SMS as a two-factor authentication provider*
-    href: tutorials/telephony-and-sms/add-2fa-to-your-app.md
 - name: Concepts
   expanded: false
   items:

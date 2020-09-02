@@ -25,7 +25,7 @@ Get started with Azure Communication Services by using the Azure portal to purch
 
 ## Get a phone number
 
-First, go to your Communication Services resource on the [Azure Portal](https://portal.azure.com)
+First, go to your Communication Services resource on the [Azure portal](https://portal.azure.com)
 
 ![Azure Communication Resource Main](../media/manage-phone-azure-portal-start.png)
 
@@ -37,7 +37,7 @@ Press the **Get** button to launch the wizard. The wizard on the "Phone numbers"
 
 When you start selecting the number, you'll select the [Number Type](../../concepts/telephony-and-sms/plan-your-telephony-and-SMS-solution.md#phone-number-types-in-microsoft-direct-offer) and [Plans](../../concepts/telephony-and-sms/plan-your-telephony-and-SMS-solution.md#phone-number-types-in-microsoft-direct-offer) according to your needs.
 
-![Search experience](../media/quickstart-search-and-acquire-main-page.png)
+<!-- TODO: high res version of this: ![Search experience](../media/quickstart-search-and-acquire-main-page.png) -->
 
 You'll then be presented with the option to select a toll-free number. You can enable one-way inbound calling on your phone number. You can also enable two-way SMS.
 
@@ -63,11 +63,11 @@ Note that in order to make or receive calls or send/receive SMS messages, you ne
 
 Finally, accept the price and tax details for the phone number.
 
-![Search experience](../media/quickstart-search-and-acquire-last-page.png)
+<!-- todo: high res version of this: ![Search experience](../media/quickstart-search-and-acquire-last-page.png) -->
 
-## Find your phone numbers on the Azure Portal
+## Find your phone numbers on the Azure portal
 
-Navigate to your Azure Communication Resource on the [Azure Portal](https://portal.azure.com):
+Navigate to your Azure Communication Resource on the [Azure portal](https://portal.azure.com):
 
 ![Azure Communication Resource Main](../media/manage-phone-azure-portal-start.png)
 

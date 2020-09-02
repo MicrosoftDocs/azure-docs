@@ -33,7 +33,7 @@ To gain access to the package feed, create a `nuget.config` within your project.
 </configuration>
 ```
 
-Within this file replace "YOUR GITHUB USERNAME" with your GitHub UserName sourced from GitHub and "YOUR PERSONAL ACCESS TOKEN" with a [GitHub Personal Access Token](https://github.com/settings/tokens). The token must have the `read:packages` scope.
+Within this file replace "YOUR GITHUB USERNAME" with your GitHub username sourced from GitHub and "YOUR PERSONAL ACCESS TOKEN" with a [GitHub Personal Access Token](https://github.com/settings/tokens). The token must have the `read:packages` scope.
 
 Once this file has been created you **may need to restart your Project and/or Visual Studio** so that the file will be read and factored into the project configuration.
 
