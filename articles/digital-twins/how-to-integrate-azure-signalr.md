@@ -61,7 +61,7 @@ First, go to the browser where the Azure portal is opened, and complete the foll
 
 1. Select the icon to copy the primary connection string.
 
-    :::image type="content" source="media/how-to-integrate-azure-signalr.md/signalr-keys.png" alt-text="Screenshot of the Azure portal that shows the Keys page for the SignalR instance. The 'Copy to clipboard' icon next to the Primary CONNECTION STRING is highlighted.":::
+    :::image type="content" source="media/how-to-integrate-azure-signalr/signalr-keys.png" alt-text="Screenshot of the Azure portal that shows the Keys page for the SignalR instance. The 'Copy to clipboard' icon next to the Primary CONNECTION STRING is highlighted.":::
 
 Next, start Visual Studio (or another code editor of your choice), and open the code solution in the *Azure_Digital_Twins_samples > ADTSampleApp* folder. Then do the following steps:
 
