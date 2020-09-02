@@ -130,7 +130,7 @@ You can't change your original configuration's language from your default langua
 
     The **Contoso – Company branding** page updates to show your new French configuration.
 
-    ![Contoso - Company branding page, with default configuration shown](media/customize-branding/company-branding-french-config.png)
+    ![Contoso - Company branding page, with the new language configuration shown](media/customize-branding/company-branding-french-config.png)
 
 ## Add your custom branding to pages
 Add your custom branding to pages by modifying the end of the URL with the text, `?whr=yourdomainname`. This modification works on several pages, including the Multi-Factor Authentication (MFA) setup page, the Self-service Password Reset (SSPR) setup page, and the sign in page.
