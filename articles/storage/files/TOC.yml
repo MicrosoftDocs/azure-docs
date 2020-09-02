@@ -273,11 +273,13 @@
       href: ../common/storage-use-azcopy-configure.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
   - name: Troubleshoot
     items:
-    - name: Troubleshoot Azure Files on Windows
+    - name: Troubleshoot Azure Files on Windows (SMB)
       href: storage-troubleshoot-windows-file-connection-problems.md
-    - name: Troubleshoot Azure Files on Linux
+    - name: Troubleshoot Azure Files on Linux (SMB)
       href: storage-troubleshoot-linux-file-connection-problems.md
-    - name: Troubleshoot Azure Files performance
+    - name: Troubleshoot Azure Files (NFS)
+      href: storage-troubleshooting-files-nfs.md
+    - name: Troubleshoot Azure Files performance (SMB)
       href: storage-troubleshooting-files-performance.md
     - name: Troubleshoot Azure File Sync
       href: storage-sync-files-troubleshoot.md

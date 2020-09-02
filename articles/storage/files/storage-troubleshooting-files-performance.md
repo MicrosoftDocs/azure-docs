@@ -9,8 +9,10 @@ ms.author: gunjanj
 ms.subservice: files
 #Customer intent: As a < type of user >, I want < what? > so that < why? >.
 ---
+# Troubleshoot Azure Files performance issues (SMB)
 
-# Troubleshoot Azure Files performance issues
+> [!IMPORTANT]
+> The content of this article only applies to SMB shares. For troubleshooting information on NFS shares, see [Troubleshoot Azure file shares using SMB](storage-troubleshooting-files-nfs.md).
 
 This article lists some common problems related to Azure file shares. It provides potential causes and workarounds when these problems are encountered.
 

@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot Azure Files problems in Windows | Microsoft Docs
-description: Troubleshooting Azure Files problems in Windows. See common issues related to Azure Files when you connect from Windows clients, and see possible resolutions.
+title: Troubleshoot Azure Files problems in Windows
+description: Troubleshooting Azure Files problems in Windows. See common issues related to Azure Files when you connect from Windows clients, and see possible resolutions. Only for SMB shares
 author: jeffpatt24
 ms.service: storage
 ms.topic: troubleshooting
@@ -8,9 +8,12 @@ ms.date: 05/31/2019
 ms.author: jeffpatt
 ms.subservice: files
 ---
-# Troubleshoot Azure Files problems in Windows
+# Troubleshoot Azure Files problems in Windows (SMB)
 
 This article lists common problems that are related to Microsoft Azure Files when you connect from Windows clients. It also provides possible causes and resolutions for these problems. In addition to the troubleshooting steps in this article, you can also use [AzFileDiagnostics](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Windows) to ensure that the Windows client environment has correct prerequisites. AzFileDiagnostics automates detection of most of the symptoms mentioned in this article and helps set up your environment to get optimal performance. You can also find this information in the [Azure Files shares Troubleshooter](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares) that provides steps to assist you with problems connecting/mapping/mounting Azure Files shares.
+
+> [!IMPORTANT]
+> The content of this article only applies to SMB shares. For troubleshooting information on NFS shares, see [Troubleshoot Azure file shares using SMB](storage-troubleshooting-files-nfs.md).
 
 <a id="error5"></a>
 ## Error 5 when you mount an Azure file share

@@ -13,11 +13,13 @@ ms.subservice: files
 
 Azure Files offers two protocols for connecting and mounting your Azure file shares. [Server Message Block (SMB) protocol](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) and [Network File System (NFS) protocol](https://en.wikipedia.org/wiki/Network_File_System) (preview). Azure Files does not currently support multi-protocol access, so a share can only be either an NFS share, or an SMB share. Due to this, we recommend determining which protocol best suits your needs before creating Azure file shares.
 
+Connecting with SMB is our more mature offering, it has more available features and no feature restrictions since it is generally available. Connecting with NFS is our preview offering, for now, it has fewer available features but tighter integration with Linux.
+
 ## Differences at a glance
 
 |Feature  |NFS (preview)  |SMB  |
 |---------|---------|---------|
-|Access protocols     |NFS 4.1         |SMB 2.1, SMB 3.0, REST         |
+|Access protocols     |NFS 4.1         |SMB 2.1, SMB 3.0         |
 |Supported OS     |Linux kernel version 4.3+         |Windows 2008 R2+, Linux kernel version 4.11+         |
 |Available tiers     |Premium storage         |Premium storage, standard storage         |
 |Replication     |LRS, ZRS         |LRS, ZRS, GRS         |
@@ -49,7 +51,6 @@ SMB description here.
 
 SMB with Azure Files is ideal for:
 
-- Windows environments
 - Customers that require any of the features listed in [Features](#features)
 - Production environments
 
@@ -71,7 +72,7 @@ Azure Files offers NFS v4.1 protocol that is fully managed, network-attached sto
 
 NFS with Azure Files is ideal for:
 
-- Linux environments.
+- Fully POSIX-compliant
 - SAP
 - Linux-centric workloads that do not require SMB access.
 - Inherent locking system that you do not need to manage.
