@@ -3,14 +3,14 @@ title: Monitoring metrics and logs in Azure Front Door| Microsoft Docs
 description: This article describes the different metrics and access logs that Azure Front Door supports
 services: frontdoor
 documentationcenter: ''
-author: sharad4u
+author: duongau
 ms.service: frontdoor
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
-ms.author: sharadag
+ms.author: duau
 ---
 
 # Monitoring metrics and logs in Azure Front Door

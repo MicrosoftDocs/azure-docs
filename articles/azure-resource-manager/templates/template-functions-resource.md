@@ -10,6 +10,7 @@ Resource Manager provides the following functions for getting resource values in
 
 * [extensionResourceId](#extensionresourceid)
 * [list*](#list)
+* [pickZones](#pickzones)
 * [providers](#providers)
 * [reference](#reference)
 * [resourceGroup](#resourcegroup)
@@ -325,6 +326,94 @@ The next example shows a list function that takes a parameter. In this case, the
 ```
 
 For a listKeyValue example, see [Quickstart: Automated VM deployment with App Configuration and Resource Manager template](../../azure-app-configuration/quickstart-resource-manager.md#deploy-vm-using-stored-key-values).
+
+## pickZones
+
+`pickZones(providerNamespace, resourceType, location, [numberOfZones], [offset])`
+
+Determines whether a resource type supports zones for a region.
+
+### Parameters
+
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| providerNamespace | Yes | string | The resource provider namespace for the resource type to check for zone support. |
+| resourceType | Yes | string | The resource type to check for zone support. |
+| location | Yes | string | The region to check for zone support. |
+| numberOfZones | No | integer | The number of logical zones to return. The default is 1. The number must a positive integer from 1 to 3.  Use 1 for single-zoned resources. For multi-zoned resources, the value must be less than or equal to the number of supported zones. |
+| offset | No | integer | The offset from the starting logical zone. The function returns an error if offset plus numberOfZones exceeds the number of supported zones. |
+
+### Return value
+
+An array with the supported zones. When using the default values for offset and numberOfZones, a resource type and region that supports zones returns the following array:
+
+```json
+[
+    "1"
+]
+```
+
+When the `numberOfZones` parameter is set to 3, it returns:
+
+```json
+[
+    "1",
+    "2",
+    "3"
+]
+```
+
+When the resource type or region doesn't support zones, an empty array is returned.
+
+```json
+[
+]
+```
+
+### pickZones example
+
+The following template shows three results for using the pickZones function.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {},
+    "functions": [],
+    "variables": {},
+    "resources": [],
+    "outputs": {
+        "supported": {
+            "type": "array",
+            "value": "[pickZones('Microsoft.Compute', 'virtualMachines', 'westus2')]"
+        },
+        "notSupportedRegion": {
+            "type": "array",
+            "value": "[pickZones('Microsoft.Compute', 'virtualMachines', 'northcentralus')]"
+        },
+        "notSupportedType": {
+            "type": "array",
+            "value": "[pickZones('Microsoft.Cdn', 'profiles', 'westus2')]"
+        }
+    }
+}
+```
+
+The output from the preceding examples returns three arrays.
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| supported | array | [ "1" ] |
+| notSupportedRegion | array | [] |
+| notSupportedType | array | [] |
+
+You can use the response from pickZones to determine whether to provide null for zones or assign virtual machines to different zones. The following example sets a value for the zone based on the availability of zones.
+
+```json
+"zones": {
+    "value": "[if(not(empty(pickZones('Microsoft.Compute', 'virtualMachines', 'westus2'))), string(add(mod(copyIndex(),3),1)), json('null'))]"
+},
+```
 
 ## providers
 
