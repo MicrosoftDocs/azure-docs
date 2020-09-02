@@ -26,7 +26,7 @@ This article describes how to increase the size of an OS disk that has a GPT par
 
 ## Identify whether the OS disk has an MBR or GPT partition
 
-Use the **parted** command to identify if the disk partition has been created with either a master boot record (MBR) partition or a GPT partition.
+Use the `parted` command to identify if the disk partition has been created with either a master boot record (MBR) partition or a GPT partition.
 
 ### MBR partition
 
@@ -110,11 +110,15 @@ When the VM has restarted, perform the following steps:
 
 1. Access your VM as a **root** user by using the following command:
 
-   `# sudo -i`
+   ```
+   # sudo -i
+   ```
 
 1. Use the following command to install the **growpart** package, which will be used to resize the partition:
 
-   `# zypper install growpart`
+   ```
+   # zypper install growpart
+   ```
 
 1. Use the `lsblk` command to find the partition mounted on the root of the filesystem ("/"). In this case, we see that partition 4 of device sda is mounted on /:
 
@@ -169,9 +173,11 @@ When the VM has restarted, perform the following steps:
 
 1. Based on the file system type, use the appropriate commands to resize the file system.
    
-   For **xfs**, use the **following command:
+   For **xfs**, use the following command:
    
-   `#xfs_growfs /`
+   ```
+   #xfs_growfs /
+   ```
    
    Example output:
    
@@ -192,11 +198,15 @@ When the VM has restarted, perform the following steps:
    
    For **ext4**, use the following command:
    
-   `#resize2fs /dev/sda4`
+   ```
+   #resize2fs /dev/sda4
+   ```
    
 1. Verify the increased file system size for **df -Th**, by using the following command:
    
-   `#df -Thl`
+   ```
+   #df -Thl
+   ```
    
    Example output:
    
@@ -229,23 +239,33 @@ When the VM has restarted, perform the following steps:
 
 1. Access your VM as a **root** user by using the following command:
  
-   `#sudo su`
+   ```
+   #sudo su
+   ```
 
 1. Install the **gptfdisk** package, which is required to increase the size of the OS disk.
 
-   `#yum install gdisk -y`
+   ```
+   #yum install gdisk -y
+   ```
 
 1. To see the largest sector available on the disk, run the following command:
 
-   `#sgdisk -e /dev/sda`
+   ```
+   #sgdisk -e /dev/sda
+   ```
 
 1. Resize the partition without deleting it by using the following command. The **parted** command has an option named **resizepart** to resize the partition without deleting it. The number 4 after **resizepart** indicates resizing the fourth partition.
 
-   `#parted -s /dev/sda "resizepart 4 -1" quit`
+   ```
+   #parted -s /dev/sda "resizepart 4 -1" quit
+   ```
     
 1. Run the following command to verify that the partition has been increased:
 
-   `#lsblk`
+   ```
+   #lsblk
+   ```
 
    The following output shows that the **/dev/sda4** partition has been resized to 99 GB.
 
@@ -270,7 +290,9 @@ When the VM has restarted, perform the following steps:
 
 1. Use the following command to resize the physical volume (PV):
 
-   `#pvresize /dev/sda4`
+   ```
+   #pvresize /dev/sda4
+   ```
 
    The following output shows that the PV has been resized to 99.02 GB.
 
@@ -286,7 +308,9 @@ When the VM has restarted, perform the following steps:
 
 1. In the following example, **/dev/mapper/rootvg-rootlv** is being resized from 2 GB to 12 GB (an increase of 10 GB) through the following command. This command will also resize the file system.
 
-   `#lvresize -r -L +10G /dev/mapper/rootvg-rootlv`
+   ```
+   #lvresize -r -L +10G /dev/mapper/rootvg-rootlv
+   ```
 
    Example output:
 
@@ -308,7 +332,9 @@ When the VM has restarted, perform the following steps:
          
 1. Verify whether **/dev/mapper/rootvg-rootlv** has an increased file system size by using the following command:
 
-   `#df -Th /`
+   ```
+   #df -Th /
+   ```
 
    Example output:
 
