@@ -105,7 +105,7 @@ Enable replication as follows:
     - **VM size**: If you're using assessment recommendations, the VM size dropdown shows the recommended size. Otherwise Azure Migrate picks a size based on the closest match in the Azure subscription. Alternatively, pick a manual size in **Azure VM size**. 
     - **OS disk**: Specify the OS (boot) disk for the VM. The OS disk is the disk that has the operating system bootloader and installer. 
     - **Availability set**: If the VM  will reside in an Azure availability set after migration, specify the set. The set must be in the target resource group you specify for the migration.
-    - **Availability Zone**: If the VM  will be pinned to an Azure Availability Zone after migration, specify the zone.
+    - **Availability Zone**: If the VM  will be pinned to an Azure Availability Zone after migration, specify the Avalability Zone.
 
 > [!NOTE]
 >If you want to select a different availability option for a sets of virtual machines, go to step 1 and repeat the steps by selecting different availability options after starting replication for one set of virtual machines.
