@@ -37553,13 +37553,23 @@
     },
     {
       "source_path": "articles/active-directory/application-config-add-app-problem-problem-adding-gallery-app.md",
-      "redirect_url": "/azure/active-directory/manage-apps/adding-gallery-app-common-problems",
-      "redirect_document_id": true
+      "redirect_url": "/azure/active-directory/manage-apps/troubleshoot-adding-apps",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/manage-apps/adding-gallery-app-common-problems.md",
+      "redirect_url": "/azure/active-directory/manage-apps/troubleshoot-adding-apps",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/application-config-add-app-problem-problem-adding-non-gallery-app.md",
-      "redirect_url": "/azure/active-directory/manage-apps/adding-non-gallery-app-common-problems",
-      "redirect_document_id": true
+      "redirect_url": "/azure/active-directory/manage-apps/troubleshoot-adding-apps",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/manage-apps/adding-non-gallery-app-common-problems.md",
+      "redirect_url": "/azure/active-directory/manage-apps/troubleshoot-adding-apps",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/application-config-sso-how-to-choose-sign-on-method.md",
@@ -40190,6 +40200,11 @@
     {
       "source_path": "articles/cognitive-services/Speech-Service/quickstarts/text-to-speech/async-synthesis-long-form-audio.md",
       "redirect_url": "/azure/cognitive-services/speech-service/long-audio-api",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/speaker-recognition-basics.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/get-started-speaker-recognition",
       "redirect_document_id": true
     },
     {

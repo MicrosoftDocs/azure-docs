@@ -32,13 +32,13 @@ If you are creating an on-prem application, doing local development, or otherwis
 
 ### How can I give the AD group access to the key vault?
 
-Give the AD group permissions to your key vault using the Azure CLI az keyvault set-policy command, or the Azure PowerShell Set-AzKeyVaultAccessPolicy cmdlet. See [Assign an access policy - CLI](assign-access-policy-cli.md) and [Assign an access policy - PowerShell](assign-access-policy-powershell.md).
+Give the AD group permissions to your key vault using the Azure CLI `az keyvault set-policy` command, or the Azure PowerShell Set-AzKeyVaultAccessPolicy cmdlet. See [Assign an access policy - CLI](assign-access-policy-cli.md) and [Assign an access policy - PowerShell](assign-access-policy-powershell.md).
 
 The application also needs at least one Identity and Access Management (IAM) role assigned to the key vault. Otherwise it will not be able to login and will fail with insufficient rights to access the subscription. Azure AD Groups with Managed Identities may require up to eight hours to refresh tokens and become effective.
 
 ### How can I redeploy Key Vault with ARM template without deleting existing access policies?
 
-Currently Key Vault ARM redeployment will delete any access policy in Key Vault and replace them with access policy in ARM template. There is no incremental option for Key Vault access policies. To preserve access policies in Key Vault, you need read existing access policies in Key Vault and populate ARM template with those policies to avoid any access outages.
+Currently Key Vault redeployment deletes any access policy in Key Vault and replace them with access policy in ARM template. There is no incremental option for Key Vault access policies. To preserve access policies in Key Vault, you need read existing access policies in Key Vault and populate ARM template with those policies to avoid any access outages.
 
 ### Recommended troubleshooting Steps for following error types
 
