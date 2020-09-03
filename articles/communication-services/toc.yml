@@ -1,14 +1,5 @@
 - name: Azure Communication Services Documentation
   href: index.yml
-- name: Meta [Temporary]
-  expanded: false
-  items:
-  - name: Contributor quickstart
-    href: contribute.md
-  - name: Docs Philosophy
-    href: docs-philosophy.md
-  - name: Generating Reference Docs
-    href: reference-docs-guidance.md
 - name: Overview
   expanded: true
   items:
@@ -109,7 +100,7 @@
   items:
   - name: Group calling hero sample
     href: samples/calling-hero-sample.md
-  - name: Chat hero sample
+  - name: Group chat hero sample
     href: samples/chat-hero-sample.md
 - name: References
   items:
@@ -119,7 +110,3 @@
   items:
   - name: Roadmap
     href: roadmap.md
-  - name: Troubleshooting
-    href: troubleshooting.md
-  - name: Provide Product Feedback
-    href: product-feedback.md 
