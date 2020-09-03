@@ -50,6 +50,7 @@ The **host** computer is the computer that runs the docker container. The host *
 ```console
 grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detected
 ```
+
 > [!WARNING]
 > The host computer is *required* to support AVX2. The container *will not* function correctly without AVX2 support.
 
@@ -181,13 +182,16 @@ The `operation-location` is the fully qualified URL and is accessed via an HTTP 
 }
 ```
 
+> [!IMPORTANT]
+> If you deploy multiple Read containers behind a load balancer, for example, under Docker Compose or Kubernetes, you must have an external cache. Because the processing container and the GET request container might not be the same, an external cache stores the results and shares them across containers. For details about cache settings, see [Configure Computer Vision Docker containers](https://docs.microsoft.com/azure/cognitive-services/computer-vision/computer-vision-resource-container-config).
+
 ### Synchronous read
 
 You can use the `POST /vision/v2.0/read/core/Analyze` operation to synchronously read an image. When the image is read in its entirety, then and only then does the API return a JSON response. The only exception to this is if an error occurs. When an error occurs the following JSON is returned:
 
 ```json
 {
-    status: "Failed"
+    "status": "Failed"
 }
 ```
 

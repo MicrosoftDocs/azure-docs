@@ -45,7 +45,7 @@ The following job scheduling technologies are available:
 - **SQL Agent Jobs** are classic and battle-tested SQL Server job scheduling component that is available in Azure SQL Managed Instance. SQL Agent Jobs are not available in Azure SQL Database.
 - **Elastic Database Jobs (preview)** are Job Scheduling services that execute custom jobs on one or many databases in Azure SQL Database.
 
-It is worth noting a couple of differences between SQL Agent (available on-premises and as part of SQL Managed Instance), and the Database Elastic Job agent (available for single databases in Azure SQL Database and databases in SQL Data Warehouse).
+It is worth noting a couple of differences between SQL Agent (available on-premises and as part of SQL Managed Instance), and the Database Elastic Job agent (available for single databases in Azure SQL Database and databases in Azure Synapse Analytics).
 
 | |Elastic Jobs |SQL Agent |
 |---------|---------|---------|
