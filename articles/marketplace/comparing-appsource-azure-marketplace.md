@@ -11,15 +11,15 @@ ms.date: 04/14/2020
 
 # Comparing Microsoft AppSource and Azure Marketplace
 
-The Microsoft commercial marketplace includes [Microsoft AppSource](https://appsource.microsoft.com) and [Azure Marketplace](https://azuremarketplace.microsoft.com). Each online store serves unique customer requirements and different target audiences, so you can make sure your solution or service is available to the right customers.
+The Microsoft commercial marketplace includes [Microsoft AppSource](https://appsource.microsoft.com) and [Azure Marketplace](https://azuremarketplace.microsoft.com). Each online store offers different solution types with unique scenarios, so you can make sure your solution or service is available to the right customers.
 
 ## Understanding the differences between online stores
 
-To choose an online store, first identify the target audience for your offer. If you're targeting audiences in multiple online stores, you can publish once to sell in multiple stores.
+To choose an online store, first identify the type of solution you are offering. If your offer is both an IT and business solution, you can publish once to sell in multiple stores.
 
 | Azure Marketplace | AppSource |
 |:--- |:--- |
-| IT Professionals and Developers | Business Users and Business Decision Makers |
+| IT solutions | Business solutions |
 
 The following table describes the benefits of using an online store:
 
@@ -33,4 +33,4 @@ The following table describes the benefits of using an online store:
 
 ## Next steps
 
-* Review the [commercial marketplace publishing guide](./marketplace-publishers-guide.md).
+* [Commercial marketplace publishing guide](marketplace-publishers-guide.md)

@@ -894,9 +894,9 @@ In addition, use the Azure Resource Graph to query/discover resources within the
 
 - [How to integrate with Azure Managed Identities](../azure-app-configuration/howto-integrate-azure-managed-service-identity.md)
 
-- [How to create a Key Vault](/azure/key-vault/quick-create-portal)
+- [How to create a Key Vault](../key-vault/general/quick-create-portal.md)
 
-- [How to provide Key Vault authentication with a managed identity](/azure/key-vault/managed-identity)
+- [How to provide Key Vault authentication with a managed identity](/azure/key-vault/general/managed-identity)
 
 **Azure Security Center monitoring**: Yes
 

@@ -132,7 +132,7 @@ Note: Azure Database for MySQL uses the "Microsoft.Sql" Service Tags.
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [Azure Policy samples for networking](/azure/governance/policy/samples/#network)
+- [Azure Policy samples for networking](/azure/governance/policy/samples/)
 
 - [How to create an Azure Blueprint](../governance/blueprints/create-blueprint-portal.md)
 
@@ -794,7 +794,7 @@ In addition, use the Azure Resource Graph to query for and discover resources wi
 
 Enforce SSL connection should be enabled for MySQL database servers
 
-- [How to view available Azure Policy aliases](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+- [How to view available Azure Policy Aliases](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -892,9 +892,9 @@ Enforce SSL connection should be enabled for MySQL database servers
 
 - [How to integrate with Azure Managed Identities](../azure-app-configuration/howto-integrate-azure-managed-service-identity.md)
 
-- [How to create a Key Vault](/azure/key-vault/quick-create-portal)
+- [How to create a Key Vault](../key-vault/general/quick-create-portal.md)
 
-- [How to provide Key Vault authentication with a managed identity](/azure/key-vault/managed-identity)
+- [How to provide Key Vault authentication with a managed identity](/azure/key-vault/general/managed-identity)
 
 **Azure Security Center monitoring**: Yes
 
@@ -902,7 +902,7 @@ Enforce SSL connection should be enabled for MySQL database servers
 
 ### 7.12: Manage identities securely and automatically
 
-**Guidance**: Azure Database for MySQL instance supports Azure Active Directory authentication (in preview) to access databases.  While creating the Azure Database for MySQL instance, you provide credentials for an administrator user. This administrator can be used to create additional database users.  
+**Guidance**: Azure Database for MySQL instance supports Azure Active Directory authentication to access databases.  While creating the Azure Database for MySQL instance, you provide credentials for an administrator user. This administrator can be used to create additional database users.  
 
 For Azure Virtual Machines or web applications running on Azure App Service being used to access your Azure Database for MySQL instances, use Managed Service Identity in conjunction with Azure Key Vault to store and retrieve credentials for Azure Database for MySQL instance. Ensure Key Vault Soft Delete is enabled.
 
