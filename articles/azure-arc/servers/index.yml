@@ -12,6 +12,7 @@ metadata:
   ms.author: magoedte
 
 landingContent:
+ # Card
   - title: Connect machines to Azure using Azure Arc enabled servers
     linkLists: 
       - linkListType: overview
@@ -26,7 +27,7 @@ landingContent:
             url: onboard-service-principal.md
           - text: Connect machines to Azure with PowerShell DSC
             url: onboard-dsc.md
-landingContent:
+ # Card
   - title: 10-minute quickstarts
     linkLists:
       - linkListType: quickstart
