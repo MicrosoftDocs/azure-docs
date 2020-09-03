@@ -88,6 +88,7 @@ Now, you have created a Key Vault, stored a secret, and retrieved it.
 ## Clean up resources
 
 Other quickstarts and tutorials in this collection build upon this quickstart. If you plan to continue on to work with subsequent quickstarts and tutorials, you may wish to leave these resources in place.
+
 When no longer needed, you can use the [az group delete](/cli/azure/group) command to remove the resource group, and all related resources. You can delete the resources as follows:
 
 ```azurecli
