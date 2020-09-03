@@ -44042,7 +44042,6 @@
       "redirect_url": "/azure/virtual-machines/workloads/oracle/oracle-overview",
       "redirect_document_id": false
     },
-	https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/oracle/oracle-backup-recovery
     {
       "source_path": "articles/virtual-machines/linux/classic/troubleshoot-recovery-disks-portal.md",
       "redirect_url": "/previous-versions/azure/virtual-machines/linux/classic/troubleshoot-recovery-disks-portal",
