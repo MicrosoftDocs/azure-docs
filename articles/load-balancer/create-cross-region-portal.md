@@ -25,7 +25,6 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 ## Prerequisites
 
 - An Azure account with an active subscription.
-- Azure PowerShell module installed locally or use the Azure Cloud Shell.
 - Two standard load balancer deployments in two regions: 
     - Virtual machines in each region associated with the regional load balancers.
     - IIS installed and the default web page changed to hostname.
