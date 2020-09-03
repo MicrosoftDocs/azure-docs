@@ -18,7 +18,9 @@ ms.reviewer: kilroyh;yanmf;juliako
 ms.custom: devx-track-csharp
 
 ---
-# Design of a content protection system with access control using Azure Media Services 
+# Design of a content protection system with access control using Azure Media Services
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 ## Overview
 

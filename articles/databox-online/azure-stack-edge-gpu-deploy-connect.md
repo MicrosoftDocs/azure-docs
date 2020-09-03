@@ -1,13 +1,13 @@
 ---
 title: Tutorial to connect to, configure, activate Azure Stack Edge device with GPU in Azure portal | Microsoft Docs
-description: Tutorial to deploy Azure Stack Edge instructs you to connect, set up, and activate your physical device.
+description: Tutorial to deploy Azure Stack Edge GPU instructs you to connect, set up, and activate your physical device.
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 05/19/2020
+ms.date: 08/29/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge so I can use it to transfer data to Azure. 
 ---
@@ -40,9 +40,11 @@ Before you configure and set up your Azure Stack Edge device with GPU, make sure
 
     ![Backplane of a cabled device](./media/azure-stack-edge-gpu-deploy-install/ase-two-pci-slots.png)
 
+    The backplane of the device may look slightly different depending on the exact model you have received.
+
 
 3. Open a browser window and access the local web UI of the device at `https://192.168.100.10`.  
-    This action may take a few minutes after you've turned on the device. 
+    This action may take a few minutes after you've turned on the device.
 
     You see an error or a warning indicating that there is a problem with the website's security certificate. 
    

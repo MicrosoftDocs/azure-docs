@@ -25,7 +25,7 @@ This article focuses on how you can connect to the PowerShell interface of the d
 
 [!INCLUDE [Create a support package](../../includes/data-box-edge-gateway-create-support-package.md)]
 
-## Upload certificate
+<!--## Upload certificate
 
 [!INCLUDE [Upload certificate](../../includes/data-box-edge-gateway-upload-certificate.md)]
 
@@ -42,7 +42,7 @@ Set-HcsCertificate -Scope IotEdge -RootCACertificateFilePath "\\hcfs\root-ca-cer
 ```
 When you run this cmdlet, you will be prompted to provide the password for the network share.
 
-For more information on certificates, go to [Azure IoT Edge certificates](https://docs.microsoft.com/azure/iot-edge/iot-edge-certs) or [Install certificates on a gateway](https://docs.microsoft.com/azure/iot-edge/how-to-create-transparent-gateway).
+For more information on certificates, go to [Azure IoT Edge certificates](https://docs.microsoft.com/azure/iot-edge/iot-edge-certs) or [Install certificates on a gateway](https://docs.microsoft.com/azure/iot-edge/how-to-create-transparent-gateway).-->
 
 ## View device information
  
@@ -116,12 +116,11 @@ If the compute role is configured on your device, you can also get the compute l
     - `FullLogCollection`: This parameter ensures that the log package will contain all the compute logs. By default, the log package contains only a subset of logs.
 
 
-
 ## Debug Kubernetes issues related to IoT Edge
 
-When the Kubernetes cluster is created, a default user `aseuser` associated with a system namespace `iotedge` is also created. To debug any issues related to IoT Edge, you can use this user and system namespace.  
+When the Kubernetes cluster is created, there are two system namespaces created: `iotedge` and `azure-arc`.  
 
-### Create config file for system namespace
+<!--### Create config file for system namespace
 
 To troubleshoot, first create the `config` file corresponding to the `iotedge` namespace with `aseuser`.
 
@@ -179,7 +178,8 @@ Use "kubectl options" for a list of global command-line options (applies to all 
 C:\Users\myuser>
 ```
 
-For a comprehensive list of the `kubectl` commands, go to [`kubectl` cheatsheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/). 
+For a comprehensive list of the `kubectl` commands, go to [`kubectl` cheatsheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/).-->
+
 
 ### To get IP of service or module exposed outside of Kubernetes cluster
 
@@ -191,39 +191,53 @@ Following is a sample output of the all the services or modules that are exposed
 
 
 ```powershell
-C:\Users\user>kubectl get svc -n iotedge
+[10.100.10.10]: PS>kubectl get svc -n iotedge
 NAME           TYPE           CLUSTER-IP      EXTERNAL-IP     PORT(S)                                       AGE
 edgehub        LoadBalancer   10.103.52.225   10.128.44.243   443:31987/TCP,5671:32336/TCP,8883:30618/TCP   34h
 iotedged       ClusterIP      10.107.236.20   <none>          35000/TCP,35001/TCP                           3d8h
 webserverapp   LoadBalancer   10.105.186.35   10.128.44.244   8080:30976/TCP                                16h
 
-C:\Users\user>
+[10.100.10.10]: PS>
 ```
 The IP address in the External IP column corresponds to the external endpoint for the service or the module. You can also [Get the external IP in the Kubernetes dashboard](azure-stack-edge-gpu-monitor-kubernetes-dashboard.md#get-ip-address-for-services-or-modules).
 
 
 ### To check if module deployed successfully
 
-Compute modules are containers that have a business logic implemented. A Kubernetes pod can have multiple containers running. To check if a compute module is deployed successfully, run the `get pods` command and check if the container (corresponding to the compute module) is running.
+Compute modules are containers that have a business logic implemented. A Kubernetes pod can have multiple containers running. 
+
+To check if a compute module is deployed successfully, connect to the PowerShell interface of the device.
+Run the `get pods` command and check if the container (corresponding to the compute module) is running.
 
 To get the list of all the pods running in a specific namespace, run the following command:
 
 `get pods -n <namespace>`
 
+To check the modules deployed via IoT Edge, run the following command:
+
+`get pods -n iotedge`
+
 Following is a sample output of all the pods running in the `iotedge` namespace.
 
 ```
-C:\Users\myuser>kubectl get pods -n iotedge
+[10.100.10.10]: PS>kubectl get pods -n iotedge
 NAME                        READY   STATUS    RESTARTS   AGE
 edgeagent-cf6d4ffd4-q5l2k   2/2     Running   0          20h
 edgehub-8c9dc8788-2mvwv     2/2     Running   0          56m
 filemove-66c49984b7-h8lxc   2/2     Running   0          56m
 iotedged-675d7f4b5f-9nml4   1/1     Running   0          20h
 
-C:\Users\myuser>
+[10.100.10.10]: PS>
 ```
 
 The status **Status** indicates that all the pods in the namespace are running and the **Ready** indicates the number of containers deployed in a pod. In the preceding sample, all the pods are running and all the modules deployed in each of the pods are running. 
+
+To check the modules deployed via Azure Arc, run the following command:
+
+`get pods -n azure-arc`
+
+Alternatively, you can [Connect to Kubernetes dashboard to see IoT Edge or Azure Arc deployments](azure-stack-edge-gpu-monitor-kubernetes-dashboard.md#view-module-status).
+
 
 For a more verbose output of a specific pod for a given namespace, you can run the following command:
 
@@ -232,7 +246,7 @@ For a more verbose output of a specific pod for a given namespace, you can run t
 The sample output is shown here.
 
 ```
-C:\Users\myuser>kubectl describe pod filemove-66c49984b7 -n iotedge
+[10.100.10.10]: PS>kubectl describe pod filemove-66c49984b7 -n iotedge
 Name:           filemove-66c49984b7-h8lxc
 Namespace:      iotedge
 Priority:       0
@@ -289,12 +303,12 @@ Tolerations:     node.kubernetes.io/not-ready:NoExecute for 300s
 Events:          <none>
 
 
-C:\Users\myuser>
+[10.100.10.10]: PS>
 ```
 
 ### To get container logs
 
-To get the logs for a module, run the following command:
+To get the logs for a module, run the following command from the PowerShell interface of the device:
 
 `kubectl logs <pod_name> -n <namespace> --all-containers` 
 
@@ -303,7 +317,7 @@ Because `all-containers` flag will dumps all the logs for all the containers, a 
 Following is a sample output. 
 
 ```
-C:\Users\myuser>kubectl logs filemove-66c49984b7-h8lxc -n iotedge --all-containers --tail 10
+[10.100.10.10]: PS>kubectl logs filemove-66c49984b7-h8lxc -n iotedge --all-containers --tail 10
 DEBUG 2020-05-14T20:40:42Z: loop process - 0 events, 0.000s
 DEBUG 2020-05-14T20:40:44Z: loop process - 0 events, 0.000s
 DEBUG 2020-05-14T20:40:44Z: loop process - 0 events, 0.000s
@@ -319,7 +333,7 @@ DEBUG 2020-05-14T20:42:14Z: loop process - 0 events, 0.000s
 05/14/2020 19:46:45: Info: Initializing with input: /home/input, output: /home/output, protocol: Amqp.
 05/14/2020 19:46:45: Info: IoT Hub module client initialized.
 
-C:\Users\myuser>
+[10.100.10.10]: PS>
 ```
 
 ## Exit the remote session

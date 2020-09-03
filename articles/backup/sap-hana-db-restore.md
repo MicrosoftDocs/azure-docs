@@ -23,29 +23,29 @@ Azure Backup can restore SAP HANA databases that are running on Azure VMs as fol
 
 Before restoring a database, note the following:
 
-* You can restore the database only to an SAP HANA instance that's in the same region
+* You can restore the database only to an SAP HANA instance that's in the same region.
 
-* The target instance must be registered with the same vault as the source
+* The target instance must be registered with the same vault as the source.
 
 * Azure Backup can't identify two different SAP HANA instances on the same VM. So restoring data from one instance to another on the same VM isn't possible.
 
 * To ensure that the target SAP HANA instance is ready for restore, check its **Backup readiness** status:
 
-  1. Open the vault in which the target SAP HANA instance is registered
+  1. Open the vault in which the target SAP HANA instance is registered.
 
-  1. On the vault dashboard, under **Getting started**, choose **Backup**
+  1. On the vault dashboard, under **Getting started**, choose **Backup**.
 
       ![Backup in vault dashboard](media/sap-hana-db-restore/getting-started-backup.png)
 
-  1. In **Backup**, under **What do you want to backup?** choose **SAP HANA in Azure VM**
+  1. In **Backup**, under **What do you want to backup?** choose **SAP HANA in Azure VM**.
 
       ![Choose SAP HANA in Azure VM](media/sap-hana-db-restore/sap-hana-backup.png)
 
-  1. Under **Discover DBs in VMs**, click on **View details**
+  1. Under **Discover DBs in VMs**, select **View details**.
 
       ![View details](media/sap-hana-db-restore/view-details.png)
 
-  1. Review the **Backup Readiness** of the target VM
+  1. Review the **Backup Readiness** of the target VM.
 
       ![Protected servers](media/sap-hana-db-restore/protected-servers.png)
 

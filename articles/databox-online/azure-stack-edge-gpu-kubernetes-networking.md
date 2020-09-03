@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.date: 08/21/2020
 ms.author: alkohli
 ---
-# Kubernetes networking in your Azure Stack Edge device
+# Kubernetes networking in your Azure Stack Edge GPU device
 
 On your Azure Stack Edge device, a Kubernetes cluster is created when you configure compute role. Once the Kubernetes cluster is created, then containerized applications can be deployed on the Kubernetes cluster in Pods. There are distinct ways that networking is used for the Pods in your Kubernetes cluster. 
 
