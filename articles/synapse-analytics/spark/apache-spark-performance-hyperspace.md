@@ -25,6 +25,10 @@ Disclaimer: Hyperspace helps accelerate your workloads/queries under two circums
 
 You may want to carefully monitor your workloads and determine whether indexing is helping you on a case-by-case basis.
 
+This document is also available in notebook form, for [Python](https://github.com/microsoft/hyperspace/blob/master/notebooks/python/Hitchhikers%20Guide%20to%20Hyperspace.ipynb), for [C#](https://github.com/microsoft/hyperspace/blob/master/notebooks/csharp/Hitchhikers%20Guide%20to%20Hyperspace.ipynb) and [Scala](https://github.com/microsoft/hyperspace/blob/master/notebooks/scala/Hitchhikers%20Guide%20to%20Hyperspace.ipynb)
+
+[here](https://docs.delta.io/latest/quick-start.html)
+
 ## Setup
 
 To begin with, start a new Spark session. Since this document is a tutorial merely to illustrate what Hyperspace can offer, you will make a configuration change that allows us to highlight what Hyperspace is doing on small datasets. By default, Spark uses broadcast join to optimize join queries when the data size for one side of join is small (which is the case for the sample data we use in this tutorial). Therefore, we disable broadcast joins so that later when we run join queries, Spark uses sort-merge join. This is mainly to show how Hyperspace indexes would be used at scale for accelerating join queries.
@@ -135,6 +139,27 @@ deptData.write.mode("overwrite").parquet(deptLocation)
 
 ```python
 
+from pyspark.sql.types import StructField, StructType, StringType, IntegerType
+
+# Sample department records
+departments = [(10, "Accounting", "New York"), (20, "Research", "Dallas"), (30, "Sales", "Chicago"), (40, "Operations", "Boston")]
+
+# Sample employee records
+employees = [(7369, "SMITH", 20), (7499, "ALLEN", 30), (7521, "WARD", 30), (7566, "JONES", 20), (7698, "BLAKE", 30)]
+
+# Create a schema for the dataframe
+dept_schema = StructType([StructField('deptId', IntegerType(), True), StructField('deptName', StringType(), True), StructField('location', StringType(), True)])
+emp_schema = StructType([StructField('empId', IntegerType(), True), StructField('empName', StringType(), True), StructField('deptId', IntegerType(), True)])
+
+departments_df = spark.createDataFrame(departments, dept_schema)
+employees_df = spark.createDataFrame(employees, emp_schema)
+
+#TODO ** customize this location path **
+emp_Location = "/<yourpath>/employees.parquet"
+dept_Location = "/<yourpath>/departments.parquet"
+
+employees_df.write.mode("overwrite").parquet(emp_Location)
+departments_df.write.mode("overwrite").parquet(dept_Location)
 
 ```
 
@@ -143,6 +168,57 @@ deptData.write.mode("overwrite").parquet(deptLocation)
 :::zone pivot = "programming-language-csharp"
 
 ```csharp
+
+using Microsoft.Spark.Sql.Types;
+
+// Sample department records
+var departments = new List<GenericRow>()
+{
+    new GenericRow(new object[] {10, "Accounting", "New York"}),
+    new GenericRow(new object[] {20, "Research", "Dallas"}),
+    new GenericRow(new object[] {30, "Sales", "Chicago"}),
+    new GenericRow(new object[] {40, "Operations", "Boston"})
+};
+
+// Sample employee records
+var employees = new List<GenericRow>() {
+      new GenericRow(new object[] {7369, "SMITH", 20}),
+      new GenericRow(new object[] {7499, "ALLEN", 30}),
+      new GenericRow(new object[] {7521, "WARD", 30}),
+      new GenericRow(new object[] {7566, "JONES", 20}),
+      new GenericRow(new object[] {7698, "BLAKE", 30}),
+      new GenericRow(new object[] {7782, "CLARK", 10}),
+      new GenericRow(new object[] {7788, "SCOTT", 20}),
+      new GenericRow(new object[] {7839, "KING", 10}),
+      new GenericRow(new object[] {7844, "TURNER", 30}),
+      new GenericRow(new object[] {7876, "ADAMS", 20}),
+      new GenericRow(new object[] {7900, "JAMES", 30}),
+      new GenericRow(new object[] {7934, "MILLER", 10}),
+      new GenericRow(new object[] {7902, "FORD", 20}),
+      new GenericRow(new object[] {7654, "MARTIN", 30})
+};
+
+// Save sample data in the Parquet format
+var departmentSchema = new StructType(new List<StructField>()
+{
+    new StructField("deptId", new IntegerType()),
+    new StructField("deptName", new StringType()),
+    new StructField("location", new StringType())
+});
+var employeeSchema = new StructType(new List<StructField>()
+{
+    new StructField("empId", new IntegerType()),
+    new StructField("empName", new StringType()),
+    new StructField("deptId", new IntegerType())
+});
+
+DataFrame empData = spark.CreateDataFrame(employees, employeeSchema); 
+DataFrame deptData = spark.CreateDataFrame(departments, departmentSchema); 
+
+string empLocation = "/<yourpath>/employees.parquet";       //TODO ** customize this location path **
+string deptLocation = "/<yourpath>/departments.parquet";     //TODO ** customize this location path **
+empData.Write().Mode("overwrite").Parquet(empLocation);
+deptData.Write().Mode("overwrite").Parquet(deptLocation);
 
 ```
 
@@ -183,6 +259,13 @@ deptDF.show()
 
 ```python
 
+# emp_Location and dept_Location are the user defined locations above to save parquet files
+emp_DF = spark.read.parquet(emp_Location)
+dept_DF = spark.read.parquet(dept_Location)
+
+# Verify the data is available and correct
+emp_DF.show()
+dept_DF.show()
 
 ```
 
@@ -191,6 +274,14 @@ deptDF.show()
 :::zone pivot = "programming-language-csharp"
 
 ```csharp
+
+// empLocation and deptLocation are the user defined locations above to save parquet files
+DataFrame empDF = spark.Read().Parquet(empLocation);
+DataFrame deptDF = spark.Read().Parquet(deptLocation);
+
+// Verify the data is available and correct
+empDF.Show();
+deptDF.Show();
 
 ```
 
@@ -264,6 +355,8 @@ val hyperspace: Hyperspace = Hyperspace()
 
 ```python
 
+# Create an instance of Hyperspace
+hyperspace = Hyperspace(spark)
 
 ```
 
@@ -272,6 +365,11 @@ val hyperspace: Hyperspace = Hyperspace()
 :::zone pivot = "programming-language-csharp"
 
 ```csharp
+
+// Create an instance of Hyperspace
+using Microsoft.Spark.Extensions.Hyperspace;
+
+Hyperspace hyperspace = new Hyperspace(spark);
 
 ```
 
@@ -321,6 +419,11 @@ val deptIndexConfig2: IndexConfig = IndexConfig("deptIndex2", Seq("location"), S
 
 ```python
 
+# Create index configurations
+
+emp_IndexConfig = IndexConfig("empIndex1", ["deptId"], ["empName"])
+dept_IndexConfig1 = IndexConfig("deptIndex1", ["deptId"], ["deptName"])
+dept_IndexConfig2 = IndexConfig("deptIndex2", ["location"], ["deptName"])
 
 ```
 
@@ -329,6 +432,12 @@ val deptIndexConfig2: IndexConfig = IndexConfig("deptIndex2", Seq("location"), S
 :::zone pivot = "programming-language-csharp"
 
 ```csharp
+
+using Microsoft.Spark.Extensions.Hyperspace.Index;
+
+var empIndexConfig = new IndexConfig("empIndex", new string[] {"deptId"}, new string[] {"empName"});
+var deptIndexConfig1 = new IndexConfig("deptIndex1", new string[] {"deptId"}, new string[] {"deptName"});
+var deptIndexConfig2 = new IndexConfig("deptIndex2", new string[] {"location"}, new string[] {"deptName"});
 
 ```
 
@@ -362,6 +471,11 @@ hyperspace.createIndex(deptDF, deptIndexConfig2)
 
 ```python
 
+# Create indexes from configurations
+
+hyperspace.createIndex(emp_DF, emp_IndexConfig)
+hyperspace.createIndex(dept_DF, dept_IndexConfig1)
+hyperspace.createIndex(dept_DF, dept_IndexConfig2)
 
 ```
 
@@ -370,6 +484,11 @@ hyperspace.createIndex(deptDF, deptIndexConfig2)
 :::zone pivot = "programming-language-csharp"
 
 ```csharp
+
+// Create indexes from configurations
+hyperspace.CreateIndex(empDF, empIndexConfig);
+hyperspace.CreateIndex(deptDF, deptIndexConfig1);
+hyperspace.CreateIndex(deptDF, deptIndexConfig2);
 
 ```
 
@@ -403,6 +522,7 @@ hyperspace.indexes.show
 
 ```python
 
+hyperspace.indexes().show()
 
 ```
 
@@ -411,6 +531,8 @@ hyperspace.indexes.show
 :::zone pivot = "programming-language-csharp"
 
 ```csharp
+
+hyperspace.Indexes().Show();
 
 ```
 
@@ -446,6 +568,9 @@ hyperspace.indexes.show
 
 ```python
 
+hyperspace.deleteIndex("deptIndex2")
+
+hyperspace.indexes().show()
 
 ```
 
@@ -454,6 +579,8 @@ hyperspace.indexes.show
 :::zone pivot = "programming-language-csharp"
 
 ```csharp
+
+hyperspace.Indexes().Show();
 
 ```
 
@@ -491,6 +618,10 @@ hyperspace.indexes.show
 
 ```python
 
+hyperspace.deleteIndex("deptIndex1")
+hyperspace.indexes().show()
+hyperspace.restoreIndex("deptIndex1")
+hyperspace.indexes().show()
 
 ```
 
@@ -499,6 +630,11 @@ hyperspace.indexes.show
 :::zone pivot = "programming-language-csharp"
 
 ```csharp
+
+hyperspace.DeleteIndex("deptIndex1");
+hyperspace.Indexes().Show();
+hyperspace.RestoreIndex("deptIndex1");
+hyperspace.Indexes().Show();
 
 ```
 
@@ -545,6 +681,8 @@ hyperspace.indexes.show
 
 ```python
 
+hyperspace.vacuumIndex("deptIndex2")
+hyperspace.indexes().show()
 
 ```
 
@@ -553,6 +691,9 @@ hyperspace.indexes.show
 :::zone pivot = "programming-language-csharp"
 
 ```csharp
+
+hyperspace.VacuumIndex("deptIndex2");
+hyperspace.Indexes().Show();
 
 ```
 
@@ -591,6 +732,11 @@ spark.disableHyperspace
 
 ```python
 
+# Enable Hyperspace
+Hyperspace.enable(spark)
+
+# Disable Hyperspace
+Hyperspace.disable(spark)
 
 ```
 
@@ -599,6 +745,12 @@ spark.disableHyperspace
 :::zone pivot = "programming-language-csharp"
 
 ```csharp
+
+// Enable Hyperspace
+spark.EnableHyperspace();
+
+// Disable Hyperspace
+spark.DisableHyperspace();
 
 ```
 
@@ -636,6 +788,14 @@ deptDFrame.show(5)
 
 ```python
 
+# Enable Hyperspace
+Hyperspace.enable(spark)
+
+emp_DF = spark.read.parquet(emp_Location)
+dept_DF = spark.read.parquet(dept_Location)
+
+emp_DF.show(5)
+dept_DF.show(5)
 
 ```
 
@@ -644,6 +804,15 @@ deptDFrame.show(5)
 :::zone pivot = "programming-language-csharp"
 
 ```csharp
+
+// Enable Hyperspace
+spark.EnableHyperspace();
+
+DataFrame empDFrame = spark.Read().Parquet(empLocation);
+DataFrame deptDFrame = spark.Read().Parquet(deptLocation);
+
+empDFrame.Show(5);
+deptDFrame.Show(5);
 
 ```
 
@@ -726,6 +895,12 @@ eqFilter.explain(true)
 
 ```python
 
+# Filter with equality predicate
+
+eqFilter = dept_DF.filter("""deptId = 20""").select("""deptName""")
+eqFilter.show()
+
+eqFilter.explain(True)
 
 ```
 
@@ -734,6 +909,11 @@ eqFilter.explain(true)
 :::zone pivot = "programming-language-csharp"
 
 ```csharp
+
+DataFrame eqFilter = deptDFrame.Filter("deptId = 20").Select("deptName");
+eqFilter.Show();
+
+eqFilter.Explain(true);
 
 ```
 
@@ -804,6 +984,12 @@ rangeFilter.explain(true)
 
 ```python
 
+# Filter with range selection predicate
+
+rangeFilter = dept_DF.filter("""deptId > 20""").select("deptName")
+rangeFilter.show()
+
+rangeFilter.explain(True)
 
 ```
 
@@ -812,6 +998,12 @@ rangeFilter.explain(true)
 :::zone pivot = "programming-language-csharp"
 
 ```csharp
+
+// Filter with range selection predicate
+DataFrame rangeFilter = deptDFrame.Filter("deptId > 20").Select("deptName");
+rangeFilter.Show();
+
+rangeFilter.Explain(true);
 
 ```
 
@@ -884,6 +1076,13 @@ eqJoin.explain(true)
 
 ```python
 
+# Join
+
+eqJoin = emp_DF.join(dept_DF, emp_DF.deptId == dept_DF.deptId).select(emp_DF.empName, dept_DF.deptName)
+
+eqJoin.show()
+
+eqJoin.explain(True)
 
 ```
 
@@ -892,6 +1091,16 @@ eqJoin.explain(true)
 :::zone pivot = "programming-language-csharp"
 
 ```csharp
+
+// Join
+DataFrame eqJoin =
+      empDFrame
+      .Join(deptDFrame, empDFrame.Col("deptId") == deptDFrame.Col("deptId"))
+      .Select(empDFrame.Col("empName"), deptDFrame.Col("deptName"));
+
+eqJoin.Show();
+
+eqJoin.Explain(true);
 
 ```
 
@@ -979,6 +1188,15 @@ joinQuery.explain(true)
 
 ```python
 
+from pyspark.sql import SparkSession
+
+emp_DF.createOrReplaceTempView("EMP")
+dept_DF.createOrReplaceTempView("DEPT")
+
+joinQuery = spark.sql("SELECT EMP.empName, DEPT.deptName FROM EMP, DEPT WHERE EMP.deptId = DEPT.deptId")
+
+joinQuery.show()
+joinQuery.explain(True)
 
 ```
 
@@ -987,6 +1205,14 @@ joinQuery.explain(true)
 :::zone pivot = "programming-language-csharp"
 
 ```csharp
+
+empDFrame.CreateOrReplaceTempView("EMP");
+deptDFrame.CreateOrReplaceTempView("DEPT");
+
+var joinQuery = spark.Sql("SELECT EMP.empName, DEPT.deptName FROM EMP, DEPT WHERE EMP.deptId = DEPT.deptId");
+
+joinQuery.Show();
+joinQuery.Explain(true);
 
 ```
 
@@ -1080,6 +1306,10 @@ hyperspace.explain(eqJoin) { displayHTML }
 
 ```python
 
+eqJoin = emp_DF.join(dept_DF, emp_DF.deptId == dept_DF.deptId).select(emp_DF.empName, dept_DF.deptName)
+
+spark.conf.set("spark.hyperspace.explain.displayMode", "html")
+hyperspace.explain(eqJoin, True, displayHTML)
 
 ```
 
@@ -1088,6 +1318,12 @@ hyperspace.explain(eqJoin) { displayHTML }
 :::zone pivot = "programming-language-csharp"
 
 ```csharp
+
+spark.Conf().Set("spark.hyperspace.explain.displayMode", "html");
+spark.Conf().Set("spark.hyperspace.explain.displayMode.highlight.beginTag", "<b style=\"background:LightGreen\">");
+spark.Conf().Set("spark.hyperspace.explain.displayMode.highlight.endTag", "</b>");
+
+hyperspace.Explain(eqJoin, false, input => DisplayHTML(input));
 
 ```
 
@@ -1166,6 +1402,15 @@ hyperspace.refreshIndex("deptIndex1")
 
 ```python
 
+extra_Departments = [(50, "Inovation", "Seattle"), (60, "Human Resources", "San Francisco")]
+
+extra_departments_df = spark.createDataFrame(extra_Departments, dept_schema)
+extra_departments_df.write.mode("Append").parquet(dept_Location)
+
+
+dept_DFrame_Updated = spark.read.parquet(dept_Location)
+
+dept_DFrame_Updated.show(10)
 
 ```
 
@@ -1174,6 +1419,21 @@ hyperspace.refreshIndex("deptIndex1")
 :::zone pivot = "programming-language-csharp"
 
 ```csharp
+
+var extraDepartments = new List<GenericRow>()
+{
+    new GenericRow(new object[] {50, "Inovation", "Seattle"}),
+    new GenericRow(new object[] {60, "Human Resources", "San Francisco"})
+};
+	
+DataFrame extraDeptData = spark.CreateDataFrame(extraDepartments, departmentSchema);
+extraDeptData.Write().Mode("Append").Parquet(deptLocation);
+
+DataFrame deptDFrameUpdated = spark.Read().Parquet(deptLocation);
+
+deptDFrameUpdated.Show(10);
+
+hyperspace.RefreshIndex("deptIndex1");
 
 ```
 
@@ -1218,6 +1478,10 @@ newRangeFilter.explain(true)
 
 ```python
 
+newRangeFilter = dept_DFrame_Updated.filter("deptId > 20").select("deptName")
+newRangeFilter.show()
+
+newRangeFilter.explain(True)
 
 ```
 
@@ -1226,6 +1490,11 @@ newRangeFilter.explain(true)
 :::zone pivot = "programming-language-csharp"
 
 ```csharp
+
+DataFrame newRangeFilter = deptDFrameUpdated.Filter("deptId > 20").Select("deptName");
+newRangeFilter.Show();
+
+newRangeFilter.Explain(true);
 
 ```
 
