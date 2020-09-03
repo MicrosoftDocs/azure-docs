@@ -152,17 +152,32 @@ A daily job with no gaps in the output streams of the job:
 
 ## Monitor dependencies
 
-You can monitor the dependency chain and the corresponding windows from the trigger run monitoring page. Navigate to  **Monitoring > Trigger Runs**. Under the actions column, you can rerun the trigger or view its dependencies.
+You can monitor the dependency chain and the corresponding windows from the trigger run monitoring page. Navigate to  **Monitoring > Trigger Runs**. If a Tumbling Window trigger has dependencies, Trigger Name will bear a hyperlink to dependency monitoring view.  
 
-![Monitor trigger runs](media/tumbling-window-trigger-dependency/tumbling-window-dependency07.png "Monitor trigger runs")
+![Monitor trigger runs](media/tumbling-window-trigger-dependency/tumbling-window-dependency07.png "Monitor trigger runs - entires to tumbling window dependency view")
 
-If you click on 'View Trigger Dependencies', you can see the status of the dependencies. If one of the dependency triggers fails, you must successfully rerun it in order for the dependent trigger to run. A tumbling window trigger will wait on dependencies for seven days before timing out.
+Click through the trigger name to view trigger dependencies. Right-hand panel shows detailed trigger run information, such as RunID, window time, status, and so on.
 
-![Monitor dependencies](media/tumbling-window-trigger-dependency/tumbling-window-dependency08.png "Monitor dependencies")
+![Monitor dependencies](media/tumbling-window-trigger-dependency/tumbling-window-dependency08.png "Monitor dependencies list view")
+
+You can see the status of the dependencies, and windows for each dependent trigger. If one of the dependencies triggers fails, you must successfully rerun it in order for the dependent trigger to run.
+
+A tumbling window trigger will wait on dependencies for _seven days_ before timing out. After seven days, the trigger run will fail.
+
+![Monitor dependencies](media/tumbling-window-trigger-dependency/tumbling-window-dependency09.png "Trigger run times out after seven days")
 
 For a more visual to view the trigger dependency schedule, select the Gantt view.
 
-![Monitor dependencies](media/tumbling-window-trigger-dependency/tumbling-window-dependency09.png "Monitor dependencies")
+![Monitor dependencies](media/tumbling-window-trigger-dependency/tumbling-window-dependency10.png "Monitor dependencies Gantt chart view")
+
+Transparent boxes show the dependency windows for each down stream-dependent trigger, while solid colored boxes above show individual window runs. Here are some tips for interpreting the Gantt chart view:
+select
+
+1. Transparent box renders blue when dependent windows are in pending or running state
+1. After all windows succeeds for a dependent trigger, the transparent box will turn green
+1. Transparent box renders red when some dependent window fails. Look for a solid red box to identify the failure window run
+
+To rerun a window in Gantt chart view, select the solid color box for the window, and an action panel will pop up with details and rerun options
 
 ## Next steps
 
