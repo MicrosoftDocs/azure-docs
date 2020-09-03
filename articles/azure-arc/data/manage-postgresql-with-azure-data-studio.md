@@ -27,34 +27,34 @@ Once installed, start Azure Data Studio and reach its welcome page:
 
 ## Connect to the Azure Arc Data Controller
 
-In Azure Data Studio, expand the node [Azure Arc Controllers] and click the [Connect Controller] button:
+In Azure Data Studio, expand the node [Azure Arc Controllers] and select the [Connect Controller] button:
 ![Screenshot of Azure Data Controllers node expanded.](/assets/ADS_Jul2020_ConnectDataController.jpg)
 
 
 Enter the connection information to your Azure Data Controller:
 - **Controller URL:**
-    This is the URL to connect to your controller in Kubernetes. It has to be entered in the form of https://IP_address_of_the_controller:Kubernetes_port.
+    The URL to connect to your controller in Kubernetes. Entered in the form of https://IP_address_of_the_controller:Kubernetes_port.
     For example:
     ```console
     https://12.345.67.890:30080
     ```
 - **Username:**
-    Name of the user you use to connect to the Controller. That is the name you typically use when you run '__azdata login__'. It is not the name of the Postgres user you use to connect to the Postgres database engine typically from psql.
+    Name of the user you use to connect to the Controller. Use the name you typically use when you run `__azdata login__`. It is not the name of the Postgres user you use to connect to the Postgres database engine typically from psql.
 - **Password:**
     The password of the user account you use to connect to the Controller
 
 ![Screenshot of Azure Data Controllers connection details pane.](/assets/ADS_Jul2020_ConnectDataController_Details.jpg)
-and click the [Connect] button.
+and select the [Connect] button.
 
 Your Arc Data Controller node is now showing up. Expand it and it shows the list of Postgres instances that it manages.
 ![Screenshot of Azure Data Controllers node expanded.](/assets/ADS_Jul2020_Controller_node_expanded.jpg)
 
 ## Manage your Postgres instances
 
-Right-click on the Postgres instance you want to manage and click [Manage]
+Right-click on the Postgres instance you want to manage and select [Manage]
 ![Screenshot of Azure Data Controllers [Manage] contextual menu.](/assets/ADS_Jul2020_Controller_Postgres_Manage.jpg)
 
-This opens the Postgres Dashboard view:
+The Postgres Dashboard view:
 ![Screenshot of Azure Data Controllers\Postgres dashboard - List.](/assets/ADS_Jul2020_Controller_Postgres_Dashboard_List.jpg)
 
 That features several dashboards listed on the left side of that pane:
@@ -81,21 +81,21 @@ That features several dashboards listed on the left side of that pane:
 On the left side of the Azure Data Studio window, expand the node [Servers]:
 ![Screenshot of Servers node.](/assets/ADS_Jul2020_Servers.jpg)
 
-And click [Add Connection] and fill in the connection details to your Postgres instance:
+And select [Add Connection] and fill in the connection details to your Postgres instance:
 - **Connection Type:** PostgreSQL
-- **Server name:** enter the name of your Postgres instance. For example: postgres01
+- **Server name:** enter the name of your PostgreSQL instance. For example: postgres01
 - **Authentication type:** Password
-- **User name:** for example you can use the standard/default postgres admin user name. Note, this field is case sensitive.
-- **Password:** you will find the password of the Postgres username in the psql connection string in the output of the __azdata postgres server endpoint -n postgres01__ command
+- **User name:** for example, you can use the standard/default postgres admin user name. Note, this field is case-sensitive.
+- **Password:** you'll find the password of the PostgreSQL username in the psql connection string in the output of the __azdata postgres server endpoint -n postgres01__ command
 - **Database name:** set the name of the database you want to connect to. You can let it set to __Default__
 - **Server group:** you can let it set to __Default__
 - **Name (optional):** you can let this blank
 - **Advanced:**
     - **Host IP Address:** is the Public IP address of the Kubernetes cluster
-    - **Port:** is the port on which your Postgres instance is listening. You can find this port at the end of the the psql connection string in the output of the __azdata postgres server endpoint -n postgres01__ command. This is not the port 30080 on which Kubernetes is listening and that you entered when connecting to the Azure Data Controller in Azure Data Studio.
-    - **Other parameters:** They should be self explicit, you can live with the default/blank values they appear with.
+    - **Port:** is the port on which your PostgreSQL instance is listening. You can find this port at the end of the psql connection string in the output of the __azdata postgres server endpoint -n postgres01__ command. Not port 30080 on which Kubernetes is listening and that you entered when connecting to the Azure Data Controller in Azure Data Studio.
+    - **Other parameters:** They should be self-explicit, you can live with the default/blank values they appear with.
 
-Click **[OK] and [Connect]** to connect to your server.
+Select **[OK] and [Connect]** to connect to your server.
 ![Screenshot of Servers node.](/assets/ADS_Jul2020_Servers_AddConnection.jpg)
 ![Screenshot of Servers node.](/assets/ADS_Jul2020_Servers_AddConnection_Advanced.jpg)
 
