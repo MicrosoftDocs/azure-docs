@@ -222,8 +222,10 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. In the following page,select **Job > Worker Security** and the **Workday account** has to match with the Azure active directory as the **Name ID** value.
 
-    ![Worker Security](./media/workday-tutorial/worker-security.png)
+    ![Find workers](./media/workday-tutorial/worker-security.png)
 
+> [!NOTE]
+> For more information on how to create a workday test user, please contact [Workday Client support team](https://www.workday.com/en-us/partners-services/services/support.html).
 
 ## Test SSO
 
