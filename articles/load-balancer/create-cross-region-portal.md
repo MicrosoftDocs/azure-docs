@@ -38,11 +38,11 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 ## Create cross-region load balancer
 
-1. In the left hand menu, select **Create a resource**.
+1. In the left-hand menu, select **Create a resource**.
 
 2. Select **Networking** > **Load Balancer**.
 
-3. In the **Basics** tab of **Create load balancer**, enter or select this information:
+3. In the **Basics** tab of **Create load balancer**, enter, or select this information:
 
 | Setting                | Value                                                                |
 |------------------------|----------------------------------------------------------------------|
@@ -65,7 +65,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 ## Create backend pool
 
-1. In the Azure portal, in the left hand menu select **All Resources**.
+1. In the Azure portal, in the left-hand menu select **All Resources**.
 
 2. Select **myLoadBalancer-CR** in the list of resources.
 
@@ -78,11 +78,11 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 | Setting                 | Value                                                                                                                             |
 |-------------------------|-----------------------------------------------------------------------------------------------------------------------------------|
 | Name                    | Enter **myBackendPool-CR**.                                                                                                       |
-| Regional load balancers | Select **+ Add**. </br> Select the check boxes next to both regional load balancers your previously created. </br> Select **OK**. |
+| Regional load balancers | Select **+ Add**. </br> Select the check boxes next to both regional load balancers you previously created. </br> Select **OK**. |
 
 ## Test cross-region load balancer
 
-1. In the Azure portal, in the left hand menu select **All Resources**.
+1. In the Azure portal, in the left-hand menu select **All Resources**.
 
 2. Select **myLoadBalancer-CR** in the list of resources.
 
@@ -92,7 +92,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 5. One of the pages from either a virtual machine in region 1 or region 2.
 
-6. Shutdown the virtual machines in region 1 or region 2.
+6. Shut down the virtual machines in region 1 or region 2.
 
 7. Verify that the page from a virtual machine from the region with active virtual machines is valid.
 
@@ -102,7 +102,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 If you're not going to continue to use this application, delete
 the cross-region load balancer with the following steps:
 
-1. In the Azure portal, in the left hand menu select **Resource groups**.
+1. In the Azure portal, in the left-hand menu select **Resource groups**.
 
 2. Select **myResourceGroup-CR** in the list of resources.
 
@@ -110,6 +110,6 @@ the cross-region load balancer with the following steps:
 
 ## Next steps
 
-Advance to the next article to learn how to create a egress only load balancer.
+Advance to the next article to learn how to create an egress only load balancer.
 > [!div class="nextstepaction"]
 > [Outbound-only load balancer configuration](egress-only.md)
