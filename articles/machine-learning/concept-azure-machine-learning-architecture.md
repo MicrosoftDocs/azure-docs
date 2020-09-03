@@ -120,7 +120,9 @@ When you submit a run, Azure Machine Learning compresses the directory that cont
 
 ### Logging
 
-When you develop your solution, use the Azure Machine Learning Python SDK in your Python script to log arbitrary metrics. After the run, query the metrics to determine whether the run has produced the model you want to deploy.
+Azure Machine Learning automatically logs standard run metrics for you. However, you can also [use the Python SDK to log arbitrary metrics](how-to-track-experiments.md).
+
+There are multiple ways to view your logs: monitoring run status in real time, or viewing results after completion. For more information, see [Monitor and view ML run logs](how-to-monitor-view-training-logs.md).
 
 
 > [!NOTE]
@@ -222,10 +224,11 @@ Pipeline steps are reusable, and can be run without rerunning the previous steps
 
 [Azure Machine Learning studio](overview-what-is-machine-learning-studio.md) provides a web view of all the artifacts in your workspace.  You can view results and details of your datasets, experiments, pipelines, models, and endpoints.  You can also manage compute resources and datastores in the studio.
 
-Studio is also where you access the interactive tools that are part of Azure Machine Learning:
+The studio is also where you access the interactive tools that are part of Azure Machine Learning:
 
 + [Azure Machine Learning designer (preview)](concept-designer.md) to perform workflow steps without writing code
 + Web experience for [automated machine learning](concept-automated-ml.md)
++ [Azure Machine Learning notebooks](how-to-run-jupyter-notebooks.md) to write and run your own code in integrated Jupyter notebook servers.
 + [Data labeling projects](how-to-create-labeling-projects.md) to create, manage, and monitor projects to label your data
 
 ### Programming tools
