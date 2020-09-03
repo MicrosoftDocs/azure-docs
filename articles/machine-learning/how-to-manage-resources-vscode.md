@@ -254,7 +254,7 @@ For more information, see [compute instances](concept-compute-instance.md).
     1. Choose whether you want to enable SSH access.
         1. If you enable SSH access, you'll have to also provide the public SSH key or the file containing the key. For more information, see the [guide on creating and using SSH keys on Azure](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys).
 
-### Stop or Restart compute instance
+### Stop or restart compute instance
 
 1. Expand the subscription node that contains your workspace.
 1. Expand the **Compute instance** node inside your workspace.
