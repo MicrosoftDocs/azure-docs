@@ -296,7 +296,7 @@ For more information, see [Messaging developer's guide](iot-hub-devguide-messagi
 
 To receive messages from IoT Hub, a device should subscribe using `devices/{device_id}/messages/devicebound/#` as a **Topic Filter**. The multi-level wildcard `#` in the Topic Filter is used only to allow the device to receive additional properties in the topic name. IoT Hub does not allow the usage of the `#` or `?` wildcards for filtering of subtopics. Since IoT Hub is not a general-purpose pub-sub messaging broker, it only supports the documented topic names and topic filters.
 
-The device does not receive any messages from IoT Hub, until it has successfully subscribed to its device-specific endpoint, represented by the `devices/{device_id}/messages/devicebound/#` topic filter. After a subscription has been established, the device receives cloud-to-device messages that were sent to it after the time of the subscription. If the device connects with **CleanSession** flag set to **0**, the subscription is persisted across different sessions. In this case, the next time the device connects with **CleanSession 0** it receives any outstanding messages sent to it while disconnected. If the device uses **CleanSession** flag set to **1** though, it does not receive any messages from IoT Hub until it subscribes to its device-endpoint.
+The device does not receive any messages from IoT Hub until it has successfully subscribed to its device-specific endpoint, represented by the `devices/{device_id}/messages/devicebound/#` topic filter. After a subscription has been established, the device receives cloud-to-device messages that were sent to it after the time of the subscription. If the device connects with **CleanSession** flag set to **0**, the subscription is persisted across different sessions. In this case, the next time the device connects with **CleanSession 0** it receives any outstanding messages sent to it while disconnected. If the device uses **CleanSession** flag set to **1** though, it does not receive any messages from IoT Hub until it subscribes to its device-endpoint.
 
 IoT Hub delivers messages with the **Topic Name** `devices/{device_id}/messages/devicebound/`, or `devices/{device_id}/messages/devicebound/{property_bag}` when there are message properties. `{property_bag}` contains url-encoded key/value pairs of message properties. Only application properties and user-settable system properties (such as **messageId** or **correlationId**) are included in the property bag. System property names have the prefix **$**, application properties use the original property name with no prefix. For additional details about the format of the property bag, see [Sending device-to-cloud messages](#sending-device-to-cloud-messages).
 
@@ -320,7 +320,7 @@ When a device app subscribes to a topic with **QoS 2**, IoT Hub grants maximum Q
 
 First, a device subscribes to `$iothub/twin/res/#`, to receive the operation's responses. Then, it sends an empty message to topic `$iothub/twin/GET/?$rid={request id}`, with a populated value for **request ID**. The service then sends a response message containing the device twin data on topic `$iothub/twin/res/{status}/?$rid={request id}`, using the same **request ID** as the request.
 
-Request ID can be any valid value for a message property value, as per [IoT Hub messaging developer's guide](iot-hub-devguide-messaging.md), and status is validated as an integer.
+Request ID can be any valid value for a message property value, as per the [IoT Hub messaging developer's guide](iot-hub-devguide-messaging.md), and status is validated as an integer.
 
 The response body contains the properties section of the device twin, as shown in the following response example:
 
@@ -346,7 +346,7 @@ The possible status codes are:
 | 429 | Too many requests (throttled), as per [IoT Hub throttling](iot-hub-devguide-quotas-throttling.md) |
 | 5** | Server errors |
 
-For more information, see [Device twins developer's guide](iot-hub-devguide-device-twins.md).
+For more information, see the [Device twins developer's guide](iot-hub-devguide-device-twins.md).
 
 ## Update device twin's reported properties
 
@@ -360,7 +360,7 @@ The following sequence describes how a device updates the reported properties in
 
 3. The service then sends a response message that contains the new ETag value for the reported properties collection on topic `$iothub/twin/res/{status}/?$rid={request id}`. This response message uses the same **request ID** as the request.
 
-The request message body contains a JSON document, that contains new values for reported properties. Each member in the JSON document updates or add the corresponding member in the device twin's document. A member set to `null`, deletes the member from the containing object. For example:
+The request message body contains a JSON document, that contains new values for reported properties. Each member in the JSON document updates or add the corresponding member in the device twin's document. A member set to `null` deletes the member from the containing object. For example:
 
 ```json
 {
@@ -394,7 +394,7 @@ client.publish("$iothub/twin/PATCH/properties/reported/?$rid=" +
 
 Upon success of twin reported properties update operation above, the publication message from IoT Hub will have the following topic: `$iothub/twin/res/204/?$rid=1&$version=6`, where `204` is the status code indicating success, `$rid=1` corresponds to the request ID provided by the device in the code, and `$version` corresponds to the version of reported properties section of device twins after the update.
 
-For more information, see [Device twins developer's guide](iot-hub-devguide-device-twins.md).
+For more information, see the [Device twins developer's guide](iot-hub-devguide-device-twins.md).
 
 ## Receiving desired properties update notifications
 
@@ -413,7 +413,7 @@ As for property updates, `null` values mean that the JSON object member is being
 > [!IMPORTANT]
 > IoT Hub generates change notifications only when devices are connected. Make sure to implement the [device reconnection flow](iot-hub-devguide-device-twins.md#device-reconnection-flow) to keep the desired properties synchronized between IoT Hub and the device app.
 
-For more information, see [Device twins developer's guide](iot-hub-devguide-device-twins.md).
+For more information, see the [Device twins developer's guide](iot-hub-devguide-device-twins.md).
 
 ## Respond to a direct method
 
@@ -421,7 +421,7 @@ First, a device has to subscribe to `$iothub/methods/POST/#`. IoT Hub sends meth
 
 To respond, the device sends a message with a valid JSON or empty body to the topic `$iothub/methods/res/{status}/?$rid={request id}`. In this message, the **request ID** must match the one in the request message, and **status** must be an integer.
 
-For more information, see [Direct method developer's guide](iot-hub-devguide-direct-methods.md).
+For more information, see the [Direct method developer's guide](iot-hub-devguide-direct-methods.md).
 
 ## Additional considerations
 
