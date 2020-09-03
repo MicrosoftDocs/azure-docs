@@ -52,7 +52,7 @@ For an overview of Azure storage types for SAP workload, consult the article [Az
 All database files must be stored on mounted disks of Azure block storage (Windows: NFFS, Linux: xfs, ext4 or ext3). 
 Any kind of network drives or remote shares like the following Azure services are **NOT** supported for database files: 
 
-* [Microsoft Azure File Service](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
+* [Microsoft Azure File Service](https://docs.microsoft.com/archive/blogs/windowsazurestorage/introducing-microsoft-azure-file-service)
 * [Azure NetApp Files](https://azure.microsoft.com/services/netapp/)
 
 Using disks based on Azure Page BLOB Storage or Managed Disks, the statements made in [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md) apply to deployments with the Db2 DBMS as well.
