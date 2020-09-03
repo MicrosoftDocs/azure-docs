@@ -6,7 +6,7 @@ author: radwiv
 
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 10/15/2019
+ms.date: 09/03/2020
 ms.author: radwiv
 ---
 
