@@ -1531,6 +1531,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/Welcome.md",
+      "redirect_url": "/azure/cognitive-services/what-are-cognitive-services",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/cognitive-services/immersive-reader/ios-quickstart.md",
       "redirect_url": "/azure/cognitive-services/immersive-reader/quickstarts/client-libraries?pivots=programming-language-swift",
       "redirect_document_id": false
@@ -37548,13 +37553,23 @@
     },
     {
       "source_path": "articles/active-directory/application-config-add-app-problem-problem-adding-gallery-app.md",
-      "redirect_url": "/azure/active-directory/manage-apps/adding-gallery-app-common-problems",
-      "redirect_document_id": true
+      "redirect_url": "/azure/active-directory/manage-apps/troubleshoot-adding-apps",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/manage-apps/adding-gallery-app-common-problems.md",
+      "redirect_url": "/azure/active-directory/manage-apps/troubleshoot-adding-apps",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/application-config-add-app-problem-problem-adding-non-gallery-app.md",
-      "redirect_url": "/azure/active-directory/manage-apps/adding-non-gallery-app-common-problems",
-      "redirect_document_id": true
+      "redirect_url": "/azure/active-directory/manage-apps/troubleshoot-adding-apps",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/manage-apps/adding-non-gallery-app-common-problems.md",
+      "redirect_url": "/azure/active-directory/manage-apps/troubleshoot-adding-apps",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/application-config-sso-how-to-choose-sign-on-method.md",
@@ -40185,6 +40200,11 @@
     {
       "source_path": "articles/cognitive-services/Speech-Service/quickstarts/text-to-speech/async-synthesis-long-form-audio.md",
       "redirect_url": "/azure/cognitive-services/speech-service/long-audio-api",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/speaker-recognition-basics.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/get-started-speaker-recognition",
       "redirect_document_id": true
     },
     {
@@ -44015,6 +44035,11 @@
     {
       "source_path": "articles/virtual-machines/linux/classic/troubleshoot-deployment-new-vm.md",
       "redirect_url": "/previous-versions/azure/virtual-machines/linux/classic/troubleshoot-deployment-new-vm",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/workloads/oracle/oracle-backup-recovery.md",
+      "redirect_url": "/azure/virtual-machines/workloads/oracle/oracle-overview",
       "redirect_document_id": false
     },
     {
@@ -48158,7 +48183,11 @@
       "redirect_url": "/azure/iot-central/retail/tutorial-video-analytics-deploy",
       "redirect_document_id": true
     },
-
+    {
+      "source_path": "articles/iot-central/core/howto-use-data-export.md",
+      "redirect_url": "/azure/iot-central/core/howto-export-data",
+      "redirect_document_id": true
+    },
     {
       "source_path": "articles/iot-accelerators/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2.md",
       "redirect_url": "/azure/iot-accelerators/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoring-v2",
