@@ -1,45 +1,35 @@
 ---
-title: Microsoft AppSource and Azure Marketplace consulting services 
-description: This article describes the eligibility criteria and publishing requirements for new consulting-service offers in Microsoft AppSource and Azure Marketplace.
-services: Marketplace, Compute, Storage, Networking, Blockchain, Security
-author: qianw211
+title: Consulting services in Microsoft commercial marketplace  
+description: This article describes the eligibility criteria and publishing requirements for new consulting service offers in Microsoft AppSource and Azure Marketplace.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/08/2020
-ms.author: dsindona
+ms.date: 06/08/2020
+author: Microsoft-BradleyWright
+ms.author: brwrigh
 ---
 
-# Consulting services for Microsoft AppSource and Azure Marketplace
+# Consulting service offers
 
-Microsoft AppSource and Azure Marketplace consulting services give Microsoft system-integrator partners the benefit of connecting their customers with services that support and extend their use of Azure. These consulting services help customers assess, evaluate, and deploy the business solutions that further their business objectives and goals.  
+This article explains the eligibility criteria and requirements for publishing new consulting service offers to the commercial marketplace. Consulting service offers give Microsoft system-integrator partners the benefit of connecting their customers with services that support and extend their use of Azure. These consulting services help customers assess, evaluate, and deploy the business solutions that further their business objectives and goals.  
 
 Consulting service offers are customer-specific engagements. Publishers have the option to determine the listing type, scope, duration, and pricing structure (fixed-price or free). Offers have a defined agenda for deliverables to the customer. Leads are received through a notification in partners' CRM systems, and partners aim to respond to customers within 48 hours.
 
 ## Compare consulting services
 
-The marketplace storefronts are aligned with audiences and cloud products to help customers find what they need. Each storefront has specialized publishing options to help you maximize your publishing investment. The following table summarizes these options:
-
-|         |Azure Marketplace  |Microsoft AppSource |
-|---------|---------|---------|
-|Audience      |IT pros and cloud developers|Business users and line-of-business decision makers|
-|Solution relevance      |Technical apps built for or built on Azure|Business apps that utilize or extend Dynamics 365, Power BI, Office 365, Azure (add-in or add-on finished apps)|
-|Publishing options      |Contact me, Trial, Transact, or Services for Azure|Contact me, Trial, or Services for Dynamics 365 and Power BI|
-|In-product experience      |Azure portal|Dynamics 365, Office 365, Office client apps| 
-|Other      |On-premises publishing via Azure Stack, consulting services for Azure, managed services for Azure|Consulting services for Dynamics 365 and Power BI|
-||
+The commercial marketplace online stores, Microsoft AppSource and Azure Marketplace, are aligned with solution types and cloud products to help customers find what they need. Each online store has specialized publishing options to help you maximize your publishing investment. To learn more about the difference between the two online stores, see [Comparing Microsoft AppSource and Azure Marketplace](comparing-appsource-azure-marketplace.md).
 
 Consulting services offers that are based on Dynamics 365, Power Apps, and Power BI are eligible to be listed on AppSource. For more information, download the [Microsoft AppSource consulting services listing guidelines](https://go.microsoft.com/fwlink/?LinkId=828734&clcid=0x409) PDF file.
 
-Consulting services and managed services offers that are based on Microsoft Azure are eligible to be listed on Azure Marketplace. For more information, see [Publish an Azure consulting service offer](./partner-center-portal/create-consulting-service-offer.md) and [Publish a managed services offer to Azure Marketplace](https://docs.microsoft.com/azure/lighthouse/how-to/publish-managed-services-offers).
+Consulting services and managed services offers that are based on Microsoft Azure are eligible to be listed on Azure Marketplace. For more information, see [Publish an Azure consulting service offer](./partner-center-portal/create-consulting-service-offer.md) and [Publish a managed services offer to Azure Marketplace](../lighthouse/how-to/publish-managed-services-offers.md).
 
 > [!Note]
-> Consulting services in Azure Marketplace should focus on offers for a technical audience and emphasize Azure technical solutions and services.
+> Consulting services in Azure Marketplace should focus on Azure technical solutions and services.
 >
-> Consulting services in AppSource should focus on offers for users with expertise in delivering quality solutions for Dynamics 365, Power BI, or Power Apps.
+> Consulting services in AppSource should focus on business solutions for Dynamics 365, Power BI, or Power Apps.
  
 > [!TIP]
-> To publish to the Azure Marketplace storefront, in the Partner Center **Primary Product** drop-down list, select **Azure**.
+> To publish to Azure Marketplace, in the Partner Center **Primary Product** drop-down list, select **Azure**.
 >
 > To publish to AppSource, in the Partner Center **Primary Product** drop-down list, select **Dynamics 365**, **Power BI**, or **Power Apps**.
 
@@ -70,56 +60,47 @@ For AppSource, the eligible competencies are listed in the following table:
 
 Additional resources and support:
 
-* [Microsoft cloud enablement desk](https://partner.microsoft.com/campaigns/ced-nomination-form/): Complete the partner nomination form for the cloud enablement desk guided experience to connect to a cloud program specialist who can articulate Microsoft Partner Network benefits and serve as guide to competency attainment.  
+* [Microsoft cloud enablement desk](https://aka.ms/CEDnominate): Complete the partner nomination form for the cloud enablement desk guided experience to connect to a cloud program specialist who can articulate Microsoft Partner Network benefits and serve as guide to competency attainment.  
 * [Become a Power BI partner](https://powerbi.microsoft.com/become-a-partner/): Submit a request to get listed on Power BI showcase.
 
 For more information about competencies, go to the [Microsoft Partner Network Competencies](https://partner.microsoft.com/membership/competencies) page.
 
-System-integrator partners can submit consulting-service offers for the following 21 countries/regions:
+System-integrator partners can submit consulting-service offers for the following 20 countries/regions:
 
-|   |   |   |   |
+| Countries | (cont.) |  (cont.) |  (cont.) |
 |---------|----------|----------|----------|
 | Australia | Belgium | Canada | Denmark |
 | Finland  | France | Germany  | India   |
 | Italy    | Japan  |  Mexico  |  Netherlands  |
 |  New Zealand  |  Norway  |  Poland  | South Africa |
-|  Spain  | Sweden  | Switzerland  |  United States  |
-| United Kingdom  |
-||
+|  Sweden  | Switzerland  |  United States  | United Kingdom  |
+|
 
 ## Register for consulting services in the commercial marketplace
 
-Start by [registering](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) your company information in the marketplace. For a complete checklist of registration requirements, see [Become a publisher in the marketplace](https://docs.microsoft.com/azure/marketplace/become-publisher). 
-
-<!---
-**What to expect after registration**
-The Onboarding Team will reach out in 1 to 3 business days with a welcome email, which will include your Cloud Partner Portal sign-in information. [Cloud Partner Portal](https://cloudpartner.azure.com) is the offer listing portal where publishers submit listing information and submissions.
-
->[!Note]
->Partners need to register only once to become a publisher. After you become a publisher and receive your welcome email and Partner Center sign-in information, you don't need to re-register to publish different listing types.
---->
+Start by [registering](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) your company information in the marketplace. For a complete checklist of registration requirements, see [Become a publisher in the marketplace](become-publisher.md).
 
 ## Prepare your publishing artifacts
 Before you register, you can start collecting and preparing the content that will help your listing articulate the value of your service and solution to your target customer. 
 
 |Setup for new publishers  |
-|---------|
-|MPN ID     |
-|Company logos (48 x 48, 216 x 216 pixels)     |
-|Lead destination     |
-||
+| - |
+| MPN ID |
+| Company logos (48 x 48, 216 x 216 pixels) |
+| Lead destination |
+|
 
 |Setup for new offers  |
-|---------|
-|Offer name (200 characters) and description (2,000 characters)    |
-|Competencies     |
-|Country/region availability     |
-|Duration of engagement     |
-|Applicable industries, categories, and search keywords     |
-|Product overview video    |
-|Screenshots (maximum of 5, 1280 x 720 pixels)     |
-|Marketing documents (maximum of 3)     |
-||
+| - |
+| Offer name (200 characters) and description (2,000 characters) |
+| Competencies  |
+| Country/region availability |
+| Duration of engagement  |
+| Applicable industries, categories, and search keywords |
+| Product overview video |
+| Screenshots (maximum of 5, 1280 x 720 pixels) |
+| Marketing documents (maximum of 3) |
+|
 
 ## The publishing process
 
@@ -145,7 +126,7 @@ Offers must be of least one of the following five service types:
 > * **In person** – Onsite at a customer's location or a partner's facility.
 > * **Virtually** – Via teleconferencing, web conferencing, or remote implementation.
 
-After you've configured the previously listed required elements, the content review team will validate that your offer description is informative and complete for your target audience. 
+After you've configured the previously listed required elements, the content review team will validate that your offer description is informative and complete. 
 
 ### The listing title
 
@@ -185,9 +166,5 @@ Here are some Markdown tips:
 
 ## Next steps
 
-If you haven't already done so, learn how to [Grow your cloud business with Azure Marketplace](https://azuremarketplace.microsoft.com/sell).
-
-To register for and start working in Partner Center:
-
-* [Sign in to Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) to create or complete your offer.
-* See [Create a consulting service offer](./partner-center-portal/create-consulting-service-offer.md) for more information.
+- [Grow your cloud business with Azure Marketplace](https://azuremarketplace.microsoft.com/sell).
+- [Create a consulting service offer](./partner-center-portal/create-consulting-service-offer.md)

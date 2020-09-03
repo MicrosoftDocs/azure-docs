@@ -34,10 +34,10 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Launch a Java Spring app by using the portal
-            url: spring-cloud-quickstart-launch-app-portal.md 
-          - text: Launch a Java Spring app by using the Azure CLI
-            url: spring-cloud-quickstart-launch-app-cli.md 
+          - text: Quickstart - Deploy your first Azure Spring Cloud application
+            url: spring-cloud-quickstart.md 
+          - text: Introduction to Piggy Metrics sample app
+            url: spring-cloud-quickstart-sample-app-introduction.md
       - linkListType: tutorial
         links:
           - text: Prepare a Java Spring app for deployment

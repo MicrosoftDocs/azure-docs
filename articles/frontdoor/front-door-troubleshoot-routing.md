@@ -3,15 +3,15 @@ title: Troubleshoot Azure Front Door configuration issues
 description: In this tutorial, you learn how to self-troubleshoot some of the common issues that you may face for your Front Door.
 services: frontdoor
 documentationcenter: ''
-author: sharad4u
+author: duongau
 editor: ''
 ms.service: frontdoor
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 09/22/2018
-ms.author: sharadag
+ms.author: duau
 ---
 
 # Troubleshooting common routing issues
@@ -97,7 +97,7 @@ There are several possible causes for this symptom:
          - As an example, if the backend only accepts HTTP requests the following configurations would be valid:
             - _Accepted protocols_ are HTTP and HTTPS. _Forwarding protocol_ is HTTP. Match request will not work, since HTTPS is an allowed protocol and if a request came in as HTTPS, Front Door would try to forward it using HTTPS.
 
-            - _Accepted protocols_ are HTTP. _Forwarding protocol_ is either match request or HTTPS.
+            - _Accepted protocols_ are HTTP. _Forwarding protocol_ is either match request or HTTP.
 
     - _Url Rewrite_ is disabled by default and you should only use this field if you want to narrow the scope of backend-hosted resources that you want to make available. When disabled, Front Door will forward the same request path it receives. It is possible that this field is misconfigured and Front Door is requesting a resource from the backend that is not available, thus returning an HTTP 404 status code.
 

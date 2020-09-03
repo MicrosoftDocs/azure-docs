@@ -124,11 +124,13 @@ Custom log records have a type with the log name that you provide and the proper
 ## Sample walkthrough of adding a custom log
 The following section walks through an example of creating a custom log.  The sample log being collected has a single entry on each line starting with a date and time and then comma-delimited fields for code, status, and message.  Several sample entries are shown below.
 
-    2019-08-27 01:34:36 207,Success,Client 05a26a97-272a-4bc9-8f64-269d154b0e39 connected
-    2019-08-27 01:33:33 208,Warning,Client ec53d95c-1c88-41ae-8174-92104212de5d disconnected
-    2019-08-27 01:35:44 209,Success,Transaction 10d65890-b003-48f8-9cfc-9c74b51189c8 succeeded
-    2019-08-27 01:38:22 302,Error,Application could not connect to database
-    2019-08-27 01:31:34 303,Error,Application lost connection to database
+```output
+2019-08-27 01:34:36 207,Success,Client 05a26a97-272a-4bc9-8f64-269d154b0e39 connected
+2019-08-27 01:33:33 208,Warning,Client ec53d95c-1c88-41ae-8174-92104212de5d disconnected
+2019-08-27 01:35:44 209,Success,Transaction 10d65890-b003-48f8-9cfc-9c74b51189c8 succeeded
+2019-08-27 01:38:22 302,Error,Application could not connect to database
+2019-08-27 01:31:34 303,Error,Application lost connection to database
+```
 
 ### Upload and parse a sample log
 We provide one of the log files and can see the events that it will be collecting.  In this case New Line is a sufficient delimiter.  If a single entry in the log could span multiple lines though, then a timestamp delimiter would need to be used.
@@ -152,7 +154,7 @@ We use a simple query of *MyApp_CL* to return all records from the collected log
 
 
 ## Alternatives to custom logs
-While custom logs are useful if your data fits the criteria listed about, but there are cases such as the following where you need another strategy:
+While custom logs are useful if your data fits the criteria listed above, there are cases such as the following where you need another strategy:
 
 - The data doesn't fit the required structure such as having the timestamp in a different format.
 - The log file doesn't adhere to requirements such as file encoding or an unsupported folder structure.

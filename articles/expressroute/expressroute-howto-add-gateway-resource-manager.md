@@ -2,12 +2,12 @@
 title: 'Azure ExpressRoute: Add a gateway to a VNet: PowerShell'
 description: This article helps you add VNet gateway to an already created Resource Manager VNet for ExpressRoute.
 services: expressroute
-author: charwen
+author: duongau
 
 ms.service: expressroute
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/21/2019
-ms.author: charwen
+ms.author: duau
 ms.custom: seodec18
 
 ---

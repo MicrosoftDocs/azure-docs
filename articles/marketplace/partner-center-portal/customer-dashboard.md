@@ -1,12 +1,12 @@
 ---
-title: Customer dashboard in Microsoft commercial marketplace analytics on Partner Center
+title: Customer dashboard in Microsoft commercial marketplace analytics on Partner Center, Azure Marketplace and Microsoft AppSource
 description: Learn how to access information about your customers, including growth trends, using the customer dashboard in commercial marketplace analytics.
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
-ms.date: 12/11/2019
+ms.topic: article
+ms.date: 07/22/2020
+author: shganesh-dev
+ms.author: shganesh
 ---
 
 # Customer Dashboard in commercial marketplace analytics
@@ -26,17 +26,19 @@ The **Customer dashboard** of the **Analyze** menu displays data for customers w
 - [Customer by geography](#customer-by-geography)
 - [Customer trends](#customer-trends)
 - [Customers by orders and usage](#customers-by-orders-and-usage)
-- [Customers by SKUs](#customers-by-skus)
+- [Customers by plans](#customers-by-plans)
 - [Orders and usage by customer type](#orders-and-usage-by-customer-type)
 - [Customer details table](#customer-details-table)
 - [Customer page filters](#customer-page-filters)
+
+The maximum latency between customer acquisition and reporting in Partner Center is 48 hours.
 
 ### Customer summary
 
 The Customer summary section displays a count of all customers, including new, existing, and churned, during the selected date range.
 
 - Total customers is defined as the count of all customers who have purchased your offer and have at least one order that has not been canceled.
-- Customers percentage of growth compared to the previous month is indicated by the number and upward indicator in green or downward indicator in red.
+- Customer percentage of growth compared to the previous month is indicated by the number and upward indicator in green or downward indicator in red.
 - Growth trends are represented by bar graphs and will display the value for each month by hovering over the columns of the chart.
 
 There are three **customer types**: new, existing, and churned.
@@ -47,9 +49,9 @@ There are three **customer types**: new, existing, and churned.
 
 ### Customer by geography
 
-The **Customer by geography** chart shows the counts of all customers and customers acquired during the selected date range and are mapped based on the Customer Country. The light to dark color on the map represents the low to high value of the customer count. Click a record in the table to zoom in on a country.
+The **Customer by geography** chart shows the counts of all customers and customers acquired during the selected date range, which are mapped based on the Customer Country/Region. The light to dark color on the map represents the low to high value of the customer count. Select a record in the table to zoom in on a country/region.
 
-The heatmap displays the customer count and % by customer country. You can move the map to view the exact location and zoom into a specific location. This map has a supplemental grid that allows you to view the % of customers by location, as well as customers newly added to that location.
+The heat-map displays the customer count and percentage by customer country/region. You can move the map to view the exact location and zoom into a specific location. This map has a supplemental grid that allows you to view the % of customers by location, as well as customers newly added to that location.
 
 ### Customer trends
 
@@ -68,14 +70,14 @@ The **Customers by orders/usage** chart has three tabs, "orders," "normalized us
 
 As an example, see the chart below for normalized usage: The top 30th percentile of customers are contributing to 87% of the normalized usage cumulatively. The 30th percentile of customers are only contributing 1.57 million hours of usage.
 
-### Customers by SKUs
+### Customers by plans
 
-The **Customers by SKUs/usage** charts are described below.
+The **Customers by plans/usage** charts are described below.
 
 1. The Leader board presents details of the top 50 customers ranked by order count. After selecting a customer, the details of the customer are presented in sections 2, 3, and 4 of this leader board.
 2. The Customer profile details are displayed in this space when publishers are logged in with an owner role. If publishers are logged in with a contributor role, the details in this section will not be available.
-3. The Orders by SKUs donut chart displays the breakdown of orders purchased for SKUs. The top 5 SKUs with the highest order count are displayed, while the rest of the orders are grouped under 'rest all'.
-4. The Seats by SKUs donut chart displays the breakdown of seats ordered for SKUs. The top 5 SKUs with the highest seats are displayed, while the rest of the orders are grouped under rest all.
+3. The **Orders by plans** donut chart displays the breakdown of orders purchased for plans. The top five plans with the highest order count are displayed, while the rest of the orders are grouped under 'rest all'.
+4. The **Seats by plans** donut chart displays the breakdown of seats ordered for plans. The top five plans with the highest seats are displayed, while the rest of the orders are grouped under rest all.
 
 ### Orders and usage by customer type
 
@@ -92,14 +94,16 @@ The **Customer details** table displays a numbered list of the top 1000 customer
 - Each column in the grid is sortable.
 - The data can be extracted to a TSV file if the count of the records is less than 1000.
 - If records number is over 1000, exported data will be asynchronously placed in a downloads page for the next 30 days.
-- Filters can be applied to the table to display only the data that you are interested in. Data can be filtered by Company name, Customer ID, Marketplace Subscription ID, Azure License Type, Date Acquired, Date Lost, Customer Email, Customer Country/State/City/Zip, Customer Language, etc.
+- Apply filters to the table to display only the data you are interested in. Filter data by Company name, Customer ID, Marketplace Subscription ID, Azure License Type, Date Acquired, Date Lost, Customer Email, Customer Country/Region/State/City/Zip, Customer Language, and so on.
+- When an offer is purchased by a protected customer, information in **Customer Detailed Data** will be masked (************).
+- Customer dimension details such as Company Name, Customer Name, and Customer Email are at an organization ID level, not at Azure Marketplace or AppSource transaction level.
 
 ### Customer page filters
 
 The **Customers page** filters are applied at the Customers page level. You can select multiple filters to render the chart for the criteria you choose to view and the data you want to see in 'Detailed orders data' grid / export. Filters are applied on the data extracted for the data range you have selected on the top-right corner of the orders page.
 
 >[!NOTE]
-> Detailed definitions for each of the fields in Customer grid, page filters, and their possible selections are located in [Frequently asked questions and terminology for Commercial Marketplace analytics](./faq-terminology.md).
+> Detailed definitions for each of the fields in Customer grid, page filters, and their possible selections are located in the FAQ article noted below.
 
 ## Next steps
 

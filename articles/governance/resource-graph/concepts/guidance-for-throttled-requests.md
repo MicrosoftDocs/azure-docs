@@ -1,8 +1,9 @@
 ---
 title: Guidance for throttled requests
 description: Learn to group, stagger, paginate, and query in parallel to avoid requests being throttled by Azure Resource Graph.
-ms.date: 12/02/2019
+ms.date: 08/03/2020
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ---
 # Guidance for throttled requests in Azure Resource Graph
 
@@ -21,7 +22,7 @@ Graph:
 
 ## Understand throttling headers
 
-Azure Resource Graph allocates quota number for each user based on a time window. For example, a
+Azure Resource Graph allocates a quota number for each user based on a time window. For example, a
 user can send at most 15 queries within every 5-second window without being throttled. The quota
 value is determined by many factors and is subject to change.
 
@@ -31,6 +32,10 @@ In every query response, Azure Resource Graph adds two throttling headers:
   query count.
 - `x-ms-user-quota-resets-after` (hh:mm:ss): The time duration until a user's quota consumption is
   reset.
+
+When a security principal has access to more than 5000 subscriptions within the tenant or management
+group [query scope](./query-language.md#query-scope), the response is limited to the first 5000
+subscriptions and the `x-ms-tenant-subscription-limit-hit` header is returned as `true`.
 
 To illustrate how the headers work, let's look at a query response that has the header and values of
 `x-ms-user-quota-remaining: 10` and `x-ms-user-quota-resets-after: 00:00:03`.
@@ -256,7 +261,7 @@ Provide these details:
 - Your specific use-case and business driver needs for a higher throttling limit.
 - How many resources do you have access to? How many of the are returned from a single query?
 - What types of resources are you interested in?
-- What's your query pattern? X queries per Y seconds etc.
+- What's your query pattern? X queries per Y seconds, and so on.
 
 ## Next steps
 

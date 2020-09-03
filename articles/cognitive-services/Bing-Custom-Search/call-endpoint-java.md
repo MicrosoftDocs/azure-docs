@@ -10,6 +10,7 @@ ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: quickstart
 ms.date: 05/08/2020
+ms.custom: devx-track-java
 ms.author: aahi
 ---
 
@@ -59,8 +60,8 @@ Use this quickstart to learn how to request search results from your Bing Custom
 
 3. Create another class named `SearchResults` to contain the response from your Bing Custom Search instance.
 
-    ```csharp
-    class SearchResults{
+    ```java
+    class SearchResults {
         HashMap<String, String> relevantHeaders;
         String jsonResponse;
         SearchResults(HashMap<String, String> headers, String json) {

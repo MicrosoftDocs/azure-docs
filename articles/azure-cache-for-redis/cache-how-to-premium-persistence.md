@@ -10,8 +10,6 @@ ms.date: 08/24/2017
 # How to configure data persistence for a Premium Azure Cache for Redis
 Azure Cache for Redis has different cache offerings which provide flexibility in the choice of cache size and features, including Premium tier features such as clustering, persistence, and virtual network support. This article describes how to configure persistence in a premium Azure Cache for Redis instance.
 
-For information on other premium cache features, see [Introduction to the Azure Cache for Redis Premium tier](cache-premium-tier-intro.md).
-
 ## What is data persistence?
 [Redis persistence](https://redis.io/topics/persistence) allows you to persist data stored in Redis. You can also take snapshots and back up the data, which you can load in case of a hardware failure. This is a huge advantage over Basic or Standard tier where all the data is stored in memory and there can be potential data loss in case of a failure where Cache nodes are down. 
 
@@ -173,9 +171,9 @@ After a rewrite, two sets of AOF files exist in storage. Rewrites occur in the b
 
 
 ## Next steps
-Learn how to use more premium cache features.
+Learn more about Azure Cache for Redis features.
 
-* [Introduction to the Azure Cache for Redis Premium tier](cache-premium-tier-intro.md)
+* [Azure Cache for Redis Premium service tiers](cache-overview.md#service-tiers)
 
 <!-- IMAGES -->
 

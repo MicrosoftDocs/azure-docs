@@ -1,5 +1,5 @@
 ---
-title: Creating, updating statistics
+title: Create and update statistics using Azure Synapse SQL resources
 description: Recommendations and examples for creating and updating query-optimization statistics in Synapse SQL.
 services: synapse-analytics
 author: filippopovic
@@ -24,11 +24,13 @@ The more the SQL pool resource knows about your data, the faster it can execute 
 
 The SQL pool query optimizer is a cost-based optimizer. It compares the cost of various query plans, and then chooses the plan with the lowest cost. In most cases, it chooses the plan that will execute the fastest.
 
-For example, if the optimizer estimates that the date your query is filtering on will return one row it will choose one plan. If it estimates that the selected date will return 1 million rows, it will return a different plan.
+For example, if the optimizer estimates that the date your query is filtering on will return one row, it will choose one plan. If it estimates that the selected date will return 1 million rows, it will return a different plan.
 
 ### Automatic creation of statistics
 
-SQL pool will analyze incoming user queries for missing statistics when the database AUTO_CREATE_STATISTICS option is set to `ON`.  If statistics are missing, the query optimizer creates statistics on individual columns in the query predicate or join condition. This function is used to improve cardinality estimates for the query plan.
+SQL pool will analyze incoming user queries for missing statistics when the database AUTO_CREATE_STATISTICS option is set to `ON`.  If statistics are missing, the query optimizer creates statistics on individual columns in the query predicate or join condition. 
+
+This function is used to improve cardinality estimates for the query plan.
 
 > [!IMPORTANT]
 > Automatic creation of statistics is currently turned on by default.
@@ -95,7 +97,9 @@ One of the first questions to ask when you're troubleshooting a query is, **"Are
 
 This question isn't one that can be answered by the age of the data. An up-to-date statistics object might be old if there's been no material change to the underlying data. When the number of rows has changed substantially, or a material change in the distribution of values for a column occurs, *then* it's time to update statistics.
 
-There isn't a dynamic management view available to determine if data within the table has changed since the last time statistics were updated. Knowing the age of your statistics can provide you with part of the picture. You can use the following query to determine the last time your statistics were updated on each table.
+There isn't a dynamic management view available to determine if data within the table has changed since the last time statistics were updated. Knowing the age of your statistics can provide you with part of the picture. 
+
+You can use the following query to determine the last time your statistics were updated on each table.
 
 > [!NOTE]
 > If there is a material change in the distribution of values for a column, you should update statistics regardless of the last time they were updated.
@@ -131,9 +135,11 @@ WHERE
 
 Statistics on a gender column in a customer table might never need to be updated. Assuming the distribution is constant between customers, adding new rows to the table variation isn't going to change the data distribution.
 
-But, if your data warehouse contains only one gender and a new requirement results in multiple genders, then you need to update statistics on the gender column. For further information, review the [Statistics](/sql/relational-databases/statistics/statistics) article.
+But, if your data warehouse contains only one gender and a new requirement results in multiple genders, then you need to update statistics on the gender column. 
 
-### Implementing statistics management
+For further information, review the [Statistics](/sql/relational-databases/statistics/statistics) article.
+
+### Implement statistics management
 
 It's often a good idea to extend your data-loading process to ensure that statistics are updated at the end of the load. The data load is when tables most frequently change their size, distribution of values, or both. As such, the load process is a logical place to implement some management processes.
 
@@ -269,6 +275,7 @@ CREATE STATISTICS stats_col3 on dbo.table3 (col3);
 #### Use a stored procedure to create statistics on all columns in a database
 
 SQL pool doesn't have a system stored procedure equivalent to sp_create_stats in SQL Server. This stored procedure creates a single column statistics object on every column of the database that doesn't already have statistics.
+
 The following example will help you get started with your database design. Feel free to adapt it to your needs:
 
 ```sql
@@ -412,7 +419,9 @@ For example:
 UPDATE STATISTICS dbo.table1;
 ```
 
-The UPDATE STATISTICS statement is easy to use. Just remember that it updates *all* statistics on the table, prompting more work than is necessary. If performance isn't an issue, this method is the easiest and most complete way to guarantee that statistics are up to date.
+The UPDATE STATISTICS statement is easy to use. Just remember that it updates *all* statistics on the table, prompting more work than is necessary. 
+
+If performance isn't an issue, this method is the easiest and most complete way to guarantee that statistics are up to date.
 
 > [!NOTE]
 > When updating all statistics on a table, SQL pool does a scan to sample the table for each statistics object. If the table is large and has many columns and many statistics, it might be more efficient to update individual statistics based on need.
@@ -495,7 +504,9 @@ DBCC SHOW_STATISTICS() shows the data held within a statistics object. This data
 - Density vector
 - Histogram
 
-The header is the metadata about the statistics. The histogram displays the distribution of values in the first key column of the statistics object. The density vector measures cross-column correlation. SQL pool computes cardinality estimates with any of the data in the statistics object.
+The header is the metadata about the statistics. The histogram displays the distribution of values in the first key column of the statistics object. 
+
+The density vector measures cross-column correlation. SQL pool computes cardinality estimates with any of the data in the statistics object.
 
 #### Show header, density, and histogram
 
@@ -549,7 +560,11 @@ Statistics are created per particular column for particular dataset (storage pat
 
 ### Why use statistics
 
-The more SQL on-demand (preview) knows about your data, the faster it can execute queries against it. Collecting statistics on your data is one of the most important things you can do to optimize your queries. The SQL on-demand query optimizer is a cost-based optimizer. It compares the cost of various query plans, and then chooses the plan with the lowest cost. In most cases, it chooses the plan that will execute the fastest. For example, if the optimizer estimates that the date your query is filtering on will return one row it will choose one plan. If it estimates that the selected date will return 1 million rows, it will return a different plan.
+The more SQL on-demand (preview) knows about your data, the faster it can execute queries against it. Collecting statistics on your data is one of the most important things you can do to optimize your queries. 
+
+The SQL on-demand query optimizer is a cost-based optimizer. It compares the cost of various query plans, and then chooses the plan with the lowest cost. In most cases, it chooses the plan that will execute the fastest. 
+
+For example, if the optimizer estimates that the date your query is filtering on will return one row it will choose one plan. If it estimates that the selected date will return 1 million rows, it will return a different plan.
 
 ### Automatic creation of statistics
 
@@ -564,9 +579,11 @@ Automatic creation of statistics is done synchronously so you may incur slightly
 
 ### Manual creation of statistics
 
-SQL on-demand lets you create statistics manually. For CSV files,  you have to create statistics manually because automatic creation of statistics isn't turned on for CSV files. See the examples below for instructions on how to manually create statistics.
+SQL on-demand lets you create statistics manually. For CSV files,  you have to create statistics manually because automatic creation of statistics isn't turned on for CSV files. 
 
-### Updating statistics
+See the following examples for instructions on how to manually create statistics.
+
+### Update statistics
 
 Changes to data in files, deleting, and adding files result in data distribution changes and makes statistics out of date. In that case, statistics needs to be updated.
 
@@ -586,9 +603,9 @@ When the number of rows has changed substantially, or there's a material change 
 > [!NOTE]
 > If there is a material change in the distribution of values for a column, you should update statistics regardless of the last time they were updated.
 
-### Implementing statistics management
+### Implement statistics management
 
-You may want to extend your data pipeline to ensure that statistics are updated when data is significantly altered through addition, deletion, or change of files.
+You may want to extend your data pipeline to ensure that statistics are updated when data is significantly changed through addition, deletion, or change of files.
 
 The following guiding principles are provided for updating your statistics:
 
@@ -756,12 +773,12 @@ external_table
 Specifies external table that statistics should be created.
 
 FULLSCAN
-Compute statistics by scanning all rows. FULLSCAN and SAMPLE 100 PERCENT have the same results. FULLSCAN cannot be used with the SAMPLE option.
+Compute statistics by scanning all rows. FULLSCAN and SAMPLE 100 PERCENT have the same results. FULLSCAN can't be used with the SAMPLE option.
 
 SAMPLE number PERCENT
 Specifies the approximate percentage or number of rows in the table or indexed view for the query optimizer to use when it creates statistics. Number can be from 0 through 100.
 
-SAMPLE cannot be used with the FULLSCAN option.
+SAMPLE can't be used with the FULLSCAN option.
 
 > [!NOTE]
 > CSV sampling does not work at this time, only FULLSCAN is supported for CSV.

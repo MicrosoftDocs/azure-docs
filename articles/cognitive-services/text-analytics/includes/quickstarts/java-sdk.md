@@ -6,18 +6,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 03/17/2020
+ms.date: 07/27/2020
+ms.custom: devx-track-java
 ms.author: aahi
 ms.reviewer: tasharm, assafi, sumeh
 ---
 
 <a name="HOLTop"></a>
 
-[Reference documentation](https://aka.ms/azsdk-java-textanalytics-ref-docs) | [Library source code](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/textanalytics/azure-ai-textanalytics) | [Package](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/1.0.0-beta.4) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/textanalytics/azure-ai-textanalytics/src/samples/java/com/azure/ai/textanalytics)
+[Reference documentation](https://aka.ms/azsdk-java-textanalytics-ref-docs) | [Library source code](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/textanalytics/azure-ai-textanalytics) | [Package](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/5.0.0) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/textanalytics/azure-ai-textanalytics/src/samples/java/com/azure/ai/textanalytics)
 
 ## Prerequisites
 
-* Azure subscription - [Create one for free](https://azure.microsoft.com/free/)
+* Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
 * [Java Development Kit](https://www.oracle.com/technetwork/java/javase/downloads/index.html) (JDK) with version 8 or above
 * Once you have your Azure subscription, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Create a Text Analytics resource"  target="_blank">create a Text Analytics resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> in the Azure portal to get your key and endpoint.  After it deploys, click **Go to resource**.
     * You will need the key and endpoint from the resource you create to connect your application to the Text Analytics API. You'll paste your key and endpoint into the code below later in the quickstart.
@@ -27,14 +28,14 @@ ms.reviewer: tasharm, assafi, sumeh
 
 ### Add the client library
 
-Create a Maven project in your preferred IDE or development environment. Then add the following dependency to your project's *pom.xml* file. You can find the implementation syntax [for other build tools](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/1.0.0-beta.4) online.
+Create a Maven project in your preferred IDE or development environment. Then add the following dependency to your project's *pom.xml* file. You can find the implementation syntax [for other build tools](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/5.0.0) online.
 
 ```xml
 <dependencies>
      <dependency>
         <groupId>com.azure</groupId>
         <artifactId>azure-ai-textanalytics</artifactId>
-        <version>1.0.0-beta.4</version>
+        <version>5.0.0</version>
     </dependency>
 </dependencies>
 ```
@@ -51,7 +52,7 @@ import com.azure.ai.textanalytics.TextAnalyticsClientBuilder;
 import com.azure.ai.textanalytics.TextAnalyticsClient;
 ```
 
-In the java file, add a new class and add your azure resource's key and endpoint as shown below.
+In the java file, add a new class and add your Azure resource's key and endpoint as shown below.
 
 [!INCLUDE [text-analytics-find-resource-information](../find-azure-resource-info.md)]
 
@@ -97,7 +98,7 @@ Create a method to instantiate the `TextAnalyticsClient` object with the key and
 ```java
 static TextAnalyticsClient authenticateClient(String key, String endpoint) {
     return new TextAnalyticsClientBuilder()
-        .apiKey(new AzureKeyCredential(key))
+        .credential(new AzureKeyCredential(key))
         .endpoint(endpoint)
         .buildClient();
 }
@@ -130,8 +131,8 @@ static void sentimentAnalysisExample(TextAnalyticsClient client)
             sentenceSentiment.getConfidenceScores().getPositive(),
             sentenceSentiment.getConfidenceScores().getNeutral(),
             sentenceSentiment.getConfidenceScores().getNegative());
+        }
     }
-}
 ```
 
 ### Output
@@ -159,7 +160,7 @@ static void detectLanguageExample(TextAnalyticsClient client)
     System.out.printf("Detected primary language: %s, ISO 6391 name: %s, score: %.2f.%n",
         detectedLanguage.getName(),
         detectedLanguage.getIso6391Name(),
-        detectedLanguage.getScore());
+        detectedLanguage.getConfidenceScore());
 }
 ```
 
@@ -171,7 +172,7 @@ Detected primary language: French, ISO 6391 name: fr, score: 1.00.
 ## Named Entity recognition (NER)
 
 > [!NOTE]
-> In version `3.0-preview`:
+> In version `3.0`:
 > * NER includes separate methods for detecting personal information. 
 > * Entity linking is a separate request than NER.
 
@@ -188,7 +189,7 @@ static void recognizeEntitiesExample(TextAnalyticsClient client)
             "Recognized entity: %s, entity category: %s, entity sub-category: %s, score: %s.%n",
             entity.getText(),
             entity.getCategory(),
-            entity.getSubCategory(),
+            entity.getSubcategory(),
             entity.getConfidenceScore());
     }
 }
@@ -197,7 +198,8 @@ static void recognizeEntitiesExample(TextAnalyticsClient client)
 ### Output
 
 ```console
-Recognized entity: Seattle, entity category: Location, entity sub-category: GPE, score: 0.92.
+Recognized entity: trip, entity category: Event, entity sub-category: null, score: 0.61.
+Recognized entity: Seattle, entity category: Location, entity sub-category: GPE, score: 0.82.
 Recognized entity: last week, entity category: DateTime, entity sub-category: DateRange, score: 0.8.
 ```
 
@@ -210,23 +212,23 @@ static void recognizeLinkedEntitiesExample(TextAnalyticsClient client)
 {
     // The text that need be analyzed.
     String text = "Microsoft was founded by Bill Gates and Paul Allen on April 4, 1975, " +
-            "to develop and sell BASIC interpreters for the Altair 8800. " +
-            "During his career at Microsoft, Gates held the positions of chairman, " +
-            "chief executive officer, president and chief software architect, " +
-            "while also being the largest individual shareholder until May 2014.";
+        "to develop and sell BASIC interpreters for the Altair 8800. " +
+        "During his career at Microsoft, Gates held the positions of chairman, " +
+        "chief executive officer, president and chief software architect, " +
+        "while also being the largest individual shareholder until May 2014.";
 
     System.out.printf("Linked Entities:%n");
     for (LinkedEntity linkedEntity : client.recognizeLinkedEntities(text)) {
         System.out.printf("Name: %s, ID: %s, URL: %s, Data Source: %s.%n",
-                linkedEntity.getName(),
-                linkedEntity.getDataSourceEntityId(),
-                linkedEntity.getUrl(),
-                linkedEntity.getDataSource());
+            linkedEntity.getName(),
+            linkedEntity.getDataSourceEntityId(),
+            linkedEntity.getUrl(),
+            linkedEntity.getDataSource());
         System.out.printf("Matches:%n");
-        for (LinkedEntityMatch linkedEntityMatch : linkedEntity.getLinkedEntityMatches()) {
+        for (LinkedEntityMatch linkedEntityMatch : linkedEntity.getMatches()) {
             System.out.printf("Text: %s, Score: %.2f%n",
-                    linkedEntityMatch.getText(),
-                    linkedEntityMatch.getConfidenceScore());
+            linkedEntityMatch.getText(),
+            linkedEntityMatch.getConfidenceScore());
         }
     }
 }
@@ -238,24 +240,24 @@ static void recognizeLinkedEntitiesExample(TextAnalyticsClient client)
 Linked Entities:
 Name: Altair 8800, ID: Altair 8800, URL: https://en.wikipedia.org/wiki/Altair_8800, Data Source: Wikipedia.
 Matches:
-Text: Altair 8800, Score: 0.78
+Text: Altair 8800, Score: 0.88
 Name: Bill Gates, ID: Bill Gates, URL: https://en.wikipedia.org/wiki/Bill_Gates, Data Source: Wikipedia.
 Matches:
-Text: Bill Gates, Score: 0.55
-Text: Gates, Score: 0.55
+Text: Bill Gates, Score: 0.63
+Text: Gates, Score: 0.63
 Name: Paul Allen, ID: Paul Allen, URL: https://en.wikipedia.org/wiki/Paul_Allen, Data Source: Wikipedia.
 Matches:
-Text: Paul Allen, Score: 0.53
+Text: Paul Allen, Score: 0.60
 Name: Microsoft, ID: Microsoft, URL: https://en.wikipedia.org/wiki/Microsoft, Data Source: Wikipedia.
 Matches:
-Text: Microsoft, Score: 0.47
-Text: Microsoft, Score: 0.47
+Text: Microsoft, Score: 0.55
+Text: Microsoft, Score: 0.55
 Name: April 4, ID: April 4, URL: https://en.wikipedia.org/wiki/April_4, Data Source: Wikipedia.
 Matches:
-Text: April 4, Score: 0.25
+Text: April 4, Score: 0.32
 Name: BASIC, ID: BASIC, URL: https://en.wikipedia.org/wiki/BASIC, Data Source: Wikipedia.
 Matches:
-Text: BASIC, Score: 0.28
+Text: BASIC, Score: 0.33
 ```
 ## Key phrase extraction
 

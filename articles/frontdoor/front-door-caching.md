@@ -3,14 +3,14 @@ title: Azure Front Door - caching | Microsoft Docs
 description: This article helps you understand how Azure Front Door monitors the health of your backends
 services: frontdoor
 documentationcenter: ''
-author: sharad4u
+author: duongau
 ms.service: frontdoor
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
-ms.author: sharadag
+ms.author: duau
 ---
 
 # Caching with Azure Front Door
@@ -106,6 +106,12 @@ Cache-Control response headers that indicate that the response won't be cached s
 The following request headers will not be forwarded to a backend when using caching.
 - Content-Length
 - Transfer-Encoding
+
+## Cache duration
+
+Cache duration can be configured in both the Front Door Designer and in Rules Engine. The cache duration set in the Frontdoor designer is the minimum cache duration. This override will not work if the cache control header from the origin has greater TTL than override value. 
+
+The cache duration set via Rules Engine is a true cache override, meaning that it will use the override value irrespective of what the origin response header is.
 
 ## Next steps
 

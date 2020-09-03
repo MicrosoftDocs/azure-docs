@@ -21,7 +21,7 @@ For more information, see [Azure Object Understanding overview](overview.md).
 
 **A:** Objects should have the following qualities:
 
-* 1-10 meters for each dimension;
+* 1-6 meters for each dimension;
 * Non-symmetric, with sufficient variations in geometry;
 * Low reflectivity (matte surfaces) with bright color;
 * Stationary or occasional movement, no or small amounts of articulation;
@@ -50,7 +50,7 @@ The unit represents the unit of measurement of the model. Supported units can be
 
 **Q: Which OS build should my HoloLens run?**
 
-**A:** OS Build 18363.720, released March 12, 2020.
+**A:** OS Build 18363.720 or newer, released after March 12, 2020.
 
   More details at [Windows 10 March 12, 2020 update](https://support.microsoft.com/help/4551762).
 

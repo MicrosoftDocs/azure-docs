@@ -3,9 +3,8 @@ title: How to configure federated single sign-on for a non-gallery app
 description: How to configure federated single sign-on for a custom non-gallery application that you want to integrate with Azure AD
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
-
+author: kenwith
+manager: celestedg
 ms.assetid: 
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -14,17 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2017
-ms.author: mimart
-
+ms.author: kenwith
 ms.collection: M365-identity-device-management
 ---
 
 # How to configure federated single sign-on for a non-gallery application
 
-To configure single sign-on for a non-gallery application *without writing code*, you need to have a subscription or Azure AD Premium and the application must support SAML 2.0. For more information about Azure AD versions, visit [Azure AD pricing](https://azure.microsoft.com/pricing/details/active-directory/).
-
-## Overview of steps required
-Below is a high-level overview of the steps required to configure federated single sign-on with SAML 2.0 for a non-gallery (e.g. custom) application.
+This article provides a high-level overview of the steps required to configure federated single sign-on with SAML 2.0 for a non-gallery (e.g., custom) application.
 
 -   Configure the application’s metadata values in Azure AD (Sign on URL, Identifier, Reply URL)
 

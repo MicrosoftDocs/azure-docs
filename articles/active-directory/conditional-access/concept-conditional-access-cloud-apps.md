@@ -33,7 +33,7 @@ Administrators can assign a Conditional Access policy to the following cloud app
 - [Office 365 (preview)](#office-365-preview)
 - Azure Analysis Services
 - Azure DevOps
-- [Azure SQL Database and Data Warehouse](../../sql-database/sql-database-conditional-access.md)
+- [Azure SQL Database and Data Warehouse](../../azure-sql/database/conditional-access-configure.md)
 - Dynamics CRM Online
 - Microsoft Application Insights Analytics
 - [Microsoft Azure Information Protection](/azure/information-protection/faqs#i-see-azure-information-protection-is-listed-as-an-available-cloud-app-for-conditional-accesshow-does-this-work)
@@ -112,8 +112,13 @@ In addition to the Microsoft apps, administrators can add any Azure AD registere
 
 - Applications published through [Azure AD Application Proxy](../manage-apps/what-is-application-proxy.md)
 - [Applications added from the gallery](../manage-apps/add-application-portal.md)
-- [Custom applications not in the gallery](../manage-apps/add-non-gallery-app.md)
+- [Custom applications not in the gallery](../manage-apps/view-applications-portal.md)
 - [Legacy applications published through app delivery controllers and networks](../manage-apps/secure-hybrid-access.md)
+- Applications that use [password based single sign-on](../manage-apps/configure-password-single-sign-on-non-gallery-applications.md)
+
+> [!NOTE]
+> Since Conditional access policy sets the requirements for accessing a service you are not able to apply it to a client (public/native) application. Other words the policy is not set directly on a client (public/native) application, but is applied when a client calls a service. For example, a policy set on SharePoint service applies to the clients calling SharePoint. A policy set on Exchange applies to the attempt to access the email using Outlook client. That is why client (public/native) applications are not available for selection in the Cloud Apps picker and Conditional Access option is not available in the application settings for the client (public/native) application registered in your tenant. 
+
 
 ## User actions
 

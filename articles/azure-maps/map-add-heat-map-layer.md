@@ -1,6 +1,6 @@
 ---
 title: Add a heat map layer to a map | Microsoft Azure Maps
-description: In this article, you'll learn about how to add a heat map layer to a map using the Microsoft Azure Maps Web SDK.
+description: Learn how to create a heat map. See how to use the Azure Maps Web SDK to add a heat map layer to a map. Find out how to customize heat map layers.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 07/29/2019
@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: 
-ms.custom: codepen
+ms.custom: codepen, devx-track-javascript
 ---
 
 # Add a heat map layer

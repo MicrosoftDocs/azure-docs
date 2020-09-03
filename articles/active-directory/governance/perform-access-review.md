@@ -9,9 +9,9 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.subservice: compliance
-ms.date: 04/30/2020
+ms.date: 06/17/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
@@ -28,7 +28,7 @@ You can start the Access Review process from the notification email or by going 
 - **Email**:
 
 >[!IMPORTANT]
-> There could be delays in receiving email and it some cases it could take up to 24 hours. Whitelist azure-noreply@microsoft.com to make sure that you are receiving all emails.
+> There could be delays in receiving email and it some cases it could take up to 24 hours. Add azure-noreply@microsoft.com to your safe recipients list to make sure that you are receiving all emails.
 
 1. Look for an email from Microsoft asking you to review access. Here is an example email to review the access for a group.
 
@@ -124,7 +124,7 @@ You can get to the new reviewer experience with the updated user interface in My
 ### Email
 
   >[!IMPORTANT]
-> There could be delays in receiving email and it some cases it could take up to 24 hours. Whitelist azure-noreply@microsoft.com to make sure that you are receiving all emails.
+> There could be delays in receiving email and it some cases it could take up to 24 hours. Add azure-noreply@microsoft.com to your safe recipients list to make sure that you are receiving all emails.
 
    1. Look for an email from Microsoft asking you to review access. You can see an example email message below:
 
@@ -201,4 +201,3 @@ To accept recommendations for all users make sure that no one is selected and cl
 ## Next steps
 
 - [Complete an access review of groups or applications](complete-access-review.md)
-

@@ -1,24 +1,24 @@
 ---
 title: Payout summary overview - Azure Marketplace
-description: The Payout summary shows you details about the money you’ve earned with your offer. It also lets you know when you’ll receive payments and how much you'll be paid.
-author: mingshen
-ms.author: mingshen
-ms.service: marketplace 
+description: The Payout summary shows you details about the money you've earned with your offer. It also lets you know when you'll receive payments and how much you'll be paid.
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
-ms.date: 04/24/2020
+ms.service: marketplace 
+ms.topic: article
+author: mingshen-ms
+ms.author: mingshen
+ms.date: 07/14/2020
 ---
 
 # Payout summary overview
 
 The [Payout summary](./payout-summary.md) shows you details about the money you've earned with Microsoft. It also lets you know when you'll receive payments and how much you'll be paid.
 
-If you sell offerings in the Azure Marketplace, you'll also see info on successful payouts in the Payout summary. For more information about Azure Marketplace payment, see [Azure Marketplace participation policies](https://docs.microsoft.com/legal/marketplace/participation-policy) and [Microsoft Azure Marketplace Publisher Agreement](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3ypvt).
+If you sell offerings in the Azure Marketplace, you'll also see info on successful payouts in the Payout summary. For more information about Azure Marketplace payment, see [Azure Marketplace participation policies](https://docs.microsoft.com/legal/marketplace/participation-policy) and [Microsoft Azure Marketplace Publisher Agreement](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4xqkx).
 
 > [!NOTE]
-> To be eligible for payout, your proceeds must reach the [payment threshold](./payment-thresholds-methods-timeframes.md) of $50. For details about the payment threshold, see the [Microsoft Azure Marketplace Publisher Agreement](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3ypvt).
+> To be eligible for payout, your proceeds must reach the [payment threshold](./payment-thresholds-methods-timeframes.md) of $50. For details about the payment threshold, see the [Microsoft Azure Marketplace Publisher Agreement](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4xqkx).
 
-All reporting and insights for the transact publishing option are available in the Analytics section of Partner Center, accessed using this icon in the upper-right corner of the portal:
+To view payout details, sign in to [Partner Center](https://partner.microsoft.com/dashboard/home) and select the payout icon in the upper-right corner of the screen:
 
 ![Illustrates the Payout icon in the upper right corner of the Partner Center portal.](./media/payout-overview.png)
 
@@ -38,19 +38,6 @@ These are roles and permissions to access the payout report:
 | Payout summary | Can view | No access | No access | No access | Can view | No access  |
 | | | | | | | |
 
-## Payout report differences
-
-These are the differences in the payout report between Cloud Partner Portal (old) and Partner Center (new):
-
-| Cloud Partner Portal | Partner Center |
-| --- | --- |
-| **Link**: https://cloudpartner.azure.com/ | **Link**: https://partner.microsoft.com/dashboard/payouts/reports/transactionhistory and https://partner.microsoft.com/dashboard/payouts/reports/incentivepayments |
-| **Navigation**: Payout reporting provided in Insights Payout | **Navigation**: Payout reporting provided in Partner Center – Payout Icon |
-| **Scope**:<ul><li>Transaction per line item is visible, for collection in progress, collected, and paid.</li><li>Reporting – shows all line items once purchase order is created, including collection in progress and billing in progress, and collection status and line items that are not yet eligible to be paid.</li></ul> | **Scope**:<ul><li>Shows the line items after they're deemed as eligible earnings.</li><li>The customers pay to Microsoft first, and then ISVs can see the payout report starting.</li><li>Payout report won't show collection in progress and billing in Progress.</li></ul> |
-| **Transaction not ready for payout**: Billing in Progress | **Transaction not ready for payout**: Next estimated payment: The payout status is in the unprocessed state. |
-| **Payout status**: n/a | **Payout status**:<ul><li>Unprocessed: The earning is eligible for payment.</li><li>Upcoming: The earning will be sent to the publisher in the next monthly payout.</li><li>Sent: The payment has been sent to your bank.</li></ul> |
-| | |
-
 ## Payment schedules
 
 For a discussion of payment schedules, including holding periods, partner visibility, and when the customer uses a credit card or invoice, refer to the [Payment schedules](./payout-policy-details.md#payment-schedules) section of the **Payout details** topic.
@@ -65,7 +52,7 @@ This option provides a download of each earning line item you see on the Transac
 | participantId | The primary identity of the partner earning under the program |
 | participantIdType | Program ID for Incentive programs and Seller if the program is for Store programs and Azure Marketplace |
 | participantName | Name of the earning partner |
-| partnerCountryCode | Location/country of the earning partner |
+| partnerCountryCode | Location/country/region of the earning partner |
 | programName | Incentive/store program name |
 | transactionId | Unique identifier for the transaction |
 | transactionCurrency | Currency in which the original customer transaction occurred (it is not the partner location currency) |
@@ -108,15 +95,15 @@ This option provides a download of each earning line item you see on the Transac
 | storeFee | The amount retained by Microsoft as a fee for making the app or add-on available in the commercial marketplace. |
 | transactionPaymentMethod | Customer payment instrument used for the transaction (such as Card, Mobile Carrier Billing, and PayPal) |
 | tpan | Third-party ad network |
-| customerCountry | Customer country |
+| customerCountry | Customer country/region |
 | customerCity | Customer city |
 | customerState | Customer state |
 | customerZip | Customer zip/postal code |
 | TenantID | The ID of the Tenant |
 | externalReferenceId | Unique identifier for the program |
 | externalReferenceIdLabel | Unique identifier label |
-| transactionCountryCode | Country code in which the transaction happened |
-| taxCountry | Customer's country |
+| transactionCountryCode | Country/region code in which the transaction happened |
+| taxCountry | Customer's country/region |
 | taxState | Customer's state |
 | taxCity | Customer's city |
 | taxZipCode | Customer's zip/postal code |
@@ -127,7 +114,7 @@ This option provides a download of each earning line item you see on the Transac
 | AssetId | The unique identifier for the customer orders for your marketplace service. It represents the purchase line items. There can be multiple assets. |
 | OrderId | Relates to a customer's invoice |
 | LineItemId | Individual line in a customer's invoice |
-| Customer Country | The country name provided by the customer. This could be different than the country in a customer's Azure Subscription. |
+| Customer Country/Region | The country/region name provided by the customer. This could be different than the country/region in a customer's Azure Subscription. |
 | Customer EmailAddress | The e-mail address provided by the customer. This could be different from the e-mail address in a customer's Azure Subscription. |
 | SkuId | SKU ID as defined during publishing. An offer may have many SKUs, but a SKU can only be associated with a single offer. |
 

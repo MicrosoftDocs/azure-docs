@@ -3,9 +3,10 @@ title: Migrate non-partitioned Azure Cosmos containers to partitioned containers
 description: Learn how to migrate all the existing non-partitioned containers into partitioned containers.
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/25/2019
 ms.author: mjbrown
+ms.custom: devx-track-csharp
 ---
 
 # Migrate non-partitioned containers to partitioned containers

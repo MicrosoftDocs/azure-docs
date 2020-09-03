@@ -3,29 +3,27 @@ title: Support Matrix for Azure file share backup
 description: Provides a summary of support settings and limitations when backing up Azure file shares.
 ms.topic: conceptual
 ms.date: 5/07/2020
+ms.custom: references_regions
 ---
 
 # Support matrix for Azure file share backup
 
-You can use the [Azure Backup service](https://docs.microsoft.com/azure/backup/backup-overview) to back up Azure file shares. This article summarizes support settings when you back up Azure file shares with Azure Backup.
+You can use the [Azure Backup service](./backup-overview.md) to back up Azure file shares. This article summarizes support settings when you back up Azure file shares with Azure Backup.
 
-## Supported GEOS
+## Supported regions
 
-Backup for Azure file shares is available in the following GEOS:
+### GA regions for Azure file shares backup
 
-**GA regions**:<br>
-Australia South East (ASE), Canada Central (CNC), West Central US (WCUS), West US 2 (WUS 2), India South (INS), North Central US (NCUS), Japan East (JPE), Brazil South (BRS), South East Asia (SEA),Switzerland West (SZW), UAE Central (UAC), Norway East (NWE),India West (INW), Australia Central (ACL), Korea Central (KRC), Japan West (JPW), South Africa North (SAN), UK West (UKW), Korea South (KRS), Germany North (GN), Norway West (NWW), South Africa West (SAW), Switzerland North (SZN), Germany West Central (GWC), UAE North(UAN), France Central (FRC), India Central (INC), Canada East (CNE), East Asia (EA), Australia East (AE),  Central US (CUS), West US (WUS), US Gov Arizona (UGA), US Gov Texas (UGT), US Gov Virginia (UGV), US DoD Central (UDC), US DoD East (UDE)
-
-**Supported regions (as part of preview) but not yet GA**:<br>
-East US (EUS), East US 2 (EUS2), North Europe (NE), South Central US (SCUS), UK South (UKS), West Europe (WE)
+Azure file shares backup is available in all regions **except** for: Germany Central (Sovereign), Germany Northeast (Sovereign), China East, China East 2, China North, China North 2, US Gov Iowa
 
 ## Supported storage accounts
 
 | Storage  account details | Support                                                      |
 | ------------------------ | ------------------------------------------------------------ |
-| Account  Kind            | Azure  Backup supports Azure file shares present in general-purpose v1, general-purpose v2 and file storage type storage accounts |
+| Account  Kind            | Azure  Backup supports Azure file shares present in general-purpose v1, general-purpose v2, and file storage type storage accounts |
 | Performance              | Azure  Backup supports file shares in both standard and Premium Storage accounts |
-| Replication              | Azure  files shares in Storage Accounts with any replication type are  supported |
+| Replication              | Azure  file shares in storage accounts with any replication type are  supported |
+| Firewall enabled         | Azure file shares in storage accounts with Firewall rules that allow Microsoft Azure Services to access storage account are supported|
 
 ## Supported file shares
 
@@ -40,14 +38,16 @@ East US (EUS), East US 2 (EUS2), North Europe (NE), South Central US (SCUS), UK 
 
 | Setting                                                      | Limit |
 | ------------------------------------------------------------ | ----- |
-| Maximum  number of file shares that can be protected per day per vault | 200   |
+| Maximum  number of file shares that can be protected per vault per day| 200   |
 | Maximum  number of storage accounts that can be registered per vault per day | 50    |
+| Maximum  number of file shares that can be protected  per vault | 2000   |
+| Maximum  number of storage accounts that can be registered per vault | 200   |
 
 ## Backup limits
 
 | Setting                                      | Limit |
 | -------------------------------------------- | ----- |
-| Maximum  number of on-demand backups per day | 4     |
+| Maximum  number of on-demand backups per day | 10   |
 | Maximum  number of scheduled backups per day | 1     |
 
 ## Restore limits

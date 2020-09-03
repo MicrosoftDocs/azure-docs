@@ -4,11 +4,11 @@ description: This article walks you through downloading VPN device configuration
 titleSuffix: Azure VPN Gateway
 services: vpn-gateway
 author: yushwang
-manager: rossort
+
 
 ms.service: vpn-gateway
-ms.topic: article
-ms.date: 01/09/2019
+ms.topic: how-to
+ms.date: 09/02/2020
 ms.author: yushwang
 
 ---

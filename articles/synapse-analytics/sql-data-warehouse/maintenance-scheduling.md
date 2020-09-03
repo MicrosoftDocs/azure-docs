@@ -6,7 +6,7 @@ author: antvgski
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: 
+ms.subservice: sql-dw 
 ms.date: 02/02/2019
 ms.author: anvang
 ms.reviewer: jrasnick

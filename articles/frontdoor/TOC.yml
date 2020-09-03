@@ -1,11 +1,9 @@
-- name: Front Door Documentation
+- name: Front Door documentation
   href: index.yml
 - name: Overview
   items:
   - name: What is Azure Front Door?
     href: front-door-overview.md 
-  - name: What's new in Azure Front Door 
-    href: front-door-whats-new.md  
 - name: Quickstarts
   expanded: true
   items:
@@ -21,6 +19,10 @@
     href: front-door-tutorial-geo-filtering.md
   - name: Set up a Rules Engine 
     href: front-door-tutorial-rules-engine.md
+  - name: Add Security headers with Rules Engine
+    href: front-door-security-headers.md
+  - name: Web Application Firewall and Front Door
+    href: front-door-waf.md
 - name: Samples
   items:
   - name: Resource Manager Templates

@@ -3,14 +3,14 @@ title: Tutorial - Configure geo-filtering WAF policy - Azure Front Door
 description: In this tutorial, you learn how to create a geo-filtering policy and associate the policy with your existing Front Door frontend host
 services: frontdoor
 documentationcenter: ''
-author: teresayao
+author: duongau
 ms.service: frontdoor
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/21/2019
-ms.author: tyao
+ms.author: duau
 
 
 ---
@@ -24,7 +24,7 @@ Before you begin to set up a geo-filter policy, set up your PowerShell environme
 ### Set up your PowerShell environment
 Azure PowerShell provides a set of cmdlets that use the [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) model for managing your Azure resources. 
 
-You can install [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) on your local machine and use it in any PowerShell session. Follow the instructions on the page, to sign in with your Azure credentials, and install the Az PowerShell module.
+You can install [Azure PowerShell](https://docs.microsoft.com/powershell/azure/) on your local machine and use it in any PowerShell session. Follow the instructions on the page, to sign in with your Azure credentials, and install the Az PowerShell module.
 
 #### Connect to Azure with an interactive dialog for sign-in
 ```
@@ -48,7 +48,7 @@ Create a Front Door profile by following the instructions described in [Quicksta
 ## Define geo-filtering match condition
 
 Create a sample match condition that selects requests not coming from "US" using [New-AzFrontDoorWafMatchConditionObject](/powershell/module/az.frontdoor/new-azfrontdoorwafmatchconditionobject) on parameters when creating a match condition. 
-Two letter country codes to country mapping are provided [here](front-door-geo-filtering.md).
+Two letter country/region codes to country/region mapping are provided [here](front-door-geo-filtering.md).
 
 ```azurepowershell-interactive
 $nonUSGeoMatchCondition = New-AzFrontDoorWafMatchConditionObject `

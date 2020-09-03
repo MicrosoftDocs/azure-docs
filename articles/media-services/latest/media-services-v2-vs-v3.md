@@ -3,7 +3,7 @@ title: Migrate from Azure Media Services v2 to v3
 description: This article describes changes that were introduced in Azure Media Services v3 and shows differences between two versions. 
 services: media-services
 documentationcenter: na
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 tags: ''
@@ -11,20 +11,22 @@ keywords: azure media services, stream, broadcast, live, offline
 
 ms.service: media-services
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 03/09/2020
-ms.author: juliako
+ms.date: 08/31/2020
+ms.author: inhenkel
 ---
 
 # Media Services v2 vs. v3
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 This article describes changes that were introduced in Azure Media Services v3 and shows differences between two versions.
 
 ## General changes from v2
 
-* For assets created with v3, Media Services supports only the [Azure Storage server-side storage encryption](https://docs.microsoft.com/azure/storage/common/storage-service-encryption).
+* For assets created with v3, Media Services supports only the [Azure Storage server-side storage encryption](../../storage/common/storage-service-encryption.md).
     * You can use v3 APIs with Assets created with v2 APIs that had [storage encryption](../previous/media-services-rest-storage-encryption.md) (AES 256) provided by Media Services.
     * You cannot create new Assets with the legacy AES 256 [storage encryption](../previous/media-services-rest-storage-encryption.md) using v3 APIs.
 * The [Asset](assets-concept.md)'s properties in v3 differ to from v2, see [how the properties map](#map-v3-asset-properties-to-v2).
@@ -79,16 +81,17 @@ The v3 API has the following feature gaps with respect to the v2 API. Closing th
     * Inserting a silent audio track when input has no audio
     * Inserting a video track when input has no video
 * Live Events with transcoding currently do not support Slate insertion mid-stream and ad marker insertion via API call. 
- 
+* Refer to `https://github.com/Azure-Samples/media-services-v2-dotnet-core-restsharp-sample.git` sample code for best practices and patterns regarding using V2 REST API on .NETCore SDK.
+
 ## Asset specific changes
 
 ### Map v3 asset properties to v2
 
-The following table shows how the [Asset](https://docs.microsoft.com/rest/api/media/assets/createorupdate#asset)'s properties in v3 map to Asset's properties in v2.
+The following table shows how the [Asset](/rest/api/media/assets/createorupdate#asset)'s properties in v3 map to Asset's properties in v2.
 
 |v3 properties|v2 properties|
 |---|---|
-|`id` - (unique) the full Azure Resource Manager path, see examples in [Asset](https://docs.microsoft.com/rest/api/media/assets/createorupdate)||
+|`id` - (unique) the full Azure Resource Manager path, see examples in [Asset](/rest/api/media/assets/createorupdate)||
 |`name` - (unique) see [Naming conventions](media-services-apis-overview.md#naming-conventions) ||
 |`alternateId`|`AlternateId`|
 |`assetId`|`Id` - (unique) value starts with the `nb:cid:UUID:` prefix.|
@@ -106,8 +109,8 @@ To protect your Assets at rest, the assets should be encrypted by the storage si
 |Encryption option|Description|Media Services v2|Media Services v3|
 |---|---|---|---|
 |Media Services Storage Encryption|AES-256 encryption, key managed by Media Services.|Supported<sup>(1)</sup>|Not supported<sup>(2)</sup>|
-|[Storage Service Encryption for Data at Rest](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)|Server-side encryption offered by Azure Storage, key managed by Azure or by customer.|Supported|Supported|
-|[Storage Client-Side Encryption](https://docs.microsoft.com/azure/storage/common/storage-client-side-encryption)|Client-side encryption offered by Azure storage, key managed by customer in Key Vault.|Not supported|Not supported|
+|[Storage Service Encryption for Data at Rest](../../storage/common/storage-service-encryption.md)|Server-side encryption offered by Azure Storage, key managed by Azure or by customer.|Supported|Supported|
+|[Storage Client-Side Encryption](../../storage/common/storage-client-side-encryption.md)|Client-side encryption offered by Azure storage, key managed by customer in Key Vault.|Not supported|Not supported|
 
 <sup>1</sup> While Media Services does support handling of content in the clear/without any form of encryption, doing so isn't recommended.
 

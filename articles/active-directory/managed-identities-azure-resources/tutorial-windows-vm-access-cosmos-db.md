@@ -3,7 +3,7 @@ title: 'Tutorial: Use a managed identity to access Azure Cosmos DB - Windows - A
 description: A tutorial that walks you through the process of using a system-assigned managed identity on a Windows VM, to access Azure Cosmos DB.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: 
 ms.service: active-directory
@@ -13,7 +13,7 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/14/2020
-ms.author: markvi
+ms.author: barclayn
 ms.collection: M365-identity-device-management
 ---
 
@@ -79,7 +79,7 @@ New-AzRoleAssignment -ObjectId $spID -RoleDefinitionName "Cosmos DB Account Read
 
 This section shows how to call Azure Resource Manager using an access token for the Windows VM system-assigned managed identity. For the remainder of the tutorial, we will work from the VM we created earlier. 
 
-You need to install the latest version of [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) on your Windows VM.
+You need to install the latest version of [Azure CLI](/cli/azure/install-azure-cli) on your Windows VM.
 
 
 
@@ -199,6 +199,4 @@ This CLI command returns details about the collection:
 In this tutorial, you learned how to use a Windows VM system-assigned identity to access Cosmos DB.  To learn more about Cosmos DB see:
 
 > [!div class="nextstepaction"]
->[Azure Cosmos DB overview](/azure/cosmos-db/introduction)
-
-
+>[Azure Cosmos DB overview](../../cosmos-db/introduction.md)

@@ -1,11 +1,10 @@
 ---
-title: Create a workspace
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (classic): Create a workspace - Azure'
 description: To use Azure Machine Learning Studio (classic), you need to have a Machine Learning Studio (classic) workspace. This workspace contains the tools you need to create, manage, and publish experiments.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 
 author: likebupt
 ms.author: keli19
@@ -13,9 +12,9 @@ ms.custom: seodec18
 ms.date: 12/07/2017
 ---
 
-# Create and share an Azure Machine Learning Studio (classic) workspace
+# Create and share an Machine Learning Studio (classic) workspace
 
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
+**APPLIES TO:**  ![yes](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic)   ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
 
 To use Azure Machine Learning Studio (classic), you need to have a Machine Learning Studio (classic) workspace. This workspace contains the tools you need to create, manage, and publish experiments.
 
@@ -67,7 +66,7 @@ If you encounter a problem creating your workspace, see [Troubleshooting guide: 
 
 
 ## Share an Azure Machine Learning Studio (classic) workspace
-Once a Machine Learning Studio (classic) workspace is created, you can invite users to your workspace to share access to your workspace and all its experiments, datasets, notebooks, etc. You can add users in one of two roles:
+Once a Machine Learning Studio (classic) workspace is created, you can invite users to your workspace to share access to your workspace and all its experiments, datasets, etc. You can add users in one of two roles:
 
 * **User** - A workspace user can create, open, modify, and delete experiments, datasets, etc. in the workspace.
 * **Owner** - An owner can invite and remove users in the workspace, in addition to what a user can do.

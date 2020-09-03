@@ -6,10 +6,12 @@ ms.service: media-services
 ms.topic: quickstart
 ms.author: inhenkel
 author: IngridAtMicrosoft
-ms.date: 04/16/2020
+ms.date: 08/31/2020
 ---
 
 # Create an Azure Media Services live stream with OBS
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 This quickstart will help you create an Azure Media Services live stream by using the Azure portal and Open Broadcasting Studio (OBS). It assumes that you have an Azure subscription and have created a Media Services account.
 
@@ -142,7 +144,7 @@ In the next procedure, you'll go back to Azure Media Services in your browser to
 
    ![OBS output settings](media/live-events-obs-quickstart/live-event-obs-advanced-output-settings.png)
 
-1. Leave the rest of the settings unchanced and click **OK**.
+1. Leave the rest of the settings unchanged and click **OK**.
 
 ### Start streaming
 

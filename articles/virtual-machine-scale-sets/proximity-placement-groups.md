@@ -1,13 +1,13 @@
 ---
 title: Proximity placement groups preview for virtual machine scale sets
 description: Learn about creating and using proximity placement groups for Windows virtual machine scale sets in Azure. 
-author: ju-shim
-ms.author: jushiman
+author: cynthn
+ms.author: cynthn
 ms.topic: how-to
 ms.service: virtual-machine-scale-sets
 ms.subservice: availability
 ms.date: 07/01/2019
-ms.reviewer: mimckitt
+ms.reviewer: zivr
 ms.custom: mimckitt
 
 ---
@@ -27,7 +27,7 @@ A proximity placement group is a logical grouping used to make sure that Azure c
 
 
 ## Create a proximity placement group
-Create a proximity placement group using the [New-AzProximityPlacementGroup](https://docs.microsoft.com/powershell/module/az.compute/new-azproximityplacementgroup) cmdlet. 
+Create a proximity placement group using the [New-AzProximityPlacementGroup](/powershell/module/az.compute/new-azproximityplacementgroup) cmdlet. 
 
 ```azurepowershell-interactive
 $resourceGroup = "myPPGResourceGroup"
@@ -52,7 +52,7 @@ Get-AzProximityPlacementGroup
 
 ## Create a scale set
 
-Create a scale in the proximity placement group using `-ProximityPlacementGroup $ppg.Id` to refer to the proximity placement group ID when you use [New-AzVMSS](https://docs.microsoft.com/powershell/module/az.compute/new-azvmss) to create the scale set.
+Create a scale in the proximity placement group using `-ProximityPlacementGroup $ppg.Id` to refer to the proximity placement group ID when you use [New-AzVMSS](/powershell/module/az.compute/new-azvmss) to create the scale set.
 
 ```azurepowershell-interactive
 $scalesetName = "myVM"

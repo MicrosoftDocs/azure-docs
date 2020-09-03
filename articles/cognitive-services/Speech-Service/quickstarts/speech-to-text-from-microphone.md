@@ -1,16 +1,17 @@
 ---
 title: "Quickstart: Recognize speech from a microphone - Speech service"
 titleSuffix: Azure Cognitive Services
-description: In this quickstart, you'll use the Speech SDK to interactively recognize speech from audio data captured from a microphone.
+description: In this quickstart, you use the Speech SDK to interactively recognize speech from audio data captured from a microphone.
 services: cognitive-services
 author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 02/10/2020
-ms.author: dapine
-zone_pivot_groups: programming-languages-set-two-with-js-go
+ms.date: 06/25/2020
+ms.author: trbye
+ms.custom: "devx-track-python, devx-track-javascript, devx-track-csharp"
+zone_pivot_groups: programming-languages-set-two-with-js-go-spx
 ---
 
 # Quickstart: Recognize speech from a microphone
@@ -54,6 +55,18 @@ zone_pivot_groups: programming-languages-set-two-with-js-go
 [!INCLUDE [Python Header](../includes/quickstarts/from-microphone/python/header.md)]
 
 [!INCLUDE [python](../includes/quickstarts/from-microphone/python/python.md)]
+
+::: zone-end
+
+::: zone pivot="programmer-tool-spx"
+
+[!INCLUDE [SPX Header](../includes/quickstarts/from-microphone/spx/header.md)]
+
+[!INCLUDE [](../includes/spx-setup.md)]
+
+[!INCLUDE [spx](../includes/quickstarts/from-microphone/spx/spx.md)]
+
+[!INCLUDE [next steps to spx basics](../includes/quickstarts/spx-next-steps.md)]
 
 ::: zone-end
 
