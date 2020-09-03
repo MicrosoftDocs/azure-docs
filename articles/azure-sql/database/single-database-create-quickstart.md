@@ -10,11 +10,12 @@ ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer: 
-ms.date: 08/20/2020
+ms.date: 09/03/2020
 ---
 # Quickstart: Create an Azure SQL Database single database
 
 In this quickstart, you create a [single database](single-database-overview.md) in Azure SQL Database using either the Azure portal, a PowerShell script, or an Azure CLI script. You then query the database using **Query editor** in the Azure portal.
+
 
 
 ## Prerequisite
@@ -23,7 +24,7 @@ In this quickstart, you create a [single database](single-database-overview.md) 
 
 ## Create a single database
 
-This quickstart creates a single database 
+This quickstart creates a single database in the [serverless compute tier](serverless-tier-overview.md).
 
 # [Portal](#tab/azure-portal)
 
@@ -201,7 +202,8 @@ Create an Azure resource group with [New-AzResourceGroup](/powershell/module/az.
 
 
 ## Create a server
- 
+
+Create a server with the [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) cmdlet.
 
 ```azurepowershell-interactive
   Write-host "Creating primary server..."
@@ -213,7 +215,9 @@ Create an Azure resource group with [New-AzResourceGroup](/powershell/module/az.
    $server
 ```
 
-## Create a server firewall rule
+## Create a firewall rule
+
+Create a server firewall rule with the [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) cmdlet.
 
 ```azurepowershell-interactive
    Write-host "Configuring server firewall rule..."
@@ -226,9 +230,10 @@ Create an Azure resource group with [New-AzResourceGroup](/powershell/module/az.
 
 ## Create a single database
 
+Create a single database with the [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) cmdlet.
 
 ```azurepowershell-interactive
-   Write-host "Creating a gen5 2 vCore Serverless database..."
+   Write-host "Creating a gen5 2 vCore serverless database..."
    $database = New-AzSqlDatabase  -ResourceGroupName $resourceGroupName `
       -ServerName $serverName `
       -DatabaseName $databaseName `
@@ -240,17 +245,6 @@ Create an Azure resource group with [New-AzResourceGroup](/powershell/module/az.
       -SampleName "AdventureWorksLT"
    $database
 ```
-
-The preceding code uses these PowerShell cmdlets:
-
-| Command | Notes |
-|---|---|
-| [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Creates a resource group in which all resources are stored. |
-| [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) | Creates a server that hosts databases and elastic pools. |
-| [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) | Creates a server-level firewall rule for a server. |
-| [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) | Creates a database. |
-
-For more Azure SQL Database PowerShell samples, see [Azure PowerShell samples](../database/powershell-script-content-guide.md).
 
 ---
 
