@@ -183,7 +183,7 @@ azdata postgres server create -n <name of your postgresql server group> -ns <nam
 #azdata postgres server create -n pg1 -ns arc --dataSizeMb 1024 --serviceType NodePort --backupVolumeClaims pvc1,pvc2
 ```
 
-If the Kubernetes cluster has a dynamic storage provisioner, multiple comma-separated Kubernetes storage classes can be provided to--backupClasses along with their requested sizes to--backupSizesMb. For example:
+If the Kubernetes cluster has a dynamic storage provisioner, multiple comma-separated Kubernetes storage classes can be provided to `--backupClasses` along with their requested sizes to `--backupSizesMb`. For example:
 
 ```console
 azdata postgres server create -n pg1 --dataSizeMb 1024 --serviceType NodePort --backupClasses managed-premium,default --backupSizesMb 1024,2048
