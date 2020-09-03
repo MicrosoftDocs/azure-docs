@@ -71,7 +71,7 @@ In this section you can find information in how to configure SSO with most of th
 
 
 
-## Documentation on integration of Azure services into SAP components, see:
+## Documentation on integration of Azure services into SAP components
 
 - [Use SAP HANA in Power BI Desktop](/power-bi/desktop-sap-hana)
 - [DirectQuery and SAP HANA](/power-bi/desktop-directquery-sap-hana)
