@@ -116,6 +116,34 @@ If the compute role is configured on your device, you can also get the compute l
     - `FullLogCollection`: This parameter ensures that the log package will contain all the compute logs. By default, the log package contains only a subset of logs.
 
 
+## Change Kubernetes pod and service subnets
+
+By default, Kubernetes on your Azure Stack Edge device uses subnets 172.27.0.0/16 and 172.28.0.0/16 for pod and service respectively. If these subnets are already in use in your network, then you can run the `Set-HcsKubeClusterNetworkInfo` cmdlet to change these subnets.
+
+You want to perform this configuration before you configure compute from the Azure portal as the Kubernetes cluster is created in this step.
+
+1. Connect to the PowerShell interface of the device.
+1. From the PowerShell interface of the device, run:
+
+    `Set-HcsKubeClusterNetworkInfo -PodSubnet <subnet details> -ServiceSubnet <subnet details>`
+
+    Replace the <subnet details> with the subnet range that you want to use. 
+
+1. Once you have run this command, you can use the `Get-HcsKubeClusterNetworkInfo` command to verify that the pod and service subnets have changed.
+
+Here is a sample output for this command.
+
+```powershell
+[10.100.10.10]: PS>Set-HcsKubeClusterNetworkInfo -PodSubnet 10.96.0.1/16 -ServiceSubnet 10.97.0.1/16
+[10.100.10.10]: PS>Get-HcsKubeClusterNetworkInfo
+
+Id                                   PodSubnet    ServiceSubnet
+--                                   ---------    -------------
+6dbf23c3-f146-4d57-bdfc-76cad714cfd1 10.96.0.1/16 10.97.0.1/16
+[10.100.10.10]: PS>
+```
+
+
 ## Debug Kubernetes issues related to IoT Edge
 
 <!--When the Kubernetes cluster is created, there are two system namespaces created: `iotedge` and `azure-arc`. --> 
@@ -392,32 +420,6 @@ DEBUG 2020-05-14T20:42:14Z: loop process - 0 events, 0.000s
 [10.100.10.10]: PS>
 ```
 
-## Change Kubernetes pod and service subnets
-
-By default, Kubernetes on your Azure Stack Edge device uses subnets 172.27.0.0/16 and 172.28.0.0/16 for pod and service respectively. If these subnets are already in use in your network, then you can run the `Set-HcsKubeClusterNetworkInfo` cmdlet to change these subnets.
-
-You want to perform this configuration before you configure compute from the Azure portal as the Kubernetes cluster is created in this step.
-
-1. Connect to the PowerShell interface of the device.
-1. From the PowerShell interface of the device, run:
-
-    `Set-HcsKubeClusterNetworkInfo -PodSubnet <subnet details> -ServiceSubnet <subnet details>`
-
-    Replace the <subnet details> with the subnet range that you want to use. 
-
-1. Once you have run this command, you can use the `Get-HcsKubeClusterNetworkInfo` command to verify that the pod and service subnets have changed.
-
-Here is a sample output for this command.
-
-```powershell
-[10.100.10.10]: PS>Set-HcsKubeClusterNetworkInfo -PodSubnet 10.96.0.1/16 -ServiceSubnet 10.97.0.1/16
-[10.100.10.10]: PS>Get-HcsKubeClusterNetworkInfo
-
-Id                                   PodSubnet    ServiceSubnet
---                                   ---------    -------------
-6dbf23c3-f146-4d57-bdfc-76cad714cfd1 10.96.0.1/16 10.97.0.1/16
-[10.100.10.10]: PS>
-```
 
 
 ## Exit the remote session
