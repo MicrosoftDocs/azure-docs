@@ -74,6 +74,19 @@ If you do not already have an existing cluster, create it by using the Azure por
 
 You can check the status of your deployment in the **Activity log** which is accessible from the bell icon in the top navigation bar. 
 
+1. Validate the cluster for supportability. Connect to the VM by using your preferred method such as Remote Desktop Protocol (RDP) and then validate the cluster using Failover Cluster Manager or the following PowerShell command: 
+
+    ```powershell
+    Test-Cluster –Node ("<node1>","<node2>") –Include "Inventory", "Network", "System Configuration"
+    ```
+    
+### Validate cluster 
+
+For a failover cluster to be supported, it must pass cluster validation. Connect to the VM using your preferred method, such as Remote Desktop
+
+Use PowerShell to validate the cluster: 
+
+
 ### Onboard existing cluster
 
 If you already have a cluster configured in your SQL Server VM environment, you can onboard it from the Azure portal.
@@ -89,6 +102,8 @@ To do so, follow these steps:
 
 1. Review the settings for your cluster. 
 1. Select **Apply** to onboard your cluster and then select **Yes** at the prompt to proceed.
+
+
 
 
 ## Create availability group
