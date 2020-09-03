@@ -23,7 +23,7 @@ In this quickstart, you create a [single database](single-database-overview.md) 
 
 ## Create a single database
 
-This quickstart configures a firewall rule (on the server) to allow the computer you're using to access the database. For more information about creating server-level firewall rules, see [Create a server-level firewall](../database/firewall-create-server-level-portal-quickstart.md). You can also set database-level firewall rules. See [Create a database-level firewall rule](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database).
+This quickstart creates a single database 
 
 # [Portal](#tab/azure-portal)
 
