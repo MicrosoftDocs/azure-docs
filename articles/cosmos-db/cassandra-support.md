@@ -107,6 +107,9 @@ You can open a hosted native Cassandra shell (CQLSH v5.0.1) directly from the Da
 
 You can also connect to the Cassandra API in Azure Cosmos DB by using the CQLSH installed on a local machine. It comes with Apache Cassandra 3.1.1 and works out of the box by setting the environment variables. The following sections include the instructions to install, configure, and connect to Cassandra API in Azure Cosmos DB, on Windows or Linux using CQLSH.
 
+> [!NOTE]
+> Connections to Azure Cosmos DB Cassandra API will not work with DataStax Enterprise (DSE) versions of CQLSH. Please ensure you use only the open source Apache Cassandra versions of CQLSH when connecting to Cassandra API. 
+
 **Windows:**
 
 If using windows, we recommend you enable the [Windows filesystem for Linux](https://docs.microsoft.com/windows/wsl/install-win10#install-the-windows-subsystem-for-linux). You can then follow the linux commands below.
