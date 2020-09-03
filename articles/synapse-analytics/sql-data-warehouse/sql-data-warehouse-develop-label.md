@@ -17,7 +17,7 @@ ms.custom: seo-lt-2019
 
 Included in this article are tips for developing solutions using labels to instrument queries in SQL pool.
 
-Tips for using labels to instrument queries in Azure SQL Data Warehouse for developing solutions.
+Tips for using labels to instrument queries in Azure Synapse Analytics for developing solutions.
 
 ## What are labels?
 
