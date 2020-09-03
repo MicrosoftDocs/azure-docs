@@ -16,13 +16,13 @@ ms.date: 09/02/2020
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 > [!NOTE]
-> This connector is not actively maintained. However, [Apache Spark Connector for SQL Server and Azure SQL](https://docs.microsoft.com/sql/connect/spark/connector) is now available, with support for Python and R bindings, an easier-to use interface to bulk insert data, and many other improvements. We strongly encourage you to evaluate and use the new connector instead of this one.
+> As of Sep 2020, this connector is not actively maintained. However, [Apache Spark Connector for SQL Server and Azure SQL](https://docs.microsoft.com/sql/connect/spark/connector) is now available, with support for Python and R bindings, an easier-to use interface to bulk insert data, and many other improvements. We strongly encourage you to evaluate and use the new connector instead of this one. The information about the old connector (this page) is only retained for archival purposes.
 
 The Spark connector enables databases in Azure SQL Database, Azure SQL Managed Instance, and SQL Server to act as the input data source or output data sink for Spark jobs. It allows you to utilize real-time transactional data in big data analytics and persist results for ad hoc queries or reporting. Compared to the built-in JDBC connector, this connector provides the ability to bulk insert data into your database. It can outperform row-by-row insertion with 10x to 20x faster performance. The Spark connector supports Azure Active Directory (Azure AD) authentication to connect to Azure SQL Database and Azure SQL Managed Instance, allowing you to connect your database from Azure Databricks using your Azure AD account. It provides similar interfaces with the built-in JDBC connector. It is easy to migrate your existing Spark jobs to use this new connector.
 
 ## Download and build a Spark connector
 
-To get started, download the Spark connector from the [azure-sqldb-spark repository](https://github.com/microsoft/sql-spark-connector) on GitHub.
+The GitHub repo for the old connector previously linked to from this page is not actively maintained. Instead, we strongly encourage you to evaluate and use the [new connector](https://github.com/microsoft/sql-spark-connector).
 
 ### Official supported versions
 
