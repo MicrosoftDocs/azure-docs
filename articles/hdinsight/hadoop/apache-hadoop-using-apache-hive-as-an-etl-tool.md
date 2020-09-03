@@ -64,7 +64,7 @@ Data sources are typically external data that can be matched to existing data in
 You can use Hive to output data to different kinds of targets including:
 
 * A relational database, such as SQL Server or Azure SQL Database.
-* A data warehouse, such as Azure SQL Data Warehouse.
+* A data warehouse, such as Azure Synapse Analytics.
 * Excel.
 * Azure table and blob storage.
 * Applications or services that require data to be processed into specific formats, or as files that contain specific types of information structure.
