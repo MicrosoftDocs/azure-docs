@@ -41,6 +41,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/virtual-machines/linux/serial-console-nmi-sysrq.md",
+      "redirect_url": "/azure/virtual-machines/troubleshooting/serial-console-nmi-sysrq",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/virtual-machines/scripts/virtual-machines-windows-cli-sample-copy-snapshot-to-storage-account.md",
       "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-cli-sample-copy-snapshot-to-storage-account",
       "redirect_document_id": false
@@ -4529,6 +4534,11 @@
     {
       "source_path": "articles/virtual-machines/windows/serial-console.md",
       "redirect_url": "/azure/virtual-machines/troubleshooting/serial-console-windows",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/serial-console-grub-single-user-mode.md",
+      "redirect_url": "/azure/virtual-machines/troubleshooting/serial-console-grub-single-user-mode",
       "redirect_document_id": false
     },
     {
