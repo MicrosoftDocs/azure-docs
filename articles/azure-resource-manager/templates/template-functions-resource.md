@@ -856,7 +856,7 @@ If you use resourceId while deploying to a subscription, the resource ID is retu
 /subscriptions/{subscriptionId}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 ```
 
-For [management group-level resources](deploy-to-management-group.md), use the [extensionResourceId](#extensionresourceid) function. You use this function because resources deployed to the management group are implemented as extensions of the management group. For example, custom policy definitions that are deployed to a management group are extensions of the management group. However, built-in policy definitions are implemented as tenant level resources. For built-in policy definition, use the [tenantResourceId](#tenantresourceid) function.
+For [management group-level resources](deploy-to-management-group.md), use the [extensionResourceId](#extensionresourceid) function to reference resource that are implemented as extensions of the management group. Or, use the the [tenantResourceId](#tenantresourceid) function to reference resources that are deployed to the tenant but available in your management group. For example, custom policy definitions that are deployed to a management group are extensions of the management group. However, built-in policy definitions are implemented as tenant level resources.
 
 If you use resourceId while deploying to a management group, the resource ID is returned in the following format:
 
