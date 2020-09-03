@@ -87,7 +87,7 @@ If you do not update the root certificate before November 30th, 2020, your appli
 No. Since the change here is only on the client side to connect to the database server, there is no maintenance downtime needed here for this change.
 
 ### 5.  What if I cannot get a scheduled downtime for this change before Nov 30st?
-Since the clients used for connecting to the server needs to be updating the Certificate information as described in the fix section [here](./concepts-certificate-rotation.md#What-do-I-need-to-do-to-maintain-connectivity), we do not need to a downtime for the server in this case.
+Since the clients used for connecting to the server needs to be updating the Certificate information as described in the fix section [here](./concepts-certificate-rotation.md#what-do-i-need-to-do-to-maintain-connectivity), we do not need to a downtime for the server in this case.
 
 ###  6. If I create a new server after Nov 30th, will I be impacted?
 For server created after Nov 30th, you can use the newly issued Certificate to for your application to connect using SSL. 
