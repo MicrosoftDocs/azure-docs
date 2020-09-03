@@ -40,6 +40,8 @@ The preview is turned on by default, so you can use it right away. You can check
 1. From the **Users – All users** page, select the banner at the top of the page.
 1. In the **Preview features** pane, turn **Enhanced user management** off.
 
+![How and where to turn Enhanced User Management on and off](./media/users-search-enhanced/enable-preview.png)
+
 We appreciate your feedback so that we can improve our experience.
 
 ## More user properties
@@ -61,6 +63,8 @@ The following are the displayed user properties on the **All users** page:
 - Mail: The email of the user.
 - Invitation state: The status of the external partner (B2B) invitation for the user.
 - Last sign-in: The date the user last signed in.
+
+![new user properties displayed on All users and Deleted users pages](./media/users-search-enhanced/user-properties.png)
 
 ### Deleted users page
 
