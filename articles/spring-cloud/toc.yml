@@ -67,6 +67,8 @@
   items:
     - name: Prepare a Java Spring app for deployment
       href: spring-cloud-tutorial-prepare-app-deployment.md 
+    - name: Lauch Java app from source code
+      href: spring-cloud-howto-launch-from-source.md
     - name: Set up a Config Server
       href: spring-cloud-tutorial-config-server.md
     - name: Enable Service Registration
