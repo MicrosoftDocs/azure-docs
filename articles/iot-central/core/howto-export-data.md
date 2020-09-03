@@ -15,7 +15,7 @@ ms.service: iot-central
 > This article describes the preview data export features in IoT Central.
 >
 > - For information about the legacy data export features, see [Export IoT data to cloud destinations using data export (legacy)](./howto-export-data-legacy.md).
-> - To learn about the differences between the preview data export and legacy data export features, see the [comparison table](#comparison-of-legacy-data-export-and-new-data-export) below.
+> - To learn about the differences between the preview data export and legacy data export features, see the [comparison table](#comparison-of-legacy-data-export-and-preview-data-export) below.
 
 This article describes how to use the new data export preview feature in Azure IoT Central. Use this feature to continuously export filtered and enriched IoT data from your IoT Central application. Data export pushes changes in near real time to other parts of your cloud solution for warm-path insights, analytics, and storage.
 
