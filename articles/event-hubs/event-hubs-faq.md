@@ -65,8 +65,8 @@ See the following table for the outbound ports you need to open to use these pro
 | HTTP, HTTPS | 80, 443 |  |
 | Kafka | 9093 | See [Use Event Hubs from Kafka applications](event-hubs-for-kafka-ecosystem-overview.md)
 
-### What IP addresses do I need to whitelist?
-To find the right IP addresses to white list for your connections, follow these steps:
+### What IP addresses do I need to allow?
+To find the right IP addresses to add to the allowed list for your connections, follow these steps:
 
 1. Run the following command from a command prompt: 
 

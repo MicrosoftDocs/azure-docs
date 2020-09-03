@@ -1,11 +1,11 @@
 ---
-title: Filter inbound Internet traffic with Azure Firewall DNAT using the portal
+title: 'Tutorial: Filter inbound Internet traffic with Azure Firewall DNAT using the portal'
 description: In this tutorial, you learn how to deploy and configure Azure Firewall DNAT using the Azure portal. 
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 03/02/2020
+ms.date: 08/28/2020
 ms.author: victorh
 ms.custom: mvc
 #Customer intent: As an administrator, I want to deploy and configure Azure Firewall DNAT so that I can control inbound Internet access to resources located in a subnet.
@@ -24,12 +24,11 @@ In this tutorial, you learn how to:
 > * Configure a DNAT rule
 > * Test the firewall
 
+## Prerequisites
+
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-For this tutorial, you create a two peered VNets:
 
-- **VN-Hub** - the firewall is in this VNet.
-- **VN-Spoke** - the workload server is in this VNet.
 
 ## Create a resource group
 
@@ -41,6 +40,11 @@ For this tutorial, you create a two peered VNets:
 6. Select **Create**.
 
 ## Set up the network environment
+
+For this tutorial, you create a two peered VNets:
+
+- **VN-Hub** - the firewall is in this VNet.
+- **VN-Spoke** - the workload server is in this VNet.
 
 First, create the VNets and then peer them.
 

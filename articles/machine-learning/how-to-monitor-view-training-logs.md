@@ -106,8 +106,7 @@ Drill down to a specific run to view its outputs or logs, or download the snapsh
 
 You can also edit the run list table to select multiple runs and display either the last, minimum, or maximum logged value for your runs. Customize your charts to compare the logged metrics values and aggregates across multiple runs.
 
-:::image type="content" source="media/how-to-track-experiments/experimentation-tab.gif" alt-text="Run details in the Azure Machine Learning studio":::
-
+![Run details in the Azure Machine Learning studio](media/how-to-track-experiments/experimentation-tab.gif)
 
 ### Format charts in the studio
 
