@@ -78,7 +78,7 @@ You can define a search space for the object in the app by finger clicking in th
 
 This app can track multiple objects at one time. To do that, upload multiple models to the **LocalState** folder and set a search area that covers both objects. It may take longer to detect and track multiple objects.
 
-The app by default detects object at coarse pose, with a rough 2+ cm error. User can air tap with left hand to turn on high precision tracking mode, which potentially computes more accurate pose. This is still an experimental feature, which consumes more system resources and could result higher jitter in the estimated pose. Airtap again with left hand to switch to normal tracking mode.
+The app by default detects object at coarse pose, with a rough 2+ cm error. User can air tap with left hand to turn on high precision tracking mode, which potentially computes more accurate pose. This is still an experimental feature, which consumes more system resources and could result higher jitter in the estimated pose. Air tap again with left hand to switch to normal tracking mode.
 
 ## Capture diagnostics from the application
 
@@ -90,7 +90,7 @@ The next time the app runs, it will capture diagnostics and write data to the ap
 
 :::image type="content" source="../../../includes/media/object-understanding-quickstarts/portal-debug-diagnostics.png" alt-text="Portal Upload Diagnostics":::
 
-#### Upload dignostics to Object Understanding Azure Blob Storage
+#### Upload diagnostics to Object Understanding Azure Blob Storage
 
 The captured diagnostics can be uploaded to Object Understanding Azure blob storage directly when a user provides their subscription account information to the app.
 
