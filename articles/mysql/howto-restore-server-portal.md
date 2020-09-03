@@ -68,11 +68,11 @@ The following steps restore the sample server to a point-in-time:
 
 The new server created by point-in-time restore has the same server admin login name and password that was valid for the existing server at the point-in-time chose. You can change the password from the new server's **Overview** page.
 
-> [!IMPORTANT]
-> There are two server parameters which are reset to default values (and are not copied over from the primary server) after the restore operation
-> * time_zone - This value to set to DEFAULT value **SYSTEM**
-> * event_scheduler - The event_scheduler is set to **OFF** on the restored server
-> You will need to set these server parameters by reconfiguring the [server parameter](howto-server-parameters.md)
+Additionally, after the restore operation finishes, there are two server parameters which are reset to default values (and are not copied over from the primary server) after the restore operation
+*   time_zone - This value to set to DEFAULT value **SYSTEM**
+*   event_scheduler - The event_scheduler is set to **OFF** on the restored server
+
+You will need to copy over the value from teh primary server and set it on the restored server by reconfiguring the [server parameter](howto-server-parameters.md)
 
 The new server created during a restore does not have the VNet service endpoints that existed on the original server. These rules need to be set up separately for this new server. Firewall rules from the original server are restored.
 
