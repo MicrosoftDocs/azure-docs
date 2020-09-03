@@ -127,8 +127,11 @@ http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&res
 
 with the appropriate resource endpoint for your environment. For example, for [Azure Germany](https://docs.microsoft.com/azure/germany/germany-developer-guide#endpoint-mapping), the override would be 
 
-```
-http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://management.core.cloudapi.de/
+```json
+{
+    "name": "DefaultMSIEndpointForTokenAuthentication",
+    "value": "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://management.core.cloudapi.de/"
+}
 ```
 
 [Read more about fetching virtual machine scale set tokens](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-use-vm-token).
