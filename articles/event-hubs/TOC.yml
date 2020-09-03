@@ -64,7 +64,7 @@
   items:
     - name: Visualize data anomalies on Event Hubs data streams
       href: event-hubs-tutorial-visualize-anomalies.md
-    - name: Store captured data in Azure Synapse Analytics
+    - name: Store captured data in a Azure Synapse Analytics
       href: store-captured-data-data-warehouse.md
     - name: Process Apache Kafka for Event Hubs events using Stream analytics
       href: event-hubs-kafka-stream-analytics.md

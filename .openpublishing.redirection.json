@@ -41,6 +41,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/virtual-machines/linux/serial-console-nmi-sysrq.md",
+      "redirect_url": "/azure/virtual-machines/troubleshooting/serial-console-nmi-sysrq",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/virtual-machines/scripts/virtual-machines-windows-cli-sample-copy-snapshot-to-storage-account.md",
       "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-cli-sample-copy-snapshot-to-storage-account",
       "redirect_document_id": false
@@ -1094,6 +1099,11 @@
       "source_path": "articles/machine-learning/how-to-debug-pipelines-application-insights.md",
       "redirect_url": "/azure/machine-learning/how-to-log-pipelines-application-insights",
       "redirect_document_id": false
+    },
+    {
+      "source_path" : "articles/machine-learning/concept-pipeline-practices-tips.md",
+      "redirect_url" : "/azure/machine-learning/how-to-debug-pipelines",
+      "redirect_document_id" : false
     },
     {
       "source_path": "articles/batch-ai/cli-samples.md",
@@ -4532,6 +4542,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/virtual-machines/linux/serial-console-grub-single-user-mode.md",
+      "redirect_url": "/azure/virtual-machines/troubleshooting/serial-console-grub-single-user-mode",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/windows/troubleshoot-bitlocker-boot-error.md",
       "redirect_url": "/azure/virtual-machines/troubleshooting/troubleshoot-bitlocker-boot-error",
       "redirect_document_id": false
@@ -4770,7 +4785,7 @@
       "source_path": "articles/key-vault/general/group-permissions-for-apps.md",
       "redirect_url": "/azure/key-vault/general/assign-access-policy-cli",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path": "articles/key-vault/key-vault-hsm-protected-keys.md",
       "redirect_url": "/azure/key-vault/keys/hsm-protected-keys",
@@ -37588,8 +37603,13 @@
     },
     {
       "source_path": "articles/active-directory/application-config-sso-how-to-configure-federated-sso-non-gallery.md",
-      "redirect_url": "/azure/active-directory/manage-apps/configure-federated-single-sign-on-non-gallery-applications",
-      "redirect_document_id": true
+      "redirect_url": "/azure/active-directory/manage-apps/configure-saml-single-sign-on",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/manage-apps/configure-federated-single-sign-on-non-gallery-applications.md",
+      "redirect_url": "/azure/active-directory/manage-apps/configure-saml-single-sign-on",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/application-config-sso-how-to-configure-password-sso-gallery.md",
@@ -43568,219 +43588,219 @@
       "redirect_document_id": false
     },
     {
-        "source_path": "articles/aks/policy-samples.md",
-        "redirect_url": "/azure/aks/policy-reference",
-        "redirect_document_id": false
+      "source_path": "articles/aks/policy-samples.md",
+      "redirect_url": "/azure/aks/policy-reference",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/api-management/policy-samples.md",
-        "redirect_url": "/azure/api-management/policy-reference",
-        "redirect_document_id": false
+      "source_path": "articles/api-management/policy-samples.md",
+      "redirect_url": "/azure/api-management/policy-reference",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/app-service/policy-samples.md",
-        "redirect_url": "/azure/app-service/policy-reference",
-        "redirect_document_id": false
+      "source_path": "articles/app-service/policy-samples.md",
+      "redirect_url": "/azure/app-service/policy-reference",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/automation/policy-samples.md",
-        "redirect_url": "/azure/automation/policy-reference",
-        "redirect_document_id": false
+      "source_path": "articles/automation/policy-samples.md",
+      "redirect_url": "/azure/automation/policy-reference",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/azure-app-configuration/policy-samples.md",
-        "redirect_url": "/azure/azure-app-configuration/policy-reference",
-        "redirect_document_id": false
+      "source_path": "articles/azure-app-configuration/policy-samples.md",
+      "redirect_url": "/azure/azure-app-configuration/policy-reference",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/azure-arc/kubernetes/policy-samples.md",
-        "redirect_url": "/azure/azure-arc/kubernetes/policy-reference",
-        "redirect_document_id": false
+      "source_path": "articles/azure-arc/kubernetes/policy-samples.md",
+      "redirect_url": "/azure/azure-arc/kubernetes/policy-reference",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/azure-arc/servers/policy-samples.md",
-        "redirect_url": "/azure/azure-arc/servers/policy-reference",
-        "redirect_document_id": false
+      "source_path": "articles/azure-arc/servers/policy-samples.md",
+      "redirect_url": "/azure/azure-arc/servers/policy-reference",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/azure-cache-for-redis/policy-samples.md",
-        "redirect_url": "/azure/azure-cache-for-redis/policy-reference",
-        "redirect_document_id": false
+      "source_path": "articles/azure-cache-for-redis/policy-samples.md",
+      "redirect_url": "/azure/azure-cache-for-redis/policy-reference",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/azure-monitor/samples/policy-samples.md",
-        "redirect_url": "/azure/azure-monitor/samples/policy-reference",
-        "redirect_document_id": false
+      "source_path": "articles/azure-monitor/samples/policy-samples.md",
+      "redirect_url": "/azure/azure-monitor/samples/policy-reference",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/azure-resource-manager/custom-providers/policy-samples.md",
-        "redirect_url": "/azure/azure-resource-manager/custom-providers/policy-reference",
-        "redirect_document_id": false
+      "source_path": "articles/azure-resource-manager/custom-providers/policy-samples.md",
+      "redirect_url": "/azure/azure-resource-manager/custom-providers/policy-reference",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/azure-resource-manager/managed-applications/policy-samples.md",
-        "redirect_url": "/azure/azure-resource-manager/managed-applications/policy-reference",
-        "redirect_document_id": false
+      "source_path": "articles/azure-resource-manager/managed-applications/policy-samples.md",
+      "redirect_url": "/azure/azure-resource-manager/managed-applications/policy-reference",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/azure-resource-manager/management/policy-samples.md",
-        "redirect_url": "/azure/azure-resource-manager/management/policy-reference",
-        "redirect_document_id": false
+      "source_path": "articles/azure-resource-manager/management/policy-samples.md",
+      "redirect_url": "/azure/azure-resource-manager/management/policy-reference",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/azure-signalr/policy-samples.md",
-        "redirect_url": "/azure/azure-signalr/policy-reference",
-        "redirect_document_id": false
+      "source_path": "articles/azure-signalr/policy-samples.md",
+      "redirect_url": "/azure/azure-signalr/policy-reference",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/azure-sql/database/policy-samples.md",
-        "redirect_url": "/azure/azure-sql/database/policy-reference",
-        "redirect_document_id": false
+      "source_path": "articles/azure-sql/database/policy-samples.md",
+      "redirect_url": "/azure/azure-sql/database/policy-reference",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/backup/policy-samples.md",
-        "redirect_url": "/azure/backup/policy-reference",
-        "redirect_document_id": false
+      "source_path": "articles/backup/policy-samples.md",
+      "redirect_url": "/azure/backup/policy-reference",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/batch/policy-samples.md",
-        "redirect_url": "/azure/batch/policy-reference",
-        "redirect_document_id": false
+      "source_path": "articles/batch/policy-samples.md",
+      "redirect_url": "/azure/batch/policy-reference",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/cognitive-services/policy-samples.md",
-        "redirect_url": "/azure/cognitive-services/policy-reference",
-        "redirect_document_id": false
+      "source_path": "articles/cognitive-services/policy-samples.md",
+      "redirect_url": "/azure/cognitive-services/policy-reference",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/container-registry/policy-samples.md",
-        "redirect_url": "/azure/container-registry/policy-reference",
-        "redirect_document_id": false
+      "source_path": "articles/container-registry/policy-samples.md",
+      "redirect_url": "/azure/container-registry/policy-reference",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/cosmos-db/policy-samples.md",
-        "redirect_url": "/azure/cosmos-db/policy-reference",
-        "redirect_document_id": false
+      "source_path": "articles/cosmos-db/policy-samples.md",
+      "redirect_url": "/azure/cosmos-db/policy-reference",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/data-lake-analytics/policy-samples.md",
-        "redirect_url": "/azure/data-lake-analytics/policy-reference",
-        "redirect_document_id": false
+      "source_path": "articles/data-lake-analytics/policy-samples.md",
+      "redirect_url": "/azure/data-lake-analytics/policy-reference",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/data-lake-store/policy-samples.md",
-        "redirect_url": "/azure/data-lake-store/policy-reference",
-        "redirect_document_id": false
+      "source_path": "articles/data-lake-store/policy-samples.md",
+      "redirect_url": "/azure/data-lake-store/policy-reference",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/event-grid/policy-samples.md",
-        "redirect_url": "/azure/event-grid/policy-reference",
-        "redirect_document_id": false
+      "source_path": "articles/event-grid/policy-samples.md",
+      "redirect_url": "/azure/event-grid/policy-reference",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/event-hubs/policy-samples.md",
-        "redirect_url": "/azure/event-hubs/policy-reference",
-        "redirect_document_id": false
+      "source_path": "articles/event-hubs/policy-samples.md",
+      "redirect_url": "/azure/event-hubs/policy-reference",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/healthcare-apis/policy-samples.md",
-        "redirect_url": "/azure/healthcare-apis/policy-reference",
-        "redirect_document_id": false
+      "source_path": "articles/healthcare-apis/policy-samples.md",
+      "redirect_url": "/azure/healthcare-apis/policy-reference",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/iot-hub/policy-samples.md",
-        "redirect_url": "/azure/iot-hub/policy-reference",
-        "redirect_document_id": false
+      "source_path": "articles/iot-hub/policy-samples.md",
+      "redirect_url": "/azure/iot-hub/policy-reference",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/key-vault/policy-samples.md",
-        "redirect_url": "/azure/key-vault/policy-reference",
-        "redirect_document_id": false
+      "source_path": "articles/key-vault/policy-samples.md",
+      "redirect_url": "/azure/key-vault/policy-reference",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/lighthouse/samples/policy-samples.md",
-        "redirect_url": "/azure/lighthouse/samples/policy-reference",
-        "redirect_document_id": false
+      "source_path": "articles/lighthouse/samples/policy-samples.md",
+      "redirect_url": "/azure/lighthouse/samples/policy-reference",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/logic-apps/policy-samples.md",
-        "redirect_url": "/azure/logic-apps/policy-reference",
-        "redirect_document_id": false
+      "source_path": "articles/logic-apps/policy-samples.md",
+      "redirect_url": "/azure/logic-apps/policy-reference",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/mariadb/policy-samples.md",
-        "redirect_url": "/azure/mariadb/policy-reference",
-        "redirect_document_id": false
+      "source_path": "articles/mariadb/policy-samples.md",
+      "redirect_url": "/azure/mariadb/policy-reference",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/mysql/policy-samples.md",
-        "redirect_url": "/azure/mysql/policy-reference",
-        "redirect_document_id": false
+      "source_path": "articles/mysql/policy-samples.md",
+      "redirect_url": "/azure/mysql/policy-reference",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/postgresql/policy-samples.md",
-        "redirect_url": "/azure/postgresql/policy-reference",
-        "redirect_document_id": false
+      "source_path": "articles/postgresql/policy-samples.md",
+      "redirect_url": "/azure/postgresql/policy-reference",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/role-based-access-control/policy-samples.md",
-        "redirect_url": "/azure/role-based-access-control/policy-reference",
-        "redirect_document_id": false
+      "source_path": "articles/role-based-access-control/policy-samples.md",
+      "redirect_url": "/azure/role-based-access-control/policy-reference",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/search/policy-samples.md",
-        "redirect_url": "/azure/search/policy-reference",
-        "redirect_document_id": false
+      "source_path": "articles/search/policy-samples.md",
+      "redirect_url": "/azure/search/policy-reference",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/security-center/policy-samples.md",
-        "redirect_url": "/azure/security-center/policy-reference",
-        "redirect_document_id": false
+      "source_path": "articles/security-center/policy-samples.md",
+      "redirect_url": "/azure/security-center/policy-reference",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/security-center/security-center-policy-definitions.md",
-        "redirect_url": "/azure/security-center/policy-reference",
-        "redirect_document_id": false
+      "source_path": "articles/security-center/security-center-policy-definitions.md",
+      "redirect_url": "/azure/security-center/policy-reference",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/service-bus-messaging/policy-samples.md",
-        "redirect_url": "/azure/service-bus-messaging/policy-reference",
-        "redirect_document_id": false
+      "source_path": "articles/service-bus-messaging/policy-samples.md",
+      "redirect_url": "/azure/service-bus-messaging/policy-reference",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/service-fabric/policy-samples.md",
-        "redirect_url": "/azure/service-fabric/policy-reference",
-        "redirect_document_id": false
+      "source_path": "articles/service-fabric/policy-samples.md",
+      "redirect_url": "/azure/service-fabric/policy-reference",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/spring-cloud/policy-samples.md",
-        "redirect_url": "/azure/spring-cloud/policy-reference",
-        "redirect_document_id": false
+      "source_path": "articles/spring-cloud/policy-samples.md",
+      "redirect_url": "/azure/spring-cloud/policy-reference",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/storage/common/policy-samples.md",
-        "redirect_url": "/azure/storage/common/policy-reference",
-        "redirect_document_id": false
+      "source_path": "articles/storage/common/policy-samples.md",
+      "redirect_url": "/azure/storage/common/policy-reference",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/stream-analytics/policy-samples.md",
-        "redirect_url": "/azure/stream-analytics/policy-reference",
-        "redirect_document_id": false
+      "source_path": "articles/stream-analytics/policy-samples.md",
+      "redirect_url": "/azure/stream-analytics/policy-reference",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machines/policy-samples.md",
-        "redirect_url": "/azure/virtual-machines/policy-reference",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machines/policy-samples.md",
+      "redirect_url": "/azure/virtual-machines/policy-reference",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-machine-scale-sets/policy-samples.md",
-        "redirect_url": "/azure/virtual-machine-scale-sets/policy-reference",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-machine-scale-sets/policy-samples.md",
+      "redirect_url": "/azure/virtual-machine-scale-sets/policy-reference",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/virtual-network/policy-samples.md",
-        "redirect_url": "/azure/virtual-network/policy-reference",
-        "redirect_document_id": false
+      "source_path": "articles/virtual-network/policy-samples.md",
+      "redirect_url": "/azure/virtual-network/policy-reference",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/media-services/video-indexer/migrate-from-v1-to-v2.md",
@@ -52579,6 +52599,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/synapse-analytics/sql-data-warehouse/sql-data-warehouse-develop-views.md",
+      "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/performance-tuning-materialized-views",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/sql-data-warehouse/sql-data-warehouse-get-started-connect-sqlcmd.md",
       "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-get-started-connect-sqlcmd",
       "redirect_document_id": true
@@ -56811,6 +56836,17 @@
       "source_path": "articles/spring-cloud/spring-cloud-cli-reference.md",
       "redirect_url": "/cli/azure/ext/spring-cloud/spring-cloud?view=azure-cli-latest",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/live-video-analytics-edge/http-data-contract.md",
+      "redirect_url": "/azure/media-services/live-video-analytics-edge/http-extension-protocol",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/media-services/live-video-analytics-edge/grpc-data-contract.md",
+      "redirect_url": "/azure/media-services/live-video-analytics-edge/grpc-extension-protocol",
+      "redirect_document_id": false
     }
+
   ]
 }
