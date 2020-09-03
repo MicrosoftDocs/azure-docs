@@ -14,8 +14,6 @@ ms.custom: how-to, devx-track-python, contperfq1
 ---
 # Create compute targets for model training and deployment with Python SDK
 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
-
 In this article, use the Azure Machine Learning Python SDK to create and manage compute targets. You can also create and manage compute targets with:
 * [Azure Machine Learning studio](how-to-create-attach-compute-studio.md), 
 * The [CLI extension](reference-azure-machine-learning-cli.md#resource-management) for Azure Machine Learning

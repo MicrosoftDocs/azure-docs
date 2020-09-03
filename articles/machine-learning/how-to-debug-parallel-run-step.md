@@ -24,7 +24,7 @@ See the [Testing scripts locally section](how-to-debug-pipelines.md#debug-script
 
 ## Debugging scripts from remote context
 
-The transition from debugging a scoring script locally to debugging a scoring script in an actual pipeline can be a difficult leap. For information on finding your logs in the portal, the [machine learning pipelines section on debugging scripts from a remote context](how-to-debug-pipelines.md#finding-and-reading-pipeline-log-files). The information in that section also applies to a ParallelRunStep.
+The transition from debugging a scoring script locally to debugging a scoring script in an actual pipeline can be a difficult leap. For information on finding your logs in the portal, the [machine learning pipelines section on debugging scripts from a remote context](how-to-debug-pipelines.md). The information in that section also applies to a ParallelRunStep.
 
 For example, the log file `70_driver_log.txt` contains information from the controller that launches the ParallelRunStep code.
 
