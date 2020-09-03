@@ -4,8 +4,8 @@ description: This article describes how to configure the components of Azure App
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
-ms.date: 03/24/2020
+ms.topic: conceptual
+ms.date: 07/30/2020
 ms.author: absha
 ---
 
@@ -33,11 +33,13 @@ An application gateway is a dedicated deployment in your virtual network. Within
 
 Application Gateway uses one private IP address per instance, plus another private IP address if a private front-end IP is configured.
 
-Azure also reserves five IP addresses in each subnet for internal use: the first four and the last IP addresses. For example, consider 15 application gateway instances with no private front-end IP. You need at least 20 IP addresses for this subnet: five for internal use and 15 for the application gateway instances. So, you need a /27 subnet size or larger.
+Azure also reserves five IP addresses in each subnet for internal use: the first four and the last IP addresses. For example, consider 15 application gateway instances with no private front-end IP. You need at least 20 IP addresses for this subnet: five for internal use and 15 for the application gateway instances.
 
-Consider a subnet that has 27 application gateway instances and an IP address for a private front-end IP. In this case, you need 33 IP addresses: 27 for the application gateway instances, one for the private front end, and five for internal use. So, you need a /26 subnet size or larger.
+Consider a subnet that has 27 application gateway instances and an IP address for a private front-end IP. In this case, you need 33 IP addresses: 27 for the application gateway instances, one for the private front end, and five for internal use.
 
-We recommend that you use a subnet size of at least /28. This size gives you 11 usable IP addresses. If your application load requires more than 10 Application Gateway instances, consider a /27 or /26 subnet size.
+Application Gateway (Standard or WAF) SKU can support up to 32 instances (32 instance IP addresses + 1 private front-end IP + 5 Azure reserved) – so a minimum subnet size of /26 is recommended
+
+Application Gateway (Standard_v2 or WAF_v2 SKU) can support up to 125 instances (125 instance IP addresses + 1 private front-end IP + 5 Azure reserved) – so a minimum subnet size of /24 is recommended
 
 #### Network security groups on the Application Gateway subnet
 
@@ -45,12 +47,12 @@ Network security groups (NSGs) are supported on Application Gateway. But there a
 
 - You must allow incoming Internet traffic on TCP ports 65503-65534 for the Application Gateway v1 SKU, and TCP ports 65200-65535 for the v2 SKU with the destination subnet as **Any** and source as **GatewayManager** service tag. This port range is required for Azure infrastructure communication. These ports are protected (locked down) by Azure certificates. External entities, including the customers of those gateways, can't communicate on these endpoints.
 
-- Outbound internet connectivity can't be blocked. Default outbound rules in the NSG allow internet connectivity. We recommend that you:
+- Outbound Internet connectivity can't be blocked. Default outbound rules in the NSG allow Internet connectivity. We recommend that you:
 
   - Don't remove the default outbound rules.
   - Don't create other outbound rules that deny any outbound connectivity.
 
-- Traffic from the **AzureLoadBalancer** tag must be allowed.
+- Traffic from the **AzureLoadBalancer** tag with the destination subnet as **Any** must be allowed.
 
 #### Allow Application Gateway access to a few source IPs
 
@@ -60,7 +62,7 @@ For this scenario, use NSGs on the Application Gateway subnet. Put the following
 2. Allow incoming requests from source as **GatewayManager** service tag and destination as **Any** and destination ports as 65503-65534 for the Application Gateway v1 SKU, and ports 65200-65535 for v2 SKU for [back-end health status communication](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics). This port range is required for Azure infrastructure communication. These ports are protected (locked down) by Azure certificates. Without appropriate certificates in place, external entities can't initiate changes on those endpoints.
 3. Allow incoming Azure Load Balancer probes (*AzureLoadBalancer* tag) and inbound virtual network traffic (*VirtualNetwork* tag) on the [network security group](https://docs.microsoft.com/azure/virtual-network/security-overview).
 4. Block all other incoming traffic by using a deny-all rule.
-5. Allow outbound traffic to the internet for all destinations.
+5. Allow outbound traffic to the Internet for all destinations.
 
 #### User-defined routes supported on the Application Gateway subnet
 
@@ -69,7 +71,7 @@ For this scenario, use NSGs on the Application Gateway subnet. Put the following
 
 - **v1**
 
-   For the v1 SKU, user-defined routes (UDRs) are supported on the Application Gateway subnet, as long as they don't alter end-to-end request/response communication. For example, you can set up a UDR in the Application Gateway subnet to point to a firewall appliance for packet inspection. But you must make sure that the packet can reach its intended destination after inspection. Failure to do so might result in incorrect health-probe or traffic-routing behavior. This includes learned routes or default 0.0.0.0/0 routes that are propagated by Azure ExpressRoute or VPN gateways in the virtual network.
+   For the v1 SKU, user-defined routes (UDRs) are supported on the Application Gateway subnet, as long as they don't alter end-to-end request/response communication. For example, you can set up a UDR in the Application Gateway subnet to point to a firewall appliance for packet inspection. But you must make sure that the packet can reach its intended destination after inspection. Failure to do so might result in incorrect health-probe or traffic-routing behavior. This includes learned routes or default 0.0.0.0/0 routes that are propagated by Azure ExpressRoute or VPN gateways in the virtual network. Any scenario in which 0.0.0.0/0 needs to be redirected on-premises (forced tunneling) isn't supported for v1.
 
 - **v2**
 
@@ -117,11 +119,19 @@ For this scenario, use NSGs on the Application Gateway subnet. Put the following
 
 ## Front-end IP
 
-You can configure the application gateway to have a public IP address, a private IP address, or both. A public IP is required when you host a back end that clients must access over the internet via an internet-facing virtual IP (VIP). 
+You can configure the application gateway to have a public IP address, a private IP address, or both. A public IP is required when you host a back end that clients must access over the Internet via an Internet-facing virtual IP (VIP).
 
-A public IP isn't required for an internal endpoint that's not exposed to the internet. That's known as an *internal load-balancer* (ILB) endpoint or private frontend IP. An application gateway ILB is useful for internal line-of-business applications that aren't exposed to the internet. It's also useful for services and tiers in a multi-tier application within a security boundary that aren't exposed to the internet but that require round-robin load distribution, session stickiness, or TLS termination.
+> [!NOTE]
+> Application Gateway V2 currently does not support only private IP mode. It supports the following combinations:
+>* Private IP and Public IP
+>* Public IP only
+>
+> For more information, see [Frequently asked questions about Application Gateway](application-gateway-faq.md#how-do-i-use-application-gateway-v2-with-only-private-frontend-ip-address).
 
-Only 1 public IP address or one private IP address is supported. You choose the front-end IP when you create the application gateway.
+
+A public IP isn't required for an internal endpoint that's not exposed to the Internet. That's known as an *internal load-balancer* (ILB) endpoint or private frontend IP. An application gateway ILB is useful for internal line-of-business applications that aren't exposed to the Internet. It's also useful for services and tiers in a multi-tier application within a security boundary that aren't exposed to the Internet but that require round-robin load distribution, session stickiness, or TLS termination.
+
+Only one public IP address or one private IP address is supported. You choose the front-end IP when you create the application gateway.
 
 - For a public IP, you can create a new public IP address or use an existing public IP in the same location as the application gateway. For more information, see [static vs. dynamic public IP address](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#static-versus-dynamic-public-ip-address).
 
@@ -141,7 +151,7 @@ When you create a new listener, you choose between [*basic* and *multi-site*](ht
 
 - If you want all of your requests (for any domain) to be accepted and forwarded to backend pools, choose basic. Learn [how to create an application gateway with a basic listener](https://docs.microsoft.com/azure/application-gateway/quick-create-portal).
 
-- If you want to forward requests to different backend pools based on the *host* header or hostname, choose multi-site listener, where you must also specify a hostname that matches with the incoming request. This is because Application Gateway relies on HTTP 1.1 host headers to host more than one website on the same public IP address and port.
+- If you want to forward requests to different backend pools based on the *host* header or host names, choose multi-site listener, where you must also specify a host name that matches with the incoming request. This is because Application Gateway relies on HTTP 1.1 host headers to host more than one website on the same public IP address and port. To learn more, see [hosting multiple sites using Application Gateway](multiple-site-overview.md).
 
 #### Order of processing listeners
 
@@ -219,9 +229,7 @@ When you create a rule, you choose between [*basic* and *path-based*](https://do
 
 #### Order of processing rules
 
-For the v1 SKU, pattern matching of incoming requests is processed in the order that the paths are listed in the URL path map of the path-based rule. If a request matches the pattern in two or more paths in the path map, the path that's listed first is matched. And the request is forwarded to the back end that's associated with that path.
-
-For the v2 SKU, an exact match is higher priority than path order in the URL path map. If a request matches the pattern in two or more paths, the request is forwarded to the back end that's associated with the path that exactly matches the request. If the path in the incoming request doesn't exactly match any path in the map, pattern matching of the request is processed in the path map order list for the path-based rule.
+For the v1 and v2 SKU, pattern matching of incoming requests is processed in the order that the paths are listed in the URL path map of the path-based rule. If a request matches the pattern in two or more paths in the path map, the path that's listed first is matched. And the request is forwarded to the back end that's associated with that path.
 
 ### Associated listener
 
@@ -276,12 +284,16 @@ For more information about redirection, see:
 - [Redirect traffic to an external site by using PowerShell](redirect-external-site-powershell.md)
 - [Redirect traffic to an external site by using the CLI](redirect-external-site-cli.md)
 
-#### Rewrite the HTTP header setting
+### Rewrite HTTP headers and URL
 
-This setting adds, removes, or updates HTTP request and response headers while the request and response packets move between the client and back-end pools. For more information, see:
+By using rewrite rules, you can add, remove, or update HTTP(S) request and response headers as well as URL path and query string parameters as the request and response packets move between the client and backend pools via the application gateway.
 
- - [Rewrite HTTP headers overview](rewrite-http-headers.md)
+The headers and URL parameters can be set to static values or to other headers and server variables. This helps with important use cases, such as extracting client IP addresses, removing sensitive information about the backend, adding more security, and so on.
+For more information, see:
+
+ - [Rewrite HTTP headers and URL overview](rewrite-http-headers-url.md)
  - [Configure HTTP header rewrite](rewrite-http-headers-portal.md)
+ - [Configure URL rewrite](rewrite-url-portal.md)
 
 ## HTTP settings
 
@@ -305,7 +317,7 @@ Please refer to TLS offload and End-to-End TLS documentation for Application Gat
 
 ### Connection draining
 
-Connection draining helps you gracefully remove back-end pool members during planned service updates. You can apply this setting to all members of a back-end pool during rule creation. It ensures that all deregistering instances of a back-end pool continue to maintain existing connections and serve on-going requests for a configurable timeout and don't receive any new requests or connections. The only exception to this are requests bound for deregistering instances because of gateway-managed session affinity and will continue to be forwarded to the deregistering instances. Connection draining applies to back-end instances that are explicitly removed from the back-end pool.
+Connection draining helps you gracefully remove back-end pool members during planned service updates. You can apply this setting to all members of a back-end pool by enabling connection draining on the HTTP setting. It ensures that all deregistering instances of a back-end pool continue to maintain existing connections and serve on-going requests for a configurable timeout and don't receive any new requests or connections. The only exception to this are requests bound for deregistering instances because of gateway-managed session affinity and will continue to be forwarded to the deregistering instances. Connection draining applies to back-end instances that are explicitly removed from the back-end pool.
 
 ### Protocol
 
@@ -355,7 +367,7 @@ This setting associates a [custom probe](application-gateway-probe-overview.md#c
 > [!NOTE]
 > The custom probe doesn't monitor the health of the back-end pool unless the corresponding HTTP setting is explicitly associated with a listener.
 
-### <a id="pick"/></a>Pick host name from back-end address
+### <a name="pick"></a>Pick host name from back-end address
 
 This capability dynamically sets the *host* header in the request to the host name of the back-end pool. It uses an IP address or FQDN.
 

@@ -1,9 +1,10 @@
 ---
-title: Collation
+title: Collation support
 description: Collation types supported in Azure Synapse SQL
 author: filippopovic
 ms.service: synapse-analytics 
 ms.topic: reference
+ms.subservice:
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
@@ -17,7 +18,7 @@ You can change the default database collation from the Azure portal when you cre
 
 You can specify the default Synapse SQL on-demand database collation at creation time using CREATE DATABASE statement.
 
-## Changing collation
+## Change collation
 To change the default collation for SQL pool database, you simple update to the Collation field in the provisioning experience. For example, if you wanted to change the default collation to case sensitive, you would simply rename the Collation from SQL_Latin1_General_CP1_CI_AS to SQL_Latin1_General_CP1_CS_AS. 
 
 To change the default collation for SQL on-demand database, you can use ALTER DATABASE statement.
@@ -98,7 +99,7 @@ Additionally, SQL pool does not support following collation types:
 *    SQL_EBCDIC277_2_CP1_CS_AS
 *    UTF-8
 
-## Checking the current collation
+## Check the current collation
 To check the current collation for the database, you can run the following T-SQL snippet:
 ```sql
 SELECT DATABASEPROPERTYEX(DB_NAME(), 'Collation') AS Collation;

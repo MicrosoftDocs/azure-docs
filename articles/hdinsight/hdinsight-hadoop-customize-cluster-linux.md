@@ -5,9 +5,9 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: seoapr2020
-ms.date: 04/21/2020
+ms.date: 09/02/2020
 ---
 
 # Customize Azure HDInsight clusters by using script actions
@@ -70,6 +70,8 @@ A script action is Bash script that runs on the nodes in an HDInsight cluster. C
 
 * Can be used through the Azure portal, Azure PowerShell, Azure  CLI, or HDInsight .NET SDK.
 
+* Script actions that remove or modify service files on the VM may impact service health and availability.
+
 The cluster keeps a history of all scripts that have been run. The history helps when you need to find the ID of a script for promotion or demotion operations.
 
 > [!IMPORTANT]  
@@ -106,10 +108,12 @@ Scripts actions run with root privileges. Ensure you understand what a script do
 
 When you apply a script to a cluster, the cluster state changes from **Running** to **Accepted**. Then it changes to **HDInsight configuration** and, finally, back to **Running** for successful scripts. The script status is logged in the script action history. This information tells you whether the script succeeded or failed. For example, the `Get-AzHDInsightScriptActionHistory` PowerShell cmdlet shows the status of a script. It returns information similar to the following text:
 
-    ScriptExecutionId : 635918532516474303
-    StartTime         : 8/14/2017 7:40:55 PM
-    EndTime           : 8/14/2017 7:41:05 PM
-    Status            : Succeeded
+```output
+ScriptExecutionId : 635918532516474303
+StartTime         : 8/14/2017 7:40:55 PM
+EndTime           : 8/14/2017 7:41:05 PM
+Status            : Succeeded
+```
 
 > [!IMPORTANT]  
 > If you change the cluster user, admin, password after the cluster is created, script actions run against this cluster might fail. If you have any persisted script actions that target worker nodes, these scripts might fail when you scale the cluster.
@@ -189,7 +193,7 @@ Get more information on how to deploy a template:
 
 ### Use a script action during cluster creation from Azure PowerShell
 
-In this section, you use the [Add-AzHDInsightScriptAction](https://docs.microsoft.com/powershell/module/az.hdinsight/add-azhdinsightscriptaction) cmdlet to invoke scripts to customize a cluster. Before you start, make sure you install and configure Azure PowerShell. To use these PowerShell commands, you need the [AZ Module](https://docs.microsoft.com/powershell/azure/overview).
+In this section, you use the [Add-AzHDInsightScriptAction](https://docs.microsoft.com/powershell/module/az.hdinsight/add-azhdinsightscriptaction) cmdlet to invoke scripts to customize a cluster. Before you start, make sure you install and configure Azure PowerShell. To use these PowerShell commands, you need the [AZ Module](https://docs.microsoft.com/powershell/azure/).
 
 The following script shows how to apply a script action when you create a cluster by using PowerShell:
 
@@ -235,18 +239,20 @@ This section explains how to apply script actions to a running cluster.
 
 ### Apply a script action to a running cluster from Azure PowerShell
 
-To use these PowerShell commands, you need the [AZ Module](https://docs.microsoft.com/powershell/azure/overview). The following example shows how to apply a script action to a running cluster:
+To use these PowerShell commands, you need the [AZ Module](https://docs.microsoft.com/powershell/azure/). The following example shows how to apply a script action to a running cluster:
 
 [!code-powershell[main](../../powershell_scripts/hdinsight/use-script-action/use-script-action.ps1?range=105-117)]
 
 After the operation finishes, you receive information similar to the following text:
 
-    OperationState  : Succeeded
-    ErrorMessage    :
-    Name            : Giraph
-    Uri             : https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh
-    Parameters      :
-    NodeTypes       : {HeadNode, WorkerNode}
+```output
+OperationState  : Succeeded
+ErrorMessage    :
+Name            : Giraph
+Uri             : https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh
+Parameters      :
+NodeTypes       : {HeadNode, WorkerNode}
+```
 
 ### Apply a script action to a running cluster from the Azure CLI
 

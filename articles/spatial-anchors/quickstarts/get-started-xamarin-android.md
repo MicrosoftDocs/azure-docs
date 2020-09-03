@@ -59,6 +59,8 @@ Locate the `SpatialAnchorsAccountKey` field and replace `Set me` with the accoun
 
 Locate the `SpatialAnchorsAccountId` field and replace `Set me` with the account identifier.
 
+Locate the `SpatialAnchorsAccountDomain` field and replace `Set me` with the account domain.
+
 ## Deploy the app to your Android device
 
 Power on the Android device, sign in, and connect it to the computer using a USB cable.

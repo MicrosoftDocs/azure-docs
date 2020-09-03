@@ -3,12 +3,13 @@ title: Diagnose and troubleshoot Azure Cosmos DB Async Java SDK v2
 description: Use features like client-side logging and other third-party tools to identify, diagnose, and troubleshoot Azure Cosmos DB issues in Async Java SDK v2.
 author: anfeldma-ms
 ms.service: cosmos-db
-ms.date: 05/08/2020
+ms.date: 05/11/2020
 ms.author: anfeldma
 ms.devlang: java
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
+ms.custom: devx-track-java
 ---
 
 # Troubleshoot issues when you use the Azure Cosmos DB Async Java SDK v2 with SQL API accounts
@@ -20,7 +21,7 @@ ms.reviewer: sngun
 > 
 
 > [!IMPORTANT]
-> This is *not* the latest Java SDK for Azure Cosmos DB! Consider using Azure Cosmos DB Java SDK v4 for your project. Follow the instructions in the [Migrate to Azure Cosmos DB Java SDK v4](migrate-java-v4-sdk.md) guide and [Reactor vs RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-rxjava-guide.md) guide to upgrade. 
+> This is *not* the latest Java SDK for Azure Cosmos DB! You should upgrade your project to [Azure Cosmos DB Java SDK v4](sql-api-sdk-java-v4.md) and then read the Azure Cosmos DB Java SDK v4 [troubleshooting guide](troubleshoot-java-sdk-v4-sql.md). Follow the instructions in the [Migrate to Azure Cosmos DB Java SDK v4](migrate-java-v4-sdk.md) guide and [Reactor vs RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-rxjava-guide.md) guide to upgrade. 
 >
 > This article covers troubleshooting for Azure Cosmos DB Async Java SDK v2 only. See the Azure Cosmos DB Async Java SDK v2 [Release Notes](sql-api-sdk-async-java.md), [Maven repository](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb) and [performance tips](performance-tips-async-java.md) for more information.
 >

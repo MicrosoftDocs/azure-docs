@@ -5,10 +5,10 @@ description: This article shows how to deploy IPv6 addresses to an existing appl
 services: virtual-network
 documentationcenter: na
 author: KumudD
-manager: twooley
+manager: mtillman
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/31/2020
@@ -31,7 +31,7 @@ If you choose to install and use PowerShell locally, this article requires the A
 
 ## Prerequisites
 
-This article assumes that you deployed a Standard Load Balancer as described in [Quickstart: Create a Standard Load Balancer - Azure PowerShell](../load-balancer/quickstart-create-standard-load-balancer-powershell.md).
+This article assumes that you deployed a Standard Load Balancer as described in [Quickstart: Create a Standard Load Balancer - Azure PowerShell](../load-balancer/quickstart-load-balancer-standard-public-powershell.md).
 
 ## Retrieve the resource group
 

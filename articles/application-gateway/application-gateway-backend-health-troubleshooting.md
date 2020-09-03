@@ -4,8 +4,8 @@ description: Describes how to troubleshoot backend health issues for Azure Appli
 services: application-gateway
 author: surajmb
 ms.service: application-gateway
-ms.topic: article
-ms.date: 08/30/2019
+ms.topic: troubleshooting
+ms.date: 06/09/2020
 ms.author: surmb
 ---
 
@@ -204,7 +204,7 @@ here:
 
 | **Error** | **Actions** |
 | --- | --- |
-| Probe status code mismatch: Received 401 | Check whether the backend server requires authentication. Application Gateway probes can't pass credentials for authentication at this point. Either allow \"HTTP 401\" in a probe status code match or probe to a path where the server doesn't require authentication. | |
+| Probe status code mismatch: Received 401 | Check whether the backend server requires authentication. Application Gateway probes can't pass credentials for authentication. Either allow \"HTTP 401\" in a probe status code match or probe to a path where the server doesn't require authentication. | |
 | Probe status code mismatch: Received 403 | Access forbidden. Check whether access to the path is allowed on the backend server. | |
 | Probe status code mismatch: Received 404 | Page not found. Check whether the host name path is accessible on the backend server. Change the host name or path parameter to an accessible value. | |
 | Probe status code mismatch: Received 405 | The probe requests for Application Gateway use the HTTP GET method. Check whether your server allows this method. | |
@@ -236,10 +236,14 @@ request contains the string **unauthorized**, it will be marked as Healthy. Othe
 
 Learn more about [Application Gateway probe matching](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#probe-matching).
 
+>[!NOTE]
+> For all TLS related error messages, to learn more about SNI behavior and differences between the v1 and v2 SKU, check the [TLS overview](ssl-overview.md) page.
+
+
 #### Backend server certificate invalid CA
 
 **Message:** The server certificate used by the backend is not signed by
-a well-known Certificate Authority (CA). Whitelist the backend on the Application Gateway by uploading the root certificate of the server certificate used by the backend.
+a well-known Certificate Authority (CA). Allow the backend on the Application Gateway by uploading the root certificate of the server certificate used by the backend.
 
 **Cause:** End-to-end SSL with Application Gateway v2 requires the
 backend server's certificate to be verified in order to deem the server Healthy.
@@ -325,7 +329,7 @@ If the output doesn't show the complete chain of the certificate being returned,
 
 **Message:** The Common Name (CN) of the backend certificate does not match the host header of the probe.
 
-**Cause:** Application Gateway checks whether the host name specified in the backend HTTP settings matches that of the CN presented by the backend server’s TLS/SSL certificate. This is Standard_v2 and WAF_v2 SKU behavior. The Standard and WAF SKU’s Server Name Indication (SNI) is set as the FQDN in the backend pool address.
+**Cause:** Application Gateway checks whether the host name specified in the backend HTTP settings matches that of the CN presented by the backend server’s TLS/SSL certificate. This is Standard_v2 and WAF_v2 SKU (V2) behavior. The Standard and WAF SKU’s (v1) Server Name Indication (SNI) is set as the FQDN in the backend pool address. For more information on SNI behavior and differences between v1 and v2 SKU, see [Overview of TLS termination and end to end TLS with Application Gateway](ssl-overview.md).
 
 In the v2 SKU, if there's a default probe (no custom probe has been configured and associated), SNI will be set from the host name mentioned in the HTTP settings. Or, if “Pick host name from backend address” is mentioned in the HTTP settings, where the backend address pool contains a valid FQDN, this setting will be applied.
 

@@ -6,6 +6,7 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: vturecek
+ms.custom: devx-track-csharp
 ---
 # Reliable Actors reentrancy
 The Reliable Actors runtime, by default, allows logical call context-based reentrancy. This allows for actors to be reentrant if they are in the same call context chain. For example, Actor A sends a message to Actor B, who sends a message to Actor C. As part of the message processing, if Actor C calls Actor A, the message is reentrant, so it will be allowed. Any other messages that are part of a different call context will be blocked on Actor A until it finishes processing.
@@ -97,4 +98,4 @@ static class Program
 
 
 ## Next steps
-* Learn more about reentrancy in the [Actor API reference documentation](https://msdn.microsoft.com/library/azure/dn971626.aspx)
+* Learn more about reentrancy in the [Actor API reference documentation](/previous-versions/azure/dn971626(v=azure.100))

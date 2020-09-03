@@ -2,13 +2,13 @@
 author: aahill
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 04/13/2020
+ms.date: 07/27/2020
 ms.author: aahi
 ---
 
 <a name="HOLTop"></a>
 
-#### [Version 3.0-preview](#tab/version-3)
+#### [Version 3.0](#tab/version-3)
 
 [v3 Reference documentation](https://aka.ms/azsdk-python-textanalytics-ref-docs) | [v3 Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics) | [v3 Package (PiPy)](https://pypi.org/project/azure-ai-textanalytics/) | [v3 Samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/samples)
 
@@ -20,7 +20,7 @@ ms.author: aahi
 
 ## Prerequisites
 
-* Azure subscription - [Create one for free](https://azure.microsoft.com/free/)
+* Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
 * [Python 3.x](https://www.python.org/)
 * Once you have your Azure subscription, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Create a Text Analytics resource"  target="_blank">create a Text Analytics resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
     * You will need the key and endpoint from the resource you create to connect your application to the Text Analytics API. You'll paste your key and endpoint into the code below later in the quickstart.
@@ -32,10 +32,10 @@ ms.author: aahi
 
 After installing Python, you can install the client library with:
 
-#### [Version 3.0-preview](#tab/version-3)
+#### [Version 3.0](#tab/version-3)
 
 ```console
-pip install azure-ai-textanalytics
+pip install --upgrade azure-ai-textanalytics
 ```
 
 > [!TIP]
@@ -66,7 +66,7 @@ endpoint = "<paste-your-text-analytics-endpoint-here>"
 
 ## Object model
 
-#### [Version 3.0-preview](#tab/version-3)
+#### [Version 3.0](#tab/version-3)
 
 The Text Analytics client is a `TextAnalyticsClient` object that authenticates to Azure using your key. The client provides several methods for analyzing text as a batch. 
 
@@ -95,7 +95,7 @@ These code snippets show you how to do the following tasks with the Text Analyti
 
 ## Authenticate the client
 
-#### [Version 3.0-preview](#tab/version-3)
+#### [Version 3.0](#tab/version-3)
 
 Create a function to instantiate the `TextAnalyticsClient` object with your `key` AND `endpoint` created above. Then create a new client. 
 
@@ -124,7 +124,7 @@ Create a function to instantiate the `TextAnalyticsClient` object with your `key
 
 ## Sentiment analysis
 
-#### [Version 3.0-preview](#tab/version-3)
+#### [Version 3.0](#tab/version-3)
 
 Create a new function called `sentiment_analysis_example()` that takes the client as an argument, then calls the `analyze_sentiment()` function. The returned response object will contain the sentiment label and score of the entire input document, as well as a sentiment analysis for each sentence.
 
@@ -141,7 +141,7 @@ def sentiment_analysis_example(client):
         response.confidence_scores.negative,
     ))
     for idx, sentence in enumerate(response.sentences):
-        print("[Length: {}]".format(sentence.grapheme_length))
+        print("Sentence: {}".format(sentence.text))
         print("Sentence {} sentiment: {}".format(idx+1, sentence.sentiment))
         print("Sentence score:\nPositive={0:.2f}\nNeutral={1:.2f}\nNegative={2:.2f}\n".format(
             sentence.confidence_scores.positive,
@@ -158,14 +158,14 @@ sentiment_analysis_example(client)
 Document Sentiment: positive
 Overall scores: positive=1.00; neutral=0.00; negative=0.00 
 
-[Length: 30]
+Sentence: I had the best day of my life.
 Sentence 1 sentiment: positive
 Sentence score:
 Positive=1.00
 Neutral=0.00
 Negative=0.00
 
-[Length: 30]
+Sentence: I wish you were there with me.
 Sentence 2 sentiment: neutral
 Sentence score:
 Positive=0.21
@@ -192,7 +192,7 @@ Document ID: 4 , Sentiment Score: 1.00
 
 ## Language detection
 
-#### [Version 3.0-preview](#tab/version-3)
+#### [Version 3.0](#tab/version-3)
 
 Create a new function called `language_detection_example()` that takes the client as an argument, then calls the `detect_language()` function. The returned response object will contain the detected language in `primary_language` if successful, and an `error` if not.
 
@@ -237,10 +237,10 @@ Document ID: 3 , Language: Chinese_Simplified
 
 ## Named Entity recognition (NER)
 
-#### [Version 3.0-preview](#tab/version-3)
+#### [Version 3.0](#tab/version-3)
 
 > [!NOTE]
-> In version `3.0-preview`: 
+> In version `3.0`: 
 > * Entity linking is a separate request than NER.
 
 Create a new function called `entity_recognition_example` that takes the client as an argument, then calls the `recognize_entities()` function and iterates through the results. The returned response object will contain the list of detected entities in `entity` if successful, and an `error` if not. For each detected entity, print its Category and Sub-Category if exists.
@@ -255,7 +255,7 @@ def entity_recognition_example(client):
         print("Named Entities:\n")
         for entity in result.entities:
             print("\tText: \t", entity.text, "\tCategory: \t", entity.category, "\tSubCategory: \t", entity.subcategory,
-                    "\n\tLength: \t", entity.grapheme_length, "\tConfidence Score: \t", round(entity.confidence_score, 2), "\n")
+                    "\n\tConfidence Score: \t", round(entity.confidence_score, 2), "\n")
 
     except Exception as err:
         print("Encountered exception. {}".format(err))
@@ -267,11 +267,14 @@ entity_recognition_example(client)
 ```console
 Named Entities:
 
-    Text:    Seattle        Category:        Location       SubCategory:     GPE
-    Length:          7      Confidence Score:        0.92
+        Text:    trip   Category:        Event  SubCategory:     None
+        Confidence Score:        0.61
 
-    Text:    last week      Category:        DateTime       SubCategory:     DateRange
-    Length:          9      Confidence Score:        0.8
+        Text:    Seattle        Category:        Location       SubCategory:     GPE
+        Confidence Score:        0.82
+
+        Text:    last week      Category:        DateTime       SubCategory:     DateRange
+        Confidence Score:        0.8
 ```
 
 ## Entity Linking
@@ -296,7 +299,7 @@ def entity_linking_example(client):
             print("\tMatches:")
             for match in entity.matches:
                 print("\t\tText:", match.text)
-                print("\t\tConfidence Score: {0:.2f}".format(match.confidence_score), "\tLength: {}\n".format(match.grapheme_length))
+                print("\t\tConfidence Score: {0:.2f}".format(match.confidence_score))
             
     except Exception as err:
         print("Encountered exception. {}".format(err))
@@ -308,47 +311,40 @@ entity_linking_example(client)
 ```console
 Linked Entities:
 
-    Name:  Altair 8800     Id:  Altair 8800     Url:  https://en.wikipedia.org/wiki/Altair_8800 
-    Data Source:  Wikipedia
-    Matches:
-        Text: Altair 8800
-        Confidence Score: 0.00     Length: 11
-
-    Name:  Bill Gates     Id:  Bill Gates     Url:  https://en.wikipedia.org/wiki/Bill_Gates 
-    Data Source:  Wikipedia
-    Matches:
-        Text: Bill Gates
-        Confidence Score: 0.00     Length: 10
-
-        Text: Gates
-        Confidence Score: 0.00     Length: 5
-
-    Name:  Paul Allen     Id:  Paul Allen     Url:  https://en.wikipedia.org/wiki/Paul_Allen 
-    Data Source:  Wikipedia
-    Matches:
-        Text: Paul Allen
-        Confidence Score: 0.00     Length: 10
-
-    Name:  Microsoft     Id:  Microsoft     Url:  https://en.wikipedia.org/wiki/Microsoft 
-    Data Source:  Wikipedia
-    Matches:
-        Text: Microsoft
-        Confidence Score: 0.00     Length: 9
-
-        Text: Microsoft
-        Confidence Score: 0.00     Length: 9
-
-    Name:  April 4     Id:  April 4     Url:  https://en.wikipedia.org/wiki/April_4 
-    Data Source:  Wikipedia
-    Matches:
-        Text: April 4
-        Confidence Score: 0.00     Length: 7
-
-    Name:  BASIC     Id:  BASIC     Url:  https://en.wikipedia.org/wiki/BASIC 
-    Data Source:  Wikipedia
-    Matches:
-        Text: BASIC
-        Confidence Score: 0.00     Length: 5
+        Name:  Altair 8800      Id:  Altair 8800        Url:  https://en.wikipedia.org/wiki/Altair_8800
+        Data Source:  Wikipedia
+        Matches:
+                Text: Altair 8800
+                Confidence Score: 0.88
+        Name:  Bill Gates       Id:  Bill Gates         Url:  https://en.wikipedia.org/wiki/Bill_Gates
+        Data Source:  Wikipedia
+        Matches:
+                Text: Bill Gates
+                Confidence Score: 0.63
+                Text: Gates
+                Confidence Score: 0.63
+        Name:  Paul Allen       Id:  Paul Allen         Url:  https://en.wikipedia.org/wiki/Paul_Allen
+        Data Source:  Wikipedia
+        Matches:
+                Text: Paul Allen
+                Confidence Score: 0.60
+        Name:  Microsoft        Id:  Microsoft  Url:  https://en.wikipedia.org/wiki/Microsoft
+        Data Source:  Wikipedia
+        Matches:
+                Text: Microsoft
+                Confidence Score: 0.55
+                Text: Microsoft
+                Confidence Score: 0.55
+        Name:  April 4  Id:  April 4    Url:  https://en.wikipedia.org/wiki/April_4
+        Data Source:  Wikipedia
+        Matches:
+                Text: April 4
+                Confidence Score: 0.32
+        Name:  BASIC    Id:  BASIC      Url:  https://en.wikipedia.org/wiki/BASIC
+        Data Source:  Wikipedia
+        Matches:
+                Text: BASIC
+                Confidence Score: 0.33
 ```
 
 #### [Version 2.1](#tab/version-2)
@@ -404,7 +400,7 @@ Document ID: 2
 ## Key phrase extraction
 
 
-#### [Version 3.0-preview](#tab/version-3)
+#### [Version 3.0](#tab/version-3)
 
 Create a new function called `key_phrase_extraction_example()` that takes the client as an argument, then calls the `extract_key_phrases()` function. The result will contain the list of detected key phrases in `key_phrases` if successful, and an `error` if not. Print any detected key phrases.
 

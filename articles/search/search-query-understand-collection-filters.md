@@ -45,13 +45,17 @@ The first reason is just a consequence of how the OData language and EDM type sy
 
 When applying multiple filter criteria over a collection of complex objects, the criteria are **correlated** since they apply to *each object in the collection*. For example, the following filter will return hotels that have at least one deluxe room with a rate less than 100:
 
+```odata-filter-expr
     Rooms/any(room: room/Type eq 'Deluxe Room' and room/BaseRate lt 100)
+```
 
 If filtering was *uncorrelated*, the above filter might return hotels where one room is deluxe and a different room has a base rate less than 100. That wouldn't make sense, since both clauses of the lambda expression apply to the same range variable, namely `room`. This is why such filters are correlated.
 
 However, for full-text search, there's no way to refer to a specific range variable. If you use fielded search to issue a [full Lucene query](query-lucene-syntax.md) like this one:
 
+```odata-filter-expr
     Rooms/Type:deluxe AND Rooms/Description:"city view"
+```
 
 you may get hotels back where one room is deluxe, and a different room mentions "city view" in the description. For example, the document below with `Id` of `1` would match the query:
 
@@ -144,19 +148,27 @@ This data structure is designed to answer one question with great speed: In whic
 
 Building up from equality, next we'll look at how it's possible to combine multiple equality checks on the same range variable with `or`. It works thanks to algebra and [the distributive property of quantifiers](https://en.wikipedia.org/wiki/Existential_quantification#Negation). This expression:
 
+```odata-filter-expr
     seasons/any(s: s eq 'winter' or s eq 'fall')
+```
 
 is equivalent to:
 
+```odata-filter-expr
     seasons/any(s: s eq 'winter') or seasons/any(s: s eq 'fall')
+```
 
 and each of the two `any` sub-expressions can be efficiently executed using the inverted index. Also, thanks to [the negation law of quantifiers](https://en.wikipedia.org/wiki/Existential_quantification#Negation), this expression:
 
+```odata-filter-expr
     seasons/all(s: s ne 'winter' and s ne 'fall')
+```
 
 is equivalent to:
 
+```odata-filter-expr
     not seasons/any(s: s eq 'winter' or s eq 'fall')
+```
 
 which is why it's possible to use `all` with `ne` and `and`.
 
@@ -187,4 +199,4 @@ For specific examples of which kinds of filters are allowed and which aren't, se
 - [Filters in Azure Cognitive Search](search-filters.md)
 - [OData expression language overview for Azure Cognitive Search](query-odata-filter-orderby-syntax.md)
 - [OData expression syntax reference for Azure Cognitive Search](search-query-odata-syntax-reference.md)
-- [Search Documents &#40;Azure Cognitive Search REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [Search Documents &#40;Azure Cognitive Search REST API&#41;](/rest/api/searchservice/Search-Documents)

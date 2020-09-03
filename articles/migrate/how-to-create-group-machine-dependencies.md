@@ -2,25 +2,31 @@
 title: Set up agent-based dependency analysis in Azure Migrate Server Assessment
 description: This article describes how to set up agent-based dependency analysis in Azure Migrate Server Assessment.
 ms.topic: how-to
-ms.date: 2/24/2020
+ms.date: 6/09/2020
 ---
 
 # Set up dependency visualization
 
-This article describes how to set up agent-based dependency analysis in Azure Migrate:Server Assessment. [Dependency analysis](concepts-dependency-visualization.md) helps you to identify and understand dependencies across machines you want to assess and migrate to Azure.
+This article describes how to set up agentless dependency analysis in Azure Migrate:Server Assessment. [Dependency analysis](concepts-dependency-visualization.md) helps you to identify and understand dependencies across machines you want to assess and migrate to Azure.
 
 ## Before you start
 
-- [Learn about](concepts-dependency-visualization.md#agent-based-analysis) agent-based dependency analysis.
-- Review the prerequisites and support requirements for setting up agent-based dependency visualization for [VMware VMs](migrate-support-matrix-vmware.md#agent-based-dependency-analysis-requirements), [physical servers](migrate-support-matrix-physical.md#agent-based-dependency-analysis-requirements), and [Hyper-V VMs](migrate-support-matrix-hyper-v.md#agent-based-dependency-analysis-requirements).
-- Make sure you've [created](how-to-add-tool-first-time.md) an Azure Migrate project.
-- If you've already created a project, make sure you've [added](how-to-assess.md) the Azure Migrate:Server Assessment tool.
-- Make sure you've set up an [Azure Migrate appliance](migrate-appliance.md) to discover your on-premises machines. Learn how to set up an appliance for [VMware](how-to-set-up-appliance-vmware.md), [Hyper-V](how-to-set-up-appliance-hyper-v.md), or [physical servers](how-to-set-up-appliance-physical.md). The appliance discovers on-premises machines, and sends metadata, performance data to Azure Migrate:Server Assessment.
+- Review the support and deployment requirements for agent-based dependency analysis for:
+    - [VMware VMs](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agent-based)
+    - [Physical servers](migrate-support-matrix-physical.md#agent-based-dependency-analysis-requirements)
+    - [Hyper-V VMs](migrate-support-matrix-hyper-v.md#agent-based-dependency-analysis-requirements).
+- Make sure you:
+    - Have an Azure Migrate project. If you don't, [create](how-to-add-tool-first-time.md) one now.
+    - Check that you've [added](how-to-assess.md) the Azure Migrate:Server Assessment tool to the project.
+    - Set up an [Azure Migrate appliance](migrate-appliance.md) to discover on-premises machines. The appliance discovers on-premises machines, and sends metadata and performance data to Azure Migrate:Server Assessment. Set up an appliance for:
+        - [VMware](how-to-set-up-appliance-vmware.md) VMs.
+        - [Hyper-V](how-to-set-up-appliance-hyper-v.md) VMs.
+        - [Physical servers](how-to-set-up-appliance-physical.md).
 - To use dependency visualization, you associate a [Log Analytics workspace](../azure-monitor/platform/manage-access.md) with an Azure Migrate project:
     - You can attach a workspace only after setting up the Azure Migrate appliance, and discovering machines in the Azure Migrate project.
     - Make sure you have a workspace in the subscription that contains the Azure Migrate project.
     - The workspace must reside in the East US, Southeast Asia, or West Europe regions. Workspaces in other regions can't be associated with a project.
-    - The workspace must be in a region in which [Service Map is supported](../azure-monitor/insights/vminsights-enable-overview.md#prerequisites).
+    - The workspace must be in a region in which [Service Map is supported](../azure-monitor/insights/vminsights-configure-workspace.md#supported-regions).
     - You can associate a new or existing Log Analytics workspace with an Azure Migrate project.
     - You attach the workspace the first time that you set up dependency visualization for a machine. The workspace for an Azure Migrate project can't be modified after it's added.
     - In Log Analytics, the workspace associated with Azure Migrate is tagged with the Migration Project key, and the project name.
@@ -46,7 +52,7 @@ This article describes how to set up agent-based dependency analysis in Azure Mi
 On each machine you want to analyze, install the agents.
 
 > [!NOTE]
-> For machines monitored by System Center Operations Manager 2012 R2 or later, you don't need to install the MMA agent. Service Map integrates with Operations Manager. [Follow](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-scom#prerequisites) integration guidance.
+> For machines monitored by System Center Operations Manager 2012 R2 or later, you don't need to install the MMA agent. Service Map integrates with Operations Manager. [Follow](../azure-monitor/insights/service-map-scom.md#prerequisites) integration guidance.
 
 1. In **Azure Migrate: Server Assessment**, click **Discovered servers**.
 2. For each machine you want to analyze with dependency visualization, in the **Dependencies** column, click **Requires agent installation**.
@@ -71,9 +77,9 @@ To install the agent on a Windows machine:
 5. Click **Add** to add a new Log Analytics workspace. Paste in the workspace ID and key that you copied from the portal. Click **Next**.
 
 You can install the agent from the command line or using an automated method such as Configuration Manager or [Intigua](https://www.intigua.com/intigua-for-azure-migration).
-- [Learn more](../azure-monitor/platform/log-analytics-agent.md#installation-and-configuration) about using these methods to install the MMA agent.
+- [Learn more](../azure-monitor/platform/log-analytics-agent.md#installation-options) about using these methods to install the MMA agent.
 - The MMA agent can also be installed using this [script](https://go.microsoft.com/fwlink/?linkid=2104394).
-- [Learn more](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#supported-windows-operating-systems) about the Windows operating systems supported by MMA.
+- [Learn more](../azure-monitor/platform/agents-overview.md#supported-operating-systems) about the Windows operating systems supported by MMA.
 
 ### Install MMA on a Linux machine
 
@@ -84,7 +90,7 @@ To install the MMA on a Linux machine:
 
     ```sudo sh ./omsagent-<version>.universal.x64.sh --install -w <workspace id> -s <workspace key>```
 
-[Learn more](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#supported-linux-operating-systems) about the list of Linux operating systems support by MMA. 
+[Learn more](../azure-monitor/platform/agents-overview.md#supported-operating-systems) about the list of Linux operating systems support by MMA. 
 
 ## Install the Dependency agent
 
@@ -93,8 +99,8 @@ To install the MMA on a Linux machine:
 
     ```sh InstallDependencyAgent-Linux64.bin```
 
-- [Learn more](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-enable-hybrid-cloud#installation-script-examples) about how you can use scripts to install the Dependency agent.
-- [Learn more](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-enable-overview#supported-operating-systems) about the operating systems supported by the Dependency agent.
+- [Learn more](../azure-monitor/insights/vminsights-enable-hybrid.md#dependency-agent) about how you can use scripts to install the Dependency agent.
+- [Learn more](../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) about the operating systems supported by the Dependency agent.
 
 
 ## Create a group using dependency visualization
@@ -151,8 +157,8 @@ Run a query for dependency data as follows:
 Here are a few sample queries that you can use to extract dependency data.
 
 - You can modify the queries to extract your preferred data points.
-- [Review](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records) a complete list of dependency data records.
-- [Review](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#sample-log-searches) additional sample queries.
+- [Review](../azure-monitor/insights/service-map.md#log-analytics-records) a complete list of dependency data records.
+- [Review](../azure-monitor/insights/service-map.md#sample-log-searches) additional sample queries.
 
 #### Sample: Review inbound connections
 
@@ -160,7 +166,7 @@ Review inbound connections for a set of VMs.
 
 - The records in the table for connection metrics (VMConnection) don't represent individual physical network connections.
 - Multiple physical network connections are grouped into a logical connection.
-- [Learn more](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#connections) about how physical network connection data is aggregated in VMConnection.
+- [Learn more](../azure-monitor/insights/service-map.md#connections) about how physical network connection data is aggregated in VMConnection.
 
 ```
 // the machines of interest
@@ -197,5 +203,3 @@ VMConnection
 ## Next steps
 
 [Create an assessment](how-to-create-assessment.md) for a group.
-
-

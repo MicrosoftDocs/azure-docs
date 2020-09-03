@@ -8,7 +8,7 @@ manager: daveba
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 10/07/2019
 ms.subservice: hybrid
 ms.author: billmath
@@ -69,9 +69,9 @@ Browse to **Azure Active Directory** > **Sign-ins** in the [Azure Active Directo
 Use the following checklist to troubleshoot Seamless SSO problems:
 
 - Ensure that the Seamless SSO feature is enabled in Azure AD Connect. If you can't enable the feature (for example, due to a blocked port), ensure that you have all the [prerequisites](how-to-connect-sso-quick-start.md#step-1-check-the-prerequisites) in place.
-- If you have enabled both [Azure AD Join](../active-directory-azureadjoin-overview.md) and Seamless SSO on your tenant, ensure that the issue is not with Azure AD Join. SSO from Azure AD Join takes precedence over Seamless SSO if the device is both registered with Azure AD and domain-joined. With SSO from Azure AD Join the user sees a sign-in tile that says "Connected to Windows".
+- If you have enabled both [Azure AD Join](../devices/overview.md) and Seamless SSO on your tenant, ensure that the issue is not with Azure AD Join. SSO from Azure AD Join takes precedence over Seamless SSO if the device is both registered with Azure AD and domain-joined. With SSO from Azure AD Join the user sees a sign-in tile that says "Connected to Windows".
 - Ensure that the Azure AD URL (`https://autologon.microsoftazuread-sso.com`) is part of the user's Intranet zone settings.
-- Ensure that the corporate device is joined to the Active Directory domain. The device _doesn't_ need to be [Azure AD Joined](../active-directory-azureadjoin-overview.md) for Seamless SSO to work.
+- Ensure that the corporate device is joined to the Active Directory domain. The device _doesn't_ need to be [Azure AD Joined](../devices/overview.md) for Seamless SSO to work.
 - Ensure that the user is logged on to the device through an Active Directory domain account.
 - Ensure that the user's account is from an Active Directory forest where Seamless SSO has been set up.
 - Ensure that the device is connected to the corporate network.
@@ -101,7 +101,7 @@ If troubleshooting didn't help, you can manually reset the feature on your tenan
 
 ### Step 1: Import the Seamless SSO PowerShell module
 
-1. First, download, and install [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview).
+1. First, download, and install [Azure AD PowerShell](/powershell/azure/active-directory/overview).
 2. Browse to the `%programfiles%\Microsoft Azure Active Directory Connect` folder.
 3. Import the Seamless SSO PowerShell module by using this command: `Import-Module .\AzureADSSO.psd1`.
 

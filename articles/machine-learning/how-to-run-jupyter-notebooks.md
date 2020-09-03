@@ -9,7 +9,8 @@ ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 04/21/2020
+ms.custom: how-to
+ms.date: 06/27/2020
 # As a data scientist, I want to run Jupyter notebooks in my workspace in Azure Machine Learning studio
 ---
 
@@ -43,14 +44,16 @@ To create a new notebook:
     :::image type="content" source="media/how-to-run-jupyter-notebooks/create-new-file.png" alt-text="Create new file":::
 
 1. Name the file. 
-1. For Jupyter Notebook Files, select **Python Notebook** as the file type.
+1. For Jupyter Notebook Files, select **Notebook** as the file type.
 1. Select a file directory.
 1. Select **Create**.
 
-> [!TIP]
-> You can create text files as well.  Select **Text** as the file type and add the extension to the name (for example, myfile.py or myfile.txt)  
+You can create text files as well.  Select **Text** as the file type and add the extension to the name (for example, myfile.py or myfile.txt)  
 
 You can also upload folders and files, including notebooks, with the tools at the top of the Notebooks page.  Notebooks and most text file types display in the preview section.  No preview is available for most other file types.
+
+> [!IMPORTANT]
+> Content in notebooks and scripts can potentially read data from your sessions and access data without your organization in Azure.  Only load files from trusted sources. For more information, see [Secure code best practices](concept-secure-code-best-practice.md#azure-ml-studio-notebooks).
 
 ### Clone samples
 
@@ -58,7 +61,7 @@ Your workspace contains a **Samples** folder with notebooks designed to help you
 
 For an example, see [Tutorial: Create your first ML experiment](tutorial-1st-experiment-sdk-setup.md#azure).
 
-### <a name="terminal"> Use files from Git and version my files
+### <a name="terminal"></a> Use files from Git and version my files
 
 You can access all Git operations by using a terminal window. All Git files and folders will be stored in your workspace file system.
 
@@ -91,15 +94,37 @@ Copy and paste the URL to share a notebook or file.  Only other users of the wor
 
 To edit a notebook, open any notebook located in the **User files** section of your workspace. Click on the cell you wish to edit. 
 
-When a compute instance running is running, you can also use code completion, powered by [Intellisense](https://code.visualstudio.com/docs/editor/intellisense), in any Python Notebook.
+You can edit the notebook without connecting to a compute instance.  When you want to run the cells in the notebook, select or create a compute instance.  If you select a stopped compute instance, it will automatically start when you run the first cell.
+
+When a compute instance is running, you can also use code completion, powered by [Intellisense](https://code.visualstudio.com/docs/editor/intellisense), in any Python Notebook.
 
 You can also launch Jupyter or JupyterLab from the Notebook toolbar.  Azure Machine Learning does not provide updates and fix bugs from Jupyter or JupyterLab as they are Open Source products outside of the boundary of Microsoft Support.
+
+### Use IntelliSense
+
+[IntelliSense](https://code.visualstudio.com/docs/editor/intellisense) is a code-completion aid that includes a number of features: List Members, Parameter Info, Quick Info, and Complete Word. These features help you to learn more about the code you're using, keep track of the parameters you're typing, and add calls to properties and methods with only a few keystrokes.  
+
+When typing code, use Ctrl+Space to trigger IntelliSense.
+
+### Save and checkpoint a notebook
+
+Azure Machine Learning creates a checkpoint file when you create an *ipynb* file.
+
+In the notebook toolbar, select the menu and then **File&gt;Save and checkpoint** to manually save the notebook and it will add a checkpoint file associated with the notebook.
+
+:::image type="content" source="media/how-to-run-jupyter-notebooks/file-save.png" alt-text="Screenshot of save tool in notebook toolbar":::
+
+Every notebook is autosaved every 30 seconds. Autosave updates only the initial *ipynb* file, not the checkpoint file.
+ 
+Select **Checkpoints** in the notebook menu to create a named checkpoint and to revert the notebook to a saved checkpoint.
+
 
 ### Useful keyboard shortcuts
 
 |Keyboard  |Action  |
 |---------|---------|
 |Shift+Enter     |  Run a cell       |
+|Ctrl+Space | Activate IntelliSense |
 |Ctrl+M(Windows)     |  Enable/disable tab trapping in notebook.       |
 |Ctrl+Shift+M(Mac & Linux)     |    Enable/disable tab trapping in notebook.     |
 |Tab (when tab trap enabled) | Add a '\t' character (indent)
@@ -156,11 +181,20 @@ These actions will reset the notebook state and will reset all variables in the 
 The Notebook will automatically find all Jupyter kernels installed on the connected compute instance.  To add a kernel to the compute instance:
 
 1. Select [**Open terminal**](#terminal) in the Notebook toolbar.
-1. Use the terminal window to create a new environment.
+1. Use the terminal window to create a new environment.  For example, the code below creates `newenv`:
+    ```shell
+    conda create --name newenv
+    ```
 1. Activate the environment.  For example, after creating `newenv`:
 
     ```shell
-    source activate newenv
+    conda activate newenv
+    ```
+1. Install pip and ipykernel package to the new environment and create a kernel for that conda env
+
+    ```shell
+    conda install pip
+    conda install ipykernel
     python -m ipykernel install --user --name newenv --display-name "Python (newenv)"
     ```
 

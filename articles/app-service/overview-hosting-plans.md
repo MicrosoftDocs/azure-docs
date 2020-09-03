@@ -4,13 +4,13 @@ description: Learn how App Service plans work in Azure App Service, how they're 
 keywords: app service, azure app service, scale, scalable, scalability, app service plan, app service cost
 ms.assetid: dea3f41e-cf35-481b-a6bc-33d7fc9d01b1
 ms.topic: article
-ms.date: 11/09/2017
+ms.date: 08/12/2020
 ms.custom: seodec18
 
 ---
 # Azure App Service plan overview
 
-In App Service, an app runs in an _App Service plan_. An App Service plan defines a set of compute resources for a web app to run. These compute resources are analogous to the [_server farm_](https://wikipedia.org/wiki/Server_farm) in conventional web hosting. One or more apps can be configured to run on the same computing resources (or in the same App Service plan).
+In App Service (Web Apps, API Apps, or Mobile Apps), an app always runs in an _App Service plan_. In addition, [Azure Functions](../azure-functions/functions-scale.md#app-service-plan) also has the option of running in an _App Service plan_. An App Service plan defines a set of compute resources for a web app to run. These compute resources are analogous to the [_server farm_](https://wikipedia.org/wiki/Server_farm) in conventional web hosting. One or more apps can be configured to run on the same computing resources (or in the same App Service plan).
 
 When you create an App Service plan in a certain region (for example, West Europe), a set of compute resources is created for that plan in that region. Whatever apps you put into this App Service plan run on these compute resources as defined by your App Service plan. Each App Service plan defines:
 
@@ -52,7 +52,7 @@ When you create an app in App Service, it is put into an App Service plan. When 
 
 In this way, the App Service plan is the scale unit of the App Service apps. If the plan is configured to run five VM instances, then all apps in the plan run on all five instances. If the plan is configured for autoscaling, then all apps in the plan are scaled out together based on the autoscale settings.
 
-For information on scaling out an app, see [Scale instance count manually or automatically](../monitoring-and-diagnostics/insights-how-to-scale.md).
+For information on scaling out an app, see [Scale instance count manually or automatically](../azure-monitor/platform/autoscale-get-started.md).
 
 <a name="cost"></a>
 
@@ -60,11 +60,11 @@ For information on scaling out an app, see [Scale instance count manually or aut
 
 This section describes how App Service apps are billed. For detailed, region-specific pricing information, see [App Service Pricing](https://azure.microsoft.com/pricing/details/app-service/).
 
-Except for **Free** tier, an App Service plan carries an hourly charge on the compute resources it uses.
+Except for **Free** tier, an App Service plan carries a charge on the compute resources it uses.
 
-- In the **Shared** tier, each app receives a quota of CPU minutes, so _each app_ is charged hourly for the CPU quota.
-- In the dedicated compute tiers (**Basic**, **Standard**, **Premium**, **PremiumV2**), the App Service plan defines the number of VM instances the apps are scaled to, so _each VM instance_ in the App Service plan has an hourly charge. These VM instances are charged the same regardless how many apps are running on them. To avoid unexpected charges, see [Clean up an App Service plan](app-service-plan-manage.md#delete).
-- In the **Isolated** tier, the App Service Environment defines the number of isolated workers that run your apps, and _each worker_ is charged hourly. In addition, there's an hourly base fee for the running the App Service Environment itself.
+- In the **Shared** tier, each app receives a quota of CPU minutes, so _each app_ is charged for the CPU quota.
+- In the dedicated compute tiers (**Basic**, **Standard**, **Premium**, **PremiumV2**), the App Service plan defines the number of VM instances the apps are scaled to, so _each VM instance_ in the App Service plan is charged. These VM instances are charged the same regardless how many apps are running on them. To avoid unexpected charges, see [Clean up an App Service plan](app-service-plan-manage.md#delete).
+- In the **Isolated** tier, the App Service Environment defines the number of isolated workers that run your apps, and _each worker_ is charged. In addition, there's a flat Stamp Fee for the running the App Service Environment itself.
 
 You don't get charged for using the App Service features that are available to you (configuring custom domains, TLS/SSL certificates, deployment slots, backups, etc.). The exceptions are:
 
@@ -74,8 +74,10 @@ You don't get charged for using the App Service features that are available to y
 
 > [!NOTE]
 > If you integrate App Service with another Azure service, you may need to consider charges from these other services. For example, if you use Azure Traffic Manager to scale your app geographically, Azure Traffic Manager also charges you based on your usage. To estimate your cross-services cost in Azure, see [Pricing calculator](https://azure.microsoft.com/pricing/calculator/). 
->
->
+
+Want to optimize and save on your cloud spending?
+
+[!INCLUDE [cost-management-horizontal](../../includes/cost-management-horizontal.md)]
 
 ## What if my app needs more capabilities or features?
 

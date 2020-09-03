@@ -1,25 +1,28 @@
 ---
 title: Set up private link
-description: Set up a private endpoint on a container registry and enable access over a private link in a local virtual network
+description: Set up a private endpoint on a container registry and enable access over a private link in a local virtual network. Private link access is a feature of the Premium service tier.
 ms.topic: article
-ms.date: 05/07/2020
+ms.date: 06/26/2020
 ---
 
-# Configure Azure Private Link for an Azure container registry 
+# Connect privately to an Azure container registry using Azure Private Link
 
-Limit access to a registry by assigning virtual network private IP addresses to the registry endpoints using [Azure Private Link](../private-link/private-link-overview.md). Network traffic between the clients on the virtual network and the registry traverses the virtual network and a private link on the Microsoft backbone network, eliminating exposure from the public internet.
 
-You can [configure DNS settings](../private-link/private-endpoint-overview.md#dns-configuration) for your private endpoint, so that the settings resolve to the registry's allocated private IP address. With DNS configuration, clients and services in the network can continue to access the registry at the registry's fully qualified domain name, such as *myregistry.azurecr.io*.
+Limit access to a registry by assigning virtual network private IP addresses to the registry endpoints and using [Azure Private Link](../private-link/private-link-overview.md). Network traffic between the clients on the virtual network and the registry's private endpoints traverses the virtual network and a private link on the Microsoft backbone network, eliminating exposure from the public internet. Private Link also enables private registry access from on-premises through [Azure ExpressRoute](../expressroute/expressroute-introduction.MD) private peering or a [VPN gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md).
+
+You can [configure DNS settings](../private-link/private-endpoint-overview.md#dns-configuration) for the registry's private endpoints, so that the settings resolve to the registry's allocated private IP address. With DNS configuration, clients and services in the network can continue to access the registry at the registry's fully qualified domain name, such as *myregistry.azurecr.io*. 
 
 This feature is available in the **Premium** container registry service tier. For information about registry service tiers and limits, see [Azure Container Registry tiers](container-registry-skus.md).
+
 
 ## Things to know
 
 * Currently, image scanning using Azure Security Center isn't available in a registry configured with a private endpoint.
+* Currently, a maximum of 10 private endpoints can be set up for a registry.
 
 ## Prerequisites
 
-* To use the Azure CLI steps in this article, Azure CLI version 2.2.0 or later is recommended. If you need to install or upgrade, see [Install Azure CLI][azure-cli]. Or run in [Azure Cloud Shell](../cloud-shell/quickstart.md).
+* To use the Azure CLI steps in this article, Azure CLI version 2.6.0 or later is recommended. If you need to install or upgrade, see [Install Azure CLI][azure-cli]. Or run in [Azure Cloud Shell](../cloud-shell/quickstart.md).
 * If you don't already have a container registry, create one (Premium tier required) and [import](container-registry-import-images.md) a sample image such as `hello-world` from Docker Hub. For example, use the [Azure portal][quickstart-portal] or the [Azure CLI][quickstart-cli] to create a registry.
 * To configure registry access using a private link in a different Azure subscription, you need to register the resource provider for Azure Container Registry in that subscription. For example:
 
@@ -277,10 +280,24 @@ Your private link is now configured and ready for use.
 
 ## Disable public access
 
-For many scenarios, disable registry access from public networks. This configuration prevents clients outside the virtual network from reaching the registry endpoints. To disable public access using the portal:
+For many scenarios, disable registry access from public networks. This configuration prevents clients outside the virtual network from reaching the registry endpoints. 
+
+### Disable public access - CLI
+
+To disable public access using the Azure CLI, run [az acr update][az-acr-update] and set `--public-network-enabled` to `false`. 
+
+> [!NOTE]
+> The `public-network-enabled` argument requires Azure CLI 2.6.0 or later. 
+
+```azurecli
+az acr update --name $REGISTRY_NAME --public-network-enabled false
+```
+
+
+### Disable public access - portal
 
 1. In the portal, navigate to your container registry and select **Settings > Networking**.
-1. On the **Public access** tab, in **Allow public access**, select **Disabled**. Then select **Save**.
+1. On the **Public access** tab, in **Allow public network access**, select **Disabled**. Then select **Save**.
 
 ## Validate private link connection
 

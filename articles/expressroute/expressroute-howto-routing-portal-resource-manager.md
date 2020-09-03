@@ -2,12 +2,12 @@
 title: 'Azure ExpressRoute: Configure peering'
 description: This article documents the steps for creating and provisioning ExpressRoute private and Microsoft peering. This article also demonstrates how to check the status, update, or delete peerings for a circuit.
 services: expressroute
-author: mialdrid
+author: duongau
 
 ms.service: expressroute
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/13/2019
-ms.author: mialdrid
+ms.author: duau
 
 
 ---
@@ -57,11 +57,13 @@ This section helps you create, get, update, and delete the Microsoft peering con
 
    **Circuit - Provider status: Not provisioned**
 
-    [![](./media/expressroute-howto-routing-portal-resource-manager/not-provisioned-m.png "Provider status: Not provisioned")](./media/expressroute-howto-routing-portal-resource-manager/not-provisioned-m-lightbox.png#lightbox)
+   [![Screenshot showing the Overview page for the ExpressRoute Demo Circuit with a red box highlighting the Provider status which is set to "Not provisioned".](./media/expressroute-howto-routing-portal-resource-manager/not-provisioned-m.png)](./media/expressroute-howto-routing-portal-resource-manager/not-provisioned-m-lightbox.png#lightbox)
+
 
    **Circuit - Provider status: Provisioned**
 
-   [![](./media/expressroute-howto-routing-portal-resource-manager/provisioned-m.png "Provider status = Provisioned")](./media/expressroute-howto-routing-portal-resource-manager/provisioned-m-lightbox.png#lightbox)
+   [![Screenshot showing the Overview page for the ExpressRoute Demo Circuit with a red box highlighting the Provider status which is set to "Provisioned".](./media/expressroute-howto-routing-portal-resource-manager/provisioned-m.png)](./media/expressroute-howto-routing-portal-resource-manager/provisioned-m-lightbox.png#lightbox)
+
 2. Configure Microsoft peering for the circuit. Make sure that you have the following information before you proceed.
 
    * A /30 subnet for the primary link. This must be a valid public IPv4 prefix owned by you and registered in an RIR / IRR. From this subnet you will assign the first useable IP address to your router as Microsoft uses the second useable IP for its router.
@@ -122,11 +124,11 @@ This section helps you create, get, update, and delete the Azure private peering
 
    **Circuit - Provider status: Not provisioned**
 
-   [![](./media/expressroute-howto-routing-portal-resource-manager/not-provisioned-p.png "Provider status = Not Provisioned")](./media/expressroute-howto-routing-portal-resource-manager/not-provisioned-p-lightbox.png#lightbox)
+   [![Screenshot showing the Overview page for the ExpressRoute Demo Circuit with a red box highlighting the Provider status which is set to "Not provisioned".](./media/expressroute-howto-routing-portal-resource-manager/not-provisioned-p.png)](./media/expressroute-howto-routing-portal-resource-manager/not-provisioned-p-lightbox.png#lightbox)
 
    **Circuit - Provider status: Provisioned**
 
-   [![](./media/expressroute-howto-routing-portal-resource-manager/provisioned-p.png "Provider Status = Provisioned")](./media/expressroute-howto-routing-portal-resource-manager/provisioned-p-lightbox.png#lightbox)
+   [![Screenshot showing the Overview page for the ExpressRoute Demo Circuit with a red box highlighting the Provider status which is set to "Provisioned".](./media/expressroute-howto-routing-portal-resource-manager/provisioned-p.png)](./media/expressroute-howto-routing-portal-resource-manager/provisioned-p-lightbox.png#lightbox)
 
 2. Configure Azure private peering for the circuit. Make sure that you have the following items before you proceed with the next steps:
 

@@ -77,7 +77,7 @@ The IsLengthRange method checks whether the length of a string claim value is wi
 
 The following example shows a IsLengthRange method with the parameters `Minimum` and `Maximum` that specify the length range of the string:
 
-```XML
+```xml
 <Predicate Id="IsLengthBetween8And64" Method="IsLengthRange" HelpText="The password must be between 8 and 64 characters.">
   <Parameters>
     <Parameter Id="Minimum">8</Parameter>
@@ -96,7 +96,7 @@ The MatchesRegex method checks whether a string claim value matches a regular ex
 
 The following example shows a `MatchesRegex` method with the parameter `RegularExpression` that specifies a regular expression:
 
-```XML
+```xml
 <Predicate Id="PIN" Method="MatchesRegex" HelpText="The password must be numbers only.">
   <Parameters>
     <Parameter Id="RegularExpression">^[0-9]+$</Parameter>
@@ -114,7 +114,7 @@ The IncludesCharacters method checks whether a string claim value contains a cha
 
 The following example shows a `IncludesCharacters` method with the parameter `CharacterSet` that specifies the set of characters:
 
-```XML
+```xml
 <Predicate Id="Lowercase" Method="IncludesCharacters" HelpText="a lowercase letter">
   <Parameters>
     <Parameter Id="CharacterSet">a-z</Parameter>
@@ -133,7 +133,7 @@ The IsDateRange method checks whether a date claim value is between a range of m
 
 The following example shows a `IsDateRange` method with the parameters `Minimum` and `Maximum` that specify the date range with a format of `yyyy-mm-dd` and `Today`.
 
-```XML
+```xml
 <Predicate Id="DateRange" Method="IsDateRange" HelpText="The date must be between 1970-01-01 and today.">
   <Parameters>
     <Parameter Id="Minimum">1970-01-01</Parameter>
@@ -148,7 +148,7 @@ While the predicates define the validation to check against a claim type, the **
 
 The **PredicateValidations** element must appear directly following the **Predicates** element within the [BuildingBlocks](buildingblocks.md) element.
 
-```XML
+```xml
 <PredicateValidations>
   <PredicateValidation Id="">
     <PredicateGroups>
@@ -235,7 +235,7 @@ With **Predicates** and **PredicateValidationsInput** you can control the comple
 - **AllowedAADCharacters** using the `MatchesRegex` method, validates that the password only invalid character was provided.
 - **DisallowedWhitespace** using the `MatchesRegex` method, validates that the password doesn't begin or end with a whitespace character.
 
-```XML
+```xml
 <Predicates>
   <Predicate Id="IsLengthBetween8And64" Method="IsLengthRange" HelpText="The password must be between 8 and 64 characters.">
     <Parameters>
@@ -293,7 +293,7 @@ After you define the basic validations, you can combine them together and create
 - **StrongPassword** validates the DisallowedWhitespace, AllowedAADCharacters, IsLengthBetween8And64. The last group `CharacterClasses` runs an additional set of predicates with `MatchAtLeast` set to 3. The user password must be between 8 and 16 characters, and three of the following characters: Lowercase, Uppercase, Number, or Symbol.
 - **CustomPassword** validates only DisallowedWhitespace, AllowedAADCharacters. So, user can provide any password with any length, as long as the characters are valid.
 
-```XML
+```xml
 <PredicateValidations>
   <PredicateValidation Id="SimplePassword">
     <PredicateGroups>
@@ -363,7 +363,7 @@ After you define the basic validations, you can combine them together and create
 
 In your claim type, add the **PredicateValidationReference** element and specify the identifier as one of the predicate validations, such as SimplePassword, StrongPassword, or CustomPassword.
 
-```XML
+```xml
 <ClaimType Id="password">
   <DisplayName>Password</DisplayName>
   <DataType>string</DataType>
@@ -382,7 +382,7 @@ The following shows how the elements are organized when Azure AD B2C displays th
 
 With the **Predicates** and **PredicateValidations** elements you can control the minimum and maximum date values of the **UserInputType** by using a `DateTimeDropdown`. To do this, create a **Predicate** with the `IsDateRange` method and provide the minimum and maximum parameters.
 
-```XML
+```xml
 <Predicates>
   <Predicate Id="DateRange" Method="IsDateRange" HelpText="The date must be between 01-01-1980 and today.">
     <Parameters>
@@ -395,7 +395,7 @@ With the **Predicates** and **PredicateValidations** elements you can control th
 
 Add a **PredicateValidation** with a reference to the `DateRange` predicate.
 
-```XML
+```xml
 <PredicateValidations>
   <PredicateValidation Id="CustomDateRange">
     <PredicateGroups>
@@ -411,7 +411,7 @@ Add a **PredicateValidation** with a reference to the `DateRange` predicate.
 
 In your claim type, add **PredicateValidationReference** element and specify the identifier as `CustomDateRange`.
 
-```XML
+```xml
 <ClaimType Id="dateOfBirth">
   <DisplayName>Date of Birth</DisplayName>
   <DataType>date</DataType>

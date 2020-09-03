@@ -5,8 +5,8 @@ description: Create a custom Conditional Access policy to
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: conceptual
-ms.date: 04/02/2020
+ms.topic: how-to
+ms.date: 05/26/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -35,7 +35,7 @@ Conditional Access policies are powerful tools, we recommend excluding the follo
 
 ## Create a Conditional Access policy
 
-The following steps will help create Conditional Access policies to block access to all apps except for [Office 365](concept-conditional-access-cloud-apps.md#office-365-preview) if users are not on a trusted network. These policies are put in to [Report-only mode](howto-conditional-access-report-only.md) to start so administrators can determine the impact they will have on existing users. When administrators are comfortable that the policies apply as they intend, they can switch them to **On**.
+The following steps will help create Conditional Access policies to block access to all apps except for [Office 365](concept-conditional-access-cloud-apps.md#office-365-preview) if users are not on a trusted network. These policies are put in to [Report-only mode](howto-conditional-access-insights-reporting.md) to start so administrators can determine the impact they will have on existing users. When administrators are comfortable that the policies apply as they intend, they can switch them to **On**.
 
 The first policy blocks access to all apps except for Office 365 applications if not on a trusted location.
 
@@ -81,6 +81,6 @@ A second policy is created below to require multi-factor authentication or a com
 
 [Conditional Access common policies](concept-conditional-access-policy-common.md)
 
-[Determine impact using Conditional Access report-only mode](howto-conditional-access-report-only.md)
+[Determine impact using Conditional Access report-only mode](howto-conditional-access-insights-reporting.md)
 
 [Simulate sign in behavior using the Conditional Access What If tool](troubleshoot-conditional-access-what-if.md)

@@ -9,8 +9,8 @@ metadata:
   services: frontdoor
   ms.service: frontdoor
   ms.topic: landing-page
-  author: vhorne
-  ms.author: victorh
+  author: duongau
+  ms.author: duau
   ms.date: 03/03/2020
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
@@ -102,3 +102,5 @@ landingContent:
         links:
           - text: Set up a Rules Engine configuration
             url: front-door-tutorial-rules-engine.md
+          - text: Add Security headers with Rules Engine
+            url: front-door-security-headers.md

@@ -5,7 +5,8 @@ description: Use Azure Functions to create a serverless function that is invoked
 ms.assetid: 0b609bc0-c264-4092-8e3e-0784dcc23b5d
 ms.topic: how-to
 ms.date: 04/24/2020
-ms.custom: mvc
+ms.custom: "devx-track-csharp, mvc"
+
 ---
 # Add messages to an Azure Storage queue using Functions
 

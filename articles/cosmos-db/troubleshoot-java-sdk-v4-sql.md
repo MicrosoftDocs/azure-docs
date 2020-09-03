@@ -3,11 +3,12 @@ title: Diagnose and troubleshoot Azure Cosmos DB Java SDK v4
 description: Use features like client-side logging and other third-party tools to identify, diagnose, and troubleshoot Azure Cosmos DB issues in Java SDK v4.
 author: anfeldma-ms
 ms.service: cosmos-db
-ms.date: 05/08/2020
+ms.date: 06/11/2020
 ms.author: anfeldma
 ms.devlang: java
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
+ms.custom: devx-track-java
 ---
 
 # Troubleshoot issues when you use Azure Cosmos DB Java SDK v4 with SQL API accounts
@@ -19,7 +20,7 @@ ms.topic: troubleshooting
 > 
 
 > [!IMPORTANT]
-> This article covers troubleshooting for Azure Cosmos DB Java SDK v4 only. Please see the Azure Cosmos DB Java SDK v4 Release Notes, [Maven repository](https://mvnrepository.com/artifact/com.azure/azure-cosmos), and [performance tips](performance-tips-java-sdk-v4-sql.md) for more information. If you are currently using an older version than v4, see the [Migrate to Azure Cosmos DB Java SDK v4](migrate-java-v4-sdk.md) guide for help upgrading to v4.
+> This article covers troubleshooting for Azure Cosmos DB Java SDK v4 only. Please see the Azure Cosmos DB Java SDK v4 [Release notes](sql-api-sdk-java-v4.md), [Maven repository](https://mvnrepository.com/artifact/com.azure/azure-cosmos), and [performance tips](performance-tips-java-sdk-v4-sql.md) for more information. If you are currently using an older version than v4, see the [Migrate to Azure Cosmos DB Java SDK v4](migrate-java-v4-sdk.md) guide for help upgrading to v4.
 >
 
 This article covers common issues, workarounds, diagnostic steps, and tools when you use Azure Cosmos DB Java SDK v4 with Azure Cosmos DB SQL API accounts.
@@ -90,57 +91,20 @@ For example, take a look at the following code snippet which adds items to a con
 
 ### <a id="java4-readtimeout"></a>Java SDK V4 (Maven com.azure::azure-cosmos) Async API
 
-```java
-@Test
-public void badCodeWithReadTimeoutException() throws Exception {
-  int requestTimeoutInSeconds = 10;
-  ConnectionPolicy policy = new ConnectionPolicy();
-  policy.setRequestTimeout(Duration.ofMillis(requestTimeoutInSeconds * 1000));
-  AtomicInteger failureCount = new AtomicInteger();
-  // Max number of concurrent item inserts is # CPU cores + 1
-  Flux<Family> familyPub = 
-      Flux.just(Families.getAndersenFamilyItem(), Families.getWitherspoonFamilyItem(), Families.getCarltonFamilyItem());
-  familyPub.flatMap(family -> {
-      return container.createItem(family);
-  }).flatMap(r -> {
-      try {
-          // Time-consuming work is, for example,
-          // writing to a file, computationally heavy work, or just sleep.
-          // Basically, it's anything that takes more than a few milliseconds.
-          // Doing such operations on the IO Netty thread
-          // without a proper scheduler will cause problems.
-          // The subscriber will get a ReadTimeoutException failure.
-          TimeUnit.SECONDS.sleep(2 * requestTimeoutInSeconds);
-      } catch (Exception e) {
-      }
-      return Mono.empty();
-  }).doOnError(Exception.class, exception -> {
-      failureCount.incrementAndGet();
-  }).blockLast();
-  assert(failureCount.get() > 0);
-}
-```
+[!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=TroubleshootNeedsSchedulerAsync)]
 
 The workaround is to change the thread on which you perform work that takes time. Define a singleton instance of the scheduler for your app.
 
 ### <a id="java4-scheduler"></a>Java SDK V4 (Maven com.azure::azure-cosmos) Async API
 
-```java
-// Have a singleton instance of an executor and a scheduler.
-ExecutorService ex  = Executors.newFixedThreadPool(30);
-Scheduler customScheduler = Schedulers.fromExecutor(ex);
-```
+[!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=TroubleshootCustomSchedulerAsync)]
+
 You might need to do work that takes time, for example, computationally heavy work or blocking IO. In this case, switch the thread to a worker provided by your `customScheduler` by using the `.publishOn(customScheduler)` API.
 
 ### <a id="java4-apply-custom-scheduler"></a>Java SDK V4 (Maven com.azure::azure-cosmos) Async API
 
-```java
-container.createItem(family)
-    .publishOn(customScheduler) // Switches the thread.
-    .subscribe(
-        // ...
-    );
-```
+[!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=TroubleshootPublishOnSchedulerAsync)]
+
 By using `publishOn(customScheduler)`, you release the Netty IO thread and switch to your own custom thread provided by the custom scheduler. This modification solves the problem. You won't get a `io.netty.handler.timeout.ReadTimeoutException` failure anymore.
 
 ### Request rate too large

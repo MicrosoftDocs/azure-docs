@@ -12,7 +12,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/31/2017
 ms.subservice: hybrid
 ms.author: billmath
@@ -69,7 +69,9 @@ For example, if a user’s UPN is bsimon@bmcontoso.com, the IssuerUri element in
 
 The following is the customized claim rule that implements this logic:
 
-    c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, ".+@(?<domain>.+)", "http://${domain}/adfs/services/trust/"));
+```
+c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, ".+@(?<domain>.+)", "http://${domain}/adfs/services/trust/"));
+```
 
 
 > [!IMPORTANT]
@@ -100,14 +102,14 @@ Use the following steps to remove the Microsoft Online trust and update your ori
 2. On the left, expand **Trust Relationships** and **Relying Party Trusts**
 3. On the right, delete the **Microsoft Office 365 Identity Platform** entry.
    ![Remove Microsoft Online](./media/how-to-connect-install-multiple-domains/trust4.png)
-4. On a machine that has [Azure Active Directory Module for Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx) installed on it run the following: `$cred=Get-Credential`.  
+4. On a machine that has [Azure Active Directory Module for Windows PowerShell](/previous-versions/azure/jj151815(v=azure.100)) installed on it run the following: `$cred=Get-Credential`.  
 5. Enter the username and password of a global administrator for the Azure AD domain you are federating with.
 6. In PowerShell, enter `Connect-MsolService -Credential $cred`
 7. In PowerShell, enter `Update-MSOLFederatedDomain -DomainName <Federated Domain Name> -SupportMultipleDomain`.  This update is for the original domain.  So using the above domains it would be:  `Update-MsolFederatedDomain -DomainName bmcontoso.com -SupportMultipleDomain`
 
 Use the following steps to add the new top-level domain using PowerShell
 
-1. On a machine that has [Azure Active Directory Module for Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx) installed on it run the following: `$cred=Get-Credential`.  
+1. On a machine that has [Azure Active Directory Module for Windows PowerShell](/previous-versions/azure/jj151815(v=azure.100)) installed on it run the following: `$cred=Get-Credential`.  
 2. Enter the username and password of a global administrator for the Azure AD domain you are federating with
 3. In PowerShell, enter `Connect-MsolService -Credential $cred`
 4. In PowerShell, enter `New-MsolFederatedDomain –SupportMultipleDomain –DomainName`
@@ -141,7 +143,9 @@ In order to work around this behavior, the AD FS relying party trust for Microso
 
 The following claim will do this:
 
-    c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, "^.*@([^.]+\.)*?(?<domain>([^.]+\.?){2})$", "http://${domain}/adfs/services/trust/"));
+```    
+c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, "^.*@([^.]+\.)*?(?<domain>([^.]+\.?){2})$", "http://${domain}/adfs/services/trust/"));
+```
 
 [!NOTE]
 The last number in the regular expression set is how many parent domains there are in your root domain. Here bmcontoso.com is used, so two parent domains are necessary. If three parent domains were to be kept (i.e.: corp.bmcontoso.com), then the number would have been three. Eventually a range can be indicated, the match will always be made to match the maximum of domains. "{2,3}" will match two to three domains (i.e.: bmfabrikam.com and corp.bmcontoso.com).
@@ -154,11 +158,14 @@ Use the following steps to add a custom claim to support subdomains.
    ![Edit claim](./media/how-to-connect-install-multiple-domains/sub1.png)
 4. Replace the current claim:
 
-        c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, ".+@(?<domain>.+)","http://${domain}/adfs/services/trust/"));
+   ```
+   c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, ".+@(?<domain>.+)","http://${domain}/adfs/services/trust/"));
+   ```
+    with
 
-       with
-
-        c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, "^.*@([^.]+\.)*?(?<domain>([^.]+\.?){2})$", "http://${domain}/adfs/services/trust/"));
+   ```
+   c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, "^.*@([^.]+\.)*?(?<domain>([^.]+\.?){2})$", "http://${domain}/adfs/services/trust/"));
+   ```
 
     ![Replace claim](./media/how-to-connect-install-multiple-domains/sub2.png)
 

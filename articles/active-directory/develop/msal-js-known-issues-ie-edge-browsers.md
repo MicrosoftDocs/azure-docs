@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: troubleshooting
 ms.workload: identity
-ms.date: 05/16/2019
+ms.date: 05/18/2020
 ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
@@ -47,7 +47,7 @@ Use workarounds below.
 
 #### Other workarounds
 Make sure to test that your issue is occurring only on the specific version of Microsoft Edge browser and works on the other browsers before adopting these workarounds.  
-1. As a first step to get around these issues, ensure that the application domain,  , and any other sites involved in the redirects of the authentication flow are added as trusted sites in the security settings of the browser, so that they belong to the same security zone.
+1. As a first step to get around these issues, ensure that the application domain and any other sites involved in the redirects of the authentication flow are added as trusted sites in the security settings of the browser, so that they belong to the same security zone.
 To do so, follow these steps:
     - Open **Internet Explorer** and click on the **settings** (gear icon) in the top-right corner
     - Select **Internet Options**
@@ -60,7 +60,7 @@ Note, this will not solve the issue for InPrivate browsing since both session an
 
 ## Issues due to popup blockers
 
-There are cases when popups are blocked in IE or Microsoft Edge, for example when a second popup occurs during multi-factor authentication. You will get an alert in the browser to allow for the popup once or always. If you choose to allow, the browser opens the popup window automatically and returns a `null` handle for it. As a result, the library does not have a handle for the window and there is no way to close the popup window. The same issue does not happen in Chrome when it prompts you to allow popups because it does not automatically open a popup window.
+There are cases when popups are blocked in IE or Microsoft Edge, for example when a second popup occurs during [multi-factor authentication](../authentication/concept-mfa-howitworks.md). You will get an alert in the browser to allow for the popup once or always. If you choose to allow, the browser opens the popup window automatically and returns a `null` handle for it. As a result, the library does not have a handle for the window and there is no way to close the popup window. The same issue does not happen in Chrome when it prompts you to allow popups because it does not automatically open a popup window.
 
 As a **workaround**, developers will need to allow popups in IE and Microsoft Edge before they start using their app to avoid this issue.
 

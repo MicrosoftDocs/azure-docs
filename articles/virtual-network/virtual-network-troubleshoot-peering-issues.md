@@ -19,7 +19,6 @@ ms.author: kaushika
 ---
 
 # Troubleshoot virtual network peering issues
-<p class="alert is-flex is-primary"><span class="has-padding-left-medium has-padding-top-extra-small"><a class="button is-primary" href="https://azurevirtualsupportagent.services.microsoft.com?content=457b3ba7-7ac5-93be-981c-677553ad39dd" target='_blank'>Start</a></span><span class="has-padding-small">Solve your issue fast by using our virtual agent to run <b>automated diagnostics.</b></span><span class="has-padding-small"><a href="https://privacy.microsoft.com/privacystatement" target='_blank'><div align="right"><sub>Privacy Statement</sub></div></a></span></p>
 
 This troubleshooting guide provides steps to help you resolve most [virtual network peering](virtual-network-peering-overview.md) issues.
 

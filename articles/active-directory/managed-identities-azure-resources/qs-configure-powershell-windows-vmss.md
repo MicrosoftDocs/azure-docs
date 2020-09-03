@@ -1,20 +1,20 @@
-﻿---
+---
 title: Configure managed identities on virtual machine scale sets using PowerShell - Azure AD
-description: Step by step instructions for configuring a system and user-assigned managed identities on a virtual machine scale set using PowerShell.
+description: Step-by-step instructions for configuring a system and user-assigned managed identities on a virtual machine scale set using PowerShell.
 services: active-directory
 documentationcenter: 
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: 
 
 ms.service: active-directory
 ms.subservice: msi
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/26/2019
-ms.author: markvi
+ms.author: barclayn
 ms.collection: M365-identity-device-management
 ---
 
@@ -22,7 +22,7 @@ ms.collection: M365-identity-device-management
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Managed identities for Azure resources provides Azure services with an automatically managed identity in Azure Active Directory. You can use this identity to authenticate to any service that supports Azure AD authentication, without having credentials in your code. 
+Managed identities for Azure resources provide Azure services with an automatically managed identity in Azure Active Directory. You can use this identity to authenticate to any service that supports Azure AD authentication, without having credentials in your code. 
 
 In this article, using PowerShell, you learn how to perform the managed identities for Azure resources operations on a virtual machine scale set:
 - Enable and disable the system-assigned managed identity on a virtual machine scale set
@@ -32,16 +32,16 @@ In this article, using PowerShell, you learn how to perform the managed identiti
 
 ## Prerequisites
 
-- If you're unfamiliar with managed identities for Azure resources, check out the [overview section](overview.md). **Be sure to review the [difference between a system-assigned and user managed assigned identity](overview.md#how-does-the-managed-identities-for-azure-resources-work)**.
+- If you're unfamiliar with managed identities for Azure resources, check out the [overview section](overview.md). **Be sure to review the [difference between a system-assigned and user managed assigned identity](overview.md#managed-identity-types)**.
 - If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com/free/) before continuing.
-- To perform the management operations in this article, your account needs the following Azure role based access control assignments:
+- To perform the management operations in this article, your account needs the following Azure role-based access control assignments:
 
     > [!NOTE]
     > No additional Azure AD directory role assignments required.
 
-    - [Virtual Machine Contributor](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) to create a virtual machine scale set and enable and remove system-assigned managed and/or user-assigned managed identity from a virtual machine scale set.
-    - [Managed Identity Contributor](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) role to create a user-assigned managed identity.
-    - [Managed Identity Operator](/azure/role-based-access-control/built-in-roles#managed-identity-operator) role to assign and remove a user-assigned managed identity from and to a virtual machine scale set.
+    - [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) to create a virtual machine scale set and enable and remove system-assigned managed and/or user-assigned managed identity from a virtual machine scale set.
+    - [Managed Identity Contributor](../../role-based-access-control/built-in-roles.md#managed-identity-contributor) role to create a user-assigned managed identity.
+    - [Managed Identity Operator](../../role-based-access-control/built-in-roles.md#managed-identity-operator) role to assign and remove a user-assigned managed identity from and to a virtual machine scale set.
 - Install [the latest version of Azure PowerShell](/powershell/azure/install-az-ps) if you haven't already. 
 
 ## System-assigned managed identity
@@ -146,21 +146,4 @@ Update-AzVmss -ResourceGroupName myResourceGroup -Name myVmss -IdentityType "Sys
 - For the full Azure VM creation Quickstarts, see:
   
   - [Create a Windows virtual machine with PowerShell](../../virtual-machines/windows/quick-create-powershell.md) 
-  - [Create a Linux virtual machine with PowerShell](../../virtual-machines/linux/quick-create-powershell.md) 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  - [Create a Linux virtual machine with PowerShell](../../virtual-machines/linux/quick-create-powershell.md)

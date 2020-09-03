@@ -8,7 +8,7 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: python
 ms.topic: quickstart
-ms.custom: [mvc, mqtt]
+ms.custom: [mvc, mqtt, devx-track-python]
 ms.date: 01/09/2020
 # As a developer new to IoT Hub, I need to see how to use a back-end application to control a device connected to the hub.
 ---

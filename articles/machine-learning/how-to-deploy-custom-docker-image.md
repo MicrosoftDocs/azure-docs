@@ -5,11 +5,12 @@ description: 'Learn how to use a custom Docker base image when deploying your Az
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 03/16/2020
+ms.date: 06/17/2020
+ms.topic: conceptual
+ms.custom: how-to, devx-track-python
 ---
 
 # Deploy a model using a custom Docker base image
@@ -43,7 +44,7 @@ This document is broken into two sections:
 * The [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 * The [CLI extension for Azure Machine Learning](reference-azure-machine-learning-cli.md).
 * An [Azure Container Registry](/azure/container-registry) or other Docker registry that is accessible on the internet.
-* The steps in this document assume that you are familiar with creating and using an __inference configuration__ object as part of model deployment. For more information, see the "prepare to deploy" section of [Where to deploy and how](how-to-deploy-and-where.md#prepare-to-deploy).
+* The steps in this document assume that you are familiar with creating and using an __inference configuration__ object as part of model deployment. For more information, see [Where to deploy and how](how-to-deploy-and-where.md).
 
 ## Create a custom base image
 
@@ -70,7 +71,7 @@ The information in this section assumes that you are using an Azure Container Re
 
     * Ubuntu 16.04 or greater.
     * Conda 4.5.# or greater.
-    * Python 3.5.# or 3.6.#.
+    * Python 3.5.#, 3.6.# or 3.7.#.
 
 <a id="getname"></a>
 
@@ -169,7 +170,7 @@ For more information on uploading existing images to an Azure Container Registry
 
 To use a custom image, you need the following information:
 
-* The __image name__. For example, `mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda` is the path to a basic Docker Image provided by Microsoft.
+* The __image name__. For example, `mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda:latest` is the path to a basic Docker Image provided by Microsoft.
 
     > [!IMPORTANT]
     > For custom images that you've created, be sure to include any tags that were used with the image. For example, if your image was created with a specific tag, such as `:v1`. If you did not use a specific tag when creating the image, a tag of `:latest` was applied.
@@ -199,15 +200,7 @@ For more information about the ONNX Runtime base images see the [ONNX Runtime do
 > [!TIP]
 > Since these images are publicly available, you do not need to provide an address, username or password when using them.
 
-For more information, see [Azure Machine Learning containers](https://github.com/Azure/AzureML-Containers).
-
-> [!TIP]
->__If your model is trained on Azure Machine Learning Compute__, using __version 1.0.22 or greater__ of the Azure Machine Learning SDK, an image is created during training. To discover the name of this image, use `run.properties["AzureML.DerivedImageName"]`. The following example demonstrates how to use this image:
->
-> ```python
-> # Use an image built during training with SDK 1.0.22 or greater
-> image_config.base_image = run.properties["AzureML.DerivedImageName"]
-> ```
+For more information, see [Azure Machine Learning containers](https://github.com/Azure/AzureML-Containers) repository on GitHub.
 
 ### Use an image with the Azure Machine Learning SDK
 
@@ -222,7 +215,7 @@ from azureml.core.environment import Environment
 myenv = Environment(name="myenv")
 # Enable Docker and reference an image
 myenv.docker.enabled = True
-myenv.docker.base_image = "mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda"
+myenv.docker.base_image = "mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda:latest"
 ```
 
 To use an image from a __private container registry__ that is not in your workspace, you must use `docker.base_image_registry` to specify the address of the repository and a user name and password:
@@ -283,7 +276,7 @@ Before deploying a model using the Machine Learning CLI, create an [environment]
         "docker": {
             "arguments": [],
             "baseDockerfile": null,
-            "baseImage": "mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda",
+            "baseImage": "mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda:latest",
             "enabled": false,
             "sharedVolumes": true,
             "shmSize": null

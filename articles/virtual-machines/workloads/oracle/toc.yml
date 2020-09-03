@@ -4,6 +4,8 @@
     href: oracle-overview.md
   - name: Solutions on Azure VMs
     href: oracle-vm-solutions.md
+  - name: What is Oracle WebLogic Server on Azure?
+    href: oracle-weblogic.md
   - name: Solutions with OCI
     href: oracle-oci-overview.md
 - name: Quickstarts

@@ -1,12 +1,13 @@
 ---
 title: Tutorial - Use IoT Hub events to trigger Azure Logic Apps
 description: This tutorial shows how to use the event routing service of Azure Event Grid, create automated processes to perform Azure Logic Apps actions based on IoT Hub events.
-services: iot-hub
+services: iot-hub, event-grid
 author: robinsh
 ms.service: iot-hub
 ms.topic: tutorial
-ms.date: 11/21/2019
-ms.author: robinsh
+ms.date: 07/07/2020
+ms.author: robinsh 
+ms.custom: devx-track-azurecli
 ---
 
 # Tutorial: Send email notifications about Azure IoT Hub events using Event Grid and Logic Apps
@@ -19,17 +20,17 @@ This article walks through a sample configuration that uses IoT Hub and Event Gr
 
 * An active Azure subscription. If you don't have a subscription, you can [create a free Azure account](https://azure.microsoft.com/pricing/free-trial/).
 
-* An email account from any email provider that is supported by Azure Logic Apps, such as Office 365 Outlook, Outlook.com, or Gmail. This email account is used to send the event notifications. For a complete list of supported Logic App connectors, see the [Connectors overview](https://docs.microsoft.com/connectors/).
+* An email account from any email provider that is supported by Azure Logic Apps, such as Office 365 Outlook, Outlook.com, or Gmail. This email account is used to send the event notifications. For a complete list of supported Logic App connectors, see the [Connectors overview](/connectors/).
 
   > [!IMPORTANT]
   > Before you use Gmail, check whether you have a G-Suite business account (email address with a custom domain) 
   > or a Gmail consumer account (email address with @gmail.com or @googlemail.com). Only G-Suite business accounts 
   > can use the Gmail connector with other connectors without restriction in logic apps. If you have a Gmail consumer account, 
   > you can use the Gmail connector with only specific Google-approved services, or you can 
-  > [create a Google client app to use for authentication](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application). 
+  > [create a Google client app to use for authentication](/connectors/gmail/#authentication-and-bring-your-own-application). 
   > For more information, see [Data security and privacy policies for Google connectors in Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
 
-* An IoT Hub in Azure. If you haven't created one yet, see [Get started with IoT Hub](../iot-hub/iot-hub-csharp-csharp-getstarted.md) for a walkthrough.
+* An IoT Hub in Azure. If you haven't created one yet, see [Get started with IoT Hub](../iot-hub/quickstart-send-telemetry-dotnet.md) for a walkthrough.
 
 ## Create a logic app
 
@@ -175,19 +176,26 @@ In this section, you configure your IoT Hub to publish events as they occur.
 
 4. Create the event subscription with the following values: 
 
-   * **Event Subscription Details**: Provide a descriptive name and select **Event Grid Schema**.
+    1. In the **EVENT SUBSCRIPTION DETAILS** section, do the following tasks:
+        1. Provide a **name** for the event subscription. 
+        2. Select **Event Grid Schema** for **Event Schema**. 
+   2. In the **TOPIC DETAILS** section, do the following tasks:
+       1. Confirm that the **Topic type** is set to **IoT Hub**. 
+       2. Confirm that the name of the IoT hub is set as the value for the **Source Resource** field. 
+       3. Enter a name for the **system topic** that will be created for you. To learn about system topics, see [Overview of system topics](system-topics.md).
+   3. In the **EVENT TYPES** section, do the following tasks: 
+        1. For **Filter to Event Types**, uncheck all of the choices except **Device Created**.
 
-   * **Event Types**: In the **Filter to Event Types**, uncheck all of the choices except **Device Created**.
+           ![subscription event types](./media/publish-iot-hub-events-to-logic-apps/subscription-event-types.png)
+   4. In the **ENDPOINT DETAILS** section, do the following tasks: 
+       1. Select **Endpoint Type** as **Web Hook**.
+       2. Click **select an endpoint**, paste the URL that you copied from your logic app, and confirm selection.
 
-       ![subscription event types](./media/publish-iot-hub-events-to-logic-apps/subscription-event-types.png)
+         ![select endpoint url](./media/publish-iot-hub-events-to-logic-apps/endpoint-webhook.png)
 
-   * **Endpoint Details**: Select Endpoint Type as **Web Hook** and select *select an endpoint* and paste the URL that you copied from your logic app and confirm selection.
+         When you're done, the pane should look like the following example: 
 
-     ![select endpoint url](./media/publish-iot-hub-events-to-logic-apps/endpoint-webhook.png)
-
-   When you're done, the pane should look like the following example: 
-
-    ![Sample event subscription form](./media/publish-iot-hub-events-to-logic-apps/subscription-form.png)
+        ![Sample event subscription form](./media/publish-iot-hub-events-to-logic-apps/subscription-form.png)
 
 5. You could save the event subscription here, and receive notifications for every device that is created in your IoT hub. For this tutorial, though, let's use the optional fields to filter for specific devices. Select **Filters** at the top of the pane.
 
@@ -240,7 +248,7 @@ Test your logic app by creating a new device to trigger an event notification em
 
 ## Use the Azure CLI
 
-Instead of using the Azure portal, you can accomplish the IoT Hub steps using the Azure CLI. For details, see the Azure CLI pages for [creating an event subscription](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription) and [creating an IoT device](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity).
+Instead of using the Azure portal, you can accomplish the IoT Hub steps using the Azure CLI. For details, see the Azure CLI pages for [creating an event subscription](/cli/azure/eventgrid/event-subscription) and [creating an IoT device](/cli/azure/ext/azure-iot/iot/hub/device-identity).
 
 ## Clean up resources
 

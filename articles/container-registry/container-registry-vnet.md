@@ -1,6 +1,6 @@
 ---
 title: Restrict access using a service endpoint
-description: Restrict access to an Azure container registry using a service endpoint in an Azure virtual network
+description: Restrict access to an Azure container registry using a service endpoint in an Azure virtual network. Service endpoint access is a feature of the Premium service tier.
 ms.topic: article
 ms.date: 05/04/2020
 ---
@@ -14,7 +14,7 @@ This article shows how to configure a container registry service endpoint (previ
 > [!IMPORTANT]
 > Azure Container Registry now supports [Azure Private Link](container-registry-private-link.md), enabling private endpoints from a virtual network to be placed on a registry. Private endpoints are accessible from within the virtual network, using private IP addresses. We recommend using private endpoints instead of service endpoints in most network scenarios.
 
-Configuring a registry service endpoint is available in the **Premium** container registry service tier. For information about registry service tiers and limits, see [Azure Container Registry tiers](container-registry-skus.md).
+Configuring a registry service endpoint is available in the **Premium** container registry service tier. For information about registry service tiers and limits, see [Azure Container Registry service tiers](container-registry-skus.md).
 
 ## Preview limitations
 
@@ -22,12 +22,13 @@ Configuring a registry service endpoint is available in the **Premium** containe
 * You can't use the Azure portal to configure service endpoints on a registry.
 * Only an [Azure Kubernetes Service](../aks/intro-kubernetes.md) cluster or Azure [virtual machine](../virtual-machines/linux/overview.md) can be used as a host to access a container registry using a service endpoint. *Other Azure services including Azure Container Instances aren't supported.*
 * Each registry supports a maximum of 100 network access rules.
+* Service endpoints for Azure Container Registry aren't supported in the Azure US Government cloud or Azure China cloud.
 
 ## Prerequisites
 
 * To use the Azure CLI steps in this article, Azure CLI version 2.0.58 or later is required. If you need to install or upgrade, see [Install Azure CLI][azure-cli].
 
-* If you don't already have a container registry, create one (Premium SKU required) and push a sample image such as `hello-world` from Docker Hub. For example, use the [Azure portal][quickstart-portal] or the [Azure CLI][quickstart-cli] to create a registry. 
+* If you don't already have a container registry, create one (Premium tier required) and push a sample image such as `hello-world` from Docker Hub. For example, use the [Azure portal][quickstart-portal] or the [Azure CLI][quickstart-cli] to create a registry. 
 
 * If you want to restrict registry access using a service endpoint in a different Azure subscription, register the resource provider for Azure Container Registry in that subscription. For example:
 

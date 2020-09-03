@@ -1,6 +1,6 @@
 ---
-title: Connect Office 365 data to Azure Sentinel| Microsoft Docs
-description: Learn how to connect Office 365 data to Azure Sentinel.
+title: Connect Office 365 logs to Azure Sentinel | Microsoft Docs
+description: Learn to use the Office 365 log connector to bring in information about ongoing user and admin activities in Exchange, Teams, and SharePoint, including OneDrive.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -10,41 +10,61 @@ editor: ''
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/12/2020
+ms.date: 08/30/2020
 ms.author: yelevin
 
 ---
-# Connect data from Office 365 Logs
+# Connect Office 365 Logs to Azure Sentinel
 
-
-
-You can stream audit logs from [Office 365](https://docs.microsoft.com/office365/admin/admin-home?view=o365-worldwide) into Azure Sentinel with a single click. You can stream audit logs from your Office 365 into your Azure Sentinel workspace on the same tenant. The Office 365 activity log connector provides insight into ongoing user activities. You will get information about various user, admin, system, and policy actions and events from Office 365. By connecting Office 365 logs into Azure Sentinel you can use this data to view dashboards, create custom alerts, and improve your investigation process.
+The [Office 365](https://docs.microsoft.com/office/) log connector brings into Azure Sentinel information on ongoing user and admin activities in **Exchange** and **SharePoint** (including **OneDrive**), and now in **Teams** as well. This information includes details of actions such as file downloads, access requests sent, changes to group events, mailbox operations, Teams events (such as chat, team, member, and channel events), as well as the details of the user who performed the actions. Connecting Office 365 logs to Azure Sentinel enables you to view and analyze this data in your workbooks, query it to create custom alerts, and incorporate it to improve your investigation process, giving you more insight into your Office 365 security.
 
 > [!IMPORTANT]
-> If you have an E3 license, before you can access data through the Office 365 Management Activity API, you must enable unified audit logging for your Office 365 organization. You do this by turning on the Office 365 audit log. For instructions, see [Turn Office 365 audit log search on or off](https://docs.microsoft.com/office365/securitycompliance/turn-audit-log-search-on-or-off). See [Office 365 management Activity API reference](https://docs.microsoft.com/office/office-365-management-api/office-365-management-activity-api-reference), for more information.
+> The Office 365 log connector's **extension for Microsoft Teams logs** is currently in public preview.
+> This feature is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
 
+- You must have read and write permissions on your Azure Sentinel workspace.
+
 - You must be a global administrator or security administrator on your tenant.
-- Your tenant must have unified auditing enabled. Tenants with Office 365 E3 or E5 licenses have unified auditing enabled by default. <br>If your tenant does not have one of these licenses, you must enable unified auditing on your tenant using one of these methods:
-    - [Using the Set-AdminAuditLogConfig cmdlet](https://docs.microsoft.com/powershell/module/exchange/policy-and-compliance-audit/set-adminauditlogconfig?view=exchange-ps) and enable the parameter “UnifiedAuditLogIngestionEnabled”).
-    - [Using the Security & Compliance Center UI](https://docs.microsoft.com/office365/securitycompliance/search-the-audit-log-in-security-and-compliance#before-you-begin).
 
-## Connect to Office 365
+- Your Office 365 deployment must be on the same tenant as your Azure Sentinel workspace.
 
-1. In Azure Sentinel, select **Data connectors** and then click the **Office 365** tile.
+> [!IMPORTANT]
+> - In order for the connector to be able to access data through the Office 365 Management Activity API, you must have **unified audit logging** enabled on your Office 365 deployment. Depending on the type of Office 365 / Microsoft 365 license you have, it may or may not be enabled by default. Consult the [Office 365 Security and Compliance Center](https://docs.microsoft.com/office365/servicedescriptions/office-365-platform-service-description/office-365-securitycompliance-center) to check the status of unified audit logging according to your license type.
+> - You can also manually enable, disable, and check the current status of Office 365 unified audit logging. For instructions, see [Turn Office 365 audit log search on or off](https://docs.microsoft.com/office365/securitycompliance/turn-audit-log-search-on-or-off).
+> - For more information, see the [Office 365 Management Activity API reference](https://docs.microsoft.com/office/office-365-management-api/office-365-management-activity-api-reference).
 
-2. If you have not already enabled it, you can do so by going to **Data Connectors** blade and selecting **Office 365** connector. Here you can click the **Open Connector Page** and under configuration section labeled **Configuration** select all the Office 365 activity logs you want to connect to Azure Sentinel. 
+
    > [!NOTE]
-   > If you already connected multiple tenants in a previously supported version of the Office 365 connector in Azure Sentinel, you will be able to view and modify which logs you collect from each tenant. You will not be able to add additional tenants, but you can remove previously added tenants.
-3. To use the relevant schema in Log Analytics for the Office 365 logs, search for **OfficeActivity**.
+   > As noted above, and as you'll see on the connector page under **Data types**, the Azure Sentinel Office 365 connector currently supports the ingestion of audit logs only from Microsoft Exchange and SharePoint (including OneDrive), **and now from Teams as well**. However, there are some external solutions if you're interested in bringing [other Office data](https://techcommunity.microsoft.com/t5/azure-sentinel/ingesting-office-365-alerts-with-graph-security-api/ba-p/984888) into Azure Sentinel. 
 
+## Enable the Office 365 log connector
+
+### Instructions tab
+
+1. From the Azure Sentinel navigation menu, select **Data connectors**.
+
+1. From the **Data connectors** gallery, select **Office 365**, and then select **Open connector page** on the preview pane.
+
+1. Under the section labeled **Configuration**, mark the check boxes of the Office 365 activity logs you want to connect to Azure Sentinel, and click **Apply Changes**. 
+
+   > [!NOTE]
+   > If you had previously connected multiple tenants to Azure Sentinel, using an older version of the Office 365 connector which supported this, you will be able to view and modify which logs you collect from each tenant. You will not be able to add additional tenants, but you can remove previously added tenants.
+
+### Next steps tab
+
+- See the recommended workbooks, query samples, and analytics rule templates that are bundled with the **Office 365** log connector, to get insight into your SharePoint, OneDrive, Exchange, and Teams log data.
+
+- To manually query Office 365 log data in **Logs**, enter `OfficeActivity` in the first line of the query window.
+   - To filter the query for a specific log type, enter `| where OfficeWorkload == "<logtype>"` in the second line of the query, where *\<logtype\>* is either `SharePoint`, `OneDrive`, `Exchange`, or `MicrosoftTeams`.
 
 ## Next steps
 In this document, you learned how to connect Office 365 to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
-- Learn how to [get visibility into your data, and potential threats](quickstart-get-visibility.md).
-- Get started [detecting threats with Azure Sentinel](tutorial-detect-threats-built-in.md).
+- Learn how to [get visibility into your data and potential threats](quickstart-get-visibility.md).
+- Get started detecting threats with Azure Sentinel, using [built-in](tutorial-detect-threats-built-in.md) or [custom](tutorial-detect-threats-custom.md) rules.
 

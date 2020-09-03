@@ -9,8 +9,9 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 03/13/2020
 ms.author: tamram
-ms.reviewer: cbrooks
-ms.subservice: common
+ms.reviewer: ozgun
+ms.subservice: common 
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Determine which Azure Storage encryption key model is in use for the storage account

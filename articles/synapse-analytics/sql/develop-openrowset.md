@@ -5,7 +5,7 @@ services: synapse-analytics
 author: filippopovic
 ms.service: synapse-analytics
 ms.topic: overview
-ms.subservice:
+ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
@@ -25,8 +25,8 @@ The `OPENROWSET` function can optionally contain a `DATA_SOURCE` parameter to sp
 
     ```sql
     SELECT *
-    FROM OPENROWSET(BULK 'http://storage..../container/folder/*.parquet',
-                    TYPE = 'PARQUET') AS file
+    FROM OPENROWSET(BULK 'http://<storage account>.dfs.core.windows.net/container/folder/*.parquet',
+                    FORMAT = 'PARQUET') AS file
     ```
 
 This is a quick and easy way to read the content of the files without pre-configuration. This option enables you to use the basic authentication option to access the storage (Azure AD passthrough for Azure AD logins and SAS token for SQL logins). 
@@ -37,13 +37,15 @@ This is a quick and easy way to read the content of the files without pre-config
     SELECT *
     FROM OPENROWSET(BULK '/folder/*.parquet',
                     DATA_SOURCE='storage', --> Root URL is in LOCATION of DATA SOURCE
-                    TYPE = 'PARQUET') AS file
+                    FORMAT = 'PARQUET') AS file
     ```
+
 
     This option enables you to configure location of the storage account in the data source and specify the authentication method that should be used to access storage. 
     
     > [!IMPORTANT]
-    > `OPENROWSET` without `DATA_SOURCE` provides quick and easy way to access the storage files but offers limited authentication options. As an example, Azure AD principal can access files only using their [Azure AD identity](develop-storage-files-storage-access-control.md#user-identity) and cannot access publicly available files. If you need more powerful authentication options, use `DATA_SOURCE` option and define credential that you want to use to access storage.
+    > `OPENROWSET` without `DATA_SOURCE` provides quick and easy way to access the storage files but offers limited authentication options. As an example, Azure AD principals can access files only using their [Azure AD identity](develop-storage-files-storage-access-control.md?tabs=user-identity) or publicly available files. If you need more powerful authentication options, use `DATA_SOURCE` option and define credential that you want to use to access storage.
+
 
 ## Security
 
@@ -52,10 +54,11 @@ A database user must have `ADMINISTER BULK OPERATIONS` permission to use the `OP
 The storage administrator must also enable a user to access the files by providing valid SAS token or enabling Azure AD principal to access storage files. Learn more about storage access control in [this article](develop-storage-files-storage-access-control.md).
 
 `OPENROWSET` use the following rules to determine how to authenticate to storage:
-- In `OPENROWSET` with `DATA_SOURCE` the authentication mechanism depends on caller type.
-  - AAD logins can access files only using their own [Azure AD identity](develop-storage-files-storage-access-control.md#user-identity) if Azure storage allows the Azure AD user to access underlying files (for example, if the caller has Storage Reader permission on storage) and if you [enable Azure AD passthrough authentication](develop-storage-files-storage-access-control.md#force-azure-ad-pass-through) on Synapse SQL service.
-  - SQL logins can also use `OPENROWSET` without `DATA_SOURCE` to access publicly available files, files protected using SAS token or Managed Identity of Synapse workspace. You would need to [create server-scoped credential](develop-storage-files-storage-access-control.md#examples) to allow access to storage files. 
-- In `OPENROWSET` with `DATA_SOURCE` authentication mechanism is defined in database scoped credential assigned to the referenced data source. This option enables you to access publicly available storage, or access storage using SAS token, Managed Identity of workspace, or [Azure AD identity of caller](develop-storage-files-storage-access-control.md#user-identity) (if caller is Azure AD principal). If `DATA_SOURCE` references Azure storage that is not public, you would need to [create database-scoped credential](develop-storage-files-storage-access-control.md#examples) and reference it in `DATA SOURCE` to allow access to storage files.
+- In `OPENROWSET` without `DATA_SOURCE` authentication mechanism depends on caller type.
+  - Any user can use `OPENROWSET` without `DATA_SOURCE` to read publicly available files on Azure storage.
+  - Azure AD logins can access protected files using their own [Azure AD identity](develop-storage-files-storage-access-control.md?tabs=user-identity#supported-storage-authorization-types) if Azure storage allows the Azure AD user to access underlying files (for example, if the caller has `Storage Reader` permission on Azure storage).
+  - SQL logins can also use `OPENROWSET` without `DATA_SOURCE` to access publicly available files, files protected using SAS token, or Managed Identity of Synapse workspace. You would need to [create server-scoped credential](develop-storage-files-storage-access-control.md#examples) to allow access to storage files. 
+- In `OPENROWSET` with `DATA_SOURCE` authentication mechanism is defined in database scoped credential assigned to the referenced data source. This option enables you to access publicly available storage, or access storage using SAS token, Managed Identity of workspace, or [Azure AD identity of caller](develop-storage-files-storage-access-control.md?tabs=user-identity#supported-storage-authorization-types) (if caller is Azure AD principal). If `DATA_SOURCE` references Azure storage that isn't public, you would need to [create database-scoped credential](develop-storage-files-storage-access-control.md#examples) and reference it in `DATA SOURCE` to allow access to storage files.
 
 Caller must have `REFERENCES` permission on credential to use it to authenticate to storage.
 
@@ -107,9 +110,11 @@ The unstructured_data_path that establishes a path to the data may be an absolut
 
 | External Data Source       | Prefix | Storage account path                                 |
 | -------------------------- | ------ | ---------------------------------------------------- |
-| Azure Blob Storage         | https  | \<storage_account>.blob.core.windows.net             |
-| Azure Data Lake Store Gen1 | https  | \<storage_account>.azuredatalakestore.net/webhdfs/v1 |
-| Azure Data Lake Store Gen2 | https  | \<storage_account>.dfs.core.windows.net              |
+| Azure Blob Storage         | http[s]  | \<storage_account>.blob.core.windows.net/path/file   |
+| Azure Blob Storage         | wasb[s]  | \<container>@\<storage_account>.blob.core.windows.net/path/file |
+| Azure Data Lake Store Gen1 | http[s]  | \<storage_account>.azuredatalakestore.net/webhdfs/v1 |
+| Azure Data Lake Store Gen2 | http[s]  | \<storage_account>.dfs.core.windows.net /path/file   |
+| Azure Data Lake Store Gen2 | abfs[s]  | [\<file_system>@\<account_name>.dfs.core.windows.net/path/file](../../storage/blobs/data-lake-storage-introduction-abfs-uri.md#uri-syntax)              |
 ||||
 
 '\<storage_path>'
@@ -123,7 +128,7 @@ Below is an example that reads all *csv* files starting with *population* from a
 If you specify the unstructured_data_path to be a folder, a SQL on-demand query will retrieve files from that folder. 
 
 > [!NOTE]
-> Unlike Hadoop and PolyBase, SQL on-demand doesn't return subfolders. Also, unlike Hadoop and PloyBase, SQL on-demand does return files for which the file name begins with an underline (_) or a period (.).
+> Unlike Hadoop and PolyBase, SQL on-demand doesn't return subfolders. Also, unlike Hadoop and PolyBase, SQL on-demand does return files for which the file name begins with an underline (_) or a period (.).
 
 In the example below, if the unstructured_data_path=`https://mystorageaccount.dfs.core.windows.net/webdata/`, a SQL on-demand query will return rows from mydata.txt and _hidden.txt. It won't return mydata2.txt and mydata3.txt because they are located in a subfolder.
 
@@ -164,13 +169,13 @@ Specifies the field terminator to be used. The default field terminator is a com
 
 ROWTERMINATOR ='row_terminator'`
 
-Specifies the row terminator to be used. If row terminator is not specified one of default terminators will be used. Default terminators for PARSER_VERSION = '1.0' are \r\n, \n and \r. Default terminators for PARSER_VERSION = '2.0' are \r\n and \n.
+Specifies the row terminator to be used. If row terminator is not specified, one of default terminators will be used. Default terminators for PARSER_VERSION = '1.0' are \r\n, \n and \r. Default terminators for PARSER_VERSION = '2.0' are \r\n and \n.
 
 ESCAPE_CHAR = 'char'
 
 Specifies the character in the file that is used to escape itself and all delimiter values in the file. If the escape character is followed by a value other than itself, or any of the delimiter values, the escape character is dropped when reading the value. 
 
-The ESCAPE_CHAR parameter will be applied regardless of whether the FIELDQUOTE is or isn't enabled. It won't be used to escape the quoting character. The quoting character is escaped with double-quotes in alignment with the Excel CSV behavior.
+The ESCAPE_CHAR parameter will be applied regardless of whether the FIELDQUOTE is or isn't enabled. It won't be used to escape the quoting character. The quoting character must be escaped with another quoting character. Quoting character can appear within column value only if value is encapsulated with quoting characters.
 
 FIRSTROW = 'first_row' 
 
@@ -188,18 +193,18 @@ Specifies compression method. Following compression method is supported:
 
 PARSER_VERSION = 'parser_version'
 
-Specifies parser version to be used when reading files. Currently supported CSV parser versions are 1.0 and 2.0
+Specifies parser version to be used when reading files. Currently supported CSV parser versions are 1.0 and 2.0:
 
 - PARSER_VERSION = '1.0'
 - PARSER_VERSION = '2.0'
 
-CSV parser version 1.0 is default and feature-rich, while 2.0 is built for performance and does not support all options and encodings. 
+CSV parser version 1.0 is default and feature rich, while 2.0 is built for performance and does not support all options and encodings. 
 
 CSV parser version 2.0 specifics:
 
 - Not all data types are supported.
-- Maximum row size limit is 8MB.
-- Following options are not supported: DATA_COMPRESSION.
+- Maximum row size limit is 8 MB.
+- Following options aren't supported: DATA_COMPRESSION.
 - Quoted empty string ("") is interpreted as empty string.
 
 ## Examples
@@ -231,10 +236,6 @@ FROM
     ) AS [r]
 ```
 
-If you are getting an error saying that the files cannot be listed, you need to enable access to public storage in Synapse SQL on-demand:
-- If you are using a SQL login you need to [create server-scoped credential that allows access to public storage](develop-storage-files-storage-access-control.md#examples).
-- If you are using an Azure AD principal to access public storage, you would need to [create server-scoped credential that allows access to public storage](develop-storage-files-storage-access-control.md#examples) and disable [Azure AD passthrough authentication](develop-storage-files-storage-access-control.md#disable-forcing-azure-ad-pass-through).
-
 ## Next steps
 
-For more samples, see the [query data storage quickstart](query-data-storage.md) to learn how to use `OPENROWSET to read [CSV](query-single-csv-file.md), [PARQUET](query-parquet-files.md), and [JSON](query-json-files.md) file formats. You can also learn how to save the results of your query to Azure Storage using [CETAS](develop-tables-cetas.md).
+For more samples, see the [query data storage quickstart](query-data-storage.md) to learn how to use `OPENROWSET` to read [CSV](query-single-csv-file.md), [PARQUET](query-parquet-files.md), and [JSON](query-json-files.md) file formats. You can also learn how to save the results of your query to Azure Storage using [CETAS](develop-tables-cetas.md).

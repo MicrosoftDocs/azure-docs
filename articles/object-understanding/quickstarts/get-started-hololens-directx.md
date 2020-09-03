@@ -74,7 +74,9 @@ From the HoloLens, launch the **OUSampleApp** app (if it was already open, close
 
 Figure: a detected chair rendered with its bounding box (pink), point cloud (yellow), and a search area (large yellow box).
 
-You can define a search space for the object in the app by finger clicking in the air with either your right or left hand. The search space will switch among a moving region within a 3-meter radius, a 4 m^3 volume, a tighter bounding box adapted to object's size, and a view frustum. Providing a search area usually improves object detection speed and accuracy.
+You can define a search space for the object in the app by finger clicking in the air with either your right or left hand. The search space will switch among a sphere of 2 meters radius, a 4 m^3 bounding box and a view frustum. Each time when the search area changes, the app will remove instances currently being tracked, and then try to find them from scratch in the new search area.
+
+This app can track multiple objects at one time. To do that, upload multiple models to the **LocalState** folder and set a search area that covers both objects. It may take longer to detect and track multiple objects.
 
 The app by default detects object at coarse pose, with a rough 2+ cm error. User can air tap with left hand to turn on high precision racking mode which potentially computes more accurate pose. Note that this is still an experimental feature, consumes more system resources and could result higher jitter in the estimated pose. Airtap again with left hand to switch to normal tracking mode.
 

@@ -1,12 +1,12 @@
 ---
-title: Frequently Asked Questions - Custom Translator
+title: Frequently asked questions - Custom Translator
 titleSuffix: Azure Cognitive Services
 description: This article contains answers to frequently asked questions about the Azure Cognitive Services Custom Translator.
 author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 02/21/2019
+ms.date: 08/17/2020
 ms.author: swmachan
 ms.topic: reference
 #Customer intent: As a Custom Translator user, I want to review frequently asked questions.
@@ -66,7 +66,8 @@ If the number of extracted sentences does not match the two files with the same
 base name, Custom Translator will still run the sentence aligner on `.align`
 files.
 
-## I tried uploading my TMX, but it says "document processing failed".
+## I tried uploading my TMX, but it says "document processing failed"
+
 
 Ensure that the TMX conforms to the TMX 1.4b Specification at
 <https://www.gala-global.org/tmx-14b>.

@@ -12,7 +12,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/08/2017
 ms.subservice: hybrid
 ms.author: billmath
@@ -54,7 +54,7 @@ The sync service consists of two components, the on-premises **Azure AD Connect 
 | [Duplicate attribute resiliency](how-to-connect-syncservice-duplicate-attribute-resiliency.md) |Describes how to enable and use **userPrincipalName** and **proxyAddresses** duplicate attribute values resiliency. |
 | **Operations and UI** | |
 | [Synchronization Service Manager](how-to-connect-sync-service-manager-ui.md) |Describes the Synchronization Service Manager UI, including [Operations](how-to-connect-sync-service-manager-ui-operations.md), [Connectors](how-to-connect-sync-service-manager-ui-connectors.md), [Metaverse Designer](how-to-connect-sync-service-manager-ui-mvdesigner.md), and [Metaverse Search](how-to-connect-sync-service-manager-ui-mvsearch.md) tabs. |
-| [Operational tasks and considerations](how-to-connect-sync-operations.md) |Describes operational concerns, such as disaster recovery. |
+| [Operational tasks and considerations](./how-to-connect-sync-staging-server.md) |Describes operational concerns, such as disaster recovery. |
 | **How To...** | |
 | [Reset the Azure AD account](how-to-connect-azureadaccount.md) |How to reset the credentials of the service account used to connect from Azure AD Connect sync to Azure AD. |
 | **More information and references** | |

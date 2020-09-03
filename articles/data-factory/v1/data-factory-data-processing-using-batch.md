@@ -11,6 +11,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
+ms.custom: devx-track-csharp
 ---
 
 # Process large-scale datasets by using Data Factory and Batch
@@ -33,8 +34,8 @@ With the Batch service, you define Azure compute resources to execute your appli
 
  If you aren't familiar with Batch, the following articles help you understand the architecture/implementation of the solution described in this article:   
 
-* [Basics of Batch](../../batch/batch-technical-overview.md)
-* [Batch feature overview](../../batch/batch-api-basics.md)
+* [Basics of Batch](../../azure-sql/database/sql-database-paas-overview.md)
+* [Batch feature overview](../../batch/batch-service-workflow-features.md)
 
 Optionally, to learn more about Batch, see [the Batch documentation](https://docs.microsoft.com/azure/batch/).
 
@@ -921,7 +922,7 @@ Debugging consists of a few basic techniques.
    >
 1. The custom activity doesn't use the **app.config** file from your package. Therefore, if your code reads any connection strings from the configuration file, it doesn't work at runtime. The best practice when you use Batch is to hold any secrets in Azure Key Vault. Then use a certificate-based service principal to protect the key vault and distribute the certificate to the Batch pool. The .NET custom activity can access secrets from the key vault at runtime. This generic solution can scale to any type of secret, not just a connection string.
 
-    There is an easier workaround, but it's not a best practice. You can create a SQL database linked service with connection string settings. Then you can create a dataset that uses the linked service and chain the dataset as a dummy input dataset to the custom .NET activity. You can then access the linked service's connection string in the custom activity code. It should work fine at runtime.  
+    There is an easier workaround, but it's not a best practice. You can create a SQL Database linked service with connection string settings. Then you can create a dataset that uses the linked service and chain the dataset as a dummy input dataset to the custom .NET activity. You can then access the linked service's connection string in the custom activity code. It should work fine at runtime.  
 
 #### Extend the sample
 You can extend this sample to learn more about Data Factory and Batch features. For example, to process slices in a different time range, take the following steps:
@@ -956,7 +957,7 @@ You can extend this sample to learn more about Data Factory and Batch features. 
 After you process data, you can consume it with online tools such as Power BI. Here are links to help you understand Power BI and how to use it in Azure:
 
 * [Explore a dataset in Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-data/)
-* [Get started with Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-getting-started/)
+* [Get started with Power BI Desktop](https://docs.microsoft.com/power-bi/fundamentals/desktop-getting-started)
 * [Refresh data in Power BI](https://powerbi.microsoft.com/documentation/powerbi-refresh-data/)
 * [Azure and Power BI: Basic overview](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)
 
@@ -968,8 +969,8 @@ After you process data, you can consume it with online tools such as Power BI. H
   * [Use custom activities in a Data Factory pipeline](data-factory-use-custom-activities.md)
 * [Azure Batch](https://azure.microsoft.com/documentation/services/batch/)
 
-  * [Basics of Batch](../../batch/batch-technical-overview.md)
-  * [Overview of Batch features](../../batch/batch-api-basics.md)
+  * [Basics of Batch](../../azure-sql/database/sql-database-paas-overview.md)
+  * [Overview of Batch features](../../batch/batch-service-workflow-features.md))
   * [Create and manage a Batch account in the Azure portal](../../batch/batch-account-create-portal.md)
   * [Get started with the Batch client library for .NET](../../batch/quick-run-dotnet.md)
 

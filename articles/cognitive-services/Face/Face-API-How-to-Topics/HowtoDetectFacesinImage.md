@@ -11,6 +11,7 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: sbowles
+ms.custom: devx-track-csharp
 ---
 
 # Get face detection data
@@ -141,7 +142,6 @@ To learn more about each of the attributes, see the [Face detection and attribut
 In this guide, you learned how to use the various functionalities of face detection. Next, integrate these features into your app by following an in-depth tutorial.
 
 - [Tutorial: Create a WPF app to display face data in an image](../Tutorials/FaceAPIinCSharpTutorial.md)
-- [Tutorial: Create an Android app to detect and frame faces in an image](../Tutorials/FaceAPIinJavaForAndroidTutorial.md)
 
 ## Related topics
 

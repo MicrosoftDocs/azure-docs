@@ -12,7 +12,7 @@ ms.author: memildin
 
 ---
 # Data collection in Azure Security Center
-Security Center collects data from your Azure virtual machines (VMs), virtual machine scale sets, IaaS containers, and non-Azure (including on-premises) computers to monitor for security vulnerabilities and threats. Data is collected using the Log Analytics agent, which reads various security-related configurations and event logs from the machine and copies the data to your workspace for analysis. Examples of such data are: operating system type and version, operating system logs (Windows event logs), running processes, machine name, IP addresses, and logged in user. The Log Analytics agent also copies crash dump files to your workspace.
+Security Center collects data from your Azure virtual machines (VMs), virtual machine scale sets, IaaS containers, and non-Azure (including on-premises) computers to monitor for security vulnerabilities and threats. Data is collected using the Log Analytics agent, which reads various security-related configurations and event logs from the machine and copies the data to your workspace for analysis. Examples of such data are: operating system type and version, operating system logs (Windows event logs), running processes, machine name, IP addresses, and logged in user.
 
 Data collection is required to provide visibility into missing updates, misconfigured OS security settings, endpoint protection status, and health and threat protection. 
 
@@ -75,7 +75,7 @@ To select a workspace created by Security Center:
 1. Security Center will automatically enable a Security Center solution on the workspace per the pricing tier set for the subscription. 
 
 > [!NOTE]
-> The Log Analytics pricing tier of workspaces created by Security Center does not affect Security Center billing. Security Center billing is always based on your Security Center security policy and the solutions installed on a workspace. For the Free tier, Security Center enables the *SecurityCenterFree* solution on the default workspace. For the Standard tier, Security Center enables the *Security* solution on the default workspace.
+> The Log Analytics pricing tier of workspaces created by Security Center does not affect Security Center billing. Security Center billing is always based on your Security Center security policy and the solutions installed on a workspace. For the Free tier, Security Center enables the *SecurityCenterFree* solution on the default workspace. For the standard tier, Security Center enables the *Security* solution on the default workspace.
 > Storing data in Log Analytics might incur additional charges for data storage. For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/).
 
 For more information about existing log analytics accounts, see [Existing log analytics customers](./faq-azure-monitor-logs.md).
@@ -148,7 +148,7 @@ Selecting a data collection tier in Azure Security Center will only affect the s
 
 
 > [!NOTE]
-> These security events sets are available only on Security Center’s Standard tier. See [Pricing](security-center-pricing.md) to learn more about Security Center's pricing tiers.
+> These security events sets are available only on Security Center’s standard tier. See [Pricing](security-center-pricing.md) to learn more about Security Center's pricing tiers.
 These sets were designed to address typical scenarios. Make sure to evaluate which one fits your needs before implementing it.
 >
 >
@@ -197,7 +197,7 @@ If the configured workspace is a user workspace (not Security Center's default w
 <br>
 For Linux machines, Agent multi-homing is not yet supported - hence, if an existing agent installation is detected, automatic provisioning will not occur and the machine's configuration will not be altered.
 <br>
-For existing machines on subscriptions onboarded to Security Center before 2019-03-17, when an existing agent will be detected, the Log Analytics agent extension will not be installed and the machine will not be affected. For these machines, see to the "Resolve monitoring agent health issues on your machines" recommendation to resolve the agent installation issues on these machines.
+For existing machines on subscriptions onboarded to Security Center before 17th March 2019, when an existing agent will be detected, the Log Analytics agent extension will not be installed and the machine will not be affected. For these machines, see to the "Resolve monitoring agent health issues on your machines" recommendation to resolve the agent installation issues on these machines.
 
   
 - System Center Operations Manager agent is installed on the machine<br>
@@ -209,15 +209,17 @@ Security center will install the Log Analytics agent extension side by side to t
     - If you have an environment where the Log Analytics agent is installed on client workstations and reporting to an existing Log Analytics workspace, review the list of [operating systems supported by Azure Security Center](security-center-os-coverage.md) to make sure your operating system is supported. For more information, see [Existing log analytics customers](./faq-azure-monitor-logs.md).
  
 ### Turn off automatic provisioning <a name="offprovisioning"></a>
-You can turn off automatic provisioning from resources at any time by turning off this setting in the security policy. 
+To turn off automatic provisioning of the Log Analytics agent:
 
+1. From Security Center's menu in the portal, select **Pricing & settings**.
+2. Select the relevant subscription.
 
-1. Return to the Security Center main menu and select the Security policy.
-2. Click **Edit settings** in the row of the subscription for which you want to disable automatic provisioning.
-3. On the **Security policy – Data Collection** page, under **Auto provisioning** select **Off**.
-4. Select **Save**.
+   ![Select subscription][7]
 
-   ![Disable auto provisioning][6]
+3. Select **Data Collection**.
+4. Under **Auto Provisioning**, select **Off** to disable automatic provisioning.
+5. Select **Save**. 
+
 
 When auto provisioning is disabled (turned off), the default workspace configuration section is not displayed.
 
@@ -235,58 +237,44 @@ There are several ways to install the Log Analytics agent manually. When install
 ### Operations Management Suite VM extension deployment 
 
 You can manually install the Log Analytics agent, so Security Center can collect security data from your VMs and provide recommendations and alerts.
-1. Select Auto provision – OFF.
-2. Create a workspace and set the pricing tier for the workspace you intend to set the Log Analytics agent:
 
-   a.  In the Security Center main menu, select **Security policy**.
-     
-   b.  Select the Workspace in which you intend to connect the agent. Make sure the workspace is in the same subscription you use in Security Center and that you have read/write permissions on the workspace.
-       ![Select workspace][8]
-3. Set the pricing tier.
-   ![Select pricing tier][9] 
-   >[!NOTE]
-   >If the workspace already has a **Security** or **SecurityCenterFree** solution enabled, the pricing will be set automatically. 
+1. Disable auto provisioning.
+
+1. Optionally, create a workspace.
+
+1. Set the workspace on which you're installing the Log Analytics agent to the standard pricing tier:
+
+    1. From Security Center's menu, select **Pricing & settings**.
+
+    1. Set the workspace on which you're installing the agent. Make sure the workspace is in the same subscription you use in Security Center and that you have read/write permissions on the workspace.
+
+    1. Set the standard pricing tier, and select **Save**.
+
+        ![Set a workspace to standard pricing tier](.\media\security-center-enable-data-collection\workspace-to-standard-tier.gif)
+
+       >[!NOTE]
+       >If the workspace already has a **Security** or **SecurityCenterFree** solution enabled, the pricing will be set automatically. 
    > 
 
-4. If  you want to deploy the agents on new VMs using a Resource Manager template, install the OMS virtual machine extension:
+1. If  you want to deploy the agents on new VMs using a Resource Manager template, install the Log Analytics agent:
 
-   a.  [Install the OMS virtual machine extension for Windows](../virtual-machines/extensions/oms-windows.md)
+   a.  [Install the Log Analytics agent for Windows](../virtual-machines/extensions/oms-windows.md)
     
-   b.  [Install the OMS virtual machine extension for Linux](../virtual-machines/extensions/oms-linux.md)
-5. To deploy the extensions on existing VMs, follow the instructions in [Collect data about Azure Virtual Machines](../azure-monitor/learn/quick-collect-azurevm.md).
+   b.  [Install the Log Analytics agent for Linux](../virtual-machines/extensions/oms-linux.md)
+
+1. To deploy the extensions on existing VMs, follow the instructions in [Collect data about Azure Virtual Machines](../azure-monitor/learn/quick-collect-azurevm.md).
 
    > [!NOTE]
    > The section **Collect event and performance data** is optional.
    >
-6. To use PowerShell to deploy the extension, use the following PowerShell example:
-   
-   [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-   
-   1. Go to **Log Analytics** and click on **Advanced settings**.
-    
-      ![Set log analytics][11]
 
-   2. Copy the values out of **WorkspaceID** and **Primary key**.
-  
-      ![Copy values][12]
+1. To use PowerShell to deploy the extension, use the instructions from the virtual machines documentation:
 
-   3. Populate the public config and the private config with these values:
-     
-           $PublicConf = @{
-               "workspaceId"= "<WorkspaceID value>"
-           }
- 
-           $PrivateConf = @{
-               "workspaceKey"= "<Primary key value>"
-           }
+    - [For Windows machines](https://docs.microsoft.com/azure/virtual-machines/extensions/oms-windows?toc=%2Fazure%2Fazure-monitor%2Ftoc.json#powershell-deployment)
 
-	  - When installing on a Windows VM:
-	    
-            Set-AzVMExtension -ResourceGroupName $vm.ResourceGroupName -VMName $vm.Name -Name "MicrosoftMonitoringAgent" -Publisher "Microsoft.EnterpriseCloud.Monitoring" -ExtensionType "MicrosoftMonitoringAgent" -TypeHandlerVersion '1.0' -Location $vm.Location -settings $PublicConf -ProtectedSettingString $PrivateConf -ForceRerun True 
-	
-      - When installing on a Linux VM:
-	    
-            Set-AzVMExtension -ResourceGroupName $vm1.ResourceGroupName -VMName $vm1.Name -Name "OmsAgentForLinux" -Publisher "Microsoft.EnterpriseCloud.Monitoring" -ExtensionType "OmsAgentForLinux" -TypeHandlerVersion '1.0' -Location $vm.Location -Settingstring $PublicConf -ProtectedSettingString $PrivateConf -ForceRerun True`
+    - [For Linux machines](https://docs.microsoft.com/azure/virtual-machines/extensions/oms-linux?toc=%2Fazure%2Fazure-monitor%2Ftoc.json#azure-cli-deployment)
+
+
 
 > [!NOTE]
 > For instructions on how to onboard Security Center using PowerShell, see [Automate onboarding of Azure Security Center using PowerShell](security-center-powershell-onboarding.md).

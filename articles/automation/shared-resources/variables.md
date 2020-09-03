@@ -1,6 +1,6 @@
 ---
 title: Manage variables in Azure Automation
-description: Variable assets are values that are available to all runbooks and DSC configurations in Azure Automation.  This article explains the details of variables and how to work with them in both textual and graphical authoring.
+description: This article tells how to work with variables in runbooks and DSC configurations.
 services: automation
 ms.service: automation
 ms.subservice: shared-capabilities
@@ -24,13 +24,10 @@ Automation variables are useful for the following scenarios:
 
 Azure Automation persists variables and makes them available even if a runbook or DSC configuration fails. This behavior allows one runbook or DSC configuration to set a value that is then used by another runbook, or by the same runbook or DSC configuration the next time it runs.
 
-Azure Automation stores each encrypted variable securely. When creating a variable, you can specify its encryption and storage by Azure Automation as a secure asset. 
+Azure Automation stores each encrypted variable securely. When you create a variable, you can specify its encryption and storage by Azure Automation as a secure asset. After you create the variable, you can't change its encryption status without re-creating the variable. An Azure Security Center recommendation is to encrypt all Azure Automation variables as described in [Automation account variables should be encrypted](../../security-center/recommendations-reference.md#recs-computeapp). 
 
 >[!NOTE]
 >Secure assets in Azure Automation include credentials, certificates, connections, and encrypted variables. These assets are encrypted and stored in Azure Automation using a unique key that is generated for each Automation account. Azure Automation stores the key in the system-managed Key Vault. Before storing a secure asset, Automation loads the key from Key Vault and then uses it to encrypt the asset. 
-
->[!NOTE]
->This article has been updated to use the new Azure PowerShell Az module. You can still use the AzureRM module, which will continue to receive bug fixes until at least December 2020. To learn more about the new Az module and AzureRM compatibility, see [Introducing the new Azure PowerShell Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). For Az module installation instructions on your Hybrid Runbook Worker, see [Install the Azure PowerShell Module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). For your Automation account, you can update your modules to the latest version using [How to update Azure PowerShell modules in Azure Automation](../automation-update-azure-modules.md).
 
 ## Variable types
 
@@ -42,14 +39,14 @@ When you create a variable with the Azure portal, you must specify a data type f
 * Boolean
 * Null
 
-The variable isn't restricted to the specified data type. You must set the variable using Windows PowerShell if you want to specify a value of a different type. If you indicate `Not defined`, the value of the variable is set to Null. You must set the value with the [Set-AzAutomationVariable](https://docs.microsoft.com/powershell/module/az.automation/set-azautomationvariable?view=azps-3.5.0) cmdlet or the internal `Set-AutomationVariable` cmdlet.
+The variable isn't restricted to the specified data type. You must set the variable using Windows PowerShell if you want to specify a value of a different type. If you indicate `Not defined`, the value of the variable is set to Null. You must set the value with the [Set-AzAutomationVariable](/powershell/module/az.automation/set-azautomationvariable?view=azps-3.5.0) cmdlet or the internal `Set-AutomationVariable` cmdlet.
 
 You can't use the Azure portal to create or change the value for a complex variable type. However, you can provide a value of any type using Windows PowerShell. Complex types are retrieved as a [PSCustomObject](/dotnet/api/system.management.automation.pscustomobject).
 
 You can store multiple values to a single variable by creating an array or hashtable and saving it to the variable.
 
 >[!NOTE]
->VM name variables can be a maximum of 80 characters. Resource group variables can be a maximum of 90 characters. See [Naming rules and restrictions for Azure resources](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules).
+>VM name variables can be a maximum of 80 characters. Resource group variables can be a maximum of 90 characters. See [Naming rules and restrictions for Azure resources](../../azure-resource-manager/management/resource-name-rules.md).
 
 ## PowerShell cmdlets to access variables
 
@@ -57,10 +54,10 @@ The cmdlets in the following table create and manage Automation variables with P
 
 | Cmdlet | Description |
 |:---|:---|
-|[Get-AzAutomationVariable](https://docs.microsoft.com/powershell/module/az.automation/get-azautomationvariable?view=azps-3.5.0) | Retrieves the value of an existing variable. If the value is a simple type, that same type is retrieved. If it's a complex type, a `PSCustomObject` type is retrieved. <br>**Note:**  You can't use this cmdlet to retrieve the value of an encrypted variable. The only way to do this is by using the internal `Get-AutomationVariable` cmdlet in a runbook or DSC configuration. See [Internal cmdlets to access variables](#internal-cmdlets-to-access-variables). |
-|[New-AzAutomationVariable](https://docs.microsoft.com/powershell/module/az.automation/new-azautomationvariable?view=azps-3.5.0) | Creates a new variable and sets its value.|
-|[Remove-AzAutomationVariable](https://docs.microsoft.com/powershell/module/az.automation/remove-azautomationvariable?view=azps-3.5.0)| Removes an existing variable.|
-|[Set-AzAutomationVariable](https://docs.microsoft.com/powershell/module/az.automation/set-azautomationvariable?view=azps-3.5.0)| Sets the value for an existing variable. |
+|[Get-AzAutomationVariable](/powershell/module/az.automation/get-azautomationvariable?view=azps-3.5.0) | Retrieves the value of an existing variable. If the value is a simple type, that same type is retrieved. If it's a complex type, a `PSCustomObject` type is retrieved. <br>**Note:**  You can't use this cmdlet to retrieve the value of an encrypted variable. The only way to do this is by using the internal `Get-AutomationVariable` cmdlet in a runbook or DSC configuration. See [Internal cmdlets to access variables](#internal-cmdlets-to-access-variables). |
+|[New-AzAutomationVariable](/powershell/module/az.automation/new-azautomationvariable?view=azps-3.5.0) | Creates a new variable and sets its value.|
+|[Remove-AzAutomationVariable](/powershell/module/az.automation/remove-azautomationvariable?view=azps-3.5.0)| Removes an existing variable.|
+|[Set-AzAutomationVariable](/powershell/module/az.automation/set-azautomationvariable?view=azps-3.5.0)| Sets the value for an existing variable. |
 
 ## Internal cmdlets to access variables
 
@@ -124,7 +121,7 @@ $string = (Get-AzAutomationVariable -ResourceGroupName "ResourceGroup01" `
 –AutomationAccountName "MyAutomationAccount" –Name 'MyStringVariable').Value
 ```
 
-The following example shows how to create a variable with a complex type and then retrieve its properties. In this case, a virtual machine object from [Get-AzVM](https://docs.microsoft.com/powershell/module/Az.Compute/Get-AzVM?view=azps-3.5.0) is used.
+The following example shows how to create a variable with a complex type and then retrieve its properties. In this case, a virtual machine object from [Get-AzVM](/powershell/module/Az.Compute/Get-AzVM?view=azps-3.5.0) is used.
 
 ```powershell
 $vm = Get-AzVM -ResourceGroupName "ResourceGroup01" –Name "VM01"
@@ -185,7 +182,7 @@ In a graphical runbook, you can add activities for the internal cmdlets `Get-Aut
 
 ![Add variable to canvas](../media/variables/runbook-variable-add-canvas.png)
 
-The following image shows example activities to update a variable with a simple value in a graphical runbook. In this example, the activity for `Get-AzVM`  retrieves a single Azure virtual machine and saves the computer name to an existing Automation string variable. It doesn't matter whether the [link is a pipeline or sequence](../automation-graphical-authoring-intro.md#links-and-workflow) since the code only expects a single object in the output.
+The following image shows example activities to update a variable with a simple value in a graphical runbook. In this example, the activity for `Get-AzVM`  retrieves a single Azure virtual machine and saves the computer name to an existing Automation string variable. It doesn't matter whether the [link is a pipeline or sequence](../automation-graphical-authoring-intro.md#use-links-for-workflow) since the code only expects a single object in the output.
 
 ![Set simple variable](../media/variables/runbook-set-simple-variable.png)
 
@@ -193,4 +190,4 @@ The following image shows example activities to update a variable with a simple 
 
 * To learn more about the cmdlets used to access variables, see [Manage modules in Azure Automation](modules.md).
 * For general information about runbooks, see [Runbook execution in Azure Automation](../automation-runbook-execution.md).
-* For details of DSC configurations, see [State Configuration overview](../automation-dsc-overview.md).
+* For details of DSC configurations, see [Azure Automation State Configuration overview](../automation-dsc-overview.md).

@@ -1,19 +1,19 @@
 ---
 title: Payout reports - Microsoft commercial marketplace
-description: The Payout reports show you details about the money you’ve earned with your offer, including amount of payment and when you’ll be paid.
-author: mingshen
-ms.author: mingshen
+description: The Payout reports show you details about the money you've earned with your offer, including amount of payment and when you'll be paid.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: mingshen-ms
+ms.author: mingshen
 ms.date: 04/24/2020
 ---
 
 # Payout summaries
 
-The Payout summary shows you details about the money you’ve earned with Microsoft. It also lets you know when you’ll receive payments and how much you'll be paid.
+The Payout summary shows you details about the money you've earned with Microsoft. It also lets you know when you'll receive payments and how much you'll be paid.
 
-If you sell products in the Azure Marketplace, you’ll also see info on successful payouts in the Payout summary. For details, see [Microsoft Azure Marketplace Participation Policies](https://docs.microsoft.com/legal/marketplace/participation-policy) and the [Microsoft Azure Marketplace Publisher Agreement](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3ypvt).
+If you sell products in the Azure Marketplace, you'll also see info on successful payouts in the Payout summary. For details, see [Microsoft Azure Marketplace Participation Policies](https://docs.microsoft.com/legal/marketplace/participation-policy) and the [Microsoft Azure Marketplace Publisher Agreement](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4xqkx).
 
 > [!NOTE]
 > To be eligible for payout, your proceeds must reach the [payment threshold](payment-thresholds-methods-timeframes.md) of $50. For details about the payment threshold see this page and review the app developer agreement.
@@ -84,7 +84,7 @@ Follow these instructions to export data.
 
 The Export data page does not refresh on its own. You may need to refresh the page manually to see the most recent data.
 
-Your filter may result in a **No data available** error. This probably means you’ve left the default time period selected at three months and then selected a Payment ID from an earning that’s outside of that period. Expand your time period and try again.
+Your filter may result in a **No data available** error. This probably means you've left the default time period selected at three months and then selected a Payment ID from an earning that's outside of that period. Expand your time period and try again.
 
 ## Payments
 
@@ -124,7 +124,7 @@ This option provides a download of each earning line item you see in the Transac
 | participantId                  | The primary identity of the partner earning under the program                                                                            | All                                                            |
 | participantIdType              | Mostly program ID for Incentive programs and Seller IF for Store programs and Azure Marketplace                                          | All                                                            |
 | participantName                | Name of the earning partner                                                                                                              | All                                                            |
-| partnerCountryCode             | Location/country of the earning partner                                                                                                  | All                                                            |
+| partnerCountryCode             | Location/country/region of the earning partner                                                                                                  | All                                                            |
 | programName                    | Incentive/store program name                                                                                                             | All                                                            |
 | transactionId                  | Unique identifier for the transaction                                                                                                    | All                                                            |
 | transactionCurrency            | Currency in which the original customer transaction occurred (this is not partner location currency)                                     | All                                                            |
@@ -143,7 +143,7 @@ This option provides a download of each earning line item you see in the Transac
 | calculationDate                | Date the earning was calculated in the system                                                                                            | All                                                            |
 | earningExchangeRate            | Exchange rate used to show the corresponding USD amount                                                                                  | All                                                            |
 | exchangeRateDate               | Exchange rate date used to calculate EarningAmount USD                                                                                   | All                                                            |
-| paymentAmountWOTax             | Earning amount (without tax) in Pay To currency for “Sent” payments only                                                                 | All                                                            |
+| paymentAmountWOTax             | Earning amount (without tax) in Pay To currency for "Sent" payments only                                                                 | All                                                            |
 | paymentCurrency                | Pay to currency chosen by partner in the Payment profile. Shown only for sent payments                                                   | All                                                            |
 | paymentExchangeRate            | Exchange rate used to calculate paymentAmountWOTax in payment currency using ExchangeRateDate                                            | All                                                            |
 | claimId                        | Unique identifier for claim                                                                                                              | Incentives - some programs only                                |
@@ -156,8 +156,8 @@ This option provides a download of each earning line item you see in the Transac
 | partNumber                     | Will always be blank                                                                                                                     | Some Incentive and Store programs and Azure Marketplace        |
 | productName                    | Product name linked to transaction                                                                                                       | All                                                            |
 | productId                      | Unique product identifier                                                                                                                | Store and Azure Marketplace                                    |
-| parentProductId                | Unique parent product identifier. If there isn’t a parent product for the transaction, then Parent Product ID = Product ID. | Store and Azure Marketplace                                    |
-| parentProductName              | Name of the parent product. If there isn’t a parent product for the transaction, then Parent Product Name = Product Name.   | Store and Azure Marketplace                                    |
+| parentProductId                | Unique parent product identifier. If there isn't a parent product for the transaction, then Parent Product ID = Product ID. | Store and Azure Marketplace                                    |
+| parentProductName              | Name of the parent product. If there isn't a parent product for the transaction, then Parent Product Name = Product Name.   | Store and Azure Marketplace                                    |
 | productType                    | Type of product, such as App, Add-on, or Game                                                                                        | Store and Azure Marketplace                                    |
 | invoiceNumber                  | Invoice number (applicable for EA only)                                                                                                  | Incentive and Azure Marketplace - some programs only           |
 | subscriptionId                 | Subscription identifier associated with customer                                                                                         | Incentive - some programs only                                 |
@@ -178,7 +178,7 @@ This option provides a download of each earning line item you see in the Transac
 | storeFee                       | The amount retained by Microsoft as a fee for making the app or add-on available in the Store                                           | Store only                                                     |
 | transactionPaymentMethod       | Customer payment instrument used for the transaction, such as Card, Mobile Carrier Billing, or PayPal                                | Store and Azure Marketplace                                    |
 | tpan                           | Indicates the third-party ad network                                                                                                     | Store - Ads only                                               |
-| customerCountry                | Customer country                                                                                                                         | Store and Azure Marketplace                                    |
+| customerCountry                | Customer country/region                                                                                                                         | Store and Azure Marketplace                                    |
 | customerCity                   | Customer city                                                                                                                            | Store and Azure Marketplace                                    |
 | customerState                  | Customer state                                                                                                                           | Store and Azure Marketplace                                    |
 | customerZip                    | Customer zip/postal code                                                                                                                 | Store and Azure Marketplace                                    |
@@ -210,9 +210,9 @@ Transaction history from before July 1 2019 is handled separately. Statements wi
 | Order ID                | Unique order identifier. This ID allows you to identify purchase transactions with their respective non-purchase transactions, such as refunds or chargebacks. Both will have the same Order ID. Also, in the case of a split charge where multiple payment methods were used for a single purchase, it allows you to link the purchase transactions. |
 | Transaction ID          | Unique transaction identifier.                                                                                                                                          |
 | Transaction Date Time   | The date and time the transaction occurred (UTC).                                                                                                                       |
-| Parent Product ID       | Unique parent product identifier. If there isn’t a parent product for the transaction, then Parent Product ID = Product ID.                                |
+| Parent Product ID       | Unique parent product identifier. If there isn't a parent product for the transaction, then Parent Product ID = Product ID.                                |
 | Product ID              | Unique product identifier.                                                                                                                                              |
-| Parent Product Name     | Name of the parent product. If there isn’t a parent product for the transaction, then Parent Product Name = Product Name.                                  |
+| Parent Product Name     | Name of the parent product. If there isn't a parent product for the transaction, then Parent Product Name = Product Name.                                  |
 | Product Name            | Name of the product                                                                                                                                                    |
 | Product Type            | Type of product, such as App, Add-on, or Game                                                                                                                       |
 | Quantity                | When the Revenue Source is Microsoft Store for Business, the Quantity represents the number of licenses purchased. For all other Revenue Sources, the Quantity will always be 1. Even when a single transaction is split into two line items because two different payment methods were used, each line item will show a Quantity of 1. |

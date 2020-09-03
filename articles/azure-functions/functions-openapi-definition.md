@@ -4,7 +4,7 @@ description: Create an OpenAPI definition that enables other apps and services t
 ms.topic: tutorial
 ms.date: 04/21/2020
 ms.reviewer: sunayv
-ms.custom: mvc, cc996988-fb4f-47
+ms.custom: "devx-track-csharp, mvc, cc996988-fb4f-47, references_regions"
 ---
 
 # Create an OpenAPI definition for a serverless API using Azure API Management

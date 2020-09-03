@@ -1,6 +1,6 @@
 ---
-title: Troubleshooting Azure Automation Hybrid Runbook Workers
-description: This article provides information for troubleshooting Azure Automation Hybrid Runbook Workers.
+title: Troubleshoot Azure Automation Hybrid Runbook Worker issues
+description: This article tells how to troubleshoot and resolve issues that arise with Azure Automation Hybrid Runbook Workers.
 services: automation
 ms.service: automation
 ms.subservice:
@@ -10,12 +10,9 @@ ms.date: 11/25/2019
 ms.topic: conceptual
 manager: carmonm
 ---
-# Troubleshoot Hybrid Runbook Workers
+# Troubleshoot Hybrid Runbook Worker issues
 
-This article provides information on troubleshooting issues with Azure Automation Hybrid Runbook Workers.
-
->[!NOTE]
->This article has been updated to use the new Azure PowerShell Az module. You can still use the AzureRM module, which will continue to receive bug fixes until at least December 2020. To learn more about the new Az module and AzureRM compatibility, see [Introducing the new Azure PowerShell Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). For Az module installation instructions on your Hybrid Runbook Worker, see [Install the Azure PowerShell Module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). For your Azure Automation account, you can update your modules to the latest version by using [How to update Azure PowerShell modules in Azure Automation](../automation-update-azure-modules.md).
+This article provides information on troubleshooting and resolving issues with Azure Automation Hybrid Runbook Workers. For general information, see [Hybrid Runbook Worker overview](../automation-hybrid-runbook-worker.md).
 
 ## General
 
@@ -55,7 +52,7 @@ Check the **Microsoft-SMA** event log for a corresponding event with the descrip
 
 #### Issue
 
-The Hybrid Runbook Worker receives event 15011, indicating that a query result isn't valid. The following error appears when the worker attempts to open a connection with the [SignalR server](https://docs.microsoft.com/aspnet/core/signalr/introduction?view=aspnetcore-3.1).
+The Hybrid Runbook Worker receives event 15011, indicating that a query result isn't valid. The following error appears when the worker attempts to open a connection with the [SignalR server](/aspnet/core/signalr/introduction?view=aspnetcore-3.1).
 
 ```error
 [AccountId={c7d22bd3-47b2-4144-bf88-97940102f6ca}]
@@ -67,13 +64,13 @@ The Hybrid Runbook Worker receives event 15011, indicating that a query result i
 
 #### Cause
 
-The Hybrid Runbook Worker hasn't been configured correctly for the automated deployment solution. This solution contains a part that connects the VM to the Log Analytics workspace. The PowerShell script looks for the workspace in the subscription with the supplied name. In this case, the Log Analytics workspace is in a different subscription. The script can't find the workspace and tries to create one, but the name is already taken. As a result, the deployment fails.
+The Hybrid Runbook Worker hasn't been configured correctly for the automated feature deployment, for example, for Update Management. The deployment contains a part that connects the VM to the Log Analytics workspace. The PowerShell script looks for the workspace in the subscription with the supplied name. In this case, the Log Analytics workspace is in a different subscription. The script can't find the workspace and tries to create one, but the name is already taken. As a result, the deployment fails.
 
 #### Resolution
 
 You have two options for resolving this issue:
 
-* Modify the PowerShell script to look for the Log Analytics workspace in another subscription. This is a good solution if you plan to deploy many Hybrid Runbook Worker machines in the future.
+* Modify the PowerShell script to look for the Log Analytics workspace in another subscription. This is a good resolution to use if you plan to deploy many Hybrid Runbook Worker machines in the future.
 
 * Manually configure the worker machine to run in an Orchestrator sandbox. Then run a runbook created in the Azure Automation account on the worker to test the functionality.
 
@@ -128,7 +125,7 @@ The worker's initial registration phase fails, and you receive the following err
 The following issues are possible causes:
 
 * There's a mistyped workspace ID or workspace key (primary) in the agent's settings. 
-* The Hybrid Runbook Worker can't download the configuration, which causes an account linking error. When Azure enables solutions, it supports only certain regions for linking a Log Analytics workspace and an Automation account. It's also possible that an incorrect date or time is set on the computer. If the time is plus or minus 15 minutes from the current time, onboarding fails.
+* The Hybrid Runbook Worker can't download the configuration, which causes an account linking error. When Azure enables features on machines, it supports only certain regions for linking a Log Analytics workspace and an Automation account. It's also possible that an incorrect date or time is set on the computer. If the time is +/- 15 minutes from the current time, feature deployment fails.
 
 #### Resolution
 
@@ -161,7 +158,7 @@ The **nxautomationuser** account for the Log Analytics agent for Linux is not co
 
 * Verify the configuration of the **nxautomationuser** account in the **sudoers** file. See [Running runbooks on a Hybrid Runbook Worker](../automation-hrw-run-runbooks.md).
 
-### <a name="oms-agent-not-running"></a>Scenario: The Log Analytics agent for Linux isn't running
+### <a name="oms-agent-not-running"></a>Scenario: Log Analytics agent for Linux isn't running
 
 #### Issue
 
@@ -173,7 +170,7 @@ If the agent isn't running, it prevents the Linux Hybrid Runbook Worker from com
 
 #### Resolution
 
- Verify the agent is running by entering the command `ps -ef | grep python`. You should see output similar to the following. The Python processes with the **nxautomation** user account. If the Update Management or Azure Automation solution isn't enabled, none of the following processes are running.
+ Verify the agent is running by entering the command `ps -ef | grep python`. You should see output similar to the following. The Python processes with the **nxautomation** user account. If the Azure Automation feature isn't enabled, none of the following processes are running.
 
 ```bash
 nxautom+   8567      1  0 14:45 ?        00:00:00 python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/worker/main.py /var/opt/microsoft/omsagent/state/automationworker/oms.conf rworkspace:<workspaceId> <Linux hybrid worker version>
@@ -184,8 +181,8 @@ nxautom+   8595      1  0 14:45 ?        00:00:02 python /opt/microsoft/omsconfi
 The following list shows the processes that are started for a Linux Hybrid Runbook Worker. They're all located in the /var/opt/microsoft/omsagent/state/automationworker/ directory.
 
 * **oms.conf**: The worker manager process. It's started directly from DSC.
-* **worker.conf**: The Auto-Registered hybrid worker process. It's started by the worker manager. This process is used by Update Management and is transparent to the user. This process isn't present if the Update Management solution isn't enabled on the machine.
-* **diy/worker.conf**: The DIY hybrid worker process. The DIY hybrid worker process is used to execute user runbooks on the Hybrid Runbook Worker. It only differs from the Auto-Registered hybrid worker process in the key detail that it uses a different configuration. This process isn't present if the Azure Automation solution is disabled and the DIY Linux Hybrid Worker isn't registered.
+* **worker.conf**: The Auto-Registered hybrid worker process. It's started by the worker manager. This process is used by Update Management and is transparent to the user. This process isn't present if Update Management isn't enabled on the machine.
+* **diy/worker.conf**: The DIY hybrid worker process. The DIY hybrid worker process is used to execute user runbooks on the Hybrid Runbook Worker. It only differs from the Auto-registered hybrid worker process in the key detail that it uses a different configuration. This process isn't present if Azure Automation is disabled and the DIY Linux Hybrid Worker isn't registered.
 
 If the agent isn't running, run the following command to start the service: `sudo /opt/microsoft/omsagent/bin/service_control restart`.
 
@@ -227,7 +224,7 @@ This issue can be caused by your proxy or network firewall blocking communicatio
 
 #### Resolution
 
-Logs are stored locally on each hybrid worker at C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes. You can verify if there are any warning or error events in the **Application and Services Logs\Microsoft-SMA\Operations** and **Application and Services Logs\Operations Manager** event logs. These logs indicate a connectivity or other type of issue that affects onboarding of the role to Azure Automation, or an issue encountered under normal operations. For additional help troubleshooting issues with the Log Analytics agent, see [Troubleshoot issues with the Log Analytics Windows agent](../../azure-monitor/platform/agent-windows-troubleshoot.md).
+Logs are stored locally on each hybrid worker at C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes. You can verify if there are any warning or error events in the **Application and Services Logs\Microsoft-SMA\Operations** and **Application and Services Logs\Operations Manager** event logs. These logs indicate a connectivity or other type of issue that affects the enabling of the role to Azure Automation, or an issue encountered under normal operations. For additional help troubleshooting issues with the Log Analytics agent, see [Troubleshoot issues with the Log Analytics Windows agent](../../azure-monitor/platform/agent-windows-troubleshoot.md).
 
 Hybrid workers send [Runbook output and messages](../automation-runbook-output-and-messages.md) to Azure Automation in the same way that runbook jobs running in the cloud send output and messages. You can enable the Verbose and Progress streams just as you do for runbooks.
 
@@ -235,7 +232,7 @@ Hybrid workers send [Runbook output and messages](../automation-runbook-output-a
 
 #### Issue
 
-A script running on a Windows Hybrid Runbook Worker can't connect as expected to Office 365 on an Orchestrator sandbox. The script is using [Connect-MsolService](https://docs.microsoft.com/powershell/module/msonline/connect-msolservice?view=azureadps-1.0) for connection. 
+A script running on a Windows Hybrid Runbook Worker can't connect as expected to Office 365 on an Orchestrator sandbox. The script is using [Connect-MsolService](/powershell/module/msonline/connect-msolservice?view=azureadps-1.0) for connection. 
 
 If you adjust **Orchestrator.Sandbox.exe.config** to set the proxy and the bypass list, the sandbox still doesn't connect properly. A **Powershell_ise.exe.config** file with the same proxy and bypass list settings seems to work as you expect. Service Management Automation (SMA) logs and PowerShell logs don't provide any information regarding proxy.​
 
@@ -245,9 +242,9 @@ The connection to Active Directory Federation Services (AD FS) on the server can
 
 #### Resolution
 
-You can resolve the issue for the Orchestrator sandbox by migrating your script to use the Azure Active Directory modules instead of the MSOnline module for PowerShell cmdlets. For more information, see [Migrating from Orchestrator to Azure Automation (Beta)](https://docs.microsoft.com/azure/automation/automation-orchestrator-migration).
+You can resolve the issue for the Orchestrator sandbox by migrating your script to use the Azure Active Directory modules instead of the MSOnline module for PowerShell cmdlets. For more information, see [Migrating from Orchestrator to Azure Automation (Beta)](../automation-orchestrator-migration.md).
 
-​If you want to continue to use the MSOnline module cmdlets, change your script to use [Invoke-Command](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/invoke-command?view=powershell-7). Specify values for the `ComputerName` and `Credential` parameters. 
+​If you want to continue to use the MSOnline module cmdlets, change your script to use [Invoke-Command](/powershell/module/microsoft.powershell.core/invoke-command?view=powershell-7). Specify values for the `ComputerName` and `Credential` parameters. 
 
 ```powershell
 $Credential = Get-AutomationPSCredential -Name MyProxyAccessibleCredential​
@@ -258,7 +255,7 @@ Invoke-Command -ComputerName $env:COMPUTERNAME -Credential $Credential
 This code change starts an entirely new PowerShell session under the context of the specified credentials. It should enable the traffic to flow through a proxy server that's authenticating the active user.
 
 >[!NOTE]
->This solution makes it unnecessary to manipulate the sandbox configuration file. Even if you succeed in making the configuration file work with your script, the file gets wiped out each time the Hybrid Runbook Worker agent is updated.​
+>This resolution makes it unnecessary to manipulate the sandbox configuration file. Even if you succeed in making the configuration file work with your script, the file gets wiped out each time the Hybrid Runbook Worker agent is updated.​
 
 ### <a name="corrupt-cache"></a>Scenario: Hybrid Runbook Worker not reporting
 

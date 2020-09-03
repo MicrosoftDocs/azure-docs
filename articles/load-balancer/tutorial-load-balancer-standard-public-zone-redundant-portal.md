@@ -73,9 +73,9 @@ In this section you'll need to replace the following parameters in the steps wit
 | **\<resource-group-name>**  | myResourceGroupLBAZ (Select existing resource group) |
 | **\<virtual-network-name>** | myVNet          |
 | **\<region-name>**          | West Europe      |
-| **\<IPv4-address-space>**   | 10.0.0.0\16          |
+| **\<IPv4-address-space>**   | 10.0.0.0/16          |
 | **\<subnet-name>**          | myBackendSubnet        |
-| **\<subnet-address-range>** | 10.0.0.0\24          |
+| **\<subnet-address-range>** | 10.0.0.0/24          |
 
 [!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
@@ -135,9 +135,6 @@ Create virtual machines in different zones (zone 1, zone 2, and zone 3) for the 
     - *myNetworkSecurityGroup* - for the name of network security group (firewall).
 5. Click **Disabled** to disable boot diagnostics.
 6. Click **OK**, review the settings on the summary page, and then click **Create**.
-  
-   ![Create a virtual machine](./media/load-balancer-standard-public-availability-zones-portal/create-vm-standard-ip.png)
-
 7. Create a second VM, named, *VM2* in Zone 2, and third VM in Zone 3, and with *myVnet* as the virtual network, *myBackendSubnet* as the subnet, and **myNetworkSecurityGroup* as the network security group using steps 1-6.
 
 ### Install IIS on VMs

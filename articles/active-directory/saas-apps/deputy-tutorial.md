@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Deputy | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Deputy.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 5665c3ac-5689-4201-80fe-fcc677d4430d
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Deputy
 
@@ -104,43 +97,43 @@ To configure Azure AD single sign-on with Deputy, perform the following steps:
 
     a. In the **Identifier** text box, type a URL using the following pattern:
 
-    |  |
-	| ----|
-	| `https://<subdomain>.<region>.au.deputy.com` |
-	| `https://<subdomain>.<region>.ent-au.deputy.com` |
-	| `https://<subdomain>.<region>.na.deputy.com`|
-	| `https://<subdomain>.<region>.ent-na.deputy.com`|
-	| `https://<subdomain>.<region>.eu.deputy.com` |
-	| `https://<subdomain>.<region>.ent-eu.deputy.com` |
-	| `https://<subdomain>.<region>.as.deputy.com` |
-	| `https://<subdomain>.<region>.ent-as.deputy.com` |
-	| `https://<subdomain>.<region>.la.deputy.com` |
-	| `https://<subdomain>.<region>.ent-la.deputy.com` |
-	| `https://<subdomain>.<region>.af.deputy.com` |
-	| `https://<subdomain>.<region>.ent-af.deputy.com` |
-	| `https://<subdomain>.<region>.an.deputy.com` |
-	| `https://<subdomain>.<region>.ent-an.deputy.com` |
-	| `https://<subdomain>.<region>.deputy.com` |
+    ```http
+    https://<subdomain>.<region>.au.deputy.com
+    https://<subdomain>.<region>.ent-au.deputy.com
+    https://<subdomain>.<region>.na.deputy.com
+    https://<subdomain>.<region>.ent-na.deputy.com
+    https://<subdomain>.<region>.eu.deputy.com
+    https://<subdomain>.<region>.ent-eu.deputy.com
+    https://<subdomain>.<region>.as.deputy.com
+    https://<subdomain>.<region>.ent-as.deputy.com
+    https://<subdomain>.<region>.la.deputy.com
+    https://<subdomain>.<region>.ent-la.deputy.com
+    https://<subdomain>.<region>.af.deputy.com
+    https://<subdomain>.<region>.ent-af.deputy.com
+    https://<subdomain>.<region>.an.deputy.com
+    https://<subdomain>.<region>.ent-an.deputy.com
+    https://<subdomain>.<region>.deputy.com
+    ```
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
 	
-    | |
-	|----|
-	| `https://<subdomain>.<region>.au.deputy.com/exec/devapp/samlacs` |
-	| `https://<subdomain>.<region>.ent-au.deputy.com/exec/devapp/samlacs` |
-	| `https://<subdomain>.<region>.na.deputy.com/exec/devapp/samlacs` |
-	| `https://<subdomain>.<region>.ent-na.deputy.com/exec/devapp/samlacs` |
-	| `https://<subdomain>.<region>.eu.deputy.com/exec/devapp/samlacs` |
-	| `https://<subdomain>.<region>.ent-eu.deputy.com/exec/devapp/samlacs` |
-	| `https://<subdomain>.<region>.as.deputy.com/exec/devapp/samlacs.` |
-	| `https://<subdomain>.<region>.ent-as.deputy.com/exec/devapp/samlacs` |
-	| `https://<subdomain>.<region>.la.deputy.com/exec/devapp/samlacs` |
-	| `https://<subdomain>.<region>.ent-la.deputy.com/exec/devapp/samlacs` |
-	| `https://<subdomain>.<region>.af.deputy.com/exec/devapp/samlacs` |
-	| `https://<subdomain>.<region>.ent-af.deputy.com/exec/devapp/samlacs` |
-	| `https://<subdomain>.<region>.an.deputy.com/exec/devapp/samlacs` |
-	| `https://<subdomain>.<region>.ent-an.deputy.com/exec/devapp/samlacs` |
-	| `https://<subdomain>.<region>.deputy.com/exec/devapp/samlacs` |
+    ```http
+    https://<subdomain>.<region>.au.deputy.com/exec/devapp/samlacs
+    https://<subdomain>.<region>.ent-au.deputy.com/exec/devapp/samlacs
+    https://<subdomain>.<region>.na.deputy.com/exec/devapp/samlacs
+    https://<subdomain>.<region>.ent-na.deputy.com/exec/devapp/samlacs
+    https://<subdomain>.<region>.eu.deputy.com/exec/devapp/samlacs
+    https://<subdomain>.<region>.ent-eu.deputy.com/exec/devapp/samlacs
+    https://<subdomain>.<region>.as.deputy.com/exec/devapp/samlacs.
+    https://<subdomain>.<region>.ent-as.deputy.com/exec/devapp/samlacs
+    https://<subdomain>.<region>.la.deputy.com/exec/devapp/samlacs
+    https://<subdomain>.<region>.ent-la.deputy.com/exec/devapp/samlacs
+    https://<subdomain>.<region>.af.deputy.com/exec/devapp/samlacs
+    https://<subdomain>.<region>.ent-af.deputy.com/exec/devapp/samlacs
+    https://<subdomain>.<region>.an.deputy.com/exec/devapp/samlacs
+    https://<subdomain>.<region>.ent-an.deputy.com/exec/devapp/samlacs
+    https://<subdomain>.<region>.deputy.com/exec/devapp/samlacs
+    ```
 
 5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 

@@ -85,7 +85,10 @@
       - name: Request access
         href: entitlement-management-request-access.md
   - name: Access reviews
-    items:
+    items: 
+
+    - name: Plan Access review deployment
+      href: deploy-access-reviews.md
     - name: Access packages
       items:
         - name: Create an access review
@@ -120,3 +123,10 @@
         href: ../privileged-identity-management/pim-resource-roles-perform-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
       - name: Complete an access review
         href: ../privileged-identity-management/pim-resource-roles-complete-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
+- name: Reference
+  expanded: true
+  items:
+  - name: Access reviews - Graph API
+    href: /graph/api/resources/accessreviews-root?view=graph-rest-beta
+  - name: Entitlement management - Graph API
+    href: /graph/api/resources/entitlementmanagement-root?view=graph-rest-beta

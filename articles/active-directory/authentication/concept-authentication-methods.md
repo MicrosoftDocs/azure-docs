@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 05/08/2020
+ms.date: 07/14/2020
 
 ms.author: iainfou
 author: iainfoulds
@@ -30,19 +30,22 @@ A user in Azure AD can choose to authenticate using one of the following authent
 
 Many accounts in Azure AD are enabled for self-service password reset (SSPR) or Azure Multi-Factor Authentication. These features include additional verification methods, such as a phone call or security questions. It's recommended that you require users to register multiple verification methods. When one method isn't available for a user, they can choose to authenticate with another method.
 
-The following table outlines what authentication or verification methods are available for the different scenarios:
+The following table outlines what methods are available for primary or secondary authentication:
 
-| Method | Use at sign-in | Use during verification |
+| Method | Primary authentication | Secondary authentication |
 | --- | --- | --- |
-| [Password](#password) | Yes | MFA and SSPR |
+| [Password](#password) | Yes | |
 | [Microsoft Authenticator app](#microsoft-authenticator-app) | Yes (preview) | MFA and SSPR |
 | [FIDO2 security keys (preview)](#fido2-security-keys) | Yes | MFA-only |
-| [OATH hardware tokens (preview)](#oath-hardware-tokens) | Yes | SSPR and MFA |
+| [OATH software tokens](#oath-software-tokens) | No | MFA |
+| [OATH hardware tokens (preview)](#oath-hardware-tokens-preview) | No | MFA |
 | [SMS](#phone-options) | Yes (preview) | MFA and SSPR |
 | [Voice call](#phone-options) | No | MFA and SSPR |
 | [Security questions](#security-questions) | No | SSPR-only |
 | [Email address](#email-address) | No | SSPR-only |
 | [App passwords](#app-passwords) | No | MFA only in certain cases |
+
+These authentication methods can be configured in the Azure portal, and increasingly using the [Microsoft Graph REST API beta](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta).
 
 This article outlines these different authentication and verification methods available in Azure AD and any specific limitations or restrictions.
 
@@ -72,7 +75,7 @@ The Authenticator app can help prevent unauthorized access to accounts and stop 
 ![Screenshot of example web browser prompt for Authenticator app notification to complete sign-in process](media/tutorial-enable-azure-mfa/azure-multi-factor-authentication-browser-prompt.png)
 
 > [!NOTE]
-> If your organization has staff working in or traveling to China, the *Notification through mobile app* method on Android devices doesn't work in that country. Alternate authentication methods should be made available for those users.
+> If your organization has staff working in or traveling to China, the *Notification through mobile app* method on Android devices doesn't work in that country/region as Google play services(including push notifications) are blocked in the region. However iOS notification do work. For Android devices ,alternate authentication methods should be made available for those users.
 
 ### Verification code from mobile app
 
@@ -95,15 +98,29 @@ Users can register and then select a FIDO2 security key at the sign-in interface
 
 FIDO2 security keys in Azure AD are currently in preview. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## OATH hardware tokens
+## OATH tokens
 
-OATH is an open standard that specifies how one-time password (OTP) codes are generated. Azure AD supports the use of OATH-TOTP SHA-1 tokens of the 30-second or 60-second variety. Customers can purchase these tokens from the vendor of their choice.
+OATH TOTP (Time-based One Time Password) is an open standard that specifies how one-time password (OTP) codes are generated. OATH TOTP can be implemented using either software or hardware to generate the codes. Azure AD doesn't support OATH HOTP, a different code generation standard.
 
-Secret keys are limited to 128 characters, which may not be compatible with all tokens. The secret key can only contain the characters *a-z* or *A-Z* and digits *1-7*, and must be encoded in *Base32*.
+### OATH software tokens
 
-OATH hardware tokens in Azure AD are currently in preview. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Software OATH tokens are typically applications such as the Microsoft Authenticator app and other authenticator apps. Azure AD generates the secret key, or seed, that's input into the app and used to generate each OTP.
 
-![Uploading OATH tokens to the MFA OATH tokens window](media/concept-authentication-methods/mfa-server-oath-tokens-azure-ad.png)
+The Authenticator app automatically generates codes when set up to do push notifications so a user has a backup even if their device doesn't have connectivity. Third-party applications that use OATH TOTP to generate codes can also be used.
+
+Some OATH TOTP hardware tokens are programmable, meaning they don't come with a secret key or seed pre-programmed. These programmable hardware tokens can be set up using the secret key or seed obtained from the software token setup flow. Customers can purchase these tokens from the vendor of their choice and use the secret key or seed in their vendor's setup process.
+
+### OATH hardware tokens (preview)
+
+Azure AD supports the use of OATH-TOTP SHA-1 tokens that refresh codes every 30 or 60 seconds. Customers can purchase these tokens from the vendor of their choice.
+
+OATH TOTP hardware tokens typically come with a secret key, or seed, pre-programmed in the token. These keys must be input into Azure AD as described in the following steps. Secret keys are limited to 128 characters, which may not be compatible with all tokens. The secret key can only contain the characters *a-z* or *A-Z* and digits *1-7*, and must be encoded in *Base32*.
+
+Programmable OATH TOTP hardware tokens that can be reseeded can also be set up with Azure AD in the software token setup flow.
+
+OATH hardware tokens are supported as part of a public preview. For more information about previews, see  [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
+
+![Uploading OATH tokens to the MFA OATH tokens blade](media/concept-authentication-methods/mfa-server-oath-tokens-azure-ad.png)
 
 Once tokens are acquired they must be uploaded in a comma-separated values (CSV) file format including the UPN, serial number, secret key, time interval, manufacturer, and model as shown in the following example:
 
@@ -115,7 +132,7 @@ Helga@contoso.com,1234567,1234567abcdef1234567abcdef,60,Contoso,HardwareKey
 > [!NOTE]
 > Make sure you include the header row in your CSV file.
 
-Once properly formatted as a CSV file, an administrator can then sign in to the Azure portal, navigate to **Azure Active Directory** > **Security** > **MFA** > **OATH tokens**, and upload the resulting CSV file.
+Once properly formatted as a CSV file, an administrator can then sign in to the Azure portal, navigate to **Azure Active Directory > Security > MFA > OATH tokens**, and upload the resulting CSV file.
 
 Depending on the size of the CSV file, it may take a few minutes to process. Select the **Refresh** button to get the current status. If there are any errors in the file, you can download a CSV file that lists any errors for you to resolve. The field names in the downloaded CSV file are different than the uploaded version.
 
@@ -132,7 +149,7 @@ Users can also verify themselves using a mobile phone or office phone as seconda
 To work properly, phone numbers must be in the format *+CountryCode PhoneNumber*, for example, *+1 4251234567*.
 
 > [!NOTE]
-> There needs to be a space between the country code and the phone number.
+> There needs to be a space between the country/region code and the phone number.
 >
 > Password reset doesn't support phone extensions. Even in the *+1 4251234567X12345* format, extensions are removed before the call is placed.
 
@@ -166,7 +183,7 @@ If you have problems with phone authentication for Azure AD, review the followin
 
 * Blocked caller ID on a single device.
    * Review any blocked numbers configured on the device.
-* Wrong phone number or incorrect country code, or confusion between personal phone number versus work phone number.
+* Wrong phone number or incorrect country/region code, or confusion between personal phone number versus work phone number.
    * Troubleshoot the user object and configured authentication methods. Make sure that the correct phone numbers are registered.
 * Wrong PIN entered.
    * Confirm the user has used the correct PIN as registered for their account.
@@ -281,6 +298,8 @@ To get started, see the [tutorial for self-service password reset (SSPR)][tutori
 To learn more about SSPR concepts, see [How Azure AD self-service password reset works][concept-sspr].
 
 To learn more about MFA concepts, see [How Azure Multi-Factor Authentication works][concept-mfa].
+
+Learn more about configuring authentication methods using the [Microsoft Graph REST API beta](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta).
 
 <!-- INTERNAL LINKS -->
 [tutorial-sspr]: tutorial-enable-sspr.md

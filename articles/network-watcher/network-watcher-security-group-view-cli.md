@@ -7,7 +7,7 @@ documentationcenter: na
 author: damendo
 ms.service: network-watcher
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 02/22/2017
@@ -20,6 +20,10 @@ ms.author: damendo
 > - [PowerShell](network-watcher-security-group-view-powershell.md)
 > - [Azure CLI](network-watcher-security-group-view-cli.md)
 > - [REST API](network-watcher-security-group-view-rest.md)
+
+> [!NOTE]
+> The Security Group View API is no longer being maintained and will be deprecated soon. Please use the [Effective Security Rules feature](https://docs.microsoft.com/azure/network-watcher/network-watcher-security-group-view-overview) which provides the same functionality.
+
 
 Security group view returns configured and effective network security rules that are applied to a virtual machine. This capability is useful to audit and diagnose Network Security Groups and rules that are configured on a VM to ensure traffic is being correctly allowed or denied. In this article, we show you how to retrieve the configured and effective security rules to a virtual machine using Azure CLI
 

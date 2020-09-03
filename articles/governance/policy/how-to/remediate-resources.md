@@ -1,14 +1,14 @@
 ---
 title: Remediate non-compliant resources
 description: This guide walks you through the remediation of resources that are non-compliant to policies in Azure Policy.
-ms.date: 02/26/2020
+ms.date: 08/27/2020
 ms.topic: how-to
 ---
 # Remediate non-compliant resources with Azure Policy
 
 Resources that are non-compliant to a **deployIfNotExists** or **modify** policy can be put into a
 compliant state through **Remediation**. Remediation is accomplished by instructing Azure Policy to
-run the **deployIfNotExists** effect or the tag **operations** of the assigned policy on your
+run the **deployIfNotExists** effect or the **modify operations** of the assigned policy on your
 existing resources, whether that assignment is to a management group, a subscription, a resource
 group, or an individual resource. This article shows the steps needed to understand and accomplish
 remediation with Azure Policy.
@@ -21,7 +21,7 @@ Azure Policy creates a managed identity for each assignment, but must have detai
 to grant the managed identity. If the managed identity is missing roles, this error is displayed
 during the assignment of the policy or an initiative. When using the portal, Azure Policy
 automatically grants the managed identity the listed roles once assignment starts. The _location_ of
-the managed identity doesn't impact it's operation with Azure Policy.
+the managed identity doesn't impact its operation with Azure Policy.
 
 :::image type="content" source="../media/remediate-resources/missing-role.png" alt-text="Managed identity - missing roley" border="false":::
 
@@ -66,9 +66,6 @@ the managed identity and assign it permissions must be done manually:
 - While using the SDK (such as Azure PowerShell)
 - When a resource outside the assignment scope is modified by the template
 - When a resource outside the assignment scope is read by the template
-
-> [!NOTE]
-> Azure PowerShell and .NET are the only SDKs that currently support this capability.
 
 ### Create managed identity with PowerShell
 
@@ -236,6 +233,13 @@ Start-AzPolicyRemediation -Name 'myRemedation' -PolicyAssignmentId '/subscriptio
 
 For other remediation cmdlets and examples, see the [Az.PolicyInsights](/powershell/module/az.policyinsights/#policy_insights)
 module.
+
+### Create a remediation task during policy assignment in the Azure portal
+
+A streamlined way of creating a remediation task is to do so from the Azure portal during policy
+assignment. If the policy definition to assign is a **deployIfNotExists** or a **Modify** effect,
+the wizard on the **Remediation** tab offers a _Create a remediation task_ option. If this option is
+selected, a remediation task is created at the same time as the policy assignment.
 
 ## Next steps
 

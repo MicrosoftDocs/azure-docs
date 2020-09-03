@@ -2,10 +2,11 @@
 author: areddish
 ms.author: areddish
 ms.service: cognitive-services
-ms.date: 04/14/2020
+ms.date: 08/17/2020
+ms.custom: devx-track-javascript
 ---
 
-This article shows you how to get started using the Custom Vision SDK with Node.js to build an object detection model. After it's created, you can add tagged regions, upload images, train the project, obtain the project's published prediction endpoint URL, and use the endpoint to programmatically test an image. Use this example as a template for building your own Node.js application.
+This article shows you how to get started using the Custom Vision client library with Node.js to build an object detection model. After it's created, you can add tagged regions, upload images, train the project, obtain the project's published prediction endpoint URL, and use the endpoint to programmatically test an image. Use this example as a template for building your own Node.js application.
 
 ## Prerequisites
 
@@ -18,9 +19,9 @@ This article shows you how to get started using the Custom Vision SDK with Node.
 [!INCLUDE [node-get-images](../../includes/node-get-images.md)]
 
 
-## Install the Custom Vision SDK
+## Install the Custom Vision client library
 
-To install the Custom Vision service SDKs for Node.js in your project, run the following commands:
+To install the Custom Vision service client libraries for Node.js in your project, run the following commands:
 
 ```shell
 npm install @azure/cognitiveservices-customvision-training
@@ -40,6 +41,7 @@ const fs = require('fs');
 const util = require('util');
 const TrainingApi = require("@azure/cognitiveservices-customvision-training");
 const PredictionApi = require("@azure/cognitiveservices-customvision-prediction");
+const msRest = require("@azure/ms-rest-js");
 
 const setTimeoutPromise = util.promisify(setTimeout);
 
@@ -52,7 +54,8 @@ const endPoint = "https://<my-resource-name>.cognitiveservices.azure.com/"
 
 const publishIterationName = "detectModel";
 
-const trainer = new TrainingApi.TrainingAPIClient(trainingKey, endPoint);
+const credentials = new msRest.ApiKeyCredentials({ inHeader: { "Training-key": trainingKey } });
+const trainer = new TrainingApi.TrainingAPIClient(credentials, endPoint);
 
 /* Helper function to let us use await inside a forEach loop.
  * This lets us insert delays between image uploads to accommodate the rate limit.
@@ -192,7 +195,9 @@ await trainer.publishIteration(sampleProject.id, trainingIteration.id, publishIt
 To send an image to the prediction endpoint and retrieve the prediction, add the following code to the end of the file:
 
 ```javascript
-    const predictor = new PredictionApi.PredictionAPIClient(predictionKey, endPoint);
+    const predictor_credentials = new msRest.ApiKeyCredentials({ inHeader: { "Prediction-key": predictionKey } });
+    const predictor = new PredictionApi.PredictionAPIClient(predictor_credentials, endPoint);
+
     const testFile = fs.readFileSync(`${sampleDataRoot}/Test/test_od_image.jpg`);
 
     const results = await predictor.detectImage(sampleProject.id, publishIterationName, testFile)

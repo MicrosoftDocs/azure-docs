@@ -1,7 +1,7 @@
 ---
 title: FedRAMP High blueprint sample controls
 description: Control mapping of the FedRAMP High blueprint sample. Each control is mapped to one or more Azure Policies that assist with assessment.
-ms.date: 01/31/2020
+ms.date: 07/31/2020
 ms.topic: sample
 ---
 # Control mapping of the FedRAMP High blueprint sample
@@ -46,8 +46,8 @@ appropriate action to ensure account management requirements are met.
 
 ## AC-2 (7) Account Management | Role-Based Schemes
 
-Azure implements [role-based access control](../../../../role-based-access-control/overview.md)
-(RBAC) to help you manage who has access to resources in Azure. Using the Azure portal, you can
+Azure implements [Azure role-based access control (Azure RBAC)](../../../../role-based-access-control/overview.md)
+to help you manage who has access to resources in Azure. Using the Azure portal, you can
 review who has access to Azure resources and their permissions. This blueprint also assigns
 [Azure Policy](../../../policy/overview.md) definitions to audit use of Azure Active Directory
 authentication for SQL Servers and Service Fabric. Using Azure Active Directory authentication
@@ -101,8 +101,8 @@ virtual machine administrator permissions can help you implement appropriate sep
 
 ## AC-6 (7) Least Privilege | Review of User Privileges
 
-Azure implements [role-based access control](../../../../role-based-access-control/overview.md)
-(RBAC) to help you manage who has access to resources in Azure. Using the Azure portal, you can
+Azure implements [Azure role-based access control (Azure RBAC)](../../../../role-based-access-control/overview.md)
+to help you manage who has access to resources in Azure. Using the Azure portal, you can
 review who has access to Azure resources and their permissions. This blueprint assigns
 [Azure Policy](../../../policy/overview.md) definitions to audit accounts that should be prioritized
 for review. Reviewing these account indicators can help you ensure least privilege controls are
@@ -175,12 +175,12 @@ Analytics agent on Azure virtual machines.
 ## AU-6 (5) Audit Review, Analysis, and Reporting | Integration / Scanning and Monitoring Capabilities
 
 This blueprint provides policy definitions that audit records with analysis of vulnerability
-assessment on virtual machines, virtual machine scale sets, SQL managed instances and SQL servers.
-These policy definitions also audit configuration of diagnostic logs to provide insight into
-operations that are performed within Azure resources. These insights provide real-time information
-about the security state of your deployed resources and can help you prioritize remediation actions.
-For detailed vulnerability scanning and monitoring, we recommend you leverage Azure Sentinel and
-Azure Security Center as well.
+assessment on virtual machines, virtual machine scale sets, SQL Database servers, and SQL Managed
+Instance servers. These policy definitions also audit configuration of diagnostic logs to provide
+insight into operations that are performed within Azure resources. These insights provide real-time
+information about the security state of your deployed resources and can help you prioritize
+remediation actions. For detailed vulnerability scanning and monitoring, we recommend you leverage
+Azure Sentinel and Azure Security Center as well.
 
 - \[Preview\]: Vulnerability Assessment should be enabled on Virtual Machines
 - \[Preview\]: Enable Azure Monitor for VMs
@@ -229,20 +229,20 @@ settings are enabled or not.
 ## CM-7 (2) Least Functionality | Prevent Program Execution
 
 Adaptive application control in Azure Security Center is an intelligent, automated end-to-end
-application whitelisting solution that can block or prevent specific software from running on your
+application filtering solution that can block or prevent specific software from running on your
 virtual machines. Application control can run in an enforcement mode that prohibits non-approved
 application from running. This blueprint assigns an Azure Policy definition that helps you monitor
-virtual machines where an application whitelist is recommended but has not yet been configured.
+virtual machines where an application allowed list is recommended but has not yet been configured.
 
 - Adaptive Application Controls should be enabled on virtual machines
 
 ## CM-7 (5) Least Functionality | Authorized Software / Whitelisting
 
 Adaptive application control in Azure Security Center is an intelligent, automated end-to-end
-application whitelisting solution that can block or prevent specific software from running on your
+application filtering solution that can block or prevent specific software from running on your
 virtual machines. Application control helps you create approved application lists for your virtual
 machines. This blueprint assigns an [Azure Policy](../../../policy/overview.md) definition that
-helps you monitor virtual machines where an application whitelist is recommended but has not yet
+helps you monitor virtual machines where an application allowed list is recommended but has not yet
 been configured.
 
 - Adaptive Application Controls should be enabled on virtual machines
@@ -250,10 +250,10 @@ been configured.
 ## CM-11 User-Installed Software
 
 Adaptive application control in Azure Security Center is an intelligent, automated end-to-end
-application whitelisting solution that can block or prevent specific software from running on your
+application filtering solution that can block or prevent specific software from running on your
 virtual machines. Application control can help you enforce and monitor compliance with software
 restriction policies. This blueprint assigns an [Azure Policy](../../../policy/overview.md)
-definition that helps you monitor virtual machines where an application whitelist is recommended but
+definition that helps you monitor virtual machines where an application allowed list is recommended but
 has not yet been configured.
 
 - Adaptive Application Controls should be enabled on virtual machines
@@ -527,7 +527,7 @@ articles to learn about the blueprint and how to deploy this sample:
 > [FedRAMP High blueprint - Overview](./index.md)
 > [FedRAMP High blueprint - Deploy steps](./deploy.md)
 
-Addition articles about blueprints and how to use them:
+Additional articles about blueprints and how to use them:
 
 - Learn about the [blueprint lifecycle](../../concepts/lifecycle.md).
 - Understand how to use [static and dynamic parameters](../../concepts/parameters.md).

@@ -5,6 +5,7 @@ author: yashesvi
 ms.reviewer: yashesvi
 tags: billing
 ms.service: cost-management-billing
+ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: banders
@@ -58,7 +59,7 @@ You can also buy a reservation in the Azure portal. For more information, see th
 Service plans:
 - [Virtual machine](../../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/billing/TOC.json)
 -  [Cosmos DB](../../cosmos-db/cosmos-db-reserved-capacity.md?toc=/azure/billing/TOC.json)
-- [SQL Database](../../sql-database/sql-database-reserved-capacity.md?toc=/azure/billing/TOC.json)
+- [SQL Database](../../azure-sql/database/reserved-capacity-overview.md?toc=/azure/billing/TOC.json)
 
 Software plans:
 - [SUSE Linux software](../../virtual-machines/linux/prepay-suse-software-charges.md?toc=/azure/billing/TOC.json)

@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 09/03/2019
+ms.date: 07/15/2020
 ms.author: alkohli
 ---
 # Azure Data Box: Frequently Asked Questions
@@ -33,13 +33,15 @@ A.  Azure Data Box service is designed for offline data ingestion. This service 
 ### Q. What is Azure Data Box?
 A. The Azure Data Box allows a quick, inexpensive, and secure transfer of terabytes of data into Azure. You order the Data Box device via the Azure portal. Microsoft ships you a storage device of 80-TB usable capacity through a regional carrier. 
 
-Once the device is received, you quickly set it up using the local web UI. Copy the data from your servers to the device and ship the device back to Azure. In the Azure datacenter, your data is automatically uploaded from the device to Azure. The entire process is tracked end-to-end by the Data Box service in the Azure portal.
+Once the device is received, you quickly set it up using the local web UI. Copy the data from your servers to the device or from device to the servers and ship the device back to Azure. For an import order, in the Azure datacenter, your data is automatically uploaded from the device to Azure. The entire process is tracked end-to-end by the Data Box service in the Azure portal.
 
 ### Q. When should I use Data Box?
-A. If you have 40 - 500 TB of data that you want to transfer to Azure, you would benefit from using Data Box. For data sizes < 40 TB, use Data Box Disk and for data sizes > 500 TB, sign up for [Data Box Heavy](data-box-heavy-overview.md).
+A. If you have 40 - 500 TB of data that you want to transfer to or from Azure, you would benefit from using Data Box. For data sizes < 40 TB, use Data Box Disk and for data sizes > 500 TB, sign up for [Data Box Heavy](data-box-heavy-overview.md).
 
 ### Q. What is the price of Data Box?
-A. Data Box is available at a nominal charge for 10 days. When you select the product model while creating an order in the Azure portal, the charges for the device are displayed. Shipping is also free, however, the charges for Azure storage apply. For more information, go to [Azure Data Box pricing](https://azure.microsoft.com/pricing/details/storage/databox/). 
+A. Data Box is available at a nominal charge for 10 days. When you select the product model while creating an order in the Azure portal, the charges for the device are displayed. Standard shipping charges and charges for Azure storage also apply. Export orders follow a similar pricing model as for import orders, though additional egress charges may apply. 
+
+For more information, go to [Azure Data Box pricing](https://azure.microsoft.com/pricing/details/storage/databox/) and [Egress charges](https://azure.microsoft.com/pricing/details/bandwidth/). 
 
 ### Q. What is the maximum amount of data I can transfer with Data Box in one instance?
 A. Data Box has a raw capacity of 100 TB and usable capacity of 80 TB. You can transfer up to 80 TB of data with Data Box. To transfer more data, you need to order more devices.
@@ -49,6 +51,18 @@ A.  For information on which countries/regions the Data Box is available, go to 
 
 ### Q. Which regions can I store data in with Data Box?
 A. Data Box is supported for all regions within US, West Europe, North Europe, France, UK, Japan, Australia, and Canada. For more information, go to [Region availability](data-box-overview.md#region-availability).
+
+### Q. How can I import source data at my location in a particular country to an Azure region in a different country/region or export data from an Azure region in one country to a different country/region?
+
+Data Box supports data ingestion or egress only within the same country/region as their destination and will not cross any international borders. The only exception is for orders in the European Union (EU), where Data Boxes can ship to and from any EU country/region.
+
+For example, in the import scenario, if you had the source data in Canada that you wanted to move to an Azure WestUS storage account, then you could achieve it in the following way:
+
+1. Order Data Box in Canada by choosing a storage account in Cananda. The device is shipped from an Azure datacenter in Canada to the shipping address (in Canada) provided during order creation.
+
+2. Once the on-prem data copy to the Data Box is done, return the device to the Azure datacenter in Canada. The data present on the Data Box then gets uploaded to the destination storage account in the Canada Azure region chosen during order creation.
+
+3. You can then use a tool like AzCopy to copy the data to a storage account in WestUS . This step incurs [standard storage](https://azure.microsoft.com/pricing/details/storage/) and [bandwidth charges](https://azure.microsoft.com/pricing/details/bandwidth/) that aren't included in the Data Box billing.
 
 ### Q. Whom should I contact if I encounter any issues with Data Box?
 A. If you encounter any issues with Data Box, please [contact Microsoft Support](data-box-disk-contact-microsoft-support.md).
@@ -79,7 +93,7 @@ A. What this means is that the Data Box service is not available for the combina
 A. When you place an order, we check whether a device is available for your order. If a device is available, we will ship it within 10 days. It is conceivable that there are periods of high demand. In this situation, your order will be queued and you can track the status change in the Azure portal. If your order is not fulfilled in 90 days, the order is automatically canceled.
 
 ### Q. I have filled up my Data Box with Data and need to order another one. Is there a way to quickly place the order?
-A. You can clone your previous order. Cloning creates the same order as before and allow you to edit order details only without the need to type in address, contact, and notification details.
+A. You can clone your previous order. Cloning creates the same order as before and allow you to edit order details only without the need to type in address, contact, and notification details. CLoning is allowed only for import orders.
 
 ## Configure and connect
 
@@ -161,7 +175,7 @@ A.  To speed up the copy process:
 
 - Create a local VHDx on fast storage or create an empty VHD on the HDD/SSD (slower).
 - Mount it to a VM.
-- Copy files to the VM’s disk.-->
+- Copy files to the VM's disk.-->
 
 
 ### Q. Can I use multiple storage accounts with Data Box?
@@ -176,21 +190,10 @@ A.  Yes. A maximum of 10 storage accounts, general purpose, classic, or blob sto
 A. If your device has arrived damaged or there is evidence of tampering, do not use the device. [Contact Microsoft Support](data-box-disk-contact-microsoft-support.md) and return the device at your earliest. You can also create a new Data Box order for a replacement device. In this case, you will not be charged for the replacement device.
 
 ### Q. Can I pick up my Data Box order myself? Can I return the Data Box via a carrier that I choose?
-A. Yes. Microsoft also offers self-managed shipping in US Gov region only. When placing the Data Box order, you can choose self-managed shipping option. To pick up your Data Box device, take the following steps:
-    
-1. After you have placed the order, the order is processed and the Data Box is prepared. You will be notified via an email that your order is ready for pickup. 
-2. Once the order is ready for pickup, go to your order in the Azure portal and navigate to the **Overview** blade. 
-3. You will see a notification with a code in the Azure portal. Email the [Azure Data Box Operations team](mailto:adbops@microsoft.com) and provide them the code. The team will provide the location and schedule a pickup date and time. You must call the team within 5 business days after you receive the email notification.
+A. Yes. Microsoft also offers self-managed shipping. When placing the Data Box order, you can choose self-managed shipping option. For more information, see [Self managed shipping for Data Box](data-box-portal-customer-managed-shipping.md).
 
-Once the data copy is complete, take the following steps to return your device:
-
-1. Once the data copy is complete with no errors, run **Prepare to ship**. After the preparation is complete, you'll receive a code in the local web UI of the device. Copy and save the code.
-2. Turn off the device and remove the connecting cables.
-3. Spool and securely place the power cord that was provided with device in the back of the device.
-4. Email the [Azure Data Box Operations team](mailto:adbops@microsoft.com) and provide them the code that you saved earlier. They would provide you information on where and when to drop off the device.
-
-### Q. Will my Data Box devices cross country borders during shipping?
-A. All Data Box devices are shipped from within the same country as their destination and will not cross any international borders. The only exception is for orders in the European Union (EU), where devices can ship to and from any EU country. This applies to both the Data Box and the Data Box Heavy devices.
+### Q. Will my Data Box devices cross country/region borders during shipping?
+A. All Data Box devices are shipped from within the same country/region as their destination and will not cross any international borders. The only exception is for orders in the European Union (EU), where devices can ship to and from any EU country/region. This applies to both the Data Box and the Data Box Heavy devices.
 
 ### Q. I ordered a Data Box in US East but I received a device that was shipped from a location in US West. Where should I return the device to?
 A. We try to get a Data Box device as fast as possible to you. We prioritize the shipment from a datacenter closest to your storage account location but will ship a device from any Azure datacenter that has available inventory. Your Data Box should be returned to the same location where it was shipped from as displayed in the shipping label.
@@ -208,7 +211,7 @@ A.  During the transit, the following features on the Data Box help protect the 
  - The device is locked and needs an unlock password to enter and access data.
 For more information, go to [Data Box security features](data-box-security.md).  
 
-### Q. I have finished Prepare to Ship and shut down the device. Can I still add more data to Data Box?
+### Q. I have finished Prepare to Ship for my import order and shut down the device. Can I still add more data to Data Box?
 A. Yes. You can turn on the device and add more data. You will need to run **Prepare to Ship** again once you have completed data copy.
 
 ### Q. I received my device and it is not booting up? How do I ship the device back?
@@ -216,7 +219,7 @@ A. If your device is not booting, go to your order in the Azure portal. Download
 
 ## Verify and upload
 
-### Q. How soon can I access my data in Azure once I’ve shipped the Data Box back? 
+### Q. How soon can I access my data in Azure once I've shipped the Data Box back? 
 A.  Once the order status for **Data Copy** shows as **Complete**, you should be able to access your data right away.
 
 ### Q. Where is my data located in Azure after the upload?
@@ -248,15 +251,17 @@ A.  Following reporting is available to support chain of custody:
 
 - Transport logistics from UPS.
 - Logging of powering on and user share access.
-- Manifest file with a 64-bit cyclic redundancy check (CRC-64) or checksum for each file ingested successfully into the Data Box.
+- BOM or manifest file with a 64-bit cyclic redundancy check (CRC-64) or checksum for each file ingested successfully into the Data Box.
 - Reporting of files that failed to upload to Azure storage account.
 - Sanitization of the Data Box device (as per NIST 800 88R1 standards) after data is copied to your Azure storage account.
 
 ### Are the carrier tracking logs (from UPS) available? 
-A.  Carrier tracking logs are captured in the Data Box order history. This report is available to you after the device has returned to Azure datacenter and the data on device disks is cleaned up. For immediate need, you can also go directly to the carrier’s website with the order tracking number and get the tracking information.
+A.  Carrier tracking logs are captured in the Data Box order history. This report is available to you after the device has returned to Azure datacenter and the data on device disks is cleaned up. For immediate need, you can also go directly to the carrier's website with the order tracking number and get the tracking information.
 
 ### Can I transport the Data Box to Azure datacenter? 
-A.  No. Currently Azure datacenter does not accept delivery of the Data Box from customers or from carriers other than UPS.
+A.  No. If you have chosen Microsoft managed shipping, you can't transport the data. Currently Azure datacenter does not accept delivery of the Data Box from customers or from carriers other than UPS.
+
+If you chose self managed shipping, then you can pick up or drop off your Data Box from the Azure datacenter.
 
 
 ## Next steps

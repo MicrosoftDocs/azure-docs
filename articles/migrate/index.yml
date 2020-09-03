@@ -1,17 +1,19 @@
 ### YamlMime:Landing
 
 title: Azure Migrate documentation
-summary: Azure Migrate provides a central hub of tools for discovery, assessment, and migration of on-premises workloads to Azure.
+summary: Find articles to help you discover, assess, and migrate your on-premises environment using tools in the Azure Migrate hub.
 
 metadata:
   title: Azure Migrate documentation
-  description: Use Azure Migrate to migrate on-premises workloads to Azure.
+  description: Find Azure migration tutorials, resources, and migration assessment tools. Learn how to use tools in the Azure Migrate hub to discover, assess, and migrate your on-premises environment to Azure.
   ms.service: azure-migrate
   ms.topic: landing-page
   ms.collection: collection
   author: rayne-wiselman
   ms.author: raynew
-  ms.date: 11/19/2019
+  ms.date: 07/08/2020
+  ms.custom: seo-azure-migrate
+  keywords: azure migrate, azure migration, azure migrate assessment tool, azure migrate tool, azure migrate documentation, azure migration documentation
 
 landingContent:
   - title: About Azure Migrate
@@ -98,6 +100,6 @@ landingContent:
           - text: Request a service feature
             url: https://feedback.azure.com/forums/907195-azure-migrate
           - text: Ask a forum question
-            url: https://social.msdn.microsoft.com/forums/azure/home?forum=AzureMigrate
+            url: /answers/topics/azure-migrate.html
           - text: Azure Tech Community
             url: https://techcommunity.microsoft.com/t5/Azure-Migration/bd-p/AzureMigration

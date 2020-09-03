@@ -2,20 +2,18 @@
 title: Common application management scenarios for Azure Active Directory | Microsoft Docs
 description: Centralize application management with Azure AD
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
-
+author: kenwith
+manager: celestedg
 ms.assetid: 
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 03/02/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: arvinh
-
 ms.collection: M365-identity-device-management
 ---
 
@@ -40,7 +38,7 @@ No more managing password. Securely access all the resources you need with your 
 |Feature  | Description | Recommendation |
 |---------|---------|---------|
 |SSO|Standards-based federated SSO using trusted industry standards.|Always use [SAML / OIDC](https://docs.microsoft.com/azure/active-directory/manage-apps/isv-choose-multi-tenant-federation) to enable SSO when your application supports it.|
-|Access panel|Offer your users a simple hub to discover and access all their applications. Enable them to be more productive with self-service capabilities, like requesting access to apps and groups, or managing access to resources on behalf of others.| Deploy the [access panel](https://docs.microsoft.com/azure/active-directory/manage-apps/access-panel-deployment-plan) in your organization once you've integrated your apps with Azure AD for SSO.|
+|My Apps|Offer your users a simple hub to discover and access all their applications. Enable them to be more productive with self-service capabilities, like requesting access to apps and groups, or managing access to resources on behalf of others.| Deploy [My Apps](https://docs.microsoft.com/azure/active-directory/manage-apps/access-panel-deployment-plan) in your organization once you've integrated your apps with Azure AD for SSO.|
 
 ## Scenario 2: Automate provisioning and deprovisioning 
 

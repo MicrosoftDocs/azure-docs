@@ -68,7 +68,7 @@ Azure Cosmos DB's API for MongoDB supports the following database commands:
 - listDatabases
 - whatsmyuri
 
-<a name="aggregation-pipeline"/>
+<a name="aggregation-pipeline"></a>
 
 ## Aggregation pipeline</a>
 
@@ -284,7 +284,7 @@ The bar operator '|' acts as an "or" function - the query ```find({x:{$regex: /^
 
 ### Geospatial operators
 
-Operator | Example | |
+Operator | Example | Supported |
 --- | --- | --- |
 $geoWithin | ```{ "Location.coordinates": { $geoWithin: { $centerSphere: [ [ -121, 46 ], 5 ] } } }``` | Yes |
 $geoIntersects |  ```{ "Location.coordinates": { $geoIntersects: { $geometry: { type: "Polygon", coordinates: [ [ [ -121.9, 46.7 ], [ -121.5, 46.7 ], [ -121.5, 46.9 ], [ -121.9, 46.9 ], [ -121.9, 46.7 ] ] ] } } } }``` | Yes |
@@ -338,7 +338,7 @@ Cosmos DB supports a time-to-live (TTL) based on the timestamp of the document. 
 
 ## User and role management
 
-Cosmos DB does not yet support users and roles. However, Cosmos DB supports role based access control (RBAC) and read-write and read-only passwords/keys that can be obtained through the [Azure portal](https://portal.azure.com) (Connection String page).
+Cosmos DB does not yet support users and roles. However, Cosmos DB supports Azure role-based access control (Azure RBAC) and read-write and read-only passwords/keys that can be obtained through the [Azure portal](https://portal.azure.com) (Connection String page).
 
 ## Replication
 

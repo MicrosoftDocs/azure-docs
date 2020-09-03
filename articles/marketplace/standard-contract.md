@@ -1,12 +1,12 @@
 ---
 title: Standard Contract for Microsoft commercial marketplace
 description: Standard Contract for Azure Marketplace and AppSource in Partner Center
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/14/2020
-ms.author: dsindona
+author: keferna
+ms.author: keferna
+ms.date: 05/20/2020
 ---
 
 # Standard Contract for Microsoft commercial marketplace
@@ -31,7 +31,7 @@ There are two kinds of amendments available for commercial marketplace publisher
 >[!Note]
 >These two types of amendments stack on top of each other. Customers targeted with custom amendments will also get the universal amendment to the Standard Contract during purchase.
 
-You can leverage the Standard Contract for the Microsoft commercial marketplace for the following offer types:  Azure Applications (Solution Templates and Managed Applications), Virtual Machines, Containers, Container Applications, IoT Edge Modules, and SaaS.
+You can leverage the Standard Contract for the Microsoft commercial marketplace for the following offer types:  Azure Applications (Solution Templates and Managed Applications), Virtual Machines, and SaaS.
 
 ## Customer experience
 

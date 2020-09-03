@@ -5,7 +5,7 @@ author: emilyre
 ms.service: azure-australia
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.author: v-emread
+ms.author: yvettep
 ---
 
 # Controlling egress traffic in Azure Australia
@@ -179,7 +179,7 @@ Network interfaces are the source for all egress traffic from a virtual machine.
 
 PaaS can provide enhanced functionality and availability and reduce management overhead but must be secured appropriately. To increase control, enforce network segmentation, or to provide a secure egress point for applications and services, many PaaS capabilities can be integrated with a virtual network.
 
-Using PaaS as an integrated part of system or application architecture, Microsoft provides multiple mechanisms to deploy PaaS into a virtual network. The deployment methodology can help restrict access while providing connectivity and integration with internal systems and applications. Examples include App Service Environments, SQL Managed instances and more.
+Using PaaS as an integrated part of system or application architecture, Microsoft provides multiple mechanisms to deploy PaaS into a virtual network. The deployment methodology can help restrict access while providing connectivity and integration with internal systems and applications. Examples include App Service Environments, SQL Managed Instance, and more.
 
 When deploying PaaS into a virtual network where routing and NSG controls have been implemented, it is crucial to understand the specific communication requirements of the resource, including management access from Microsoft services and the path that communications traffic will take when replying to incoming requests from these services.
 

@@ -42,7 +42,7 @@ In Unity, open the `quickstarts/apps/unity/ou-mrtk` project.
 
 ### Run the sample app
 
-Turn on the device, click **All Apps**, and open the app. After the Unity splash screen, you should see a red bounding box. You can use your hand to move, scale, or rotate the bounding box. Place the box to cover the object you want to detect. Do a **facepalm** gesture to open the menu. Select **Start Search** to start object detection. When the object is detected, a mesh will be rendered on the object.
+Turn on the device, click **All Apps**, and open the app. After the Unity splash screen, you should see a red bounding box. You can use your hand to move, scale, or rotate the bounding box. Place the box to cover the object you want to detect. Do a **facepalm** gesture to open the menu. Click **Lock SearchArea** to prevent further movement of the bounding box. Select **Start Search** to start object detection. When the object is detected, a mesh will be rendered on the object. Details of a detected instance will show on the screen, such as updated timestamp and surface coverage ratio. Click **Stop Search** to stop tracking and all detected instances will be removed.
 
 You can also do other actions using the hand menu:
 
@@ -50,7 +50,7 @@ You can also do other actions using the hand menu:
 
 **High Precision Mode**: An experimental feature to get more accurate pose at the cost of more system resources. Object mesh will be rendered at pink color when on this mode. Click this button again to switch back to normal tracking mode.
 
-**Toggle SearchArea**: Show/hide search area bounding box.
+**Lock/Unlock search area**: Lock area bounding box to prevent accidental movement by hands.
 
 **Start/Stop Tracing**: Capture diagnostics data and save it to the device. See more detail in section **Debug Detection Issues and Capture Diagnostics**
 
@@ -95,6 +95,8 @@ In Unity, navigate to `Assets/MixedReality.ObjectUnderstanding/Scenes`, open **O
 :::image type="content" source="../../../includes/media/object-understanding-quickstarts-unity/ou-unity-auto-search-area.png" alt-text="Unity Auto Search Area":::
 
 There are two parameters to fine-tune the auto-adjustment. **Surface Coverage Scale** down-weights the default coverage threshold to allow a detection on partially observed data. **Bounding Box Scale** specifies the scale of adjusted bounding box.
+
+The **OUAutoSearchArea** scene works with a single object model.  The **OUSampleScene** supports multiple object models.
 
 ## Next steps
 

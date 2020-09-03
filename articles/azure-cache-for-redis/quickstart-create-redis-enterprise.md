@@ -15,7 +15,7 @@ Azure Cache for Redis' Enterprise tiers provide fully integrated and managed [Re
 * Enterprise, which uses volatile memory (DRAM) on a virtual machine to store data
 * Enterprise SSD, which uses both volatile and non-volatile memory (NVMe) to store data.
 
-There isn't any cost for joining the preview. Register through the [Azure Marketplace](https://aka.ms/redispreviewsignup/) if you're interested. We have very limited number of participant spots and can't guarantee that you'll be accepted into the preview.
+There isn't any cost for joining the preview. Register through the [Azure Marketplace](https://aka.ms/redispreviewsignup/) **Contact Me** if you're interested. We have very limited number of participant spots and can't guarantee that you'll be accepted into the preview.
 
 ## Prerequisites
 

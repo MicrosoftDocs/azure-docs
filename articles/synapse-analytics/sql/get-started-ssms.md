@@ -1,5 +1,5 @@
 ---
-title: "SSMS: Connect and query Synapse SQL"
+title: Connect to Synapse SQL with SQL Server Management Studio (SSMS)
 description: Use SQL Server Management Studio (SSMS) to connect to and query Synapse SQL in Azure Synapse Analytics. 
 services: synapse-analytics
 author: azaricstefan 
@@ -12,7 +12,6 @@ ms.reviewer: jrasnick
 ---
 
 # Connect to Synapse SQL with SQL Server Management Studio (SSMS)
-
 > [!div class="op_single_selector"]
 > * [Azure Data Studio](get-started-azure-data-studio.md)
 > * [Power BI](get-started-power-bi-professional.md)
@@ -37,7 +36,7 @@ You can use [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-
 Before you begin, make sure you have the following prerequisites:  
 
 * [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms). 
-* For SQL pool, you need an existing data warehouse. To create one, see [Create a SQL pool](../quickstart-create-sql-pool.md). For SQL on-demand, one is already provisioned in your workspace at creation time. 
+* For SQL pool, you need an existing data warehouse. To create one, see [Create a SQL pool](../quickstart-create-sql-pool-portal.md). For SQL on-demand, one is already provisioned in your workspace at creation time. 
 * The fully qualified SQL Server name. To find this, see [Connect to Synapse SQL](connect-overview.md).
 
 ## Connect

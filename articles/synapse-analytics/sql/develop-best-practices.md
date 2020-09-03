@@ -101,7 +101,7 @@ Because high-quality columnstore segments are important, it's a good idea to use
 Since columnstore tables generally won't push data into a compressed columnstore segment until there are more than 1 million rows per table, and each SQL pool table is partitioned into 60 tables, columnstore tables won't benefit a query unless the table has more than 60 million rows.  
 
 > [!TIP]
-> For tables with less than 60 million rows, having a columstore index may not be the optimal solution.  
+> For tables with less than 60 million rows, having a columnstore index may not be the optimal solution.  
 
 Furthermore, if you partition your data, then you will want to consider that each partition will need to have 1 million rows to benefit from a clustered columnstore index.  If a table has 100 partitions, then it will need to have at least 6 billion rows to benefit from a clustered columns store (60 distributions *100 partitions* 1 million rows).  
 
@@ -145,11 +145,11 @@ If possible, you can prepare files for better performance:
 
 Data is often organized in partitions. You can instruct SQL on-demand to query particular folders and files. This will reduce the number of files and amount of data the query needs to read and process. 
 
-Consequently, you will achieve better performance. For more information, check [filename](develop-storage-files-overview.md#filename-function) and [filepath](develop-storage-files-overview.md#filepath-function) functions and examples on how to [query specific files](query-specific-files.md).
+Consequently, you will achieve better performance. For more information, check [filename](query-data-storage.md#filename-function) and [filepath](query-data-storage.md#filepath-function) functions and examples on how to [query specific files](query-specific-files.md).
 
 If your data in storage is not partitioned, consider partitioning it so you can use these functions to optimize queries targeting those files.
 
-When [querying partitioned Spark tables](develop-storage-files-spark-tables.md) from SQL on-demand, the query will automatically target only files needed.
+When [querying partitioned Apache Spark for Azure Synapse external tables](develop-storage-files-spark-tables.md) from SQL on-demand, the query will automatically target only files needed.
 
 ### Use CETAS to enhance query performance and joins
 
@@ -161,7 +161,7 @@ As CETAS generates Parquet files, statistics will be automatically created when 
 
 ### Next steps
 
-If you need information not provided in this article, use the "Search for docs" on the left side of this page to search all of the SQL pool documents.  The [SQL pool Forum](https://social.msdn.microsoft.com/Forums/sqlserver/home?forum=AzureSQLDataWarehouse) is a place for you to pose questions to other users and to the SQL pool Product Group.  
+If you need information not provided in this article, use the "Search for docs" on the left side of this page to search all of the SQL pool documents.  The [Microsoft Q&A question page for SQL pool](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html) is a place for you to pose questions to other users and to the SQL pool Product Group.  
 
 We actively monitor this forum to ensure that your questions are answered either by another user or one of us.  If you prefer to ask your questions on Stack Overflow, we also have an [Azure SQL pool Stack Overflow Forum](https://stackoverflow.com/questions/tagged/azure-sqldw).
  

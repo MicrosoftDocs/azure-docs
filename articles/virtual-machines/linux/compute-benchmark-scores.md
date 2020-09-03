@@ -2,7 +2,7 @@
 title: Compute benchmark scores for Azure Linux VMs 
 description: Compare CoreMark compute benchmark scores for Azure VMs running Linux.
 ms.service: virtual-machines-linux
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/29/2020
 ms.reviewer: davberg
 
@@ -466,6 +466,5 @@ Linux numbers were computed by running [CoreMark](https://www.eembc.org/coremark
 date run. Basic A and B (Burstable) series not shown because performance is variable. N series not shown as they are GPU centric and Coremark doesn't measure GPU performance.
 
 ## Next steps
-* For storage capacities, disk details, and additional considerations for choosing among VM sizes, see [Sizes for virtual machines](sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* For storage capacities, disk details, and additional considerations for choosing among VM sizes, see [Sizes for virtual machines](../sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * To run the CoreMark scripts on Linux VMs, download the [CoreMark script pack](https://download.microsoft.com/download/3/0/5/305A3707-4D3A-4599-9670-AAEB423B4663/AzureCoreMarkScriptPack.zip).
-

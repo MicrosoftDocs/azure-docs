@@ -1,6 +1,6 @@
 ---
 title: Cloud Services and management certificates | Microsoft Docs
-description: Learn how to create and use certificates with Microsoft Azure
+description: Learn about how to create and deploy certificates for cloud services and for authenticating with the management API in Azure.
 services: cloud-services
 documentationcenter: .net
 author: tgore03

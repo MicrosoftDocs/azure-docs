@@ -1,6 +1,5 @@
 ---
-title: Web service parameters
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (classic): Web service parameters - Azure'
 description: How to use Azure Machine Learning Web Service Parameters to modify the behavior of your model when the web service is accessed.
 services: machine-learning
 author: likebupt
@@ -11,12 +10,13 @@ ms.assetid: c49187db-b976-4731-89d6-11a0bf653db1
 ms.service: machine-learning
 ms.subservice: studio
 ms.workload: data-services
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/12/2017
 ---
 # Use Azure Machine Learning Studio (classic) web service parameters
 
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
+**APPLIES TO:**  ![yes](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic)   ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+
 
 An Azure Machine Learning web service is created by publishing an experiment that contains modules with configurable parameters. In some cases, you may want to change the module behavior while the web service is running. *Web Service Parameters* allow you to do this task. 
 

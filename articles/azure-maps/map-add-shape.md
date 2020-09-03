@@ -1,14 +1,14 @@
 ---
 title: Add a polygon layer to a map | Microsoft Azure Maps
-description: In this article, you will learn how to render a polygon and multi polygon on a map in the Microsoft Azure Maps Web SDK.
-author: Philmea
-ms.author: philmea
+description: Learn how to add polygons or circles to maps. See how to use the Azure Maps Web SDK to customize geometric shapes and make them easy to update and maintain.
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: 
-ms.custom: codepen
+ms.custom: codepen, devx-track-javascript
 ---
 
 # Add a polygon layer to the map
@@ -52,6 +52,8 @@ Below is the complete and running sample of the above code.
 ## Use a polygon and line layer together
 
 A line layer is used to render the outline of polygons. The following code sample renders a polygon like the previous example, but now adds a line layer. This line layer is a second layer connected to the data source.  
+
+<br/>
 
 <iframe height='500' scrolling='no' title='Polygon and line layer to add polygon' src='//codepen.io/azuremaps/embed/aRyEPy/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/aRyEPy/'>Polygon and line layer to add polygon</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
