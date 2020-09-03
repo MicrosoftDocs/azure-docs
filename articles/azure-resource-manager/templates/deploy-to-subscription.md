@@ -149,7 +149,7 @@ To target a resource group within the subscription, add a nested deployment and 
 }
 ```
 
-This article contains examples below that show how to deploy resources to the different scopes.
+Below in this article, you can find templates that show how to deploy resources to different scopes.
 
 ## Use template functions
 
