@@ -38,7 +38,7 @@ To create a single database in the Azure portal this quickstart starts at the Az
 1. For **Resource group**, select **Create new**, enter *myResourceGroup*, and select **OK**.
 1. For **Database name** enter *mySampleDatabase*.
 1. For **Server**, select **Create new**, and fill out the **New server** form with the following values:
-   - **Server name**: Enter *mysqlserver*, and add some characters for uniqueness. We can't provide an exact server name because server names must be globally unique for all servers in Azure, not just unique within a subscription.
+   - **Server name**: Enter *mysqlserver*, and add some characters for uniqueness. We can't provide an exact server name to use because server names must be globally unique for all servers in Azure, not just unique within a subscription. So enter something like mysqlserver12345, and the portal lets you know if it is available or not.
    - **Server admin login**: Enter *azureuser*.
    - **Password**: Enter a password that meets requirements, and enter it again in the **Confirm password** field.
    - **Location**: Select a location from the dropdown list.
@@ -62,8 +62,8 @@ To create a single database in the Azure portal this quickstart starts at the Az
    ![Networking tab](./media/single-database-create-quickstart/networking.png)
   
 
-1. On the **Additional settings** tab, in the **Data source** section, for **Use existing data**, select **Sample**.
-1. Select **Review + create** at the bottom of the page.
+1. On the **Additional settings** tab, in the **Data source** section, for **Use existing data**, select **Sample**. This creates an AdventureWorksLT sample database so there's some tables and data to query and experiment with, as opposed to an empty blank database.
+1. Select **Review + create** at the bottom of the page:
 
    ![Additional settings tab](./media/single-database-create-quickstart/additional-settings.png)
 
@@ -75,7 +75,9 @@ To create a single database in the Azure portal this quickstart starts at the Az
 
 The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account. 
 
-To open the Cloud Shell, just select **Try it** from the upper right corner of a code block. You can also launch Cloud Shell in a separate browser tab by going to [https://shell.azure.com/bash](https://shell.azure.com/bash). Select **Copy** to copy the blocks of code, paste it into the Cloud Shell, and press **Enter** to run it.
+The Cloud Shell uses Bash or PowerShell so verify that you're session is set to Bash in the dropdown above the terminal window.
+
+To open the Cloud Shell, just select **Try it** from the upper right corner of a code block. You can also launch Cloud Shell in a separate browser tab by going to [https://shell.azure.com](https://shell.azure.com). Select **Copy** to copy the blocks of code, paste it into the Cloud Shell, and press **Enter** to run it.
 
 ## Set parameter values
 
@@ -91,7 +93,7 @@ adminlogin=azureuser
 password=Azure1234567!
 
 # Set a server name that is unique to Azure DNS (<server_name>.database.windows.net)
-servername=server-$RANDOM
+serverName=server-$RANDOM
 
 # Set the ip address range that can access your database
 startip=0.0.0.0
@@ -103,7 +105,7 @@ endip=0.0.0.0
 Create a resource group with the [az group create](/cli/azure/group?view=azure-cli-latest#az-group-create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. The following example creates a resource group named *myResourceGroup* in the *eastus* location:
 
 ```azurecli-interactive
-az group create --name myResourceGroup --location eastus
+az group create --name $resourceGroupName --location $location
 ```
 
 ## Create a server
@@ -112,7 +114,7 @@ Create a server with the [az sql server create](/cli/azure/sqlserver?view=azure-
 
 ```azurecli-interactive
 az sql server create \
-    --name $RANDOM \
+    --name $serverName \
     --resource-group $resourceGroupName \
     --location $location  \
     --admin-user $adminlogin \
@@ -127,7 +129,7 @@ Create a firewall rule with the [az sql server firewall-rule create](/cli/azure/
 ```azurecli-interactive
 az sql server firewall-rule create \
     --resource-group $resourceGroupName \
-    --server $servername \
+    --server $serverName \
     -n AllowYourIp \
     --start-ip-address $startip \
     --end-ip-address $endip
@@ -142,7 +144,7 @@ Create a database with the [az sql db create](/cli/azure/sql/db?view=azure-cli-l
 ```azurecli-interactive
 az sql db create \
     --resource-group $resourceGroupName \
-    --server $servername \
+    --server $serverName \
     --name mySampleDatabase \
     --sample-name AdventureWorksLT \
     --edition GeneralPurpose \
@@ -160,7 +162,9 @@ You can create a resource group, server, and single database using Windows Power
 
 The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account. 
 
-To open the Cloud Shell, just select **Try it** from the upper right corner of a code block. You can also launch Cloud Shell in a separate browser tab by going to [https://shell.azure.com/bash](https://shell.azure.com/bash). Select **Copy** to copy the blocks of code, paste it into the Cloud Shell, and press **Enter** to run it.
+The Cloud Shell uses Bash or PowerShell so verify that you're session is set to PowerShell in the dropdown above the terminal window.
+
+To open the Cloud Shell, just select **Try it** from the upper right corner of a code block. You can also launch Cloud Shell in a separate browser tab by going to [https://shell.azure.com](https://shell.azure.com). Select **Copy** to copy the blocks of code, paste it into the Cloud Shell, and press **Enter** to run it.
 
 ## Set parameter values
 
@@ -220,11 +224,11 @@ Create an Azure resource group with [New-AzResourceGroup](/powershell/module/az.
 ```
 
 
-## Create General Purpose Gen4 database with 1 vCore
+## Create a single database
 
 
 ```azurepowershell-interactive
-   Write-host "Creating a gen5 2 vCore database..."
+   Write-host "Creating a gen5 2 vCore Serverless database..."
    $database = New-AzSqlDatabase  -ResourceGroupName $resourceGroupName `
       -ServerName $serverName `
       -DatabaseName $databaseName `
@@ -252,15 +256,12 @@ For more Azure SQL Database PowerShell samples, see [Azure PowerShell samples](.
 
 
 
-
-<!--end of include-->
-
 ## Query the database
 
-Once your database is created, you can use the built-in **Query editor** in the Azure portal to connect to the database and query the data.
+Once your database is created, you can use the **Query editor (preview)** in the Azure portal to connect to the database and query data.
 
 1. In the portal, search for and select **SQL databases**, and then select your database from the list.
-1. On the **SQL Database** page for your database, select **Query editor (preview)** in the left menu.
+1. On the page for your database, select **Query editor (preview)** in the left menu.
 1. Enter your server admin login information, and select **OK**.
 
    ![Sign in to Query editor](./media/single-database-create-quickstart/query-editor-login.png)
@@ -299,7 +300,7 @@ To delete **myResourceGroup** and all its resources using the Azure portal:
 To delete the resource group and all its resources, run the following Azure CLI command, using the name of your resource group:
 
 ```azurecli-interactive
-az group delete --name <your resource group>
+az group delete --name $resourceGroupName
 ```
 
 ### [PowerShell](#tab/azure-powershell)
@@ -307,7 +308,7 @@ az group delete --name <your resource group>
 To delete the resource group and all its resources, run the following PowerShell cmdlet, using the name of your resource group:
 
 ```azurepowershell-interactive
-Remove-AzResourceGroup -Name <your resource group>
+Remove-AzResourceGroup -Name $resourceGroupName
 ```
 
 ---
