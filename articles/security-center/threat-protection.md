@@ -160,8 +160,6 @@ Threat protection for Azure Storage detects potentially harmful activity on your
 
 This layer of protection allows you to address threats *without* requiring you to be a security expert, and helps you manage your security monitoring systems.
 
-Your storage accounts are protected 
-
 ### What kind of alerts does Threat protection for Azure Storage provide?
 
 Security alerts are triggered when there's:
