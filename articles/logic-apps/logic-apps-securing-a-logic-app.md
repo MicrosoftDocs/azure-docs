@@ -118,7 +118,7 @@ In the body, include the `KeyType` property as either `Primary` or `Secondary`. 
 
 ### Enable Azure Active Directory Open Authentication (Azure AD OAuth)
 
-For inbound calls to the endpoint that's created by the Request trigger, you can enable [Azure Active Directory Open Authentication (Azure AD OAuth)](../active-directory/develop/index.yml) by defining or adding an authorization policy for your logic app. This way, inbound calls use OAuth [access tokens](../active-directory/develop/access-tokens.md), which are supported only on the Request trigger, for authorization.
+For inbound calls to an endpoint that's created by a request-based trigger, you can enable [Azure Active Directory Open Authentication (Azure AD OAuth)](../active-directory/develop/index.yml) by defining or adding an authorization policy for your logic app. This way, inbound calls use OAuth [access tokens](../active-directory/develop/access-tokens.md) for authorization.
 
 When your logic app receives an inbound request that includes an OAuth access token, the Azure Logic Apps service compares the token's claims against the claims specified by each authorization policy. If a match exists between the token's claims and all the claims in at least one policy, authorization succeeds for the inbound request. The token can have more claims than the number specified by the authorization policy.
 
@@ -225,7 +225,7 @@ To enable Azure AD OAuth in the ARM template for deploying your logic app, follo
 
    At a minimum, the `claims` array must include the Issuer claim type where you set the claim's `name` property to `iss` and set the `value` to start with `https://sts.windows.net/` or `https://login.microsoftonline.com/` as the Azure AD issuer ID. For more information about these claim types, see [Claims in Azure AD security tokens](../active-directory/azuread-dev/v1-authentication-scenarios.md#claims-in-azure-ad-security-tokens). You can also specify your own claim type and value.
 
-1. To include the `Authorization` header from the access token in the Request trigger's outputs, see [Include 'Authorization' header in Request trigger outputs](#include-auth-header).
+1. To include the `Authorization` header from the access token in the request-based trigger outputs, see [Include 'Authorization' header in request trigger outputs](#include-auth-header).
 
 Here's the syntax to follow:
 
@@ -268,9 +268,9 @@ Here's the syntax to follow:
 
 <a name="include-auth-header"></a>
 
-#### Include 'Authorization' header in Request trigger outputs
+#### Include 'Authorization' header in request trigger outputs
 
-You can enable the Request trigger's outputs to include the `Authorization` header from the access token. In the Request trigger's underlying JSON definition, add the `operationOptions` property and set that property to `IncludeAuthorizationHeadersInOutputs`, for example:
+For logic apps that [enable Azure Active Directory Open Authentication (Azure AD OAuth)](#enable-oauth) for authorizing inbound calls to access request-based triggers, you can enable the Request trigger or HTTP Webhook trigger outputs to include the `Authorization` header from the OAuth access token. In the trigger's underlying JSON definition, add and set the `operationOptions` property to `IncludeAuthorizationHeadersInOutputs`. Here's an example for the Request trigger:
 
 ```json
 "triggers": {
@@ -287,7 +287,8 @@ You can enable the Request trigger's outputs to include the `Authorization` head
 
 For more information, see these topics:
 
-* [Schema reference for trigger and action types -Request trigger](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger)
+* [Schema reference for trigger and action types - Request trigger](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger)
+* [Schema reference for trigger and action types - HTTP Webhook trigger](../logic-apps/logic-apps-workflow-actions-triggers.md#http-webhook-trigger)
 * [Schema reference for trigger and action types - Operation options](../logic-apps/logic-apps-workflow-actions-triggers.md#operation-options)
 
 <a name="azure-api-management"></a>
