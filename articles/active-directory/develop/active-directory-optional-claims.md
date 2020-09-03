@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 08/25/2020
+ms.date: 09/03/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
@@ -234,7 +234,7 @@ This section covers the configuration options under optional claims for changing
 1. Select the application you want to configure optional claims for in the list
 1. Under the **Manage** section, select **Token configuration**
 1. Select **Add groups claim**
-1. Select the group types to return (**All Groups**, **SecurityGroup**, or **DirectoryRole**). The **All Groups** option includes **SecurityGroup**, **DirectoryRole**, and **DistributionList**
+1. Select the group types to return (**Security groups**, or **Directory roles**, **All groups**, and/or **Groups assigned to the application**). The **Groups assigned to the application** option includes only groups assigned to the application. The **All Groups** option includes **SecurityGroup**, **DirectoryRole**, and **DistributionList**, but not **Groups assigned to the application**. 
 1. Optional: select the specific token type properties to modify the groups claim value to contain on premises group attributes or to change the claim type to a role
 1. Select **Save**
 
@@ -252,6 +252,7 @@ This section covers the configuration options under optional claims for changing
    - "All" (this option includes SecurityGroup, DirectoryRole, and DistributionList)
    - "SecurityGroup"
    - "DirectoryRole"
+   - "ApplicationGroup" (this option includes only groups that are assigned to the application)
 
    For example:
 
