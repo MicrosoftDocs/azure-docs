@@ -30,24 +30,36 @@ When making your decision, consider the following two options:
 
 - **MySQL on Azure VMs**. This option falls into the industry category of IaaS. With this service, you can run MySQL Server inside a managed virtual machine on the Azure cloud platform. All recent versions and editions of MySQL can be installed in the virtual machine.
 
-  The most significant difference between Azure Database for MySQL Single Server, Azure Database for MySQL Flexible Server, and MySQL on Azure VMs is the granularity of control over the database engine. The control comes at the cost of responsibility of management, configuration and many database administration (DBA) tasks. In the case of running on Azure VMs, these tasks include maintaining and patching database servers, database recovery, and high-availability design.
+## Comparing the MySQL deployment options in Azure
 
 The main differences between these options are listed in the following table:
 
 
 | Attribute          | Azure Database for MySQL<br/>Single Server |Azure Database for MySQL<br/>Flexible Server  |MySQL on Azure VMs                      |
 |:-------------------|:-------------------------------------------|:---------------------------------------------|:---------------------------------------|
-| Service-level agreement (SLA) | Offers SLA of 99.99% availability|No SLA during preview| 99.99% using Availability Zones with multiple instances in multiple availability sets. Up to 99.95% availability with two or more instances in the same availability set.<br/><br/>See the [Virtual Machines SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/).                        |
-| Operating system patching| Automatic  | Automatic with Managed maintenance window control | Managed by customers |
-| MySQL patching     | Automatic  | Automatic with Managed maintenance window control | Managed by customers |
-| High availability | The high availability (HA) model is based on built-in failover mechanisms for when a node-level interruption occurs. In such cases, the service automatically creates a new instance and attaches storage to this instance. | With zone redundant high availability, the service provisions and maintains a hot standby server across availability zone within the same Azure region. The data changes on the source server are synchronously replicated to the standby server to ensure zero data loss. During planned or unplanned failover events, the standby server comes online immediately and is available to process incoming transactions.| Customers architect, implement, test, and maintain high availability. Capabilities might include clustering, replication, etc.|
-| Zone redundancy | Not supported | Supported | Azure VMs can be set up to run in different availability zones. For an on-premises solution, customers must create, manage, and maintain their own secondary data center.|
-| Hybrid scenarios | With [Data-in Replication](https://docs.microsoft.com/azure/mysql/concepts-data-in-replication), you can synchronize data from an external MySQL server into the Azure Database for MySQL service. The external server can be on-premises, in virtual machines, or a database service hosted by other cloud providers.| Currently Not Supported | Managed by customers |
-| Read replicas | With the [read replica](https://docs.microsoft.com/azure/mysql/concepts-read-replicas) feature, you can use a turnkey solution to replicate data from an Azure Database for MySQL source server to up to five read-only replica servers. The replicas are either within the same Azure region or across regions. Read-only replicas are asynchronously updated using binlog replication technology. | With the [read replica](https://docs.microsoft.com/azure/mysql/concepts-read-replicas) feature, you can use a turnkey solution to replicate data from an Azure Database for MySQL source server to up to ten read-only replica servers. The replica servers are currently supported within the same Azure region only. Read-only replicas are asynchronously updated using binlog replication technology. | Managed by customers
-| Backup and restoration | Automatically creates [server backups](https://docs.microsoft.com/azure/mysql/concepts-backup#backups) and stores them in user-configured storage that is either locally redundant or geo-redundant. The service takes full, differential, and transaction log backups | Automatically creates [server backups](https://docs.microsoft.com/azure/mysql/concepts-backup#backups) and stores them in user-configured storage that is either locally redundant or geo-redundant. The service takes full, differential, and transaction log backups| Managed by customers |
-| Monitoring database operations | Offers customers the ability to [set alerts](https://docs.microsoft.com/azure/mysql/concepts-monitoring) on the database operation and act upon reaching thresholds. | Offers customers the ability to [set alerts](https://docs.microsoft.com/azure/mysql/concepts-monitoring) on the database operation and act upon reaching thresholds. | Managed by customers |
-| Disaster recovery | Stores automated backups in user-configured [locally redundant or geo-redundant storage](https://docs.microsoft.com/azure/mysql/howto-restore-server-portal). Backups can also restore a server to a point in time. The retention period is anywhere from 7 to 35 days. Restoration is accomplished by using the Azure portal. | Stores automated backups in user-configured [locally redundant or geo-redundant storage](https://docs.microsoft.com/azure/mysql/howto-restore-server-portal). Backups can also restore a server to a point in time. The retention period is anywhere from 7 to 35 days. Restoration is accomplished by using the Azure portal.| Fully managed by customers. Responsibilities include but aren't limited to scheduling, testing, archiving, storage, and retention. An additional option is to use an Azure Recovery Services vault to back up Azure VMs and databases on VMs. This option is in preview. |
-| Performance recommendations | Provides customers with [performance recommendations](https://techcommunity.microsoft.com/t5/Azure-Database-for-MySQL/Azure-brings-intelligence-and-high-performance-to-Azure-Database/ba-p/769110) based on system-generated usage log files. The recommendations help to optimize workloads. | Currently Not Supported | Managed by customers |
+| MySQL Version Support | 5.6, 5.7 & 8.0| 5.7 | Any version|
+| Compute scaling | Supported (Scaling from and to Basic tier is not supported)| Supported | Supported|
+| Storage size | 5 GiB to 16 TiB| 5 GiB to 16 TiB | 32 GiB to 32,767 GiB|
+| Online Storage scaling | Supported| Supported| Not supported|
+| Auto storage scaling | Supported| Not supported in preview| Not supported|
+| Network Connectivity | - Public endpoints with server firewall.<br/> - Private access with Private Link support.|- Public endpoints with server firewall.<br/> - Private access with Virtual Network integration.| - Public endpoints with server firewall.<br/> - Private access with Private Link support.|
+| Service-level agreement (SLA) | 99.99% availability SLA |No SLA in preview| 99.99% using Availability Zones|
+| Operating system patching| Automatic  | Automatic with custom maintenance window control | Managed by end users |
+| MySQL patching     | Automatic  | Automatic with custom maintenance window control | Managed by end users |
+| High availability | Built-in HA within single availability zone| Built-in HA within and across availability zones | Custom managed using clustering, replication etc|
+| Zone redundancy | Not supported | Supported | Supported|
+| Hybrid scenarios | Supported with [Data-in Replication](https://docs.microsoft.com/azure/mysql/concepts-data-in-replication)| Not available in preview | Managed by end users |
+| Read replicas | Supported| Supported | Managed by end users |
+| Backup | Automated with 7-35 days retention | Automated with 1-35 days retention | Managed by end users |
+| Monitoring database operations | Supported | Supported | Managed by end users |
+| Disaster recovery | Supported with geo-redundant backup storage and cross region read replicas | Not supported in preview| Custom Managed with replication technologies |
+| Query Performance Insights | Supported | Not available in preview| Managed by end users |
+| Reserved Instance Pricing | Supported | Not available in preview | Supported |
+| Azure AD Authentication | Supported | Not available in preview | Not Supported|
+| Data Encryption at rest | Supported with customer managed keys | Supported with service managed keys | Not Supported|
+| SSL/TLS | Enabled by default with support for TLS v1.2, 1.1 and 1.0 | Enforced with TLS v1.2 | Supported with TLS v1.2, 1.1 and 1.0 | 
+| Fleet Management | Supported with Az CLI, Powershell, REST and ARM | Supported with Az CLI, Powershell, REST and ARM | Supported for VMs with Az CLI, Powershell, REST and ARM|
+
 
 ## Business motivations for choosing PaaS or IaaS
 
