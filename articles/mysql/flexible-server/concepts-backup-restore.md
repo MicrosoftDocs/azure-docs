@@ -48,6 +48,11 @@ The primary means of controlling the backup storage cost is by setting the appro
 
 In Azure Database for MySQL Flexible Server, performing a point-in-time restore creates a new server from the flexible server's backups in the same region as your source server. It is created with the original server's configuration for the compute tier, number of vCores, storage size, backup retention period, and backup redundancy option. Also, tags and settings such as virtual network and firewall are inherited from the source server. The restored server's compute and storage tier, configuration and security settings can be changed after the restore is completed.
 
+> [!NOTE]
+> There are two server parameters which are reset to default values (and are not copied over from the primary server) after the restore operation
+> *   time_zone - This value to set to DEFAULT value SYSTEM
+> *   event_scheduler - The event_scheduler is set to OFF on the restored server
+
 Point-in-time restore is useful in multiple scenarios. Some of the use cases that are common include -
 -   When a user accidentally deletes data in the database
 -   User drops an important table or database
