@@ -1,6 +1,6 @@
 ### YamlMime:Landing
-title: Ink Recognizer API documentation 
-summary: Learn how to use the ink recognizer API to bring digital ink recognition to your apps and services. The API is a cloud-based service that uses machine learning to recognize handwritten shapes and text in any context. 
+title: Ink Recognizer API documentation (Retiring)
+summary: The Ink Recognizer API has ended its preview on August 26, 2020. If you have existing Ink Recognizer resources, you can continue using them until the service is fully retired on January 31, 2021. Learn how to use the ink recognizer API to bring digital ink recognition to your apps and services. The API is a cloud-based service that uses machine learning to recognize handwritten shapes and text in any context. 
 
 metadata:
   title: Ink Recognizer API - Tutorials, quickstarts, API reference

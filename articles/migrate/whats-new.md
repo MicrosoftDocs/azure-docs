@@ -9,6 +9,8 @@ ms.custom: mvc
 # What's new in Azure Migrate
 
 [Azure Migrate](migrate-services-overview.md) helps you to discover, assess, and migrate on-premises servers, apps, and data to the Microsoft Azure cloud. This article summarizes new releases and features in Azure Migrate.
+## Update (September 2020)
+- Azure Migrate now lets you migrate servers to Availability Zones
 
 ## Update (August 2020)
 
