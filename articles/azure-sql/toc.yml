@@ -744,6 +744,8 @@
       href: migration-guides/managed-instance/sql-server-to-managed-instance-overview.md
     - name: From SQL Server 
       href: migration-guides/managed-instance/sql-server-to-managed-instance-guide.md
+    - name: Performance baseline
+      href: migration-guides/managed-instance/sql-server-to-managed-performance-baseline.md
   - name: Concepts
     items:
     - name: Resource limits

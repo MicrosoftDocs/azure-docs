@@ -76,20 +76,8 @@ For additional detail on this process, see the article [Perform a SQL Server mig
 
 ### Create a performance baseline
 
-This is optional but can be used for comparison post migration. If you need to compare the performance of your workload on a SQL Managed Instance with your original workload running on SQL Server, you would need to create a performance baseline that will be used for comparison. 
+If you need to compare the performance of your workload on a SQL Managed Instance with your original workload running on SQL Server, you would need to create a performance baseline that will be used for comparison. See [performance baseline](sql-server-to-managed-instance-perforamnce-baseline.md) to learn more. 
 
-Performance baseline is a set of parameters such as average/max CPU usage, average/max disk IO latency, throughput, IOPS, average/max page life expectancy, and average max size of tempdb. You would like to have similar or even better parameters after migration, so it is important to measure and record the baseline values for these parameters. In addition to system parameters, you would need to select a set of the representative queries or the most important queries in your workload and measure min/average/max duration and CPU usage for the selected queries. These values would enable you to compare performance of workload running on SQL Managed Instance to the original values on your source SQL Server instance. 
-
-Some of the parameters that you would need to measure on your SQL Server instance are: 
-
-   - [Monitor CPU usage on your SQL Server instance](https://techcommunity.microsoft.com/t5/azure-sql-database/monitor-cpu-usage-on-sql-server-and-azure-sql/ba-p/680777#M131) and record the average and peak CPU usage. 
-   - [Monitor memory usage on your SQL Server instance](https://docs.microsoft.com/en-us/sql/relational-databases/performance-monitor/monitor-memory-usage?view=sql-server-ver15) and determine the amount of memory used by different components such as buffer pool, plan cache, column-store pool, [In-Memory OLTP](https://docs.microsoft.com/en-us/sql/relational-databases/in-memory-oltp/monitor-and-troubleshoot-memory-usage?view=sql-server-2017), etc. In addition, you should find average and peak values of the Page Life Expectancy memory performance counter. 
-   - Monitor disk IO usage on the source SQL Server instance using [sys.dm_io_virtual_file_stats](https://docs.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql?view=sql-server-ver15) view or [performance counters](https://docs.microsoft.com/en-us/sql/relational-databases/performance-monitor/monitor-disk-usage?view=sql-server-ver15). 
-   - Monitor workload and query performance or your SQL Server instance by examining Dynamic Management Views or Query Store if you are migrating from a SQL Server 2016+ version. Identify average duration and CPU usage of the most important queries in your workload to compare them with the queries that are running on the managed instance. 
-
-If you notice any issue with your workload on SQL Server such as high CPU usage, constant memory pressure, or tempdb or parameterization issues, you should try to resolve them on your source SQL Server instance before taking the baseline and migration. Migrating known issues to any new system might cause unexpected results and invalidate any performance comparison. 
-
-As an outcome of this activity, you should have documented average and peak values for CPU, memory, and IO usage on your source system, as well as average and max duration and CPU usage of the dominant and the most critical queries in your workload. You should use these values later to compare performance of your workload on a managed instance with the baseline performance of the workload on the source SQL Server instance. 
 
 ## Migrate
 
@@ -111,7 +99,6 @@ After you have successfully completed the Migration stage, you need to go th
 ### Remediate applications 
 
 After the data is migrated to the target environment, all the applications that formerly consumed the source need to start consuming the target. Accomplishing this will in some cases require changes to the applications. 
-
 
 
 
