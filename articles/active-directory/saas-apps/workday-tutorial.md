@@ -21,8 +21,6 @@ In this tutorial, you'll learn how to integrate Workday with Azure Active Direct
 * Enable your users to be automatically signed-in to Workday with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-
 ## Prerequisites
 
 To get started, you need the following items:
@@ -38,8 +36,6 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Workday Mobile application can now be configured with Azure AD for enabling SSO. For more details on how to configure, please follow [this](workday-mobile-tutorial.md) link.
 
-* Once you configure Workday you can enforce Session Control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session Control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
-
 > [!NOTE]
 > Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
 
@@ -47,18 +43,18 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 To configure the integration of Workday into Azure AD, you need to add Workday from the gallery to your list of managed SaaS apps.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using either a work or school account, or a personal Microsoft account.
+1. Sign in to the Azure portal using either a work or school account, or a personal Microsoft account.
 1. On the left navigation pane, select the **Azure Active Directory** service.
 1. Navigate to **Enterprise Applications** and then select **All Applications**.
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **Workday** in the search box.
 1. Select **Workday** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-## Configure and test Azure AD single sign-on for Workday
+## Configure and test Azure AD SSO for Workday
 
 Configure and test Azure AD SSO with Workday using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Workday.
 
-To configure and test Azure AD SSO with Workday, complete the following building blocks:
+To configure and test Azure AD SSO with Workday, perform following steps:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** to enable your users to use this feature.
     1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** to test Azure AD single sign-on with B.Simon.
@@ -71,7 +67,7 @@ To configure and test Azure AD SSO with Workday, complete the following building
 
 Follow these steps to enable Azure AD SSO in the Azure portal.
 
-1. In the [Azure portal](https://portal.azure.com/), on the **Workday** application integration page, find the **Manage** section and select **Single sign-on**.
+1. In the Azure portal, on the **Workday** application integration page, find the **Manage** section and select **Single sign-on**.
 1. On the **Select a Single sign-on method** page, select **SAML**.
 1. On the **Set up Single Sign-On with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
 
@@ -133,15 +129,9 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
 1. In the applications list, select **Workday**.
 1. In the app's overview page, find the **Manage** section and select **Users and groups**.
-
-   ![The "Users and groups" link](common/users-groups-blade.png)
-
 1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
-
-	![The Add User link](common/add-assign-user.png)
-
 1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
-1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
+1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been setup for this app, you see "Default Access" role selected.
 1. In the **Add Assignment** dialog, click the **Assign** button.
 
 ## Configure Workday
@@ -163,72 +153,88 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. In the **SAML Identity Providers** section, perform the following steps:
 
+    a.
     ![SAML Identity Providers](./media/workday-tutorial/IC7829271.png "SAML Identity Providers")
 
-    a. In the **Identity Provider Name** textbox, type a provider name (for example: *SPInitiatedSSO*).
+    * In the **Identity Provider Name** textbox, type a provider name (for example: *SPInitiatedSSO*).
 
-    b. In the Azure portal, on the **Set up Workday** section, copy the **Azure AD Identifier** value, and then paste it into the **Issuer** textbox.
+    * In the Azure portal, on the **Set up Workday** section, copy the **Azure AD Identifier** value, and then paste it into the **Issuer** textbox.
 
-    c. Open the downloaded **Certificate** from the Azure portal into Notepad and paste the content into the **x.509 Certificate** textbox.
+    * Open the downloaded **Certificate** from the Azure portal into Notepad and paste the content into the **x.509 Certificate** textbox.
+
+    b. Perform the following steps to the continuation of above.
 
     ![SAML 509 Certificate](./media/workday-tutorial/saml-identity-provider-2.png "SAML Identity Providers")
 
-    d. Click on **Enable IDP Initiated Logout** checkbox.
+    * Click on **Enable IDP Initiated Logout** checkbox.
 
-    e. In the Azure portal, on the **Set up Workday** section, copy the **Logout URL** value, and then paste it into the **Logout Response URL** textbox.
+    * In the Azure portal, on the **Set up Workday** section, copy the **Logout URL** value, and then paste it into the **Logout Response URL** textbox.
 
-    f. In the **Service Provider ID** textbox, type **http://www.workday.com**.
+    * In the **Service Provider ID** textbox, type **http://www.workday.com**.
 
 
-    g. Select **Do Not Deflate SP-initiated Authentication Request**.
+    * Select **Do Not Deflate SP-initiated Authentication Request**.
+
+    c. Next, follow the below steps.
 
     ![Workday](./media/workday-tutorial/saml-identity-provider-3.png "SAML Identity Providers")
 
 
-	h. In the Azure portal, on the **Set up Workday** section, copy the **Login URL** value, and then paste it into the **IdP SSO Service URL** textbox.
+	* In the Azure portal, on the **Set up Workday** section, copy the **Login URL** value, and then paste it into the **IdP SSO Service URL** textbox.
 
-	i. In **Used for Environments** textbox, select the environment name.
+	* In **Used for Environments** textbox, select the environment name.
 
-    > [!NOTE]
-    > The value of the Environment attribute is tied to the value of the tenant URL:  
-    > -If the domain name of the Workday tenant URL starts with impl for example: *https://www.myworkday.com/"tenant"/login-saml2.htmld*), the **Environment** attribute must be set to Implementation.  
-    > -If the domain name starts with something else, you need to contact [Workday Client support team](https://www.workday.com/en-us/partners-services/services/support.html) to get the matching **Environment** value.
+        > [!NOTE]
+        > The value of the Environment attribute is tied to the value of the tenant URL:  
+        > -If the domain name of the Workday tenant URL starts with impl for example: *https://www.myworkday.com/"tenant"/login-saml2.htmld*), the **Environment** attribute must be set to Implementation.  
+        > -If the domain name starts with something else, you need to contact [Workday Client support team](https://www.workday.com/en-us/partners-services/services/support.html) to get the matching **Environment** value.
 
-    j.  In the **Service Provider ID (Will be Deprecated)** textbox, type **http://www.workday.com**.
+    *  In the **Service Provider ID (Will be Deprecated)** textbox, type **http://www.workday.com**.
 
-    k. In the **IDP SSO Service URL (Will be Deprecated)** textbox, type **Login URL** value.
+    * In the **IDP SSO Service URL (Will be Deprecated)** textbox, type **Login URL** value.
 
-    l. Select **Do Not Deflate SP-initiated Authentication Request (Will be Deprecated)**.
+    * Select **Do Not Deflate SP-initiated Authentication Request (Will be Deprecated)**.
 
-    m. For **Authentication Request Signature Method**, select **SHA256**.
+    d. Now perform the following steps.
 
     ![Authentication Request Signature Method](./media/workday-tutorial/WorkdaySSOConfiguration.png "Authentication Request Signature Method")
 
-    n. Click **OK**.
+    * For **Authentication Request Signature Method**, select **SHA256**.
 
     ![OK](./media/workday-tutorial/IC782933.png "OK")
+
+     * Click **OK**.
 
     > [!NOTE]
     > Please ensure you set up single sign-on correctly. In case you enable single sign-on with incorrect setup, you may not be able to enter the application with your credentials and get locked out. In this situation, Workday provides a backup log-in url where users can sign-in using their normal username and password in the following format:[Your Workday URL]/login.flex?redirect=n
 
 ### Create Workday test user
 
-In this section, you create a user called B.Simon in Workday. Work with [Workday Client support team](https://www.workday.com/en-us/partners-services/services/support.html) to add the users in the Workday platform. Users must be created and activated before you use single sign-on.
+1. Sign in to your Workday company site as an administrator.
+
+1. Click on **Profile** at top-right corner, select **Home** and Click on **Directory** in the **Applications** tab. 
+
+1. In the **Directory** page, select **Find Workers** in view tab.
+
+    ![Find workers](./media/workday-tutorial/user-directory.png)
+
+1.  In the **Find Workers** page, select the user from the results.
+
+1. In the following page,select **Job > Worker Security** and the **Workday account** has to match with the Azure active directory as the **Name ID** value.
+
+    ![Find workers](./media/workday-tutorial/worker-security.png)
+
 
 ## Test SSO
 
-When you select the Workday tile in the Access Panel, you should be automatically signed in to the Workday for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+In this section, you test your Azure AD single sign-on configuration with following options. 
 
-## Additional resources
+1. Click on **Test this application** in Azure portal. This will redirect to Workday Sign-on URL where you can initiate the login flow. 
 
-- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+2. Go to Workday Sign-on URL directly and initiate the login flow from there.
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+3. You can use Microsoft Access Panel. When you click the Workday tile in the Access Panel, you should be automatically signed in to the Workday for which you set up the SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+## Next Steps
 
-- [Try Workday with Azure AD](https://aad.portal.azure.com)
-
-- [What is session control in Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-
-- [How to protect Workday with advanced visibility and controls](https://docs.microsoft.com/cloud-app-security/protect-workday)
+Once you configure Workday you can enforce Session Control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session Control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
