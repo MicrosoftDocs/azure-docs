@@ -500,6 +500,7 @@ Increase the VM size. Or, you can add a 60-second PowerShell sleep customization
 ### Cancelling builder after context cancellation context canceled
 
 #### Error
+```text
 PACKER ERR 2020/03/26 22:11:23 Cancelling builder after context cancellation context canceled
 PACKER OUT Cancelling build after receiving terminated
 PACKER ERR 2020/03/26 22:11:23 packer-builder-azure-arm plugin: Cancelling hook after context cancellation context canceled
@@ -511,7 +512,7 @@ PACKER ERR 2020/03/26 22:11:25 [INFO] 148974 bytes written for 'stdout'
 PACKER ERR 2020/03/26 22:11:25 [INFO] 0 bytes written for 'stderr'
 PACKER ERR 2020/03/26 22:11:25 [INFO] RPC client: Communicator ended with: 2300218
 PACKER ERR 2020/03/26 22:11:25 [INFO] RPC endpoint: Communicator ended with: 2300218
-
+```
 #### Cause
 Image Builder service uses port 22(Linux), or 5986(Windows)to connect to the build VM, this occurs when the service is disconnected from the build VM during an image build. Reasons for disconnection can vary, but enabling or configuring firewalls in script can block the ports above.
 
