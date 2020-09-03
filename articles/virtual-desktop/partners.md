@@ -225,6 +225,14 @@ Nerdio extends the value of Windows Virtual Desktop by making it easy to provisi
 - [See the joint solution brief](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3p0Mh).
 - [Go to the partner website](https://getnerdio.com/windows-virtual-desktop/).
 
+## Nexthink
+
+![Nexthink Logo](./media/partners/nexthink.png)
+
+Nexthink is a Windows Virtual Desktop value-added provider that helps organizations confidently measure, manage, and improve their employees’ digital experience and productivity. With a constant read on the pulse of digital employee experience, IT can continuously improve technology’s ability to engage, empower, and delight people, no matter where they work. 
+
+By providing solutions with visible workplace resources, Nexthink gives you context and insight into your user base. Nexthink’s powerful experience management platform helps IT teams ensure that migrations to Windows Virtual Desktop are planned and put into action in a timely and successful manner.
+
 ## Numecent
 
 ![Numecent Logo](./media/partners/numecent.png)
@@ -234,12 +242,6 @@ Numecent is a Windows Virtual Desktop value-added services provider that signifi
 When used with Windows Virtual Desktop, Cloudpaging further reduces costs by completing software asset lifecycle from deployment to upgrading, metering, and removing applications. Cloudpaging simplifies image management by dynamically provisioning apps as needed in real time to the Windows Virtual Desktop deployments. Cloudpaging helps applications run without administration or intervention through the periodic Windows 10 updates. Cloudpaging also reduces the licensing cost of expensive applications by enabling more efficient deployment and usage of these applications.
 
 - [Go to the partner website](https://www.numecent.com/partners/cloudpaging-for-windows-applications-windows-virtual-desktop/).
-
-## Nexthink
-
-Nexthink is a Windows Virtual Desktop value-added provider that helps organizations confidently measure, manage, and improve their employees’ digital experience and productivity. With a constant read on the pulse of digital employee experience, IT can continuously improve technology’s ability to engage, empower, and delight people, no matter where they work. 
-
-By providing solutions with visible workplace resources, Nexthink gives you context and insight into your user base. Nexthink’s powerful experience management platform helps IT teams ensure that migrations to Windows Virtual Desktop are planned and put into action in a timely and successful manner.
 
 ## PolicyPak
 
