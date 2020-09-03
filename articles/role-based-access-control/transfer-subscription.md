@@ -37,7 +37,7 @@ The following diagram shows the basic steps you must follow when you transfer a 
 
 1. Prepare for the transfer
 
-1. Transfer billing ownership of an Azure subscription to another account
+1. Transfer the Azure subscription to a different directory
 
 1. Re-create resources in the target directory such as role assignments, custom roles, and managed identities
 
@@ -219,7 +219,7 @@ When you create a key vault, it is automatically tied to the default Azure Activ
 > [!WARNING]
 > If you are using encryption at rest for a resource, such as a storage account or SQL database, that has a dependency on a key vault that is **not** in the same subscription that is being transferred, it can lead to an unrecoverable scenario. If you have this situation, you should take steps to use a different key vault or temporarily disable customer-managed keys to avoid this unrecoverable scenario.
 
-- If you have a key vault, use [az keyvault show](https://docs.microsoft.com/cli/azure/keyvault#az-keyvault-show) to list the access policies. For more information, see [Provide Key Vault authentication with an access control policy](../key-vault/key-vault-group-permissions-for-apps.md).
+- If you have a key vault, use [az keyvault show](https://docs.microsoft.com/cli/azure/keyvault#az-keyvault-show) to list the access policies. For more information, see [Assign a Key Vault access policy](../key-vault/general/assign-access-policy-cli.md).
 
     ```azurecli
     az keyvault show --name MyKeyVault
@@ -259,12 +259,12 @@ When you create a key vault, it is automatically tied to the default Azure Activ
 
 ## Step 2: Transfer the subscription
 
-In this step, you transfer the subscription from the source directory to the target directory. The steps will be different depending on whether you also want to transfer the billing ownership.
+In this step, you transfer the subscription from the source directory to the target directory. The steps will be different depending on whether you want to also transfer the billing ownership.
 
 > [!WARNING]
 > When you transfer the subscription, all role assignments in the source directory are **permanently** deleted and cannot be restored. You cannot go back once you transfer the subscription. Be sure you complete the previous steps before performing this step.
 
-1. Determine whether you want to also transfer the billing ownership.
+1. Determine whether you want to also transfer the billing ownership to another account.
 
 1. Transfer the subscription to a different directory.
 

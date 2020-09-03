@@ -1,13 +1,13 @@
 ---
-title: Tutorial to install - Unpack, rack, cable Azure Stack Edge physical device | Microsoft Docs
-description: The second tutorial about installing Azure Stack Edge involves how to unpack, rack, and cable the physical device.
+title: Tutorial to install - Unpack, rack, cable Azure Stack Edge GPU physical device | Microsoft Docs
+description: The second tutorial about installing Azure Stack Edge GPU involves how to unpack, rack, and cable the physical device.
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 08/29/2020
+ms.date: 09/02/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to install Azure Stack Edge in datacenter so I can use it to transfer data to Azure.  
 ---
@@ -216,6 +216,10 @@ Take the following steps to cable your device for power and network.
 4. Attach the power cords to the rack power distribution units (PDUs). Make sure that the two PSUs use separate power sources.
 5. Press the power button to turn on the device.
 6. Connect the 1-GbE network interface PORT 1 to the computer that's used to configure the physical device. PORT 1 serves as the management interface.
+    
+    > [!NOTE]
+    > If connecting the computer directly to your device (without going through a switch), use a crossover cable or a USB Ethernet adapter.
+
 7. Connect one or more of PORT 2, PORT 3, PORT 4, PORT 5, or PORT 6 to the datacenter network/Internet.
 
     - If connecting PORT 2, use the 1-GbE RJ-45 network cable.
@@ -230,7 +234,7 @@ In this tutorial, you learned about Azure Stack Edge topics such as how to:
 > * Rack the device
 > * Cable the device
 
-Advance to the next tutorial to learn how to connect, set up, and activate your device.
+Advance to the next tutorial to learn how to connect to your device.
 
 > [!div class="nextstepaction"]
 > [Connect Azure Stack Edge](./azure-stack-edge-gpu-deploy-connect.md)

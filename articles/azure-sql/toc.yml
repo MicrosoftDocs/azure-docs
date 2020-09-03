@@ -666,9 +666,6 @@
       href: database/powershell-script-content-guide.md?tabs=single-database
     - name: Azure Resource Manager
       href: database/arm-templates-content-guide.md?tabs=single-database
-    - name: Azure Policy built-ins
-      displayName: samples, policies, definitions
-      href: ./database/policy-samples.md
     - name: Code samples
       href: https://azure.microsoft.com/resources/samples/?service=sql-database
 
@@ -952,9 +949,6 @@
       href: database/powershell-script-content-guide.md?tabs=managed-instance
     - name: Azure Resource Manager
       href: database/arm-templates-content-guide.md?tabs=managed-instance
-    - name: Azure Policy built-ins
-      displayName: samples, policies, definitions
-      href: ./database/policy-samples.md
     - name: Code samples
       href: https://azure.microsoft.com/resources/samples/?service=sql-database
 
@@ -1124,6 +1118,9 @@
         href: https://docs.microsoft.com/sql/connect/sql-connection-libraries
       - name: REST
         href: /rest/api/
+      - name: Azure Policy built-ins
+        displayName: samples, policies, definitions
+        href: ./database/policy-reference.md
     - name: Resources
       items:
       - name: FAQ
@@ -1225,7 +1222,10 @@
     - name: Python
       href: /sql/connect/python/python-driver-for-sql-server
     - name: Ruby
-      href: /sql/connect/ruby/ruby-driver-for-sql-server 
+      href: /sql/connect/ruby/ruby-driver-for-sql-server
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./database/policy-reference.md
 
 - name: Resources
   items:

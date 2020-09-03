@@ -6,7 +6,7 @@ ms.service: security
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
+ms.custom: subject-security-benchmark
 
 ---
 
@@ -963,7 +963,9 @@ How to create an internal ASE:
 
 - [How to use managed identities for App Service and Azure Functions](../app-service/overview-managed-identity.md)
 
-- [How to provide Key Vault authentication with a managed identity](../key-vault/general/managed-identity.md)
+* [How to authenticate to Key Vault](../key-vault/general/authentication.md)
+
+* [How to assign a Key Vault access policy](../key-vault/general/assign-access-policy-portal.md)
 
 - [Use Key Vault references for App Service and Azure Functions](../app-service/app-service-key-vault-references.md)
 
