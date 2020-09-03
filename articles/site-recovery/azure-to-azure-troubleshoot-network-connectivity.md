@@ -103,7 +103,7 @@ A connection can't be established to Azure Site Recovery service endpoints.
 
 #### Resolution
 
-If you are using an Azure Network Security Group (NSG) rules/firewall proxy to control outbound network connectivity on the machine, there are several service tags that need to be allowed. [Learn more](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags).
+If you are using an Azure Network Security Group (NSG) rule/firewall proxy to control outbound network connectivity on the machine, there are several service tags that need to be allowed. [Learn more](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags).
 
 ### Issue 4: Azure-to-Azure replication failed when the network traffic goes through on-premises proxy server (151072)
 
