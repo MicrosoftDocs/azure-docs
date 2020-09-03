@@ -79,6 +79,23 @@ Below data sources are supported to connect through private link from ADF Manage
 - Azure CosmosDB SQL
 - Azure Key Vault
 - Azure Private Link Service
+- Azure Search
+- Azure Database for MySQL
+- Azure Database for PostgreSQL
+- Azure Database for MariaDB
+
+### Supported Region
+- East US
+- East US 2
+- West Central US
+- West US 2
+- South Central US
+- Central US
+- North Europe
+- West Europe
+- UK South
+- Southeast Asia
+- Australia East
 
 ### Outbound communications through public endpoint from ADF Managed Virtual Network
 - Only port 443 is opened for outbound communications.
