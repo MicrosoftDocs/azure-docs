@@ -12,7 +12,7 @@ ms.service: azure-object-understanding
 ---
 # Quickstart: Create a HoloLens app with Azure Object Understanding, in Unity with MRTK
 
-In this quickstart, you'll create a Unity HoloLens app that uses [Azure Object Understanding](../overview.md). Azure
+In this quickstart, you'll create a Unity-MRTK HoloLens app that uses [Azure Object Understanding](../overview.md). Azure
 Object Understanding is a managed cloud service that converts 3D assets into AI models that enable object-aware mixed
 reality experiences for the HoloLens. When you're finished, you'll have a HoloLens app built with Unity that can detect
 objects in the physical world.
