@@ -1,14 +1,14 @@
 ---
-title: gRPC extension data contract - Azure
-description: In this article, you will learn about using gRPC protocol to send messages between Live Video Analytics module and your AI or CV custom extension.
+title: gRPC extension protocol - Azure
+description: In this article, you will learn about using gRPC extension protocol to send messages between Live Video Analytics module and your AI or CV custom extension.
 ms.topic: overview
 ms.date: 09/14/2020
 
 ---
 
-# gRPC extension data contract
+# gRPC extension protocol
 
-In this article, you will learn about using gRPC protocol to send messages between Live Video Analytics module and your AI or CV custom extension.
+In this article, you will learn about using gRPC extension protocol to send messages between Live Video Analytics module and your AI or CV custom extension.
 
 gRPC is a modern, open-source, high-performance RPC framework that runs in any environment. The gRPC transport service uses HTTP/2 bidirectional streaming between:
 
@@ -19,7 +19,7 @@ A gRPC session is a single connection from the gRPC client to the gRPC server ov
 
 In a single session: The client sends a media stream descriptor followed by video frames to the server as a [protobuf](https://github.com/Azure/live-video-analytics/tree/master/contracts/grpc) message over the gRPC stream session. The server validates the stream descriptor, analyses the video frame, and returns inference results as a protobuf message.
 
-![gRPC extension contract](./media/data-contracts/grpc.png)
+![gRPC extension contract](./media/grpc-extension-protocol/grpc.png)
 
 ## Implementing gRPC protocol
 
@@ -143,7 +143,7 @@ This section defines the gRPC contract that defines the data flow.
 
 ### Protocol messages
 
-![Protocol messages](./media/data-contracts/grpc2.png)
+![Protocol messages](./media/grpc-extension-protocol/grpc2.png)
  
 ### Client authentication
 
