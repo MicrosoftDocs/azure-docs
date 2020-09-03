@@ -170,7 +170,6 @@ To see a list of available commands, [connect to the PowerShell interface](#conn
 Usage: iotedge COMMAND
 
 Commands:
-   check
    list
    logs
    restart
@@ -182,10 +181,29 @@ The following table has a brief description of the commands available for `ioted
 
 |command  |Description |
 |---------|---------|
-|`check`     | Perform automated checks for common configuration and connectivity issues       |
 |`list`     | List modules         |
 |`logs`     | Fetch the logs of a module        |
 |`restart`     | Stop and restart a module         |
+
+
+To list all the modules running on your device, use the `iotedge list` command.
+
+Here is a sample output of this command. This command lists all the modules, associated configuration, and the external IPs associated with the modules. For example, you can access the **webserver** app at `https://10.128.44.244`. 
+
+
+```powershell
+[10.100.10.10]: PS>iotedge list
+
+NAME                   STATUS  DESCRIPTION CONFIG                                             EXTERNAL-IP
+----                   ------  ----------- ------                                             -----
+gettingstartedwithgpus Running Up 10 days  mcr.microsoft.com/intelligentedge/solutions:latest
+iotedged               Running Up 10 days  azureiotedge/azureiotedge-iotedged:0.1.0-beta10    <none>
+edgehub                Running Up 10 days  mcr.microsoft.com/azureiotedge-hub:1.0             10.128.44.243
+edgeagent              Running Up 10 days  azureiotedge/azureiotedge-agent:0.1.0-beta10
+webserverapp           Running Up 10 days  nginx:stable                                       10.128.44.244
+
+[10.100.10.10]: PS>
+```
 
 
 ### Use kubectl commands
