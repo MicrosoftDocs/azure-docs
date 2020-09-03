@@ -1,5 +1,6 @@
 ---
 title: Windows boot manager error - 0xC0000428 Status Invalid Image Hash
+titlesuffix: Azure Virtual Machines
 description: This article provides steps to resolve issues where a preview image was used and the trial period has expired, which prevents the booting of an Azure Virtual Machine (VM).
 services: virtual-machines-windows, azure-resource-manager
 documentationcenter: ''
@@ -67,7 +68,7 @@ Depending upon your preference, you can use either Azure PowerShell or Azure CLI
 
 ### Query using Azure PowerShell
 
-1. Open the Windows Powershell application.
+1. Open the Windows PowerShell application.
 1. Run the following commands:
 
    ```powershell
