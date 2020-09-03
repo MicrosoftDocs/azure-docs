@@ -4,7 +4,7 @@ description: Learn how to connect to and get data from an Analysis Services serv
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/17/2020
+ms.date: 09/03/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions 
@@ -72,6 +72,11 @@ Use the Windows account running the current process.
 
 With older versions of Excel, users can connect to an Azure Analysis Services server by using an Office Data Connection (.odc) file. To learn more, see [Create an Office Data Connection (.odc) file](analysis-services-odc.md).
 
+## Connect as a linked server from SQL Server
+
+SQL Server can connect to an Azure Analysis Services resource as a [Linked server](https://docs.microsoft.com/sql/relational-databases/linked-servers/create-linked-servers-sql-server-database-engine) by specifying MSOLAP as the data source provider. Before configuring a linked server connection, be sure to install the latest [MSOLAP client library](https://docs.microsoft.com/analysis-services/client-libraries?view=azure-analysis-services-current) (provider). 
+
+For linked server connections to Azure Analysis Services, the MSOLAP provider must be instantiated outside the SQL Server process. When configuring linked server options, make sure the **Allow inprocess** option is not selected. 
 
 ## Next steps
 
