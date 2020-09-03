@@ -70,8 +70,8 @@ Please note, however, that this is a **sample** and not a complete tool. It has 
 * The sample doesn't handle errors resulting from very large graphs exceeding available resources like memory
 
 If the sample is not able to handle the size of your graph, you can export and import the graph using other Azure Digital Twins developer tools:
-* [Azure Digital Twins APIs and SDKs](how-to-use-apis-sdks.md)
 * [Azure Digital Twins CLI commands](how-to-use-cli.md)
+* [Azure Digital Twins APIs and SDKs](how-to-use-apis-sdks.md)
 
 ### Set up ADT Explorer application
 
