@@ -17,14 +17,18 @@ The first snapshot backup is scheduled immediately after the flexible server is 
 
 If the database is configured with high availability, daily snapshots are performed from the primary and the continuous log backups are performed from the standby.
 
+> [!IMPORTANT]
+>Backups are not performed on stopped servers. Backups are resumed when the database is started by the user or automatically after 7 days.
+
 The backups can only be used for restore operations within the Flexible server. If you want to export or import data to the flexible server, you use [dump and restore](https://docs.microsoft.com/azure/postgresql/howto-migrate-using-dump-and-restore) methodology.
 
 
 ### Backup retention
 
-Backups are retained based on the backup retention period setting on the server. You can select a retention period between 7 and 35 days. The default retention period is seven days. You can set the retention period during server creation or you can update it at a later time.
+Backups are retained based on the backup retention period setting on the server. You can select a retention period between 7 and 35 days. The default retention period is seven days. You can set the retention period during server creation or you can update it at a later time. Backups are retained even for stopped servers.
 
 The backup retention period governs how far back in time a point-in-time restore can be retrieved, since it\'s based on backups available. The backup retention period can also be treated as a recovery window from a restore perspective. All backups required to perform a point-in-time restore within the backup retention period are retained in the backup storage. For example - if the backup retention period is set to seven days, the recovery window is considered as last seven days. In this scenario, all the data and logs required to restore and recover the server in last seven days are retained. 
+
 
 ### Backup storage cost
 

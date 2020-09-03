@@ -12,7 +12,7 @@ ms.date: 09/21/2020
 Azure Database for PostgreSQL Flexible Server, which is currently in preview, offers features that protect data and mitigates downtime for your mission critical databases in the event of planned and unplanned outages. Built on top of Azure infrastructure that already offers robust resiliency and availability, flexible server has business continuity features that provide fault-protection, address recovery time requirements, and reduce data loss exposure. As you architect your applications, you should consider the downtime tolerance - which is the recovery time objective (RTO) and data loss exposure - which is the recovery point objective (RPO). For example, your business-critical database requires much stricter uptime requirements compared to a test database.  
 
 > [!IMPORTANT]
-> Service level agreements (SLAs) for uptime %, RTO and RPO are not offered during the preview. These details are provided in this article for your planning purposes.
+> Service level agreement (SLA) for uptime % is not offered during the preview. 
 
 The table below illustrates the features that Flexible server offers.
 
