@@ -13,8 +13,6 @@ query language used by Resource Graph, start with the
 
 This article covers the language components supported by Resource Graph:
 
-This article covers the language components supported by Resource Graph:
-
 - [Resource Graph tables](#resource-graph-tables)
 - [Resource Graph custom language elements](#resource-graph-custom-language-elements)
 - [Supported KQL language elements](#supported-kql-language-elements)
