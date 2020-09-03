@@ -22,12 +22,25 @@ This guide provides key concepts and instructions for Java developers using in A
 
 ## Deploying your app
 
-You can use [Azure Web App Plugin for Maven](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme) to deploy your .war files. Deployment with popular IDEs is also supported with [Azure Toolkit for IntelliJ](/azure/developer/java/toolkit-for-intellij/) or [Azure Toolkit for Eclipse](/azure/developer/java/toolkit-for-eclipse).
+You can use [Azure Web App Plugin for Maven](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme) to deploy your .war or .jar files. Deployment with popular IDEs is also supported with the [Azure Toolkit for IntelliJ](/azure/developer/java/toolkit-for-intellij/) or [Azure Toolkit for Eclipse](/azure/developer/java/toolkit-for-eclipse).
 
 Otherwise, your deployment method will depend on your archive type:
 
-- To deploy .war files to Tomcat, use the `/api/wardeploy/` endpoint to POST your archive file. For more information on this API, please see [this documentation](./deploy-zip.md#deploy-war-file).
-- To deploy .jar files to Java SE, use the `/api/zipdeploy/` endpoint of the Kudu site. For more information on this API, please see [this documentation](./deploy-zip.md#rest).
+# [Java SE](#tab/javase)
+
+To deploy .jar files to Java SE, use the `/api/zipdeploy/` endpoint of the Kudu site. For more information on this API, please see [this documentation](./deploy-zip.md#rest).
+
+# [Tomcat](#tab/tomcat)
+
+To deploy .war files to Tomcat, use the `/api/wardeploy/` endpoint to POST your archive file. For more information on this API, please see [this documentation](./deploy-zip.md#deploy-war-file).
+
+# [JBoss EAP](#tab/jboss)
+
+To deploy .war files to JBoss, use the `/api/wardeploy/` endpoint to POST your archive file. For more information on this API, please see [this documentation](./deploy-zip.md#deploy-war-file).
+
+To deploy .ear files, use FTP.
+
+---
 
 Do not deploy your .war or .jar using FTP. The FTP tool is designed to upload startup scripts, dependencies, or other runtime files. It is not the optimal choice for deploying web apps.
 
