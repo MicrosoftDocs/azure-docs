@@ -68,7 +68,6 @@ Container images for Read are available.
 | Read 2.0 | `mcr.microsoft.com/azure-cognitive-services/vision/read-2.0` |
 | Read 3.0 | `mcr.microsoft.com/azure-cognitive-services/vision/read-3.0` |
 | Read 3.1 | `mcr.microsoft.com/azure-cognitive-services/vision/read-3.1` |
-| Read 2.0 | `containerpreview.azurecr.io/microsoft/cognitive-services/vision/read:2.0` |
 
 Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image.
 
@@ -219,16 +218,7 @@ The `operation-location` is the fully qualified URL and is accessed via an HTTP 
         "language": "",
         "lines": [
           {
-            "boundingBox": [
-              58,
-              42,
-              314,
-              59,
-              311,
-              123,
-              56,
-              121
-            ],
+            "boundingBox": [58, 42, 314, 59, 311, 123, 56, 121],
             "text": "Tabs vs",
             "appearance": {
               "style": "handwriting",
@@ -236,46 +226,19 @@ The `operation-location` is the fully qualified URL and is accessed via an HTTP 
             },
             "words": [
               {
-                "boundingBox": [
-                  85,
-                  45,
-                  242,
-                  62,
-                  241,
-                  122,
-                  83,
-                  123
-                ],
+                "boundingBox": [85, 45, 242, 62, 241, 122, 83, 123],
                 "text": "Tabs",
                 "confidence": 0.981
               },
               {
-                "boundingBox": [
-                  258,
-                  64,
-                  314,
-                  72,
-                  314,
-                  123,
-                  256,
-                  123
-                ],
+                "boundingBox": [258, 64, 314, 72, 314, 123, 256, 123],
                 "text": "vs",
                 "confidence": 0.958
               }
             ]
           },
           {
-            "boundingBox": [
-              286,
-              171,
-              415,
-              165,
-              417,
-              197,
-              287,
-              201
-            ],
+            "boundingBox": [286, 171, 415, 165, 417, 197, 287, 201],
             "text": "paces",
             "appearance": {
               "style": "print",
@@ -283,16 +246,7 @@ The `operation-location` is the fully qualified URL and is accessed via an HTTP 
             },
             "words": [
               {
-                "boundingBox": [
-                  303,
-                  175,
-                  415,
-                  167,
-                  415,
-                  198,
-                  306,
-                  199
-                ],
+                "boundingBox": [303, 175, 415, 167, 415, 198, 306, 199],
                 "text": "paces",
                 "confidence": 0.918
               }
@@ -341,72 +295,27 @@ The `operation-location` is the fully qualified URL and is accessed via an HTTP 
         "language": "",
         "lines": [
           {
-            "boundingBox": [
-              58,
-              42,
-              314,
-              59,
-              311,
-              123,
-              56,
-              121
-            ],
+            "boundingBox": [58, 42, 314, 59, 311, 123, 56, 121],
             "text": "Tabs vs",
             "words": [
               {
-                "boundingBox": [
-                  85,
-                  45,
-                  242,
-                  62,
-                  241,
-                  122,
-                  83,
-                  123
-                ],
+                "boundingBox": [85, 45, 242, 62, 241, 122, 83, 123],
                 "text": "Tabs",
                 "confidence": 0.981
               },
               {
-                "boundingBox": [
-                  258,
-                  64,
-                  314,
-                  72,
-                  314,
-                  123,
-                  256,
-                  123
-                ],
+                "boundingBox": [258, 64, 314, 72, 314, 123, 256, 123],
                 "text": "vs",
                 "confidence": 0.958
               }
             ]
           },
           {
-            "boundingBox": [
-              286,
-              171,
-              415,
-              165,
-              417,
-              197,
-              287,
-              201
-            ],
+            "boundingBox": [286, 171, 415, 165, 417, 197, 287, 201],
             "text": "paces",
             "words": [
               {
-                "boundingBox": [
-                  303,
-                  175,
-                  415,
-                  167,
-                  415,
-                  198,
-                  306,
-                  199
-                ],
+                "boundingBox": [303, 175, 415, 167, 415, 198, 306, 199],
                 "text": "paces",
                 "confidence": 0.918
               }
@@ -419,7 +328,7 @@ The `operation-location` is the fully qualified URL and is accessed via an HTTP 
 }
 ```
 
-# [Version 2](#tab/version-2)
+# [Version 2.0](#tab/version-2)
 
 You can use the `POST /vision/v2.0/read/core/asyncBatchAnalyze` and `GET /vision/v2.0/read/operations/{operationId}` operations in concert to asynchronously read an image, similar to how the Computer Vision service uses those corresponding REST operations. The asynchronous POST method will return an `operationId` that is used as the identifer to the HTTP GET request.
 
@@ -484,38 +393,29 @@ The `operation-location` is the fully qualified URL and is accessed via an HTTP 
 
 ### Synchronous read
 
+You can use the following operation to synchronously read an image. 
+
 # [Version 3.1](#tab/version-3-1)
 
-You can use the `POST /vision/v3.1/read/syncAnalyze` operation to synchronously read an image. When the image is read in its entirety, then and only then does the API return a JSON response. The only exception to this is if an error occurs. When an error occurs the following JSON is returned:
-
-```json
-{
-    status: "Failed"
-}
-```
+`POST /vision/v3.1/read/syncAnalyze` 
 
 # [Version 3.0](#tab/version-3)
 
-You can use the `POST /vision/v3.0/read/SyncAnalyze` operation to synchronously read an image. When the image is read in its entirety, then and only then does the API return a JSON response. The only exception to this is if an error occurs. When an error occurs the following JSON is returned:
-
-```json
-{
-    status: "Failed"
-}
-```
+`POST /vision/v3.0/read/SyncAnalyze`
 
 # [Version 2.0](#tab/version-2)
 
+`POST /vision/v2.0/read/core/Analyze`
 
-You can use the `POST /vision/v2.0/read/core/Analyze` operation to synchronously read an image. When the image is read in its entirety, then and only then does the API return a JSON response. The only exception to this is if an error occurs. When an error occurs the following JSON is returned:
+---
+
+When the image is read in its entirety, then and only then does the API return a JSON response. The only exception to this is if an error occurs. When an error occurs the following JSON is returned:
 
 ```json
 {
     status: "Failed"
 }
 ```
-
----
 
 The JSON response object has the same object graph as the asynchronous version. If you're a JavaScript user and want type safety, the following types could be used to cast the JSON response as an `AnalyzeResult` object.
 
