@@ -3,14 +3,14 @@ title: Azure Front Door - URL Rewrite | Microsoft Docs
 description: This article helps you understand how Azure Front Door does URL Rewrite for your routes, if configured.
 services: front-door
 documentationcenter: ''
-author: sharad4u
+author: duongau
 ms.service: frontdoor
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
-ms.author: sharadag
+ms.author: duau
 ---
 
 # URL rewrite (custom forwarding path)
