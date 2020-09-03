@@ -116,10 +116,17 @@ Otherwise, you'll see a list of your recent automated machine learning experimen
 1. On the **Task type and settings** form, select the task type: classification, regression, or forecasting. See [supported task types](concept-automated-ml.md#when-to-use-automl-classify-regression--forecast) for more information.
 
     1. For **classification**, you can also enable deep learning which is used for text featurizations.
+    
+        If deep learning is enabled, 
+
+        1. Explain the best model is disabled.
+
+        1. Validation is limited to _train_validation split_. [Learn more about validation options](how-to-configure-cross-validation-data-splits.md).
+
 
     1. For **forecasting** you can, 
     
-        1. Enable deep learning
+        1. Enable deep learning. If enabled, **explain the best model** is disabled.
     
         1. Select *time column*: This column contains the time data to be used.
 
@@ -130,10 +137,10 @@ Otherwise, you'll see a list of your recent automated machine learning experimen
     Additional configurations|Description
     ------|------
     Primary metric| Main metric used for scoring your model. [Learn more about model metrics](how-to-configure-auto-train.md#primary-metric).
-    Explain best model | Select to enable or disable, in order to show explainability of the recommended best model.
+    Explain best model | Select to enable or disable, in order to show explanations for the recommended best model. <br> This functionality is not available for [certain forecasting algorithms](how-to-machine-learning-interpretability-automl.md#interpretability-during-training-for-the-best-model). <br><br> If _deep learning_ is enabled, explanations are disabled.
     Blocked algorithm| Select algorithms you want to exclude from the training job. <br><br> Allowing algorithms is only available for [SDK experiments](how-to-configure-auto-train.md#supported-models). <br> See the [supported models for each task type](https://docs.microsoft.com/python/api/azureml-automl-core/azureml.automl.core.shared.constants.supportedmodels?view=azure-ml-py).
     Exit criterion| When any of these criteria are met, the training job is stopped. <br> *Training job time (hours)*: How long to allow the training job to run. <br> *Metric score threshold*:  Minimum metric score for all pipelines. This ensures that if you have a defined target metric you want to reach, you do not spend more time on the training job than necessary.
-    Validation| Select one of the cross validation options to use in the training job. [Learn more about cross validation](how-to-configure-cross-validation-data-splits.md#prerequisites).<br> <br>Forecasting only supports k-fold cross validation.
+    Validation| Select one of the cross validation options to use in the training job. <br> [Learn more about cross validation](how-to-configure-cross-validation-data-splits.md#prerequisites).<br> <br>Forecasting only supports k-fold cross validation.
     Concurrency| *Max concurrent iterations*: Maximum number of pipelines (iterations) to test in the training job. The job will not run more than the specified number of iterations.
 
 1. (Optional) View featurization settings: if you choose to enable **Automatic featurization** in the **Additional configuration settings** form, default featurization techniques are applied. In the **View featurization settings** you can change these defaults and customize accordingly. Learn how to [customize featurizations](#customize-featurization). 
