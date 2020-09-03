@@ -59,12 +59,12 @@ In this quickstart, you use a code sample to learn how an ASP.NET Core web app c
 #### Step 2: Download your ASP.NET Core project
 
 > [!div renderon="docs"]
-> [Download the ASP.NET Core solution](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/archive/aspnetcore2-2.zip)
+> [Download the ASP.NET Core solution](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/archive/aspnetcore3-1.zip)
 
 > [!div class="sxs-lookup" renderon="portal"]
 > Run the project.
 > [!div renderon="portal" id="autoupdate" class="nextstepaction"]
-> [Download the code sample](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/archive/aspnetcore2-2.zip)
+> [Download the code sample](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/archive/aspnetcore3-1.zip)
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### Step 3: Your app is configured and ready to run
@@ -76,6 +76,7 @@ In this quickstart, you use a code sample to learn how an ASP.NET Core web app c
 > #### Step 3: Run your ASP.NET Core project
 > 1. Extract the zip file to a local folder within the root folder - for example, **C:\Azure-Samples**
 > 1. Open the solution in your IDE
+> 1. Make sure that you check [Include prerelease Nuget packages](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-visual-studio#manage-packages-for-the-solution).
 > 1. Edit the **appsettings.json** file. Find `ClientId` and update the value of `ClientId` with the **Application (client) ID** value of the application you registered.
 >
 >    ```json
@@ -108,73 +109,55 @@ This section gives an overview of the code required to sign in users. This overv
 *Microsoft.AspNetCore.Authentication* middleware uses a Startup class that is executed when the hosting process initializes:
 
 ```csharp
-public void ConfigureServices(IServiceCollection services)
-{
-  services.Configure<CookiePolicyOptions>(options =>
+  public void ConfigureServices(IServiceCollection services)
   {
-    // This lambda determines whether user consent for non-essential cookies is needed for a given request.
-    options.CheckConsentNeeded = context => true;
-    options.MinimumSameSitePolicy = SameSiteMode.None;
-  });
+      services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
+          .AddMicrosoftIdentityWebApp(Configuration.GetSection("AzureAd"));
 
-  services.AddAuthentication(AzureADDefaults.AuthenticationScheme)
-          .AddAzureAD(options => Configuration.Bind("AzureAd", options));
-
-  services.Configure<OpenIdConnectOptions>(AzureADDefaults.OpenIdScheme, options =>
-  {
-    options.Authority = options.Authority + "/v2.0/";         // Microsoft identity platform
-
-    options.TokenValidationParameters.ValidateIssuer = false; // accept several tenants (here simplified)
-  });
-
-  services.AddMvc(options =>
-  {
-     var policy = new AuthorizationPolicyBuilder()
-                     .RequireAuthenticatedUser()
-                     .Build();
-     options.Filters.Add(new AuthorizeFilter(policy));
-  })
-  .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-}
+      services.AddControllersWithViews(options =>
+      {
+          var policy = new AuthorizationPolicyBuilder()
+              .RequireAuthenticatedUser()
+              .Build();
+          options.Filters.Add(new AuthorizeFilter(policy));
+      });
+      services.AddRazorPages()
+          .AddMicrosoftIdentityUI();
+  }
 ```
 
 The method `AddAuthentication` configures the service to add cookie-based authentication, which is used on browser scenarios and to set the challenge to OpenID Connect.
 
-The line containing `.AddAzureAd` adds the Microsoft identity platform authentication to your application. It's then configured to sign in using the Microsoft identity platform endpoint.
+The line containing `.AddMicrosoftIdentityWebApp` adds the Microsoft identity platform authentication to your application. It's then configured to sign in using the Microsoft identity platform endpoint based on the information in the `AzureAD` section of the **appsettings.json** configuration file.
 
 > |Where | Description |
 > |---------|---------|
 > | ClientId  | Application (client) ID from the application registered in the Azure portal. |
-> | Authority | The STS endpoint for the user to authenticate. Usually, this is `https://login.microsoftonline.com/{tenant}/v2.0` for public cloud, where {tenant} is the name of your tenant or your tenant ID, or *common* for a reference to the common endpoint (used for multi-tenant applications) |
-> | TokenValidationParameters | A list of parameters for token validation. In this case, `ValidateIssuer` is set to `false` to indicate that it can accept sign-ins from any personal, or work or school accounts. |
+> | Instance | The STS endpoint for the user to authenticate. Usually, this is `https://login.microsoftonline.com/` for public cloud.
+> | TenantId | Name of your tenant or your tenant ID, or *common* to sign-in users with work or school accounts or Microsoft personal accounts. |
 
-
-> [!NOTE]
-> Setting `ValidateIssuer = false` is a simplification for this quickstart. In real applications you need to validate the issuer.
-> See the samples to understand how to do that.
->
 > Also note the `Configure` method which contains two important methods: `app.UseCookiePolicy()` and `app.UseAuthentication()`
 
 ```csharp
 // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
 public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 {
-    // more core
-    app.UseCookiePolicy();
+    // more code
     app.UseAuthentication();
-    // more core
+    app.UseAuthorization();
+    // more code
 }
 ```
 
 ### Protect a controller or a controller's method
 
-You can protect a controller or controller methods using the `[Authorize]` attribute. This attribute restricts access to the controller or methods by only allowing authenticated users, which means that authentication challenge can be started to access the controller if the user isn't authenticated.
+You can protect a controller or controller methods using the `[Authorize]` attribute. This attribute restricts access to the controller or methods by only allowing authenticated users, which mean that authentication challenge can be started to access the controller if the user isn't authenticated.
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
 ## Next steps
 
-Check out the GitHub repo for this ASP.NET Core tutorial for more information including instructions on how to add authentication to a brand new ASP.NET Core Web application, how to call Microsoft Graph, and other Microsoft APIs, how to call your own APIs, how to add authorization, how to sign in users in national clouds, or with social identities and more:
+Check out the GitHub repo for this ASP.NET Core tutorial for more information. This repo includes instructions on how to add authentication to a brand new ASP.NET Core Web application, how to call Microsoft Graph, and other Microsoft APIs, how to call your own APIs, how to add authorization, how to sign in users in national clouds, or with social identities and more:
 
 > [!div class="nextstepaction"]
 > [ASP.NET Core web app tutorial](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/)
