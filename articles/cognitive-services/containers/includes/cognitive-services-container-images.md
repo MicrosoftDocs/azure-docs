@@ -55,9 +55,9 @@ See [How to run and install Anomaly detector containers](../../anomaly-detector/
 
 | Container | Container Registry / Repository / Image Name |
 |--|--|
-| [Speech-to-text](../../speech-service/speech-container-howto.md?tab=stt) | `containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text` |
-| [Custom Speech-to-text](../../speech-service/speech-container-howto.md?tab=cstt) | `containerpreview.azurecr.io/microsoft/cognitive-services-custom-speech-to-text` |
-| [Text-to-speech](../../speech-service/speech-container-howto.md?tab=tts) | `containerpreview.azurecr.io/microsoft/cognitive-services-text-to-speech` |
+| [Speech-to-text](../../speech-service/speech-container-howto.md?tab=stt) | `mcr.microsoft.com/azure-cognitive-services/speechservices/speech-to-text` |
+| [Custom Speech-to-text](../../speech-service/speech-container-howto.md?tab=cstt) | `mcr.microsoft.com/azure-cognitive-services/speechservices/custom-speech-to-text` |
+| [Text-to-speech](../../speech-service/speech-container-howto.md?tab=tts) | `mcr.microsoft.com/azure-cognitive-services/speechservices/text-to-speech` |
 
 #### "Ungated" preview 
 
@@ -79,9 +79,10 @@ Previously, gated preview containers were hosted on the `containerpreview.azurec
 
 | Service | Container | Container Registry / Repository / Image Name |
 |--|--|--|
-| [Computer Vision](../../Computer-vision/computer-vision-how-to-install-containers.md) | Read v3.0 | `mcr.microsoft.com/azure-cognitive-services/vision/read:3.0` |
-| [Computer Vision](../../Computer-vision/computer-vision-how-to-install-containers.md) | Read v3.1 | `mcr.microsoft.com/azure-cognitive-services/vision/read:3.1` |
-| [Speech Service API](../../speech-service/speech-container-howto.md?tab=ctts) | Custom Text-to-speech | `mcr.microsoft.com/azure-cognitive-services/custom-text-to-speech` |
-| [Speech Service API](../../speech-service/speech-container-howto.md?tab=lid) | Language Detection | `mcr.microsoft.com/azure-cognitive-services/speech/language-detection` |
-| [Speech Service API](../../speech-service/speech-container-howto.md?tab=ntts) | Neural Text-to-speech | `mcr.microsoft.com/azure-cognitive-services/neural-text-to-speech` |
+| [Computer Vision](../../Computer-vision/computer-vision-how-to-install-containers.md) | Read v3.0 | `mcr.microsoft.com/azure-cognitive-services/vision/read-3.0` |
+| [Computer Vision](../../Computer-vision/computer-vision-how-to-install-containers.md) | Read v3.1 | `mcr.microsoft.com/azure-cognitive-services/vision/read-3.1` |
+| [Computer Vision](../../Computer-vision/computer-vision-how-to-install-containers.md) | Spatial Analysis | `mcr.microsoft.com/azure-cognitive-services/vision/spatial-analysis` |
+| [Speech Service API](../../speech-service/speech-container-howto.md?tab=ctts) | Custom Text-to-speech | `mcr.microsoft.com/azure-cognitive-services/speechservices/custom-text-to-speech` |
+| [Speech Service API](../../speech-service/speech-container-howto.md?tab=lid) | Language Detection | `mcr.microsoft.com/azure-cognitive-services/speechservices/language-detection` |
+| [Speech Service API](../../speech-service/speech-container-howto.md?tab=ntts) | Neural Text-to-speech | `mcr.microsoft.com/azure-cognitive-services/speechservices/neural-text-to-speech` |
 | [Text Analytics for health](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=health) | Text Analytics for health | `mcr.microsoft.com/azure-cognitive-services/health` |
