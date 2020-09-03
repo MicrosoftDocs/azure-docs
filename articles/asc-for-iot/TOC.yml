@@ -94,6 +94,6 @@
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=security-identity
   - name: Azure Security, Privacy, & Compliance blog
-    href: https://blogs.msdn.com/b/azuresecurity/
+    href: https://docs.microsoft.com/archive/blogs/azuresecurity/
   - name: Regional availability
     href: https://azure.microsoft.com/regions/services/
