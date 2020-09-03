@@ -177,14 +177,14 @@ Languages supported by a culture code:
 | ru-ru	| Russian (Russia) |
 | zh-tw	| Chinese (Traditional, Taiwan) |
 | cs-cz	| Czech (Czech Republic) |
-| pl-pl| 	Polish (Poland) |
+| pl-pl | Polish (Poland) |
 | tr-tr	| Turkish (Turkey) |
 | da-dk	| Danish (Denmark) |
 | dn-gb	| English (United Kingdom) |
 | hu-hu	| Hungarian (hungary) |
 | nb-bo	| Norwegian Bokmal (Norway) |
 | nl-nl	| Dutch (Netherlands) |
-| pt-pt	| Portguese (Portugal) |
+| pt-pt	| Portuguese (Portugal) |
 | sv-se	| Swedish (Sweden) |
 
 
