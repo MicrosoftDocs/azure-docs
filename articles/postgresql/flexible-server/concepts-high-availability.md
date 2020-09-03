@@ -13,7 +13,7 @@ Azure Database for PostgreSQL - Flexible Server, which is currently in public pr
 
 Zone redundant configuration enables automatic failover capability with zero data loss during planned events such as user-initiated scale compute operation, and also during unplanned events such as underlying hardware and software faults, network failures, and availability zone failures. 
 
-![view of zone redundant high availability](./media/business-continuity/concepts-zone-redundant-high-availability-architecture.png)
+:::image type="content" source="./media/business-continuity/concepts-zone-redundant-high-availability-architecture.png" alt-text="zone redundant high availability"::: 
 
 ## Zone redundant high availability architecture
 
@@ -33,7 +33,8 @@ The health of the high availability configuration is continuously monitored and 
 ## Steady-state operations
 
 PostgreSQL client applications are connected to the primary server using the DB server name. Application reads are served directly from the primary server, while commits and writes are confirmed to the application only after the data is persisted on both the primary server and the standby replica. Due to this additional round-trip requirement, applications can expect elevated latency for writes and commits. You can monitor the health of the high availability on the portal.
-![Zone redundant high availability - Steady state](./media/business-continuity/concepts-high-availability-steady-state.png)
+
+:::image type="content" source="./media/business-continuity/concepts-high-availability-steady-state.png" alt-text="zone redundant high availability - steady state"::: 
 
 1. Clients connect to the flexible server and performs write operations.
 2. Changes are replicated to the standby site
@@ -51,7 +52,7 @@ Planned downtime events include Azure scheduled periodic software updates and mi
 ## Failover process - unplanned outage
 Unplanned outages include software bugs or infrastructure component failures impact the availability of the database. In the event of the database unavailability is detected by the monitoring system, the replication to the standby replica is severed and the standby replica is activated to be the primary database. Clients can reconnect to the database server and resume their operations. The overall failover time is expected to take 60-120s. However, depending on the activity in the primary database server at the time of the failover such as large transactions and recovery time, the failover may take longer.
 
-![Zone redundant HA - Failover](./media/business-continuity/concepts-high-availability-failover-state.png)
+:::image type="content" source="./media/business-continuity/concepts-high-availability-failover-state.png" alt-text="zone redundant high availability - failover"::: 
 
 1. Primary database server is down and the clients lose database connectivity. 
 2. Standby is activated with the same database server name as primary, and client connects to the new primary. Note that the client application can be on any zone. Having application and the database server in the same zone reduces latency.

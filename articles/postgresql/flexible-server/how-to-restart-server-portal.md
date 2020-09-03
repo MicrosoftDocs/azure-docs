@@ -13,7 +13,7 @@ ms.date: 09/21/2020
 This article provides step-by-step procedure to perform restart of the flexible server. This operation is useful to apply any static parameter changes that requires database server restart. The procedure is same for servers configured with zone redundant high availability. 
 
 > [!IMPORTANT]
-> When configured with high availability, both the primary and the standby servers are restarted. 
+> When configured with high availability, both the primary and the standby servers are restarted at the same time.
 
 ## Pre-requisites
 
@@ -21,7 +21,7 @@ To complete this how-to guide, you need:
 
 -   You must have a flexible server.
 
-## Restoring to the earliest restore point
+## Restart your flexible server
 
 Follow these steps to restart your flexible server.
 
