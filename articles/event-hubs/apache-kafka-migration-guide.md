@@ -1,6 +1,6 @@
 ---
 title: Migrate to Azure Event Hubs for Apache Kafka
-description: This article shows how consumers and producers that use different protocols (AMQP, Apache Kafka, and HTTPS) can exchange events when using Azure Event Hubs. 
+description: This article explains how to migrate clients from Apache Kafka to Azure Event Hubs. 
 ms.topic: article
 ms.date: 06/23/2020
 ---
