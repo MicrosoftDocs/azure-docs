@@ -12,6 +12,6 @@ ms.subservice: disks
 [!INCLUDE [VM and Disk Performance](../../../includes/virtual-machine-disk-performance.md)]
 
 ## Virtual machine uncached vs cached limits
- Virtual machines that are both premium storage enabled, and premium storage caching enabled have two different storage bandwidth limits. Let’s continue with looking at the Standard_D8s_v3 virtual machine as an example. Here is the documentation on the [Dsv3-series](../dv3-dsv3-series.md) and on it the Standard_D8s_v3:
+ Virtual machines that are both premium storage enabled and premium storage caching enabled have two different storage bandwidth limits. Let’s continue with looking at the Standard_D8s_v3 virtual machine as an example. Here is the documentation on the [Dsv3-series](../dv3-dsv3-series.md) and on it the Standard_D8s_v3:
 
 [!INCLUDE [VM and Disk Performance](../../../includes/virtual-machine-disk-performance-2.md)]

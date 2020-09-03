@@ -32,7 +32,7 @@ Set up:
 
 ![Host Caching Example](media/vm-disk-performance/host-caching-example-without-remote.jpg)
 
-Now, The application using this Standard_D8s_v3 virtual machine with caching enabled makes a request for 15,000 IOPS. Those requests are broken down as 5,000 IOPS to each underlying disk attached and no throttling occurs.
+Now, The application using this Standard_D8s_v3 virtual machine with caching enabled makes a request for 15,000 IOPS. Those requests are broken down as 5,000 IOPS to each underlying disk attached and no performance capping occurs.
 
 ## Combined uncached and cached limits
 
@@ -54,7 +54,7 @@ Set up:
 
 ![Host Caching Example With Remote Storage](media/vm-disk-performance/host-caching-example-with-remote.jpg)
 
-Now, The application running on Standard_D8s_v3 virtual machine with makes a request for 25,000 IOPS. This request is broken down as 5,000 IOPS to each underlying disk attached where 3 of those disks are using host caching and 2 of the disks are not. Since the 3 using host caching are within the cached limits of 16,000, those requests are successfully completed and no throttling occurs. Also since the 2 disks not using host caching are within the uncached limits of 12,800, those requests are also successfully completed and no throttling occurs.
+Now, The application running on Standard_D8s_v3 virtual machine with makes a request for 25,000 IOPS. This request is broken down as 5,000 IOPS to each underlying disk attached where 3 of those disks are using host caching and 2 of the disks are not. Since the 3 using host caching are within the cached limits of 16,000, those requests are successfully completed and no storage performance capping occurs. Also, since the 2 disks not using host caching are within the uncached limits of 12,800, those requests are also successfully completed and no capping occurs.
 
 ## Metrics for disk performance
 We have metrics on Azure that provides insight on how your virtual machines and disks are performing. These metrics can be viewed visually through the Azure portal or they can be retrieved through an API call. Metrics are calculated over one-minute intervals. The following Metrics are available to get insight on VM and Disk IO and throughput performance:
@@ -73,16 +73,15 @@ We have metrics on Azure that provides insight on how your virtual machines and 
 - **Disk Write Bytes/Sec** – The number of Bytes that are written in a second from all disks attached to a VM.
 - **Disk Write Operations/Sec** – The number of output operations that are written in a second from all disks attached to a VM.
 
-## Throttling metrics
-Metrics that help diagnose virtual machine throttling:
-- **VM Cached IOPS Consumed Percentage** - the percentage calculated by the total IOPS completed over the provisioned cached virtual machine IOPS limit. If this amount is at 100%, you'll experience throttling from your VM's cached IOPS limit.
-- **VM Cached Bandwidth Consumed Percentage** - the percentage calculated by the total disk throughput completed over the cached provisioned virtual machine throughput. If this amount is at 100%, you'll experience throttling from your VM's cached throughput limit.
-- **VM UnCached IOPS Consumed Percentage** - the percentage calculated by the total IOPS on a virtual machine completed over the uncached provisioned virtual machine IOPS limit. If this amount is at 100%, you'll experience throttling from your VM's uncached IOPS limit. 
-- **VM UnCached Bandwidth Consumed Percentage** - the percentage calculated by the total disk throughput on a virtual machine completed over the uncached provisioned virtual machine throughput. If this amount is at 100%, you'll experience throttling from your VM's uncached throughput limit.
+## Storage Performance Utilization Metrics
+Metrics that help diagnose disk performance capping:
+- **Data Disk IOPS Consumed Percentage** - the percentage calculated by the data disk IOPs completed over the provisioned data disk IOPs. If this amount is at 100%, your application running will be performance capped from your data disk's IOPS limit.
+- **Data Disk Bandwidth Consumed Percentage** - the percentage calculated by the data disk throughput completed over the provisioned data disk throughput. If this amount is at 100%, your application running will be performance capped from your data disk's Bandwidth limit.
+- **OS Disk IOPS Consumed Percentage** - the percentage calculated by the OS disk IOPs completed over the provisioned OS disk IOPs. If this amount is at 100%, you'll your application running will be performance capped from your OS disk's IOPS limit.
+- **OS Disk Bandwidth Consumed Percentage** - the percentage calculated by the OS disk throughput completed over the provisioned OS disk throughput. If this amount is at 100%, your application running will be performance capped from your OS disk's Bandwidth limit.
 
-Metrics that help diagnose disk throttling:
-- **Data Disk IOPS Consumed Percentage** - the percentage calculated by the data disk IOPs completed over the provisioned data disk IOPs. If this amount is at 100%, you'll experience throttling from your data disk's IOPS limit.
-- **Data Disk Bandwidth Consumed Percentage** - the percentage calculated by the data disk throughput completed over the provisioned data disk throughput. If this amount is at 100%, you'll experience throttling from your data disk's Bandwidth limit.
-- **OS Disk IOPS Consumed Percentage** - the percentage calculated by the OS disk IOPs completed over the provisioned OS disk IOPs. If this amount is at 100%, you'll experience throttling from your OS disk's IOPS limit.
-- **OS Disk Bandwidth Consumed Percentage** - the percentage calculated by the OS disk throughput completed over the provisioned OS disk throughput. If this amount is at 100%, you'll experience throttling from your OS disk's Bandwidth limit.
-
+Metrics that help diagnose virtual machine storage performance capping:
+- **VM Cached IOPS Consumed Percentage** - the percentage calculated by the total IOPS completed over the provisioned cached virtual machine IOPS limit. If this amount is at 100%, your application running will be performance capped from your VM's cached IOPS limit.
+- **VM Cached Bandwidth Consumed Percentage** - the percentage calculated by the total disk throughput completed over the cached provisioned virtual machine throughput. If this amount is at 100%, your application running will be performance capped from your VM's cached throughput limit.
+- **VM UnCached IOPS Consumed Percentage** - the percentage calculated by the total IOPS on a virtual machine completed over the uncached provisioned virtual machine IOPS limit. If this amount is at 100%, your application running will be performance capped from your VM's uncached IOPS limit. 
+- **VM UnCached Bandwidth Consumed Percentage** - the percentage calculated by the total disk throughput on a virtual machine completed over the uncached provisioned virtual machine throughput. If this amount is at 100%, your application running will be performance capped your VM's uncached throughput limit.
