@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/14/2020
+ms.date: 09/03/2020
 
 ms.author: iainfou
 author: iainfoulds
@@ -49,7 +49,7 @@ These authentication methods can be configured in the Azure portal, and increasi
 
 ## How each authentication method works
 
-
+To learn more about how each authentication method works, see the following separate conceptual articles:
 
 * [Microsoft Authenticator app](concept-authentication-authenticator-app.md)
 * [FIDO2 security keys (preview)](concept-authentication-passwordless.md#fido2-security-keys)
@@ -67,7 +67,7 @@ If you have old applications and configure per-user Azure Multi-Factor Authentic
 
 For SSPR, the following methods can also be used to confirm your identity:
 
-* [Security questions](concepts-authentication-security-questions.md)
+* [Security questions](concept-authentication-security-questions.md)
 * [Email address](#email-address)
 
 ### App passwords
