@@ -187,6 +187,14 @@
       href: azure-netapp-files.md
     - name: Use Azure Ultra Disks (preview)
       href: use-ultra-disks.md
+    - name: CSI Storage Drivers
+      items:
+      - name: Enable CSI Storage Drivers (preview)
+        href: csi-storage-drivers.md
+      - name: Azure Disk CSI drivers (preview)
+        href: azure-disk-csi.md
+      - name: Azure Files CSI drivers (preview)
+        href: azure-files-csi.md
   - name: Configure networking
     items:
     - name: Create or use existing virtual network
@@ -252,9 +260,9 @@
       href: update-credentials.md
     - name: Enable Azure Active Directory integration
       items:
-        - name: AKS-managed AAD
+        - name: AKS-managed Azure AD
           href: managed-aad.md
-        - name: AAD integration (legacy)
+        - name: Azure AD integration (legacy)
           href: azure-ad-integration-cli.md
     - name: Use Azure RBAC for Kubernetes Authorization (preview)
       href: manage-azure-rbac.md

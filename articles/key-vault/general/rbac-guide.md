@@ -63,6 +63,10 @@ The new Azure RBAC permission model for key vault provides alternative to the va
 
 ### Enable Azure RBAC permissions on Key Vault
 
+During preview, you must use the Azure RBAC feature tag (Microsoft_Azure_KeyVault_RBACEnabled=true) to see the new permission model options.
+
+https://portal.azure.com/?Microsoft_Azure_KeyVault_RBACEnabled=true#home
+
 > [!IMPORTANT]
 > Setting Azure RBAC permission model invalidates all access policies permissions. It can cause outages when equivalent Azure roles aren't assigned.
 
@@ -208,8 +212,6 @@ az role definition create --role-definition '{ \
 For more Information about how to create custom roles, see:
 
 [Azure custom roles](https://docs.microsoft.com/azure/role-based-access-control/custom-roles)
-
-For available actions check Appendix: **Available Actions**
 
 ## Known limits and performance
 
