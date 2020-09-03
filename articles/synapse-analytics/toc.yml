@@ -471,7 +471,9 @@
       - name: Query Azure Cosmos DB analytical store with Apache Spark for Azure Synapse Analytics
         href: ./synapse-link/how-to-query-analytical-store-spark.md
       - name: Copy data from Synapse Link into a SQL pool using Apache Spark
-        href: ./synapse-link/how-to-copy-to-sql-pool.md
+        href: ./synapse-link/how-to-copy-to-sql-pool.md  
+      - name: Query Azure Cosmos DB analytical store with SQL on-demand
+        href: sql/query-cosmosdb-analytical-storage.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: Synapse SQL
       items:
       - name: Query external data
