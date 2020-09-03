@@ -37,13 +37,13 @@ Scale in Event Hubs is controlled by how many throughput units you purchase, wit
 
 ### The Azure Messaging services fleet
 
-Coming from building applications using Apache Kafka, it will also useful to understand that Azure Event Hubs is part of a fleet of services which also includes [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview), and [Azure Event Grid](event-grid/overview). 
+Coming from building applications using Apache Kafka, it will also useful to understand that Azure Event Hubs is part of a fleet of services which also includes [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md), and [Azure Event Grid](event-grid/overview.md). 
 
-While some providers of commercial distributions of Apache Kafka might suggest that Apache Kafka is a one-stop-shop for all your messaging platform needs, the reality is that Apache Kafka does not implement, for instance, the [competing-consumer](../architecture/patterns/competing-consumers) queue pattern, does not have support for  [publish-subscribe](../architecture/patterns/publisher-subscriber) at a level that allows subscribers access to the incoming messages based on server-evaluated rules other than plain offsets, and it has no facilities to track the lifecycle of a job initiated by a message or sidelining faulty messages into a dead-letter queue, all of which are foundational for many enterprise messaging scenarios.
+While some providers of commercial distributions of Apache Kafka might suggest that Apache Kafka is a one-stop-shop for all your messaging platform needs, the reality is that Apache Kafka does not implement, for instance, the [competing-consumer](/azure/architecture/patterns/competing-consumers) queue pattern, does not have support for  [publish-subscribe](/azure/architecture/patterns/publisher-subscriber) at a level that allows subscribers access to the incoming messages based on server-evaluated rules other than plain offsets, and it has no facilities to track the lifecycle of a job initiated by a message or sidelining faulty messages into a dead-letter queue, all of which are foundational for many enterprise messaging scenarios.
 
-To understand the differences between patterns and which pattern is best covered by which service, please review the [Asynchronous messaging options in Azure](../architecture/guide/technology-choices/messaging) guidance. As an Apache Kafka user, you may find that communication paths you have so far realized with Kafka, can be realized with far less basic complexity and yet more powerful capabilities using either Event Grid or Service Bus. 
+To understand the differences between patterns and which pattern is best covered by which service, please review the [Asynchronous messaging options in Azure](/azure/architecture/guide/technology-choices/messaging) guidance. As an Apache Kafka user, you may find that communication paths you have so far realized with Kafka, can be realized with far less basic complexity and yet more powerful capabilities using either Event Grid or Service Bus. 
 
-If you need specific features of Apache Kafka that are not available through the Event Hubs for Apache Kafka interface or if your implementation pattern exceeds the [Event Hubs quotas](event-hubs-quotas), you can also run a [native Apache Kafka cluster in Azure HDInsight](../hdinsight/kafka/apache-kafka-introduction).  
+If you need specific features of Apache Kafka that are not available through the Event Hubs for Apache Kafka interface or if your implementation pattern exceeds the [Event Hubs quotas](event-hubs-quotas), you can also run a [native Apache Kafka cluster in Azure HDInsight](../hdinsight/kafka/apache-kafka-introduction.md).  
 
 ## Security and authentication
 Every time you publish or consume events from an Event Hubs for Kafka, your client is trying to access the Event Hubs resources. You want to ensure that the resources are accessed using an authorized entity. When using Apache Kafka protocol with your clients, you can set your configuration for authentication and encryption using the SASL mechanisms. When using Event Hubs for Kafka  requires the TLS-encryption (as all data in transit with Event Hubs is TLS encrypted). It can be done specifying the SASL_SSL option in your configuration file. 
@@ -96,7 +96,7 @@ As explained [above](#the-azure-messaging-services-fleet), the Azure Messaging f
 
 ### Transactions
 
-[Azure Service Bus](../service-bus-messaging/service-bus-transactions) has robust transaction support that allows receiving and settling messages and sessions while sending outbound messages resulting from message processing to multiple target entities under the consistency protection of a transaction. The feature set not only allows for exactly-once processing of each message in a sequence, but also avoids the risk of another consumer inadvertently reprocessing the same messages as it would be the case with Apache Kafka. Service Bus is the recommended service for transactional message workloads.
+[Azure Service Bus](../service-bus-messaging/service-bus-transactions.md) has robust transaction support that allows receiving and settling messages and sessions while sending outbound messages resulting from message processing to multiple target entities under the consistency protection of a transaction. The feature set not only allows for exactly-once processing of each message in a sequence, but also avoids the risk of another consumer inadvertently reprocessing the same messages as it would be the case with Apache Kafka. Service Bus is the recommended service for transactional message workloads.
 
 Support for the native transaction API of Apache Kafka is on the roadmap will be available at a date yet to be announced.
 
@@ -124,18 +124,18 @@ The most common reason Azure Event Hubs customers ask for Kafka Streams support 
 
 Standalone and without ksqlDB, Kafka Streams has fewer capabilities than many alternative frameworks and services, most of which have built-in streaming SQL interfaces, and all of which integrate with Azure Event Hubs today:
 
-- [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction)
-- [Azure Synapse Analytics (via Event Hubs Capture)](../event-grid/event-grid-event-hubs-integration)
-- [Azure Databricks](../databricks/scenarios/databricks-stream-from-eventhubs)
+- [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md)
+- [Azure Synapse Analytics (via Event Hubs Capture)](../event-grid/event-grid-event-hubs-integration.md)
+- [Azure Databricks](../databricks/scenarios/databricks-stream-from-eventhubs.md)
 - [Apache Samza](https://samza.apache.org/learn/documentation/latest/connectors/eventhubs)
-- [Apache Storm](event-hubs-storm-getstarted-receive)
-- [Apache Spark](event-hubs-kafka-spark-tutorial)
-- [Apache Flink](event-hubs-kafka-flink-tutorial)
-- [Akka Streams](event-hubs-kafka-akka-streams-tutorial)
+- [Apache Storm](event-hubs-storm-getstarted-receive.md)
+- [Apache Spark](event-hubs-kafka-spark-tutorial.md)
+- [Apache Flink](event-hubs-kafka-flink-tutorial.md)
+- [Akka Streams](event-hubs-kafka-akka-streams-tutorial.md)
 
 The listed services and frameworks can generally acquire event streams and reference data directly from a diverse set of sources through adapters. Kafka Streams can only acquire data from Apache Kafka and your analytics projects are therefore locked into Apache Kafka. To use data from other sources, you are required to first import data into Apache Kafka with the Kafka Connect framework.
 
-If you must use the Kafka Streams framework on Azure, [Apache Kafka on HDInsight](../hdinsight/kafka/apache-kafka-introduction) will provide you with that option. Apache Kafka on HDInsight provides full control over all configuration aspects of Apache Kafka, while being fully integrated with various aspects of the Azure platform, from fault/update domain placement to network isolation to monitoring integration. 
+If you must use the Kafka Streams framework on Azure, [Apache Kafka on HDInsight](../hdinsight/kafka/apache-kafka-introduction.md) will provide you with that option. Apache Kafka on HDInsight provides full control over all configuration aspects of Apache Kafka, while being fully integrated with various aspects of the Azure platform, from fault/update domain placement to network isolation to monitoring integration. 
 
 ## Next steps
 This article provided an introduction to Event Hubs for Kafka. To learn more, see [Apache Kafka developer guide for Azure Event Hubs](apache-kafka-developer-guide.md).
