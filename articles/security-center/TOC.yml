@@ -28,12 +28,12 @@
       href: security-center-data-security.md
     - name: Permissions
       href: security-center-permissions.md
-    - name: Pricing
+    - name: Pricing tiers explained
       href: security-center-pricing.md
   - name: Azure Defender
     items:
     - name: Overview of Azure Defender and pricing
-      href: defender-overview.md
+      href: azure-defender.md
     - name: Azure Defender for servers
       href: defender-for-servers-intro.md
     - name: Azure Defender for 
@@ -96,7 +96,7 @@
     - name: Overview of security policies
       href: tutorial-security-policy.md
     - name: Built-in security policies
-      displayName: samples, definitions
+
       href: ./policy-reference.md
     - name: Use recommendations to enhance security
       href: security-center-using-recommendations.md
