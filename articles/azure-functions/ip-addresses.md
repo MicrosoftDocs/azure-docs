@@ -94,7 +94,7 @@ The set of available outbound IP addresses for a function app might change when 
 * Take any action that can change the inbound IP address.
 * Change your App Service plan pricing tier. The list of all possible outbound IP addresses your app can use, for all pricing tiers, is in the `possibleOutboundIPAddresses` property. See [Find outbound IPs](#find-outbound-ip-addresses).
 
-When your function app runs in a [Consumption plan](functions-scale.md#consumption-plan) or in a [Premium plan](functions-scale.md#premium-plan), the outbound IP address might also change even when you haven't taken any actions such as the ones [listed above](#outbound-ip-address-changes).
+When your function app runs in a [Consumption plan](functions-scale.md#consumption-plan) or in a [Premium plan](functions-scale.md#premium-plan), the outbound IP address might also change even when you haven't taken any actions such as the ones [listed above](#inbound-ip-address-changes).
 
 To deliberately force an outbound IP address change:
 
