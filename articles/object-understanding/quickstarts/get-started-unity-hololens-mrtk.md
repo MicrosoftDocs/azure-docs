@@ -48,11 +48,23 @@ You can also do other actions using the hand menu:
 
 **Toggle SpatialMapping**: Show/hide spatial mapping rendering. This option can be used to debug if the scan is complete or not.
 
+**High Precision Mode**: An experimental feature to get more accurate pose at the cost of more system resources. Object mesh will be rendered at pink color when on this mode. Click this button again to switch back to normal tracking mode.
+
 **Toggle SearchArea**: Show/hide search area bounding box.
 
 **Start/Stop Tracing**: Capture diagnostics data and save it to the device. See more detail in section **Debug Detection Issues and Capture Diagnostics**
 
-:::image type="content" source="./media/unity-readme-handmenu.png" alt-text="Unity hand menu":::
+**Upload Tracing**: Upload diagnostics data to Object Understanding Azure blob storage. User must provide their subscription account in **subscription.json** and upload it to **LocalState** folder. A sample **subscription.json** file can be found below.
+
+```json
+{
+  "AccountId": "<your account id>",
+  "AccountKey": "<your account key>",
+  "AccountRegion": "<your account region>"
+}
+```
+
+:::image type="content" source="../../../includes/media/object-understanding-quickstarts-unity/ou-unity-readme-handmenu.png" alt-text="Unity hand menu":::
 
 [!INCLUDE [Unity setup Windows Device Portal](../../../includes/object-understanding-quickstart-unity-setup-device-portal.md)]
 
@@ -72,7 +84,7 @@ Do a **facepalm** gesture and click **Stop Tracing**.
 
 In Windows Device Portal, navigate to your application's `TempState` folder and download the `.zip` file. Send the `.zip` file to us.
 
-:::image type="content" source="./media/portal-debug-diagnostics.png" alt-text="capture diagnostics":::
+:::image type="content" source="../../../includes/media/object-understanding-quickstarts/portal-debug-diagnostics.png" alt-text="capture diagnostics":::
 
 ## Advanced: Semi-automated search area setup
 
@@ -80,7 +92,7 @@ The sample above requires a user to provide a tight bounding box to cover the ta
 
 In Unity, navigate to `Assets/MixedReality.ObjectUnderstanding/Scenes`, open **OUAutoSearchArea**, add it to the scene build list. Optionally, adjust the two thresholds (explained below), then follow the above instructions for **OUSampleScene** to set up and build the app. When running the app, you can move the cubic box to partially cover the object in arbitrary orientation, then start the search. The cubic box will adjust automatically to fit to the object's position and orientation if detection succeeds.
 
-:::image type="content" source="./media/unity-auto-search-area.png" alt-text="Unity Auto Search Area":::
+:::image type="content" source="../../../includes/media/object-understanding-quickstarts-unity/ou-unity-auto-search-area.png" alt-text="Unity Auto Search Area":::
 
 There are two parameters to fine-tune the auto-adjustment. **Surface Coverage Scale** down-weights the default coverage threshold to allow a detection on partially observed data. **Bounding Box Scale** specifies the scale of adjusted bounding box.
 
