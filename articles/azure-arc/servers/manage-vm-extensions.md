@@ -74,9 +74,9 @@ VM extensions can be applied your Arc for server managed machine through the Azu
 
 1. From your browser, go to the [Azure portal](https://aka.ms/arcserver-preview).
 
-2. In the portal, browse to **Machines - Azure Arc** and select your hybrid machine from the list.
+2. In the portal, browse to **Servers - Azure Arc** and select your hybrid machine from the list.
 
-3. Choose **Extensions**, then select **Add**. Choose the extension you want from the list of available extensions and follow the instructions in the wizard. In this example, we will deploy the Log Analytics VM extension. 
+3. Choose **Extensions**, then select **Add**. Choose the extension you want from the list of available extensions and follow the instructions in the wizard. In this example, we will deploy the Log Analytics VM extension.
 
     ![Select VM extension for selected machine](./media/manage-vm-extensions/add-vm-extensions.png)
 
@@ -722,7 +722,7 @@ The following troubleshooting steps apply to all VM extensions.
 
 1. To check the Guest agent log, look at the activity when your extension was being provisioned in `%SystemDrive%\ProgramData\GuestConfig\ext_mgr_logs` for Windows, and for Linux under `/var/lib/GuestConfig/ext_mgr_logs`.
 
-2. Check the extension logs for the specific extension for more details in `%SystemDrive%\ProgramData\GuestConfig\extension_logs\<Extension>` for Windows. Extension output is logged to a file for each extension installed on Linux under `/var/log/GuestConfig/extension_logs`.
+2. Check the extension logs for the specific extension for more details in `%SystemDrive%\ProgramData\GuestConfig\extension_logs\<Extension>` for Windows. Extension output is logged to a file for each extension installed on Linux under `/var/lib/GuestConfig/extension_logs`.
 
 3. Check extension specific documentation troubleshooting sections for error codes, known issues etc. Additional troubleshooting information for each extension can be found in the **Troubleshoot and support** section in the overview for the extension. This includes the description of error codes written to the log. The extension articles are linked in the [extensions table](#extensions) found earlier in this article.
 
