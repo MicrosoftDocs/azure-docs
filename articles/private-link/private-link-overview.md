@@ -42,7 +42,7 @@ Azure Private Link provides the following benefits:
 |Private Link services behind standard Azure Load Balancer | All public regions<br/> All Government regions  | Supported on Standard Load Balancer | GA <br/> [Learn more](https://docs.microsoft.com/azure/private-link/private-link-service-overview) |
 | Azure Blob storage (including Data Lake Storage Gen2)       |  All public regions       |  Supported on Account Kind General Purpose V2 | GA <br/> [Learn more](/azure/storage/common/storage-private-endpoints)  |
 | Azure Files | All public regions      | |   GA <br/> [Learn more](/azure/storage/files/storage-files-networking-endpoints)   |
-| Azure File Sync | All public regions      | |   GA <br/> [Learn more](azure/storage/files/storage-sync-files-networking-endpoints)   |
+| Azure File Sync | All public regions      | |   GA <br/> [Learn more](/azure/storage/files/storage-sync-files-networking-endpoints)   |
 | Azure Queue storage       |  All public regions       |  Supported on Account Kind General Purpose V2 | GA <br/> [Learn more](/azure/storage/common/storage-private-endpoints)  |
 | Azure Table storage       |  All public regions       |  Supported on Account Kind General Purpose V2 | GA <br/> [Learn more](/azure/storage/common/storage-private-endpoints)  |
 |  Azure SQL Database         | All public regions <br/> All Government regions      |  Supported for Proxy [connection policy](https://docs.microsoft.com/azure/azure-sql/database/connectivity-architecture#connection-policyhttps://docs.microsoft.com/azure/azure-sql/database/connectivity-architecture#connection-policy) | GA <br/> [Learn more](https://docs.microsoft.com/azure/sql-database/sql-database-private-endpoint-overview)      |
