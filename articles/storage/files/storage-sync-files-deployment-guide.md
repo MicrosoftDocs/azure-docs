@@ -399,6 +399,9 @@ az storagesync sync-group cloud-endpoint create --resource-group myResourceGroup
 ## Create a server endpoint
 A server endpoint represents a specific location on a registered server, such as a folder on a server volume. A server endpoint must be a path on a registered server (rather than a mounted share), and to use cloud tiering, the path must be on a non-system volume. Network attached storage (NAS) is not supported.
 
+> [!NOTE]
+> Changing the path or drive letter after you established a server endpoint on a volume is not supported. Make sure you are using a final path on your registered server.
+
 # [Portal](#tab/azure-portal)
 To add a server endpoint, go to the newly created sync group and then select **Add server endpoint**.
 
