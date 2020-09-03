@@ -18,7 +18,7 @@ ms.service: digital-twins
 
 # Move an Azure Digital Twins instance to a different Azure region
 
-If you need to move your Azure Digital Twins instance from one region to another, the current process is to **recreate your resources in the new region**, and then (optionally) delete the original resources. At the end of this process, you will be working with a new Azure Digital Twins instance that is identical to the first, except for the updated location.
+If you need to move your Azure Digital Twins instance from one region to another, the current process is to **recreate your resources in the new region**, and then delete the original resources. At the end of this process, you will be working with a new Azure Digital Twins instance that is identical to the first, except for the updated location.
 
 This article provides guidance on how to do a complete move, copying over everything you'll need to make the new instance match the original.
 
@@ -29,7 +29,7 @@ This process includes the following steps:
     - Upload original models, twins, and graph.
     - Recreate endpoints and routes.
     - Re-link connected resources.
-4. Clean up source resources (optional): Delete original instance.
+4. Clean up source resources: Delete original instance.
 
 ## Prerequisites
 
@@ -211,9 +211,9 @@ To verify that your new instance was set up correctly, you can use the following
 
 You can also try running any custom apps or end-to-end flows that you had running with your original instance, to help you verify that they're working with the new instance correctly.
 
-## Clean up source resources (optional)
+## Clean up source resources
 
-Now that your new instance is set up in the target region with a copy of the original instance's data and connections, you can **delete the original instance** if you would like.
+Now that your new instance is set up in the target region with a copy of the original instance's data and connections, you can **delete the original instance**.
 
 You can do this in the [Azure portal](https://portal.azure.com), with the [CLI](how-to-use-cli.md), or with the [control plane APIs](how-to-use-apis-sdks.md#overview-control-plane-apis).
 
