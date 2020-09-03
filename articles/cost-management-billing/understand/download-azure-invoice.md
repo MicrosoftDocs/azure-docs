@@ -28,7 +28,7 @@ When you review your invoice status in the Azure portal, each invoice has one of
 
 |  Status symbol | Description  |
 |---|---|
-| ![Due status symbol](./media/download-azure-invoice/due.svg) | *Due* is displayed when an invoice is generated, but hasn't paid yet. |
+| ![Due status symbol](./media/download-azure-invoice/due.svg) | *Due* is displayed when an invoice is generated, but it hasn't been paid yet. |
 | ![Past due status symbol](./media/download-azure-invoice/past-due.svg)  | *Past due* is displayed when Azure tried to charge your payment method, but the payment was declined. |
 | ![Paid status symbol](./media/download-azure-invoice/paid.svg)  | *Paid* status is displayed when Azure has successfully charged your payment method. |
 
