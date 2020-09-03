@@ -1434,6 +1434,8 @@
         href: qualtrics-tutorial.md
       - name: Sauce Labs - Mobile and Web Testing
         href: saucelabs-mobileandwebtesting-tutorial.md
+      - name: Saviynt
+        href: saviynt-tutorial.md
       - name: ScaleX Enterprise
         href: scalex-enterprise-tutorial.md
       - name: SCC LifeCycle
