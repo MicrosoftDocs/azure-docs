@@ -99,7 +99,7 @@ Depending upon your preference, you can use either Azure PowerShell or Azure CLI
 ### Query using the Azure CLI
 
 1. If you haven’t already, you will need to [install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
-1. Once downloaded, use either Command Prompt or PowerShell to enter the "az login" command and then sign in with your account credentials.
+1. Once downloaded, use either Command Prompt or PowerShell to enter the `az login` command and then sign in with your account credentials.
 1. Once logged in, enter the following commands:
 
    ```powershell
