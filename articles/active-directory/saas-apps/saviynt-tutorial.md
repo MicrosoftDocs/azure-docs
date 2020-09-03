@@ -130,9 +130,17 @@ In this section, a user called Britta Simon is created in Saviynt. Saviynt suppo
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
-1. Click on **Test this application** in Azure portal and you should be automatically signed in to the Saviynt for which you set up the SSO 
+#### SP initiated:
 
-2. You can use Microsoft Access Panel. When you click the Saviynt tile in the Access Panel, you should be automatically signed in to the Saviynt for which you set up the SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* Click on **Test this application** in Azure portal. This will redirect to Saviynt Sign-on URL where you can initiate the login flow.  
+
+* Go to Saviynt Sign-on URL directly and initiate the login flow from there.
+
+#### IDP initiated:
+
+* Click on **Test this application** in Azure portal and you should be automatically signed in to the Saviynt for which you set up the SSO 
+
+You can also use Microsoft Access Panel to test the application in any mode. When you click the Saviynt tile in the Access Panel, you should be automatically signed in to the Saviynt for which you set up the SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## Next Steps
 
