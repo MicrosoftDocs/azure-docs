@@ -59,6 +59,8 @@
         href: ./marketplace-criteria-content-validation.md
       - name: Cloud Solution Providers
         href: ./cloud-solution-providers.md
+      - name: Connect Program onboarding guide  
+        href: ./cloud-partner-portal/business-applications-isv-program.md
     - name: Your marketplace benefits
       href: ./gtm-your-marketplace-benefits.md
       items:
