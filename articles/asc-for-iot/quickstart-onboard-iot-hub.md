@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/08/2019
+ms.date: 09/04/2020
 ms.author: mlottner
 ---
 
@@ -48,8 +48,8 @@ To secure your IoT solution, IP addresses of incoming and outgoing connections t
 
 To enable or disable collection of IP address data:
 
-1. Open your IoT Hub and then select **Overview** from the **Security** menu.
-1. Choose the **Settings** screen and modify the geolocation and/or IP handling settings as you wish.
+1. Open your IoT Hub and then select **Settings** from the **Security** menu.
+1. Choose the **Data Collection** screen and modify the geolocation and/or IP handling settings as you wish.
 
 ### Log Analytics creation
 
@@ -57,8 +57,8 @@ When Azure Security Center for IoT is turned on, a default Azure Log Analytics w
 
 To change the workspace configuration of Log Analytics:
 
-1. Open your IoT Hub and then select **Overview** from the **Security** menu.
-1. Choose the **Settings** screen and modify the workspace configuration of Log Analytics settings as you wish.
+1. Open your IoT Hub and then select **Settings** from the **Security** menu.
+1. Choose the **Data Collection** screen and modify the workspace configuration of Log Analytics settings as you wish.
 
 ### Customize your IoT security solution
 
@@ -67,7 +67,7 @@ By default, turning on the Azure Security Center for IoT solution automatically 
 To turn Azure Security Center for IoT service on a specific IoT Hub on or off:
 
 1. Open your IoT Hub and then select **Overview** from the **Security** menu.
-1. Choose the **Settings** screen and modify the security settings of any IoT hub in your Azure subscription as you wish.
+1. Choose the **Data Collection** screen and modify the security settings of any IoT hub in your Azure subscription as you wish.
 
 ## Next steps
 

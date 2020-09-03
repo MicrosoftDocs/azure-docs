@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/27/2020
+ms.date: 09/04/2020
 ms.author: mlottner
 ---
 
@@ -63,8 +63,8 @@ Use security groups to group your devices into logical categories. After creatin
 
 ## Customize an alert
 
-1. Open your IoT Hub.
-1. Click **Custom alerts** in the **Security** section.
+1. Open your IoT Hub and select **Settings** from the **Security** menu. 
+1. Click on **Custom alerts**.
 1. Choose a security group you wish to apply the customization to.
 1. Click **Add a custom alert**.
 1. Select a custom alert from the dropdown list.
