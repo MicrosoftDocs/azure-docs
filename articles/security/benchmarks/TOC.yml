@@ -7,7 +7,9 @@
   items:
   - name: Overview of Azure security controls
     href: overview-v2.md
-  - name: Identity Management 
+  - name: Network security
+    href: security-benchmark-v2-identity-management.md
+  - name: Identity management 
     href: security-benchmark-v2-identity-management.md
   - name: Data protection
     href: security-benchmark-v2-data-protection.md
