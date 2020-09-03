@@ -540,16 +540,17 @@ It also aligns with Microsoft’s strategy to [embrace open source](https://open
 
 In addition to the reasons above, OpenTelemetry is more efficient at-scale and provides consistent design/configurations across languages.
 
-### How can I test out OpenTelemetry Private Previews?
+### How can I test out OpenTelemetry?
+
 Sign-up to join our Azure Monitor Application Insights early adopter community at [https://aka.ms/AzMonOtel](https://aka.ms/AzMonOtel).
-
-### Can I use Private Preview builds in production environments?
-
-It’s not recommended. See [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/) for more information.
 
 ### What does GA mean in the context of OpenTelemetry?
 
 The OpenTelemetry community defines Generally Available (GA) [here](https://medium.com/opentelemetry/ga-planning-f0f6d7b5302). However, OpenTelemetry “GA” does not mean feature parity with the existing Application Insights SDKs. Azure Monitor will continue to recommend our current Application Insights SDKs for customers requiring features such as [pre-aggregated metrics](app/pre-aggregated-metrics-log-metrics.md#pre-aggregated-metrics), [live metrics](app/live-stream.md), [adaptive sampling](app/sampling.md#adaptive-sampling), [profiler](app/profiler-overview.md), and [snapshot debugger](app/snapshot-debugger.md) until the OpenTelemetry SDKs reach feature maturity.
+
+### Can I use Preview builds in production environments?
+
+It’s not recommended. See [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/) for more information.
 
 ### What’s the difference between OpenTelemetry SDK and auto-instrumentation?
 
