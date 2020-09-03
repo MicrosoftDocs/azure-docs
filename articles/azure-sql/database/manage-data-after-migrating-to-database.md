@@ -98,9 +98,11 @@ There are two authentication methods offered in SQL Database:
 - [Azure Active Directory Authentication](authentication-aad-overview.md)
 - [SQL authentication](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication)
 
-The traditional windows authentication is not supported. Azure Active Directory (Azure AD) is a centralized identity and access management service. With this you can very conveniently provide a Single Sign-on Access (SSO) to all the personnel in your organization. What this means is that the credentials are shared across all Azure services for simpler authentication. Azure AD supports [Azure Multi-Factor Authentication](authentication-mfa-ssms-overview.md) and with a [few clicks](../../active-directory/hybrid/how-to-connect-install-express.md) Azure AD can be integrated with Windows Server Active Directory. SQL Authentication works exactly like you’ve been using it in the past. You provide a username/password and you can authenticate users to any database on a given server. This also allows SQL Database and SQL Data Warehouse to offer Multi-Factor Authentication and guest user accounts within an Azure AD domain. If you already have an Active Directory on-premises, you can federate the directory with Azure Active Directory to extend your directory to Azure.
+The traditional windows authentication is not supported. Azure Active Directory (Azure AD) is a centralized identity and access management service. With this you can very conveniently provide a Single Sign-on Access (SSO) to all the personnel in your organization. What this means is that the credentials are shared across all Azure services for simpler authentication. 
 
-|**If you...**|**SQL Database / SQL Data Warehouse**|
+Azure AD supports [Azure Multi-Factor Authentication](authentication-mfa-ssms-overview.md) and with a [few clicks](../../active-directory/hybrid/how-to-connect-install-express.md) Azure AD can be integrated with Windows Server Active Directory. SQL Authentication works exactly like you’ve been using it in the past. You provide a username/password and you can authenticate users to any database on a given server. This also allows SQL Database and Azure Synapse Analytics (formerly SQL Data Warehouse) to offer Multi-Factor Authentication and guest user accounts within an Azure AD domain. If you already have an Active Directory on-premises, you can federate the directory with Azure Active Directory to extend your directory to Azure.
+
+|**If you...**|**SQL Database / Azure Synapse Analytics**|
 |---|---|
 |Prefer not to use Azure Active Directory (Azure AD) in Azure|Use [SQL authentication](security-overview.md)|
 |Used AD on SQL Server on-premises|[Federate AD with Azure AD](../../active-directory/hybrid/whatis-hybrid-identity.md), and use Azure AD authentication. With this, you can use Single Sign-On.|
@@ -108,7 +110,7 @@ The traditional windows authentication is not supported. Azure Active Directory 
 |Have guest accounts from Microsoft accounts (live.com, outlook.com) or other domains (gmail.com)|Use [Azure AD Universal authentication](authentication-mfa-ssms-overview.md) in SQL Database/Data Warehouse, which leverages [Azure AD B2B Collaboration](../../active-directory/b2b/what-is-b2b.md).|
 |Are logged in to Windows using your Azure AD credentials from a federated domain|Use [Azure AD integrated authentication](authentication-aad-configure.md).|
 |Are logged in to Windows using credentials from a domain not federated with Azure|Use [Azure AD integrated authentication](authentication-aad-configure.md).|
-|Have middle-tier services which need to connect to SQL Database or SQL Data Warehouse|Use [Azure AD integrated authentication](authentication-aad-configure.md).|
+|Have middle-tier services which need to connect to SQL Database or Azure Synapse Analytics|Use [Azure AD integrated authentication](authentication-aad-configure.md).|
 |||
 
 ### How do I limit or control connectivity access to my database
