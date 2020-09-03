@@ -63,6 +63,8 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 5. Select **Create**.
 
+:::image type="content" source="media/create-cross-region-portal/create-cross-region-portal.png" alt-text="Create the cross-region load balancer portal" border="true":::
+
 ## Create backend pool
 
 1. In the Azure portal, in the left-hand menu select **All Resources**.
