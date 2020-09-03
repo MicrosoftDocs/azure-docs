@@ -221,11 +221,12 @@
     - name: Create compute resources
       items: 
         - name: Use studio
+          displayName: compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight, low priority
           href: how-to-create-attach-compute-studio.md
         - name: Use Python SDK
           displayName: compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight, low priority
           href: how-to-create-attach-compute-sdk.md
-          displayName: compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight, low priority
+
     - name: Set up your environment
       items: 
         - name: Set up dev environments
