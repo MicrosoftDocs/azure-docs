@@ -5,7 +5,7 @@ author: mksuni
 ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
-ms.date: 089/22/2020
+ms.date: 09/22/2020
 ---
 
 # Troubleshoot database corruption on Azure Database for MySQL
@@ -27,7 +27,7 @@ It is recommended to resolve the corruption issue with a **dump and restore meth
 ### Backup your database or tables
 
 > [!Important]
-> Make your have configured a firewall rule in order to access the server from your client machine. See how to configure [firewall rule on single server](howto-manage-firewall-using-portal.md) and [firewall rule on flexible server](how-to-connect-tls-ssl.md).
+> Make your have configured a firewall rule in order to access the server from your client machine. See how to configure [firewall rule on single server](howto-manage-firewall-using-portal.md) and [firewall rule on flexible server](flexible-server/how-to-connect-tls-ssl.md).
 > Use SSL option ```--ssl-cert``` for **mysqldump** if SSL enabled
 
 Create a backup file from the command-line using mysqldump using this command
@@ -64,11 +64,11 @@ The following steps show you how tp restore your database or tables. Once the ba
 mysql  --ssl-cert=</path/to/pem> -h [hostname] -u [uname] -p[pass] [db_to_restore] < [backupfile.sql]
 ```
 
-# Single Server [#tab/single-server]
+# [Single Server] [#tab/single-server]
 
 $ mysql --ssl-cert=</path/to/pem> -h mydemoserver.mysql.database.azure.com -u myadmin@mydemoserver -p testdb < testdb_backup.sql
 
-# Flexible Server [#tab/flexible-server]
+# [Flexible Server] [#tab/flexible-server]
 
 $ mysql --ssl-cert=</path/to/pem> -h mydemoserver.mysql.database.azure.com -u myadmin -p testdb < testdb_backup.sql
 
