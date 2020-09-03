@@ -220,7 +220,7 @@ Pipeline steps are reusable, and can be run without rerunning the previous steps
 
 ### Studio
 
-[Azure Machine Learning studio](https://ml.azure.com) provides a web view of all the artifacts in your workspace.  You can view results and details of your datasets, experiments, pipelines, models, and endpoints.  You can also manage compute resources and datastores in the studio.
+[Azure Machine Learning studio](overview-what-is-machine-learning-studio.md) provides a web view of all the artifacts in your workspace.  You can view results and details of your datasets, experiments, pipelines, models, and endpoints.  You can also manage compute resources and datastores in the studio.
 
 Studio is also where you access the interactive tools that are part of Azure Machine Learning:
 
