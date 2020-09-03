@@ -88,7 +88,7 @@
     - name: Create a premium file share
       href: storage-how-to-create-premium-fileshare.md
     - name: Create an NFS share
-      href: storage-files-how-to-create-mount-nfs-shares.md
+      href: storage-files-how-to-create-nfs-shares.md
   - name: Deploy
     items:
     - name: Deploy Azure Files
@@ -99,11 +99,13 @@
       href: ../../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-share.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
   - name: Mount
     items:
-    - name: Use Azure Files with Windows
+    - name: Mount SMB file share to Windows
       href: storage-how-to-use-files-windows.md
-    - name: Use Azure Files with Linux
+    - name: Mount NFS file share to Linux
       href: storage-how-to-use-files-linux.md
-    - name: Use Azure Files with macOS
+    - name: Mount SMB file share to Linux
+      href: storage-files-how-to-mount-nfs-shares.md
+    - name: Mount SMB file share to macOS
       href: storage-how-to-use-files-mac.md
   - name: Network
     items:

@@ -79,5 +79,5 @@ NFS with Azure Files is ideal for:
 
 ## Next steps
 
-- [Create an NFS file share](storage-files-how-to-create-mount-nfs-shares.md)
+- [Create an NFS file share](storage-files-how-to-create-nfs-shares.md)
 - Create an SMB file share
