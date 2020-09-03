@@ -76,6 +76,7 @@ Independent of your backup redundancy option, you can perform a restore to any p
 > There are two server parameters which are reset to default values (and are not copied over from the primary server) after the restore operation
 > * time_zone - This value to set to DEFAULT value **SYSTEM**
 > * event_scheduler - The event_scheduler is set to **OFF** on the restored server
+>
 > You will need to set these server parameters by reconfiguring the [server parameter](howto-server-parameters.md)
 
 Point-in-time restore is useful in multiple scenarios. For example, when a user accidentally deletes data, drops an important table or database, or if an application accidentally overwrites good data with bad data due to an application defect.
