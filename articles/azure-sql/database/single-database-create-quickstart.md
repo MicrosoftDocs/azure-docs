@@ -76,8 +76,6 @@ To create a single database in the Azure portal this quickstart starts at the Az
 
 The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account. 
 
-The Cloud Shell uses Bash or PowerShell so verify that you're session is set to Bash in the dropdown above the terminal window.
-
 To open the Cloud Shell, just select **Try it** from the upper right corner of a code block. You can also launch Cloud Shell in a separate browser tab by going to [https://shell.azure.com](https://shell.azure.com). Select **Copy** to copy the blocks of code, paste it into the Cloud Shell, and press **Enter** to run it.
 
 ## Set parameter values
@@ -162,8 +160,6 @@ You can create a resource group, server, and single database using Windows Power
 ## Launch Azure Cloud Shell
 
 The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account. 
-
-The Cloud Shell uses Bash or PowerShell so verify that you're session is set to PowerShell in the dropdown above the terminal window.
 
 To open the Cloud Shell, just select **Try it** from the upper right corner of a code block. You can also launch Cloud Shell in a separate browser tab by going to [https://shell.azure.com](https://shell.azure.com). Select **Copy** to copy the blocks of code, paste it into the Cloud Shell, and press **Enter** to run it.
 
