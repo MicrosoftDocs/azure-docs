@@ -43,7 +43,7 @@ The backup retention period governs how far back in time a point-in-time restore
 
 Azure Database for MySQL provides the flexibility to choose between locally redundant or geo-redundant backup storage in the General Purpose and Memory Optimized tiers. When the backups are stored in geo-redundant backup storage, they are not only stored within the region in which your server is hosted, but are also replicated to a [paired data center](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). This provides better protection and ability to restore your server in a different region in the event of a disaster. The Basic tier only offers locally redundant backup storage.
 
-> [!NOTE]
+> [!IMPORTANT]
 > Configuring locally redundant or geo-redundant storage for backup is only allowed during server create. Once the server is provisioned, you cannot change the backup storage redundancy option.
 
 ### Backup storage cost
@@ -72,7 +72,7 @@ The estimated time of recovery depends on several factors including the database
 
 Independent of your backup redundancy option, you can perform a restore to any point in time within your backup retention period. A new server is created in the same Azure region as the original server. It is created with the original server's configuration for the pricing tier, compute generation, number of vCores, storage size, backup retention period, and backup redundancy option.
 
-> [!IMPORTANT]
+> [!NOTE]
 > There are two server parameters which are reset to default values (and are not copied over from the primary server) after the restore operation
 > * time_zone - This value to set to DEFAULT value **SYSTEM**
 > * event_scheduler - The event_scheduler is set to **OFF** on the restored server
