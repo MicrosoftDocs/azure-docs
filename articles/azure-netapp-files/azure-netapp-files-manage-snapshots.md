@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 08/26/2020
+ms.date: 09/04/2020
 ms.author: b-juche
 ---
 # Manage snapshots by using Azure NetApp Files
@@ -176,29 +176,29 @@ If you selected the Hide Snapshot Path checkbox when you created the volume, the
 
     For example:
 
-    `$ ls my.txt`
-    `ls: my.txt: No such file or directory`
+    `$ ls my.txt`   
+    `ls: my.txt: No such file or directory`   
 
-    `$ ls .snapshot`
-    `daily.2020-05-14_0013/              hourly.2020-05-15_1106/`
-    `daily.2020-05-15_0012/              hourly.2020-05-15_1206/`
-    `hourly.2020-05-15_1006/             hourly.2020-05-15_1306/`
+    `$ ls .snapshot`   
+    `daily.2020-05-14_0013/              hourly.2020-05-15_1106/`   
+    `daily.2020-05-15_0012/              hourly.2020-05-15_1206/`   
+    `hourly.2020-05-15_1006/             hourly.2020-05-15_1306/`   
 
-    `$ ls .snapshot/hourly.2020-05-15_1306/my.txt`
+    `$ ls .snapshot/hourly.2020-05-15_1306/my.txt`   
     `my.txt`
 
 2. Use the `cp` command to copy the file to the parent directory.  
 
     For example: 
 
-    `$ cp .snapshot/hourly.2020-05-15_1306/my.txt .`
+    `$ cp .snapshot/hourly.2020-05-15_1306/my.txt .`   
 
-    `$ ls my.txt`
-    `my.txt`
+    `$ ls my.txt`   
+    `my.txt`   
 
 ### Restore a file by using a Windows client 
 
-1. If the `~snapshot` directory of the volume is hidden, [show hidden items](https://support.microsoft.com/help/4028316/windows-view-hidden-files-and-folders-in-windows-10) in the parent directory to display the directory.
+1. If the `~snapshot` directory of the volume is hidden, [show hidden items](https://support.microsoft.com/help/4028316/windows-view-hidden-files-and-folders-in-windows-10) in the parent directory to display `~snapshot`.
 
     ![Show hidden items](../media/azure-netapp-files/snapshot-show-hidden.png) 
 
@@ -206,11 +206,11 @@ If you selected the Hide Snapshot Path checkbox when you created the volume, the
 
     ![Copy file to restore](../media/azure-netapp-files/snapshot-copy-file-restore.png) 
 
-3. Return to the parent directory. Right-click in the directory and select `Paste` to paste the file to the directory.
+3. Return to the parent directory. Right-click in the parent directory and select `Paste` to paste the file to the directory.
 
     ![Paste file to restore](../media/azure-netapp-files/snapshot-paste-file-restore.png) 
 
-4. You can also right-click the parent directory, select **Properties**, click the **Previous Versions** tab to see the list of snapshots, and select **Restore** for the file you want to restore.  
+4. You can also right-click the parent directory, select **Properties**, click the **Previous Versions** tab to see the list of snapshots, and select **Restore** to restore a file.  
 
     ![Properties Previous Versions](../media/azure-netapp-files/snapshot-properties-previous-version.png) 
 

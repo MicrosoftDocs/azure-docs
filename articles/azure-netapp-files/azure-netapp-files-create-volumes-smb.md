@@ -183,7 +183,7 @@ This setting is configured in the **Active Directory Connections** under **NetAp
 
     The Active Directory connection you created appears.
 
-    ![Active Directory Connections](../media/azure-netapp-files/azure-netapp-files-active-directory-connections-created.png)
+    ![Created Active Directory connections](../media/azure-netapp-files/azure-netapp-files-active-directory-connections-created.png)
 
 ## Add an SMB volume
 
