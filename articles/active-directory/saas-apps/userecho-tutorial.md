@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with UserEcho | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and UserEcho.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: bedd916b-8f69-4b50-9b8d-56f4ee3bd3ed
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/29/2019
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with UserEcho
 

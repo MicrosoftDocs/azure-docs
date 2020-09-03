@@ -51,6 +51,21 @@ landingContent:
           - text: Import HSM-protected keys (overview)
             url: hsm-protected-keys.md
 
+# Card
+  - title: Client libraries for Key Vault keys
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: .NET client library
+            url: /dotnet/api/azure.security.keyvault.keys?view=azure-dotnet
+          - text: Python client library
+            url: /python/api/overview/azure/keyvault-keys-readme?view=azure-python
+          - text: Java client library
+            url: https://azuresdkdocs.blob.core.windows.net/$web/java/azure-security-keyvault-keys/4.2.0/index.html
+          - text: Node.js client library
+            url: /javascript/api/@azure/keyvault-keys/?view=azure-node-latest
+
+
   # Card
   - title: More about Key Vault
     linkLists:

@@ -1,6 +1,6 @@
 ---
 title: Azure Marketplace offer and service listing requirements
-description: This article explains requirements and guidelines for listing new offers and services on Azure Marketplace.  
+description: This article explains requirements and guidelines for listing new offers, services, and other IT solutions on Azure Marketplace.  
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
@@ -11,7 +11,7 @@ ms.date: 07/14/2020
 
 # Azure Marketplace listing guidelines
 
-This article explains the requirements and guidelines for listing new offers and services on Azure Marketplace. All offers must meet the requirements listed in the [Listing requirements for all offers](#listing-requirements-for-all-offers) section. Use the links on the right to jump to requirements and checklists for specific listing types.
+This article explains the requirements and guidelines for listing new offers and services on Azure Marketplace. All offers must meet the [listing requirements](#listing-requirements-for-all-offers) listed below. Use the links on the right to navigate to additional requirements and checklists for specific listing types.
 
 ## Listing requirements for all offers
 
@@ -19,7 +19,7 @@ This article explains the requirements and guidelines for listing new offers and
 |:--- |:--- |:--- |:--- |
 | 1 | Lead destination | Has a lead destination configured.| The One Commercial Partner (OCP) Catalog has the lead destination CRM information that's also listed in the partner solution tab. |
 | 2 | Offer title | Briefly describes the solution offering. Matches the online promotion of the solution on the partner's website. | Contains key search words. |
-| 3 | Logo | The logo is displayed correctly. | The logo is displayed correctly. |
+| 3 | Logo | The logo displays correctly.  | The logo displays correctly.  |
 | 4 |  Offer description | <ul><li> Contains 2-3 paragraphs.</li><li>Solution offering is easily understood at a glance.</li><li>Is free of spelling and grammar mistakes.</li><li>Is comprehensive and captures target audience, type of user, and why it's valuable (value proposition).</li><li>Is in paragraph narrative form with short sentences that are easy to understand.</li></ul> | <ul><li> The target industry is outlined (if relevant).</li><li>Good style formatting, with each paragraph heading having a single sentence or phrase summarizing the content that follows and using bullet points, when appropriate, to emphasize key benefits. The objective is for the reader to understand the offering at a glance in an easy-to-view format and not have to read long paragraphs.</li><li>There is spacing between each paragraph. It reads like a car brochure. That is, it is comprehensive and describes the offering simply, without technical jargon. | 
 | 5 | Categories and industries | <ul><li>Categories and subcategories must match offer capabilities </li><li>Do not select categories/subcategories that do not fit with your offer capabilities. </li></ul> | <ul><li>Select up to two categories, including a primary and a secondary category (optional).</li><li>Select up to two subcategories for each primary and/or secondary category. If no subcategory is selected, your offer will still be discoverable on the selected category.</li></ul> |
 | 6 | Images | <ul><li>Image requirements are listed in Partner Center.</li><li>Text included in the screenshot is legible, and the image is clear. | The solution offering is easily understood at a glance. |
@@ -45,10 +45,10 @@ This article explains the requirements and guidelines for listing new offers and
 | 1 | Offer title |<ul><li>Must consist only of lowercase letters, alphanumeric characters, dashes, or underscores. The title can't be modified after it's published.</li><li>Describes solution offering.</li><li>Matches online promotion of solution on partner's website. | Contains key search words. |
 | 2 | Technical information: Configuration |<ul><li>For software as a service (SaaS) apps, choose whether you want only to list your app or to enable customers to purchase your app through Azure.</li><li>Select the text that you want on your offer's acquisition button: *Free*, *Free Trial*, or *Contact Me*.</li><li>In the pop-up window, select only one applicable product if your app utilizes the technology: Cortana Intelligence, Power BI Solution Templates, or Power Apps. |  |
 | 3 | Test drive | Select *Yes* or *No* | Customer can readily understand what the next steps are: <ol><li>Try the Trial.</li><li>Buy Now.</li><li>Contact via email or phone number to arrange for POC, Assessment, or Briefing.</li></ol> |
-| 4 | Storefront details: Offer summary | Appears on your app's search page, and has a maximum of 100 characters. | |
-| 5 | Storefront details: Industries | Industries (max. 2): Select the industries that your app is best aligned and applicable to. | |
+| 4 | Online store details: Offer summary | Appears on your app's search page, and has a maximum of 100 characters. | |
+| 5 | Online store details: Industries | Industries (max. 2): Select the industries that your app is best aligned and applicable to. | |
 | 6 | Offer description | <ul><li>Simple HTML is allowed, including \<p>, \<em>, \<ul>, \<li>, \<ol>, and header tags. Max. 3000 characters.</li><li>Contains 2-3 paragraphs.</li><li>Solution offering is easily understood at a glance.</li><li>Description is comprehensive and captures target audience, type of user, and why it's valuable (value proposition).</li><li>Is in paragraph narrative form, with short sentences that are easy to understand. | <ul><li>Target industry is outlined (if relevant).</li><li>Good style formatting, with each paragraph heading having a single sentence or phrase summarizing the content that follows and using bullet points, when appropriate, to emphasize key benefits. The objective is for the reader to understand the offering at a glance in an easy-to-view format and not have to read paragraphs.</li><li>There is spacing between each paragraph. It reads like a car brochure. That is, it is comprehensive and describes the offering simply, without technical jargon. | 
-| 7 | Marketing artifacts | Logos are displayed correctly. | <ul><li>Logos: Small (48 x 48 pixels), Medium (90 x 90 pixels), and Large (between 216 x 216 and 350 x 350 pixels) are required.</li><li>Screenshot (max. 5): Requires a .PNG image with a resolution of 1280x720 pixels. |
+| 7 | Marketing artifacts | Logos are displayed correctly. | <ul><li>Logos: Small (48 x 48 px, optional), Medium (90 x 90 px, optional), and Large (from 216 x 216 to 350 x 350 px, required).</li><li>Screenshot (max. 5): Requires a .PNG image with a resolution of 1280x720 pixels. |
 | 8 | Categories and industries | <ul><li>Categories match solution offering capabilities.</li><li>Select at least one item in the pop-up window.</li><li>Do not select categories that the solution does not fit.</li><li>Optimal industry, or all industries selected (if not optimal industries). | Max. 3 categories selected, if applicable. |
 | 9 | Lead management | Select the system where your leads will be stored. See [get customer leads](./partner-center-portal/commercial-marketplace-get-customer-leads.md) to connect your CRM system. |  |
 | 10 | Contacts: Solution support and help | <ul><li>Engineering contact name: The name of the engineering contact for your app. This contact will receive technical communications from Microsoft.</li><li>Engineering contact email: The email address of the engineering contact for your app.</li><li>Engineering contacts phone: The phone number of the engineering contact. [ISO phone number notations](https://en.wikipedia.org/wiki/E.123) are supported.</li><li>Support contact name: The name of the support contact for your app. This contact will receive support-related communications from Microsoft.</li><li>Support contact email: The email address of the support contact for your app.</li><li>Support contact phone: The phone number of the support contact. [ISO phone number notations](https://en.wikipedia.org/wiki/E.123) are supported.</li><li>Support URL: The URL of your support page. | <ul><li>All support methods are listed.</li><li>Paid support offered free during the *Trial* or *Test Drive* period. |
@@ -61,7 +61,7 @@ This article explains the requirements and guidelines for listing new offers and
 |:--- |:--- |:--- |:--- |
 |1 |Offer settings | <ul><li>Offer ID: Max. 50 characters.</li><li>Publisher ID: Select it from the drop-down list.</li><li>Name: Max. 50 characters. | Mirrors the title style already available in the description. Avoid using long titles. |
 | 2 | Plans | The partner selects new plans.| The title mirrors the title style already available in the description. Avoid using long titles.  |
-| 3 | Marketplace artifacts | Logos are displayed correctly. |<ul><li>Logos: Small (48 x 48 pixels), Medium (90 x 90 pixels), and Large (between 216 x 216 and 350 x 350 pixels) are required.</li><li>Screenshot (max. 5): Requires a .PNG image with a resolution of 1280 x 720 pixels.|
+| 3 | Marketplace artifacts | Logos are displayed correctly. |<ul><li>Logos: Small (48 x 48 px, optional), Medium (90 x 90 px, optional), and Large (from 216 x 216 to 350 x 350 px, required).</li><li>Screenshot (max. 5): Requires a .PNG image with a resolution of 1280 x 720 pixels.|
 | 4 | Lead management |<ul><li>Lead management: Select the system where your leads will be stored.</li><li>See [get customer leads](./partner-center-portal/commercial-marketplace-get-customer-leads.md) to connect your CRM system. | |
 |||
 

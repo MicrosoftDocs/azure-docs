@@ -356,6 +356,8 @@
         href: ./set-up-pyspark-interactive-environment.md
     - name: Develop
       items:
+      - name: Optimize queries with SparkCruise
+        href: ./spark/spark-cruise.md
       - name: Use an interactive Apache Spark Shell
         href: ./spark/apache-spark-shell.md
       - name: Remote jobs with Apache Livy
@@ -947,6 +949,8 @@
       href: ./disk-encryption.md
     - name: LDAP sync in Ranger and Apache Ambari
       href: ./domain-joined/ldap-sync.md
+    - name: Double encryption in transit 
+      href: ./domain-joined/encryption-in-transit.md
   - name: How-to guides
     items:
     - name: Use ID Broker for credential management

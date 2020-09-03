@@ -28,6 +28,12 @@
       href: connect-php.md
     - name: Java
       href: connect-java.md
+    - name: Java with Spring Data JDBC
+      href: /azure/developer/java/spring-framework/configure-spring-data-jdbc-with-azure-mysql?toc=/azure/mysql/toc.json&bc=/azure/bread/toc.json
+    - name: Java with Spring Data JPA
+      href: /azure/developer/java/spring-framework/configure-spring-data-jpa-with-azure-mysql?toc=/azure/mysql/toc.json&bc=/azure/bread/toc.json
+    - name: Java with Spring Data R2DBC
+      href: /azure/developer/java/spring-framework/configure-spring-data-r2dbc-with-azure-mysql?toc=/azure/mysql/toc.json&bc=/azure/bread/toc.json
     - name: .NET
       href: connect-csharp.md
     - name: Python
@@ -68,9 +74,6 @@
     href: sample-scripts-azure-cli.md
   - name: Java connection pooling
     href: sample-scripts-java-connection-pooling.md
-  - name: Azure Policy built-ins
-    displayName: samples, policies, definitions
-    href: ./policy-samples.md
 - name: Concepts
   items:
   - name: DB & Servers
@@ -111,6 +114,9 @@
       href: concepts-azure-ad-authentication.md
     - name: Infrastructure double encryption
       href: concepts-infrastructure-double-encryption.md
+    - name: Security controls by Azure Policy
+      displayName: regulatory, compliance, standards, domains
+      href: ./security-controls-policy.md
     - name: Security baseline
       href: security-baseline.md
   - name: Business continuity
@@ -138,6 +144,8 @@
       href: concepts-server-parameters.md
   - name: Development
     items:
+    - name: Application Best practices
+      href: app-development-best-practices.md
     - name: Drivers and tools compatibility
       href: concepts-compatibility.md
     - name: Application development
@@ -148,10 +156,14 @@
       href: concepts-aks.md
     - name: Java
       items:
-      - name: Configure Spring Data JDBC
-        href: /java/azure/spring-framework/configure-spring-data-jdbc-with-azure-mysql
-      - name: Configure Spring Data JPA
-        href: /java/azure/spring-framework/configure-spring-data-jpa-with-azure-mysql
+      - name: Use Java and JDBC
+        href: connect-java.md
+      - name: Use Spring Data JDBC
+        href: /azure/developer/java/spring-framework/configure-spring-data-jdbc-with-azure-mysql?toc=/azure/mysql/toc.json&bc=/azure/bread/toc.json
+      - name: Use  Spring Data JPA
+        href: /azure/developer/java/spring-framework/configure-spring-data-jpa-with-azure-mysql?toc=/azure/mysql/toc.json&bc=/azure/bread/toc.json
+      - name: Use Spring Data R2DBC
+        href: /azure/developer/java/spring-framework/configure-spring-data-r2dbc-with-azure-mysql?toc=/azure/mysql/toc.json&bc=/azure/bread/toc.json
   - name: Replication
     items:
     - name: Data-in replication
@@ -250,6 +262,8 @@
       href: howto-read-replicas-powershell.md
   - name: Troubleshoot
     items:
+    - name: Troubleshoot common errors
+      href: howto-troubleshoot-common-errors.md
     - name: Troubleshoot connection errors
       href: howto-troubleshoot-common-connection-issues.md
     - name: Troubleshoot query performance
@@ -318,6 +332,9 @@
     href: /azure/templates/microsoft.dbformysql/allversions
   - name: Management stored procedures
     href: reference-stored-procedures.md
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-reference.md
 - name: Resources
   items:
   - name: Deployment templates
