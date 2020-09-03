@@ -34,6 +34,8 @@ Use the following command to create a resource group in Azure:
 az group create -n <ResourceGroupName> -l <Local>
 ```
 
+What locales are supported?
+
 Once created, your console returns the following output:
 
 ```json
@@ -81,7 +83,7 @@ Once complete you will see the public IP address that has been allocated during 
   "macAddress": "00-0D-3A-F7-BF-99",
   "powerState": "VM running",
   "privateIpAddress": "10.0.0.4",
-  "publicIpAddress": "52.175.208.216",
+  "publicIpAddress": "<xx.xx.xx.xx>",
   "resourceGroup": "<ResourceGroupName>",
   "zones": ""
 }
@@ -92,18 +94,18 @@ Once complete you will see the public IP address that has been allocated during 
 SSH to the VM to verify that you can connect and that port 22 is open.  Use a tool like [PuTTY](https://www.putty.org/) if you are on Windows to create an SSH terminal session to the VM.
 
 ```console
-ssh <AdminAccount>@52.175.208.216 -y
+ssh <AdminAccount>@<xx.xx.xx.xx> -y
 ```
 
 The first time you connect you will need to confirm the connection. You will then need to provide the password you created above.
 
 ```console
-ssh <AdminAccount>@52.175.208.216 -y
-The authenticity of host '52.175.208.216 (52.175.208.216)' can't be established.
+ssh <AdminAccount>@xx.xx.xx.xx -y
+The authenticity of host 'xx.xx.xx.xx (xx.xx.xx.xx)' can't be established.
 ECDSA key fingerprint is SHA256:C+tL3EnZS6mNgehHlztZnwdEPIqmYL0Ki27FCRdplgE.
 Are you sure you want to continue connecting (yes/no)? yes
-<AdminAccount>@52.175.208.216's password: 
-<AdminAccount>@52.175.208.216's password: 
+<AdminAccount>@xx.xx.xx.xx's password: 
+<AdminAccount>@xx.xx.xx.xx's password: 
 Welcome to Ubuntu 18.04.3 LTS (GNU/Linux 5.0.0-1027-azure x86_64)
 
  * Documentation:  https://help.ubuntu.com

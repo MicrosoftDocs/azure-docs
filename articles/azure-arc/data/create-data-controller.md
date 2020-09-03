@@ -18,7 +18,7 @@ ms.topic: how-to
 
 ## Overview of installing the Azure Arc data controller
 
-Azure Arc enabled data services is supported on multiple different types of Kubernetes clusters and managed Kubernetes services. Currently the supported list of services and distributions are the following:
+Azure Arc enabled data services is supported on different types of Kubernetes clusters and managed Kubernetes services. Currently the following distributions and services are supported:
 
 - Azure Kubernetes Service (AKS)
 - Azure Kubernetes Engine (AKE) on Azure Stack
@@ -29,19 +29,25 @@ Azure Arc enabled data services is supported on multiple different types of Kube
 
 Regardless of which target deployment platform  you choose you will need to set the following environment variables:
 
-- AZDATA_USERNAME - username of your choice
-- AZDATA_PASSWORD - password of your choice (The password must be at least 8 characters long and contain characters from three of the following four sets: uppercase letters, lowercase letters, numbers, and symbols.)
+- `AZDATA_USERNAME` - username of your choice
+- `AZDATA_PASSWORD` - password of your choice (The password must be at least 8 characters long and contain characters from three of the following four sets: uppercase letters, lowercase letters, numbers, and symbols.)
 
 You will also need to provide the following information in the `azdata arc dc create` command parameters:
 
 - Data controller name - any friendly name of your choice
 - Azure subscription ID - the Azure subscription ID for where you want the data controller resource in Azure to be created
 - Resource group name - the name of the resource group where you want the data controller resource in Azure to be created
-- Location - the Azure location where the data controller resource will be created in Azure - enter one of the following: eastus, eastus2, centralus, westus2, westeurope, southeastasia
+- Location - the Azure location where the data controller resource will be created in Azure - enter one of the following: 
+   - eastus
+   - eastus2
+   - centralus
+   - westus2
+   - westeurope
+   - southeastasia
 - Connectivity Mode - Connectivity mode of your cluster. Currently only "indirect" is supported
 
 > [!NOTE]
->  you can use a different value for the `--namespace` parameter of the azdata arc dc create command, but be sure to use that namespace in all other commands below such as the kubectl commands.
+>  you can use a different value for the `--namespace` parameter of the `azdata arc dc create` command, but be sure to use that namespace in all other commands below, such as the `kubectl` commands.
 
 ## Set the environment variables
 

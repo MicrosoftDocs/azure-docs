@@ -17,7 +17,7 @@ az login
 Delete the virtual machine by deleting the resource group that owns the virtual machine and its dependent resources.
 
 ```terminal
-az group delete --resource-group azurearcvm-rg --subscription 10760148-90d3-4744-973e-3e12e8ba28bf 
+az group delete --resource-group <GroupName> -rg --subscription <Subscription ID> 
 ```
 
 At the prompt confirm the action:

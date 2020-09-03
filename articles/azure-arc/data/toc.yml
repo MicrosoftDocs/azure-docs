@@ -14,6 +14,8 @@
         href: kickstarter-install.md
       - name: Kickstarter removal
         href: kickstarter-removal.md
+      - name: Delete Ubuntu VM - Azure
+        href: delete-ubuntu-vm.md
     - name: Install client tools
       href: install-client-tools.md
     - name: Create data controller
