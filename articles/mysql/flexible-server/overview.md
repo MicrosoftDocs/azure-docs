@@ -25,13 +25,22 @@ Flexible servers are best suited for
 - Zone redundant high availability
 - Managed maintenance windows
 
-## Zone redundant high availability
+## High availability within and across availability zones
 
-The flexible server deployment model is designed to support high availability within single availability zone and across multiple availability zones. The architecture separates compute and storage. The database engine runs on a virtual machine, while data files reside on Azure storage. The storage maintains three locally redundant synchronous copies of the database files ensuring data durability. 
+The flexible server deployment model is designed to support high availability within single availability zone and across multiple availability zones. The architecture separates compute and storage. The database engine runs on a virtual machine, while data files reside on Azure storage. The storage maintains three locally redundant synchronous copies of the database files ensuring data durability at all times. 
 
-If zone redundant high availability is configured, the service provisions and maintains a hot standby server across availability zone within the same Azure region. The data changes on the source server is synchronously replicated to the standby server to ensure zero data loss. With zone redundant high availability, once the planned or unplanned failover event is triggered, the standby server comes online immediately and is available to process incoming transactions. The typical failover time ranges from 60-120 seconds. This allows the service to support high availability and provide improved resiliency with tolerance for single availability zone failures in a given Azure region. 
+Within a single availability zone, if the server goes down due to planned or unplanned events, the service maintains high availability of the servers using following automated procedure:
 
-![Zone Redundant high availability conceptual diagram](media/overview/1-flexible-server-overview-zone-redundant-ha.png) 
+1. A new compute VM is provisioned.
+2. The storage with data files is mapped to the new Virtual Machine
+3. MySQL database engine is brought online on the new Virtual Machine.
+4. Client applications can reconnect once the server is ready to accept connections.
+   
+![Single Zone high availability conceptual diagram](media/overview/2-flexible-server-architecture.png) 
+
+If zone redundant high availability is configured, the service provisions and maintains a hot standby server across availability zone within the same Azure region. The data changes on the source server is synchronously replicated to the standby server to ensure zero data loss. With zone redundant high availability, once the planned or unplanned failover event is triggered, the standby server comes online immediately and is available to process incoming transactions. The typical failover time ranges from 60-120 seconds. This allows the service to support high availability and provide improved resiliency with tolerance for single availability zone failures in a given Azure region. See [high availability concepts](concepts-high-availability.md) for more details.
+
+![Zone Redundant high availability conceptual diagram](media/overview/3-flexible-server-overview-zone-redundant-ha.png) 
 
 ## Automated patching with managed maintenance window
 
@@ -39,11 +48,11 @@ The service performs automated patching of the underlying hardware, OS, and data
 
 ## Automatic backups
 
-The flexible server service automatically creates server backups and stores them in user configured locally redundant or geo-redundant storage. Backups can be used to restore your server to any point-in-time within the backup retention period. The default backup retention period is seven days. The retention can be optionally configured up to 35 days. All backups are encrypted using AES 256-bit encryption. Refer to Backups for details.
+The flexible server service automatically creates server backups and stores them in user configured locally redundant or geo-redundant storage. Backups can be used to restore your server to any point-in-time within the backup retention period. The default backup retention period is seven days. The retention can be optionally configured up to 35 days. All backups are encrypted using AES 256-bit encryption. See [Backup concepts](concepts-backup-restore.md) for details.
 
 ## Adjust performance and scale within seconds
 
-The flexible server service is available in three SKU tiers: Burstable, General Purpose, and Memory Optimized. The Burstable tier is best suited for low-cost development and low concurrency workloads that do not need full compute capacity continuously. The General Purpose and Memory Optimized are better suited for production workloads requiring high concurrency, scale, and predictable performance. You can build your first app on a small database for a few dollars a month, and then seamlessly adjust the scale to meet the needs of your solution. The storage scaling is online and supports storage autogrowth. Dynamic scalability enables your database to transparently respond to rapidly changing resource requirements. You only pay for the resources you consume. 
+The flexible server service is available in three SKU tiers: Burstable, General Purpose, and Memory Optimized. The Burstable tier is best suited for low-cost development and low concurrency workloads that do not need full compute capacity continuously. The General Purpose and Memory Optimized are better suited for production workloads requiring high concurrency, scale, and predictable performance. You can build your first app on a small database for a few dollars a month, and then seamlessly adjust the scale to meet the needs of your solution. The storage scaling is online and supports storage autogrowth. Dynamic scalability enables your database to transparently respond to rapidly changing resource requirements. You only pay for the resources you consume. See [Compute and Storage concepts](concepts-compute-storage.md) for more details.
 
 ## Stop/Start server to optimize cost
 
@@ -57,7 +66,7 @@ Flexible servers allows full private access to the servers using [Azure virtual 
 
 ## Monitoring and alerting
 
-The flexible server service is equipped with built-in performance monitoring and alerting features. All Azure metrics have a one-minute frequency, and each metric provides 30 days of history. You can configure alerts on the metrics. The service exposes host server metrics to monitor resources utilization and allows configuring slow query logs. Using these tools, you can quickly optimize your workloads, and configure your server for best performance. 
+The flexible server service is equipped with built-in performance monitoring and alerting features. All Azure metrics have a one-minute frequency, and each metric provides 30 days of history. You can configure alerts on the metrics. The service exposes host server metrics to monitor resources utilization and allows configuring slow query logs. Using these tools, you can quickly optimize your workloads, and configure your server for best performance. See [Monitoring concepts](concepts-monitoring.md) for more details
 
 ## Migration
 
@@ -70,12 +79,13 @@ The service runs the community version of MySQL. This allows full application co
 Now that you've read an introduction to Azure Database for MySQL single server deployment mode, you're ready to:
 
 - Create your first server. 
-  - Create an Azure Database for MySQL flexible server using Azure portal
-  - Create an Azure Database for MySQL flexible server using Azure CLI
-  - Azure CLI samples for Azure Database for MySQL
+  - [Create an Azure Database for MySQL flexible server using Azure portal](quickstart-create-server-portal.md)
+  - [Create an Azure Database for MySQL flexible server using Azure CLI](quickstart-create-server-cli.md)
+  - [Manage an Azure Database for MySQL Flexible Server using the Azure CLI](how-to-manage-cli.md)
 
 - Build your first app using your preferred language:
-  - Python
+  - [Python](connect-python.md)
+  - [Php](connect-php.md)
   - Java
   - Ruby
   - .NET
