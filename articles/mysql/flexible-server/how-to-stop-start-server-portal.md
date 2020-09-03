@@ -20,23 +20,21 @@ To complete this how-to guide, you need:
 
 ## Stop a running server
 
-1.  In the [Azure portal](https://portal.azure.com/), choose your flexible server that you want to **Stop**.
-
-2.  Click **Overview** from the left panel.
+1.  In the [Azure portal](https://portal.azure.com/), choose your flexible server that you want to stop.
   
-3.  From the overview page, click **Stop** button. 
+2.  From the **Overview** page, click the **Stop** button in the toolbar.
 
-4.  Once the server is stopped, the other management operations are not available for the flexible server.
+> [!NOTE]
+> Once the server is stopped, the other management operations are not available for the flexible server.
 
 ## Start a stopped server
 
-1.  In the [Azure portal](https://portal.azure.com/), choose your flexible server that you want to **Start**.
-
-2.  Click **Overview** from the left panel.
+1.  In the [Azure portal](https://portal.azure.com/), choose your flexible server that you want to start.
   
-3.  From the overview page, click **Start** button. 
+2.  From the **Overview** page, click the **Stop** button in the toolbar.
 
-4.  Once the server is started, all management operations are now available for the flexible server.
+> [!NOTE]
+> Once the server is started, all management operations are now available for the flexible server.
 
 ## Next steps
 - Learn more about [networking in Azure Database for MySQL Flexible Server]<!-- FIX ME(./concepts-networking-overview.md).-->

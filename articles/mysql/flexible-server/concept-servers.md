@@ -36,13 +36,14 @@ Within an Azure Database for MySQL Flexible Server, you can create one or multip
 
 ## Stop/Start an Azure Database for MySQL Flexible Server
 
-Azure Database for MySQL Flexible Server gives you the ability to **Stop** the server when not in use and **Start** the servers when you resume activity. This is essentially done to save costs on the database servers and only pay for the resource when in use. This becomes even more important for the dev-test workloads and when customers are only using the server for part of the day. When you stop the server, all active connections will be dropped. Later when you want to bring the server back up, you can either use the [Azure portal](how-to-stop-start-server-portal.md) or CLI.
-During the time when the server is in the **Stop** state, there is no billing for the server’s compute. However, storage billing continues to be there since it is still being actively used.
+Azure Database for MySQL Flexible Server gives you the ability to **Stop** the server when not in use and **Start** the server when you resume activity. This is essentially done to save costs on the database servers and only pay for the resource when in use. This becomes even more important for dev-test workloads and when you are only using the server for part of the day. When you stop the server, all active connections will be dropped. Later, when you want to bring the server back online, you can either use the [Azure portal](how-to-stop-start-server-portal.md) or CLI.
+
+When the server is in the **Stopped** state, the server's compute is not billed. However, storage continues to to be billed as the server's storage remains to ensure that data files are available when the server is started again.
 
 > [!IMPORTANT]
 > When you **Stop** the server it remains in that state for the next 7 days in a stretch. If you do not manually **Start** it during this time, the server will automatically be started at the end of 7 days. You can chose to **Stop** it again if you are not using the server.
 
-Additionally, during the time server is in the stopped, no management operations can be performed on the server. In order to change any configuration settings on the server, you will need to [Start the server](how-to-stop-start-server-portal.md). Refer to the [limitation of Stop/Start](./concepts-limitation.md).
+During the time server is stopped, no management operations can be performed on the server. In order to change any configuration settings on the server, you will need to [start the server](how-to-stop-start-server-portal.md). Refer to the [stop/start limitations](./concepts-limitations.md#stopstart-operation).
 
 ## How do I manage a server?
 
