@@ -103,9 +103,9 @@ File format dataset can be used with all the file-based connectors, for example,
 
 On ADF authoring UI, when you use a file format dataset in an activity - including Copy, Lookup, GetMetadata, Delete activities - and in dataset you want to point to a linked service of different type from the current (e.g. switch from File System to ADLS Gen2), you would see the following warning message. To make sure it’s a clean switch, upon your consent, the pipelines and activities, which reference this dataset will be modified to use the new type as well, and any existing data store settings, which are incompatible with the new type will be cleared as it no longer applies.
 
-To learn more on which the supported data store settings for each connector, you can go to the corresponding connector article -> copy activity properties to see the detailed property list. Refer to [Amazon S3](connector-amazon-simple-storage-service.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure File Storage](connector-azure-file-storage.md), [File System](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](data-factory/connector-hdfs.md), [HTTP](connector-http.md), and [SFTP](connector-sftp.md).
+To learn more on which the supported data store settings for each connector, you can go to the corresponding connector article -> copy activity properties to see the detailed property list. Refer to [Amazon S3](connector-amazon-simple-storage-service.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure File Storage](connector-azure-file-storage.md), [File System](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md), and [SFTP](connector-sftp.md).
 
-![Command response 2](media/data-factory-ux-troubleshoot-guide/warning-message.png)
+![Warning message](media/data-factory-ux-troubleshoot-guide/warning-message.png)
 
 ## Next steps
 
