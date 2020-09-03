@@ -1,7 +1,7 @@
 ---
 title: how to onboard your datafeed to Metrics Advisor
 titleSuffix: Azure Cognitive Services
-description: How do onboard your data feeds to Metrics Advisor
+description: How to onboard your data feeds to Metrics Advisor
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -14,13 +14,15 @@ ms.author: aahi
 
 # How-to: Onboard your data
 
+Use this article to learn about onboarding your data to Metrics Advisor. 
+
 ## Avoid loading partial data
 
 Partial data is caused by inconsistencies between the data stored in Metrics Advisor and the data source. This can happen when the data source is updated after Metrics Advisor has finished pulling data. Metrics Advisor pulls data from a given data source once.
 
 For example, suppose you have two data sources. If the data for a given date is available in the first data source, but not the second, Metrics Advisor will only retrieve metrics from the first data source. If this data is later added to the second data source, Metrics Advisor won't retrieve it. 
 
-You can try to [backfill](#backfill-your-data-feed) historical data (described below) to mitigate inconsistencies but this won't trigger new anomaly alerts, if alerts for those time points have already been triggered. This process may add additional workload to the system, and is not automatic.
+You can try to [backfill](#backfill-your-data-feed) historical data (described later) to mitigate inconsistencies but this won't trigger new anomaly alerts, if alerts for those time points have already been triggered. This process may add additional workload to the system, and is not automatic.
 
 To avoid loading partial data, we recommend two approaches:
 

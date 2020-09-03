@@ -15,6 +15,8 @@
     href: quickstarts/explore-the-demo.md
 - name: How-tos
   items:
+  - name: Onboard your data
+    href: how-tos/onboard-your-data.md
   - name: Manage data feeds
     href: how-tos/datafeeds.md
   - name: Configure metrics and anomaly detection
@@ -31,3 +33,9 @@
   items:
   - name: Glossary
     href: glossary.md
+  - name: Metrics Advisor API
+    href: https://docs.microsoft.com/rest/api/cognitiveservices/
+  - name: Azure CLI reference 
+    href: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list
+  - name: PowerShell reference
+    href: https://aka.ms/azure-powershell-cognitiveservices
