@@ -63,6 +63,7 @@ Container images for Read are available.
 
 | Container | Container Registry / Repository / Image Name |
 |-----------|------------|
+| Read 2.0 | `mcr.microsoft.com/azure-cognitive-services/vision/read-2.0` |
 | Read 3.0 | `mcr.microsoft.com/azure-cognitive-services/vision/read-3.0` |
 | Read 3.1 | `mcr.microsoft.com/azure-cognitive-services/vision/read-3.1` |
 
@@ -70,16 +71,16 @@ Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pul
 
 ### Docker pull for the Read container
 
-# [Version 3.0](#tab/version-3)
-
-```bash
-docker pull mcr.microsoft.com/azure-cognitive-services/vision/read-3.0:latest
-```
-
 # [Version 3.1](#tab/version-3-1)
 
 ```bash
 docker pull mcr.microsoft.com/azure-cognitive-services/vision/read-3.1:latest
+```
+
+# [Version 3.0](#tab/version-3)
+
+```bash
+docker pull mcr.microsoft.com/azure-cognitive-services/vision/read-3.0:latest
 ```
 
 # [Version 2.0](#tab/version-2)
@@ -104,11 +105,11 @@ Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) 
 
 [Examples](computer-vision-resource-container-config.md#example-docker-run-commands) of the `docker run` command are available.
 
-# [Version 3.0](#tab/version-3)
+# [Version 3.1](#tab/version-3-1)
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
-mcr.microsoft.com/azure-cognitive-services/vision/read-3.0 \
+mcr.microsoft.com/azure-cognitive-services/vision/read-3.1 \
 --env Eula=accept \
 --env Billing={ENDPOINT_URI} \
 --env ApiKey={API_KEY} \
@@ -121,11 +122,11 @@ This command:
 * Exposes TCP port 5000 and allocates a pseudo-TTY for the container.
 * Automatically removes the container after it exits. The container image is still available on the host computer.
 
-# [Version 3.1](#tab/version-3-1)
+# [Version 3.0](#tab/version-3)
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
-mcr.microsoft.com/azure-cognitive-services/vision/read-3.1 \
+mcr.microsoft.com/azure-cognitive-services/vision/read-3.0 \
 --env Eula=accept \
 --env Billing={ENDPOINT_URI} \
 --env ApiKey={API_KEY} \
@@ -177,119 +178,6 @@ Use the host, `http://localhost:5000`, for container APIs. You can view the Swag
 
 ### Asynchronous read
 
-# [Version 3.0](#tab/version-3)
-
-You can use the `POST /vision/v3.0/read/analyze` and `GET /vision/v3.0/read/operations/{operationId}` operations in concert to asynchronously read an image, similar to how the Computer Vision service uses those corresponding REST operations. The asynchronous POST method will return an `operationId` that is used as the identifer to the HTTP GET request.
-
-From the swagger UI, select the `asyncBatchAnalyze` to expand it in the browser. Then select **Try it out** > **Choose file**. In this example, we'll use the following image:
-
-![tabs vs spaces](media/tabs-vs-spaces.png)
-
-When the asynchronous POST has run successfully, it returns an **HTTP 202** status code. As part of the response, there is an `operation-location` header that holds the result endpoint for the request.
-
-```http
- content-length: 0
- date: Fri, 04 Sep 2020 16:23:01 GMT
- operation-location: http://localhost:5000/vision/v3.0/read/operations/a527d445-8a74-4482-8cb3-c98a65ec7ef9
- server: Kestrel
-```
-
-The `operation-location` is the fully qualified URL and is accessed via an HTTP GET. Here is the JSON response from executing the `operation-location` URL from the preceding image:
-
-```json
-{
-  "status": "succeeded",
-  "createdDateTime": "2020-09-02T10:24:49Z",
-  "lastUpdatedDateTime": "2020-09-02T10:24:50Z",
-  "analyzeResult": {
-    "version": "3.0.0",
-    "readResults": [
-      {
-        "page": 1,
-        "angle": 2.12,
-        "width": 502,
-        "height": 252,
-        "unit": "pixel",
-        "language": "",
-        "lines": [
-          {
-            "boundingBox": [
-              58,
-              42,
-              314,
-              59,
-              311,
-              123,
-              56,
-              121
-            ],
-            "text": "Tabs vs",
-            "words": [
-              {
-                "boundingBox": [
-                  85,
-                  45,
-                  242,
-                  62,
-                  241,
-                  122,
-                  83,
-                  123
-                ],
-                "text": "Tabs",
-                "confidence": 0.981
-              },
-              {
-                "boundingBox": [
-                  258,
-                  64,
-                  314,
-                  72,
-                  314,
-                  123,
-                  256,
-                  123
-                ],
-                "text": "vs",
-                "confidence": 0.958
-              }
-            ]
-          },
-          {
-            "boundingBox": [
-              286,
-              171,
-              415,
-              165,
-              417,
-              197,
-              287,
-              201
-            ],
-            "text": "paces",
-            "words": [
-              {
-                "boundingBox": [
-                  303,
-                  175,
-                  415,
-                  167,
-                  415,
-                  198,
-                  306,
-                  199
-                ],
-                "text": "paces",
-                "confidence": 0.918
-              }
-            ]
-          }
-        ]
-      }
-    ]
-  }
-}
-```
 
 # [Version 3.1](#tab/version-3-1)
 
@@ -414,6 +302,120 @@ The `operation-location` is the fully qualified URL and is accessed via an HTTP 
 }
 ```
 
+# [Version 3.0](#tab/version-3)
+
+You can use the `POST /vision/v3.0/read/analyze` and `GET /vision/v3.0/read/operations/{operationId}` operations in concert to asynchronously read an image, similar to how the Computer Vision service uses those corresponding REST operations. The asynchronous POST method will return an `operationId` that is used as the identifer to the HTTP GET request.
+
+From the swagger UI, select the `asyncBatchAnalyze` to expand it in the browser. Then select **Try it out** > **Choose file**. In this example, we'll use the following image:
+
+![tabs vs spaces](media/tabs-vs-spaces.png)
+
+When the asynchronous POST has run successfully, it returns an **HTTP 202** status code. As part of the response, there is an `operation-location` header that holds the result endpoint for the request.
+
+```http
+ content-length: 0
+ date: Fri, 04 Sep 2020 16:23:01 GMT
+ operation-location: http://localhost:5000/vision/v3.0/read/operations/a527d445-8a74-4482-8cb3-c98a65ec7ef9
+ server: Kestrel
+```
+
+The `operation-location` is the fully qualified URL and is accessed via an HTTP GET. Here is the JSON response from executing the `operation-location` URL from the preceding image:
+
+```json
+{
+  "status": "succeeded",
+  "createdDateTime": "2020-09-02T10:24:49Z",
+  "lastUpdatedDateTime": "2020-09-02T10:24:50Z",
+  "analyzeResult": {
+    "version": "3.0.0",
+    "readResults": [
+      {
+        "page": 1,
+        "angle": 2.12,
+        "width": 502,
+        "height": 252,
+        "unit": "pixel",
+        "language": "",
+        "lines": [
+          {
+            "boundingBox": [
+              58,
+              42,
+              314,
+              59,
+              311,
+              123,
+              56,
+              121
+            ],
+            "text": "Tabs vs",
+            "words": [
+              {
+                "boundingBox": [
+                  85,
+                  45,
+                  242,
+                  62,
+                  241,
+                  122,
+                  83,
+                  123
+                ],
+                "text": "Tabs",
+                "confidence": 0.981
+              },
+              {
+                "boundingBox": [
+                  258,
+                  64,
+                  314,
+                  72,
+                  314,
+                  123,
+                  256,
+                  123
+                ],
+                "text": "vs",
+                "confidence": 0.958
+              }
+            ]
+          },
+          {
+            "boundingBox": [
+              286,
+              171,
+              415,
+              165,
+              417,
+              197,
+              287,
+              201
+            ],
+            "text": "paces",
+            "words": [
+              {
+                "boundingBox": [
+                  303,
+                  175,
+                  415,
+                  167,
+                  415,
+                  198,
+                  306,
+                  199
+                ],
+                "text": "paces",
+                "confidence": 0.918
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
 # [Version 2](#tab/version-2)
 
 You can use the `POST /vision/v2.0/read/core/asyncBatchAnalyze` and `GET /vision/v2.0/read/operations/{operationId}` operations in concert to asynchronously read an image, similar to how the Computer Vision service uses those corresponding REST operations. The asynchronous POST method will return an `operationId` that is used as the identifer to the HTTP GET request.
@@ -479,9 +481,9 @@ The `operation-location` is the fully qualified URL and is accessed via an HTTP 
 
 ### Synchronous read
 
-# [Version 3.0](#tab/version-3)
+# [Version 3.1](#tab/version-3-1)
 
-You can use the `POST /vision/v3.0/read/SyncAnalyze` operation to synchronously read an image. When the image is read in its entirety, then and only then does the API return a JSON response. The only exception to this is if an error occurs. When an error occurs the following JSON is returned:
+You can use the `POST /vision/v3.1/read/syncAnalyze` operation to synchronously read an image. When the image is read in its entirety, then and only then does the API return a JSON response. The only exception to this is if an error occurs. When an error occurs the following JSON is returned:
 
 ```json
 {
@@ -489,9 +491,9 @@ You can use the `POST /vision/v3.0/read/SyncAnalyze` operation to synchronously 
 }
 ```
 
-# [Version 3.1](#tab/version-3-1)
+# [Version 3.0](#tab/version-3)
 
-You can use the `POST /vision/v3.1/read/syncAnalyze` operation to synchronously read an image. When the image is read in its entirety, then and only then does the API return a JSON response. The only exception to this is if an error occurs. When an error occurs the following JSON is returned:
+You can use the `POST /vision/v3.0/read/SyncAnalyze` operation to synchronously read an image. When the image is read in its entirety, then and only then does the API return a JSON response. The only exception to this is if an error occurs. When an error occurs the following JSON is returned:
 
 ```json
 {
