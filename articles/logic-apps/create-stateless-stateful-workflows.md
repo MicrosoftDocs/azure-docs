@@ -64,6 +64,16 @@ This table specifies the child workflow's behavior based on whether the parent a
 
 * Access to the internet so that you can download the requirements and sign in to your Azure account
 
+* To follow along with the example workflow app that you create in this topic, you'll need an Office 365 Outlook email account where you sign in with a Microsoft work or school account.
+
+  You can use a different [email service that's supported by Azure Logic Apps](/connectors/), such as Outlook.com or Gmail. If you use a different email service, the overall general steps are the same, but your user interface might differ slightly. For example, if you use Outlook.com, you'll use your personal Microsoft account to sign in.
+
+  > [!IMPORTANT]
+  > If you want to use the Gmail connector, only G-Suite business accounts can use this connector without restriction in logic apps. 
+  > If you have a Gmail consumer account, you can use this connector with only specific Google-approved services, or you can 
+  > [create a Google client app to use for authentication with your Gmail connector](/connectors/gmail/#authentication-and-bring-your-own-application). 
+  > For more information, see [Data security and privacy policies for Google connectors in Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
+
 * [Visual Studio Code version 1.25.1 or later](https://code.visualstudio.com/), which is free, along with these tools for Visual Studio Code:
 
   * [C# for Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp), which enables F5 functionality to run your workflow
@@ -244,11 +254,17 @@ Now, continue creating your workflow app.
 
    ![Screenshot that shows Explorer pane with locations list and "West Central US" selected](./media/create-stateless-stateful-workflows/select-azure-region.png)
 
-   When Visual Studio Code starts the workflow design-time API, a message appears that startup might take a few seconds. You can ignore this message or select **OK**.
+   After you perform this step, Visual Studio Code opens the Logic App Designer.
 
-1. After the Logic App Designer appears, [add a trigger and actions](#add-trigger-actions) to your workflow app.
+   > [!NOTE]
+   > When Visual Studio Code starts the workflow design-time API, a message appears that 
+   > startup might take a few seconds. You can ignore this message or select **OK**.
+
+   After the Logic App Designer appears, the **Choose an operation** prompt on the designer appears selected by default, which shows the **Add an action** pane.
 
    ![Screenshot that shows Logic App Designer](./media/create-stateless-stateful-workflows/workflow-app-designer.png)
+
+1. Next, [add a trigger and actions](#add-trigger-actions) to your workflow app.
 
 <a name="add-trigger-actions"></a>
 
@@ -269,15 +285,25 @@ The workflow in this example adds this trigger and these actions:
 
 * The built-in Local Function Operations action, **Invoke a function in this function app**
 
-1. Under the designer search box, make sure that **Built-in** is selected. Find and select the built-in Request trigger that's named **When a HTTP request is received**.
+1. Under the **Choose an operation** search box, make sure that **Built-in** is selected. Find and select the built-in Request trigger that's named **When a HTTP request is received**.
 
-   ![Screenshot that shows Logic App Designer with "When a HTTP request is received" trigger selected](./media/create-stateless-stateful-workflows/add-request-trigger.png)
+   ![Screenshot that shows Logic App Designer and **Add an action** pane with "When a HTTP request is received" trigger selected](./media/create-stateless-stateful-workflows/add-request-trigger.png)
 
-1. Under the trigger, select **Next step**.
+1. Under the trigger that now appears on the designer, select **Next step**.
 
-1. Under the **Choose an action** search box, select **Azure** so that you can find and select a managed connector. For this example, select the Office 365 Outlook action, **Send an email (V2)**.
+   The **Add an action pane** reopens so that you can select the next action.
 
-   ![Screenshot that shows Logic App Designer with Office 365 Outlook "Send an email" action selected](./media/create-stateless-stateful-workflows/add-send-email-action.png)
+1. Under the **Choose an operation** search box, select **Azure** so that you can find and select a managed connector. For this example, select the Office 365 Outlook action, **Send an email (V2)**.
+
+   ![Screenshot that shows Logic App Designer and **Add an action** pane with Office 365 Outlook "Send an email" action selected](./media/create-stateless-stateful-workflows/add-send-email-action.png)
+
+1. On the designer, select the Office 365 Outlook action. When the **Send an email (V2)** pane appears, select **Sign in** so that you can create a connection.
+
+   ![Screenshot that shows Logic App Designer and **Send an email (V2)** pane with "Sign in" selected](./media/create-stateless-stateful-workflows/send-email-action-sign-in.png)
+
+1. Follow the prompts to finish signing in.
+
+   ![Screenshot that shows Visual Studio Code prompt to open website for sign-in](./media/create-stateless-stateful-workflows/visual-studio-code-open-external-website.png)
 
 1. Provide the required information for the email action, for example:
 
