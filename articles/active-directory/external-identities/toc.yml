@@ -30,10 +30,10 @@
   - name: Concepts
     expanded: false
     items:
+    - name: External Identities pricing
+      href: external-identities-pricing.md
     - name: B2B best practices
       href: b2b-fundamentals.md
-    - name: B2B licensing
-      href: licensing-guidance.md
     - name: B2B and Office 365 external sharing
       href: o365-external-user.md
     - name: Invitation redemption

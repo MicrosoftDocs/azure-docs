@@ -7,7 +7,7 @@ ms.assetid: e54750b4-4518-4262-8f23-ca2f0c7c0439
 ---
 # Create Azure Recovery Services vault using REST API
 
-The steps to create an Azure Recovery Services vault using REST API are outlined in [create vault REST API](/rest/api/recoveryservices/vaults/createorupdate) documentation. Let us use this document as a reference to create a vault called "testVault" in "West US".
+The steps to create an Azure Recovery Services vault using REST API are outlined in [create vault REST API](/rest/api/recoveryservices/vaults/createorupdate) documentation. Let's use this document as a reference to create a vault called "testVault" in "West US".
 
 To create or update an Azure Recovery Services vault, use the following *PUT* operation.
 

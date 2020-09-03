@@ -52,7 +52,7 @@ Commercial marketplace offerings can be purchased in 141 geographies as defined 
 | Croatia                             | HR        | EUR          |
 | Curaçao                             | CW        | USD          |
 | Cyprus                              | CY        | EUR          |
-| Czech Republic                      | CZ        | EUR          |
+| Czechia                      | CZ        | EUR          |
 | Denmark                             | DK        | DKK          |
 | Dominican Republic                  | DO        | USD          |
 | Ecuador                             | EC        | USD          |
@@ -94,7 +94,6 @@ Commercial marketplace offerings can be purchased in 141 geographies as defined 
 | Lithuania                           | LT        | EUR          |
 | Luxembourg                          | LU        | EUR          |
 | Macao SAR                           | MO        | USD          |
-| North Macedonia                     | MK        | USD          |
 | Malaysia                            | MY        | USD          |
 | Malta                               | MT        | EUR          |
 | Mauritius                           | MU        | USD          |
@@ -110,6 +109,7 @@ Commercial marketplace offerings can be purchased in 141 geographies as defined 
 | New Zealand                         | NZ        | NZD          |
 | Nicaragua                           | NI        | USD          |
 | Nigeria                             | NG        | USD          |
+| North Macedonia                     | MK        | USD          |
 | Norway                              | NO        | NOK          |
 | Oman                                | OM        | USD          |
 | Pakistan                            | PK        | USD          |
@@ -161,7 +161,7 @@ Commercial marketplace offerings can be purchased in 141 geographies as defined 
 | Zimbabwe                            | ZW        | USD          |
 |   |   |   |
 
-\* For customers in Brazil, the Marketplace through Cloud Solution Providers (CSP) uses USD.
+\* For customers in Brazil, the commcercial marketplace through Cloud Solution Providers (CSP) uses USD.
 
 \** Free and BYOL VM images only.
 
@@ -185,7 +185,7 @@ Microsoft receives payments from customers in their local currency, and pays you
 
 Individual prices (which, depending on how they were set, may have been influenced by the exchange rates on the day they were saved) can be retrieved using an API; currency information can't.
 
-For details on how to enter price for specific offer types, refer to these articles:
+For details on how to enter prices for specific offer types, refer to these articles:
 
 - [Create an Azure application offer](partner-center-portal/create-new-azure-apps-offer.md)
 - [Create an Azure container offer](partner-center-portal/create-azure-container-offer.md)
