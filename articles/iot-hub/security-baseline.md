@@ -81,11 +81,11 @@ Azure DDoS Protection Basic is already enabled and available for no additional c
 
 ### 1.5: Record network packets
 
-**Guidance**: 
+**Guidance**: Not applicable; this recommendation is intended for offerings that produce network packets that can be recorded and viewed by customers. IoT Hub does not produce network packets that are customer facing, and is not designed to deploy directly into Azure virtual networks.
 
 **Azure Security Center monitoring**: No
 
-**Responsibility**: Customer
+**Responsibility**: Not Applicable
 
 ### 1.6: Deploy network-based intrusion detection/intrusion prevention systems (IDS/IPS)
 
