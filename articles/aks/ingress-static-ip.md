@@ -167,8 +167,12 @@ spec:
 To create the issuer, use the `kubectl apply` command.
 
 ```
-$ kubectl apply -f cluster-issuer.yaml --namespace ingress-basic
+kubectl apply -f cluster-issuer.yaml --namespace ingress-basic
+```
 
+This should produce an output similar to:
+
+```
 clusterissuer.cert-manager.io/letsencrypt-staging created
 ```
 
@@ -305,8 +309,12 @@ spec:
 Create the ingress resource using the `kubectl apply` command.
 
 ```
-$ kubectl apply -f hello-world-ingress.yaml --namespace ingress-basic
+kubectl apply -f hello-world-ingress.yaml --namespace ingress-basic
+```
 
+This should return an output similar to:
+
+```
 ingress.extensions/hello-world-ingress created
 ```
 
