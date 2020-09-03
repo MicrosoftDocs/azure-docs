@@ -53,6 +53,7 @@ All database files must be stored on mounted disks of Azure block storage (Windo
 Any kind of network drives or remote shares like the following Azure services are **NOT** supported for database files: 
 
 * [Microsoft Azure File Service](https://docs.microsoft.com/archive/blogs/windowsazurestorage/introducing-microsoft-azure-file-service)
+
 * [Azure NetApp Files](https://azure.microsoft.com/services/netapp/)
 
 Using disks based on Azure Page BLOB Storage or Managed Disks, the statements made in [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md) apply to deployments with the Db2 DBMS as well.
@@ -67,7 +68,7 @@ Alternatively, you can use Windows Storage Pools (only available in Windows Serv
 
 <!-- sapdata and saptmp are terms in the SAP and DB2 world and now spelling errors -->
 
-For the disks containing the Db2 storage paths for your sapdata and saptmp directories, you must specify a physical disk sector size of 512 KB. When using Windows Storage Pools, you must create the storage pools  manually via command line interface using the parameter `-LogicalSectorSizeDefault`. For more information, see <https://technet.microsoft.com/itpro/powershell/windows/storage/new-storagepool>.
+For the disks containing the Db2 storage paths for your `sapdata` and `saptmp` directories, you must specify a physical disk sector size of 512 KB. When using Windows Storage Pools, you must create the storage pools  manually via command line interface using the parameter `-LogicalSectorSizeDefault`. For more information, see <https://technet.microsoft.com/itpro/powershell/windows/storage/new-storagepool>.
 
 For Azure M-Series VM, the latency writing into the transaction logs can be reduced by factors, compared to Azure Premium Storage performance, when using Azure Write Accelerator. Hence, you should deploy Azure Write Accelerator for the VHD(s) that form the volume for the Db2 transaction logs. Details can be read in the document [Write Accelerator](../../how-to-enable-write-accelerator.md).
 

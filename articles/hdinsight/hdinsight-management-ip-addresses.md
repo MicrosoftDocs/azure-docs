@@ -7,15 +7,20 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 03/03/2020
+ms.date: 08/11/2020
 ---
-
 # HDInsight management IP addresses
 
+This article lists the IP addresses used by Azure HDInsight health and management services. If you use network security groups (NSGs) or user-defined routes (UDRs) you may need to add some of these IP address to the allow list for inbound network traffic.
+
+## Introduction
+ 
 > [!Important]
-> In most cases, you can now use the [service tag](hdinsight-service-tags.md) feature for network security groups, instead of manually adding IP addresses. New regions will only be added for service tags and the static IP addresses will eventually be deprecated.
+> In most cases, you can now use [service tags](hdinsight-service-tags.md) for network security groups, instead of manually adding IP addresses. IP addresses will not be published for new Azure regions, and they will only have published service tags. The static IP addresses for management IP addresses will eventually be deprecated.
 
 If you use network security groups (NSGs) or user-defined routes (UDRs) to control inbound traffic to your HDInsight cluster, you must ensure that your cluster can communicate with critical Azure health and management services.  Some of the IP addresses for these services are region-specific, and some of them apply to all Azure regions. You may also need to allow traffic from the Azure DNS service if you aren't using custom DNS.
+
+If you need IP addresses for a region not listed here, you can use the [Service Tag Discovery API](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview) to find IP addresses for your region. If you are unable to use the API, download the [service tag JSON file](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) and search for your desired region.
 
 The following sections discuss the specific IP addresses that must be allowed.
 

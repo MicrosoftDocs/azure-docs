@@ -3,7 +3,7 @@ title: Azure Enterprise REST APIs
 description: This article describes the REST APIs for use with your Azure enterprise enrollment.
 author: bandersmsft
 ms.author: banders
-ms.date: 08/20/2020
+ms.date: 09/03/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise

@@ -120,7 +120,9 @@ When you submit a run, Azure Machine Learning compresses the directory that cont
 
 ### Logging
 
-When you develop your solution, use the Azure Machine Learning Python SDK in your Python script to log arbitrary metrics. After the run, query the metrics to determine whether the run has produced the model you want to deploy.
+Azure Machine Learning automatically logs standard run metrics for you. However, you can also [use the Python SDK to log arbitrary metrics](how-to-track-experiments.md).
+
+There are multiple ways to view your logs: monitoring run status in real time, or viewing results after completion. For more information, see [Monitor and view ML run logs](how-to-monitor-view-training-logs.md).
 
 
 > [!NOTE]
@@ -186,6 +188,17 @@ If you've enabled automatic scaling, Azure automatically scales your deployment.
 
 For an example of deploying a model as a web service, see [Deploy an image classification model in Azure Container Instances](tutorial-deploy-models-with-aml.md).
 
+#### Real-time endpoints
+
+When you deploy a trained model in the designer (preview), you can [deploy the model as a real-time endpoint](tutorial-designer-automobile-price-deploy.md). A real-time endpoint commonly receives a single request via the REST endpoint and returns a prediction in real-time. This is in contrast to batch processing, which processes multiple values at once and saves the results after completion to a datastore.
+
+#### Pipeline endpoints
+
+Pipeline endpoints let you call your [ML Pipelines](#ml-pipelines) programatically via a REST endpoint. Pipeline endpoints let you automate your pipeline workflows.
+
+A pipeline endpoint is a collection of published pipelines. This logical organization lets you manage and call multiple pipelines using the same endpoint. Each published pipeline in a pipeline endpoint is versioned. You can select a default pipeline for the endpoint, or specify a version in the REST call.
+ 
+
 #### IoT module endpoints
 
 A deployed IoT module endpoint is a Docker container that includes your model and associated script or application and any additional dependencies. You deploy these modules by using Azure IoT Edge on edge devices.
@@ -209,12 +222,13 @@ Pipeline steps are reusable, and can be run without rerunning the previous steps
 
 ### Studio
 
-[Azure Machine Learning studio](https://ml.azure.com) provides a web view of all the artifacts in your workspace.  You can view results and details of your datasets, experiments, pipelines, models, and endpoints.  You can also manage compute resources and datastores in the studio.
+[Azure Machine Learning studio](overview-what-is-machine-learning-studio.md) provides a web view of all the artifacts in your workspace.  You can view results and details of your datasets, experiments, pipelines, models, and endpoints.  You can also manage compute resources and datastores in the studio.
 
-Studio is also where you access the interactive tools that are part of Azure Machine Learning:
+The studio is also where you access the interactive tools that are part of Azure Machine Learning:
 
 + [Azure Machine Learning designer (preview)](concept-designer.md) to perform workflow steps without writing code
 + Web experience for [automated machine learning](concept-automated-ml.md)
++ [Azure Machine Learning notebooks](how-to-run-jupyter-notebooks.md) to write and run your own code in integrated Jupyter notebook servers.
 + [Data labeling projects](how-to-create-labeling-projects.md) to create, manage, and monitor projects to label your data
 
 ### Programming tools

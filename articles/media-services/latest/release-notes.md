@@ -53,7 +53,7 @@ For Example: `https://amsv3account-usw22.streaming.media.azure.net/00000000-0000
 
 Live Transcriptions now supports 19 languages and 8 regions.
 
-## Protecting your content with Media Services and Azure AD
+### Protecting your content with Media Services and Azure AD
 
 We published a tutorial called [End-to-End content protection using Azure AD](./azure-ad-content-protection.md).
 
