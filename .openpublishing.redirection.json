@@ -37598,8 +37598,13 @@
     },
     {
       "source_path": "articles/active-directory/application-config-sso-how-to-configure-federated-sso-non-gallery.md",
-      "redirect_url": "/azure/active-directory/manage-apps/configure-federated-single-sign-on-non-gallery-applications",
-      "redirect_document_id": true
+      "redirect_url": "/azure/active-directory/manage-apps/configure-saml-single-sign-on",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/manage-apps/configure-federated-single-sign-on-non-gallery-applications.md",
+      "redirect_url": "/azure/active-directory/manage-apps/configure-saml-single-sign-on",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/application-config-sso-how-to-configure-password-sso-gallery.md",
