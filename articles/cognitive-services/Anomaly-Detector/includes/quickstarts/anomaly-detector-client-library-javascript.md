@@ -17,6 +17,7 @@ Use the Anomaly Detector client library for JavaScript to:
 
 * Detect anomalies throughout your time series dataset, as a batch request
 * Detect the anomaly status of the latest data point in your time series
+* TBD
 
 [Reference documentation](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/?view=azure-node-latest) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/AnomalyDetector) | [Package (npm)](https://www.npmjs.com/package/@azure/cognitiveservices-anomalydetector) | [Find the code on GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/javascript/AnomalyDetector)
 
