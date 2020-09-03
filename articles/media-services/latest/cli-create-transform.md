@@ -3,22 +3,24 @@ title: Azure CLI Script Example - Create a transform | Microsoft Docs
 description: Transforms describe a simple workflow of tasks for processing your video or audio files (often referred to as a "recipe"). The Azure CLI script in this article shows how to create a transform. 
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: 
 
 ms.assetid:
 ms.service: media-services
 ms.devlang: azurecli
-ms.topic: sample
+ms.topic: how-to
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/01/2019
-ms.author: juliako 
+ms.date: 08/31/2020
+ms.author: inhenkel 
 ms.custom: devx-track-azurecli
 ---
 
 # CLI example: Create a Transform
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 The Azure CLI script in this article shows how to create a transform. Transforms describe a simple workflow of tasks for processing your video or audio files (often referred to as a "recipe"). You should always check if a Transform with desired name and "recipe" already exist. If it does, you should reuse it.
 

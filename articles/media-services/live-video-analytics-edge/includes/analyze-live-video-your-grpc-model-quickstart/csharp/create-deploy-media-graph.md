@@ -23,7 +23,50 @@ As part of the prerequisites, you downloaded the sample code to a folder. Follow
     * `"topologyName"` : `"InferencingWithGrpcExtension"`
     * Under GraphTopologyDelete, edit the name:
     * `"name"` : `"InferencingWithGrpcExtension"`
-    
+
+> [!NOTE]
+> <p>
+> <details>
+> <summary>Expand this and check out how the MediaGraphGrpcExtension node is implemented in the topology</summary>
+> <pre><code>
+> {
+> 	"@type": "#Microsoft.Media.MediaGraphGrpcExtension",
+> 	"name": "grpcExtension",
+> 	"endpoint": {
+> 		"@type": "#Microsoft.Media.MediaGraphUnsecuredEndpoint",
+> 		"url": "${grpcExtensionAddress}",
+> 		"credentials": {
+> 			"@type": "#Microsoft.Media.MediaGraphUsernamePasswordCredentials",
+> 			"username": "${grpcExtensionUserName}",
+> 			"password": "${grpcExtensionPassword}"
+> 		}
+> 	},
+> 	"dataTransfer": {
+> 		"mode": "sharedMemory",
+> 		"SharedMemorySizeMiB": "5"
+> 	},
+> 	"image": {
+> 		"scale": {
+> 			"mode": "${imageScaleMode}",
+> 			"width": "${frameWidth}",
+> 			"height": "${frameHeight}"
+> 		},
+> 		"format": {
+> 			"@type": "#Microsoft.Media.MediaGraphImageFormatEncoded",
+> 			"encoding": "${imageEncoding}",
+> 			"quality": "${imageQuality}"
+> 		}
+> 	},
+> 	"inputs": [
+> 		{
+> 			"nodeName": "motionDetection"
+> 		}
+> 	]
+> }          
+> </code></pre>
+> </details>    
+> </p>
+
 ### Generate and deploy the IoT Edge deployment manifest
 
 1. Right-click the *src/edge/* *deployment.grpcyolov3icpu.template.json* file and then select **Generate IoT Edge Deployment Manifest**.
