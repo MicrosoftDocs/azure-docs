@@ -6,7 +6,7 @@
   expanded: true
   items:
   - name: Overview of Azure security controls
-    href: overview-v2.md
+    href: overview.md
   - name: Network security
     href: security-benchmark-v2-network-security.md
   - name: Identity management 
@@ -16,7 +16,7 @@
 - name: Security Controls (previous)
   items:
   - name: Overview of Azure security controls (previous)
-    href: overview.md    
+    href: overview-v1.md
   - name: Network security
     href: security-control-network-security.md
   - name: Logging and monitoring
