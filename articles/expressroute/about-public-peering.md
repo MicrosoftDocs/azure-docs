@@ -2,12 +2,12 @@
 title: Create and manage Azure ExpressRoute public peering
 description: Learn about and manage Azure public peering
 services: expressroute
-author: cherylmc
+author: duongau
 
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/16/2019
-ms.author: cherylmc
+ms.author: duau
 
 ---
 # Create and manage ExpressRoute public peering

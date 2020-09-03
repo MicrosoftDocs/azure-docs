@@ -190,7 +190,7 @@ To ensure you can mount your Data Box device as a Local System by using the NFS 
 
     ![Fetch Data Box jobs for subscription ID](./media/offline-backup-azure-data-box/fetching-databox-jobs.png)
 
-1. Select the correct Data Box order for which you have unpacked, connected, and unlocked your Data Box disk. Select **Next**.
+1. Select the correct Data Box order for which you've unpacked, connected, and unlocked your Data Box disk. Select **Next**.
 
     ![Select Data Box orders](./media/offline-backup-azure-data-box/select-databox-order.png)
 

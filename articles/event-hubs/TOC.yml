@@ -27,13 +27,13 @@
     - name: Send and receive events
       items:
         - name: .NET (Azure.Messaging.EventHubs)
-          href: get-started-dotnet-standard-send-v2.md
+          href: event-hubs-dotnet-standard-getstarted-send.md
         - name: Java (azure-messaging-eventhubs)
-          href: get-started-java-send-v2.md
+          href: event-hubs-java-get-started-send.md
         - name: Python (azure-eventhub version 5)
-          href: get-started-python-send-v2.md
+          href: event-hubs-python-get-started-send.md
         - name: JavaScript (azure/event-hubs version 5)
-          href: get-started-node-send-v2.md
+          href: event-hubs-node-get-started-send.md
         - name: Go
           href: event-hubs-go-get-started-send.md
         - name: C (send only)
@@ -43,13 +43,9 @@
     - name: Send and receive events (old versions/packages)
       items:
         - name: .NET (Microsoft.Azure.EventHubs)
-          href: event-hubs-dotnet-standard-getstarted-send.md
+          href: event-hubs-dotnet-standard-get-started-send-legacy.md
         - name: Java (azure-eventhubs)
-          href: event-hubs-java-get-started-send.md
-        - name: Python (azure-eventhub version 1)
-          href: event-hubs-python-get-started-send.md
-        - name: JavaScript (azure/event-hubs version 2)
-          href: event-hubs-node-get-started-send.md
+          href: event-hubs-java-get-started-send-legacy.md
         - name: .NET Framework (Microsoft.ServiceBus)
           href: event-hubs-dotnet-framework-getstarted-send.md
     - name: Capture events
@@ -58,9 +54,7 @@
           href: event-hubs-capture-enable-through-portal.md
         - name: Use a Resource Manager template to enable Event Hubs Capture
           href: event-hubs-resource-manager-namespace-event-hub-enable-capture.md
-        - name: Read captured data using Python  (azure-eventhub version 5)
-          href: get-started-capture-python-v2.md
-        - name: Read captured data using Python (azure-eventhub version 1)
+        - name: Read captured data using Python 
           href: event-hubs-capture-python.md
     - name: Stream into Event Hubs for Apache Kafka
       href: event-hubs-quickstart-kafka-enabled-event-hubs.md
@@ -81,9 +75,6 @@
   items:
     - name: Code samples
       href: event-hubs-samples.md
-    - name: Azure Policy built-ins
-      displayName: samples, policies, definitions
-      href: ./policy-samples.md
 - name: Concepts
   items:
     - name: Event Hubs terminology
@@ -134,8 +125,12 @@
       maintainContext: true
 - name: How-to guides
   items:
-    - name: Move across regions
-      href: move-across-regions.md
+    - name: Move
+      items:
+      - name: Move a namespace to another region
+        href: move-across-regions.md
+      - name: Move a dedicated cluster to another region
+        href: move-cluster-across-regions.md
     - name: Dynamically add partitions
       href: dynamically-add-partitions.md
     - name: Use Blob Storage as checkpoint store on Azure Stack Hub
@@ -296,6 +291,9 @@
       href: event-hubs-quotas.md
     - name: Apache Kafka configurations
       href: apache-kafka-configurations.md
+    - name: Azure Policy built-ins
+      displayName: samples, policies, definitions
+      href: ./policy-reference.md
 - name: Resources
   items:
     - name: Build your skills with Microsoft Learn

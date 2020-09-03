@@ -40,11 +40,6 @@
     href: tutorial-kubernetes-app-update.md
   - name: 7 - Upgrade cluster
     href: tutorial-kubernetes-upgrade-cluster.md
-- name: Samples
-  items:
-  - name: Azure Policy built-ins
-    displayName: samples, policies, definitions
-    href: ./policy-samples.md
 - name: Concepts
   items:
   - name: Clusters and workloads
@@ -129,6 +124,8 @@
     href: security-hardened-vm-host-image.md
   - name: Azure Kubernetes Service Diagnostics overview
     href: concepts-diagnostics.md
+  - name: Sustainable software engineering
+    href: concepts-sustainable-software-engineering.md
 - name: How-to guides
   items:
   - name: Cluster operations
@@ -386,6 +383,9 @@
     href: /javascript/api/overview/azure/container-service
   - name: Resource Manager template
     href: /azure/templates/microsoft.containerservice/managedclusters
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-reference.md
 - name: Resources
   items:
   - name: Build your skill with Microsoft Learn

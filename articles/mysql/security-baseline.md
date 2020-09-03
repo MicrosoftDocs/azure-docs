@@ -6,7 +6,7 @@ ms.service: security
 ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
+ms.custom: subject-security-benchmark
 
 ---
 
@@ -546,9 +546,9 @@ https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
 
 ### 4.6: Use Azure RBAC to control access to resources
 
-**Guidance**: Use Azure role-based access control (Azure RBAC) to control access to the Azure Database for MySQL control plane (e.g. Azure portal). For data plane access (within the database itself), use SQL queries to create users and configure user permissions. RBAC does not affect user permissions within the database.
+**Guidance**: Use Azure role-based access control (Azure RBAC) to control access to the Azure Database for MySQL control plane (e.g. Azure portal). For data plane access (within the database itself), use SQL queries to create users and configure user permissions. Azure RBAC does not affect user permissions within the database.
 
-How to configure RBAC in Azure: https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal
+How to configure Azure RBAC: https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal
 
 How to configure user access with SQL for Azure Database for MySQL: https://docs.microsoft.com/azure/mysql/howto-create-users
 
@@ -891,9 +891,11 @@ How to configure and manage Azure Policy: https://docs.microsoft.com/azure/gover
 
 How to integrate with Azure Managed Identities: https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity
 
-How to create a Key Vault: https://docs.microsoft.com/azure/key-vault/quick-create-portal
+How to create a Key Vault: https://docs.microsoft.com/azure/key-vault/general/quick-create-portal
 
-How to provide Key Vault authentication with a managed identity: https://docs.microsoft.com/azure/key-vault/managed-identity
+How to authenticate to Key Vault: https://docs.microsoft.com/azure/key-vault/general/authentication
+
+How to assign a Key Vault access policy: https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal
 
 **Azure Security Center monitoring**: Yes
 

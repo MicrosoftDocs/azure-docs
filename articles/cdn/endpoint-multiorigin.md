@@ -61,6 +61,7 @@ Setup one or more origin groups and choose a default origin group. Each origin g
 
    | Setting           | Value                                                                 |
    |-------------------|-----------------------------------------------------------------------|
+   | Name        | Enter a name for the origin.        |
    | Origin Type | Select **Storage**, **Cloud Service**, **Web App**, or **Custom origin**.                                   |
    | Origin hostname        | Select or enter your origin hostname.  The drop-down lists all available origins of the type you specified in the previous setting. If you selected **Custom origin** as your origin type, enter the domain of your customer origin server. |
    | Origin host header    | Enter the host header you want Azure CDN to send with each request, or leave the default.                        |
@@ -110,7 +111,7 @@ Once you have several origins and an origin group, you can add or remove the ori
 
     :::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-11.png" alt-text="Update origin group delete origin" border="true":::
 
-## Override origin group with rule engine
+## Override origin group with rules engine
 
 Customize how traffic is distributed to different origin groups by using the standard rules engine.
 

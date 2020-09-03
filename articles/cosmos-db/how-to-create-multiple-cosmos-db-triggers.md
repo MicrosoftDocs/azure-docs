@@ -6,6 +6,7 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 07/17/2019
 ms.author: maquaran
+ms.custom: devx-track-csharp
 ---
 
 # Create multiple Azure Functions triggers for Cosmos DB
