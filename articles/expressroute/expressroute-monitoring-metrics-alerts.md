@@ -2,12 +2,12 @@
 title: 'Azure ExpressRoute: Monitoring, Metrics, and Alerts'
 description: Learn about Azure ExpressRoute monitoring, metrics, and alerts using Azure Monitor, the one stop shop for all metrics, alerting, diagnostic logs across Azure.
 services: expressroute
-author: mialdrid
+author: duongau
 
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 08/25/2020
-ms.author: cherylmc
+ms.author: duau
 
 
 ---

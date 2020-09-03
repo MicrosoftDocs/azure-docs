@@ -46,7 +46,7 @@ If using custom workspace, ensure Network Watcher is enabled in subscription and
 		1. Each test is migrated to a test group called * defaultTestGroup*
 		1.	Source and destination endpoints are created and used in the created test group. Default names are *defaultSourceEndpoint* and *defaultDestinationEndpoint*
 		1. Destination port and probing interval are moved to the test configuration called *defaultTestConfiguration*. Based on the port values, the protocol is set. Success thresholds and other optional properties are left blank.
-	1. Metric alerts get migrated to Connection Monitor (Preview) metric alerts. The metrics are different <link to metric section in the doc>, hence the change
+	1. Metric alerts get migrated to Connection Monitor (Preview) metric alerts; the metrics are different, hence the change.
 	1. The migrated connection monitors will not show up in the older connection monitor solution, they will now only be available for use in Connection Monitor (Preview)
 	1. Any external integrations like dashboards in Power BI, Grafana, integrations with SIEM systems, will need to be migrated by the user directly. This is the only manual step the user needs to perform to migrate his setup.
 
