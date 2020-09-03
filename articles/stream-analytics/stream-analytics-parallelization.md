@@ -35,7 +35,7 @@ When you work with Stream Analytics, you can take advantage of partitioning in t
 -	Event Hubs (need to set the partition key explicitly)
 -	IoT Hub  (need to set the partition key explicitly)
 -	Service Bus
-- SQL and SQL Data Warehouse with optional partitioning: see more information on the [Output to Azure SQL Database page](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-sql-output-perf).
+- SQL and Azure Synapse Analytics with optional partitioning: see more information on the [Output to Azure SQL Database page](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-sql-output-perf).
 
 Power BI doesn't support partitioning. However you can still partition the input as described in [this section](#multi-step-query-with-different-partition-by-values) 
 
