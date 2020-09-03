@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 09/03/2020
 ms.author: aahi
 ms.custom: seodec18
 ---
@@ -103,6 +103,55 @@ Replace {_argument_name_} with your own values:
 
 The following Docker examples are for the Read container.
 
+
+# [Version 3.0](#tab/version-3)
+
+### Basic example
+
+```bash
+docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
+--env Eula=accept \
+--env Billing={ENDPOINT_URI} \
+--env ApiKey={API_KEY} \
+mcr.microsoft.com/azure-cognitive-services/vision/read-3.0 \
+```
+
+### Logging example 
+
+```bash
+docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
+--env Eula=accept \
+--env Billing={ENDPOINT_URI} \
+--env ApiKey={API_KEY} \
+Logging:Console:LogLevel:Default=Information
+mcr.microsoft.com/azure-cognitive-services/vision/read-3.0 \
+```
+
+# [Version 3.1](#tab/version-3-1)
+
+### Basic example
+
+```bash
+docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
+--env Eula=accept \
+--env Billing={ENDPOINT_URI} \
+--env ApiKey={API_KEY} \
+mcr.microsoft.com/azure-cognitive-services/vision/read-3.1 \
+```
+
+### Logging example 
+
+```bash
+docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
+--env Eula=accept \
+--env Billing={ENDPOINT_URI} \
+--env ApiKey={API_KEY} \
+mcr.microsoft.com/azure-cognitive-services/vision/read-3.1 \
+Logging:Console:LogLevel:Default=Information
+```
+
+# [Version 2.0](#tab/version-2)
+
 ### Basic example
 
   ```docker
@@ -123,6 +172,8 @@ The following Docker examples are for the Read container.
   ApiKey={API_KEY} \
   Logging:Console:LogLevel:Default=Information
   ```
+
+---
 
 ## Next steps
 
