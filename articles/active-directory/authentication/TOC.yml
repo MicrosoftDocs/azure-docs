@@ -21,7 +21,17 @@
   expanded: true
   items:
   - name: Authentication methods
-    href: concept-authentication-methods.md
+    items:
+    - name: Overview
+      href: concept-authentication-methods.md
+    - name: Microsoft Authenticator app
+      href: concept-authentication-authenticator-app.md
+    - name: OATH tokens
+      href: concept-authentication-oath-tokens.md
+    - name: Phone options
+      href: concept-authentication-phone-options.md
+    - name: Security questions
+      href: concept-authentication-security-questions.md
   - name: Self-service password reset
     items:
     - name: How password reset works
