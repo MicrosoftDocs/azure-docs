@@ -151,7 +151,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 
 ### Protect a controller or a controller's method
 
-You can protect a controller or controller methods using the `[Authorize]` attribute. This attribute restricts access to the controller or methods by only allowing authenticated users, which mean that authentication challenge can be started to access the controller if the user isn't authenticated.
+You can protect a controller or controller methods using the `[Authorize]` attribute. This attribute restricts access to the controller or methods by only allowing authenticated users, which means that authentication challenge can be started to access the controller if the user isn't authenticated.
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
