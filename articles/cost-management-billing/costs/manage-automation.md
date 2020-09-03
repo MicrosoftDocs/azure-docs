@@ -159,7 +159,7 @@ You can automate budget creation using the [Budgets API](/rest/api/consumption/b
 
 #### Supported locales for budget alert emails
 
-With budgets, you're alerted when costs cross a set threshold. You can set up to five email recipients per budget. Recipients receive the email alerts within 24 hours of crossing the budget threshold. However, your recipient might need to send an email in a different language. You can use the following language culture codes with the Budgets API. Set the culture code in with the `locale` parameter similar to the following example.
+With budgets, you're alerted when costs cross a set threshold. You can set up to five email recipients per budget. Recipients receive the email alerts within 24 hours of crossing the budget threshold. However, your recipient might need to receive an email in a different language. You can use the following language culture codes with the Budgets API. Set the culture code with the `locale` parameter similar to the following example.
 
 ```json
 "eTag": "\"1d681a8fc67f77a\"",
