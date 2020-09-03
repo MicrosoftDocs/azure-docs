@@ -27,6 +27,16 @@ To use the Authenticator app at a sign-in prompt rather than a username and pass
 > [!NOTE]
 > Users don't have the option to register their mobile app when they enable SSPR. Instead, users can register their mobile app at [https://aka.ms/mfasetup](https://aka.ms/mfasetup) or as part of the combined security info registration at [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo).
 
+## Passwordless sign-in
+
+Instead of seeing a prompt for a password after entering a username, a user that has enabled phone sign-in from the Microsoft Authenticator app sees a message to tap a number in their app. When the correct number is selected, the sign-in process is complete.
+
+![Example of a browser sign-in asking for user to approve the sign-in](./media/howto-authentication-passwordless-phone/phone-sign-in-microsoft-authenticator-app.png)
+
+This authentication method provides a high level of security, and removes the need for the user to provide a password at sign-in. Passwordless sign-in using the Microsoft Authenticator app is currently in preview.
+
+To get started with passwordless sign-in, see [Enable passwordless sign-in with the Microsoft Authenticator app](howto-authentication-passwordless-phone.md).
+
 ## Notification through mobile app
 
 The Authenticator app can help prevent unauthorized access to accounts and stop fraudulent transactions by pushing a notification to your smartphone or tablet. Users view the notification, and if it's legitimate, select **Verify**. Otherwise, they can select **Deny**.
@@ -49,16 +59,6 @@ Users may have a combination of up to five OATH hardware tokens or authenticator
 
 ## Next steps
 
-To get started, see the [tutorial for self-service password reset (SSPR)][tutorial-sspr] and [Azure Multi-Factor Authentication][tutorial-azure-mfa].
-
-To learn more about SSPR concepts, see [How Azure AD self-service password reset works][concept-sspr].
-
-To learn more about MFA concepts, see [How Azure Multi-Factor Authentication works][concept-mfa].
+To get started with passwordless sign-in, see [Enable passwordless sign-in with the Microsoft Authenticator app](howto-authentication-passwordless-phone.md).
 
 Learn more about configuring authentication methods using the [Microsoft Graph REST API beta](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta).
-
-<!-- INTERNAL LINKS -->
-[tutorial-sspr]: tutorial-enable-sspr.md
-[tutorial-azure-mfa]: tutorial-enable-azure-mfa.md
-[concept-sspr]: concept-sspr-howitworks.md
-[concept-mfa]: concept-mfa-howitworks.md

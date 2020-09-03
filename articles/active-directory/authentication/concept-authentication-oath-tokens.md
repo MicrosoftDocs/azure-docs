@@ -60,16 +60,4 @@ Users may have a combination of up to five OATH hardware tokens or authenticator
 
 ## Next steps
 
-To get started, see the [tutorial for self-service password reset (SSPR)][tutorial-sspr] and [Azure Multi-Factor Authentication][tutorial-azure-mfa].
-
-To learn more about SSPR concepts, see [How Azure AD self-service password reset works][concept-sspr].
-
-To learn more about MFA concepts, see [How Azure Multi-Factor Authentication works][concept-mfa].
-
 Learn more about configuring authentication methods using the [Microsoft Graph REST API beta](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta).
-
-<!-- INTERNAL LINKS -->
-[tutorial-sspr]: tutorial-enable-sspr.md
-[tutorial-azure-mfa]: tutorial-enable-azure-mfa.md
-[concept-sspr]: concept-sspr-howitworks.md
-[concept-mfa]: concept-mfa-howitworks.md

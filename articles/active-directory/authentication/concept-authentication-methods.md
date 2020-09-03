@@ -21,9 +21,9 @@ ms.custom: contperfq4
 
 As part of the sign-in experience for accounts in Azure Active Directory (Azure AD), there are different ways that a user can authenticate themselves. A username and password is the most common way a user would historically provide credentials. With modern authentication and security features in Azure AD, that basic password should be supplemented or replaced with more secure authentication methods.
 
-A user in Azure AD can choose to authenticate using one of the following methods:
-
 ![Table of the strengths and preferred authentication methods in Azure AD](media/concept-authentication-methods/authentication-methods.png)
+
+Passwordless authentication methods such as Windows Hello, FIDO2 security keys, and the Microsoft Authenticator app provide the most secure sign-in events.
 
 Azure Multi-Factor Authentication adds additional security over only using a password when a user signs in. The user can be prompted for additional forms of authentication, such as to respond to a push notification, enter a code from a software or hardware token, or respond to an SMS or phone call.
 
@@ -31,9 +31,11 @@ Many accounts in Azure AD are also enabled for self-service password reset (SSPR
 
 It's recommended that you require users to register multiple authentication methods. When one method isn't available for a user during sign-in or SSPR, they can choose to authenticate with another method.
 
+To simplify the user on-boarding experience and register for both MFA and SSPR, you can use [enable combined security information registration](howto-registration-mfa-sspr-combined.md).
+
 ## Available authentication methods
 
-The following table outlines what methods are available for primary or secondary authentication:
+The following table outlines what methods are available for primary or secondary authentication. These authentication methods provide flexibility for your organization and the user experience.
 
 | Method                         | Primary authentication | Secondary authentication  |
 |--------------------------------|------------------------|---------------------------|
@@ -45,7 +47,7 @@ The following table outlines what methods are available for primary or secondary
 | Voice call                     | No                     | MFA and SSPR              |
 | Password                       | Yes                    |                           |
 
-These authentication methods can be configured in the Azure portal, and increasingly using the [Microsoft Graph REST API beta](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta).
+All of these authentication methods can be configured in the Azure portal, and increasingly using the [Microsoft Graph REST API beta](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta).
 
 ## How each authentication method works
 
