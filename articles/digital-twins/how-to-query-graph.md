@@ -194,13 +194,14 @@ The following operators are supported:
 
 The following type checking and casting functions are supported:
 
-| IS_BOOL | Returns a Boolean value indicating if the type of the specified expression is a Boolean. |
 | IS_DEFINED | Returns a Boolean indicating if the property has been assigned a value. This is supported only when the value is a primitive type. Primitive types include string, Boolean, numeric, or `null`. DateTime, object types and arrays are not supported. |
-| IS_NULL | Returns a Boolean value indicating if the type of the specified expression is null. |
+| IS_OF_MODEL | Returns a Boolean value indicating if the specified twin matches the specified model type |
+| IS_BOOL | Returns a Boolean value indicating if the type of the specified expression is a Boolean. |
 | IS_NUMBER | Returns a Boolean value indicating if the type of the specified expression is a number. |
-| IS_OBJECT | Returns a Boolean value indicating if the type of the specified expression is a JSON object. |
-| IS_PRIMITIVE | Returns a Boolean value indicating if the type of the specified expression is a primitive (string, Boolean, numeric, or `null`). |
 | IS_STRING | Returns a Boolean value indicating if the type of the specified expression is a string. |
+| IS_NULL | Returns a Boolean value indicating if the type of the specified expression is null. |
+| IS_PRIMITIVE | Returns a Boolean value indicating if the type of the specified expression is a primitive (string, Boolean, numeric, or `null`). |
+| IS_OBJECT | Returns a Boolean value indicating if the type of the specified expression is a JSON object. |
 
 The following string functions are supported:
 
