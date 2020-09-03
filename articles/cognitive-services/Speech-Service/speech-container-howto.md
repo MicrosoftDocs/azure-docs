@@ -27,7 +27,7 @@ Speech containers enable customers to build a speech application architecture th
 > 
 > The following speech containers are in gated preview and require an application to use. 
 > * Custom Text-to-speech
-> * Speech language detection 
+> * Speech Language Detection 
 > * Neural Text-to-speech
 
 | Function | Features | Latest |
@@ -36,7 +36,7 @@ Speech containers enable customers to build a speech application architecture th
 | Custom Speech-to-text | Using a custom model from the [Custom Speech portal](https://speech.microsoft.com/customspeech), transcribes continuous real-time speech or batch audio recordings into text with intermediate results. | 2.3.1 |
 | Text-to-speech | Converts text to natural-sounding speech with plain text input or Speech Synthesis Markup Language (SSML). | 1.5.0 |
 | Custom Text-to-speech | Using a custom model from the [Custom Voice portal](https://aka.ms/custom-voice-portal), converts text to natural-sounding speech with plain text input or Speech Synthesis Markup Language (SSML). | 1.5.0 |
-| Speech language detection | Detect the language spoken in audio files. | 1.0 |
+| Speech Language Detection | Detect the language spoken in audio files. | 1.0 |
 | Neural Text-to-speech | Converts text to natural-sounding speech using deep neural network technology, allowing for more natural synthesized speech. | 1.1.0 |
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
@@ -50,13 +50,6 @@ The following prerequisites before using Speech containers:
 | Docker Engine | You need the Docker Engine installed on a [host computer](#the-host-computer). Docker provides packages that configure the Docker environment on [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), and [Linux](https://docs.docker.com/engine/installation/#supported-platforms). For a primer on Docker and container basics, see the [Docker overview](https://docs.docker.com/engine/docker-overview/).<br><br> Docker must be configured to allow the containers to connect with and send billing data to Azure. <br><br> **On Windows**, Docker must also be configured to support Linux containers.<br><br> |
 | Familiarity with Docker | You should have a basic understanding of Docker concepts, like registries, repositories, containers, and container images, as well as knowledge of basic `docker` commands. |
 | Speech resource | In order to use these containers, you must have:<br><br>An Azure _Speech_ resource to get the associated API key and endpoint URI. Both values are available on the Azure portal's **Speech** Overview and Keys pages. They are both required to start the container.<br><br>**{API_KEY}**: One of the two available resource keys on the **Keys** page<br><br>**{ENDPOINT_URI}**: The endpoint as provided on the **Overview** page |
-
-
-## Request access to run the container
-
-[!INCLUDE [container hosting on the Microsoft Container Registry](../containers/includes/gated-container-hosting.md)]
-
-Fill out and submit the [request form](https://aka.ms/csgate) to request access to the container. 
 
 [!INCLUDE [Gathering required parameters](../containers/includes/container-gathering-required-parameters.md)]
 
@@ -84,7 +77,7 @@ The following table describes the minimum and recommended allocation of resource
 | Custom Speech-to-text | 2 core, 2-GB memory | 4 core, 4-GB memory |
 | Text-to-speech | 1 core, 2-GB memory | 2 core, 3-GB memory |
 | Custom Text-to-speech | 1 core, 2-GB memory | 2 core, 3-GB memory |
-| Language Detection | 1 core, 1-GB memory | 1 core, 1-GB memory |
+| Speech Language Detection | 1 core, 1-GB memory | 1 core, 1-GB memory |
 | Neural Text-to-speech | 6 core, 12-GB memory | 8 core, 16-GB memory |
 
 * Each core must be at least 2.6 gigahertz (GHz) or faster.
@@ -128,11 +121,11 @@ Container images for Speech are available in the following Container Registry.
 |-----------|------------|
 | Custom Text-to-speech | `mcr.microsoft.com/azure-cognitive-services/speechservices/custom-text-to-speech:latest` |
 
-# [Language Detection](#tab/lid)
+# [Speech Language Detection](#tab/lid)
 
 | Container | Repository |
 |-----------|------------|
-| Language Detection | `mcr.microsoft.com/azure-cognitive-services/speechservices/language-detection:latest` |
+| Speech Language Detection | `mcr.microsoft.com/azure-cognitive-services/speechservices/language-detection:latest` |
 
 ***
 
@@ -216,6 +209,20 @@ For all of the supported locales and corresponding voices of the **text-to-speec
 
 # [Neural Text-to-speech](#tab/ntts)
 
+### Request access to the run the container
+
+Fill out and submit the [request form](https://aka.ms/cognitivegate) to request access to the container. 
+
+The form requests information about you, your company, and the user scenario for which you'll use the container. After you submit the form, the Azure Cognitive Services team will review it and email you with a decision.
+
+> [!IMPORTANT]
+> * On the form, you must use an email address associated with an Azure subscription ID.
+> * The Azure resource you use to run the container must have been created with the approved Azure subscription ID. 
+
+After you're approved, you will be able to run the container after downloading it from the Microsoft Container Registry (MCR), described later in the article. 
+
+You won't be able to run the container if your Azure subscription has not been approved.
+
 #### Docker pull for the Neural Text-to-speech container
 
 Use the [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image from Container Preview registry.
@@ -248,6 +255,20 @@ For all of the supported locales and corresponding voices of the **neural text-t
 
 # [Custom Text-to-speech](#tab/ctts)
 
+### Request access to the run the container
+
+Fill out and submit the [request form](https://aka.ms/cognitivegate) to request access to the container. 
+
+The form requests information about you, your company, and the user scenario for which you'll use the container. After you submit the form, the Azure Cognitive Services team will review it and email you with a decision.
+
+> [!IMPORTANT]
+> * On the form, you must use an email address associated with an Azure subscription ID.
+> * The Azure resource you use to run the container must have been created with the approved Azure subscription ID. 
+
+After you're approved, you will be able to run the container after downloading it from the Microsoft Container Registry (MCR), described later in the article. 
+
+You won't be able to run the container if your Azure subscription has not been approved.
+
 #### Docker pull for the Custom Text-to-speech container
 
 Use the [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image from Container Preview registry.
@@ -259,18 +280,23 @@ docker pull mcr.microsoft.com/azure-cognitive-services/speechservices/custom-tex
 > [!NOTE]
 > The `locale` and `voice` for custom Speech containers is determined by the custom model ingested by the container.
 
-# [Language Detection](#tab/lid)
+# [Speech Language Detection](#tab/lid)
 
 #### Request access to the run the container
 
 Fill out and submit the [request form](https://aka.ms/cognitivegate) to request access to the container. 
 
+The form requests information about you, your company, and the user scenario for which you'll use the container. After you submit the form, the Azure Cognitive Services team will review it and email you with a decision.
 
-[!INCLUDE [Request access to the container registry](../../../includes/cognitive-services-containers-request-access-only.md)]
+> [!IMPORTANT]
+> * On the form, you must use an email address associated with an Azure subscription ID.
+> * The Azure resource you use to run the container must have been created with the approved Azure subscription ID. 
 
-[!INCLUDE [Authenticate to the container registry](../../../includes/cognitive-services-containers-access-registry.md)]
+After you're approved, you will be able to run the container after downloading it from the Microsoft Container Registry (MCR), described later in the article. 
 
-#### Docker pull for the Language Detection container
+You won't be able to run the container if your Azure subscription has not been approved.
+
+#### Docker pull for the Speech Language Detection container
 
 Use the [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image from Container Preview registry.
 
@@ -472,7 +498,7 @@ This command:
 
 # [Language Detection](#tab/lid)
 
-To run the *Language Detection* container, execute the following `docker run` command.
+To run the *Speech Language Detection* container, execute the following `docker run` command.
 
 ```bash
 docker run --rm -it -p 5003:5003 --memory 1g --cpus 1 \
@@ -680,7 +706,7 @@ In this article, you learned concepts and workflow for downloading, installing, 
   * *Text-to-speech*
   * *Custom Text-to-speech*
   * *Neural Text-to-speech*
-  * *Language Detection*
+  * *Speech Language Detection*
 * Container images are downloaded from the container registry in Azure.
 * Container images run in Docker.
 * Whether using the REST API (Text-to-speech only) or the SDK (Speech-to-text or Text-to-speech) you specify the host URI of the container. 
