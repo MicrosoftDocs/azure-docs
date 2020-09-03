@@ -52,10 +52,8 @@ Create the resources required to run an ML pipeline:
 * Configure a `Dataset` object to point to persistent data that lives in, or is accessible in, a datastore. Configure a `PipelineData` object for temporary data passed between pipeline steps. 
 
     > [!TIP]
-    > An improved experience for passing temporary data between pipeline steps is available in the public preview class,  `OutputFileDatasetConfig`.  This class is an experimental preview feature, and may change at any time.
-    > 
-    >For more information about experimental features, see https://aka.ms/azuremlexperimental.
-    
+    > An improved experience for passing temporary data between pipeline steps is available in the public preview class,  [`OutputFileDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py).  This class is an [experimental](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py#stable-vs-experimental) preview feature, and may change at any time.
+
 * Set up the [compute targets](concept-azure-machine-learning-architecture.md#compute-targets) on which your pipeline steps will run.
 
 ### Set up a datastore
@@ -103,7 +101,7 @@ output_data1 = PipelineData(
 ```
 
 > [!TIP]
-> Persisting intermediate data between pipeline steps is also possible with the public preview class, `OutputFileDatasetConfig`. Learn more about `OutputFileDatasetConfig` design patterns and methods in [the SDK reference documentation](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py).
+> Persisting intermediate data between pipeline steps is also possible with the public preview class, [`OutputFileDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py). For a code example using the `OutputFileDatasetConfig` class, see how to [build a two step ML pipeline](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/pipeline-with-datasets/pipeline-for-image-classification.ipynb).
 
 ## Set up a compute target
 
@@ -232,7 +230,7 @@ The above code is very similar to that for the data preparation step. The traini
 
 
 > [!TIP]
-> For an improved experience, and the ability to write intermediate data back to your datastores at the end of your pipeline run, use the public preview class, `OutputFileDatasetConfig`. Learn more about `OutputFileDatasetConfig` design patterns and methods in [the SDK reference documentation](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py).
+> For an improved experience, and the ability to write intermediate data back to your datastores at the end of your pipeline run, use the public preview class, [`OutputFileDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py). For code examples, see how to [build a two step ML pipeline](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/pipeline-with-datasets/pipeline-for-image-classification.ipynb) and [how to write data back to datastores upon run completion](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/scriptrun-with-data-input-output/how-to-use-scriptrun.ipynb).
 
 After you define your steps, you build the pipeline by using some or all of those steps.
 

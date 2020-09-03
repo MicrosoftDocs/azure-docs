@@ -234,7 +234,7 @@ Analyzers consist of three components:
 
 In the diagram below, you can see how these three components work together to tokenize a sentence:
 
-  ![Diagram of Analyzer process](media/tutorial-create-custom-analyzer/analyzers-explained.png)
+  ![Diagram of Analyzer process to tokenize a sentence](media/tutorial-create-custom-analyzer/analyzers-explained.png)
 
 These tokens are then stored in an inverted index, which allows for fast, full-text searches.  An inverted index enables full-text search by mapping all unique terms extracted during lexical analysis to the documents in which they occur. You can see an example in the diagram below:
 
@@ -246,7 +246,7 @@ All of search comes down to searching for the terms stored in the inverted index
 1. The inverted index is then scanned for documents with matching terms.
 1. Finally, the retrieved documents are ranked by the [similarity algorithm](index-ranking-similarity.md).
 
-  ![Diagram of Analyzer process](media/tutorial-create-custom-analyzer/query-architecture-explained.png)
+  ![Diagram of Analyzer process ranking similarity](media/tutorial-create-custom-analyzer/query-architecture-explained.png)
 
 If the query terms don't match the terms in your inverted index, results won't be returned. To learn more about how queries work, see this article on [full text search](search-lucene-query-architecture.md).
 

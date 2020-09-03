@@ -6,13 +6,13 @@ author: alkohli
 
 ms.service: databox
 ms.subservice: edge
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/04/2020
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to create and manage virtual machines (VMs) on my Azure Stack Edge device using APIs so that I can efficiently manage my VMs.
 ---
 
-# Deploy VMs on your Azure Stack Edge device via templates
+# Deploy VMs on your Azure Stack Edge GPU device via templates
 
 This tutorial describes how to create and manage a VM on your Azure Stack Edge device using templates. These templates are JavaScript Object Notation (JSON) files that define the infrastructure and configuration for your VM. In these templates, you specify the resources to deploy and the properties for those resources.
 
@@ -242,11 +242,14 @@ The file `CreateImageAndVnet.parameters.json` takes the following parameters:
 
 ```json
 "parameters": {
+	    "osType": {
+	          "value": "<Operating system corresponding to the VHD you upload can be Windows or Linux>"
+        },
         "imageName": {
             "value": "<Name for the VM iamge>"
         },
         "imageUri": {
-      "value": "<Path to the VHD that you uploaded in the Storage account>"
+              "value": "<Path to the VHD that you uploaded in the Storage account>"
         },
         "vnetName": {
             "value": "<Name for the virtual network where you will deploy the VM>"
@@ -498,7 +501,7 @@ Deploy the VM creation template `CreateVM.json`. This template creates a network
         
         $templateFile = "<Path to CreateVM.json>"
         $templateParameterFile = "<Path to CreateVM.parameters.json>"
-        $RGName = "RG1"
+        $RGName = "<Resource group name>"
              
         New-AzureRmResourceGroupDeployment `
             -ResourceGroupName $RGName `
@@ -544,7 +547,27 @@ Deploy the VM creation template `CreateVM.json`. This template creates a network
         
         PS C:\07-30-2020>
     ```   
- 
+You can also run the `New-AzureRmResourceGroupDeployment` command asynchronously with `–AsJob` parameter. Here is a sample output when the cmdlet runs in the background. You can then query the status of job that is created using the `Get-Job` cmdlet.
+
+    ```powershell	
+    PS C:\WINDOWS\system32> New-AzureRmResourceGroupDeployment `
+	>>     -ResourceGroupName $RGName `
+	>>     -TemplateFile $templateFile `
+	>>     -TemplateParameterFile $templateParameterFile `
+	>>     -Name "Deployment2" `
+	>>     -AsJob
+	 
+	Id     Name            PSJobTypeName   State         HasMoreData     Location             Command
+	--     ----            -------------   -----         -----------     --------             -------
+	2      Long Running... AzureLongRun... Running       True            localhost            New-AzureRmResourceGro...
+	 
+	PS C:\WINDOWS\system32> Get-Job -Id 2
+	 
+	Id     Name            PSJobTypeName   State         HasMoreData     Location             Command
+	--     ----            -------------   -----         -----------     --------             -------
+	2      Long Running... AzureLongRun... Completed     True            localhost            New-AzureRmResourceGro...
+    ```
+
 7. Check if the VM is successfully provisioned. Run the following command:
 
     `Get-AzureRmVm`
@@ -552,7 +575,19 @@ Deploy the VM creation template `CreateVM.json`. This template creates a network
 
 ## Connect to a VM
 
+Depending on whether you created a Windows or a Linux VM, the steps to connect can be different.
+
+### Connect to Windows VM
+
+Follow these steps to connect to a Windows VM.
+
 [!INCLUDE [azure-stack-edge-gateway-connect-vm](../../includes/azure-stack-edge-gateway-connect-virtual-machine-windows.md)]
+
+### Connect to Linux VM
+
+Follow these steps to connect to a Linux VM.
+
+[!INCLUDE [azure-stack-edge-gateway-connect-vm](../../includes/azure-stack-edge-gateway-connect-virtual-machine-linux.md)]
 
 <!--## Manage VM
 

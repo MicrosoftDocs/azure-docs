@@ -6,13 +6,13 @@ author: alkohli
 
 ms.service: databox
 ms.subservice: edge
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to create and manage virtual machines (VMs) on my Azure Stack Edge device using APIs so that I can efficiently manage my VMs.
 ---
 
-# Deploy VMs on your Azure Stack Edge device via Azure PowerShell
+# Deploy VMs on your Azure Stack Edge GPU device via Azure PowerShell
 
 <!--[!INCLUDE [azure-stack-edge-gateway-deploy-vm-overview](../../includes/azure-stack-edge-gateway-deploy-virtual-machine-overview.md)]-->
 
@@ -405,7 +405,22 @@ New-AzureRmVM -ResourceGroupName <Resource Group Name> -Location DBELocal -VM $V
 
 ## Connect to a VM
 
-Connect to the VM using the private IP that you passed during the VM creation.
+Depending on whether you created a Windows or a Linux VM, the steps to connect can be different.
+
+### Connect to Linux VM
+
+Follow these steps to connect to a Linux VM.
+
+[!INCLUDE [azure-stack-edge-gateway-connect-vm](../../includes/azure-stack-edge-gateway-connect-virtual-machine-linux.md)]
+
+### Connect to Windows VM
+
+Follow these steps to connect to a Windows VM.
+
+[!INCLUDE [azure-stack-edge-gateway-connect-vm](../../includes/azure-stack-edge-gateway-connect-virtual-machine-windows.md)]
+
+
+<!--Connect to the VM using the private IP that you passed during the VM creation.
 
 Open an SSH session to connect with the IP address.
 
@@ -422,7 +437,7 @@ If you used a public IP address during VM creation, you can use that IP to conne
 ```powershell
 $publicIp = Get-AzureRmPublicIpAddress -Name <Public IP> -ResourceGroupName <Resource group name>
 ```
-The public IP in this case will be the same as the private IP that you passed during virtual network interface creation.
+The public IP in this case will be the same as the private IP that you passed during virtual network interface creation.-->
 
 
 ## Manage VM
