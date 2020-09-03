@@ -2,7 +2,7 @@
 title: Template functions - resources
 description: Describes the functions to use in an Azure Resource Manager template to retrieve values about resources.
 ms.topic: conceptual
-ms.date: 09/01/2020
+ms.date: 09/03/2020
 ---
 # Resource functions for ARM templates
 
@@ -95,6 +95,12 @@ The following example returns the resource ID for a resource group lock.
     }
 }
 ```
+
+A custom policy definition deployed to a management group is implemented as an extension resource. To create and assign a policy, deploy the following template to a management group.
+
+:::code language="json" source="~/quickstart-templates/managementgroup-deployments/mg-policy/azuredeploy.json":::
+
+Built-in policy definitions are tenant level resources. For an example of deploying a built-in policy definition, see [tenantResourceId](#tenantresourceid).
 
 <a id="listkeys"></a>
 <a id="list"></a>
@@ -840,23 +846,31 @@ When the template is deployed at the scope of a resource group, the resource ID 
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 ```
 
-When used in a [subscription-level deployment](deploy-to-subscription.md), the resource ID is returned in the following format:
+You can use the resourceId function for other deployment scopes, but the format of the ID changes. To avoid confusion, we recommend that instead of using resourceId, you use the ID functions that are designed for those scopes.
+
+For [subscription-level resources](deploy-to-subscription.md), use the [subscriptionResourceId](#subscriptionresourceid) function.
+
+If you use resourceId while deploying to a subscription, the resource ID is returned in the following format:
 
 ```json
 /subscriptions/{subscriptionId}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 ```
 
-When used in a [management group-level deployment](deploy-to-management-group.md) or tenant-level deployment, the resource ID is returned in the following format:
+For [management group-level resources](deploy-to-management-group.md), use the [extensionResourceId](#extensionresourceid) function. You use this function because resources deployed to the management group are implemented as extensions of the management group. For example, custom policy definitions that are deployed to a management group are extensions of the management group. However, built-in policy definitions are implemented as tenant level resources. For built-in policy definition, use the [tenantResourceId](#tenantresourceid) function.
+
+If you use resourceId while deploying to a management group, the resource ID is returned in the following format:
 
 ```json
 /providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 ```
 
-To get the ID in other formats, see:
+For [tenant-level resources](deploy-to-tenant.md), use the [tenantResourceId](#tenantresourceid) function. Use tenantResourceId for built-in policy definitions because they are implemented at the tenant level.
 
-* [extensionResourceId](#extensionresourceid)
-* [subscriptionResourceId](#subscriptionresourceid)
-* [tenantResourceId](#tenantresourceid)
+If you use resourceId while deploying to the tenant, the resource ID is returned in the following format:
+
+```json
+/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+```
 
 ### Remarks
 
@@ -1119,6 +1133,44 @@ The identifier is returned in the following format:
 ### Remarks
 
 You use this function to get the resource ID for a resource that is deployed to the tenant. The returned ID differs from the values returned by other resource ID functions by not including resource group or subscription values.
+
+### tenantResourceId example
+
+Built-in policy definitions are tenant level resources. To deploy a policy assignment that references a built-in policy definition, use the tenantResourceId function.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "policyAssignmentName": {
+      "type": "string",
+      "defaultValue": "[guid(parameters('policyDefinitionID'), resourceGroup().name)]",
+      "metadata": {
+        "description": "Specifies the name of the policy assignment, can be used defined or an idempotent name as the defaultValue provides."
+      }
+    },
+    "policyDefinitionID": {
+      "type": "string",
+      "defaultValue": "0a914e76-4921-4c19-b460-a2d36003525a",
+      "metadata": {
+        "description": "Specifies the ID of the policy definition or policy set definition being assigned."
+      }
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Authorization/policyAssignments",
+      "name": "[parameters('policyAssignmentName')]",
+      "apiVersion": "2019-09-01",
+      "properties": {
+        "scope": "[subscriptionResourceId('Microsoft.Resources/resourceGroups', resourceGroup().name)]",
+        "policyDefinitionId": "[tenantResourceId('Microsoft.Authorization/policyDefinitions', parameters('policyDefinitionID'))]"
+      }
+    }
+  ]
+}
+```
 
 ## Next steps
 
