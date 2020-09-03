@@ -8,7 +8,7 @@ author: palma21
 
 ---
 
-# Use the Azure Files Container Storage Interface drivers (CSI) in Azure Kubernetes Service (AKS) (preview)
+# Use the Azure Files Container Storage Interface (CSI) drivers in Azure Kubernetes Service (AKS) (preview)
 The Azure Files CSI Driver is a [CSI Specification](https://github.com/container-storage-interface/spec/blob/master/spec.md) compliant driver used by AKS to manage the lifecycle of Azure Files Shares. 
 
 The Container Storage Interface (CSI) is a standard for exposing arbitrary block and file storage systems to containerized workloads on Kubernetes. By adopting and using CSI, Azure Kubernetes Service (AKS) now can write, deploy, and iterate plugins exposing new or improving existing storage systems in Kubernetes without having to touch the core Kubernetes code and waiting for its release cycles.
@@ -18,7 +18,7 @@ To create an AKS cluster with CSI driver support, see [Enable CSI drivers for Az
 >[!NOTE]
 > *"In-tree drivers"* refers to the current storage drivers that are part of the core kubernetes code vs. the new CSI drivers which are plugins.
 
-## Create and use a persistent volume (PV) with Azure Files
+## Use a persistent volume (PV) with Azure Files
 
 A [persistent volume](concepts-storage.md#persistent-volumes) represents a piece of storage that is provisioned for use with Kubernetes pods. A persistent volume can be used by one or many pods, and can be dynamically or statically provisioned. If multiple pods need concurrent access to the same storage volume, you can use Azure Files to connect using the [Server Message Block (SMB) protocol][smb-overview]. This article shows you how to dynamically create an Azure Files share for use by multiple pods in an Azure Kubernetes Service (AKS) cluster. For static provisioning, see [Manually create and use a volume with Azure Files share](azure-files-volume.md).
 
@@ -43,7 +43,7 @@ When using storage CSI Drivers on AKS, there are 2 additional built-in `StorageC
 - `azurefile-csi` - Uses Azure Standard storage to create an Azure File Share. 
 - `azurefile-csi-premium` - Uses Azure Premium storage to create an Azure File Share. 
 
-The reclaim policy on both storage classes indicates that the underlying Azure File Share is deleted when the respective persistent volume is deleted and also that the file share size can be expandable.
+The reclaim policy on both storage classes ensures that the underlying Azure File Share is deleted when the respective persistent volume is deleted. The storage classes also configure the file shares to be expandable, you just need to edit the persistent volume claim with the new size.
 
 To leverage these storage classes, create a [Persistent Volume Claim (PVC)](concepts-storage.md#persistent-volume-claims) and respective pod that references and leverages them. A persistent volume claim (PVC) is used to automatically provision storage based on a storage class. A PVC can use one of the pre-created storage classes or a user-defined storage class to create an Azure Files share for the desired SKU and size. When you create a pod definition, the persistent volume claim is specified to request the desired storage.
 
@@ -57,7 +57,7 @@ persistentvolumeclaim/pvc-azurefile created
 pod/nginx-azurefile created
 ```
 
-After the pod is in running state, you can validate the file share is correctly mounted and contains the `outfile` by running and verifying you have the same output: 
+After the pod is in the running state, you can validate the file share is correctly mounted by running the below command and verifying the output contains the `outfile`: 
 
 ```console
 $ kubectl exec nginx-azurefile -- ls -l /mnt/azurefile
@@ -105,7 +105,7 @@ storageclass.storage.k8s.io/my-azurefile created
 
 The Azure files CSI driver supports creating [snapshots of persistent volumes](https://kubernetes-csi.github.io/docs/snapshot-restore-feature.html) and the underlying file shares. 
 
-To exemplify this capability, create a [volume snapshot class](https://github.com/kubernetes-sigs/azurefile-csi-driver/blob/master/deploy/example/snapshot/volumesnapshotclass-azurefile.yaml) with the [kubectl apply][kubectl-apply] command:
+Create a [volume snapshot class](https://github.com/kubernetes-sigs/azurefile-csi-driver/blob/master/deploy/example/snapshot/volumesnapshotclass-azurefile.yaml) with the [kubectl apply][kubectl-apply] command:
 
 ```console
 $ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azurefile-csi-driver/master/deploy/example/snapshot/volumesnapshotclass-azurefile.yaml
@@ -113,7 +113,7 @@ $ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azurefile-c
 volumesnapshotclass.snapshot.storage.k8s.io/csi-azurefile-vsc created
 ```
 
-Now let's create a [volume snapshot](https://github.com/kubernetes-sigs/azurefile-csi-driver/blob/master/deploy/example/snapshot/volumesnapshot-azurefile.yaml) from the PVC [we dynamically created at the beginning of this tutorial](#dynamically-create-azure-files-pvs-using-the-built-in-storage-classes), `pvc-azurefile`.
+Create a [volume snapshot](https://github.com/kubernetes-sigs/azurefile-csi-driver/blob/master/deploy/example/snapshot/volumesnapshot-azurefile.yaml) from the PVC [we dynamically created at the beginning of this tutorial](#dynamically-create-azure-files-pvs-using-the-built-in-storage-classes), `pvc-azurefile`.
 
 
 ```bash
@@ -123,7 +123,7 @@ $ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azurefile-c
 volumesnapshot.snapshot.storage.k8s.io/azurefile-volume-snapshot created
 ```
 
-Check the snapshot was created correctly:
+Verify the snapshot was created correctly:
 
 ```bash
 $ kubectl describe volumesnapshot azurefile-volume-snapshot
@@ -154,12 +154,12 @@ Events:                                <none>
 
 ## Resize a Persistent Volume (PV)
 
-You can instead request a larger volume for a PVC. Edit the PVC object and specify a larger size. This change triggers the expansion of the underlying volume that backs the PersistentVolume. 
+You can request a larger volume for a PVC. Edit the PVC object and specify a larger size. This change triggers the expansion of the underlying volume that backs the PersistentVolume. 
 
 > [!NOTE] 
 > A new PersistentVolume is never created to satisfy the claim. Instead, an existing volume is resized.
 
-In AKS, the built-in `azurefile-csi` storage class already allows for expansion, so leverage the [PVC created earlier with this storage class](#dynamically-create-azure-files-pvs-using-the-built-in-storage-classes). The PVC requested a 100Gi file share, we can confirm that by running:
+In AKS, the built-in `azurefile-csi` storage class already supports expansion, so leverage the [PVC created earlier with this storage class](#dynamically-create-azure-files-pvs-using-the-built-in-storage-classes). The PVC requested a 100Gi file share, we can confirm that by running:
 
 ```console 
 $ kubectl exec -it nginx-azurefile -- df -h /mnt/azurefile
@@ -190,9 +190,9 @@ Filesystem                                                                      
 
 ## Windows Containers
 
-The Azure files CSI driver also supports Windows in preview, if you wish to use windows containers follow the [Windows Containers tutorial](windows-container-cli.md) to add a Windows node pool.
+The Azure files CSI driver also supports Windows nodes and containers, if you wish to use windows containers follow the [Windows Containers tutorial](windows-container-cli.md) to add a Windows node pool.
 
-Once you have a windows node pool, you can now just leverage the built-in storage classes like `azurefile-csi` or create custom ones. You can deploy an example [windows-based stateful set](https://github.com/kubernetes-sigs/azurefile-csi-driver/blob/master/deploy/example/windows/statefulset.yaml) that saves timestamps into a file `data.txt` by deploying the below with the [kubectl apply][kubectl-apply] command:
+Once you have a windows node pool, leverage the built-in storage classes like `azurefile-csi` or create custom ones. You can deploy an example [windows-based stateful set](https://github.com/kubernetes-sigs/azurefile-csi-driver/blob/master/deploy/example/windows/statefulset.yaml) that saves timestamps into a file `data.txt` by deploying the below with the [kubectl apply][kubectl-apply] command:
 
  ```console
 $ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azurefile-csi-driver/master/deploy/example/windows/statefulset.yaml
@@ -200,7 +200,7 @@ $ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azurefile-c
 statefulset.apps/busybox-azuredisk created
 ```
 
-You can now validate the contents of the volume by running:
+Validate the contents of the volume by running:
 
 ```console
 $ kubectl exec -it busybox-azurefile-0 -- cat c:\\mnt\\azurefile\\data.txt # on Linux/MacOS Bash
