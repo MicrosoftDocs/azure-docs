@@ -23,7 +23,7 @@ VMware infrastructure of your private cloud will be updated to a newer version. 
 During the upgrade, a new node will be added to your private cloud before a node is placed in maintenance mode for upgrade operation. This ensures the capacity of your private cloud and availability of your private cloud is maintained during the upgrade process. During the upgrade of VMware components, you may see alarms displayed on your vCenter web UI. The alarms
 are a part of the maintenance operations performed by the service operations team.
 
-**Component Version**
+**Component version**
 
 - ESXi 6.7U3
 - vCenter 6.7U3
