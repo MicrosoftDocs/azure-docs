@@ -222,7 +222,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. In the following page,select **Job > Worker Security** and the **Workday account** has to match with the Azure active directory as the **Name ID** value.
 
-    ![Find workers](./media/workday-tutorial/worker-security.png)
+    ![Worker Security](./media/workday-tutorial/worker-security.png)
 
 
 ## Test SSO
