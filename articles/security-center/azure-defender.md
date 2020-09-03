@@ -4,13 +4,13 @@ description: Learn about Azure Defender's plans, protections, and alerts. Then p
 author: memildin
 ms.author: memildin
 ms.date: 9/12/2020
-ms.topic: article-type-from-white-list
+ms.topic: conceptual
 ms.service: security-center
 manager: rkarlin
 
 ---
 
-# Introducing Azure Defender
+# Introduction to Azure Defender
 
 Azure Security Center's features cover the two broad pillars of cloud security:
 
@@ -29,14 +29,14 @@ Azure Defender provides security alerts and advanced threat protection for virtu
 
 When you enable Azure Defender from the **Pricing and settings** area of Azure Security Center, the following Defender plans are all enabled simultaneously and provide comprehensive defenses for the compute, data, and service layers of your environment:
 
-- Azure Defender for servers
-- Azure Defender for App Services
-- Azure Defender for Storage
-- Azure Defender for SQL
-- Azure Defender for IoT
-- Azure Defender for Kubernetes
-- Azure Defender for container registries
-- Azure Defender for Key Vault
+- [Azure Defender for servers](defender-for-servers-intro.md)
+- [Azure Defender for App Services](defender-for-app-services-intro.md)
+- [Azure Defender for Storage](defender-for-storage-intro.md)
+- [Azure Defender for SQL](defender-for-sql-intro.md)
+- [Azure Defender for IoT](defender-for-iot-intro.md)
+- [Azure Defender for Kubernetes](defender-for-kubernetes-intro.md)
+- [Azure Defender for container registries](defender-for-container-registries-intro.md)
+- [Azure Defender for Key Vault](defender-for-key-vault-intro.md)
 
 Each of these plans is explained separately in the Security Center documentation.
 

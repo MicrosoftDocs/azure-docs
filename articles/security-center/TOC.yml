@@ -41,13 +41,17 @@
     - name: Azure Defender for Storage
       href: defender-for-storage-intro.md
     - name: Azure Defender for SQL
-      href: defender-for-sql-intro.md
+      href: defender-for-storage-intro.md
+    - name: Azure Defender for IoT
+      href: defender-for-iot.md
     - name: Azure Defender for Key Vault
       href: defender-for-key-vault-intro.md
     - name: Azure Defender for Kubernetes
       href: defender-for-kubernetes-intro.md
     - name: Azure Defender for container registries
       href: defender-for-container-registries-intro.md
+    - name: Additional threat protections
+      href: other-threat-protections.md
 
 - name: Quickstarts
   items:
@@ -58,8 +62,10 @@
   - name: Connect your AWS and GCP clouds
     items:
     - name: Connect AWS accounts
+      displayName: hybrid, multicloud
       href: quickstart-onboard-aws.md
     - name: Connect GCP accounts
+      displayName: hybrid, multicloud
       href: quickstart-onboard-gcp.md
   - name: Enable Azure Defender    
     href: security-center-onboarding.md
@@ -163,17 +169,20 @@
       items:
       - name: Scan your VMs with the integrated VA solution
         href: deploy-vulnerability-assessment-vm.md
+        displayName: qualys, vulnerability
       - name: Scan your VMs with a BYOL VA solution
         href: deploy-vulnerability-assessment-byol-vm.md
+        displayName: qualys, rapid7, vulnerability
       - name: Review and remediate vulnerabilities on your VMs
         href: remediate-vulnerability-findings-vm.md
+        displayName: qualys, rapid7, vulnerability
     - name: Secure management ports with just-in-time VM access
       items:
       - name: Overview of just-in-time VM access
-        displayName: jit
+        displayName: jit, management
         href: just-in-time-explained.md
       - name: Manage just-in-time access
-        displayName: jit
+        displayName: jit, management
         href: security-center-just-in-time.md
     - name: Adaptive application controls
       href: security-center-adaptive-application.md

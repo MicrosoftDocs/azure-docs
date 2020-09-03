@@ -4,7 +4,7 @@ description: 115-145 characters
 author: memildin
 ms.author: memildin
 ms.date: 9/12/2020
-ms.topic: article-type-from-white-list
+ms.topic: conceptual
 ms.service: security-center
 manager: rkarlin
 

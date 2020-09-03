@@ -12,7 +12,11 @@ manager: rkarlin
 
 # (Preview)
 
+The Azure Defender dashboard provides visibility into the
 
+- Azure Defender coverage across your different resource types
+- The onboarding state & agent installation and
+- Azure Defender threat detection alerts 
 
 
 
