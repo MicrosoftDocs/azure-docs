@@ -35,7 +35,6 @@ In order to configure a compute instance as a remote Jupyter Notebook server you
 
 * Azure Machine Learning Visual Studio Code extension. For more information, see the [Azure Machine Learning Visual Studio Code Extension setup guide](tutorial-setup-vscode-extension.md).
 * Azure Machine Learning workspace. [Use the Azure Machine Learning Visual Studio Code extension to create a new workspace](how-to-manage-resources-vscode.md#create-a-workspace) if you don't already have one.
-* Azure Machine Learning compute instance. [Use the Azure Machine Learning Visual Studio Code extension to create a compute instance]() if you don't already have one.
 
 To connect to a compute instance:
 
