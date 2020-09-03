@@ -1,17 +1,17 @@
 ---
-title: Introduction to Project Babylon (Preview)
-description: This article provides an overview of Project Babylon, including its features and the problems it addresses. Project Babylon enables any user to register, discover, understand, and consume data sources.
+title: Introduction to Azure Babylon
+description: This article provides an overview of Azure Babylon, including its features and the problems it addresses. Azure Babylon enables any user to register, discover, understand, and consume data sources.
 author: hophan
 ms.author: hophan
 ms.service: data-catalog
 ms.subservice: data-catalog-gen2
 ms.topic: overview
-ms.date: 08/21/2020
+ms.date: 06/18/2020
 ---
 
-# What is the Project Babylon Preview Program?
+# What is Azure Babylon?
 
-Project Babylon is a new cloud service for use by data users centrally manage data governance across their data estate spanning cloud and on-prem environments. This service enables business analysts to search for relevant data using business terms that are meaningful to them. Additionally, technical users can view meta-data and lineage of data assets in a central catalog using a UI or Apache Atlas API. Data assets can be annotated by experts and owners sharing tribal knowledge through the UI, or at scale through automated classification based on meta-data and content inspection.
+Azure Babylon is a new cloud service for use by data users centrally manage data governance across their data estate spanning cloud and on-prem environments. This service enables business analysts to search for relevant data using business terms that are meaningful to them. Additionally, technical users can view meta-data and lineage of data assets in a central catalog using a UI or Apache Atlas API. Data assets can be annotated by experts and owners sharing tribal knowledge through the UI, or at scale through automated classification based on meta-data and content inspection.
  
 The Project Babylon Preview Program provides customers early access to preview releases in their Azure Subscriptions for evaluation. You will be getting product support and will be able to provide feedback directly to the product team.
 
@@ -67,4 +67,4 @@ At the same time, users can contribute to the catalog by tagging, documenting, a
 ## Next steps
 
 To get started with Project Babylon:
-[Create a Babylon account](data-catalog-get-started.md)
+[Create a Babylon account](overview.md)
