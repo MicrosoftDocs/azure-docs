@@ -19,7 +19,7 @@ resource units (RU) that are used on the main transactional storage.
 
 `OPENROWSET` function enables you to read and analyze the documents from Azure Cosmos DB analytical storage. The following `OPENROWSET` syntax is used to query Azure Cosmos DB analytical storage:
 
-```sqlsyntax
+```syntaxsql
 openrowset( 
        'CosmosDB',
        '<Azure Cosmos DB connection string>',
