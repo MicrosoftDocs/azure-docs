@@ -112,6 +112,10 @@
       href: backup-center-overview.md
     - name: Monitor and Operate
       href: backup-center-monitor-operate.md
+    - name: Obtain insights
+      href: backup-center-obtain-insights.md
+    - name: Govern environment
+      href: backup-center-govern-environment.md
   - name: Azure VM backup
     items:
     - name: Overview
