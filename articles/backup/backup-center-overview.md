@@ -13,7 +13,7 @@ Some of the key benefits of Backup Center include:
 
 * **Single pane of glass to manage backups** – You can use Backup Center to efficiently manage backups spanning multiple workload types, vaults, subscriptions, regions, and [Azure Lighthouse]() tenants.
 * **Datasource-centric management** – Backup Center provides views and filters that are pivoted on the datasources that you're backing up (for example, VMs and databases). This allows a resource owner or a backup admin to monitor and operate backups of items without needing to focus on which vault an item is backed up to. A key feature of this design is the ability for a user to slice and dice views on the basis of datasource-specific properties, such as datasource subscription, datasource resource group, and datasource tags.
-* i**Connected experiences** – Backup Center provides native integrations to existing Azure services that enable management at scale. For example, Backup Center leverages the [Azure Policy]() experience to help you govern your backups. It also leverages [Azure workbooks]() and [Azure Monitor Logs]() to help you view detailed reports on backups. So you don't need to learn any new paradigms to use the varied features that Backup Center offers.
+* **Connected experiences** – Backup Center provides native integrations to existing Azure services that enable management at scale. For example, Backup Center leverages the [Azure Policy]() experience to help you govern your backups. It also leverages [Azure workbooks]() and [Azure Monitor Logs]() to help you view detailed reports on backups. So you don't need to learn any new paradigms to use the varied features that Backup Center offers.
 
 ## Supported scenarios
 

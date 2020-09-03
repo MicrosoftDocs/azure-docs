@@ -55,7 +55,7 @@ You can choose between geo-redundant storage and locally redundant storage.
 
 - By default, your vault has geo-redundant storage.
 - If the vault is your primary backup, leave the option set to geo-redundant storage. If you want a cheaper option that isn't quite as durable, use the following procedure to configure locally redundant storage.
-- Learn about [Azure storage](../storage/common/storage-redundancy.md), and the [geo-redundant](../storage/common/storage-redundancy.md) and [locally redundant](../storage/common/storage-redundancy.md) storage options.
+- Learn about [Azure storage](../storage/common/storage-redundancy.md), and the [geo-redundant](../storage/common/storage-redundancy.md#geo-redundant-storage), [locally redundant](../storage/common/storage-redundancy.md#locally-redundant-storage) and [zone-redundant](../storage/common/storage-redundancy.md#zone-redundant-storage) storage options.
 - Modify storage settings before the initial backup. If you've already backed up an item, stop backing it up in the vault before you modify storage settings.
 
 To edit the storage replication setting:
