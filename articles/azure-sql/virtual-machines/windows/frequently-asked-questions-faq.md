@@ -173,17 +173,16 @@ This article provides answers to some of the most common questions about running
 
 1. **Can I remove SQL Server and the associated SQL instance billing from a SQL Server VM?**
 
-Yes, but you will need to take additional steps to avoid being charged for your SQL Server as described in [Pricing guidance for SQL Server Azure VMs](https://docs.microsoft.coms/azure/azure-sql/virtual-machines/windows/pricing-guidance). 
-If you want to remove SQL instance completely, you can migrate to another Azure VM without SQL Server pre-installed on it and delete the current SQL VM. 
-If you want to remove associated SQL instance billing only for the paid edition of SQL instance from the current VM, then you can follow these steps -  
-   - If needed, backup all your data.
-   - Uninstall SQL Server completely including SQL IaaS extension (if present)
-   - Install free [SQL Express edition](https://www.microsoft.com/sql-server/sql-server-downloads)
-   - Install SQL VM RP in [lightweight mode](https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/sql-vm-resource-provider-register?tabs=azure-cli%2Cbash) 
-   - [Change the licensing type](https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/change-sql-server-edition#change-edition-in-portal) to Express 
-   - (optional) Disable express edition SQL Server service
-
+   Yes, but you'll need to take additional steps to avoid being charged for your SQL Server as described in [Pricing guidance for SQL Server Azure VMs](https://docs.microsoft.coms/azure/azure-sql/virtual-machines/windows/pricing-guidance). If you want to completely remove the SQL instance, you can migrate to another Azure VM without SQL Server pre-installed on the VM and delete the current SQL VM. If you want to remove the associated SQL instance billing only for the paid edition of the SQL instance from the current VM, complete these steps:  
+   1. If needed, back up all your data.
+   1. Uninstall SQL Server completely, including the SQL IaaS extension (if present).
+   1. Install the free [SQL Express edition](https://www.microsoft.com/sql-server/sql-server-downloads).
+   1. Install the SQL VM RP in [lightweight mode](https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/sql-vm-resource-provider-register?tabs=azure-cli%2Cbash).
+   1. [Change the licensing type](https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/change-sql-server-edition#change-edition-in-portal) to Express.
+   1. (optional) Disable the Express Edition SQL Server service.
    
+
+
 ## Updating and patching
 
 1. **How do I change to a different version/edition of SQL Server in an Azure VM?**
