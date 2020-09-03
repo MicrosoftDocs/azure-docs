@@ -194,6 +194,8 @@ The following operators are supported:
 
 The following type checking and casting functions are supported:
 
+| Function | Description |
+| -------- | ----------- |
 | IS_DEFINED | Returns a Boolean indicating if the property has been assigned a value. This is supported only when the value is a primitive type. Primitive types include string, Boolean, numeric, or `null`. DateTime, object types and arrays are not supported. |
 | IS_OF_MODEL | Returns a Boolean value indicating if the specified twin matches the specified model type |
 | IS_BOOL | Returns a Boolean value indicating if the type of the specified expression is a Boolean. |
