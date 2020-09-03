@@ -111,13 +111,13 @@ But you can also pivot across more diagnostics insights leveraging additional fe
 
 If you'd like to get alerted when an anomaly is detected in your data, you can create a subscription for one or more of your metrics. Metrics Advisor uses web hooks to send alerts.
 
-### Step 1: Create a web hook
+### Create a web hook
 
 A web hook is the entry point for all of the information you alerts you will receive. Currently, Metrics Advisor only supports sending alerts through a web hook. For details on how to create a hook, please refer to the **Create a web hook** section in [How-to: Configure and subscribe to an alert](../how-tos/alerts.md#create-a-web-hook). 
 
-### Step 2: Configure alert settings
+### Configure alert settings
 
-An alert setting determines how and which alert notifications should be sent. You can set multiple alert settings for each metric. two important settings are **Alert for** which specifies the anomalies to be included, and **Filter anomaly options** which defines which anomalies to include in the alert. See the **Add or Edit alert settings** section in [How-to: Configure and subscribe to an alert](../how-tos/alerts.md#add-or-edit-alert-settings). for more details.
+After creating a web hook, an alert setting determines how and which alert notifications should be sent. You can set multiple alert settings for each metric. two important settings are **Alert for** which specifies the anomalies to be included, and **Filter anomaly options** which defines which anomalies to include in the alert. See the **Add or Edit alert settings** section in [How-to: Configure and subscribe to an alert](../how-tos/alerts.md#add-or-edit-alert-settings). for more details.
 
 
 ## Next Steps

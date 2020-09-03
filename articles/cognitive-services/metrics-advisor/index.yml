@@ -42,6 +42,8 @@ landingContent:
   linkLists:
     - linkListType: how-to-guide
       links:
+        - text: Onboard your data
+          url: onboard-your-data.md
         - text: Manage data feeds
           url: how-tos/datafeeds.md
         - text: Configure metrics and anomaly detection
