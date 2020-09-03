@@ -139,9 +139,6 @@ As a managed service, AKS has specific networking and connectivity requirements.
 > [!NOTE]
 > Currently, AKS doesn't allow you to completely lock down egress traffic from your cluster. To control the list of URLs and ports your cluster can use for outbound traffic see  [limit egress traffic](limit-egress-traffic.md).
 
-> [!NOTE]
-> The minimum supported TLS version in AKS is TLS 1.2 (0x303).
-
 ## Unsupported alpha and beta Kubernetes features
 
 AKS supports only stable features within the upstream Kubernetes project. Unless otherwise documented, AKS doesn't support alpha and beta features that are available in the upstream Kubernetes project.
