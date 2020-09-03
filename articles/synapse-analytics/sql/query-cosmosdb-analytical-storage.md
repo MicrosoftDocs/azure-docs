@@ -93,7 +93,7 @@ The result of this query might look like:
 | 2020-08-12 | 235 | RS |
 | 2020-08-11 | 163 | RS |
 
-Look at the [rules for type mappings](#type-mappings) at the end of the article for more information about the sql types that should be used for Azure Cosmos DB value.
+Look at the [rules for SQL type mappings](#type-mappings) at the end of the article for more information about the sql types that should be used for Azure Cosmos DB value.
 
 ## Nested values
 
