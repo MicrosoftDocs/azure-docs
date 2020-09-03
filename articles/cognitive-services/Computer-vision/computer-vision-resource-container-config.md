@@ -24,14 +24,14 @@ You configure the Computer Vision container's runtime environment by using the `
 > [!IMPORTANT]
 > The [`ApiKey`](#apikey-configuration-setting), [`Billing`](#billing-configuration-setting), and [`Eula`](#eula-setting) settings are used together, and you must provide valid values for all three of them; otherwise your container won't start. For more information about using these configuration settings to instantiate a container, see [Billing](computer-vision-how-to-install-containers.md).
 
-The container also has the following container specific configuration settings:
+The container also has the following container-specific configuration settings:
 
 |Required|Setting|Purpose|
 |--|--|--|
-|No|ReadEngineConfig:ResultExpirationPeriod|Result expiration period in hours. Default is 48 hours. The setting specifies when the system should clear recognition results. For example, resultExpirationPeriod=1, the system will clear the recognition result 1hr after the process. resultExpirationPeriod=0, the system will clear the recognition result after result retrieval.|
-|No|Cache:Redis|Enables Redis storage for result storing. A cache is **REQUIRED** if multiple read containers are placed behind load balancer.|
-|No|Queue:RabbitMQ|Enables RabbitMQ for tasks dispatching. This can be useful when multiple read containers are placed behind load balancer.|
-|No|Storage::DocumentStore::MongoDB|Enables MongoDB for permanent result storing.|
+|No|ReadEngineConfig:ResultExpirationPeriod|Result expiration period in hours. The default is 48 hours. The setting specifies when the system should clear recognition results. For example, for `resultExpirationPeriod=1`, the system clears the recognition result 1 hour after the process. For `resultExpirationPeriod=0`, the system clears the recognition result after the result is retrieved.|
+|No|Cache:Redis|Enables Redis storage for storing results. A cache is *required* if multiple read containers are placed behind a load balancer.|
+|No|Queue:RabbitMQ|Enables RabbitMQ for dispatching tasks. The setting is useful when multiple read containers are placed behind a load balancer.|
+|No|Storage::DocumentStore::MongoDB|Enables MongoDB for permanent result storage.|
 
 ## ApiKey configuration setting
 
