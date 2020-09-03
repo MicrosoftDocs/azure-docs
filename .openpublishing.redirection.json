@@ -44038,6 +44038,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/virtual-machines/workloads/oracle/oracle-backup-recovery.md",
+      "redirect_url": "/azure/virtual-machines/workloads/oracle/oracle-overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/linux/classic/troubleshoot-recovery-disks-portal.md",
       "redirect_url": "/previous-versions/azure/virtual-machines/linux/classic/troubleshoot-recovery-disks-portal",
       "redirect_document_id": false
@@ -48178,7 +48183,11 @@
       "redirect_url": "/azure/iot-central/retail/tutorial-video-analytics-deploy",
       "redirect_document_id": true
     },
-
+    {
+      "source_path": "articles/iot-central/core/howto-use-data-export.md",
+      "redirect_url": "/azure/iot-central/core/howto-export-data",
+      "redirect_document_id": true
+    },
     {
       "source_path": "articles/iot-accelerators/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2.md",
       "redirect_url": "/azure/iot-accelerators/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoring-v2",
@@ -52568,6 +52577,11 @@
       "source_path": "articles/sql-data-warehouse/sql-data-warehouse-develop-views.md",
       "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-develop-views",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/synapse-analytics/sql-data-warehouse/sql-data-warehouse-develop-views.md",
+      "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/performance-tuning-materialized-views",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/sql-data-warehouse/sql-data-warehouse-get-started-connect-sqlcmd.md",
