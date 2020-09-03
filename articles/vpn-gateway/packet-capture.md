@@ -6,7 +6,7 @@ author: radwiv
 
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 09/03/2020
+ms.date: 10/15/2019
 ms.author: radwiv
 ---
 
@@ -22,11 +22,11 @@ VPN gateway packet captures can be run on the gateway or on a specific connectio
 
 Using a five-tuple filter (source subnet, destination subnet, source port, destination port, protocol) and TCP flags (SYN, ACK, FIN, URG, PSH, RST) is helpful when isolating issues on a high volume traffic.
 
-See below an example of JSON and JSON schema with explanation of each property. Also, note some limitations while running the packet captures:
-- In the schema, filter is shown as an array, but at present only one filter can be used at a time.
-- Multiple gateway-wide packet captures at the same time are not allowed.
-- Multiple packet captures on the same connection at the same time are not allowed. You can run packet captures on different connections at the same time.
-- A maximum of five packet captures can be run in parallel per gateway. These packet captures can be a combination of gateway-wide packet capture or per connection packet capture.
+The following examples of JSON and a JSON schema provide explanations of each property. Here are some limitations to keep in mind when you run packet captures:
+- In the schema shown here, the filter is an array, but currently only one filter can be used at a time.
+- You can't run multiple gateway-wide packet captures at the same time.
+- You can't run multiple packet captures on a single connection at the same time. You can run multiple packet captures on different connections at the same time.
+- A maximum of five packet captures can be run in parallel per gateway. These packet captures can be a combination of gateway-wide packet captures and per-connection packet captures.
 
 ### Example JSON
 ```JSON-interactive
