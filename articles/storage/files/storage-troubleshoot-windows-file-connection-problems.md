@@ -314,18 +314,6 @@ Enable Azure AD DS on the Azure AD tenant of the subscription that your storage 
 
 [!INCLUDE [storage-files-condition-headers](../../../includes/storage-files-condition-headers.md)]
 
-## Error 'System error 1359 has occurred. An internal error' received over SMB access to file shares with Azure Active Directory Domain Service (Azure AD DS) authentication enabled
-
-### Cause
-
-Error 'System error 1359 has occurred. An internal error' happens when you try to connect to your file share with Azure AD DS authentication enabled against an Azure AD DS with domain DNS name starting with a numeric character. For example, if your Azure AD DS Domain DNS name is "1domain", you will get this error when attempting to mount the file share using Azure AD credentials. 
-
-### Solution
-
-Currently, you can consider redeploying your Azure AD DS using a new domain DNS name that applies with the rules below:
-- Names cannot begin with a numeric character.
-- Names must be from 3 to 63 characters long.
-
 ## Unable to mount Azure Files with AD credentials 
 
 ### Self diagnostics steps
