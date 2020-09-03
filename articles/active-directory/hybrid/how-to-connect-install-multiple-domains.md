@@ -102,14 +102,14 @@ Use the following steps to remove the Microsoft Online trust and update your ori
 2. On the left, expand **Trust Relationships** and **Relying Party Trusts**
 3. On the right, delete the **Microsoft Office 365 Identity Platform** entry.
    ![Remove Microsoft Online](./media/how-to-connect-install-multiple-domains/trust4.png)
-4. On a machine that has [Azure Active Directory Module for Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx) installed on it run the following: `$cred=Get-Credential`.  
+4. On a machine that has [Azure Active Directory Module for Windows PowerShell](/previous-versions/azure/jj151815(v=azure.100)) installed on it run the following: `$cred=Get-Credential`.  
 5. Enter the username and password of a global administrator for the Azure AD domain you are federating with.
 6. In PowerShell, enter `Connect-MsolService -Credential $cred`
 7. In PowerShell, enter `Update-MSOLFederatedDomain -DomainName <Federated Domain Name> -SupportMultipleDomain`.  This update is for the original domain.  So using the above domains it would be:  `Update-MsolFederatedDomain -DomainName bmcontoso.com -SupportMultipleDomain`
 
 Use the following steps to add the new top-level domain using PowerShell
 
-1. On a machine that has [Azure Active Directory Module for Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx) installed on it run the following: `$cred=Get-Credential`.  
+1. On a machine that has [Azure Active Directory Module for Windows PowerShell](/previous-versions/azure/jj151815(v=azure.100)) installed on it run the following: `$cred=Get-Credential`.  
 2. Enter the username and password of a global administrator for the Azure AD domain you are federating with
 3. In PowerShell, enter `Connect-MsolService -Credential $cred`
 4. In PowerShell, enter `New-MsolFederatedDomain –SupportMultipleDomain –DomainName`
