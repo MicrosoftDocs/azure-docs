@@ -27,7 +27,7 @@ Within a Security Information and Event Management (SIEM) solution like Azure Se
 
 You can integrate threat intelligence (TI) into Azure Sentinel through the following activities:
 
-- Use **Data connectors** *(link to connector doc)* to various TI platforms to import threat intelligence into Azure Sentinel.
+- Use **Data connectors** to various TI platforms to [import threat intelligence](./connect-threat-intelligence.md) into Azure Sentinel.
 - View and manage the imported threat intelligence in **Logs** and in the new **Threat Intelligence** area of Azure Sentinel.
 - Use the built-in **Analytics** rule templates to generate security alerts and incidents using your imported threat intelligence.
 - Visualize key information about your threat intelligence in Azure Sentinel with the **Threat Intelligence workbook**.
@@ -257,18 +257,18 @@ Let’s look at an actual example of how to use a simple command line utility ca
 
 You now have all the information you need to connect Azure Sentinel to one or more TAXII server Collections provided by Anomali Limo.
 
-| **API Root**                       | https://limo.anomali.com/api/v1/taxii2/feeds/ |
-|------------------------------------|-----------------------------------------------|
-| **Phish Tank**                     | 107                                           |
-| **Abuse.ch Ransomware IPs**        | 135                                           |
-| **Abuse.ch Ransomware Domains**    | 136                                           |
-| **DShield Scanning IPs**           | 150                                           |
-| **Malware Domain List - Hotlist**  | 200                                           |
-| **Blutmagie TOR Nodes**            | 209                                           |
-| **Emerging Threats C&C Server**    |  31                                           |
-| **Lehigh Malwaredomains**          |  33                                           |
-| **CyberCrime**                     |  41                                           |
-| **Emerging Threats - Compromised** |  68                                           |
+| **API Root** (https://limo.anomali.com/api/v1/taxii2/feeds/) | Collection ID |
+| ------------------------------------------------------------ | ------------: |
+| **Phish Tank**                                               | 107           |
+| **Abuse.ch Ransomware IPs**                                  | 135           |
+| **Abuse.ch Ransomware Domains**                              | 136           |
+| **DShield Scanning IPs**                                     | 150           |
+| **Malware Domain List - Hotlist**                            | 200           |
+| **Blutmagie TOR Nodes**                                      | 209           |
+| **Emerging Threats C&C Server**                              |  31           |
+| **Lehigh Malwaredomains**                                    |  33           |
+| **CyberCrime**                                               |  41           |
+| **Emerging Threats - Compromised**                           |  68           |
 |
 
 #### Enable the Threat Intelligence - TAXII data connector in Azure Sentinel
@@ -301,7 +301,7 @@ Now that you’ve successfully imported threat indicators into Azure Sentinel us
 
 1. Select the **Preview data** icon (the eye) next to the table name and select the **See in query editor** button to execute a query which will show records from this table.
 
-Your results should look similar to the example threat indicator shown below:
+Your results should look similar to the sample threat indicator shown below:
 
 :::image type="content" source="media/import-threat-intelligence/threat-intel-sample-query.png" alt-text="Sample query data":::
  
