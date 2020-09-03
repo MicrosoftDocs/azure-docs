@@ -71,7 +71,7 @@ test.txt
 
 The default storage classes suit the most common scenarios but not all. For some cases, you might want to have your own storage class customized with your own parameters. To exemplify, we have a scenario where you might want to change the `volumeBindingMode`. 
 
-The default storage classes use a `volumeBindingMode: Immediate` that guarantees that volume binding and dynamic provisioning occurs immediately once the PersistentVolumeClaim is created. In cases where your node pools are topology constrained, for example using Availability Zones, Persistent Volumes would be bound or provisioned without knowledge of the Pod's scheduling requirements (in this case to be in a specific zone).
+The default storage classes use a `volumeBindingMode: Immediate` that guarantees that occur immediately once the PersistentVolumeClaim is created. In cases where your node pools are topology constrained, for example using Availability Zones, Persistent Volumes would be bound or provisioned without knowledge of the Pod's scheduling requirements (in this case to be in a specific zone).
 
 To address this scenario, you can use `volumeBindingMode: WaitForFirstConsumer`, which will delay the binding and provisioning of a PersistentVolume until a Pod using the PersistentVolumeClaim is created. In this way, the PV will conform and be provisioned in the availability zone (or other topology) that is specified by the Pod's scheduling constraints. 
 
@@ -184,7 +184,7 @@ As expected we can still see our previously created `test.txt` file.
 
 A cloned volume is defined as a duplicate of an existing Kubernetes Volume. For more information on cloning volumes in Kubernetes, see the conceptual documentation for [Volume Cloning](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#volume-cloning).
 
-The CSI driver for Azure Disks supports volume cloning. To demonstrate create a [cloned volume](https://github.com/kubernetes-sigs/azuredisk-csi-driver/blob/master/deploy/example/cloning/nginx-pod-restored-cloning.yaml) of the [previously created](#dynamically-create-azure-disk-pvs-using-the-built-in-storage-classes) `azuredisk-pvc` and [a new pod to consume it](https://github.com/kubernetes-sigs/azuredisk-csi-driver/blob/master/deploy/example/cloning/nginx-pod-restored-cloning.yaml).
+The CSI driver for Azure Disks supports volume cloning. To demonstrate, create a [cloned volume](https://github.com/kubernetes-sigs/azuredisk-csi-driver/blob/master/deploy/example/cloning/nginx-pod-restored-cloning.yaml) of the [previously created](#dynamically-create-azure-disk-pvs-using-the-built-in-storage-classes) `azuredisk-pvc` and [a new pod to consume it](https://github.com/kubernetes-sigs/azuredisk-csi-driver/blob/master/deploy/example/cloning/nginx-pod-restored-cloning.yaml).
 
 
 
@@ -369,7 +369,7 @@ root@deployment-sharedisk-7454978bc6-xh7jp:/# dd if=/dev/zero of=/dev/sdx bs=102
 
 ## Windows Containers
 
-The Azure disk CSI driver also supports Windows nodes and containers. If you wish to use windows containers follow the [Windows Containers tutorial](windows-container-cli.md) to add a Windows node pool.
+The Azure disk CSI driver also supports Windows nodes and containers. If you wish to use windows containers, follow the [Windows Containers tutorial](windows-container-cli.md) to add a Windows node pool.
 
 Once you have a windows node pool, you can now just leverage the built-in storage classes like `managed-csi`. You can deploy an example [windows-based stateful set](https://github.com/kubernetes-sigs/azuredisk-csi-driver/blob/master/deploy/example/windows/statefulset.yaml) that saves timestamps into a file `data.txt` by deploying the below with the [kubectl apply][kubectl-apply] command:
 

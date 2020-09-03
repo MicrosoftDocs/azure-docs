@@ -25,8 +25,8 @@ The CSI storage driver support on AKS allows you to natively leverage:
 
 - This feature can only be set at cluster creation time.
 - The minimum kubernetes minor version that supports CSI drivers is v1.17.
-- During Preview the default storage class will still be the [same in-tree storage class](concepts-storage.md#storage-classes). After this feature is generally available, the default storage class will be the `managed-csi` storage class and in-tree storage classes will be removed.
-- During the first preview phase only Azure CLI is supported.
+- During Preview, the default storage class will still be the [same in-tree storage class](concepts-storage.md#storage-classes). After this feature is generally available, the default storage class will be the `managed-csi` storage class and in-tree storage classes will be removed.
+- During the first preview phase, only Azure CLI is supported.
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
