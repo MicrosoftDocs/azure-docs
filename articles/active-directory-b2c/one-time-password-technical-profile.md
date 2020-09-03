@@ -91,6 +91,7 @@ The following example `TechnicalProfile` is used for generating a code:
     <Item Key="CodeLength">6</Item>
     <Item Key="CharacterSet">0-9</Item>
     <Item Key="NumRetryAttempts">5</Item>
+    <Item Key="NumCodeGenerationAttempts">15</Item>
     <Item Key="ReuseSameCode">false</Item>
   </Metadata>
   <InputClaims>
