@@ -78,7 +78,7 @@ As updates are constantly made to the product, some features have added or diffe
 
 [Flatten transformation](https://youtu.be/VY2tFQJoAXE)
 
-[Transform Hierachical Data](https://youtu.be/oAEh21NFgWQ)
+[Transform Hierarchical Data](https://youtu.be/oAEh21NFgWQ)
 
 ## Source and sink
 
