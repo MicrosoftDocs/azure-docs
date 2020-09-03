@@ -67,9 +67,9 @@ Please note, however, that this is a **sample** and not a complete tool. It has 
 * The sample has currently only been tested on graph sizes up to 1000 nodes and 2000 relationships
 * The sample does not support retrying in the case of any intermittent failures
 * The sample will not necessarily notify the user if data uploaded is incomplete
-* The sample requires the graph to fit in memory
+* The sample doesn't handle errors resulting from very large graphs exceeding available resources like memory
 
-If you desire additional capabilities beyond those originally provided in the sample, you can build on the sample code to make it more robust or customized, using the following developer tools:
+If the sample is not able to handle the size of your graph, you can export and import the graph using other Azure Digital Twins developer tools:
 * [Azure Digital Twins APIs and SDKs](how-to-use-apis-sdks.md)
 * [Azure Digital Twins CLI commands](how-to-use-cli.md)
 
