@@ -1,6 +1,6 @@
 ---
 title: 'Set up alerts on Azure VPN Gateway metrics'
-description: Learn how to set up alerts on Azure VPN Gateway metrics. Use Azure Monitor to set up alerts for virtual network gateways of the VPN type.
+description: Learn how to use the Azure portal to set up Azure Monitor alerts based on metrics for virtual network VPN gateways.
 services: vpn-gateway
 author: kumudD
 

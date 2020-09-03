@@ -114,6 +114,28 @@ Error 50004: "Can't connect to a host or cluster because the server name can't b
     4. Save and close the hosts file.
     5. Check whether the appliance can connect to the hosts, using the appliance management app. After 30 minutes, you should see the latest information for these hosts in the Azure portal.
 
+
+## Error 60001: Unable to connect to server 
+
+- Ensure there is connectivity from the appliance to the server
+- If it is a linux server, ensure password-based authentication is enabled using the following steps:
+    1. Log in to the linux machine and open the ssh configuration file using the command 'vi /etc/ssh/sshd_config'
+    2. Set "PasswordAuthentication" option to yes. Save the file.
+    3. Restart ssh service by running "service sshd restart"
+- If it is a windows server, ensure the port 5985 is open to allow for remote WMI calls.
+- If you are discovering a GCP linux server and using a root user, use the following commands to change the default setting for root login
+    1. Log in to the linux machine and open the ssh configuration file using the command 'vi /etc/ssh/sshd_config'
+    2. Set "PermitRootLogin" option to yes.
+    3. Restart ssh service by running "service sshd restart"
+
+## Error: No suitable authentication method found
+
+Ensure password-based authentication is enabled on the linux server using the following steps:
+    1. Log in to the linux machine and open the ssh configuration file using the command 'vi /etc/ssh/sshd_config'
+    2. Set "PasswordAuthentication" option to yes. Save the file.
+    3. Restart ssh service by running "service sshd restart"
+
+
 ## Discovered VMs not in portal
 
 If discovery state is "Discovery in progress", but don't yet see the VMs in the portal, wait a few minutes:
@@ -125,7 +147,7 @@ If you wait and the state doesn't change, select **Refresh** on the **Servers** 
 If this doesn't work and you're discovering VMware servers:
 
 - Verify that the vCenter account you specified has permissions set correctly, with access to at least one VM.
-- Azure Migrate can't discovered VMware VMs if the vCenter account has access granted at vCenter VM folder level. [Learn more](set-discovery-scope.md) about scoping discovery.
+- Azure Migrate can't discover VMware VMs if the vCenter account has access granted at vCenter VM folder level. [Learn more](set-discovery-scope.md) about scoping discovery.
 
 ## VM data not in portal
 

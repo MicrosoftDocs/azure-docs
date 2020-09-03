@@ -3,18 +3,13 @@ title: 'Tutorial: Configure Workday for automatic user provisioning with Azure A
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Workday.
 services: active-directory
 author: cmmdesai
-documentationcenter: na
-manager: daveba
-ms.assetid: 1a2c375a-1bb1-4a61-8115-5a69972c6ad6
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/26/2020
 ms.author: chmutali
-ms.collection: M365-identity-device-management
 ---
 # Tutorial: Configure Workday for automatic user provisioning
 

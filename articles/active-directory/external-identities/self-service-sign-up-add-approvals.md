@@ -4,7 +4,7 @@ description: Add API connectors for custom approval workflows in External Identi
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: how-to
+ms.topic: article
 ms.date: 06/16/2020
 
 ms.author: mimart
@@ -61,7 +61,7 @@ Next you'll [create the API connectors](self-service-sign-up-add-api-connector.m
 
   ![Check approval status  API connector configuration](./media/self-service-sign-up-add-approvals/check-approval-status-api-connector-config-alt.png)
 
-- **Request approval** - Send a call to the approval system after a user completes the attribute collection page, but before the user account is created, to request approval. The approval request can be automatically granted or manually reviewed. Example of a "Request approval" API connector. Select any **Claims to send** that the approval system needs to make an approval decision.
+- **Request approval** - Send a call to the approval system after a user completes the attribute collection page, but before the user account is created, to request approval. The approval request can be automatically granted or manually reviewed. Example of a "Request approval" API connector. 
 
   ![Request approval API connector configuration](./media/self-service-sign-up-add-approvals/create-approval-request-api-connector-config-alt.png)
 
@@ -86,28 +86,33 @@ Now you'll add the API connectors to a self-service sign-up user flow with these
 
 ## Control the sign-up flow with API responses
 
-Your approval system can use the [API response types](self-service-sign-up-add-api-connector.md#expected-response-types-from-the-web-api) from the two API endpoints to control the sign up flow.
+Your approval system can use its responses when called to control the sign up flow. 
 
 ### Request and responses for the "Check approval status" API connector
 
 Example of the request received by the API from the "Check approval status" API connector:
 
 ```http
-POST <Approvals-API-endpoint>
+POST <API-endpoint>
 Content-type: application/json
 
 {
- "email": "johnsmith@outlook.com",
- "identities": [
+ "email": "johnsmith@fabrikam.onmicrosoft.com",
+ "identities": [ //Sent for Google and Facebook identity providers
      {
      "signInType":"federated",
      "issuer":"facebook.com",
      "issuerAssignedId":"0123456789"
      }
  ],
+ "displayName": "John Smith",
+ "givenName":"John",
+ "lastName":"Smith",
  "ui_locales":"en-US"
 }
 ```
+
+The exact claims sent to the API depends on which information is provided by the identity provider. 'email' is always sent.
 
 #### Continuation response for "Check approval status"
 
@@ -165,12 +170,12 @@ Content-type: application/json
 Example of an HTTP request received by the API from the "Request approval" API connector:
 
 ```http
-POST <Approvals-API-endpoint>
+POST <API-endpoint>
 Content-type: application/json
 
 {
- "email": "johnsmith@outlook.com",
- "identities": [
+ "email": "johnsmith@fabrikam.onmicrosoft.com",
+ "identities": [ //Sent for Google and Facebook identity providers
      {
      "signInType":"federated",
      "issuer":"facebook.com",
@@ -178,11 +183,21 @@ Content-type: application/json
      }
  ],
  "displayName": "John Smith",
- "city": "Redmond",
- "extension_<extensions-app-id>_CustomAttribute": "custom attribute value",
+ "givenName":"John",
+ "surname":"Smith",
+ "jobTitle":"Supplier",
+ "streetAddress":"1000 Microsoft Way",
+ "city":"Seattle",
+ "postalCode": "12345",
+ "state":"Washington",
+ "country":"United States",
+ "extension_<extensions-app-id>_CustomAttribute1": "custom attribute value",
+ "extension_<extensions-app-id>_CustomAttribute2": "custom attribute value",
  "ui_locales":"en-US"
 }
 ```
+
+The exact claims sent to the API depends on which information is collected from the user or is provided by the identity provider.
 
 #### Continuation response for "Request approval"
 
@@ -253,7 +268,7 @@ After obtaining manual approval, the custom approval system creates a [user](htt
 
 If your user signed in with a Google or Facebook account, you can use the [User creation API](https://docs.microsoft.com/graph/api/user-post-users?view=graph-rest-1.0&tabs=http).
 
-1. The approval system receives the HTTP request from the user flow.
+1. The approval system uses receives the HTTP request from the user flow.
 
 ```http
 POST <Approvals-API-endpoint>

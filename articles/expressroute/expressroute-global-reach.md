@@ -1,13 +1,13 @@
 ---
 title: 'Azure ExpressRoute: Connect to Microsoft Cloud using Global Reach'
-description: This article explains ExpressRoute Global Reach.
+description: Learn how Azure ExpressRoute Global Reach can link ExpressRoute circuits together to make a private network between your on-premises networks.
 services: expressroute
-author: cherylmc
+author: duongau
 
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 06/09/2020
-ms.author: cherylmc
+ms.author: duau
 
 
 ---

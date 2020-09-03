@@ -53,7 +53,7 @@ To specify the subscription, run the following command. In the following example
 
 Before you can use Windows PowerShell with Azure Resource Manager, you need the following:
 
-* Windows PowerShell, Version 3.0 or 4.0. To find the version of Windows PowerShell, type:`$PSVersionTable` and verify the value of `PSVersion` is 3.0 or 4.0. To install a compatible version, see [Windows Management Framework 3.0](https://www.microsoft.com/download/details.aspx?id=34595) or [Windows Management Framework 4.0](https://www.microsoft.com/download/details.aspx?id=40855).
+* Windows PowerShell, Version 3.0 or 4.0. To find the version of Windows PowerShell, type:`$PSVersionTable` and verify the value of `PSVersion` is 3.0 or 4.0. To install a compatible version, see [Windows Management Framework 3.0](https://www.microsoft.com/download/details.aspx?id=34595).
 
 To get detailed help for any cmdlet you see in this tutorial, use the Get-Help cmdlet.
 
@@ -651,7 +651,7 @@ In the following example, the cache named `myCache` is removed.
 You can import data into an Azure Cache for Redis instance using the `Import-AzRedisCache` cmdlet.
 
 > [!IMPORTANT]
-> Import/Export is only available for [premium tier](cache-premium-tier-intro.md) caches. For more information about Import/Export, see [Import and Export data in Azure Cache for Redis](cache-how-to-import-export-data.md).
+> Import/Export is only available for [Premium tier](cache-overview.md#service-tiers) caches. For more information about Import/Export, see [Import and Export data in Azure Cache for Redis](cache-how-to-import-export-data.md).
 > 
 > 
 
@@ -715,7 +715,7 @@ The following command imports data from the blob specified by the SAS uri into A
 You can export data from an Azure Cache for Redis instance using the `Export-AzRedisCache` cmdlet.
 
 > [!IMPORTANT]
-> Import/Export is only available for [premium tier](cache-premium-tier-intro.md) caches. For more information about Import/Export, see [Import and Export data in Azure Cache for Redis](cache-how-to-import-export-data.md).
+> Import/Export is only available for [Premium tier](cache-overview.md#service-tiers) caches. For more information about Import/Export, see [Import and Export data in Azure Cache for Redis](cache-how-to-import-export-data.md).
 > 
 > 
 
@@ -780,7 +780,7 @@ The following command exports data from an Azure Cache for Redis instance into t
 You can reboot your Azure Cache for Redis instance using the `Reset-AzRedisCache` cmdlet.
 
 > [!IMPORTANT]
-> Reboot is only available for [premium tier](cache-premium-tier-intro.md) caches. For more information about rebooting your cache, see [Cache administration - reboot](cache-administration.md#reboot).
+> Reboot is only available for [Premium tier](cache-overview.md#service-tiers) caches. For more information about rebooting your cache, see [Cache administration - reboot](cache-administration.md#reboot).
 > 
 > 
 

@@ -3,7 +3,7 @@ title: Connectivity settings for Azure SQL Database and Data Warehouse
 description: This document explains Transport Layer Security (TLS) version choice and Proxy vs. Redirect setting for Azure SQL Database and Azure Synapse Analytics
 services: sql-database
 ms.service: sql-database
-titleSuffix: Azure SQL Database and SQL Data Warehouse
+titleSuffix: Azure SQL Database and Azure Synapse Analytics (formerly SQL Data Warehouse)
 ms.topic: conceptual
 author: rohitnayakmsft
 ms.author: rohitna

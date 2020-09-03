@@ -10,7 +10,7 @@ ms.author: bwren
 ms.subservice: diagnostic-extension
 ---
 # Store and view diagnostic data in Azure Storage
-Diagnostic data is not permanently stored unless you transfer it to the Microsoft Azure storage emulator or to Azure storage. Once in storage, it can be viewed with one of several available tools.
+Diagnostic data is not permanently stored unless you transfer it to the Microsoft Azure Storage Emulator or to Azure Storage. Once in storage, it can be viewed with one of several available tools.
 
 ## Specify a storage account
 You specify the storage account that you want to use in the ServiceConfiguration.cscfg file. The account information is defined as a connection string in a configuration setting. The following example shows the default connection string created for a new Cloud Service project in  Visual Studio:

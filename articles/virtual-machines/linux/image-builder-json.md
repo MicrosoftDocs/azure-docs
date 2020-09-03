@@ -3,7 +3,7 @@ title: Create an Azure Image Builder template (preview)
 description: Learn how to create a template to use with Azure Image Builder.
 author: danielsollondon
 ms.author: danis
-ms.date: 08/03/2020
+ms.date: 08/13/2020
 ms.topic: conceptual
 ms.service: virtual-machines-linux
 ms.subservice: imaging
@@ -136,7 +136,7 @@ For more information on deploying this feature, see [Configure managed identitie
 
 ## Properties: source
 
-Image Builder currently only supports HyperV generation 1 images and VMs, the `source` section contains information about the source image that will be used by Image Builder.
+The `source` section contains information about the source image that will be used by Image Builder. Image Builder currently only natively supports creating Hyper-V generation (Gen1) 1 images to the Azure Shared Image Gallery (SIG) or Managed Image. If you want to create Gen2 images, then you need to use a source Gen2 image, and distribute to VHD. After, you will then need to create a Managed Image from the VHD, and inject it into the SIG as a Gen2 image.
 
 The API requires a 'SourceType' that defines the source for the image build, currently there are three types:
 - PlatformImage - indicated the source image is a Marketplace image.
@@ -429,7 +429,8 @@ Customize properties:
 - **filters** – Optional, allows you to specify a filter to include or exclude updates.
 - **updateLimit** – Optional, defines how many updates can be installed, default 1000.
  
- 
+> [!NOTE]
+> The Windows Update customizer can fail if there are any outstanding Windows restarts, or application installations still running, typically you may see this error in the customization.log, `System.Runtime.InteropServices.COMException (0x80240016): Exception from HRESULT: 0x80240016`. We strongly advise you consider adding in a Windows Restart, and/or allowing applications enough time to complete their installations using [sleep] or wait commands(https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/start-sleep?view=powershell-7) in the inline commands or scripts before running Windows Update.
 
 ### Generalize 
 By default, Azure Image Builder will also run ‘deprovision’ code at the end of each image customization phase, to ‘generalize’ the image. Generalizing is a process where the image is set up so it can be reused to create multiple VMs. For Windows VMs, Azure Image Builder uses Sysprep. For Linux, Azure Image Builder runs ‘waagent -deprovision’. 
@@ -527,17 +528,16 @@ Output:
 The image output will be a managed image resource.
 
 ```json
-"distribute": [
-        {
-"type":"managedImage",
+{
+       "type":"managedImage",
        "imageId": "<resource ID>",
        "location": "<region>",
        "runOutputName": "<name>",
        "artifactTags": {
             "<name": "<value>",
-             "<name>": "<value>"
-               }
-         }]
+            "<name>": "<value>"
+        }
+}
 ```
  
 Distribute properties:
@@ -565,7 +565,7 @@ Before you can distribute to the Image Gallery, you must create a gallery and an
 
 ```json
 {
-    "type": "sharedImage",
+    "type": "SharedImage",
     "galleryImageId": "<resource ID>",
     "runOutputName": "<name>",
     "artifactTags": {

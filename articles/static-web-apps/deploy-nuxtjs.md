@@ -51,7 +51,7 @@ You can set up a new Nuxt.js project using `create-nuxt-app`. Instead of a new p
     npm run dev
     ```
 
-Navigate to <http://localhost:3000> to open the app, where you should see the following website open in your preferred browser:
+Navigate to `http://localhost:3000` to open the app, where you should see the following website open in your preferred browser:
 
 :::image type="content" source="media/deploy-nuxtjs/start-nuxtjs-app.png" alt-text="Start Nuxt.js app":::
 

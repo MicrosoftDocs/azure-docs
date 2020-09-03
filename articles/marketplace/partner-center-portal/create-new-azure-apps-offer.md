@@ -98,7 +98,7 @@ To learn about publishing requirements for each application plan, see [Solution 
 ## Create a new offer
 
 >[!NOTE]
->After an offer is published, edits you make to it in Partner Center will not appear in storefronts until you republish the offer. Make sure to always republish you offer after making changes.
+>After an offer is published, edits you make to it in Partner Center will not appear in online stores until you republish the offer. Make sure to always republish you offer after making changes.
 
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
 
@@ -237,19 +237,24 @@ Provide the name, email, and phone number for a **Support contact**, **Engineeri
 
 Provide logos and images to use with your offer. All images must be in PNG format. Blurry images will cause your submission to be rejected.
 
+[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
+
 >[!Note]
 >If you have an issue uploading files, ensure your local network does not block the https://upload.xboxlive.com service used by Partner Center.
 
 #### Store logos
 
-Provide PNG files of your offer's logo in the following three pixel sizes:
+Provide a PNG file for the **Large** size logo. Partner Center will use this to create a **Small** and a **Medium** logo. You can optionally replace these with different images later.
 
-- **Small** (48 x 48)
-- **Medium** (90 x 90)
-- **Large** (216 x 216)
-- **Wide** (255 x 115)
+- **Large** (from 216 x 216 to 350 x 350 px, required)
+- **Medium** (90 x 90 px, optional)
+- **Small** (48 x 48 px, optional)
 
-All three logos are required and are used in different places in the listing.
+These logos are used in different places in the listing:
+
+[!INCLUDE [logos-azure-marketplace-only](../includes/logos-azure-marketplace-only.md)]
+
+[!INCLUDE [Logo tips](../includes/graphics-suggestions.md)]
 
 #### Screenshots
 
@@ -306,6 +311,8 @@ The technical configuration defines the details (tenant ID, and app ID) used to 
 ## Plan overview
 
 This tab enables you to provide different plan options within the same offer. These plans (formerly called SKUs) can differ in terms of plan type (solution template vs. managed application), monetization, or audience. Configure at least one plan in order to list your offer in the marketplace.
+
+You can create up to 100 plans for each offer: up to 45 of these can be private. Learn more about private plans in [Private offers in the Microsoft commercial marketplace](../private-offers.md).
 
 Once created, you will see your plan names, IDs, plan type, availability (Public or Private), current publishing status, and any available actions on this tab.
 

@@ -10,6 +10,7 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/25/2020
 ms.author: trbye
+ms.custom: devx-track-csharp
 ---
 
 # Tutorial: Voice-enable your bot using the Speech SDK
@@ -34,6 +35,7 @@ The voice-enabled chat bot you make in this tutorial follows these steps:
 1. The recognized text is passed to the Echo Bot as a Bot Framework Activity.
 1. The response text is turned into audio by the Text-to-Speech (TTS) service, and streamed back to the client application for playback.
 
+<!-- svg src in User Story 1754106 -->
 ![diagram-tag](media/tutorial-voice-enable-your-bot-speech-sdk/diagram.png "The Speech Channel flow")
 
 > [!NOTE]
@@ -55,7 +57,7 @@ Here's what you'll need to complete this tutorial:
 - A Windows 10 PC with a working microphone and speakers (or headphones)
 - [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) or higher, with the **ASP.NET and web development** workload installed
 - [.NET Framework Runtime 4.6.1](https://dotnet.microsoft.com/download) or higher
-- An Azure account. [Sign up for free](https://azure.microsoft.com/free/ai/).
+- An Azure account. [Sign up for free](https://azure.microsoft.com/free/cognitive-services/)
 - A [GitHub](https://github.com/) account
 - [Git for Windows](https://git-scm.com/download/win)
 
@@ -78,7 +80,6 @@ If you'd like to use a different region for this tutorial these factors may limi
 
 * Ensure that you use a [supported Azure region](regions.md#voice-assistants).
 * The Direct Line Speech channel uses the text-to-speech service, which has standard and neural voices. Neural voices are [limited to specific Azure regions](regions.md#standard-and-neural-voices).
-* Free trial keys may be restricted to a specific region.
 
 For more information about regions, see [Azure locations](https://azure.microsoft.com/global-infrastructure/locations/).
 

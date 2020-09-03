@@ -20,7 +20,7 @@ Azure Security Center's threat protection provides comprehensive defenses for yo
 
 * **Threat protection for Azure compute resources**: Windows machines, Linux machines, Azure App Service, and Azure containers
 
-* **Threat protection for Azure data resources**: SQL Database and SQL Data Warehouse, Azure Storage, and Azure Cosmos DB
+* **Threat protection for Azure data resources**: SQL Database and Azure Synapse Analytics (formerly SQL Data Warehouse), Azure Storage, and Azure Cosmos DB
 
 * **Threat protection for Azure service layers**: Azure network layer, Azure management layer (Azure Resource Manager) (Preview), and Azure Key Vault (Preview)
 
@@ -109,12 +109,13 @@ For more information on App Service plans, see [App Service plans](https://azure
 
 ### Availability
 
-- Release state: **General availability**
-- Required roles: **Security admin** can dismiss alerts. **Security reader** can view findings.
-- Clouds:<br>
-    ✔ Commercial clouds<br>
-    ✘ US Gov<br>
-    ✘ China Gov, Other Gov
+|Aspect|Details|
+|----|:----|
+|Release state:|Generally Available|
+|Pricing:|Standard tier|
+|Required roles and permissions:|**Security admin** can dismiss alerts.<br>**Security reader** can view findings.|
+|Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![No](./media/icons/no-icon.png) National/Sovereign (US Gov, China Gov, Other Gov)|
+|||
 
 [!INCLUDE [AKS in ASC threat protection](../../includes/security-center-azure-kubernetes-threat-protection.md)]
 
@@ -125,19 +126,19 @@ For more information on App Service plans, see [App Service plans](https://azure
 
 
 
-## Threat protection for SQL Database and SQL Data Warehouse <a name="data-sql"></a>
+## Threat protection for SQL Database and Azure Synapse Analytics (formerly SQL Data Warehouse) <a name="data-sql"></a>
 
 Advanced Threat Protection for Azure SQL Database detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases.
 
 You'll see alerts when there are suspicious database activities, potential vulnerabilities, or SQL injection attacks, and anomalous database access and query patterns.
 
-Advanced Threat Protection for Azure SQL Database and SQL is part of the [Advanced Data Security (ADS)](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security) unified package for advanced SQL security capabilities, covering Azure SQL Database, Azure SQL Managed Instances, Azure SQL Data Warehouse databases, and SQL servers on Azure Virtual Machines.
+Advanced Threat Protection for Azure SQL Database and SQL is part of the [Advanced Data Security (ADS)](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security) unified package for advanced SQL security capabilities, covering Azure SQL Database, Azure SQL Managed Instances, Azure Synapse Analytics (formerly SQL Data Warehouse) databases, and SQL servers on Azure Virtual Machines.
 
 For more information, see:
 
 * [How to enable Advanced Threat Protection for Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview)
 * [How to enable Advanced Threat Protection for SQL servers on Azure Virtual Machines](security-center-iaas-advanced-data.md)
-* [The list of threat protection alerts for SQL Database and SQL Data Warehouse](alerts-reference.md#alerts-sql-db-and-warehouse)
+* [The list of threat protection alerts for SQL Database and Azure Synapse Analytics (formerly SQL Data Warehouse)](alerts-reference.md#alerts-sql-db-and-warehouse)
 
 
 
@@ -145,14 +146,13 @@ For more information, see:
 
 ### Availability
 
-- Release state:
-    - [Blob Storage](https://azure.microsoft.com/services/storage/blobs/) (general availability)
-    - [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) (preview)
-    - [Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction) (preview)
-- Clouds:<br>
-    ✔ Commercial clouds<br>
-    ✔ US Gov<br>
-    ✘ China Gov, Other Gov
+|Aspect|Details|
+|----|:----|
+|Release state:|[Blob Storage](https://azure.microsoft.com/services/storage/blobs/) (general availability)<br>[Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) (preview)<br>[Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction) (preview)|
+|Pricing:|Standard tier|
+|Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![Yes](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) China Gov, Other Gov|
+|||
+
 
 ### What's protected?
 
@@ -225,7 +225,6 @@ Some network configurations may restrict Security Center from generating alerts 
 
 For a list of the Azure network layer alerts, see the [Reference table of alerts](alerts-reference.md#alerts-azurenetlayer).
 
-For details of how Security Center can use network-related signals to apply threat protection, see [Heuristic DNS detections in  Security Center](https://azure.microsoft.com/blog/heuristic-dns-detections-in-azure-security-center/).
 
 
 

@@ -267,7 +267,7 @@ The following capabilities can be used to support Azure AD Application Proxy:
 
 * Risk-based Conditional Access: Protect your data from malicious hackers with a [risk-based Conditional Access policy](https://www.microsoft.com/cloud-platform/conditional-access) that can be applied to all apps and all users, whether on-premises or in the cloud.
 
-* Azure AD Access Panel: With your Application Proxy service deployed, and applications securely published, offer your users a simple hub to discover and access all their applications. Increase productivity with self-service capabilities, such as the ability to request access to new apps and groups or manage access to these resources on behalf of others, through the [Access Panel](https://aka.ms/AccessPanelDPDownload).
+* Azure AD My Apps: With your Application Proxy service deployed, and applications securely published, offer your users a simple hub to discover and access all their applications. Increase productivity with self-service capabilities, such as the ability to request access to new apps and groups or manage access to these resources on behalf of others, through [My Apps](https://aka.ms/AccessPanelDPDownload).
 
 ## Manage your implementation
 

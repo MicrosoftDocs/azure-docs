@@ -8,7 +8,7 @@
   - name: Commercial marketplace overview and benefits
     href: ./marketplace-publishers-guide.md
     items:
-    - name: One marketplace, two storefronts
+    - name: One marketplace, two online stores
       href: ./comparing-appsource-azure-marketplace.md
     - name: Publishing options and considerations
       href: ./determine-your-listing-type.md
@@ -17,12 +17,16 @@
         href: ./lead-management-for-cloud-marketplace.md
       - name: Transacting in the commercial marketplace
         href: ./marketplace-commercial-transaction-capabilities-and-considerations.md
+      - name: Plans and Pricing
+        href: plans-pricing.md
       - name: Private offers
         href: ./private-offers.md
       - name: Standard Contract
         href: ./standard-contract.md
       - name: Azure partner customer usage attribution
         href: ./azure-partner-customer-usage-attribution.md
+      - name: Supported countries and regions
+        href: ./sell-from-countries.md  
     - name: Publishing guides by offer type
       href: ./publisher-guide-by-offer-type.md
       items:
@@ -32,8 +36,6 @@
         href: ./marketplace-solution-templates.md
       - name: Azure apps managed applications
         href: ./marketplace-managed-apps.md
-      - name: SaaS apps
-        href: ./marketplace-saas-applications-technical-publishing-guide.md
       - name: Containers
         href: ./marketplace-containers.md
       - name: IoT Edge modules
@@ -109,11 +111,11 @@
           href: ./partner-center-portal/create-azure-container-technical-assets.md
         - name: Create an Azure Container offer
           href: ./partner-center-portal/create-azure-container-offer.md
-    - name: Virtual machine offer
+    - name: Virtual Machine offer
       items:
-        - name: Create an Azure virtual machine offer
+        - name: Create an Azure Virtual Machine offer
           href: ./partner-center-portal/azure-vm-create-offer.md
-        - name: Create an Azure VM technical asset
+        - name: Create Azure VM technical asset
           items:
             - name: Virtual machine certification - issues and solutions
               href: ./partner-center-portal/vm-certification-issues-solutions.md
@@ -165,10 +167,8 @@
         href: ./partner-center-portal/create-power-bi-app-offer.md
     - name: SaaS offers
       items:
-      - name: SaaS offer creation checklist
-        href: ./partner-center-portal/offer-creation-checklist.md
-      - name: Create a SaaS offer
-        href: ./partner-center-portal/create-new-saas-offer.md
+      - name: Plan a SaaS offer
+        href: plan-saas-offer.md
       - name: Azure AD auth for SaaS
         items:
           - name: Azure AD and SaaS overview
@@ -177,6 +177,26 @@
             href: ./azure-ad-transactable-saas-landing-page.md
           - name: Landing page for free or trial offers
             href: ./azure-ad-free-or-trial-landing-page.md
+      - name: SaaS metered billing
+        href: ./partner-center-portal/saas-metered-billing.md  
+      - name: Create and publish a SaaS offer
+        items:
+        - name: Create a SaaS offer 
+          href: create-new-saas-offer.md
+        - name: Configure SaaS offer properties
+          href: create-new-saas-offer-properties.md  
+        - name: Configure SaaS offer listing
+          href: create-new-saas-offer-listing.md
+        - name: Add a preview audience
+          href: create-new-saas-offer-preview.md
+        - name: Add technical details
+          href: create-new-saas-offer-technical.md  
+        - name: Create plans
+          href: create-new-saas-offer-plans.md        
+        - name: Test and publish a SaaS offer
+          href: test-publish-saas-offer.md
+      - name: Market your SaaS offer
+        href: create-new-saas-offer-marketing.md
       - name: SaaS Fulfillment APIs
         href: ./partner-center-portal/pc-saas-fulfillment-apis.md
         items:
@@ -188,8 +208,6 @@
           href: ./partner-center-portal/pc-saas-fulfillment-api-v1.md
         - name: SaaS fulfillment APIs - FAQ
           href: ./partner-center-portal/saas-fulfillment-apis-faq.md  
-      - name: SaaS metered billing
-        href: ./partner-center-portal/saas-metered-billing.md
     - name: Lead Management Overview
       href: ./partner-center-portal/commercial-marketplace-get-customer-leads.md
       items:
@@ -207,8 +225,6 @@
         href: ./partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce.md 
     - name: Marketplace metering service
       items:
-        - name: Anomaly detection service
-          href: ./partner-center-portal/anomaly-detection-service-for-metered-billing.md
         - name: Authentication strategies
           href: ./partner-center-portal/marketplace-metering-service-authentication.md
         - name: Marketplace metering service APIs
@@ -234,7 +250,7 @@
     href: review-publish-offer.md
   - name: Update existing offers
     href: ./partner-center-portal/update-existing-offer.md
-  - name: Activate benefits
+  - name: Activate marketplace rewards
     href: ./partner-center-portal/marketplace-rewards.md
   - name: Partner Center Analytics
     items:
@@ -272,7 +288,7 @@
       href: ./partner-center-portal/payout-policy-details.md
     - name: Tax details
       href: ./partner-center-portal/tax-details-paid-transactions.md
-  - name: CPP API Reference
+  - name: CPP API reference
     items:
     - name: Overview
       href: ./cloud-partner-portal-api-overview.md
@@ -304,3 +320,7 @@
       href: ./cloud-partner-portal-api-troubleshooting-authentication-errors.md
   - name: Support options
     href: ./partner-center-portal/support.md
+  - name: Resources
+    items:
+    - name: Supported HTML tags
+      href: supported-html-tags.md

@@ -83,7 +83,7 @@ You've created your Azure AD application and service principal.
 
 ## Assign a role to the application
 
-To access resources in your subscription, you must assign a role to the application. Decide which role offers the right permissions for the application. To learn about the available roles, see [RBAC: Built in Roles](../../role-based-access-control/built-in-roles.md).
+To access resources in your subscription, you must assign a role to the application. Decide which role offers the right permissions for the application. To learn about the available roles, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md).
 
 You can set the scope at the level of the subscription, resource group, or resource. Permissions are inherited to lower levels of scope. For example, adding an application to the *Reader* role for a resource group means it can read the resource group and any resources it contains.
 
@@ -174,7 +174,7 @@ If you choose not to use a certificate, you can create a new application secret.
    ![Copy the secret value because you can't retrieve this later](./media/howto-create-service-principal-portal/copy-secret.png)
 
 ## Configure access policies on resources
-Keep in mind, you might need to configure additional permissions on resources that your application needs to access. For example, you must also [update a key vault's access policies](/azure/key-vault/key-vault-secure-your-key-vault#data-plane-and-access-policies) to give your application access to keys, secrets, or certificates.  
+Keep in mind, you might need to configure additional permissions on resources that your application needs to access. For example, you must also [update a key vault's access policies](../../key-vault/general/secure-your-key-vault.md#data-plane-and-access-policies) to give your application access to keys, secrets, or certificates.  
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your key vault and select **Access policies**.  
 1. Select **Add access policy**, then select the key, secret, and certificate permissions you want to grant your application.  Select the service principal you created previously.

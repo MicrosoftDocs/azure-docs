@@ -33,6 +33,8 @@
       href: dns-delegate-domain-azure-dns.md
     - name: Create custom DNS records for a web app
       href: dns-web-sites-custom-domain.md
+    - name: Creating a new Child DNS zone
+      href: tutorial-public-dns-zones-child.md
     - name: Alias records for Traffic Manager
       href: tutorial-alias-tm.md
     - name: Alias records for Public IP addresses
@@ -41,6 +43,10 @@
       href: tutorial-alias-rr.md
 - name: Concepts
   items:
+  - name: Security
+    items:
+    - name: Security baseline
+      href: security-baseline.md
   - name: Public DNS
     items:
     - name: Zones and records
