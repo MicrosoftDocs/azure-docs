@@ -23,6 +23,9 @@
   - name: Create databases and users
     href: howto-create-users.md
     displayName: users
+  - name: Mitigate database corruption
+    href:  fix-corrupt-database.md
+    displayName: corrupt data
 - name: Single Server
   items:
   - name: Documentation
