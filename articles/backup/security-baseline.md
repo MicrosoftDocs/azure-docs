@@ -6,7 +6,7 @@ ms.service: security
 ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
+ms.custom: subject-security-benchmark
 
 ---
 
@@ -479,11 +479,11 @@ Microsoft manages the underlying infrastructure for Azure Backup and has impleme
 
 ### 4.6: Use Azure RBAC to control access to resources
 
-**Guidance**: Azure role-based access control (Azure RBAC) enables fine-grained access management for Azure. Using RBAC, you can segregate duties within your team and grant only the amount of access to users that they need to perform their jobs.
+**Guidance**: Azure role-based access control (Azure RBAC) enables fine-grained access management for Azure. Using Azure RBAC, you can segregate duties within your team and grant only the amount of access to users that they need to perform their jobs.
 
 Azure Backup provides three built-in roles to control backup management operations: Backup Contributor, Backup Operator, and Backup Reader. You can map Backup built-in roles to various backup management actions.
 
-- [How to configure RBAC in Azure](../role-based-access-control/role-assignments-portal.md)
+- [How to configure Azure RBAC](../role-based-access-control/role-assignments-portal.md)
 
 - [Use Role-Based Access Control to manage Azure Backup recovery points](./backup-rbac-rs-vault.md)
 
@@ -821,7 +821,9 @@ Allowed resource types
 
 - [How to create a Key Vault](../key-vault/secrets/quick-create-portal.md)
 
-- [How to provide Key Vault authentication with a managed identity](../key-vault/general/managed-identity.md)
+* [How to authenticate to Key Vault](https://docs.microsoft.com/azure/key-vault/general/authentication)
+
+* [How to assign a Key Vault access policy](https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal)
 
 **Azure Security Center monitoring**: Not applicable
 

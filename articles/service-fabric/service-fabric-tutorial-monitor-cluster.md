@@ -6,7 +6,7 @@ author: srrengar
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.author: srrengar
-ms.custom: mvc
+ms.custom: "mvc, devx-track-csharp"
 ---
 # Tutorial: Monitor a Service Fabric cluster in Azure
 

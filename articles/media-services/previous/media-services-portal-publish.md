@@ -17,7 +17,10 @@ ms.date: 03/19/2019
 ms.author: juliako
 
 ---
-# Publish content in the Azure portal  
+# Publish content in the Azure portal
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-publish.md)
 > * [.NET](media-services-deliver-streaming-content.md)

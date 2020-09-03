@@ -6,7 +6,7 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 08/21/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
+ms.custom: subject-security-benchmark
 
 # Important: This content is machine generated; do not modify this topic directly. Contact mbaldwin for more information.
 
@@ -825,7 +825,9 @@ Use managed identities in conjunction with Azure Key Vault to simplify secret ma
 
 - [How to create a Key Vault](/azure/key-vault/quick-create-portal)
 
-- [How to provide Key Vault authentication with a managed identity](/azure/key-vault/managed-identity)
+- [How to authenticate to Key Vault](../key-vault/general/authentication.md)
+
+- [How to assign a Key Vault access policy](../key-vault/general/assign-access-policy-portal.md)
 
 **Azure Security Center monitoring**: Yes
 

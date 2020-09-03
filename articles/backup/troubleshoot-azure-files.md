@@ -46,7 +46,7 @@ Retry the registration. If the problem persists, contact support.
 
 ### Unable to delete the Recovery Services vault after unprotecting a file share
 
-In the Azure portal, open your **Vault** > **Backup Infrastructure** > **Storage accounts** and click **Unregister** to remove the storage accounts from the Recovery Services vault.
+In the Azure portal, open your **Vault** > **Backup Infrastructure** > **Storage accounts**. Select **Unregister** to remove the storage accounts from the Recovery Services vault.
 
 >[!NOTE]
 >A Recovery Services vault can only be deleted after unregistering all storage accounts registered with the vault.
@@ -81,7 +81,7 @@ Error Code: AFSMaxSnapshotReached
 Error Message: You have reached the max limit of snapshots for this file share; you will be able to take more once the older ones expire.
 
 - This error can occur when you create multiple on-demand backups for a file share.
-- There is a limit of 200 snapshots per file share including the ones taken by Azure Backup. Older scheduled backups (or snapshots) are cleaned up automatically. On-demand backups (or snapshots) must be deleted if the maximum limit is reached.
+- There's a limit of 200 snapshots per file share including the ones taken by Azure Backup. Older scheduled backups (or snapshots) are cleaned up automatically. On-demand backups (or snapshots) must be deleted if the maximum limit is reached.
 
 Delete the on-demand backups (Azure file share snapshots) from the Azure Files portal.
 

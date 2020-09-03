@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 Custom controls is a preview capability of the Azure Active Directory. When using custom controls, your users are redirected to a compatible service to satisfy authentication requirements outside of Azure Active Directory. To satisfy this control, a user's browser is redirected to the external service, performs any required authentication, and is then redirected back to Azure Active Directory. Azure Active Directory verifies the response and, if the user was successfully authenticated or validated, the user continues in the Conditional Access flow.
 
 > [!NOTE]
-> For more information about changes we are planning to the Custom Control capability, see the February 2020 [What's new update](../fundamentals/whats-new.md#upcoming-changes-to-custom-controls).
+> For more information about changes we are planning to the Custom Control capability, see the February 2020 [Archive for What's new](../fundamentals/whats-new-archive.md#upcoming-changes-to-custom-controls).
 
 ## Creating custom controls
 
@@ -50,7 +50,7 @@ To edit a custom control, you must delete the current control and create a new c
 
 ## Known limitations
 
-Custom controls cannot be used with Identity Protection's automation requiring Azure Multi-Factor Authentication, Azure AD self-service password reset (SSPR), satisfying multi-factor authentication claim requirements, to elevate roles in Privileged Identity Manager (PIM), or as part of Intune device enrollment.
+Custom controls cannot be used with Identity Protection's automation requiring Azure Multi-Factor Authentication, Azure AD self-service password reset (SSPR), satisfying multi-factor authentication claim requirements, to elevate roles in Privileged Identity Manager (PIM), as part of Intune device enrollment, or when joining devices to Azure AD.
 
 ## Next steps
 

@@ -776,7 +776,7 @@ This release provides Hive 1.2.1 and Hive 2.1.0 in addition to the following pat
 
 -   [*HIVE-17621*](https://issues.apache.org/jira/browse/HIVE-17621): Hive-site settings are ignored during HCatInputFormat split-calculation.
 
--   [*HIVE-17629*](https://issues.apache.org/jira/browse/HIVE-17629): CachedStore: Have a whitelist/blacklist config to allow selective caching of tables/partitions and allow read while prewarming.
+-   [*HIVE-17629*](https://issues.apache.org/jira/browse/HIVE-17629): CachedStore: Have a approved/not-approved config to allow selective caching of tables/partitions and allow read while prewarming.
 
 -   [*HIVE-17636*](https://issues.apache.org/jira/browse/HIVE-17636): Add multiple\_agg.q test for blobstores.
 

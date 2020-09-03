@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: sgilley
 author: sdgilley
-ms.date: 12/27/2019
+ms.date: 09/22/2020
 ms.topic: conceptual
 ms.custom: how-to
 
@@ -44,6 +44,8 @@ To create a workspace, you need an Azure subscription. If you don't have an Azur
    Location | Select the location closest to your users and the data resources to create your workspace.
    Location | Select the location closest to your users and the data resources to create your workspace.
 
+    ![Configure your workspace](./media/how-to-manage-workspace/select-edition.png)
+
 1. When you're finished configuring the workspace, select **Review + Create**.
 2. Review the settings and make any additional changes or corrections. When you're satisfied with the settings, select **Create**.
 
@@ -63,7 +65,6 @@ To create a workspace, you need an Azure subscription. If you don't have an Azur
    ![Download config.json](./media/how-to-manage-workspace/configure.png)
    
    Place the file into  the directory structure with your Python scripts or Jupyter Notebooks. It can be in the same directory, a subdirectory named *.azureml*, or in a parent directory. When you create a compute instance, this file is added to the correct directory on the VM for you.
-
 ## <a name="view"></a>Find a workspace
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
