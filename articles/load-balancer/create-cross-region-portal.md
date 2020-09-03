@@ -2,7 +2,7 @@
 title: 'Tutorial: Create cross-region load balancer using the Azure portal'
 description: Get started with this tutorial creating a cross region load balancer with the Azure portal.
 author: asudbring
-ms.author: allesu
+ms.author: allensu
 ms.service: load-balancer
 ms.topic: tutorial
 ms.date: 09/01/2020
