@@ -87,7 +87,7 @@
         href: tutorial-design-database-using-powershell.md
       - name: Azure Resource Manager template
         href: tutorial-provision-mysql-server-using-Azure-Resource-Manager-templates.md
-    - name: Build an PHP web app with MySQL
+    - name: Build a PHP web app with MySQL
       items:
       - name: Wordpress in containers with MySQL
         href: ../app-service/containers/tutorial-multi-container-app.md
