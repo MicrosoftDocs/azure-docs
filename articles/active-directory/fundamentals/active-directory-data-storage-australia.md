@@ -1,6 +1,6 @@
 ---
 title: Identity data storage for Australian and New Zealand customers - Azure AD
-description: Learn about where Azure Active Directory stores identity-related data for its Australian customers.
+description: Learn about where Azure Active Directory stores identity-related data for its Australian and New Zealand customers.
 services: active-directory
 author: ajburnle
 manager: daveba
