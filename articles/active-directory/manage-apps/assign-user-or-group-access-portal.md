@@ -53,7 +53,7 @@ To require user assignment for an application:
 To learn how to assign, or unassign, a user or group using the Azure portal, see the [Quickstart Series on Application Management](add-application-portal-assign-users.md).
 
 ## Assign or unassign users, and groups, for an app using the Graph API
-You can use the Graph API to assign or unassign users, and groups, to an app. To learn more, see [App role assignments](https://docs.microsoft.com/graph/api/resources/approleassignment).
+You can use the Graph API to assign or unassign users, and groups, for an app. To learn more, see [App role assignments](https://docs.microsoft.com/graph/api/resources/approleassignment).
 
 ## Assign users, and groups, to an app using PowerShell
 1. Open an elevated Windows PowerShell command prompt.
