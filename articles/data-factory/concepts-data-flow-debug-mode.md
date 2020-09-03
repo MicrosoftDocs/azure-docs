@@ -36,7 +36,7 @@ When you are finished with your debugging, turn the Debug switch off so that you
 
 ## Debug settings
 
-Debug settings can be edited by clicking "Debug Settings" on the Data Flow canvas toolbar. You can select the row limit or file source to use for each of your Source transformations here. The row limits in this setting are only for the current debug session. You can also select the staging linked service to be used for a SQL DW source. 
+Once you turn on debug mode, you can edit how a data flow previews data. Debug settings can be edited by clicking "Debug Settings" on the Data Flow canvas toolbar. You can select the row limit or file source to use for each of your Source transformations here. The row limits in this setting are only for the current debug session. You can also select the staging linked service to be used for a SQL DW source. 
 
 ![Debug settings](media/data-flow/debug-settings.png "Debug settings")
 
