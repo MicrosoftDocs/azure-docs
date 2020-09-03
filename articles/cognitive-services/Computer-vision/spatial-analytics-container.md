@@ -48,13 +48,6 @@ Azure Stack Edge is a Hardware-as-a-Service solution and an AI-enabled edge comp
 * 2 NVIDIA Tesla T4 GPUs
 * 50 GB of SSD space
 
----
-
-| Requirement | Description |
-|--|--|
-| Camera | The Spatial Analytics container is not tied to a specific camera brand. The camera device needs to: support Real Time Streaming Protocol(RTSP) and H.264 encoding, be accessible to the host computer, and be capable of streaming at 15FPS and 1080p resolution. |
-| Linux OS | [Ubuntu Desktop 18.04 LTS](https://ubuntu.com/download/desktop) must be installed on the host computer.  |
-
 In this article, you will download and install the following software packages. The host computer must be able to run the following:
 
 * [NVIDIA CUDA Toolkit](https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html) and [NVIDIA graphics drivers](https://docs.nvidia.com/datacenter/tesla/tesla-installation-notes/index.html) 
@@ -62,6 +55,13 @@ In this article, you will download and install the following software packages. 
 * [Docker CE](https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-docker-engine---community-1) and [NVIDIA-Docker2](https://github.com/NVIDIA/nvidia-docker) 
 * [Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux) runtime.
 * [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/) 
+
+---
+
+| Requirement | Description |
+|--|--|
+| Camera | The Spatial Analytics container is not tied to a specific camera brand. The camera device needs to: support Real Time Streaming Protocol(RTSP) and H.264 encoding, be accessible to the host computer, and be capable of streaming at 15FPS and 1080p resolution. |
+| Linux OS | [Ubuntu Desktop 18.04 LTS](https://ubuntu.com/download/desktop) must be installed on the host computer.  |
 
 ## Request access to the private container registry
 
