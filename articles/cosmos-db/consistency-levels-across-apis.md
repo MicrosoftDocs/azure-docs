@@ -26,11 +26,11 @@ Unlike Azure Cosmos DB, Apache Cassandra does not natively provide precisely def
 
 * There is no configuration for write consistency level in Cassandra API; all writes have a consistency of local quorum, with commits always being durable, and written to 3 out of 4 replicas (commits in Apache Cassandra have an in-memory option). There is no precise equivalent for this in Apache Cassandra. 
 
-* For read consistency, the following table shows the Azure Cosmos DB consistency levels, and the closest analogue to Apache Cassandra, given a write consistency setting of "Quorum" in Cassandra (which is the closest analogue to Cosmos DB's write consistency, per above). Note that "Session" and "Eventual" consistency do not have a direct equivalent in Apache Cassandra (see [consistency levels](consistency-levels.md) for more detail on the Azure Cosmos DB consistency settings):
+* For read consistency, the following table shows the Azure Cosmos DB consistency levels, and the closest analogue to Apache Cassandra, given a write consistency setting of "Quorum" in Cassandra (which is the closest analogue to Cosmos DB's write consistency, per above). Note that "Session" and "Eventual" consistency do not have a direct equivalent in Apache Cassandra (see [consistency levels](consistency-levels.md) for more detail on the Azure Cosmos DB consistency settings). The table gives a mapping of what will be applied when configuring consistency *at the database level*:
 
 :::image type="content" source="./media/consistency-levels-across-apis/consistency-model-mapping-cassandra-1.png" alt-text="Cassandra consistency model mapping" lightbox="./media/consistency-levels-across-apis/consistency-model-mapping-cassandra-1.png" :::
 
-* Please note that when mapping read consistency dynamically on a *per request basis*, Azure Cosmos DB will map the read consistency level specified by the Apache Cassandra client driver in the following way to Azure Cosmos DB consistency levels:
+* When mapping read consistency dynamically on a *per request basis*, Azure Cosmos DB will map the read consistency level specified by the Apache Cassandra client driver in the following way to Azure Cosmos DB consistency levels:
 
 :::image type="content" source="./media/consistency-levels-across-apis/consistency-model-mapping-cassandra-2.png" alt-text="Cassandra consistency model mapping" lightbox="./media/consistency-levels-across-apis/consistency-model-mapping-cassandra-2.png" :::
 
