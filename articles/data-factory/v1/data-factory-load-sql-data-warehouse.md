@@ -191,11 +191,11 @@ This section shows you how to configure the destination: `lineitem` table in the
 ## Step 5: Deploy and monitor load results
 1. Click **Finish** button to deploy.
 
-    ![Copy Wizard - summary page](media/data-factory-load-sql-data-warehouse/summary-page.png)
+    ![Copy Wizard - summary page 1](media/data-factory-load-sql-data-warehouse/summary-page.png)
 
 2. After the deployment is complete, click `Click here to monitor copy pipeline` to monitor the copy run progress. Select the copy pipeline you created in the **Activity Windows** list.
 
-    ![Copy Wizard - summary page](media/data-factory-load-sql-data-warehouse/select-pipeline-monitor-manage-app.png)
+    ![Copy Wizard - summary page 2](media/data-factory-load-sql-data-warehouse/select-pipeline-monitor-manage-app.png)
 
     You can view the copy run details in the **Activity Window Explorer** in the right panel, including the data volume read from source and written into destination, duration, and the average throughput for the run.
 

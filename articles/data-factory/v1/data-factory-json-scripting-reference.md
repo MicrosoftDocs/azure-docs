@@ -372,7 +372,7 @@ Click the link for the store you are interested in to see the JSON schemas for l
 | &nbsp; |Azure Data Lake Store |
 | &nbsp; |[Azure Cosmos DB](#azure-cosmos-db) |
 | &nbsp; |[Azure SQL Database](#azure-sql-database) |
-| &nbsp; |[Azure Synapse Analytics (formerly SQL Data Warehouse)](#azure-sql-data-warehouse) |
+| &nbsp; |[Azure Synapse Analytics (formerly SQL Data Warehouse)](#azure-synapse-analytics) |
 | &nbsp; |[Azure Cognitive Search](#azure-cognitive-search) |
 | &nbsp; |[Azure Table storage](#azure-table-storage) |
 | **Databases** |[Amazon Redshift](#amazon-redshift) |
@@ -4822,7 +4822,7 @@ The following table lists the compute environments supported by Data Factory and
 | [Azure Batch](#azure-batch) |[.NET custom activity](#net-custom-activity) |
 | [Azure Machine Learning](#azure-machine-learning) | [Machine Learning Batch Execution Activity](#machine-learning-batch-execution-activity), [Machine Learning Update Resource Activity](#machine-learning-update-resource-activity) |
 | [Azure Data Lake Analytics](#azure-data-lake-analytics) |[Data Lake Analytics U-SQL](#data-lake-analytics-u-sql-activity) |
-| [Azure SQL Database](#azure-sql-database), [Azure Synapse Analytics](#azure-sql-data-warehouse), [SQL Server](#sql-server-stored-procedure) |[Stored Procedure](#stored-procedure-activity) |
+| [Azure SQL Database](#azure-sql-database), [Azure Synapse Analytics](#azure-synapse-analytics), [SQL Server](#sql-server-stored-procedure) |[Stored Procedure](#stored-procedure-activity) |
 
 ## On-demand Azure HDInsight cluster
 The Azure Data Factory service can automatically create a Windows/Linux-based on-demand HDInsight cluster to process data. The cluster is created in the same region as the storage account (linkedServiceName property in the JSON) associated with the cluster. You can run the following transformation activities on this linked service: [.NET custom activity](#net-custom-activity), [Hive activity](#hdinsight-hive-activity), [Pig activity](#hdinsight-pig-activity), [MapReduce activity](#hdinsight-mapreduce-activity), Hadoop streaming activity, [Spark activity](#hdinsight-spark-activity).
