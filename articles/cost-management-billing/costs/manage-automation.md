@@ -210,7 +210,7 @@ Languages supported by a culture code:
 | tr-tr	| Turkish (Turkey) |
 | da-dk	| Danish (Denmark) |
 | dn-gb	| English (United Kingdom) |
-| hu-hu	| Hungarian (hungary) |
+| hu-hu	| Hungarian (Hungary) |
 | nb-bo	| Norwegian Bokmal (Norway) |
 | nl-nl	| Dutch (Netherlands) |
 | pt-pt	| Portuguese (Portugal) |
