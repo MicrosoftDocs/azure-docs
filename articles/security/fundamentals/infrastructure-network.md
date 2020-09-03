@@ -19,7 +19,7 @@ ms.author: terrylan
 ---
 
 # Azure network architecture
-The Azure network architecture provides connectivity from the Internet to the Azure datacenters. Any workload deployed (IaaS, PaaS, and SaaS) on Azure is leveraging the Azure network architecture.
+The Azure network architecture provides connectivity from the Internet to the Azure datacenters. Any workload deployed (IaaS, PaaS, and SaaS) on Azure is leveraging the Azure datacenter network.
 
 ## Network topology
 The network architecture of an Azure datacenter consists of the following components:
