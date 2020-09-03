@@ -24,11 +24,6 @@ There are two ways you can connect to a compute instance from Visual Studio Code
 * Remote Jupyter Notebook server. This option allows you to set a compute instance as a remote Jupyter Notebook server.
 * [Visual Studio Code remote development](https://code.visualstudio.com/docs/remote/remote-overview). Visual Studio Code remote development allows you to use a container, remote machine, or the Windows Subsystem for Linux (WSL) as a full-featured development environment.
 
-## Prerequisite  
-
-* [Visual Studio Code](https://code.visualstudio.com/).
-* SSH-enabled compute instance. For more information, [see the Create a compute instance guide](concept-compute-instance#create).
-
 ## Configure compute instance as remote notebook server
 
 In order to configure a compute instance as a remote Jupyter Notebook server you'll need to have the a few additional prerequisites:
@@ -66,7 +61,10 @@ At this point, you can continue to run cells in your Jupyter notebook.
 
 ## Configure compute instance remote development
 
-For a full-featured remote development experience, you'll need to have the [Remote SSH Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh) installed. 
+For a full-featured remote development experience, you'll need to have a few prerequisites:
+
+* [Visual Studio Code Remote SSH extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh).
+* SSH-enabled compute instance. For more information, [see the Create a compute instance guide](concept-compute-instance.md#create).
 
 > [!NOTE]
 > On Windows platforms, you must [install an OpenSSH compatible SSH client](https://code.visualstudio.com/docs/remote/troubleshooting#_installing-a-supported-ssh-client) if one is not already present. PuTTY is not supported on Windows since the ssh command must be in the path.
