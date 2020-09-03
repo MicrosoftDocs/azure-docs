@@ -470,18 +470,18 @@ The following table shows the SDK name used for different Azure IoT SDKs:
 
 | SDK name in sdkVersion property | Language |
 |----------|----------|
-| .NET | C# |
-| microsoft.azure.devices | C# |
-| microsoft.azure.devices.client | C# |
-| iothubclient | C or Python v1 (deprecated) |
-| iothubserviceclient | C or Python v1 (deprecated) |
-| azure-iot-device-iothub-py | Python |
-| azure-iot-device | Node.js |
-| azure-iothub | Node.js |
-| com.microsoft.azure.iothub-java-client | Java |
-| com.microsoft.azure.iothub.service.sdk | Java |
-| com.microsoft.azure.sdk.iot.iot-device-client | Java |
-| com.microsoft.azure.sdk.iot.iot-service-client | Java |
+| .NET | .NET (C#) |
+| microsoft.azure.devices | .NET (C#) service SDK |
+| microsoft.azure.devices.client | .NET (C#) device SDK |
+| iothubclient | C or Python v1 (deprecated) device SDK |
+| iothubserviceclient | C or Python v1 (deprecated) service SDK |
+| azure-iot-device-iothub-py | Python device SDK |
+| azure-iot-device | Node.js device SDK |
+| azure-iothub | Node.js service SDK |
+| com.microsoft.azure.iothub-java-client | Java device SDK |
+| com.microsoft.azure.iothub.service.sdk | Java service SDK |
+| com.microsoft.azure.sdk.iot.iot-device-client | Java device SDK |
+| com.microsoft.azure.sdk.iot.iot-service-client | Java service SDK |
 | C | Embedded C |
 | C + (OSSimplified = Azure RTOS) | Azure RTOS |
 
