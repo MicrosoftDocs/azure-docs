@@ -159,12 +159,41 @@ You can automate budget creation using the [Budgets API](/rest/api/consumption/b
 
 #### Supported locales for budget alert emails
 
-With budgets, you're alerted when costs cross a set threshold. You can set up to five email recipients per budget. Recipients receive the email alerts within 24 hours of crossing the budget threshold. However, your recipient might need to receive an email in a different language. You can use the following language culture codes with the Budgets API. Set the culture code in with the `locale` parameter similar to the following example.
+With budgets, you're alerted when costs cross a set threshold. You can set up to five email recipients per budget. Recipients receive the email alerts within 24 hours of crossing the budget threshold. However, your recipient might need to send an email in a different language. You can use the following language culture codes with the Budgets API. Set the culture code in with the `locale` parameter similar to the following example.
+
+```json
+"eTag": "\"1d681a8fc67f77a\"",
+ "properties": {
+ "timePeriod": {
+ "startDate": "2020-07-24T00:00:00Z",
+ "endDate": "2022-07-23T00:00:00Z"
+ },
+ "timeGrain": "BillingMonth",
+ "amount": 1.0,
+ "currentSpend": {
+ "amount": 0.0,
+ "unit": "USD"
+ },
+ "category": "Cost",
+ "notifications": {
+ "actual_GreaterThan_10_Percent": {
+ "enabled": true,
+ "operator": "GreaterThan",
+ "threshold": 20.0,
+ "locale": "en-us",
+ "contactEmails": [
+ "user@contoso.com"
+ ],
+ "contactRoles": [],
+ "contactGroups": [],
+ "thresholdType": "Actual"
+ }
+```
 
 Languages supported by a culture code:
 
-| Culture code	| Language |
-|---|---|
+| Culture code| Language |
+| --- | --- |
 | en-us	| English (United States) |
 | ja-jp	| Japanese (Japan) |
 | zh-cn	| Chinese (Simplified, China) |
@@ -186,7 +215,6 @@ Languages supported by a culture code:
 | nl-nl	| Dutch (Netherlands) |
 | pt-pt	| Portuguese (Portugal) |
 | sv-se	| Swedish (Sweden) |
-
 
 #### Common Budgets API configurations
 
