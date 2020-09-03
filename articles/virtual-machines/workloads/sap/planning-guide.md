@@ -1266,6 +1266,7 @@ See the architecture difference between classic model and ARM as described in [t
 #### Configuration of the SAP System and SAP GUI connectivity over the internet
 
 See this article, which describes details to this topic:
+
 <https://docs.microsoft.com/archive/blogs/saponsqlserver/sap-gui-connection-closed-when-connecting-to-sap-system-in-azure>
 
 #### Changing Firewall Settings within VM
