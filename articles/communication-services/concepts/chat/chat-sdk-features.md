@@ -17,7 +17,7 @@ ms.service: azure-communication-services
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 
-Azure Communication Services Chat SDKs can be used to add rich, real-time chat to your applications. These SDKs give you access to the same technology that powers Skype and Teams without requiring you to manage the underlying infrastructure yourself.
+Azure Communication Services Chat SDKs can be used to add rich, real-time chat to your applications with an easy to use, a low maintenance interface.
 
 ## Chat SDK capabilities
 
@@ -58,4 +58,4 @@ The following list presents the set of features which are currently available in
 
 The following documents may be interesting to you:
 
-- Familiarize yourself with [chat concepts](../chat/about-chat.md)
+- Familiarize yourself with [chat concepts](../chat/concepts.md)

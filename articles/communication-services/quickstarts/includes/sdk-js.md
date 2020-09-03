@@ -43,7 +43,7 @@ To install the different communication SDKs below, we will be using [NPM](https:
    ```bash
    npm install @azure/communication-calling --save
    ```
-- Get Started with Calling [here](../voice-and-video-calling/javascript.md)
+- Get Started with Calling [here](../voice-video-calling/javascript.md)
 
 ### SMS SDK
    Core SMS SDK which allows applications to send/receive SMS messages using Communication Services procured phone numbers as well as integrated Event Grid for delivery reporting.
@@ -51,13 +51,13 @@ To install the different communication SDKs below, we will be using [NPM](https:
    ```bash
    npm install @azure/communication-sms --save
    ```
-- Get Started with SMS [here](../telephony-and-sms/send-sms.md)
+- Get Started with SMS [here](../telephony-sms/send-sms.md)
 
 ### Next steps
 
 For more information, see the following articles:
 - Generate User Access Tokens [here](../user-access-tokens.md)
 - Get Started with Chat [here](../chat/get-started-with-chat.md)
-- Get Started with SMS [here](../telephony-and-sms/send-sms.md)
-- Get Started with Calling [here](../voice-and-video-calling/javascript.md)
+- Get Started with SMS [here](../telephony-sms/send-sms.md)
+- Get Started with Calling [here](../voice-video-calling/javascript.md)
 

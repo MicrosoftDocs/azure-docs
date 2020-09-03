@@ -48,15 +48,15 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Add voice and video calling to your app
-            url: quickstarts/voice-and-video-calling/getting-started-with-calling.md
+            url: quickstarts/voice-video-calling/getting-started-with-calling.md
           - text: Use the calling SDK
-            url: quickstarts/voice-and-video-calling/calling-client-samples.md
+            url: quickstarts/voice-video-calling/calling-client-samples.md
       - linkListType: concept
         links:
           - text: Voice and video concepts
-            url: concepts/voice-and-video-calling/about-voice-video.md
+            url: concepts/voice-video-calling/about-call-types.md
           - text: Calling SDK overview
-            url: concepts/voice-and-video-calling/calling-sdk-features.md
+            url: concepts/voice-video-calling/calling-sdk-features.md
           - text: Call flows
             url: concepts/call-flows.md
   - title: Telephony and SMS
@@ -64,21 +64,21 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Buy a telephone number
-            url: quickstarts/telephony-and-sms/get-a-phone-number.md
+            url: quickstarts/telephony-sms/get-a-phone-number.md
           - text: Send an SMS message
-            url: quickstarts/telephony-and-sms/send-sms.md
+            url: quickstarts/telephony-sms/send-sms.md
           - text: Handle SMS events
-            url: quickstarts/telephony-and-sms/handle-sms-events.md
+            url: quickstarts/telephony-sms/handle-sms-events.md
       - linkListType: concept
         links:
           - text: SMS concepts
-            url: concepts/telephony-and-sms/sms-concepts.md
+            url: concepts/telephony-sms/sms-concepts.md
           - text: SMS SDK overview
-            url: concepts/telephony-and-sms/sms-sdk-features.md
+            url: concepts/telephony-sms/sms-sdk-features.md
           - text: Calling SDK overview
-            url: concepts/voice-and-video-calling/calling-sdk-features.md
+            url: concepts/voice-video-calling/calling-sdk-features.md
           - text: Plan your telephony and SMS solution
-            url: concepts/telephony-and-sms/plan-your-telephony-and-SMS-solution.md
+            url: concepts/telephony-sms/plan-your-telephony-and-SMS-solution.md
   - title: Chat
     linkLists:
       - linkListType: quickstart
@@ -88,7 +88,7 @@ landingContent:
       - linkListType: concept
         links:
           - text: Chat concepts
-            url: concepts/chat/about-chat.md
+            url: concepts/chat/concepts.md
           - text: Chat SDK overview
             url: concepts/chat/chat-sdk-features.md
   - title: Samples

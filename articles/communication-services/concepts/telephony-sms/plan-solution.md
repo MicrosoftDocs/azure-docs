@@ -1,5 +1,5 @@
 ---
-title: Plan your telephony and SMS solution
+title: Plan your Azure Communication Services telephony and SMS solution
 description: Learn how to effectively plan your use of phone numbers and telephony.
 author: stkozak
 manager: rampras
@@ -23,7 +23,7 @@ Azure Communication Services allows you to use phone numbers to place and receiv
   
 If you don't have an existing phone number to import into your Communication Services solution, the simplest way to begin is to get a new phone number from Azure Communication Services in a matter of minutes.
 
-If you have an existing telephone number that you want to continue using in your solution (for example, 1-800–COMPANY), you can port the phone number from the existing provider to Communication Services. (Coming soon, see [roadmap](../../roadmap.md))
+If you have an existing telephone number that you want to continue using in your solution (for example, 1-800–COMPANY), you can port the phone number from the existing provider to Communication Services. See our [roadmap](../../roadmap.md) for details.
 
 The following diagram helps you to navigate through the available options:
 
@@ -37,7 +37,7 @@ Azure Communication Services provides excellent flexibility for developers. On m
 
 The available plans depend on the country and phone number type that you're operating within.The diagram below represents the decision flow:	The available plans depend on the country and phone number type that you're operating within.
 
-![Example for the decision flow](../../media/example-decision-flow.png)
+<!-- Tami/team have rejected this multiple times despite updates, says it needs to be higher res - need to work with her to get approval for this image. Commenting out to move our staging forward. ![Example for the decision flow](../../media/example-decision-flow.png) -->
 
 Before you can select a phone number type, let’s review the international phone numbering plan.
 
@@ -104,12 +104,12 @@ Let’s look at the capabilities you can enable for your phone numbers. These ca
 
 ### Quickstarts
 
-- [Get a phone Number](../../quickstarts/telephony-and-sms/get-a-phone-number.md)
-- [Place a call](../../quickstarts/voice-and-video-calling/calling-client-samples.md)
-- [Send an SMS](../../quickstarts/telephony-and-sms/send-sms.md)
+- [Get a phone Number](../../quickstarts/telephony-sms/get-a-phone-number.md)
+- [Place a call](../../quickstarts/voice-video-calling/calling-client-samples.md)
+- [Send an SMS](../../quickstarts/telephony-sms/send-sms.md)
 
 ### Conceptual documentation
 
-- [Voice and video concepts](../voice-and-video-calling/about-voice-video.md)
+- [Voice and video concepts](../voice-video-calling/about-call-types.md)
 - [Call Flows and SMS Flows](../call-flows.md)
 - [Pricing](../pricing.md)

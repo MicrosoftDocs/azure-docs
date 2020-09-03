@@ -1,5 +1,5 @@
 ---
-title: Calling SDK overview
+title: Azure Communication Services calling SDK overview
 description: Provides an overview of the calling SDK.
 author: mikben
 manager: jken
@@ -11,11 +11,11 @@ ms.topic: overview
 ms.service: azure-communication-services
 ---
 
-# Calling SDK Overview
+# Calling SDK overview
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
-## Calling SDK Capabilities
+## Calling SDK capabilities
 
 The following list presents the set of features which are currently available in the Azure Communication Services Calling SDKs.
 
@@ -39,7 +39,7 @@ The following list presents the set of features which are currently available in
 |                   | Remove a participant                                                                                                | ✔️   | ✔️              | ✔️                 |
 | PSTN              | Connect PSTN participants into group calls (dial out from the meetings)                                             | ✔️   | ✔️              | ✔️                 |
 
-## Calling SDK Browser Support
+## Calling SDK browser support
 
 The following table represents the set of supported browsers and versions which are currently available.
 
@@ -55,9 +55,9 @@ The following table represents the set of supported browsers and versions which 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Get started with calling](../../quickstarts/voice-and-video-calling/getting-started-with-calling.md)
+> [Get started with calling](../../quickstarts/voice-video-calling/getting-started-with-calling.md)
 
 For more information, see the following articles:
 - Familiarize yourself with general [call flows](../call-flows.md)
-- Learn about [call types](../voice-and-video-calling/about-voice-video.md)
-- [Plan your PSTN solution](../telephony-and-sms/plan-your-telephony-and-SMS-solution.md)
+- Learn about [call types](../voice-video-calling/about-call-types.md)
+- [Plan your PSTN solution](../telephony-sms/plan-your-telephony-and-SMS-solution.md)

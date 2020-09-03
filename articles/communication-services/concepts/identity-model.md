@@ -1,6 +1,6 @@
 ---
-title: Identity Model in Communication Services
-description: Learn how entities are represented in Communication Services
+title: Identity Model in Azure Communication Services
+description: Learn how entities are represented in Azure Communication Services
 author: arturk
 manager: mariusu
 services: azure-communication-services
@@ -12,7 +12,8 @@ ms.service: azure-communication-services
 
 zone_pivot_groups: acs-js-csharp
 ---
-# Identity Model
+
+# Identity model
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
@@ -34,7 +35,7 @@ Azure Communication Services models identity around conversation identifiers. Id
 
 Azure Communication Services is a user-oriented platform. Users are entities that can communicate with one another by participating in chat threads and calls. They're identified by a unique ID and authenticate directly to Azure Communications Services via [user access tokens](../quickstarts/user-access-tokens.md).
 
-## Creating Users
+## Creating users
 
 `CommunicationIdentityClient` provides functionality for creating and deleting users.
 
@@ -150,13 +151,13 @@ const call = await callClient.call([user]);
 The `Call` interface exposes a `remoteParticipants` property that enables you to enumerate all participants in a call and exposes their identifiers.
 
 
-## Communication Services Identity to real identity resolution
+## Communication Services identity to real identity resolution
 
 Communication Services will not provide a way for customers to provide customer specific identities and will not store any type of data that would map a Communication Services Identity to a customer specific identity. Therefore, Communication Services will have no knowledge of how customer has assigned the Communication Services Identity.
 
 When developing an application with Communication Services, you're encouraged to maintain a mapping between users within your identity domain and Communication Services identities. For example, if your users are stored in the `User` table of a relational database, you may want to add a `CommunicationServicesId` column to store your Communication Services identifiers. If you wish to build a one-to-many relationship between `User` and identifier in this scenario, you might consider using a separate table to represent conversation identifiers.
 
-## Deleting Users
+## Deleting users
 
 It's possible to delete users via the Administration SDK. When you delete a user, all of the customer content associated with that user, including chat messages and call history, is deleted.
 
@@ -174,6 +175,6 @@ const user = await client.deleteUser();
 ```
 ::: zone-end
 
-## Next Steps
+## Next steps
 
  - [Learn about authentication and authorization](./authentication.md)

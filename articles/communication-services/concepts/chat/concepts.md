@@ -15,7 +15,7 @@ ms.service: azure-communication-services
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
-Azure Communication Services Chat SDKs can be used to add rich, real-time text chat to your applications. This page summarizes key concepts and capabilities in the Chat system.
+Azure Communication Services Chat SDKs can be used to add real-time text chat to your applications. This page summarizes key concepts and capabilities in the Chat system.
 
 See the [Communication Services Chat SDK Overview](./chat-sdk-features.md) to learn more about specific SDK languages and capabilities.
 
@@ -83,7 +83,7 @@ Apart from messages being sent by members in chat thread, Chat also exposes syst
 
 ## Real-time Signaling Events 
 
-The Chat JavaScript SDK includes real-time signalling features which allows clients to listen for real-time updates to a chat thread, without having to poll the APIs. Available events include:
+The Chat JavaScript SDK includes real-time signaling features which allows clients to listen for real-time updates to a chat thread, without having to poll the APIs. Available events include:
 
  - `ChatMessageReceived` - when a new message is sent to a chat thread that the user is member of. This event is not sent for auto generated system messages which we discussed in the previous topic.  
  - `ChatMessageEdited` - when a message is edited in a chat thread that the user is member of. 
@@ -102,11 +102,11 @@ There are two core parts to chat architecture: 1) Trusted Service and 2) Client 
     - Add/remove users from chat threads
     - Pass access tokens for chat thread to users. More information on access tokens [here](../../quickstarts/user-access-tokens.md)
 
- - **Client App:** A key aspect of a chat application is the end-user experience for sending and receiving messages and you have complete freedom over this front-end experiance. The client app will need to perform two core functions:
+ - **Client App:** A key aspect of a chat application is the end-user experience for sending and receiving messages and you have complete freedom over this front-end experience. The client app will need to perform two core functions:
     - Connect to your trusted service to receive required access tokens
     - Connect directly to Communication Services to send and receive messages using these tokens
 
-![CS Architecture Diagram](../../media/chat-cognitive-service.png)
+<!--todo: higher res image of this ![CS Architecture Diagram](../../media/chat-cognitive-service.png) -->
 
 ## Next steps
 

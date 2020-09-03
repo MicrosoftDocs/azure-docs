@@ -1,5 +1,5 @@
 ---
-title: Call flows
+title: Call flows in Azure Communication Services
 description: Learn about call flows in Azure Communication Services.
 author: mikben
 manager: jken
@@ -15,7 +15,7 @@ ms.service: azure-communication-services
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
-The section below gives an overview of the call flows in Azure Communication Services. Signaling and media flows depend on the types of calls your users are making. Examples of call types include one-to-one VoIP, one-to-one PSTN, and group calls containing a combination of VoIP and PSTN-connected participants. Call types can be reviewed [here](./voice-and-video-calling/about-voice-video.md).
+The section below gives an overview of the call flows in Azure Communication Services. Signaling and media flows depend on the types of calls your users are making. Examples of call types include one-to-one VoIP, one-to-one PSTN, and group calls containing a combination of VoIP and PSTN-connected participants. Call types can be reviewed [here](./voice-video-calling/about-call-types.md).
 
 ## About signaling and media protocols
 
@@ -71,13 +71,13 @@ If the client SDK can't use UDP for media due to firewall restrictions, an attem
 
 ![TCP media processor](./media/about-voice-group-calls-2.png)
 
-## Next Steps
+## Next steps
 
 > [!div class="nextstepaction"]
-> [Get started with calling](../quickstarts/voice-and-video-calling/getting-started-with-calling.md)
+> [Get started with calling](../quickstarts/voice-video-calling/getting-started-with-calling.md)
 
 The following documents may be interesting to you:
 
-- Learn more about [call types](../concepts/voice-and-video-calling/about-voice-video.md)
+- Learn more about [call types](../concepts/voice-video-calling/about-call-types.md)
 - Learn about [Client-server architecture](./client-and-server-architecture.md)
 - Explore [STUN and TURN](./networking/ice-stun-nat-turn-sdp.md) capabilities

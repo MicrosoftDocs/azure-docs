@@ -21,17 +21,17 @@
   - name: Telephony and SMS
     items:
       - name: Get a telephone number
-        href: quickstarts/telephony-and-sms/get-a-phone-number.md
+        href: quickstarts/telephony-sms/get-a-phone-number.md
       - name: Send an SMS message
-        href: quickstarts/telephony-and-sms/send-sms.md
+        href: quickstarts/telephony-sms/send-sms.md
       - name: Handle SMS events
-        href: quickstarts/telephony-and-sms/handle-sms-events.md
+        href: quickstarts/telephony-sms/handle-sms-events.md
   - name: Voice and video calling
     items:
     - name: Add voice calling to your app
-      href: quickstarts/voice-and-video-calling/getting-started-with-calling.md
+      href: quickstarts/voice-video-calling/getting-started-with-calling.md
     - name: Use the calling SDK
-      href: quickstarts/voice-and-video-calling/calling-client-samples.md
+      href: quickstarts/voice-video-calling/calling-client-samples.md
   - name: Networking
     items:
     - name: Get a network relay token
@@ -39,9 +39,7 @@
 - name: Tutorials
   expanded: false
   items:
-  - name: Integrate Communication Services with other Azure services*
-    href: tutorials/trusted-service-tutorial.md
-  - name: Add push notifications to enable calling alerts*
+  - name: Build a trusted token provisioning service
     href: tutorials/trusted-service-tutorial.md
 - name: Concepts
   expanded: false
@@ -51,27 +49,21 @@
       - name: Chat SDK overview
         href: concepts/chat/chat-sdk-features.md
       - name: Chat concepts
-        href: concepts/chat/about-chat.md
+        href: concepts/chat/concepts.md
   - name: Telephony and SMS
     items: 
       - name: SMS SDK overview
-        href: concepts/telephony-and-sms/sms-sdk-features.md
+        href: concepts/telephony-sms/sms-sdk-features.md
       - name: SMS concepts
-        href: concepts/telephony-and-sms/sms-concepts.md
+        href: concepts/telephony-sms/sms-concepts.md
       - name: Plan your telephony and SMS solution 
-        href: concepts/telephony-and-sms/plan-your-telephony-and-sms-solution.md
-      - name: Push Notifications Overview*
-        href: concepts/telephony-and-sms/push-notifications-overview.md
-      - name: Push Notifications Overview 2*
-        href: concepts/telephony-and-sms/push-notifications-overview-2.md
-      - name: Registering For Push Notifications*
-        href: concepts/telephony-and-sms/notifications-azure-portal-registration.md
+        href: concepts/telephony-sms/plan-solution.md
   - name: Voice and video Calling
     items:
       - name: Calling SDK overview
-        href: concepts/voice-and-video-calling/calling-sdk-features.md
+        href: concepts/voice-video-calling/calling-sdk-features.md
       - name: Voice and video concepts
-        href: concepts/voice-and-video-calling/about-voice-video.md
+        href: concepts/voice-video-calling/about-call-types.md
   - name: Networking
     items:
       - name: STUN and TURN

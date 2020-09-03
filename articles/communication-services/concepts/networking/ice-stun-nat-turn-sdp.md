@@ -1,5 +1,5 @@
 ---
-title: STUN And TURN
+title: STUN and TURN in Azure Communication Services
 description: Learn about ICE, STUN, NAT, TURN, and SDP.
 author: mikben
 manager: jken
@@ -46,7 +46,7 @@ SDP (Session Description Protocol) is uses to describe the format of the media b
 
 ## STUN and TURN scenarios
 
-### Scenario 1: STUN Server
+### Scenario 1: STUN server
 
 Let's imagine that you'd like to establish peer-to-peer video connectivity between your phone and your neighbor's phone. It's likely that both networks sit behind consumer-grade routers, which will allow you to use a STUN server. Here's a high-level description of what happens in this case:
 
@@ -60,7 +60,7 @@ Let's imagine that you'd like to establish peer-to-peer video connectivity betwe
 6. Your devices exchange identities in a handshake and use the ICE protocol to establish peer-to-peer connectivity.
 7. Your devices can now transmit media directly to each other by using a signaling server to maintain connection; media is transferred peer-to-peer.
 
-### Scenario 2: TURN Server
+### Scenario 2: TURN server
 
 If your devices are behind a symmetric NAT, a TURN server must be used to relay all data between devices.
 
@@ -76,7 +76,7 @@ If your devices are behind a symmetric NAT, a TURN server must be used to relay 
 
 Azure Communication Services offers both STUN and TURN support.
 
-## Next Steps
+## Next steps
 
 > [!div class="nextstepaction"]
 > [Fetch a network traversal token](../../quickstarts/networking/get-turn-token.md)

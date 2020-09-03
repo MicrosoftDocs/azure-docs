@@ -66,7 +66,7 @@ In this quickstart, you learned how to:
 
 
 > [!div class="nextstepaction"]
-> [Add voice calling to your app](./voice-and-video-calling/getting-started-with-calling.md)
+> [Add voice calling to your app](./voice-video-calling/getting-started-with-calling.md)
 
 You may also want to:
 

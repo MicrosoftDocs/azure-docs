@@ -1,5 +1,5 @@
 ---
-title: Voice and video concepts
+title: Voice and video concepts in Azure Communication Services
 description: TODO
 author: mikben
 manager: jken
@@ -17,6 +17,8 @@ ms.service: azure-communication-services
 
 You can use Azure Communication Services to make and receive voice and video calls, analyze call metadata, record calls, and even build call trees. Your calls can be made to other Internet-connected devices and to plain-old telephones. You can use the Communication Services JavaScript, Android, or iOS client SDKs to build applications that allow your users to speak to one another in private conversations or in group discussions. Azure Communication Services supports calls to and from services or Bots.
 
+
+
 ## Call types in Azure Communication Services
 
 There are multiple types of calls you can make in Azure Communication Services. The type of calls that you make determine your signaling schema, media traffic flows, and pricing model.
@@ -33,16 +35,16 @@ Any time your users interact with a traditional telephone number, calls are faci
 
 A one-to-one call on Azure Communication Services happens when one of your users connects to another user using one of our client SDKs. The call can be either VoIP or PSTN.
 
-### Group call 
+### Group call
 
 A group call on Azure Communication Services happens when three or more participants connect to one another. Any combination of VoIP and PSTN-connected users can be present on a group call. A one-to-one call can be converted into a group call by adding more participants to the call. One of those participants can be a bot.
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Get started with calling](../../quickstarts/voice-and-video-calling/getting-started-with-calling.md)
+> [Get started with calling](../../quickstarts/voice-video-calling/getting-started-with-calling.md)
 
 For more information, see the following articles:
 - Familiarize yourself with general [call flows](../call-flows.md)
-- [Plan your PSTN solution](../telephony-and-sms/plan-your-telephony-and-SMS-solution.md)
-- Learn about the [calling SDK capabilities](../voice-and-video-calling/calling-sdk-features.md)
+- [Plan your PSTN solution](../telephony-sms/plan-your-telephony-and-SMS-solution.md)
+- Learn about the [calling SDK capabilities](../voice-video-calling/calling-sdk-features.md)
