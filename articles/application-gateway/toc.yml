@@ -1,4 +1,4 @@
-- name: Application Gateway Documentation
+- name: Application Gateway documentation
   href: index.yml
 - name: Overview
   items:
@@ -90,6 +90,8 @@
     href: application-gateway-web-app-overview.md
   - name: WebSocket support
     href: application-gateway-websocket.md
+  - name: Understanding pricing
+    href: understanding-pricing.md
   - name: FAQ
     href: application-gateway-faq.md
 - name: How-to guides

@@ -24,6 +24,9 @@ Hot and cool file shares are currently available in the following subset of publ
 - Australia Central 2
 - Australia East
 - Australia Southeast
+- Brazil South
+- Canada East
+- Canada Central
 - France Central
 - France South
 - Germany North (public)
@@ -39,9 +42,13 @@ Hot and cool file shares are currently available in the following subset of publ
 - Norway West
 - South Africa North
 - South Africa West
+- Switzerland North
+- Switzerland West
 - UAE Central
 - UAE North
 - UK South
 - UK West
+- North Central US
+- South Central US
 
 To deploy a hot or cool file share, see [Create a hot or cool file share](../articles/storage/files/storage-how-to-create-file-share.md#create-a-hot-or-cool-file-share). 
