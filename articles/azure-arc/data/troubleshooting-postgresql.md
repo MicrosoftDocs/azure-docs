@@ -4,8 +4,8 @@ description: Troubleshooting PostgreSQL Hyperscale server groups
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-author: twright-msft
-ms.author: twright
+author: TheJY
+ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 08/04/2020
 ms.topic: how-to
