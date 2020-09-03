@@ -3,7 +3,7 @@ title: Azure Enterprise enrollment invoices
 description: This article explains how to manage and act on your Azure Enterprise invoice.
 author: bandersmsft
 ms.author: banders
-ms.date: 08/20/2020
+ms.date: 09/03/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise

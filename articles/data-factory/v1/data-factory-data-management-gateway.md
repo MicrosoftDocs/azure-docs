@@ -1,6 +1,6 @@
 ---
 title: Data Management Gateway for Data Factory 
-description: Set up a data gateway to move data between on-premises and the cloud. Use Data Management Gateway in Azure Data Factory to move your data.
+description: Use Data Management Gateway in Azure Data Factory to move your data.
 services: data-factory
 documentationcenter: ''
 author: nabhishek
@@ -121,7 +121,7 @@ To create a gateway in the portal and get the key from the **Configure** page, F
     ![Download link in the portal](media/data-factory-data-management-gateway/download-and-install-link-on-portal.png)
 4. In the **Configure** page, click **Recreate key**. Click Yes on the warning message after reading it carefully.
 
-    ![Recreate key](media/data-factory-data-management-gateway/recreate-key-button.png)
+    ![Recreate key button](media/data-factory-data-management-gateway/recreate-key-button.png)
 5. Click Copy button next to the key. The key is copied to the clipboard.
 
     ![Copy key](media/data-factory-data-management-gateway/copy-gateway-key.png)
@@ -158,7 +158,7 @@ At Windows firewall level, these outbound ports are normally enabled. If not, yo
 #### Copy data from a source data store to a sink data store
 Ensure that the firewall rules are enabled properly on the corporate firewall, Windows firewall on the gateway machine, and the data store itself. Enabling these rules allows the gateway to connect to both source and sink successfully. Enable rules for each data store that is involved in the copy operation.
 
-For example, to copy from **an on-premises data store to an Azure SQL Database sink or an Azure SQL Data Warehouse sink**, do the following steps:
+For example, to copy from **an on-premises data store to an Azure SQL Database sink or an Azure Synapse Analytics (formerly SQL Data Warehouse) sink**, do the following steps:
 
 * Allow outbound **TCP** communication on port **1433** for both Windows firewall and corporate firewall.
 * Configure the firewall settings of logical SQL server to add the IP address of the gateway machine to the list of allowed IP addresses.
@@ -175,7 +175,7 @@ If your corporate network environment uses a proxy server to access the internet
 
 Gateway uses the proxy server to connect to the cloud service. Click **Change** link during initial setup. You see the **proxy setting** dialog.
 
-![Set proxy using config manager](media/data-factory-data-management-gateway/SetProxySettings.png)
+![Set proxy using config manager 1](media/data-factory-data-management-gateway/SetProxySettings.png)
 
 There are three configuration options:
 
@@ -194,7 +194,7 @@ After gateway has been successfully registered, if you want to view or update pr
 
 You can view and update HTTP proxy by using Configuration Manager tool.
 
-![Set proxy using config manager](media/data-factory-data-management-gateway/SetProxyConfigManager.png)
+![Set proxy using config manager 2](media/data-factory-data-management-gateway/SetProxyConfigManager.png)
 
 > [!NOTE]
 > If you set up a proxy server with NTLM authentication, Gateway Host Service runs under the domain account. If you change the password for the domain account later, remember to update configuration settings for the service and restart it accordingly. Due to this requirement, we suggest you use a dedicated domain account to access the proxy server that does not require you to update the password frequently.
@@ -426,7 +426,7 @@ This section provides steps for moving gateway client from one machine to anothe
     ![Configuration Manager](./media/data-factory-data-management-gateway/ConfigurationManager.png)
 6. In the **Configure** page in the portal, click **Recreate key** on the command bar, and click **Yes** for the warning message. Click **copy button** next to key text that copies the key to the clipboard. The gateway on the old machine stops functioning as soon you recreate the key.
 
-    ![Recreate key](./media/data-factory-data-management-gateway/RecreateKey.png)
+    ![Recreate key 2](./media/data-factory-data-management-gateway/RecreateKey.png)
 7. Paste the **key** into text box in the **Register Gateway** page of the **Data Management Gateway Configuration Manager** on your machine. (optional) Click **Show gateway key** check box to see the key text.
 
     ![Copy key and Register](./media/data-factory-data-management-gateway/CopyKeyAndRegister.png)
