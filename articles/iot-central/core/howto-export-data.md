@@ -1,5 +1,5 @@
 ---
-title: Export your Azure IoT Central data | Microsoft Docs
+title: Export data from Azure IoT Central (legacy) | Microsoft Docs
 description: How to export data from your Azure IoT Central application to Azure Event Hubs, Azure Service Bus, and Azure Blob storage
 services: iot-central
 author: viv-liu
@@ -7,13 +7,12 @@ ms.author: viviali
 ms.date: 06/25/2020
 ms.topic: how-to
 ms.service: iot-central
-manager: corywink
 ---
 
-# Export IoT data to destinations in Azure using data export (legacy)
+# Export IoT data to cloud destinations using data export (legacy)
 
 > [!Note]
-> There is a new way to export data in IoT Central. You can use the new data export to filter and enrich your exported data, and export it to new destinations like webhook endpoints. You can learn about the new data export [here](./howto-use-data-export.md). To learn about the differences between the new data export and legacy data export, see the [comparison table](./howto-use-data-export.md#comparison-of-legacy-data-export-and-new-data-export).
+> There's a new way to export data in IoT Central. You can use the new data export to filter and enrich your exported data, and export it to new destinations such as webhook endpoints. To learn more, see [Export IoT data to cloud destinations using data export (preview)](./howto-use-data-export.md). To learn about the differences between the preview data export and legacy data export features, see the [comparison table](./howto-use-data-export.md#comparison-of-legacy-data-export-and-new-data-export).
 
 This article describes how to use the data export feature in Azure IoT Central. This feature lets you export your data continuously to **Azure Event Hubs**, **Azure Service Bus**, or **Azure Blob storage** instances. Data export uses the JSON format and can include telemetry, device information, and device template information. Use the exported data for:
 
@@ -98,11 +97,11 @@ Now that you have a destination to export data to, follow these steps to set up 
             3. Copy either the primary or secondary connection string
         - To use connection string for a specific event hub instance or Service Bus queue or topic, go to **Entities > Event Hubs** or **Entities > Queues** or **Entities > Topics**. Choose a specific instance, and follow the same steps above to get a connection string.
     - Storage account, go to the storage account in the Azure portal:
-        - Only connection strings for the entire storage account are supported. Connection strings scoped to a single container are not supported.
+        - Only connection strings for the entire storage account are supported. Connection strings scoped to a single container aren't supported.
           1. Under **Settings**, select **Access keys**
           2. Copy either the key1 connection string or the key2 connection string
 
-    Paste in the connection string. Type in the instance or **container name**, keeping in mind this is case-sensitive.
+    Paste in the connection string. Type in the instance or case-sensitive **container name**.
 
 7. Under **Data to export**, choose the types of data to export by setting the type to **On**.
 
