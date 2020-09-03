@@ -83,7 +83,7 @@ Here's information about the modes:
 Here are some guidelines for choosing a mode:
 - If there's no hub server, choose `Serverless`.
 - If all hubs have hub servers, choose `Default`.
-- If some hubs have hub servers but others don't, you can choose `Classic`, but this might cause a problem. The better way is create two instances: one is `Serverless`, and the other is `Default`.
+- If some hubs have hub servers but others don't, you can choose `Classic`, but this might cause a problem. The better way is to create two instances: one is `Serverless`, and the other is `Default`.
 
 ## Are there any feature differences in using Azure SignalR Service with ASP.NET SignalR?
 When you're using Azure SignalR Service, some APIs and features of ASP.NET SignalR aren't supported:
