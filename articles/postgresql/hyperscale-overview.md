@@ -5,6 +5,7 @@ author: jonels-msft
 ms.author: jonels
 ms.custom: mvc
 ms.service: postgresql
+ms.subservice: hyperscale-citus
 ms.topic: overview
 ms.date: 09/01/2020
 ---
