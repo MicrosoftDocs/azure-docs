@@ -40203,6 +40203,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/cognitive-services/Speech-Service/speaker-recognition-basics.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/get-started-speaker-recognition",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/cognitive-services/Speech-Service/text-to-speech-basics.md",
       "redirect_url": "/azure/cognitive-services/speech-service/get-started-text-to-speech",
       "redirect_document_id": false
