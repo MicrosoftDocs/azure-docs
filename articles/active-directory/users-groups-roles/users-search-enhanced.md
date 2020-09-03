@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: how-to
-ms.date: 09/02/2020
+ms.date: 09/03/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
@@ -58,7 +58,9 @@ The following are the displayed user properties on the **All users** page:
 - Object ID: The object ID of the user.
 - Creation type: Indicates how the user account was created.
 - Company name: The company name which the user is associated.
-- Mail:  The email of the user.
+- Mail: The email of the user.
+- Invitation state: The status of the external partner (B2B) invitation for the user.
+- Last sign-in: The date the user last signed in.
 
 ### Deleted users page
 
@@ -71,14 +73,14 @@ Some columns are displayed by default. To add other columns, select **Columns** 
 
 ### Identity issuers
 
-You can select **Identity issuer** for any user in either page to view additional details about the identity issuer including the sign-in type and the issuer assigned ID. If there are multiple issuers of the user's identity, you would select `Multiple` in the **All users** and **Deleted users** pages, and the details would list them all.
+Select an entry in the **Identity issuer** column for any user to view additional details about the issuer including the sign-in type and the issuer assigned ID. The entries in the **Identity issuer** column can be multi-valued. If there are multiple issuers of the user's identity, you'll see the word Multiple in the **Identity issuer** column on **All users** and **Deleted users** pages, and the details pane list all issuers.
 
 > [!NOTE]
 > The **Source** column is replaced by multiple columns including **Creation type**, **Directory synced**, and **Identity issuer** for more granular filtering.
 
 ## User list search
 
-When you enter a search string, the search automatically performs a "starts with" search that can match names, emails, or object IDs. You can enter any of these attributes into search box, and the search will automatically look across all these properties to return any matching results. You can perform the same search on both the **All users** and **Deleted users** pages.
+When you enter a search string, the search uses "starts with" search that can now match names, emails, or object IDs in a single search. You can enter any of these attributes into search box, and the search will automatically look across all these properties to return any matching results. You can perform the same search on both the **All users** and **Deleted users** pages.
 
 ## User list filtering
 
@@ -91,7 +93,7 @@ The following are the filterable properties on the **All users** page:
 - User type - Member or guest
 - Directory synced status - Yes
 - Creation type - Invitation, Email verified, Local account
-- Invitation state (Coming soon) – Pending acceptance, Accepted
+- Invitation state  – Pending acceptance, Accepted
 - Administrative unit - Select this option to restrict the scope of the users you view to a single administrative unit. For more information, see [Administrative units management preview](directory-administrative-units.md).
 
 ## Filtering Deleted Users page
@@ -101,7 +103,7 @@ The **Deleted users** page has additional filters not in the **All users** page.
 - User type - Member or guest
 - Directory synced status - Yes
 - Creation type - Invitation, Email verified, Local account
-- Invitation state (Coming soon) – Pending acceptance, Accepted
+- Invitation state – Pending acceptance, Accepted
 - Deletion date - Last 7, 14, or 30 days
 - Permanent deletion date - Last 7, 14, or 30 days
 
@@ -118,6 +120,15 @@ Why can I only filter the **Directory synced** column by Yes? | There are some l
 
 ## Next steps
 
-- [Application Management in Azure Active Directory](../manage-apps/what-is-application-management.md)
-- [Protecting apps with Conditional Access](../conditional-access/overview.md)
-- [Self-service group management/SSAA](groups-self-service-management.md)
+User operations
+
+- [Add or change profile information](../fundamentals/active-directory-users-profile-azure-portal.md)
+- [Add or delete users](../fundamentals/add-users-azure-active-directory.md)
+
+Bulk operations
+
+- [Download list of users](users-bulk-download.md)
+- [Bulk add users](users-bulk-add.md)
+- [Bulk delete users](users-bulk-delete.md)
+- [Bulk restore users](users-bulk-restore.md)
+
