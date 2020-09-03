@@ -27,8 +27,6 @@ You may want to carefully monitor your workloads and determine whether indexing 
 
 This document is also available in notebook form, for [Python](https://github.com/microsoft/hyperspace/blob/master/notebooks/python/Hitchhikers%20Guide%20to%20Hyperspace.ipynb), for [C#](https://github.com/microsoft/hyperspace/blob/master/notebooks/csharp/Hitchhikers%20Guide%20to%20Hyperspace.ipynb) and [Scala](https://github.com/microsoft/hyperspace/blob/master/notebooks/scala/Hitchhikers%20Guide%20to%20Hyperspace.ipynb)
 
-[here](https://docs.delta.io/latest/quick-start.html)
-
 ## Setup
 
 To begin with, start a new Spark session. Since this document is a tutorial merely to illustrate what Hyperspace can offer, you will make a configuration change that allows us to highlight what Hyperspace is doing on small datasets. By default, Spark uses broadcast join to optimize join queries when the data size for one side of join is small (which is the case for the sample data we use in this tutorial). Therefore, we disable broadcast joins so that later when we run join queries, Spark uses sort-merge join. This is mainly to show how Hyperspace indexes would be used at scale for accelerating join queries.
@@ -450,7 +448,7 @@ import com.microsoft.hyperspace.index.IndexConfig
 empIndexConfig: com.microsoft.hyperspace.index.IndexConfig = [indexName: empIndex; indexedColumns: deptid; includedColumns: empname]  
 deptIndexConfig1: com.microsoft.hyperspace.index.IndexConfig = [indexName: deptIndex1; indexedColumns: deptid; includedColumns: deptname]  
 deptIndexConfig2: com.microsoft.hyperspace.index.IndexConfig = [indexName: deptIndex2; indexedColumns: location; includedColumns: deptname]  
-```console
+```
 
 Now, you create three indexes using your index configurations. For this purpose, you invoke "createIndex" command on our Hyperspace instance. This command requires an index configuration and the dataFrame containing rows to be indexed. Running the below cell creates three indexes.
 
@@ -569,7 +567,6 @@ hyperspace.indexes.show
 ```python
 
 hyperspace.deleteIndex("deptIndex2")
-
 hyperspace.indexes().show()
 
 ```
@@ -579,6 +576,7 @@ hyperspace.indexes().show()
 :::zone pivot = "programming-language-csharp"
 
 ```csharp
+hyperspace.DeleteIndex("deptIndex2");
 
 hyperspace.Indexes().Show();
 
