@@ -6,7 +6,7 @@ ms.author: b-juche
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: quickstart 
-ms.date: 06/09/2020 
+ms.date: 09/04/2020 
 ms.custom: devx-track-azurecli
 #Customer intent: As an IT admin new to Azure NetApp Files, I want to quickly set up Azure NetApp Files and create a volume.
 ---
@@ -375,7 +375,7 @@ When you are done and if you want to, you can delete the resource group. The act
 
 4. Enter the name of the resource group (myRG1) to confirm that you want to permanently delete the resource group and all resources in it, and then click **Delete**.
 
-    ![Delete resource group](../media/azure-netapp-files/azure-netapp-files-azure-confirm-resource-group-deletion.png ) 
+    ![Confirm deleting resource group](../media/azure-netapp-files/azure-netapp-files-azure-confirm-resource-group-deletion.png ) 
 
 # [PowerShell](#tab/azure-powershell)
 
