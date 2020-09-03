@@ -45,7 +45,7 @@ Also, keep role assignments permanent if a user has a Microsoft account (in othe
 
 1. Review the list of Global Administrator role assignments.
 
-    ![Reduce global administrators - Role pane showing all members](./media/pim-security-wizard/new-global-administrator-list.png)
+    ![Reduce global administrators - Roles pane showing all Global Administrators](./media/pim-security-wizard/new-global-administrator-list.png)
 
 1. Select **Next** to select the users or groups you want to make eligible, and then select **Make eligible** or **Remove assignment**.
 
