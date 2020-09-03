@@ -2,12 +2,12 @@
 title: 'About upgrading circuit bandwidth| Azure ExpressRoute'
 description: In this article, learn the best practices for upgrading the ExpressRoute circuit bandwidth
 services: expressroute
-author: cherylmc
+author: duongau
 
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.author: cherylmc
+ms.author: duau
 
 
 ---

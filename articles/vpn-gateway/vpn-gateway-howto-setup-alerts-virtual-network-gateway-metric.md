@@ -6,7 +6,7 @@ author: kumudD
 
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 04/22/2019
+ms.date: 09/03/2020
 ms.author: alzam
 
 ---
