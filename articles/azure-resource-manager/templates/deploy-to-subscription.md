@@ -2,7 +2,7 @@
 title: Deploy resources to subscription
 description: Describes how to create a resource group in an Azure Resource Manager template. It also shows how to deploy resources at the Azure subscription scope.
 ms.topic: conceptual
-ms.date: 07/27/2020
+ms.date: 09/03/2020
 ---
 
 # Create resource groups and resources at the subscription level
@@ -110,7 +110,7 @@ For each deployment name, the location is immutable. You can't create a deployme
 
 ## Deployment scopes
 
-When deploying to a subscription, you can target the subscription or any resource groups within the subscription. The user deploying the template must have access to the specified scope.
+When deploying to a subscription, you can target one subscription and any resource groups within the subscription. You can't deploy to a subscription that is different than the target subscription. The user deploying the template must have access to the specified scope.
 
 Resources defined within the resources section of the template are applied to the subscription.
 
@@ -148,6 +148,8 @@ To target a resource group within the subscription, add a nested deployment and 
     "outputs": {}
 }
 ```
+
+This article contains examples below that show how to deploy resources to the different scopes.
 
 ## Use template functions
 
