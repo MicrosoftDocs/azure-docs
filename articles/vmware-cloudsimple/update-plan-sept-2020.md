@@ -1,5 +1,5 @@
 --- 
-title: Azure VMware Solution by CloudSimple September 2020 Update
+title: Azure VMware Solution by CloudSimple September 2020 update
 description: In this article, learn about what to expect during this maintenance operation and changes to your private cloud.
 author: dikamath 
 ms.date: 09/3/2020 
@@ -8,7 +8,7 @@ ms.service: azure-vmware-cloudsimple
 manager: dikamath
 ---
 
-# Azure VMware Solution by CloudSimple September 2020 Update
+# Azure VMware Solution by CloudSimple September 2020 update
 
 An important update to Azure VMware Solution service will be performed in September. An email notification, sent as a part of maintenance will include the timeline of the maintenance. In this article, you learn about what to expect during this maintenance operation and changes to your private cloud.
 
