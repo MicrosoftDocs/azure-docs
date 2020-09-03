@@ -17,27 +17,27 @@ A key feature of the Azure Cosmos DB SQL API is array and object creation.
 You can construct arrays, as shown in the following example:
 
 ```sql
-    SELECT [f.address.city, f.address.state] AS CityState
-    FROM Families f
+SELECT [f.address.city, f.address.state] AS CityState
+FROM Families f
 ```
 
 The results are:
 
 ```json
-    [
-      {
-        "CityState": [
-          "Seattle",
-          "WA"
-        ]
-      },
-      {
-        "CityState": [
-          "NY", 
-          "NY"
-        ]
-      }
+[
+  {
+    "CityState": [
+      "Seattle",
+      "WA"
     ]
+  },
+  {
+    "CityState": [
+      "NY", 
+      "NY"
+    ]
+  }
+]
 ```
 
 You can also use the [ARRAY expression](sql-query-subquery.md#array-expression) to construct an array from [subquery's](sql-query-subquery.md) results. This query gets all the distinct given names of children in an array.
@@ -52,102 +52,102 @@ FROM f
 The SQL API provides support for iterating over JSON arrays, with a new construct added via the [IN keyword](sql-query-keywords.md#in) in the FROM source. In the following example:
 
 ```sql
-    SELECT *
-    FROM Families.children
+SELECT *
+FROM Families.children
 ```
 
 The results are:
 
 ```json
-    [
-      [
-        {
-          "firstName": "Henriette Thaulow",
-          "gender": "female",
-          "grade": 5,
-          "pets": [{ "givenName": "Fluffy"}]
-        }
-      ], 
-      [
-        {
-            "familyName": "Merriam",
-            "givenName": "Jesse",
-            "gender": "female",
-            "grade": 1
-        }, 
-        {
-            "familyName": "Miller",
-            "givenName": "Lisa",
-            "gender": "female",
-            "grade": 8
-        }
-      ]
-    ]
+[
+  [
+    {
+      "firstName": "Henriette Thaulow",
+      "gender": "female",
+      "grade": 5,
+      "pets": [{ "givenName": "Fluffy"}]
+    }
+  ], 
+  [
+    {
+        "familyName": "Merriam",
+        "givenName": "Jesse",
+        "gender": "female",
+        "grade": 1
+    }, 
+    {
+        "familyName": "Miller",
+        "givenName": "Lisa",
+        "gender": "female",
+        "grade": 8
+    }
+  ]
+]
 ```
 
 The next query performs iteration over `children` in the `Families` container. The output array is different from the preceding query. This example splits `children`, and flattens the results into a single array:  
 
 ```sql
-    SELECT *
-    FROM c IN Families.children
+SELECT *
+FROM c IN Families.children
 ```
 
 The results are:
 
 ```json
-    [
-      {
-          "firstName": "Henriette Thaulow",
-          "gender": "female",
-          "grade": 5,
-          "pets": [{ "givenName": "Fluffy" }]
-      },
-      {
-          "familyName": "Merriam",
-          "givenName": "Jesse",
-          "gender": "female",
-          "grade": 1
-      },
-      {
-          "familyName": "Miller",
-          "givenName": "Lisa",
-          "gender": "female",
-          "grade": 8
-      }
-    ]
+[
+  {
+      "firstName": "Henriette Thaulow",
+      "gender": "female",
+      "grade": 5,
+      "pets": [{ "givenName": "Fluffy" }]
+  },
+  {
+      "familyName": "Merriam",
+      "givenName": "Jesse",
+      "gender": "female",
+      "grade": 1
+  },
+  {
+      "familyName": "Miller",
+      "givenName": "Lisa",
+      "gender": "female",
+      "grade": 8
+  }
+]
 ```
 
 You can filter further on each individual entry of the array, as shown in the following example:
 
 ```sql
-    SELECT c.givenName
-    FROM c IN Families.children
-    WHERE c.grade = 8
+SELECT c.givenName
+FROM c IN Families.children
+WHERE c.grade = 8
 ```
 
 The results are:
 
 ```json
-    [{
-      "givenName": "Lisa"
-    }]
+[{
+  "givenName": "Lisa"
+}]
 ```
 
 You can also aggregate over the result of an array iteration. For example, the following query counts the number of children among all families:
 
 ```sql
-    SELECT COUNT(child)
-    FROM child IN Families.children
+SELECT COUNT(child)
+FROM child IN Families.children
 ```
 
 The results are:
 
 ```json
-    [
-      {
-        "$1": 3
-      }
-    ]
+[
+  {
+    "$1": 3
+  }
+]
 ```
 
 ## Next steps
