@@ -1,6 +1,6 @@
 ---
 title: Link your partner ID to enable partner earned credit on delegated resources
-description: Learn how to remove access to resources that had been delegated to a service provider for Azure Lighthouse.
+description: Learn how to associate your partner ID to receive partner earned credit on customer resources you manage through Azure Lighthouse.
 ms.date: 09/04/2020
 ms.topic: how-to
 ---
