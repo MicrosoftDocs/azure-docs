@@ -2,12 +2,12 @@
 title: 'Azure ExpressRoute: circuits and peering'
 description: This page provides an overview of ExpressRoute circuits and routing domains/peering.
 services: expressroute
-author: mialdrid
+author: duongau
 
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/13/2019
-ms.author: mialdrid 
+ms.author: duau 
 
 ---
 # ExpressRoute circuits and peering
