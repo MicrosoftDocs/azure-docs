@@ -28,7 +28,7 @@ This document provides guidance on how to solve common security requirements for
 
 ### Deployment offers not covered in this guide
 
-- Azure SQL Data Warehouse
+- Azure Synapse Analytics (formerly SQL Data Warehouse)
 - Azure SQL VMs (IaaS)
 - SQL Server
 
