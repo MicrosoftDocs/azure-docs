@@ -2,8 +2,7 @@
 title: Azure subscription limits and quotas
 description: Provides a list of common Azure subscription and service limits, quotas, and constraints. This article includes information on how to increase limits along with maximum values.
 ms.topic: conceptual
-author: davidsmatlak
-ms.date: 06/04/2020
+ms.date: 09/02/2020
 ---
 
 # Azure subscription and service limits, quotas, and constraints
@@ -70,6 +69,10 @@ The following App Service limits include limits for Web Apps, Mobile Apps, and A
 ## Automation limits
 
 [!INCLUDE [automation-limits](../../../includes/azure-automation-service-limits.md)]
+
+## Azure App Configuration
+
+[!INCLUDE [app-configuration-limits](../../../includes/app-configuration-limits.md)]
 
 ## Azure Cache for Redis limits
 

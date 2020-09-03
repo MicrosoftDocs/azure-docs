@@ -36,6 +36,6 @@ Now when you create a Batch pool, you can navigate to Certificates within the po
 
 ## Next steps
 
-Batch has a certificate API, [AZ batch certificate create](/cli/azure/batch/certificate?view=azure-cli-latest#az-batch-certificate-create)
+Batch has a certificate API, [AZ batch certificate create](/cli/azure/batch/certificate)
 
 For information on using Key Vault, see [Securely access Key Vault with Batch](credential-access-key-vault.md).

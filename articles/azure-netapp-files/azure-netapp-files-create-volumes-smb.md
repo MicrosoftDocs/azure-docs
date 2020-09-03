@@ -230,7 +230,7 @@ This setting is configured in the **Active Directory Connections** under **NetAp
     
         ![Create subnet](../media/azure-netapp-files/azure-netapp-files-create-subnet.png)
 
-    * If you want to apply an existing snapshot policy to the volume, click **Show advanced section** to expand it, and select a snapshot policy in the pull-down menu. 
+    * If you want to apply an existing snapshot policy to the volume, click **Show advanced section** to expand it, specify whether you want to hide the snapshot path, and select a snapshot policy in the pull-down menu. 
 
         For information about creating a snapshot policy, see [Manage snapshot policies](azure-netapp-files-manage-snapshots.md#manage-snapshot-policies).
 

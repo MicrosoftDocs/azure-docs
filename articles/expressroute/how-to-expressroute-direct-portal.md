@@ -2,12 +2,12 @@
 title: 'Azure ExpressRoute: Configure ExpressRoute Direct: portal'
 description: This page helps you configure ExpressRoute Direct using the portal.
 services: expressroute
-author: cherylmc
+author: duongau
 
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 08/06/2020
-ms.author: cherylmc
+ms.author: duau
 
 ---
 
