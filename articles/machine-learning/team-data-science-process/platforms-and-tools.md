@@ -59,11 +59,11 @@ When you create a Spark cluster in HDInsight, you create Azure compute resources
 TDSP team from Microsoft has published two end-to-end walkthroughs on how to use Azure HDInsight Spark Clusters to build data science solutions, one using Python and the other Scala. For more information on Azure HDInsight **Spark Clusters**, see [Overview: Apache Spark on HDInsight Linux](../../hdinsight/spark/apache-spark-overview.md). To learn how to build a data science solution using **Python** on an Azure HDInsight Spark Cluster, see [Overview of Data Science using Spark on Azure HDInsight](spark-overview.md). To learn how to build a data science solution using **Scala** on an Azure HDInsight Spark Cluster, see [Data Science using Scala and Spark on Azure](scala-walkthrough.md). 
 
 
-##  Azure SQL Data Warehouse
+##  Azure Synapse Analytics
 
-Azure SQL Data Warehouse allows you to scale compute resources easily and in seconds, without over-provisioning or over-paying. It also offers the unique option to pause the use of compute resources, giving you the freedom to better manage your cloud costs. The ability to deploy scalable compute resources makes it possible to bring all your data into Azure SQL Data Warehouse. Storage costs are minimal and you can run compute only on the parts of datasets that you want to analyze. 
+Azure Synapse Analytics allows you to scale compute resources easily and in seconds, without over-provisioning or over-paying. It also offers the unique option to pause the use of compute resources, giving you the freedom to better manage your cloud costs. The ability to deploy scalable compute resources makes it possible to bring all your data into Azure Synapse Analytics. Storage costs are minimal and you can run compute only on the parts of datasets that you want to analyze. 
 
-For more information on Azure SQL Data Warehouse, see the [SQL Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse) website. To learn how to build end-to-end advanced analytics solutions with SQL Data Warehouse, see [The Team Data Science Process in action: using SQL Data Warehouse](sqldw-walkthrough.md).
+For more information on Azure Synapse Analytics, see the [Azure Synapse Analytics](https://azure.microsoft.com/services/sql-data-warehouse) website. To learn how to build end-to-end advanced analytics solutions with Azure Synapse Analytics, see [The Team Data Science Process in action: using Azure Synapse Analytics](sqldw-walkthrough.md).
 
 
 ## Azure Data Lake
