@@ -118,7 +118,7 @@ If the compute role is configured on your device, you can also get the compute l
 
 ## Debug Kubernetes issues related to IoT Edge
 
-When the Kubernetes cluster is created, there are two system namespaces created: `iotedge` and `azure-arc`.  
+<!--When the Kubernetes cluster is created, there are two system namespaces created: `iotedge` and `azure-arc`. --> 
 
 <!--### Create config file for system namespace
 
@@ -152,11 +152,49 @@ users:
 
 [10.100.10.10]: PS>
 ```
+-->
+
+On an Azure Stack Edge device that has the compute role configured, you can troubleshoot or monitor the device using two different set of commands.
+
+- Using `iotedge` commands. These commands are available for basic operations for your device.
+- Using `kubectl` commands. These commands are available for an extensive set of operations for your device.
+
+To execute either of the above set of commands, you need to [Connect to the PowerShell interface](#connect-to-the-powershell-interface).
+
+### Use `iotedge` commands
+
+To see a list of available commands, [connect to the PowerShell interface](#connect-to-the-powershell-interface) and use the `iotedge` function.
+
+```powershell
+[10.100.10.10]: PS>iotedge -?                                                                                                                           
+Usage: iotedge COMMAND
+
+Commands:
+   check
+   list
+   logs
+   restart
+
+[10.100.10.10]: PS>
+```
+
+The following table has a brief description of the commands available for `iotedge`:
+
+|command  |Description |
+|---------|---------|
+|`check`     | Perform automated checks for common configuration and connectivity issues       |
+|`list`     | List modules         |
+|`logs`     | Fetch the logs of a module        |
+|`restart`     | Stop and restart a module         |
+
+
+### Use kubectl commands
 
 On an Azure Stack Edge device that has the compute role configured, all the `kubectl` commands are available to monitor or troubleshoot modules. To see a list of available commands, run `kubectl --help` from the command window.
 
 ```PowerShell
 C:\Users\myuser>kubectl --help
+
 kubectl controls the Kubernetes cluster manager.
 
 Find more information at: https://kubernetes.io/docs/reference/kubectl/overview/
@@ -178,10 +216,10 @@ Use "kubectl options" for a list of global command-line options (applies to all 
 C:\Users\myuser>
 ```
 
-For a comprehensive list of the `kubectl` commands, go to [`kubectl` cheatsheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/).-->
+For a comprehensive list of the `kubectl` commands, go to [`kubectl` cheatsheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/).
 
 
-### To get IP of service or module exposed outside of Kubernetes cluster
+#### To get IP of service or module exposed outside of Kubernetes cluster
 
 To get the IP of a load balancing service or modules exposed outside of the Kubernetes, run the following command:
 
@@ -202,7 +240,7 @@ webserverapp   LoadBalancer   10.105.186.35   10.128.44.244   8080:30976/TCP    
 The IP address in the External IP column corresponds to the external endpoint for the service or the module. You can also [Get the external IP in the Kubernetes dashboard](azure-stack-edge-gpu-monitor-kubernetes-dashboard.md#get-ip-address-for-services-or-modules).
 
 
-### To check if module deployed successfully
+#### To check if module deployed successfully
 
 Compute modules are containers that have a business logic implemented. A Kubernetes pod can have multiple containers running. 
 
@@ -306,7 +344,7 @@ Events:          <none>
 [10.100.10.10]: PS>
 ```
 
-### To get container logs
+#### To get container logs
 
 To get the logs for a module, run the following command from the PowerShell interface of the device:
 
