@@ -11,7 +11,7 @@ ms.date: 09/01/2020
 
 # Tutorial: Create cross-region load balancer using the Azure portal.
 
-Get started creating a cross-region load balancer using Azure PowerShell. This article shows you how to create a cross-region load balancer associated with two regional load balancers.
+Get started creating a cross-region load balancer using the Azure portal. This article shows you how to create a cross-region load balancer associated with two regional load balancers.
 
 In this tutorial, you learn how to:
 
@@ -92,11 +92,11 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 4. Open a web browser and enter or paste the IP address from the previous step.
 
-5. One of the pages from either a virtual machine in region 1 or region 2.
+5. One of the pages from either a virtual machine in region 1 or region 2 will be displayed.
 
 6. Shut down the virtual machines in region 1 or region 2.
 
-7. Verify that the page from a virtual machine from the region with active virtual machines is valid.
+7. Verify that the page from a virtual machine from the region with active virtual machines is displayed.
 
 
 ## Clean up resources
