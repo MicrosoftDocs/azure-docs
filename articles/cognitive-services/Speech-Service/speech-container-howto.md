@@ -102,37 +102,37 @@ Container images for Speech are available in the following Container Registry.
 
 | Container | Repository |
 |-----------|------------|
-| Speech-to-text | `containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text:latest` |
+| Speech-to-text | `mcr.microsoft.com/azure-cognitive-services/speechservices/speech-to-text:latest` |
 
 # [Custom Speech-to-text](#tab/cstt)
 
 | Container | Repository |
 |-----------|------------|
-| Custom Speech-to-text | `containerpreview.azurecr.io/microsoft/cognitive-services-custom-speech-to-text:latest` |
+| Custom Speech-to-text | `mcr.microsoft.com/azure-cognitive-services/speechservices/custom-speech-to-text:latest` |
 
 # [Text-to-speech](#tab/tts)
 
 | Container | Repository |
 |-----------|------------|
-| Text-to-speech | `containerpreview.azurecr.io/microsoft/cognitive-services-text-to-speech:latest` |
+| Text-to-speech | `mcr.microsoft.com/azure-cognitive-services/speechservices/text-to-speech:latest` |
 
 # [Neural Text-to-speech](#tab/ntts)
 
 | Container | Repository |
 |-----------|------------|
-| Neural Text-to-speech | `containerpreview.azurecr.io/microsoft/cognitive-services-neural-text-to-speech:latest` |
+| Neural Text-to-speech | `mcr.microsoft.com/azure-cognitive-services/speechservices/neural-text-to-speech:latest` |
 
 # [Custom Text-to-speech](#tab/ctts)
 
 | Container | Repository |
 |-----------|------------|
-| Custom Text-to-speech | `containerpreview.azurecr.io/microsoft/cognitive-services-custom-text-to-speech:latest` |
+| Custom Text-to-speech | `mcr.microsoft.com/azure-cognitive-services/speechservices/custom-text-to-speech:latest` |
 
 # [Language Detection](#tab/lid)
 
 | Container | Repository |
 |-----------|------------|
-| Language Detection | `mcr.microsoft.com/azure-cognitive-services/speech/language-detection:latest` |
+| Language Detection | `mcr.microsoft.com/azure-cognitive-services/speechservices/language-detection:latest` |
 
 ***
 
@@ -147,7 +147,7 @@ Container images for Speech are available in the following Container Registry.
 Use the [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image from Container Preview registry.
 
 ```Docker
-docker pull containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text:latest
+docker pull mcr.microsoft.com/azure-cognitive-services/speechservices/speech-to-text:latest
 ```
 
 > [!IMPORTANT]
@@ -176,7 +176,7 @@ For all of the supported locales of the **speech-to-text** container, please see
 Use the [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image from Container Preview registry.
 
 ```Docker
-docker pull containerpreview.azurecr.io/microsoft/cognitive-services-custom-speech-to-text:latest
+docker pull mcr.microsoft.com/azure-cognitive-services/speechservices/custom-speech-to-text:latest
 ```
 
 > [!NOTE]
@@ -189,7 +189,7 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-custom-spee
 Use the [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image from Container Preview registry.
 
 ```Docker
-docker pull containerpreview.azurecr.io/microsoft/cognitive-services-text-to-speech:latest
+docker pull mcr.microsoft.com/azure-cognitive-services/speechservices/text-to-speech:latest
 ```
 
 > [!IMPORTANT]
@@ -221,7 +221,7 @@ For all of the supported locales and corresponding voices of the **text-to-speec
 Use the [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image from Container Preview registry.
 
 ```Docker
-docker pull containerpreview.azurecr.io/microsoft/cognitive-services-neural-text-to-speech:latest
+docker pull mcr.microsoft.com/azure-cognitive-services/speechservices/neural-text-to-speech:latest
 ```
 
 > [!IMPORTANT]
@@ -253,7 +253,7 @@ For all of the supported locales and corresponding voices of the **neural text-t
 Use the [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image from Container Preview registry.
 
 ```Docker
-docker pull containerpreview.azurecr.io/microsoft/cognitive-services-custom-text-to-speech:latest
+docker pull mcr.microsoft.com/azure-cognitive-services/speechservices/custom-text-to-speech:latest
 ```
 
 > [!NOTE]
@@ -261,7 +261,7 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-custom-text
 
 # [Language Detection](#tab/lid)
 
-#### Request access to the container registry
+#### Request access to the run the container
 
 Fill out and submit the [request form](https://aka.ms/cognitivegate) to request access to the container. 
 
@@ -275,7 +275,7 @@ Fill out and submit the [request form](https://aka.ms/cognitivegate) to request 
 Use the [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image from Container Preview registry.
 
 ```Docker
-docker pull mcr.microsoft.com/azure-cognitive-services/speech/language-detection
+docker pull mcr.microsoft.com/azure-cognitive-services/speechservices/language-detection:latest
 ```
 
 ***
@@ -297,7 +297,7 @@ To run the Standard *Speech-to-text* container, execute the following `docker ru
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 4 \
-containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text \
+mcr.microsoft.com/azure-cognitive-services/speechservices/speech-to-text \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
@@ -372,7 +372,7 @@ To run the *Custom Speech-to-text* container, execute the following `docker run`
 ```bash
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 4 \
 -v {VOLUME_MOUNT}:/usr/local/models \
-containerpreview.azurecr.io/microsoft/cognitive-services-custom-speech-to-text \
+mcr.microsoft.com/azure-cognitive-services/speechservices/custom-speech-to-text \
 ModelId={MODEL_ID} \
 Eula=accept \
 Billing={ENDPOINT_URI} \
@@ -395,7 +395,7 @@ To run the Standard *Text-to-speech* container, execute the following `docker ru
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 2g --cpus 1 \
-containerpreview.azurecr.io/microsoft/cognitive-services-text-to-speech \
+mcr.microsoft.com/azure-cognitive-services/speechservices/text-to-speech \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
@@ -414,7 +414,7 @@ To run the *Neural Text-to-speech* container, execute the following `docker run`
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 12g --cpus 6 \
-containerpreview.azurecr.io/microsoft/cognitive-services-neural-text-to-speech \
+mcr.microsoft.com/azure-cognitive-services/speechservices/neural-text-to-speech \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
@@ -453,7 +453,7 @@ To run the *Custom Text-to-speech* container, execute the following `docker run`
 ```bash
 docker run --rm -it -p 5000:5000 --memory 2g --cpus 1 \
 -v {VOLUME_MOUNT}:/usr/local/models \
-containerpreview.azurecr.io/microsoft/cognitive-services-custom-text-to-speech \
+mcr.microsoft.com/azure-cognitive-services/speechservices/custom-text-to-speech \
 ModelId={MODEL_ID} \
 Eula=accept \
 Billing={ENDPOINT_URI} \
@@ -476,7 +476,7 @@ To run the *Language Detection* container, execute the following `docker run` co
 
 ```bash
 docker run --rm -it -p 5003:5003 --memory 1g --cpus 1 \
-mcr.microsoft.com/azure-cognitive-services/speech/language-detection \
+mcr.microsoft.com/azure-cognitive-services/speechservices/language-detection \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
