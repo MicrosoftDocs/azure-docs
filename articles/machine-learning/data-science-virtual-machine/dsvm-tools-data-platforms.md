@@ -50,7 +50,7 @@ To run SQL Server Management Studio, you can search for "SQL Server Management S
 
 By default, the database server with the default database instance runs automatically. You can use tools like SQL Server Management Studio on the VM to access the SQL Server database locally. Local administrator accounts have admin access on the database.
 
-Also, the DSVM comes with ODBC and JDBC drivers to talk to SQL Server, Azure SQL databases, and Azure SQL Data Warehouse from applications written in multiple languages, including Python and Machine Learning Server.
+Also, the DSVM comes with ODBC and JDBC drivers to talk to SQL Server, Azure SQL databases, and Azure Synapse Analytics from applications written in multiple languages, including Python and Machine Learning Server.
 
 ### How is it configured and installed on the DSVM? 
 
