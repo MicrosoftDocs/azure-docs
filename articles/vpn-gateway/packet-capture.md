@@ -61,7 +61,7 @@ Stop-AzVirtualNetworkGatewayConnectionPacketCapture -ResourceGroupName "YourReso
 - Running packet captures may affect performance. Remember to stop the packet capture when it is not needed.
 - Suggested minimum packet capture duration is 600 seconds. Having shorter packet capture duration may not provide complete data due to sync up issues among multiple components on the path.
 - Packet capture data files are generated in PCAP format. Use Wireshark or other commonly available applications to open PCAP files.
-- Packet captures are not supported on Policy Based Gateways.
+- Packet captures aren't supported on policy-based gateways.
 
 ## Next steps
 
