@@ -33,7 +33,7 @@ ExpressRoute Global Reach is supported in all regions where ExpressRoute is curr
 > To enable ExpressRoute Global Reach between [different geopolitical regions](expressroute-locations.md#locations), your circuits must be **Premium SKU**.
 
 ## Next steps
-- View the Global Reach FAQ](expressroute-faqs.md#globalreach).
+- View the [Global Reach FAQ](expressroute-faqs.md#globalreach).
 - Learn how to [enable Global Reach](expressroute-howto-set-global-reach.md).
 - Learn how to [link an ExpressRoute circuit to your virtual network](expressroute-howto-linkvnet-arm.md).
 
