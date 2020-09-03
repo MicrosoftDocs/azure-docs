@@ -1,19 +1,16 @@
 ---
-title: Expand existing host pool with new session hosts - Azure
-description: How to expand an existing host pool with new session hosts in Windows Virtual Desktop.
-services: virtual-desktop
+title: Expand existing Windows Virtual Desktop (classic) host pool with new session hosts - Azure
+description: How to expand an existing host pool with new session hosts in Windows Virtual Desktop (classic).
 author: Heidilohr
-
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
 ---
-# Expand an existing host pool with new session hosts
+# Expand an existing host pool with new session hosts in Windows Virtual Desktop (classic)
 
 >[!IMPORTANT]
->This content applies to the Fall 2019 release that doesn't support Azure Resource Manager Windows Virtual Desktop objects. If you're trying to manage Azure Resource Manager Windows Virtual Desktop objects introduced in the Spring 2020 update, see [this article](../expand-existing-host-pool.md).
+>This content applies to Windows Virtual Desktop (classic), which doesn't support Azure Resource Manager Windows Virtual Desktop objects. If you're trying to manage Azure Resource Manager Windows Virtual Desktop objects, see [this article](../expand-existing-host-pool.md).
 
 As you ramp up usage within your host pool, you may need to expand your existing host pool with new session hosts to handle the new load.
 
@@ -125,7 +122,7 @@ Follow the instructions in [Run the Azure Resource Manager template for provisio
 
 Now that you've expanded your existing host pool, you can sign in to a Windows Virtual Desktop client to test them as part of a user session. You can connect to a session with any of the following clients:
 
-- [Connect with the Windows Desktop client](../connect-windows-7-and-10.md)
+- [Connect with the Windows Desktop client](connect-windows-7-10-2019.md)
 - [Connect with the web client](connect-web-2019.md)
 - [Connect with the Android client](connect-android-2019.md)
 - [Connect with the macOS client](connect-macos-2019.md)

@@ -1,9 +1,9 @@
 ---
-title: Azure Front Door 
+title: 'Tutorial: Configure Rules Engine - Azure Front Door'
 description: This article provides a tutorial on how to configure Rules Engine in both the Azure portal and CLI.
 services: frontdoor
 documentationcenter: ''
-author: megan-beatty
+author: duongau
 editor: ''
 ms.service: frontdoor
 ms.devlang: na
@@ -11,7 +11,8 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 4/30/2020
-ms.author: mebeatty
+ms.author: duau 
+ms.custom: devx-track-azurecli
 # customer intent: As an IT admin, I want to learn about Front Door and how to configure Rules Engine feature via the Azure portal or Azure CLI. 
 ---
 

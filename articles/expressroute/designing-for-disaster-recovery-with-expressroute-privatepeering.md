@@ -2,12 +2,12 @@
 title: 'Azure ExpressRoute: Designing for disaster recovery'
 description: This page provides architectural recommendations for disaster recovery while using Azure ExpressRoute.
 services: expressroute
-author: rambk
+author: duongau
 
 ms.service: expressroute
 ms.topic: article
 ms.date: 05/25/2019
-ms.author: rambala
+ms.author: duau
 
 ---
 
@@ -16,6 +16,10 @@ ms.author: rambala
 ExpressRoute is designed for high availability to provide carrier grade private network connectivity to Microsoft resources. In other words, there is no single point of failure in the ExpressRoute path within Microsoft network. For design considerations to maximize the availability of an ExpressRoute circuit, see [Designing for high availability with ExpressRoute][HA].
 
 However, taking Murphy's popular adage--*if anything can go wrong, it will*--into consideration, in this article let us focus on solutions that go beyond failures that can be addressed using a single ExpressRoute circuit. In other words, in this article let us look into network architecture considerations for building robust backend network connectivity for disaster recovery using geo-redundant ExpressRoute circuits.
+
+>[!NOTE]
+>The concepts described in this article equally applies when an ExpressRoute circuit is created under Virtual WAN or outside of it.
+>
 
 ## Need for redundant connectivity solution
 

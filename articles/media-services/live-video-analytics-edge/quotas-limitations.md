@@ -31,24 +31,23 @@ With the preview release, there are limitations on different nodes can be connec
    * Only one RTSP source is allowed per graph topology.
 * Frame rate filter processor
    * Must be immediately downstream from RTSP source or motion detection processor.
-   * Cannot be used downstream of a HTTP extension processor.
+   * Cannot be used downstream of a HTTP or gRPC extension processor.
    * Cannot be upstream from a motion detection processor.
 * HTTP extension processor
+   * There can be at most one such processor per graph topology.
+* gRPC extension processor
    * There can be at most one such processor per graph topology.
 * Motion detection processor
    * Must be immediately downstream from RTSP source.
    * There can be at most one such processor per graph topology.
-   * Cannot be used downstream of a HTTP extension processor.
+   * Cannot be used downstream of a HTTP or a gRPC extension processor.
 * Signal gate processor
    * Must be immediately downstream from RTSP source.
 * Asset sink 
-   * There can be at most one such node per graph topology.
-      * If an asset sink is used, then a file sink cannot be present, or vice versa.
    * Must be immediately downstream from RTSP source or signal gate processor.
 * File sink
-   * There can be at most one such node per graph topology (see above note regarding asset sink).
    * Must be immediately downstream from signal gate processor.
-   * Cannot be immediately downstream of HTTP extension processor, or motion detection processor
+   * Cannot be immediately downstream of a HTTP or a gRPC extension processor, or motion detection processor
 * IoT Hub Sink
    * Cannot be immediately downstream of an IoT Hub Source.
 

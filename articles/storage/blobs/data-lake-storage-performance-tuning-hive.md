@@ -1,6 +1,6 @@
 ---
 title: 'Tune performance: Hive, HDInsight & Azure Data Lake Storage Gen2 | Microsoft Docs'
-description: Azure Data Lake Storage Gen2 Hive Performance Tuning Guidelines.
+description: Understand tuning guidelines for I/O intensive queries using Hive, HDInsight, and Azure Data Lake Storage Gen2.
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
@@ -52,21 +52,22 @@ I/O intensive workloads can benefit from more parallelism by decreasing the Tez 
 
 The concurrent number of tasks running or parallelism will be bounded by the total YARN memory.  The number of YARN containers will dictate how many concurrent tasks can run.  To find the YARN memory per node, you can go to Ambari.  Navigate to YARN and view the Configs tab.  The YARN memory is displayed in this window.  
 
-		Total YARN memory = nodes * YARN memory per node
-		# of YARN containers = Total YARN memory / Tez container size
+- Total YARN memory = nodes * YARN memory per node
+- \# of YARN containers = Total YARN memory / Tez container size
+
 The key to improving performance using Data Lake Storage Gen2 is to increase the concurrency as much as possible.  Tez automatically calculates the number of tasks that should be created so you do not need to set it.   
 
 ## Example calculation
 
 Let's say you have an 8 node D14 cluster.  
 
-	Total YARN memory = nodes * YARN memory per node
-	Total YARN memory = 8 nodes * 96GB = 768GB
-	# of YARN containers = 768GB / 3072MB = 256
+- Total YARN memory = nodes * YARN memory per node
+- Total YARN memory = 8 nodes * 96GB = 768GB
+- \# of YARN containers = 768GB / 3072MB = 256
 
 ## Further information on Hive tuning
 
 Here are a few blogs that will help tune your Hive queries:
 * [Optimize Hive queries for Hadoop in HDInsight](https://azure.microsoft.com/documentation/articles/hdinsight-hadoop-optimize-hive-query/)
-* [Troubleshooting Hive query performance](https://blogs.msdn.microsoft.com/bigdatasupport/2015/08/13/troubleshooting-hive-query-performance-in-hdinsight-hadoop-cluster/)
+* [Optimize Apache Hive queries in Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-optimize-hive-query)
 * [Ignite talk on optimize Hive on HDInsight](https://channel9.msdn.com/events/Machine-Learning-and-Data-Sciences-Conference/Data-Science-Summit-2016/MSDSS25)

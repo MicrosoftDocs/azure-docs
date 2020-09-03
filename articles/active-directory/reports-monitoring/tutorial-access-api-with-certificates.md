@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: tutorial
 ms.subservice: report-monitor
 ms.date: 11/13/2018
 ms.author: markvi
@@ -99,5 +99,5 @@ In this tutorial, you learn how to use a test certificate to access the MS Graph
 ## Next steps
 
 * [Get a first impression of the reporting APIs](concept-reporting-api.md)
-* [Audit API reference](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) 
-* [Sign-in activity report API reference](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin)
+* [Audit API reference](/graph/api/resources/directoryaudit?view=graph-rest-beta) 
+* [Sign-in activity report API reference](/graph/api/resources/signin?view=graph-rest-beta)

@@ -10,9 +10,6 @@
   - name: Index
     displayName: template, sample
     href: ./samples/index.md
-  - name: Azure Policy built-ins
-    displayName: samples, policies, definitions
-    href: ./samples/policy-samples.md
 - name: Concepts
   items:
   - name: Azure delegated resource management
@@ -41,7 +38,7 @@
     href: ./concepts/managed-applications.md
 - name: How-to guides
   items:
-  - name: Onboard a customer to Azure delegated resource management
+  - name: Onboard a customer to Azure Lighthouse
     displayName: resource management
     href: ./how-to/onboard-customer.md
   - name: Publish Managed Service offers to Azure Marketplace 
@@ -82,26 +79,29 @@
 - name: Reference
   items:
   - name: Azure CLI
-    href: https://docs.microsoft.com/cli/azure/managedservices?view=azure-cli-latest
+    href: /cli/azure/managedservices
   - name: Azure PowerShell
-    href: https://docs.microsoft.com/powershell/module/az.managedservices/?view=azps-2.4.0#managed_services
+    href: /powershell/module/az.managedservices#managed_services
   - name: Azure SDK for .NET
-    href: https://docs.microsoft.com/dotnet/api/Microsoft.Azure.Management.ManagedServices?view=azure-dotnet
+    href: /dotnet/api/Microsoft.Azure.Management.ManagedServices
   - name: Azure SDK for .NET (NuGet)
     href: https://www.nuget.org/packages/Microsoft.Azure.Management.ManagedServices/
   - name: Azure SDK for Python
-    href: https://docs.microsoft.com/python/api/azure-mgmt-managedservices
+    href: /python/api/azure-mgmt-managedservices
   - name: REST
-    href: https://docs.microsoft.com/rest/api/managedservices/
+    href: /rest/api/managedservices/
   - name: OpenAPI
     href: https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managedservices/resource-manager/Microsoft.ManagedServices/preview/2018-06-01-preview
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./samples/policy-reference.md
 - name: Resources
   items:
   - name: Microsoft Q&A for Azure Lighthouse
-    href: https://docs.microsoft.com/en-us/answers/topics/azure-lighthouse.html
+    href: /answers/topics/azure-lighthouse.html
   - name: Azure roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
-  - name: UserVoice
+  - name: Product feedback
     href: https://feedback.azure.com/forums/922753

@@ -24,8 +24,8 @@ Health probes support multiple protocols. The availability of a specific health 
 
 | | Standard SKU | Basic SKU |
 | --- | --- | --- |
-| [Probe types](#types) | TCP, HTTP, HTTPS | TCP, HTTP |
-| [Probe down behavior](#probedown) | All probes down, all TCP flows continue. | All probes down, all TCP flows expire. | 
+| **[Probe types](#types)** | TCP, HTTP, HTTPS | TCP, HTTP |
+| **[Probe down behavior](#probedown)** | All probes down, all TCP flows continue. | All probes down, all TCP flows expire. | 
 
 
 >[!IMPORTANT]
@@ -87,8 +87,8 @@ The available protocols depend on the Load Balancer SKU used:
 
 || TCP | HTTP | HTTPS |
 | --- | --- | --- | --- |
-| Standard SKU | 	&#9989; | 	&#9989; | 	&#9989; |
-| Basic SKU | 	&#9989; | 	&#9989; | &#10060; |
+| **Standard SKU** | 	&#9989; | 	&#9989; | 	&#9989; |
+| **Basic SKU** | 	&#9989; | 	&#9989; | &#10060; |
 
 ### <a name="tcpprobe"></a> TCP probe
 
@@ -258,6 +258,6 @@ Basic public Load Balancer exposes health probe status summarized per backend po
 ## Next steps
 
 - Learn more about [Standard Load Balancer](load-balancer-standard-overview.md)
-- [Get started creating a public load balancer in Resource Manager by using PowerShell](quickstart-create-standard-load-balancer-powershell.md)
+- [Get started creating a public load balancer in Resource Manager by using PowerShell](quickstart-load-balancer-standard-public-powershell.md)
 - [REST API for health probes](https://docs.microsoft.com/rest/api/load-balancer/loadbalancerprobes/)
 - Request new health probe abilities with [Load Balancer's Uservoice](https://aka.ms/lbuservoice)

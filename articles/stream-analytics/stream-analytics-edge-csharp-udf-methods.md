@@ -6,7 +6,7 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2019
-ms.custom: seodec18
+ms.custom: "seodec18, devx-track-csharp"
 ---
 
 # Develop .NET Standard user-defined functions for Azure Stream Analytics jobs (Preview)
@@ -181,6 +181,10 @@ The UDF preview currently has the following limitations:
 * The Azure portal query editor shows an error when using .NET Standard UDF in the portal. 
 
 * Because the custom code shares context with Azure Stream Analytics engine, custom code can't reference anything that has a conflicting namespace/dll_name with Azure Stream Analytics code. For example, you can't reference *Newtonsoft Json*.
+
+* Supporting files included in the project are copied to the User Custom Code zip file that is used when you publish the job to the cloud. All files in subfolders are copied directly to the root of the User Custom Code folder in the cloud when unzipped. The zip is "flattened" when decompressed.
+
+* User Custom Code doesn't support empty folders. Don't add empty folders to the supporting files in the project.
 
 ## Next steps
 

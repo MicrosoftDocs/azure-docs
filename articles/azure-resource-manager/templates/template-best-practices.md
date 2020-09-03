@@ -2,7 +2,7 @@
 title: Best practices for templates
 description: Describes recommended approaches for authoring Azure Resource Manager templates. Offers suggestions to avoid common problems when using templates. 
 ms.topic: conceptual
-ms.date: 06/09/2020
+ms.date: 07/10/2020
 ---
 # ARM template best practices
 
@@ -154,7 +154,7 @@ The following information can be helpful when you work with [variables](template
 
 When deciding what [dependencies](define-resource-dependency.md) to set, use the following guidelines:
 
-* Use the **reference** function and pass in the resource name to set an implicit dependency between resources that need to share a property. Don't add an explicit `dependsOn` element when you've already defined an implicit dependency. This approach reduces the risk of having unnecessary dependencies.
+* Use the **reference** function and pass in the resource name to set an implicit dependency between resources that need to share a property. Don't add an explicit `dependsOn` element when you've already defined an implicit dependency. This approach reduces the risk of having unnecessary dependencies. For an example of setting an implicit dependency, see [implicit dependency](define-resource-dependency.md#reference-and-list-functions).
 
 * Set a child resource as dependent on its parent resource.
 
@@ -220,11 +220,11 @@ The following information can be helpful when you work with [resources](template
    
      For more information about connecting to virtual machines, see:
    
-   * [Run VMs for an N-tier architecture in Azure](../../guidance/guidance-compute-n-tier-vm.md)
+   * [Run VMs for an N-tier architecture in Azure](/azure/architecture/reference-architectures/n-tier/n-tier-sql-server)
    * [Set up WinRM access for VMs in Azure Resource Manager](../../virtual-machines/windows/winrm.md)
    * [Allow external access to your VM by using the Azure portal](../../virtual-machines/windows/nsg-quickstart-portal.md)
    * [Allow external access to your VM by using PowerShell](../../virtual-machines/windows/nsg-quickstart-powershell.md)
-   * [Allow external access to your Linux VM by using Azure CLI](../../virtual-machines/virtual-machines-linux-nsg-quickstart.md)
+   * [Allow external access to your Linux VM by using Azure CLI](../../virtual-machines/linux/nsg-quickstart.md)
 
 * The **domainNameLabel** property for public IP addresses must be unique. The **domainNameLabel** value must be between 3 and 63 characters long, and follow the rules specified by this regular expression: `^[a-z][a-z0-9-]{1,61}[a-z0-9]$`. Because the **uniqueString** function generates a string that is 13 characters long, the **dnsPrefixString** parameter is limited to 50 characters:
 

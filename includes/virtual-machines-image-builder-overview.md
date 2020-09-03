@@ -1,10 +1,10 @@
 ---
 author: cynthn
 ms.author: cynthn
-ms.date: 05/15/2020
+ms.date: 08/03/2020
 ms.topic: include
 ms.service: virtual-machines-linux
-manager: gwallace
+manager: daberry
 ---
 
 Standardized virtual machine (VM) images allow organizations to migrate to the cloud and ensure consistency in the deployments. Images typically include predefined security and configuration settings and necessary software. Setting up your own imaging pipeline requires time, infrastructure and setup, but with Azure VM Image Builder, just provide a simple configuration describing your image, submit it to the service, and the image is built, and distributed.
@@ -52,6 +52,7 @@ AIB will support Azure Marketplace base OS images:
 - Windows 2019
 
 RHEL ISOs support is no longer supported.
+
 ## How it works
 
 
@@ -93,6 +94,9 @@ During the image creation process, files are downloaded and stored in the `IT_<D
 Image Builder creates a VM using a D1v2 VM size, and the storage, and networking needed for the VM. These resources will last for the duration of the build process, and will be deleted once Image Builder has finished creating the image. 
  
 Azure Image Builder will distribute the image to your chosen regions, which might incur network egress charges.
+
+## Hyper-V generation
+Image Builder currently only natively supports creating Hyper-V generation (Gen1) 1 images to the Azure Shared Image Gallery (SIG) or Managed Image. If you want to create Gen2 images, then you need to use a source Gen2 image, and distribute to VHD. After, you will then need to create a Managed Image from the VHD, and inject it into the SIG as a Gen2 image.
  
 ## Next steps 
  

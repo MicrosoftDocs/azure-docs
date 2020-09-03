@@ -4,8 +4,9 @@ description: Learn how to set up and manage read replicas in Azure Database for 
 author: ajlam
 ms.author: andrela
 ms.service: mysql
-ms.topic: conceptual
-ms.date: 6/10/2020
+ms.topic: how-to
+ms.date: 6/10/2020 
+ms.custom: devx-track-azurecli
 ---
 
 # How to create and manage read replicas in Azure Database for MySQL using the Azure CLI and REST API

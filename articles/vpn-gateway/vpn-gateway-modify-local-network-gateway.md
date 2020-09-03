@@ -7,7 +7,7 @@ author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 06/19/2017
+ms.date: 09/02/2020
 ms.author: cherylmc
 
 ---
@@ -24,7 +24,7 @@ Sometimes the settings for your local network gateway AddressPrefix or GatewayIP
 
 ## <a name="before"></a>Before you begin
 
-Install the latest version of the Azure Resource Manager PowerShell cmdlets. See [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) for more information about installing the PowerShell cmdlets.
+Install the latest version of the Azure Resource Manager PowerShell cmdlets. See [How to install and configure Azure PowerShell](/powershell/azure/) for more information about installing the PowerShell cmdlets.
 
 ## <a name="ipaddprefix"></a>Modify IP address prefixes
 

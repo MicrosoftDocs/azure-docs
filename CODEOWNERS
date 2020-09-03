@@ -2,8 +2,9 @@
 
 # Horizontals
 
-## Azure Policy: Samples
-articles/**/policy-samples.md @DCtheGeek
+## Azure Policy: Samples and Compliance Controls
+articles/**/policy-reference.md @DCtheGeek
+articles/**/security-controls-policy.md @DCtheGeek
 includes/policy/ @DCtheGeek
 
 # Azure Active Directory
@@ -20,6 +21,11 @@ articles/ansible/ @TomArcherMsft
 articles/chef/ @TomArcherMsft
 articles/jenkins/ @TomArcherMsft
 articles/terraform/ @TomArcherMsft
+
+# compute
+articles/virtual-machines/ @cynthn @mimckitt 
+articles/virtual-machine-scale-sets/ @ju-shim @mimckitt 
+articles/cloud-services/ @mimckitt 
 
 # Requires Internal Review
 articles/best-practices-availability-paired-regions.md @martinekuan @syntaxc4 @snoviking

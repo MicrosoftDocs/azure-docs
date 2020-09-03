@@ -4,6 +4,7 @@ description: Learn how to cache ASP.NET Page Output using Azure Cache for Redis.
 author: yegu-ms
 ms.author: yegu
 ms.service: cache
+ms.custom: devx-track-csharp
 ms.topic: conceptual
 ms.date: 04/22/2018
 ---
@@ -50,7 +51,7 @@ Configure the attributes with the values from your cache blade in the Microsoft 
 | *host* | string | "localhost" | The Redis server IP address or host name |
 | *port* | positive integer | 6379 (non-TLS/SSL)<br/>6380 (TLS/SSL) | Redis server port |
 | *accessKey* | string | "" | Redis server password when Redis authorization is enabled. The value is empty string by default, which means the session state provider won’t use any password when connecting to Redis server. **If your Redis server is in a publicly accessible network like Azure Redis Cache, be sure to enable Redis authorization to improve security, and provide a secure password.** |
-| *ssl* | boolean | **false** | Whether to connect to Redis server via TLS. This value is **false** by default because Redis doesn’t support TLS out of the box. **If you are using Azure Redis Cache which supports SSL out of the box, be sure to set this to true to improve security.**<br/><br/>The non-TLS port is disabled by default for new caches. Specify **true** for this setting to use the TLS port. For more information about enabling the non-TLS port, see the [Access Ports](cache-configure.md#access-ports) section in the [Configure a cache](cache-configure.md) topic. |
+| *ssl* | boolean | **false** | Whether to connect to Redis server via TLS. This value is **false** by default because Redis doesn’t support TLS out of the box. **If you are using Azure Redis Cache which supports SSL out of the box, be sure to set this to true to improve security.**<br/><br/>The non-TLS port is disabled by default for new caches. Specify **true** for this setting to use the non-TLS port. For more information about enabling the non-TLS port, see the [Access Ports](cache-configure.md#access-ports) section in the [Configure a cache](cache-configure.md) topic. |
 | *databaseIdNumber* | positive integer | 0 | *This attribute can be specified only through either web.config or AppSettings.*<br/><br/>Specify which Redis database to use. |
 | *connectionTimeoutInMilliseconds* | positive integer | Provided by StackExchange.Redis | Used to set *ConnectTimeout* when creating StackExchange.Redis.ConnectionMultiplexer. |
 | *operationTimeoutInMilliseconds* | positive integer | Provided by StackExchange.Redis | Used to set *SyncTimeout* when creating StackExchange.Redis.ConnectionMultiplexer. |

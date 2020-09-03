@@ -70,15 +70,23 @@ Azure Migrate:Server Assessment uses a lightweight Azure Migrate appliance. The 
 
 After creating the appliance, you check that it can connect to Azure Migrate:Server Assessment, configure it for the first time, and register it with the Azure Migrate project.
 
+### Generate the Azure Migrate project key
+
+1. In **Migration Goals** > **Servers** > **Azure Migrate: Server Assessment**, select **Discover**.
+2. In **Discover machines** > **Are your machines virtualized?**, select **Yes, with Hyper-V**.
+3. In **1:Generate Azure Migrate project key**, provide a name for the Azure Migrate appliance that you will set up for discovery of Hyper-V VMs.The name should be alphanumeric with 14 characters or fewer.
+1. Click on **Generate key** to start the creation of the required Azure resources. Please do not close the Discover machines page during the creation of resources.
+1. After the successful creation of the Azure resources, an **Azure Migrate project key** is generated.
+1. Copy the key as you will need it to complete the registration of the appliance during its configuration.
+
 ### Download the VHD
 
-Download the zipped VHD template for the appliance.
+In **2: Download Azure Migrate appliance**, select the .VHD file and click on **Download**. 
 
-1. In **Migration Goals** > **Servers** > **Azure Migrate: Server Assessment**, click **Discover**.
-2. In **Discover machines** > **Are your machines virtualized?**, click **Yes, with Hyper-V**.
-3. Click **Download** to download the VHD file.
+   ![Selections for Discover machines](./media/tutorial-assess-hyper-v/servers-discover.png)
 
-    ![Download VM](./media/tutorial-assess-hyper-v/download-appliance-hyperv.png)
+
+   ![Selections for Generate Key](./media/tutorial-assess-hyper-v/generate-key-hyperv.png)
 
 
 ### Verify security
@@ -97,13 +105,13 @@ Check that the zipped file is secure, before you deploy it.
 
         **Scenario** | **Download** | **SHA256**
         --- | --- | ---
-        Hyper-V (8.93 GB) | [Latest version](https://aka.ms/migrate/appliance/hyperv) |  572be425ea0aca69a9aa8658c950bc319b2bdbeb93b440577264500091c846a1
+        Hyper-V (10.4 GB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2140422) |  79c151588de049cc102f61b910d6136e02324dc8d8a14f47772da351b46d9127
 
     - For Azure Government:
 
         **Scenario*** | **Download** | **SHA256**
         --- | --- | ---
-        Hyper-V (63.1 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2120200&clcid=0x409) |  2c5e73a1e5525d4fae468934408e43ab55ff397b7da200b92121972e683f9aa3
+        Hyper-V (85 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2140424) |  8025f315e41c01ebdb4ffb1de87982ae6cc4ea7c4cce612612c7e90a44e79b44
 
 
 ### Create the appliance VM
@@ -125,7 +133,7 @@ Import the downloaded file, and create the VM.
 2. In **Choose Import Type**, click **Copy the virtual machine (create a new unique ID)**. Then click **Next**.
 3. In **Choose Destination**, leave the default setting. Click **Next**.
 4. In **Storage Folders**, leave the default setting. Click **Next**.
-5. In **Choose Network**, specify the virtual switch that the VM will use. The switch needs internet connectivity to send data to Azure. [Learn](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/create-a-virtual-switch-for-hyper-v-virtual-machines) about creating a virtual switch.
+5. In **Choose Network**, specify the virtual switch that the VM will use. The switch needs internet connectivity to send data to Azure. [Learn](/windows-server/virtualization/hyper-v/get-started/create-a-virtual-switch-for-hyper-v-virtual-machines) about creating a virtual switch.
 6. In **Summary**, review the settings. Then click **Finish**.
 7. In Hyper-V Manager > **Virtual Machines**, start the VM.
 
@@ -146,25 +154,27 @@ Set up the appliance for the first time.
 3. Open a browser on any machine that can connect to the VM, and open the URL of the appliance web app: **https://*appliance name or IP address*: 44368**.
 
    Alternately, you can open the app from the appliance desktop by clicking the app shortcut.
+1. Accept the **license terms**, and read the third-party information.
 1. In the web app > **Set up prerequisites**, do the following:
-    - **License**: Accept the license terms, and read the third-party information.
     - **Connectivity**: The app checks that the VM has internet access. If the VM uses a proxy:
-      - Click **Proxy settings**, and specify the proxy address and listening port, in the form http://ProxyIPAddress or http://ProxyFQDN.
+      - Click on **Set up proxy** to and specify the proxy address (in the form http://ProxyIPAddress or http://ProxyFQDN) and listening port.
       - Specify credentials if the proxy needs authentication.
       - Only HTTP proxy is supported.
+      - If you have added proxy details or disabled the proxy and/or authentication, click on **Save** to trigger connectivity check again.
     - **Time sync**: Time is verified. The time on the appliance should be in sync with internet time for VM discovery to work properly.
-    - **Install updates**: Azure Migrate Server Assessment checks that the appliance has the latest updates installed.
+    - **Install updates**: Azure Migrate Server Assessment checks that the appliance has the latest updates installed.After the check completes, you can click on **View appliance services** to see the status and versions of the components running on the appliance.
 
 ### Register the appliance with Azure Migrate
 
-1. Click **Log In**. If it doesn't appear, make sure you've disabled the pop-up blocker in the browser.
-2. On the new tab, sign in using your Azure credentials.
-    - Sign in with your username and password.
-    - Sign-in with a PIN isn't supported.
-3. After successfully signing in, go back to the web app.
-4. Select the subscription in which the Azure Migrate project was created. Then select the project.
-5. Specify a name for the appliance. The name should be alphanumeric with 14 characters or less.
-6. Click **Register**.
+1. Paste the **Azure Migrate project key** copied from the portal. If you do not have the key, go to **Server Assessment> Discover> Manage existing appliances**, select the appliance name you provided at the time of key generation and copy the corresponding key.
+1. Click on **Log in**. It will open an Azure login prompt in a new browser tab. If it doesn't appear, make sure you've disabled the pop-up blocker in the browser.
+1. On the new tab, sign in by using your Azure username and password.
+   
+   Sign-in with a PIN isn't supported.
+3. After you successfully logged in, go back to the web app. 
+4. If the Azure user account used for logging has the right [permissions](tutorial-prepare-hyper-v.md#prepare-azure) on the Azure resources created during key generation, the appliance registration will be initiated.
+1. After appliance is successfully registered, you can see the registration details by clicking on **View details**.
+
 
 
 ### Delegate credentials for SMB VHDs
@@ -196,16 +206,27 @@ Alternatively, do this in the Local Group Policy Editor on the appliance:
 
 Connect from the appliance to Hyper-V hosts or clusters, and start VM discovery.
 
-1. In **User name** and **Password**, specify the account credentials that the appliance will use to discover VMs. Specify a friendly name for the credentials, and click **Save details**.
-2. Click **Add host**, and specify Hyper-V host/cluster details.
-3. Click **Validate**. After validation, the number of VMs that can be discovered on each host/cluster is shown.
-    - If validation fails for a host, review the error by hovering over the icon in the **Status** column. Fix issues, and validate again.
-    - To remove hosts or clusters, select > **Delete**.
+1. In **Step 1: Provide Hyper-V host credentials**, click on **Add credentials** to  specify a friendly name for credentials, add **Username** and **Password** for a Hyper-V host/cluster that the appliance will use to discover VMs. Click on **Save**.
+1. If you want to add multiple credentials at once,click on **Add more** to save and add more credentials. Multiple credentials are supported for Hyper-V VMs discovery.
+1. In **Step 2: Provide Hyper-V host/cluster details**, click on **Add discovery source** to specify the Hyper-V host/cluster **IP address/FQDN** and the friendly name for credentials to connect to the host/cluster.
+1. You can either **Add single item** at a time or **Add multiple items** in one go. There is also an option to provide Hyper-V host/cluster details through **Import CSV**.
+
+    ![Selections for adding discovery source](./media/tutorial-assess-hyper-v/add-discovery-source-hyperv.png)
+
+    - If you choose **Add single item**, you need to specify friendly name for credentials and Hyper-V host/cluster **IP address/FQDN** and click on **Save**.
+    - If you choose **Add multiple items** _(selected by default)_, you can add multiple records at once by specifying Hyper-V host/cluster **IP address/FQDN** with the friendly name for credentials in the text box.**Verify** the added records and click on **Save**.
+    - If you choose **Import CSV**, you can download a CSV template file, populate the file with the Hyper-V host/cluster **IP address/FQDN** and friendly name for credentials. You then import the file into the appliance, **verify** the records in the file and click on **Save**.
+
+1. On clicking Save, appliance will try validating the connection to the Hyper-V hosts/clusters added and show the **Validation status** in the table against each host/cluster.
+    - For successfully validated hosts/clusters, you can view more details by clicking on their IP address/FQDN.
+    - If validation fails for a host, review the error by clicking on **Validation failed** in the Status column of the table. Fix the issue, and validate again.
+    - To remove hosts or clusters, click on **Delete**.
     - You can't remove a specific host from a cluster. You can only remove the entire cluster.
     - You can add a cluster, even if there are issues with specific hosts in the cluster.
-4. After validation, click **Save and start discovery** to start the discovery process.
+1. You can **revalidate** the connectivity to hosts/clusters any time before starting the discovery.
+1. Click on **Start discovery**, to kick off VM discovery from the successfully validated hosts/clusters. After the discovery has been successfully initiated, you can check the discovery status against each host/cluster in the table.
 
-This starts discovery. It takes around 1.5 minutes per host for metadata of discovered servers to appear in the Azure portal.
+This starts discovery. It takes approximately 2 minutes per host for metadata of discovered servers to appear in the Azure portal.
 
 ### Verify VMs in the portal
 

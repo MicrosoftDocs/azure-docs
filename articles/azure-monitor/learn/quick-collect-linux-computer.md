@@ -18,9 +18,9 @@ ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
 
 # Quickstart: Collect data from a Linux computer in a hybrid environment with Azure Monitor
 
-[Azure Monitor](../overview.md) can collect data directly from your physical or virtual Linux computers in your environment into a Log Analytics workspace for detailed analysis and correlation. Installing the [Log Analytics agent](../platform/log-analytics-agent.md) allows Azure Monitor to collect data from a datacenter or other cloud environment. This quickstart shows you how to configure and collect data from your Linux server with a few easy steps. For information about Azure Linux VMs, see [Collect data about Azure virtual machines](../../azure-monitor/learn/quick-collect-azurevm.md).  
+[Azure Monitor](../overview.md) can collect data directly from your physical or virtual Linux computers in your environment into a Log Analytics workspace for detailed analysis and correlation. Installing the [Log Analytics agent](../platform/log-analytics-agent.md) allows Azure Monitor to collect data from a datacenter or other cloud environment. This quickstart shows you how to configure and collect data from your Linux server with a few easy steps. For information about Azure Linux VMs, see [Collect data about Azure virtual machines](./quick-collect-azurevm.md).  
 
-To understand the supported configuration, see [Supported Windows operating systems](../../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems) and [Network firewall configuration](../../azure-monitor/platform/log-analytics-agent.md#network-requirements).
+To understand the supported configuration, see [Supported operating systems](../platform/agents-overview.md#supported-operating-systems) and [Network firewall configuration](../platform/log-analytics-agent.md#network-requirements).
  
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -164,4 +164,5 @@ Now that you are collecting operational and performance data from your on-premis
 To learn how to view and analyze the data, continue to the tutorial.
 
 > [!div class="nextstepaction"]
-> [View or analyze data in Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md)
+> [View or analyze data in Log Analytics](../log-query/get-started-portal.md)
+

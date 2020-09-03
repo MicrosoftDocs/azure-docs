@@ -7,12 +7,17 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create logic apps - Azure portal
+  - name: Create logic apps - Portal
     href: quickstart-create-first-logic-app-workflow.md
   - name: Create logic apps - Visual Studio
     href: quickstart-create-logic-apps-with-visual-studio.md
   - name: Create logic apps - Visual Studio Code
-    href: quickstart-create-logic-apps-visual-studio-code.md  
+    href: quickstart-create-logic-apps-visual-studio-code.md
+  - name: Create logic apps - ARM template
+    displayName: Resource Manager
+    href: quickstart-create-deploy-azure-resource-manager-template.md
+  - name: Create and manage logic apps - Azure CLI
+    href: quickstart-logic-apps-azure-cli.md
 - name: Tutorials
   items:
   - name: Create schedule-based workflows
@@ -23,13 +28,12 @@
     href: tutorial-process-email-attachments-workflow.md
 - name: Samples
   items:
+  - name: Create logic app - sample script
+    href: sample-logic-apps-cli-script.md
   - name: Azure code samples
-    href: https://docs.microsoft.com/samples/browse/?products=azure-logic-apps
+    href: /samples/browse/?products=azure-logic-apps
   - name: Resource Manager quickstart templates
     href: https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Logic
-  - name: Azure Policy built-ins
-    displayName: samples, policies, definitions
-    href: ./policy-samples.md
 - name: Concepts
   items:
   - name: Connectors for Logic Apps
@@ -46,6 +50,9 @@
     href: business-continuity-disaster-recovery-guidance.md
   - name: Security
     items:
+    - name: Security controls by Azure Policy
+      displayName: regulatory, compliance, standards, domains
+      href: ./security-controls-policy.md
     - name: Security baseline
       href: security-baseline.md
 - name: How-to guides
@@ -204,24 +211,18 @@
         href: ../connectors/connectors-create-api-sqlazure.md
       - name: Bing Search
         href: ../connectors/connectors-create-api-bingsearch.md
-      - name: Box
-        href: ../connectors/connectors-create-api-box.md
       - name: Common Data Service
         href: ../connectors/connect-common-data-service.md
       - name: Custom APIs and web apps
         href: logic-apps-create-api-app.md
       - name: Delay
         href: ../connectors/connectors-native-delay.md
-      - name: Dropbox
-        href: ../connectors/connectors-create-api-dropbox.md
       - name: Dynamics 365
         href: ../connectors/connectors-create-api-crmonline.md
       - name: EDIFACT
         href: logic-apps-enterprise-integration-edifact.md
       - name: Excel Online for Business or OneDrive
         href: ../connectors/connectors-create-api-excel.md
-      - name: Facebook
-        href: ../connectors/connectors-create-api-facebook.md
       - name: File system
         href: logic-apps-using-file-connector.md
       - name: Flat file
@@ -248,18 +249,10 @@
         href: ../connectors/connectors-create-api-mq.md
       - name: Integration Account
         href: logic-apps-enterprise-integration-metadata.md
-      - name: MailChimp
-        href: ../connectors/connectors-create-api-mailchimp.md
       - name: Microsoft Graph Security
         href: ../connectors/connectors-integrate-security-operations-create-api-microsoft-graph-security.md
-      - name: Microsoft Translator
-        href: ../connectors/connectors-create-api-microsofttranslator.md
       - name: Office 365 Outlook
         href: ../connectors/connectors-create-api-office365-outlook.md
-      - name: Office 365 Users
-        href: ../connectors/connectors-create-api-office365-users.md
-      - name: Office 365 Video
-        href: ../connectors/connectors-create-api-office365-video.md
       - name: OneDrive
         href: ../connectors/connectors-create-api-onedrive.md
       - name: OneDrive for Business
@@ -268,16 +261,12 @@
         href: ../connectors/connectors-create-api-oracledatabase.md
       - name: Outlook.com
         href: ../connectors/connectors-create-api-outlook.md
-      - name: Project Online
-        href: ../connectors/connectors-create-api-projectonline.md
       - name: Recurrence
         href: ../connectors/connectors-native-recurrence.md
       - name: Request / Response
         href: ../connectors/connectors-native-reqres.md
       - name: RosettaNet
         href: logic-apps-enterprise-integration-rosettanet.md
-      - name: RSS
-        href: ../connectors/connectors-create-api-rss.md
       - name: Salesforce
         href: ../connectors/connectors-create-api-salesforce.md
       - name: SAP (New)
@@ -300,10 +289,6 @@
         href: ../connectors/connectors-create-api-sqlazure.md
       - name: Transform XML
         href: logic-apps-enterprise-integration-transform.md
-      - name: Trello
-        href: ../connectors/connectors-create-api-trello.md
-      - name: Twitter
-        href: ../connectors/connectors-create-api-twitter.md
       - name: Twilio
         href: ../connectors/connectors-create-api-twilio.md
       - name: Wunderlist
@@ -312,11 +297,9 @@
         href: logic-apps-enterprise-integration-x12.md
       - name: XML Validation
         href: logic-apps-enterprise-integration-xml-validation.md
-      - name: Yammer
-        href: ../connectors/connectors-create-api-yammer.md
   - name: Secure
     items:
-    - name: Enhance security for logic apps
+    - name: Secure your logic apps
       href: logic-apps-securing-a-logic-app.md
     - name: Authenticate with managed identities
       href: create-managed-service-identity.md
@@ -329,7 +312,7 @@
     - name: Manage logic apps - Visual Studio
       href: manage-logic-apps-with-visual-studio.md
     - name: Manage integration accounts
-      href: logic-apps-enterprise-integration-accounts.md
+      href: ./logic-apps-enterprise-integration-create-integration-account.md
     - name: Manage integration service environments
       href: ise-manage-integration-service-environment.md
     - name: Move logic app resources
@@ -380,7 +363,7 @@
     - name: Enterprise integration with queues and events
       href: /azure/architecture/reference-architectures/enterprise-integration/queues-events
   - name: Connectors - Full details
-    href: https://docs.microsoft.com/connectors/
+    href: /connectors/
   - name: Service limits and configuration
     href: logic-apps-limits-and-config.md
   - name: Pricing model & usage metering
@@ -409,11 +392,14 @@
       - name: X12 tracking schema
         href: logic-apps-track-integration-account-x12-tracking-schema.md
       - name: Custom tracking schema
-        href: logic-apps-track-integration-account-custom-tracking-schema.md      
+        href: logic-apps-track-integration-account-custom-tracking-schema.md
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-reference.md
 - name: Resources
   items:
   - name: Build your skills with Microsoft Learn
-    href: https://docs.microsoft.com/learn/browse/?products=azure-logic-apps
+    href: /learn/browse/?products=azure-logic-apps
   - name: Azure Logic Apps roadmap
     href: https://aka.ms/logicappsroadmap/  
   - name: Azure roadmap
@@ -427,7 +413,7 @@
   - name: Videos
     href: https://azure.microsoft.com/resources/videos/index/?services=logic-apps&sort=newest
   - name: Microsoft Q&A question page
-    href: https://docs.microsoft.com/answers/topics/azure-logic-apps.html
+    href: /answers/topics/azure-logic-apps.html
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-logic-apps
   - name: Twitter

@@ -1,5 +1,5 @@
 ---
-title: Use SQL on-demand (preview)
+title: 'Quickstart: Use SQL on-demand'
 description: In this quickstart, you'll see and learn how easy is to query various types of files using SQL on-demand (preview).
 services: synapse-analytics
 author: azaricstefan

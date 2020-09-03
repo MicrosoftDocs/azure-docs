@@ -1,15 +1,15 @@
 ---
-title: SaaS fulfillment APIs in Microsoft commercial marketplace 
+title: SaaS fulfillment APIs in the Microsoft commercial marketplace 
 description: An introduction to the fulfillment APIs that enable you to integrate your SaaS offers in Microsoft AppSource and Azure Marketplace.
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/18/2020
-ms.author: dsindona
+author: mingshen-ms
+ms.author: mingshen
 ---
 
-# SaaS fulfillment APIs in Microsoft commercial marketplace
+# SaaS fulfillment APIs in the Microsoft commercial marketplace
 
 The SaaS Fulfillment APIs enable publishers, also known as independent software vendors (ISVs), to publish and sell their SaaS applications in Microsoft AppSource, Azure Marketplace, and Azure portal. These APIs enable ISV applications to participate in all commerce enabled channels: direct, partner-led (reseller), and field-led.  Integrating with these APIs is a requirement for creating and publishing a transactable SaaS offer in Partner Center.
 
@@ -26,7 +26,7 @@ For the cancellation of the purchased SaaS subscription, integration is optional
 Correct integration with SaaS Fulfillment APIs is critical for making sure that
 
 * the end customers who purchased the publisher's SaaS offer are billed correctly by Microsoft.
-* the end customers are getting the correct user experience purchasing, configuring, using and managing SaaS subscriptions purchased in the Marketplace.
+* the end customers are getting the correct user experience purchasing, configuring, using and managing SaaS subscriptions purchased in the marketplace.
 
 These APIs enable the publisher's offers to participate in all commerce enabled channels:
 
@@ -42,7 +42,7 @@ In the reseller (CSP) scenario, a CSP is purchasing the SaaS offer on behalf of 
 
 The Publisher is not required to implement any of the API call flows differently for this scenario.
 
-For more information about CSP, please refer to https://partner.microsoft.com/en-us/licensing.
+For more information about CSP, please refer to https://partner.microsoft.com/licensing.
 
 >[!Warning]
 >The current version of this API is version 2, which should be used for all new SaaS offers. Version 1 of the API is deprecated and is being maintained to support existing offers.

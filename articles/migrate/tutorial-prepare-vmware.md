@@ -31,8 +31,8 @@ The table summarizes the tasks you need to complete in Azure. Instructions for e
 --- | --- | ---
 **Create an Azure Migrate project** | An Azure Migrate project provides a central location for orchestrating and managing assessments and migrations with Azure Migrate tools, Microsoft tools, and third-party offerings. | Your Azure account needs Contributor or Owner permissions in the resource group in which the project resides.
 **Register appliance** | Azure Migrate uses a lightweight Azure Migrate appliance to discover VMs, to assess them with the Server Assessment tool, and to migrate them using agentless migration with the Server Migration tool. [Learn more](migrate-appliance-architecture.md#appliance-registration) about registration. | To register the appliance, your Azure account needs Contributor or Owner permissions on the Azure subscription.
-**Create Azure AD apps** | When registering an appliance, Azure Migrate creates Azure Active Directory (Azure AD) apps. <br/><br/> - The first app is used for communication between the agents running on the appliance and Azure Migrate. <br/><br/> - The second app is used exclusively to access KeyVault created in the user's subscription for agentless VMware VM migration.   | Your Azure account needs permissions to create Azure AD apps.
-**Create a Key Vault** | To migrate VMware VMs using agentless migration, Azure Migrate creates a Key Vault to manage access keys to the replication  account in your subscription. | To allow Azure Migrate to create the Key Vault, you set permissions (Owner, or Contributor and User Access Administrator) on the resource group in which the Azure Migrate project resides.
+**Create Azure AD apps** | When registering an appliance, Azure Migrate creates Azure two Active Directory (Azure AD) apps. <br/><br/> - The first app is used for communication between the agents running on the appliance and Azure Migrate. <br/><br/> - The second app is used exclusively to access KeyVault created in the user's subscription for agentless VMware VM migration.   | Your Azure account needs these [permissions](https://docs.microsoft.com/azure/migrate/tutorial-prepare-vmware#assign-permissions-to-create-azure-ad-apps) to create Azure AD apps.
+**Create a Key Vault** | - The first Key Vault is created as a part of appliance registration and is used for management of the certificate downloaded on the appliance during its configuration. <br/><br/> -To migrate VMware VMs using agentless migration, Azure Migrate creates another Key Vault to manage access keys to the replication account in your subscription.| To allow Azure Migrate to create the Key Vault, you set permissions (Owner, or Contributor and User Access Administrator) on the resource group in which the Azure Migrate project resides.
 
 
 ### Assign permissions to create project
@@ -59,7 +59,7 @@ To register the appliance, your Azure account needs permissions to create Azure 
 Grant permissions to the account as follows:
 
 1. Make sure you're a tenant or global admin. Then, in Azure AD, navigate to **Azure Active Directory** > **Users** > **User Settings**.
-2. Set **App registrations** to **Yes**. This is a default setting that isn't sensitive. [Learn more](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-applications-are-added#who-has-permission-to-add-applications-to-my-azure-ad-instance).
+2. Set **App registrations** to **Yes**. This is a default setting that isn't sensitive. [Learn more](../active-directory/develop/active-directory-how-applications-are-added.md#who-has-permission-to-add-applications-to-my-azure-ad-instance).
 
     ![Azure AD permissions](./media/tutorial-prepare-vmware/aad.png)
 
@@ -67,7 +67,7 @@ Grant permissions to the account as follows:
 
 #### Method 2: Assign Application Developer role
 
-Alternatively, the tenant/global admin can assign the Application Developer role to an account. [Learn more](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal) about assigning a role.
+Alternatively, the tenant/global admin can assign the Application Developer role to an account. [Learn more](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md) about assigning a role.
 
 ### Assign permissions to create a Key Vault
 

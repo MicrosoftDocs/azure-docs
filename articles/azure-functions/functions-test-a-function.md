@@ -4,13 +4,14 @@ description: Create automated tests for a C# Function in Visual Studio and JavaS
 author: craigshoemaker
 
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ms.date: 03/25/2019
 ms.author: cshoe
 ---
 
 # Strategies for testing your code in Azure Functions
 
-This article demonstrates how to create automated tests for Azure Functions. 
+This article demonstrates how to create automated tests for Azure Functions.
 
 Testing all code is recommended, however you may get the best results by wrapping up a Function's logic and creating tests outside the Function. Abstracting logic away limits a Function's lines of code and allows the Function to be solely responsible for calling other classes or modules. This article, however, demonstrates how to create automated tests against an HTTP and timer-triggered functions.
 
@@ -34,15 +35,15 @@ To set up your environment, create a Function and test app. The following steps 
 1. [Create a new Functions app](./functions-create-first-azure-function.md) and name it **Functions**
 2. [Create an HTTP function from the template](./functions-create-first-azure-function.md) and name it **MyHttpTrigger**.
 3. [Create a timer function from the template](./functions-create-scheduled-function.md) and name it **MyTimerTrigger**.
-4. [Create an xUnit Test app](https://xunit.github.io/docs/getting-started-dotnet-core) in the solution and name it **Functions.Tests**. 
+4. [Create an xUnit Test app](https://xunit.github.io/docs/getting-started-dotnet-core) in the solution and name it **Functions.Tests**.
 5. Use NuGet to add a reference from the test app to [Microsoft.AspNetCore.Mvc](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc/)
-6. [Reference the *Functions* app](https://docs.microsoft.com/visualstudio/ide/managing-references-in-a-project?view=vs-2017) from *Functions.Tests* app.
+6. [Reference the *Functions* app](/visualstudio/ide/managing-references-in-a-project?view=vs-2017) from *Functions.Tests* app.
 
 ### Create test classes
 
 Now that the projects are created, you can create the classes used to run the automated tests.
 
-Each function takes an instance of [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger) to handle message logging. Some tests either don't log messages or have no concern for how logging is implemented. Other tests need to evaluate messages logged to determine whether a test is passing.
+Each function takes an instance of [ILogger](/dotnet/api/microsoft.extensions.logging.ilogger) to handle message logging. Some tests either don't log messages or have no concern for how logging is implemented. Other tests need to evaluate messages logged to determine whether a test is passing.
 
 You'll create a new class named `ListLogger` which holds an internal list of messages to evaluate during a testing. To implement the required `ILogger` interface, the class needs a scope. The following class mocks a scope for the test cases to pass to the `ListLogger` class.
 
@@ -123,7 +124,7 @@ namespace Functions.Tests
 }
 ```
 
-This enumeration specifies the type of logger used by the tests. 
+This enumeration specifies the type of logger used by the tests.
 
 Now create a new class in *Functions.Tests* project named **TestFactory.cs** and enter the following code:
 
@@ -188,7 +189,7 @@ namespace Functions.Tests
 
 The `TestFactory` class implements the following members:
 
-- **Data**: This property returns an [IEnumerable](https://docs.microsoft.com/dotnet/api/system.collections.ienumerable) collection of sample data. The key value pairs represent values that are passed into a query string.
+- **Data**: This property returns an [IEnumerable](/dotnet/api/system.collections.ienumerable) collection of sample data. The key value pairs represent values that are passed into a query string.
 
 - **CreateDictionary**: This method accepts a key/value pair as arguments and returns a new `Dictionary` used to create `QueryCollection` to represent query string values.
 
@@ -310,7 +311,7 @@ module.exports = {
 
 This module implements the `IsPastDue` property to stand is as a fake timer instance. Timer configurations like NCRONTAB expressions are not required here as the test harness is simply calling the function directly to test the outcome.
 
-Next, use the VS Code Functions extension to [create a new JavaScript HTTP Function](/azure/javascript/tutorial-vscode-serverless-node-01) and name it *HttpTrigger*. Once the function is created, add a new file in the same folder named **index.test.js**, and add the following code:
+Next, use the VS Code Functions extension to [create a new JavaScript HTTP Function](/azure/developer/javascript/tutorial-vscode-serverless-node-01) and name it *HttpTrigger*. Once the function is created, add a new file in the same folder named **index.test.js**, and add the following code:
 
 ```javascript
 const httpFunction = require('./index');

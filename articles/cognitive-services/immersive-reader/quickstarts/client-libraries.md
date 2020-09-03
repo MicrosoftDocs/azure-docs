@@ -12,6 +12,7 @@ ms.subservice: immersive-reader
 ms.topic: quickstart
 ms.date: 05/20/2020
 ms.author: pasta
+ms.custom: devx-track-csharp
 ---
 
 # Quickstart: Use the Immersive Reader client library
@@ -28,8 +29,20 @@ ms.author: pasta
 
 ::: zone-end
 
+::: zone pivot="programming-language-java-android"
+
+[!INCLUDE [Android Java quickstart](../includes/quickstarts/immersive-reader-client-library-java-android.md)]
+
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+[!INCLUDE [Android Kotlin quickstart](../includes/quickstarts/immersive-reader-client-library-kotlin.md)]
+
+::: zone-end
+
 ::: zone pivot="programming-language-swift"
 
-[!INCLUDE [Swift quickstart](../includes/quickstarts/immersive-reader-client-library-swift.md)]
+[!INCLUDE [iOS Swift quickstart](../includes/quickstarts/immersive-reader-client-library-swift.md)]
 
 ::: zone-end

@@ -3,14 +3,14 @@ title: Create an Azure Notebooks Preview project with a custom environment
 description: Create a new project in Azure Notebooks Preview that's configured with a specific set of installed packages and startup scripts.
 ms.topic: quickstart
 ms.date: 12/04/2018
-ms.custom: tracking-python
+ms.custom: devx-track-python
 ---
 
 # Quickstart: Create a project with a custom environment in Azure Notebooks Preview
 
-A project in Azure Notebooks is a collection of files, such as notebooks, data files, documentation, images, and so on, along with an environment that can be configured with specific setup commands. By defining the environment with the project, anyone who clones the project into their own Azure Notebooks account has all the information they need to recreate the necessary environment.
-
 [!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
+
+A project in Azure Notebooks is a collection of files, such as notebooks, data files, documentation, images, and so on, along with an environment that can be configured with specific setup commands. By defining the environment with the project, anyone who clones the project into their own Azure Notebooks account has all the information they need to recreate the necessary environment.
 
 ## Create a project
 
@@ -68,4 +68,4 @@ A project in Azure Notebooks is a collection of files, such as notebooks, data f
 > [Manage and configure projects in Azure Notebooks](configure-manage-azure-notebooks-projects.md)
 
 > [!div class="nextstepaction"]
-> [Tutorial: create an run a Jupyter notebook to do linear regression](tutorial-create-run-jupyter-notebook.md)
+> [Tutorial: create and run a Jupyter notebook to do linear regression](tutorial-create-run-jupyter-notebook.md)

@@ -1,6 +1,6 @@
 ---
-title: Advanced Data Security for IaaS in Azure Security Center | Microsoft Docs
-description: Learn how to enable advanced data security for SQL machines in Azure Security Center.
+title: Azure Security Center's advanced data security for SQL machines (Preview)
+description: Learn how to enable advanced data security for SQL machines in Azure Security Center
 services: security-center
 documentationcenter: na
 author: memildin
@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/11/2020
+ms.date: 06/28/2020
 ms.author: memildin
 ---
 
@@ -27,7 +27,7 @@ This preview feature includes functionality for identifying and mitigating poten
 * [Advanced Threat Protection](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview) - The detection service that continuously monitors your SQL servers for threats such as SQL injection, brute-force attacks, and privilege abuse. This service provides action-oriented security alerts in Azure Security Center with details of the suspicious activity, guidance on how to mitigate to the threats, and options for continuing your investigations with Azure Sentinel.
 
 >[!TIP]
-> Advanced data security for SQL machines is an extension of Azure Security Center's [advanced data security package](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security), already available for Azure SQL Databases, Synapse, and SQL Managed Instances.
+> Advanced data security for SQL machines is an extension of Azure Security Center's [advanced data security package](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security), available for Azure SQL Database, Azure Synapse, and SQL Managed Instance.
 
 
 ## Set up advanced data security for SQL machines 
@@ -68,7 +68,7 @@ Both of these are described below.
 
     [![Security Center pricing page with optional bundles](media/security-center-advanced-iaas-data/sql-servers-on-vms-in-pricing-small.png)](media/security-center-advanced-iaas-data/sql-servers-on-vms-in-pricing-large.png#lightbox)
 
-    Advanced Data Security for SQL servers on machines will be enabled on all SQL servers connected to the selected workspace. The protection will be fully active after the first restart of the SQL Server. 
+    Advanced Data Security for SQL servers on machines will be enabled on all SQL servers connected to the selected workspace. The protection will be fully active after the first restart of the SQL Server instance.
 
     >[!TIP] 
     > To create a new workspace, follow the instructions in [Create a Log Analytics workspace](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
@@ -87,14 +87,14 @@ The vulnerability assessment dashboard provides an overview of your assessment r
 
 You can view the vulnerability assessment results directly from Security Center.
 
-1. From Security Center's sidebar, open the **Recommendations** page and select the recommendation **Vulnerabilities on your SQL database servers on machines should be remediated (Preview)**. For more information, see [Security Center Recommendations](security-center-recommendations.md). 
+1. From Security Center's sidebar, open the **Recommendations** page and select the recommendation **Vulnerabilities on your SQL servers on machines should be remediated (Preview)**. For more information, see [Security Center Recommendations](security-center-recommendations.md). 
 
 
-    [![**Vulnerabilities on your SQL databases on machines should be remediated (Preview)** recommendation](media/security-center-advanced-iaas-data/data-and-storage-sqldb-vulns-on-vm.png)](media/security-center-advanced-iaas-data/data-and-storage-sqldb-vulns-on-vm.png#lightbox)
+    [![**Vulnerabilities on your SQL servers on machines should be remediated (Preview)** recommendation](media/security-center-advanced-iaas-data/data-and-storage-sqldb-vulns-on-vm.png)](media/security-center-advanced-iaas-data/data-and-storage-sqldb-vulns-on-vm.png#lightbox)
 
     The detailed view for this recommendation appears.
 
-    [![Detailed view for the **Vulnerabilities on your SQL databases on machines should be remediated (Preview)** recommendation](media/security-center-advanced-iaas-data/all-servers-view.png)](media/security-center-advanced-iaas-data/all-servers-view.png#lightbox)
+    [![Detailed view for the **Vulnerabilities on your SQL servers on machines should be remediated (Preview)** recommendation](media/security-center-advanced-iaas-data/all-servers-view.png)](media/security-center-advanced-iaas-data/all-servers-view.png#lightbox)
 
 1. For more details, drill down:
 
@@ -105,7 +105,7 @@ You can view the vulnerability assessment results directly from Security Center.
     In each view, the security checks are sorted by **Severity**. Click a specific security check to see a details pane with a **Description**, how to **Remediate** it, and other related information such as **Impact** or **Benchmark**.
 
 ## Advanced threat protection for SQL servers on machines alerts
-Alerts are generated by unusual and potentially harmful attempts to access or exploit SQL machines. These events can trigger alerts shown in the [Alerts for SQL Database and SQL Data Warehouse section of the alerts reference page](alerts-reference.md#alerts-sql-db-and-warehouse).
+Alerts are generated by unusual and potentially harmful attempts to access or exploit SQL machines. These events can trigger alerts shown in the [Alerts for SQL Database and Azure Synapse Analytics (formerly SQL Data Warehouse) section of the alerts reference page](alerts-reference.md#alerts-sql-db-and-warehouse).
 
 
 
@@ -127,7 +127,7 @@ Security alerts are available in Security Center's alerts page, the resource's s
 
 For related material, see the following article:
 
-- [Security alerts for SQL Database and SQL Data Warehouse](alerts-reference.md#alerts-sql-db-and-warehouse)
+- [Security alerts for SQL Database and Azure Synapse Analytics (formerly SQL Data Warehouse)](alerts-reference.md#alerts-sql-db-and-warehouse)
 - [Set up email notifications for security alerts](security-center-provide-security-contact-details.md)
 - [Learn more about Azure Sentinel](https://docs.microsoft.com/azure/sentinel/)
 - [Azure Security Center's advanced data security package](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security)

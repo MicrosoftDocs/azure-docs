@@ -117,6 +117,9 @@
   - name: ASC for IoT
     tocHref: /azure/asc-for-iot/
     topicHref: /azure/asc-for-iot/
+  - name: Attestation
+    tocHref: /azure/attestation/
+    topicHref: /azure/attestation/
   - name: Automation
     tocHref: /azure/automation/
     topicHref: /azure/automation/
@@ -444,9 +447,9 @@
   - name: Cosmos DB
     tocHref: /azure/cosmos-db/
     topicHref: /azure/cosmos-db/
-  - name: Data Box family
-    tocHref: /azure/databox-family/
-    topicHref: /azure/databox-family/
+  - name: Storage
+    tocHref: /azure/storage/
+    topicHref: /azure/storage/
     items:
     - name: Data Box offline transfer
       tocHref: /azure/databox/

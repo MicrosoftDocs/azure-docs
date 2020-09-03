@@ -18,6 +18,7 @@ Azure Synapse Studio (preview) provides a SQL script web interface for you to au
 There are several ways to start the authoring experience in SQL script. You can create a new SQL script through one of the following methods.
 
 1. From the Develop menu, select the **"+"** icon and choose **SQL script**.
+
 ![new sql script](media/author-sql-script/newsqlscript.png)
 
 2. From the **Actions** menu, choose **New SQL script**.
@@ -51,7 +52,6 @@ Select the **Run** button to execute your SQL script. The results are displayed 
 You can export the results to your local storage in different formats (including CSV, Excel, JSON, XML) by selecting "Export results" and choosing the extension.
 
 You can also visualize the SQL script results in a chart by selecting the **Chart** button. Select the "Chart type" and **Category column**. You can export the chart into a picture by selecting **Save as image**. 
-
 
 ![new sql script results chart](media/author-sql-script/newsqlscriptresultschart.png)
 

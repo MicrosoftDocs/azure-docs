@@ -1,13 +1,13 @@
 ---
-title: Mapping data flow Visual Monitoring
-description: How to visually monitor Azure Data Factory Data Flows
+title: Monitoring mapping data flows
+description: How to visually monitor mapping data flows in Azure Data Factory
 author: kromerm
 ms.author: makromer
-ms.reviewer: douglasl
+ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 04/17/2020
+ms.date: 08/19/2020
 ---
 
 # Monitor Data Flows
@@ -22,7 +22,7 @@ When you execute your pipeline, you can monitor the pipeline and all of the acti
 
 You see statistics at this level as well including the run times and status. The Run ID at the activity level is different than the Run ID at the pipeline level. The Run ID at the previous level is for the pipeline. Selecting the eyeglasses gives you deep details on your data flow execution.
 
-![Data Flow Monitoring](media/data-flow/mon002.png "Data Flow Monitoring")
+![Data Flow Monitoring](media/data-flow/monitoring-details.png "Data Flow Monitoring")
 
 When you're in the graphical node monitoring view, you can see a simplified view-only version of your data flow graph.
 
@@ -51,12 +51,35 @@ When your Data Flow is executed in Spark, Azure Data Factory determines optimal 
   * Cluster startup time: Amount of time to acquire the JIT Spark compute environment for your data flow execution
   * Number of transforms: How many transformation steps are being executed in your flow
   
-![Data Flow Monitoring](media/data-flow/monitornew.png "Data Flow Monitoring New")  
+![Data Flow Monitoring](media/data-flow/monitornew.png "Data Flow Monitoring New")
+
+## Total Sink Processing Time vs. Transformation Processing Time
+
+Each transformation stage includes a total time for that stage to complete with each partition execution time totaled together. When you click on the Sink you will see "Sink Processing Time". This time includes the total of the transformation time *plus* the I/O time it took to write your data to your destination store. The difference between the Sink Processing Time and the total of the transformation is the I/O time to write the data.
+
+You can also see detailed timing for each partition transformation step if you open the JSON output from your data flow activity in the ADF pipeline monitoring view. The JSON contains millisecond timing for each partition, whereas the UX monitoring view is an aggregate timing of partitions added together:
+
+```
+ {
+     "stage": 4,
+     "partitionTimes": [
+          14353,
+          14914,
+          14246,
+          14912,
+          ...
+         ]
+}
+```
+
+### Post processing time
+
+When you select a sink transformation icon in your map, the slide-in panel on the right will show an additional data point called "post processing time" at the bottom. This is the amount time spent executing your job on the Spark cluster *after* your data has been loaded, transformed, and written. This time can include closing connection pools, driver shutdown, deleting files, coalescing files, etc. When you perform actions in your flow like "move files" and "output to single file", you will likely see an increase in the post processing time value.
   
 ## Monitor Icons
 
 This icon means that the transformation data was already cached on the cluster, so the timings and execution path have taken that into account:
 
-![Data Flow Monitoring](media/data-flow/mon004.png "Data Flow Monitoring")
+![Data Flow Monitoring](media/data-flow/mon005.png "Data Flow Monitoring")
 
 You also see green circle icons in the transformation. They represent a count of the number of sinks that data is flowing into.

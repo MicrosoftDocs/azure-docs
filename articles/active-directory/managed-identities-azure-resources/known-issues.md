@@ -3,7 +3,7 @@ title: FAQs and known issues with managed identities - Azure AD
 description: Known issues with managed identities for Azure resources.
 services: active-directory
 documentationcenter: 
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: 
 ms.assetid: 2097381a-a7ec-4e3b-b4ff-5d2fb17403b6
@@ -13,8 +13,8 @@ ms.devlang:
 ms.topic: conceptual
 ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 12/12/2017
-ms.author: markvi
+ms.date: 08/06/2020
+ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
 ---
@@ -51,9 +51,12 @@ Managed identities don't have an application object in the directory, which is w
 
 No, there are no plans to support managed identities for Azure resources in Azure Cloud Services.
 
-### Does managed identities for Azure resources work with the Active Directory Authentication Library (ADAL) or the Microsoft Authentication Library (MSAL)?
+### What is the credential associated with a managed identity? How long is it valid and how often is it rotated?
 
-No, managed identities for Azure resources is not yet integrated with ADAL or MSAL. For details on acquiring a token for managed identities for Azure resources using the REST endpoint, see [How to use managed identities for Azure resources on an Azure VM to acquire an access token](how-to-use-vm-token.md).
+> [!NOTE]
+> How managed identities authenticate is an internal implementation detail that is subject to change without notice.
+
+Managed identities use certificate-based authentication. Each managed identity’s credential has an expiration of 90 days and it is rolled after 45 days.
 
 ### What is the security boundary of managed identities for Azure resources?
 
@@ -69,7 +72,7 @@ The security boundary of the identity is the resource to which it is attached to
 
 ### Will managed identities be recreated automatically if I move a subscription to another directory?
 
-No. If you move a subscription to another directory, you will have to manually re-create them and grant Azure RBAC role assignments again.
+No. If you move a subscription to another directory, you will have to manually re-create them and grant Azure role assignments again.
 - For system assigned managed identities: disable and re-enable. 
 - For user assigned managed identities: delete, re-create and attach them again to the necessary resources (e.g. virtual machines)
 
@@ -79,8 +82,8 @@ No. Managed identities do not currently support cross-directory scenarios.
 
 ### What Azure RBAC permissions are required to managed identity on a resource? 
 
-- System-assigned managed identity: You need write permissions over the resource. For example, for virtual machines you need Microsoft.Compute/virtualMachines/write. This action is included in resource specific built-in roles like [Virtual Machine Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#virtual-machine-contributor).
-- User-assigned managed identity: You need write permissions over the resource. For example, for virtual machines you need Microsoft.Compute/virtualMachines/write. In addition to [Managed Identity Operator](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-identity-operator) role assignment over the managed identity.
+- System-assigned managed identity: You need write permissions over the resource. For example, for virtual machines you need Microsoft.Compute/virtualMachines/write. This action is included in resource specific built-in roles like [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor).
+- User-assigned managed identity: You need write permissions over the resource. For example, for virtual machines you need Microsoft.Compute/virtualMachines/write. In addition to [Managed Identity Operator](../../role-based-access-control/built-in-roles.md#managed-identity-operator) role assignment over the managed identity.
 
 
 
@@ -128,6 +131,8 @@ Workaround for managed identities in a subscription that has been moved to anoth
 
  - For system assigned managed identities: disable and re-enable. 
  - For user assigned managed identities: delete, re-create and attach them again to the necessary resources (e.g. virtual machines)
+
+For more information, see [Transfer an Azure subscription to a different Azure AD directory (Preview)](../../role-based-access-control/transfer-subscription.md).
 
 ### Moving a user-assigned managed identity to a different resource group/subscription
 

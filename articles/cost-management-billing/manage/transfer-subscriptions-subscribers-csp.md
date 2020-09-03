@@ -4,8 +4,9 @@ description: Learn how you can transfer Azure subscriptions between subscribers 
 author: bandersmsft
 ms.reviewer: dhgandhi
 ms.service: cost-management-billing
+ms.subservice: billing
 ms.topic: conceptual
-ms.date: 06/19/2020
+ms.date: 08/20/2020
 ms.author: banders
 ---
 
@@ -19,6 +20,9 @@ CSP direct bill partners certified as an [Azure Expert Managed Services Provider
 
 When the request is approved, the CSP can then provide a combined invoice to their customers. To learn more about CSPs transferring subscriptions, see [Get billing ownership of Azure subscriptions for your MPA account](mpa-request-ownership.md).
 
+>[!IMPORTANT]
+> After transfering an EA subscription to a CSP partner, any quota increases previously applied to the EA subscription will be reset to the default value. If additional quota is required after the subscription transfer, have your CSP provider submit a [quota increase](https://docs.microsoft.com/azure/azure-portal/supportability/regional-quota-requests) request. 
+
 ## Other subscription transfers to a CSP partner
 
 To transfer any other Azure subscriptions to a CSP partner, the subscriber needs to move resources from source subscriptions to CSP subscriptions. Use the following guidance to move resources between subscriptions.
@@ -27,7 +31,7 @@ To transfer any other Azure subscriptions to a CSP partner, the subscriber needs
 1. Ensure that the source and target CSP subscriptions are in the same Azure Active Directory (Azure AD) tenant.  
     You can't change the Azure AD tenant for an Azure CSP subscription. Instead, you must add or associate the source subscription to the CSP Azure AD tenant. For more information, see [Associate or add an Azure subscription to your Azure Active Directory tenant](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
     > [!IMPORTANT]
-    > - When you associate a subscription to a different Azure AD directory, users that have roles assigned using [role-based access control (RBAC)](../../role-based-access-control/role-assignments-portal.md) lose their access. Classic subscription administrators, including Service Administrator and Co-Administrators, also lose access.
+    > - When you associate a subscription to a different Azure AD directory, users that have roles assigned using [Azure role-based access control (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md) lose their access. Classic subscription administrators, including Service Administrator and Co-Administrators, also lose access.
     > - Policy Assignments are also removed from a subscription when the subscription is associated with a different directory.
 1. The user account that you use to do the transfer must have [RBAC](add-change-subscription-administrator.md) owner access on both subscriptions.
 1. Before you begin, [validate](/rest/api/resources/resources/validatemoveresources) that all Azure resources can move from the source subscription to the destination subscription.  
@@ -62,4 +66,4 @@ To transfer any other subscriptions from a CSP Partner to any other Azure offer,
 
 ## Next steps
 - [Get billing ownership of Azure subscriptions for your MPA account](mpa-request-ownership.md).
-- Read about how to [Manage accounts and subscriptions with Azure Billing](index.yml).
+- Read about how to [Manage accounts and subscriptions with Azure Billing](../index.yml).

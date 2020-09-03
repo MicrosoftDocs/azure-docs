@@ -2,7 +2,8 @@
 title: Lock resources to prevent changes
 description: Prevent users from updating or deleting critical Azure resources by applying a lock for all users and roles.
 ms.topic: conceptual
-ms.date: 06/17/2020
+ms.date: 06/17/2020 
+ms.custom: devx-track-azurecli
 ---
 
 # Lock resources to prevent unexpected changes
@@ -16,7 +17,7 @@ As an administrator, you may need to lock a subscription, resource group, or res
 
 When you apply a lock at a parent scope, all resources within that scope inherit the same lock. Even resources you add later inherit the lock from the parent. The most restrictive lock in the inheritance takes precedence.
 
-Unlike role-based access control, you use management locks to apply a restriction across all users and roles. To learn about setting permissions for users and roles, see [Azure Role-based Access Control](../../role-based-access-control/role-assignments-portal.md).
+Unlike role-based access control, you use management locks to apply a restriction across all users and roles. To learn about setting permissions for users and roles, see [Azure role-based access control (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md).
 
 Resource Manager locks apply only to operations that happen in the management plane, which consists of operations sent to `https://management.azure.com`. The locks don't restrict how resources perform their own functions. Resource changes are restricted, but resource operations aren't restricted. For example, a ReadOnly lock on a SQL Database prevents you from deleting or modifying the database. It doesn't prevent you from creating, updating, or deleting data in the database. Data transactions are permitted because those operations aren't sent to `https://management.azure.com`.
 
@@ -221,22 +222,26 @@ az lock delete --ids $lockid
 
 ## REST API
 
-You can lock deployed resources with the [REST API for management locks](https://docs.microsoft.com/rest/api/resources/managementlocks). The REST API enables you to create and delete locks, and retrieve information about existing locks.
+You can lock deployed resources with the [REST API for management locks](/rest/api/resources/managementlocks). The REST API enables you to create and delete locks, and retrieve information about existing locks.
 
 To create a lock, run:
 
-    PUT https://management.azure.com/{scope}/providers/Microsoft.Authorization/locks/{lock-name}?api-version={api-version}
+```http
+PUT https://management.azure.com/{scope}/providers/Microsoft.Authorization/locks/{lock-name}?api-version={api-version}
+```
 
 The scope could be a subscription, resource group, or resource. The lock-name is whatever you want to call the lock. For api-version, use **2016-09-01**.
 
 In the request, include a JSON object that specifies the properties for the lock.
 
-    {
-      "properties": {
-        "level": "CanNotDelete",
-        "notes": "Optional text notes."
-      }
-    }
+```json
+{
+  "properties": {
+  "level": "CanNotDelete",
+  "notes": "Optional text notes."
+  }
+}
+```
 
 ## Next steps
 

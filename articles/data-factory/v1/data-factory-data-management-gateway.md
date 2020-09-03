@@ -150,8 +150,8 @@ At corporate firewall level, you need configure the following domains and outbou
 At Windows firewall level, these outbound ports are normally enabled. If not, you can configure the domains and ports accordingly on gateway machine.
 
 > [!NOTE]
-> 1. Based on your source/ sinks, you may have to whitelist additional domains and outbound ports in your corporate/Windows firewall.
-> 2. For some Cloud Databases (For example: [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-configure-firewall-settings), [Azure Data Lake](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-secure-data#set-ip-address-range-for-data-access), etc.), you may need to whitelist IP address of Gateway machine on their firewall configuration.
+> 1. Based on your source/ sinks, you may have to allow additional domains and outbound ports in your corporate/Windows firewall.
+> 2. For some Cloud Databases (For example: [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-configure-firewall-settings), [Azure Data Lake](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-secure-data#set-ip-address-range-for-data-access), etc.), you may need to allow IP address of Gateway machine on their firewall configuration.
 >
 >
 
@@ -233,7 +233,7 @@ If you select **Use system proxy** setting for the HTTP proxy, gateway uses the 
 > [!IMPORTANT]
 > Do not forget to update **both** diahost.exe.config and diawp.exe.config.
 
-In addition to these points, you also need to make sure Microsoft Azure is in your company's whitelist. The list of valid Microsoft Azure IP addresses can be downloaded from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=41653).
+In addition to these points, you also need to make sure Microsoft Azure is in your company's allowed list. The list of valid Microsoft Azure IP addresses can be downloaded from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=41653).
 
 #### Possible symptoms for firewall and proxy server-related issues
 If you encounter errors similar to the following ones, it is likely due to improper configuration of the firewall or proxy server, which blocks gateway from connecting to Data Factory to authenticate itself. Refer to previous section to ensure your firewall and proxy server are properly configured.
@@ -248,7 +248,9 @@ The **Setting Credentials** application uses the inbound port **8050** to relay 
 
 If you are using a third-party firewall, you can manually open the port 8050. If you run into firewall issue during gateway setup, you can try using the following command to install the gateway without configuring the firewall.
 
-    msiexec /q /i DataManagementGateway.msi NOFIREWALL=1
+```cmd
+msiexec /q /i DataManagementGateway.msi NOFIREWALL=1
+```
 
 If you choose not to open the port 8050 on the gateway machine, use mechanisms other than using the **Setting Credentials** application to configure data store credentials. For example, you could use [New-AzDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) PowerShell cmdlet. See Setting Credentials and Security section on how data store credentials can be set.
 

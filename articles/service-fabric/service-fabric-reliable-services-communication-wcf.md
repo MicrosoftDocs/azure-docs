@@ -6,6 +6,7 @@ author: BharatNarasimman
 ms.topic: conceptual
 ms.date: 06/07/2017
 ms.author: bharatn
+ms.custom: devx-track-csharp
 ---
 # WCF-based communication stack for Reliable Services
 The Reliable Services framework allows service authors to choose the communication stack that they want to use for their service. They can plug in the communication stack of their choice via the **ICommunicationListener** returned from the [CreateServiceReplicaListeners or CreateServiceInstanceListeners](service-fabric-reliable-services-communication.md) methods. The framework provides an implementation of the communication stack based on the Windows Communication Foundation (WCF) for service authors who want to use WCF-based communication.
@@ -111,6 +112,5 @@ var result = calculatorServiceCommunicationClient.InvokeWithRetryAsync(
 
 ## Next steps
 * [Remote procedure call with Reliable Services remoting](service-fabric-reliable-services-communication-remoting.md)
-* [Web API with OWIN in Reliable Services](service-fabric-reliable-services-communication-webapi.md)
+* [Web API with OWIN in Reliable Services](./service-fabric-reliable-services-communication-aspnetcore.md)
 * [Securing communication for Reliable Services](service-fabric-reliable-services-secure-communication-wcf.md)
-

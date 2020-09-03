@@ -58,7 +58,7 @@ to send the Azure AD audit log to the Azure Monitor workspace.
 
 ## View events for an access package  
 
-To view events for an access package, you must have access to the underlying Azure monitor workspace (see [Manage access to log data and workspaces in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/manage-access#manage-access-using-azure-permissions) for information) and in one of the following roles: 
+To view events for an access package, you must have access to the underlying Azure monitor workspace (see [Manage access to log data and workspaces in Azure Monitor](../../azure-monitor/platform/manage-access.md#manage-access-using-azure-permissions) for information) and in one of the following roles: 
 
 - Global administrator  
 - Security administrator  
@@ -169,7 +169,7 @@ $wks | ft CustomerId, Name
 
 ### Send the query to the Log Analytics workspace
 Finally, once you have a workspace identified, you can use [Invoke-AzOperationalInsightsQuery](/powershell/module/az.operationalinsights/Invoke-AzOperationalInsightsQuery?view=azps-3.3.0
-) to send a Kusto query to that workspace. These queries are written in [Kusto query language](https://docs.microsoft.com/azure/kusto/query/).
+) to send a Kusto query to that workspace. These queries are written in [Kusto query language](/azure/kusto/query/).
  
 For example, you can retrieve the date range of the audit event records from the Log Analytics workspace, with PowerShell cmdlets to send a query like:
  
@@ -188,5 +188,4 @@ $bResponse.Results |ft
 ```
 
 ## Next steps:
-- [Create interactive reports with Azure Monitor workbooks](../../azure-monitor/platform/workbooks-overview.md) 
-
+- [Create interactive reports with Azure Monitor workbooks](../../azure-monitor/platform/workbooks-overview.md)

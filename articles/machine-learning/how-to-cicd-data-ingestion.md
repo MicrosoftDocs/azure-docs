@@ -5,13 +5,13 @@ description: Learn how to apply DevOps practices to build a data ingestion pipel
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
+ms.topic: conceptual
+ms.custom: how-to, devx-track-python
 ms.author: iefedore
 author: eedorenko
 manager: davete
 ms.reviewer: larryfr
 ms.date: 06/23/2020
-ms.custom: tracking-python
 
 # Customer intent: As an experienced data engineer, I need to create a production data ingestion pipeline for the data used to train my models.
 
@@ -62,7 +62,7 @@ For example, the code would be stored in an Azure DevOps, GitHub, or GitLab repo
 The data engineers work with the Python notebook source code either locally in an IDE (for example, [Visual Studio Code](https://code.visualstudio.com)) or directly in the Databricks workspace. Once the code changes are complete, they are merged to the repository following a branching policy.
 
 > [!TIP] 
-> We recommended storing the code in `.py` files rather than in `.ipynb` Jupyter notebook format. It improves the code readability and enables automatic code quality checks in the CI process.
+> We recommended storing the code in `.py` files rather than in `.ipynb` Jupyter Notebook format. It improves the code readability and enables automatic code quality checks in the CI process.
 
 ### Azure Data Factory Source Code
 

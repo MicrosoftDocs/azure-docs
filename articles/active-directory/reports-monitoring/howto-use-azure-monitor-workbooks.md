@@ -8,7 +8,7 @@ manager: daveba
 ms.assetid: 4066725c-c430-42b8-a75b-fe2360699b82
 ms.service: active-directory
 ms.devlang:
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm:
 ms.workload: identity
 ms.subservice: report-monitor
@@ -43,13 +43,13 @@ including device platform, device state, client app, sign-in risk, location, and
 reports how many users were granted or denied access, as well as how many users bypassed 
 Conditional Access policies when accessing resources.
 
-- To help you to address these questions, Azure Active Directory provides workbooks for monitoring. [Azure Monitor workbooks](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview) combine text, analytics queries, metrics, and parameters into rich interactive reports.
+- To help you to address these questions, Azure Active Directory provides workbooks for monitoring. [Azure Monitor workbooks](../../azure-monitor/platform/workbooks-overview.md) combine text, analytics queries, metrics, and parameters into rich interactive reports.
 
 
 
 This article:
 
-- Assumes you're familiar with how to [Create interactive reports by using Monitor workbooks](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview).
+- Assumes you're familiar with how to [Create interactive reports by using Monitor workbooks](../../azure-monitor/platform/workbooks-overview.md).
 
 - Explains how to use Monitor workbooks to understand the effect of your Conditional Access policies, to troubleshoot sign-in failures, and to identify legacy authentications.
  
@@ -59,11 +59,11 @@ This article:
 
 To use Monitor workbooks, you need:
 
-- An Azure Active Directory tenant with a premium (P1 or P2) license. Learn how to [get a premium license](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-get-started-premium).
+- An Azure Active Directory tenant with a premium (P1 or P2) license. Learn how to [get a premium license](../fundamentals/active-directory-get-started-premium.md).
 
-- A [Log Analytics workspace](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
+- A [Log Analytics workspace](../../azure-monitor/learn/quick-create-workspace.md).
 
-- [Access](https://docs.microsoft.com/azure/azure-monitor/platform/manage-access#manage-access-using-workspace-permissions) to the log analytics workspace
+- [Access](../../azure-monitor/platform/manage-access.md#manage-access-using-workspace-permissions) to the log analytics workspace
 - Following roles in Azure Active Directory (if you are accessing Log Analytics through Azure Active Directory portal)
     - Security administrator
     - Security reader
@@ -71,7 +71,7 @@ To use Monitor workbooks, you need:
     - Global administrator
 
 ## Roles
-You must be in one of the following roles as well as have [access to underlying Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/manage-access#manage-access-using-azure-permissions) workspace to manage the workbooks:
+You must be in one of the following roles as well as have [access to underlying Log Analytics](../../azure-monitor/platform/manage-access.md#manage-access-using-azure-permissions) workspace to manage the workbooks:
 - 	Global administrator
 - 	Security administrator
 - 	Security reader
@@ -304,4 +304,4 @@ To help you troubleshoot sign-ins, Azure Monitor gives you a breakdown by the fo
 
 ## Next steps
 
-[Create interactive reports by using Monitor workbooks](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview).
+[Create interactive reports by using Monitor workbooks](../../azure-monitor/platform/workbooks-overview.md).

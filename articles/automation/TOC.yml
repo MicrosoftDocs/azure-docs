@@ -14,6 +14,9 @@
       href: automation-quickstart-create-runbook.md
     - name: Enable Desired State Configuration for a machine
       href: automation-quickstart-dsc-configuration.md
+    - name: Create Automation account - ARM template
+      displayName: Resource Manager
+      href: quickstart-create-automation-account-template.md
 - name: Tutorials
   items:
     - name: Create a graphical runbook
@@ -24,11 +27,6 @@
       href: learn/automation-tutorial-runbook-textual.md
     - name: Create a Python runbook
       href: learn/automation-tutorial-runbook-textual-python2.md
-- name: Samples
-  items:
-    - name: Azure Policy built-ins
-      displayName: samples, policies, definitions
-      href: ./policy-samples.md
 - name: Concepts
   items:
     - name: Automation account authentication overview
@@ -43,6 +41,9 @@
       href: /powershell/scripting/dsc/overview/overview
     - name: Security
       items:
+      - name: Security controls by Azure Policy
+        displayName: regulatory, compliance, standards, domains
+        href: ./security-controls-policy.md
       - name: Security baseline
         href: security-baseline.md
     - name: Data security
@@ -58,7 +59,7 @@
         - name: Create Automation account using Azure portal
           href: automation-create-standalone-account.md
         - name: Create Automation account with Resource Manager template
-          href: automation-create-account-template.md
+          href: quickstart-create-automation-account-template.md
         - name: Configure authentication with Amazon Web Services
           href: automation-config-aws-account.md
         - name: Configure authentication with Azure AD
@@ -177,6 +178,18 @@
               href: automation-dsc-extension-history.md
             - name: Troubleshoot State Configuration issues
               href: troubleshoot/desired-state-configuration.md
+            - name: Scenarios
+              items:
+                - name: Configure data based on STIG
+                  href: automation-dsc-configuration-based-on-stig.md
+                - name: Configure data at scale
+                  href: automation-dsc-config-data-at-scale.md
+                - name: Create config from existing servers
+                  href: automation-dsc-config-from-server.md
+                - name: Convert configurations to composite resources
+                  href: automation-dsc-create-composite.md
+                - name: Remediate non-compliant servers
+                  href: automation-dsc-remediate.md 
         - name: Change tracking and inventory
           items:
             - name: Overview
@@ -226,43 +239,49 @@
     - name: Update Management
       items:
         - name: Overview
-          href: automation-update-management.md
+          href: update-management/update-mgmt-overview.md
         - name: Supported regions for linked Log Analytics workspace
           href: how-to/region-mappings.md
         - name: Enable
           items:
             - name: Enable Update Management using Azure Resource Manager template
-              href: automation-update-management-deploy-template.md
+              href: update-management/update-mgmt-enable-template.md
             - name: Enable Update Management from the Azure portal
-              href: automation-onboard-solutions-from-browse.md
+              href: update-management/update-mgmt-enable-portal.md
             - name: Enable Update Management from an Azure VM
-              href: automation-onboard-solutions-from-vm.md
+              href: update-management/update-mgmt-enable-vm.md
             - name: Enable Update Management from an Automation account
-              href: automation-onboard-solutions-from-automation-account.md
+              href: update-management/update-mgmt-enable-automation-account.md
             - name: Enable Update Management from a runbook
-              href: automation-onboard-solutions.md
-        - name: Manage updates for your Azure VMs
-          href: automation-tutorial-update-management.md
-        - name: Manage updates for multiple VMs
-          href: manage-update-multi.md
-        - name: View update assessments
-          href: automation-view-update-assessments.md
-        - name: Manage pre-scripts and post-scripts
-          href: pre-post-scripts.md
+              href: update-management/update-mgmt-enable-runbook.md
+        - name: Manage updates for your VMs
+          items:
+            - name: Get started
+              href: update-management/update-mgmt-manage-updates-for-vm.md
+            - name: Assess compliance
+              href: update-management/update-mgmt-view-update-assessments.md
+            - name: Deploy updates and review status
+              href: update-management/update-mgmt-deploy-updates.md
+            - name: Use pre-scripts and post-scripts
+              href: update-management/update-mgmt-pre-post-scripts.md
+            - name: Configure alerts
+              href: update-management/update-mgmt-configure-alerts.md
         - name: Integrate with Configuration Manager
-          href: updatemgmt-mecmintegration.md
+          href: update-management/update-mgmt-mecmintegration.md
         - name: Configure Windows Update client
-          href: automation-configure-windows-update.md
+          href: update-management/update-mgmt-configure-wuagent.md
         - name: Use dynamic groups
-          href: automation-update-management-groups.md
+          href: update-management/update-mgmt-groups.md
         - name: Query Update Management logs
-          href: automation-update-management-query-logs.md
+          href: update-management/update-mgmt-query-logs.md
         - name: Work with scope configurations
-          href: automation-scope-configurations-update-management.md
-        - name: Unlink workspace from Automation account
-          href: automation-unlink-workspace-update-management.md
-        - name: Remove VMs from Update Management
-          href: automation-remove-vms-from-update-management.md
+          href: update-management/update-mgmt-scope-configuration.md
+        - name: Disable
+          items: 
+            - name: Remove Update Management
+              href: update-management/update-mgmt-remove-feature.md
+            - name: Remove VMs from Update Management
+              href: update-management/update-mgmt-remove-vms.md
         - name: Troubleshoot
           items:
             - name: Troubleshoot feature deployment issues
@@ -301,6 +320,9 @@
     href: /dotnet/api/microsoft.azure.management.automation
   - name: REST
     href: /rest/api/automation
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-reference.md
 - name: Resources
   items:
   - name: Automation introduction video
@@ -308,7 +330,7 @@
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=management-tools&query=automation
   - name: Microsoft Q&A question page
-    href: https://docs.microsoft.com/en-us/answers/topics/azure-automation.html
+    href: /answers/topics/azure-automation.html
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/automation/
   - name: Pricing calculator

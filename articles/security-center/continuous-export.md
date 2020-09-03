@@ -24,21 +24,19 @@ Using these tools you can:
 
 
 
-
 ## Availability
 
-- Release state: **Generally Available**
-- Required roles and permissions:
-    - **Reader** on the subscription containing the export configuration
-    - **Security admin role** on the resource group (or **Owner**)
-    - Must also have write permissions for the target resource
-- Clouds: 
-    - ✔ Commercial clouds
-    - ✔ US Gov
-    - ✘ China Gov, Other Gov
+|Aspect|Details|
+|----|:----|
+|Release state:|Generally Available|
+|Pricing:|Free tier|
+|Required roles and permissions:|**Security admin role** on the resource group (or **Owner**)<br>Must also have write permissions for the target resource|
+|Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![Yes](./media/icons/yes-icon.png) US Gov<br>![Yes](./media/icons/yes-icon.png) China Gov (to Event Hub), Other Gov|
+|||
 
 
-## Setting up a continuous export
+
+## Set up a continuous export
 
 The steps below are necessary whether you're setting up a continuous export to Log Analytics workspace or Azure Event Hubs.
 
@@ -55,11 +53,33 @@ The steps below are necessary whether you're setting up a continuous export to L
 
 1. From the "Export target" area, choose where you'd like the data saved. Data can be saved in a target on a different subscription (for example on a Central Event Hub instance or a central Log Analytics workspace).
 
-1. Click **Save**.
+1. Select **Save**.
+
+
+## Set up continuous export via the REST API
+
+The continuous export feature can be configured and managed via the Azure Security Center [automations API](https://docs.microsoft.com/rest/api/securitycenter/automations). Use this API to create or update automations for exporting to any of the following possible destinations:
+
+- Azure Event Hub
+- Log Analytics workspace
+- Azure Logic Apps 
+
+The API provides additional functionality not available from the Azure portal, for example:
+
+* **Greater volume** - The API allows you to create multiple export configurations on a single subscription. The **Continuous Export** page in Security Center's portal UI supports only one export configuration per subscription.
+
+* **Additional features** - The API offers additional parameters that aren't shown in the UI. For example, you can add tags to your automation resource as well as define your export based on a wider set of alert and recommendation properties than those offered in the **Continuous Export** page in Security Center's portal UI.
+
+* **More focused scope** - The API provides a more granular level for the scope of your export configurations. When defining an export with the API, you can do so at the resource group level. If you're using the **Continuous Export** page in Security Center's portal UI, you have to define it at the subscription level.
+
+    > [!TIP]
+    > If you've setup multiple export configurations using the API, or if you've used API-only parameters, those extra features will not be displayed in the Security Center UI. Instead, there'll be a banner informing you that other configurations exist.
+
+Learn more about the automations API in the [REST API documentation](https://docs.microsoft.com/rest/api/securitycenter/automations).
 
 
 
-## Configuring SIEM integration via Azure Event Hubs
+## Configure SIEM integration via Azure Event Hubs
 
 Azure Event Hubs is a great solution for programatically consuming any streaming data. For Azure Security Center alerts and recommendations, it's the preferred way to integrate with a third-party SIEM.
 
@@ -107,7 +127,7 @@ Azure Monitor provides a unified alerting experience for a variety of Azure aler
 
 To view alerts and recommendations from Security Center in Azure Monitor, configure an Alert rule based on Log Analytics queries (Log Alert):
 
-1. From Azure Monitor's **Alerts** page, click **New alert rule**.
+1. From Azure Monitor's **Alerts** page, select **New alert rule**.
 
     ![Azure Monitor's alerts page](./media/continuous-export/azure-monitor-alerts.png)
 
@@ -124,12 +144,25 @@ You'll now see new Azure Security Center alerts or recommendations (depending on
 
 ## Manual one-time export of security alerts
 
-To download a CSV report for alerts or recommendations, open the **Security alerts** or **Recommendations** page and click the **Download CSV report** button.
+To download a CSV report for alerts or recommendations, open the **Security alerts** or **Recommendations** page and select the **Download CSV report** button.
 
 [![Download alerts data as a CSV file](media/continuous-export/download-alerts-csv.png)](media/continuous-export/download-alerts-csv.png#lightbox)
 
 > [!NOTE]
 > These reports contain alerts and recommendations for resources from the currently selected subscriptions.
+
+
+
+## FAQ - Continuous export
+
+### What are the costs involved in exporting data?
+
+There is no cost for enabling a continuous export. Costs might be incurred for ingestion and retention of data in your Log Analytics workspace, depending on your configuration there. 
+
+Learn more about [Log Analytics workspace pricing](https://azure.microsoft.com/pricing/details/monitor/).
+
+Learn more about [Azure Event Hub pricing](https://azure.microsoft.com/pricing/details/event-hubs/).
+
 
 ## Next steps
 

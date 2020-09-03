@@ -3,6 +3,7 @@ author: trevorbye
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/11/2020
+ms.custom: devx-track-java
 ms.author: trbye
 ---
 
@@ -180,7 +181,7 @@ recognizer.sessionStopped.addEventListener((s, e) -> {
 });
 ```
 
-With everything set up, we can call [`stopContinuousRecognitionAsync`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechrecognizer.stopcontinuousrecognitionasync).
+With everything set up, we can call [`startContinuousRecognitionAsync`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechrecognizer.startcontinuousrecognitionasync).
 
 ```java
 // Starts continuous recognition. Uses StopContinuousRecognitionAsync() to stop recognition.

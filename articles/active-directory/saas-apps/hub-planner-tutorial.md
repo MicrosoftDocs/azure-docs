@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Hub Planner | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Hub Planner.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 7dca6768-1d0a-4e05-ad2e-8db7508ca3c1
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 06/12/2020
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with Hub Planner
@@ -40,8 +34,8 @@ To get started, you need the following items:
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* Hub Planner supports **SP** initiated SSO
-* Once you configure Hub Planner you can enforce session control, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session control extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Hub Planner supports **SP** initiated SSO.
+* Once you configure Hub Planner you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real-time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 ## Adding Hub Planner from the gallery
 
@@ -84,13 +78,13 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://<SUBDOMAIN>.hubplanner.com`
 
     b. In the **Identifier** box, type a URL using the following pattern:
-    `https://<SUBDOMAIN>.hubplanner.com/sso/metadata`
+    `https://app.hubplanner.com/sso/metadata`
 
     c. In the **Reply URL** text box, type a URL using the following pattern:
-    `https://<SUBDOMAIN>.hubplanner.com/sso/callback`
+    `https://app.hubplanner.com/sso/callback`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Sign-On URL, Identifier and Reply URL. Contact [Hub Planner Client support team](mailto:hello@hubplanner.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are the ones you will use. The only change you need to make is to replace \<SUBDOMAIN\> in the **Sign-on URL** with the subdomain you received when you signed up for Hub Planner. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
@@ -99,6 +93,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Set up Hub Planner** section, copy the appropriate URL(s) based on your requirement.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
+
 ### Create an Azure AD test user
 
 In this section, you'll create a test user in the Azure portal called B.Simon.
@@ -131,11 +126,31 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Hub Planner SSO
 
-To configure single sign-on on **Hub Planner** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [Hub Planner support team](mailto:hello@hubplanner.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Hub Planner** side, you need to sign in to your Hub Planner account and complete the following tasks. 
+
+### Install the extension in Hub Planner
+
+To enable SSO functionality, you must first enable the extension. As the account owner or with equivalent permissions, complete these steps:
+
+1. Go to **Settings**.
+1. In the side menu, select **Manage Extensions** > **Add/Remove Extensions**.
+1. Find the extension for Single Sign On and Add or Try Free.
+1. When prompted, agree to the terms and conditions, and then select **Add Now**.
+
+### Enable SSO
+
+After the extension is enabled, you must enable SSO for your account. 
+
+1. Go to **Settings**.
+1. In the side menu, select **Authentication**.
+1. Select **SSO (Single Sign-On)**.
+1. Enter additional authentication information as shown in the following image, and then select **Save**.
+
+![Screenshot of SSO settings](media/hub-planner-tutorial/sso-settings.png)
 
 ### Create Hub Planner test user
 
-In this section, you create a user called Britta Simon in Hub Planner. Work with [Hub Planner support team](mailto:hello@hubplanner.com) to add the users in the Hub Planner platform. Users must be created and activated before you use single sign-on.
+If you want to add other users go to **Settings** > **Manage resources** and add users from here. Make sure to add their email address and invite them. Once invited, they will receive an email and be able to enter via SSO. 
 
 ## Test SSO 
 
@@ -145,9 +160,9 @@ When you click the Hub Planner tile in the Access Panel, you should be automatic
 
 ## Additional resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

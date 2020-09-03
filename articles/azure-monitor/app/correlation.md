@@ -6,7 +6,7 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 06/07/2019
 ms.reviewer: sergkanz
-ms.custom: tracking-python
+ms.custom: "devx-track-python, devx-track-csharp"
 ---
 
 # Telemetry correlation in Application Insights
@@ -297,15 +297,15 @@ When this code runs, the following prints in the console:
 ```
 Notice that there's a `spanId` present for the log message that's within the span. This is the same `spanId` that belongs to the span named `hello`.
 
-You can export the log data by using `AzureLogHandler`. For more information, see [this article](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python#logs).
+You can export the log data by using `AzureLogHandler`. For more information, see [this article](./opencensus-python.md#logs).
 
 ## Telemetry correlation in .NET
 
 Over time, .NET has defined several ways to correlate telemetry and diagnostics logs:
 
-- `System.Diagnostics.CorrelationManager` allows the tracking of [LogicalOperationStack and ActivityId](https://msdn.microsoft.com/library/system.diagnostics.correlationmanager.aspx).
-- `System.Diagnostics.Tracing.EventSource` and Event Tracing for Windows (ETW) define the [SetCurrentThreadActivityId](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.setcurrentthreadactivityid.aspx) method.
-- `ILogger` uses [Log scopes](https://docs.microsoft.com/aspnet/core/fundamentals/logging#log-scopes).
+- `System.Diagnostics.CorrelationManager` allows the tracking of [LogicalOperationStack and ActivityId](/dotnet/api/system.diagnostics.correlationmanager?view=netcore-3.1).
+- `System.Diagnostics.Tracing.EventSource` and Event Tracing for Windows (ETW) define the [SetCurrentThreadActivityId](/dotnet/api/system.diagnostics.tracing.eventsource.setcurrentthreadactivityid?view=netcore-3.1#overloads) method.
+- `ILogger` uses [Log scopes](/aspnet/core/fundamentals/logging#log-scopes).
 - Windows Communication Foundation (WCF) and HTTP wire up "current" context propagation.
 
 But those methods didn't enable automatic distributed tracing support. `DiagnosticSource` supports automatic cross-machine correlation. .NET libraries support `DiagnosticSource` and allow automatic cross-machine propagation of the correlation context via the transport, such as HTTP.
@@ -323,7 +323,7 @@ The Application Insights SDK, starting with version 2.4.0-beta1, uses `Diagnosti
 <a name="java-correlation"></a>
 ## Telemetry correlation in Java
 
-[Java agent](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent) as well as [Java SDK](../../azure-monitor/app/java-get-started.md) version 2.0.0 or later supports automatic correlation of telemetry. It automatically populates `operation_id` for all telemetry (like traces, exceptions, and custom events) issued within the scope of a request. It also propagates the correlation headers (described earlier) for service-to-service calls via HTTP, if the [Java SDK agent](../../azure-monitor/app/java-agent.md) is configured.
+[Java agent](./java-in-process-agent.md) as well as [Java SDK](../../azure-monitor/app/java-get-started.md) version 2.0.0 or later supports automatic correlation of telemetry. It automatically populates `operation_id` for all telemetry (like traces, exceptions, and custom events) issued within the scope of a request. It also propagates the correlation headers (described earlier) for service-to-service calls via HTTP, if the [Java SDK agent](../../azure-monitor/app/java-agent.md) is configured.
 
 > [!NOTE]
 > Application Insights Java agent auto-collects requests and dependencies for JMS, Kafka, Netty/Webflux, and more. For Java SDK only calls made via Apache HttpClient are supported for the correlation feature. Automatic context propagation across messaging technologies (like Kafka, RabbitMQ, and Azure Service Bus) isn't supported in the SDK. 
@@ -370,8 +370,8 @@ You might want to customize the way component names are displayed in the [Applic
 
 - Write [custom telemetry](../../azure-monitor/app/api-custom-events-metrics.md).
 - For advanced correlation scenarios in ASP.NET Core and ASP.NET, see [Track custom operations](custom-operations-tracking.md).
-- Learn more about [setting cloud_RoleName](../../azure-monitor/app/app-map.md#set-cloud-role-name) for other SDKs.
-- Onboard all components of your microservice on Application Insights. Check out the [supported platforms](../../azure-monitor/app/platforms.md).
-- See the [data model](../../azure-monitor/app/data-model.md) for Application Insights types.
-- Learn how to [extend and filter telemetry](../../azure-monitor/app/api-filtering-sampling.md).
+- Learn more about [setting cloud_RoleName](./app-map.md#set-or-override-cloud-role-name) for other SDKs.
+- Onboard all components of your microservice on Application Insights. Check out the [supported platforms](./platforms.md).
+- See the [data model](./data-model.md) for Application Insights types.
+- Learn how to [extend and filter telemetry](./api-filtering-sampling.md).
 - Review the [Application Insights config reference](configuration-with-applicationinsights-config.md).

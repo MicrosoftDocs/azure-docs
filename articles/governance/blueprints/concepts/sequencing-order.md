@@ -1,7 +1,7 @@
 ---
 title: Understand the deployment sequence order
 description: Learn about the default order that blueprint artifacts are deployed in during a blueprint assignment and how to customize the deployment order.
-ms.date: 05/06/2020
+ms.date: 08/27/2020
 ms.topic: conceptual
 ---
 # Understand the deployment sequence in Azure Blueprints
@@ -24,7 +24,8 @@ is null, then the following order is used:
 
 - Subscription level **role assignment** artifacts sorted by artifact name
 - Subscription level **policy assignment** artifacts sorted by artifact name
-- Subscription level **Azure Resource Manager template** artifacts sorted by artifact name
+- Subscription level **Azure Resource Manager template** (ARM templates) artifacts sorted by
+  artifact name
 - **Resource group** artifacts (including child artifacts) sorted by placeholder name
 
 Within each **resource group** artifact, the following sequence order is used for artifacts to be
@@ -32,7 +33,8 @@ created within that resource group:
 
 - Resource group child **role assignment** artifacts sorted by artifact name
 - Resource group child **policy assignment** artifacts sorted by artifact name
-- Resource group child **Azure Resource Manager template** artifacts sorted by artifact name
+- Resource group child **Azure Resource Manager template** (ARM templates) artifacts sorted by
+  artifact name
 
 > [!NOTE]
 > Use of [artifacts()](../reference/blueprint-functions.md#artifacts) creates an implicit dependency
@@ -42,8 +44,8 @@ created within that resource group:
 
 When composing large blueprint definitions, it may be necessary for resources to be created in a
 specific order. The most common use pattern of this scenario is when a blueprint definition includes
-several Azure Resource Manager templates. Azure Blueprints handles this pattern by allowing the
-sequencing order to be defined.
+several ARM templates. Azure Blueprints handles this pattern by allowing the sequencing order to be
+defined.
 
 The ordering is accomplished by defining a `dependsOn` property in the JSON. The blueprint
 definition, for resource groups, and artifact objects support this property. `dependsOn` is a string
@@ -89,9 +91,9 @@ named **assignPolicyTags** will be processed before the **ordered-rg** resource 
 
 ### Example - artifact with custom order
 
-This example is a policy artifact that depends on an Azure Resource Manager template. By default
-ordering, a policy artifact would be created before the Azure Resource Manager template. This
-ordering allows the policy artifact to wait for the Azure Resource Manager template to be created.
+This example is a policy artifact that depends on an ARM template. By default ordering, a policy
+artifact would be created before the ARM template. This ordering allows the policy artifact to wait
+for the ARM template to be created.
 
 ```json
 {
@@ -110,10 +112,10 @@ ordering allows the policy artifact to wait for the Azure Resource Manager templ
 
 ### Example - subscription level template artifact depending on a resource group
 
-This example is for a Resource Manager template deployed at the subscription level to depend on a
-resource group. In default ordering, the subscription level artifacts would be created before any
-resource groups and child artifacts in those resource groups. The resource group is defined in the
-blueprint definition like this:
+This example is for an ARM template deployed at the subscription level to depend on a resource
+group. In default ordering, the subscription level artifacts would be created before any resource
+groups and child artifacts in those resource groups. The resource group is defined in the blueprint
+definition like this:
 
 ```json
 "resourceGroups": {
@@ -160,8 +162,9 @@ order and no changes would be made.
 
 ## Next steps
 
-- Learn about the [blueprint lifecycle](lifecycle.md).
-- Understand how to use [static and dynamic parameters](parameters.md).
-- Find out how to make use of [blueprint resource locking](resource-locking.md).
+- Learn about the [blueprint lifecycle](./lifecycle.md).
+- Understand how to use [static and dynamic parameters](./parameters.md).
+- Find out how to make use of [blueprint resource locking](./resource-locking.md).
 - Learn how to [update existing assignments](../how-to/update-existing-assignments.md).
-- Resolve issues during the assignment of a blueprint with [general troubleshooting](../troubleshoot/general.md).
+- Resolve issues during the assignment of a blueprint with
+  [general troubleshooting](../troubleshoot/general.md).

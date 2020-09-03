@@ -16,11 +16,15 @@ This page explains how you can use alerts suppression rules to suppress false po
 
 ## Availability
 
-- Release state: **Preview**
-- Required roles: **Security admin** and **Owner** can create/delete rules. **Security reader** and **Reader** can view rules.
-- Clouds: 
-    - ✔ Commercial clouds
-    - ✔ National/Sovereign (US Gov, China Gov, Other Gov)
+|Aspect|Details|
+|----|:----|
+|Release state:|Preview|
+|Pricing:|Free tier<br>(Most security alerts are only for standard tier)|
+|Required roles and permissions:|**Security admin** and **Owner** can create/delete rules.<br>**Security reader** and **Reader** can view rules.|
+|Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![Yes](./media/icons/yes-icon.png) National/Sovereign (US Gov, China Gov, Other Gov)|
+|||
+
+
 
 
 ## What are suppression rules?
@@ -29,16 +33,16 @@ The threat protection components of Azure Security Center detect threats in any 
 
 When a single alert isn't interesting or relevant, you can manually dismiss it. Alternatively, use the suppression rules feature to automatically dismiss similar alerts in the future. Typically, you'd use a suppression rule to:
 
-- suppress alerts that you've identified as false positives
+- Suppress alerts that you've identified as false positives
 
-- suppress alerts that are being triggered too often to be useful
+- Suppress alerts that are being triggered too often to be useful
 
 Your suppression rules define the criteria for which alerts should be automatically dismissed.
 
 > [!CAUTION]
 > Suppressing security alerts reduces the threat protection of Security Center. You should carefully check the potential impact of any suppression rule, and monitor it over time.
 
-[![Azure Security Center security alerts page with alerts suppression options](media/alerts-suppression-rules/alerts-screen-with-options.png)](media/alerts-suppression-rules/alerts-screen-with-options.png#lightbox)
+![Create alert suppression rule](media\alerts-suppression-rules\create-suppression-rule.gif)
 
 ## Create a suppression rule
 

@@ -29,13 +29,13 @@ Microsoft recommends hardening your Azure AD Connect server to decrease the secu
 
 To learn more, see: 
 
-* [Securing administrators groups](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/appendix-g--securing-administrators-groups-in-active-directory)
+* [Securing administrators groups](/windows-server/identity/ad-ds/plan/security-best-practices/appendix-g--securing-administrators-groups-in-active-directory)
 
-* [Securing built-in administrator accounts](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/appendix-d--securing-built-in-administrator-accounts-in-active-directory)
+* [Securing built-in administrator accounts](/windows-server/identity/ad-ds/plan/security-best-practices/appendix-d--securing-built-in-administrator-accounts-in-active-directory)
 
-* [Security improvement and sustainment by reducing attack surfaces](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access#2-reduce-attack-surfaces )
+* [Security improvement and sustainment by reducing attack surfaces](/windows-server/identity/securing-privileged-access/securing-privileged-access#2-reduce-attack-surfaces )
 
-* [Reducing the Active Directory attack surface](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/reducing-the-active-directory-attack-surface)
+* [Reducing the Active Directory attack surface](/windows-server/identity/ad-ds/plan/security-best-practices/reducing-the-active-directory-attack-surface)
 
 **Q: Will installation work if the Azure Active Directory (Azure AD) Global Admin has two-factor authentication (2FA) enabled?**  
 As of the February 2016 builds, this scenario is supported.
@@ -248,10 +248,23 @@ Yes, auto upgrade also upgrades Azure AD Connect Health.
 Yes, you can auto-upgrade an Azure AD Connect server that is in staging mode.
 
 **Q: If auto upgrade fails and my Azure AD Connect server does not start, what should I do?**  
-In rare cases, the Azure AD Connect service does not start after you perform the upgrade. In these cases, rebooting the server usually fixes the issue. If the Azure AD Connect service still does not start, open a support ticket. For more information, see [Create a service request to contact Office 365 support](https://blogs.technet.microsoft.com/praveenkumar/2013/07/17/how-to-create-service-requests-to-contact-office-365-support/). 
+In rare cases, the Azure AD Connect service does not start after you perform the upgrade. In these cases, rebooting the server usually fixes the issue. If the Azure AD Connect service still does not start, open a support ticket. For more information, see [Create a service request to contact Office 365 support](/archive/blogs/praveenkumar/how-to-create-service-requests-to-contact-office-365-support). 
 
 **Q: I’m not sure what the risks are when I upgrade to a newer version of Azure AD Connect. Can you call me to help me with the upgrade?**  
-If you need help upgrading to a newer version of Azure AD Connect, open a support ticket at [Create a service request to contact Office 365 support](https://blogs.technet.microsoft.com/praveenkumar/2013/07/17/how-to-create-service-requests-to-contact-office-365-support/).
+If you need help upgrading to a newer version of Azure AD Connect, open a support ticket at [Create a service request to contact Office 365 support](/archive/blogs/praveenkumar/how-to-create-service-requests-to-contact-office-365-support).
+
+## Operational best practice	
+Below are some best practices you should implement when syncing between Windows Server Active Directory and Azure Active Directory.
+
+**Apply Multi-Factor Authentication for all synced accounts**
+Azure Multi-Factor Authentication helps safeguard access to data and applications while maintaining simplicity for users. It provides additional security by requiring a second form of authentication and delivers strong authentication via a range of easy to use authentication methods. Users may or may not be challenged for MFA based on configuration decisions that an administrator makes. You can read more about MFA here: https://www.microsoft.com/security/business/identity/mfa?rtc=1
+
+**Follow the Azure AD Connect server security guidelines**
+The Azure AD Connect server contains critical identity data and should be treated as a Tier 0 component as documented in the [Active Directory administrative tier model](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material). Please also refer to our [guidelines for securing your AADConnect server](./how-to-connect-install-prerequisites.md#azure-ad-connect-server).
+
+**Enable PHS for leaked credentials detection**
+Password Hash Sync also enables [leaked credential detection](../identity-protection/concept-identity-protection-risks.md) for your hybrid accounts. Microsoft works alongside dark web researchers and law enforcement agencies to find publicly available username/password pairs. If any of these pairs match those of your users, the associated account is moved to high risk. 
+
 
 ## Troubleshooting
 **Q: How can I get help with Azure AD Connect?**
@@ -260,11 +273,11 @@ If you need help upgrading to a newer version of Azure AD Connect, open a suppor
 
 * Search the KB for technical solutions to common break-fix issues about support for Azure AD Connect.
 
-[Microsoft Q&A question page for Azure Active Directory](https://docs.microsoft.com/answers/topics/azure-active-directory.html)
+[Microsoft Q&A question page for Azure Active Directory](/answers/topics/azure-active-directory.html)
 
-* Search for technical questions and answers or ask your own questions by going to [the Azure AD community](https://docs.microsoft.com/answers/topics/azure-active-directory.html).
+* Search for technical questions and answers or ask your own questions by going to [the Azure AD community](/answers/topics/azure-active-directory.html).
 
-[Get support for Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-troubleshooting-support-howto)
+[Get support for Azure AD](../fundamentals/active-directory-troubleshooting-support-howto.md)
 
 **Q: Why am I seeing Events 6311 and 6401 occur after Sync Step Errors?**
 

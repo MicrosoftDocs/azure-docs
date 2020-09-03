@@ -47,9 +47,9 @@ The agent collects various security-related configuration details and event logs
 
 Ensure your machines are running one of the supported operating systems for the agent as described on the following pages:
 
-* [Log Analytics agent for Windows supported operating systems](../azure-monitor/platform/log-analytics-agent.md#supported-windows-operating-systems)
+* [Log Analytics agent for Windows supported operating systems](../azure-monitor/platform/agents-overview.md#supported-operating-systems)
 
-* [Log Analytics agent for Linux supported operating systems](../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems)
+* [Log Analytics agent for Linux supported operating systems](../azure-monitor/platform/agents-overview.md#supported-operating-systems)
 
 Learn more about the [data collected by the Log Analytics agent](security-center-enable-data-collection.md).
 
@@ -160,7 +160,7 @@ If you remove the Microsoft Monitoring Extension, Security Center is not able to
 
 You can turn off automatic provisioning for your subscriptions in the security policy but this is not recommended. Turning off automatic provisioning limits Security Center recommendations and alerts. To disable automatic provisioning:
 
-1. If your subscription is configured for the Standard tier, open the security policy for that subscription and select the **Free** tier.
+1. If your subscription is configured for the standard tier, open the security policy for that subscription and select the **Free** tier.
 
    ![Pricing tier][1]
 

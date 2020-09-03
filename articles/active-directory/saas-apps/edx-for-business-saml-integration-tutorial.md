@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with edX for Business SAML Integration | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and edX for Business SAML Integration.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: e00001b6-a8af-4547-976a-68d1c41d374c
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 06/04/2020
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with edX for Business SAML Integration
@@ -93,9 +87,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. In addition to above, edX for Business SAML Integration application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirements.
 	
-	| Name | |  Source Attribute|
-	| ---------------| --------------- | --------- |
-	| country | | user.country  |
+	| Name | Source Attribute|
+	| ---------------| --------- |
+	| country | user.country  |
 
 1. On the **Set up single sign-on with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 

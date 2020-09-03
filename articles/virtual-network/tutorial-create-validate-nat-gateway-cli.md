@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Create and test a NAT gateway - Azure CLI'
+title: 'Create and test a NAT gateway - Azure CLI'
 titlesuffix: Azure Virtual Network NAT
 description: This tutorial shows how to create a NAT gateway using the Azure CLI and test the NAT service
 services: virtual-network
@@ -10,10 +10,11 @@ Customer intent: I want to test a NAT gateway for outbound connectivity for my v
 ms.service: virtual-network
 ms.subservice: nat
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 06/11/2020
-ms.author: allensu
+ms.author: allensu 
+ms.custom: devx-track-azurecli
 ---
 # Tutorial: Create a NAT gateway using Azure CLI and test the NAT service
 

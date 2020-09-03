@@ -29,7 +29,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 To complete this article, you need:
 
-* Visual Studio Code with the Resource Manager Tools extension. See [Use Visual Studio Code to create ARM templates](./use-vs-code-to-create-template.md).
+* Visual Studio Code with the Resource Manager Tools extension. See [Quickstart: Create Azure Resource Manager templates with Visual Studio Code](./quickstart-create-templates-use-visual-studio-code.md).
 * To increase security, use a generated password for the server administrator account. Here's a sample you can use to generate a password:
 
     ```console
@@ -107,8 +107,8 @@ The template used in this tutorial is stored in [GitHub](https://raw.githubuserc
 
     There are two resources defined in the template:
 
-   * `Microsoft.Sql/servers`. See the [template reference](https://docs.microsoft.com/azure/templates/microsoft.sql/servers).
-   * `Microsoft.SQL.servers/databases`. See the [template reference](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/databases).
+   * `Microsoft.Sql/servers`. See the [template reference](/azure/templates/microsoft.sql/servers).
+   * `Microsoft.SQL.servers/databases`. See the [template reference](/azure/templates/microsoft.sql/servers/databases).
 
         It's helpful to get some basic understanding of the template before you customize it.
 1. Select **File** > **Save As** to save a copy of the file to your local computer with the name *azuredeploy.json*.
@@ -189,7 +189,7 @@ The template used in this tutorial is stored in [GitHub](https://raw.githubuserc
 
         ![Template with SQL Database extension](./media/template-tutorial-deploy-sql-extensions-bacpac/resource-manager-tutorial-deploy-sql-extensions-bacpac.png)
 
-        To understand the resource definition, see the [SQL Database extension reference](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/databases/extensions). The following are some important elements:
+        To understand the resource definition, see the [SQL Database extension reference](/azure/templates/microsoft.sql/servers/databases/extensions). The following are some important elements:
 
         * **dependsOn**: The extension resource must be created after the database has been created.
         * **storageKeyType**: Specify the type of the storage key to use. The value can be either `StorageAccessKey` or `SharedAccessKey`. Use `StorageAccessKey` in this tutorial.
