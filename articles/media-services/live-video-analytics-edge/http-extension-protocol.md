@@ -1,14 +1,14 @@
 ---
-title: HTTP extension data contract - Azure
-description: In this article, you will learn about using HTTP protocol to send messages between Live Video Analytics module and your AI or CV module.
+title: HTTP extension protocol - Azure
+description: In this article, you will learn about using HTTP extension protocol to send messages between Live Video Analytics module and your AI or CV module.
 ms.topic: overview
 ms.date: 09/14/2020
 
 ---
 
-# HTTP extension data contract
+# HTTP extension protocol
 
-In this article, you will learn about using HTTP protocol to send messages between Live Video Analytics module and your AI or CV module.
+In this article, you will learn about using HTTP extension protocol to send messages between Live Video Analytics module and your AI or CV module.
 
 The HTTP contract is defined between the following two components:
 
@@ -92,7 +92,7 @@ If your module returns a response with content type as “application/json” bu
 
 ## Data contracts - class hierarchy
 
-![class hierarchy](./media/http-data-contract/class-hierarchy.png)
+![class hierarchy](./media/http-extension-protocol/class-hierarchy.png)
 
 ## Next steps
 
