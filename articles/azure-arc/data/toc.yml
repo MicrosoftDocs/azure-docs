@@ -6,6 +6,14 @@
       href: overview.md
 - name: Quickstarts
   items:
+    - name: Deploy
+      items:
+      - name: Deploy Ubuntu VM - Azure
+        href: create-ubuntu-vm.md
+      - name: Kickstarter install
+        href: kickstarter-install.md
+      - name: Kickstarter removal
+        href: kickstarter-removal.md
     - name: Install client tools
       href: install-client-tools.md
     - name: Create data controller

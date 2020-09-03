@@ -11,13 +11,14 @@ ms.date: 08/04/2020
 ms.topic: how-to
 ---
 
-# Scenario: Create the Azure Arc data controller
+# Create the Azure Arc data controller
 
-> **Note**: This scenario is not required if you have used the [installation script](https://github.com/microsoft/Azure-data-services-on-Azure-Arc/blob/master/deploy/kickstarter-install.md) to create a "one box" virtual machine.  This scenario is for installing the Azure Arc data controller on a typical multi-node Kubernetes cluster which you already have deployed.
+> [!NOTE]
+> Task is not required if you have used the [kickstart installation](kickstarter-install.md) to create a *one-box* virtual machine. This scenario is for installing the Azure Arc data controller on a typical multi-node Kubernetes cluster which you already have deployed.
 
 ## Overview of installing the Azure Arc data controller
 
-Azure Arc enabled data services is supported on multiple different types of Kubernetes clusters and managed Kubernetes services.  Currently the supported list of services and distributions are the following:
+Azure Arc enabled data services is supported on multiple different types of Kubernetes clusters and managed Kubernetes services. Currently the supported list of services and distributions are the following:
 
 - Azure Kubernetes Service (AKS)
 - Azure Kubernetes Engine (AKE) on Azure Stack
@@ -64,7 +65,7 @@ Follow the appropriate section below depending on your target platform to config
 
 ### Install on Azure Kubernetes Service (AKS)
 
-By default the AKS deployment profile uses the 'managed-premium' storage class.  The 'managed-premium' storage class will only work if you have VMs that were deployed using VM images that have premium disks.
+By default the AKS deployment profile uses the 'managed-premium' storage class. The 'managed-premium' storage class will only work if you have VMs that were deployed using VM images that have premium disks.
 
 If you are going to use 'managed-premium' as your storage class, then you can run the following command to deploy the data controller:
 
@@ -84,7 +85,7 @@ azdata arc dc create --profile-name azure-arc-aks-default-storage --namespace ar
 
 ### Install on Kubernetes with AKS engine on Azure Stack Hub
 
-By default the deployment profile uses the 'managed-premium' storage class.  The 'managed-premium' storage class will only work if you have worker VMs that were deployed using VM images that have premium disks on Azure Stack Hub.
+By default the deployment profile uses the 'managed-premium' storage class. The 'managed-premium' storage class will only work if you have worker VMs that were deployed using VM images that have premium disks on Azure Stack Hub.
 
 You can run the following command to deploy the data controller using the managed-premium storage class:
 
@@ -104,7 +105,7 @@ azdata arc dc create --profile-name azure-arc-aks-default-storage --namespace ar
 
 To deploy onto Azure OpenShift you will need to execute the following commands against your cluster to relax the security constraints. This is a temporary requirement which will be removed in the future.
 > [!NOTE]
->   Use the same namespace here and in the `azdata arc dc create` command below.  Example is 'arc'.
+>   Use the same namespace here and in the `azdata arc dc create` command below. Example is 'arc'.
 
 ```console
 oc adm policy add-scc-to-user privileged -z default -n arc
@@ -113,7 +114,7 @@ oc adm policy add-scc-to-user anyuid     -z default -n arc
 
 You can run the following command to deploy the data controller:
 > [!NOTE]
->   Use the same namespace here and in the `oc adm policy add-scc-to-user` commands above.  Example is 'arc'.
+>   Use the same namespace here and in the `oc adm policy add-scc-to-user` commands above. Example is 'arc'.
 
 ```console
 azdata arc dc create --profile-name azure-arc-azure-openshift --namespace arc --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode indirect
@@ -123,7 +124,7 @@ azdata arc dc create --profile-name azure-arc-azure-openshift --namespace arc --
 
 To deploy onto Red Hat OpenShift Container Platform you will need to execute the following commands against your cluster to relax the security constraints. This is a temporary requirement which will be removed in the future.
 > [!NOTE]
->   Use the same namespace here and in the `azdata arc dc create` command below.  Example is 'arc'.
+>   Use the same namespace here and in the `azdata arc dc create` command below. Example is 'arc'.
 
 ```console
 oc adm policy add-scc-to-user privileged -z default -n arc
@@ -153,19 +154,19 @@ azdata arc dc config replace --path ./custom/control.json --json-values "spec.st
 #azdata arc dc config replace --path ./custom/control.json --json-values "spec.storage.logs.className=mystorageclass"
 ```
 
-By default the kubeadm deployment profile uses 'NodePort' as the service type.  **If** you are using an OpenShift cluster that is integrated with a load balancer, you can change the configuration using the following command:
+By default the kubeadm deployment profile uses 'NodePort' as the service type. **If** you are using an OpenShift cluster that is integrated with a load balancer, you can change the configuration using the following command:
 
 ```console
 azdata arc dc config replace --path ./custom/control.json --json-values "$.spec.endpoints[*].serviceType=LoadBalancer"
 ```
 
-Oftentimes, customers using OpenShift want to run with the default security policies in OpenShift or want to generally lock down the environment more than typical.  You can optionally choose to disable some features to minimize the permissions required at deployment time and at run time.
+Oftentimes, customers using OpenShift want to run with the default security policies in OpenShift or want to generally lock down the environment more than typical. You can optionally choose to disable some features to minimize the permissions required at deployment time and at run time.
 
 ```console
-#Disables metrics collections about pods.  You will not be able to see metrics about pods in the Grafana dashboards if you disable this feature.  Default is true.
+#Disables metrics collections about pods. You will not be able to see metrics about pods in the Grafana dashboards if you disable this feature. Default is true.
 azdata arc dc config replace -p ./custom2/control.json --json-values spec.security.allowPodMetricsCollection=false
 
-#Disables metrics collections about nodes.  You will not be able to see metrics about nodes in the Grafana dashboards if you disable this feature.  Default is true.
+#Disables metrics collections about nodes. You will not be able to see metrics about nodes in the Grafana dashboards if you disable this feature. Default is true.
 azdata arc dc config replace -p ./custom2/control.json --json-values spec.security.allowNodeMetricsCollection=false
 
 #Disables the ability to take dumps for troubleshooting purposes.
@@ -174,7 +175,7 @@ azdata arc dc config replace -p ./custom2/control.json --json-values spec.securi
 
 Now you are ready to install the data controller using the following command:
 > [!NOTE]
->   Use the same namespace here and in the `oc adm policy add-scc-to-user` commands above.  Example is 'arc'.
+>   Use the same namespace here and in the `oc adm policy add-scc-to-user` commands above. Example is 'arc'.
 
 ```console
 azdata arc dc create --path ./custom --namespace arc --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode indirect
@@ -182,7 +183,7 @@ azdata arc dc create --path ./custom --namespace arc --name arc --subscription <
 
 ### Install on open source, upstream Kubernetes (kubeadm)
 
-By default, the kubeadm deployment profile uses a storage class called 'local-storage' and service type 'NodePort'.  If this is acceptable you can skip the instructions below that set the desired storage class and service type and immediate run the `azdata arc dc create` command below.
+By default, the kubeadm deployment profile uses a storage class called 'local-storage' and service type 'NodePort'. If this is acceptable you can skip the instructions below that set the desired storage class and service type and immediate run the `azdata arc dc create` command below.
 
 If you want to customize your deployment profile to specify a specific storage class and/or service type, start by creating a new custom deployment profile file based on the kubeadm deployment profile by running the following command:
 
@@ -207,7 +208,7 @@ azdata arc dc config replace --path ./custom/control.json --json-values "spec.st
 #azdata arc dc config replace --path ./custom/control.json --json-values "spec.storage.logs.className=mystorageclass"
 ```
 
-By default the kubeadm deployment profile uses 'NodePort' as the service type.  **If** you are using a Kubernetes cluster that is integrated with a load balancer, you can change the configuration using the following command:
+By default the kubeadm deployment profile uses 'NodePort' as the service type. **If** you are using a Kubernetes cluster that is integrated with a load balancer, you can change the configuration using the following command:
 
 ```console
 azdata arc dc config replace --path ./custom/control.json --json-values "$.spec.endpoints[*].serviceType=LoadBalancer"
