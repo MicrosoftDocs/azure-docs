@@ -55,7 +55,7 @@ If you're still not able to find the issue, you can capture diagnostics and send
 
 Similar to uploading a model, upload an empty file named `debug` to the `LocalState` folder.
 
-:::image type="content" source="media/portal-upload-debug.png" alt-text="Portal Upload Debug":::
+:::image type="content" source="../../../includes/media/object-understanding-quickstarts/portal-upload-debug.png" alt-text="Portal Upload Debug":::
 
 Restart the app to begin recording diagnostics. Try to detect your object again. Then, close the app to stop the recording.
 
@@ -63,7 +63,7 @@ The diagnostics `.zip` file will be located in the `TempState` folder named usin
 
 In Windows Device Portal, navigate to your application's `TempState` folder and download the `.zip` file. Send the `.zip` file to us.
 
-:::image type="content" source="./media/portal-debug-diagnostics.png" alt-text="capture diagnostics":::
+:::image type="content" source="../../../includes/media/object-understanding-quickstarts/portal-debug-diagnostics.png" alt-text="capture diagnostics":::
 
 ## Next steps
 
