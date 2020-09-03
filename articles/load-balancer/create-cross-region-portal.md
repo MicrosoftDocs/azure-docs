@@ -88,7 +88,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 3. In the load balancer **Overview**, write down or copy the IP address next to **Public IP address**.
 
-4. Open a web browser and enter or past the IP address from the previous step.
+4. Open a web browser and enter or paste the IP address from the previous step.
 
 5. One of the pages from either a virtual machine in region 1 or region 2.
 
