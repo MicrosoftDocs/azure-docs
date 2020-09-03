@@ -8,12 +8,15 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 05/07/2020
+ms.date: 9/01/2020
 ms.author: aahi
 #As a potential customer, I want to know more about how Cognitive Services provides and supports Docker containers for each service.
 ---
 
 # Container support in Azure Cognitive Services
+
+> [!WARNING]
+> On June 11, 2020, Microsoft announced that it will not sell facial recognition technology to police departments in the United States until strong regulation, grounded in human rights, has been enacted. As such, customers may not use facial recognition features or functionality included in Azure Services, such as Face or Video Indexer, if a customer is, or is allowing use of such services by or for, a police department in the United States.
 
 Container support in Azure Cognitive Services allows developers to use the same rich APIs that are available in Azure, and enables flexibility in where to deploy and host the services that come with [Docker containers](https://www.docker.com/what-container). Container support is currently available for a subset of Azure Cognitive Services, including parts of:
 
@@ -56,6 +59,7 @@ Azure Cognitive Services containers provide the following set of Docker containe
 | [Speech Service API][sp-containers-cstt] | F0, S0 | **Custom Speech-to-text** | Transcribes continuous real-time speech into text using a custom model. |
 | [Speech Service API][sp-containers-tts] | F0, S0 | **Text-to-speech** | Converts text to natural-sounding speech. |
 | [Speech Service API][sp-containers-ctts] | F0, S0 | **Custom Text-to-speech** | Converts text to natural-sounding speech using a custom model. |
+| [Speech Service API][sp-containers-ntts] | F0, S0 | **Neural Text-to-speech** | Converts text to natural-sounding speech using deep neural network technology, allowing for more natural synthesized speech. |
 | [Text Analytics][ta-containers-keyphrase] | F0, S | **Key Phrase Extraction** ([image](https://go.microsoft.com/fwlink/?linkid=2018757&clcid=0x409)) | Extracts key phrases to identify the main points. For example, for the input text "The food was delicious and there were wonderful staff", the API returns the main talking points: "food" and "wonderful staff". |
 | [Text Analytics][ta-containers-language] | F0, S | **Language Detection** ([image](https://go.microsoft.com/fwlink/?linkid=2018759&clcid=0x409)) | For up to 120 languages, detects which language the input text is written in and report a single language code for every document submitted on the request. The language code is paired with a score indicating the strength of the score. |
 | [Text Analytics][ta-containers-sentiment] | F0, S | **Sentiment Analysis v3** ([image](https://go.microsoft.com/fwlink/?linkid=2018654&clcid=0x409)) | Analyzes raw text for clues about positive or negative sentiment. This version of sentiment analysis returns sentiment labels (for example *positive* or *negative*) for each document and sentence within it. |

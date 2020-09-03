@@ -54,7 +54,7 @@ The rest of this section lists the benefits and limitations of each storage opti
 
 ### Azure shared disks
 
-[Azure shared disks](../../../virtual-machines/windows/disks-shared.md) are a feature of [Azure managed disks](../../../virtual-machines/windows/managed-disks-overview.md). Windows Server Failover Clustering supports using Azure shared disks with a failover cluster instance. 
+[Azure shared disks](../../../virtual-machines/windows/disks-shared.md) are a feature of [Azure managed disks](../../../virtual-machines/managed-disks-overview.md). Windows Server Failover Clustering supports using Azure shared disks with a failover cluster instance. 
 
 **Supported OS**: All   
 **Supported SQL version**: All     

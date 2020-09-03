@@ -42,17 +42,17 @@ The secure score page of Security Center includes:
 > Today, your score only improves if you remediate *all* of the recommendations for a single resource within a control. So your score only improves when you've improved the security of a resource.
 
 
-## Accessing your secure score
+## Access your secure score
 
 You can find your overall secure score, as well as your score per subscription, through the Azure portal or programatically with the Azure Security Center REST API.
 
-### Getting your secure score from the portal
+### Get your secure score from the portal
 
 Security Center displays your score prominently in the portal: it's the first thing shown in the Overview page. If you click through to the dedicated secure score page, you'll see the score broken down by subscription. Click a single subscription to see the detailed list of prioritized recommendations and the potential impact that remediating them will have on the subscription's score.
 
 ![Overall secure score as shown in the portal](media/secure-score-security-controls/single-secure-score-via-ui.png)
 
-### Getting your secure score from the REST API
+### Get your secure score from the REST API
 
 You can access your score via the [secure score API](https://docs.microsoft.com/rest/api/securitycenter/securescores/) (currently in preview). The API methods provide the flexibility to query the data and build your own reporting mechanism of your secure scores over time. For example, you can use the **Secure Scores** API to get the score for a specific subscription. In addition, you can use the **Secure Score Controls** API to list the security controls and the current score of your subscriptions.
 
@@ -88,7 +88,7 @@ The maximum score for this control, Apply system updates, is always 6. In this e
 |**Secure score**<br>Multiple subscriptions|<br>The current scores for all resources across all subscriptions are added and the calculation is then the same as for a single subscription<br><br>When viewing multiple subscriptions, secure score evaluates all resources within all enabled policies and groups their combined impact on each security control's maximum score.<br>![Secure score for multiple subscriptions with all controls enabled](media/secure-score-security-controls/secure-score-example-multiple-subs.png)<br>The combined score is **not** an average; rather it's the evaluated posture of the status of all resources across all subscriptions.<br>Here too, if you go to the recommendations page and add up the potential points available, you will find that it's the difference between the current score (24) and the maximum score available (60).|
 ||||
 
-## Improving your secure score
+## Improve your secure score
 
 To improve your secure score, remediate security recommendations from your recommendations list. You can remediate each recommendation manually for each resource, or by using the **Quick Fix!** option (when available) to apply a remediation for a recommendation to a group of resources quickly. For more information, see [Remediate recommendations](security-center-remediate-recommendations.md).
 
@@ -145,7 +145,7 @@ The table below lists the security controls in Azure Security Center. For each c
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">Manage access and permissions (max score 4)</p></strong>A core part of a security program is ensuring your users have the necessary access to do their jobs but no more than that: the <a href="https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models">least privilege access model</a>.<br>Control access to your resources by creating role assignments with <a href="https://docs.microsoft.com/azure/role-based-access-control/overview">role-based access control (RBAC)</a>. A role assignment consists of three elements:<br>- <strong>Security principal</strong>: the object the user is requesting access to<br>- <strong>Role definition</strong>: their permissions<br>- <strong>Scope</strong>: the set of resources to which the permissions apply</td>
-    <td class="tg-lboi"; width=55%>- Deprecated accounts should be removed from your subscription (Preview)<br>- Deprecated accounts with owner permissions should be removed from your subscription (Preview)<br>- External accounts with owner permissions should be removed from your subscription (Preview)<br>- External accounts with write permissions should be removed from your subscription (Preview)<br>- There should be more than one owner assigned to your subscription<br>- Role-Based Access Control (RBAC) should be used on Kubernetes Services (Preview)<br>- Service Fabric clusters should only use Azure Active Directory for client authentication</td>
+    <td class="tg-lboi"; width=55%>- Deprecated accounts should be removed from your subscription (Preview)<br>- Deprecated accounts with owner permissions should be removed from your subscription (Preview)<br>- External accounts with owner permissions should be removed from your subscription (Preview)<br>- External accounts with write permissions should be removed from your subscription (Preview)<br>- There should be more than one owner assigned to your subscription<br>- Role-Based Access Control (RBAC) should be used on Kubernetes Services (Preview)<br>- Service Fabric clusters should only use Azure Active Directory for client authentication<br>- Service principals should be used to protect your subscriptions instead of Management Certificates</td>
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">Remediate security configurations (max score 4)</p></strong>Misconfigured IT assets have a higher risk of being attacked. Basic hardening actions are often forgotten when assets are being deployed and deadlines must be met. Security misconfigurations can be at any level in the infrastructure: from the operating systems and network appliances, to cloud resources.<br>Azure Security Center continually compares the configuration of your resources with requirements in industry standards, regulations, and benchmarks. When you've configured the relevant "compliance packages" (standards and baselines) that matter to your organization, any gaps will result in security recommendations that include the CCEID and an explanation of the potential security impact.<br>Commonly used packages are <a href="https://docs.microsoft.com/azure/security/benchmarks/introduction">Azure Security Benchmark</a> and <a href="https://www.cisecurity.org/benchmark/azure/">CIS Microsoft Azure Foundations Benchmark version 1.1.0</a></td>

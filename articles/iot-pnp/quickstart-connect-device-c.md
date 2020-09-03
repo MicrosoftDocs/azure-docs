@@ -91,7 +91,10 @@ You use the device SDK to build the included sample code:
 
 To run the sample application in the SDK that simulates an IoT Plug and Play device sending telemetry to your IoT hub:
 
-Create an environment variable called **IOTHUB_DEVICE_CONNECTION_STRING** to store the device connection string you made a note of previously.
+Create two environment variables to configure the sample to use a connection string to connect to your IoT hub:
+
+- **IOTHUB_DEVICE_SECURITY_TYPE** with the value `"connectionString"`
+- **IOTHUB_DEVICE_CONNECTION_STRING** to store the device connection string you made a note of previously.
 
 From the _cmake_ folder, navigate to the folder that contains the executable file and run it:
 

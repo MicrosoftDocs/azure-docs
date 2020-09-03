@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.workload: data-services
 
 ms.topic: conceptual
-ms.date: 06/18/2020
+ms.date: 08/21/2020
 author: djpmsft
 ms.author: daperlov
 manager: anandsub
@@ -38,6 +38,8 @@ At this time, linked service parameterization is supported in the Data Factory U
 - MySQL
 - Oracle
 - SQL Server
+- Generic HTTP
+- Generic REST
 
 ## Data Factory UI
 

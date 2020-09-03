@@ -11,7 +11,7 @@ In this quickstart, you'll learn how to use the Speech Devices SDK for Windows t
 
 The application is built with the Speech SDK package, and the Eclipse Java IDE (v4) on 64-bit Windows. It runs on a 64-bit Java 8 runtime environment (JRE).
 
-This guide requires an [Azure Cognitive Services](../get-started.md) account with a Speech service resource. If you don't have an account, you can use the [free trial](https://azure.microsoft.com/try/cognitive-services/) to get a subscription key.
+This guide requires an [Azure Cognitive Services](../get-started.md) account with a Speech service resource.
 
 The source code for the [sample application](https://aka.ms/sdsdk-download-JRE) is included with the Speech Devices SDK. It's also [available on GitHub](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK).
 
@@ -29,7 +29,7 @@ This quickstart requires:
    > [!NOTE]
    > This quickstart assumes that the app is extracted to C:\SDSDK\JRE-Sample-Release
 
-Conversation Transcription is currently only available for "en-US" and "zh-CN", in the “centralus” and “eastasia” regions. You must have a speech key in one of those regions to use Conversation Transcription.
+Conversation Transcription is currently only available for "en-US" and "zh-CN", in the "centralus" and "eastasia" regions. You must have a speech key in one of those regions to use Conversation Transcription.
 
 If you plan to use the intents you'll need a [Language Understanding Service (LUIS)](https://docs.microsoft.com/azure/cognitive-services/luis/azureibizasubscription) subscription. To learn more about LUIS and intent recognition, see [Recognize speech intents with LUIS, C#](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-recognize-intents-from-speech-csharp). A [sample LUIS model](https://aka.ms/sdsdk-luis) is available for this app.
 
@@ -124,7 +124,7 @@ If you plan to use the intents you'll need a [Language Understanding Service (LU
 
    ![Sample Speech Devices SDK example application and options](../media/speech-devices-sdk/java-sample-app-windows.png)
 
-1. Try the new **Conversation Transcription** demo. Start transcribing with **Session** > **Start**. By default everyone is a guest. However, if you have participant’s voice signatures they can be put into a file `participants.properties` in the project folder **target/classes**. To generate the voice signature, look at [Transcribe conversations (SDK)](../how-to-use-conversation-transcription-service.md).
+1. Try the new **Conversation Transcription** demo. Start transcribing with **Session** > **Start**. By default everyone is a guest. However, if you have participant's voice signatures they can be put into a file `participants.properties` in the project folder **target/classes**. To generate the voice signature, look at [Transcribe conversations (SDK)](../how-to-use-conversation-transcription-service.md).
 
    ![Demo Conversation Transcription application](../media/speech-devices-sdk/cts-sample-app-windows.png)
 

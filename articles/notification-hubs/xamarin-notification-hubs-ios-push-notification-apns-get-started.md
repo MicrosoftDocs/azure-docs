@@ -12,7 +12,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin-ios
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.custom: mvc
+ms.custom: "mvc, devx-track-csharp"
 ms.date: 07/07/2020
 ms.author: sethm
 ms.reviewer: thsomasu

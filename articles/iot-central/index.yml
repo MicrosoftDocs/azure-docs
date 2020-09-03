@@ -98,6 +98,8 @@ productDirectory:
             url: ./retail/tutorial-iot-central-connected-logistics.md
           - text: Create a digital distribution center application
             url: ./retail/tutorial-iot-central-digital-distribution-center.md 
+          - text: Create a video analytics application
+            url: ./retail/tutorial-video-analytics-create-app.md 
 
     # Card
     - title: Build for healthcare

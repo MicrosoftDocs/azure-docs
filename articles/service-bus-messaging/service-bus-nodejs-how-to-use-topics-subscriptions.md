@@ -438,5 +438,6 @@ Now that you've learned the basics of Service Bus topics, follow these links to 
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
 [SqlFilter]: /javascript/api/@azure/arm-servicebus/sqlfilter?view=azure-node-latest
 [Node.js Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
-[Create and deploy a Node.js application to an Azure Web Site]: ../app-service/app-service-web-get-started-nodejs.md
+[Create and deploy a Node.js application to Azure App Service]: ../app-service/quickstart-nodejs.md
 [Node.js Cloud Service with Storage]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
+

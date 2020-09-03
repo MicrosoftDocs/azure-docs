@@ -70,7 +70,7 @@ Following this method, you can go on to define models for the hospital's wards, 
 
 [!INCLUDE [Azure Digital Twins: validate models info](../../includes/digital-twins-validate.md)]
 
-## Manage models with APIs.
+## Manage models with APIs
 
 The following sections show how to complete different model management operations using the [Azure Digital Twins APIs and SDKs](how-to-use-apis-sdks.md).
 
@@ -167,6 +167,30 @@ The `RetrieveModelWithDependencies` call returns not only the requested model, b
 
 Models are not necessarily returned in exactly the document form they were uploaded in. Azure Digital Twins only guarantees that the return form will be semantically equivalent. 
 
+### Update models
+
+Once a model is uploaded to your instance, the entire model interface is immutable. This means there is no traditional "editing" of models.
+
+Instead, if you want to make changes to a model in Azure Digital Twins, the way to do this is to upload a **newer version** of the same model. During preview, advancing a model version will only allow you to remove fields, not add new ones (to add new fields, you should just [create a brand new model](#create-models)).
+
+To create a new version of an existing model, start with the DTDL of the original model. Update the fields you would like to change.
+
+Then, mark this as a newer version of the model by updating the `id` field of the model. The last section of the model ID, after the `;`, represents the model number. To indicate that this is now a more-updated version of this model, increment the number at the end of the `id` value to any number greater than the current version number.
+
+For example, if your previous model ID looked like this:
+
+```json
+"@id": "dtmi:com:contoso:PatientRoom;1",
+```
+
+version 2 of this model might look like this:
+
+```json
+"@id": "dtmi:com:contoso:PatientRoom;2",
+```
+
+Then, upload the new version of the model to your instance. It will take the place of the old version, and new twins that you create using this model will use the updated version.
+
 ### Remove models
 
 Models can also be removed from the service, in one of two ways:
@@ -175,7 +199,7 @@ Models can also be removed from the service, in one of two ways:
 
 These are separate features and they do not impact each other, although they may be used together to remove a model gradually. 
 
-### Decommissioning
+#### Decommissioning
 
 Here is the code to decommission a model:
 
@@ -250,6 +274,8 @@ Azure Digital Twins does not prevent this state, so be careful to patch twins ap
 ## Manage models with CLI
 
 Models can also be managed using the Azure Digital Twins CLI. The commands can be found in [*How-to: Use the Azure Digital Twins CLI*](how-to-use-cli.md).
+
+[!INCLUDE [digital-twins-known-issue-cloud-shell](../../includes/digital-twins-known-issue-cloud-shell.md)]
 
 ## Next steps
 

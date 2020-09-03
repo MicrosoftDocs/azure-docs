@@ -6,7 +6,7 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 07/29/2020
 ms.author: mjbrown 
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, devx-track-csharp
 ---
 
 # Create an Azure Cosmos container
