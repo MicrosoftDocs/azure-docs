@@ -166,7 +166,7 @@ When you create a logic app, you can select the **Correlated in-order delivery u
 
 ## Connector reference
 
-From a service bus, the Service Bus connector can save up to 1,500 unique sessions at a time to the connector cache, per connection. If the session count exceeds this limit, old sessions are removed from the cache. For more information, see [Message sessions](../service-bus-messaging/message-sessions.md).
+From a service bus, the Service Bus connector can save up to 1,500 unique sessions at a time to the connector cache, per [Service Bus subscription or topic](../service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal.md). If the session count exceeds this limit, old sessions are removed from the cache. For more information, see [Message sessions](../service-bus-messaging/message-sessions.md).
 
 For other technical details about triggers, actions, and limits, which are described by the connector's Swagger description, review the [connector reference page](/connectors/servicebus/). For more about Azure Service Bus Messaging, see [What is Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md)?
 
