@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 05/05/2020
+ms.date: 09/03/2020
 ms.author: aahi
 ms.custom: seodec18
 ---
@@ -189,7 +189,7 @@ When the asynchronous POST has run successfully, it returns an **HTTP 202** stat
 
 ```http
  content-length: 0
- date: Fri, 13 Sep 2019 16:23:01 GMT
+ date: Fri, 04 Sep 2020 16:23:01 GMT
  operation-location: http://localhost:5000/vision/v3.0/read/operations/a527d445-8a74-4482-8cb3-c98a65ec7ef9
  server: Kestrel
 ```
@@ -304,7 +304,7 @@ When the asynchronous POST has run successfully, it returns an **HTTP 202** stat
 
 ```http
  content-length: 0
- date: Fri, 13 Sep 2019 16:23:01 GMT
+ date: Fri, 04 Sep 2020 16:23:01 GMT
  operation-location: http://localhost:5000/vision/v3.1/read/operations/a527d445-8a74-4482-8cb3-c98a65ec7ef9
  server: Kestrel
 ```
