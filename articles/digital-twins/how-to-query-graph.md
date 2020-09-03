@@ -176,41 +176,7 @@ You can **combine** any of the above types of query using combination operators 
 | Get twins that have a relationship named *Contains* with another twin that has an ID of *id1* | ​`​SELECT Room​`​<br>​`FROM DIGITIALTWINS Room​​`​<br>​`JOIN Thermostat ON Room.Contains​​`​<br>​`WHERE Thermostat.$dtId = 'id1'`​ |
 | Get all the rooms of this room model that are contained by *floor11* | `SELECT Room`​<br>​`FROM DIGITALTWINS Floor​`​<br>​`JOIN Room RELATED Floor.Contains​`​<br>​`WHERE Floor.$dtId = 'floor11'​`​<br>​`AND IS_OF_MODEL(Room, 'dtmi:contosocom:DigitalTwins:Room;1')​` |
 
-## Run queries with an API call
-
-Once you have decided on a query string, you execute it by making a call to the **Query API**.
-The following code snippet illustrates this call from the client app:
-
-```csharp
-var client = new AzureDigitalTwinsAPIClient(<your-credentials>);
-client.BaseUri = new Uri(<your-Azure-Digital-Twins-instance-URL>);
-
-QuerySpecification spec = new QuerySpecification("SELECT * FROM digitaltwins");
-QueryResult result = await client.Query.QueryTwinsAsync(spec);
-```
-
-This call returns query results in the form of a QueryResult object. 
-
-Query calls support paging. Here is a complete example with error handling and paging:
-
-```csharp
-string query = "SELECT * FROM digitaltwins";
-try
-{
-    AsyncPageable<string> qresult = client.QueryAsync(query);
-    await foreach (string item in qresult) 
-    {
-        // Do something with each result
-    }
-}
-catch (RequestFailedException e)
-{
-    Log.Error($"Error {e.Status}: {e.Message}");
-    return null;
-}
-```
-
-## Expressions and conditions
+## Reference: Expressions and conditions
 
 This section contains reference for the operators and functions available when writing Azure Digital Twins queries.
 
@@ -272,6 +238,40 @@ In routes conditions, the following string functions are supported:
 | STARTS_WITH(x, y) | Returns a Boolean indicating whether the first string expression starts with the second. |
 | ENDS_WITH(x, y) | Returns a Boolean indicating whether the first string expression ends with the second. |
 | CONTAINS(x,y) | Returns a Boolean indicating whether the first string expression contains the second. |
+
+## Run queries with an API call
+
+Once you have decided on a query string, you execute it by making a call to the **Query API**.
+The following code snippet illustrates this call from the client app:
+
+```csharp
+var client = new AzureDigitalTwinsAPIClient(<your-credentials>);
+client.BaseUri = new Uri(<your-Azure-Digital-Twins-instance-URL>);
+
+QuerySpecification spec = new QuerySpecification("SELECT * FROM digitaltwins");
+QueryResult result = await client.Query.QueryTwinsAsync(spec);
+```
+
+This call returns query results in the form of a QueryResult object. 
+
+Query calls support paging. Here is a complete example with error handling and paging:
+
+```csharp
+string query = "SELECT * FROM digitaltwins";
+try
+{
+    AsyncPageable<string> qresult = client.QueryAsync(query);
+    await foreach (string item in qresult) 
+    {
+        // Do something with each result
+    }
+}
+catch (RequestFailedException e)
+{
+    Log.Error($"Error {e.Status}: {e.Message}");
+    return null;
+}
+```
 
 ## Query limitations
 
