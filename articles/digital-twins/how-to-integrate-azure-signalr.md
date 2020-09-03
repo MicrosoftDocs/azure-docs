@@ -142,9 +142,9 @@ Next, publish your function to Azure, using the steps described in the [*Publish
 
     :::image type="content" source="media/how-to-integrate-azure-signalr/functions-negotiate.png" alt-text="Azure portal view of the function app, with 'Functions' highlighted in the menu. The list of functions are shown on the page, and the 'negotiate' function is also highlighted.":::
 
-    Hit *Get function URL* and copy the value **up through _/api_ (don't include the last _/negotiate?_)**. You wil use this later.
+    Hit *Get function URL* and copy the value **up through _/api_ (don't include the last _/negotiate?_)**. You will use this later.
 
-    :::image type="content" source="media/how-to-integrate-azure-signalr/get-function-url.png" alt-text="Azure portal view of the 'negotiate' function. The 'Get function URL' buttom is highlighted, and the portion of the URL from the beginning through '/api'":::
+    :::image type="content" source="media/how-to-integrate-azure-signalr/get-function-url.png" alt-text="Azure portal view of the 'negotiate' function. The 'Get function URL' button is highlighted, and the portion of the URL from the beginning through '/api'":::
 
 1. Finally, add your Azure SignalR **connection string** from earlier to the function's app settings, using the following Azure CLI command. The command can be run in [Azure Cloud Shell](https://shell.azure.com), or locally if you have the Azure CLI [installed on your machine](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest):
  
