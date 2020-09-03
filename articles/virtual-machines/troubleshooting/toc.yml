@@ -106,6 +106,8 @@
       href: unresponsive-vm-apply-group-policy.md
     - name: VM is unresponsive when applying security policy
       href: unresponsive-vm-apply-security-policy.md
+    - name: Windows boot manager error - Status Invalid Image Hash
+      href: windows-boot-error-invalid-image-hash.md
     - name: Windows stop error - Bad System Config Info
       href: windows-stop-error-bad-system-config-info.md
     - name: Windows stop error - Status No Memory

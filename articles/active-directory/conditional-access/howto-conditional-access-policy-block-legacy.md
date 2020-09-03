@@ -23,7 +23,7 @@ Due to the increased risk associated with legacy authentication protocols, Micro
 
 The following steps will help create a Conditional Access policy to block legacy authentication requests. This policy is put in to [Report-only mode](howto-conditional-access-insights-reporting.md) to start so administrators can determine the impact they will have on existing users. When administrators are comfortable that the policy applies as they intend, they can switch to **On** or stage the deployment by adding specific groups and excluding others.
 
-1. Sign in to the **Azure portal** as a global administrator, security administrator, or Conditional Access administrator.
+1. Sign in to the **Azure portal** as a global administrator.
 1. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.
 1. Select **New policy**.
 1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
@@ -34,7 +34,7 @@ The following steps will help create a Conditional Access policy to block legacy
 1. Under **Cloud apps or actions**, select **All cloud apps**.
    1. Select **Done**.
 1. Under **Conditions** > **Client apps**, set **Configure** to **Yes**.
-   1. Check only the boxes **Exchange ActiveSync clients** and **Other clients**. To deploy Exchange ActiveSync Conditional Access policy in Azure, the user must also be a Global Administrator.
+   1. Check only the boxes **Exchange ActiveSync clients** and **Other clients**.
    1. Select **Done**.
 1. Under **Access controls** > **Grant**, select **Block access**.
    1. Select **Select**.
