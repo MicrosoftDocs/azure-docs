@@ -53,18 +53,18 @@ The following table shows the endpoints for all customers:
 | Azure Active Directory Authority Endpoint | https://login.microsoftonline.us |
 | Microsoft Graph API for Microsoft 365 Government - GCC High | https://graph.microsoft.us |
 | Microsoft Graph API for Microsoft 365 Government - DoD | https://dod-graph.microsoft.us |
-| Azure Government services endpoints | For details, see [Azure Government developer guide](https://docs.microsoft.com/azure/azure-government/documentation-government-developer-guide) |
-| Microsoft 365 Government - GCC High endpoints | For details, see [Office 365 U.S. Government GCC High endpoints](https://docs.microsoft.com/office365/enterprise/office-365-u-s-government-gcc-high-endpoints) |
-| Microsoft 365 Government - DoD | For details, see [Office 365 U.S. Government DoD endpoints](https://docs.microsoft.com/office365/enterprise/office-365-u-s-government-dod-endpoints) |
+| Azure Government services endpoints | For details, see [Azure Government developer guide](../../azure-government/documentation-government-developer-guide.md) |
+| Microsoft 365 Government - GCC High endpoints | For details, see [Office 365 U.S. Government GCC High endpoints](/office365/enterprise/office-365-u-s-government-gcc-high-endpoints) |
+| Microsoft 365 Government - DoD | For details, see [Office 365 U.S. Government DoD endpoints](/office365/enterprise/office-365-u-s-government-dod-endpoints) |
 
 ## Next steps
 
 For more information, see these articles:
 
-- [What is Azure Government?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome)
+- [What is Azure Government?](../../azure-government/documentation-government-welcome.md)
 
 - [Azure Government AAD Authority Endpoint Update](https://devblogs.microsoft.com/azuregov/azure-government-aad-authority-endpoint-update/)
 
 - [Microsoft Graph endpoints in US Government cloud](https://developer.microsoft.com/graph/blogs/new-microsoft-graph-endpoints-in-us-government-cloud/)
 
-- [Office 365 US Government GCC High and DoD](https://docs.microsoft.com/office365/servicedescriptions/office-365-platform-service-description/office-365-us-government/gcc-high-and-dod)
+- [Office 365 US Government GCC High and DoD](/office365/servicedescriptions/office-365-platform-service-description/office-365-us-government/gcc-high-and-dod)

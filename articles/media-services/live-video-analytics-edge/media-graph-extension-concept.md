@@ -49,8 +49,8 @@ The diagram below depicts the high-level data flow:
 
 ## Samples
 
-Checkout some of our [Jupyter notebook](https://github.com/Azure/live-video-analytics/blob/master/utilities/video-analysis/notebooks/readme.md) samples for Live Video Analytics. These notebooks will provide you with step-by-step instructions on:
+Checkout some of our [Jupyter notebook](https://github.com/Azure/live-video-analytics/blob/master/utilities/video-analysis/notebooks/readme.md) samples for Live Video Analytics. These notebooks will provide you with step-by-step instructions for **the media graph extensions** on:
 
 * How to create a Docker container image of an extension service
 * How to deploy the extension service as a container along with the Live Video Analytics container
-* How to use a Live Video Analytics media graph with an extension client and point it to the extension gRPC endpoint
+* How to use a Live Video Analytics media graph with an extension client and point it to the extension endpoint (HTTP/gRPC)

@@ -982,7 +982,9 @@ Use Azure Key Vault to pass secrets to remote runs securely instead of cleartext
 
 - [How to create a Key Vault](/azure/key-vault/quick-create-portal)
 
-- [How to provide Key Vault authentication with a managed identity](/azure/key-vault/managed-identity)
+- [How to authenticate to Key Vault](https://docs.microsoft.com/azure/key-vault/general/authentication)
+
+- [How to assign a Key Vault access policy](https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal)
 
 **Azure Security Center monitoring**: Yes
 

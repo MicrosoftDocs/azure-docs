@@ -17,7 +17,7 @@ gRPC is a modern, open-source, high-performance RPC framework that runs in any e
 
 A gRPC session is a single connection from the gRPC client to the gRPC server over the TCP/TLS port. 
 
-In a single session: The client sends a media stream descriptor followed by video frames to the server as a [protobuf](https://developers.google.com/protocol-buffers) message over the gRPC stream session. The server validates the stream descriptor, analyses the video frame, and returns inference results as a protobuf message.
+In a single session: The client sends a media stream descriptor followed by video frames to the server as a [protobuf](https://github.com/Azure/live-video-analytics/tree/master/contracts/grpc) message over the gRPC stream session. The server validates the stream descriptor, analyses the video frame, and returns inference results as a protobuf message.
 
 ![gRPC extension contract](./media/data-contracts/grpc.png)
 
