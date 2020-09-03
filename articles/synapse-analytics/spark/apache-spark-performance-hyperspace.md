@@ -9,6 +9,7 @@ ms.subservice: spark
 ms.date: 08/12/2020 
 ms.author: euang 
 ms.reviewer: euang
+zone_pivot_groups: programming-languages-spark-all-minus-sql
 ---
 
 # Hyperspace - An indexing subsystem for Apache Spark
@@ -30,6 +31,8 @@ To begin with, start a new Spark session. Since this document is a tutorial mere
 
 The output of running the cell below shows a reference to the successfully created Spark session and prints out '-1' as the value for the modified join config, which indicates that broadcast join is successfully disabled.
 
+:::zone pivot = "programming-language-scala"
+
 ```scala
 // Start your Spark session
 spark
@@ -41,6 +44,35 @@ spark.conf.set("spark.sql.autoBroadcastJoinThreshold", -1)
 println(spark.conf.get("spark.sql.autoBroadcastJoinThreshold"))
 
 ```
+
+::: zone-end
+
+:::zone pivot = "programming-language-python"
+
+```python
+# Start your Spark session
+spark
+
+# Disable BroadcastHashJoin, so Spark will use standard SortMergeJoin. Currently Hyperspace indexes utilize SortMergeJoin to speed up query.
+spark.conf.set("spark.sql.autoBroadcastJoinThreshold", -1)
+
+# Verify that BroadcastHashJoin is set correctly 
+print(spark.conf.get("spark.sql.autoBroadcastJoinThreshold"))
+```
+
+::: zone-end
+
+:::zone pivot = "programming-language-csharp"
+
+```csharp
+// Disable BroadcastHashJoin, so Spark™ will use standard SortMergeJoin. Currently hyperspace indexes utilize SortMergeJoin to speed up query.
+spark.Conf().Set("spark.sql.autoBroadcastJoinThreshold", -1);
+
+// Verify that BroadcastHashJoin is set correctly 
+Console.WriteLine(spark.Conf().Get("spark.sql.autoBroadcastJoinThreshold"));
+```
+
+::: zone-end
 
 Results in:
 
@@ -56,6 +88,8 @@ To prepare your environment, you will create sample data records and save them a
 The example records correspond to two datasets: department and employee. You should configure "empLocation" and "deptLocation" paths so that on the storage account they point to your desired location to save generated data files.
 
 The output of running below cell shows contents of our datasets as lists of triplets followed by references to dataFrames created to save the content of each dataset in our preferred location.
+
+:::zone pivot = "programming-language-scala"
 
 ```scala
 import org.apache.spark.sql.DataFrame
@@ -95,6 +129,25 @@ empData.write.mode("overwrite").parquet(empLocation)
 deptData.write.mode("overwrite").parquet(deptLocation)
 ```
 
+::: zone-end
+
+:::zone pivot = "programming-language-python"
+
+```python
+
+
+```
+
+::: zone-end
+
+:::zone pivot = "programming-language-csharp"
+
+```csharp
+
+```
+
+::: zone-end
+
 Results in:
 
 ```console
@@ -112,6 +165,8 @@ Let's verify the contents of parquet files we created above to make sure they co
 
 Running the below cell, the output displays the rows in employee and department dataFrames in a tabular form. There should be 14 employees and 4 departments, each matching with one of triplets you created in the previous cell.
 
+:::zone pivot = "programming-language-scala"
+
 ```scala
 // empLocation and deptLocation are the user defined locations above to save parquet files
 val empDF: DataFrame = spark.read.parquet(empLocation)
@@ -121,6 +176,25 @@ val deptDF: DataFrame = spark.read.parquet(deptLocation)
 empDF.show()
 deptDF.show()
 ```
+
+::: zone-end
+
+:::zone pivot = "programming-language-python"
+
+```python
+
+
+```
+
+::: zone-end
+
+:::zone pivot = "programming-language-csharp"
+
+```csharp
+
+```
+
+::: zone-end
 
 Results in:
 
@@ -175,12 +249,33 @@ First, you need to import the required libraries and create an instance of Hyper
 
 Output of running below cell shows a reference to the created instance of Hyperspace.
 
+:::zone pivot = "programming-language-scala"
+
 ```scala
 // Create an instance of Hyperspace
 import com.microsoft.hyperspace._
 
 val hyperspace: Hyperspace = Hyperspace()
 ```
+
+::: zone-end
+
+:::zone pivot = "programming-language-python"
+
+```python
+
+
+```
+
+::: zone-end
+
+:::zone pivot = "programming-language-csharp"
+
+```csharp
+
+```
+
+::: zone-end
 
 Results in:
 
@@ -209,6 +304,8 @@ WHERE Y = 2
 
 X can be an index column and Y can be an included column.
 
+:::zone pivot = "programming-language-scala"
+
 ```scala
 // Create index configurations
 import com.microsoft.hyperspace.index.IndexConfig
@@ -217,6 +314,25 @@ val empIndexConfig: IndexConfig = IndexConfig("empIndex", Seq("deptId"), Seq("em
 val deptIndexConfig1: IndexConfig = IndexConfig("deptIndex1", Seq("deptId"), Seq("deptName"))
 val deptIndexConfig2: IndexConfig = IndexConfig("deptIndex2", Seq("location"), Seq("deptName"))
 ```
+
+::: zone-end
+
+:::zone pivot = "programming-language-python"
+
+```python
+
+
+```
+
+::: zone-end
+
+:::zone pivot = "programming-language-csharp"
+
+```csharp
+
+```
+
+::: zone-end
 
 Results in:
 
@@ -229,6 +345,8 @@ deptIndexConfig2: com.microsoft.hyperspace.index.IndexConfig = [indexName: deptI
 
 Now, you create three indexes using your index configurations. For this purpose, you invoke "createIndex" command on our Hyperspace instance. This command requires an index configuration and the dataFrame containing rows to be indexed. Running the below cell creates three indexes.
 
+:::zone pivot = "programming-language-scala"
+
 ```scala
 // Create indexes from configurations
 import com.microsoft.hyperspace.index.Index
@@ -237,6 +355,25 @@ hyperspace.createIndex(empDF, empIndexConfig)
 hyperspace.createIndex(deptDF, deptIndexConfig1)
 hyperspace.createIndex(deptDF, deptIndexConfig2)
 ```
+
+::: zone-end
+
+:::zone pivot = "programming-language-python"
+
+```python
+
+
+```
+
+::: zone-end
+
+:::zone pivot = "programming-language-csharp"
+
+```csharp
+
+```
+
+::: zone-end
 
 Results in:
 
@@ -254,9 +391,30 @@ Below cell uses DataFrame's 'show' action to fully print the rows and show detai
 "dfSignature" is automatically generated by Hyperspace and is unique for each index. Hyperspace uses this signature internally to maintain the index and exploit it at query time.
 In the output below, all three indexes should have "ACTIVE" as status and their name, indexed columns, and included columns should match with what we defined in index configurations above.
 
+:::zone pivot = "programming-language-scala"
+
 ```scala
 hyperspace.indexes.show
 ```
+
+::: zone-end
+
+:::zone pivot = "programming-language-python"
+
+```python
+
+
+```
+
+::: zone-end
+
+:::zone pivot = "programming-language-csharp"
+
+```csharp
+
+```
+
+::: zone-end
 
 Results in:
 
@@ -274,11 +432,32 @@ You can drop an existing index by using the "deleteIndex" API and providing the 
 
 Below cell deletes index with name "deptIndex2" and lists Hyperspace metadata after that. The output should be similar to above cell for "List Indexes" except for "deptIndex2", which now should have its status changed into "DELETED".
 
+:::zone pivot = "programming-language-scala"
+
 ```scala
 hyperspace.deleteIndex("deptIndex2")
 
 hyperspace.indexes.show
 ```
+
+::: zone-end
+
+:::zone pivot = "programming-language-python"
+
+```python
+
+
+```
+
+::: zone-end
+
+:::zone pivot = "programming-language-csharp"
+
+```csharp
+
+```
+
+::: zone-end
 
 Results in:
 
@@ -294,6 +473,8 @@ Results in:
 
 You can use the "restoreIndex" API to restore a deleted index. This will bring back the latest version of index into ACTIVE status and makes it usable again for queries. The below cell shows an example of "restoreIndex" usage. You delete "deptIndex1" and restore it. The output shows "deptIndex1" first went into the "DELETED" status after invoking "deleteIndex" command and came back to the "ACTIVE" status after calling "restoreIndex".
 
+:::zone pivot = "programming-language-scala"
+
 ```scala
 hyperspace.deleteIndex("deptIndex1")
 
@@ -303,6 +484,25 @@ hyperspace.restoreIndex("deptIndex1")
 
 hyperspace.indexes.show
 ```
+
+::: zone-end
+
+:::zone pivot = "programming-language-python"
+
+```python
+
+
+```
+
+::: zone-end
+
+:::zone pivot = "programming-language-csharp"
+
+```csharp
+
+```
+
+::: zone-end
 
 Results in:
 
@@ -331,11 +531,32 @@ You can perform a hard-delete that is, fully remove files and the metadata entry
 
 The cell below vacuums the "deptIndex2" index and shows Hyperspace metadata after vacuuming. You should see metadata entries for two indexes "deptIndex1" and "empIndex" both with "ACTIVE" status and no entry for "deptIndex2".
 
+:::zone pivot = "programming-language-scala"
+
 ```scala
 hyperspace.vacuumIndex("deptIndex2")
 
 hyperspace.indexes.show
 ```
+
+::: zone-end
+
+:::zone pivot = "programming-language-python"
+
+```python
+
+
+```
+
+::: zone-end
+
+:::zone pivot = "programming-language-csharp"
+
+```csharp
+
+```
+
+::: zone-end
 
 Results in:
 
@@ -354,6 +575,8 @@ By using "enableHyperspace" command, Hyperspace optimization rules become visibl
 By using "disableHyperspace' command, Hyperspace rules no longer apply during query optimization. You should note that disabling Hyperspace has no impact on created indexes as they remain intact.
 Below cell shows how you can use these commands to enable or disable hyperspace. The output simply shows a reference to the existing Spark session whose configuration is updated.
 
+:::zone pivot = "programming-language-scala"
+
 ```scala
 // Enable Hyperspace
 spark.enableHyperspace
@@ -361,6 +584,25 @@ spark.enableHyperspace
 // Disable Hyperspace
 spark.disableHyperspace
 ```
+
+::: zone-end
+
+:::zone pivot = "programming-language-python"
+
+```python
+
+
+```
+
+::: zone-end
+
+:::zone pivot = "programming-language-csharp"
+
+```csharp
+
+```
+
+::: zone-end
 
 Results in:
 
@@ -375,6 +617,8 @@ In order to make Spark use Hyperspace indexes during query processing, you need 
 
 The cell below enables Hyperspace and creates two DataFrames containing your sample data records, which you use for running example queries. For each DataFrame, a few sample rows are printed.
 
+:::zone pivot = "programming-language-scala"
+
 ```scala
 // Enable Hyperspace
 spark.enableHyperspace
@@ -385,6 +629,25 @@ val deptDFrame: DataFrame = spark.read.parquet(deptLocation)
 empDFrame.show(5)
 deptDFrame.show(5)
 ```
+
+::: zone-end
+
+:::zone pivot = "programming-language-python"
+
+```python
+
+
+```
+
+::: zone-end
+
+:::zone pivot = "programming-language-csharp"
+
+```csharp
+
+```
+
+::: zone-end
 
 Results in:
 
@@ -446,6 +709,8 @@ The output of running the cell below shows:
 
 In the query plan, the "FileScan" operator at the bottom of the plan shows the datasource where the records were read from. The location of this file indicates the path to the latest version of the "deptIndex1" index. This shows that according to the query and using Hyperspace optimization rules, Spark decided to exploit the proper index at runtime.
 
+:::zone pivot = "programming-language-scala"
+
 ```scala
 // Filter with equality predicate
 
@@ -454,6 +719,25 @@ eqFilter.show()
 
 eqFilter.explain(true)
 ```
+
+::: zone-end
+
+:::zone pivot = "programming-language-python"
+
+```python
+
+
+```
+
+::: zone-end
+
+:::zone pivot = "programming-language-csharp"
+
+```csharp
+
+```
+
+::: zone-end
 
 Results in:
 
@@ -503,6 +787,8 @@ WHERE deptId > 20
 
 Similar to the first example, the output of the cell below shows the query results (names of two departments) and the query plan. The location of data file in the FileScan operator shows that 'deptIndex1" was used to run the query.
 
+:::zone pivot = "programming-language-scala"
+
 ```scala
 // Filter with range selection predicate
 
@@ -511,6 +797,25 @@ rangeFilter.show()
 
 rangeFilter.explain(true)
 ```
+
+::: zone-end
+
+:::zone pivot = "programming-language-python"
+
+```python
+
+
+```
+
+::: zone-end
+
+:::zone pivot = "programming-language-csharp"
+
+```csharp
+
+```
+
+::: zone-end
 
 Results in:
 
@@ -558,6 +863,8 @@ WHERE  employees.deptId = departments.deptId
 
 The output of running the cell below shows the query results, which are the names of 14 employees and the name of department each employee works in. The query plan is also included in the output. Notice how the file locations for two FileScan operators shows that Spark used "empIndex" and "deptIndex1" indexes to run the query.
 
+:::zone pivot = "programming-language-scala"
+
 ```scala
 // Join
 
@@ -570,6 +877,25 @@ eqJoin.show()
 
 eqJoin.explain(true)
 ```
+
+::: zone-end
+
+:::zone pivot = "programming-language-python"
+
+```python
+
+
+```
+
+::: zone-end
+
+:::zone pivot = "programming-language-csharp"
+
+```csharp
+
+```
+
+::: zone-end
 
 Results in:
 
@@ -635,6 +961,8 @@ Project [empName#528, deptName#534]
 
 The index usage is transparent to whether you use the DataFrame API or Spark SQL. The following example shows the same join example as before, in sql form, showing the use of indexes if applicable.
 
+:::zone pivot = "programming-language-scala"
+
 ```scala
 empDFrame.createOrReplaceTempView("EMP")
 deptDFrame.createOrReplaceTempView("DEPT")
@@ -644,6 +972,25 @@ val joinQuery = spark.sql("SELECT EMP.empName, DEPT.deptName FROM EMP, DEPT WHER
 joinQuery.show()
 joinQuery.explain(true)
 ```
+
+::: zone-end
+
+:::zone pivot = "programming-language-python"
+
+```python
+
+
+```
+
+::: zone-end
+
+:::zone pivot = "programming-language-csharp"
+
+```csharp
+
+```
+
+::: zone-end
 
 Results in:
 
@@ -720,10 +1067,31 @@ Indexes are great but how do you know if they are being used? Hyperspace allows 
 
 The following cell shows an example with HTML. The highlighted section represents the difference between original and updated plans along with the indexes being used.
 
+:::zone pivot = "programming-language-scala"
+
 ```scala
 spark.conf.set("spark.hyperspace.explain.displayMode", "html")
 hyperspace.explain(eqJoin) { displayHTML }
 ```
+
+::: zone-end
+
+:::zone pivot = "programming-language-python"
+
+```python
+
+
+```
+
+::: zone-end
+
+:::zone pivot = "programming-language-csharp"
+
+```csharp
+
+```
+
+::: zone-end
 
 Results in:
 
@@ -775,6 +1143,8 @@ Second cell runs our range selection query example. The results should now conta
 
 ### Specific index refresh
 
+:::zone pivot = "programming-language-scala"
+
 ```scala
 val extraDepartments = Seq(
       (50, "Inovation", "Seattle"),
@@ -789,6 +1159,25 @@ deptDFrameUpdated.show(10)
 
 hyperspace.refreshIndex("deptIndex1")
 ```
+
+::: zone-end
+
+:::zone pivot = "programming-language-python"
+
+```python
+
+
+```
+
+::: zone-end
+
+:::zone pivot = "programming-language-csharp"
+
+```csharp
+
+```
+
+::: zone-end
 
 Results in:
 
@@ -814,12 +1203,33 @@ deptDFrameUpdated: org.apache.spark.sql.DataFrame = [deptId: int, deptName: stri
 
 ### Range selection
 
+:::zone pivot = "programming-language-scala"
+
 ```scala
 val newRangeFilter: DataFrame = deptDFrameUpdated.filter("deptId > 20").select("deptName")
 newRangeFilter.show()
 
 newRangeFilter.explain(true)
 ```
+
+::: zone-end
+
+:::zone pivot = "programming-language-python"
+
+```python
+
+
+```
+
+::: zone-end
+
+:::zone pivot = "programming-language-csharp"
+
+```csharp
+
+```
+
+::: zone-end
 
 Results in:
 
