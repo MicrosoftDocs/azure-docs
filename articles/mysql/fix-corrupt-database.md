@@ -27,8 +27,8 @@ It is recommended to resolve the corruption issue with a **dump and restore meth
 ### Backup your database or tables
 
 > [!Important]
-> Make your have configured a firewall rule in order to access the server from your client machine. See how to configure [firewall rule on single server](howto-manage-firewall-using-portal.md) and [firewall rule on flexible server](flexible-server/how-to-connect-tls-ssl.md).
-> Use SSL option ```--ssl-cert``` for **mysqldump** if SSL enabled
+> - Make your have configured a firewall rule in order to access the server from your client machine. See how to configure [firewall rule on single server](howto-manage-firewall-using-portal.md) and [firewall rule on flexible server](flexible-server/how-to-connect-tls-ssl.md).
+> - Use SSL option ```--ssl-cert``` for **mysqldump** if SSL enabled
 
 Create a backup file from the command-line using mysqldump using this command
 
