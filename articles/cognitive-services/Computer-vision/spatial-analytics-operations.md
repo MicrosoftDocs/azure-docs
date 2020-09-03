@@ -14,11 +14,10 @@ ms.author: aahi
 
 # Spatial Analysis Operations
 
-Project Archon enables the analysis of real-time streaming video from camera devices. For each camera device you configure, the NEW-START operations for spatial analysis will NEW-END generate an output stream of JSON messages that are being egressed to your instance of Azure IoT Hub. 
+Project Archon enables the analysis of real-time streaming video from camera devices. For each camera device you configure, the operations for spatial analysis will generate an output stream of JSON messages sent to your instance of Azure IoT Hub. 
 
-The Project Archon container implements the following NEW_START operations NEW-END for Spatial Analysis:
+The Project Archon container implements the following operations for Spatial Analysis:
 
-NEW START
 | Operation Identifier| Description|
 |---------|---------|
 | cognitiveservices.vision.spatialanalysis-personcount | Counts people in a designated zone in the camera's field of view. <br> Emits an initial _personCountEvent_ event and then _personCountEvent_ events when the count changes.  |
@@ -27,9 +26,7 @@ NEW START
 | cognitiveservices.vision.spatialanalysis-persondistance | Tracks when people violate a distance rule. <br> Emits a _personDistanceEvent_ periodically with the location of each distance violation. |
 cognitiveservices.vision.spatialanalysis-videorecorder | This operation enables recording of video streams as being processed into an Azure Blob Storage instance you can deploy on the edge or in the cloud. You are in control of where the data is being stored. The data is not transmitted to Microsoft. |
 
-
-
-All above the operations except `cognitiveservices.vision.spatialanalysis-videorecorder` are also available in .debug flavour which has the apability to visualize the video frames as being processed. You will need to run "xhost +" on the  **host computer** to enable the visualization of the video frames and events
+All above the operations except `cognitiveservices.vision.spatialanalysis-videorecorder` are also available in the `.debug` version, which has the capability to visualize the video frames as being processed. You will need to run `xhost +` on the host computer to enable the visualization of video frames and events.
 
 | Operation Identifier| Description|
 |---------|---------|
@@ -38,7 +35,7 @@ All above the operations except `cognitiveservices.vision.spatialanalysis-videor
 | cognitiveservices.vision.spatialanalysis-personcrossingpolygon.debug | Tracks when a person crosses a designated line in the camera's field of view. <br> Emits a _personLineEvent_ event when the person crosssed the zone and provides directional info. |
 | cognitiveservices.vision.spatialanalysis-persondistance.debug | Tracks when people violate a distance rule. <br> Emits a _personDistanceEvent_ periodically with the location of each distance violation. |
 
-Project Archon can also be run with [Live Video Analytics](https://azure.microsoft.com/en-us/services/media-services/live-video-analytics/) as their Video AI module, more details on the setup can be found in the [Project Archon LVA Setup page](Project-Archon-LVA-Setup.md). Below is the list of the operations supported with Live Video Analytics
+Spatial Analytics can also be run with [Live Video Analytics](https://azure.microsoft.com/services/media-services/live-video-analytics/) as their Video AI module, more details on the setup can be found in the [Project Archon LVA Setup page](Project-Archon-LVA-Setup.md). Below is the list of the operations supported with Live Video Analytics.
 
 | Operation Identifier| Description|
 |---------|---------|
@@ -47,11 +44,10 @@ Project Archon can also be run with [Live Video Analytics](https://azure.microso
 | cognitiveservices.vision.spatialanalysis-personcrossingpolygon.livevideoanalytics | Tracks when a person crosses a designated line in the camera's field of view. <br> Emits a _personLineEvent_ event when the person crosssed the zone and provides directional info. |
 | cognitiveservices.vision.spatialanalysis-persondistance.livevideoanalytics | Tracks when people violate a distance rule. <br> Emits a _personDistanceEvent_ periodically with the location of each distance violation. |
 
-<br>Live Video Analytics skills are also available in .debug flavour (e.g. cognitiveservices.vision.spatialanalysis-personcount.livevideoanalytics.debug) which has the apability to visualize the video frames as being processed. You will need to run "xhost +" on the host computer to enable the visualization of the video frames and events
+Live Video Analytics operations are also available in the `.debug` version (e.g. cognitiveservices.vision.spatialanalysis-personcount.livevideoanalytics.debug) which has the capability to visualize the video frames as being processed. You will need to run "xhost +" on the host computer to enable the visualization of the video frames and events
 
-
-
-<br>**IMPORTANT NOTE:**  The computer vision AI models detect and locate human presence in video footage and output by using a bounding box around a human body. The AI models do not attempt to detect faces or discover the identities or demographics of individuals.<br> 
+> [!IMPORTANT]
+> The computer vision AI models detect and locate human presence in video footage and output by using a bounding box around a human body. The AI models do not attempt to detect faces or discover the identities or demographics of individuals.
 
 These are the parameters required by each of these Spatial Analysis operations.
 | Operation parameters| Description|
@@ -67,13 +63,11 @@ These are the parameters required by each of these Spatial Analysis operations.
 | TRACKER_NODE_CONFIG | JSON configuration for the tracker. Should be in the following format: `"{ \"gpu_index\": 0 }",`|
 | SPACEANALYTICS_CONFIG | JSON configuration for zone and line as outlined below.|
 
+### Zone configuration for cognitiveservices.vision.spatialanalysis-personcount
 
- ### Zone configuration for cognitiveservices.vision.spatialanalysis-personcount
  This is an example of a JSON input for the SPACEANALYTICS_CONFIG parameter that configures a zone. You may configure multiple zone for this operation.
 
- NEW-END
-
-```
+```json
 NEW-START
 {
 "zones":[{
@@ -88,8 +82,8 @@ NEW-START
       }
 	}]
 }
-NEW_END
 ```
+
 | Name | Type| Description|
 |---------|---------|---------|
 | `zones` | list| List of zones|
@@ -100,11 +94,11 @@ NEW_END
 | `trigger` | string| The type of trigger for sending an event. Supported values are `event` for sending events when the count changes or `interval` for sending events periodically, irrespective of whether the count has changed or not.
 | `interval` | string| A time in seconds that the person count will be aggregated before an event is fired. The operation will continue to analyze the scene at a constant rate and returns the most common count over that interval. The aggregation interval is applicable to both `event` and `interval`.|
 
- ### Line configuration for cognitiveservices.vision.spatialanalysis-personcrossingline
- This is an example of a JSON input for the SPACEANALYTICS_CONFIG parameter that configures a line. You may configure multiple crossing lines for this operation.
+### Line configuration for cognitiveservices.vision.spatialanalysis-personcrossingline
 
- ```
- NEW-START
+This is an example of a JSON input for the SPACEANALYTICS_CONFIG parameter that configures a line. You may configure multiple crossing lines for this operation.
+
+```json
 {
 "lines":[{
 	"name": "doorcamera" 
@@ -121,7 +115,6 @@ NEW_END
         }]
 	}]
 }
-NEW_END_END
 ```
 
 | Name | Type| Description|
@@ -135,11 +128,11 @@ NEW_END_END
 | `type` | string| For **cognitiveservices.vision.spatialanalysis-personcrossingline** this should be `linecrossing`.|
 |`trigger`|string|The type of trigger for sending an event.<br>Supported Values: "event": fire when someone crosses the line.|
 
- ### Zone configuration for cognitiveservices.vision.spatialanalysis-personcrossingpolygon
+### Zone configuration for cognitiveservices.vision.spatialanalysis-personcrossingpolygon
+
 This is an example of a JSON input for the SPACEANALYTICS_CONFIG parameter that configures a zone. You may configure multiple zones for this operation.
 
- ```
- NEW-START
+ ```json
 {
 "zones":[{
 	"name": "queuecamera"
@@ -153,8 +146,8 @@ This is an example of a JSON input for the SPACEANALYTICS_CONFIG parameter that 
 		}]
 	}]
 }
-NEW-END
 ```
+
 | Name | Type| Description|
 |---------|---------|---------|
 | `zones` | list| List of zones|
@@ -164,10 +157,11 @@ NEW-END
 | `type` | string| For **cognitiveservices.vision.spatialanalysis-personcrossingpolygon** this should be `enter` or `exit`.|
 | `trigger`|string|The type of trigger for sending an event<br>Supported Values: "event": fire when someone enters or exits the zone.|
 
- ### Zone configuration for cognitiveservices.vision.spatialanalysis-persondistance
+### Zone configuration for cognitiveservices.vision.spatialanalysis-persondistance
+
 This is an example of a JSON input for the SPACEANALYTICS_CONFIG parameter that configures a zone for **cognitiveservices.vision.spatialanalysis-persondistance**. You may configure multiple zones for this operation.
 
- ```
+```json
 {
 "zones":[{
 	"name": "lobbycamera",
@@ -185,6 +179,7 @@ This is an example of a JSON input for the SPACEANALYTICS_CONFIG parameter that 
 	}]
 }
 ```
+
 | Name | Type| Description|
 |---------|---------|---------|
 | `zones` | list| List of zones|
@@ -200,10 +195,12 @@ This is an example of a JSON input for the SPACEANALYTICS_CONFIG parameter that 
 
 This is an example of a JSON input for the DETECTOR_NODE_CONFIG parameter that configures a **cognitiveservices.vision.spatialanalysis-persondistance** zone.
 
+```json
 { 
 "gpu_index": 0, 
 "do_calibration": true
 }
+```
 
 | Name | Type| Description|
 |---------|---------|---------|
@@ -211,14 +208,18 @@ This is an example of a JSON input for the DETECTOR_NODE_CONFIG parameter that c
 | `do_calibration` | string | Indicates that calibration is turned on. `do_calibration` must be true for **cognitiveservices.vision.spatialanalysis-persondistance** to function properly.|
 
 ## Camera configuration
+
 Visit this [Companion Tool page](Project-Archon-Camera-Setup.md) to learn how to create zone and line configurations using a visual tool provided with Project Archon.
 
 ## Spatial Analysis Operation Output
+
 The events from each operation are egressed to Azure IoT Hub on JSON format.
 
 ### JSON format for cognitiveservices.vision.spatialanalysis-personcount AI Insights
+
 Sample JSON for an event output by this operation.
-```
+
+```json
 {
     "events": [
         {
@@ -301,6 +302,7 @@ Sample JSON for an event output by this operation.
     "schemaVersion": "1.0"
 }
 ```
+
 | Event Field Name | Type| Description|
 |---------|---------|---------|
 | `id` | string| Event id|
@@ -345,8 +347,10 @@ Sample JSON for an event output by this operation.
 
 
 ### JSON format for cognitiveservices.vision.spatialanalysis-personcrossingline AI Insights
+
 Sample JSON for detections output by this operation.
-```
+
+```json
 {
     "events": [
         {
@@ -426,8 +430,10 @@ Sample JSON for detections output by this operation.
 **IMPORTANT NOTE:**  The AI model detects a person irrespective whether the person is facing towards or away from the camera. The AI model doesn't run face detection or recognition and doesn't emit any biometric information. 
 
 ### JSON format for cognitiveservices.vision.spatialanalysis-personcrossingpolygon AI Insights
+
 Sample JSON for detections output by this operation.
-```
+
+```json
 {
     "events": [
         {
@@ -498,8 +504,10 @@ Sample JSON for detections output by this operation.
 | `confidence` | float| Algorithm confidence|
 
 ### JSON format for cognitiveservices.vision.spatialanalysis-persondistance AI Insights
+
 Sample JSON for detections output by this operation.
-```
+
+```json
 {
     "events": [
         {
@@ -627,11 +635,12 @@ Sample JSON for detections output by this operation.
 | `tiltUpAngle` | float | The camera tilt angle from vertical. This is inferred from auto-calibration.|
 
 ## Enable Video Recording with the cognitiveservices.vision.spatialanalysis-videorecorder
+
 The cognitiveservices.vision.spatialanalysis-videorecorder was created to enable the recording of the video as it is being processed by the container. The deployment manifest file at [DeploymentManifest.json](./DeploymentManifest.json) has the configuration needed for the cognitiveservices.vision.spatialanalysis-videorecorder operation. The video recording is saved in an Azure Blob Storage that you need to configure. 
+
 <br><br>**The video recording is not sent to Microsoft. Remove this operation if you are not interested in recoding the video.** <br> 
 
 For more details on how to enable video recording please visit this [page](Project-Archon-Record-Video.md).
-
 
 ## How to consume output generated by Project Archon container
 

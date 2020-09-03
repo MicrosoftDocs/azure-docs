@@ -133,8 +133,13 @@
       href: spatial-analytics-operations.md
     - name: Deploy a people counting web app
       href: Spatial-analytics-web-app.md
-    - name: Logging and Troubleshooting
+    - name: Logging and troubleshooting
       href: spatial-analytics-logging.md
+    - name: Zone and line placement
+      href: spatial-analytics-zone-line-placement.md
+    - name: Camera placement
+      href: spatial-analytics-camera-placement.md
+
 - name: How-to guides
   items:
   - name: Call the Computer Vision API
