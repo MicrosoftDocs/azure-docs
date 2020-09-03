@@ -287,7 +287,7 @@ Keep the resource group, server, and single database to go on to the next steps,
 
 When you're finished using these resources, you can delete the resource group you created, which will also delete the server and single database within it.
 
-### [The Azure portal](#tab/azure-portal)
+### [Portal](#tab/azure-portal)
 
 To delete **myResourceGroup** and all its resources using the Azure portal:
 
@@ -295,7 +295,7 @@ To delete **myResourceGroup** and all its resources using the Azure portal:
 1. On the resource group page, select **Delete resource group**.
 1. Under **Type the resource group name**, enter *myResourceGroup*, and then select **Delete**.
 
-### [The Azure CLI](#tab/azure-cli)
+### [Azure CLI](#tab/azure-cli)
 
 To delete the resource group and all its resources, run the following Azure CLI command, using the name of your resource group:
 
