@@ -3,18 +3,20 @@ title: Reacting to Azure Media Services events | Microsoft Docs
 description: This article describes how to use Azure Event Grid to subscribe to Media Services events. 
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 
 ms.service: media-services
 ms.workload: 
-ms.topic: article
-ms.date: 08/08/2019
-ms.author: juliako
+ms.topic: conceptual
+ms.date: 08/31/2020
+ms.author: inhenkel
 ---
  
 # Handling Event Grid events
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Media Services events allow applications to react to different events (for example, the job state change event) using modern serverless architectures. It does so without the need for complicated code or expensive and inefficient polling services. Instead, events are pushed through [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) to event handlers such as [Azure Functions](https://azure.microsoft.com/services/functions/), [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/), or even to your own Webhook, and you only pay for what you use. For information about pricing, see [Event Grid pricing](https://azure.microsoft.com/pricing/details/event-grid/).
 
