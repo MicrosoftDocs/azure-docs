@@ -117,7 +117,7 @@ You can modify an existing snapshot policy to change the policy state, snapshot 
  
 1.	From the NetApp Account view, click **Snapshot policy**.
 
-2.	Right click the snapshot policy you want to modify, then select **Edit**.
+2.	Right-click the snapshot policy you want to modify, then select **Edit**.
 
     ![Snapshot policy right-click menu](../media/azure-netapp-files/snapshot-policy-right-click-menu.png) 
 
@@ -129,7 +129,7 @@ You can delete a snapshot policy that you no longer want to keep.
 
 1.	From the NetApp Account view, click **Snapshot policy**.
 
-2.	Right click the snapshot policy you want to modify, then select **Delete**.
+2.	Right-click the snapshot policy you want to modify, then select **Delete**.
 
     ![Snapshot policy right-click menu](../media/azure-netapp-files/snapshot-policy-right-click-menu.png) 
 
