@@ -186,37 +186,14 @@ The following operators are supported:
 
 | Family | Operators |
 | --- | --- |
-| Arithmetic |+, -, *, /, % |
 | Logical |AND, OR, NOT |
-| Comparison |=, !=, <, >, <=, >=, <> |
+| Comparison |=, !=, <, >, <=, >= |
+| Contains | IN, NIN |
 
 ### Functions
 
-When querying twins and jobs, the supported function is:
+The following type checking and casting functions are supported:
 
-| Function | Description |
-| -------- | ----------- |
-| IS_DEFINED(property) | Returns a Boolean indicating if the property has been assigned a value (including `null`). |
-
-In routes conditions, the following math functions are supported:
-
-| Function | Description |
-| -------- | ----------- |
-| ABS(x) | Returns the absolute (positive) value of the specified numeric expression. |
-| EXP(x) | Returns the exponential value of the specified numeric expression (e^x). |
-| POWER(x,y) | Returns the value of the specified expression to the specified power (x^y).|
-| SQUARE(x)    | Returns the square of the specified numeric value. |
-| CEILING(x) | Returns the smallest integer value greater than, or equal to, the specified numeric expression. |
-| FLOOR(x) | Returns the largest integer less than or equal to the specified numeric expression. |
-| SIGN(x) | Returns the positive (+1), zero (0), or negative (-1) sign of the specified numeric expression.|
-| SQRT(x) | Returns the square root of the specified numeric value. |
-
-In routes conditions, the following type checking and casting functions are supported:
-
-| Function | Description |
-| -------- | ----------- |
-| AS_NUMBER | Converts the input string to a number. `noop` if input is a number; `Undefined` if string does not represent a number.|
-| IS_ARRAY | Returns a Boolean value indicating if the type of the specified expression is an array. |
 | IS_BOOL | Returns a Boolean value indicating if the type of the specified expression is a Boolean. |
 | IS_DEFINED | Returns a Boolean indicating if the property has been assigned a value. This is supported only when the value is a primitive type. Primitive types include string, Boolean, numeric, or `null`. DateTime, object types and arrays are not supported. |
 | IS_NULL | Returns a Boolean value indicating if the type of the specified expression is null. |
@@ -225,19 +202,12 @@ In routes conditions, the following type checking and casting functions are supp
 | IS_PRIMITIVE | Returns a Boolean value indicating if the type of the specified expression is a primitive (string, Boolean, numeric, or `null`). |
 | IS_STRING | Returns a Boolean value indicating if the type of the specified expression is a string. |
 
-In routes conditions, the following string functions are supported:
+The following string functions are supported:
 
 | Function | Description |
 | -------- | ----------- |
-| CONCAT(x, y, …) | Returns a string that is the result of concatenating two or more string values. |
-| LENGTH(x) | Returns the number of characters of the specified string expression.|
-| LOWER(x) | Returns a string expression after converting uppercase character data to lowercase. |
-| UPPER(x) | Returns a string expression after converting lowercase character data to uppercase. |
-| SUBSTRING(string, start [, length]) | Returns part of a string expression starting at the specified character zero-based position and continues to the specified length, or to the end of the string. |
-| INDEX_OF(string, fragment) | Returns the starting position of the first occurrence of the second string expression within the first specified string expression, or -1 if the string is not found.|
 | STARTS_WITH(x, y) | Returns a Boolean indicating whether the first string expression starts with the second. |
 | ENDS_WITH(x, y) | Returns a Boolean indicating whether the first string expression ends with the second. |
-| CONTAINS(x,y) | Returns a Boolean indicating whether the first string expression contains the second. |
 
 ## Run queries with an API call
 
