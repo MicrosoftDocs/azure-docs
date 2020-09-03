@@ -22,6 +22,20 @@ An invoice is generated based on your billing account type. Invoices are created
 
 To learn more about billing accounts and identify your billing account type, see [View billing accounts in Azure portal](../manage/view-all-accounts.md).
 
+### Invoice status
+
+When you review your invoice status in the Azure portal, each invoice has one of the following status symbols.
+
+|  Status symbol | Description  |
+|---|---|
+| ![Due status symbol](./media/download-azure-invoice/due.svg) | *Due* is displayed when an invoice is generated, but hasn't paid yet. |
+| ![Past due status symbol](./media/download-azure-invoice/past-due.svg)  | *Past due* is displayed when Azure tried to charge your payment method, but the payment was declined. |
+| ![Paid status symbol](./media/download-azure-invoice/paid.svg)  | *Paid* status is displayed when Azure has successfully charged your payment method. |
+
+When an invoice is created, it appears in the Azure portal with *Due* status. Due status is normal and expected.  
+
+When an invoice hasn't been paid, its status is shown as *Past due*. A past due subscription will get disabled if the invoice isn't paid.
+
 ## Invoices for MOSP billing accounts
 
 An MOSP billing account is created when you sign up for Azure through the Azure website. For example, when you sign up for an [Azure Free Account](https://azure.microsoft.com/offers/ms-azr-0044p/), [account with pay-as-you-go rates](https://azure.microsoft.com/offers/ms-azr-0003p/) or as a [Visual studio subscriber](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/).
@@ -159,16 +173,7 @@ You must have an owner or a contributor role on the billing profile or its billi
 1.  If you have multiple billing profiles, select a billing profile and then select **Opt in**.  
     ![Screenshot that shows invoices page for an MCA billing account](./media/download-azure-invoice/mca-billing-profile-email-invoice.png)
 1.  Select **Update**.
-
-2.  Search for **Cost Management + Billing**.
-
-    ![Screenshot that shows search in portal for cost management + billing](./media/download-azure-invoice/search-cmb.png)
-
-3.  Select **Invoices** from the left-hand side and then select **Email Invoice** from the top of the page.
-
-    [![Screenshot that shows invoices page for an MCA billing account](./media/download-azure-invoice/mca-billingprofile-select-emailinvoice.png)](./media/download-azure-invoice/mca-billingprofile-select-emailinvoice-zoomed-in.png)
-
-4.  If you have multiple billing profiles, select a billing profile and then select **Opt in**.
+1.  If you have multiple billing profiles, select a billing profile and then select **Opt in**.
 
 You give others access to view, download, and pay invoices by assigning them the invoice manager role for an MCA or MPA billing profile. If you've opted in to get your invoice in email, users also get the invoices in email.
 
