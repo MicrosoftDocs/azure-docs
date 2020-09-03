@@ -4,7 +4,7 @@ description: The Azure Private Link security baseline provides procedural guidan
 author: msmbaldwin
 ms.service: private-link
 ms.topic: conceptual
-ms.date: 09/02/2020
+ms.date: 09/03/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 
@@ -21,7 +21,7 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 
 ## Network security
 
-*For more information, see the [Azure Security Benchmark: Network security](/azure/security/benchmarks/security-control-network-security).*
+*For more information, see the [Azure Security Benchmark: Network security](../security/benchmarks/security-control-network-security.md).*
 
 ### 1.11: Use automated tools to monitor network resource configurations and detect changes
 
@@ -42,7 +42,7 @@ Create alerts within Azure Monitor that will trigger when changes to critical re
 
 ## Logging and monitoring
 
-*For more information, see the [Azure Security Benchmark: Logging and monitoring](/azure/security/benchmarks/security-control-logging-monitoring).*
+*For more information, see the [Azure Security Benchmark: Logging and monitoring](../security/benchmarks/security-control-logging-monitoring.md).*
 
 ### 2.2: Configure central security log management
 
@@ -141,7 +141,7 @@ Enable and on-board data to Azure Sentinel or a third-party SIEM based on your o
 
 ## Identity and access control
 
-*For more information, see the [Azure Security Benchmark: Identity and access control](/azure/security/benchmarks/security-control-identity-access-control).*
+*For more information, see the [Azure Security Benchmark: Identity and access control](../security/benchmarks/security-control-identity-access-control.md).*
 
 ### 3.1: Maintain an inventory of administrative accounts
 
@@ -313,7 +313,7 @@ Ingest data into Azure Sentinel for further investigation.
 
 ## Data protection
 
-*For more information, see the [Azure Security Benchmark: Data protection](/azure/security/benchmarks/security-control-data-protection).*
+*For more information, see the [Azure Security Benchmark: Data protection](../security/benchmarks/security-control-data-protection.md).*
 
 ### 4.2: Isolate systems storing or processing sensitive information
 
@@ -391,7 +391,7 @@ Make your service private for consumption from your other Virtual Networks (Azur
 
 ## Inventory and asset management
 
-*For more information, see the [Azure Security Benchmark: Inventory and asset management](/azure/security/benchmarks/security-control-inventory-asset-management).*
+*For more information, see the [Azure Security Benchmark: Inventory and asset management](../security/benchmarks/security-control-inventory-asset-management.md).*
 
 ### 6.1: Use automated asset discovery solution
 
@@ -527,7 +527,7 @@ Also use the Azure Resource Graph to query/discover resources within the subscri
 
 ## Secure configuration
 
-*For more information, see the [Azure Security Benchmark: Secure configuration](/azure/security/benchmarks/security-control-secure-configuration).*
+*For more information, see the [Azure Security Benchmark: Secure configuration](../security/benchmarks/security-control-secure-configuration.md).*
 
 ### 7.1: Establish secure configurations for all Azure resources
 
@@ -634,7 +634,7 @@ Also utilize the built-in policy definitions related to any specific resources m
 
 ## Data recovery
 
-*For more information, see the [Azure Security Benchmark: Data recovery](/azure/security/benchmarks/security-control-data-recovery).*
+*For more information, see the [Azure Security Benchmark: Data recovery](../security/benchmarks/security-control-data-recovery.md).*
 
 ### 9.1: Ensure regular automated back-ups
 
@@ -722,7 +722,7 @@ Grant or deny permissions to specific users, built-in security groups, or groups
 
 ## Incident response
 
-*For more information, see the [Azure Security Benchmark: Incident response](/azure/security/benchmarks/security-control-incident-response).*
+*For more information, see the [Azure Security Benchmark: Incident response](../security/benchmarks/security-control-incident-response.md).*
 
 ### 10.1: Create an incident response guide
 
@@ -822,7 +822,7 @@ Also, use the Security Center data connector to stream the alerts to Azure Senti
 
 ## Penetration tests and red team exercises
 
-*For more information, see the [Azure Security Benchmark: Penetration tests and red team exercises](/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
+*For more information, see the [Azure Security Benchmark: Penetration tests and red team exercises](../security/benchmarks/security-control-penetration-tests-red-team-exercises.md).*
 
 ### 11.1: Conduct regular penetration testing of your Azure resources and ensure remediation of all critical security findings
 
