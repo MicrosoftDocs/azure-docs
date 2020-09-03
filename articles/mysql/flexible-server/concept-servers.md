@@ -34,6 +34,16 @@ An Azure Database for MySQL Flexible Server:
 
 Within an Azure Database for MySQL Flexible Server, you can create one or multiple databases. You can opt to create a single database per server to use all the resources or to create multiple databases to share the resources. The pricing is structured per-server, based on the configuration of compute tier, vCores, and storage (GB). For more information, see [compute and storage](./concepts-compute-storage.md).
 
+## Stop/Start an Azure Database for MySQL Flexible Server
+
+Azure Database for MySQL Flexible Server gives you the ability to **Stop** the server when not in use and **Start** the servers when you resume activity. This is essentially done to save costs on the database servers and only pay for the resource when in use. This becomes even more important for the dev-test workloads and when customers are only using the server for part of the day. When you stop the server, all active connections will be dropped. Later when you want to bring the server back up, you can either use the [Azure portal](how-to-stop-start-server-portal.md) or CLI.
+During the time when the server is in the **Stop** state, there is no billing for the server’s compute. However, storage billing continues to be there since it is still being actively used.
+
+> [!IMPORTANT]
+> When you **Stop** the server it remains in that state for the next 7 days in a stretch. If you do not manually **Start** it during this time, the server will automatically be started at the end of 7 days. You can chose to **Stop** it again if you are not using the server.
+
+Additionally, during the time server is in the stopped, no management operations can be performed on the server. In order to change any configuration settings on the server, you will need to [Start the server](how-to-stop-start-server-portal.md). Refer to the [limitation of Stop/Start](./concepts-limitation.md).
+
 ## How do I manage a server?
 
 You can manage Azure Database for MySQL Flexible Server by using the [Azure portal](./quickstart-create-server-portal.md) or the [Azure CLI](./quickstart-create-server-cli.md).
