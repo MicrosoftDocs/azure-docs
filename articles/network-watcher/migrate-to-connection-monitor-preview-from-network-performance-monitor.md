@@ -31,7 +31,7 @@ The migration helps produce the following results:
 * Agents send data to both the Log Analytics workspace and the metrics.
 * Data monitoring:
    * **Data in Log Analytics**: Before migration, the data remains in the workspace in which NPM is configured in the NetworkMonitoring table. After the migration, the data goes to the NetworkMonitoring table and ConnectionMonitor_CL table in the same workspace. After the tests are disabled in NPM, the data is stored only in the ConnectionMonitor_CL table.
-   * **Log-based alerts, dashboards, and integrations**: You must manually edit the queries based on the new ConnectionMonitor_CL table. To re-create the alerts in metrics, see [Network connectivity monitoring with Connection Monitor (Preview)](https://docs.microsoft.com/en-us/azure/network-watcher/connection-monitor-preview#metrics-in-azure-monitor).
+   * **Log-based alerts, dashboards, and integrations**: You must manually edit the queries based on the new ConnectionMonitor_CL table. To re-create the alerts in metrics, see [Network connectivity monitoring with Connection Monitor (Preview)](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview#metrics-in-azure-monitor).
 	
 ## Prerequisites
 
