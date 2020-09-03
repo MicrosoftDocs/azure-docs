@@ -95,7 +95,7 @@ You can move a workspace between resource groups or subscriptions but not to a d
 ### Why am I getting the error: "Register resource provider 'Microsoft.Insights' for this subscription to enable this query" when opening Log Analytics from a VM? 
 Many resource providers are automatically registered, but you may need to manually register some resource providers. The scope for registration is always the subscription. See [Resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal) for more information.
 
-### Why am I am getting no access error message when opening Log Analytics from a VM? 
+### Why am I getting no access error message when opening Log Analytics from a VM? 
 To view VM Logs, you need to be granted with read permission to the workspaces that stores the VM logs. In these cases, your administrator must grant you with to permissions in Azure.
 
 ## Metrics
@@ -525,7 +525,7 @@ In this scenario, a 502 or 503 response could be returned to a client due to an 
 
 ### What is OpenTelemetry
 
-A new open source standard for observability. Learn more at [https://opentelemetry.io/](https://opentelemetry.io/).
+A new open-source standard for observability. Learn more at [https://opentelemetry.io/](https://opentelemetry.io/).
 
 ### Why is Microsoft / Azure Monitor investing in OpenTelemetry?
 
@@ -542,7 +542,7 @@ In addition to the reasons above, OpenTelemetry is more efficient at-scale and p
 
 ### How can I test out OpenTelemetry?
 
-Sign-up to join our Azure Monitor Application Insights early adopter community at [https://aka.ms/AzMonOtel](https://aka.ms/AzMonOtel).
+Sign up to join our Azure Monitor Application Insights early adopter community at [https://aka.ms/AzMonOtel](https://aka.ms/AzMonOtel).
 
 ### What does GA mean in the context of OpenTelemetry?
 
@@ -560,7 +560,7 @@ The concept of auto-instrumentation (sometimes referred to as bytecode injection
 
 ### What’s the OpenTelemetry Collector?
 
-The OpenTelemetry Collector is described in its [Github readme](https://github.com/open-telemetry/opentelemetry-collector#opentelemetry-collector). Currently Microsoft does not utilize the OpenTelemetry Collector and depends on direct exporters that send to Azure Monitor’s Application Insights.
+The OpenTelemetry Collector is described in its [GitHub readme](https://github.com/open-telemetry/opentelemetry-collector#opentelemetry-collector). Currently Microsoft does not utilize the OpenTelemetry Collector and depends on direct exporters that send to Azure Monitor’s Application Insights.
 
 ### What’s the difference between OpenCensus and OpenTelemetry?
 
@@ -575,7 +575,7 @@ We are planning to make a series of changes to add functionality and address you
 
 ### What does *Other Processes* represent under the Node view?
 
-**Other processes** is intended to help you clearly understand the root cause of the high resource usage on your node. This enables you to distinguish usage between containerized processes vs non-containerized processes.
+**Other processes** are intended to help you clearly understand the root cause of the high resource usage on your node. This enables you to distinguish usage between containerized processes vs non-containerized processes.
 
 What are these **Other Processes**? 
 
@@ -605,7 +605,7 @@ For agent version ciprod12042019 and later, by default these two properties are 
 
 Join other tables to include these property values in the results.
 
-Modify your queries to include Image and ImageTag properties from the ```ContainerInventory``` table by joining on ContainerID property. You can include the Name property (as it previously appeared in the ```ContainerLog``` table) from KubepodInventory table's ContaineName field by joining on the ContainerID property.This is the recommended option.
+Modify your queries to include Image and ImageTag properties from the ```ContainerInventory``` table by joining on ContainerID property. You can include the Name property (as it previously appeared in the ```ContainerLog``` table) from KubepodInventory table's ContaineName field by joining on the ContainerID property. This is the recommended option.
 
 The following example is a sample detailed query that explains how to get these field values with joins.
 
