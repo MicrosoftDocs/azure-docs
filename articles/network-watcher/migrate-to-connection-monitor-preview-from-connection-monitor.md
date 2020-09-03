@@ -51,11 +51,10 @@ After the migration begins, the following changes take place:
 	* Unless the connection monitor is customized, a default Log Analytics workspace is created in the subscription and in the region of the connection monitor. This workspace is where monitoring data is stored. The test result data is also stored in the metrics.
 	* Each test is migrated to a test group called *defaultTestGroup*.
 	* Source and destination endpoints are created and used in the new test group. The default names are *defaultSourceEndpoint* and *defaultDestinationEndpoint*.
-	* The destination port and probing interval are moved to a test configuration called *defaultTestConfiguration*. Based on the port values, the protocol is set. Success thresholds and other optional properties are left blank.
+	* The destination port and probing interval are moved to a test configuration called *defaultTestConfiguration*. The protocol is set based on the port values. Success thresholds and other optional properties are left blank.
 * Metrics alerts are migrated to Connection Monitor (Preview) metrics alerts. The metrics are different, hence the change.
 * The migrated connection monitors are no longer displayed as the older connection monitor solution. They're now available for use only in Connection Monitor (Preview).
-
-After the migration, be sure to directly migrate any external integrations, such as dashboards in Power BI and Grafana, and integrations with SIEM systems. This is the only manual step you need to perform to migrate your setup.
+* Any external integrations, such as dashboards in Power BI and Grafana, and integrations with Security Information and Event Management (SIEM) systems, must be migrated manually. This is the only manual step you need to perform to migrate your setup.
 
 ## Next steps
 

@@ -11,7 +11,7 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 
@@ -82,8 +82,7 @@ If the contribution feed is of 720p or higher resolution, the **Default720p** pr
 | 200 |340 |192 |30 |High |
 
 > [!NOTE]
-> If you need to customize the live encoding preset, please open a support ticket via Azure Portal. You should specify the desired table of resolution and bitrates. Do verify that there is only one layer at 720p, and at most 6 layers. Also do specify that you are requesting a preset for a Standard live encoder.
-> The specific values of the bitrates and resolutions may be adjusted over time
+> If you need to customize the live encoding preset, please open a support ticket via Azure Portal. You should specify the desired table of video resolution and bitrates. Customization of the audio encoding bitrate is not supported. Do verify that there is only one layer at 720p, and at most 6 layers. Also do specify that you are requesting a preset.
 
 ### Output Video Streams for Default1080p
 
@@ -99,8 +98,7 @@ If the contribution feed is of 1080p resolution, the **Default1080p** preset wil
 | 200 |320 |180 |30 |High |
 
 > [!NOTE]
-> If you need to customize the live encoding preset, please open a support ticket via Azure Portal. You should specify the desired table of resolution and bitrates. Do verify that there is only one layer at 1080p, and at most 6 layers. Also do specify that you are requesting a preset for a Premium1080p live encoder.
-> The specific values of the bitrates and resolutions may be adjusted over time.
+> If you need to customize the live encoding preset, please open a support ticket via Azure Portal. You should specify the desired table of resolution and bitrates. Verify that there is only one layer at 1080p, and at most 6 layers. Also, specify that you are requesting a preset for a Premium1080p live encoder. The specific values of the bitrates and resolutions may be adjusted over time.
 
 ### Output Audio Stream for Default720p and Default1080p
 
