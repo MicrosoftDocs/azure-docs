@@ -4,7 +4,7 @@ description: The Azure Load Balancer security baseline provides procedural guida
 author: msmbaldwin
 ms.service: load-balancer
 ms.topic: conceptual
-ms.date: 09/02/2020
+ms.date: 09/03/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 
@@ -21,19 +21,25 @@ The Azure Security Baseline for Microsoft Azure Load Balancer contains recommend
 
 ## Network security
 
-*For more information, see the [Azure Security Benchmark: Network security](/azure/security/benchmarks/security-control-network-security).*
+*For more information, see the [Azure Security Benchmark: Network security](../security/benchmarks/security-control-network-security.md).*
 
 ### 1.1: Protect Azure resources within virtual networks
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32349.).
 
-**Guidance**: Use internal Load Balancers to only allow traffic from within the Virtual Network or peered
+**Guidance**: 
+Use internal Load Balancers to only allow traffic from within the Virtual Network or peered
 Virtual Networks of the required backend resources without exposure to the internet. 
+
 Implement an external Load Balancer with Source Network
-Address Translation (SNAT) to masquerade the IP addresses of backend resources for protection from direct internet exposure. Azure offers two types of Load Balancer offerings, Standard and Basic. Use the Standard Load Balancer for all production workloads. Implement network
-security groups to explicitly open ports to specific sources to secure resources from the internet.  Explicitly allow traffic using network security groups. In cases where no network security group exists on a subnet or NIC of a virtual machine
+Address Translation (SNAT) to masquerade the IP addresses of backend resources for protection from direct internet exposure. 
+Azure offers two types of Load Balancer offerings, Standard and Basic. 
+Use the Standard Load Balancer for all production workloads. Implement network
+security groups to explicitly open ports to specific sources to secure resources from the internet.  
+Explicitly allow traffic using network security groups. In cases where no network security group exists on a subnet or NIC of a virtual machine
 resource, traffic is not allowed to reach these resources.
+
 Use Standard Load Balancers to provide outbound rules for defining outbound NAT from scratch with a network security group. Review the outbound rules to tune the behavior of your outbound connections. A Basic Load Balancer is not recommended for production workload and typically used for testing as It is open to connections to the internet by default, with a network security group as optional. 
 
 - [Outbound connections in Azure](load-balancer-outbound-connections.md#outboundrule)
@@ -260,7 +266,7 @@ Create alerts in Azure Monitor to notify you when critical resources are changed
 
 ## Logging and monitoring
 
-*For more information, see the [Azure Security Benchmark: Logging and monitoring](/azure/security/benchmarks/security-control-logging-monitoring).*
+*For more information, see the [Azure Security Benchmark: Logging and monitoring](../security/benchmarks/security-control-logging-monitoring.md).*
 
 ### 2.2: Configure central security log management
 
@@ -441,7 +447,7 @@ Not applicable as Load Balancer is a core networking service that does not make 
 
 ## Identity and access control
 
-*For more information, see the [Azure Security Benchmark: Identity and access control](/azure/security/benchmarks/security-control-identity-access-control).*
+*For more information, see the [Azure Security Benchmark: Identity and access control](../security/benchmarks/security-control-identity-access-control.md).*
 
 ### 3.1: Maintain an inventory of administrative accounts
 
@@ -462,7 +468,7 @@ Inventory Pre-defined and built-in roles for certain resources with tools like A
 
 ## Data protection
 
-*For more information, see the [Azure Security Benchmark: Data protection](/azure/security/benchmarks/security-control-data-protection).*
+*For more information, see the [Azure Security Benchmark: Data protection](../security/benchmarks/security-control-data-protection.md).*
 
 ### 4.6: Use Azure RBAC to manage access to resources
 
@@ -509,7 +515,7 @@ To ensure customer data in Azure remains secure, Microsoft has implemented and m
 
 ## Inventory and asset management
 
-*For more information, see the [Azure Security Benchmark: Inventory and asset management](/azure/security/benchmarks/security-control-inventory-asset-management).*
+*For more information, see the [Azure Security Benchmark: Inventory and asset management](../security/benchmarks/security-control-inventory-asset-management.md).*
 
 ### 6.1: Use automated asset discovery solution
 
@@ -623,7 +629,7 @@ Ensure all Azure resources present in the environment are approved.
 
 ## Secure configuration
 
-*For more information, see the [Azure Security Benchmark: Secure configuration](/azure/security/benchmarks/security-control-secure-configuration).*
+*For more information, see the [Azure Security Benchmark: Secure configuration](../security/benchmarks/security-control-secure-configuration.md).*
 
 ### 7.1: Establish secure configurations for all Azure resources
 
@@ -720,7 +726,7 @@ Also, use Azure Automation to deploy configuration changes.
 
 ## Incident response
 
-*For more information, see the [Azure Security Benchmark: Incident response](/azure/security/benchmarks/security-control-incident-response).*
+*For more information, see the [Azure Security Benchmark: Incident response](../security/benchmarks/security-control-incident-response.md).*
 
 ### 10.2: Create an incident scoring and prioritization procedure
 
@@ -777,7 +783,7 @@ Utilize the Security Center data connector to stream the alerts to Azure Sentine
 
 ## Penetration tests and red team exercises
 
-*For more information, see the [Azure Security Benchmark: Penetration tests and red team exercises](/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
+*For more information, see the [Azure Security Benchmark: Penetration tests and red team exercises](../security/benchmarks/security-control-penetration-tests-red-team-exercises.md).*
 
 ### 11.1: Conduct regular penetration testing of your Azure resources and ensure remediation of all critical security findings
 
