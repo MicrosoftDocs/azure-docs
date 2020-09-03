@@ -31,7 +31,7 @@ The migration helps produce the following results:
 * Agents send data to both the Log Analytics workspace and the metrics.
 * Data monitoring:
    * **Data in Log Analytics**: Before migration, the data remains in the workspace in which NPM is configured in the NetworkMonitoring table. After the migration, the data goes to the NetworkMonitoring table and ConnectionMonitor_CL table in the same workspace. After the tests are disabled in NPM, the data is stored only in the ConnectionMonitor_CL table.
-   * **Log-based alerts, dashboards, and integrations**: You must manually edit the queries based on the new ConnectionMonitor_CL table. You can also re-create the alerts in metrics by using this link. The ability to migrate log-based alerts on NetworkMonitoring table to metrics-based alerts automatically as a part of migration will be available soon
+   * **Log-based alerts, dashboards, and integrations**: You must manually edit the queries based on the new ConnectionMonitor_CL table. To re-create the alerts in metrics, see [Network connectivity monitoring with Connection Monitor (Preview)](https://docs.microsoft.com/en-us/azure/network-watcher/connection-monitor-preview#metrics-in-azure-monitor).
 	
 ## Prerequisites
 
@@ -56,7 +56,7 @@ After the migration begins, the following changes take place:
    * The test name is carried forward as the test group name. The test description isn't migrated.
    * Source and destination endpoints are created and used in the new test group. For on-premises agents, the endpoints are formatted as `<workspaceName>_"endpoint"_<FQDN of on-premises machine>`. For Azure, if the migrating tests contain agents that aren't running, you need to enable the agents and migrate again.
    * Destination port and probing interval are moved to a test configuration called *TC_\<testname>* and *TC_\<testname>_AppThresholds*. The protocol is set based on the port values. Success thresholds and other optional properties are left blank.
-* NPM isn't disabled, so the migrated tests can continue to send data to the NetworkMonitoring and ConnectionMonitor_CL tables. This approach ensures that existing log-based alerts and integrations are unaffected. Migrating log-based alerts on the NetworkMonitoring table to metrics-based alerts automatically as a part of migration will be available soon.
+* NPM isn't disabled, so the migrated tests can continue to send data to the NetworkMonitoring and ConnectionMonitor_CL tables. This approach ensures that existing log-based alerts and integrations are unaffected.
 * The newly created connection monitor is visible in Connection Monitor (Preview).
 
 After the migration, be sure to:
