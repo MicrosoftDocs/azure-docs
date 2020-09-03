@@ -13,7 +13,7 @@ ms.reviewer: jrasnick
 
 # Query Azure Cosmos DB analytical storage using SQL on-demand (preview) in Azure Synapse Analytics
 
-In this article, you'll learn how to write a query using SQL on-demand (preview) that will read [items](https://docs.microsoft.com/azure/cosmos-db/databases-containers-items#azure-cosmos-items) from Azure Cosmos DB [containers](https://docs.microsoft.com/azure/cosmos-db/azure/cosmos-db/databases-containers-items.md#azure-cosmos-containers).
+In this article, you'll learn how to write a query using SQL on-demand (preview) that will read [items](https://docs.microsoft.com/azure/cosmos-db/databases-containers-items#azure-cosmos-items) from Azure Cosmos DB [containers](https://docs.microsoft.com/azure/cosmos-db/azure/cosmos-db/databases-containers-items#azure-cosmos-containers).
 Synapse SQL on-demand enables you to analyze Azure Cosmos DB items from built-in analytical storage where analytic don't impact Azure Cosmos DB
 resource units (RU) that are used on the main transactional storage.
 
