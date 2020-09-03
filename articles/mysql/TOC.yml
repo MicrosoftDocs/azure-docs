@@ -20,6 +20,9 @@
       - name: Minimal-downtime migration with DMS
         href: howto-migrate-online.md
         displayName: migrate, dms, database migration service
+  - name: Create databases and users
+    href: howto-create-users.md
+    displayName: users
 - name: Single Server
   items:
   - name: Documentation
@@ -218,9 +221,6 @@
           displayName: firewall
     - name: Authentication
       items:
-        - name: Create users
-          href: howto-create-users.md
-          displayName: users
         - name: Configure Azure AD integration
           href: howto-configure-sign-in-azure-ad-authentication.md
           displayName:  active directory
