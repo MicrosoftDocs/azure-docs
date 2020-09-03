@@ -1,5 +1,6 @@
 ---
 title: About managed HSM security domain | Microsoft Docs
+description: Overview of the Managed HSM Security Domain, a set of core credentials needed to recover a Managed HSM
 ms.service: key-vault
 ms.subservice: managed-hsm
 ms.topic: conceptual
@@ -20,7 +21,8 @@ Every Managed HSM must have a security domain to operate. When you request a new
 
 When a Managed HSM is provisioned but not activated, downloading the Security Domain captures the core credentials needed to recover from a complete loss of all hardware. To download the Security Domain, you must create at least 3 (maximum 10) RSA key pairs and send these public keys to the service when requesting the Security Domain download. You also need to specify the minimum number of keys required (quorum) to decrypt the Security Domain in the future. The Managed HSM will initialize the Security Domain and encrypt it using the public keys you provide. The Security Domain blob you download can only be decrypted when at least a quorum of private keys are available; you must keep the private keys safe to ensure the security of the Security Domain. Once the download is complete the Managed HSM will be in activated state ready for use.  
 
-> [!IMPORTANT] For a full disaster recovery, you must have the Security Domain, and the quorum of private keys that were used to protect it, and a full HSM backup. If you lose the Security Domain or sufficient of the RSA keys (private key) to lose quorum, and no running instances of the Managed HSM are present, disaster recovery will not be possible. 
+> [!IMPORTANT]
+> For a full disaster recovery, you must have the Security Domain, and the quorum of private keys that were used to protect it, and a full HSM backup. If you lose the Security Domain or sufficient of the RSA keys (private key) to lose quorum, and no running instances of the Managed HSM are present, disaster recovery will not be possible. 
 
 ## Upload a security domain
 

@@ -24,7 +24,7 @@ Managed HSM is a cloud service that safeguards encryption keys. As these keys ar
 - Use least privilege access principal to assign roles
 
 ## Choose regions that support availability zones
-- To ensure best high-availability and zone-resiliency, choose Azure regions where [Availability Zones](../../azure/availability-zones/az-overview) are supported. These regions appear as "Recommended regions" in the Azure portal.
+- To ensure best high-availability and zone-resiliency, choose Azure regions where [Availability Zones](../../availability-zones/az-overview.md) are supported. These regions appear as "Recommended regions" in the Azure portal.
 
 ## Backup
 
