@@ -17,7 +17,7 @@ You can provision an [Azure HDInsight](https://azure.microsoft.com/documentation
 
 For instructions on how to provision an HDInsight cluster with Data Lake Storage Gen1, see:
 
-* [Provision an HDInsight cluster with Data Lake Storage Gen1 using Azure Portal](data-lake-store-hdinsight-hadoop-use-portal.md)
+* [Provision an HDInsight cluster with Data Lake Storage Gen1 using Azure portal](data-lake-store-hdinsight-hadoop-use-portal.md)
 * [Provision an HDInsight cluster with Data Lake Storage Gen1 as default storage using Azure PowerShell](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
 * [Provision an HDInsight cluster with Data Lake Storage Gen1 as additional storage using Azure PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md)
 
