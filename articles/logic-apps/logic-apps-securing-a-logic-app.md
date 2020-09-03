@@ -207,7 +207,7 @@ To enable Azure AD OAuth for your logic app in the Azure portal, follow these st
 
 1. When you're done, select **Save**.
 
-1. To include the `Authorization` header from the access token in the Request trigger's outputs, see [Include 'Authorization' header in Request trigger outputs](#include-auth-header).
+1. To include the `Authorization` header from the access token in the request-based trigger outputs, see [Include 'Authorization' header in request trigger outputs](#include-auth-header).
 
 <a name="define-authorization-policy-template"></a>
 
