@@ -2,12 +2,12 @@
 title: 'Configure ExpressRoute and S2S VPN coexisting connections: Azure PowerShell'
 description: Configure ExpressRoute and a Site-to-Site VPN connection that can coexist for the Resource Manager model using PowerShell.
 services: expressroute
-author: charwen
+author: duongau
 
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 12/11/2019
-ms.author: charwen
+ms.author: duau
 ms.custom: seodec18
 
 ---

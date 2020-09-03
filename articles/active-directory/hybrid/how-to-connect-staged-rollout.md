@@ -21,7 +21,7 @@ Staged rollout allows you to selectively test groups of users with cloud authent
 -  You're using smart cards for authentication. 
 -  Your current server offers certain federation-only features.
 
-Before you try this feature, we suggest that you review our guide on choosing the right authentication method. For more information, see the "Comparing methods" table in [Choose the right authentication method for your Azure Active Directory hybrid identity solution](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn#comparing-methods).
+Before you try this feature, we suggest that you review our guide on choosing the right authentication method. For more information, see the "Comparing methods" table in [Choose the right authentication method for your Azure Active Directory hybrid identity solution](./choose-ad-authn.md#comparing-methods).
 
 For an overview of the feature, view this "Azure Active Directory: What is staged rollout?" video:
 
@@ -87,7 +87,7 @@ The following scenarios are not supported for staged rollout:
 
 To test the *password hash sync* sign-in by using staged rollout, follow the pre-work instructions in the next section.
 
-For information about which PowerShell cmdlets to use, see [Azure AD 2.0 preview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout).
+For information about which PowerShell cmdlets to use, see [Azure AD 2.0 preview](/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout).
 
 ## Pre-work for password hash sync
 
@@ -221,7 +221,7 @@ To test sign-in with *seamless SSO*:
 
 1. Ensure that the sign-in successfully appears in the [Azure AD sign-in activity report](../reports-monitoring/concept-sign-ins.md) by filtering with the UserPrincipalName.
 
-   To track user sign-ins that still occur on Active Directory Federation Services (AD FS) for selected staged rollout users, follow the instructions at [AD FS troubleshooting: Events and logging](https://docs.microsoft.com/windows-server/identity/ad-fs/troubleshooting/ad-fs-tshoot-logging#types-of-events). Check vendor documentation about how to check this on third-party federation providers.
+   To track user sign-ins that still occur on Active Directory Federation Services (AD FS) for selected staged rollout users, follow the instructions at [AD FS troubleshooting: Events and logging](/windows-server/identity/ad-fs/troubleshooting/ad-fs-tshoot-logging#types-of-events). Check vendor documentation about how to check this on third-party federation providers.
 
 ## Remove a user from staged rollout
 
@@ -239,7 +239,7 @@ A: No, this feature is designed for migrating from federated to cloud authentica
 
 **Q: Can I use PowerShell to perform staged rollout?**
 
-A: Yes. To learn how to use PowerShell to perform staged rollout, see [Azure AD Preview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout).
+A: Yes. To learn how to use PowerShell to perform staged rollout, see [Azure AD Preview](/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout).
 
 ## Next steps
-- [Azure AD 2.0 preview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout )
+- [Azure AD 2.0 preview](/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout )

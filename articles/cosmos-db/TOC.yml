@@ -83,9 +83,6 @@
       href: cli-samples.md
     - name: Azure Resource Manager
       href: resource-manager-samples.md
-    - name: Azure Policy built-ins
-      displayName: samples, policies, definitions
-      href: ./policy-samples.md
   - name: Concepts
     items:
     - name: NoSQL vs. relational databases
@@ -664,6 +661,14 @@
           href: cassandra-secondary-index.md          
       - name: How-to guides
         items:
+        - name: Migrate to Cassandra API
+          items:
+          - name: Migrate - Oracle DB to Cassandra API using Striim
+            href: cosmosdb-cassandra-api-migrate-data-striim.md
+          - name: Migrate - Oracle DB to Cassandra API using Blitzz
+            href: oracle-migrate-cosmos-db-blitzz.md
+          - name: Migrate - Apache Cassandra to Cassandra API using Blitzz
+            href: cassandra-migrate-cosmos-db-blitzz.md
         - name: Change feed
           href: cassandra-change-feed.md
         - name: Store and manage Spring Data 
@@ -739,12 +744,9 @@
               href: tutorial-develop-mongodb-nodejs-part6.md
           - name: Node.js and React app
             href: tutorial-develop-mongodb-react.md
-        - name: 2 - Migrate data
-          displayName: import
-          href: ../dms/tutorial-mongodb-cosmos-db.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
-        - name: 3 - Query data
+        - name: 2 - Query data
           href: tutorial-query-mongodb.md
-        - name: 4 - Distribute data globally
+        - name: 3 - Distribute data globally
           href: tutorial-global-distribution-mongodb.md
       - name: Concepts
         items:
@@ -756,10 +758,16 @@
           href: mongodb-api-faq.md
       - name: How-to guides
         items:
-        - name: Pre-migration guide
-          href: mongodb-pre-migration.md
-        - name: Post-migration guide
-          href: mongodb-post-migration.md
+        - name: Migrate to MongoDB API
+          items:
+          - name: Pre-migration guide
+            href: mongodb-pre-migration.md
+          - name: Database Migration Service (online)
+            href: ../dms/tutorial-mongodb-cosmos-db-online.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+          - name: Database Migration Service (offline)
+            href: ../dms/tutorial-mongodb-cosmos-db.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+          - name: Post-migration guide
+            href: mongodb-post-migration.md
         - name: Get the connection string
           href: connect-mongodb-account.md
         - name: Connect using Studio 3T
@@ -1238,12 +1246,6 @@
         href: cosmosdb-migrationchoices.md
       - name: Migrate to SQL API using Striim
         href: cosmosdb-sql-api-migrate-data-striim.md
-      - name: Migrate to Cassandra API using Striim
-        href: cosmosdb-cassandra-api-migrate-data-striim.md
-      - name: Migrate - Oracle DB to Cassandra API using Blitzz
-        href: oracle-migrate-cosmos-db-blitzz.md
-      - name: Migrate - Apache Cassandra to Cassandra API using Blitzz
-        href: cassandra-migrate-cosmos-db-blitzz.md
       - name: Migrate hundreds of terabytes of data into Azure Cosmos DB
         href: migrate-cosmosdb-data.md
       - name: Migrate one-to-few relational data
@@ -1305,6 +1307,11 @@
       displayName: ARM
     - name: Emulator release notes
       href: local-emulator-release-notes.md
+  - name: Reference
+    items:
+    - name: Azure Policy built-ins
+      displayName: samples, policies, definitions
+      href: ./policy-reference.md
   - name: Resources
     items:
     - name: Build your skills with Microsoft Learn

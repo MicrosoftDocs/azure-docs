@@ -2,12 +2,12 @@
 title: 'ExpressRoute: How to configure custom alerts for advertised routes'
 description: This article shows you how to use Azure Automation and Logic Apps to monitor the number of routes advertised from the ExpressRoute gateway to on-premises networks in order to prevent hitting the 200 routes limit.
 services: expressroute
-author: cherylmc
+author: duongau
 
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 05/29/2020
-ms.author: cherylmc
+ms.author: duau
 
 ---
 # Configure custom alerts to monitor advertised routes
