@@ -3,9 +3,9 @@ title: What is monitored by Azure Monitor
 description: Reference of all services and other resources monitored by Azure Monitor.
 ms.subservice: 
 ms.topic: conceptual
-author: bwren
-ms.author: bwren
-ms.date: 06/15/2020
+author: rboucher
+ms.author: robb
+ms.date: 08/15/2020
 
 ---
 
@@ -116,7 +116,7 @@ The following table lists Azure services and the data they collect into Azure Mo
 |IoT Hub | Yes | Yes | No |  |
 |Key Vault | Yes | Yes | [Yes](./insights/key-vault-insights-overview.md) |  |
 |Kubernetes Service (AKS) | No | No | [Yes](insights/container-insights-overview.md)  |  |
-|Load Balancer | Yes | Yes | No |  |
+|Load Balancer | Yes | No | No |  |
 |Logic Apps | Yes | Yes | No |  |
 |Machine Learning Service | No | No | No |  |
 |Managed Applications  | No | No | No |  |
