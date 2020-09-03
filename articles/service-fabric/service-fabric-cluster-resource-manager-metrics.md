@@ -136,6 +136,7 @@ The whole point of defining metrics is to represent some load. *Load* is how muc
   - The metric information, including default loads, for a service can updated after the service is created. This is called _updating a service_. 
   - The loads for a given partition can be reset to the default values for that service. This is called _resetting partition load_.
   - Load can be reported on a per service object basis dynamically during runtime. This is called _reporting load_. 
+  - Load can be reported on behalf of a cluster partitions during runtime. This is called _reporting load on partition's behalf_. 
   
 All of these strategies can be used within the same service over its lifetime. 
 
@@ -169,6 +170,66 @@ this.Partition.ReportLoad(new List<LoadMetric> { new LoadMetric("CurrentConnecti
 ```
 
 A service can report on any of the metrics defined for it at creation time. If a service reports load for a metric that it is not configured to use, Service Fabric ignores that report. If there are other metrics reported at the same time that are valid, those reports are accepted. Service code can measure and report all the metrics it knows how to, and operators can specify the metric configuration to use without having to change the service code. 
+
+## Reporting load on partitions' behalf
+Previous section describes a possibility to report load per replica or instance. Additionally, there is an option to report dynamic load values through FabricClient, for a specific set of partitions at once.
+
+Those reports will be used in the exactly same way as load reports that are coming from the replica itself are being used today. Reported values will be valid until new load values are reported, either if replica _reported the new load_ value or if new load value is reported _on partition's behalf_.
+
+With this API, there are multiple updates that could be achieved for any partition from the specified partition set:
+
+1. Partition can get updated its primary replica load (in case service of targeted partition is stateful)
+2. Partition can get updated load of its *all* secondary replicas, or *all* instances, in case partition is stateful or stateless
+3. Partition can get updated load of its *specific* secondary replica or instance, located on a specific node
+5. It is also possible to combine any of those updates per partition at the same time
+
+In case partition update is successfully applied, error code Success will be returned for a targeted partition. Otherwise, if the partition update is not applied for any reason, updates for that partition will be skipped and corresponding error code for a targeted partition will be provided:
+
+1. PartitionNotFound - specified partition ID doesn't exist
+2. ReconfigurationPending - partition is under some update at the moment, it should be updated, or it should be deleted soon
+3. InvalidForStatelessServices - primary load update is not allowed for stateless partitions
+5. ReplicaDoesNotExist - secondary replica or instance does not exist on a specified node
+6. InvalidOperation - could happen in two cases: updating load of partitions that belongs to the System application is not enabled by default and updating predicted load (besides current load) is not enabled by default. Applying predicted load is under development at the moment and it will be possible in the future.
+
+If some of those errors are returned, you can update the input for a specific partition and retry the update for a specific partition.
+
+Code:
+
+```csharp
+Guid partitionId = Guid.Parse("53df3d7f-5471-403b-b736-bde6ad584f42");
+string metricName0 = "CustomMetricName0";
+List<MetricLoadDescription> newPrimaryReplicaLoads = new List<MetricLoadDescription>()
+{
+    new MetricLoadDescription(metricName0, 100)
+};
+
+string nodeName0 = "NodeName0";
+List<MetricLoadDescription> newSpecificSecondaryReplicaLoads = new List<MetricLoadDescription>()
+{
+    new MetricLoadDescription(metricName0, 200)
+};
+
+OperationResult<UpdatePartitionLoadResultList> updatePartitionLoadResults =
+    await this.FabricClient.UpdatePartitionLoadAsync(
+        new UpdatePartitionLoadQueryDescription
+        {
+            PartitionMetricLoadDescriptionList = new List<PartitionMetricLoadDescription>()
+            {
+                new PartitionMetricLoadDescription(
+                    partitionId,
+                    newPrimaryReplicaLoads,
+                    new List<MetricLoadDescription>(),
+                    new List<ReplicaMetricLoadDescription>()
+                    {
+                        new ReplicaMetricLoadDescription(nodeName0, newSpecificSecondaryReplicaLoads)
+                    })
+            }
+        },
+        this.Timeout,
+        cancellationToken);
+```
+
+With this example, you will perform an update of the last reported load for a partition _53df3d7f-5471-403b-b736-bde6ad584f42_. Primary replica load for a metric _CustomMetricName0_ will be updated with value 100. At the same time, load for the same metric for a specific secondary replica located at the node _NodeName0_, will be updated with value 200.
 
 ### Updating a service's metric configuration
 The list of metrics associated with the service, and the properties of those metrics can be updated dynamically while the service is live. This allows for experimentation and flexibility. Some examples of when this is useful are:
