@@ -125,7 +125,7 @@
          href: concepts-data-access-security-private-link.md
      - name: Security
        items:
-       - name: Security overview
+       - name: Overview
          href: concepts-security.md
        - name: Configuring SSL
          href: concepts-ssl-connection-security.md
@@ -179,12 +179,11 @@
          displayName:  recommendation
      - name: Application development
        items:
+       - name: Overview
+         href: concepts-database-application-development.md
        - name: Drivers and tools compatibility
          href: concepts-compatibility.md
          displayName: drivers, tools
-       - name: How to develop
-         href: concepts-database-application-development.md
-         displayName: developement
        - name: Application Best practices
          href: app-development-best-practices.md
          displayName: application
@@ -431,7 +430,7 @@
       href: flexible-server/concepts-compute-storage.md
     - name: Business continuity
       items:
-      - name: Business continuity overview
+      - name: Overview
         href: flexible-server/concepts-business-continuity.md
       - name: Backup and restore
         href: flexible-server/concepts-backup-restore.md
