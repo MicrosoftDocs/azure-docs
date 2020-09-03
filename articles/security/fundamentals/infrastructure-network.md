@@ -42,29 +42,27 @@ A brief description of the network components.
 - Wide area network
 
    - Microsoft intelligent backbone network covering the globe
-   - Provides connectivity between Azure regions
+   - Provides connectivity between [Azure regions](https://azure.microsoft.com/global-infrastructure/geographies/)
 
 - Regional gateway
 
-   - Point of aggregation for all of the datacenters in an [Azure region](https://azure.microsoft.com/global-infrastructure/geographies/)
+   - Point of aggregation for all of the datacenters in an Azure region
    - Provides massive connectivity between datacenters within an Azure region (for example, currently 102.Tbps per datacenter)
 
 - Datacenter network
 
-   - A network provides connectivity between servers within the datacenter with low oversubscribed bandwidth
+   - Provides connectivity between servers within the datacenter with low oversubscribed bandwidth
 
 The above network components are designed to provide maximum availability to support always-on, always-available cloud business. The redundancy is designed and built into the network from the physical aspect all the way up to control protocol.
 
 ## Datacenter network resiliency
 Let’s illustrate the resiliency design principle using datacenter network.
 
-The datacenter network is a modified version of a [Clos network](https://en.wikipedia.org/wiki/Clos_network), providing high bi-sectional bandwidth for cloud scale traffic. The network is constructed using a large number of commodity devices to reduce the impact caused by individual hardware failure. These devices are strategically located in different physical locations with separate power and cooling domain to reduce impact of an environment event.  On the control plane, all network devices are running as OSI model Layer 3 routing mode, which eliminates the historical issue of traffic loop. All paths between different tiers are active to provide high redundancy and bandwidth using Equal-cost Multi-path Routing (ECMP).
+The datacenter network is a modified version of a [Clos network](https://en.wikipedia.org/wiki/Clos_network), providing high bi-sectional bandwidth for cloud scale traffic. The network is constructed using a large number of commodity devices to reduce the impact caused by individual hardware failure. These devices are strategically located in different physical locations with separate power and cooling domain to reduce impact of an environment event.  On the control plane, all network devices are running as OSI model Layer 3 routing mode, which eliminates the historical issue of traffic loop. All paths between different tiers are active to provide high redundancy and bandwidth using Equal-Cost Multi-Path (ECMP) Routing.
 
-The following diagram demonstrates that the datacenter network is constructed by different tier of network devices.
+The following diagram demonstrates that the datacenter network is constructed by different tiers of network devices. The bars in the diagram represent groups of network devices which provide redundancy and high bandwidth connectivity.
 
 ![Datacenter network](./media/infrastructure-network/datacenter-network.png)
-
-The “Bar” in the below diagram represents a group of network devices which provide redundancy and high bandwidth connectivity.
 
 ## Next steps
 To learn more about what Microsoft does to help secure the Azure infrastructure, see:
