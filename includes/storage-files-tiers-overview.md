@@ -50,5 +50,7 @@ Hot and cool file shares are currently available in the following subset of publ
 - UK West
 - North Central US
 - South Central US
+- West Central US
+- West US 2
 
 To deploy a hot or cool file share, see [Create a hot or cool file share](../articles/storage/files/storage-how-to-create-file-share.md#create-a-hot-or-cool-file-share). 
