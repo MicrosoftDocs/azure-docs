@@ -21,7 +21,6 @@ This article describes how to set up agentless dependency analysis in Azure Migr
 
 - In the dependency analysis view, you can't currently add or remove a server from a group.
 - A dependency map for a group of servers isn't currently available.
-- The dependency data can't be downloaded in tabular format.
 
 ## Before you start
 

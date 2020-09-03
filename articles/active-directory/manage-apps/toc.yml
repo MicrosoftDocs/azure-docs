@@ -39,6 +39,8 @@
       href: application-management-fundamentals.md
     - name: App management common scenarios
       href: common-scenarios.md
+    - name: Viewing apps in your tenant
+      href: application-types.md
     - name: Assigning users to apps
       href: ways-users-get-assigned-to-applications.md
     - name: Planning a cloud app integration
@@ -230,10 +232,6 @@
           href: configure-federated-single-sign-on-gallery-applications-problems.md
         - name: Configure federated common problems - non-gallery apps
           href: configure-federated-single-sign-on-non-gallery-applications-problems.md
-      - name: Troubleshoot app list and assignment
-        items:
-        - name: Manage the applications list for your tenant
-          href: application-types.md
       - name: Troubleshoot on-premises apps
         items:
         - name: Application Proxy troubleshooting
