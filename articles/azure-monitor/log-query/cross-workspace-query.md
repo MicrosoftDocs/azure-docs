@@ -9,14 +9,17 @@ ms.date: 05/01/2020
 
 ---
 
-# Perform cross-resource log queries in Azure Monitor  
+# Perform log query in Azure Monitor that span across workspaces and apps
+
+Azure Monitor Logs support query across multiple Log Analytics workspaces and Application Insights app in the same resource group, another resource group, or another subscription. This provides you with a system-wide view of your data.
+
+There are two methods to query data that is stored in multiple workspace and apps:
+1. Explicitly by specifying the workspace and app details. This technique is detailed in this article.
+2. Implicitly using [resource-context queries](../platform/design-logs-deployment.md#access-mode). When you query in the context of a specific resource, resource group or a subscription, the relevant data will be fetched from all workspaces that contains data for these resources. Application Insights data that is stored in apps, will not be fetched.
 
 > [!IMPORTANT]
 > If you are using a [workspace-based Application Insights resource](../app/create-workspace-resource.md) telemetry is stored in a Log Analytics workspace with all other log data. Use the log() expression to write a query that includes application in multiple workspaces. For multiple applications in the same workspace, you don't need a cross workspace query.
 
-Previously with Azure Monitor, you could only analyze data from within the current workspace, and it limited your ability to query across multiple workspaces defined in your subscription.  Additionally, you could only search telemetry items collected from your web-based application with Application Insights directly in Application Insights or from Visual Studio. This also made it a challenge to natively analyze operational and application data together.
-
-Now you can query not only across multiple Log Analytics workspaces, but also data from a specific Application Insights app in the same resource group, another resource group, or another subscription. This provides you with a system-wide view of your data. You can only perform these types of queries in [Log Analytics](./log-query-overview.md).
 
 ## Cross-resource query limits 
 
