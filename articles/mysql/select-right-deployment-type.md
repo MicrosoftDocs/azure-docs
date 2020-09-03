@@ -58,7 +58,7 @@ The main differences between these options are listed in the following table:
 | Azure AD Authentication | Supported | Not available in preview | Not Supported|
 | Data Encryption at rest | Supported with customer managed keys | Supported with service managed keys | Not Supported|
 | SSL/TLS | Enabled by default with support for TLS v1.2, 1.1 and 1.0 | Enforced with TLS v1.2 | Supported with TLS v1.2, 1.1 and 1.0 | 
-| Fleet Management | Supported with Az CLI, Powershell, REST and ARM | Supported with Az CLI, Powershell, REST and ARM | Supported for VMs with Az CLI, Powershell, REST and ARM|
+| Fleet Management | Supported with Azure CLI, PowerShell, REST and Azure Resource Manager | Supported with Azure CLI, PowerShell, REST and Azure Resource Manager  | Supported for VMs with Azure CLI, PowerShell, REST and Azure Resource Manager |
 
 
 ## Business motivations for choosing PaaS or IaaS
