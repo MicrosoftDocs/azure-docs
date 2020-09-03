@@ -58,7 +58,7 @@ numactl --physcpubind=[INSERT CORE #]  ib_send_lat -a
 
 OSU MPI Latency Test v5.4.3.
 
-```azure-cli
+```bash
 ./bin/mpirun_rsh -np 2 -hostfile ~/hostfile MV2_CPU_MAPPING=[INSERT CORE #] ./osu_latency 
 ```
 
@@ -83,7 +83,7 @@ OSU MPI Latency Test v5.4.3.
 
 OSU MPI Bandwidth Test v5.4.3.
 
-```azure-cli
+```bash
 ./mvapich2-2.3.install/bin/mpirun_rsh -np 2 -hostfile ~/hostfile MV2_CPU_MAPPING=[INSERT CORE #] ./mvapich2-2.3/osu_benchmarks/mpi/pt2pt/osu_bw
 ```
 
