@@ -10,7 +10,7 @@ ms.author: chenyl
 
 # Upstream settings
 
-Upstream is a feature that allows Azure SignalR Service to send messages and connection events to a set of endpoints in serverless mode. You can use upstream to invoke a hub method from clients in serverless mode and let endpoints get notified when client connections are connected or disconnected.
+Upstream is a preview feature that allows Azure SignalR Service to send messages and connection events to a set of endpoints in serverless mode. You can use upstream to invoke a hub method from clients in serverless mode and let endpoints get notified when client connections are connected or disconnected.
 
 > [!NOTE]
 > Only serverless mode can configure upstream settings.
