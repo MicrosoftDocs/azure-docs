@@ -6,6 +6,8 @@
     href: overview.md
   - name: Which MySQL option should I choose?
     href: select-right-deployment-type.md
+  - name: Upcoming changes
+    href: concepts-certificate-rotation.md
 - name: Quickstarts
   expanded: true
   items:
