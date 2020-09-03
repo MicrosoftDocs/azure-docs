@@ -211,11 +211,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-copy-snapshot-to-storage-account.md",
-      "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-powershell-sample-copy-snapshot-to-storage-account",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/azure-api-management-certs.md",
       "redirect_url": "/previous-versions/azure/azure-api-management-certs",
       "redirect_document_id": false
