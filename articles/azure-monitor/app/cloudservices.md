@@ -63,6 +63,8 @@ To avoid this situation, create separate resources for each build configuration 
 
 To send the telemetry to the appropriate resources, you can set up the Application Insights SDK so that it picks up a different instrumentation key, depending on the build configuration. 
 
+[Learn more](https://docs.microsoft.com/en-us/azure/azure-monitor/app/separate-resources#dynamic-ikey) about dynamically setting the instrumentation key for different stages. 
+
 ## Create an Application Insights resource for each role
 
 If you've decided to create a separate resource for each role, and perhaps a separate set for each build configuration, it's easiest to create them all in the Application Insights portal. If you create resources a lot, you can [automate the process](./powershell.md).
