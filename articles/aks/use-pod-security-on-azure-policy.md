@@ -253,7 +253,7 @@ To remove the baseline initiative:
 
 To disable the Azure Policy Add-on, use the [az aks disable-addons][az-aks-disable-addons] command.
 
-```azure-cli
+```azurecli
 az aks disable-addons --addons azure-policy --name MyAKSCluster --resource-group MyResourceGroup
 ```
 
