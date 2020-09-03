@@ -5,7 +5,7 @@ author: djpmsft
 ms.author: daperlov
 ms.service: data-factory
 ms.topic: tutorial
-ms.date: 08/11/2020
+ms.date: 09/02/2020
 ---
 
 # Mapping data flow video tutorials
@@ -77,6 +77,8 @@ As updates are constantly made to the product, some features have added or diffe
 [Dynamic Joins and Dynamic Lookups](https://youtu.be/CMOPPie9bXM)
 
 [Flatten transformation](https://youtu.be/VY2tFQJoAXE)
+
+[Transform Hierarchical Data](https://youtu.be/oAEh21NFgWQ)
 
 ## Source and sink
 

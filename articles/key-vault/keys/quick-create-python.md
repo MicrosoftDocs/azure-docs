@@ -23,7 +23,7 @@ Azure Key Vault helps safeguard cryptographic keys and secrets used by cloud app
 - Simplify and automate tasks for TLS/SSL certificates.
 - Use FIPS 140-2 Level 2 validated HSMs.
 
-[API reference documentation](/python/api/overview/azure/keyvault-keys-readme?view=azure-python) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/keyvault) | [Package (Python Package Index)](https://pypi.org/project/azure-keyvault/)
+[API reference documentation](/python/api/overview/azure/keyvault-keys-readme?view=azure-python) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/keyvault/azure-keyvault-keys) | [Package (Python Package Index)](https://pypi.org/project/azure-keyvault-keys/)
 
 ## Prerequisites
 
