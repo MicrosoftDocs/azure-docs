@@ -54,7 +54,7 @@ You are ready to deploy a stateful application on your Azure Stack Edge device.
 To statically provision a PV, you need to create a share on your device. Follow these steps to provision a PV against your SMB share. 
 
 > [!NOTE]
-> The example used in this how-to article does not work with NFS shares. 
+> The specific example used in this how-to article does not work with NFS shares. In general, NFS shares can be provisioned on your Azure Stack Edge device with non-database applications.
 
 1. Choose whether you want to create an Edge share or an Edge local share. Follow the instructions in [Add a share](azure-stack-edge-manage-shares.md#add-a-share) to create a share. Make sure to select the check box for **Use the share with Edge compute**.
 
