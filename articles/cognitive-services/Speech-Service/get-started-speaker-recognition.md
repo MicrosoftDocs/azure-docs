@@ -1,21 +1,22 @@
 ---
-title: "Speaker Recognition basics - Speech service"
+title: "Speaker Recognition quickstart - Speech service"
 titleSuffix: Azure Cognitive Services
-description: Learn how to use the Speech SDK to answer the question, "who is speaking". In this article, you'll learn about common design patterns for working with both speaker verification and identification.
+description: Learn how to use Speaker Recognition from the Speech SDK to answer the question, "who is speaking". In this quickstart, you learn about common design patterns for working with both speaker verification and identification, which both use voice biometry to identify unique voices.
 services: cognitive-services
 author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 06/05/2020
+ms.date: 09/02/2020
 ms.author: trbye
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, cog-serv-seo-aug-2020
+keywords: speaker recognition, voice biometry
 ---
 
-# Learn the basics of Speaker Recognition
+# Get started with Speaker Recognition
 
-In this article, you learn basic design patterns for Speaker Recognition using the Speech SDK, including:
+In this quickstart, you learn basic design patterns for Speaker Recognition using the Speech SDK, including:
 
 * Text-dependent and text-independent verification
 * Speaker identification to identify a voice sample among a group of voices

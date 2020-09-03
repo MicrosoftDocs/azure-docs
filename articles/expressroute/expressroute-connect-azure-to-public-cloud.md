@@ -2,12 +2,12 @@
 title: 'Connecting Azure to public clouds | Microsoft Docs'
 description: Describe various ways to connect Azure to other public clouds 
 services: expressroute
-author: osamazia
+author: duongau
 
 ms.service: expressroute
 ms.topic: article
 ms.date: 07/24/2019
-ms.author: osamaz
+ms.author: duau
 ---
 
 # Connecting Azure with public clouds
