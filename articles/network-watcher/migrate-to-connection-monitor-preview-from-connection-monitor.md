@@ -52,7 +52,7 @@ After the migration begins, the following changes take place:
 	* Each test is migrated to a test group called *defaultTestGroup*.
 	* Source and destination endpoints are created and used in the new test group. The default names are *defaultSourceEndpoint* and *defaultDestinationEndpoint*.
 	* The destination port and probing interval are moved to a test configuration called *defaultTestConfiguration*. The protocol is set based on the port values. Success thresholds and other optional properties are left blank.
-* Metrics alerts are migrated to Connection Monitor (Preview) metrics alerts. The metrics are different, hence the change. For more information, see [Network connectivity monitoring with Connection Monitor (Preview)](https://docs.microsoft.com/en-us/azure/network-watcher/connection-monitor-preview#metrics-in-azure-monitor).
+* Metrics alerts are migrated to Connection Monitor (Preview) metrics alerts. The metrics are different, hence the change. For more information, see [Network connectivity monitoring with Connection Monitor (Preview)](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview#metrics-in-azure-monitor).
 * The migrated connection monitors are no longer displayed as the older connection monitor solution. They're now available for use only in Connection Monitor (Preview).
 * Any external integrations, such as dashboards in Power BI and Grafana, and integrations with Security Information and Event Management (SIEM) systems, must be migrated manually. This is the only manual step you need to perform to migrate your setup.
 
