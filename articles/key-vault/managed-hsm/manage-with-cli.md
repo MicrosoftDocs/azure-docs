@@ -2,21 +2,21 @@
 title: Manage a Managed HSM using CLI - Azure Key Vault | Microsoft Docs
 description: Use this article to automate common tasks in Key Vault by using the Azure CLI 
 services: key-vault
-author: msmbaldwin
-manager: rkarlin
+author: amitbapat
+manager: msmbaldwin
 
 ms.service: key-vault
 ms.subservice: managed-hsm
 ms.topic: tutorial
-ms.date: 08/12/2019
-ms.author: mbaldwin
+ms.date: 09/15/2020
+ms.author: ambapat
 
 ---
 # Manage a Managed HSM using the Azure CLI 
 
 This article covers how to get started working with Managed HSM using the Azure CLI.  You can see information on:
 
-- How to create a Managed HSM in Azure
+- How to create and activate a Managed HSM
 - Adding a key
 - Registering an application with Azure Active Directory
 - Authorizing an application to use a key
@@ -26,6 +26,7 @@ This article covers how to get started working with Managed HSM using the Azure 
 - Miscellaneous Azure Cross-Platform Command-line Interface Commands
 
 
+> [!NOTE] Key Vault supports two types of resource: vaults and managed HSMs. This article is about **Managed HSM**. If you want to learn how to manage a vault, please see [Manage Key Vault using the Azure CLI ](../general/manage-with-cli2.md).
 
 For an overview of Managed HSM, see [What is Managed HSM?](overview.md)
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
@@ -44,7 +45,6 @@ This article assumes that you're familiar with the command-line interface (Bash,
 
 The --help or -h parameter can be used to view help for specific commands. Alternately, The Azure help [command] [options] format can also be used too. When in doubt about the parameters needed by a command, refer to help. For example, the following commands all return the same information:
 
-# [Azure CLI](#tab/azure-cli)
 ```azurecli
 az account set --help
 az account set -h
@@ -55,7 +55,7 @@ You can also read the following articles to get familiar with Azure Resource Man
 * [Install Azure CLI](/cli/azure/install-azure-cli)
 * [Get started with Azure CLI](/cli/azure/get-started-with-azure-cli)
 
-## How to create a Managed HSM in Azure
+## How to create and activate a Managed HSM in Azure
 
 Managed HSM are highly available SGX enclaves backed by hardware security modules. Vaults help reduce the chances of accidental loss of security information by centralizing the storage of application secrets. Key Vaults also control and log the access to anything stored in them. Azure Key Vault can handle requesting and renewing Transport Layer Security (TLS) certificates, providing the features required for a robust certificate lifecycle management solution. In the next steps, you will create a vault.
 
@@ -100,32 +100,61 @@ The first parameter is resource group name and the second parameter is the locat
 az account list-locations
 ``` 
 
-### Register the Managed HSM resource provider
+### Register the Key Vault resource provider
 
-You may see the error "The subscription is not registered to use namespace 'Microsoft.ManagedHSM'" when you try to create a new Managed HSM. If that message appears, make sure that the Managed HSM resource provider is registered in your subscription. This is a one-time operation for each subscription.
+You may see the error "The subscription is not registered to use namespace 'Microsoft.Keyvault'" when you try to create a new Managed HSM. If that message appears, make sure that the Key Vault resource provider is registered in your subscription. This is a one-time operation for each subscription.
 
 ```azurecli
-az provider register -n Microsoft.ManagedHSM
+az provider register -n Microsoft.Keyvault
 ```
 
 ### Create a Managed HSM
 
-Use the `az keyvault hsm create` command to create a Managed HSM. This script has three mandatory parameters: a resource group name, an hsm name, and the geographic location.
+Creating a managed HSM is a two step process:
+1. provision a Managed HSM resource
+1. activate your Managed HSM by downloading the security domain
 
-To create a new vault with the name **ContosoMHSM**, in the resource group  **ContosoResourceGroup**, residing in the **East Asia** location, type: 
+Use the `az keyvault create` command to create a Managed HSM. This script has three mandatory parameters: a resource group name, an hsm name, and the geographic location.
+
+You need to provide following inputs to create a Managed HSM resource:
+- name for the HSM
+- resource group where it will be placed in your subscription
+- Azure location
+- a list of initial administrators
+ 
+The example below creates an HSM named **ContosoMHSM**, in the resource group  **ContosoResourceGroup**, residing in the **East Asia** location, with **the current signed in user** as the only administrator.
 
 ```azurecli
-az keyvault create --name "ContosoMHSM" --resource-group "ContosoResourceGroup" --location "East Asia"
+oid=$(az ad signed-in-user show --query objectId -o tsv)
+az keyvault create --hsm-name "ContosoMHSM" --resource-group "ContosoResourceGroup" --location "East Asia" --administrators $oid
 ```
 
-The output of this command shows properties of the key vault that you've created. The two most important properties are:
+The output of this command shows properties of the Managed HSM that you've created. The two most important properties are:
 
-* **name**: In the example, the name is ContosoKeyVault. You'll use this name for other Key Vault commands.
-* **hsmUri**: In the example, the URI is https://contosohsm.mhsm.azure.net. Applications that use your hsm through its REST API must use this URI.
+* **name**: In the example, the name is ContosoMHSM. You'll use this name for other Key Vault commands.
+* **hsmUri**: In the example, the URI is https://contosohsm.managedhsm.azure.net. Applications that use your hsm through its REST API must use this URI.
 
-Your Azure account is now authorized to perform any operations on this key vault. As of yet, nobody else is authorized.
+Your Azure account is now authorized to perform any operations on this Managed HSM. As of yet, nobody else is authorized.
 
-## Adding a key HSM
+### Activate your managed HSM
+ All data plane commands are disabled until the HSM  is activated. You will not be able to create keys or assign roles. Only the designated administrators that were assigned during the create command can activate the HSM.
+
+To activate your HSM you need:
+- Minimum 3 RSA key-pairs (maximum 10)
+- Specify minimum number of keys required to decrypt the security domain (quorum)
+
+To activate the HSM you send at least 3 (maximum 10) RSA public keys to the HSM. The HSM encrypts the security domain with these keys and sends it back. Once this security domain download is successfully completed, your HSM is ready to use. You also need to specify quorum, which is the minimum number of private keys required to decrypt the security domain.
+
+Use the `az keyvault security-domain download` command to download the security domain and activate your managed HSM. The example below, uses 3 RSA key pairs (only public keys are needed for this command) and sets the quorum to 2.
+
+
+
+```azurecli
+az keyvault security-domain download --hsm-name ContosoHSM --
+```
+
+
+## Creating  a key HSM
 
 If you want to create a software-protected key, use the `az key create` command.
 

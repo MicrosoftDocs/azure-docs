@@ -12,34 +12,20 @@ ms.date: 08/12/2020
 ms.author: ambapat
 
 ---
-# Key Vault Managed HSM availability and redundancy
+# Managed HSM disaster recovery
 
-Azure Key Vault features multiple layers of redundancy to make sure that your keys and secrets remain available to your application even if individual components of the service fail.
+In case your managed HSM is lost or unavailable due to any of the below reasons, 
+- it was deleted and then purged
+- a catastrophic failure in the region resulting in all member partitions being destroyed, , you can re-create the HSM instance in same or different region if you have following:
+- Security Domain
+- The private keys (at least quorum number) that encrypt the security domain
+- most recent full HSM backup
+or you want to create an exact replica of your HSM
 
-The contents of your key vault are replicated within the region and to a secondary region at least 150 miles away but within the same geography. This maintains high durability of your keys and secrets. See the [Azure paired regions](best-practices-availability-paired-regions.md) document for details on specific region pairs.
-
-If individual components within the key vault service fail, alternate components within the region step in to serve your request to make sure that there is no degradation of functionality. You do not need to take any action to trigger this. It happens automatically and will be transparent to you.
-
-In the rare event that an entire Azure region is unavailable, the requests that you make of Azure Key Vault in that region are automatically routed (*failed over*) to a secondary region. When the primary region is available again, requests are routed back (*failed back*) to the primary region. Again, you do not need to take any action because this happens automatically.
-
-Through this high availability design, Azure Key Vault requires no downtime for maintenance activities.
-
-There are a few caveats to be aware of:
-
-* In the event of a region failover, it may take a few minutes for the service to fail over. Requests that are made during this time may fail until the failover completes.
-* After a failover is complete, your key vault is in read-only mode. Requests that are supported in this mode are:
-  * List key vaults
-  * Get properties of key vaults
-  * List secrets
-  * Get secrets
-  * List keys
-  * Get (properties of) keys
-  * Encrypt
-  * Decrypt
-  * Wrap
-  * Unwrap
-  * Verify
-  * Sign
-  * Backup
-* After a failover is failed back, all request types (including read *and* write requests) are available.
-
+Here is a quick outline of the disaster recovery procedure:
+1. Create a new HSM Instance
+2. When the HSM is in “Provisioned” state, activate “Security Domain restore mode”. A new RSA key pair (Security Domain Exchange Key) is generated for Security Domain transfer.
+3. Download a SecurityDomainExchangeKey (public key). This key can only be retrieved when “security domain restore mode” is activated
+4. Create a "Security Domain Transfer File" - you will need the private keys that encrypt the security domain. The private keys are used locally, and never transferred anywhere in this process.
+5. Upload security domain to activate the HSM
+6. Restore recent HSM backup
