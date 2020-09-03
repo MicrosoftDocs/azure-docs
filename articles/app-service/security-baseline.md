@@ -4,7 +4,7 @@ description: The App Service security baseline provides procedural guidance and 
 author: msmbaldwin
 ms.service: app-service
 ms.topic: conceptual
-ms.date: 09/02/2020
+ms.date: 09/03/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 
@@ -22,12 +22,12 @@ For more information, see [Azure Security Baselines overview](../security/benchm
 
 ## Network security
 
-*For more information, see the [Azure Security Benchmark: Network security](/azure/security/benchmarks/security-control-network-security).*
+*For more information, see the [Azure Security Benchmark: Network security](../security/benchmarks/security-control-network-security.md).*
 
 ### 1.1: Protect Azure resources within virtual networks
 
 **Guidance**: 
-An App Service Environment (ASE) refers to a deployment of Microsoft Azure App Service into a subnet within an Azure Virtual Network. An ASE can be secured with network security groups by blocking inbound and outbound traffic to resources in the virtual network. Network security groups can be applied on the ASE subnet to restrict access to the apps on the ASE. In this manner, App Service can be used to provide perimeter security for virtual networks. 
+An App Service Environment (ASE) refers to a deployment of Microsoft Azure App Service into a subnet within an Azure Virtual Network. An ASE can be secured with network security groups by blocking inbound and outbound traffic to resources in the virtual network. Network security groups can also be applied on the ASE subnet to restrict access to the apps on the ASE. In this manner, App Service can be used to provide perimeter security for virtual networks. 
 
 Network security groups include an implicit deny rule at the lowest priority to deny everything at the Azure portal. Any allow rules need to be built. A network security group that's applied to an integration subnet is in effect regardless of any routes applied to the integration subnet. Two types of ASE exist, an External ASE, and ILB (Internal Load Balancer) ASE.
 
@@ -315,7 +315,7 @@ Security Center generates detailed security alerts and recommendations. You can 
 
 ## Logging and monitoring
 
-*For more information, see the [Azure Security Benchmark: Logging and monitoring](/azure/security/benchmarks/security-control-logging-monitoring).*
+*For more information, see the [Azure Security Benchmark: Logging and monitoring](../security/benchmarks/security-control-logging-monitoring.md).*
 
 ### 2.1: Use approved time synchronization sources
 
@@ -462,7 +462,7 @@ Optionally, you may enable and on-board data to Azure Sentinel or a third-party 
 
 ## Identity and access control
 
-*For more information, see the [Azure Security Benchmark: Identity and access control](/azure/security/benchmarks/security-control-identity-access-control).*
+*For more information, see the [Azure Security Benchmark: Identity and access control](../security/benchmarks/security-control-identity-access-control.md).*
 
 ### 3.1: Maintain an inventory of administrative accounts
 
@@ -670,7 +670,7 @@ For account login behavior deviation on the control plane (the Azure portal), us
 
 ## Data protection
 
-*For more information, see the [Azure Security Benchmark: Data protection](/azure/security/benchmarks/security-control-data-protection).*
+*For more information, see the [Azure Security Benchmark: Data protection](../security/benchmarks/security-control-data-protection.md).*
 
 ### 4.1: Maintain an inventory of sensitive Information
 
@@ -788,7 +788,7 @@ Locally attached disks can optionally be used as temporary storage by websites (
 
 ## Vulnerability management
 
-*For more information, see the [Azure Security Benchmark: Vulnerability management](/azure/security/benchmarks/security-control-vulnerability-management).*
+*For more information, see the [Azure Security Benchmark: Vulnerability management](../security/benchmarks/security-control-vulnerability-management.md).*
 
 ### 5.1: Run automated vulnerability scanning tools
 
@@ -840,7 +840,7 @@ In addition, follow recommendations from Security Center to help secure your Azu
 
 ## Inventory and asset management
 
-*For more information, see the [Azure Security Benchmark: Inventory and asset management](/azure/security/benchmarks/security-control-inventory-asset-management).*
+*For more information, see the [Azure Security Benchmark: Inventory and asset management](../security/benchmarks/security-control-inventory-asset-management.md).*
 
 ### 6.1: Use automated asset discovery solution
 
@@ -994,7 +994,7 @@ Deploy a higher risk Azure App Service web app into its own Virtual Network. Per
 
 ## Secure configuration
 
-*For more information, see the [Azure Security Benchmark: Secure configuration](/azure/security/benchmarks/security-control-secure-configuration).*
+*For more information, see the [Azure Security Benchmark: Secure configuration](../security/benchmarks/security-control-secure-configuration.md).*
 
 ### 7.1: Establish secure configurations for all Azure resources
 
@@ -1140,7 +1140,7 @@ Apply Azure Policy [audit], [deny], and [deploy if not exist] effects to automat
 
 ## Malware defense
 
-*For more information, see the [Azure Security Benchmark: Malware defense](/azure/security/benchmarks/security-control-malware-defense).*
+*For more information, see the [Azure Security Benchmark: Malware defense](../security/benchmarks/security-control-malware-defense.md).*
 
 ### 8.1: Use centrally-managed anti-malware software
 
@@ -1180,7 +1180,7 @@ Microsoft anti-malware is enabled on the underlying host that supports Azure ser
 
 ## Data recovery
 
-*For more information, see the [Azure Security Benchmark: Data recovery](/azure/security/benchmarks/security-control-data-recovery).*
+*For more information, see the [Azure Security Benchmark: Data recovery](../security/benchmarks/security-control-data-recovery.md).*
 
 ### 9.1: Ensure regular automated back-ups
 
@@ -1252,7 +1252,7 @@ By default, data in a storage account is encrypted with Microsoft-managed keys. 
 
 ## Incident response
 
-*For more information, see the [Azure Security Benchmark: Incident response](/azure/security/benchmarks/security-control-incident-response).*
+*For more information, see the [Azure Security Benchmark: Incident response](../security/benchmarks/security-control-incident-response.md).*
 
 ### 10.1: Create an incident response guide
 
@@ -1324,7 +1324,7 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) and crea
 
 ## Penetration tests and red team exercises
 
-*For more information, see the [Azure Security Benchmark: Penetration tests and red team exercises](/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
+*For more information, see the [Azure Security Benchmark: Penetration tests and red team exercises](../security/benchmarks/security-control-penetration-tests-red-team-exercises.md).*
 
 ### 11.1: Conduct regular penetration testing of your Azure resources and ensure remediation of all critical security findings
 
