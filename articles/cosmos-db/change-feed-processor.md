@@ -8,6 +8,7 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.reviewer: sngun
+ms.custom: devx-track-csharp
 ---
 
 # Change feed processor in Azure Cosmos DB

@@ -8,7 +8,7 @@ manager: ravijan
 ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
-ms.date: 08/24/2020
+ms.date: 08/28/2020
 ms.author: sudbalas
 
 ---
@@ -32,8 +32,6 @@ There are a few caveats to be aware of:
 
 * In the event of a region failover, it may take a few minutes for the service to fail over. Requests that are made during this time prior to failover may fail.
 * During failover, your key vault is in read-only mode. Requests that are supported in this mode are:
-  * List key vaults
-  * Get properties of key vaults
   * List certificates
   * Get certificates
   * List secrets

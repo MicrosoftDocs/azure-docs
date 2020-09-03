@@ -3,18 +3,21 @@ title: Create a streaming locator and build URLs - Azure Media Services
 description: This article demonstrates how to create a streaming locator and build URLs.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 
 ms.service: media-services
 ms.workload: 
-ms.topic: article
-ms.date: 03/04/2020
-ms.author: juliako
+ms.topic: how-to
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.custom: devx-track-csharp
 ---
 
 # Create a streaming locator and build URLs
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 In Azure Media Services, to build a streaming URL, you need to first create a [Streaming Locator](streaming-locators-concept.md). You then concatenate the [Streaming Endpoint](/rest/api/media/streamingendpoints) host name and the **Streaming Locator** path. In this sample, the *default* **Streaming Endpoint** is used. When you first create a Media Service account, this *default* **Streaming Endpoint** will be in a stopped state, so you need to call **Start** to start streaming.
 
