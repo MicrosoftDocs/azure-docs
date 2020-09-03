@@ -45,8 +45,8 @@
     items:
     - name: Agent connection issues
       href: troubleshoot-agent-onboard.md
-  - name: Reference
-    items:
+- name: Reference
+  items:
     - name: Region availability and data residency
       href: data-residency.md
     - name: REST
