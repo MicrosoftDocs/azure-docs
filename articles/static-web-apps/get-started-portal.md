@@ -59,31 +59,31 @@ After you sign in with GitHub, enter the repository information.
 
     # [No Framework](#tab/vanilla-javascript)
 
-    - Select **Custom** from the _Build Presets_ dropdown
-    - Clear the default value in the _App location_ box
-    - Clear the default value from the _Api location_ box
-    - Leave the _App artifact location_ box empty
+    1. Select **Custom** from the _Build Presets_ dropdown
+    1. Clear the default value in the _App location_ box
+    1. Clear the default value from the _Api location_ box
+    1. Leave the _App artifact location_ box empty
 
     # [Angular](#tab/angular)
 
-    - Select **Angular** from the _Build Presets_ dropdown
-    - Keep the the default value in the _App location_ box
-    - Clear the default value from the _Api location_ box
-    - Type **dist/angular-basic** in the _App artifact location_ box
+    1. Select **Angular** from the _Build Presets_ dropdown
+    1. Keep the the default value in the _App location_ box
+    1. Clear the default value from the _Api location_ box
+    1. Type **dist/angular-basic** in the _App artifact location_ box
 
     # [React](#tab/react)
 
-    - Select **React** from the _Build Presets_ dropdown
-    - Keep the the default value in the _App location_ box
-    - Clear the default value from the _Api location_ box
-    - Type **build** in the _App artifact location_ box
+    1. Select **React** from the _Build Presets_ dropdown
+    1. Keep the the default value in the _App location_ box
+    1. Clear the default value from the _Api location_ box
+    1. Type **build** in the _App artifact location_ box
 
     # [Vue](#tab/vue)
 
-    - Select **Vue.js** from the _Build Presets_ dropdown
-    - Keep the the default value in the _App location_ box
-    - Clear the default value from the _Api location_ box
-    - Keep the default value in the _App artifact location_ box
+    1. Select **Vue.js** from the _Build Presets_ dropdown
+    1. Keep the the default value in the _App location_ box
+    1. Clear the default value from the _Api location_ box
+    1. Keep the default value in the _App artifact location_ box
 
     ---
 
