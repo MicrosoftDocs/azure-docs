@@ -1107,7 +1107,7 @@ Access the following web-based authoring tools from the studio:
 |-|-|-|
 | Notebook VM(preview) | Fully managed cloud-based workstation | 
 | [Automated machine learning](tutorial-first-experiment-automated-ml.md) (preview) | No code experience for automating machine learning model development | 
-| [Designer](concept-designer.md) | Drag-and-drop machine learning modeling tool formerly known as the designer | 
+| [Designer](concept-designer.md) | Drag-and-drop machine learning modeling tool formerly known as the visual interface | 
 
 
 ### Azure Machine Learning designer enhancements
