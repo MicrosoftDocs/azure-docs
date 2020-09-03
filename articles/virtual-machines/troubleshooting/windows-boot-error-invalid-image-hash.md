@@ -31,7 +31,7 @@ When you use [Boot diagnostics](https://docs.microsoft.com/azure/virtual-machine
 
   `Info: Windows cannot verify the digital signature for this file.`
 
-  ![Figure 1 displays Windows Boot Manager with the status "Ox0000428", and info "Windows cannot verify the digital signature for this file".](./media/windows-boot-error-invalid-image-hash/1.png)
+  ![Figure 1 displays Windows Boot Manager with the status "Ox0000428", and info "Windows cannot verify the digital signature for this file".](./media/windows-boot-error-invalid-image-hash/1-cannot-verify-signature.png)
 
 or the message:
 
@@ -41,7 +41,7 @@ or the message:
 
   `Info: The digital signature for this file couldn't be verified.`
 	
-  ![Figure 2 displays Windows Boot Manager with the status "Ox0000428", and info "The digital signature for this file couldn't be verified".](./media/windows-boot-error-invalid-image-hash/2.png)
+  ![Figure 2 displays Windows Boot Manager with the status "Ox0000428", and info "The digital signature for this file couldn't be verified".](./media/windows-boot-error-invalid-image-hash/2-digital-signature-not-verified.png)
 
 ## Cause
 
