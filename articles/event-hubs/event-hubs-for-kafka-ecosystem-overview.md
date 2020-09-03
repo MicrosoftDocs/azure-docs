@@ -5,7 +5,7 @@ ms.topic: article
 ms.date: 07/20/2020
 ---
 # Use Azure Event Hubs from Apache Kafka applications
-Event Hubs provides an endpoint compatible with the Apache Kafka® producer and consumer APIs that can be used by most existing Apache Kafka client applications as an alternative to running your own Apache Kafka cluster. Event Hubs supports Apache Kafka's producer and consumer APIs at the version 1.0+ level.
+Event Hubs provides an endpoint compatible with the Apache Kafka® producer and consumer APIs that can be used by most existing Apache Kafka client applications as an alternative to running your own Apache Kafka cluster. Event Hubs supports Apache Kafka's producer and consumer APIs clients at version 1.0 and above.
 
 > [!VIDEO https://www.youtube.com/embed/UE1WgB96_fc]
 
@@ -115,6 +115,27 @@ Apache Kafka log compaction is a feature that allows evicting all but the last r
 The log compaction feature is used by the Kafka Connect and Kafka Streams client frameworks.
 
 Support for the Apache Kafka log compaction feature will be available at a date yet to be announced, and primarily for compatibility with existing applications.  
+
+### Kafka Streams
+
+Kafka Streams is a client library for stream analytics that is part of the Apache Kafka open source project, but is separate from the Apache Kafka event stream broker. 
+
+The most common reason Azure Event Hubs customers ask for Kafka Streams support is because they are interested in Confluent's "ksqlDB" product. "ksqlDB" is a proprietary shared source project that is [licensed such](https://github.com/confluentinc/ksql/blob/master/LICENSE) that no vendor "offering software-as-a-service, platform-as-a-service, infrastructure-as-a-service or other similar online services that competes with Confluent products or services" is permitted to use or offer "ksqlDB" support. Practically, if you use ksqlDB, you must either operate Kafka yourself or you must use Confluent’s cloud offerings. The licensing terms might also affect Azure customers who offer services for a purpose excluded by the license.
+
+Standalone and without ksqlDB, Kafka Streams has fewer capabilities than many alternative frameworks and services, most of which have built-in streaming SQL interfaces, and all of which integrate with Azure Event Hubs today:
+
+- [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction)
+- [Azure Synapse Analytics (via Event Hubs Capture)](../event-grid/event-grid-event-hubs-integration)
+- [Azure Databricks](../databricks/scenarios/databricks-stream-from-eventhubs)
+- [Apache Samza](https://samza.apache.org/learn/documentation/latest/connectors/eventhubs)
+- [Apache Storm](event-hubs-storm-getstarted-receive)
+- [Apache Spark](event-hubs-kafka-spark-tutorial)
+- [Apache Flink](event-hubs-kafka-flink-tutorial)
+- [Akka Streams](event-hubs-kafka-akka-streams-tutorial)
+
+The listed services and frameworks can generally acquire event streams and reference data directly from a diverse set of sources through adapters. Kafka Streams can only acquire data from Apache Kafka and your analytics projects are therefore locked into Apache Kafka. To use data from other sources, you are required to first import data into Apache Kafka with the Kafka Connect framework.
+
+If you must use the Kafka Streams framework on Azure, [Apache Kafka on HDInsight](../hdinsight/kafka/apache-kafka-introduction) will provide you with that option. Apache Kafka on HDInsight provides full control over all configuration aspects of Apache Kafka, while being fully integrated with various aspects of the Azure platform, from fault/update domain placement to network isolation to monitoring integration. 
 
 ## Next steps
 This article provided an introduction to Event Hubs for Kafka. To learn more, see [Apache Kafka developer guide for Azure Event Hubs](apache-kafka-developer-guide.md).
