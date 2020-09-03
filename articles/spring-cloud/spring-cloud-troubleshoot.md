@@ -136,7 +136,7 @@ If the polling is interrupted, you can still use the following command to fetch 
 
 `az spring-cloud app show-deploy-log -n <app-name>`
 
-However, note that one Azure Spring Cloud service instance can trigger only one build job for one source package at one time. For more information, see [Deploy an application](spring-cloud-quickstart-launch-app-portal.md) and [Set up a staging environment in Azure Spring Cloud](spring-cloud-howto-staging-environment.md).
+However, note that one Azure Spring Cloud service instance can trigger only one build job for one source package at one time. For more information, see [Deploy an application](spring-cloud-quickstart.md) and [Set up a staging environment in Azure Spring Cloud](spring-cloud-howto-staging-environment.md).
 
 ### My application can't be registered
 
