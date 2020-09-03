@@ -7,7 +7,7 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 09/02/20
+ms.date: 09/02/2020
 ---
 
 # Managing the mapping data flow graph
@@ -30,7 +30,7 @@ Unlike the pipeline canvas, data flow transformations aren't edited using a drag
 
 ## Hide graph and show graph
 
-When editing your transformation, you can expand the configuration panel to be take up the entire canvas, hiding the graph. Click on the upward-facing chevron located on the right side of the canvas.
+When editing your transformation, you can expand the configuration panel to take up the entire canvas, hiding the graph. Click on the upward-facing chevron located on the right side of the canvas.
 
 ![Hide graph](media/data-flow/hide-graph.png "hide graph")
 
@@ -56,4 +56,4 @@ If your data flow has any join, lookup, exists, or union transformations, data f
 
 ## Next steps
 
-After completing your Data Flow design, turn the debug button on and test it out in debug mode either directly in the [data flow designer](concepts-data-flow-debug-mode.md) or [pipeline debug](control-flow-execute-data-flow-activity.md).
+After completing your data flow logic, turn on [debug mode](concepts-data-flow-debug-mode.md) and test it out in a data preview.
