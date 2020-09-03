@@ -266,7 +266,7 @@
         href: sql/best-practices-sql-pool.md
       # - name: FAQ
       #   href: sql/faq.md
-    - name: Data loading
+    - name: Data ingestion and preparation
       items:
       - name: Overview
         href: ./sql-data-warehouse/design-elt-data-loading.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
@@ -436,7 +436,7 @@
           href: ./sql-data-warehouse/sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Upgrade to Gen2
         href: ./sql-data-warehouse/upgrade-to-latest-generation.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-  - name: Load data
+  - name: Data ingestion and preparation
     items:
     - name: Into the data warehouse
       items:
