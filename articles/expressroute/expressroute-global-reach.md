@@ -3,10 +3,9 @@ title: 'Azure ExpressRoute: Connect to Microsoft Cloud using Global Reach'
 description: Learn how Azure ExpressRoute Global Reach can link ExpressRoute circuits together to make a private network between your on-premises networks.
 services: expressroute
 author: duongau
-
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 06/09/2020
+ms.date: 09/02/2020
 ms.author: duau
 
 
@@ -14,7 +13,7 @@ ms.author: duau
 
 
 # ExpressRoute Global Reach
-ExpressRoute is a private and resilient way to connect your on-premises networks to Microsoft Cloud. You can access many Microsoft cloud services such as Azure, and Office 365 from your private data center or your corporate network. For example, you may have a branch office in San Francisco with an ExpressRoute circuit in Silicon Valley and another branch office in London with an ExpressRoute circuit in the same city. Both branch offices can have high speed connectivity to Azure resources in US West and UK South. However, the branch offices cannot exchange data directly with each other. In other words, 10.0.1.0/24 can send data to 10.0.3.0/24 and 10.0.4.0/24, but NOT to 10.0.2.0/24.
+ExpressRoute is a private and resilient way to connect your on-premises networks to the Microsoft Cloud. You can access many Microsoft cloud services such as Azure, and Office 365 from your private data center or your corporate network. For example, you may have a branch office in San Francisco with an ExpressRoute circuit in Silicon Valley and another branch office in London with an ExpressRoute circuit in the same city. Both branch offices have high-speed connectivity to Azure resources in US West and UK South. However, the branch offices cannot connect and send data directly with one another. In other words, 10.0.1.0/24 can send data to 10.0.3.0/24 and 10.0.4.0/24 network, but NOT to 10.0.2.0/24 network.
 
 ![without][1]
 
@@ -28,7 +27,7 @@ ExpressRoute Global Reach is designed to complement your service provider’s WA
 ![use case][3]
 
 ## Availability 
-ExpressRoute Global Reach is supported in all regions where ExpressRoute is currently supported. Refer to [ExpressRoute peering locations](expressroute-locations.md#locations) for the current supported regions. 
+ExpressRoute Global Reach is supported in all regions where ExpressRoute is currently supported. You can refer to [ExpressRoute peering locations](expressroute-locations.md#locations) for current supported regions. 
 
 > [!NOTE] 
 > To enable ExpressRoute Global Reach between [different geopolitical regions](expressroute-locations.md#locations), your circuits must be **Premium SKU**.
