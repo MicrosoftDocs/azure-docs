@@ -51,7 +51,7 @@ You are ready to deploy a stateful application on your Azure Stack Edge device.
 
 ## Provision a static PV
 
-To statically provision a PV, you need to create a share on your device. Follow these steps to provision a PV against your SMB or NFS share. 
+To statically provision a PV, you need to create a share on your device. Follow these steps to provision a PV against your SMB share. Note that this example here does not work with NFS shares. 
 
 1. Choose whether you want to create an Edge share or an Edge local share. Follow the instructions in [Add a share](azure-stack-edge-manage-shares.md#add-a-share) to create a share. Make sure to select the check box for **Use the share with Edge compute**.
 
@@ -154,8 +154,8 @@ All `kubectl` commands you use to create and manage stateful application deploym
     metadata:
       name: mysql-pv-claim
     spec:
-      volumeName: <nfs-or-smb-share-name-here>
-      storageClassName: manual
+      volumeName: <smb-share-name-here>
+      storageClassName: ""
       accessModes:
         - ReadWriteOnce
       resources:
