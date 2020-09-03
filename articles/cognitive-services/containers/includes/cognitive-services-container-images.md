@@ -6,7 +6,7 @@ manager: nitinme
 description: Two tables representing the container registries, repositories and image names for all Cognitive Service offerings.
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 04/24/2020
+ms.date: 09/03/2020
 ms.author: aahi
 ---
 
@@ -22,7 +22,7 @@ The Microsoft Container Registry (MCR) syndicates all of the generally available
 
 | Container | Container Registry / Repository / Image Name |
 |--|--|
-| LUIS | `mcr.microsoft.com/azure-cognitive-services/luis` |
+| LUIS | `mcr.microsoft.com/azure-cognitive-services/language/luis` |
 
 See [How to run and install LUIS containers](../../LUIS/luis-container-howto.md) for more information.
 
@@ -30,16 +30,16 @@ See [How to run and install LUIS containers](../../LUIS/luis-container-howto.md)
 
 | Container | Container Registry / Repository / Image Name |
 |--|--|
-| Sentiment Analysis v3 (English) | `mcr.microsoft.com/azure-cognitive-services/sentiment:3.0-en` |
-| Sentiment Analysis v3 (Spanish) | `mcr.microsoft.com/azure-cognitive-services/sentiment:3.0-es` |
-| Sentiment Analysis v3 (French) | `mcr.microsoft.com/azure-cognitive-services/sentiment:3.0-fr` |
-| Sentiment Analysis v3 (Italian) | `mcr.microsoft.com/azure-cognitive-services/sentiment:3.0-it` |
-| Sentiment Analysis v3 (German) | `mcr.microsoft.com/azure-cognitive-services/sentiment:3.0-de` |
-| Sentiment Analysis v3 (Chinese - simplified) | `mcr.microsoft.com/azure-cognitive-services/sentiment:3.0-zh` |
-| Sentiment Analysis v3 (Chinese - traditional) | `mcr.microsoft.com/azure-cognitive-services/sentiment:3.0-zht` |
-| Sentiment Analysis v3 (Japanese) | `mcr.microsoft.com/azure-cognitive-services/sentiment:3.0-ja` |
-| Sentiment Analysis v3 (Portuguese) | `mcr.microsoft.com/azure-cognitive-services/sentiment:3.0-pt` |
-| Sentiment Analysis v3 (Dutch) | `mcr.microsoft.com/azure-cognitive-services/sentiment:3.0-nl` |
+| Sentiment Analysis v3 (English) | `mcr.microsoft.com/azure-cognitive-services/textanalytics/sentiment:3.0-en` |
+| Sentiment Analysis v3 (Spanish) | `mcr.microsoft.com/azure-cognitive-services/textanalytics/sentiment:3.0-es` |
+| Sentiment Analysis v3 (French) | `mcr.microsoft.com/azure-cognitive-services/textanalytics/sentiment:3.0-fr` |
+| Sentiment Analysis v3 (Italian) | `mcr.microsoft.com/azure-cognitive-services/textanalytics/sentiment:3.0-it` |
+| Sentiment Analysis v3 (German) | `mcr.microsoft.com/azure-cognitive-services/textanalytics/sentiment:3.0-de` |
+| Sentiment Analysis v3 (Chinese - simplified) | `mcr.microsoft.com/azure-cognitive-services/textanalytics/sentiment:3.0-zh` |
+| Sentiment Analysis v3 (Chinese - traditional) | `mcr.microsoft.com/azure-cognitive-services/textanalytics/sentiment:3.0-zht` |
+| Sentiment Analysis v3 (Japanese) | `mcr.microsoft.com/azure-cognitive-services/textanalytics/sentiment:3.0-ja` |
+| Sentiment Analysis v3 (Portuguese) | `mcr.microsoft.com/azure-cognitive-services/textanalytics/sentiment:3.0-pt` |
+| Sentiment Analysis v3 (Dutch) | `mcr.microsoft.com/azure-cognitive-services/textanalytics/sentiment:3.0-nl` |
 
 See [How to run and install Text Analytics containers](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md) for more information.
 
@@ -47,7 +47,7 @@ See [How to run and install Text Analytics containers](../../text-analytics/how-
 
 | Container | Container Registry / Repository / Image Name |
 |--|--|
-| Anomaly detector | `mcr.microsoft.com/azure-cognitive-services/anomaly-detector` |
+| Anomaly detector | `mcr.microsoft.com/azure-cognitive-services/decision/anomaly-detector` |
 
 See [How to run and install Anomaly detector containers](../../anomaly-detector/anomaly-detector-container-howto.md) for more information.
 
@@ -55,9 +55,9 @@ See [How to run and install Anomaly detector containers](../../anomaly-detector/
 
 | Container | Container Registry / Repository / Image Name |
 |--|--|
-| [Speech-to-text](../../speech-service/speech-container-howto.md?tab=stt) | `containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text` |
-| [Custom Speech-to-text](../../speech-service/speech-container-howto.md?tab=cstt) | `containerpreview.azurecr.io/microsoft/cognitive-services-custom-speech-to-text` |
-| [Text-to-speech](../../speech-service/speech-container-howto.md?tab=tts) | `containerpreview.azurecr.io/microsoft/cognitive-services-text-to-speech` |
+| [Speech-to-text](../../speech-service/speech-container-howto.md?tab=stt) | `mcr.microsoft.com/azure-cognitive-services/speechservices/speech-to-text` |
+| [Custom Speech-to-text](../../speech-service/speech-container-howto.md?tab=cstt) | `mcr.microsoft.com/azure-cognitive-services/speechservices/custom-speech-to-text` |
+| [Text-to-speech](../../speech-service/speech-container-howto.md?tab=tts) | `mcr.microsoft.com/azure-cognitive-services/speechservices/text-to-speech` |
 
 #### "Ungated" preview 
 
@@ -65,8 +65,8 @@ The following preview containers are available publicly. The Microsoft Container
 
 | Service | Container | Container Registry / Repository / Image Name |
 |--|--|--|
-| [Text Analytics](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md) | Key Phrase Extraction | `mcr.microsoft.com/azure-cognitive-services/keyphrase` |
-| [Text Analytics](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md) | Language Detection | `mcr.microsoft.com/azure-cognitive-services/language` |
+| [Text Analytics](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md) | Key Phrase Extraction | `mcr.microsoft.com/azure-cognitive-services/textanalytics/keyphrase` |
+| [Text Analytics](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md) | Language Detection | `mcr.microsoft.com/azure-cognitive-services/textanalytics/language` |
 
 
 #### "Gated" preview
@@ -79,9 +79,10 @@ Previously, gated preview containers were hosted on the `containerpreview.azurec
 
 | Service | Container | Container Registry / Repository / Image Name |
 |--|--|--|
-| [Computer Vision](../../Computer-vision/computer-vision-how-to-install-containers.md) | Read v3.0 | `mcr.microsoft.com/azure-cognitive-services/vision/read:3.0` |
-| [Computer Vision](../../Computer-vision/computer-vision-how-to-install-containers.md) | Read v3.1 | `mcr.microsoft.com/azure-cognitive-services/vision/read:3.1` |
-| [Speech Service API](../../speech-service/speech-container-howto.md?tab=ctts) | Custom Text-to-speech | `mcr.microsoft.com/azure-cognitive-services/custom-text-to-speech` |
-| [Speech Service API](../../speech-service/speech-container-howto.md?tab=lid) | Language Detection | `mcr.microsoft.com/azure-cognitive-services/speech/language-detection` |
-| [Speech Service API](../../speech-service/speech-container-howto.md?tab=ntts) | Neural Text-to-speech | `mcr.microsoft.com/azure-cognitive-services/neural-text-to-speech` |
-| [Text Analytics for health](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=health) | Text Analytics for health | `mcr.microsoft.com/azure-cognitive-services/health` |
+| [Computer Vision](../../Computer-vision/computer-vision-how-to-install-containers.md) | Read v3.0 | `mcr.microsoft.com/azure-cognitive-services/vision/read-3.0` |
+| [Computer Vision](../../Computer-vision/computer-vision-how-to-install-containers.md) | Read v3.1 | `mcr.microsoft.com/azure-cognitive-services/vision/read-3.1` |
+| [Computer Vision](../../Computer-vision/computer-vision-how-to-install-containers.md) | Spatial Analysis | `mcr.microsoft.com/azure-cognitive-services/vision/spatial-analysis` |
+| [Speech Service API](../../speech-service/speech-container-howto.md?tab=ctts) | Custom Text-to-speech | `mcr.microsoft.com/azure-cognitive-services/speechservices/custom-text-to-speech` |
+| [Speech Service API](../../speech-service/speech-container-howto.md?tab=lid) | Language Detection | `mcr.microsoft.com/azure-cognitive-services/speechservices/language-detection` |
+| [Speech Service API](../../speech-service/speech-container-howto.md?tab=ntts) | Neural Text-to-speech | `mcr.microsoft.com/azure-cognitive-services/speechservices/neural-text-to-speech` |
+| [Text Analytics for health](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=health) | Text Analytics for health | `mcr.microsoft.com/azure-cognitive-services/textanalytics/healthcare` |
