@@ -19,10 +19,9 @@ ms.collection: M365-identity-device-management
 
 # Azure AD Connect Health instructions for data retrieval
 
+This document describes how to use Azure AD Connect to retrieve data from Azure AD Connect Health.
 
 [!INCLUDE [active-directory-app-provisioning.md](../../../includes/gdpr-intro-sentence.md)]
-
-This document describes how to use Azure AD Connect to retrieve data to assist you in the type of requests outlined above.
 
 ## Retrieve all email addresses for users configured for health alerts.
 
