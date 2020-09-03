@@ -43,7 +43,7 @@
     - name: Azure Defender for SQL
       href: defender-for-storage-intro.md
     - name: Azure Defender for IoT
-      href: defender-for-iot.md
+      href: defender-for-iot-intro.md
     - name: Azure Defender for Key Vault
       href: defender-for-key-vault-intro.md
     - name: Azure Defender for Kubernetes
