@@ -1,4 +1,3 @@
-
 ---
 title: What is Azure Active Directory Identity Protection?
 description: Detect, remediate, investigate, and analyze risk with Azure AD Identity Protection
