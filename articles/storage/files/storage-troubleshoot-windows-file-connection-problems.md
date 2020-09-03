@@ -46,10 +46,10 @@ If users are accessing the Azure file share using Active Directory (AD) or Azure
 
 Validate that permissions are configured correctly:
 
-- **Active Directory (AD)** see [Assign share-level permissions to an identity](https://docs.microsoft.com/en-us/azure/storage/files/storage-files-identity-ad-ds-assign-permissions).
+- **Active Directory (AD)** see [Assign share-level permissions to an identity](https://docs.microsoft.com/azure/storage/files/storage-files-identity-ad-ds-assign-permissions).
 
     Share-level permission assignments are supported for groups and users that have been synced from the Active Directory (AD) to Azure Active Directory (AAD) using Azure AD Connect.  Confirm that groups and users being assigned share-level permissions are not unsupported "cloud-only" groups.
-- **Azure Active Directory Domain Services (Azure AD DS)** see [Assign access permissions to an identity](https://docs.microsoft.com/en-us/azure/storage/files/storage-files-identity-auth-active-directory-domain-service-enable?tabs=azure-portal#assign-access-permissions-to-an-identity).
+- **Azure Active Directory Domain Services (Azure AD DS)** see [Assign access permissions to an identity](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-domain-service-enable?tabs=azure-portal#assign-access-permissions-to-an-identity).
 
 <a id="error53-67-87"></a>
 ## Error 53, Error 67, or Error 87 when you mount or unmount an Azure file share
