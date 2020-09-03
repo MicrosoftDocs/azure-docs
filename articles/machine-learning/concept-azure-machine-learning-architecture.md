@@ -190,7 +190,7 @@ For an example of deploying a model as a web service, see [Deploy an image class
 
 #### Real-time endpoints
 
-When you deploy a trained model in the designer (preview), you can [deploy the model as a real-time endpoint](tutorial-designer-automobile-price-deploy.md). A real-time endpoint commonly receives a single request via the REST endpoint and returns a prediction in real-time. This is in contrast to batch processing, which processes multiple values at once and saves the results after completion to a datastore.
+When you deploy a trained model in the designer, you can [deploy the model as a real-time endpoint](tutorial-designer-automobile-price-deploy.md). A real-time endpoint commonly receives a single request via the REST endpoint and returns a prediction in real-time. This is in contrast to batch processing, which processes multiple values at once and saves the results after completion to a datastore.
 
 #### Pipeline endpoints
 
@@ -226,7 +226,7 @@ Pipeline steps are reusable, and can be run without rerunning the previous steps
 
 The studio is also where you access the interactive tools that are part of Azure Machine Learning:
 
-+ [Azure Machine Learning designer (preview)](concept-designer.md) to perform workflow steps without writing code
++ [Azure Machine Learning designer](concept-designer.md) to perform workflow steps without writing code
 + Web experience for [automated machine learning](concept-automated-ml.md)
 + [Azure Machine Learning notebooks](how-to-run-jupyter-notebooks.md) to write and run your own code in integrated Jupyter notebook servers.
 + [Data labeling projects](how-to-create-labeling-projects.md) to create, manage, and monitor projects to label your data
