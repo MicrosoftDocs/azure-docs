@@ -17,9 +17,9 @@ You should use one of the Azure IoT Device SDKs to build your IoT Plug and Play 
 
 The sample in this tutorial uses the [Eclipse Mosquitto](http://mosquitto.org/) MQTT library and Visual Studio. The steps in this tutorial assume you're using Windows on your development machine.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
 ## Prerequisites
+
+Make sure you've [setup your environment](set-up-environment.md), including your IoT hub, before continuing.
 
 To complete this tutorial on Windows, install the following software on your local Windows environment:
 
@@ -27,8 +27,6 @@ To complete this tutorial on Windows, install the following software on your loc
 * [Git](https://git-scm.com/download/)
 * [CMake](https://cmake.org/download/)
 * [Azure IoT explorer](howto-install-iot-explorer.md)
-
-[!INCLUDE [iot-pnp-prepare-iot-hub.md](../../includes/iot-pnp-prepare-iot-hub.md)]
 
 Run the following command to get the shared access signature the device to connect to your hub. Make a note of this string, you use it later in this tutorial:
 
@@ -144,8 +142,6 @@ The following definitions are for the MQTT topics the device uses to send inform
 * The `DEVICE_TELEMETRY_MESSAGE` defines the topic the device uses to send telemetry to your IoT hub.
 
 For more information about MQTT, visit the [MQTT Samples for Azure IoT](https://github.com/Azure-Samples/IoTMQTTSample/) GitHub repository.
-
-[!INCLUDE [iot-pnp-clean-resources.md](../../includes/iot-pnp-clean-resources.md)]
 
 ## Next steps
 

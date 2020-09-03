@@ -20,7 +20,7 @@ This quickstart shows you how to build a sample IoT Plug and Play device applica
 
 ## Prerequisites
 
-Make sure you've [setup your environment](set-up-services.md), including your IoT hub, before continuing.
+Make sure you've [setup your environment](set-up-environment.md), including your IoT hub, before continuing.
 
 To complete this quickstart, you need Node.js on your development machine. You can download the latest recommended version for multiple platforms from [nodejs.org](https://nodejs.org).
 

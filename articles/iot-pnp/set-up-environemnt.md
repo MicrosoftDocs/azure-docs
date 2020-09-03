@@ -11,11 +11,13 @@ services: iot-pnp
 # Setup IoT Hub and DPS one time before completing any quickstart,tutorial,or how-to
 ---
 
-# How to prepare the resources for IoT Plug and Play quickstarts and tutorials
+# Set up your environment for the IoT Plug and Play quickstarts and tutorials
 
-Before you can complete any of the IoT Plug and Play quickstarts and tutorials, you need to configure an IoT hub and the Device Provisioning Service (DPS) in your Azure subscription.
+Before you can complete any of the IoT Plug and Play quickstarts and tutorials, you need to configure an IoT hub and the Device Provisioning Service (DPS) in your Azure subscription. You'll also need local copies of the model files used by the sample applications and the Azure IoT explorer tool.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+To avoid the requirement to install the Azure CLI locally, you can use the Azure Cloud Shell to set up the cloud services.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -28,26 +30,20 @@ az group create --name my-pnp-resourcegroup \
     --location centralus
 ```
 
-### Create an IoT hub
-
-The following command uses the the name `my-pnp-hub` as an example for the name of the IoT hub to create. Choose a unique name for your IoT hub to use in place of `my-pnp-hub`:
+Create an IoT hub. The following command uses the name `my-pnp-hub` as an example for the name of the IoT hub to create. Choose a unique name for your IoT hub to use in place of `my-pnp-hub`:
 
 ```azurecli-interactive
 az iot hub create --name my-pnp-hub \
     --resource-group my-pnp-resourcegroup --sku F1
 ```
 
-### Create DPS instance
-
-The following command uses the the name `my-pnp-dps` as an example for the name of the DPS instance to create. Choose a unique name for your DPS instance to use in place of `my-pnp-dps`:
+Create a DPS instance. The following command uses the name `my-pnp-dps` as an example for the name of the DPS instance to create. Choose a unique name for your DPS instance to use in place of `my-pnp-dps`:
 
 ```azurecli-interactive
 az iot dps create --name my-pnp-dps --resource-group my-pnp-resourcegroup
 ```
 
-## Link your IoT hub to DPS
-
-To link the DPS instance to your IoT hub you need the IoT hub connection string. You use the connection string when you configure the link. Replace `my-pnp-dps` and `my-pnp-hub` with the unique names you chose:
+To link the DPS instance to your IoT hub, you need the IoT hub connection string. You use the connection string when you configure the link. Replace `my-pnp-dps` and `my-pnp-hub` with the unique names you chose previously:
 
 ```azurecli-interactive
 hubConnectionString=$(az iot hub show-connection-string --name my-pnp-hub --key primary --query connectionString -o tsv)
@@ -62,7 +58,7 @@ az iot dps show --name my-pnp-dps
 
 ## Retrieve the IoT hub connection string
 
-Some quickstarts and tutorials need the connection string for your IoT hub. You can retrieve the connection string and make a note of it now:
+Some quickstarts and tutorials need the connection string for your IoT hub. You also need the connection string when you set up the Azure IoT explorer tool. Retrieve the connection string and make a note of it now:
 
 ```azurecli-interactive
 echo $hubConnectionString
@@ -80,7 +76,13 @@ The quickstarts and tutorials use sample model files for the temperature control
 
 ## Install the Azure IoT explorer
 
-The quickstarts and tutorials use the **Azure IoT explorer** tool. [Download and install the latest release of Azure IoT explorer](./howto-use-iot-explorer.md) for your operating system.
+The quickstarts and tutorials use the **Azure IoT explorer** tool. Go to [Azure IoT explorer releases](https://github.com/Azure/azure-iot-explorer/releases) and expand the list of assets for the most recent release. Download and install the most recent version of the application for your operating system.
+
+The first time you run the tool, you're prompted for the IoT hub connection string. Use the connection string you made a note of previously.
+
+Configure the tool to use the model files you downloaded previously. From the home page in the tool, select **IoT Plug and Play Settings**, then **+ Add > Local folder**. Select the *models* folder you created previously. Then select **Save** to save the settings.
+
+To learn more, see [Install and use Azure IoT explorer](howto-use-iot-explorer.md).
 
 ## Remove the resources
 
@@ -89,3 +91,10 @@ You can use the IoT hub and DPS instance for all the IoT Plug and Play quickstar
 ```azurecli-interactive
 az group delete --name my-pnp-resourcegroup
 ```
+
+## Next steps
+
+Now that you've set up your environment, you can try one of the quickstarts or tutorials such as:
+
+> [!div class="nextstepaction"]
+> [Connect a sample IoT Plug and Play Preview device application to IoT Hub (Node.js)](quickstart-connect-device-node.md)

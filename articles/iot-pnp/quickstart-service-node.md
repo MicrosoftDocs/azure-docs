@@ -18,9 +18,9 @@ ms.custom: mvc, devx-track-javascript
 
 IoT Plug and Play Preview simplifies IoT by enabling you to interact with a device's capabilities without knowledge of the underlying device implementation. This quickstart shows you how to use Node.js to connect to and control an IoT Plug and Play device that's connected to your solution.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
 ## Prerequisites
+
+Make sure you've [setup your environment](set-up-environment.md), including your IoT hub, before continuing.
 
 To complete this quickstart, you need Node.js on your development machine. You can download the latest recommended version for multiple platforms from [nodejs.org](https://nodejs.org).
 
@@ -34,20 +34,6 @@ Install the [Node service SDK with IoT Plug and Play support](https://www.npmjs.
 
 ```cmd/sh
 npm i azure-iot-digitaltwins-service
-```
-
-[!INCLUDE [iot-pnp-prepare-iot-hub.md](../../includes/iot-pnp-prepare-iot-hub.md)]
-
-Run the following command to get the _IoT hub connection string_ for your hub. Make a note of this connection string, you use it later in this quickstart:
-
-```azurecli-interactive
-az iot hub show-connection-string --hub-name <YourIoTHubName> --output table
-```
-
-Run the following command to get the _device connection string_ for the device you added to the hub. Make a note of this connection string, you use it later in this quickstart:
-
-```azurecli-interactive
-az iot hub device-identity show-connection-string --hub-name <YourIoTHubName> --device-id <YourDeviceID> --output
 ```
 
 ## Run the sample device
@@ -245,8 +231,6 @@ In this scenario, it outputs `Model Id: dtmi:com:example:Thermostat;1`.
     MaxMinReport [object Object]
     Response to method 'getMaxMinReport' sent successfully.
     ```
-
-[!INCLUDE [iot-pnp-clean-resources.md](../../includes/iot-pnp-clean-resources.md)]
 
 ## Next steps
 

@@ -10,7 +10,7 @@
   expanded: true
   items:
   - name: Set up your environment
-    href: set-up-services.md
+    href: set-up-environment.md
   - name: Connect a device to IoT Hub
     items:
       - name: C
