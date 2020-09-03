@@ -26,7 +26,7 @@ There are two ways you can connect to a compute instance from Visual Studio Code
 
 ## Configure compute instance as remote notebook server
 
-In order to configure a compute instance as a remote Jupyter Notebook server you'll need to have the a few additional prerequisites:
+In order to configure a compute instance as a remote Jupyter Notebook server you'll need a few prerequisites:
 
 * Azure Machine Learning Visual Studio Code extension. For more information, see the [Azure Machine Learning Visual Studio Code Extension setup guide](tutorial-setup-vscode-extension.md).
 * Azure Machine Learning workspace. [Use the Azure Machine Learning Visual Studio Code extension to create a new workspace](how-to-manage-resources-vscode.md#create-a-workspace) if you don't already have one.

@@ -250,7 +250,7 @@ For more information, see [compute instances](concept-compute-instance.md).
 1. Right-click the **Compute instances** node and select **Create compute instance**.
 1. In the prompt:
     1. Provide a name for your compute instance.
-    1. Select your VM size from the list.
+    1. Select a VM size from the list.
     1. Choose whether you want to enable SSH access.
         1. If you enable SSH access, you'll have to also provide the public SSH key or the file containing the key. For more information, see the [guide on creating and using SSH keys on Azure](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys).
 
