@@ -16,9 +16,9 @@ Azure Database for MySQL will be changing the root certificate for the client ap
 
 In some cases, applications use a local certificate file generated from a trusted Certificate Authority (CA) certificate file to connect securely. Currently customers can only use the predefined certificate to connect to an Azure Database for MySQL server, which is located [here](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem). However, [Certificate Authority (CA) Browser forum](https://cabforum.org/) recently published reports of multiple certificates issued by CA vendors to be non-compliant.
 
-As per the industry’s compliance requirements, CA vendors began revoking non-compliant CAs and issuing compliant CAs that requires client applications using these certificates to be reissued and updated. Since Azure Database for MariaDB leverages one of these non-compliant certificates to validate client applications using SSL, we need to ensure that appropriate actions are taken (described below) to minimize the potential impact to Azure Services.
+As per the industry’s compliance requirements, CA vendors began revoking CA certificates for non-compliant CAs, requiring servers to use certificates issued by compliant CAs, and signed by CA certificates from those compliant CAs. Since Azure Database for MySQL currently uses one of these non-compliant certificates, which client applications use to validate their SSL connections, we need to ensure that appropriate actions are taken (described below) to minimize the potential impact to your MySQL servers.
 
-The new certificate will be used starting October 26, 2020 (10/26/2020). If you use full validation of the server certificate, you need to update your application configuration before October 26, 2020 (10/26/2020).
+The new certificate will be used starting October 26, 2020 (10/26/2020).If you use either CA validation or full validation of the server certificate when connecting from a MySQL client (sslmode=verify-ca or sslmode=verify-full), you need to update your application configuration before October 26, 2020 (10/26/2020).
 
 ## How do I know if my database is going to be affected?
 
@@ -48,9 +48,12 @@ To avoid your application’s availability being interrupted due to certificat
           Then replace the original keystore file with the new generated one:
         *   System.setProperty("javax.net.ssl.trustStore","path_to_truststore_file"); 
         *   System.setProperty("javax.net.ssl.trustStorePassword","password");
+
     *   For .NET (MySQL Connector/NET, MySQLConnector) users, make sure **BaltimoreCyberTrustRoot** and **DigiCertGlobalRootG2** both exist in Windows Certificate Store, Trusted Root Certification Authorities. If any certificates do not exist, import the missing certificate.
 
         ![Azure Database for MySQL .net cert](media/overview/netconnecter-cert.png)
+
+    *   For .NET users on Linux using SSL_CERT_DIR, make sure **BaltimoreCyberTrustRoot** and **DigiCertGlobalRootG2** both exist in the directory indicated by SSL_CERT_DIR. If any certificates do not exist, create the missing certificate file.
 
     *   For other (MySQL Client/MySQL Workbench/C/C++/Go/Python/Ruby/PHP/NodeJS/Perl/Swift) users, you can merge two CA certificate files like this format below</b>
 
@@ -62,7 +65,7 @@ To avoid your application’s availability being interrupted due to certificat
  </br>-----END CERTIFICATE-----
 
 *   Replace the original root CA pem file with the combined root CA file and restart your application/client.
-*	After the new certificate deployed on the server side, you can change your CA pem file to DigiCertGlobalRootG2.crt.pem.
+*	In future, after the new certificate deployed on the server side, you can change your CA pem file to DigiCertGlobalRootG2.crt.pem.
 
 ## What can be the impact?
 If you are using the Azure Database for MySQL issued certificate as documented here,  your application’s availability might be interrupted since the database will not be reachable. Depending on your application, you may receive a variety of error messages including but not limited to:
