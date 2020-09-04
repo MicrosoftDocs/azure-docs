@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Concur | Microsoft Docs'
-description:Learn how to configure SSO between Azure Active Directory and Concur.
+description: Learn how to configure SSO between Azure Active Directory and Concur.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
