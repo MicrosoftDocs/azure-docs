@@ -34,7 +34,7 @@ Steps:
 
 1. First, log in to the Azure portal using the special URL [https://portal.azure.com](https://ms.portal.azure.com/#blade/Microsoft_Azure_Marketplace/MarketplaceOffersBlade/selectedMenuItemId/home/searchQuery/azure%20arc%20data%20controller).
 1. In the Marketplace search box, type 'Azure Arc' and hit enter. 
-1. If the first step has not entered the serch criteria. Please enter in to the search results, click on 'Azure Arc data controller'.
+1. If the first step has not entered the search criteria. Please enter in to the search results, click on 'Azure Arc data controller'.
 1. Select the Azure Data Controller tile from the marketplace. 
 1. Click on the Create button.
 1. Choose a Subscription, resource group and region just like you would for any other resource that you would create in the Azure portal.
