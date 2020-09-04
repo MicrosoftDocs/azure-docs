@@ -481,9 +481,6 @@
         - name: Debug & troubleshoot parallel run step
           displayName: debug_batch consume pipeline parallelrunstep inference
           href: how-to-debug-parallel-run-step.md
-        - name: Iterating and evolving machine learning pipelines
-          displayName: modularizing testing
-          href: concept-pipeline-practices-tips.md
     - name: Azure Pipelines for CI/CD
       displayName: continuous, integration, delivery
       href: /azure/devops/pipelines/targets/azure-machine-learning?context=azure/machine-learning/context/ml-context
