@@ -35,25 +35,13 @@ Applications built for PostgreSQL can run distributed queries on Hyperscale
 (Citus) with standard [connection
 libraries](./concepts-connection-libraries.md) and minimal changes.
 
-## Contacts
-
-For any questions or suggestions about working with Azure Database for
-PostgreSQL, send an email to the Azure Database for PostgreSQL Team ([@Ask
-Azure DB for
-PostgreSQL](mailto:AskAzureDBforPostgreSQL@service.microsoft.com)). This
-address is for general questions rather than support tickets.
-
-These contacts may also be useful:
-- To contact Azure Support or fix an issue with your account, [file a ticket from the Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
-- To provide feedback or to request new features, create an entry via [UserVoice](https://feedback.azure.com/forums/597976-azure-database-for-postgresql).
-
 ## Next steps
 
-- See the [pricing
-  page](https://azure.microsoft.com/pricing/details/postgresql/) for cost
-comparisons and calculators. Hyperscale (Citus) also offers prepaid Reserved
-Instance discounts as well, see [Hyperscale RI
-pricing](concepts-hyperscale-reserved-pricing.md) pages for details.
 - Get started by [creating your
   first](./quickstart-create-hyperscale-portal.md) Azure Database for
-PostgreSQL Hyperscale (Citus)server group 
+PostgreSQL - Hyperscale (Citus) server group.
+- See the [pricing
+  page](https://azure.microsoft.com/pricing/details/postgresql/) for cost
+comparisons and calculators. Hyperscale (Citus) offers prepaid Reserved
+Instance discounts as well, see [Hyperscale RI
+pricing](concepts-hyperscale-reserved-pricing.md) pages for details.
