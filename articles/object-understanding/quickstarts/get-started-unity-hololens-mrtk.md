@@ -48,7 +48,7 @@ You can also do other actions using the hand menu:
 
 **Toggle SpatialMapping**: Show/hide spatial mapping rendering. This option can be used to debug if the scan is complete or not.
 
-**High Precision Mode**: An experimental feature to get more accurate pose at the cost of more system resources. Object mesh will be rendered at pink color when on this mode. Click this button again to switch back to normal tracking mode.
+**High Precision Mode**: An experimental feature used to get a more accurate pose. This will require more system resources. The object mesh will be rendered in pink when in this mode. Click this button again to switch back to normal tracking mode.
 
 **Lock/Unlock search area**: Lock area bounding box to prevent accidental movement by hands.
 
