@@ -61,7 +61,7 @@ $ mysqldump --ssl-cert=</path/to/pem>  -h mydemoserver.mysql.database.azure.com 
 
 ###  Restore your database or tables
 
-The following steps show you how tp restore your database or tables. Once the backup file is created , you can restore the table or databases using ***mysql** utility. Run the command as shown below:
+The following steps show you how tp restore your database or tables. Once the backup file is created, you can restore the table or databases using ***mysql** utility. Run the command as shown below:
 
 ```
 mysql  --ssl-cert=</path/to/pem> -h [hostname] -u [uname] -p[pass] [db_to_restore] < [backupfile.sql]
