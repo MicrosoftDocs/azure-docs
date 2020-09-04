@@ -59,7 +59,7 @@ The cleanup process depends on the index layout of the table. A background task 
 
 The cleanup task for the clustered columnstore removes entire row groups at once (typically contain 1 million of rows each), which is very efficient, especially when historical data is generated at a high pace.
 
-![Data Retention Cleanup](media/data-retention-cleanup/data-retention-cleanup.png)
+![Data Retention Cleanup](./media/data-retention-cleanup/data-retention-cleanup.png)
 
 Excellent data compression and efficient retention cleanup makes clustered columnstore index a perfect choice for scenarios when your workload rapidly generates high amount of historical data.
 
@@ -83,5 +83,5 @@ The following six extended events help track the state of the cleanup operations
 
 
 ## See Also
-- [Data Retention Policy](data-retention-and-purging.md)
+- [Data Retention Policy](data-retention-overview.md)
 - [Enable and Disable Data Retention Policies](data-retention-enable-disable.md)

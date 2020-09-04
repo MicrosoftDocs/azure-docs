@@ -110,6 +110,5 @@ ALTER DATABASE <DatabaseName> SET DATA_RETENTION  OFF;
 ```
 
 ## See Also
-- [Data Retention and Automatic Data Purging](data-retention-and-purging.md)
-- [Manage historical data with retention policy](data_retention_cleanup.md)
-- [Considerations for Data Retention Policies](data_retention_considerations.md)
+- [Data Retention and Automatic Data Purging](data-retention-overview.md)
+- [Manage historical data with retention policy](data-retention-cleanup.md)
