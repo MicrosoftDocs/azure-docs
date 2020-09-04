@@ -55,7 +55,7 @@ When you create and run logic apps in an ISE, you get the same user experiences 
   * Azure Automation, Azure Key Vault, Azure Event Grid, and Azure Monitor Logs
   * FTP, SFTP-SSH, File System, and SMTP
   * SAP, IBM MQ, IBM DB2, and IBM 3270
-  * SQL Server, Azure Azure Synapse Analytics (formerly SQL Data Warehouse), Azure Cosmos DB
+  * SQL Server, Azure Synapse Analytics, Azure Cosmos DB
   * AS2, X12, and EDIFACT
 
   With rare exceptions, if an ISE connector is available for an on-premises system or data source, you can connect directly without using the [on-premises data gateway](../logic-apps/logic-apps-gateway-connection.md). For more information, see [Access to on-premises systems](#on-premises) later in this topic.
