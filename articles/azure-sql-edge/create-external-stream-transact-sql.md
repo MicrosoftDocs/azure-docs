@@ -1,6 +1,6 @@
 ---
-title: CREATE EXTERNAL STREAM (Transact-SQL) - Azure SQL Edge (Preview)
-description: Learn about the CREATE EXTERNAL STREAM statement in Azure SQL Edge (Preview) 
+title: CREATE EXTERNAL STREAM (Transact-SQL) - Azure SQL Edge
+description: Learn about the CREATE EXTERNAL STREAM statement in Azure SQL Edge 
 keywords: 
 services: sql-edge
 ms.service: sql-edge

@@ -1,6 +1,6 @@
 ---
-title: Using Azure Stream Analytics Edge jobs with Azure SQL Edge (Preview)
-description: Learn about using Stream Analytics jobs in Azure SQL Edge (Preview)
+title: Using Azure Stream Analytics Edge jobs with Azure SQL Edge
+description: Learn about using Stream Analytics jobs in Azure SQL Edge
 keywords: SQL Edge, stream analytics, 
 services: sql-edge
 ms.service: sql-edge
@@ -13,7 +13,7 @@ ms.date: 05/19/2020
 
 # Using Azure Stream Analytics jobs with SQL Edge
 
-Azure SQL Edge (Preview) is an optimized relational database engine geared for IoT and edge deployments. It's built on the latest versions of the Microsoft SQL Server Database Engine, which provides industry-leading performance, security, and query processing capabilities. Along with the industry-leading relational database management capabilities of SQL Server, Azure SQL Edge provides in-built streaming capability for real-time analytics and complex event-processing.
+Azure SQL Edge is an optimized relational database engine geared for IoT and edge deployments. It's built on the latest versions of the Microsoft SQL Server Database Engine, which provides industry-leading performance, security, and query processing capabilities. Along with the industry-leading relational database management capabilities of SQL Server, Azure SQL Edge provides in-built streaming capability for real-time analytics and complex event-processing.
 
 Azure SQL Edge has a native implementation of the stream analytics runtime. This implementation enables you to create an Azure Stream Analytics edge job and deploy that job as a SQL Edge streaming job. Azure Stream Analytics jobs can be deployed to SQL Edge using the ASAJobInfo parameter exposed via the `module twin's desired properties` option of the SQL Edge module:
 
@@ -127,4 +127,4 @@ To deploy the streaming job to the SQL Edge module, update the SQL Edge module c
 
 - [Stream Data](stream-data.md)
 
-- [Machine learning and AI with ONNX in SQL Edge (Preview)](onnx-overview.md)
+- [Machine learning and AI with ONNX in SQL Edge](onnx-overview.md)
