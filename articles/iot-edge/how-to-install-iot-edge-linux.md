@@ -283,33 +283,15 @@ This command provides a detailed output that contains the status of kernel featu
 
 ## Install runtime using release assets
 
-Use the steps in this section if you want to install a specific version of Moby and the Azure IoT Edge runtime that isn't available through `apt-get install`. The Microsoft package list only contains a limited set of recent versions and their sub-versions, so these steps are for anyone who wants to install an older version or a release candidate version.
+Use the steps in this section if you want to install a specific version of the Azure IoT Edge runtime that isn't available through `apt-get install`. The Microsoft package list only contains a limited set of recent versions and their sub-versions, so these steps are for anyone who wants to install an older version or a release candidate version.
 
-Using curl commands, you can target the component files directly from the IoT Edge GitHub repository. Use the following steps to get all of the IoT Edge components onto your device: the Moby engine and CLI, the libiothsm, and finally the IoT Edge security daemon.
+Using curl commands, you can target the component files directly from the IoT Edge GitHub repository. Use the following steps to install libiothsm and the IoT Edge security daemon. Install Moby engine and CLI using steps in [Install a container runtime](#install-a-container-runtime) section.
 
 1. Navigate to the [Azure IoT Edge releases](https://github.com/Azure/azure-iotedge/releases), and find the release version that you want to target.
 
 2. Expand the **Assets** section for that version.
 
-3. There may or may not be updates to the Moby engine in any given release. If you see files that start with **moby-engine** and **moby-cli**, use the following commands to update those components. If you don't see any Moby files, go back through the older release assets until you find the most recent version.
-
-   1. Find the **moby-engine** file that matches your IoT Edge device's architecture. Right-click on the file link and copy the link address.
-
-   2. Use the copied link in the following command to install that version of the Moby engine:
-
-      ```bash
-      curl -L <moby-engine link> -o moby_engine.deb && sudo dpkg -i ./moby_engine.deb
-      ```
-
-   3. Find the **moby-cli** file that matches your IoT Edge device's architecture. The Moby CLI is an optional component, but can be helpful during development. Right-click on the file link and copy the link address.
-
-   4. Use the copied link in the following command to install that version of the Moby CLI:
-
-      ```bash
-      curl -L <moby-cli link> -o moby_cli.deb && sudo dpkg -i ./moby_cli.deb
-      ```
-
-4. Every release should have new files for the IoT Edge security daemon and the hsmlib. Use the following commands to update those components.
+3. Every release should have new files for the IoT Edge security daemon and the hsmlib. Use the following commands to update those components.
 
    1. Find the **libiothsm-std** file that matches your IoT Edge device's architecture. Right-click on the file link and copy the link address.
 

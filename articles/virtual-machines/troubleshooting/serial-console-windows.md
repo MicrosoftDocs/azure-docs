@@ -23,10 +23,12 @@ The Serial Console in the Azure portal provides access to a text-based console f
 
 Serial Console works in the same manner for VMs and virtual machine scale set instances. In this doc, all mentions to VMs will implicitly include virtual machine scale set instances unless otherwise stated.
 
+Serial Console is generally available in global Azure regions and in public preview in Azure Government. It is not yet available in the Azure China cloud.
+
 For serial console documentation for Linux, see [Azure Serial Console for Linux](serial-console-linux.md).
 
 > [!NOTE]
-> The Serial Console is generally available in global Azure regions and in public preview in Azure Government. It is not yet available in the Azure China cloud.
+> Serial Console is currently incompatible with a managed boot diagnostics storage account. To use Serial Console, ensure that you are using a custom storage account.
 
 
 ## Prerequisites

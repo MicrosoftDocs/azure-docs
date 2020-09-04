@@ -74,5 +74,5 @@ The backend solution can use the information from the interface definitions to:
 Now that you have an overview of the architecture of an IoT Plug and Play solution, the next steps are to learn more about:
 
 - [The model repository](./concepts-model-repository.md)
-- [Model discovery process](./concepts-model-discovery.md)
+- [Digital twin model integration](./concepts-model-discovery.md)
 - [Developing for IoT Plug and Play](./concepts-developer-guide.md)

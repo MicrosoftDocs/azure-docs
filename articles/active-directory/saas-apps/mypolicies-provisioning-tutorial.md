@@ -2,17 +2,12 @@
 title: 'Tutorial: Configure myPolicies for automatic user provisioning with Azure Active Directory | Microsoft Docs'
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to myPolicies.
 services: active-directory
-documentationcenter: ''
 author: zchia
 writer: zchia
-manager: beatrizd
-
-ms.assetid: f000896d-a78c-4d20-a79c-74c1f9b4961a
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia

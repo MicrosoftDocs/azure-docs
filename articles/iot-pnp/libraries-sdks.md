@@ -10,13 +10,11 @@ services: iot-pnp
 ms.custom: mvc
 ---
 
-# IoT Plug and Play libraries and SDKs
+# Microsoft SDKs for IoT Plug and Play
 
 The IoT Plug and Play libraries and SDKs enable developers to build IoT solutions using a variety of programming languages on multiple platforms. The following table includes links to samples and quickstarts to help you get started:
 
-## Microsoft SDKs for IoT Plug and Play
-
-**Device SDKs**
+## Device SDKs (GA)
 
 | Language | Package | Code Repository | Samples | Quickstart | Reference |
 |---|---|---|---|---|---|
@@ -26,14 +24,23 @@ The IoT Plug and Play libraries and SDKs enable developers to build IoT solution
 | Python - Device | [pip 2.1.4](https://pypi.org/project/azure-iot-device/) | [GitHub](https://github.com/Azure/azure-iot-sdk-python/tree/master/) | [Samples](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples/pnp) | [Connect to IoT Hub](quickstart-connect-device-python.md) | [Reference](https://docs.microsoft.com/python/api/azure-iot-device/azure.iot.device?view=azure-python) |
 | Node - Device | [npm 1.17.0](https://www.npmjs.com/package/azure-iot-device)  | [GitHub](https://github.com/Azure/azure-iot-sdk-node/tree/master/) | [Samples](https://github.com/Azure/azure-iot-sdk-node/tree/master/device/samples/pnp) | [Connect to IoT Hub](quickstart-connect-device-node.md) | [Reference](https://docs.microsoft.com/javascript/api/azure-iot-device/?view=azure-node-latest) |
 
-**Service SDKs (Preview)**
+## Device SDKs (Preview)
+
+| Language | Code Repository/Samples |
+|---|---|
+|Azure SDK for Embedded| [GitHub](https://github.com/Azure/azure-sdk-for-c/#) |
+|Azure RTOS IoT middleware| [GitHub](https://github.com/azure-rtos/azure-iot-preview#) |
+|Azure RTOS getting started guides | [GitHub](https://github.com/azure-rtos/getting-started) |
+
+## Service SDKs (Preview)
 
 | Language | Package | Code Repository | Samples | Quickstart | Reference |
 |---|---|---|---|---|---|
-| .NET - IoT Hub service preview | [NuGet 1.27.1-preview-002](https://www.nuget.org/packages/Microsoft.Azure.Devices/1.27.1-preview-002 ) | [GitHub](https://github.com/Azure/azure-iot-sdk-csharp/tree/pnp-preview-refresh) | [Samples](https://github.com/Azure/azure-iot-sdk-csharp/tree/pnp-preview-refresh/iothub/service/samples/PnpServiceSamples) | na | [Reference](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices?view=azure-dotnet) |
-| Java - IoT Hub service preview | [Maven 1.1.0](https://mvnrepository.com/artifact/com.microsoft.azure.sdk.iot/iot-service-client-preview/1.1.0) | [GitHub](https://github.com/Azure/azure-iot-sdk-java/tree/pnp-preview-refresh) | [Samples](https://github.com/Azure/azure-iot-sdk-java/tree/pnp-preview-refresh/service/iot-service-samples/pnp-service-sample) | na | [Reference](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.service?view=azure-java-stable) |
-| Python - IoT Hub/Digital Twins service preview | [pip 2.2.1rc1](https://pypi.org/project/azure-iot-hub/2.2.1rc1/) | [GitHub](https://github.com/Azure/azure-iot-sdk-python/tree/pnp-preview-refresh) | [Samples](https://github.com/Azure/azure-iot-sdk-python/tree/pnp-preview-refresh/azure-iot-hub/samples) | [Interact with IoT Hub Digital Twins API](quickstart-service-python.md) | [Reference](https://docs.microsoft.com/python/api/azure-iot-hub/?view=azure-python) |
-| Node - IoT Hub/Digital Twins service preview | [npm 1.0.0-pnp-refresh.3](https://www.npmjs.com/package/azure-iot-digitaltwins-service/v/1.0.0-pnp-refresh.3) | [GitHub](https://github.com/Azure/azure-iot-sdk-node/tree/pnp-preview-refresh/) | [Samples](https://github.com/Azure/azure-iot-sdk-node/tree/pnp-preview-refresh/digitaltwins/samples/service/javascript) | [Interact with IoT Hub Digital Twins API](quickstart-service-node.md) | [Reference](https://docs.microsoft.com/javascript/api/azure-iothub/?view=azure-node-latest) |
+| .NET - IoT Hub service preview | [NuGet 1.27.1-preview-002](https://www.nuget.org/packages/Microsoft.Azure.Devices/1.27.1-preview-002 ) | [GitHub](https://github.com/Azure/azure-iot-sdk-csharp/tree/pnp-preview-refresh) | [Samples](https://github.com/Azure/azure-iot-sdk-csharp/tree/pnp-preview-refresh/iothub/service/samples/PnpServiceSamples) | N/A | N/A |
+| Java - IoT Hub service preview | [Maven 1.1.0](https://mvnrepository.com/artifact/com.microsoft.azure.sdk.iot/iot-service-client-preview/1.1.0) | [GitHub](https://github.com/Azure/azure-iot-sdk-java/tree/pnp-preview-refresh) | [Samples](https://github.com/Azure/azure-iot-sdk-java/tree/pnp-preview-refresh/service/iot-service-samples/pnp-service-sample) | N/A | N/A |
+| Node - IoT Hub service preview | [npm 1.12.4-pnp-refresh.4](https://www.npmjs.com/package/azure-iothub/v/1.12.4-pnp-refresh.4) | [GitHub](https://github.com/Azure/azure-iot-sdk-node/tree/pnp-preview-refresh/) | [Samples](https://github.com/Azure/azure-iot-sdk-node/tree/pnp-preview-refresh/service/samples) | N/A | N/A |
+| Python - IoT Hub/Digital Twins service preview | [pip 2.2.1rc1](https://pypi.org/project/azure-iot-hub/2.2.1rc1/) | [GitHub](https://github.com/Azure/azure-iot-sdk-python/tree/pnp-preview-refresh) | [Samples](https://github.com/Azure/azure-iot-sdk-python/tree/pnp-preview-refresh/azure-iot-hub/samples) | [Interact with IoT Hub Digital Twins API](quickstart-service-python.md) | N/A |
+| Node - Digital Twins service preview | [npm 1.0.0-pnp-refresh.3](https://www.npmjs.com/package/azure-iot-digitaltwins-service/v/1.0.0-pnp-refresh.3) | [GitHub](https://github.com/Azure/azure-iot-sdk-node/tree/pnp-preview-refresh/) | [Samples](https://github.com/Azure/azure-iot-sdk-node/tree/pnp-preview-refresh/digitaltwins/samples/service/javascript) | [Interact with IoT Hub Digital Twins API](quickstart-service-node.md) | N/A |
 
 ## Next steps
 

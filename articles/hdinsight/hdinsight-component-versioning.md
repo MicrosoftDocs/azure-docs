@@ -7,7 +7,7 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
-ms.date: 05/28/2020
+ms.date: 08/13/2020
 ---
 
 # Apache components and versions available for Azure HDInsight
@@ -38,9 +38,9 @@ The component versions associated with HDInsight cluster versions are listed in 
 | Apache Storm           | -             | 1.1.0                       |
 | Apache Mahout          | -             | 0.9.0+                      |
 | Apache Phoenix         | 5             | 4.7.0                       |
-| Apache Spark           | 2.4.4         | 2.3.2, 2.2.0, 2.1.0         |
-| Apache Livy            | 0.5           | 0.4, 0.4, 0.3               |
-| Apache Kafka           | 2.1.1         | 1.1                        |
+| Apache Spark           | 2.4.4         | 2.3.2.                      |
+| Apache Livy            | 0.5           | 0.4.                        |
+| Apache Kafka           | 2.1.1         | 1.1                         |
 | Apache Ambari          | 2.7.0         | 2.6.0                       |
 | Apache Zeppelin        | 0.8.0         | 0.7.3                       |
 | Mono                   | 4.2.1         | 4.2.1                       |
@@ -74,9 +74,22 @@ This table lists the versions of HDInsight that are available in the Azure porta
 | HDInsight version | VM OS | Release date | Support expiration date | Retirement date | High availability |  Availability in the Azure portal |
 | --- | --- | --- | --- | --- | --- | --- |
 | HDInsight 4.0 |Ubuntu 16.0.4 LTS |September 24, 2018 | | |Yes |Yes |
-| HDInsight 3.6 |Ubuntu 16.0.4 LTS |April 4, 2017 | December 31, 2020 |December 31, 2020 |Yes |Yes |
+| HDInsight 3.6 |Ubuntu 16.0.4 LTS |April 4, 2017      | *June 30, 2021 |June 30, 2021 |Yes |Yes |
 
-Spark 2.1, 2.2, and Kafka 1.0 cluster support expires on June 30, 2020.
+*We are extending the support timeframe for certain HDInsight 3.6 cluster types
+
+| Cluster Type                    | Framework version | Current support expiration        | New support expiration date |
+|---------------------------------|-------------------|-----------------------------------|-----------------------------|
+| HDInsight 3.6 Hadoop            | 2.7.3             | Dec 31, 2020                      | June 30, 2021               |
+| HDInsight 3.6 Spark             | 2.3               | Dec 31, 2020                      | June 30, 2021               |
+| HDInsight 3.6 Spark             | 2.2               | Retired on June 30, 2020          |                             |
+| HDInsight 3.6 Spark             | 2.1               | Retired on June 30, 2020          |                             |
+| HDInsight 3.6 Kafka             | 1.1               | Dec 31, 2020                      | June 30, 2021               |
+| HDInsight 3.6 Kafka             | 1.0               | Retired on June 30, 2020.         |                             |
+| HDInsight 3.6 HBase             | 1.1               | Dec 31, 2020                      | June 30, 2021               |
+| HDInsight 3.6 Interactive Query | 2.1               | Dec 31, 2020                      | June 30, 2021               |
+| HDInsight 3.6 Storm             | 1.1               | Dec 31, 2020                      | June 30, 2021               |
+| HDInsight 3.6  ML Services      | 9.3               | Dec 31, 2020                      | Dec 31, 2020                |
 
 > [!NOTE]
 > After support for a cluster version expires, it might not be available through the Azure portal. In some cases, cluster versions continue to be available by using the **Version** parameter in the Windows PowerShell [New-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) command and the .NET SDK until the version retirement date.

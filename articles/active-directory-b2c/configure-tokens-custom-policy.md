@@ -18,7 +18,7 @@ ms.subservice: B2C
 
 This article provides information about how you can manage your token, session, and single sign-on (SSO) configurations using [custom policies](custom-policy-overview.md) in Azure Active Directory B2C (Azure AD B2C).
 
-## JTW token lifetimes and claims configuration
+## JWT token lifetimes and claims configuration
 
 To change the settings on your token lifetimes, you add a [ClaimsProviders](claimsproviders.md) element in the relying party file of the policy you want to impact.  The **ClaimsProviders** element is a child of the [TrustFrameworkPolicy](trustframeworkpolicy.md) element.
 

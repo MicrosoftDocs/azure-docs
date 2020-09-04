@@ -9,6 +9,7 @@ ms.author: crtreasu
 ms.date: 05/28/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
+ms.custom: devx-track-csharp
 ---
 # Authentication and authorization to Azure Spatial Anchors
 

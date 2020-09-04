@@ -3,12 +3,12 @@ title: Azure Data Lake Storage Gen2 Python SDK for files & ACLs
 description: Use Python manage directories and file and directory access control lists (ACL) in storage accounts that has hierarchical namespace (HNS) enabled.
 author: normesta
 ms.service: storage
-ms.date: 04/10/2020
+ms.date: 08/26/2020
 ms.author: normesta
 ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
-ms.custom: tracking-python
+ms.custom: devx-track-python
 ---
 
 # Use Python to manage directories, files, and ACLs in Azure Data Lake Storage Gen2
@@ -327,6 +327,10 @@ def list_directory_contents():
     except Exception as e:
      print(e) 
 ```
+
+## Set an ACL recursively (preview)
+
+You can add, update, and remove ACLs recursively on the existing child items of a parent directory without having to make these changes individually for each child item. For more information, see [Set access control lists (ACLs) recursively for Azure Data Lake Storage Gen2](recursive-access-control-lists.md).
 
 ## See also
 

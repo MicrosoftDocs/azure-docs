@@ -17,7 +17,7 @@ Before [provisioning a search service](search-create-service-portal.md) and lock
 
 Capacity is a function of the [tier you choose](search-sku-tier.md) (tiers determine hardware characteristics), and the replica and partition combination necessary for projected workloads. Depending on the tier and the size of the adjustment, adding or reducing capacity can take anywhere from 15 minutes to several hours. 
 
-When modifying the allocation of replicas and partitions, we recommend using the Azure portal. The portal enforces limits on allowable combinations that stay below maximum limits of a tier. However, if you require a script-based or code-based provisioning approach, the [Azure PowerShell](search-manage-powershell.md) or the [Management REST API](https://docs.microsoft.com/rest/api/searchmanagement/services) are alternative solutions.
+When modifying the allocation of replicas and partitions, we recommend using the Azure portal. The portal enforces limits on allowable combinations that stay below maximum limits of a tier. However, if you require a script-based or code-based provisioning approach, the [Azure PowerShell](search-manage-powershell.md) or the [Management REST API](/rest/api/searchmanagement/services) are alternative solutions.
 
 ## Terminology: replicas and partitions
 

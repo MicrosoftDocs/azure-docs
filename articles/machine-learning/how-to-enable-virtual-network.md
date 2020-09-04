@@ -29,6 +29,13 @@ A __virtual network__ acts as a security boundary, isolating your Azure resource
 
 + A pre-existing virtual network and subnet to use with your compute resources.
 
++ To deploy resources into a virtual network or subnet, your user account must have permissions to the following actions in Azure role-based access controls (RBAC):
+
+    - "Microsoft.Network/virtualNetworks/join/action" on the virtual network resource.
+    - "Microsoft.Network/virtualNetworks/subnet/join/action" on the subnet resource.
+
+    For more information on RBAC with networking, see the [Networking built-in roles](/azure/role-based-access-control/built-in-roles#networking)
+
 ## Private endpoints
 
 You can also [enable Azure Private Link](how-to-configure-private-link.md) to connect to your workspace using a private endpoint. The private endpoint is a set of private IP addresses within your virtual network. [Learn how to set up this private endpoint.](how-to-configure-private-link.md)
@@ -50,13 +57,6 @@ You can also [enable Azure Private Link](how-to-configure-private-link.md) to co
 > | Customer Managed Keys for workspace | ✔ | |
 > 
 
-> [!WARNING]
-> 
-> Azure Machine Learning compute instances preview is not supported in a workspace where Private Link is enabled.
->
-> Azure Machine Learning does not support using an Azure Kubernetes Service that has private link enabled. Instead, you can use Azure Kubernetes Service in a virtual network. For more information, see [Secure Azure ML experimentation and inference jobs within an Azure Virtual Network](how-to-enable-virtual-network.md).
-
-
 <a id="amlcompute"></a>
 
 ## Machine Learning studio
@@ -64,6 +64,11 @@ You can also [enable Azure Private Link](how-to-configure-private-link.md) to co
 If your data is stored in a virtual network, you must use a workspace [managed identity](../active-directory/managed-identities-azure-resources/overview.md) to grant the studio access to your data.
 
 > [!IMPORTANT]
+> A managed identity __only enables access to the datastore from Azure Machine Learning studio__. It does not enable access to the data from the SDK.
+> 
+> To access the data using SDK, you must use the authentication method required by the individual service that the data is stored in. For example, if you register a datastore to access Azure Data Lake Store Gen2, you must still use a service principal as documented in [Connect to Azure storage services](how-to-access-data.md#azure-data-lake-storage-generation-2).
+
+> [!WARNING]
 > While most of studio works with data stored in a virtual network, integrated notebooks __do not__. Integrated notebooks do not support using storage that is in a virtual network. Instead, you can use Jupyter Notebooks from a compute instance. For more information, see the [Access data in a Compute Instance notebook](#access-data-in-a-compute-instance-notebook) section.
 
 If you fail to grant studio access, you will receive this error, `Error: Unable to profile this dataset. This might be because your data is stored behind a virtual network or your data does not support profile.` and disable the following operations:
@@ -84,7 +89,7 @@ The studio supports reading data from the following datastore types in a virtual
 
 Add your workspace and storage account to the same virtual network so that they can access each other.
 
-1. To connect your workspace to the virtual network, [enable Azure Private Link](how-to-configure-private-link.md). This capability is currently in preview, and is available in the US East, US West 2, US South Central regions.
+1. To connect your workspace to the virtual network, [enable Azure Private Link](how-to-configure-private-link.md). This capability is currently in preview, and is available in the US East and US West 2 regions.
 
 1. To connect your storage account to the virtual network, [configure the Firewalls and virtual networks settings](#use-a-storage-account-for-your-workspace).
 
@@ -262,6 +267,7 @@ To use either a [managed Azure Machine Learning __compute target__](concept-comp
 > In the case of clusters these resources are deleted (and recreated) every time the cluster scales down to 0 nodes, however for an instance the resources are held onto till the instance is completely deleted (stopping does not remove the resources). 
 > These resources are limited by the subscription's [resource quotas](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
 
+To use a compute instance in a workspace where Private Link is enabled, the compute instance and workspace must be in the __eastus__, __westus2__, or __southcentralus__ regions.
 
 ### <a id="mlcports"></a> Required ports
 
@@ -359,6 +365,12 @@ There are two ways that you can accomplish this:
         az network list-service-tags -l "East US 2" --query "values[?starts_with(id, 'Batch')] | [?properties.region=='eastus2']"
         az network list-service-tags -l "East US 2" --query "values[?starts_with(id, 'AzureMachineLearning')] | [?properties.region=='eastus2']"
         ```
+
+        > [!TIP]
+        > If you are using the US-Virginia, US-Arizona regions, or China-East-2 regions, these commands return no IP addresses. Instead, use one of the following links to download a list of IP addresses:
+        >
+        > * [Azure IP ranges and service tags for Azure Government](https://www.microsoft.com/download/details.aspx?id=57063)
+        > * [Azure IP ranges and service tags for Azure China](https://www.microsoft.com//download/details.aspx?id=57062)
     
     When you add the UDRs, define the route for each related Batch IP address prefix and set __Next hop type__ to __Internet__. The following image shows an example of this UDR in the Azure portal:
 
@@ -425,7 +437,7 @@ except ComputeTargetException:
     cpu_cluster.wait_for_completion(show_output=True)
 ```
 
-When the creation process finishes, you train your model by using the cluster in an experiment. For more information, see [Select and use a compute target for training](how-to-set-up-training-targets.md).
+When the creation process finishes, you train your model by using the cluster in an experiment. For more information, see [Use a compute target for training](how-to-set-up-training-targets.md).
 
 [!INCLUDE [low-pri-note](../../includes/machine-learning-low-pri-vm.md)]
 
@@ -445,9 +457,6 @@ To add Azure Kubernetes Service (AKS) in a virtual network to your workspace, us
 > Before you begin the following procedure, follow the prerequisites in the [Configure advanced networking in Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/configure-azure-cni#prerequisites) how-to and plan the IP addressing for your cluster.
 >
 > The AKS instance and the Azure virtual network must be in the same region. If you secure the Azure Storage Account(s) used by the workspace in a virtual network, they must be in the same virtual network as the AKS instance.
-
-> [!WARNING]
-> Azure Machine Learning does not support using an Azure Kubernetes Service that has private link enabled.
 
 1. Sign in to [Azure Machine Learning studio](https://ml.azure.com/), and then select your subscription and workspace.
 
@@ -657,7 +666,7 @@ For information on using Azure Machine Learning with Azure Firewall, see [Use Az
 > * Your Azure Machine Learning workspace region should be [privated link enabled region](https://docs.microsoft.com/azure/private-link/private-link-overview#availability). 
 > * Your Azure Container Registry must be Premium version . For more information on upgrading, see [Changing SKUs](/azure/container-registry/container-registry-skus#changing-skus).
 > * Your Azure Container Registry must be in the same virtual network and subnet as the storage account and compute targets used for training or inference.
-> * Your Azure Machine Learning workspace must contain an [Azure Machine Learning compute cluster](how-to-set-up-training-targets.md#amlcompute).
+> * Your Azure Machine Learning workspace must contain an [Azure Machine Learning compute cluster](how-to-create-attach-compute-sdk.md#amlcompute).
 >
 >     When ACR is behind a virtual network, Azure Machine Learning cannot use it to directly build Docker images. Instead, the compute cluster is used to build the images.
 
@@ -818,14 +827,15 @@ To use a virtual machine or Azure HDInsight cluster in a virtual network with yo
 
     Keep the default outbound rules for the network security group. For more information, see the default security rules in [Security groups](https://docs.microsoft.com/azure/virtual-network/security-overview#default-security-rules).
 
+
     If you don't want to use the default outbound rules and you do want to limit the outbound access of your virtual network, see the [Limit outbound connectivity from the virtual network](#limiting-outbound-from-vnet) section.
 
-1. Attach the VM or HDInsight cluster to your Azure Machine Learning workspace. For more information, see [Set up compute targets for model training](how-to-set-up-training-targets.md).
+1. Attach the VM or HDInsight cluster to your Azure Machine Learning workspace. For more information, see [Use compute targets for model training](how-to-set-up-training-targets.md).
 
 
 ## Next steps
 
-* [Set up training environments](how-to-set-up-training-targets.md)
+* [Use compute targets for model training](how-to-set-up-training-targets.md)
 * [Set up private endpoints](how-to-configure-private-link.md)
 * [Where to deploy models](how-to-deploy-and-where.md)
 * [Use TLS to secure a web service through Azure Machine Learning](how-to-secure-web-service.md)

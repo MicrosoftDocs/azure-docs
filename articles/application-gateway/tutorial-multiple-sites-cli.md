@@ -8,7 +8,7 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: victorh
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 #Customer intent: As an IT administrator, I want to use Azure CLI to configure Application Gateway to host multiple web sites , so I can ensure my customers can access the web information they need.
 ---
 

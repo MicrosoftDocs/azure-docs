@@ -268,7 +268,7 @@ Now that you have modified the application to start sending and receiving messag
 
 ## Next steps
 
-Use the [Spring Boot Starter for Azure Service Bus JMS](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-service-bus) for seamless integration with Service Bus.
+Use the [Spring Boot Starter for Azure Service Bus JMS](/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-service-bus) for seamless integration with Service Bus.
 
 To learn more about Service Bus messaging and JMS, see:
 

@@ -1,6 +1,6 @@
 ---
 title: Performance tuning - Hive on Azure Data Lake Storage Gen1
-description: Performance tuning guidelines for Hive on HdInsight and Azure Data Lake Storage Gen1.
+description: Learn about performance tuning for Hive on HdInsight and Azure Data Lake Storage Gen1. For I/O intensive queries, tune Hive to get better performance.
 
 author: stewu
 ms.service: data-lake-store

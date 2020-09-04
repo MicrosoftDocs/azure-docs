@@ -10,7 +10,7 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 03/09/2020
 ms.topic: conceptual
-ms.custom: how-to, tracking-python
+ms.custom: how-to, devx-track-python
 
 # Customer intent: As a data scientist, I want to version and track datasets so I can use and share them across multiple machine learning experiments.
 ---
@@ -189,4 +189,4 @@ The following view is from the **Datasets** pane under **Assets**. Select the da
 ## Next steps
 
 * [Train with datasets](how-to-train-with-datasets.md)
-* [More sample dataset notebooks](https://aka.ms/dataset-tutorial)
+* [More sample dataset notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/work-with-data/)

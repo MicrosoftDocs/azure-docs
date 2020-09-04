@@ -2,17 +2,12 @@
 title: 'Tutorial: Configure Brivo Onair Identity Connector for automatic user provisioning with Azure Active Directory | Microsoft Docs'
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Brivo Onair Identity Connector.
 services: active-directory
-documentationcenter: ''
 author: zchia
 writer: zchia
-manager: beatrizd
-
-ms.assetid: 542ce04c-ef7d-4154-9b0e-7f68e1154f6b
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/01/2019
 ms.author: Zhchia

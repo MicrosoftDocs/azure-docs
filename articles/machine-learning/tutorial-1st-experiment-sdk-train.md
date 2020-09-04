@@ -8,8 +8,8 @@ ms.subservice: core
 ms.topic: tutorial
 ms.author: sgilley
 author: sdgilley
-ms.date: 02/10/2020
-ms.custom: tracking-python
+ms.date: 08/25/2020
+ms.custom: devx-track-python
 ---
 
 # Tutorial: Train your first ML model
@@ -38,22 +38,27 @@ In this part of the tutorial, you run the code in the sample Jupyter notebook *t
 
 1. Open the **tutorial-1st-experiment-sdk-train.ipynb** in your folder as shown in [part one](tutorial-1st-experiment-sdk-setup.md#open).
 
-
-> [!Warning]
-> Do **not** create a *new* notebook in the Jupyter interface! The notebook *tutorials/create-first-ml-experiment/tutorial-1st-experiment-sdk-train.ipynb* is inclusive of **all code and data needed** 
-> for this tutorial.
+Do **not** create a *new* notebook in the Jupyter interface! The notebook *tutorials/create-first-ml-experiment/tutorial-1st-experiment-sdk-train.ipynb* is inclusive of **all code and data needed** 
+for this tutorial.
 
 ## Connect workspace and create experiment
 
-> [!Important]
-> The rest of this article contains the same content as you see in the notebook.  
->
+<!-- nbstart https://raw.githubusercontent.com/Azure/MachineLearningNotebooks/master/tutorials/create-first-ml-experiment/tutorial-1st-experiment-sdk-train.ipynb -->
+
+> [!TIP]
+> Contents of _tutorial-1st-experiment-sdk-train.ipynb_. 
 > Switch to the Jupyter notebook now if you want to read along as you run the code. 
 > To run a single code cell in a notebook, click the code cell and hit **Shift+Enter**. Or, run the entire notebook by choosing **Run all** from the top toolbar.
 
-Import the `Workspace` class, and load your subscription information from the file `config.json` using the function `from_config().` This looks for the JSON file in the current directory by default, but you can also specify a path parameter to point to the file using `from_config(path="your/file/path")`. In a cloud notebook server, the file is automatically in the root directory.
 
-If the following code asks for additional authentication, simply paste the link in a browser and enter the authentication token.
+Import the `Workspace` class, and load your subscription information from the file `config.json` using the function `from_config().` This looks for the JSON file in the current directory by default, but you can also specify a path parameter to point to the file using `from_config(path="your/file/path")`. If you are running this notebook in a cloud notebook server in your workspace, the file is automatically in the root directory.
+
+If the following code asks for additional authentication, simply paste the link in a browser and enter the authentication token. In addition, if you have more than one tenant linked to your user, you will need to add the following lines:
+```
+from azureml.core.authentication import InteractiveLoginAuthentication
+interactive_auth = InteractiveLoginAuthentication(tenant_id="your-tenant-id")
+Additional details on authentication can be found here: https://aka.ms/aml-notebook-auth 
+```
 
 ```python
 from azureml.core import Workspace
@@ -101,16 +106,16 @@ alphas = [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]
 for alpha in alphas:
     run = experiment.start_logging()
     run.log("alpha_value", alpha)
-
+    
     model = Ridge(alpha=alpha)
     model.fit(X=X_train, y=y_train)
     y_pred = model.predict(X=X_test)
     rmse = math.sqrt(mean_squared_error(y_true=y_test, y_pred=y_pred))
     run.log("rmse", rmse)
-
+    
     model_name = "model_alpha_" + str(alpha) + ".pkl"
     filename = "outputs/" + model_name
-
+    
     joblib.dump(value=model, filename=filename)
     run.upload_file(name=model_name, path_or_stream=filename)
     run.complete()
@@ -158,7 +163,7 @@ for run in experiment.get_runs():
     # each logged metric becomes a key in this returned dict
     run_rmse = run_metrics["rmse"]
     run_id = run_details["runId"]
-
+    
     if minimum_rmse is None:
         minimum_rmse = run_rmse
         minimum_rmse_runid = run_id
@@ -168,15 +173,15 @@ for run in experiment.get_runs():
             minimum_rmse_runid = run_id
 
 print("Best run_id: " + minimum_rmse_runid)
-print("Best run_id rmse: " + str(minimum_rmse))
+print("Best run_id rmse: " + str(minimum_rmse))    
 ```
-
 ```output
 Best run_id: 864f5ce7-6729-405d-b457-83250da99c80
 Best run_id rmse: 57.234760283951765
 ```
 
 Use the best run ID to fetch the individual run using the `Run` constructor along with the experiment object. Then call `get_file_names()` to see all the files available for download from this run. In this case, you only uploaded one file for each run during training.
+
 
 ```python
 from azureml.core import Run
@@ -190,9 +195,11 @@ print(best_run.get_file_names())
 
 Call `download()` on the run object, specifying the model file name to download. By default this function downloads to the current directory.
 
+
 ```python
 best_run.download_file(name="model_alpha_0.1.pkl")
 ```
+<!-- nbend -->
 
 ## Clean up resources
 

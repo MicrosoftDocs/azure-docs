@@ -45,7 +45,7 @@ A [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts) is an event
 
    > [!NOTE]
    > Your connection doesn't expire until revoked, even if you change your sign-in credentials. 
-   > For more information, see [Configurable token lifetimes in Azure Active Directory](../active-directory/active-directory-configurable-token-lifetimes.md).
+   > For more information, see [Configurable token lifetimes in Azure Active Directory](../active-directory/develop/active-directory-configurable-token-lifetimes.md).
 
    This example selects the calendar that the trigger checks, for example:
 
@@ -79,7 +79,7 @@ An [action](../logic-apps/logic-apps-overview.md#logic-app-concepts) is an opera
 
    > [!NOTE]
    > Your connection doesn't expire until revoked, even if you change your sign-in credentials. 
-   > For more information, see [Configurable token lifetimes in Azure Active Directory](../active-directory/active-directory-configurable-token-lifetimes.md).
+   > For more information, see [Configurable token lifetimes in Azure Active Directory](../active-directory/develop/active-directory-configurable-token-lifetimes.md).
 
    This example selects the contacts folder where the action creates the new contact, for example:
 

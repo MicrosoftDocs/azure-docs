@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-ms.custom: tracking-python
+ms.custom: devx-track-python
 
 author: likebupt
 ms.author: keli19

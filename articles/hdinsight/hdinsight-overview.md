@@ -6,8 +6,8 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: overview
-ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
-ms.date: 02/27/2020
+ms.custom: contperfq1
+ms.date: 08/21/2020
 #Customer intent: As a data analyst, I want understand what is Hadoop and how it is offered in Azure HDInsight so that I can decide on using HDInsight instead of on premises clusters.
 ---
 
@@ -128,3 +128,6 @@ Familiar business intelligence (BI) tools retrieve, analyze, and report data tha
 ## Next steps
 
 * [Create Apache Hadoop cluster in HDInsight](./hadoop/apache-hadoop-linux-create-cluster-get-started-portal.md)
+* [Create Apache Spark cluster - Portal](./spark/apache-spark-jupyter-spark-sql-use-portal.md)
+* [Plan a virtual network for Azure HDInsight](hdinsight-plan-virtual-network-deployment.md)
+* [Enterprise security in Azure HDInsight](./domain-joined/hdinsight-security-overview.md)

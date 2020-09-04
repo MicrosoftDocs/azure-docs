@@ -11,7 +11,7 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ms.date: 04/05/2017
 
 ---

@@ -7,7 +7,7 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
-ms.date: 04/21/2020
+ms.date: 09/02/2020
 ---
 
 # Customize Azure HDInsight clusters by using script actions
@@ -69,6 +69,8 @@ A script action is Bash script that runs on the nodes in an HDInsight cluster. C
 * Run with root-level privileges on the cluster nodes.
 
 * Can be used through the Azure portal, Azure PowerShell, Azure  CLI, or HDInsight .NET SDK.
+
+* Script actions that remove or modify service files on the VM may impact service health and availability.
 
 The cluster keeps a history of all scripts that have been run. The history helps when you need to find the ID of a script for promotion or demotion operations.
 

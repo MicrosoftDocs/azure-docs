@@ -6,7 +6,7 @@ ms.service: data-lake-analytics
 ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 06/20/2017
-ms.custom: tracking-python
+ms.custom: devx-track-python
 ---
 # Extend U-SQL scripts with Python code in Azure Data Lake Analytics
 

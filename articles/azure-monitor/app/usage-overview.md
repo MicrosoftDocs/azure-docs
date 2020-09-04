@@ -10,6 +10,8 @@ ms.date: 03/25/2019
 
 Which features of your web or mobile app are most popular? Do your users achieve their goals with your app? Do they drop out at particular points, and do they return later?  [Azure Application Insights](./app-insights-overview.md) helps you gain powerful insights into how people use your app. Every time you update your app, you can assess how well it works for users. With this knowledge, you can make data driven decisions about your next development cycles.
 
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4Cijb]
+
 ## Send telemetry from your app
 
 The best experience is obtained by installing Application Insights both in your app server code, and in your web pages. The client and server components of your app send telemetry back to the Azure portal for analysis.

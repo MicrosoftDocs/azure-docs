@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Innotas | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Innotas.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: eb9e9c2c-4b09-4177-bbab-423fd657448e
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with Innotas
 

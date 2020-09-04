@@ -28,7 +28,7 @@ highlightedContent:
       url: ../virtual-machine-scale-sets/quick-create-portal.md
     - title: Spot VMs - take advantage of our unused capacity at a significant cost savings.
       itemType: concept
-      url: ./linux/spot-vms.md
+      url: ./spot-vms.md
     - title: Dedicated hosts - physical servers to host one or more virtual machines.
       itemType: concept
       url: ./linux/dedicated-hosts.md
@@ -51,7 +51,7 @@ conceptualContent:
         - url: ./linux/image-builder.md
           itemType: how-to-guide
           text: Azure Image Builder
-        - url: /azure/virtual-machines/troubleshooting/linux-index
+        - url: ./troubleshooting/linux-index.yml
           itemType: how-to-guide
           text: Troubleshoot Linux virtual machines
       footerLink:
@@ -69,7 +69,7 @@ conceptualContent:
         - url: ../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md?context=azure/virtual-machines/windows/context/windows-vm-context
           itemType: how-to-guide
           text: Configure managed identities
-        - url: /azure/virtual-machines/troubleshooting/index
+        - url: ./troubleshooting/index.yml
           itemType: how-to-guide
           text: Troubleshoot Windows virtual machines
       # footerLink (optional)

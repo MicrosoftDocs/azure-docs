@@ -54,7 +54,7 @@ The rest of this section lists the benefits and limitations of each storage opti
 
 ### Azure shared disks
 
-[Azure shared disks](../../../virtual-machines/windows/disks-shared.md) are a feature of [Azure managed disks](../../../virtual-machines/windows/managed-disks-overview.md). Windows Server Failover Clustering supports using Azure shared disks with a failover cluster instance. 
+[Azure shared disks](../../../virtual-machines/windows/disks-shared.md) are a feature of [Azure managed disks](../../../virtual-machines/managed-disks-overview.md). Windows Server Failover Clustering supports using Azure shared disks with a failover cluster instance. 
 
 **Supported OS**: All   
 **Supported SQL version**: All     
@@ -94,7 +94,7 @@ To get started, see [SQL Server failover cluster instance with Azure shared disk
 - High network bandwidth is required to achieve high performance because of ongoing disk replication. 
 - Requires a larger VM size and double pay for storage, because storage is attached to each VM. 
 
-To get started, see [SQL Server failover cluster instance with Storage Spaces Direct](failover-cluster-instance-azure-shared-disks-manually-configure.md). 
+To get started, see [SQL Server failover cluster instance with Storage Spaces Direct](failover-cluster-instance-storage-spaces-direct-manually-configure.md). 
 
 ### Premium file share
 

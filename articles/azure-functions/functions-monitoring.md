@@ -4,7 +4,7 @@ description: Learn how to use Azure Application Insights with Azure Functions to
 ms.assetid: 501722c3-f2f7-4224-a220-6d59da08a320
 ms.topic: conceptual
 ms.date: 04/04/2019
-ms.custom: fasttrack-edit
+ms.custom: "devx-track-csharp, fasttrack-edit"
 # Customer intent: As a developer, I want to monitor my functions so I can know if they're running correctly.
 ---
 

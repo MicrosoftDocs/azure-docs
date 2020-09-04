@@ -50,9 +50,6 @@ The following regions and maximum resources are available to a container group d
 
 The following regions and maximum resources are available to a container group deployed with [GPU resources](container-instances-gpu.md) (preview).
 
-> [!IMPORTANT]
-> GPU resources are available only upon request. To request access to GPU resources, please submit an [Azure support request][azure-support].
-
 [!INCLUDE [container-instances-gpu-regions](../../includes/container-instances-gpu-regions.md)]
 [!INCLUDE [container-instances-gpu-limits](../../includes/container-instances-gpu-limits.md)]
 

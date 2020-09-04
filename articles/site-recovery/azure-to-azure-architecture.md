@@ -30,7 +30,7 @@ The components involved in disaster recovery for Azure VMs are summarized in the
 **Cache storage account** | You need a cache storage account in the source network. During replication, VM changes are stored in the cache before being sent to target storage.  Cache storage accounts must be Standard.<br/><br/> Using a cache ensures minimal impact on production applications that are running on a VM.<br/><br/> [Learn more](azure-to-azure-support-matrix.md#cache-storage) about cache storage requirements. 
 **Target resources** | Target resources are used during replication, and when a failover occurs. Site Recovery can set up target resource by default, or you can create/customize them.<br/><br/> In the target region, check that you're able to create VMs, and that your subscription has enough resources to support VM sizes that will be needed in the target region. 
 
-![Source and target replication](./media/concepts-azure-to-azure-architecture/enable-replication-step-1-v2.png)
+![Diagram showing source and target replication.](./media/concepts-azure-to-azure-architecture/enable-replication-step-1-v2.png)
 
 ## Target resources
 
@@ -112,7 +112,7 @@ When you enable replication for an Azure VM, the following happens:
 4. Site Recovery processes the data in the cache, and sends it to the target storage account, or to the replica managed disks.
 5. After the data is processed, crash-consistent recovery points are generated every five minutes. App-consistent recovery points are generated according to the setting specified in the replication policy.
 
-![Enable replication process, step 2](./media/concepts-azure-to-azure-architecture/enable-replication-step-2-v2.png)
+![Diagram showing the replication process, step 2.](./media/concepts-azure-to-azure-architecture/enable-replication-step-2-v2.png)
 
 **Replication process**
 
@@ -124,19 +124,19 @@ When you enable replication for an Azure VM, the following happens:
 
 If outbound access for VMs is controlled with URLs, allow these URLs.
 
-| **URL** | **Details** |
-| ------- | ----------- |
-| *.blob.core.windows.net | Allows data to be written from the VM to the cache storage account in the source region. |
-| login.microsoftonline.com | Provides authorization and authentication to Site Recovery service URLs. |
-| *.hypervrecoverymanager.windowsazure.com | Allows the VM to communicate with the Site Recovery service. |
-| *.servicebus.windows.net | Allows the VM to write Site Recovery monitoring and diagnostics data. |
-| *.vault.azure.net | Allows access to enable replication for ADE-enabled virtual machines via portal
-| *.automation.ext.azure.com | Allows enabling auto-upgrade of mobility agent for a replicated item via portal
+| **Name**                  | **Commercial**                               | **Government**                                 | **Description** |
+| ------------------------- | -------------------------------------------- | ---------------------------------------------- | ----------- |
+| Storage                   | `*.blob.core.windows.net`                  | `*.blob.core.usgovcloudapi.net`	             | Allows data to be written from the VM to the cache storage account in the source region. |
+| Azure Active Directory    | `login.microsoftonline.com`                | `login.microsoftonline.us`                   | Provides authorization and authentication to Site Recovery service URLs. |
+| Replication               | `*.hypervrecoverymanager.windowsazure.com` | `*.hypervrecoverymanager.windowsazure.com`	  | Allows the VM to communicate with the Site Recovery service. |
+| Service Bus               | `*.servicebus.windows.net`                 | `*.servicebus.usgovcloudapi.net`             | Allows the VM to write Site Recovery monitoring and diagnostics data. |
+| Key Vault                 | `*.vault.azure.net`                        | `*.vault.usgovcloudapi.net`                  | Allows access to enable replication for ADE-enabled virtual machines via portal |
+| Azure Automation          | `*.automation.ext.azure.com`               | `*.azure-automation.us`                      | Allows enabling auto-upgrade of mobility agent for a replicated item via portal |
 
 ### Outbound connectivity for IP address ranges
 
 To control outbound connectivity for VMs using IP addresses, allow these addresses.
-Please note that details of network connectivity requirements can be found in  [networking white paper](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags) 
+Please note that details of network connectivity requirements can be found in [networking white paper](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags) 
 
 #### Source region rules
 
@@ -187,7 +187,7 @@ If you enable multi-VM consistency, machines in the replication group communicat
 
 When you initiate a failover, the VMs are created in the target resource group, target virtual network, target subnet, and in the target availability set. During a failover, you can use any recovery point.
 
-![Failover process](./media/concepts-azure-to-azure-architecture/failover-v2.png)
+![Diagram showing the failover process with source and target environments.](./media/concepts-azure-to-azure-architecture/failover-v2.png)
 
 ## Next steps
 

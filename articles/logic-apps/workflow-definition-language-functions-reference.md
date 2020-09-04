@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
-ms.date: 07/22/2020
+ms.date: 08/26/2020
 ---
 
 # Reference guide to using functions in expressions for Azure Logic Apps and Power Automate
@@ -1167,7 +1167,7 @@ And returns this result:
 
 ### bool
 
-Return the Boolean version for a value.
+Return the Boolean version of a value.
 
 ```
 bool(<value>)
@@ -1175,27 +1175,27 @@ bool(<value>)
 
 | Parameter | Required | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*value*> | Yes | Any | The value to convert |
+| <*value*> | Yes | Any | The value to convert to Boolean. |
 |||||
+
+If you're using `bool()` with an object, the value of the object must be a string or integer that can be converted to Boolean.
 
 | Return value | Type | Description |
 | ------------ | ---- | ----------- |
-| true or false | Boolean | The Boolean version for the specified value |
+| `true` or `false` | Boolean | The Boolean version of the specified value. |
 ||||
 
-*Example*
+*Outputs*
 
-These examples convert the specified values to Boolean values:
+These examples show the different supported types of input for `bool()`:
 
-```
-bool(1)
-bool(0)
-```
-
-And returns these results:
-
-* First example: `true`
-* Second example: `false`
+| Input value | Type | Return value |
+| ----------- | ---------- | ---------------------- |
+| `bool(1)` | Integer | `true` |
+| `bool(0)` | Integer    | `false` |
+| `bool(-1)` | Integer | `true` |
+| `bool('true')` | String | `true` |
+| `bool('false')` | String | `false` |
 
 <a name="coalesce"></a>
 
@@ -1327,7 +1327,7 @@ convertFromUtc('<timestamp>', '<destinationTimeZone>', '<format>'?)
 | Parameter | Required | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Yes | String | The string that contains the timestamp |
-| <*destinationTimeZone*> | Yes | String | The name for the target time zone. For time zone names, see [Microsoft Time Zone Index Values](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values), but you might have to remove any punctuation from the time zone name. |
+| <*destinationTimeZone*> | Yes | String | The name for the target time zone. For time zone names, see [Microsoft Time Zone Index Values](https://support.microsoft.com/help/973627/microsoft-time-zone-index-values), but you might have to remove any punctuation from the time zone name. |
 | <*format*> | No | String | Either a [single format specifier](/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. |
 |||||
 
@@ -1369,8 +1369,8 @@ convertTimeZone('<timestamp>', '<sourceTimeZone>', '<destinationTimeZone>', '<fo
 | Parameter | Required | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Yes | String | The string that contains the timestamp |
-| <*sourceTimeZone*> | Yes | String | The name for the source time zone. For time zone names, see [Microsoft Time Zone Index Values](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values), but you might have to remove any punctuation from the time zone name. |
-| <*destinationTimeZone*> | Yes | String | The name for the target time zone. For time zone names, see [Microsoft Time Zone Index Values](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values), but you might have to remove any punctuation from the time zone name. |
+| <*sourceTimeZone*> | Yes | String | The name for the source time zone. For time zone names, see [Microsoft Time Zone Index Values](https://support.microsoft.com/help/973627/microsoft-time-zone-index-values), but you might have to remove any punctuation from the time zone name. |
+| <*destinationTimeZone*> | Yes | String | The name for the target time zone. For time zone names, see [Microsoft Time Zone Index Values](https://support.microsoft.com/help/973627/microsoft-time-zone-index-values), but you might have to remove any punctuation from the time zone name. |
 | <*format*> | No | String | Either a [single format specifier](/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. |
 |||||
 
@@ -1412,7 +1412,7 @@ convertToUtc('<timestamp>', '<sourceTimeZone>', '<format>'?)
 | Parameter | Required | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Yes | String | The string that contains the timestamp |
-| <*sourceTimeZone*> | Yes | String | The name for the source time zone. For time zone names, see [Microsoft Time Zone Index Values](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values), but you might have to remove any punctuation from the time zone name. |
+| <*sourceTimeZone*> | Yes | String | The name for the source time zone. For time zone names, see [Microsoft Time Zone Index Values](https://support.microsoft.com/help/973627/microsoft-time-zone-index-values), but you might have to remove any punctuation from the time zone name. |
 | <*format*> | No | String | Either a [single format specifier](/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. |
 |||||
 
@@ -2787,12 +2787,9 @@ And returns these results:
 
 ### lastIndexOf
 
-Return the starting position or index value
-for the last occurrence of a substring.
-This function is not case-sensitive,
-and indexes start with the number 0.
+Return the starting position or index value for the last occurrence of a substring. This function is not case-sensitive, and indexes start with the number 0.
 
-```
+```json
 lastIndexOf('<text>', '<searchText>')
 ```
 
@@ -2800,24 +2797,38 @@ lastIndexOf('<text>', '<searchText>')
 | --------- | -------- | ---- | ----------- |
 | <*text*> | Yes | String | The string that has the substring to find |
 | <*searchText*> | Yes | String | The substring to find |
-|||||
+|||
 
 | Return value | Type | Description |
 | ------------ | ---- | ----------- |
-| <*ending-index-value*> | Integer | The starting position or index value for the last occurrence of the specified substring. <p>If the string is not found, return the number -1. |
-||||
+| <*ending-index-value*> | Integer | The starting position or index value for the last occurrence of the specified substring. |
+|||
 
-*Example*
+If the string or substring value is empty, the following behavior occurs:
 
-This example finds the starting index value for
-the last occurrence of the "world" substring in
-the "hello world" string:
+* If the string value is empty, `-1` is returned:
 
+* If the string and substring values are both empty, `0` is returned.
+
+* If only the substring value is empty, the greater of the following two values is returned:
+
+  * `0`
+
+  * The length of the string, minus 1.
+
+*Examples*
+
+This example finds the starting index value for the last occurrence of the substring `world` substring in the string `hello world hello world`. The returned result is `18`:
+
+```json
+lastIndexOf('hello world hello world', 'world')
 ```
-lastIndexOf('hello world', 'world')
-```
 
-And returns this result: `6`
+This example is missing the substring parameter, and returns a value of `22` because the value of the input string (`23`) minus 1 is greater than 0.
+
+```json
+lastIndexOf('hello world hello world', '')
+```
 
 <a name="length"></a>
 

@@ -119,4 +119,4 @@ After you edit the MSAL code with these parameters, your users can authenticate 
 
 For more information about the native application flow, see [Native apps in Azure Active Directory](../azuread-dev/native-app.md).
 
-Learn about setting up [Single sign-on to applications in Azure Active Directory](what-is-single-sign-on.md#choosing-a-single-sign-on-method).
+Learn about setting up [Single sign-on to applications in Azure Active Directory](sso-options.md#choosing-a-single-sign-on-method).

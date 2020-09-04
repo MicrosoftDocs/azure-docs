@@ -50,7 +50,6 @@ If all the internal URLs for your applications are fully qualified domain names 
    ![Add an Endpoint - set Trusted URL value - screenshot](./media/application-proxy-configure-for-claims-aware-applications/appproxyendpointtrustedurl.png)  
 
 ## Next steps
-* [Enable single-sign on](configure-single-sign-on-non-gallery-applications.md) for applications that aren't claims-aware
 * [Enable native client apps to interact with proxy applications](application-proxy-configure-native-client-application.md)
 
 

@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/16/2020
+ms.date: 08/7/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
@@ -149,7 +149,7 @@ The following example shows a success response to a request for an access token 
 ```
 
 > [!NOTE]
-> The above access token is a v1.0-formatted token for Microosft Graph. This is because the token format is based on the **resource** being accessed and unrelated to the endpoints used to request it. The Microsoft Graph is setup to accept v1.0 tokens, so Microsoft identity platform produces v1.0 access tokens when a client requests tokens for Microsoft Graph. Other apps may indicate that they want v2.0-format tokens, v1.0-format tokens, or even proprietary or encrypted token formats.  Both the v1.0 and v2.0 endpoints can emit either format of token - this way the resource can always get the right format of token regardless of how or where the token was requested by the client. 
+> The above access token is a v1.0-formatted token for Microsoft Graph. This is because the token format is based on the **resource** being accessed and unrelated to the endpoints used to request it. The Microsoft Graph is setup to accept v1.0 tokens, so Microsoft identity platform produces v1.0 access tokens when a client requests tokens for Microsoft Graph. Other apps may indicate that they want v2.0-format tokens, v1.0-format tokens, or even proprietary or encrypted token formats.  Both the v1.0 and v2.0 endpoints can emit either format of token - this way the resource can always get the right format of token regardless of how or where the token was requested by the client. 
 >
 > Only applications should look at access tokens. Clients **must not** inspect them. Inspecting access tokens for other apps in your code will result in your app unexpectedly breaking when that app changes the format of their tokens or starts encrypting them. 
 
@@ -190,49 +190,6 @@ Some OAuth-based web services need to access other web service APIs that accept 
 
 > [!TIP]
 > When you call a SAML-protected web service from a front-end web application, you can simply call the API and initiate a normal interactive authentication flow with the user's existing session. You only need to use an OBO flow when a service-to-service call requires a SAML token to provide user context.
-
-### Obtain a SAML token by using an OBO request with a shared secret
-
-A service-to-service request for a SAML assertion contains the following parameters:
-
-| Parameter | Type | Description |
-| --- | --- | --- |
-| grant_type |required | The type of the token request. For a request that uses a JWT, the value must be **urn:ietf:params:oauth:grant-type:jwt-bearer**. |
-| assertion |required | The value of the access token used in the request.|
-| client_id |required | The app ID assigned to the calling service during registration with Azure AD. To find the app ID in the Azure portal, select **Active Directory**, choose the directory, and then select the application name. |
-| client_secret |required | The key registered for the calling service in Azure AD. This value should have been noted at the time of registration. |
-| resource |required | The app ID URI of the receiving service (secured resource). This is the resource that will be the Audience of the SAML token. To find the app ID URI in the Azure portal, select **Active Directory** and choose the directory. Select the application name, choose **All settings**, and then select **Properties**. |
-| requested_token_use |required | Specifies how the request should be processed. In the On-Behalf-Of flow, the value must be **on_behalf_of**. |
-| requested_token_type | required | Specifies the type of token requested. The value can be **urn:ietf:params:oauth:token-type:saml2** or **urn:ietf:params:oauth:token-type:saml1** depending on the requirements of the accessed resource. |
-
-The response contains a SAML token encoded in UTF8 and Base64url.
-
-- **SubjectConfirmationData for a SAML assertion sourced from an OBO call**: If the target application requires a recipient value in **SubjectConfirmationData**, then the value must be a non-wildcard Reply URL in the resource application configuration.
-- **The SubjectConfirmationData node**: The node can't contain an **InResponseTo** attribute since it's not part of a SAML response. The application receiving the SAML token must be able to accept the SAML assertion without an **InResponseTo** attribute.
-
-- **Consent**: Consent must have been granted to receive a SAML token containing user data on an OAuth flow. For information on permissions and obtaining administrator consent, see [Permissions and consent in the Azure Active Directory v1.0 endpoint](https://docs.microsoft.com/azure/active-directory/azuread-dev/v1-permissions-consent).
-
-### Response with SAML assertion
-
-| Parameter | Description |
-| --- | --- |
-| token_type |Indicates the token type value. The only type that Azure AD supports is **Bearer**. For more information about bearer tokens, see [OAuth 2.0 Authorization Framework: Bearer Token Usage (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). |
-| scope |The scope of access granted in the token. |
-| expires_in |The length of time the access token is valid (in seconds). |
-| expires_on |The time when the access token expires. The date is represented as the number of seconds from 1970-01-01T0:0:0Z UTC until the expiration time. This value is used to determine the lifetime of cached tokens. |
-| resource |The app ID URI of the receiving service (secured resource). |
-| access_token |The parameter that returns the SAML assertion. |
-| refresh_token |The refresh token. The calling service can use this token to request another access token after the current SAML assertion expires. |
-
-- token_type: Bearer
-- expires_in: 3296
-- ext_expires_in: 0
-- expires_on: 1529627844
-- resource: `https://api.contoso.com`
-- access_token: \<SAML assertion\>
-- issued_token_type: urn:ietf:params:oauth:token-type:saml2
-- refresh_token: \<Refresh token\>
-
 
 ## Gaining consent for the middle-tier application
 

@@ -1,22 +1,23 @@
 ---
-title: "Speech recognition basics - Speech service"
+title: "Speech-to-text quickstart - Speech service"
 titleSuffix: Azure Cognitive Services
-description: Learn how to use the Speech SDK to convert speech-to-text. In this article, you'll learn about object construction, supported audio input formats, and configuration options for speech recognition.
+description: Learn how to use the Speech SDK to convert speech-to-text. In this quickstart, you learn about object construction, supported audio input formats, and configuration options for speech recognition.
 services: cognitive-services
 author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 04/14/2020
+ms.date: 09/01/2020
 ms.author: trbye
-ms.custom: tracking-python
+ms.custom: "devx-track-python, devx-track-javascript, devx-track-csharp, cog-serv-seo-aug-2020"
 zone_pivot_groups: programming-languages-set-two-with-js
+keywords: speech to text, speech to text software
 ---
 
-# Learn the basics of speech recognition
+# Get started with speech-to-text
 
-One of the core features of the Speech service is the ability to recognize and transcribe human speech (often referred to as speech to text). In this article, you'll learn how to use the Speech SDK in your apps and products to perform high-quality speech recognition.
+One of the core features of the Speech service is the ability to recognize and transcribe human speech (often referred to as speech to text). In this quickstart, you learn how to use the Speech SDK in your apps and products to perform high-quality speech-to-text conversion.
 
 > [!TIP]
 > If you haven't had a chance to complete one of our quickstarts, we encourage you to kick the tires and try speech recognition out for yourself.

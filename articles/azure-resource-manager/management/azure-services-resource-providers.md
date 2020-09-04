@@ -162,7 +162,7 @@ This article shows how resource provider namespaces map to Azure services.
 | Microsoft.VirtualMachineImages | [Azure Image Builder](../../virtual-machines/linux/image-builder-overview.md) |
 | microsoft.visualstudio | [Azure DevOps](/azure/devops/?view=azure-devops) |
 | Microsoft.VMware | [Azure VMware Solution](../../azure-vmware/index.yml) |
-| Microsoft.VMwareCloudSimple | [Azure VMware Solution by CloudSimple](/azure/vmware-cloudsimple/) |
+| Microsoft.VMwareCloudSimple | [Azure VMware Solution by CloudSimple](../../vmware-cloudsimple/index.md) |
 | Microsoft.VSOnline | [Azure DevOps](/azure/devops/?view=azure-devops) |
 | Microsoft.Web | [App Service](../../app-service/index.yml)<br />[Azure Functions](../../azure-functions/index.yml) |
 | Microsoft.WindowsESU | Extended Security Updates |

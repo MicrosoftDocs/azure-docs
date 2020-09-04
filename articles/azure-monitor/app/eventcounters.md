@@ -3,6 +3,7 @@ title: Event counters in Application Insights | Microsoft Docs
 description: Monitor system and custom .NET/.NET Core EventCounters in Application Insights.
 ms.topic: conceptual
 ms.date: 09/20/2019
+ms.custom: devx-track-csharp
 
 ---
 
@@ -41,10 +42,6 @@ For apps running in .NET Core 3.0, the following counters are collected automati
 |`System.Runtime` | `threadpool-queue-length` |
 |`System.Runtime` | `threadpool-completed-items-count` |
 |`System.Runtime` | `active-timer-count` |
-|`Microsoft.AspNetCore.Hosting` | `requests-per-second` |
-|`Microsoft.AspNetCore.Hosting` | `total-requests` |
-|`Microsoft.AspNetCore.Hosting` | `current-requests` |
-|`Microsoft.AspNetCore.Hosting` | `failed-requests` |
 
 > [!NOTE]
 > Counters of category Microsoft.AspNetCore.Hosting are only added in ASP.NET Core Applications.

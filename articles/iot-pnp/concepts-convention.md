@@ -20,11 +20,11 @@ You describe the telemetry, properties, and commands that an IoT Plug and Play d
 
 For more information, see [IoT Plug and Play components in models](concepts-components.md).
 
-## Model discovery
+## Identify the model
 
 To announce the model it implements, an IoT Plug and Play device includes the model ID in the MQTT connection packet by adding `model-id` to the `USERNAME` field.
 
-To discover the model that a device implements, a service can get the model ID from:
+To identify the model that a device implements, a service can get the model ID from:
 
 - The device twin `modelId` field.
 - The digital twin `$metadata.$model` field.
@@ -122,7 +122,7 @@ The device must add the `{"__t": "c"}` marker to indicate that the element refer
 
 The device should confirm that it received the property by sending a reported property. The reported property should include:
 
-- `value` - the value that the device received.
+- `value` - the actual value of the property (typically the received value, but the device may decide to report a different value).
 - `ac` - an acknowledgment code that uses an HTTP status code.
 - `av` - an acknowledgment version that refers to the `$version` of the desired property.
 - `ad` - an optional acknowledgment description.

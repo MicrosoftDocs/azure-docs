@@ -11,11 +11,11 @@ ms.author: v-stazar
 ms.reviewer: jrasnick
 ---
 
-# Assigning variables with Synapse SQL
+# Assign variables with Synapse SQL
 
 In this article, you'll find tips for assigning T-SQL variables with Synapse SQL.
 
-## Setting variables with DECLARE
+## Set variables with DECLARE
 
 Variables in Synapse SQL are set using the `DECLARE` statement or the `SET` statement. Initializing variables with DECLARE is one of the most flexible ways to set a variable value in Synapse SQL.
 
@@ -40,7 +40,7 @@ DECLARE @p1 int = 0
 ;
 ```
 
-## Setting values with SET
+## Set values with SET
 
 SET is a common method for setting a single variable.
 

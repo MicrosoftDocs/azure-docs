@@ -8,7 +8,7 @@ ms.date: 09/23/2019
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
-ms.custom: monitoring
+ms.custom: "monitoring, devx-track-csharp"
 ---
 # Monitor, diagnose, and troubleshoot Microsoft Azure Storage
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -128,7 +128,7 @@ Storage Metrics only stores capacity metrics for the blob service because blobs 
 >
 >
 
-For help estimating the size of various storage objects such as blobs, see the blog post [Understanding Azure Storage Billing – Bandwidth, Transactions, and Capacity](https://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx).
+For help estimating the size of various storage objects such as blobs, see the blog post [Understanding Azure Storage Billing – Bandwidth, Transactions, and Capacity](https://docs.microsoft.com/archive/blogs/patrick_butler_monterde/azure-storage-understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity).
 
 ### <a name="monitoring-availability"></a>Monitoring availability
 You should monitor the availability of the storage services in your storage account by monitoring the value in the **Availability** column in the hourly or minute metrics tables — **$MetricsHourPrimaryTransactionsBlob**, **$MetricsHourPrimaryTransactionsTable**, **$MetricsHourPrimaryTransactionsQueue**, **$MetricsMinutePrimaryTransactionsBlob**, **$MetricsMinutePrimaryTransactionsTable**, **$MetricsMinutePrimaryTransactionsQueue**, **$MetricsCapacityBlob**. The **Availability** column contains a percentage value that indicates the availability of the service or the API operation represented by the row (the **RowKey** shows if the row contains metrics for the service as a whole or for a specific API operation).
@@ -463,7 +463,7 @@ If your client application is throwing HTTP 403 (Forbidden) errors, a likely cau
 | Source | Verbosity | Verbosity | Client request ID | Operation text |
 | --- | --- | --- | --- | --- |
 | Microsoft.Azure.Storage |Information |3 |85d077ab-… |Starting operation with location Primary per location mode PrimaryOnly. |
-| Microsoft.Azure.Storage |Information |3 |85d077ab -… |Starting synchronous request to <https://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&sr=c&si=mypolicy&sig=OFnd4Rd7z01fIvh%2BmcR6zbudIH2F5Ikm%2FyhNYZEmJNQ%3D&api-version=2014-02-14> |
+| Microsoft.Azure.Storage |Information |3 |85d077ab -… |Starting synchronous request to <https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/Synchronous_and_Asynchronous_Requests#Synchronous_request> |
 | Microsoft.Azure.Storage |Information |3 |85d077ab -… |Waiting for response. |
 | Microsoft.Azure.Storage |Warning |2 |85d077ab -… |Exception thrown while waiting for response: The remote server returned an error: (403) Forbidden. |
 | Microsoft.Azure.Storage |Information |3 |85d077ab -… |Response received. Status code = 403, Request ID = 9d67c64a-64ed-4b0d-9515-3b14bbcdc63d, Content-MD5 = , ETag = . |

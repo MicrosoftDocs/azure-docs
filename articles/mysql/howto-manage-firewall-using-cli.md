@@ -6,7 +6,8 @@ ms.author: andrela
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: how-to
-ms.date: 3/18/2020
+ms.date: 3/18/2020 
+ms.custom: devx-track-azurecli
 ---
 
 # Create and manage Azure Database for MySQL firewall rules by using the Azure CLI

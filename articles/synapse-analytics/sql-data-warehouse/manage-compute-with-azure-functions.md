@@ -33,9 +33,7 @@ To deploy the template, you need the following information:
 
 Once you have the preceding information, deploy this template:
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FMicrosoft%2Fsql-data-warehouse-samples%2Fmaster%2Farm-templates%2FsqlDwTimerScaler%2Fazuredeploy.json" target="_blank">
-<img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png"/>
-</a>
+[![Image showing a button labeled "Deploy to Azure".](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FMicrosoft%2Fsql-data-warehouse-samples%2Fmaster%2Farm-templates%2FsqlDwTimerScaler%2Fazuredeploy.json)
 
 Once you've deployed the template, you should find three new resources: a free Azure App Service Plan, a consumption-based Function App plan, and a storage account that handles the logging and the operations queue. Continue reading the other sections to see how to modify the deployed functions to fit your need.
 
@@ -51,7 +49,7 @@ Once you've deployed the template, you should find three new resources: a free A
 
 3. Currently the value displayed should say either *%ScaleDownTime%* or *%ScaleUpTime%*. These values indicate the schedule is based on values defined in your [Application Settings](../../azure-functions/functions-how-to-use-azure-function-app-settings.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). For now, you can ignore this value and change the schedule to your preferred time based on the next steps.
 
-4. In the schedule area, add the time the CRON expression you would like to reflect how often you want the SQL Data Warehouse to be scaled up.
+4. In the schedule area, add the time the CRON expression you would like to reflect how often you want Azure Synapse Analytics to be scaled up.
 
    ![Change function schedule](./media/manage-compute-with-azure-functions/change-schedule.png)
 

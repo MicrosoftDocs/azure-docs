@@ -5,6 +5,7 @@ author: tonguyen
 ms.reviewer: mumami
 tags: billing
 ms.service: cost-management-billing
+ms.subservice: common
 ms.topic: reference
 ms.date: 02/12/2020
 ms.author: banders

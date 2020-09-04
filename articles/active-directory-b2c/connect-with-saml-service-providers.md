@@ -410,6 +410,10 @@ The following SAML relying party (RP) scenarios are supported via your own metad
 * Multiple logout URLs or POST binding for logout URL in application/service principal object.
 * Specify signing key to verify RP requests in application/service principal object.
 * Specify token encryption key in application/service principal object.
+* Identity Provider initiated sign on, where the Identity Provider is Azure AD B2C.
+
+The following SAML relying party (RP) scenarios are unsupported currently:
+* Identity Provider initiated sign on, where the Identity Provider is an external Identity Provider, for example ADFS.
 
 ## Next steps
 

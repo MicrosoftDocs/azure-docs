@@ -1,10 +1,7 @@
 ---
 title: Connect to Windows Virtual Desktop Windows 10 or 7 - Azure
 description: How to connect to Windows Virtual Desktop using the Windows Desktop client.
-services: virtual-desktop
 author: Heidilohr
-
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 07/16/2020
 ms.author: helohr
@@ -60,6 +57,7 @@ There are two ways you can subscribe to a Workspace. The client can try to disco
    - If you use the **Workspace URL**, use the one your admin gave you. If accessing resources from Windows Virtual Desktop, you can use one of the following URLs:
      - Windows Virtual Desktop (classic): `https://rdweb.wvd.microsoft.com/api/feeddiscovery/webfeeddiscovery.aspx`
      - Windows Virtual Desktop: `https://rdweb.wvd.microsoft.com/api/arm/feeddiscovery`
+     - Windows Virtual Desktop (US Gov): `https://rdweb.wvd.azure.us/api/arm/feeddiscovery`
    - If you're using the **Email** field instead, enter your email address. This tells the client to search for a URL associated with your email address if your admin has set up [email discovery](/windows-server/remote/remote-desktop-services/rds-email-discovery).
 3. Select **Next**.
 4. Sign in with your user account when prompted.

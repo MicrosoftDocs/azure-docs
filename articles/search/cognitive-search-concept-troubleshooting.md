@@ -49,7 +49,7 @@ In that case, you may want to tell the indexer to ignore errors. Do that by sett
 
 ## Tip 4: Use Debug sessions to identify and resolve issues with your skillset 
 
-Debug sessions is a visual editor that works with an existing skillset in the Azure portal. Within a debug session you can identify and resolve errors, validate changes, and commit changes to a production skillset in the AI enrichment pipeline. This is a preview feature [read the documentation](https://docs.microsoft.com/azure/search/cognitive-search-debug-session). For more information about concepts and getting started, see [Debug sessions](https://docs.microsoft.com/azure/search/cognitive-search-tutorial-debug-sessions).
+Debug sessions is a visual editor that works with an existing skillset in the Azure portal. Within a debug session you can identify and resolve errors, validate changes, and commit changes to a production skillset in the AI enrichment pipeline. This is a preview feature [read the documentation](./cognitive-search-debug-session.md). For more information about concepts and getting started, see [Debug sessions](./cognitive-search-tutorial-debug-sessions.md).
 
 Debug sessions work on a single document are a great way for you to iteratively build more complex enrichment pipelines.
 

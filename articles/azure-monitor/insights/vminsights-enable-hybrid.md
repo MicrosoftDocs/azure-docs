@@ -13,7 +13,7 @@ ms.date: 07/27/2020
 This article describes how to enable Azure Monitor for VMs for a virtual machine outside of Azure, including on-premises and other cloud environments.
 
 > [!IMPORTANT]
-> The recommended method of enabling hybrid VMs is first enabling [Azure Arc for servers](/azure-arc/servers/overview.md) so that the VMs can be enabled for Azure Monitor for VMs using processes similar to Azure VMs. This article describes how to onboard hybrid VMs if you choose not to use Azure Arc.
+> The recommended method of enabling hybrid VMs is first enabling [Azure Arc for servers](../../azure-arc/servers/overview.md) so that the VMs can be enabled for Azure Monitor for VMs using processes similar to Azure VMs. This article describes how to onboard hybrid VMs if you choose not to use Azure Arc.
 
 ## Prerequisites
 
@@ -27,7 +27,7 @@ Virtual machines outside of Azure require the same Log Analytics agent and Depen
 See [Connect Windows computers to Azure Monitor](../platform/agent-windows.md) or [Connect Linux computers to Azure Monitor](../platform/agent-linux.md) for details on deploying the Log Analytics agent. Details for the Dependency agent are provided in this article. 
 
 ## Firewall requirements
-Firewall requirements for the Log Analytics agent are provided in [Log Analytics agent overview](..//platform/log-analytics-agent.md#network-requirements). The Azure Monitor for VMs Map Dependency agent doesn't transmit any data itself, and it doesn't require any changes to firewalls or ports. The Map data is always transmitted by the Log Analytics agent to the Azure Monitor service, either directly or through the [Operations Management Suite gateway](../../azure-monitor/platform/gateway.md) if your IT security policies don't allow computers on the network to connect to the internet.
+Firewall requirements for the Log Analytics agent are provided in [Log Analytics agent overview](../platform/log-analytics-agent.md#network-requirements). The Azure Monitor for VMs Map Dependency agent doesn't transmit any data itself, and it doesn't require any changes to firewalls or ports. The Map data is always transmitted by the Log Analytics agent to the Azure Monitor service, either directly or through the [Operations Management Suite gateway](../../azure-monitor/platform/gateway.md) if your IT security policies don't allow computers on the network to connect to the internet.
 
 
 ## Dependency agent
@@ -39,8 +39,8 @@ You can download the Dependency agent from these locations:
 
 | File | OS | Version | SHA-256 |
 |:--|:--|:--|:--|
-| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.10.4.10090 | B4E1FF9C1E5CD254AA709AEF9723A81F04EC0763C327567C582CE99C0C5A0BAE  |
-| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.10.4.10090 | A56E310D297CE3B343AE8F4A6F72980F1C3173862D6169F1C713C2CA09660A9F |
+| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.10.5.10940 | C27A56D0BE9CF162DF73292DFBB2083F5FF749F2B80FCAD2545BC8B14B64A8D7  |
+| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.10.5.10940 | 71B4E1DA5116E61E03317C49C6702B5069F01A0C9A7CB860F6ACFAF5C198740E |
 
 
 ## Install the Dependency agent on Windows
@@ -154,7 +154,7 @@ If your Dependency agent installation succeeded, but you don't see your computer
 
     **Linux**: Look for the running process "microsoft-dependency-agent."
 
-2. Are you on the [Free pricing tier of Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions)? The Free plan allows for up to five unique computers. Any subsequent computers won't show up on the map, even if the prior five are no longer sending data.
+2. Are you on the [Free pricing tier of Log Analytics](./solutions.md)? The Free plan allows for up to five unique computers. Any subsequent computers won't show up on the map, even if the prior five are no longer sending data.
 
 3. Is the computer sending log and perf data to Azure Monitor Logs? Perform the following query for your computer:
 

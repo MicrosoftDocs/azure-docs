@@ -2,13 +2,13 @@
 title: 'Connectivity providers and locations: Azure ExpressRoute | Microsoft Docs'
 description: This article provides a detailed overview of locations where services are offered and how to connect to Azure regions. Sorted by connectivity provider.
 services: expressroute
-author: cherylmc
+author: duongau
 
 ms.service: expressroute
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 06/30/2020
-ms.author: cherylmc
+ms.date: 08/26/2020
+ms.author: duau
 
 ---
 # ExpressRoute connectivity partners and peering locations
@@ -40,7 +40,7 @@ The following table provides a map of Azure regions to ExpressRoute locations wi
 | --- | --- | --- |
 | **Australia Government** |Australia Central, Australia Central 2 |Canberra, Canberra2 |
 | **Europe** | France Central, France South, Germany North, Germany West Central, North Europe, Norway East, Norway West, Switzerland North, Switzerland West, UK West, UK South, West Europe |Amsterdam, Amsterdam2, Berlin, Copenhagen, Dublin, Frankfurt, Geneva, London, London2, Marseille, Milan, Munich, Newport(Wales), Oslo, Paris, Stavanger, Stockholm, Zurich |
-| **North America** |East US, West US, East US 2, West US 2, Central US, South Central US, North Central US, West Central US, Canada Central, Canada East |Atlanta, Chicago, Dallas, Denver, Las Vegas, Los Angeles, Miami, Minneapolis, New York, Queretaro(Mexico), San Antonio, Seattle, Silicon Valley, Silicon Valley2, Washington DC, Washington DC2, Montreal, Quebec City, Toronto, Vancouver |
+| **North America** |East US, West US, East US 2, West US 2, Central US, South Central US, North Central US, West Central US, Canada Central, Canada East |Atlanta, Chicago, Dallas, Denver, Las Vegas, Los Angeles, Los Angeles2, Miami, Minneapolis, Montreal, New York, Phoenix, Quebec City, Queretaro(Mexico), Quincy, San Antonio, Seattle, Silicon Valley, Silicon Valley2, Toronto, Vancouver, Washington DC, Washington DC2 |
 | **Asia** | East Asia, Southeast Asia | Bangkok, Hong Kong, Hong Kong2, Jakarta, Kuala Lumpur, Singapore, Singapore2, Taipei |
 | **India** | India West, India Central, India South |Chennai, Chennai2, Mumbai, Mumbai2 |
 | **Japan** | Japan West, Japan East |Osaka, Tokyo, Tokyo2 |
@@ -78,7 +78,7 @@ The following table shows locations by service provider. If you want to view ava
 | **[Aryaka Networks](https://www.aryaka.com/)** |Supported |Supported |Amsterdam, Chicago, Dallas, Hong Kong SAR, Sao Paulo, Seattle, Silicon Valley, Singapore, Tokyo, Washington DC |
 | **[Ascenty Data Centers](https://www.ascenty.com/en/cloud/microsoft-express-route)** |Supported |Supported |Sao Paulo |
 | **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** |Supported |Supported |Amsterdam, Chicago, Dallas, Frankfurt, London, Silicon Valley, Singapore, Sydney, Tokyo, Toronto, Washington DC |
-| **[AT TOKYO](https://www.attokyo.com/service/cloudsconnection/forazure.html)** | Supported | Supported | Tokyo2 |
+| **[AT TOKYO](https://www.attokyo.com/connectivity/azure.html)** | Supported | Supported | Osaka, Tokyo2 |
 | **[BBIX](https://www.bbix.net/en/service/ix/)** | Supported | Supported | Tokyo |
 | **[BCX](https://www.bcx.co.za/solutions/connectivity/data-networks)** |Supported |Supported |Cape Town, Johannesburg|
 | **[Bell Canada](https://business.bell.ca/shop/enterprise/cloud-connect-access-to-cloud-partner-services)** |Supported |Supported |Montreal, Toronto, Quebec City |
@@ -101,11 +101,11 @@ The following table shows locations by service provider. If you want to view ava
 | **du datamena** |Supported |Supported | Dubai2 |
 | **eir** |Supported |Supported |Dublin|
 | **[Epsilon Global Communications](https://www.epsilontel.com/solutions/direct-cloud-connect)** |Supported |Supported |Singapore, Singapore2 |
-| **[Equinix](https://www.equinix.com/partners/microsoft-azure/)** |Supported |Supported |Amsterdam, Atlanta, Chicago, Dallas, Dublin, Frankfurt, Geneva, Hong Kong SAR, London, London2, Los Angeles, Melbourne, Miami, Milan, New York, Osaka, Paris, Sao Paulo, Seattle, Silicon Valley, Singapore, Stockholm, Sydney, Tokyo, Toronto, Washington DC |
+| **[Equinix](https://www.equinix.com/partners/microsoft-azure/)** |Supported |Supported |Amsterdam, Atlanta, Chicago, Dallas, Dublin, Frankfurt, Geneva, Hong Kong SAR, London, London2, Los Angeles, Los Angeles2, Melbourne, Miami, Milan, New York, Osaka, Paris, Sao Paulo, Seattle, Silicon Valley, Singapore, Stockholm, Sydney, Tokyo, Toronto, Washington DC |
 | **Etisalat UAE** |Supported |Supported |Dubai|
 | **[euNetworks](https://eunetworks.com/services/solutions/cloud-connect/microsoft-azure-expressroute/)** |Supported |Supported |Amsterdam, Amsterdam2, Dublin, Frankfurt, London |
 | **FarEasTone** |Supported |Supported |Taipei|
-| **GÉANT** |Supported |Supported |Amsterdam, Dublin, Frankfurt, Marseille |
+| **GÉANT** |Supported |Supported |Amsterdam, Amsterdam2, Dublin, Frankfurt, Marseille |
 | **GTT** |Supported |Supported |London2 |
 | **[Global Cloud Xchange (GCX)](https://globalcloudxchange.com/cloud-platform/cloud-x-fusion/)** | Supported| Supported | Chennai, Mumbai |
 | **Intelsat** | Supported | Supported | Washington DC2 |
@@ -144,7 +144,7 @@ The following table shows locations by service provider. If you want to view ava
 | **[Sejong Telecom](https://www.sejongtelecom.net/en/pages/service/cloud_ms)** |Supported |Supported |Seoul |
 | **[SES](https://www.ses.com/networks/signature-solutions/signature-cloud/ses-and-azure-expressroute)** | Supported |Supported | Washington DC |
 | **[SIFY](http://telecom.sify.com/azure-expressroute.html)** |Supported |Supported |Chennai, Mumbai2 |
-| **[SingTel](https://www.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** |Supported |Supported |Singapore, Singapore2 |
+| **[SingTel](https://www.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** |Supported |Supported |Hong Kong2, Singapore, Singapore2 |
 | **[Softbank](https://www.softbank.jp/biz/cloud/cloud_access/direct_access_for_az/)** |Supported |Supported |Osaka, Tokyo |
 | **[Spark NZ](https://www.sparkdigital.co.nz/solutions/connectivity/cloud-connect/)** |Supported |Supported |Auckland, Sydney |
 | **[Sprint](https://business.sprint.com/solutions/cloud-networking/)** |Supported |Supported |Chicago, Silicon Valley, Washington DC |
@@ -166,7 +166,7 @@ The following table shows locations by service provider. If you want to view ava
 | **[Viasat](http://www.directcloud.viasatbusiness.com/)** | Supported | Supported | Washington DC2 |
 | **[Vocus Group NZ](https://www.vocus.co.nz/business/cloud-data-centres)** | Supported | Supported | Auckland, Sydney |
 | **[Vodafone](https://www.vodafone.com/business/global-enterprise/global-connectivity/vodafone-ip-vpn-cloud-connect)** |Supported |Supported |Amsterdam2, London, Singapore |
-| **[Vodafone Idea](https://discover.vodafone.in/business/enterprise-solutions/connectivity/vpn-extended-connect)** | Supported | Supported | Mumbai2 |
+| **[Vodafone Idea](https://www.vodafone.in/business/enterprise-solutions/connectivity/vpn-extended-connect)** | Supported | Supported | Mumbai2 |
 | **[Zayo](https://www.zayo.com/solutions/industries/cloud-connectivity/microsoft-expressroute)** |Supported |Supported |Amsterdam, Chicago, Dallas, Denver, London, Los Angeles, Montreal, New York, Paris, Seattle, Silicon Valley, Toronto, Washington DC, Washington DC2 |
 
  **+** denotes coming soon

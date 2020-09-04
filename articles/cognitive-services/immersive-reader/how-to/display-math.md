@@ -10,6 +10,7 @@ ms.subservice: immersive-reader
 ms.topic: conceptual
 ms.date: 01/14/2020
 ms.author: pasta
+ms.custom: devx-track-javascript
 ---
 
 # How to display math in the Immersive Reader

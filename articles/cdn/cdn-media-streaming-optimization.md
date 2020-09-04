@@ -1,6 +1,6 @@
 ---
 title: Media streaming optimization with Azure CDN
-description: Optimize streaming media files for smooth delivery
+description: Learn about options to optimize streaming media in Azure Content Delivery Network, such as partial cache sharing and cache fill wait time.
 services: cdn
 documentationcenter: ''
 author: asudbring

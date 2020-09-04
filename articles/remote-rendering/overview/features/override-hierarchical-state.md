@@ -5,6 +5,7 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/10/2020
 ms.topic: article
+ms.custom: devx-track-csharp
 ---
 
 # Hierarchical state override
@@ -69,9 +70,9 @@ component.SetState(HierarchicalStates.Hidden | HierarchicalStates.DisableCollisi
 ApiHandle<HierarchicalStateOverrideComponent> component = ...;
 
 // set one state directly
-component->HiddenState(HierarchicalEnableState::ForceOn);
+component->SetHiddenState(HierarchicalEnableState::ForceOn);
 
-// set a state with the SetState function
+// or: set a state with the SetState function
 component->SetState(HierarchicalStates::SeeThrough, HierarchicalEnableState::InheritFromParent);
 
 // set multiple states at once with the SetState function

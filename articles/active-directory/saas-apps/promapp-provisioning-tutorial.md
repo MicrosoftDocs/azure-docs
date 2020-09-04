@@ -2,17 +2,12 @@
 title: 'Tutorial: Configure Promapp for automatic user provisioning with Azure Active Directory | Microsoft Docs'
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Promapp.
 services: active-directory
-documentationcenter: ''
 author: zchia
 writer: zchia
-manager: beatrizd
-
-ms.assetid: 41190ba0-9032-4725-9d2c-b3dd9c7786e6
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/11/2019
 ms.author: Zhchia

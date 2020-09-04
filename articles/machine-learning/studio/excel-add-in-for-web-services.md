@@ -13,7 +13,7 @@ ms.date: 02/01/2018
 ---
 # Excel Add-in for Azure Machine Learning Studio (classic) web services
 
-**APPLIES TO:** ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![yes](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic) 
+**APPLIES TO:**  ![yes](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic)   ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
 
 
 Excel makes it easy to call web services directly without the need to write any code.
@@ -23,7 +23,10 @@ Excel makes it easy to call web services directly without the need to write any 
 1. Open the [sample Excel file](https://aka.ms/amlexcel-sample-2), which contains the Excel add-in and data about passengers on the Titanic. 
  
     > [!NOTE]
-    > You will see the list of the Web Services related to the file and at the bottom a checkbox for "Auto-predict". If you enable auto-predict the predictions of **all** your services will be updated every time there is a change on the inputs. If unchecked you will have to click on "Predict All" for refresh. For enabling auto-predict at a service level go to step 6.
+    > - You will see the list of the Web Services related to the file and at the bottom a checkbox for "Auto-predict". If you enable auto-predict the predictions of **all** your services will be updated every time there is a change on the inputs. If unchecked you will have to click on "Predict All" for refresh. For enabling auto-predict at a service level go to step 6.
+    > - The Azure Machine Learning Excel add-in will call Office add-ins store to load. If your organization ban access to Office add-ins store, you will see error when loading the add-in. For this case, please deploy the Azure Machine Learning Excel add-in from Microsoft 365 admin center. Then invoke the add-in and add the web service manually by paste the URL and API key.
+
+ 
 
 2. Choose the web service by clicking it - "Titanic Survivor Predictor (Excel Add-in Sample) [Score]" in this example.
    

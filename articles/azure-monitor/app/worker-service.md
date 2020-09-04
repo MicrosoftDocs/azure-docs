@@ -2,6 +2,7 @@
 title: Application Insights for Worker Service apps (non-HTTP apps)
 description: Monitoring .NET Core/.NET Framework non-HTTP apps with Azure Monitor Application Insights.
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ms.date: 05/11/2020
 
 ---

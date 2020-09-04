@@ -3,7 +3,7 @@ title: Use Creator to create indoor maps
 description: Use Azure Maps Creator to create indoor maps.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 06/17/2020
+ms.date: 08/29/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -104,16 +104,25 @@ The Data Upload API is a long running transaction that implements the pattern de
     ```http
     https://atlas.microsoft.com/conversion/convert?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=1.0&udid={udid}&inputType=DWG
     ```
+
     >[!IMPORTANT]
     > The API urls in this document may have to be adjusted according to the location of your Creator resource. For more details, see [Access to Creator Services](how-to-manage-creator.md#access-to-creator-services).
 
-3. Click the **Send** button and wait for the request to process. Once the request completes, go to the **Headers** tab of the response, and look for the **Location** key. Copy the value of the **Location** key, which is the `status URL` for the conversion request.
+3. Click the **Send** button and wait for the request to process. Once the request completes, go to the **Headers** tab of the response, and look for the **Location** key. Copy the value of the **Location** key, which is the `status URL` for the conversion request. You will use this in the next step.
 
-4. Start a new **GET** HTTP method in the builder tab. Append your Azure Maps primary subscription key to the `status URL`. Make a **GET** request at the `status URL` from the previous step. If the conversion process hasn't yet completed, you may see something like the following JSON response:
+    :::image type="content" source="./media/tutorial-creator-indoor-maps/copy-location-uri-dialog.png" border="true" alt-text="Copy the value of the location key":::
+
+4. Start a new **GET** HTTP method in the builder tab. Append your Azure Maps primary subscription key to the `status URL`. Make a **GET** request at the `status URL` that you copied in step 3. The `status URL` looks like the following URL:
+
+    ```http
+    https://atlas.microsoft.com/conversion/operations/<operationId>?api-version=1.0
+    ```
+
+    If the conversion process hasn't yet completed, you may see something like the following JSON response:
 
     ```json
     {
-        "operationId": "77dc9262-d3b8-4e32-b65d-74d785b53504",
+        "operationId": "<operationId>",
         "created": "2020-04-22T19:39:54.9518496+00:00",
         "status": "Running"
     }
@@ -123,7 +132,7 @@ The Data Upload API is a long running transaction that implements the pattern de
 
     ```json
    {
-        "operationId": "77dc9262-d3b8-4e32-b65d-74d785b53504",
+        "operationId": "<operationId>",
         "created": "2020-04-22T19:39:54.9518496+00:00",
         "status": "Succeeded",
         "resourceLocation": "https://atlas.microsoft.com/conversion/{conversionId}?api-version=1.0",
@@ -138,7 +147,7 @@ The sample Drawing package should be converted without errors or warnings. Howev
 
 ```json
 {
-    "operationId": "77dc9262-d3b8-4e32-b65d-74d785b53504",
+    "operationId": "<operationId>",
     "created": "2020-04-22T19:39:54.9518496+00:00",
     "status": "Failed",
     "resourceLocation": "https://atlas.microsoft.com/conversion/{conversionId}?api-version=1.0",
@@ -172,7 +181,7 @@ The dataset is a collection of map features, such as buildings, levels, and room
 
     ```json
     {
-        "operationId": "a93570cb-3e4f-4e45-a2b1-360df174180a",
+        "operationId": "<operationId>",
         "created": "2020-04-22T19:52:38.9352189+00:00",
         "status": "Succeeded",
         "resourceLocation": "https://azure.microsoft.com/dataset/{datasetiId}?api-version=1.0"
@@ -201,7 +210,7 @@ A tileset is a set of vector tiles that render on the map. Tilesets are created 
 
     ```json
     {
-        "operationId": "a93570cb-3e4f-4e45-a2b1-360df174180a",
+        "operationId": "<operationId>",
         "createdDateTime": "3/11/2020 8:45:13 PM +00:00",
         "status": "Succeeded",
         "resourceLocation": "https://atlas.microsoft.com/tileset/{tilesetId}?api-version=1.0"

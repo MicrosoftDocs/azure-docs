@@ -89,6 +89,14 @@ New Supported Version List
 1.17.*9*, 1.17.*8*, 1.16.*11*, 1.16.*10*
 ```
 
+### Supported `kubectl` versions
+
+You can use one minor version older or newer of `kubectl` relative to your *kube-apiserver* version, which is consistent with the [Kubernetes support policy for kubectl](https://kubernetes.io/docs/setup/release/version-skew-policy/#kubectl).
+
+For example, if your *kube-apiserver* is at *1.17*, then you can use versions *1.16* to *1.18* of `kubectl` with that *kube-apiserver*.
+
+To install or update your version of `kubectl`, run `az aks install-cli`.
+
 ## Release and deprecation process
 
 You can reference upcoming version releases and deprecations on the [AKS Kubernetes Release Calendar](#aks-kubernetes-release-calendar).
@@ -120,17 +128,16 @@ To find out what versions are currently available for your subscription and regi
 az aks get-versions --location eastus --output table
 ```
 
-
 ## AKS Kubernetes Release Calendar
 
 For the past release history, see [here](https://en.wikipedia.org/wiki/Kubernetes#History).
 
 |  K8s version | Upstream Release  | AKS preview  | AKS GA  | End of Life |
 |--------------|-------------------|--------------|---------|-------------|
-| 1.17  | Dec-09-19  | Jan 19   | Jul 20  | 1.20 GA | 
-| 1.18  | Mar-23-20  | May 20   | Aug 20  | 1.21 GA | 
-| 1.19  | Aug-04-20  | Aug 20   | Nov 20  | 1.22 GA | 
-| 1.20  | *Nov 20    | *Dec 20   | *Jan 21  | 1.23 GA | 
+| 1.17  | Dec-09-19  | Jan 2019   | Jul 2020  | 1.20 GA | 
+| 1.18  | Mar-23-20  | May 2020   | Aug 2020  | 1.21 GA | 
+| 1.19  | Aug-04-20  | Aug 2020   | Nov 2020  | 1.22 GA | 
+| 1.20  | *Nov 2020    | *Dec 2020   | *Jan 2021  | 1.23 GA | 
 
 \* Pending Upstream release date confirmation.
 

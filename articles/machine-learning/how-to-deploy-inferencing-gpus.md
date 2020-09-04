@@ -10,7 +10,7 @@ author: csteegz
 ms.reviewer: larryfr
 ms.date: 06/17/2020
 ms.topic: conceptual
-ms.custom: how-to, tracking-python
+ms.custom: how-to, devx-track-python
 ---
 
 # Deploy a deep learning model for inference with GPU
@@ -147,8 +147,8 @@ dependencies:
 - pip:
   # You must list azureml-defaults as a pip dependency
   - azureml-defaults>=1.0.45
-- numpy
-- tensorflow-gpu=1.12
+  - numpy
+  - tensorflow-gpu=1.12
 channels:
 - conda-forge
 ```

@@ -13,7 +13,7 @@ metadata:
   ms.collection: na
   author: mumian
   ms.author: jgao
-  ms.date: 07/07/2020
+  ms.date: 07/30/2020
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -31,6 +31,8 @@ landingContent:
             url: template-best-practices.md
           - text: Frequently asked questions
             url: frequently-asked-questions.md
+          - text: Template specs
+            url: template-specs.md
           - text: Deployment modes
             url: deployment-modes.md
           - text: Linked templates
@@ -49,20 +51,21 @@ landingContent:
             url: quickstart-create-templates-use-the-portal.md
           - text: Create templates - VS Code
             url: quickstart-create-templates-use-visual-studio-code.md
-          - text: Create templates - Visual Studio
-            url: create-visual-studio-deployment-project.md
 
       - linkListType: tutorial
         links:
           - text: Beginner tutorials
             url: template-tutorial-create-first-template.md
-          - text: Deploy multiple instances
-            url: template-tutorial-create-multiple-instances.md
-          - text: Set deployment order
-            url: template-tutorial-create-templates-with-dependent-resources.md
-          - text: Integrate key vault
-            url: template-tutorial-use-key-vault.md
+          - text: Deployment
+            url: deployment-tutorial-local-template.md
 
+      - linkListType: learn
+        links:
+          - text: Consistent infrastructure
+            url: /learn/modules/create-azure-resource-manager-template-vs-code/
+          - text: Multiple environments
+            url: /learn/modules/modify-azure-resource-manager-template-reuse/
+          
   # Card
   - title: Develop templates
     linkLists:
@@ -98,6 +101,8 @@ landingContent:
             url: deploy-portal.md
           - text: REST API
             url: deploy-rest.md
+          - text: Deploy to Azure button
+            url: deploy-to-azure-button.md
           - text: What-if deployment
             url: template-deploy-what-if.md
           
@@ -112,6 +117,8 @@ landingContent:
             url: deploy-to-management-group.md
           - text: Tenant
             url: deploy-to-tenant.md
+          - text: Cross scope deployments
+            url: cross-scope-deployment.md
 
   # Card
   - title: Explore reference content
@@ -139,6 +146,8 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
+          - text: Test toolkit
+            url: test-toolkit.md
           - text: Export templates
             url: export-template-portal.md
           - text: CI/CD
