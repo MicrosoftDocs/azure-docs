@@ -6,7 +6,7 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: tutorial
 ms.devlang: php
-ms.date: 9/22/2020
+ms.date: 9/21/2020
 ms.custom: mvc
 ---
 
