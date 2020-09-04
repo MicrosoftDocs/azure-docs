@@ -6,7 +6,7 @@ author: yushwang
 
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 07/28/2020
+ms.date: 09/03/2020
 ms.author: yushwang
 ms.reviewer: cherylmc
 
