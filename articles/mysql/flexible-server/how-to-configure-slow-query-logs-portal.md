@@ -38,7 +38,9 @@ Configure access to the MySQL slow query log.
 
 From the **Server Parameters** page, you can return to the list of logs by closing the page.
 
-## Set up diagnostic logs
+## Set up diagnostics
+
+Slow query logs are integrated with Azure Monitor diagnostic settings to allow you to pipe your logs to Azure Monitor logs, Event Hubs, or Azure Storage.
 
 1. Under the **Monitoring** section in the sidebar, select **Diagnostic settings** > **Add diagnostic settings**.
 
@@ -46,7 +48,7 @@ From the **Server Parameters** page, you can return to the list of logs by closi
 
 1. Provide a diagnostic setting name.
 
-1. Specify which data sinks to send the slow query logs (storage account, event hub, or Log Analytics workspace).
+1. Specify which destinations to send the slow query logs (storage account, event hub, or Log Analytics workspace).
 
 1. Select **MySqlSlowLogs** as the log type.
     <!--![Screenshot of Diagnostic settings configuration options](./media/howto-configure-server-logs-in-portal/configure-diagnostic-setting.png)-->

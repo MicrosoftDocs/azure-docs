@@ -33,9 +33,9 @@ See the MySQL [slow query log documentation](https://dev.mysql.com/doc/refman/5.
 
 ## Access slow query logs
 
-Slow query logs are integrated with Azure Monitor Diagnostic Logs. Once you have enabled slow query logs on your flexible server, you can emit them to Azure Monitor logs, Event Hubs, or Azure Storage. To learn more about how to enable diagnostic logs, see the how to section of the [diagnostic logs documentation](../../azure-monitor/platform/platform-logs-overview.md). <!-- To learn more about how to enable diagnostic logs in the Azure portal, see the [slow query log portal article](howto-configure-slow-query-logs-portal.md#set-up-diagnostic-logs).-->
+Slow query logs are integrated with Azure Monitor diagnostic settings. Once you've enabled audit logs on your MySQL flexible server, you can emit them to Azure Monitor logs, Event Hubs, or Azure Storage. To learn more about diagnostic settings, see the [diagnostic logs documentation](../../azure-monitor/platform/platform-logs-overview.md). To learn more about how to enable diagnostic settings in the Azure portal, see the [slow query log portal article](how-to-configure-slow-query-logs-portal.md#set-up-diagnostics).
 
-The following table describes what's in each log. Depending on the output method, the fields included and the order in which they appear may vary.
+The following table describes the output of the slow query log. Depending on the output method, the fields included and the order in which they appear may vary.
 
 | **Property** | **Description** |
 |---|---|
@@ -66,7 +66,7 @@ The following table describes what's in each log. Depending on the output method
 | `\_ResourceId` | Resource URI |
 
 > [!Note]
-> For `sql_text`, log will be truncated if it exceeds 2048 characters.
+> For `sql_text_s`, log will be truncated if it exceeds 2048 characters.
 
 ## Analyze logs in Azure Monitor Logs
 
@@ -125,6 +125,5 @@ Once your slow query logs are piped to Azure Monitor Logs through Diagnostic Log
     
 ## Next steps
 - Learn more about [audit logs](concepts-audit-logs.md)
-<!--
-- [How to configure slow query logs from the Azure portal](howto-configure-server-logs-in-portal.md)
-- [How to configure slow query logs from the Azure CLI](howto-configure-server-logs-in-cli.md). -->
+- Configure slow query logs from the [Azure portal](how-to-configure-slow-query-logs-portal.md)
+<!-- - [How to configure slow query logs from the Azure CLI](howto-configure-server-logs-in-cli.md). -->

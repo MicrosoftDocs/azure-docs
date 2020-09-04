@@ -44,7 +44,9 @@ Enable and configure audit logging.
 1. Once you have changed the parameters, you can click **Save**. Or you can **Discard** your changes.
     <!--![Save](./media/howto-configure-audit-logs-portal/save-parameters.png)-->
 
-## Set up diagnostic logs
+## Set up diagnostics
+
+Audit logs are integrated with Azure Monitor diagnostic settings to allow you to pipe your logs to Azure Monitor logs, Event Hubs, or Azure Storage.
 
 1. Under the **Monitoring** section in the sidebar, select **Diagnostic settings**.
 
@@ -53,7 +55,7 @@ Enable and configure audit logging.
 
 1. Provide a diagnostic setting name.
 
-1. Specify which data sinks to send the audit logs (storage account, event hub, and/or Log Analytics workspace).
+1. Specify which destinations to send the audit logs (storage account, event hub, and/or Log Analytics workspace).
 
 1. Select **MySqlAuditLogs** as the log type.
     <!-- ![Configure diagnostic setting](./media/howto-configure-audit-logs-portal/configure-diagnostic-setting.png) -->
