@@ -76,7 +76,7 @@ With older versions of Excel, users can connect to an Azure Analysis Services se
 
 SQL Server can connect to an Azure Analysis Services resource as a [Linked server](https://docs.microsoft.com/sql/relational-databases/linked-servers/create-linked-servers-sql-server-database-engine) by specifying MSOLAP as the data source provider. Before configuring a linked server connection, be sure to install the latest [MSOLAP client library](https://docs.microsoft.com/analysis-services/client-libraries?view=azure-analysis-services-current) (provider). 
 
-When configuring linked server options to connect to Azure Analysis Services, because the MSOLAP provider must be instantiated outside the SQL Server process , make sure the **Allow inprocess** option **is not selected**. 
+For linked server connections to Azure Analysis Services, the MSOLAP provider must be instantiated outside the SQL Server process. When configuring linked server options, make sure the **Allow inprocess** option **is not selected**.
 
 If **Allow inprocess** is selected and the provider is instantiated in the SQL Server process, the following error is returned:
 
