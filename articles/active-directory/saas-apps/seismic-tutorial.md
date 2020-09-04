@@ -86,7 +86,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
     `https://<SUBDOMAIN>.seismic.com`
 	
-	c. In the **Reply URL** text box, type a URL:
+	c. In the **Reply URL** text box, type a URL using the following pattern:
     `https://<SUBDOMAIN>.seismic.com/SSO/<ROUTEURL>`
 
 	> [!NOTE]
