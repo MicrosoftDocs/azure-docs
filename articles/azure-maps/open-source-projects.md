@@ -30,7 +30,9 @@ The following is a list of open-source projects that extend the capabilities of 
 
 | Project Name | Description |
 |-|-|
-| [Azure Maps Animation module](https://github.com/Azure-Samples/azure-maps-animations)| A rich library of animations for use with the Azure Maps Web SDK. |
+| [Azure Maps Animation module](https://github.com/Azure-Samples/azure-maps-animations) | A rich library of animations for use with the Azure Maps Web SDK. |
+| [Azure Maps Geolocation Control module](https://github.com/Azure-Samples/azure-maps-geolocation-control) | An Azure Maps Web SDK module that provides a control that uses the browser's geolocation API to locate the user on the map. |
+| [Azure Maps Sync Map module](https://github.com/Azure-Samples/azure-maps-sync-maps) | An Azure Maps Web SDK module that synchronizes the cameras of two or more maps. |
 | [Azure Maps Services UI module](https://github.com/Azure-Samples/azure-maps-services-ui) | A set of web UI controls that wrap the Azure Maps REST services. |
 
 **Samples**
