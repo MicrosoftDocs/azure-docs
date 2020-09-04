@@ -48,7 +48,7 @@
     {
       "source_path": "articles/virtual-machines/linux/dedicated-hosts.md",
       "redirect_url": "/azure/virtual-machines/dedicated-hosts",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/virtual-machines/windows/dedicated-hosts.md",
