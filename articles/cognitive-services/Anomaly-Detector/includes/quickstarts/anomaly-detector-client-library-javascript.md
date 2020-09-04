@@ -19,7 +19,7 @@ Use the Anomaly Detector client library for JavaScript to:
 * Detect the anomaly status of the latest data point in your time series
 * TBD
 
-[Reference documentation](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/?view=azure-node-latest) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/AnomalyDetector) | [Package (npm)](https://www.npmjs.com/package/@azure/cognitiveservices-anomalydetector) | [Find the code on GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/javascript/AnomalyDetector)
+[Reference documentation](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/?view=azure-node-latest) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/AnomalyDetector) | [Package (npm)](https://www.npmjs.com/package/%40azure/ai-anomaly-detector) | [Find the code on GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/javascript/AnomalyDetector)
 
 ## Prerequisites
 
@@ -60,7 +60,7 @@ Create variables your resource's Azure endpoint and key. If you created the envi
 Install the `ms-rest-azure` and `azure-cognitiveservices-anomalydetector` NPM packages. The csv-parse library is also used in this quickstart:
 
 ```console
-npm install  @azure/cognitiveservices-anomalydetector @azure/ms-rest-js csv-parse
+npm install @azure/ai-anomaly-detector @azure/ms-rest-js csv-parse
 ```
 
 Your app's `package.json` file will be updated with the dependencies.

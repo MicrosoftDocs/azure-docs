@@ -18,7 +18,7 @@ Use the Anomaly Detector client library for Python to:
 * Detect the anomaly status of the latest data point in your time series
 * TBD
 
-[Library reference documentation](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector?view=azure-python) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-anomalydetector) | [Package (PyPi)](https://pypi.org/project/azure-cognitiveservices-anomalydetector/) | [Find the sample code on GitHub](https://github.com/Azure-Samples/AnomalyDetector/blob/master/quickstarts/sdk/python-sdk-sample.py)
+[Library reference documentation](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector?view=azure-python) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-anomalydetector) | [Package (PyPi)](https://pypi.org/project/azure-ai-anomalydetector/) | [Find the sample code on GitHub](https://github.com/Azure-Samples/AnomalyDetector/blob/master/quickstarts/sdk/python-sdk-sample.py)
 
 ## Prerequisites
 
@@ -49,7 +49,7 @@ Create variables for your key as an environment variable, the path to a time ser
 After installing Python, you can install the client library with:
 
 ```console
-pip install --upgrade azure-cognitiveservices-anomalydetector
+pip install --upgrade azure-ai-anomalydetector
 ```
 
 ## Object model
