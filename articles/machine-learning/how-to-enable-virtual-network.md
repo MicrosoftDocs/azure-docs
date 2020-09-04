@@ -64,6 +64,11 @@ You can also [enable Azure Private Link](how-to-configure-private-link.md) to co
 If your data is stored in a virtual network, you must use a workspace [managed identity](../active-directory/managed-identities-azure-resources/overview.md) to grant the studio access to your data.
 
 > [!IMPORTANT]
+> A managed identity __only enables access to the datastore from Azure Machine Learning studio__. It does not enable access to the data from the SDK.
+> 
+> To access the data using SDK, you must use the authentication method required by the individual service that the data is stored in. For example, if you register a datastore to access Azure Data Lake Store Gen2, you must still use a service principal as documented in [Connect to Azure storage services](how-to-access-data.md#azure-data-lake-storage-generation-2).
+
+> [!WARNING]
 > While most of studio works with data stored in a virtual network, integrated notebooks __do not__. Integrated notebooks do not support using storage that is in a virtual network. Instead, you can use Jupyter Notebooks from a compute instance. For more information, see the [Access data in a Compute Instance notebook](#access-data-in-a-compute-instance-notebook) section.
 
 If you fail to grant studio access, you will receive this error, `Error: Unable to profile this dataset. This might be because your data is stored behind a virtual network or your data does not support profile.` and disable the following operations:
