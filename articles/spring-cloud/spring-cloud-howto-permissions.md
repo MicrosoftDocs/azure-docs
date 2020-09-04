@@ -31,7 +31,7 @@ Follow these steps to start defining a role.
 
    ![Open Access control (IAM)](media/spring-cloud-permissions/add-custom-role.png)
 
-## Define role to deploy, test and restart apps
+## Define role to deploy, test, and restart apps
 This procedure defines a role with permissions to deploy, test, and restart Azure Spring Cloud apps.
 
 1. In the **Create custom role** dialog add role name and description.
