@@ -105,18 +105,18 @@ Members of the community can submit management solutions to Azure Quickstart Tem
     az login
     ```
 
-1. Install the `log-analytics` extension
+1. Install the `log-analytics-solution` extension
 
-   The `log-analytics` command is an experimental extension of the core Azure CLI. Learn more about extension references in [Use extension with Azure CLI](/cli/azure/azure-cli-extensions-overview?).
+   The `log-analytics-solution` command is an experimental extension of the core Azure CLI. Learn more about extension references in [Use extension with Azure CLI](/cli/azure/azure-cli-extensions-overview?).
 
    ```azurecli
-   az extension add --name log-analytics
+   az extension add --name log-analytics-solution
    ```
 
    The following warning is expected.
 
    ```output
-   The installed extension `log-analytics` is experimental and not covered by customer support.  Please use with discretion.
+   The installed extension `log-analytics-solution` is experimental and not covered by customer support.  Please use with discretion.
    ```
 
 ### Install a solution with the Azure CLI

@@ -1141,6 +1141,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/active-directory/saas-apps/rstudio-server-pro-tutorial.md",
+      "redirect_url": "/azure/active-directory/saas-apps/rstudio-connect-tutorial",
+      "redirect_document_id": true
+    },    
+    {
       "source_path": "articles/automation/automation-create-account-template.md",
       "redirect_url": "/azure/automation/quickstart-create-automation-account-template",
       "redirect_document": false
@@ -21468,6 +21473,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/marketplace/cloud-partner-portal/business-applications-isv-program.md",
+      "redirect_url": "/azure/marketplace/business-applications-isv-program",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/marketplace/partner-center-portal/test-drive.md",
       "redirect_url": "/azure/marketplace/what-is-test-drive",
       "redirect_document_id": false
@@ -37628,13 +37638,23 @@
     },
     {
       "source_path": "articles/active-directory/application-config-sso-problem-configure-federated-sso-gallery.md",
-      "redirect_url": "/azure/active-directory/manage-apps/configure-federated-single-sign-on-gallery-applications-problems",
-      "redirect_document_id": true
+      "redirect_url": "/azure/active-directory/manage-apps/troubleshoot-saml-based-sso",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/configure-federated-single-sign-on-gallery-applications-problems.md",
+      "redirect_url": "/azure/active-directory/manage-apps/troubleshoot-saml-based-sso",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/application-config-sso-problem-configure-federated-sso-non-gallery.md",
-      "redirect_url": "/azure/active-directory/manage-apps/configure-federated-single-sign-on-non-gallery-applications-problems",
-      "redirect_document_id": true
+      "redirect_url": "/azure/active-directory/manage-apps/troubleshoot-saml-based-sso",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/manage-apps/configure-federated-single-sign-on-non-gallery-applications-problems.md",
+      "redirect_url": "/azure/active-directory/manage-apps/troubleshoot-saml-based-sso",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/application-provisioning-config-how-to.md",

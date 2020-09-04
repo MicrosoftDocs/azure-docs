@@ -176,6 +176,42 @@ You can **combine** any of the above types of query using combination operators 
 | Get twins that have a relationship named *Contains* with another twin that has an ID of *id1* | ​`​SELECT Room​`​<br>​`FROM DIGITIALTWINS Room​​`​<br>​`JOIN Thermostat ON Room.Contains​​`​<br>​`WHERE Thermostat.$dtId = 'id1'`​ |
 | Get all the rooms of this room model that are contained by *floor11* | `SELECT Room`​<br>​`FROM DIGITALTWINS Floor​`​<br>​`JOIN Room RELATED Floor.Contains​`​<br>​`WHERE Floor.$dtId = 'floor11'​`​<br>​`AND IS_OF_MODEL(Room, 'dtmi:contosocom:DigitalTwins:Room;1')​` |
 
+## Reference: Expressions and conditions
+
+This section contains reference for the operators and functions available when writing Azure Digital Twins queries.
+
+### Operators
+
+The following operators are supported:
+
+| Family | Operators |
+| --- | --- |
+| Logical |AND, OR, NOT |
+| Comparison |=, !=, <, >, <=, >= |
+| Contains | IN, NIN |
+
+### Functions
+
+The following type checking and casting functions are supported:
+
+| Function | Description |
+| -------- | ----------- |
+| IS_DEFINED | Returns a Boolean indicating if the property has been assigned a value. This is supported only when the value is a primitive type. Primitive types include string, Boolean, numeric, or `null`. DateTime, object types and arrays are not supported. |
+| IS_OF_MODEL | Returns a Boolean value indicating if the specified twin matches the specified model type |
+| IS_BOOL | Returns a Boolean value indicating if the type of the specified expression is a Boolean. |
+| IS_NUMBER | Returns a Boolean value indicating if the type of the specified expression is a number. |
+| IS_STRING | Returns a Boolean value indicating if the type of the specified expression is a string. |
+| IS_NULL | Returns a Boolean value indicating if the type of the specified expression is null. |
+| IS_PRIMITIVE | Returns a Boolean value indicating if the type of the specified expression is a primitive (string, Boolean, numeric, or `null`). |
+| IS_OBJECT | Returns a Boolean value indicating if the type of the specified expression is a JSON object. |
+
+The following string functions are supported:
+
+| Function | Description |
+| -------- | ----------- |
+| STARTS_WITH(x, y) | Returns a Boolean indicating whether the first string expression starts with the second. |
+| ENDS_WITH(x, y) | Returns a Boolean indicating whether the first string expression ends with the second. |
+
 ## Run queries with an API call
 
 Once you have decided on a query string, you execute it by making a call to the **Query API**.
