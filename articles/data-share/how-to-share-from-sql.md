@@ -28,7 +28,7 @@ When data is received into table and if the target table does not already exist,
 
 ### Prerequisites for SQL source
 
-* An Azure SQL Database or Azure Synapse Analytics (formerly Azure SQL Data Warehouse) with tables and views that you want to share.
+* An Azure SQL Database or Azure Synapse Analytics (formerly SQL Data Warehouse) with tables and views that you want to share.
 * Permission to write to the databases on SQL server, which is present in *Microsoft.Sql/servers/databases/write*. This permission exists in the Contributor role.
 * Permission for the data share to access the data warehouse. This can be done through the following steps: 
     1. Set yourself as the Azure Active Directory Admin for the SQL server.
@@ -144,7 +144,7 @@ If you choose to receive data into Azure Storage, below is the list of prerequis
 If you choose to receive data into Azure SQL Database, Azure Synapse Analytics, below is the list of prerequisites.
 
 * Permission to write to databases on the SQL server, which is present in *Microsoft.Sql/servers/databases/write*. This permission exists in the Contributor role. 
-* Permission for the data share resource's managed identity to access the Azure SQL Database or Azure SQL Data Warehouse. This can be done through the following steps: 
+* Permission for the data share resource's managed identity to access the Azure SQL Database or Azure Synapse Analytics. This can be done through the following steps: 
     1. Set yourself as the Azure Active Directory Admin for the SQL server.
     1. Connect to the Azure SQL Database/Data Warehouse using Azure Active Directory.
     1. Use Query Editor (preview) to execute the following script to add the Data Share Managed Identity as a 'db_datareader, db_datawriter, db_ddladmin'. You must connect using Active Directory and not SQL Server authentication. 
