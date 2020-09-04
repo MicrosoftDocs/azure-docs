@@ -144,7 +144,7 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 #### SP initiated:
 
-* Click on **Test this application** in Azure portal. This will redirect to raum]für[raum Sign-on URL where you can initiate the login flow.  
+* Click on **Test this application** in Azure portal, this will redirect to raum]für[raum Sign-on URL where you can initiate the login flow.  
 
 * Go to raum]für[raum Sign-on URL directly and initiate the login flow from there.
 
@@ -152,7 +152,7 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Click on **Test this application** in Azure portal and you should be automatically signed in to the raum]für[raum for which you set up the SSO 
 
-You can also use Microsoft Access Panel to test the application in any mode. When you click the raum]für[raum tile in the Access Panel,if configured in SP mode you would be redirected to the application sign-on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the raum]für[raum for which you set up the SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+You can also use Microsoft Access Panel to test the application in any mode. When you click the raum]für[raum tile in the Access Panel, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the raum]für[raum for which you set up the SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## Next Steps
 Once you configure raum]für[raum you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
