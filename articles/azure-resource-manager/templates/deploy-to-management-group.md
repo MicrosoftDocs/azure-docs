@@ -2,7 +2,7 @@
 title: Deploy resources to management group
 description: Describes how to deploy resources at the management group scope in an Azure Resource Manager template.
 ms.topic: conceptual
-ms.date: 09/03/2020
+ms.date: 09/04/2020
 ---
 
 # Create resources at the management group level
@@ -131,7 +131,7 @@ To target another management group, add a nested deployment and specify the `sco
             "properties": {
                 "mode": "Incremental",
                 "template": {
-                    nested-template
+                    nested-template-with-resources-in-different-mg
                 }
             }
         }
@@ -167,7 +167,7 @@ To target a subscription within the management group, use a nested deployment an
               "properties": {
                 "mode": "Incremental",
                 "template": {
-                  nested-template
+                  nested-template-with-resources-in-resource-group
                 }
               }
             }
@@ -179,6 +179,8 @@ To target a subscription within the management group, use a nested deployment an
 }
 ```
 
+To use a management group deployment for creating a resource group within a subscription and deploying a storage account to that resource group, see [Deploy to subscription and resource group](#deploy-to-subscription-and-resource-group).
+
 ## Use template functions
 
 For management group deployments, there are some important considerations when using template functions:
@@ -186,14 +188,18 @@ For management group deployments, there are some important considerations when u
 * The [resourceGroup()](template-functions-resource.md#resourcegroup) function is **not** supported.
 * The [subscription()](template-functions-resource.md#subscription) function is **not** supported.
 * The [reference()](template-functions-resource.md#reference) and [list()](template-functions-resource.md#list) functions are supported.
-* Don't use the [resourceId()](template-functions-resource.md#resourceid) function for resources deployed to the management group. Instead, use the [extensionResourceId()](template-functions-resource.md#extensionresourceid) function for resources implemented as extensions of the management group. Custom policy definitions that are deployed to the management group are extensions of the management group. Use the [tenantResourceId](template-functions-resource.md#tenantresourceid) function for tenant resources that are available within the management group. Built-in policy definitions are tenant level resources.
+* Don't use the [resourceId()](template-functions-resource.md#resourceid) function for resources deployed to the management group.
+
+  Instead, use the [extensionResourceId()](template-functions-resource.md#extensionresourceid) function for resources that are implemented as extensions of the management group. Custom policy definitions that are deployed to the management group are extensions of the management group.
 
   To get the resource ID for a custom policy definition at the management group level, use:
   
   ```json
   "policyDefinitionId": "[extensionResourceId(variables('mgScope'), 'Microsoft.Authorization/policyDefinitions', parameters('policyDefinitionID'))]"
   ```
-  
+
+  Use the [tenantResourceId](template-functions-resource.md#tenantresourceid) function for tenant resources that are available within the management group. Built-in policy definitions are tenant level resources.
+
   To get the resource ID for a built-in policy definition, use:
   
   ```json
