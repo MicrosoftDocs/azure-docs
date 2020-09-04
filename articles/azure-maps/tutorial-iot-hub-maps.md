@@ -203,42 +203,44 @@ Now, set up your Azure function.
 
 1. Select **Save**. Don't select **Test/Run** yet.
 
-1. Click on the **Integration** blade in the left-hand menu. Click on **Event Grid Trigger** in the diagram. Type in a name for the trigger, like *eventCarTelemetry*, and click **Create Event Grid subscription**.
+1. In the left menu, select the **Integration** pane. Select **Event Grid Trigger** in the diagram. Type in a name for the trigger, like *eventCarTelemetry*, and select **Create Event Grid subscription**.
 
-     :::image type="content" source="./media/tutorial-iot-hub-maps/function-integration.png" alt-text="Add event subscription":::
+     :::image type="content" source="./media/tutorial-iot-hub-maps/function-integration.png" alt-text="Screenshot of add event subscription.":::
 
-1. Fill out subscription details. Name the event subscription. For *Event Schema*, select *Event Grid Schema*. For **Topic Types**, select *Azure IoT Hub Accounts*. For **Resource Group**, select the resource group you created at the beginning of this tutorial. For **Resource**, select the IoT hub you created in [Create an Azure IoT hub](#create-an-azure-iot-hub). For **Filter to Event Types**, select *Device Telemetry*. After choosing these options, you'll see the **Topic Type** change to *IoT Hub*. For **System Topic Name**, you can use the same name as your resource.  Finally, click on **Select an endpoint** in the **Endpoint details** section. Accept all settings and click **Confirm Selection**.
+1. Fill out the subscription details. Name the event subscription. For **Event Schema**, select **Event Grid Schema**. For **Topic Types**, select **Azure IoT Hub Accounts**. For **Resource Group**, select the resource group you created at the beginning of this tutorial. For **Resource**, select the IoT hub you created in [Create an Azure IoT hub](#create-an-azure-iot-hub). For **Filter to Event Types**, select **Device Telemetry**.
 
-    :::image type="content" source="./media/tutorial-iot-hub-maps/function-create-event-subscription.png" alt-text="Create event subscription":::
+   After choosing these options, you'll see the **Topic Type** change to **IoT Hub**. For **System Topic Name**, you can use the same name as your resource. Finally, in the **Endpoint details** section, select **Select an endpoint**. Accept all settings and select **Confirm Selection**.
 
-1. Review your settings. Make sure that the endpoint specifies the function you created in the beginning of this section. Click **Create**.
+    :::image type="content" source="./media/tutorial-iot-hub-maps/function-create-event-subscription.png" alt-text="Screenshot of create event subscription.":::
 
-    :::image type="content" source="./media/tutorial-iot-hub-maps/function-create-event-subscription-confirm.png" alt-text="Create event subscription confirmation":::
+1. Review your settings. Make sure that the endpoint specifies the function you created in the beginning of this section. Select **Create**.
 
-1. Now you're back at the **Edit Trigger** panel. Click **Save**.
+    :::image type="content" source="./media/tutorial-iot-hub-maps/function-create-event-subscription-confirm.png" alt-text="Screenshot of create event subscription confirmation.":::
 
-## Filter events using IoT Hub message routing
+1. Now you're back at the **Edit Trigger** panel. Select **Save**.
 
-When you add an Event Grid subscription to the Azure Function, a messaging route is automatically created in the specified IoT hub. Message routing allows you to route different data types to various endpoints. For example, you can route device telemetry messages, device life-cycle events, and device twin change events. To learn more about IoT hub message routing, see [Use IoT Hub message routing](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c).
+## Filter events by using IoT Hub message routing
 
-:::image type="content" source="./media/tutorial-iot-hub-maps/hub-route.png" alt-text="Message routing in IoT hub":::
+When you add an Event Grid subscription to the Azure function, a messaging route is automatically created in the specified IoT hub. Message routing allows you to route different data types to various endpoints. For example, you can route device telemetry messages, device life-cycle events, and device twin change events. For more information, see [Use IoT Hub message routing](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c).
 
-In our example scenario, we only want to receive messages when the rental car is moving. We'll create a routing query to filter the events where the `Engine` property equals **"ON"**. To create a routing query, click on the **RouteToEventGrid** route and replace the **Routing query** with **"Engine='ON'"** and click **Save**. Now IoT hub will only publish device telemetry where the Engine is ON.
+:::image type="content" source="./media/tutorial-iot-hub-maps/hub-route.png" alt-text="Screenshot of message routing in IoT hub.":::
 
-:::image type="content" source="./media/tutorial-iot-hub-maps/hub-filter.png" alt-text="Filter routing messages":::
+In your example scenario, you only want to receive messages when the rental car is moving. Create a routing query to filter the events where the `Engine` property equals **"ON"**. To create a routing query, select the **RouteToEventGrid** route and replace the **Routing query** with **"Engine='ON'"**. Then select **Save**. Now the IoT hub only publishes device telemetry where the engine is on.
+
+:::image type="content" source="./media/tutorial-iot-hub-maps/hub-filter.png" alt-text="Screenshot of filter routing messages.":::
 
 >[!TIP]
->There are various ways to query IoT device-to-cloud messages, to learn more about message routing syntax, see [IoT Hub message routing](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax).
+>There are various ways to query IoT device-to-cloud messages. To learn more about message routing syntax, see [IoT Hub message routing](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax).
 
 ## Send telemetry data to IoT Hub
 
-Once our Azure Function is up and running, we can now send telemetry data to the IoT hub, which will route it to the Event Grid. Let's use a C# application to simulate location data for an in-vehicle device of a rental car. To run the application, you need the .NET Core SDK 2.1.0 or greater on your development machine. Follow the steps below to send simulated telemetry data to IoT Hub.
+When your Azure function is running, you can now send telemetry data to the IoT hub, which will route it to Event Grid. Use a C# application to simulate location data for an in-vehicle device of a rental car. To run the application, you need the .NET Core SDK 2.1.0 or later on your development computer. Follow these steps to send simulated telemetry data to the IoT hub:
 
 1. If you haven't done so already, download the [rentalCarSimulation](https://github.com/Azure-Samples/iothub-to-azure-maps-geofencing/tree/master/src/rentalCarSimulation) C# project.
 
-2. Open the simulatedCar.cs file in a text editor of your choice and replace the value of the `connectionString` with the one you saved when you registered the device and save changes to the file.
+2. Open the `simulatedCar.cs` file in a text editor of your choice, and replace the value of the `connectionString` with the one you saved when you registered the device. Save changes to the file.
 
-3. Make sure you have .NET Core installed on your machine. In your local terminal window, navigate to the root folder of the C# project and run the following command to install the required packages for simulated device application:
+3. Make sure you have .NET Core installed on your machine. In your local terminal window, go to the root folder of the C# project and run the following command to install the required packages for simulated device application:
 
     ```cmd/sh
     dotnet restore
@@ -252,19 +254,19 @@ Once our Azure Function is up and running, we can now send telemetry data to the
 
   Your local terminal should look like the one below.
 
-:::image type="content" source="./media/tutorial-iot-hub-maps/terminal.png" alt-text="Terminal output":::
+:::image type="content" source="./media/tutorial-iot-hub-maps/terminal.png" alt-text="Screenshot of terminal output.":::
 
 If you open the blob storage container now, you can see four blobs for locations where the vehicle was outside the geofence.
 
-:::image type="content" source="./media/tutorial-iot-hub-maps/blob.png" alt-text="View blobs inside container":::
+:::image type="content" source="./media/tutorial-iot-hub-maps/blob.png" alt-text="Screenshot of view blobs inside container.":::
 
-The map below shows four vehicle location points outside the geofence. Each location was logged at regular time intervals.
+The following map shows four vehicle location points outside the geofence. Each location was logged at regular time intervals.
 
-:::image type="content" source="./media/tutorial-iot-hub-maps/violation-map.png" alt-text="Violation map":::
+:::image type="content" source="./media/tutorial-iot-hub-maps/violation-map.png" alt-text="Screenshot of violation map.":::
 
 ## Explore Azure Maps and IoT
 
-To explore Azure Maps APIs used in this tutorial, see:
+To explore the Azure Maps APIs used in this tutorial, see:
 
 * [Get Search Address Reverse](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse)
 * [Get Geofence](https://docs.microsoft.com/rest/api/maps/spatial/getgeofence)
@@ -281,9 +283,9 @@ To get a list of devices that are Azure certified for IoT, visit:
 
 * [Azure certified devices](https://catalog.azureiotsolutions.com/)
 
-## Next Steps
+## Next steps
 
-To learn more about how to send device to cloud telemetry and the other way around, see:
+To learn more about how to send device-to-cloud telemetry, and the other way around, see:
 
 > [!div class="nextstepaction"]
 > [Send telemetry from a device](https://docs.microsoft.com/azure/iot-hub/quickstart-send-telemetry-dotnet)
