@@ -37,15 +37,24 @@ You can also register the output for any designer module as a dataset.
 
     ![Screenshot showing how to navigate to the Register Dataset option](media/how-to-designer-import-data/register-dataset-designer.png)
 
+1. If the module output data is in tabular format, there will be option to register output as file dataset or tabular dataset.
+ 
+    The **file dataset** option will register module's output folder as a file dataset. The output folder contains data file and meta files that support functionalities in designer, for example visualize data and mark column type. So this option is recommended if you want to continue use the registered dataset in designer. 
+    
+    The **tabular dataset** option will register only the output data as a tabular dataset. And it can be easily consumed out of designer, for example in Automated Machine Learning UI or Python SDK. This option is recommended is you want to use the registered dataset out of designer.  
+
+
+
 ### Use a dataset
 
-Your registered datasets can be found in the module palette, under **Datasets**. To use a dataset, drag and drop it onto the pipeline canvas. Then, connect the output port of the dataset to other modules in the palette.
+Your registered datasets can be found in the module palette, under **Datasets**. To use a dataset, drag and drop it onto the pipeline canvas. Then, connect the output port of the dataset to other modules in the canvas. 
 
 ![Screenshot showing location of saved datasets in the designer palette](media/how-to-designer-import-data/use-datasets-designer.png)
 
 
-> [!NOTE]
-> The designer currently only supports processing [tabular datasets](how-to-create-register-datasets.md#dataset-types). If you want to use [file datasets](how-to-create-register-datasets.md#dataset-types), use the Azure Machine Learning SDK available for Python and R.
+The designer also supports [dataset version](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-version-track-datasets). You can set a dataset version in the property panel.
+
+![Screenshot showing how to set dataset version](media/how-to-designer-import-data/set-dataset-version.png)
 
 ## Import data using the Import Data module
 
