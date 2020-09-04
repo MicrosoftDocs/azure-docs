@@ -35,7 +35,7 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 * raum]für[raum supports **SP and IDP** initiated SSO
 * raum]für[raum supports **Just In Time** user provisioning
 
-## Adding raum]für[raum from the gallery
+## Add raum]für[raum from the gallery
 
 To configure the integration of raum]für[raum into Azure AD, you need to add raum]für[raum from the gallery to your list of managed SaaS apps.
 
@@ -154,5 +154,5 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 You can also use Microsoft Access Panel to test the application in any mode. When you click the raum]für[raum tile in the Access Panel, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the raum]für[raum for which you set up the SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## Next Steps
+## Next steps
 Once you configure raum]für[raum you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
