@@ -132,7 +132,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. In the app's overview page, find the **Manage** section and select **Users and groups**.
 1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
 1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
-1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been setup for this app, you see "Default Access" role selected.
+1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
 
 1. In the **Add Assignment** dialog, click the **Assign** button.
 
@@ -146,9 +146,9 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Perform the following steps in **Settings** page.
 
-    ![Company settings in Teamzskill](./media/teamzskill-tutorial/metadata.png)
+    ![settings in Teamzskill](./media/teamzskill-tutorial/metadata.png)
 
-    a. Navigate to **Company > Single Sign-On** , then select the **Metadata Setup** tab.
+    a. Navigate to **Company > Single Sign-On**, then select the **Metadata Setup** tab.
 
     b. Paste the **Federation Metadata XML** Value, which you have copied from the Azure portal into **XML Metadata** field.
      
@@ -158,7 +158,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 In this section, a user called B.Simon is created in TeamzSkill. TeamzSkill supports just-in-time provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in TeamzSkill, a new one is created when you attempt to access TeamzSkill.
 
-TeamzSkill also supports automatic user provisioning, you can find more details [here](https://docs.microsoft.com/en-gb/azure/active-directory/saas-apps/salesforce-provisioning-tutorial) on how to configure automatic user provisioning.
+TeamzSkill also supports automatic user provisioning, you can find more details [here](https://docs.microsoft.com/azure/active-directory/saas-apps/salesforce-provisioning-tutorial) on how to configure automatic user provisioning.
 
 ## Test SSO 
 
@@ -166,7 +166,7 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 #### SP initiated:
 
-* Click on **Test this application** in Azure portal. This will redirect to TeamzSkill Sign-on URL where you can initiate the login flow.  
+* Click on **Test this application** in Azure portal. This will redirect to TeamzSkill Sign on URL where you can initiate the login flow.  
 
 * Go to TeamzSkill Sign-on URL directly and initiate the login flow from there.
 
@@ -174,10 +174,10 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Click on **Test this application** in Azure portal and you should be automatically signed in to the TeamzSkill for which you set up the SSO 
 
-You can also use Microsoft Access Panel to test the application in any mode. When you click the raum]für[raum tile in the Access Panel, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the raum]für[raum for which you set up the SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+You can also use Microsoft Access Panel to test the application in any mode. When you click the TeamzSkill tile in the Access Panel, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the TeamzSkill for which you set up the SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 
 ## Next Steps
 
-Once you configure TeamzSkill you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in realtime. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+Once you configure TeamzSkill you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
