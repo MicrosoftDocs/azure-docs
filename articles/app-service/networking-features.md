@@ -85,20 +85,21 @@ You can learn how to set an address on your app with the tutorial on [Add a TLS/
 
 ### Access Restrictions 
 
-The Access Restrictions capability lets you filter **inbound** requests based on the originating IP address. The filtering action takes place on the front-end roles that are upstream from the worker roles where your apps are running. Since the front-end roles are upstream from the workers, the Access Restrictions capability can be regarded as network level protection for your apps. The feature allows you to build a list of allow and deny address blocks that are evaluated in priority order. It is similar to the Network Security Group (NSG) feature that exists in Azure Networking.  You can use this feature in an ASE or in the multi-tenant service. When used with an ILB ASE, you can restrict access from private address blocks.
+The Access Restrictions capability lets you filter **inbound** requests. The filtering action takes place on the front-end roles that are upstream from the worker roles where your apps are running. Since the front-end roles are upstream from the workers, the Access Restrictions capability can be regarded as network level protection for your apps. The feature allows you to build a list of allow and deny rules that are evaluated in priority order. It is similar to the Network Security Group (NSG) feature that exists in Azure Networking.  You can use this feature in an ASE or in the multi-tenant service. When used with an ILB ASE or Private Endpoint, you can restrict access from private address blocks. Up to 512 Access Restriction rules are allowed per app. 
 
 ![Access Restrictions](media/networking-features/access-restrictions.png)
+#### IP based Access Restriction rules
 
-The Access Restrictions feature helps in scenarios where you want to restrict the IP addresses that can be used to reach your app. Among the use cases for this feature are:
+The IP based Access Restrictions feature helps in scenarios where you want to restrict the IP addresses that can be used to reach your app. Both IPv4 and IPv6 is supported. Among the use cases for this feature are:
 
 * Restrict access to your app from a set of well-defined addresses 
-* Restrict access to coming through a load-balancing service, such as Azure Front Door. If you wanted to lock down your inbound traffic to Azure Front Door, create rules to allow traffic from 147.243.0.0/16 and 2a01:111:2050::/44. 
+* Restrict access coming through a load-balancing service, such as Azure Front Door
 
 ![Access Restrictions with Front Door](media/networking-features/access-restrictions-afd.png)
 
-If you wish to lock down access to your app so that it can only be reached from resources in your Azure Virtual Network (VNet), you need a static public address on whatever your source is in your VNet. If the resources do not have a public address, you should use the Service Endpoints feature instead. Learn how to enable this feature with the tutorial on [Configuring Access Restrictions][iprestrictions].
+Learn how to enable this feature with the tutorial on [Configuring Access Restrictions][iprestrictions].
 
-### Service endpoints
+If you wish to lock down access to your app so that it can only be reached from resources in your Azure Virtual Network (VNet), you need a static public address on whatever your source is in your VNet. If the resources do not have a public address, you should use the Service Endpoints feature instead. 
 
 Service endpoints allow you to lock down **inbound** access to your app such that the source address must come from a set of subnets that you select. This feature works in conjunction with the IP Access Restrictions. Service endpoints are not compatible with remote debugging. To use remote debugging with your app, your client cannot be in a subnet with Service endpoints enabled. Service endpoints are set in the same user experience as the IP Access Restrictions. You can build an allow/deny list of access rules that includes public addresses as well as subnets in your VNets. This feature supports scenarios such as:
 
