@@ -60,6 +60,7 @@ The following are the displayed user properties on the **All users** page:
 - Object ID: The object ID of the user.
 - Creation type: Indicates how the user account was created.
 - Company name: The company name which the user is associated.
+- Invitation state: The status of the invitation for a guest user.
 - Mail: The email of the user.
 
    ![new user properties displayed on All users and Deleted users pages](./media/users-search-enhanced/user-properties.png)
@@ -88,22 +89,24 @@ When you enter a search string, the search uses "starts with" search that can no
 
 Filtering capabilities have been enhanced to provide more filtering options for the **All users** and **Deleted users** pages. You can now filter by multiple properties simultaneously, and can filter by more properties.
 
-### Filtering All Users page
+### Filtering All users list
 
 The following are the filterable properties on the **All users** page:
 
 - User type - Member or guest
 - Directory synced status - Yes
 - Creation type - Invitation, Email verified, Local account
+- Invitation state – Pending acceptance, Accepted
 - Administrative unit - Select this option to restrict the scope of the users you view to a single administrative unit. For more information, see [Administrative units management preview](directory-administrative-units.md).
 
-## Filtering Deleted Users page
+## Filtering Deleted users list
 
 The **Deleted users** page has additional filters not in the **All users** page. The following are the filterable properties on the **Deleted users** page:
 
 - User type - Member or guest
 - Directory synced status - Yes
 - Creation type - Invitation, Email verified, Local account
+- Invitation state – Pending acceptance, Accepted
 - Deletion date - Last 7, 14, or 30 days
 - Permanent deletion date - Last 7, 14, or 30 days
 
@@ -131,4 +134,3 @@ Bulk operations
 - [Bulk add users](users-bulk-add.md)
 - [Bulk delete users](users-bulk-delete.md)
 - [Bulk restore users](users-bulk-restore.md)
-
