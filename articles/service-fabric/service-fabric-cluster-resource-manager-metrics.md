@@ -136,7 +136,7 @@ The whole point of defining metrics is to represent some load. *Load* is how muc
   - The metric information, including default loads, for a service can updated after the service is created. This is called _updating a service_. 
   - The loads for a given partition can be reset to the default values for that service. This is called _resetting partition load_.
   - Load can be reported on a per service object basis dynamically during runtime. This is called _reporting load_. 
-  - Load can be reported on behalf of a cluster partitions during runtime. This is called _reporting load on partition's behalf_. 
+  - Last reported load for partition's replicas can be overridden by reporting load values through a Fabric API call as well. This is called _reporting load for a partition_. 
   
 All of these strategies can be used within the same service over its lifetime. 
 
@@ -171,25 +171,26 @@ this.Partition.ReportLoad(new List<LoadMetric> { new LoadMetric("CurrentConnecti
 
 A service can report on any of the metrics defined for it at creation time. If a service reports load for a metric that it is not configured to use, Service Fabric ignores that report. If there are other metrics reported at the same time that are valid, those reports are accepted. Service code can measure and report all the metrics it knows how to, and operators can specify the metric configuration to use without having to change the service code. 
 
-## Reporting load on partitions' behalf
-Previous section describes a possibility to report load per replica or instance. Additionally, there is an option to report dynamic load values through FabricClient, for a specific set of partitions at once.
+## Reporting load for a partition
+The previous section describes how service replicas or instances report load themselves. There is an additional option to dynamically report load with FabricClient. When reporting load for a partition, you may report for multiple partitions at once.
 
-Those reports will be used in the exactly same way as load reports that are coming from the replica itself are being used today. Reported values will be valid until new load values are reported, either if replica _reported the new load_ value or if new load value is reported _on partition's behalf_.
+Those reports will be used in the exactly same way as load reports that are coming from the replicas or instances themselves. Reported values will be valid until new load values are reported, either by the replica or instance or by reporting a new load value for a partition.
 
-With this API, there are multiple updates that could be achieved for any partition from the specified partition set:
+With this API, there are multiple ways to update load in the cluster:
 
-1. Partition can get updated its primary replica load (in case service of targeted partition is stateful)
-2. Partition can get updated load of its *all* secondary replicas, or *all* instances, in case partition is stateful or stateless
-3. Partition can get updated load of its *specific* secondary replica or instance, located on a specific node
-5. It is also possible to combine any of those updates per partition at the same time
+1. A stateful service partition can update its primary replica load.
+2. Both stateless and stateful services can update the load of all its secondary replicas or instances.
+3. Both stateless and stateful services can update the load of a specific replica or instance on a node.
 
-In case partition update is successfully applied, error code Success will be returned for a targeted partition. Otherwise, if the partition update is not applied for any reason, updates for that partition will be skipped and corresponding error code for a targeted partition will be provided:
+It is also possible to combine any of those updates per partition at the same time.
 
-1. PartitionNotFound - specified partition ID doesn't exist
-2. ReconfigurationPending - partition is under some update at the moment, it should be updated, or it should be deleted soon
-3. InvalidForStatelessServices - primary load update is not allowed for stateless partitions
-5. ReplicaDoesNotExist - secondary replica or instance does not exist on a specified node
-6. InvalidOperation - could happen in two cases: updating load of partitions that belongs to the System application is not enabled by default and updating predicted load (besides current load) is not enabled by default. Applying predicted load is under development at the moment and it will be possible in the future.
+Updating loads for multiple partitions is possible with a single API call, in which case the output will contain a response per partition. In case partition update is not successfully applied for any reason, updates for that partition will be skipped and corresponding error code for a targeted partition will be provided:
+
+1. PartitionNotFound - Specified partition ID doesn't exist.
+2. ReconfigurationPending - Partition is currently reconfiguring.
+3. InvalidForStatelessServices - An attempt was made to change the load of a primary replica for a partition belonging to a stateless service.
+5. ReplicaDoesNotExist - Secondary replica or instance does not exist on a specified node.
+6. InvalidOperation - Could happen in two cases: updating load for a partitions that belongs to the System application is not enabled by default and updating predicted load (besides current load) is not enabled by default. Applying predicted load is under development at the moment, and it will be possible in the future.
 
 If some of those errors are returned, you can update the input for a specific partition and retry the update for a specific partition.
 
