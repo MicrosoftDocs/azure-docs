@@ -86,7 +86,7 @@ Use the [Update-AzVmss](/powershell/module/az.compute/update-azvmss) cmdlet to e
 Update-AzVmss `
   -ResourceGroupName "myResourceGroup" `
   -VMScaleSetName "myScaleSet" `
-  -TerminateScheduledEvents $true
+  -TerminateScheduledEvents $true `
   -TerminateScheduledEventNotBeforeTimeoutInMinutes 15
 ```
 The above example enables terminate notifications on an existing scale set and sets a 15-minute timeout for the terminate event.
