@@ -14,9 +14,9 @@
       href: create-sql-managed-instance.md
     - name: Create PostgreSQL Instance
       href: create-postgresql-instances.md
-    - name: Extend Postgres SingleNode
+    - name: Extend PostgreSQL SingleNode
       href: postgresql-extend-single-node-to-hyperscale.md
-    - name: Scale out Postgres to hyper Scale
+    - name: Scale out PostgreSQL to hyper Scale
       href: scale-out-postgresql-hyperscale.md
 - name: Concepts
   items:
@@ -56,9 +56,9 @@
           href: uninstall-update-client-tools.md
     - name: Postgres
       items:
-        - name: Back up Postgres Hyperscale
+        - name: Back up PostgreSQL Hyperscale
           href: backup-restore-postgresql-hyperscale.md
-        - name: Use Postgres extensions
+        - name: Use PostgreSQL extensions
           href: using-postgresql-extensions.md
         - name: Create PostgreSQL instance (Azure Data Studio)
           href: create-postgresql-hyperscale-instance-azure-data-studio.md
@@ -66,11 +66,11 @@
           href: scale-up-down-postgresql-hyperscale-instance-using-cli.md
         - name: Manage roles in PostgreSQL (CLI)
           href: manage-roles-in-postgresql-with-cli.md
-        - name: Migrate a Postgres database to Arc
+        - name: Migrate a PostgreSQL database to Arc
           href: migrate-postgresql-db-into-arc.md
         - name: Restore AdventureWorks to Postgres
           href: restore-adventureworks-sample-db-postgresql.md
-        - name: Manage Postgres (Azure Data Studio)
+        - name: Manage PostgreSQL (Azure Data Studio)
           href: manage-postgresql-with-azure-data-studio.md
         - name: Delete Postgres
           href: delete-postgresql-instance.md
