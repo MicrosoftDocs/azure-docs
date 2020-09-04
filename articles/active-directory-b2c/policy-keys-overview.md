@@ -44,7 +44,7 @@ To create a key, you can choose one of the following methods:
 
 - **Manual** - Create a secret with a string you define. The secret is a symmetric key. You can set the activation and expiration dates.
 - **Generated** - Auto-generate a key. You can set activation and expiration dates. There are two options:
-  - **Secret** - Generates a symmetric key and displayed to the user temporarily.
+  - **Secret** - Generates a symmetric key.
   - **RSA** - Generates a key pair (asymmetric keys).
 - **Upload** - Upload a certificate, or a PKCS12 key. The certificate must contain the private and public keys (asymmetric keys).
 
