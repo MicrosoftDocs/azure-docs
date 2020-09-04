@@ -1,13 +1,13 @@
 ---
-title: Troubleshoot Azure Arc for servers agent connection issues
-description: This article tells how to troubleshoot and resolve issues with the Connected Machine agent that arise with Azure Arc for servers (preview) when trying to connect to the service.
+title: Troubleshoot Azure Arc enabled servers (preview) agent connection issues
+description: This article tells how to troubleshoot and resolve issues with the Connected Machine agent that arise with Azure Arc enabled servers (preview) when trying to connect to the service.
 ms.date: 07/20/2020
 ms.topic: conceptual
 ---
 
 # Troubleshoot the Connected Machine agent connection issues
 
-This article provides information on troubleshooting and resolving issues that may occur while attempting to configure the Azure Arc for servers (preview) Connected Machine agent for Windows or Linux. Both the interactive and at-scale installation methods when configuring connection to the service are included. For general information, see [Arc for servers overview](./overview.md).
+This article provides information on troubleshooting and resolving issues that may occur while attempting to configure the Azure Arc enabled servers (preview) Connected Machine agent for Windows or Linux. Both the interactive and at-scale installation methods when configuring connection to the service are included. For general information, see [Arc enabled servers overview](./overview.md).
 
 ## Agent verbose log
 
@@ -17,13 +17,13 @@ Before following the troubleshooting steps described later in this article, the 
 
 The following is an example of the command to enable verbose logging with the Connected Machine agent for Windows when performing an interactive installation.
 
-```
+```console
 & "$env:ProgramFiles\AzureConnectedMachineAgent\azcmagent.exe" connect --resource-group "resourceGroupName" --tenant-id "tenantID" --location "regionName" --subscription-id "subscriptionID" --verbose
 ```
 
 The following is an example of the command to enable verbose logging with the Connected Machine agent for Windows when performing an at-scale installation using a service principal.
 
-```
+```console
 & "$env:ProgramFiles\AzureConnectedMachineAgent\azcmagent.exe" connect `
   --service-principal-id "{serviceprincipalAppID}" `
   --service-principal-secret "{serviceprincipalPassword}" `
@@ -41,13 +41,13 @@ The following is an example of the command to enable verbose logging with the Co
 >[!NOTE]
 >You must have *root* access permissions on Linux machines to run **azcmagent**.
 
-```
+```bash
 azcmagent connect --resource-group "resourceGroupName" --tenant-id "tenantID" --location "regionName" --subscription-id "subscriptionID" --verbose
 ```
 
 The following is an example of the command to enable verbose logging with the Connected Machine agent for Linux when performing an at-scale installation using a service principal.
 
-```
+```bash
 azcmagent connect \
   --service-principal-id "{serviceprincipalAppID}" \
   --service-principal-secret "{serviceprincipalPassword}" \

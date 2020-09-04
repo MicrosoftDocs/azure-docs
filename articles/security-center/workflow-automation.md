@@ -6,7 +6,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 08/13/2020
 ms.author: memildin
 ---
 
@@ -28,8 +28,8 @@ This article describes the workflow automation feature of Azure Security Center.
 |----|:----|
 |Release state:|Generally Available|
 |Pricing:|Free tier|
-|Required roles and permissions:|**Reader** on the subscription containing the export configuration<br>**Security admin role** or **Owner** on the resource group<br>Must also have write permissions for the target resource<br><br>To work with Azure Logic Apps workflows, you must also have the following Logic Apps roles/permissions:<br> - [Logic App Operator](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-operator) permissions are required or Logic App read/trigger access (this role can't create or edit logic apps; only *run* existing ones)<br> - [Logic App Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-contributor) permissions are required for Logic App creation and modification<br>If you want to use Logic App connectors, you may need additional credentials to sign in to their respective services (for example, your Outlook/Teams/Slack instances)|
-|Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![Yes](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) China Gov, Other Gov|
+|Required roles and permissions:|**Security admin role** or **Owner** on the resource group<br>Must also have write permissions for the target resource<br><br>To work with Azure Logic Apps workflows, you must also have the following Logic Apps roles/permissions:<br> - [Logic App Operator](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-operator) permissions are required or Logic App read/trigger access (this role can't create or edit logic apps; only *run* existing ones)<br> - [Logic App Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-contributor) permissions are required for Logic App creation and modification<br>If you want to use Logic App connectors, you may need additional credentials to sign in to their respective services (for example, your Outlook/Teams/Slack instances)|
+|Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![Yes](./media/icons/yes-icon.png) US Gov<br>![Yes](./media/icons/yes-icon.png) China Gov, Other Gov|
 |||
 
 
@@ -40,7 +40,8 @@ This article describes the workflow automation feature of Azure Security Center.
 
     [![List of workflow automations](media/workflow-automation/list-of-workflow-automations.png)](media/workflow-automation/list-of-workflow-automations.png#lightbox)
 
-    From this page you can create new automation rules, as well as enable, disable, or delete existing ones.  
+    From this page you can create new automation rules, as well as enable, disable, or delete existing ones.
+
 1. To define a new workflow, click **Add workflow automation**. 
 
     A pane appears with the options for your new automation. Here you can enter:
@@ -82,9 +83,9 @@ This article describes the workflow automation feature of Azure Security Center.
 
 ## Manually trigger a Logic App
 
-You can also run Logic Apps manually when viewing a security alert or any recommendation that offers [Quick Fix remediation](https://docs.microsoft.com/azure/security-center/security-center-remediate-recommendations#quick-fix-remediation).
+You can also run Logic Apps manually when viewing any security alert or recommendation.
 
-To manually run a Logic App, open an alert or a recommendation that supports Quick Fix remediation and click **Trigger Logic App**:
+To manually run a Logic App, open an alert or a recommendation and click **Trigger Logic App**:
 
 [![Manually trigger a Logic App](media/workflow-automation/manually-trigger-logic-app.png)](media/workflow-automation/manually-trigger-logic-app.png#lightbox)
 

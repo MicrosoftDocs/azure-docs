@@ -3,7 +3,7 @@ title: Monitor Azure app services performance | Microsoft Docs
 description: Application performance monitoring for Azure app services. Chart load and response time, dependency information, and set alerts on performance.
 ms.topic: conceptual
 ms.date: 08/06/2020
-ms.custom: devx-track-javascript
+ms.custom: "devx-track-javascript, devx-track-dotnet"
 ---
 
 # Monitor Azure App Service performance
@@ -109,16 +109,14 @@ Python App Service based web applications do not currently support automatic age
 
 Client-side monitoring is opt-in for ASP.NET. To enable client-side monitoring:
 
-* Select **Settings** >** **Application settings****
-   * Under Application settings, add a new **app setting name** and **value**:
+* **Settings** **>** **Configuration**
+   * Under Application settings, create a **new application setting**:
 
      Name: `APPINSIGHTS_JAVASCRIPT_ENABLED`
 
      Value: `true`
 
    * **Save** the settings and **Restart** your app.
-
-![Screenshot of application settings UI](./media/azure-web-apps/appinsights-javascript-enabled.png)
 
 To disable client-side monitoring either remove the associated key value pair from the Application settings, or set the value to false.
 
@@ -128,16 +126,14 @@ Client-side monitoring is **enabled by default** for .NET Core apps with **Recom
 
 If for some reason you would like to disable client-side monitoring:
 
-* Select **Settings** > **Application settings**
-   * Under Application settings, add a new **app setting name** and **value**:
+* **Settings** **>** **Configuration**
+   * Under Application settings, create a **new application setting**:
 
      name: `APPINSIGHTS_JAVASCRIPT_ENABLED`
 
      Value: `false`
 
    * **Save** the settings and **Restart** your app.
-
-![Screenshot of application settings UI](./media/azure-web-apps/appinsights-javascript-disabled.png)
 
 # [Node.js](#tab/nodejs)
 

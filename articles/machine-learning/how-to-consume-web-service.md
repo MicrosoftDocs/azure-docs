@@ -10,7 +10,7 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 06/17/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python
+ms.custom: "how-to, devx-track-python, devx-track-csharp"
 
 
 #Customer intent: As a developer, I need to understand how to create a client application that consumes the web service of a deployed ML model.
@@ -156,30 +156,6 @@ The REST API expects the body of the request to be a JSON document with the foll
 > [!IMPORTANT]
 > The structure of the data needs to match what the scoring script and model in the service expect. The scoring script might modify the data before passing it to the model.
 
-For example, the model in the [Train within notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb) example expects an array of 10 numbers. The scoring script for this example creates a Numpy array from the request, and passes it to the model. The following example shows the data this service expects:
-
-```json
-{
-    "data": 
-        [
-            [
-                0.0199132141783263, 
-                0.0506801187398187, 
-                0.104808689473925, 
-                0.0700725447072635, 
-                -0.0359677812752396, 
-                -0.0266789028311707, 
-                -0.0249926566315915, 
-                -0.00259226199818282, 
-                0.00371173823343597, 
-                0.0403433716478807
-            ]
-        ]
-}
-```
-
-The web service can accept multiple sets of data in one request. It returns a JSON document containing an array of responses.
-
 ### Binary data
 
 For information on how to enable support for binary data in your service, see [Binary data](how-to-deploy-advanced-entry-script.md#binary-data).
@@ -201,7 +177,7 @@ For information on enabling CORS support in your service, see [Cross-origin reso
 
 ## Call the service (C#)
 
-This example demonstrates how to use C# to call the web service created from the [Train within notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb) example:
+This example demonstrates how to use C# to call the web service created from the [Train within notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/how-to-use-estimator/notebook_example.ipynb) example:
 
 ```csharp
 using System;
@@ -290,7 +266,7 @@ The results returned are similar to the following JSON document:
 
 ## Call the service (Go)
 
-This example demonstrates how to use Go to call the web service created from the [Train within notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb) example:
+This example demonstrates how to use Go to call the web service created from the [Train within notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/how-to-use-estimator/notebook_example.ipynb) example:
 
 ```go
 package main
@@ -382,7 +358,7 @@ The results returned are similar to the following JSON document:
 
 ## Call the service (Java)
 
-This example demonstrates how to use Java to call the web service created from the [Train within notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb) example:
+This example demonstrates how to use Java to call the web service created from the [Train within notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/how-to-use-estimator/notebook_example.ipynb) example:
 
 ```java
 import java.io.IOException;
@@ -462,7 +438,7 @@ The results returned are similar to the following JSON document:
 
 ## Call the service (Python)
 
-This example demonstrates how to use Python to call the web service created from the [Train within notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb) example:
+This example demonstrates how to use Python to call the web service created from the [Train within notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/how-to-use-estimator/notebook_example.ipynb) example:
 
 ```python
 import requests

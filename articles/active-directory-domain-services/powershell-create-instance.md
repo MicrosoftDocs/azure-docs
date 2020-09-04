@@ -11,7 +11,8 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: sample
 ms.date: 07/09/2020
-ms.author: iainfou
+ms.author: iainfou 
+ms.custom: devx-track-azurepowershell
 
 ---
 # Enable Azure Active Directory Domain Services using PowerShell
@@ -263,5 +264,5 @@ To see the managed domain in action, you can [domain-join a Windows VM][windows-
 [New-AzVirtualNetworkSubnetConfig]: /powershell/module/Az.Network/New-AzVirtualNetworkSubnetConfig
 [New-AzVirtualNetwork]: /powershell/module/Az.Network/New-AzVirtualNetwork
 [Get-AzSubscription]: /powershell/module/Az.Accounts/Get-AzSubscription
-[cloud-shell]: /azure/cloud-shell/cloud-shell-windows-users
+[cloud-shell]: ../cloud-shell/cloud-shell-windows-users.md
 [availability-zones]: ../availability-zones/az-overview.md

@@ -25,7 +25,7 @@ If you choose to install and use the CLI locally, this tutorial requires that yo
 
 ### Install Velero
 
-To [install](https://velero.io/docs/master/basic-install/) Velero on your system, follow the recommended process for your operating system.
+To [install](https://velero.io/docs/main/basic-install/) Velero on your system, follow the recommended process for your operating system.
 
 ### Set up Azure storage account and Blob container
 

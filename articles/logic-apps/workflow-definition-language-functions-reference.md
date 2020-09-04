@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
-ms.date: 08/06/2020
+ms.date: 08/26/2020
 ---
 
 # Reference guide to using functions in expressions for Azure Logic Apps and Power Automate
@@ -1167,7 +1167,7 @@ And returns this result:
 
 ### bool
 
-Return the Boolean version for a value.
+Return the Boolean version of a value.
 
 ```
 bool(<value>)
@@ -1175,27 +1175,27 @@ bool(<value>)
 
 | Parameter | Required | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*value*> | Yes | Any | The value to convert |
+| <*value*> | Yes | Any | The value to convert to Boolean. |
 |||||
+
+If you're using `bool()` with an object, the value of the object must be a string or integer that can be converted to Boolean.
 
 | Return value | Type | Description |
 | ------------ | ---- | ----------- |
-| true or false | Boolean | The Boolean version for the specified value |
+| `true` or `false` | Boolean | The Boolean version of the specified value. |
 ||||
 
-*Example*
+*Outputs*
 
-These examples convert the specified values to Boolean values:
+These examples show the different supported types of input for `bool()`:
 
-```
-bool(1)
-bool(0)
-```
-
-And returns these results:
-
-* First example: `true`
-* Second example: `false`
+| Input value | Type | Return value |
+| ----------- | ---------- | ---------------------- |
+| `bool(1)` | Integer | `true` |
+| `bool(0)` | Integer    | `false` |
+| `bool(-1)` | Integer | `true` |
+| `bool('true')` | String | `true` |
+| `bool('false')` | String | `false` |
 
 <a name="coalesce"></a>
 

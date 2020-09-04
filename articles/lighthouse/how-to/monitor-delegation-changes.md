@@ -1,7 +1,7 @@
 ---
 title: Monitor delegation changes in your managing tenant
 description: Learn how to monitor delegation activity from customer tenants to your managing tenant. 
-ms.date: 08/11/2020
+ms.date: 08/18/2020
 ms.topic: how-to
 ---
 
@@ -61,9 +61,6 @@ New-AzRoleAssignment -SignInName <yourLoginName> -Scope "/" -RoleDefinitionName 
 
 az role assignment create --assignee 00000000-0000-0000-0000-000000000000 --role "Monitoring Reader" --scope "/"
 ```
-
-> [!NOTE]
-> You can also assign the Monitoring Reader Azure built-in role at root scope to individual users or to user groups. This can be useful if you want a user to be able to [view delegation information directly in the Azure portal](#view-delegation-changes-in-the-azure-portal). If you do so, be aware that this is a broad level of access which should be limited to the fewest number of users possible.
 
 ### Remove elevated access for the Global Administrator account
 
@@ -159,15 +156,6 @@ else {
     Write-Output "No new delegation events for tenant: $($currentContext.Tenant.TenantId)"
 }
 ```
-
-## View delegation changes in the Azure portal
-
-Users who has been assigned the Monitoring Reader Azure built-in role at root scope can view delegation changes directly in the Azure portal.
-
-1. Navigate to the **My customers** page, then select **Activity log** from the left-hand navigation menu.
-1. Ensure that **Directory Activity** is selected in the filter near the top of the screen.
-
-A list of delegation changes will appear. You can select **Edit columns** to show or hide the **Status**, **Event category**, **Time**, **Time stamp**, **Subscription**, **Event initiated by**, **Resource group**, **Resource type**, and **Resource** values.
 
 > [!TIP]
 > Though we refer to service providers and customers in this topic, [enterprises managing multiple tenants](../concepts/enterprise.md) can use the same processes.

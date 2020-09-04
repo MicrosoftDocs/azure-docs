@@ -1,11 +1,12 @@
 ---
 title: Quickstart for Azure App Configuration with Azure Functions | Microsoft Docs
-description: A quickstart for using Azure App Configuration with Azure Functions.
+description: In this quickstart, make an Azure Functions app with Azure App Configuration and C#. Create and connect to an App Configuration store. Test the function locally.
 services: azure-app-configuration
 author: lisaguthrie
 
 
 ms.service: azure-app-configuration
+ms.custom: devx-track-csharp
 ms.topic: quickstart
 ms.date: 1/9/2019
 ms.author: lcozzens

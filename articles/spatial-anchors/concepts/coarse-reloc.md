@@ -9,6 +9,7 @@ ms.author: bobuc
 ms.date: 09/18/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
+ms.custom: devx-track-csharp
 ---
 # Coarse relocalization
 

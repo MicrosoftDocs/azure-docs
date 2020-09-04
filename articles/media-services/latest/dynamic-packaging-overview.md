@@ -2,7 +2,7 @@
 title: Dynamic packaging in Azure Media Services v3
 titleSuffix: Azure Media Services
 description: This article gives an overview of dynamic packaging in Azure Media Services.
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 services: media-services
@@ -12,13 +12,15 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: overview
-ms.date: 07/31/2020 
-ms.author: juliako
+ms.topic: conceptual
+ms.date: 08/31/2020 
+ms.author: inhenkel
 #Customer intent: As a developer or content provider, I want to encode and stream on-demand or live content so my customers can view the content on a wide variety of clients (these clients understand different formats).
 ---
 
 # Dynamic packaging in Media Services v3
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Microsoft Azure Media Services can be used to encode many media source file formats. It delivers them via different streaming protocols, with or without content protection, to reach all major devices (like iOS and Android devices). These clients understand different protocols. For example, iOS requires streams to be delivered in HTTP Live Streaming (HLS) format and Android devices support HLS as well as MPEG DASH.
 
@@ -77,8 +79,10 @@ Your streaming client can specify the following Smooth Streaming formats:
 
 The following steps show a common Media Services streaming workflow where dynamic packaging is used along with the Standard Encoder in Azure Media Services.
 
-1. Upload an input file such as a QuickTime/MOV or MXF file. This file is also referred to as the mezzanine or source file. For the list of supported formats, see [Formats Supported by the Standard Encoder](media-encoder-standard-formats.md).
+1. [Upload an input file](job-input-from-http-how-to.md) such as a MP4, QuickTime/MOV, or other supported file format. This file is also referred to as the mezzanine or source file. For the list of supported formats, see [Formats Supported by the Standard Encoder](media-encoder-standard-formats.md).
 1. [Encode](#encode-to-adaptive-bitrate-mp4s) your mezzanine file into an H.264/AAC MP4 adaptive bitrate set.
+
+    If you already have encoded files and just want to copy and stream the files, use: [CopyVideo](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#copyvideo) and [CopyAudio](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#copyaudio) APIs. A new MP4 file with a streaming manifest (.ism file) will be created as a result.
 1. Publish the output asset that contains the adaptive bitrate MP4 set. You publish by creating a [streaming locator](streaming-locators-concept.md).
 1. Build URLs that target different formats (HLS, MPEG-DASH, and Smooth Streaming). The *streaming endpoint* would take care of serving the correct manifest and requests for all these different formats.
     

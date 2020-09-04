@@ -16,10 +16,12 @@ ms.topic: conceptual
 
 No-code model deployment is currently in preview and supports the following machine learning frameworks:
 
-## Tensorflow SavedModel format
-Tensorflow models need to be registered in **SavedModel format** to work with no-code model deployment.
+## TensorFlow SavedModel format
+TensorFlow models need to be registered in **SavedModel format** to work with no-code model deployment.
 
 See [this link](https://www.tensorflow.org/guide/saved_model) for information on how to create a SavedModel.
+
+We support any TensorFlow version that is listed under "Tags" at the [TensorFlow Serving DockerHub](https://registry.hub.docker.com/r/tensorflow/serving/tags).
 
 ```python
 from azureml.core import Model

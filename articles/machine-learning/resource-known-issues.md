@@ -3,14 +3,14 @@ title: Known issues & troubleshooting
 titleSuffix: Azure Machine Learning
 description: Get help finding and correcting errors or failures in Azure Machine Learning. Learn about known issues, troubleshooting, and workarounds. 
 services: machine-learning
-author: j-martens
-ms.author: jmartens
+author: likebupt
+ms.author: keli19
 ms.reviewer: mldocs
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.custom: troubleshooting, contperfq4
-ms.date: 08/06/2020
+ms.date: 08/13/2020
 
 ---
 # Known issues and troubleshooting in Azure Machine Learning
@@ -116,6 +116,18 @@ Sometimes it can be helpful if you can provide diagnostic information when askin
     pip install --upgrade azureml-sdk[notebooks,automl] --ignore-installed PyYAML
     ```
 
+* **Azure Machine Learning SDK installation failing with an exception: ModuleNotFoundError: No module named 'ruamel' or 'ImportError: No module named ruamel.yaml'**
+   
+   This issue is getting encountered with the installation of Azure Machine Learning SDK for Python on the latest pip (>20.1.1) in the conda base environment for all released versions of Azure Machine Learning SDK for Python. Refer to the following workarounds:
+
+    * Avoid installing Python SDK on the conda base environment, rather create your conda environment and install SDK on that newly created user environment. The latest pip should work on that new conda environment.
+
+    * For creating images in docker, where you cannot switch away from conda base environment, please pin pip<=20.1.1 in the docker file.
+
+    ```Python
+    conda install -c r -y conda python=3.6.2 pip=20.1.1
+    ```
+    
 * **Databricks failure when installing packages**
 
     Azure Machine Learning SDK installation fails on Azure Databricks when more packages are installed. Some packages, such as `psutil`, can cause conflicts. To avoid installation errors, install packages by freezing the library version. This issue is related to Databricks and not to the Azure Machine Learning SDK. You might experience this issue with other libraries, too. Example:
@@ -167,6 +179,8 @@ Sometimes it can be helpful if you can provide diagnostic information when askin
 ## Set up your environment
 
 * **Trouble creating AmlCompute**: There is a rare chance that some users who created their Azure Machine Learning workspace from the Azure portal before the GA release might not be able to create AmlCompute in that workspace. You can either raise a support request against the service or create a new workspace through the portal or the SDK to unblock yourself immediately.
+
+* **Azure Container Registry doesn't currently support unicode characters in Resource Group names**: It is possible that ACR requests fail because its resource group name contains unicode characters. To mitigate this issue, we recommend creating an ACR in a differently-named resource group.
 
 ## Work with data
 
@@ -245,6 +259,27 @@ import time
 time.sleep(600)
 ```
 
+* **Log for real-time endpoints:**
+
+Logs of real-time endpoints are customer data. For real-time endpoint troubleshooting, you can use following code to enable logs. 
+
+See more details about monitoring web service endpoints in [this article](https://docs.microsoft.com/azure/machine-learning/how-to-enable-app-insights#query-logs-for-deployed-models).
+
+```python
+from azureml.core import Workspace
+from azureml.core.webservice import Webservice
+
+ws = Workspace.from_config()
+service = Webservice(name="service-name", workspace=ws)
+logs = service.get_logs()
+```
+If you have multiple Tenant, you may need to add the following authenticate code before `ws = Workspace.from_config()`
+
+```python
+from azureml.core.authentication import InteractiveLoginAuthentication
+interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in which your workspace resides")
+```
+
 ## Train models
 
 * **ModuleErrors (No module named)**:  If you are running into ModuleErrors while submitting experiments in Azure ML, it means that the training script is expecting a package to be installed but it isn't added. Once you provide the package name, Azure ML installs the package in the environment used for your training run. 
@@ -279,6 +314,26 @@ method, or from the Experiment tab view in Azure Machine Learning studio client 
 
 ## Automated machine learning
 
+* **Recent upgrade of AutoML dependencies to newer versions will be breaking compatibilitity**:  As of version 1.13.0 of the SDK, models won't be loaded in older SDKs due to incompatibility between the older versions we pinned in our previous packages, and the newer versions we pin now. You will see error such as:
+  * Module not found: Ex.`No module named 'sklearn.decomposition._truncated_svd`,
+  * Import errors: Ex.`ImportError: cannot import name 'RollingOriginValidator'`,
+  * Attribute errors: Ex. `AttributeError: 'SimpleImputer' object has no attribute 'add_indicator`
+  
+  To work around this issue, take either of the following two steps depending on your AutoML SDK training version:
+  1. If your AutoML SDK training version is greater than 1.13.0, you need `pandas == 0.25.1` and `sckit-learn==0.22.1`. If there is a version mismatch, upgrade scikit-learn and/or pandas to correct version as shown below:
+  
+  ```bash
+     pip install --upgrade pandas==0.25.1
+     pip install --upgrade scikit-learn==0.22.1
+  ```
+  
+  2. If your AutoML SDK training version is less than or equal to 1.12.0, you need `pandas == 0.23.4` and `sckit-learn==0.20.3`. If there is a version mismatch, downgrade scikit-learn and/or pandas to correct version as shown below:
+  
+  ```bash
+    pip install --upgrade pandas==0.23.4
+    pip install --upgrade scikit-learn==0.20.3
+  ```
+ 
 * **TensorFlow**: As of version 1.5.0 of the SDK, automated machine learning does not install TensorFlow models by default. To install TensorFlow and use it with your automated ML experiments, install tensorflow==1.12.0 via CondaDependecies. 
  
    ```python

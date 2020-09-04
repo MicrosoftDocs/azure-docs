@@ -11,6 +11,11 @@ ms.author: sajaya
 
 This article addresses frequently asked questions and known issues about Azure Container Registry.
 
+For registry troubleshooting guidance, see:
+* [Troubleshoot registry login](container-registry-troubleshoot-login.md)
+* [Troubleshoot network issues with registry](container-registry-troubleshoot-access.md)
+* [Troubleshoot registry performance](container-registry-troubleshoot-performance.md)
+
 ## Resource management
 
 - [Can I create an Azure container registry using a Resource Manager template?](#can-i-create-an-azure-container-registry-using-a-resource-manager-template)

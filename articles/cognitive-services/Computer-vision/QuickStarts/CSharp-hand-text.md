@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: OCR for printed and handwritten text using the Computer Vision 3.0 REST API Read operation and C#"
+title: "Quickstart: Extract text using the Computer Vision 3.0 REST API Read operation and C#"
 titleSuffix: "Azure Cognitive Services"
 description: In this quickstart, apply OCR to an image using the Computer Vision 3.0 REST API Read operations and C#.
 services: cognitive-services
@@ -11,9 +11,9 @@ ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 08/11/2020
 ms.author: pafarley
-ms.custom: seodec18
+ms.custom: "seodec18, devx-track-csharp"
 ---
-# Quickstart: OCR for printed and handwritten text using the Computer Vision 3.0 REST API Read operation and C#
+# Quickstart: Extract text using the Computer Vision 3.0 REST API Read operation and C#
 
 In this quickstart, you'll extract printed and handwritten text from an image using the new OCR technology available as part of the Computer Vision 3.0 REST API. With the new [Read](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) and [Get Read Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d9869604be85dee480c8750) methods, you can detect text in an image and extract recognized characters into a machine-readable character stream. 
 
@@ -63,7 +63,7 @@ namespace CSHttpClientSample
         static string endpoint = Environment.GetEnvironmentVariable("COMPUTER_VISION_ENDPOINT");
 
         // the Batch Read method endpoint
-        static string uriBase = endpoint + "/vision/v3.0//read/analyze";
+        static string uriBase = endpoint + "/vision/v3.0/read/analyze";
 
         // Add a local image with text here (png or jpg is OK)
         static string imageFilePath = @"my-image.png";

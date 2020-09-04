@@ -16,7 +16,7 @@ ms.date: 01/11/2019
 **APPLIES TO:**  ![yes](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic)   ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
 
 
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
+
 
 **[Azure AI Gallery](https://gallery.azure.ai)** is a community-driven site for discovering and sharing solutions built with Azure AI.
 The Gallery has a variety of resources that you can use to develop your own analytics solutions.
@@ -29,7 +29,6 @@ The Azure AI Gallery contains a number of different resources that have been con
 * **Tutorials** - A number of tutorials are available to walk you through machine learning technologies and concepts, or to describe advanced methods for solving various machine learning problems.
 * **Collections** - A collection allows you to group together experiments, APIs, and other Gallery resources that address a specific solution or concept.
 * **Custom Modules** - You can download custom modules into your Studio (classic) workspace to use in your own experiments.
-* **Jupyter Notebooks** - Jupyter Notebooks include code, data visualizations, and documentation in a single, interactive canvas. Notebooks in the Gallery provide tutorials and detailed explanations of advanced machine learning techniques and solutions.
 
 ## Discover and contribute
 
@@ -44,12 +43,12 @@ You can even share a resource of interest with friends or colleagues using the s
 
 When you sign in you become a member of the Gallery community. This allows you to download resources or contribute your own Gallery items so that others can benefit from the solutions you've discovered.
 
-You can download **experiments**, **custom modules**, and **Jupyter notebooks** to use in developing your own analytics solutions.
+You can download **experiments**, **custom modules** to use in developing your own analytics solutions.
 You can contribute **experiments**, **tutorials**, and **collections** to the Gallery.
 
-## Download experiments, modules, notebooks
+## Download experiments, modules
 
-You can download **experiments**, **custom modules**, and **Jupyter notebooks** into your own Machine Learning Studio (classic) workspace to use in developing your own solutions.
+You can download **experiments**, **custom modules** into your own Machine Learning Studio (classic) workspace to use in developing your own solutions.
 
 To download a resource from within the AI Gallery:
 

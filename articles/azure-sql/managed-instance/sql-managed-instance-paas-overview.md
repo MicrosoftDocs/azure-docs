@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
-ms.date: 06/25/2020
+ms.date: 08/14/2020
 ---
 
 # What is Azure SQL Managed Instance?
@@ -68,8 +68,8 @@ The [vCore-based purchasing model](../database/service-tiers-vcore.md) for SQL M
 
 In the vCore model, you can choose between generations of hardware.
 
-- **Gen4** logical CPUs are based on Intel E5-2673 v3 (Haswell) 2.4-GHz processors, attached SSD, physical cores, 7-GB RAM per core, and compute sizes between 8 and 24 vCores.
-- **Gen5** logical CPUs are based on Intel E5-2673 v4 (Broadwell) 2.3-GHz and Intel SP-8160 (Skylake) processors, fast NVMe SSD, hyper-threaded logical core, and compute sizes between 4 and 80 cores.
+- **Gen4** logical CPUs are based on Intel® E5-2673 v3 (Haswell) 2.4 GHz processors, attached SSD, physical cores, 7-GB RAM per core, and compute sizes between 8 and 24 vCores.
+- **Gen5** logical CPUs are based on Intel® E5-2673 v4 (Broadwell) 2.3 GHz, Intel® SP-8160 (Skylake), and  Intel® 8272CL (Cascade Lake) 2.5 GHz processors, fast NVMe SSD, hyper-threaded logical core, and compute sizes between 4 and 80 cores.
 
 Find more information about the difference between hardware generations in [SQL Managed Instance resource limits](resource-limits.md#hardware-generation-characteristics).
 

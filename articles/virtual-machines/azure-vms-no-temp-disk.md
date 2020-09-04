@@ -51,7 +51,7 @@ If the custom OS image points to the local temp disk, the image might not work c
 Fill out the [feedback form]( https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR_Y3toRKxchLjARedqtguBRUMzdCQkw0OVVRTldFUUtXSTlLQVBPUkVHSy4u). 
 
 ## Next steps 
-In this document, you learned more about the most frequent questions related to Azure VMs with local temp disk. For more information about these VM sizes, see the following articles:
+In this document, you learned more about the most frequent questions related to Azure VMs with no local temp disk. For more information about these VM sizes, see the following articles:
 
 - [Specifications for Dv4 and Dsv4-series (General Purpose Workload)](dv4-dsv4-series.md)
 - [Specifications for Ev4 and Esv4-series (Memory Optimized Workload)](ev4-esv4-series.md)

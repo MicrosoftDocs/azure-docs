@@ -65,7 +65,7 @@ If you lock the resource group created by the Azure Backup Service, backups will
 
 Remove the lock, and clear the restore point collection from that resource group to make the future backups successful. [Follow these steps](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#clean-up-restore-point-collection-from-azure-portal) to remove the restore point collection.
 
-### Does Azure backup support standard SSD-managed disks?
+### Does Azure Backup support standard SSD-managed disks?
 
 Yes, Azure Backup supports [standard SSD managed disks](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/).
 
@@ -94,6 +94,10 @@ If you change the case (to upper or lower) of your VM or VM resource group, the 
 ### Can I back up or restore selective disks attached to a VM?
 
 Azure Backup now supports selective disk backup and restore using the Azure Virtual Machine backup solution. For more information, see [Selective disk backup and restore for Azure VMs](selective-disk-backup-restore.md).
+
+### Are managed identities preserved if a tenant change occurs during backup?
+
+If [tenant changes](https://docs.microsoft.com/azure/devops/organizations/accounts/change-azure-ad-connection) occur, you're required to disable and re-enable [managed identities](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) to make backups work again.
 
 ## Restore
 
@@ -182,3 +186,11 @@ The old VM's restore points will be available for restore if needed. If you don'
 ### Is there a limit on number of VMs that can be associated with the same backup policy?
 
 Yes, there's a limit of 100 VMs that can be associated to the same backup policy from the portal. We recommend that for more than 100 VMs, create multiple backup policies with same schedule or different schedule.
+
+### How can I view the retention settings for my backups?
+
+Currently, you can view retention settings at a backup item (VM) level based on the backup policy that's assigned to the VM.
+
+One way to view the retention settings for your backups, is to navigate to the backup item [dashboard](https://docs.microsoft.com/azure/backup/backup-azure-manage-vms#view-vms-on-the-dashboard) for your VM, in the Azure portal. Selecting the link to its backup policy helps you view the retention duration of all the daily, weekly, monthly and yearly retention points associated with the VM.
+
+You can also use [Backup Explorer](https://docs.microsoft.com/azure/backup/monitor-azure-backup-with-backup-explorer) to view the retention settings for all your VMs within a single pane of glass. Navigate to Backup Explorer from any Recovery Services vault, go to the **Backup Items** tab and select the Advanced View to see detailed retention information for each VM.

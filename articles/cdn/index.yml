@@ -5,7 +5,7 @@ summary: Azure Content Delivery Network (CDN) is a global CDN solution for deliv
 
 metadata:
   title: Azure CDN Documentation - Tutorials, API Reference
-  description: Azure Content Delivery Network (CDN) is a global CDN solution for delivering high-bandwidth content. It can be hosted in Azure or any other location. With Azure CDN, you can cache static objects loaded from Azure Blob storage, a web application, or any publicly accessible web server, by using the closest point of presence (POP) server. Azure CDN can also accelerate dynamic content, which cannot be cached, by leveraging various network and routing optimizations.
+  description: Learn about Azure Content Delivery Network, a solution for delivering high-bandwidth content, which can be hosted in Azure or any other location.
   ms.service: azure-cdn
   ms.topic: landing-page # Required
   author: asudbring #Required; your GitHub user alias, with correct capitalization.

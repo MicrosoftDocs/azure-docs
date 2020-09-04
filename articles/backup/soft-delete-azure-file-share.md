@@ -48,7 +48,7 @@ If you have at least one protected file share in a storage account, it means tha
 >You should perform step 2 before the next scheduled backup job runs against the protected file share in your storage account. Because whenever the backup job runs, it re-enables soft delete for all file shares in the storage account.
 
 >[!WARNING]
->After disabling soft delete in step 2, any delete operation performed against the file shares is a permanent delete operation. This means if you accidentally delete the backed-up file share after disabling soft delete then you will lose all your snapshots and won’t be able to recover your data.
+>After disabling soft delete in step 2, any delete operation performed against the file shares is a permanent delete operation. So if you accidentally delete the backed-up file share after disabling soft delete, you'll lose all your snapshots and won’t be able to recover your data.
 
 ### In the context of a file share’s soft delete setting, what changes does Azure Backup do when I unregister a storage account?
 

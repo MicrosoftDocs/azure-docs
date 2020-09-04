@@ -4,8 +4,9 @@ description: Learn how to organize costs on your invoice. You can customize your
 author: amberbhargava
 tags: billing
 ms.service: cost-management-billing
+ms.subservice: billing
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 08/20/2020
 ms.author: banders
 ---
 

@@ -3,6 +3,7 @@ title: Best practices for improving performance using Azure Service Bus
 description: Describes how to use Service Bus to optimize performance when exchanging brokered messages.
 ms.topic: article
 ms.date: 06/23/2020
+ms.custom: devx-track-csharp
 ---
 
 # Best Practices for performance improvements using Service Bus Messaging

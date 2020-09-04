@@ -6,8 +6,8 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
-ms.custom: hdinsightactive,mvc,seoapr2020
-ms.date: 04/17/2020
+ms.custom: contperfq1
+ms.date: 08/21/2020
 
 #customer intent: As a developer new to Apache Spark and to Apache Spark in Azure HDInsight, I want to learn how to create a Scala Maven application for Spark in HDInsight using IntelliJ.
 ---

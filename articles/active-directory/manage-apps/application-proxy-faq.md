@@ -2,15 +2,11 @@
 title: Azure AD Application Proxy frequently asked questions | Microsoft Docs
 description: Learn answers to frequently asked questions (FAQ) about using Azure AD Application Proxy to publish internal, on-premises applications to remote users.  
 services: active-directory
-documentationcenter: ''
 author: kenwith
 manager: celestedg
-ms.assetid:
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: reference
 ms.date: 07/23/2020
 ms.author: kenwith
@@ -85,6 +81,15 @@ Application Proxy requires Windows Server 2012 R2 or later. There is currently a
 
 
 ## Application configuration
+
+### I am receiving an error about an invalid certificate or possible wrong password
+
+After you uploaded the SSL certificate, you receive the message "Invalid certificate, possible wrong password" on the portal.
+
+Here are some tips for troubleshooting this error:
+- Check for problems with the certificate. Install it on your local computer. If you don't experience any issues then the certificate is good.
+- Ensure that the password does not contain any special characters. For testing, the password should only contain the characters 0-9, A-Z, and a-z.
+- If the certificate was created with Microsoft Software Key Storage Provider, the RSA algorithm must be used.
 
 ### What is the length of the default and "long" back-end timeout? Can the timeout be extended?
 

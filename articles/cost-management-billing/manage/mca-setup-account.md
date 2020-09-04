@@ -4,11 +4,12 @@ description: Learn how to set up your billing account for a Microsoft Customer A
 author: amberbhargava
 tags: billing
 ms.service: cost-management-billing
+ms.subservice: billing
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 08/20/2020
 ms.author: banders
-
 ---
+
 # Set up your billing account for a Microsoft Customer Agreement
 
 If your Enterprise Agreement enrollment has expired or about to be expired, you can sign a Microsoft Customer Agreement to renew your enrollment. This article describes the changes to your existing billing after the setup and walks you through the setup of your new billing account. The renewal includes the following steps:

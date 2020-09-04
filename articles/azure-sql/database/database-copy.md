@@ -112,7 +112,7 @@ You can use the steps in the [Copy a SQL Database to a different server](#copy-t
 > The [Azure portal](https://portal.azure.com), PowerShell, and the Azure CLI do not support database copy to a different subscription.
 
 > [!TIP]
-> Database copy using T-SQL supports copying a database from a subscription in a different Azure tenant.
+> Database copy using T-SQL supports copying a database from a subscription in a different Azure tenant. This is only supported when using a SQL authentication login to log in to the target server.
 
 ## Monitor the progress of the copying operation
 

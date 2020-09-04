@@ -243,6 +243,73 @@ Yes. Azure Site Recovery for Linux Operation System supports application custom 
 >[!Note]
 >The Site Recovery agent version should be 9.24 or above to support custom scripts.
 
+## Replication policy
+
+### What is a replication policy?
+
+A replication policy defines the settings for the retention history of recovery points. The policy also defines the frequency of app-consistent snapshots. By default, Azure Site Recovery creates a new replication policy with default settings of:
+
+- 24 hours for the retention history of recovery points.
+- 4 hours for the frequency of app-consistent snapshots.
+
+### What is a crash-consistent recovery point?
+
+A crash-consistent recovery point has the on-disk data as if you pulled the power cord from the server during the snapshot. The crash-consistent recovery point doesn't include anything that was in memory when the snapshot was taken.
+
+Today, most applications can recover well from crash-consistent snapshots. A crash-consistent recovery point is usually enough for no-database operating systems and applications like file servers, DHCP servers, and print servers.
+
+### What is the frequency of crash-consistent recovery point generation?
+
+Site Recovery creates a crash-consistent recovery point every 5 minutes.
+
+### What is an application-consistent recovery point?
+
+Application-consistent recovery points are created from application-consistent snapshots. Application-consistent recovery points capture the same data as crash-consistent snapshots while also capturing data in memory and all transactions in process.
+
+Because of their extra content, application-consistent snapshots are the most involved and take the longest. We recommend application-consistent recovery points for database operating systems and applications such as SQL Server.
+
+### What is the impact of application-consistent recovery points on application performance?
+
+Application-consistent recovery points capture all the data in memory and in process. Because recovery points capture that data, they require framework like Volume Shadow Copy Service on Windows to quiesce the application. If the capturing process is frequent, it can affect performance when the workload is already busy. We don't recommend that you use low frequency for app-consistent recovery points for non-database workloads. Even for database workload, 1 hour is enough.
+
+### What is the minimum frequency of application-consistent recovery point generation?
+
+Site Recovery can create an application-consistent recovery point with a minimum frequency of 1 hour.
+
+### How are recovery points generated and saved?
+
+To understand how Site Recovery generates recovery points, let's see an example of a replication policy. This replication policy has a recovery point with a 24-hour retention window and an app-consistent frequency snapshot of 1 hour.
+
+Site Recovery creates a crash-consistent recovery point every 5 minutes. You can't change this frequency. For the last hour, you can choose from 12 crash-consistent points and 1 app-consistent point. As time progresses, Site Recovery prunes all the recovery points beyond the last hour and saves only 1 recovery point per hour.
+
+The following screenshot illustrates the example. In the screenshot:
+
+- Within the past hour, there are recovery points with a frequency of 5 minutes.
+- Beyond the past hour, Site Recovery keeps only 1 recovery point.
+
+   ![List of generated recovery points](./media/azure-to-azure-troubleshoot-errors/recoverypoints.png)
+
+### How far back can I recover?
+
+The oldest recovery point that you can use is 72 hours.
+
+### I have a replication policy of 24 hours. What will happen if a problem prevents Site Recovery from generating recovery points for more than 24 hours? Will my previous recovery points be lost?
+
+No, Site Recovery will keep all your previous recovery points. Depending on the recovery points' retention window, Site Recovery replaces the oldest point only if it generates new points. Because of the problem, Site Recovery can't generate any new recovery points. Until there are new recovery points, all the old points will remain after you reach the window of retention.
+
+### After replication is enabled on a VM, how do I change the replication policy?
+
+Go to **Site Recovery Vault** > **Site Recovery Infrastructure** > **Replication policies**. Select the policy that you want to edit, and save the changes. Any change will apply to all the existing replications too.
+
+### Are all the recovery points a complete copy of the VM or a differential?
+
+The first recovery point that's generated has the complete copy. Any successive recovery points have delta changes.
+
+### Does increasing the retention period of recovery points increase the storage cost?
+
+Yes, if you increase the retention period from 24 hours to 72 hours, Site Recovery will save the recovery points for an additional 48 hours. The added time will incur storage charges. For example, a single recovery point might have delta changes of 10 GB with a per-GB cost of $0.16 per month. Additional charges would be $1.60 × 48 per month.
+
+
 ## Failover
 ### If I'm failing over to Azure, how do I access the Azure VMs after failover?
 

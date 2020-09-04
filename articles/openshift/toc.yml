@@ -79,6 +79,8 @@
   items:
     - name: Networking in Azure Red Hat OpenShift 4 clusters
       href: concepts-networking.md
+    - name: Migrate from an Azure Red Hat OpenShift 3.11 to Azure Red Hat OpenShift 4
+      href: migration.md 
 - name: Reference
   items:
     - name: Azure Red Hat OpenShift CLI
@@ -95,6 +97,8 @@
       href: supported-resources.md
     - name: Supported resources for Azure Red Hat OpenShift 4.3
       href: support-policies-v4.md
+    - name: Support lifecycle for Azure Red Hat OpenShift 4 
+      href: support-lifecycle.md
     - name: Regional availability
       href: https://azure.microsoft.com/regions/services/
     - name: Azure Red Hat OpenShift 4.3 documentation

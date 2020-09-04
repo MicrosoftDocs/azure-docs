@@ -4,6 +4,7 @@ description: Learn how to create and manage Virtual Network support for your Pre
 author: yegu-ms
 ms.author: yegu
 ms.service: cache
+ms.custom: devx-track-csharp
 ms.topic: conceptual
 ms.date: 05/15/2017
 ---

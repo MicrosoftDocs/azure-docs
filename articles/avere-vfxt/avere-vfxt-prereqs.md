@@ -1,6 +1,6 @@
 ---
 title: Avere vFXT prerequisites - Azure
-description: Prerequisites for Avere vFXT for Azure
+description: Learn about tasks to perform before you create a cluster in Avere vFXT for Azure, including dealing with subscriptions, quotas, and storage service endpoints.
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: how-to

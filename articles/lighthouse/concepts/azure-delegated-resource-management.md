@@ -13,7 +13,7 @@ Azure delegated resource management is one of the key components of [Azure Light
 
 Azure delegated resource management enables logical projection of resources from one tenant onto another tenant. This lets authorized users in one Azure Active Directory (Azure AD) tenant perform management operations across different Azure AD tenants belonging to their customers. Service providers can sign in to their own Azure AD tenant and have authorization to work in delegated customer subscriptions and resource groups. This lets them perform management operations on behalf of their customers, without having to sign in to each individual customer tenant.
 
-> [!NOTE]
+> [!TIP]
 > Azure delegated resource management can also be used [within an enterprise which has multiple Azure AD tenants of its own](enterprise.md) to simplify cross-tenant management.
 
 With Azure delegated resource management, authorized users can work directly in the context of a customer subscription without having an account in that customer's tenant or being a co-owner of the customer's tenant.

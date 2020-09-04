@@ -5,7 +5,7 @@ description: Learn how to authenticated client certificates on TLS. Azure App Se
 ms.assetid: cd1d15d3-2d9e-4502-9f11-a306dac4453a
 ms.topic: article
 ms.date: 10/01/2019
-ms.custom: seodec18
+ms.custom: "devx-track-csharp, seodec18"
 
 ---
 # Configure TLS mutual authentication for Azure App Service

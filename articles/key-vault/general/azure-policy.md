@@ -6,7 +6,7 @@ ms.author: mbaldwin
 ms.date: 01/28/2020
 ms.service: key-vault
 ms.subservice: general
-ms.topic: quickstart
+ms.topic: how-to
 
 ---
 

@@ -10,7 +10,7 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 8/10/2020
+ms.date: 8/17/2020
 ms.author: yohaddad
 ---
 # Azure Guest OS releases and SDK compatibility matrix
@@ -35,6 +35,9 @@ Provides you with up-to-date information about the latest Azure Guest OS release
 Unsure about how to update your Guest OS? Check [this][cloud updates] out.
 
 ## News updates
+
+###### **August 17, 2020**
+The July Guest OS has released. 
 
 ###### **August 10, 2020**
 The June Guest OS has released. 
@@ -128,8 +131,9 @@ The September Guest OS has released.
 
 | Configuration string | Release date | Disable date |
 | --- | --- | --- |
+|  WA-GUEST-OS-6.21_202007-01  |  August 17, 2020  |  Post 6.23  |  
 |  WA-GUEST-OS-6.20_202006-02  |  August 10, 2020  |  Post 6.22  |  
-|  WA-GUEST-OS-6.19_202005-02  |  June 2, 2020  |  Post 6.21  |  
+|~~WA-GUEST-OS-6.19_202005-02~~|  June 2, 2020  |  August 17, 2020  |  
 |~~WA-GUEST-OS-6.18_202004-01~~|  May 4, 2020  |  August 10, 2020  |  
 |~~WA-GUEST-OS-6.17_202003-01~~|  April 2, 2020  |  June 2, 2020  |  
 |~~WA-GUEST-OS-6.16_202002-01~~|  March 5, 2020  |  May 4, 2020  |  
@@ -161,8 +165,9 @@ The September Guest OS has released.
 
 | Configuration string | Release date | Disable date |
 | --- | --- | --- |
+|  WA-GUEST-OS-5.45_202007-01  |  August 17, 2020  |  Post 5.47  |  
 |  WA-GUEST-OS-5.44_202006-02  |  August 10, 2020  |  Post 5.46  |  
-|  WA-GUEST-OS-5.43_202005-02  |  June 2, 2020  |  Post 5.45  |  
+|~~WA-GUEST-OS-5.43_202005-02~~|  June 2, 2020  |  August 17, 2020  |  
 |~~WA-GUEST-OS-5.42_202004-01~~|  May 4, 2020  |  August 10, 2020  |  
 |~~WA-GUEST-OS-5.41_202003-01~~|  April 2, 2020  |  June 2, 2020  |  
 |~~WA-GUEST-OS-5.40_202002-01~~|  March 5, 2020  |  May 4, 2020  |  
@@ -191,8 +196,9 @@ The September Guest OS has released.
 
 | Configuration string | Release date | Disable date |
 | --- | --- | --- |
+|  WA-GUEST-OS-4.80_202007-01  |  August 17, 2020  |  Post 4.82  | 
 |  WA-GUEST-OS-4.79_202006-02  |  August 10, 2020  |  Post 4.81  | 
-|  WA-GUEST-OS-4.78_202005-02  |  June 2, 2020  |  Post 4.80  |  
+|~~WA-GUEST-OS-4.78_202005-02~~|  June 2, 2020  |  August 17, 2020  |  
 |~~WA-GUEST-OS-4.77_202004-01~~|  May 4, 2020  |  August 10, 2020  |  
 |~~WA-GUEST-OS-4.76_202003-01~~|  April 2, 2020  |  June 2, 2020  |  
 |~~WA-GUEST-OS-4.75_202002-01~~|  March 5, 2020  |  May 4, 2020  |  
@@ -221,8 +227,9 @@ The September Guest OS has released.
 
 | Configuration string | Release date | Disable date |
 | --- | --- | --- |
+|  WA-GUEST-OS-3.87_202007-01  |  August 17, 2020  |  Post 3.89  |  
 |  WA-GUEST-OS-3.86_202006-02  |  August 10, 2020  |  Post 3.88  |  
-|  WA-GUEST-OS-3.85_202005-02  |  June 2, 2020  |  Post 3.87  |  
+|~~WA-GUEST-OS-3.85_202005-02~~|  June 2, 2020  |  August 17, 2020  |  
 |~~WA-GUEST-OS-3.84_202004-01~~|  May 4, 2020  |  August 10, 2020  |  
 |~~WA-GUEST-OS-3.83_202003-01~~|  April 2, 2020  |  June 2, 2020  |  
 |~~WA-GUEST-OS-3.82_202002-01~~|  March 5, 2020  |  May 4, 2020  |  
@@ -251,8 +258,9 @@ The September Guest OS has released.
 
 | Configuration string | Release date | Disable date |
 | --- | --- | --- |
+|  WA-GUEST-OS-2.100_202007-01  |  August 17, 2020  |  Post 2.102  |  
 |  WA-GUEST-OS-2.99_202006-02  |  August 10, 2020  |  Post 2.101  |  
-|  WA-GUEST-OS-2.98_202005-02  |  June 2, 2020  |  Post 2.100  |  
+|~~WA-GUEST-OS-2.98_202005-02~~|  June 2, 2020  |  August 17, 2020  |  
 |~~WA-GUEST-OS-2.97_202004-01~~|  May 4, 2020  |  August 10, 2020  |  
 |~~WA-GUEST-OS-2.96_202003-01~~|  April 2, 2020  |  June 2, 2020  |  
 |~~WA-GUEST-OS-2.95_202002-01~~|  March 5, 2020  |  May 4, 2020  |  

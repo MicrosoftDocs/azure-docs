@@ -7,6 +7,7 @@ ms.date: 03/12/2020
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
+ms.custom: devx-track-csharp
 
 ---
 
@@ -236,7 +237,6 @@ In this quickstart you created a key vault, stored a secret, and retrieved that 
 
 To learn more about Key Vault and how to integrate it with your applications, continue on to the articles below.
 
-- Implement [Service-to-service authentication to Azure Key Vault using .NET](../general/service-to-service-authentication.md)
 - Read an [Overview of Azure Key Vault](../general/overview.md)
 - See the [Azure Key Vault developer's guide](../general/developers-guide.md)
 - Review [Azure Key Vault best practices](../general/best-practices.md)

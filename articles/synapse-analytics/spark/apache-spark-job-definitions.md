@@ -1,11 +1,10 @@
 ---
 title: 'Tutorial: Create Apache Spark job definition in Synapse Studio'
 description: Tutorial - Use the Azure Synapse Analytics to create Spark job definitions, and submit them to a Apache Spark for Azure Synapse Analytics pool.
-author: hrasheed-msft
+author: Jejiang
 ms.author: jejiang
 ms.reviewer: jasonh
-ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice:
 ms.date: 04/15/2020

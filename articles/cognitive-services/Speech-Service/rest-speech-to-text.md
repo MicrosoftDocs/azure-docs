@@ -10,6 +10,7 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.author: trbye
+ms.custom: devx-track-csharp
 ---
 
 # Speech-to-text REST API

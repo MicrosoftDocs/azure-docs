@@ -63,14 +63,14 @@ missing_env = False
 if 'COMPUTER_VISION_ENDPOINT' in os.environ:
     endpoint = os.environ['COMPUTER_VISION_ENDPOINT']
 else:
-    print("From Azure Cogntivie Service, retrieve your endpoint and subscription key.")
+    print("From Azure Cognitive Service, retrieve your endpoint and subscription key.")
     print("\nSet the COMPUTER_VISION_ENDPOINT environment variable, such as \"https://westus2.api.cognitive.microsoft.com\".\n")
     missing_env = True
 
 if 'COMPUTER_VISION_SUBSCRIPTION_KEY' in os.environ:
     subscription_key = os.environ['COMPUTER_VISION_SUBSCRIPTION_KEY']
 else:
-    print("From Azure Cogntivie Service, retrieve your endpoint and subscription key.")
+    print("From Azure Cognitive Service, retrieve your endpoint and subscription key.")
     print("\nSet the COMPUTER_VISION_SUBSCRIPTION_KEY environment variable, such as \"1234567890abcdef1234567890abcdef\".\n")
     missing_env = True
 

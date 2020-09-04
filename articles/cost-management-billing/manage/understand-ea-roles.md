@@ -4,10 +4,12 @@ description: Learn about Enterprise administrator roles in Azure. You can assign
 author: bandersmsft
 ms.reviewer: adwise
 ms.service: cost-management-billing
+ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 07/13/2020
+ms.date: 09/03/2020
 ms.author: banders
 ---
+
 # Managing Azure Enterprise roles
 
 To help manage your organization's usage and spend, Azure customers with an Enterprise Agreement (EA) can assign five distinct administrative roles:

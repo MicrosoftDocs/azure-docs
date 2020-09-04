@@ -2,16 +2,12 @@
 title: 'Tutorial: Configure Zoom for automatic user provisioning with Azure Active Directory | Microsoft Docs'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Zoom.
 services: active-directory
-documentationcenter: ''
 author: zchia
 writer: zchia
-manager: beatrizd
-ms.assetid: na
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/3/2019
 ms.author: Zhchia
@@ -45,7 +41,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 ## Step 2. Configure Zoom to support provisioning with Azure AD
 
-1. Sign in to your [Zoom Admin Console](https://zoom.us/signin). Navigate to **Advanced > Zoom for Developers** in the left navigation pane.
+1. Sign in to your [Zoom Admin Console](https://zoom.us/signin). Navigate to **Advanced > App Marketplace** in the left navigation pane.
 
 	![Zoom Integrations](media/zoom-provisioning-tutorial/zoom01.png)
 

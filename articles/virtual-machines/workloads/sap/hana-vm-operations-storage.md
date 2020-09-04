@@ -14,7 +14,7 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 08/11/2020
+ms.date: 09/03/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -25,10 +25,10 @@ ms.custom: H1Hack27Feb2017
 Azure provides different types of storage that are suitable for Azure VMs that are running SAP HANA. The **SAP HANA certified Azure storage types** that can be considered for SAP HANA deployments list like: 
 
 - Azure premium SSD or premium storage 
-- [Ultra disk](../../linux/disks-enable-ultra-ssd.md)
+- [Ultra disk](../../disks-enable-ultra-ssd.md)
 - [Azure NetApp Files](https://azure.microsoft.com/services/netapp/) 
 
-To learn about these disk types, see the article [Azure Storage types for SAP workload](./planning-guide-storage.md) and [Select a disk type](../../linux/disks-types.md)
+To learn about these disk types, see the article [Azure Storage types for SAP workload](./planning-guide-storage.md) and [Select a disk type](../../disks-types.md)
 
 Azure offers two deployment methods for VHDs on Azure Standard and premium storage. We expect you to take advantage of [Azure managed disk](https://azure.microsoft.com/services/managed-disks/) for Azure block storage deployments. 
 
@@ -40,7 +40,7 @@ For a list of storage types and their SLAs in IOPS and storage throughput, revie
 
 The minimum SAP HANA certified conditions for the different storage types are: 
 
-- Azure premium storage - **/hana/log** is required to be supported by Azure [Write Accelerator](../../linux/how-to-enable-write-accelerator.md). The **/hana/data** volume could be placed on premium storage without Azure Write Accelerator or on Ultra disk
+- Azure premium storage - **/hana/log** is required to be supported by Azure [Write Accelerator](../../how-to-enable-write-accelerator.md). The **/hana/data** volume could be placed on premium storage without Azure Write Accelerator or on Ultra disk
 - Azure Ultra disk at least for the **/hana/log** volume. The **/hana/data** volume can be placed on either premium storage without Azure Write Accelerator or in order to get faster restart times Ultra disk
 - **NFS v4.1** volumes on top of Azure NetApp Files for **/hana/log and /hana/data**. The volume of /hana/shared can use NFS v3 or NFS v4.1 protocol
 
@@ -57,7 +57,7 @@ Given that low storage latency is critical for DBMS systems, even as DBMS, like 
 
 Some guiding principles in selecting your storage configuration for HANA can be listed like:
 
-- Decide on the type of storage based on [Azure Storage types for SAP workload](./planning-guide-storage.md) and [Select a disk type](../../linux/disks-types.md)
+- Decide on the type of storage based on [Azure Storage types for SAP workload](./planning-guide-storage.md) and [Select a disk type](../../disks-types.md)
 - The overall VM I/O throughput and IOPS limits in mind when sizing or deciding for a VM. Overall VM storage throughput is documented in the article [Memory optimized virtual machine sizes](../../sizes-memory.md)
 - When deciding for the storage configuration, try to stay below the overall throughput of the VM with your **/hana/data** volume configuration. Writing savepoints, SAP HANA can be aggressive issuing I/Os. It is easily possible to push up to throughput limits of your **/hana/data** volume when writing a savepoint. If your disk(s) that build the **/hana/data** volume have a higher throughput than your VM allows, you could run into situations where throughput utilized by the savepoint writing is interfering with throughput demands of the redo log writes. A situation that can impact the application throughput
 - If you are using Azure premium storage, the least expensive configuration is to use logical volume managers to build stripe sets to build the **/hana/data** and **/hana/log** volumes
@@ -73,7 +73,7 @@ Linux has several different I/O scheduling modes. Common recommendation through 
 Azure Write Accelerator is a functionality that is available for Azure M-Series VMs exclusively. As the name states, the purpose of the functionality is to improve I/O latency of writes against the Azure premium storage. For SAP HANA, Write Accelerator is supposed to be used against the **/hana/log** volume only. Therefore,  the **/hana/data** and **/hana/log** are separate volumes with Azure Write Accelerator supporting the **/hana/log** volume only. 
 
 > [!IMPORTANT]
-> When using Azure premium storage, the usage of Azure [Write Accelerator](../../linux/how-to-enable-write-accelerator.md) for the **/hana/log** volume is mandatory. Write Accelerator is available for premium storage and M-Series and Mv2-Series VMs only. Write Accelerator is not working in combination with other Azure VM families, like Esv3 or Edsv4.
+> When using Azure premium storage, the usage of Azure [Write Accelerator](../../how-to-enable-write-accelerator.md) for the **/hana/log** volume is mandatory. Write Accelerator is available for premium storage and M-Series and Mv2-Series VMs only. Write Accelerator is not working in combination with other Azure VM families, like Esv3 or Edsv4.
 
 The caching recommendations for Azure premium disks below are assuming the I/O characteristics for SAP HANA that list like:
 
@@ -86,7 +86,7 @@ The caching recommendations for Azure premium disks below are assuming the I/O c
 **Recommendation: As a result of these observed I/O patterns by SAP HANA, the caching for the different volumes using Azure premium storage should be set like:**
 
 - **/hana/data** - no caching or read caching
-- **/hana/log** - no caching - exception for M- and Mv2-Series where Write Accelerator should be enabled without read caching. 
+- **/hana/log** - no caching - exception for M- and Mv2-Series VMs where Azure Write Accelerator should be enabled 
 - **/hana/shared** - read caching
 - **OS disk** - don't change default caching that is set by Azure at creation time of the VM
 
@@ -192,7 +192,7 @@ For the other volumes, the configuration would look like:
 
 Check whether the storage throughput for the different suggested volumes meets the workload that you want to run. If the workload requires higher volumes for **/hana/data** and **/hana/log**, you need to increase the number of Azure premium storage VHDs. Sizing a volume with more VHDs than listed increases the IOPS and I/O throughput within the limits of the Azure virtual machine type.
 
-Azure Write Accelerator only works in conjunction with [Azure managed disks](https://azure.microsoft.com/services/managed-disks/). So at least the Azure premium storage disks forming the **/hana/log** volume need to be deployed as managed disks. More detailed instructions and restrictions of Azure Write Accelerator can be found in the article [Write Accelerator](../../linux/how-to-enable-write-accelerator.md).
+Azure Write Accelerator only works in conjunction with [Azure managed disks](https://azure.microsoft.com/services/managed-disks/). So at least the Azure premium storage disks forming the **/hana/log** volume need to be deployed as managed disks. More detailed instructions and restrictions of Azure Write Accelerator can be found in the article [Write Accelerator](../../how-to-enable-write-accelerator.md).
 
 For the HANA certified VMs of the Azure [Esv3](../../ev3-esv3-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#esv3-series) family and the [Edsv4](../../edv4-edsv4-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#edsv4-series), you need to ANF for the **/hana/data** and **/hana/log** volume. Or you need to leverage Azure Ultra disk storage instead of Azure premium storage only for the **/hana/log** volume. As a result, the configurations for the **/hana/data** volume on Azure premium storage could look like:
 
@@ -216,7 +216,7 @@ For the other volumes, including **/hana/log** on Ultra disk, the configuration 
 
 
 ## Azure Ultra disk storage configuration for SAP HANA
-Another Azure storage type is called [Azure Ultra disk](../../windows/disks-types.md#ultra-disk). The significant difference between Azure storage offered so far and Ultra disk is that the disk capabilities are not bound to the disk size anymore. As a customer you can define these capabilities for Ultra disk:
+Another Azure storage type is called [Azure Ultra disk](../../disks-types.md#ultra-disk). The significant difference between Azure storage offered so far and Ultra disk is that the disk capabilities are not bound to the disk size anymore. As a customer you can define these capabilities for Ultra disk:
 
 - Size of a disk ranging from 4 GiB to 65,536 GiB
 - IOPS range from 100 IOPS to 160K IOPS (maximum depends on VM types as well)
@@ -234,6 +234,10 @@ In this configuration, you keep the **/hana/data** and **/hana/log** volumes sep
 
 The recommendations are often exceeding the SAP minimum requirements as stated earlier in this article. The listed recommendations are a compromise between the size recommendations by SAP and the maximum storage throughput the different VM types provide.
 
+> [!NOTE]
+> Azure Ultra disk is enforcing a minimum of 2 IOPS per Gigabyte capacity of a disk
+
+
 | VM SKU | RAM | Max. VM I/O<br /> Throughput | /hana/data volume | /hana/data I/O throughput | /hana/data IOPS | /hana/log volume | /hana/log I/O throughput | /hana/log IOPS |
 | --- | --- | --- | --- | --- | --- | --- | --- | -- |
 | E20ds_v4 | 160 GiB | 480 MB/s | 200 GB | 400 MBps | 2,500 | 80 GB | 250 MB | 1,800 |
@@ -247,11 +251,11 @@ The recommendations are often exceeding the SAP minimum requirements as stated e
 | M64s | 1,000 GiB | 1,000 MB/s |  1,200 GB | 600 MBps | 5,000 | 512 GB | 250 MBps  | 2,500 |
 | M64ms | 1,750 GiB | 1,000 MB/s | 2,100 GB | 600 MBps | 5,000 | 512 GB | 250 MBps  | 2,500 |
 | M128s | 2,000 GiB | 2,000 MB/s |2,400 GB | 750 MBps | 7,000 | 512 GB | 250 MBps  | 2,500 | 
-| M128ms | 3,800 GiB | 2,000 MB/s | 4,800 GB | 750 MBps |7,000 | 512 GB | 250 MBps  | 2,500 | 
+| M128ms | 3,800 GiB | 2,000 MB/s | 4,800 GB | 750 MBps |9,600 | 512 GB | 250 MBps  | 2,500 | 
 | M208s_v2 | 2,850 GiB | 1,000 MB/s | 3,500 GB | 750 MBps | 7,000 | 512 GB | 250 MBps  | 2,500 | 
-| M208ms_v2 | 5,700 GiB | 1,000 MB/s | 7,200 GB | 750 MBps | 7,000 | 512 GB | 250 MBps  | 2,500 | 
-| M416s_v2 | 5,700 GiB | 2,000 MB/s | 7,200 GB | 1,000 MBps | 9,000 | 512 GB | 400 MBps  | 4,000 | 
-| M416ms_v2 | 11,400 GiB | 2,000 MB/s | 14,400 GB | 1,500 MBps | 9,000 | 512 GB | 400 MBps  | 4,000 |   
+| M208ms_v2 | 5,700 GiB | 1,000 MB/s | 7,200 GB | 750 MBps | 14,400 | 512 GB | 250 MBps  | 2,500 | 
+| M416s_v2 | 5,700 GiB | 2,000 MB/s | 7,200 GB | 1,000 MBps | 14,400 | 512 GB | 400 MBps  | 4,000 | 
+| M416ms_v2 | 11,400 GiB | 2,000 MB/s | 14,400 GB | 1,500 MBps | 28,800 | 512 GB | 400 MBps  | 4,000 |   
 
 **The values listed are intended to be a starting point and need to be evaluated against the real demands.** The advantage with Azure Ultra disk is that the values for IOPS and throughput can be adapted without the need to shut down the VM or halting the workload applied to the system.   
 
@@ -350,9 +354,9 @@ A less costly alternative for such configurations could look like:
 | M416ms_v2 | 11400 GiB | 2,000 MB/s | 7 x P40 | 1 x E30 | 1 x E10 | 1 x E6 | Using Write Accelerator for combined data and log volume will limit IOPS rate to 20,000<sup>2</sup> |
 
 
-<sup>1</sup> [Azure Write Accelerator](../../linux/how-to-enable-write-accelerator.md) can't be used with the Ev4 and Ev4 VM families. As a result of using Azure premium storage the I/O latency will not be less than 1ms
+<sup>1</sup> [Azure Write Accelerator](../../how-to-enable-write-accelerator.md) can't be used with the Ev4 and Ev4 VM families. As a result of using Azure premium storage the I/O latency will not be less than 1ms
 
-<sup>2</sup> The VM family supports [Azure Write Accelerator](../../linux/how-to-enable-write-accelerator.md), but there is a potential that the IOPS limit of Write accelerator could limit the disk configurations IOPS capabilities
+<sup>2</sup> The VM family supports [Azure Write Accelerator](../../how-to-enable-write-accelerator.md), but there is a potential that the IOPS limit of Write accelerator could limit the disk configurations IOPS capabilities
 
 In the case of combining the data and log volume for SAP HANA, the disks building the striped volume should not have read cache or read/write cache enabled.
 

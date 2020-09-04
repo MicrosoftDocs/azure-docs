@@ -13,7 +13,7 @@ ms.custom: mvc
 
 # Configure Azure Active Directory authentication for an Azure Red Hat OpenShift 4 cluster (CLI)
 
-If you choose to install and use the CLI locally, this article requires that you are running the Azure CLI version 2.0.75 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+If you choose to install and use the CLI locally, this article requires that you are running the Azure CLI version 2.6.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 Retrieve your cluster-specific URLs that are going to be used to configure the Azure Active Directory application.
 
@@ -156,7 +156,7 @@ Create an OpenShift secret to store the Azure Active Directory application secre
 oc create secret generic openid-client-secret-azuread \
   --namespace openshift-config \
   --from-literal=clientSecret=<ClientSecret>
-```    
+```
 
 Create a **oidc.yaml** file to configure OpenShift OpenID authentication against Azure Active Directory. Replace **\<AppID>** and **\<TenantId>** with the values you retrieved earlier.
 
@@ -173,20 +173,20 @@ spec:
     type: OpenID
     openID:
       clientID: <AppId>
-      clientSecret: 
+      clientSecret:
         name: openid-client-secret-azuread
-      extraScopes: 
+      extraScopes:
       - email
       - profile
-      extraAuthorizeParameters: 
+      extraAuthorizeParameters:
         include_granted_scopes: "true"
       claims:
-        preferredUsername: 
+        preferredUsername:
         - email
         - upn
-        name: 
+        name:
         - name
-        email: 
+        email:
         - email
       issuer: https://login.microsoftonline.com/<TenantId>
 EOF

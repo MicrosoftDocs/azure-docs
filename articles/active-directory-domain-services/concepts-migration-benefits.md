@@ -59,4 +59,4 @@ To get started, see [Migrate Azure AD Domain Services from the Classic virtual n
 [availability-zones]: ../availability-zones/az-overview.md
 [howto-migrate]: migrate-from-classic-vnet.md
 [attributes]: synchronization.md#attribute-synchronization-and-mapping-to-azure-ad-ds
-[managed-disks]: ../virtual-machines/windows/managed-disks-overview.md
+[managed-disks]: ../virtual-machines/managed-disks-overview.md
