@@ -5,14 +5,14 @@ author: mksuni
 ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 09/21/2020
 ---
 
 # Troubleshoot database corruption on Azure Database for MySQL
 
 Database corruption can cause downtime for your application and it is also critical to resolve the issue in time to avoid data loss. When database corruption occurs you will see in your server logs this error **InnoDB: Database page corruption on disk or a failed**.
 
-In this guide you will learn how to fix if database or table is corrupted and how can resolve the issue. Azure Database for MySQL uses InnoDB engine and it features automated corruption checking and repair operations. InnoDB checks for corrupted pages by performing checksums on every page it reads, and if it finds a checksum discrepancy it will automatically stop the MySQL server.
+In this guide you will learn how to fix if database or table is corrupted. Azure Database for MySQL uses InnoDB engine and it features automated corruption checking and repair operations. InnoDB checks for corrupted pages by performing checksums on every page it reads, and if it finds a checksum discrepancy it will automatically stop the MySQL server.
 
 Try any of these options below to help quickly mitigate your database corruption issues.
 
@@ -20,7 +20,7 @@ Try any of these options below to help quickly mitigate your database corruption
 
 You typically notice that a database or table is corrupted when your application access that table ro database. Since InnoDB features a crash recovery mechanism that can resolve most issues when the server is restarted. Hence restarting the server should help the server recover from a crash that caused the database to be in bad state.
 
-##  Resolve data corruption with Dump and restore database
+##  Resolve data corruption with Dump and restore method
 
 It is recommended to resolve the corruption issue with a **dump and restore method**. This involves getting access to the corrupted table, using the **mysqldump** utility to create a logical backup of the table, which will retain the table structure and the data within it, and then reloading the table back into the database.
 
@@ -77,7 +77,7 @@ $ mysql --ssl-cert=</path/to/pem> -h mydemoserver.mysql.database.azure.com -u my
 ```
 
 ## Next Steps
-If the above steps do not help resolve the issue, you can always restore a server with all the databases.
+If the above steps do not help resolve the issue, you can always restore the entire server.
 - [Restore a  Azure Database for MySQL Single Server](howto-restore-server-portal.md)
 - [Restore a Azure Database for MySQL Flexible Server](flexible-server/how-to-restore-mysql-server-portal.md)
 
