@@ -92,8 +92,8 @@ example when using ASP.NET Core SDK is shown below.
     }
 ```
 
-Similar approach can be used for WorkerService SDK as well, but the
-namespace must be changed as shown in below example.
+A similar approach can be used for the WorkerService SDK as well, but the namespace must be
+changed as shown in the example below.
 
 ```csharp
     using Microsoft.ApplicationInsights.WorkerService;
