@@ -54,14 +54,28 @@ You can gather this information using the [Azure portal](https://portal.azure.co
 
 ## Prepare
 
-In this section, you will prepare to recreate your instance by **downloading your original models, twins, and graph** from your original instance. You will do this using the [Azure Digital Twins (ADT) Explorer](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) sample.
+In this section, you will prepare to recreate your instance by **downloading your original models, twins, and graph** from your original instance. This article does this using the [Azure Digital Twins (ADT) Explorer](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) sample.
 
 >[!NOTE]
 >You may already have files containing the models and/or the graph in your instance. If so, you do not need to download everything again—just the pieces you are missing or things that may have changed since you originally uploaded these files (such as twins that may have been updated with new data).
 
+### Limitations of ADT Explorer
+
+The [Azure Digital Twins (ADT) Explorer sample](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) is a client app sample that supports a visual representation of your graph, and provides visual interaction with your instance. This article shows how to use it to download, and later re-upload, your models, twins, and graphs.
+
+Please note, however, that this is a **sample** and not a complete tool. It has not been stress tested, and was not built to handle graphs of a large size. Consequently, please keep in mind the following out-of-the-box sample limitations:
+* The sample has currently only been tested on graph sizes up to 1000 nodes and 2000 relationships
+* The sample does not support retrying in the case of any intermittent failures
+* The sample will not necessarily notify the user if data uploaded is incomplete
+* The sample doesn't handle errors resulting from very large graphs exceeding available resources like memory
+
+If the sample is not able to handle the size of your graph, you can export and import the graph using other Azure Digital Twins developer tools:
+* [Azure Digital Twins CLI commands](how-to-use-cli.md)
+* [Azure Digital Twins APIs and SDKs](how-to-use-apis-sdks.md)
+
 ### Set up ADT Explorer application
 
-First, download the sample application code and set it up to run on your machine. 
+To proceed with ADT Explorer, first download the sample application code and set it up to run on your machine. 
 
 Navigate to the sample here: [Azure Digital Twins (ADT) explorer](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Hit the *Download ZIP* button to download a *.ZIP* file of this sample code to your machine as _**ADT_Explorer.zip**_. Unzip the file.
 
