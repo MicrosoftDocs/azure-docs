@@ -54,11 +54,11 @@ pip install --upgrade azure-ai-anomalydetector
 
 ## Object model
 
-The Anomaly Detector client is a [AnomalyDetectorClient](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.anomalydetectorclient?view=azure-python) object that authenticates to Azure using your key. The client provides two methods of anomaly detection: On an entire dataset using [entire_detect()](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.anomalydetectorclient?view=azure-python#entire-detect-body--custom-headers-none--raw-false----operation-config-), and on the latest data point using [Last_detect()](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.anomalydetectorclient?view=azure-python#last-detect-body--custom-headers-none--raw-false----operation-config-).
+The Anomaly Detector client is a [AnomalyDetectorClient](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.anomalydetectorclient?view=azure-python) object that authenticates to Azure using your key. The client can do anomaly detection an entire dataset using [entire_detect()](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.anomalydetectorclient?view=azure-python#entire-detect-body--custom-headers-none--raw-false----operation-config-), or on the latest data point using [Last_detect()](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.anomalydetectorclient?view=azure-python#last-detect-body--custom-headers-none--raw-false----operation-config-). The [ChangePointDetectAsync](tbd) function detects points that mark changes in a trend.
 
 Time series data is sent as a series of [Points](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.models.point(class)?view=azure-python) in a [Request](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.models.request(class)?view=azure-python) object. The `Request` object contains properties to describe the data ([Granularity](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.models.granularity?view=azure-python) for example), and parameters for the anomaly detection.
 
-The Anomaly Detector response is a [LastDetectResponse](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.models.lastdetectresponse?view=azure-python) or [EntireDetectResponse](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.models.entiredetectresponse?view=azure-python) object depending on the method used.
+The Anomaly Detector response is a [LastDetectResponse](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.models.lastdetectresponse?view=azure-python), [EntireDetectResponse](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.models.entiredetectresponse?view=azure-python), or [ChangePointDetectResponse](tbd) object depending on the method used.
 
 ## Code examples
 
@@ -68,6 +68,7 @@ These code snippets show you how to do the following with the Anomaly Detector c
 * [Load a time series data set from a file](#load-time-series-data-from-a-file)
 * [Detect anomalies in the entire data set](#detect-anomalies-in-the-entire-data-set)
 * [Detect the anomaly status of the latest data point](#detect-the-anomaly-status-of-the-latest-data-point)
+* [Detect the change points in the data set](#detect-change-points-in-the-data-set)
 
 ## Authenticate the client
 
@@ -103,6 +104,12 @@ Call the API to detect anomalies through the entire time series data using the c
 Call the Anomaly Detector API to determine if your latest data point is an anomaly using the client's [last_detect()](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.anomalydetectorclient?view=azure-python#last-detect-body--custom-headers-none--raw-false----operation-config-) method, and store the returned [LastDetectResponse](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.models.lastdetectresponse?view=azure-python) object. The response's `is_anomaly` value is a boolean that specifies that point's anomaly status.  
 
 [!code-python[Batch anomaly detection sample](~/samples-anomaly-detector/quickstarts/sdk/python-sdk-sample.py?name=latestPointDetection)]
+
+## Detect change points in the data set
+
+Call the API to detect change points in the time series data using the client's [detect_change_point()](tbd) method. Store the returned [ChangePointDetectResponse](tbd) object. Iterate through the response's `is_change_point` list, and print the index of any `true` values. These values correspond to the indices of trend change points, if any were found.
+
+[!code-python[Batch anomaly detection sample](~/samples-anomaly-detector/quickstarts/sdk/python-sdk-sample.py?name=changePointDetection)]
 
 ## Run the application
 

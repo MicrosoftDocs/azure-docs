@@ -67,11 +67,11 @@ Your app's `package.json` file will be updated with the dependencies.
 
 ## Object model
 
-The Anomaly Detector client is an [AnomalyDetectorClient](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/anomalydetectorclient?view=azure-node-latest) object that authenticates to Azure using your key. The client provides two methods of anomaly detection: On an entire dataset using [entireDetect()](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/anomalydetectorclient?view=azure-node-latest#entiredetect-request--servicecallback-entiredetectresponse--), and on the latest data point using [LastDetect()](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/anomalydetectorclient?view=azure-node-latest#lastdetect-request--msrest-requestoptionsbase-). 
+The Anomaly Detector client is an [AnomalyDetectorClient](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/anomalydetectorclient?view=azure-node-latest) object that authenticates to Azure using your key. The client can do anomaly detection on an entire dataset using [entireDetect()](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/anomalydetectorclient?view=azure-node-latest#entiredetect-request--servicecallback-entiredetectresponse--), or on the latest data point using [LastDetect()](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/anomalydetectorclient?view=azure-node-latest#lastdetect-request--msrest-requestoptionsbase-). The [ChangePointDetectAsync](tbd) method detects points that mark changes in a trend. 
 
 Time series data is sent as series of [Points](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/point?view=azure-node-latest) in a [Request](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/request?view=azure-node-latest) object. The `Request` object contains properties to describe the data ([Granularity](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/request?view=azure-node-latest#granularity) for example), and parameters for the anomaly detection. 
 
-The Anomaly Detector response is a [LastDetectResponse](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/lastdetectresponse?view=azure-node-latest) or [EntireDetectResponse](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/entiredetectresponse?view=azure-node-latest) object depending on the method used. 
+The Anomaly Detector response is a [LastDetectResponse](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/lastdetectresponse?view=azure-node-latest), [EntireDetectResponse](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/entiredetectresponse?view=azure-node-latest), or [ChangePointDetectResponse](tbd) object depending on the method used. 
 
 ## Code examples 
 
@@ -81,6 +81,7 @@ These code snippets show you how to do the following with the Anomaly Detector c
 * [Load a time series data set from a file](#load-time-series-data-from-a-file)
 * [Detect anomalies in the entire data set](#detect-anomalies-in-the-entire-data-set) 
 * [Detect the anomaly status of the latest data point](#detect-the-anomaly-status-of-the-latest-data-point)
+* [Detect the change points in the data set](#detect-change-points-in-the-data-set)
 
 ## Authenticate the client
 
@@ -112,6 +113,12 @@ Call the API to detect anomalies through the entire time series as a batch with 
 Call the Anomaly Detector API to determine if your latest data point is an anomaly using the client's [lastDetect()](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/anomalydetectorclient?view=azure-node-latest#lastdetect-request--msrest-requestoptionsbase-) method, and store the returned [LastDetectResponse](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/lastdetectresponse?view=azure-node-latest) object. The response's `isAnomaly` value is a boolean that specifies that point's anomaly status.  
 
 [!code-javascript[Last point detection function](~/cognitive-services-quickstart-code/javascript/AnomalyDetector/anomaly_detector_quickstart.js?name=lastDetection)]
+
+## Detect change points in the data set
+
+Call the API to detect change points in the time series with the client's [detectChangePoint()](tbd) method. Store the returned [ChangePointDetectResponse](tbd) object. Iterate through the response's `isChangePoint` list, and print the index of any `true` values. These values correspond to the indices of trend change points, if any were found.
+
+[!code-javascript[Batch detection function](~/cognitive-services-quickstart-code/javascript/AnomalyDetector/anomaly_detector_quickstart.js?name=changePointDetection)]
 
 ## Run the application
 
