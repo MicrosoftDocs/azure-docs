@@ -8,27 +8,41 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/30/2020
+ms.date: 09/08/2020
 ---
 
-# Adjust capacity in Azure Cognitive Search
+# Adjust the capacity of a Azure Cognitive Search service
 
-Before [provisioning a search service](search-create-service-portal.md) and locking in a specific pricing tier, take a few minutes to understand the role of replicas and partitions in a service and how you might adjust a service to accommodate spikes and dips in resource demand.
+Before [provisioning a search service](search-create-service-portal.md) and locking in a specific pricing tier, take a few minutes to understand how capacity works and how you might adjust replicas and partitions to accommodate workload fluctuation.
 
-Capacity is a function of the [tier you choose](search-sku-tier.md) (tiers determine hardware characteristics), and the replica and partition combination necessary for projected workloads. Depending on the tier and the size of the adjustment, adding or reducing capacity can take anywhere from 15 minutes to several hours. 
+Capacity is a function of the [tier you choose](search-sku-tier.md) (tiers determine hardware characteristics), and the replica and partition combination necessary for projected workloads. You can increase or decrease the number of replicas or partitions individually. Depending on the tier and the size of the adjustment, adding or reducing capacity can take anywhere from 15 minutes to several hours.
 
 When modifying the allocation of replicas and partitions, we recommend using the Azure portal. The portal enforces limits on allowable combinations that stay below maximum limits of a tier. However, if you require a script-based or code-based provisioning approach, the [Azure PowerShell](search-manage-powershell.md) or the [Management REST API](/rest/api/searchmanagement/services) are alternative solutions.
 
-## Terminology: replicas and partitions
+## Concepts: search units, replicas, partitions, shards
 
-|||
-|-|-|
-|*Partitions* | Provides index storage and I/O for read/write operations (for example, when rebuilding or refreshing an index). Each partition has a share of the total index. If you allocate three partitions, your index is divided into thirds. |
-|*Replicas* | Instances of the search service, used primarily to load balance query operations. Each replica is one copy of an index. If you allocate three replicas, you'll have three copies of an index available for servicing query requests.|
+Capacity is expressed in *search units* that can be articulated in combinations of *partitions* and *replicas*, using an underlying *sharding* mechanism to support flexible configurations:
+
+| Concept  | Definition|
+|----------|-----------|
+|*Search unit* | A single increment of total available capacity (36 units). It is also the billing unit for an Azure Cognitive Search service. A minimum of one unit is required to run the service.|
+|*Replica* | Instances of the search service, used primarily to load balance query operations. Each replica hosts one copy of an index. If you allocate three replicas, you'll have three copies of an index available for servicing query requests.|
+|*Partition* | Physical storage and I/O for read/write operations (for example, when rebuilding or refreshing an index). Each partition has a slice of the total index. If you allocate three partitions, your index is divided into thirds. |
+|*Shard* | A chunk of an index. Within a partition, a search service further divides an index into shards to make the process of adding partitions faster (by moving a shard to a new search unit). |
+
+In the top left quadrant, the first search unit is a combination of one replica and one partition, resulting in a minimally viable service. An additional unit to the side or below adds a single replica or a single partition. If you want two of each, you will need four search units, as captured in the following diagram.
+
+:::image type="content" source="media/search-capacity-planning/shards.png" alt-text="Search indexes are sharded across partitions.":::
+
+In Cognitive Search, shard management is an implementation detail and non-configurable, but knowing that an index is sharded helps to understand the occasional anomalies in ranking and autocomplete behaviors:
+
++ Ranking anomalies: Search scores are computed at the shard level first, and then aggregated up into a single result set. Depending on the characteristics of shard content, matches from one shard might be ranked higher than matches in another one. If you notice un-intuitive rankings in search results, it is most likely due to the effects of sharding, especially if indexes are small. You can [override shard-specific rankings](index-similarity-and-scoring.md#scoring-statistics-and-sticky-sessions) by scoping the computation to the entire index, but doing so will incur a slight performance penalty.
+
++ Autocomplete anomalies: Autocomplete queries, where matches are made on the first several characters of a partially entered term, accept a fuzzy parameter that forgives small deviations in spelling. For autocomplete, fuzzy matching is constrained to terms within the current shard. For example, if a shard contains "Microsoft" and a partial term of "micor" is entered, the search engine will match on "Microsoft" in that shard, but not in other shards that hold the remaining parts of the index.
 
 ## When to add nodes
 
-Initially, a service is allocated a minimal level of resources consisting of one partition and one replica. 
+Initially, a service is allocated a minimal level of resources consisting of one partition and one replica.
 
 A single service must have sufficient resources to handle all workloads (indexing and queries). Neither workload runs in the background. You can schedule indexing for times when query requests are naturally less frequent, but the service will not otherwise prioritize one task over another. Additionally, a certain amount of redundancy smooths out query performance when services or nodes are updated internally.
 
