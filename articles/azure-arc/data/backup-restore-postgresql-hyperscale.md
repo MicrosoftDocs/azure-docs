@@ -15,7 +15,7 @@ ms.topic: how-to
 
 These instructions utilize the PostgreSQL server group that created from [Create an Azure Database for PostgreSQL Hyperscale server group on Azure Arc](create-postgresql-instances.md).
 
-## Enable backup volumes
+## Enable backup volumes (TEST)
 
 First, provision a backup volume for each node in the server group. To provision the backup volume, edit the server group configuration:
 
