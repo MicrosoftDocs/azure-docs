@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 08/17/2020
+ms.date: 09/04/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -194,7 +194,11 @@ When the protocol is `SAML`, a metadata element contains the following elements.
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
+| IdpInitiatedProfileEnabled | No | Indicates whether the IDP initiated flow is supported. Possible values: `true` or `false` (default). | 
 | XmlSignatureAlgorithm | No | The method that Azure AD B2C uses to sign the SAML Response. Possible values: `Sha256`, `Sha384`, `Sha512`, or `Sha1`. Make sure you configure the signature algorithm on both sides with same value. Use only the algorithm that your certificate supports. To configure the SAML Assertion, see [SAML issuer technical profile metadata](saml-issuer-technical-profile.md#metadata). |
+| DataEncryptionMethod | No | Indicates the method that Azure AD B2C uses to encrypt the data, using Advanced Encryption Standard (AES) algorithm. The metadata controls the value of the `<EncryptedData>` element in the SAML response. Possible values: `Aes256` (default), `Aes192`, `Sha512`, or ` Aes128`. |
+| KeyEncryptionMethod| No | Indicates the method that Azure AD B2C uses to encrypt the copy of the key that was used to encrypt the data. The metadata controls the value of the  `<EncryptedKey>` element in the SAML response. Possible values: ` Rsa15` (default) - RSA Public Key Cryptography Standard (PKCS) Version 1.5 algorithm, ` RsaOaep` - RSA Optimal Asymmetric Encryption Padding (OAEP) encryption algorithm. |
+| UseDetachedKeys | No |  Possible values `true`, or `false` (default). When the value is set to `ture`, Azure AD B2C changes the format of the encrypted assertions. Using detached keys adds as a child of the EncrytedAssertion as opposed to the EncryptedData. |
 
 ### OutputClaims
 
