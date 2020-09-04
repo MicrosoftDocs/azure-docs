@@ -101,7 +101,7 @@ endip=0.0.0.0
 
 ## Create a resource group
 
-Create a resource group with the [az group create](/cli/azure/group?view=azure-cli-latest#az-group-create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. The following example creates a resource group named *myResourceGroup* in the *eastus* location:
+Create a resource group with the [az group create](/cli/azure/group) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. The following example creates a resource group named *myResourceGroup* in the *eastus* location:
 
 ```azurecli-interactive
 az group create --name $resourceGroupName --location $location
@@ -109,7 +109,7 @@ az group create --name $resourceGroupName --location $location
 
 ## Create a server
 
-Create a server with the [az sql server create](/cli/azure/sqlserver?view=azure-cli-latest#az-sql-server-create) command.
+Create a server with the [az sql server create](/cli/azure/sql/server) command.
 
 ```azurecli-interactive
 az sql server create \
@@ -123,7 +123,7 @@ az sql server create \
 
 ## Configure a firewall rule for the server
 
-Create a firewall rule with the [az sql server firewall-rule create](/cli/azure/sqlserver/firewall-rule?view=azure-cli-latest#az-sql-server-firewall-rule-create) command.
+Create a firewall rule with the [az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule) command.
 
 ```azurecli-interactive
 az sql server firewall-rule create \
@@ -137,7 +137,7 @@ az sql server firewall-rule create \
 
 ## Create a single database
 
-Create a database with the [az sql db create](/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-create) command. The following code creates
+Create a database with the [az sql db create](/cli/azure/sql/db) command. The following code creates
 
 
 ```azurecli-interactive
