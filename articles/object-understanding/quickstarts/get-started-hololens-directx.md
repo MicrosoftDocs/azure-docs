@@ -92,7 +92,7 @@ The next time the app runs, it will capture diagnostics and write data to the ap
 
 #### Upload diagnostics to Object Understanding Azure Blob Storage
 
-The captured diagnostics can be uploaded to Object Understanding Azure blob storage directly when a user provides their subscription account information to the app.
+The captured diagnostics can be uploaded to the Object Understanding Azure service when a user provides their subscription account information to the app.
 
 Create a new file called `subscription.json`. Fill in the account information below and save the contents to `subscription.json`. Upload the `subscription.json` you created to the `LocalState` folder. The next time the app starts, it will load the account information and upload a diagnostics archive to the service.
 
