@@ -15,7 +15,7 @@ ms.custom: devx-track-csharp
 
 # Quickstart: Detect anomalies in your time series data using the Anomaly Detector REST API and C#
 
-Use this quickstart to start using the Anomaly Detector APIs two detection modes to detect anomalies in your time series data. This C# application sends API requests containing JSON-formatted time series data, and gets the responses.
+Use this quickstart to start using the Anomaly Detector API to detect anomalies in your time series data. This C# application sends API requests containing JSON-formatted time series data, and gets the responses.
 
 | API request                                        | Application output                                                                                                                                         |
 |----------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
