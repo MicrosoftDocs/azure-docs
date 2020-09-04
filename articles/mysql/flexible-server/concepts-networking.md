@@ -10,10 +10,10 @@ ms.date: 9/21/2020
 
 # Networking overview
 
+This article describes connectivity and networking concepts for Azure Database for MySQL Flexible server. 
+
 > [!IMPORTANT]
 > Azure Database for MySQL Flexible Server is in preview.
-
-This article describes connectivity and networking concepts for Azure Database for MySQL Flexible server. 
 
 ## Choosing a networking option
 You have two networking options for your Azure Database for MySQL Flexible Server. The options are **private access (VNet integration)** and **public access (allowed IP addresses)**. At server creation, you must pick one option. 
@@ -21,14 +21,14 @@ You have two networking options for your Azure Database for MySQL Flexible Serve
 > [!NOTE]
 > Your networking option cannot be changed after the server is created. 
 
-* Private access (VNet Integration) – You can deploy your flexible server into your [Azure Virtual Network](../../virtual-network/virtual-networks-overview.md). Azure virtual networks provide private and secure network communication. Resources in a virtual network can communicate through private IP addresses.
+* **Private access (VNet Integration)** – You can deploy your flexible server into your [Azure Virtual Network](../../virtual-network/virtual-networks-overview.md). Azure virtual networks provide private and secure network communication. Resources in a virtual network can communicate through private IP addresses.
 
    Choose the VNet Integration option if you want the following capabilities:
    * Connect from Azure resources in the same virtual network to your flexible server using private IP addresses
    * Use VPN or ExpressRoute to connect from non-Azure resources to your flexible server
    * The flexible server has no public endpoint
 
-* Public access (allowed IP addresses) – Your flexible server is accessed through a public endpoint. The public endpoint is a publicly resolvable DNS address. The phrase “allowed IP addresses” refers to a range of IPs you choose to give permission to access your server. These permissions are called **firewall rules**. 
+* **Public access (allowed IP addresses)** – Your flexible server is accessed through a public endpoint. The public endpoint is a publicly resolvable DNS address. The phrase “allowed IP addresses” refers to a range of IPs you choose to give permission to access your server. These permissions are called **firewall rules**. 
 
    Choose the public access method if you want the following capabilities:
    * Connect from Azure resources that do not support virtual networks
@@ -37,7 +37,7 @@ You have two networking options for your Azure Database for MySQL Flexible Serve
 
 The following characteristics apply whether you choose to use the private access or the public access option:
 * Connections from allowed IP addresses need to authenticate to the MySQL server with valid credentials
-* [Connection encryption](#TLS-and-SSL) is available for your network traffic
+* [Connection encryption](#tls-and-ssl) is available for your network traffic
 * The server has a fully qualified domain name (fqdn). For the hostname property in connection strings, we recommend using the fqdn instead of an IP address.
 * Both options control access at the server-level, not at the database- or table-level. You would use MySQL’s roles properties to control database, table, and other object access.
 
