@@ -111,6 +111,9 @@
       href: ddos-protection-overview.md
     - name: Virtual network TAP
       href: virtual-network-tap-overview.md
+    - name: Security controls by Azure Policy
+      displayName: regulatory, compliance, standards, domains
+      href: ./security-controls-policy.md
   - name: Subnets
     items:
     - name: Subnet extension

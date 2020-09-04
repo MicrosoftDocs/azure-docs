@@ -84,6 +84,6 @@ After you've restored or deleted your users, you can perform the following basic
 
 - [Add or change profile information](active-directory-users-profile-azure-portal.md)
 
-- [Add guest users from another organization](../b2b/what-is-b2b.md)
+- [Add guest users from another organization](../external-identities/what-is-b2b.md)
 
 For more information about other available user management tasks, [Azure AD user management documentation](../users-groups-roles/index.yml).

@@ -88,14 +88,14 @@ For more information, see [Integrating your on-premises identities with Azure Ac
 
 **A:** Yes, Azure AD provides you with the [Azure AD Access Panel](https://myapps.microsoft.com) for user self-service and application access. If you are an Office 365 customer, you can find many of the same capabilities in the [Office 365 portal](https://portal.office.com).
 
-For more information, see [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md).
+For more information, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ---
 **Q: Does Azure AD help me manage my on-premises infrastructure?**
 
 **A:** Yes. The Azure AD Premium edition provides you with Azure AD Connect Health. Azure AD Connect Health helps you monitor and gain insight into your on-premises identity infrastructure and the synchronization services.  
 
-For more information, see [Monitor your on-premises identity infrastructure and synchronization services in the cloud](../hybrid/whatis-hybrid-identity-health.md).  
+For more information, see [Monitor your on-premises identity infrastructure and synchronization services in the cloud](../hybrid/whatis-azure-ad-connect.md).  
 
 ---
 ## Password management
@@ -108,7 +108,7 @@ For more information, see [Monitor your on-premises identity infrastructure and 
 
 **A:** Password write-back operates in real time.
 
-For more information, see [Getting started with password management](../authentication/quickstart-sspr.md).
+For more information, see [Getting started with password management](../authentication/tutorial-enable-sspr.md).
 
 ---
 **Q: Can I use password write-back with passwords that are managed by an admin?**
@@ -180,8 +180,8 @@ For more information, see [End user experiences for applications](../manage-apps
 
 For more information, see:
 
-* [Authentication Scenarios for Azure AD](../develop/authentication-scenarios.md)
-* [Active Directory authentication protocols](https://msdn.microsoft.com/library/azure/dn151124.aspx)
+* [Authentication Scenarios for Azure AD](../develop/authentication-vs-authorization.md)
+* [Active Directory authentication protocols](/previous-versions/azure/dn151124(v=azure.100))
 * [Single sign-on for applications in Azure AD](../manage-apps/what-is-single-sign-on.md)
 
 ---
