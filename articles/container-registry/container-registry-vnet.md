@@ -24,6 +24,8 @@ Configuring a registry service endpoint is available in the **Premium** containe
 * Each registry supports a maximum of 100 network access rules.
 * Service endpoints for Azure Container Registry aren't supported in the Azure US Government cloud or Azure China cloud.
 
+[!INCLUDE [container-registry-scanning-limitation](../../includes/container-registry-scanning-limitation.md)]
+
 ## Prerequisites
 
 * To use the Azure CLI steps in this article, Azure CLI version 2.0.58 or later is required. If you need to install or upgrade, see [Install Azure CLI][azure-cli].
