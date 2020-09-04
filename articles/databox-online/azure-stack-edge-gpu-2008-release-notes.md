@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 09/01/2020
+ms.date: 09/04/2020
 ms.author: alkohli
 ---
 
@@ -17,13 +17,13 @@ The following release notes identify the critical open issues and the resolved i
 
 The release notes are continuously updated, and as critical issues requiring a workaround are discovered, they are added. Before you deploy your Azure Stack Edge device, carefully review the information contained in the release notes.
 
-This **Azure Stack Edge 2008** release corresponds to the following software version:
+This article applies to the following software release - **Azure Stack Edge 2008**. 
 
-- **2.1.1328.1904**
+<!--- **2.1.1328.1904**-->
 
 ## What's new
 
-The following new features were added in Azure Stack Edge 2008 release:
+The following new features were added in Azure Stack Edge 2008 release. Depending on the specific preview software version you are running, you may see a subset of these features. 
 
 - **Storage classes** - In the previous release, you could only statically provision storage via SMB or NFS shares for stateful applications deployed on the Kubernetes cluster running on your Azure Stack Edge device. In this release, Storage classes were added that let dynamically provision storage. For more information, see [Kubernetes storage management on your Azure Stack Edge GPU device](azure-stack-edge-gpu-kubernetes-storage.md#dynamicprovisioning). 
 - **Kubernetes dashboard with metrics server** - In this release, a Kubernetes Dashboard is added with a metrics server add-on. You can use the dashboard to get an overview of the applications running on your Azure Stack Edge device, view status of Kubernetes cluster resources, and see any errors that have occurred on the device. The Metrics server aggregates the CPU and memory usage across Kubernetes resources on the device. For more information, see [Use Kubernetes dashboard to monitor your Azure Stack Edge GPU device](azure-stack-edge-gpu-monitor-kubernetes-dashboard.md).
