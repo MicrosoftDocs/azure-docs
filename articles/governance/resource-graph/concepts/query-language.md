@@ -31,6 +31,7 @@ properties from related resource types. Here is the list of tables available in 
 |ResourceContainers |Includes subscription (in preview -- `Microsoft.Resources/subscriptions`) and resource group (`Microsoft.Resources/subscriptions/resourcegroups`) resource types and data. |
 |AdvisorResources |Includes resources _related_ to `Microsoft.Advisor`. |
 |AlertsManagementResources |Includes resources _related_ to `Microsoft.AlertsManagement`. |
+|GuestConfigurationResources |Includes resources _related_ to `Microsoft.GuestConfiguration`. |
 |HealthResources |Includes resources _related_ to `Microsoft.ResourceHealth`. |
 |MaintenanceResources |Includes resources _related_ to `Microsoft.Maintenance`. |
 |SecurityResources |Includes resources _related_ to `Microsoft.Security`. |
