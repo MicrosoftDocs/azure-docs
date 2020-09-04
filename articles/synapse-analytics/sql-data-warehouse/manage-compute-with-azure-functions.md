@@ -49,7 +49,7 @@ Once you've deployed the template, you should find three new resources: a free A
 
 3. Currently the value displayed should say either *%ScaleDownTime%* or *%ScaleUpTime%*. These values indicate the schedule is based on values defined in your [Application Settings](../../azure-functions/functions-how-to-use-azure-function-app-settings.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). For now, you can ignore this value and change the schedule to your preferred time based on the next steps.
 
-4. In the schedule area, add the time the CRON expression you would like to reflect how often you want the SQL Data Warehouse to be scaled up.
+4. In the schedule area, add the time the CRON expression you would like to reflect how often you want Azure Synapse Analytics to be scaled up.
 
    ![Change function schedule](./media/manage-compute-with-azure-functions/change-schedule.png)
 

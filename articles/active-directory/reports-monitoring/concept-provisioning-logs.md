@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 09/01/2020
+ms.date: 09/02/2020
 ms.author: markvi
 ms.reviewer: arvinh
 
@@ -215,6 +215,8 @@ The **summary** tab provides an overview of what happened and identifiers for th
 - There is currently no support for log analytics.
 
 - You may see skipped events for users that are not in scope. This is expected, especially when the sync scope is set to all users and groups. Our service will evaluate all the objects in the tenant, even the ones that are out of scope. 
+
+- The provisioning logs are currently unavailable in the government cloud. If you're unable to access the provisioning logs, please use the audit logs as a temporary workaround.  
 
 ## Error Codes
 
