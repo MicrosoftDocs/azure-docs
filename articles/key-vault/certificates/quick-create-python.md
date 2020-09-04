@@ -13,7 +13,7 @@ ms.custom: devx-track-python
 
 # Quickstart: Azure Key Vault certificates client library for Python
 
-Get started with the Azure Key Vault client library for Python. Follow the steps below to install the package and try out example code for basic tasks. By using Key Vault to store certificates, you avoid storing certficates in your code, which increases the security of your app.
+Get started with the Azure Key Vault client library for Python. Follow the steps below to install the package and try out example code for basic tasks. By using Key Vault to store certificates, you avoid storing certificates in your code, which increases the security of your app.
 
 [API reference documentation](/python/api/overview/azure/keyvault-certificates-readme?view=azure-python) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/keyvault/azure-keyvault-certificates) | [Package (Python Package Index)](https://pypi.org/project/azure-keyvault-certificates)
 
