@@ -402,14 +402,14 @@
     href: /azure/templates/microsoft.search/searchservices
   - name: REST
     items:
-    - name: Search 2020-06-30
+    - name: Search API (Stable)
       href: /rest/api/searchservice
-    - name: Search 2020-06-30-Preview
+    - name: Search API (Preview)
       href: /rest/api/searchservice/index-preview
-    - name: Management 2020-03-13
+    - name: Management API (Stable)
       href: /rest/api/searchmanagement
-    - name: Management 2019-10-01-Preview
-      href: /rest/api/searchmanagement/index-2019-10-01-preview
+    - name: Management API (Preview)
+      href: /rest/api/searchmanagement/index-preview
   - name: .NET
     items:
     - name: Search API
