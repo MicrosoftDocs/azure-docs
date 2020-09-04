@@ -402,6 +402,9 @@
       href: flexible-server/concepts-supported-versions.md
     - name: Compute and storage
       href: flexible-server/concepts-compute-storage.md
+    - name: Networking
+      href: flexible-server/concepts-networking.md
+      displayName: virtual networks, vnet, IP address, public access
     - name: Limits
       href: flexible-server/concepts-limits.md
     - name: Extensions
