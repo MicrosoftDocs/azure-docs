@@ -45,9 +45,9 @@ Other parameters you can adjust to control audit logging behavior include:
 
 ## Access audit logs
 
-Audit logs are integrated with Azure Monitor Diagnostic Logs. Once you've enabled audit logs on your MySQL flexible server, you can emit them to Azure Monitor logs, Event Hubs, or Azure Storage. To learn more about how to enable diagnostic logs, see the how to section of the [diagnostic logs documentation](../../azure-monitor/platform/platform-logs-overview.md).<!-- To learn more about how to enable diagnostic logs in the Azure portal, see the [audit log portal article](howto-configure-audit-logs-portal.md#set-up-diagnostic-logs).-->
+Audit logs are integrated with Azure Monitor diagnostic settings. Once you've enabled audit logs on your MySQL flexible server, you can emit them to Azure Monitor logs, Event Hubs, or Azure Storage. To learn more about diagnostic settings, see the [diagnostic logs documentation](../../azure-monitor/platform/platform-logs-overview.md). To learn more about how to enable diagnostic settings in the Azure portal, see the [audit log portal article](how-to-configure-audit-logs-portal.md#set-up-diagnostics).
 
-The following sections describe what's output by MySQL audit logs based on the event type. Depending on the output method, the fields included and the order in which they appear may vary.
+The following sections describe the output of MySQL audit logs based on the event type. Depending on the output method, the fields included and the order in which they appear may vary.
 
 ### Connection
 
@@ -80,7 +80,7 @@ The following sections describe what's output by MySQL audit logs based on the e
 Schema below applies to GENERAL, DML_SELECT, DML_NONSELECT, DML, DDL, DCL, and ADMIN event types.
 
 > [!NOTE]
-> For `sql_text`, log will be truncated if it exceeds 2048 characters.
+> For `sql_text_s`, log will be truncated if it exceeds 2048 characters.
 
 | **Property** | **Description** |
 |---|---|
@@ -111,7 +111,7 @@ Schema below applies to GENERAL, DML_SELECT, DML_NONSELECT, DML, DDL, DCL, and A
 ### Table access
 
 > [!NOTE]
-> Table access logs are only output for MySQL 5.7.<br>For `sql_text`, log will be truncated if it exceeds 2048 characters.
+> Table access logs are only output for MySQL 5.7.<br>For `sql_text_s`, log will be truncated if it exceeds 2048 characters.
 
 | **Property** | **Description** |
 |---|---|
@@ -192,4 +192,5 @@ Once your audit logs are piped to Azure Monitor Logs through Diagnostic Logs, yo
 
 ## Next steps
 - Learn more about [slow query logs](concepts-slow-query-logs.md)
+- Configure audit query logs from the [Azure portal](how-to-configure-audit-logs-portal.md)
 <!-- - [How to configure audit logs in the Azure portal](howto-configure-audit-logs-portal.md)-->

@@ -436,7 +436,6 @@
         href: flexible-server/concepts-backup-restore.md
       - name: High availability
         href: flexible-server/concepts-high-availability.md
-    - name: Manage
     - name: Monitoring & Logs
       items:
       - name: Slow query logs
@@ -479,6 +478,14 @@
       items:
       - name: Create alerts on metrics
         href: flexible-server/how-to-alert-on-metric.md
+      - name: Slow query logs
+        items:
+        - name: Azure portal
+          href: flexible-server/how-to-configure-slow-query-logs-portal.md
+      - name: Audit logs
+        items:
+        - name: Azure portal
+          href: flexible-server/how-to-configure-audit-logs-portal.md
     - name: Troubleshoot
       items:
       - name: Connection errors
