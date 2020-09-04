@@ -132,13 +132,13 @@ Now, let's go through each of these settings in more detail and talk about the b
 ## Load
 The whole point of defining metrics is to represent some load. *Load* is how much of a given metric is consumed by some service instance or replica on a given node. Load can be configured at almost any point. For example:
 
-  - Load can be defined when a service is created. This is called _default load_.
-  - The metric information, including default loads, for a service can updated after the service is created. This is called _updating a service_. 
-  - The loads for a given partition can be reset to the default values for that service. This is called _resetting partition load_.
-  - Load can be reported on a per service object basis dynamically during runtime. This is called _reporting load_. 
-  - Last reported load for partition's replicas can be overridden by reporting load values through a Fabric API call as well. This is called _reporting load for a partition_. 
-  
-All of these strategies can be used within the same service over its lifetime. 
+  - Load can be defined when a service is created. This type of load configuration is called _default load_.
+  - The metric information, including default loads, for a service can be updated after the service is created. This metric update is done by _updating a service_.
+  - The loads for a given partition can be reset to the default values for that service. This metric update is called _resetting partition load_.
+  - Load can be reported on a per service object basis, dynamically during runtime. This metric update is called _reporting load_.
+  - Load for partition's replicas or instances can also be updated by reporting load values through a Fabric API call. This metric update is called _reporting load for a partition_.
+
+All of these strategies can be used within the same service over its lifetime.
 
 ## Default load
 *Default load* is how much of the metric each service object (stateless instance or stateful replica) of this service consumes. The Cluster Resource Manager uses this number for the load of the service object until it receives other information, such as a dynamic load report. For simpler services, the default load is a static definition. The default load is never updated and is used for the lifetime of the service. Default loads works great for simple capacity planning scenarios where certain amounts of resources are dedicated to different workloads and do not change.
@@ -184,13 +184,13 @@ With this API, there are multiple ways to update load in the cluster:
 
 It is also possible to combine any of those updates per partition at the same time.
 
-Updating loads for multiple partitions is possible with a single API call, in which case the output will contain a response per partition. In case partition update is not successfully applied for any reason, updates for that partition will be skipped and corresponding error code for a targeted partition will be provided:
+Updating loads for multiple partitions is possible with a single API call, in which case the output will contain a response per partition. In case partition update is not successfully applied for any reason, updates for that partition will be skipped, and corresponding error code for a targeted partition will be provided:
 
 1. PartitionNotFound - Specified partition ID doesn't exist.
 2. ReconfigurationPending - Partition is currently reconfiguring.
 3. InvalidForStatelessServices - An attempt was made to change the load of a primary replica for a partition belonging to a stateless service.
 5. ReplicaDoesNotExist - Secondary replica or instance does not exist on a specified node.
-6. InvalidOperation - Could happen in two cases: updating load for a partitions that belongs to the System application is not enabled by default and updating predicted load (besides current load) is not enabled by default. Applying predicted load is under development at the moment, and it will be possible in the future.
+6. InvalidOperation - Could happen in two cases: updating load for a partition that belongs to the System application is not enabled by default, and updating predicted load (besides current load) is not enabled by default. Applying predicted load is under development at the moment, and it will be possible in the future.
 
 If some of those errors are returned, you can update the input for a specific partition and retry the update for a specific partition.
 
