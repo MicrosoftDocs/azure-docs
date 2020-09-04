@@ -6,7 +6,7 @@ ms.service: storage
 ms.topic: how-to
 ms.author: normesta
 ms.reviewer: dineshm
-ms.date: 05/14/2020
+ms.date: 09/03/2020
 ms.subservice: blobs
 ms.custom: devx-track-javascript
 
@@ -14,13 +14,16 @@ ms.custom: devx-track-javascript
 
 # Static website hosting in Azure Storage
 
-You can serve static content (HTML, CSS, JavaScript, and image files) directly from a storage container named *$web*. Hosting your content in Azure Storage enables you to use serverless architectures that include [Azure Functions](/azure/azure-functions/functions-overview) and other Platform as a service (PaaS) services.
+You can serve static content (HTML, CSS, JavaScript, and image files) directly from a storage container named *$web*. Hosting your content in Azure Storage enables you to use serverless architectures that include [Azure Functions](/azure/azure-functions/functions-overview) and other Platform as a service (PaaS) services. Azure Storage static website hosting is a great option in cases where you don't require a web server to render content.
+
+[App Service Static Web Apps](https://azure.microsoft.com/services/app-service/static/) is a great alternative to Azure Storage static website hosting and is also appropriate in cases where you don't require a web server to render content. [App Service Static Web Apps](https://azure.microsoft.com/services/app-service/static/) provides you with a fully managed continuous integration and continuous delivery (CI/CD) workflow from GitHub source to global deployment.
+
+If you need a web server to render content, you can use [Azure App Service](https://azure.microsoft.com/services/app-service/).
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
 > [!NOTE]
-> If your site depends on server-side code, use [Azure App Service](/azure/app-service/overview) instead.
-Make sure to create a general-purpose v2 Standard storage account . Static websites aren't available in any other type of storage account.
+> Make sure to create a general-purpose v2 Standard storage account . Static websites aren't available in any other type of storage account.
 
 ## Setting up a static website
 
