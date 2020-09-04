@@ -16,7 +16,7 @@ Azure Database for MySQL supports connecting your database server to client appl
 > Updating the `require_secure_transport` server parameter value does not affect the MySQL service's behavior. Use the SSL and TLS enforcement features outlined in this article to secure connections to your database.
 
 > [!IMPORTANT] 
-> SSL root certificate is set to expire starting October 26th, 2020 (10/26/2020). Please update your application to use the [new certificate](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem). To learn more , see [planned certificate updates](concepts-certificate-.rotation.md)
+> SSL root certificate is set to expire starting October 26th, 2020 (10/26/2020). Please update your application to use the [new certificate](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem). To learn more , see [planned certificate updates](concepts-certificate-rotation.md)
 
 ## SSL Default settings
 

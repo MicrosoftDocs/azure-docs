@@ -26,7 +26,7 @@ The new certificate will be used starting October 26, 2020 (10/26/2020). If you 
 
 All applications that use SSL/TLS and verify the root certificate needs to update the root certificate in order to connect to Azure Database for MySQL. If you are not using SSL/TLS currently, there is no impact to your application availability. You can verify if your client application is trying to use SSL mode with the predefined trusted Certificate Authority (CA) [here](concepts-ssl-connection-security.md#ssl-default-settings).
 
-To avoid your application’s availability being interrupted due to certificates being unexpectedly revoked, or to update a certificate, which has been revoked, refer to the [**“What do I need to do to maintain connectivity”**](./concepts-certificate-rotation.md#what-do-I-need-to-do-to-maintain-connectivity) section.
+To avoid your application’s availability being interrupted due to certificates being unexpectedly revoked, or to update a certificate, which has been revoked, refer to the [**“What do I need to do to maintain connectivity”**](concepts-certificate-rotation.md#what-do-i-need-to-do-to-maintain-connectivity) section.
 
 ## What do I need to do to maintain connectivity
 
