@@ -327,7 +327,7 @@ You can also use the Azure AD PowerShell module to perform adhoc queries to disc
 
 ### 3.3: Use dedicated administrative accounts
 
-**Guidance**: Azure Machine Learning comes with three default roles when a new workspace is created, create standard operating procedures around the use of owner accounts.
+**Guidance**: Azure Machine Learning comes with three default roles when a new workspace is created, creating standard operating procedures around the use of owner accounts.
 
 You can also enable a just-in-time access to administrative accounts by using Azure AD Privileged Identity Management and Azure Resource Manager. 
 

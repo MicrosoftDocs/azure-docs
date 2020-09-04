@@ -44,7 +44,12 @@ If users are accessing the Azure file share using Active Directory (AD) or Azure
 
 ### Solution for cause 3
 
-To update the share-level permissions, see [Assign access permissions to an identity](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-domain-service-enable#2-assign-access-permissions-to-an-identity).
+Validate that permissions are configured correctly:
+
+- **Active Directory (AD)** see [Assign share-level permissions to an identity](https://docs.microsoft.com/azure/storage/files/storage-files-identity-ad-ds-assign-permissions).
+
+    Share-level permission assignments are supported for groups and users that have been synced from the Active Directory (AD) to Azure Active Directory (AAD) using Azure AD Connect.  Confirm that groups and users being assigned share-level permissions are not unsupported "cloud-only" groups.
+- **Azure Active Directory Domain Services (Azure AD DS)** see [Assign access permissions to an identity](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-domain-service-enable?tabs=azure-portal#assign-access-permissions-to-an-identity).
 
 <a id="error53-67-87"></a>
 ## Error 53, Error 67, or Error 87 when you mount or unmount an Azure file share
@@ -310,18 +315,6 @@ Error AadDsTenantNotFound happens when you try to [enable Azure Active Directory
 Enable Azure AD DS on the Azure AD tenant of the subscription that your storage account is deployed to. You need administrator privileges of the Azure AD tenant to create a managed domain. If you aren't the administrator of the Azure AD tenant, contact the administrator and follow the step-by-step guidance to [Enable Azure Active Directory Domain Services using the Azure portal](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started).
 
 [!INCLUDE [storage-files-condition-headers](../../../includes/storage-files-condition-headers.md)]
-
-## Error 'System error 1359 has occurred. An internal error' received over SMB access to file shares with Azure Active Directory Domain Service (Azure AD DS) authentication enabled
-
-### Cause
-
-Error 'System error 1359 has occurred. An internal error' happens when you try to connect to your file share with Azure AD DS authentication enabled against an Azure AD DS with domain DNS name starting with a numeric character. For example, if your Azure AD DS Domain DNS name is "1domain", you will get this error when attempting to mount the file share using Azure AD credentials. 
-
-### Solution
-
-Currently, you can consider redeploying your Azure AD DS using a new domain DNS name that applies with the rules below:
-- Names cannot begin with a numeric character.
-- Names must be from 3 to 63 characters long.
 
 ## Unable to mount Azure Files with AD credentials 
 
