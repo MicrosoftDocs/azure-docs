@@ -42,7 +42,7 @@
         href: ./iot-edge-module.md
       - name: Consulting services
         href: ./consulting-services.md
-      - name: Office 365, Dynamics 365, and Power BI
+      - name: Microsoft 365, Dynamics 365, and Power BI
         href: ./appsource-offer-publishing-guide.md
       - name: Enable offer authentication with Azure AD
         href: ./enable-appsource-marketplace-using-azure-ad.md
