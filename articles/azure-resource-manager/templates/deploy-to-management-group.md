@@ -186,7 +186,7 @@ For management group deployments, there are some important considerations when u
 * The [resourceGroup()](template-functions-resource.md#resourcegroup) function is **not** supported.
 * The [subscription()](template-functions-resource.md#subscription) function is **not** supported.
 * The [reference()](template-functions-resource.md#reference) and [list()](template-functions-resource.md#list) functions are supported.
-* Don't use the [resourceId()](template-functions-resource.md#resourceid) function for resources deployed to the management group. Instead, use the [extensionResourceId()](#extensionresourceid) function for resources implemented as extensions of the management group. Custom policy definitions that are deployed to the management group are extensions of the management group. Use the [tenantResourceId](#tenantresourceid) function for tenant resources that are available within the management group. Built-in policy definitions are tenant level resources.
+* Don't use the [resourceId()](template-functions-resource.md#resourceid) function for resources deployed to the management group. Instead, use the [extensionResourceId()](template-functions-resource.md#extensionresourceid) function for resources implemented as extensions of the management group. Custom policy definitions that are deployed to the management group are extensions of the management group. Use the [tenantResourceId](template-functions-resource.md#tenantresourceid) function for tenant resources that are available within the management group. Built-in policy definitions are tenant level resources.
 
   To get the resource ID for a custom policy definition at the management group level, use:
   
