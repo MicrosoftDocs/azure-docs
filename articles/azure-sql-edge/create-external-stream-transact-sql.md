@@ -143,7 +143,7 @@ WITH  ( <with_options> )
     Maximum number of events sent to the function per call for Azure function - default is 100. For SQL Database, this represents the maximum number of   records sent with every bulk insert transaction - default is 10,000. 
     - Applies to all SQL based outputs 
   - STAGING_AREA: EXTERNAL DATA SOURCE object to Blob Storage 
-    The staging area for high-throughput data ingestion into SQL Data Warehouse 
+    The staging area for high-throughput data ingestion into Azure Synapse Analytics 
     - Reserved for future usage. Does not apply to Azure SQL Edge.
 
 

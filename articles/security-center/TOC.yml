@@ -235,7 +235,7 @@
   - name: Readiness Roadmap
     href: security-center-readiness-roadmap.md
   - name: Azure Security, Privacy, & Compliance blog
-    href: https://blogs.msdn.com/b/azuresecurity/
+    href: https://docs.microsoft.com/archive/blogs/azuresecurity/
   - name: Azure Security Center on Stack Overflow
     href: https://stackoverflow.com/search?q=azure-security-center
   - name: Videos
