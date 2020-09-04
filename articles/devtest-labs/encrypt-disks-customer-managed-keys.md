@@ -75,13 +75,11 @@ The following section shows how a lab owner can set up encryption using a custom
 
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/encrypt-disks-customer-managed-keys/enabled-encryption-vm.png" alt-text="VM with enabled disk encryption":::
-1. Click on the resource group of the VM.
+1. Click on the resource group of the VM and click on the OS Disk.
 
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/encrypt-disks-customer-managed-keys/vm-resource-group.png" alt-text="VM resource group":::
-1. Click on the Disk.
-1. Go to Encryption.
-1. Validate if encryption is set to customer managed key with the Disk Encryption Set you selected. 
+1. Go to Encryption and validate if encryption is set to customer managed key with the Disk Encryption Set you selected.
 
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/encrypt-disks-customer-managed-keys/validate-encryption.png" alt-text="Validate encryption":::
