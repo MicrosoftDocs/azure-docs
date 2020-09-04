@@ -14,7 +14,6 @@ ms.custom: how-to
 ---
 
 # Deploy trained models from the designer
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 In this article, you will learn how to deploy a trained model from the designer as a real-time endpoint in the Azure Machine Learning studio.
 
@@ -80,7 +79,7 @@ Alternatively, you can download the files from the **Models** asset page:
     ![Screenshot of download files for deployment in model detail page](./media/how-to-deploy-model-designer/download-artifacts-in-models-page.png)
 
 > [!NOTE]
-> The `score.py` files provide almost the same functions as the **Score Model** modules. But for some modules like [Score SVD Recommender](./algorithm-module-reference/score-svd-recommender.md), [Score Wide and Deep Recommender](./algorithm-module-reference/score-wide-and-deep-recommender.md), and [Score Vowpal Wabbit Model](./algorithm-module-reference/score-vowpal-wabbit-model.md), user can set parameters for different score mode. Similarly, user can also change parameters in the `score.py` files to enable different score functions. See [Configure entry script file](#configure-entry-script-file) for how to set different parameters in the `score.py` files.
+> The `score.py` files provide almost the same functions as the **Score Model** modules. But for some modules like [Score SVD Recommender](./algorithm-module-reference/score-svd-recommender.md), [Score Wide and Deep Recommender](./algorithm-module-reference/score-wide-and-deep-recommender.md), and [Score Vowpal Wabbit Model](./algorithm-module-reference/score-vowpal-wabbit-model.md), user can set parameters for different score mode. Similarly, user can also change parameters in the `score.py` files to enable different score functions. See [Configure entry script file](#technical-notes) for how to set different parameters in the `score.py` files.
 
 ## Deploy your model
 
