@@ -25,14 +25,12 @@ Configure access to the MySQL slow query log.
 
 1. Select your flexible server.
 
-1. Under the **Monitoring** section in the sidebar, select **Server logs**. 
+1. Under the **Settings** section in the sidebar, select **Server parameters**.
    <!-- ![Screenshot of Server logs options](./media/howto-configure-server-logs-in-portal/1-select-server-logs-configure.png)-->
 
-1. To see the server parameters, select **Click here to enable logs and configure log parameters**.
+1. Update the **slow_query_log** parameter to **ON**.
 
-1. Turn **slow_query_log** to **ON**.
-
-1. Change any other parameters needed. 
+1. Change any other parameters needed (ex. `long_query_time`, `log_slow_admin_statements`). Refer to the [slow query logs](./concepts-slow-query-logs.md#configure-slow-query-logging) docs for more parameters.  
 
 1. Select **Save**. 
 
