@@ -24,7 +24,7 @@
     href: howto-create-users.md
     displayName: users
   - name: Mitigate database corruption
-    href:  fix-corrupt-database.md
+    href: how-to-fix-corrupt-database.md
     displayName: corrupt data
 - name: Single Server
   items:
