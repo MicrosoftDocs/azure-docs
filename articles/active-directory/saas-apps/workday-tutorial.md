@@ -155,7 +155,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     a. Perform following actions for the fields, that are shown below.
 
-    ![SAML Identity Providers](./media/workday-tutorial/IC7829271.png "SAML Identity Providers")
+    ![SAML Identity Providers 1](./media/workday-tutorial/IC7829271.png "SAML Identity Providers")
 
     * In the **Identity Provider Name** textbox, type a provider name (for example: *SPInitiatedSSO*).
 
@@ -165,7 +165,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     b. Perform following actions for the fields, that are shown below.
 
-    ![SAML 509 Certificate](./media/workday-tutorial/saml-identity-provider-2.png "SAML Identity Providers")
+    ![SAML Identity Providers 2](./media/workday-tutorial/saml-identity-provider-2.png "SAML Identity Providers")
 
     * Click on **Enable IDP Initiated Logout** checkbox.
 
@@ -178,7 +178,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     c. Perform following actions for the fields, that are shown below.
 
-    ![Workday](./media/workday-tutorial/saml-identity-provider-3.png "SAML Identity Providers")
+    ![SAML Identity Providers 3](./media/workday-tutorial/saml-identity-provider-3.png "SAML Identity Providers")
 
 	* In the Azure portal, on the **Set up Workday** section, copy the **Login URL** value, and then paste it into the **IdP SSO Service URL** textbox.
 
