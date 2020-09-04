@@ -93,7 +93,7 @@ The reason for the warnings is the cluster has RBAC enabled and access to the da
 
 Ensure ports 22, 9000 and 1194 are open to connect to the API server. Check whether the `tunnelfront` or `aks-link` pod is running in the *kube-system* namespace using the `kubectl get pods --namespace kube-system` command. If it isn't, force deletion of the pod and it will restart.
 
-## I'm getting "tls: client offered only unsupported versions" from my client when connecting to AKS API. What should I do?
+## I'm getting `"tls: client offered only unsupported versions"` from my client when connecting to AKS API. What should I do?
 
 The minimum supported TLS version in AKS is TLS 1.2.
 
