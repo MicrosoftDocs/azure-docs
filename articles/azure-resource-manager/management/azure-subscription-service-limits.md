@@ -70,6 +70,10 @@ The following App Service limits include limits for Web Apps, Mobile Apps, and A
 
 [!INCLUDE [automation-limits](../../../includes/azure-automation-service-limits.md)]
 
+## Azure App Configuration
+
+[!INCLUDE [app-configuration-limits](../../../includes/app-configuration-limits.md)]
+
 ## Azure Cache for Redis limits
 
 [!INCLUDE [redis-cache-service-limits](../../../includes/redis-cache-service-limits.md)]

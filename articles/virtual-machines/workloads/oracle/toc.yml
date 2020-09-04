@@ -28,8 +28,6 @@
     href: oracle-reference-architecture.md
   - name: Architect an Oracle DB
     href: oracle-design.md
-  - name: Backup strategy for Oracle DB
-    href: oracle-backup-recovery.md
   - name: Oracle disaster recovery options
     href: oracle-disaster-recovery.md
 - name: How-to guides

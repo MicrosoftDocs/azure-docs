@@ -134,6 +134,7 @@
     - name: Automate responses to alerts
       href: workflow-automation.md
     - name: Export alerts
+      displayName: continuous    
       href: continuous-export.md
   - name: Use security recommendations to improve security
     items:
@@ -154,6 +155,7 @@
     - name: Automate responses to recommendations
       href: workflow-automation.md
     - name: Export recommendations
+      displayName: continuous    
       href: continuous-export.md
   - name: Manage your resources with asset inventory
     href: asset-inventory.md

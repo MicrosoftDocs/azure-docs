@@ -70,6 +70,8 @@ In this example, you create a [`SpeechConfig`](https://docs.microsoft.com/javasc
 function synthesizeSpeech() {
     const speechConfig = SpeechConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");
 }
+
+synthesizeSpeech();
 ```
 
 ## Synthesize speech to a file

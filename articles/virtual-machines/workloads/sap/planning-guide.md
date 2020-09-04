@@ -1266,7 +1266,7 @@ See the architecture difference between classic model and ARM as described in [t
 #### Configuration of the SAP System and SAP GUI connectivity over the internet
 
 See this article, which describes details to this topic:
-<https://blogs.msdn.com/b/saponsqlserver/archive/2014/06/24/sap-gui-connection-closed-when-connecting-to-sap-system-in-azure.aspx>
+<https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/sap-gui-connection-closed-when-connecting-to-sap-system-in-azure/ba-p/367778>
 
 #### Changing Firewall Settings within VM
 
@@ -2012,9 +2012,6 @@ Other VMs within the SAP system can be backed up using Azure Virtual Machine Bac
 ### Azure as DR site for production SAP landscapes
 
 Since Mid 2014, extensions to various components around Hyper-V, System Center, and Azure enable the usage of Azure as DR site for VMs running on-premises based on Hyper-V.
-
-A blog detailing how to deploy this solution is documented here:
-<https://blogs.msdn.com/b/saponsqlserver/archive/2014/11/19/protecting-sap-solutions-with-azure-site-recovery.aspx>.
 
 ## Summary
 
