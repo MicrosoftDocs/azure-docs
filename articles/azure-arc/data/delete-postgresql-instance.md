@@ -4,8 +4,8 @@ description: Delete a PostgreSQL instance
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-author: twright-msft
-ms.author: twright
+author: TheJY
+ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 08/04/2020
 ms.topic: how-to
@@ -68,7 +68,7 @@ logs-postgres01-2   Bound    pvc-8e5ad55e-300d-4353-92d8-2e383b3fe96e   5Gi     
 logs-postgres01-3   Bound    pvc-f9e4cb98-c943-45b0-aa07-dd5cff7ea585   5Gi        RWO            default        2d15h
 ```
 
-If you do not reclaim these PVCs you will eventually end up with errors as your Kubernetes cluster will think it is running out of disk space.
+If you don't reclaim these PVCs, you'll eventually end up with errors as your Kubernetes cluster will think it's running out of disk space.
 
 >[!NOTE] 
 > Some of these errors may include being unable to login to your cluster with azdata as the pods may be evicted from the Kubernetes cluster (normal Kubernetes behavior).
@@ -88,4 +88,4 @@ kubectl delete pvc -n <name of pvc>
 > [!NOTE]
 > Deleting an instance and/or its PVCs does not delete the database file on the persistent volumes. This is by design.
 
-The intention is to help the user access the database files in case the deletion of instance was accidental.
+The intention is to help users access the database files in case the deletion of instance was accidental.
