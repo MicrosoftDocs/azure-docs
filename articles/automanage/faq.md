@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: automanage
 ms.workload: infrastructure
 ms.topic: troubleshooting
-ms.date: 08/31/2020
+ms.date: 09/04/2020
 ms.author: daberry
 ---
 
@@ -22,12 +22,12 @@ If your Azure issue is not addressed in this article, visit the Azure forums on 
 
 **Which capabilities does Azure Automanage automate?**
 
-Automanage enrolls, configures, and monitors throughout the lifecycle of the VM the following services: Azure Security Center, Update Management, Backup, Change tracking, VM inventory, VM insights monitoring, Microsoft antimalware, Desired state configuration, Guest configuration, Automation accounts, and Log analytics.
+Automanage enrolls, configures, and monitors throughout the lifecycle of the VM the services listed [here](virtual-machines-best-practices.md).
 
 
 **Can I customize configurations on Azure Automanage?**
 
-Customers can customize settings for specific services, like Azure Backup retention. For the full list of settings that can be changed, please see our documentation [here](virtual-machines-best-practices.md).
+Customers can customize settings for specific services, like Azure Backup retention. For the full list of settings that can be changed, see our documentation [here](virtual-machines-best-practices.md).
 
 
 **Does Azure Automanage work with both Linux and Windows VMs?**   
@@ -37,12 +37,12 @@ Currently, Automanage supports Windows Server Azure VMs.
 
 **Can I selectively apply Automanage on only a set of VMs?**
 
-Automanage can be enabled with click and point simplicity on selected new and existing VMs and can be disabled at any time.
+Automanage can be enabled with click and point simplicity on selected new and existing VMs. Automanage can also be disabled at any time.
 
 
 **How much does Azure Automanage cost?**
 
-Azure Automanage for VM best practices is free to use. The services that Automanage enrolls and configures might incur a cost.
+Azure Automanage is available at no additional cost in public preview. Attached Azure resources, such as Azure Backup, will incur cost.
 
 
 **What regions are supported?**
@@ -57,7 +57,7 @@ Yes, we have a built-in policy that will automatically apply Automanage to all V
 
 **What is an Automanage account?**
 
-An Automanage account is a MSI (Managed Service Identity) account that provides the Automanage service permissions to access the VM.
+An Automanage account is an MSI (Managed Service Identity) account that provides the Automanage service permissions to access the VM.
 
 
 **What RBAC permission is needed to enable Automanage?**
@@ -68,3 +68,16 @@ Users must have the Owner role. Alternatively, users can have the Contributor ro
 **Can I change the configuration profile of my VM?**
 
 At this time, you will need to disable Automanage for that VM and then re-enable Automanage with the desired configuration profile and preferences.
+
+
+**If my VM is already configured for a service, like Update Management, will Automanage reconfigure it?**
+No, Automanage will not reconfigure it. We will begin to monitor the resources associated to that service for drift.
+
+
+**Why does my VM have a Failed status in the Automanage portal?**
+
+If you see the status as *Failed*, you can troubleshoot the deployment through the Resource Group your VM is located in. Go to **Resource groups**, select your resource group, click on **Deployments** and see the *Failed* status there along with error details. 
+
+**How can I get troubleshooting support for Automanage?**
+
+You can file a [technical support case ticket](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). For the **Service** option, search for and select *Automanage* under the *Monitoring and Management* section. 

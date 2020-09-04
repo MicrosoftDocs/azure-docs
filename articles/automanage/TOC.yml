@@ -3,20 +3,22 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create VMs in the Azure portal
+  - name: Enable on VMs in the Azure portal
     href: quick-create-virtual-machines-portal.md
 - name: Concepts
   expanded: true
   items:
   - name: Virtual Machines
-  - href: automanage-virtual-machines.md
+    href: automanage-virtual-machines.md
   - name: Best Practices for VMs
     href: virtual-machines-best-practices.md
 - name: How to
   expanded: true
   items:
   - name: Custom configuration profile
-  - href: virtual-machines-custom-config-profile.md
+    href: virtual-machines-custom-config-profile.md
+  - name: Enable on VMs through Azure Policy
+    href: virtual-machines-policy-enable.md
 - name: Resources
   expanded: true
   items:

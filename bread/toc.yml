@@ -103,8 +103,8 @@
       tocHref: /azure/app-service-mobile/
       topicHref: /azure/app-service-mobile/
   - name: Azure Automanage
-  - tocHref: /azure/automanage/
-  - topicHref: /azure/automanage/
+    tocHref: /azure/automanage/
+    topicHref: /azure/automanage/
   - name: Static Web Apps
     tocHref: /azure/static-web-apps/
     topicHref: /azure/static-web-apps/
