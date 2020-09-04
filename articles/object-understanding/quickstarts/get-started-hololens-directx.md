@@ -78,7 +78,7 @@ You can define a search space for the object in the app by finger clicking in th
 
 This app can track multiple objects at one time. To do that, upload multiple models to the **LocalState** folder and set a search area that covers both objects. It may take longer to detect and track multiple objects.
 
-The app by default detects object at coarse pose, with a rough 2+ cm error. User can air tap with left hand to turn on high precision tracking mode, which potentially computes more accurate pose. This is still an experimental feature, which consumes more system resources and could result higher jitter in the estimated pose. Air tap again with left hand to switch to normal tracking mode.
+The app detects objects at coarse pose with a rough 2+ cm error. A user can air tap using their left hand to turn on the high precision tracking mode, which can compute a more accurate pose. This is still an experimental feature, which consumes more system resources, and could result in higher jitter in the estimated pose. Air tap again with the left hand to switch back to the normal tracking mode.
 
 ## Capture diagnostics from the application
 
