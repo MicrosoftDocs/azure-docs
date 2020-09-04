@@ -14,11 +14,9 @@ Azure Database for MySQL will be changing the root certificate for the client ap
 
 ## What update is going to happen?
 
-In some cases, applications use a local certificate file generated from a trusted Certificate Authority (CA) certificate file to connect securely. Currently customers can only use the predefined certificate to connect to an Azure Database for MySQL server, which is located [here](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem). However, [Certificate Authority (CA) Browser forum](https://cabforum.org/) recently published reports of multiple certificates issued by CA vendors that are used by our customers, Microsoft, and the greater technology community that were out-of-compliance with industry standards for publicly trusted CAs. The reports regarding the non-compliant CAs can be found below -
-*  [Bug 1649951](https://bugzilla.mozilla.org/show_bug.cgi?id=1649951)
-*  [Bug 1650910](https://bugzilla.mozilla.org/show_bug.cgi?id=1650910)
+In some cases, applications use a local certificate file generated from a trusted Certificate Authority (CA) certificate file to connect securely. Currently customers can only use the predefined certificate to connect to an Azure Database for MySQL server, which is located [here](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem). However, [Certificate Authority (CA) Browser forum](https://cabforum.org/) recently published reports of multiple certificates issued by CA vendors to be non-compliant.
 
-As per the industry’s compliance requirements, CA vendors began revoking non-compliant CAs and issuing compliant CAs. This requires client applications using these certificates to be reissued and updated. Since Azure Database for MySQL leverages one of these non-compliant certificates to validate client applications using SSL, we need to ensure that appropriate actions are taken (described below) to minimize the potential impact to Azure Services.
+As per the industry’s compliance requirements, CA vendors began revoking non-compliant CAs and issuing compliant CAs that requires client applications using these certificates to be reissued and updated. Since Azure Database for MariaDB leverages one of these non-compliant certificates to validate client applications using SSL, we need to ensure that appropriate actions are taken (described below) to minimize the potential impact to Azure Services.
 
 The new certificate will be used starting October 26, 2020 (10/26/2020). If you use full validation of the server certificate, you need to update your application configuration before October 26, 2020 (10/26/2020).
 
