@@ -54,7 +54,7 @@ You can also do other actions using the hand menu:
 
 **Start/Stop Tracing**: Capture diagnostics data and save it to the device. See more detail in section **Debug Detection Issues and Capture Diagnostics**
 
-**Upload Tracing**: Upload diagnostics data to Object Understanding Azure blob storage. User must provide their subscription account in **subscription.json** and upload it to **LocalState** folder. A sample **subscription.json** file can be found below.
+**Upload Tracing**: Upload diagnostics data to the Object Understanding service. A user must provide their subscription account in `subscription.json` and upload it to the `LocalState` folder. A sample `subscription.json` file can be found below.
 
 ```json
 {
