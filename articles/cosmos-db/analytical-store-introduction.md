@@ -151,10 +151,15 @@ Analytical TTL on a container is set using the `AnalyticalStoreTimeToLiveInSecon
 * If present and the value is set to some positive number "n": items will expire from the analytical store "n" seconds after their last modified time in the transactional store. This setting can be leveraged if you want to retain your operational data for a limited period of time in the analytical store, irrespective of the retention of the data in the transactional store
 
 Some points to consider:
-*	After the analytical store is enabled with an analytical TTL value, it can be updated to a different valid value later. 
-*	While transactional TTL can be set at the container or item level, analytical TTL can only be set at the container level currently.
-*	You can achieve longer retention of your operational data in the analytical store by setting analytical TTL >= transactional TTL at the container level.
-*	The analytical store can be made to mirror the transactional store by setting analytical TTL = transactional TTL .
+*	After the analytical store is enabled with an analytical TTL value, it can be updated to a different valid value later 
+*	While transactional TTL can be set at the container or item level, analytical TTL can only be set at the container level currently
+*	You can achieve longer retention of your operational data in the analytical store by setting analytical TTL >= transactional TTL at the container level
+*	The analytical store can be made to mirror the transactional store by setting analytical TTL = transactional TTL
+
+When you enable anaytical store on a container:
+ * using Azure Portal, analytical TTL is set to the default value of -1. You can change this value to 'n' seconds, by navigating to container settings under Data Explorer. 
+ 
+ * using Azure SDK or Powershell or CLI, analytical TTL can be enabled by setting it to either -1 or 'n'. 
 
 To learn more, see [how to configure analytical TTL on a container](configure-synapse-link.md#create-analytical-ttl).
 
