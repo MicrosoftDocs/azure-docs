@@ -51,31 +51,31 @@ Logical replication uses the terms 'publisher' and 'subscriber'.
 Here's some sample code you can use to try out logical replication.
 
 1. Connect to the publisher. Create a table and add some data.
-```
-CREATE TABLE basic(id SERIAL, name varchar(40));
-INSERT INTO basic(name) VALUES ('apple');
-INSERT INTO basic(name) VALUES ('banana');
-```
+   ```SQL
+   CREATE TABLE basic(id SERIAL, name varchar(40));
+   INSERT INTO basic(name) VALUES ('apple');
+   INSERT INTO basic(name) VALUES ('banana');
+   ```
 
 2. Create a publication for the table.
-```
-CREATE PUBLICATION pub FOR TABLE basic;
-```
+   ```SQL
+   CREATE PUBLICATION pub FOR TABLE basic;
+   ```
 
 3. Connect to the subscriber. Create a table with the same schema as on the publisher.
-```
-CREATE TABLE basic(id SERIAL, name varchar(40));
-```
+   ```SQL
+   CREATE TABLE basic(id SERIAL, name varchar(40));
+   ```
 
 4. Create a subscription that will connect to the publication you created earlier.
-```
-CREATE SUBSCRIPTION sub CONNECTION 'host=<server>.postgres.database.azure.com user=<admin> dbname=<dbname>' PUBLICATION pub;
-```
+   ```SQL
+   CREATE SUBSCRIPTION sub CONNECTION 'host=<server>.postgres.database.azure.com user=<admin> dbname=<dbname>' PUBLICATION pub;
+   ```
 
 5. You can now query the table on the subscriber. You will see that it has received data from the publisher.
-```
-SELECT * FROM basic;
-```
+   ```SQL
+   SELECT * FROM basic;
+   ```
 
 You can add more rows to the publisher's table and view the changes on the subscriber.
 
