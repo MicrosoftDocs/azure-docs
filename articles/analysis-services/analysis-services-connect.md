@@ -80,7 +80,7 @@ For linked server connections to Azure Analysis Services, the MSOLAP provider mu
 
 If **Allow inprocess** is selected and the provider is instantiated in the SQL Server process, the following error is returned:
 
-```sql
+```
 OLE DB provider "MSOLAP" for linked server "(null)" returned message "The following system error occurred: ".
 
 OLE DB provider "MSOLAP" for linked server "(null)" returned message "The connection failed because user credentials are needed and Sign-In UI is not allowed.".
@@ -88,8 +88,6 @@ OLE DB provider "MSOLAP" for linked server "(null)" returned message "The connec
 Msg 7303, Level 16, State 1, Line 2
 Cannot initialize the data source object of OLE DB provider "MSOLAP" for linked server "(null)".
 ```
-
-
 
 
 
