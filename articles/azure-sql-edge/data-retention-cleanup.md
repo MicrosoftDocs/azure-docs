@@ -21,7 +21,7 @@ After data retention policy is defiend for a database and the underlying table, 
 filter_column < DATEADD(WEEK, -1, SYSUTCDATETIME())
 ```
 
-## Data Retention Cleanup Phases
+## Data retention cleanup phases
 
 Data retention cleanup operation comprises of two different phases. 
 - Discovery Phase - In this phase the cleanup operation identifies all the tables within the user databases to build a list for cleanup. Discovery runs once a day.
@@ -30,13 +30,13 @@ Data retention cleanup operation comprises of two different phases.
     - Clean up run with a default 5-sec lock timeout setting. If the locks cannot be acquired on the tables within the timeout window, the table is skipped. 
     - If there is an error during cleanup of a table, that table is skipped and will be picked up in the next iteration.
 
-## Disable Data Retention Cleanup
+## Disable data retention cleanup
 
 Automatic cleanup of expired rows can be enabled or disabled at the system level by using the following trace flags. 
 - TF 12829 - Disable automatic cleanup of expired rows on the instance. When this TF is enabled, automatic cleanup will not run for any database or table. 
 - TF 12830 - Enable automatic cleanup of expired rows on the instance. When this TF is enabled, automatic cleanup will run for databases or tables that have a finite retention policy defined. 
 
-## Manual Cleanup
+## Manual cleanup
 
 Depending on the data retention settings on a table and the nature of the workload on the database, it's possible that the automatic cleanup thread may not completely remove all expired rows during its run. To assist with this and allow users to manually remove expired rows, the `sys.sp_cleanup_data_retention` stored procedure has been introduced in Azure SQL Edge (Preview). 
 
@@ -82,6 +82,6 @@ The following six extended events help track the state of the cleanup operations
 | data_retention_cleanup_completed	| Occurs when clean up process of table with data retention policy ends. |
 
 
-## See Also
+## See also
 - [Data Retention Policy](data-retention-overview.md)
 - [Enable and Disable Data Retention Policies](data-retention-enable-disable.md)

@@ -20,23 +20,23 @@ Azure SQL Edge (Preview) CTP2.3 adds a new capability that allows database admin
 > [!Note]
 > Data once purged from the table, is not recoverable. The only possible way to recover the purged data is to restore the database from an older backup.
 
-## Quickstart
+Quickstarts:
 
 - [Enable and disable data retention policies](data-retention-enable-disable.md)
 - [Manage historical data with retention policy](data-retention-cleanup.md)
 
-## How Data Retention Works
+## How data retention works
 
 To configure data retention, you can use DDL statements. For more information, [Enable and Disable Data Retention Policies](data-retention-enable-disable.md). For automatic deletion of the aged records, data retention must first be enabled for both the database and the tables that you want to be purged within that database. 
 
 After data retention is configured for a table, a background task runs to identify the obsolete records in a table and delete those records. If for some reason, the automatic cleanup of the tasks is not running or is unable to keep up with the deletes, then a manual cleanup operation can be performed on these tables. For more information on automatic and manual cleanups, refer [Automatic and Manual Cleanup](data-retention-cleanup.md).
 
-## Limitations and Restrictions
+## Limitations and restrictions
 
 - Data Retention, if enabled, is automatically disabled when the database is restored from a full backup or is reattached. 
 - Data Retention cannot be enabled for a Temporal History Table
 
-## See Also
+## See also
 
 - [Machine Learning and Artificial Intelligence with ONNX in SQL Edge](onnx-overview.md).
 - [Building an end to end IoT Solution with SQL Edge using IoT Edge](tutorial-deploy-azure-resources.md).

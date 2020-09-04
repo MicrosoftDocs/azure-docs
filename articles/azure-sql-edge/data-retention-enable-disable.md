@@ -15,7 +15,7 @@ ms.date: 09/04/2020
 
 This topic describes how to enable and disable data retention policies for a database and a table. 
 
-## Enable Data Retention for a Database
+## Enable data retention for a database
 
 The following example shows how to enable data retention by using [Alter Database](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options).
 
@@ -26,7 +26,7 @@ The following example shows how to enable data retention by using [Alter Databas
 ALTER DATABASE [<DatabaseName>] SET DATA_RETENTION  ON;
 ```
 
-## Check if Data Retention is enabled for a Database
+## Check if data retention is enabled for a database
 
 The following command can be used to check if data retention is enabled for a database
 ```sql
@@ -63,7 +63,7 @@ Alter Table [dbo].[data_retention_table]
 SET (DATA_DELETION = On (FILTER_COLUMN = [timestamp], RETENTION_PERIOD = 1 day))
 ```
 
-## Check if Data Retention is enabled for a Table
+## Check if data retention is enabled for a table
 
 The following command can be used to check the tables for which data retention is enabled
 
@@ -81,7 +81,7 @@ where is_data_deletion_filter_column =1
 and object_id = object_id(N'dbo.data_retention_table', N'U')
 ```
 
-## Corelating the Database and Table level Data Retention setting
+## Corelating the database and table level data retention setting
 
 The data retention setting on the database and the table, are used in conjunction to determine if autocleanup for aged rows will run on the tables or not. 
 
@@ -92,7 +92,7 @@ The data retention setting on the database and the table, are used in conjunctio
 | ON | OFF | Data Retention policy is enabled at the database level. However since the option is disabled at the table level, there is no retention-based cleanup of aged rows.|
 | ON | ON | Data Retention policy is enabled for both the database and tables. Auto/manual cleanup of aged records is enabled |
 
-## Disable Data Retention on a Table 
+## Disable data retention on a table 
 
 Data Retention can be disabled on a table by using [Alter Table](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql). The following command can be used to disable data retention on a table.
 
@@ -101,7 +101,7 @@ Alter Table [dbo].[data_retention_table]
 Set (DATA_DELETION = OFF)
 ```
 
-## Disable Data Retention on a Database
+## Disable data retention on a database
 
 Data Retention can be disabled on a table by using [Alter Database](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options). The following command can be used to disable data retention on a database.
 
@@ -109,6 +109,6 @@ Data Retention can be disabled on a table by using [Alter Database](https://docs
 ALTER DATABASE <DatabaseName> SET DATA_RETENTION  OFF;
 ```
 
-## See Also
+## See also
 - [Data Retention and Automatic Data Purging](data-retention-overview.md)
 - [Manage historical data with retention policy](data-retention-cleanup.md)
