@@ -7,14 +7,14 @@ ms.subservice: azure-arc-data
 author: TheJY
 ms.author: jeanyd
 ms.reviewer: mikeray
-ms.date: 08/04/2020
+ms.date: 09/04/2020
 ms.topic: how-to
 ---
 
 # Backup and restore for Azure Arc enabled PostgreSQL Hyperscale server groups
 
-You can do full backup/restore of your Azure Arc enabled PostgreSQL Hyperscale servergroup. When you do so, the entire set of databases on all the nodes of your Azure Arc enabled PostgreSQL Hyperscale server group is backed-up and/or restored.
-To take a backup and restore it, you need to make sure that a backup storage class is configured for your servergroup. For now this needs to be set at the time you create the server group. It is not yet possible to configure your server group to use a backup storage class after it has been created.
+You can do full backup/restore of your Azure Arc enabled PostgreSQL Hyperscale server group. When you do so, the entire set of databases on all the nodes of your Azure Arc enabled PostgreSQL Hyperscale server group is backed-up and/or restored.
+To take a backup and restore it, you need to make sure that a backup storage class is configured for your server group. For now, you need to indicate a backup storage class at the time you create the server group. It is not yet possible to configure your server group to use a backup storage class after it has been created.
 
 ## Step 1: Verify if your existing server group has been configured to use backup storage class
 Run the following command after setting the name of your server group:
@@ -39,7 +39,7 @@ Look at the storage section of the output:
     }
 ...
 ```
-If you see  a section "backups" it means your server group has been configured to use a backup storage class and is ready for you to take backups and do restores. If you do not see a section "backups" you need to delete and recreate your server group to configure backup storage class. At this point it is not yet possible to configure a backup storage class after the server group has been created.
+If you see  a section "backups", it means your server group has been configured to use a backup storage class and is ready for you to take backups and do restores. If you do not see a section "backups", you need to delete and recreate your server group to configure backup storage class. At this point, it is not yet possible to configure a backup storage class after the server group has been created.
 
 If your server group is already configured to use a backup storage class, skip Step 2 and go directly to Step 3.
 
@@ -69,18 +69,18 @@ azdata arc postgres backup create [--name <backup name>] --server-name <server g
 Where:
 - __name__ indicates the name of a backup
 - __server-name__ indicates a server group
-- __no-wait__ indicates that the command line will not wait for the backup to complete for you to be able to continue to use this command line window
+- __no-wait__ indicates that the command line will not wait for the backup to complete for you to be able to continue to use this command-line window
 
 >**Note**: The command that allows you to list the backups that are available to restore does not show yet, the date/time at which the backup was taken. So it is recommended you give a name to the backup (using the --name parameter) that includes the date/time information.
 
-This will coordinate a distributed full backup across all the nodes that constitute your Azure Arc enabled PostgreSQL Hyperscale server group. In another words, it will backup all data in your Coordinator and Worker nodes.
+This command will coordinate a distributed full backup across all the nodes that constitute your Azure Arc enabled PostgreSQL Hyperscale server group. In other words, it will backup all data in your Coordinator and Worker nodes.
 
 For example:
 ```terminal
 azdata arc postgres backup create --name MyBackup_Aug31_0730amPST --server-name postgres01
 ```
 
-When the backup completes, the ID, name and state of the backup will be returned. For example:
+When the backup completes, the ID, name, and state of the backup will be returned. For example:
 ```terminal
 {
   "ID": "d134f51aa87f4044b5fb07cf95cf797f",
@@ -118,7 +118,7 @@ azdata arc postgres backup restore --server-name <server group name> --backup-id
 ```
 Where:
 - __backup-id__ is the ID of the backup shown in the list backup command (refer to Step 3).
-This will coordinate a distributed full restore across all the nodes that constitute your Azure Arc enabled PostgreSQL Hyperscale server group. In another words, it will restore all data in your Coordinator and Worker nodes.
+This will coordinate a distributed full restore across all the nodes that constitute your Azure Arc enabled PostgreSQL Hyperscale server group. In other words, it will restore all data in your Coordinator and Worker nodes.
 
 For example:
 ```terminal
@@ -138,4 +138,4 @@ When the restore operation is complete, it will return an output like this to th
 >**Note:** It is not yet possible to show the progress of a restore operation.
 
 ## Deleting backups
-It is not yet possible to set the retention of backups and it is not yet possible to delete backups. If you are blocked on reclaiming space on the storage your are using, please reach out to us.
+It is not yet possible to set the retention of backups and it is not yet possible to delete backups. If you are blocked on reclaiming space on the storage you are using, reach out to us.
