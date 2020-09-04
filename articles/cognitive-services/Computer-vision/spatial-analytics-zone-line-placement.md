@@ -15,8 +15,6 @@ ms.author: aahi
 
 # Zone and Line Placement Guide
 
-## In this article
-
 This article provides guidelines for how to define zones and lines for Spatial Analysis operations to achieve accurate analysis of peoples movements in a space. This applies to **cognitiveservices.vision.spatialanalysis-personcrossingpolygon**, **cognitiveservices.vision.spatialanalysis-personcrossingline**, **cognitiveservices.vision.spatialanalysis-personcount**, and **cognitiveservices.vision.spatialanalysis-persondistance**. 
 
 Zones and lines are defined using the JSON SPACEANALYSIS_CONFIG parameter. See the [Spatial Analytics operations](spatial-analytics-operations.md) article for more information.
@@ -43,7 +41,7 @@ The following examples show poorly shaped zones. In these examples, the area of 
 
 **Zone is too small.**
 
-![zone is partially blocked, so people aren't fully visible](./media/spatial-analytics/zone-too-small.png)
+![zone is too small](./media/spatial-analytics/zone-too-small.png)
 
 **Zone doesn't fully capture the area around the display.**
 

@@ -211,8 +211,7 @@ Logs are uploaded on-demand with the `getRTCVLogs` IoT Edge method, in the `peng
 > Invoking the `getRTCVLogs` method with an empty payload will return a list of all containers deployed on the device. The method name is case sensitive. You will get a 501 error if an incorrect method name is given.
 
 
- 
-![getRTCVLogs Direct method page](./media/DirectMethodforLogCollection.png)
+![getRTCVLogs Direct method page](./media/spatial-analytics/direct-log-collection.png)
 
  
 ### Logging syntax
@@ -293,8 +292,6 @@ Check fetch log's lines, times, and sizes, replace ***DoPost*** to `true`, then 
 
  Once you create a Suport Ticket, you will be in contact with a Microsoft suport engineer which will colect the log file and will further investigate the issue at hand.
 
- ![Support Ticker](./media/SuportTicket.png)
-
 ## Troubleshooting the Azure Stack Edge device
 
 The following section is provided for help with debugging and verification of the status of your Azure Stack Edge device.
@@ -317,7 +314,7 @@ The following section is provided for help with debugging and verification of th
 	* Provide the password when prompted. Use the same password that is used to sign into the local web UI. The default local web UI password is Password1. 
     <br><br>
 	##### Powershell Setup for Linux
-	This step is only required if you do not have a Windows client. Install Powershell from this location: https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell-core-on-linux?view=powershell-6
+	This step is only required if you do not have a Windows client. Install Powershell from this location: https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-linux?view=powershell-6
 		
 	* Download the Microsoft repository GPG keys
 	wget -q https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb

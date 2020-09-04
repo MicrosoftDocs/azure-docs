@@ -39,11 +39,11 @@ You need to consider three things when deciding how to install a camera for Spat
 
 It's also important to know the direction that the majority of people walk (person walking direction) in relation to the camera field of view if possible. This direction is important for system performance.
 
-![Person-walking-direction](./media/person-walking-direction.png)
+![Image of a person walking in a direction](./media/spatial-analytics/person-walking-direction.png)
 
 The following illustration shows the elevation view for person walking direction.
 
-![Elevation and plan view](./media/person-walking-direction-diagram.png)
+![Elevation and plan view](./media/spatial-analytics/person-walking-direction-diagram.png)
 
 ## Camera height
 
@@ -57,11 +57,11 @@ _Camera-to-focal-point distance_ is the linear distance from the focal point (or
 
 This distance is measured on the floor plane.
 
-![How camera-to-focal-point-distance is measured](./media/spatial-analytics/camera-focal-point-floor-plane.png)
+![How camera-to-focal-point-distance is measured from the floor](./media/spatial-analytics/camera-focal-point-floor-plane.png)
 
 From above, it looks like this:
 
-![How camera-to-focal-point-distance is measured](./media/spatial-analytics/camera-focal-point-above.png)
+![How camera-to-focal-point-distance is measured from above](./media/spatial-analytics/camera-focal-point-above.png)
 
 Use the table below to determine the camera's distance from the focal point based on specific mounting heights. These distances are for optimal placement. Note that the table provides guidance below the 12'-14' recommendation since some ceilings can limit height.
 
@@ -141,8 +141,6 @@ The following illustration provides simulations for the left and right camera vi
 | ![Left angle for linear queue](./media/spatial-analytics/camera-angle-linear-left.png) | ![Right angle for linear queue](./media/spatial-analytics/camera-angle-linear-right.png) |  
 
 For zig-zag queues, it's best to avoid placing the camera directly facing the queue line direction, as shown in the following illustration. Note that each of the four example camera positions in the illustration provide the ideal view with an acceptable deviation of +/- 15 degrees in each direction.
-
-![Camera angle for zig-zag queue](./media/spatial-analytics/camera-angle-zig-zag-queue.png)
 
 The following illustrations simulate the view from a camera placed in the ideal locations for a zig-zag queue.
 
