@@ -14,17 +14,30 @@ zone_pivot_groups: app-service-platform-windows-linux
 
 # Configure a Java app for Azure App Service
 
-::: zone pivot="platform-windows"  
+Azure App Service lets Java developers to quickly build, deploy, and scale their Tomcat and Java SE web applications on a fully managed service. Deploy applications with Maven plugins from the command line or in editors like IntelliJ, Eclipse, or Visual Studio Code.
 
-Azure App Service lets Java developers to quickly build, deploy, and scale their Tomcat web applications on a fully managed Windows-based service. Deploy applications with Maven plugins from the command line or in editors like IntelliJ, Eclipse, or Visual Studio Code.
-
-This guide provides key concepts and instructions for Java developers using in App Service. If you've never used Azure App Service, you should read through the [Java quickstart](quickstart-java.md) first. General questions about using App Service that aren't specific to the Java development are answered in the [App Service Windows FAQ](faq-configuration-and-management.md).
+This guide provides key concepts and instructions for Java developers using in App Service. If you've never used Azure App Service, you should read through the [Java quickstart](quickstart-java.md) first. General questions about using App Service that aren't specific to the Java development are answered in the [App Service FAQ](faq-configuration-and-management.md).
 
 ## Deploying your app
 
 You can use [Azure Web App Plugin for Maven](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme) to deploy your .war or .jar files. Deployment with popular IDEs is also supported with the [Azure Toolkit for IntelliJ](/azure/developer/java/toolkit-for-intellij/) or [Azure Toolkit for Eclipse](/azure/developer/java/toolkit-for-eclipse).
 
 Otherwise, your deployment method will depend on your archive type:
+
+::: zone pivot="platform-windows"  
+
+# [Java SE](#tab/javase)
+
+To deploy .jar files to Java SE, use the `/api/zipdeploy/` endpoint of the Kudu site. For more information on this API, please see [this documentation](./deploy-zip.md#rest).
+
+# [Tomcat](#tab/tomcat)
+
+To deploy .war files to Tomcat, use the `/api/wardeploy/` endpoint to POST your archive file. For more information on this API, please see [this documentation](./deploy-zip.md#deploy-war-file).
+
+---
+
+::: zone-end
+::: zone pivot="platform-linux"
 
 # [Java SE](#tab/javase)
 
@@ -42,11 +55,17 @@ To deploy .ear files, use FTP.
 
 ---
 
+::: zone-end
+
 Do not deploy your .war or .jar using FTP. The FTP tool is designed to upload startup scripts, dependencies, or other runtime files. It is not the optimal choice for deploying web apps.
 
 ## Logging and debugging apps
 
 Performance reports, traffic visualizations, and health checkups are available for each app through the Azure portal. For more information, see [Azure App Service diagnostics overview](overview-diagnostics.md).
+
+### SSH console access
+
+[!INCLUDE [Open SSH session in browser](../../includes/app-service-web-ssh-connect-builtin-no-h.md)]
 
 ### Use Flight Recorder
 
@@ -218,7 +237,13 @@ This section shows how to connect Java applications deployed on Azure App Servic
 5. Upload the unpacked New Relic Java agent files into a directory under */home/site/wwwroot/apm*. The files for your agent should be in */home/site/wwwroot/apm/newrelic*.
 6. Modify the YAML file at */home/site/wwwroot/apm/newrelic/newrelic.yml* and replace the placeholder license value with your own license key.
 7. In the Azure portal, browse to your application in App Service and create a new Application Setting.
-    - If your app is using **Java SE**, create an environment variable named `JAVA_OPTS` with the value `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar`.
+
+    # [Java SE](#tab/javase)
+
+    Create an environment variable named `JAVA_OPTS` with the value `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar`.
+
+    # [Tomcat](#tab/javase)
+
     - If you're using **Tomcat**, create an environment variable named `CATALINA_OPTS` with the value `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar`.
 
 ### Configure AppDynamics
@@ -372,10 +397,21 @@ This guide provides key concepts and instructions for Java developers who use a 
 
 You can use [Maven Plugin for Azure App Service](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme) to deploy both .jar and .war files. Deployment with popular IDEs is also supported with [Azure Toolkit for IntelliJ](/azure/developer/java/toolkit-for-intellij/) or [Azure Toolkit for Eclipse](/azure/developer/java/toolkit-for-eclipse).
 
-Otherwise, your deployment method will depend on your archive type:
+# [Java SE](#tab/javase)
 
-- To deploy .war files to Tomcat, use the `/api/wardeploy/` endpoint to POST your archive file. For more information on this API, please see [this documentation](./deploy-zip.md#deploy-war-file).
-- To deploy .jar files on the Java SE images, use the `/api/zipdeploy/` endpoint of the Kudu site. For more information on this API, please see [this documentation](./deploy-zip.md#rest).
+To deploy .jar files to Java SE, use the `/api/zipdeploy/` endpoint of the Kudu site. For more information on this API, please see [this documentation](./deploy-zip.md#rest).
+
+# [Tomcat](#tab/tomcat)
+
+To deploy .war files to Tomcat, use the `/api/wardeploy/` endpoint to POST your archive file. For more information on this API, please see [this documentation](./deploy-zip.md#deploy-war-file).
+
+# [JBoss EAP](#tab/jboss)
+
+To deploy .war files to JBoss, use the `/api/wardeploy/` endpoint to POST your archive file. For more information on this API, please see [this documentation](./deploy-zip.md#deploy-war-file).
+
+To deploy .ear files, use FTP.
+
+---
 
 Do not deploy your .war or .jar using FTP. The FTP tool is designed to upload startup scripts, dependencies, or other runtime files. It is not the optimal choice for deploying web apps.
 
