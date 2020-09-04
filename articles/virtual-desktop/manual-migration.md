@@ -15,7 +15,7 @@ However, Windows Virtual Desktop (classic) isn't integrated with Azure. Without 
 
 The later version of Windows Virtual Desktop marks a shift in the service towards full Azure integration. Objects you create in Windows Virtual Desktop are automatically managed by the Azure portal.
 
-In this article, we'll explain why you should consider migrating to the latest version of Windows Virtual Desktop. We'll also give you a brief walkthrough of how to migrate from Windows Virtual Desktop (classic) to the later version.
+In this article, we'll explain why you should consider migrating to the latest version of Windows Virtual Desktop. After that, we'll tell you how to migrate from Windows Virtual Desktop (classic) to the later version.
 
 ## Why migrate?
 
@@ -24,9 +24,9 @@ Major updates can be inconvenient, especially ones you have to do manually. Howe
 - Existing service objects made with the classic release don't have any representation in Azure. Their scope doesn't extend beyond the Windows Virtual Desktop service.
 - When Windows Virtual Desktop became a first-party Azure service, the application ID changed. You won't be able to create new Azure objects with Windows Virtual Desktop unless they're authenticated with the new application ID.
 
-Despite the hassle, migrating away from the classic version is still important. Here's what you'll be able to do after you migrate:
+Despite the hassle, migrating away from the classic version is still important. Here's what you can do after you migrate:
 
-- Manage Windows Virtual Desktop through the Azure Portal.
+- Manage Windows Virtual Desktop through the Azure portal.
 - Assign Azure Active Directory (AD) user groups to application groups.
 - Use the improved Log Analytics feature to troubleshoot your deployment.
 - Use Azure-native Role-Based Access Controls to manage administrative access.
@@ -47,7 +47,7 @@ There are a few scenarios in particular where we recommend you migrate:
 Here's what you need to start the migration process:
 
 - An Azure subscription where you’ll create new Azure service objects.
-- You need to be assigned the following roles:
+- Make sure you're assigned to the following roles:
     
     - Contributor
     - User Access Administrator
@@ -59,11 +59,11 @@ Here's what you need to start the migration process:
 To migrate manually from Windows Virtual Desktop (classic) to Windows Virtual Desktop:
 
 1. Follow the instructions in [Create a host pool with the Azure portal](create-host-pools-azure-marketplace.md) to create all high-level objects with the Azure portal.
-2. If you want to repurpose the virtual machines you currently use, follow the instructions in [Register the virtual machines to the Windows Virtual Desktop host pool](create-host-pools-powershell.md#register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool) to manually register them to the new host pool you created in step 1.
+2. If you want to bring over the virtual machines you're already using, follow the instructions in [Register the virtual machines to the Windows Virtual Desktop host pool](create-host-pools-powershell.md#register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool) to manually register them to the new host pool you created in step 1.
 3. Create new RemoteApp app groups.
 4. Publish users or user groups to the new desktop and RemoteApp app groups.
 
-To minimize downtime, register existing session hosts in small increments to the Azure Resource Manager-integrated host pools. After that, slowly migrate users over to the new Azure Resource Manager-integrated app groups.
+To prevent downtime, you should first register your existing session hosts to the Azure Resource Manager-integrated host pools in small groups at a time. After that, slowly bring your users over to the new Azure Resource Manager-integrated app groups.
 
 ## Next steps
 
