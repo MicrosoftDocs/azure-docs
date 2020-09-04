@@ -16,7 +16,7 @@ ms.topic: how-to
 > [!IMPORTANT]
 > If you are updating to a new release, please be sure to uninstall `azdata` and extensions first and upgrade to the latest release of Azure Data Studio - Insiders and the Azure Arc extension by following [uninstall/update client tools](uninstall-update-client-tools.md) first, and then follow the instructions below to reinstall `azdata` and extensions.
 
-This document walks you through the steps for installing azdata, kubectl, Azure CLI (az) and Azure Data Studio on your client machine.
+This document walks you through the steps for installing azdata, kubectl, Azure CLI (az) and Azure Data Studio on your client machine..
 
 - azdata is a command-line tool to deploy, manage and use Azure Arc enabled data services.
 - kubectl is a command-line tool for controlling Kubernetes clusters.
