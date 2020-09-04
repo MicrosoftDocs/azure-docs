@@ -383,7 +383,7 @@ To enable Azure AD B2C to send encrypted assertions set the **WantsEncryptedAsse
 
 ##  (Optional) Enable IDP Initiated flow
 
-In IDP initiated flow, the sign-in process is initiated by the identity provider (Azure AD B2C), sending an unsolicited SAML Response to the service provider (relying party application). To enable IDP initiated flow, set the **IdpInitiatedProfileEnabled** metadata item to `true` in the [Relying Party technical Profile](relyingparty.md#technicalprofile), as shown below;
+In IDP initiated flow, the sign-in process is initiated by the identity provider (Azure AD B2C), sending an unsolicited SAML Response to the service provider (relying party application). To enable IDP initiated flow, set the **IdpInitiatedProfileEnabled** metadata item to `true` in the [Relying Party technical Profile](relyingparty.md#technicalprofile).
 
 ```xml
 <RelyingParty>
@@ -399,7 +399,7 @@ In IDP initiated flow, the sign-in process is initiated by the identity provider
 </RelyingParty>
 ```
 
-The link to Azure AD B2C SAML identity provider sign-up or sign-up page URL, replace
+The URL of the Azure AD B2C SAML identity provider sign-up or sign-up page:
 
 ```
 https://tenant-name.b2clogin.com/tenant-name.onmicrosoft.com/policy-name/generic/login
@@ -408,7 +408,7 @@ https://tenant-name.b2clogin.com/tenant-name.onmicrosoft.com/policy-name/generic
 Replace the following values:
 
 * **tenant-name** with your tenant name
-* **policy-name** with your policy name
+* **policy-name** with your SAML relying party policy name
 
 ## Sample policy
 
