@@ -17,7 +17,7 @@ ms.custom: how-to
 
 In this article, you learn how to deploy a trained model from the designer as a real-time endpoint in Azure Machine Learning studio.
 
-Deployment consists of the following steps:
+Deployment in the studio consists of the following steps:
 
 1. Register the trained model.
 1. Download the entry script and conda dependencies file for the model.
