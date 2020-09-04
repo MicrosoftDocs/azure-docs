@@ -111,10 +111,6 @@ side of the page. Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browse
 
 [!INCLUDE [azure-policy-reference-policies-logic-apps](../../../../includes/policy/reference/bycat/policies-logic-apps.md)]
 
-## Machine Learning
-
-[!INCLUDE [azure-policy-reference-policies-machine-learning](../../../../includes/policy/reference/bycat/policies-machine-learning.md)]
-
 ## Managed Application
 
 [!INCLUDE [azure-policy-reference-policies-managed-application](../../../../includes/policy/reference/bycat/policies-managed-application.md)]
