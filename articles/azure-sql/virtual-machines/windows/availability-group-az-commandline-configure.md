@@ -187,9 +187,9 @@ For a failover cluster to be supported by Microsoft, it must pass cluster valida
 
 You can validate the cluster using Failover Cluster Manager (FCM) or the following PowerShell command:
 
-    ```powershell
-    Test-Cluster –Node ("<node1>","<node2>") –Include "Inventory", "Network", "System Configuration"
-    ```
+   ```powershell
+   Test-Cluster –Node ("<node1>","<node2>") –Include "Inventory", "Network", "System Configuration"
+   ```
 
 ## Create availability group
 
