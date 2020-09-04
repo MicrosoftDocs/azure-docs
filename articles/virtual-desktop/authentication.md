@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 08/27/2020
+ms.date: 09/04/2020
 ms.author: helohr
 manager: lizross
 ---
@@ -38,9 +38,13 @@ These are the currently supported sign-in methods:
 >[!NOTE]
 >Smartcard and Windows Hello can only use Kerberos to sign in. Signing in with Kerberos requires line of sight to the domain controller.
 
+## Active Directory Federation Services (ADFS)
+
+Windows Virtual Desktop supports federated identities with Azure Active Directory. Standalone Active Directory deployments with ADFS are not supported since Windows Virtual Desktop requires Azure Active Directory.
+
 ## Single sign-on (SSO)
 
-Windows Virtual Desktop currently doesn't support Active Directory Federation Services (ADFS) for authentication or SSO.
+Windows Virtual Desktop currently doesn't support Active Directory Federation Services (ADFS) for SSO.
 
 The only way to avoid being prompted for your credentials for the session host is to save them in the client. We recommend you only do this with secure devices to prevent other users from accessing your resources.
 
