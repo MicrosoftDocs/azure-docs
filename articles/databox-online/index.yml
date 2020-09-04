@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
 title: Azure Stack Edge Pro and Azure Data Box Gateway documentation - Online transfer # < 60 chars
-summary: Use Azure Data Box Gateway and Azure Stack Edge Pro devices for over-the-network high performance data transfers. Choose Data Box Gateway to send data for cloud archival, disaster recovery, or to process data at cloud scale. Use Azure Stack Edge Pro to filter, analyze, and transform your data before it moves to Azure. Azure Data Box Edge was recently rebranded as Azure Stack Edge. # < 160 chars
+summary: Use Azure Data Box Gateway and Azure Stack Edge Pro devices for over-the-network high performance data transfers. Choose Data Box Gateway to send data for cloud archival, disaster recovery, or to process data at cloud scale. Use compute acceleration hardware equipped Azure Stack Edge Pro devices to filter, analyze, and transform your data before it moves to Azure. Azure Data Box Edge was recently rebranded as Azure Stack Edge. # < 160 chars
 
 metadata:
   title: Azure Stack Edge Pro and Azure Data Box Gateway documentation - Online transfer # Required; page title displayed in search results. Include the brand. < 60 chars.
-  description: Data Box Gateway, Azure Stack Edge Pro (Data Box Edge rebranded) Documentation for high performance over the network data transfer to Azure. # Required; article description that is displayed in search results. < 160 chars.
+  description: Data Box Gateway, Azure Stack Edge Pro Documentation for high performance over the network data transfer to Azure. # Required; article description that is displayed in search results. < 160 chars.
   services: databox
   ms.service: databox #Required; service per approved list. service slug assigned to your service by ACOM.
   ms.subservice: edge
@@ -50,9 +50,11 @@ landingContent:
         links:
           - text: Azure Stack Edge Pro GPU requirements
             url: azure-stack-edge-gpu-system-requirements.md
+          - text: Azure Stack Edge Pro FPGA requirements
+            url: azure-stack-edge-gpu-system-requirements.md
           - text: Data Box Gateway requirements
             url: data-box-gateway-system-requirements.md
-          - text: Azure Stack Edge Pro GPU limits
+          - text: Azure Stack Edge Pro limits
             url: azure-stack-edge-limits.md
           - text: Data Box Gateway limits
             url: data-box-gateway-limits.md
@@ -63,7 +65,7 @@ landingContent:
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Azure Stack Edge
+          - text: Azure Stack Edge Pro GPU
             url: azure-stack-edge-gpu-deploy-prep.md
           - text: Data Box Gateway
             url: data-box-gateway-deploy-prep.md
@@ -77,7 +79,7 @@ landingContent:
             url: azure-stack-edge-create-iot-edge-module.md
       - linkListType: download
         links:
-          - text: "Samples - C# for Azure Stack Edge"
+          - text: "Samples - C# for Azure Stack Edge Pro GPU"
             url: https://docs.microsoft.com/samples/azure-samples/data-box-edge-csharp-modules/data-box-edge-csharp-modules/
 
   # Card

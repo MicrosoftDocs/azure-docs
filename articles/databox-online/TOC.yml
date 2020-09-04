@@ -1,11 +1,11 @@
-- name: Azure Stack Edge and Data Box Gateway Documentation 
+- name: Azure Stack Edge Pro and Data Box Gateway Documentation 
   href: /azure/databox-online/
   expanded: true
-- name: Azure Stack Edge with GPU (Preview)
+- name: Azure Stack Edge Pro - GPU
   items:
   - name: Overview
     items:
-    - name: What is Azure Stack Edge with GPU?
+    - name: What is Azure Stack Edge Pro with GPU?
       href:  azure-stack-edge-gpu-overview.md
   - name: Tutorials
     items:
@@ -46,7 +46,7 @@
         href: azure-stack-edge-gpu-technical-specifications-compliance.md
       - name: Power cord specifications
         href: azure-stack-edge-technical-specifications-power-cords-regional.md
-    - name: Understand Kubernetes
+    - name: Understand Kubernetes (Preview)
       items:
       - name: What is Kubernetes?
         href: azure-stack-edge-gpu-kubernetes-overview.md  
@@ -69,7 +69,7 @@
         href: azure-stack-edge-gpu-deploy-sample-module.md 
       - name: GPU module via Marketplace
         href: azure-stack-edge-gpu-deploy-sample-module-marketplace.md 
-    - name: Deploy Kubernetes workloads
+    - name: Deploy Kubernetes workloads (Preview)
       items:
       - name: Via kubectl
         items: 
@@ -85,7 +85,7 @@
         items:
         - name: Stateless app
           href: azure-stack-edge-gpu-deploy-stateless-application-iot-edge-module.md 
-      - name: Via Azure Arc
+      - name: Via Azure Arc 
         items:
         - name: Enable Arc on Kubernetes cluster
           href: azure-stack-edge-gpu-deploy-arc-kubernetes-cluster.md 
@@ -99,7 +99,7 @@
         href: azure-stack-edge-j-series-set-azure-resource-manager-password.md 
       - name: Configure client TLS settings
         href: azure-stack-edge-j-series-configure-tls-settings.md 
-    - name: Deploy VMs 
+    - name: Deploy VMs (Preview)
       items:
       - name: Deploy VMs - Templates
         href: azure-stack-edge-gpu-deploy-virtual-machine-templates.md 
@@ -176,11 +176,11 @@
     - name: .NET SDK
       href: https://docs.microsoft.com/dotnet/api/overview/azure/databoxedge/databoxgateway?view=azure-dotnet 
 
-- name: Azure Stack Edge with FPGA
+- name: Azure Stack Edge Pro - FPGA
   items:
   - name: Overview
     items:
-    - name: What is Azure Stack Edge with FPGA?
+    - name: What is Azure Stack Edge Pro with FPGA?
       href: azure-stack-edge-overview.md
   - name: Tutorials
     items:
@@ -329,9 +329,9 @@
         href: data-box-gateway-release-notes.md
 - name: Resources
   items:
-  - name: Azure Stack Edge C# module samples (.NET)
+  - name: Azure Stack Edge Pro C# module samples (.NET)
     href: https://azure.microsoft.com/resources/samples/data-box-edge-csharp-modules/
-  - name: Azure Stack Edge/Data Box Gateway product  
+  - name: Azure Stack Edge Pro/Data Box Gateway product  
     href: https://azure.microsoft.com/services/storage/databox/edge/
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/storage/databox/edge/
