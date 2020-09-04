@@ -1,5 +1,5 @@
 ---
-title: How to deploy models from the designer
+title: Use the studio to deploy models trained in the designer
 titleSuffix: Azure Machine Learning
 description: 'Use Azure Machine Learning studio to deploy models trained in the designer.'
 services: machine-learning
@@ -13,15 +13,17 @@ ms.topic: conceptual
 ms.custom: how-to
 ---
 
-# Deploy trained models from the designer
+# Use the studio to deploy models trained in the designer
 
 In this article, you learn how to deploy a trained model from the designer as a real-time endpoint in Azure Machine Learning studio.
 
 Deployment consists of the following steps:
 
-1. Register the trained model in the completed pipeline run.
-1. Download entry script file and conda dependencies file for the trained model.
+1. Register the trained model.
+1. Download the entry script and conda dependencies file for the model.
 1. Deploy the model to a compute target.
+
+You can also deploy models directly in the designer to skip model registration and file download steps. This can be useful for rapid deployment. For more information see, [Deploy a model with the designer](tutorial-designer-automobile-price-deploy.md).
 
 Models trained in the designer can also be deployed through the SDK or command-line interface (CLI). For more information, see [Deploy your existing model with Azure Machine Learning](how-to-deploy-existing-model.md).
 
