@@ -44,15 +44,29 @@ There are a few scenarios in particular where we recommend you migrate:
 
 ## Prepare for migration
 
-Before you start the migration, make sure you have the following prepared:
+Here's what you need to start the migration process:
 
-- An Azure subscription where you’ll create new Azure service objects
-- You need to be assigned the Contributor role to create Azure objects on your subscription, and the User Access Administrator role to assign users to application groups.
+- An Azure subscription where you’ll create new Azure service objects.
+- You need to be assigned the following roles:
+    
+    - Contributor
+    - User Access Administrator
+    
+    The Contributor role lets you create Azure objects on your subscription, and the User Access Administrator role lets you assign users to application groups.
 
 ## Migrate manually from classic to the current update of the service
 
-1.	Create all high-level objects using the Azure portal by following the instructions in [Create a host pool with the Azure portal](create-host-pools-azure-marketplace.md).
-2.	If you want to repurpose the virtual machines you currently use, you can manually register them to the newly created host pool by following the instructions in [Register the virtual machines to the Windows Virtual Desktop host pool](create-host-pools-powershell.md#register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool).
-3.	Create new RemoteApp app groups.
-4.	Publish users or user groups to the new desktop and RemoteApp app groups.
-To avoid or minimize downtime, register existing session hosts in small increments to the ARM-integrated host pools and slowly migrate users over to the new ARM-integrated app groups.
+To migrate manually from Windows Virtual Desktop (classic) to Windows Virtual Desktop:
+
+1. Follow the instructions in [Create a host pool with the Azure portal](create-host-pools-azure-marketplace.md) to create all high-level objects with the Azure portal.
+2. If you want to repurpose the virtual machines you currently use, follow the instructions in [Register the virtual machines to the Windows Virtual Desktop host pool](create-host-pools-powershell.md#register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool) to manually register them to the new host pool you created in step 1.
+3. Create new RemoteApp app groups.
+4. Publish users or user groups to the new desktop and RemoteApp app groups.
+
+To minimize downtime, register existing session hosts in small increments to the Azure Resource Manager-integrated host pools. After that, slowly migrate users over to the new Azure Resource Manager-integrated app groups.
+
+## Next steps
+
+Once you've migrated, familiarize yourself with how Windows Virtual Desktop works by checking out [our tutorials](create-azure-marketplace.md).
+
+To learn more about service objects, check out [Windows Virtual Desktop environment](environment-setup.md).
