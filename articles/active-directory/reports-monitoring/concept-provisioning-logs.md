@@ -95,7 +95,7 @@ In the default view, you can select the following filters:
 - Action
 
 
-![Filter](./media/concept-provisioning-logs/default-filter.png "Filter")
+![Add filters](./media/concept-provisioning-logs/default-filter.png "Filter")
 
 The **Identity** filter enables you to specify the name or the identity that you care about. This identity could be a user, group, role, or other object. You can search by the name or ID of the object. The ID varies by scenario. For example, when provisioning an object from Azure AD to SalesForce, the Source ID is the object ID of the user in Azure AD while the TargetID is the ID of the user in Salesforce. When provisioning from Workday to Active Directory, the Source ID is the Workday worker employee ID. Note that the Name of the user may not always be present in the Identity column. There will always be one ID. 
 
@@ -171,7 +171,7 @@ The details are grouped based on the following categories:
 - Summary
 
 
-![Filter](./media/concept-provisioning-logs/provisioning-tabs.png "Tabs")
+![Provisioning details](./media/concept-provisioning-logs/provisioning-tabs.png "Tabs")
 
 
 
@@ -186,7 +186,7 @@ The **Steps** tab outlines the steps taken to provision an object. Provisioning 
 
 
 
-![Filter](./media/concept-provisioning-logs/steps.png "Filter")
+![Steps](./media/concept-provisioning-logs/steps.png "Filter")
 
 
 ### Troubleshoot and recommendations
