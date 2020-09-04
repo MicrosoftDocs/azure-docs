@@ -377,7 +377,7 @@ A Python script is provided to you to create a VM. Depending on whether you are 
 
 2. When the script runs, uploading the VHD takes 20-30 minutes. To view the progress of the upload operation, you can use Azure Storage Explorer or AzCopy.
 
-    Here is a sample output of a successful run of the script. The script creates all the resources within a resource group, uses those resources to create a VM, and finally deletes the resource group including all the resources it created up.
+    Here is a sample output of a successful run of the script. The script creates all the resources within a resource group, uses those resources to create a VM, and finally deletes the resource group including all the resources it created.
 
     
     ```powershell
