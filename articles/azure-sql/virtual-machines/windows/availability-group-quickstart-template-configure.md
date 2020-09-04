@@ -82,11 +82,13 @@ Adding SQL Server VMs to the *SqlVirtualMachineGroups* resource group bootstraps
 
 ## Validate cluster 
 
-Use PowerShell to validate the cluster: 
+For a failover cluster to be supported by Microsoft, it must pass cluster validation. Connect to the VM using your preferred method, such as Remote Desktop Protocol (RDP) and validate that your cluster passes validation before proceeding further. Failure to do so leaves your cluster in an unsupported state. 
 
-```powershell
-Test-Cluster –Node ("<node1>","<node2>") –Include "Inventory", "Network", "System Configuration"
-```
+You can validate the cluster using Failover Cluster Manager (FCM) or the following PowerShell command:
+
+    ```powershell
+    Test-Cluster –Node ("<node1>","<node2>") –Include "Inventory", "Network", "System Configuration"
+    ```
 
 
 ## Create availability group 
