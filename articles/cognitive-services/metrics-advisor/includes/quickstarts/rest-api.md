@@ -17,8 +17,12 @@ ms.author: aahi
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
 * Once you have your Azure subscription, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Create a [Product Name] resource"  target="_blank">create a [Product Name] resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> in the Azure portal to get your key and endpoint. Wait for it to deploy and click the **Go to resource** button.
-    * You will need the key and endpoint from the resource you create to connect your application to [Product Name]. You'll paste your key and endpoint into the code below later in the quickstart.
     You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
+
+* In the overview page of [Product Name] you've created, you can get Web portal and API endpoint.
+* Select **Keys and Endpoint** in left menu to get the resource key,  In the following code, replace {REPLACE-WITH-YOUR-RESOURCE-KEY} with this resource key.
+* Open web portal of [Product Name] and select **API keys** in left menu to get the api key.In the following code, replace {REPLACE-WITH-YOUR-API-KEY} with this api key. 
+
 * The current version of [cURL](https://curl.haxx.se/). Several command-line switches are used in the quickstarts, which are noted in the [cURL documentation](https://curl.haxx.se/docs/manpage.html).
 
 > [!CAUTION]
@@ -30,73 +34,80 @@ To start monitoring your time series data, you need add a data feed. To add a da
 
 ```json
 {
-  "dataSourceParameter": {
-    "connectionString": "Server=ad-sample.database.windows.net,1433;Initial Catalog=ad-sample;Persist Security Info=False;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;",
-    "query": "select * from adsample2 where Timestamp = @StartTime"
-  },
-  "datafeedId": "00000000-0000-0000-0000-000000000000",
-  "datafeedName": "Datafeed dummy name",
-  "metrics": [
-    {
-      "metricName": "cost",
-      "metricDisplayName": "cost",
-      "metricDescription": ""
-    },
-    {
-      "metricName": "revenue",
-      "metricDisplayName": "revenue",
-      "metricDescription": ""
-    }
-  ],
-  "dimension": [
-    {
-      "dimensionName": "category",
-      "dimensionDisplayName": "category"
-    },
-    {
-      "dimensionName": "city",
-      "dimensionDisplayName": "city"
-    }
-  ],
-  "dataStartFrom": "2019-10-01T00:00:00.0000000+00:00",
-  "dataSourceType": "SqlServer",
-  "timestampColumn": "timestamp",
-  "startOffsetInSeconds": 86400,
-  "maxQueryPerMinute": 30,
-  "granularityName": 3,
-  "granularityAmount": null,
-  "allUpIdentification": "__SUM__",
-  "needRollup": "NeedRollup",
-  "fillMissingPointType": "PreviousValue",
-  "fillMissingPointValue": 0,
-  "rollUpMethod": "Sum",
-  "stopRetryAfterInSeconds": 604800,
-  "rollUpColumns": "",
-  "minRetryIntervalInSeconds": 3600,
-  "maxConcurrency": 30,
-  "datafeedDescription": "",
-  "viewMode": "Private",
-  "admins": [
-    "example@demo.com"
-  ],
-  "viewers": [ ],
-  "creator": "example@demo.com",
-  "status": "Active",
-  "createdTime": "2020-03-27T14:00:15.0000000+00:00",
-  "isAdmin": true,
-  "actionLinkTemplate": ""
+        "dataSourceType": "SqlServer",
+        "dataFeedName": "test_data_feed_00000001",
+        "dataFeedDescription": "",
+        "dataSourceParameter": {
+            "connectionString": "Server=ad-sample.database.windows.net,1433;Initial Catalog=ad-sample;Persist Security Info=False;User ID=adreadonly;Password=Readonly@2020;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;",
+            "query": "select * from adsample3 where Timestamp = @StartTime"
+        },
+        "granularityName": "Daily",
+        "granularityAmount": 0,
+        "metrics": [
+            {
+                "metricName": "revenue",
+                "metricDisplayName": "revenue",
+                "metricDescription": ""
+            },
+            {
+                "metricName": "cost",
+                "metricDisplayName": "cost",
+                "metricDescription": ""
+            }
+        ],
+        "dimension": [
+            {
+                "dimensionName": "city",
+                "dimensionDisplayName": "city"
+            },
+            {
+                "dimensionName": "category",
+                "dimensionDisplayName": "category"
+            }
+        ],
+        "timestampColumn": "timestamp",
+        "dataStartFrom": "2020-06-01T00:00:00.000Z",
+        "startOffsetInSeconds": 0,
+        "maxConcurrency": -1,
+        "minRetryIntervalInSeconds": -1,
+        "stopRetryAfterInSeconds": -1,
+        "needRollup": "NoRollup",
+        "fillMissingPointType": "SmartFilling",
+        "fillMissingPointValue": 0,
+        "viewMode": "Private",
+        "admins": [
+            "xxx@microsoft.com"
+        ],
+        "viewers": [
+        ],
+        "actionLinkTemplate": ""
 }
 ```
 
 The cURL command is executed from a BASH shell. Edit this command with your own resource name, resource key, and JSON values.
 
 ```bash
-curl https://REPLACE-WITH-YOUR-ENDPOINT/anomalydetector-ee/v1.0/datafeeds \
+curl -i https://REPLACE-WITH-YOUR-ENDPOINT/anomalydetector-ee/v1.0/datafeeds \
 -X POST \
 -H "Ocp-Apim-Subscription-Key: REPLACE-WITH-YOUR-RESOURCE-KEY" \
+-H "x-api-key: REPLACE-WITH-YOUR-RESOURCE-KEY" \
 -H "Content-Type:application/json" \
 -d @body.json
 ```
+
+#### Example response
+
+```
+HTTP/1.1 201 Created
+Content-Length: 0
+Location: https://gualala-beta-0617.cognitiveservices.azure.com/anomalydetector-ee/v1.0/datafeeds/b5921405-8001-42b2-8746-004ddeeb780d
+x-envoy-upstream-service-time: 564
+apim-request-id: 4e4fe70b-d663-4fb7-a804-b9dc14ba02a3
+Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+x-content-type-options: nosniff
+Date: Thu, 03 Sep 2020 18:29:27 GMT
+```
+In above **Location** header, it contains the URL of the new created resource(datafeed).
 
 ## Check ingestion status
 
@@ -116,9 +127,11 @@ The cURL command is executed from a BASH shell. Edit this command with your own 
 curl https://REPLACE-WITH-YOUR-ENDPOINT/anomalydetector-ee/v1.0/datafeeds/REPLACE-WITH-YOUR-DATA-FEED-ID/ingestionStatus/query \
 -X POST \
 -H "Ocp-Apim-Subscription-Key: REPLACE-WITH-YOUR-RESOURCE-KEY" \
+-H "x-api-key: REPLACE-WITH-YOUR-RESOURCE-KEY" \
 -H "Content-Type:application/json" \
 -d @body.json
 ```
+
 
 #### Example response
 
@@ -268,6 +281,7 @@ The cURL command is executed from a BASH shell. Edit this command with your own 
 curl https://REPLACE-WITH-YOUR-ENDPOINT/anomalydetector-ee/v1.0/enrichment/anomalyDetection/configurations \
 -X POST \
 -H "Ocp-Apim-Subscription-Key: REPLACE-WITH-YOUR-RESOURCE-KEY" \
+-H "x-api-key: REPLACE-WITH-YOUR-RESOURCE-KEY" \
 -H "Content-Type:application/json" \
 -d @body.json
 ```
@@ -300,6 +314,7 @@ The cURL command is executed from a BASH shell. Edit this command with your own 
 curl https://REPLACE-WITH-YOUR-ENDPOINT/anomalydetector-ee/v1.0/enrichment/anomalyDetection/configurations/{configurationId}/anomalies/query \
 -X POST \
 -H "Ocp-Apim-Subscription-Key: REPLACE-WITH-YOUR-RESOURCE-KEY" \
+-H "x-api-key: REPLACE-WITH-YOUR-RESOURCE-KEY" \
 -H "Content-Type:application/json" \
 -d @body.json
 ```
