@@ -14,11 +14,11 @@ Database corruption can cause downtime for your application and it is also criti
 
 In this guide you will learn how to fix if database or table is corrupted and how can resolve the issue. Azure Database for MySQL uses InnoDB engine and it features automated corruption checking and repair operations. InnoDB checks for corrupted pages by performing checksums on every page it reads, and if it finds a checksum discrepancy it will automatically stop the MySQL server.
 
-Try any of these options below to help quickly mitigiate your database corruption issues.
+Try any of these options below to help quickly mitigate your database corruption issues.
 
 ## Restart your MySQL server
 
-You typically notice that a database or table is corrupted when your application access that table ro database. Since InnoDB features a crash recovery mechanism that can resolve most issues when the server is restarted. Hence restarting the server to see if doing so will allow you access to the server.
+You typically notice that a database or table is corrupted when your application access that table ro database. Since InnoDB features a crash recovery mechanism that can resolve most issues when the server is restarted. Hence restarting the server should help the server recover from a crash that caused the database to be in bad state.
 
 ##  Resolve data corruption with Dump and restore database
 
@@ -44,6 +44,9 @@ The parameters to provide are:
 - [dbname] is the name of your database
 - [backupfile.sql] if the filename for your database backup
 
+> [!Important]
+> - For Single server use the format ```admin-user@servername``` to replace ```myserveradmin``` in the commands below.
+> - For Flexible server use the format ```admin-user``` to replace ```myserveradmin``` in the commands below.
 
 If a specific table is corrupted, then select specific tables in your database to back up using this example
 ```
@@ -53,7 +56,7 @@ $ mysqldump --ssl-cert=</path/to/pem> -h mydemoserver.mysql.database.azure.com -
 To back up one or more databases, use the --database switch and list the database names separated by spaces.
 
 ```
-$ mysqldump --ssl-cert=</path/to/pem>  -h mydemoserver.mysql.database.azure.com -u root -p --databases testdb1 testdb3 testdb5 > testdb135_backup.sql
+$ mysqldump --ssl-cert=</path/to/pem>  -h mydemoserver.mysql.database.azure.com -u myserveradmin -p --databases testdb1 testdb3 testdb5 > testdb135_backup.sql
 ```
 
 ###  Restore your database or tables
@@ -63,19 +66,18 @@ The following steps show you how tp restore your database or tables. Once the ba
 ```
 mysql  --ssl-cert=</path/to/pem> -h [hostname] -u [uname] -p[pass] [db_to_restore] < [backupfile.sql]
 ```
+Here is an example of the restoring ```testdb``` from backup file created with **mysqldump**. 
 
-# [Single Server] [#tab/single-server]
+> [!Important]
+> - For Single server use the format ```admin-user@servername``` to replace ```myserveradmin``` in the command below.
+> - For Flexible server use the format ```admin-user``` to replace ```myserveradmin``` in the command below. 
 
-$ mysql --ssl-cert=</path/to/pem> -h mydemoserver.mysql.database.azure.com -u myadmin@mydemoserver -p testdb < testdb_backup.sql
-
-# [Flexible Server] [#tab/flexible-server]
-
-$ mysql --ssl-cert=</path/to/pem> -h mydemoserver.mysql.database.azure.com -u myadmin -p testdb < testdb_backup.sql
-
----
+```
+$ mysql --ssl-cert=</path/to/pem> -h mydemoserver.mysql.database.azure.com -u myserveradmin -p testdb < testdb_backup.sql
+```
 
 ## Next Steps
-If the above steps dont work as expected, you can always restore a server with all the databases.
+If the above steps do not help resolve the issue, you can always restore a server with all the databases.
 - [Restore a  Azure Database for MySQL Single Server](howto-restore-server-portal.md)
 - [Restore a Azure Database for MySQL Flexible Server](flexible-server/how-to-restore-mysql-server-portal.md)
 
