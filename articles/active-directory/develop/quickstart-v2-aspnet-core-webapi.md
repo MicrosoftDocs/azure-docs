@@ -44,7 +44,7 @@ In this quickstart, you use a code sample to learn how to protect an ASP.NET Cor
 #### Step 2: Download your ASP.NET Core project
 
 > [!div renderon="docs"]
-> [Download the ASP.NET Core solution](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/archive/aspnetcore2-2.zip)
+> [Download the ASP.NET Core solution](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/archive/aspnetcore3-1.zip)
 
 > [!div renderon="docs"]
 > #### Step 3: Run your ASP.NET Core project
@@ -75,7 +75,7 @@ In this quickstart, you use a code sample to learn how to protect an ASP.NET Cor
 This section gives an overview of the code required to sign in users. This overview can be useful to understand how the code works, main arguments, and also if you want to add sign-in to an existing ASP.NET Core application.
 
 ### How the sample works
-The web API will receive a token and will validate it. 
+The web API will receive a token from a client and will validate it. The full scenario is explained in []()
 
 ### Startup class
 
@@ -112,9 +112,44 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 }
 ```
 
-### Protect a controller or a controller's method
+### Protect a controller, a controller's method or a Razor page
 
 You can protect a controller or controller methods using the `[Authorize]` attribute. This attribute restricts access to the controller or methods by only allowing authenticated users, which means that authentication challenge can be started to access the controller if the user isn't authenticated.
+
+```CSharp
+namespace webapi.Controllers
+{
+    [Authorize]
+    [ApiController]
+    [Route("[controller]")]
+    public class WeatherForecastController : ControllerBase
+```
+
+### Validate the scope from the controller action / Razor page method
+
+Your API needs to verify the scopes of the token using `HttpContext.VerifyUserHasAnyAcceptedScope(scopeRequiredByApi);`
+
+```CSharp
+namespace webapi.Controllers
+{
+    [Authorize]
+    [ApiController]
+    [Route("[controller]")]
+    public class WeatherForecastController : ControllerBase
+    {
+        // The Web API will only accept tokens 1) for users, and 2) having the "access_as_user" scope for this API
+        static readonly string[] scopeRequiredByApi = new string[] { "access_as_user" };
+
+        [HttpGet]
+        public IEnumerable<WeatherForecast> Get()
+        {
+            HttpContext.VerifyUserHasAnyAcceptedScope(scopeRequiredByApi);
+
+            // some code here
+        }
+    }
+}
+```
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
@@ -124,7 +159,11 @@ Check out the GitHub repo for this ASP.NET Core tutorial for more information in
 
 > [!div class="nextstepaction"]
 > [Sample: ASP.NET Core web API tutorial](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2)
+>
 > [Sample: ASP.NET Core web app calling your own web API](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/4-WebApp-your-API)
+>
 > [Sample: .NET Core Daemon application calling your own web API](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/tree/master/2-Call-OwnApi)
+>
 > [Sample: Angular application calling your own web API](https://github.com/Azure-Samples/ms-identity-javascript-angular-spa-aspnetcore-webapi)
+>
 > [Sample: web api calling a downstream web API](https://docs.microsoft.com/samples/azure-samples/active-directory-dotnet-native-aspnetcore-v2/2-web-api-now-calls-microsoft-graph/)
