@@ -45,6 +45,9 @@ In this article, what we refer to as the *root CA* is not the topmost certificat
 > [!NOTE]
 > Currently, a limitation in libiothsm prevents the use of certificates that expire on or after January 1, 2050.
 
+> [!NOTE]
+> A limitation in iotedge prior to version 1.0.10 prevents the use of certificates that expire on or after January 1, 2038.
+
 To see an example of these certificates, review the scripts that create demo certificates in [Managing test CA certificates for samples and tutorials](https://github.com/Azure/iotedge/tree/master/tools/CACertificates).
 
 ### Install certificates on the device
