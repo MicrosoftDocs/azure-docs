@@ -1,6 +1,6 @@
 ---
 title: Install & deploy Linux C# agent
-description: Learn how to install the Azure Security Center for IoT agent on both 32-bit and 64-bit Linux.
+description: Learn how to install and deploy the Azure Security Center for IoT C#-based security agent on Linux
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na

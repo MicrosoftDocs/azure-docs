@@ -1,5 +1,5 @@
 ---
-title: Frequently asked questions
+title: Defender for IoT frequently asked questions
 description: Find answers to the most frequently asked questions about Azure Security Center for IoT features and service.
 services: defender-for-iot
 ms.service: defender-for-iot
@@ -18,7 +18,7 @@ ms.date: 07/23/2019
 ms.author: mlottner
 ---
 
-# Azure Security Center for IoT frequently asked questions
+# Defender for IoT frequently asked questions
 
 This article provides a list of frequently asked questions and answers about Azure Security Center for IoT.
 

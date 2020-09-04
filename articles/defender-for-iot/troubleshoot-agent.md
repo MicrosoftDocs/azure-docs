@@ -104,16 +104,6 @@ Azure Security Center for IoT agent encountered an error! Error in: {Error Code}
 | Authentication | Cant Parse Configuration | A configuration value can't be parsed. The error message should state which key can't be parsed. A configuration value can not be parsed because either the value is not of the expected type, or the value is out of range. |Fix the value of the key in the **LocalConfiguration.json** file. |Fix the value of the key in **Authentication.config** file to match the schema, see the [cs-localconfig-reference](azure-iot-security-local-configuration-c.md) for details.|
 |
 
-## Restart the agent
-
-1. After locating and fixing a security agent error, restart the agent by running the following command:
-
-    ```bash
-    systemctl restart ASCIoTAgent.service
-    ```
-
-1. If required, repeat the previous processes to force stop the agent and retrieve the errors if the agent continues to fail the startup process.
-
 ## Next steps
 
 - Read the Azure Security Center for IoT service [Overview](overview.md)
