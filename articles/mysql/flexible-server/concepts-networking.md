@@ -49,7 +49,7 @@ Private access with virtual network (vnet) integration provides private and secu
 Here are some concepts to be familiar with when using virtual networks with MySQL flexible servers.
 
 * **Virtual network** - 
-   An Azure Virtual Network (VNet) contains a private IP address space that is configured for your use. Visit the [Azure Virtual Network overview](../../virtual-network/virtual-networks-overview) to learn more about Azure virtual networking.
+   An Azure Virtual Network (VNet) contains a private IP address space that is configured for your use. Visit the [Azure Virtual Network overview](../../virtual-network/virtual-networks-overview.md) to learn more about Azure virtual networking.
 
     Your virtual network must be in the same Azure region as your flexible server.
 
