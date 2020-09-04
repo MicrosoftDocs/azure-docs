@@ -1,5 +1,5 @@
 ---
-title: Use Azure AD Identity Governance to review and remove users from external organizations who no longer have access to resources 
+title: Use Azure AD Identity Governance to review and remove external users who no longer have resource access
 description: Use Access Reviews to extend of remove access from members of partner organizations
 services: active-directory
 documentationcenter: ''
@@ -11,11 +11,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 09/01/2020
+ms.date: 09/04/2020
 ms.author: barclayn
 ---
 
-# Use Azure AD Identity Governance to review and remove users from external organizations who no longer have access to resources
+# Use Azure AD Identity Governance to review and remove external users who no longer have resource access
 
 This article describes features and methods that allow you to pinpoint and select external identities so that you can review them and remove them from Azure AD if they are no longer needed. The cloud makes it easier than ever to collaborate with internal or external users. Embracing Office 365, organizations start to see the proliferation of external identities (including guests), as users work together on data, documents, or digital workspaces such as Teams. Organizations need to balance, enabling collaboration and meeting security and governance requirements. Part of these efforts should include evaluating and cleaning out external users, who were invited for collaboration into your tenant, that originating from partner organizations, and removing them from your Azure AD when they are no longer needed.
 
