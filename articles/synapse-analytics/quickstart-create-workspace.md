@@ -40,6 +40,29 @@ After your Azure Synapse workspace is created, you have two ways to open Synapse
 * Open your Synapse workspace in the [Azure portal](https://portal.azure.com). On the top of the **Overview** section, select **Launch Synapse Studio**.
 * Go to the `https://web.azuresynapse.net` and sign in to your workspace.
 
+## Prepare an existing storage account for use with Synapse Analytics
+
+1. Open the [Azure portal](https://portal.azure.com).
+1. Navigate to an existing ADLSGEN2 storage account
+1. Select **Access control (IAM)** on the left pane. Then assign the following roles or make sure they're already assigned:
+    * Assign yourself to the **Owner** role.
+    * Assign yourself to the **Storage Blob Data Owner** role.
+1. On the left pane, select **Containers** and create a container.
+1. You can give the container any name. In this document, we'll name the container **users**.
+1. Accept the default setting **Public access level**, and then select **Create**.
+
+### Configure access to the storage account from your workspace
+
+Managed identities for your Azure Synapse workspace might already have access to the storage account. Follow these steps to make sure:
+
+1. Open the [Azure portal](https://portal.azure.com) and the primary storage account chosen for your workspace.
+1. Select **Access control (IAM)** from the left pane.
+1. Assign the following roles or make sure they're already assigned. We use the same name for the workspace identity and the workspace name.
+    * For the **Storage Blob Data Contributor** role on the storage account, assign **myworkspace** as the workspace identity.
+    * Assign **myworkspace** as the workspace name.
+
+1. Select **Save**.
+
 ## Next steps
 
 * [Create a SQL pool](quickstart-create-sql-pool-studio.md) 
