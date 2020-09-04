@@ -34,7 +34,6 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * TeamzSkill supports **SP and IDP** initiated SSO
 * TeamzSkill supports **Just In Time** user provisioning
-* TeamzSkill supports [**Automated** user provisioning](https://docs.microsoft.com/azure/active-directory/saas-apps/salesforce-provisioning-tutorial)
 
 ## Adding TeamzSkill from the gallery
 
@@ -157,8 +156,6 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 ### Create TeamzSkill test user
 
 In this section, a user called B.Simon is created in TeamzSkill. TeamzSkill supports just-in-time provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in TeamzSkill, a new one is created when you attempt to access TeamzSkill.
-
-TeamzSkill also supports automatic user provisioning, you can find more details [here](https://docs.microsoft.com/azure/active-directory/saas-apps/salesforce-provisioning-tutorial) on how to configure automatic user provisioning.
 
 ## Test SSO 
 
