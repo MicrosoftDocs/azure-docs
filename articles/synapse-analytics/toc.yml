@@ -36,6 +36,8 @@
   items:
   - name: Create a Synapse workspace using the Azure portal
     href: quickstart-create-workspace.md
+  - name: Deploy with a template
+    href: quickstart-deployment-template-workspaces.md
   - name: Create a Synapse workspace using Azure CLI
     href: quickstart-create-workspace-cli.md
   - name: Use Synapse Studio 
