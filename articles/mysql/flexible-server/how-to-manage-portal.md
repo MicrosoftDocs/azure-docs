@@ -5,7 +5,7 @@ author: mksuni
 ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
-ms.date: 9/22/2020
+ms.date: 9/21/2020
 ---
 
 # Manage an Azure Database for MySQL Flexible server (Preview) using Azure portal
@@ -14,12 +14,9 @@ This article shows you how to manage your Azure Database for MySQL Flexible serv
 ## Sign in
 Sign in to the [Azure portal](https://portal.azure.com). Go to your flexible server resource in the Azure portal.
 
-### Scale compute and storage
+## Scale compute and storage
 
 After server creation you can scale between the various [pricing tiers](https://azure.microsoft.com/pricing/details/mysql/) as your needs change. You can also scale up or down your compute and memory by increasing or decreasing vCores.
-
-> [!NOTE]
-> Storage cannot be scaled down to lower value.
 
 1. Select your server in the Azure portal. Select **Compute + Storage**, located in the **Settings** section.
 
