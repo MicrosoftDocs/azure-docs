@@ -127,4 +127,4 @@ Check out the GitHub repo for this ASP.NET Core tutorial for more information in
 > [Sample: ASP.NET Core web app calling your own web API](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/4-WebApp-your-API)
 > [Sample: .NET Core Daemon application calling your own web API](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/tree/master/2-Call-OwnApi)
 > [Sample: Angular application calling your own web API](https://github.com/Azure-Samples/ms-identity-javascript-angular-spa-aspnetcore-webapi)
-> [Sample: web api calling a downstream web API](https://docs.microsoft.com/en-us/samples/azure-samples/active-directory-dotnet-native-aspnetcore-v2/2-web-api-now-calls-microsoft-graph/)
+> [Sample: web api calling a downstream web API](https://docs.microsoft.com/samples/azure-samples/active-directory-dotnet-native-aspnetcore-v2/2-web-api-now-calls-microsoft-graph/)
