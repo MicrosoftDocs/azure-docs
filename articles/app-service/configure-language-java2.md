@@ -1,7 +1,7 @@
 ---
 title: Configure Java apps
 description: Learn how to configure Java apps to run on Azure App Service. This article shows the most common configuration tasks.
-keywords: azure app service, web app, windows, oss, java
+keywords: azure app service, web app, windows, oss, java, tomcat, jboss
 author: jasonfreeberg
 ms.devlang: java
 ms.topic: article
@@ -14,7 +14,7 @@ zone_pivot_groups: app-service-platform-windows-linux
 
 # Configure a Java app for Azure App Service
 
-Azure App Service lets Java developers to quickly build, deploy, and scale their Tomcat and Java SE web applications on a fully managed service. Deploy applications with Maven plugins from the command line or in editors like IntelliJ, Eclipse, or Visual Studio Code.
+Azure App Service lets Java developers to quickly build, deploy, and scale their Java SE, Tomcat, and JBoss EAP web applications on a fully managed service. Deploy applications with Maven plugins, from the command line, or in editors like IntelliJ, Eclipse, or Visual Studio Code.
 
 This guide provides key concepts and instructions for Java developers using App Service. If you've never used Azure App Service, you should read through the [Java quickstart](quickstart-java.md) first. General questions about using App Service that aren't specific to Java development are answered in the [App Service FAQ](faq-configuration-and-management.md).
 
@@ -155,7 +155,7 @@ Enable [application logging](troubleshoot-diagnostic-logs.md#enable-application-
 ::: zone-end
 ::: zone pivot="platform-linux"
 
-Enable [application logging](troubleshoot-diagnostic-logs.md#enable-application-logging) through the Azure portal or [Azure CLI](/cli/azure/webapp/log#az-webapp-log-config) to configure App Service to write your application's standard console output and standard console error streams to the local filesystem or Azure Blob Storage. If you need longer retention, configure the application to write output to a Blob storage container. Your Java and Tomcat app logs can be found in the */home/LogFiles/Application/* directory.
+Enable [application logging](troubleshoot-diagnostic-logs.md#enable-application-logging-linuxcontainer) through the Azure portal or [Azure CLI](/cli/azure/webapp/log#az-webapp-log-config) to configure App Service to write your application's standard console output and standard console error streams to the local filesystem or Azure Blob Storage. If you need longer retention, configure the application to write output to a Blob storage container. Your Java and Tomcat app logs can be found in the */home/LogFiles/Application/* directory.
 
 Azure Blob Storage logging for Linux based App Services can only be configured using [Azure Monitor (preview)](./troubleshoot-diagnostic-logs.md#send-logs-to-azure-monitor-preview) 
 
