@@ -49,6 +49,7 @@ In this quickstart, you use a code sample to learn how to protect an ASP.NET Cor
 > [!div renderon="docs"]
 > #### Step 3: Run your ASP.NET Core project
 > 1. Extract the zip file to a local folder within the root folder - for example, **C:\Azure-Samples**
+> 1. change the directory to **active-directory-dotnet-native-aspnetcore-v2-aspnetcore3-1\webapi**
 > 1. Open the solution in your IDE
 > 1. Edit the **appsettings.json** file. Find `ClientId` and update the value of `ClientId` with the **Application (client) ID** value of the application you registered.
 >
@@ -56,8 +57,7 @@ In this quickstart, you use a code sample to learn how to protect an ASP.NET Cor
 >    "ClientId": "Enter_the_Application_Id_here"
 >    "TenantId": "Enter_the_Tenant_Info_Here"
 >    ```
-
-
+>
 
 > [!div renderon="docs"]
 > Where:
@@ -75,7 +75,7 @@ In this quickstart, you use a code sample to learn how to protect an ASP.NET Cor
 This section gives an overview of the code required to sign in users. This overview can be useful to understand how the code works, main arguments, and also if you want to add sign-in to an existing ASP.NET Core application.
 
 ### How the sample works
-The web API will receive a token from a client and will validate it. The full scenario is explained in []()
+The web API will receive a token from a client and will validate it. The scenario is explained in details in [Scenario: Protected web API](scenario-protected-web-api-overview.md)
 
 ### Startup class
 
