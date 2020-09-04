@@ -49,6 +49,19 @@ The following table outlines what methods are available for primary or secondary
 
 All of these authentication methods can be configured in the Azure portal, and increasingly using the [Microsoft Graph REST API beta](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta).
 
+These authentication methods have different levels of security and convenience. Where possible, use authentication methods with the highest level of security.
+
+| Authentication method | Security | Convenience | Satisfy Strong authentication requirements? | Phisable? |  Channel jackable? | Availability |
+|---------|---------|---------|---------|---------|---------|---------|
+| Windows Hello for Business | High | High | Strong primary and secondary | No | No | High |
+| FIDO2 security key | High | High | Strong authentication | No | No | High |
+| Microsoft Authenticator app | High | High | High  Strong authentication<br /><br />Can satisfy secondary authentication when used with a password. | Yes | No  | High |
+| Hardware OATH tokens | Medium | Medium | Secondary authentication when used with a password. | Yes | No | High |
+| Software OATH tokens | Medium | Medium | Secondary authentication when used with a password. | Yes | No | High |
+| SMS | Medium | High | Primary or secondary authentication when used with a password. | Yes | Yes | Medium |
+| Voice | Medium | Medium | Secondary authentication when used with a password | Yes | Yes | Medium |
+| Password | Low | High | Primary authentication | Yes | Yes | High |
+
 ## How each authentication method works
 
 To learn more about how each authentication method works, see the following separate conceptual articles:
