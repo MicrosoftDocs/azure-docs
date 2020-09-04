@@ -36,12 +36,6 @@
     href: concepts-security.md
 - name: How-to guides
   items:
-  - name: Develop
-    items:
-    - name: Use the APIs and SDKs
-      href: how-to-use-apis-sdks.md
-    - name: Create custom SDKs with AutoRest
-      href: how-to-create-custom-sdks.md
   - name: Deploy
     items:
     - name: Use the Azure Digital Twins CLI
@@ -56,6 +50,8 @@
         href: how-to-set-up-instance-portal.md
     - name: Write app authentication code
       href: how-to-authenticate-client.md
+    - name: Move instance to a different region
+      href: how-to-move-regions.md
   - name: Design models
     items: 
     - name: Manage custom models
@@ -76,10 +72,20 @@
       href: how-to-create-azure-function.md
     - name: Query the twin graph
       href: how-to-query-graph.md
+  - name: Develop client apps
+    items:
+    - name: Use the APIs and SDKs
+      href: how-to-use-apis-sdks.md
+    - name: Create custom SDKs with AutoRest
+      href: how-to-create-custom-sdks.md
+    - name: Integrate with Azure SignalR Service
+      href: how-to-integrate-azure-signalr.md
   - name: Connect input
     items:
     - name: Ingest telemetry from IoT Hub
       href: how-to-ingest-iot-hub-data.md
+    - name: Auto-manage devices with DPS
+      href: how-to-provision-using-device-provisioning-service.md
     - name: Integrate with Logic Apps
       href: how-to-integrate-logic-apps.md  
   - name: Connect output
@@ -181,7 +187,11 @@
       - name: DTDL validator (sample)
         href: https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator/
       - name: DPS and IoT Hub integration sample
-        href: https://github.com/Azure-Samples/digital-twins-iothub-integration    
+        href: https://docs.microsoft.com/samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/ 
+      - name: Azure Digital Twins Custom Swaggers
+        href: https://docs.microsoft.com/samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/ 
+      - name: SignalR integration sample
+        href: https://docs.microsoft.com/samples/azure-samples/digitaltwins-signalr-webapp-sample/digital-twins-samples/ 
   - name: Azure tools
     items: 
     - name: Azure Cloud Shell

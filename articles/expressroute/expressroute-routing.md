@@ -2,12 +2,12 @@
 title: 'Azure ExpressRoute: Routing requirements'
 description: This page provides detailed requirements for configuring and managing routing for ExpressRoute circuits.
 services: expressroute
-author: cherylmc
+author: duongau
 
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/19/2019
-ms.author: cherylmc
+ms.author: duau
 
 
 ---
@@ -135,7 +135,7 @@ Default routes are permitted only on Azure private peering sessions. In such a c
 * You use user-defined routing to allow internet connectivity for every subnet requiring Internet connectivity.
 
 > [!NOTE]
-> Advertising default routes will break Windows and other VM license activation. Follow instructions [here](https://blogs.msdn.com/b/mast/archive/2015/05/20/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling.aspx) to work around this.
+> Advertising default routes will break Windows and other VM license activation. Follow instructions [here](https://docs.microsoft.com/archive/blogs/mast/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling) to work around this.
 > 
 > 
 

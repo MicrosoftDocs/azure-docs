@@ -75,11 +75,8 @@ This example shows how to configure NSG rules for a VM to replicate.
 
      :::image type="content" source="./media/azure-to-azure-about-networking/aad-tag.png" alt-text="aad-tag":::
 
-1. Create HTTPS port 443 outbound rules for the Site Recovery IPs that correspond to the target location:
-
-   | Location | Site Recovery IP address | Site Recovery monitoring IP address |
-   | --- | --- | --- |
-   | Central US | 40.69.144.231 | 52.165.34.144 |
+1. Similar to above security rules, create outbound HTTPS (443) security rule for "EventHub.CentralUS" on the NSG that correspond to the target location. This allows access to Site Recovery monitoring.
+1. Create an outbound HTTPS (443) security rule for "AzureSiteRecovery" on the NSG. This allows access to Site Recovery Service in any region.
 
 #### NSG rules - Central US
 
@@ -95,11 +92,8 @@ For this example, these NSG rules are required so that replication can be enable
    - **Destination service tag**: _AzureActiveDirectory_
    - **Destination port ranges**: _443_
 
-1. Create HTTPS port 443 outbound rules for the Site Recovery IPs that correspond to the source location:
-
-   | Location | Site Recovery IP address | Site Recovery monitoring IP address |
-   | --- | --- | --- |
-   | East US | 13.82.88.226 | 104.45.147.24 |
+1. Similar to above security rules, create outbound HTTPS (443) security rule for "EventHub.EastUS" on the NSG that correspond to the source location. This allows access to Site Recovery monitoring.
+1. Create an outbound HTTPS (443) security rule for "AzureSiteRecovery" on the NSG. This allows access to Site Recovery Service in any region.
 
 ### Issue 3: Site Recovery configuration failed (151197)
 
@@ -109,7 +103,7 @@ A connection can't be established to Azure Site Recovery service endpoints.
 
 #### Resolution
 
-Azure Site Recovery required access to [Site Recovery IP ranges](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags) depending on the region. Make sure that required IP ranges are accessible from the VM.
+If you are using an Azure Network Security Group (NSG) rule/firewall proxy to control outbound network connectivity on the machine, there are several service tags that need to be allowed. [Learn more](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags).
 
 ### Issue 4: Azure-to-Azure replication failed when the network traffic goes through on-premises proxy server (151072)
 

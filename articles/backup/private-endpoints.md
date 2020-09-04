@@ -187,7 +187,7 @@ See [Manual approval of private endpoints using the Azure Resource Manager Clien
 ## Adding DNS records
 
 >[!NOTE]
-> This step isn't required if you're using an integrated DNS zone. However, if you have created your own Azure Private DNS zone or are using a custom private DNS zone, make sure entries are made as described in this section.
+> This step isn't required if you're using an integrated DNS zone. However, if you've created your own Azure Private DNS zone or are using a custom private DNS zone, make sure entries are made as described in this section.
 
 Once you've created the optional private DNS zone and the private endpoints for your vault, you'll need to add DNS records to your DNS zone. You can do this either manually or using a PowerShell script. This needs to be done for your Backup DNS zone only, those for Blobs and Queues will automatically be updated.
 
@@ -234,7 +234,7 @@ This requires you to make entries for each FQDN in your private endpoint into yo
 Once the private endpoints created for the vault in your VNet have been approved, you can start using them for performing your backups and restores.
 
 >[!IMPORTANT]
->Ensure that you have completed all the steps mentioned above in the document successfully before proceeding. To recap, you must have completed the steps in the following checklist:
+>Ensure that you've completed all the steps mentioned above in the document successfully before proceeding. To recap, you must have completed the steps in the following checklist:
 >
 >1. Created a (new) Recovery Services vault
 >1. Enabled the vault to use system assigned Managed Identity
@@ -550,7 +550,7 @@ A. No, private endpoints can be created for new Backup vaults only. So the vault
 Q. I tried to protect an item to my vault, but it failed and the vault still doesn't contain any items protected to it. Can I create private endpoints for this vault?<br>
 A. No, the vault must not have had any attempts to protect any items to it in the past.
 
-Q. I have a vault that is using private endpoints for backup and restore. Can I later add or remove private endpoints for this vault even if I have backup items protected to it?<br>
+Q. I have a vault that's using private endpoints for backup and restore. Can I later add or remove private endpoints for this vault even if I have backup items protected to it?<br>
 A. Yes. If you already created private endpoints for a vault and protected backup items to it, you can later add or remove private endpoints as required.
 
 Q. Can the private endpoint for Azure Backup also be used for Azure Site Recovery?<br>

@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 08/26/2020
 ms.author: normesta
 ms.reviewer: prishet
+ms.custom: devx-track-csharp
 ---
 
 # Set access control lists (ACLs) recursively for Azure Data Lake Storage Gen2
@@ -449,9 +450,9 @@ This example removes an ACL entry from the root directory of the container.
 
 ```powershell
 $filesystemName = "my-container"
-$userID = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx";
+$userID = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 
-$acl = Set-AzDataLakeGen2ItemAclObject -AccessControlType user -EntityId $userID
+$acl = Set-AzDataLakeGen2ItemAclObject -AccessControlType user -EntityId $userID -Permission "---" 
 
 Remove-AzDataLakeGen2AclRecursive -Context $ctx -FileSystem $filesystemName  -Acl $acl
 ```
@@ -634,7 +635,7 @@ The maximum number of ACLs that you can apply to a directory or file is 32 acces
 
 ### Provide feedback or report issues
 
-You can provide your feedback or report an issue by using any of these pages: [PowerShell](https://github.com/Azure/azure-powershell/issues/new?assignees=&labels=triage&template=az-module-bug-report.md&title=), [.NET](https://github.com/Azure/azure-sdk-for-net/issues/new?assignees=&labels=&template=bug_report.md&title=), [Python](https://github.com/Azure/azure-sdk-for-python/issues/new?assignees=&labels=&template=bug_report.md&title=)
+You can provide your feedback or report an issue at  [recursiveACLfeedback@microsoft.com](mailto:recursiveACLfeedback@microsoft.com).
 
 ## See also
 

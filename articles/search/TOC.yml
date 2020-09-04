@@ -88,9 +88,6 @@
     href: /samples/browse/?languages=python&products=azure-cognitive-search
   - name: REST samples
     href: /samples/browse/?expanded=azure&languages=http&products=azure-cognitive-search
-  - name: Azure Policy built-ins
-    displayName: samples, policies, definitions
-    href: ./policy-samples.md
 - name: Concepts
   items:
   - name: Full-text search
@@ -117,6 +114,8 @@
     - name: Security controls by Azure Policy
       displayName: regulatory, compliance, standards, domains
       href: ./security-controls-policy.md
+    - name: Securing indexer resources
+      href: search-indexer-securing-resources.md
 - name: How-to guides
   items:
   - name: Create indexes and constructs
@@ -357,6 +356,14 @@
         href: search-security-trimming-for-azure-search.md
       - name: Filter on user identities
         href: search-security-trimming-for-azure-search-with-aad.md
+    - name: Outbound security (indexers)  
+      items:
+      - name: Access over an IP range
+        href: search-indexer-howto-access-ip-restricted.md
+      - name: Access through trusted service exception
+        href: search-indexer-howto-access-trusted-service-exception.md
+      - name: Access through private endpoints
+        href: search-indexer-howto-access-private.md
   - name: Manage
     items:
     - name: Portal
@@ -496,6 +503,9 @@
       items:
       - name: Named Entity Recognition
         href: cognitive-search-skill-named-entity-recognition.md
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-reference.md
 - name: Resources
   items:
   - name: Azure Community Support

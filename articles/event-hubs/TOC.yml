@@ -64,7 +64,7 @@
   items:
     - name: Visualize data anomalies on Event Hubs data streams
       href: event-hubs-tutorial-visualize-anomalies.md
-    - name: Store captured data in a SQL Data Warehouse
+    - name: Store captured data in a Azure Synapse Analytics
       href: store-captured-data-data-warehouse.md
     - name: Process Apache Kafka for Event Hubs events using Stream analytics
       href: event-hubs-kafka-stream-analytics.md
@@ -75,9 +75,6 @@
   items:
     - name: Code samples
       href: event-hubs-samples.md
-    - name: Azure Policy built-ins
-      displayName: samples, policies, definitions
-      href: ./policy-samples.md
 - name: Concepts
   items:
     - name: Event Hubs terminology
@@ -128,8 +125,12 @@
       maintainContext: true
 - name: How-to guides
   items:
-    - name: Move across regions
-      href: move-across-regions.md
+    - name: Move
+      items:
+      - name: Move a namespace to another region
+        href: move-across-regions.md
+      - name: Move a dedicated cluster to another region
+        href: move-cluster-across-regions.md
     - name: Dynamically add partitions
       href: dynamically-add-partitions.md
     - name: Use Blob Storage as checkpoint store on Azure Stack Hub
@@ -290,6 +291,9 @@
       href: event-hubs-quotas.md
     - name: Apache Kafka configurations
       href: apache-kafka-configurations.md
+    - name: Azure Policy built-ins
+      displayName: samples, policies, definitions
+      href: ./policy-reference.md
 - name: Resources
   items:
     - name: Build your skills with Microsoft Learn

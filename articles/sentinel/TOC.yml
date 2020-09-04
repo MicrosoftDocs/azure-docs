@@ -40,7 +40,7 @@
         href: connect-aws.md
       - name: Azure Active Directory
         href: connect-azure-active-directory.md
-      - name: Office 365
+      - name: Office 365 (now with Teams!)
         href: connect-office-365.md
       - name: Cloud App Security
         href: connect-cloud-app-security.md
@@ -54,6 +54,8 @@
         href: connect-microsoft-defender-advanced-threat-protection.md
       - name: Azure ATP
         href: connect-azure-atp.md
+      - name: Azure Firewall
+        href: connect-azure-firewall.md
       - name: Azure Security Center
         href: connect-azure-security-center.md
       - name: Azure Security Center for IoT
@@ -169,6 +171,10 @@
       href: livestream.md
   - name: Remove Azure Sentinel
     href: offboard.md
+- name: Reference (New!)
+  items:
+  - name: REST APIs
+    href: https://docs.microsoft.com/rest/api/securityinsights/
 - name: Resources
   items:
   - name: Useful resources
@@ -176,7 +182,7 @@
   - name: Azure Roadmap
     href: https://azure.microsoft.com/updates/?updateType=security&category=security&query=sentinel
   - name: Azure Security, Privacy, & Compliance blog
-    href: https://blogs.msdn.com/b/azuresecurity/
+    href: https://docs.microsoft.com/archive/blogs/azuresecurity/
   - name: Regional availability
     href: https://azure.microsoft.com/global-infrastructure/services/?products=azure-sentinel
   - name: Pricing

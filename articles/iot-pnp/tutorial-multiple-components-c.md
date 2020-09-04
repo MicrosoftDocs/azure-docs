@@ -120,8 +120,8 @@ Or you can use the device SDK to build the included sample code:
 
 Create two environment variables to configure the sample to use a connection string to connect to your IoT hub:
 
-- **IOTHUB_DEVICE_SECURITY_TYPE** with the value `"connectionString"`
-- **IOTHUB_DEVICE_CONNECTION_STRING** to store the device connection string you made a note of previously.
+* **IOTHUB_DEVICE_SECURITY_TYPE** with the value `"connectionString"`
+* **IOTHUB_DEVICE_CONNECTION_STRING** to store the device connection string you made a note of previously.
 
 From the _cmake_ folder, navigate to the folder that contains the executable file and run it:
 
@@ -158,19 +158,19 @@ For this sample, the code use some helper functions from the */common* folder:
 
 *pnp_protocol*: contains the IoT Plug and Play helper functions:
 
-- `PnP_CreateReportedProperty`
-- `PnP_CreateReportedPropertyWithStatus`
-- `PnP_ParseCommandName`
-- `PnP_CreateTelemetryMessageHandle`
-- `PnP_ProcessTwinData`
-- `PnP_CopyPayloadToString`
-- `PnP_CreateDeviceClientLLHandle_ViaDps`
+* `PnP_CreateReportedProperty`
+* `PnP_CreateReportedPropertyWithStatus`
+* `PnP_ParseCommandName`
+* `PnP_CreateTelemetryMessageHandle`
+* `PnP_ProcessTwinData`
+* `PnP_CopyPayloadToString`
+* `PnP_CreateDeviceClientLLHandle_ViaDps`
 
 These helper functions are generic enough to use in your own project. This sample uses them in the three files that correspond to each component in the model:
 
-- *pnp_deviceinfo_component*
-- *pnp_temperature_controller*
-- *pnp_thermostat_component*
+* *pnp_deviceinfo_component*
+* *pnp_temperature_controller*
+* *pnp_thermostat_component*
 
 For example, in the *pnp_deviceinfo_component* file, the `SendReportedPropertyForDeviceInformation` function uses two of the helper functions:
 
@@ -223,9 +223,9 @@ When the device sends a model ID, it becomes an IoT Plug and Play device.
 
 With the callback handlers in place, the device reacts to twin updates and direct method calls:
 
-- For the device twin callback, the `PnP_TempControlComponent_DeviceTwinCallback` calls the `PnP_ProcessTwinData` function to process the data. `PnP_ProcessTwinData` uses the *visitor pattern* to parse the JSON and then visit each property, calling `PnP_TempControlComponent_ApplicationPropertyCallback` on each element.
+* For the device twin callback, the `PnP_TempControlComponent_DeviceTwinCallback` calls the `PnP_ProcessTwinData` function to process the data. `PnP_ProcessTwinData` uses the *visitor pattern* to parse the JSON and then visit each property, calling `PnP_TempControlComponent_ApplicationPropertyCallback` on each element.
 
-- For the commands callback, the `PnP_TempControlComponent_DeviceMethodCallback` function uses the helper function to parse the command and component names:
+* For the commands callback, the `PnP_TempControlComponent_DeviceMethodCallback` function uses the helper function to parse the command and component names:
 
     ```c
     PnP_ParseCommandName(methodName, &componentName, &componentNameSize, &pnpCommandName);

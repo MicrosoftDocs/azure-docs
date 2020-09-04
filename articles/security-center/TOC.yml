@@ -64,8 +64,6 @@
       href: security-center-recommendations.md
     - name: Overview of security policies
       href: tutorial-security-policy.md
-    - name: Built-in security policies
-      href: security-center-policy-definitions.md 
     - name: Use recommendations to enhance security
       href: security-center-using-recommendations.md
     - name: Security baseline
@@ -111,12 +109,12 @@
       href: update-regulatory-compliance-packages.md
   - name: Scan your VMs for vulnerabilities
     items:
-    - name: Vulnerability scanning overview
-      href: security-center-vulnerability-assessment-recommendations.md
-    - name: Integrated vulnerability scanner for VMs
-      href: built-in-vulnerability-assessment.md
-    - name: Using external scanners
-      href: partner-vulnerability-assessment.md
+    - name: Deploy the integrated vulnerability scanner to your VMs
+      href: deploy-vulnerability-assessment-vm.md
+    - name: Deploy a BYOL vulnerability solution to your VMs
+      href: deploy-vulnerability-assessment-byol-vm.md
+    - name: Review and remediate vulnerabilities on your VMs
+      href: remediate-vulnerability-findings-vm.md
   - name: Configure threat protection and handle alerts
     items:
     - name: Manage security alerts
@@ -136,6 +134,7 @@
     - name: Automate responses to alerts
       href: workflow-automation.md
     - name: Export alerts
+      displayName: continuous    
       href: continuous-export.md
   - name: Use security recommendations to improve security
     items:
@@ -156,12 +155,13 @@
     - name: Automate responses to recommendations
       href: workflow-automation.md
     - name: Export recommendations
+      displayName: continuous    
       href: continuous-export.md
   - name: Manage your resources with asset inventory
     href: asset-inventory.md
   - name: Integrate with other tools and services
     items:
-    - name: Integrate with Windows Admin Center
+    - name: Protect your Windows Admin Center servers
       href: windows-admin-center-integration.md
     - name: Protect your Azure App Service web apps and APIs
       href: security-center-app-services.md
@@ -216,6 +216,9 @@
     href: security-center-features-retirement-july2019.md
   - name: Endpoint protection assessment and recommendations 
     href: security-center-endpoint-protection.md
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-reference.md
 
 - name: Resources
   items:
@@ -232,7 +235,7 @@
   - name: Readiness Roadmap
     href: security-center-readiness-roadmap.md
   - name: Azure Security, Privacy, & Compliance blog
-    href: https://blogs.msdn.com/b/azuresecurity/
+    href: https://docs.microsoft.com/archive/blogs/azuresecurity/
   - name: Azure Security Center on Stack Overflow
     href: https://stackoverflow.com/search?q=azure-security-center
   - name: Videos

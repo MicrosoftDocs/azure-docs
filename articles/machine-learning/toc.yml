@@ -6,9 +6,9 @@
     - name: What is Azure Machine Learning?
       displayName: AML, services, overview, introduction
       href: overview-what-is-azure-ml.md
-    - name: Azure Machine Learning vs Studio (classic)
-      displayName: AML, Studio, designer
-      href: compare-azure-ml-to-studio-classic.md
+    - name: What is Azure Machine Learning studio?
+      displayName: AML, studio, designer
+      href: overview-what-is-machine-learning-studio.md
     - name: Architecture & terms
       displayName: architecture, concepts, definitions, glossary
       href: concept-azure-machine-learning-architecture.md
@@ -218,6 +218,15 @@
         - name: Use Resource Manager template
           displayName: arm
           href: how-to-create-workspace-template.md
+    - name: Create compute resources
+      items: 
+        - name: Use studio
+          displayName: compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight, low priority
+          href: how-to-create-attach-compute-studio.md
+        - name: Use Python SDK
+          displayName: compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight, low priority
+          href: how-to-create-attach-compute-sdk.md
+
     - name: Set up your environment
       items: 
         - name: Set up dev environments
@@ -267,7 +276,7 @@
         - name: Access data
           items: 
             - name: Connect to Azure Storage
-              displayName: blob, get, fileshare, access, mount, download, data lake
+              displayName: blob, get, fileshare, access, mount, download, data lake, datastore
               href: how-to-access-data.md
             - name: Get data from a datastore
               displayName: data, data set, register, access data
@@ -288,7 +297,7 @@
               href: how-to-differential-privacy.md
     - name: Train models
       items: 
-        - name: Set up training environments
+        - name: Submit training run 
           displayName: run config, compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight
           href: how-to-set-up-training-targets.md
         - name: Use estimators for ML
@@ -472,9 +481,6 @@
         - name: Debug & troubleshoot parallel run step
           displayName: debug_batch consume pipeline parallelrunstep inference
           href: how-to-debug-parallel-run-step.md
-        - name: Iterating and evolving machine learning pipelines
-          displayName: modularizing testing
-          href: concept-pipeline-practices-tips.md
     - name: Azure Pipelines for CI/CD
       displayName: continuous, integration, delivery
       href: /azure/devops/pipelines/targets/azure-machine-learning?context=azure/machine-learning/context/ml-context

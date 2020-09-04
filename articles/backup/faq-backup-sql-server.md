@@ -9,7 +9,7 @@ ms.date: 04/23/2019
 
 This article answers common questions about backing up SQL Server databases that run on Azure virtual machines (VMs) and use the [Azure Backup](backup-overview.md) service.
 
-## Can I use Azure backup for IaaS VM as well as SQL Server on the same machine?
+## Can I use Azure Backup for IaaS VM as well as SQL Server on the same machine?
 
 Yes, you can have both VM backup and SQL backup on the same VM. In this case, we internally trigger copy-only full backup on the VM to not truncate the logs.
 
@@ -46,7 +46,7 @@ The default value of DefaultBackupTasksThreshold is **20**.
  While this method helps if the backup application is consuming a large quantity of resources, SQL Server [Resource Governor](/sql/relational-databases/resource-governor/resource-governor) is a more generic way to specify limits on the amount of CPU, physical IO, and memory that incoming application requests can use.
 
 > [!NOTE]
-> In the UX you can still go ahead and schedule as many backups at any given time. However they will processed in a sliding window of say, 5, according to the above example.
+> In the UX you can still go ahead and schedule as many backups at any given time. However they'll be processed in a sliding window of say, 5, according to the above example.
 
 ## Can I run a full backup from a secondary replica?
 
