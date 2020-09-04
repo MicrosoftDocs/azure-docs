@@ -20,7 +20,7 @@ While you can associate For simplicity, we recommend creating a service principa
 You'll need to have your [MPN partner ID](/partner-center/partner-center-account-setup#locate-your-mpn-id).
 
 1. [Create a service principal account](../../active-directory/develop/howto-authenticate-service-principal-powershell.md) in your managing tenant. For this example, we'll name this service principal PEC Automation Account.
-1. Link the MPN ID to this service principal - how??
+1. Using that service principal account, [link to your partner ID](../../cost-management-billing/manage/link-partner-id.md#link-to-a-partner-id) in your managing tenant. You only need to do this one time.
 1. When you [onboard a customer using Azure Resource Manager templates](onboard-customer.md), be sure to include an authorization which includes the PEC Automation Account as a user with an [Azure built-in role that is eligible for partner earned credit](https://docs.microsoft.com/partner-center/azure-roles-perms-pec).
 
 By following these steps, every customer tenant you manage will be associated with your partner ID, allowing you to receive PEC for those customers. The PEC Automation Account does not need to authenticate or perform any actions in the customer tenant.
@@ -29,7 +29,13 @@ By following these steps, every customer tenant you manage will be associated wi
 
 If you have already onboarded a customer, you may not want to perform another deployment to add your PEC Automation Account service principal. Instead, you can associate the MPN ID with a user account which already has access to work in that customer's tenant. Be sure that the account has been granted an [Azure built-in role that is eligible for partner earned credit](https://docs.microsoft.com/partner-center/azure-roles-perms-pec).
 
-Once the association is completed in your managing tenant, you will be able to receive PEC for that customer.
+Once the account has been [linked to your partner ID](../../cost-management-billing/manage/link-partner-id.md#link-to-a-partner-id) in your managing tenant, you will be able to receive PEC for that customer.
+
+## Confirm partner earned credit
+
+You can [view PEC details in the Azure portal](/partner-center/partner-earned-credit-explanation#azure-cost-management) and confirm which costs have received the benefit of PEC.
+
+If you have followed the steps above, and do not see the association, open a support request in the Azure portal.
 
 ## Next steps
 
