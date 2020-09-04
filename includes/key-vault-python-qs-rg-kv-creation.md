@@ -15,7 +15,7 @@ ms.author: msmbaldwin
     az group create --name KeyVault-PythonQS-rg --location eastus
     ```
 
-    You can change "eastus" to a location nearer to you, if preferred.
+    You can change "eastus" to a location nearer to you, if you prefer.
 
 1. Use `az keyvault create` to create the key vault:
 

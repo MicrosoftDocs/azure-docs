@@ -21,7 +21,7 @@ Get started with the Azure Key Vault client library for Python. Follow the steps
 
 [!INCLUDE [Set up your local environment](../../../includes/key-vault-python-qs-setup.md)]
 
-1. Install the Key Vault certificates library:
+7. Install the Key Vault certificates library:
 
     ```terminal
     pip install azure-keyvault-certificates
@@ -33,7 +33,7 @@ Get started with the Azure Key Vault client library for Python. Follow the steps
 
 ## Give the service principal access to your key vault
 
-Run the following [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) command to authorize your service principal for get, list, and create operations on certificates. This command relies on the `KEY_VAULT_NAME` and `AZURE_CLIENT_ID` environment variables created in previous steps.
+Run the following [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) command to authorize your service principal for get, list, and create operations on certificates.
 
 # [cmd](#tab/cmd)
 
@@ -48,6 +48,8 @@ az keyvault set-policy --name $KEY_VAULT_NAME --spn $AZURE_CLIENT_ID --resource-
 ```
 
 ---
+
+This command relies on the `KEY_VAULT_NAME` and `AZURE_CLIENT_ID` environment variables created in previous steps.
 
 For more information, see [Assign an access policy - CLI](../general/assign-access-policy-cli.md)
 
@@ -93,7 +95,7 @@ print(" done.")
 
 ## Run the code
 
-Run the code with the following command:
+Make sure the code in the previous section is in a file named *kv_certificates.py*. Then run the code with the following command:
 
 ```terminal
 python kv_certificates.py
