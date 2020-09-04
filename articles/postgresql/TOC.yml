@@ -425,6 +425,9 @@
       - name: Logs
         href: flexible-server/concepts-logging.md
         displayName: monitor, server logs
+    - name: Replication
+      href: flexible-server/concepts-logical.md
+      displayName: logical decoding
   - name: How-to guides
     items:
     - name: Manage a server

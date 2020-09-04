@@ -173,4 +173,5 @@ Azure Database for PostgreSQL read replicas are not currently supported for flex
 ## Next steps
 * Learn more about [networking options](concepts-networking.md)
 * Learn about [extensions](concepts-extensions.md) available in flexible server
+* Learn more about [high availability](concepts-high-availability.md)
 
