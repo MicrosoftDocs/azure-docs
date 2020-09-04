@@ -8,15 +8,14 @@ ms.topic: conceptual
 ms.date: 09/21/2020
 ---
 
-## Logical replication and logical decoding in Azure Database for PostgreSQL Flexible Server
+# Logical replication and logical decoding in Azure Database for PostgreSQL Flexible Server
 
 > [!IMPORTANT]
 > Azure Database for PostgreSQL Flexible Server is in preview.
 
 PostgreSQL's logical replication and logical decoding features are supported in Azure Database for PostgreSQL Flexible Server.
 
-
-# Comparing logical replication and logical decoding
+## Comparing logical replication and logical decoding
 Logical replication and logical decoding have several similarities. They both
 * allow you to replicate data out of Postgres
 * use the [write-ahead log (WAL)](https://www.postgresql.org/docs/current/wal.html) as the source of changes
@@ -165,7 +164,7 @@ The 'active' column in the pg_replication_slots view will indicate whether there
 SELECT * FROM pg_replication_slots;
 ```
 
-[Set alerts](howto-alert-on-metric.md) on the **Maximum Used Transaction IDs** and **Storage Used** flexible server metrics to notify you when the values increase past normal thresholds. 
+[Set alerts](howto-alert-on-metrics.md) on the **Maximum Used Transaction IDs** and **Storage Used** flexible server metrics to notify you when the values increase past normal thresholds. 
 
 ## Read replicas
 Azure Database for PostgreSQL read replicas are not currently supported for flexible servers.
