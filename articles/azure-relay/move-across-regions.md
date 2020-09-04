@@ -10,7 +10,11 @@ ms.custom: subject-moving-resources
 This article shows you how to move an Azure Relay namespace from one region to another region. Here are the high-level steps:
 
 1. **Export** the Relay namespace to an Azure Resource Manager template.
-1. **Update location (region)** for resources in the template. Also, delete any **dynamic** WCF relays from the template. Dynamic WCF relays are automatically created when client applications use the new namespace from the target region. 
+1. **Update location (region)** for resources in the template. Also, delete any **dynamic** WCF relays from the template. 
+
+    WCF relays have two modes. In the first mode, the WCF relay is  explicitly created using the Azure portal or Azure Resource Manager template. On the **WCF Relays** page of the Azure portal, you see the **isDynamic** property set to **false** for a relay in this mode. 
+
+    In the second mode, the WCF relay is auto-generated when a listener (server) connects for a given endpoint address. As long as the listener is connected to the relay, you see the relay in the list of WCF relays in the Azure portal. For a relay in this mode, the **isDynamic** property is set to **true** because it's dynamically generated. The dynamic WCF relay goes away when the listener disconnects. 
 1. **Deploy** resources using the template to the target region.
 
 ## Prerequisites
@@ -28,7 +32,7 @@ To get started, export a Resource Manager template. This template contains setti
 5. Locate the .zip file that you downloaded from the portal, and unzip that file to a folder of your choice. This zip file contains the template and parameters JSON files. 
 1. Open the **template.json** file from the extracted folder in an editor of your choice.
 1. Search for `location`, and replace the value for the property with the new name for the region. To obtain location codes, see [Azure locations](https://azure.microsoft.com/global-infrastructure/locations/). The code for a region is the region name with no spaces, for example, `West US` is equal to `westus`.
-1. Remove definitions of **dynamic WCF relay** resources (type: `Microsoft.Relay/namespaces/WcfRelays`). On the **Relay** page, select **WCF Relays** on the left menu. You see both dynamic and persistent WCF relays in the list. Remove definitions for the WCF relays that have **isDynamic** property set to true. Persistent WCF relays are the ones you create using the Azure portal. Dynamic WCF relays are automatically created at runtime when a client application is connected to the Relay namespace. 
+1. Remove definitions of **dynamic WCF relay** resources (type: `Microsoft.Relay/namespaces/WcfRelays`). Dynamic WCF relays are the ones that have **isDynamic** property set to **true** on the **Relays** page. In the following example, **echoservice** is a dynamic WCF relay and its definition should be removed from the template. 
 
     :::image type="content" source="./media/move-across-regions/dynamic-relays.png" alt-text="Dynamic relays":::
 
