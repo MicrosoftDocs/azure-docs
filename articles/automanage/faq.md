@@ -1,13 +1,13 @@
 ---
 title: Azure Automanage for virtual machines FAQ
 description: Answers to frequently asked questions about Azure Automanage for virtual machines.
-author: DavidCBerry13
+author: ju-shim
 ms.service: virtual-machines
 ms.subservice: automanage
 ms.workload: infrastructure
 ms.topic: troubleshooting
 ms.date: 09/04/2020
-ms.author: daberry
+ms.author: jushiman
 ---
 
 # Frequently asked questions for Azure Automanage for VMs
@@ -27,7 +27,7 @@ Automanage enrolls, configures, and monitors throughout the lifecycle of the VM 
 
 **Can I customize configurations on Azure Automanage?**
 
-Customers can customize settings for specific services, like Azure Backup retention. For the full list of settings that can be changed, see our documentation [here](virtual-machines-best-practices.md).
+Customers can customize settings for specific services, like Azure Backup retention, through configuration preferences. For the full list of settings that can be changed, see our documentation [here](virtual-machines-best-practices.md).
 
 
 **Does Azure Automanage work with both Linux and Windows VMs?**   
@@ -52,12 +52,12 @@ VMs in the following regions are supported: Central US, East US 2, East US, Nort
 
 **Can I apply Automanage through Azure policy?**
 
-Yes, we have a built-in policy that will automatically apply Automanage to all VMs within your defined scope. You will also specify the configuration profile (DevTest or Production) along with your Automanage account. Learn more about configuration profiles [here](automanage-virtual-machines.md#configuration-profiles).
+Yes, we have a built-in policy that will automatically apply Automanage to all VMs within your defined scope. You will also specify the configuration profile (DevTest or Production) along with your Automanage account. Learn more about enabling Automanage through Azure policy [here](virtual-machines-policy-enable.md).
 
 
 **What is an Automanage account?**
 
-An Automanage account is an MSI (Managed Service Identity) account that provides the Automanage service permissions to access the VM.
+The Automanage Account is an MSI (Managed Service Identity) that provides the security context or the identity under which the automated operations occur.
 
 
 **What RBAC permission is needed to enable Automanage?**

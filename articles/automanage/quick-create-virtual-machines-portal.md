@@ -1,13 +1,13 @@
 ---
 title: Quickstart - Enable Azure Automanage for VMs in the Azure portal
 description: Learn how to quickly enable Automanage for virtual machines on a new or existing VM in the Azure portal.
-author: DavidCBerry13
+author: ju-shim
 ms.service: virtual-machines
 ms.subservice: automanage
 ms.workload: infrastructure
 ms.topic: quickstart
 ms.date: 09/04/2020
-ms.author: daberry
+ms.author: jushiman
 ---
 
 
@@ -35,34 +35,61 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 ## Enable Automanage for VMs on an existing VM
 
 1. In the search bar, search for and select **Automanage – Azure virtual machine best practices**
-1. Select the **Enable on existing VM**
-1. On the **Select machines** blade:
+
+2. Select the **Enable on existing VM**
+
+![Enable on existing VM](media\quick-create-virtual-machine-portal\zero-vm-list-view.png)
+
+3. On the **Select machines** blade:
     1. Filter the VMs list by your **Subscription** and **Resource group**
     1. Check the checkbox of each virtual machine you want to onboard
     1. Click the **Select** button
-1. Under **Configuration profile**, click **Browse and change profiles and preferences**
-1. On the **Select configuration profile + preferences** blade:
+
+    ![Select existing VM from list of available VMs](media\quick-create-virtual-machine-portal\existing-vm-select-machine.png)
+
+4. Under **Configuration profile**, click **Browse and change profiles and preferences**
+
+![Browse and change profiles and preferences](media\quick-create-virtual-machine-portal\existing-vm-quick-create.png)
+
+5. On the **Select configuration profile + preferences** blade:
     1. Select a profile on the left: *Dev/Test* for testing, *Prod* for production
     1. Click the **Select** button 
-1. Click the **Enable** button
+
+    ![Browse production configuration profile](media\quick-create-virtual-machine-portal\browse-production-profile.png)
+
+6. Click the **Enable** button
 
 
 ## Enable Automanage for VMs on a new VM
 
 1. Follow the creation steps in [Quickstart - create a Windows VM in the Azure portal](..\virtual-machines\windows\quick-create-portal.md)
-1. After your VM is deployed, you will land on the deployment status page that has recommended **Next steps** at the bottom
-1. Under **Next steps**, select **Enable Automanage virtual machine best practices**
-1. On the **Automanage – Azure virtual machine best practices** page, **Machines** will automatically be populated by your newly created VM
-1. Under **Configuration profile**, click **Browse and change profiles and preferences**
-1. On the **Select configuration profile + preferences** blade:
+
+2. After your VM is deployed, you will land on the deployment status page that has recommended **Next steps** at the bottom
+
+![Next steps section located at the bottom of deployment page](media\quick-create-virtual-machine-portal\create-next-steps.png)
+
+3. Under **Next steps**, select **Enable Automanage virtual machine best practices**
+
+4. On the **Automanage – Azure virtual machine best practices** page, **Machines** will automatically be populated by your newly created VM
+
+![Newly created VM will show up as selected machine](media\quick-create-virtual-machine-portal\create-new-enable-overview.png)
+
+5. Under **Configuration profile**, click **Browse and change profiles and preferences**
+
+6. On the **Select configuration profile + preferences** blade:
     1. Select a profile on the left: *Dev/Test* for testing, *Prod* for production
     1. Click the **Select** button 
-1. Click the **Enable** button
+
+    ![Browse production configuration profile](media\quick-create-virtual-machine-portal\browse-production-profile.png)
+
+7. Click the **Enable** button
 
 
 ## Disable Automanage for VMs
 
 Quickly stop using Azure Automanage for virtual machines by disabling automanagement.
+
+![Disabling Automanage on a virtual machine](media\automanage-virtual-machines\disable-step-1.png)
 
 1. Go to the **Automanage – Azure virtual machine best practices** page that lists all of your auto-managed VMs
 1. Select the checkbox next to the virtual machine you want to disable
@@ -74,6 +101,8 @@ Quickly stop using Azure Automanage for virtual machines by disabling automanage
 
 If you created a new resource group to try Azure Automanage for virtual machines and no longer need it, you can delete the resource group. Deleting the group also deletes the VM and all of the resources in the resource group.
 
+Azure Automanage creates default resource groups to store resources in. Check resource groups that have the naming convention "DefaultResourceGroupRegionName" and "AzureBackupRGRegionName" to clean up all resources.
+
 1. Select the **Resource group**
 1. On the page for the resource group, select **Delete**
 1. When prompted, confirm the name of the resource group and then select **Delete**
@@ -83,7 +112,7 @@ If you created a new resource group to try Azure Automanage for virtual machines
 
 In this quickstart, you enabled Azure Automanage for VMs. 
 
-Discover how you can create and apply a custom configuration profile when enabling Automanage on your virtual machine. 
+Discover how you can create and apply customized preferences when enabling Automanage on your virtual machine. 
 
 > [!div class="nextstepaction"]
-> [Azure Automanage for VMS - Custom configuration profile](virtual-machines-custom-config-profile.md)
+> [Azure Automanage for VMS - Custom configuration profile](virtual-machines-custom-preferences.md)

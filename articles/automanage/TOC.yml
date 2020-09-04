@@ -15,8 +15,8 @@
 - name: How to
   expanded: true
   items:
-  - name: Custom configuration profile
-    href: virtual-machines-custom-config-profile.md
+  - name: Create custom preferences
+    href: virtual-machines-custom-preferences.md
   - name: Enable on VMs through Azure Policy
     href: virtual-machines-policy-enable.md
 - name: Resources

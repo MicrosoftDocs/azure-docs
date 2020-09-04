@@ -1,13 +1,13 @@
 ---
 title: Azure Automanage for Virtual Machines Best Practices
 description: Learn about the Azure Automanage for virtual machines best practices for services that are automatically onboarded and configured for you.
-author: DavidCBerry13
+author: ju-shim
 ms.service: virtual-machines
 ms.subservice: automanage
 ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 09/04/2020
-ms.author: daberry
+ms.author: jushiman
 ---
 
 
