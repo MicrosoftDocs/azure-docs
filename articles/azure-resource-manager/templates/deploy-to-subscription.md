@@ -2,7 +2,7 @@
 title: Deploy resources to subscription
 description: Describes how to create a resource group in an Azure Resource Manager template. It also shows how to deploy resources at the Azure subscription scope.
 ms.topic: conceptual
-ms.date: 09/03/2020
+ms.date: 09/04/2020
 ---
 
 # Create resource groups and resources at the subscription level
@@ -140,7 +140,7 @@ To target a resource group within the subscription, add a nested deployment and 
             "properties": {
                 "mode": "Incremental",
                 "template": {
-                    nested-template
+                    nested-template-with-resource-group-resources
                 }
             }
         }
@@ -149,7 +149,7 @@ To target a resource group within the subscription, add a nested deployment and 
 }
 ```
 
-Below in this article, you can find templates that show how to deploy resources to different scopes.
+In this article, you can find templates that show how to deploy resources to different scopes. For a template that creates a resource group and deploys a storage account to it, see [Create resource group and resources](#create-resource-group-and-resources). For a template that creates a resource group, applies a lock to it, and assigns a role for the resource group, see [Access control](#access-control).
 
 ## Use template functions
 
@@ -157,9 +157,11 @@ For subscription-level deployments, there are some important considerations when
 
 * The [resourceGroup()](template-functions-resource.md#resourcegroup) function is **not** supported.
 * The [reference()](template-functions-resource.md#reference) and [list()](template-functions-resource.md#list) functions are supported.
-* Use the [subscriptionResourceId()](template-functions-resource.md#subscriptionresourceid) function to get the resource ID for resources that are deployed at subscription level.
+* Don't use [resourceId()](template-functions-resource.md#resourceid) to get the resource ID for resources that are deployed at subscription level.
 
-  For example, to get the resource ID for a policy definition, use:
+  Instead, use the [subscriptionResourceId()](template-functions-resource.md#subscriptionresourceid) function.
+
+  For example, to get the resource ID for a policy definition that is deployed to a subscription, use:
 
   ```json
   subscriptionResourceId('Microsoft.Authorization/roleDefinitions/', parameters('roleDefinition'))
@@ -417,7 +419,7 @@ You can [define](../../governance/policy/concepts/definition-structure.md) and a
       ],
       "properties": {
         "scope": "[subscription().id]",
-        "policyDefinitionId": "[resourceId('Microsoft.Authorization/policyDefinitions', 'locationpolicy')]"
+        "policyDefinitionId": "[subscriptionResourceId('Microsoft.Authorization/policyDefinitions', 'locationpolicy')]"
       }
     }
   ]
