@@ -71,7 +71,7 @@ You see the management page of the App Service app.
 
    ![Screenshot that shows Recommended pricing tiers.](./media/app-service-web-tutorial-custom-domain/check-pricing-tier.png)
 
-1. If the App Service plan isn't in the **F1** tier, close the **Scale up** page and skip to [Map a CNAME record](#cname).
+1. If the App Service plan isn't in the **F1** tier, close the **Scale up** page and skip to [Map a CNAME record](#map-a-cname-record).
 
 <a name="scaleup" aria-hidden="true"></a>
 
