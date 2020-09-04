@@ -15,7 +15,7 @@ ms.author: daberry
 
 Azure Automanage for virtual machine best practices has default configuration profiles that can be adjusted if needed. This article will explain how you can set your own configuration profile preferences when you enable automanagement on a new or existing VM.
 
-We currently support customizations on [Azure Backup](ckup/backup-azure-arm-vms-prepare.md#create-a-custom-polic) and [Microsoft Antimalware](../security/fundamentals/antimalware.md#default-and-custom-antimalware-configuration).
+We currently support customizations on [Azure Backup](..\backup\backup-azure-arm-vms-prepare.md#create-a-custom-polic) and [Microsoft Antimalware](../security/fundamentals/antimalware.md#default-and-custom-antimalware-configuration).
 
 
 > [!NOTE]
