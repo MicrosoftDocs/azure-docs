@@ -151,9 +151,10 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     b.  Click **Add Row**.
 
-1. In the **SAML Identity Providers** section, perform the following steps:
+1. In the **SAML Identity Providers** section, please perform the following actions for the newly created row.
 
-    a.
+    a. Perform following actions for the fields, that are shown below.
+
     ![SAML Identity Providers](./media/workday-tutorial/IC7829271.png "SAML Identity Providers")
 
     * In the **Identity Provider Name** textbox, type a provider name (for example: *SPInitiatedSSO*).
@@ -162,7 +163,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     * Open the downloaded **Certificate** from the Azure portal into Notepad and paste the content into the **x.509 Certificate** textbox.
 
-    b. Perform the following steps to the continuation of above.
+    b. Perform following actions for the fields, that are shown below.
 
     ![SAML 509 Certificate](./media/workday-tutorial/saml-identity-provider-2.png "SAML Identity Providers")
 
@@ -175,35 +176,32 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     * Select **Do Not Deflate SP-initiated Authentication Request**.
 
-    c. Next, follow the below steps.
+    c. Perform following actions for the fields, that are shown below.
 
     ![Workday](./media/workday-tutorial/saml-identity-provider-3.png "SAML Identity Providers")
-
 
 	* In the Azure portal, on the **Set up Workday** section, copy the **Login URL** value, and then paste it into the **IdP SSO Service URL** textbox.
 
 	* In **Used for Environments** textbox, select the environment name.
 
-        > [!NOTE]
-        > The value of the Environment attribute is tied to the value of the tenant URL:  
-        > -If the domain name of the Workday tenant URL starts with impl for example: *https://www.myworkday.com/"tenant"/login-saml2.htmld*), the **Environment** attribute must be set to Implementation.  
-        > -If the domain name starts with something else, you need to contact [Workday Client support team](https://www.workday.com/en-us/partners-services/services/support.html) to get the matching **Environment** value.
+    > [!NOTE]
+    > The value of the Environment attribute is tied to the value of the tenant URL:  
+    > -If the domain name of the Workday tenant URL starts with impl for example: *https://www.myworkday.com/"tenant"/login-saml2.htmld*), the **Environment** attribute must be set to Implementation.  
+    > -If the domain name starts with something else, you need to contact [Workday Client support team](https://www.workday.com/en-us/partners-services/services/support.html) to get the matching **Environment** value.
 
-    *  In the **Service Provider ID (Will be Deprecated)** textbox, type **http://www.workday.com**.
+1. Perform the following steps in the below image.
 
-    * In the **IDP SSO Service URL (Will be Deprecated)** textbox, type **Login URL** value.
+    ![Workday](./media/workday-tutorial/service-provider.png "SAML Identity Providers")
 
-    * Select **Do Not Deflate SP-initiated Authentication Request (Will be Deprecated)**.
+    a.  In the **Service Provider ID (Will be Deprecated)** textbox, type **http://www.workday.com**.
 
-    d. Now perform the following steps.
+    b. In the **IDP SSO Service URL (Will be Deprecated)** textbox, type **Login URL** value.
 
-    ![Authentication Request Signature Method](./media/workday-tutorial/WorkdaySSOConfiguration.png "Authentication Request Signature Method")
+    c. Select **Do Not Deflate SP-initiated Authentication Request (Will be Deprecated)**.
 
-    * For **Authentication Request Signature Method**, select **SHA256**.
+    d. For **Authentication Request Signature Method**, select **SHA256**.
 
-    ![OK](./media/workday-tutorial/IC782933.png "OK")
-
-     * Click **OK**.
+    e. Click **OK**.
 
     > [!NOTE]
     > Please ensure you set up single sign-on correctly. In case you enable single sign-on with incorrect setup, you may not be able to enter the application with your credentials and get locked out. In this situation, Workday provides a backup log-in url where users can sign-in using their normal username and password in the following format:[Your Workday URL]/login.flex?redirect=n
