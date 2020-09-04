@@ -21473,6 +21473,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/marketplace/cloud-partner-portal/business-applications-isv-program.md",
+      "redirect_url": "/azure/marketplace/business-applications-isv-program",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/marketplace/partner-center-portal/test-drive.md",
       "redirect_url": "/azure/marketplace/what-is-test-drive",
       "redirect_document_id": false
