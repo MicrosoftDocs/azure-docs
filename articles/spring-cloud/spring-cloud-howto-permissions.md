@@ -64,6 +64,8 @@ This procedure defines a role with permissions to deploy, test, and restart Azur
 
    [ ![App platform permissions](media/spring-cloud-permissions/app-platform-permissions.png) ](media/spring-cloud-permissions/app-platform-permissions.png#lightbox)
 
+1. Click **Add**.
+
 
 ## See also
 [Create or update Azure custom roles using the Azure portal](https://docs.microsoft.com/azure/role-based-access-control/custom-roles-portal)
