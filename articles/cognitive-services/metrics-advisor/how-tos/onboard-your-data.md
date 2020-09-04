@@ -16,6 +16,11 @@ ms.author: aahi
 
 Use this article to learn about onboarding your data to Metrics Advisor. 
 
+
+## Data schema requirements and configuration
+
+[!INCLUDE [data schema requirements](../includes/data-schema-requirements.md)]
+
 ## Avoid loading partial data
 
 Partial data is caused by inconsistencies between the data stored in Metrics Advisor and the data source. This can happen when the data source is updated after Metrics Advisor has finished pulling data. Metrics Advisor pulls data from a given data source once.
@@ -34,9 +39,9 @@ To avoid loading partial data, we recommend two approaches:
 
     Set the **Ingestion time offset** parameter for your data feed to delay the ingestion until the data is fully prepared. This can be useful for some data sources which don't support transactions such as Azure Table Storage. See [Advanced settings](#advanced-settings) for details.
 
-## Add a data feed using the web Portal
+## Add a data feed using the web portal
 
-After signing into your Metrics Advisor portal with your Active Directory account, click **Get started**. Then, on the main page of the portal, click **Add data feed** from the left menu.
+After signing into your Metrics Advisor portal and choosing your workspace, click **Get started**. Then, on the main page of the portal, click **Add data feed** from the left menu.
 
 ### Add connection settings
 
@@ -46,17 +51,15 @@ Next you'll input a set of parameters to connect your time-series data source.
   * **Seconds**: The number of seconds when granularityName is set as "Customize".
 * **Ingest data since (UTC)**: The baseline start time for data ingestion while startOffsetInSeconds is often used to add an offset to help with data consistency.
 
-Next, you'll need to specify the connection information of the data source as well as the custom queries which are used to convert the data into the required schema. For details on the other fields and connecting different types of data sources, see [Add data feeds from different data sources](../data-feeds-from-different-sources.md).
+Next, you'll need to specify the connection information of the data source as well as the custom queries which are used to convert the data into the required schema. For details on data source specific fields and connecting different types of data sources, see [**Add data feeds from different data sources**](../data-feeds-from-different-sources.md).
 
-### Data schema requirements and configuration
-
-[!INCLUDE [data schema requirements](../includes/data-schema-requirements.md)]
-
+### Verify and get schema
 After the connection string and query string are set, select **Verify and get schema** to verify the connection and run the query to get your data schema from the data source. Normally it takes a few seconds depending on your data source connection. If there's an error at this step, confirm that:
 
 1. Your connection string and query are correct.
 2. Your Metrics Advisor instance is able to connect to the data source if there are firewall settings.
 
+### Schema configuration
 Once the data schema is loaded, select the appropriate fields.
 
 If the timestamp of a data point is omitted, Metrics Advisor will use the timestamp when the data point is ingested instead. For each data feed, you can specify at most one column as a timestamp. If you get a message that a column cannot be specified as a timestamp, check your query or data source, and whether there are multiple timestamps in the query result - not only in the preview data. When performing data ingestion, Metrics Advisor can only consume only one chunk (one day, one hour, etc., according to the granularity) of time-series data from the given source each time.
@@ -81,7 +84,83 @@ Row ID | Timestamp | Country | Language | Income
 
 If *Country* is a dimension and *Language* is set as *Ignored*, then the first and second rows will have the same dimensions. Metrics Advisor will arbitrarily use one value from the two rows. Metrics Advisor will not aggregate the rows in this case.
 
-## Specify a name for the data feed and check the ingestion progress
+### Automatic roll up settings
+
+> [!IMPORTANT]
+> Once enabled, the auto roll-up settings cannot be changed
+
+Metrics Advisor can automatically generate the data cube (sum) during ingestion, which can help when performing hierarchical analysis. There are three possibilities, depending on your scenario:
+
+1. *I do not need to include the roll-up analysis for my data.*
+
+    You do not need to use the Metrics Advisor roll-up.
+
+2. *My data has already rolled up and the dimension value is represented by: NULL or Empty (Default), NULL only, Others.*
+
+    This option means Metrics Advisor doesn't need to roll up the data because the rows are already summed. For example, if you select *NULL only*, then the second data row in the below example will be seen as an aggregation of all countries and language *EN-US*; the fourth data row which has an empty value for *Country* however will be seen as an ordinary row which might indicate incomplete data.
+    
+    Row ID | Country | Language | Income
+    --- | --- | --- | ---
+    1 | China | ZH-CN | 10000
+    2 | (NULL) | EN-US | 999999
+    3 | US | EN-US | 12000
+    4 |  | EN-US | 5000
+    ... | ...
+    
+2. *I need Metrics Advisor to roll up my data by calculating Sum/Max/Min/Avg/Count and represent it by <some string>*
+
+    Some data sources such as Cosmos DB or Azure Blob Storage do not support certain calculations like *group by* or *cube*. Metrics Advisor provides the roll up option to automatically generate a data cube during ingestion.
+    This option means you need Metrics Advisor to calculate the roll-up using the algorithm you've selected and use the specified string to represent the roll-up in Metrics Advisor. This won't change any data in your data source.
+    For example, suppose you have a set of time series which stands for Sales metrics with the dimension (Country, Region). For a given timestamp, it might look like the following:
+    
+    | Country       | Region           | Sales |
+    | :------------ | :--------------- | :---- |
+    | Canada        | Alberta          | 100   |
+    | Canada        | British Columbia | 500   |
+    | United States | Montana          | 100   |
+    
+    After enabling Auto Roll Up with *Sum*, Metrics Advisor will calculate the dimension combinations, and sum the metrics during data ingestion. The result might be:
+    
+    | Country       | Region           | Sales |
+    | :------------ | :--------------- | :---- |
+    | Canada        | Alberta          | 100   |
+    | NULL          | Alberta          | 100   |
+    | Canada        | British Columbia | 500   |
+    | NULL          | British Columbia | 500   |
+    | United States | Montana          | 100   |
+    | NULL          | Montana          | 100   |
+    | NULL          | NULL             | 700   |
+    | Canada        | NULL             | 600   |
+    | United States | NULL             | 100   |
+    
+    `(Country=Canada, Region=NULL, Sales=600)` means the sum of Sales in Canada (all Regions) is 600.
+    
+    The following is the transformation in SQL language.
+    
+    ```mssql
+    SELECT
+        dimension_1,
+        dimension_2,
+        ...
+        dimension_n,
+        sum (metrics_1) AS metrics_1,
+        sum (metrics_2) AS metrics_2,
+        ...
+        sum (metrics_n) AS metrics_n
+    FROM
+        each_timestamp_data
+    GROUP BY
+        CUBE (dimension_1, dimension_2, ..., dimension_n);
+    ```
+    
+    Consider the following before using the Auto roll up feature:
+    
+    * If you want to use **SUM** to aggregate your data, make sure your metrics are additive in each dimension. Here are some examples of **non-additive** metrics:
+      * Fraction-based metrics. This includes ratio, percentage, etc. For example, you should not add the unemployment rate of each state to calculate the unemployment rate of the entire country.
+      * Overlap in dimension. For example, you should not add the number of people in to each sport to calculate the number of people who like sports, because there is an overlap between them, one person can like multiple sports.
+    * To ensure the health of the whole system, the size of cube is limited. Currently, the limit is 1,000,000. If your data exceeds that limit, ingestion will fail for that timestamp.
+
+### Specify a name for the data feed and check the ingestion progress
  
 Give a custom name for the data feed, which will be displayed on the portal. Then Click on **Submit**. In the data feed details page, you can use the ingestion progress bar to view status information.
 

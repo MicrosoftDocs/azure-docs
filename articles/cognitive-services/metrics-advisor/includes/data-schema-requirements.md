@@ -13,7 +13,7 @@ ms.author: aahi
 Metrics Monitor is a service for time series anomaly detection, diagnostics and analysis. As an AI powered service, it uses your data to train a model. The service accepts tables of aggregated data with the following columns:
 
 * **Measure** [required]: one or more columns containing numeric values.
-* **Timestamp** [optional]: zero or one column with type of `DateTime` or `String`. When this column is not set, the timestamp is set as the start time of each ingestion period.
+* **Timestamp** [optional]: zero or one column with type of `DateTime` or `String`. When this column is not set, the timestamp is set as the start time of each ingestion period. Please cook the timestamp into format of **yyyy-MM-ddTHH:mm:ssZ**. Timestamp should align with the granularity of the metric. E.g. for daily metric, please make sure hour, minute and second are been aligned as 00:00:00.  
 * **Dimension** [optional]: columns can be of any data types. Be extreme cautious with columns of large cardinality (meaning that columns with huge amount of different values) to prevent dimension explosion.
 
 > [!Note]
