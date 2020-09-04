@@ -83,7 +83,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     a. In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://<companyname>.egnyte.com`
 
-    b. In the **Reply URL** text box, type a URL:
+    b. In the **Reply URL** text box, type a URL using the following pattern:
     `https://<companyname>.egnyte.com/samlconsumer/AzureAD`
 	
 	> [!NOTE]
