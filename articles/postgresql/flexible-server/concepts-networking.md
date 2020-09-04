@@ -65,8 +65,6 @@ Here are some concepts to be familiar with when using virtual networks with Post
 * After the flexible server is deployed to a virtual network and subnet, you cannot move it to another virtual network or subnet. You cannot move the virtual network into another resource group or subscription.
 * Subnet size (address spaces) cannot be increased once resources exist in the subnet
 
-Learn how to enable private access (vnet integration) using the [Azure portal](how-to-manage-virtual-network-portal.md) or [Azure CLI](how-to-manage-virtual-network-cli.md).
-
 
 ## Public access (allowed IP addresses)
 Characteristics of the public access method include:
@@ -85,7 +83,6 @@ If a fixed outgoing IP address isn't available for your Azure service, you can c
 > [!IMPORTANT]
 > The **Allow public access from Azure services and resources within Azure** option configures the firewall to allow all connections from Azure, including connections from the subscriptions of other customers. When selecting this option, make sure your login and user permissions limit access to only authorized users.
 
-Learn how to enable and manage public access (allowed IP addresses) using the [Azure portal](how-to-manage-firewall-portal.md) or [Azure CLI](how-to-manage-firewall-cli.md).
 
 
 ### Troubleshooting public access issues
