@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/24/2020
+ms.date: 08/04/2020
 ms.author: jeedes
 ---
 
@@ -92,10 +92,10 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. In addition to above, Kumolus application expects few more attributes to be passed back in SAML response, which are shown below. These attributes are also pre populated but you can review them as per your requirements.
 	
-	| Name | Namespace  |  Source Attribute|
-	| ---------------| --------------- | --------- |
-	| E-Mail Address | [Namespace1] | user.mail |
-	| role | [Namespace2] | user.givenname |
+	| Name |  Source Attribute|
+	| ---- ------|------ |
+	| E-Mail Address | user.mail |
+	| role | user.givenname |
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
