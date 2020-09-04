@@ -44,9 +44,6 @@
       href: https://github.com/Azure/azure-batch-samples
   - name: Azure CLI
     href: cli-samples.md
-  - name: Azure Policy built-ins
-    displayName: samples, policies, definitions
-    href: ./policy-samples.md
 - name: Concepts
   items:
   - name: Security
@@ -137,6 +134,8 @@
       href: batch-sig-images.md
     - name: Create a pool with a managed image resource
       href: batch-custom-images.md
+    - name: Create a pool with disk encryption enabled
+      href: disk-encryption.md
     - name: Create a pool in a virtual network
       href: batch-virtual-network.md
     - name: Create a pool with public IP addresses
@@ -269,6 +268,9 @@
       href: batch-task-complete-event.md
     - name: Task fail event
       href: batch-task-fail-event.md
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-reference.md
 - name: Resources
   items:
   - name: Azure updates

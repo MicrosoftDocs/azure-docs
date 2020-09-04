@@ -168,6 +168,8 @@
     href: troubleshoot-appliance-discovery.md
   - name: Troubleshoot assessment/dependency visualization
     href: troubleshoot-assessment.md
+  - name: Troubleshoot replication issues in agentless VMware migration
+    href: troubleshoot-changed-block-tracking-replication.md
 - name: Resources
   items:
   - name: Migration in the Cloud Adoption Framework

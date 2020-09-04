@@ -8,6 +8,7 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 02/21/2020
 ms.author: lbosq
+ms.custom: devx-track-dotnet
 
 ---
 # Quickstart: Build a .NET Framework or Core application using the Azure Cosmos DB Gremlin API account

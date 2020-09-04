@@ -108,19 +108,25 @@ To get the Storage Account access key:
      net use y: \\fsprofile.file.core.windows.net\share HDZQRoFP2BBmoYQ=(truncated)= /user:Azure\fsprofile)
      ```
 
-8. Run the following command to grant the user full access to the Azure Files share.
+8. Run the following commands to allow your Windows Virtual Desktop users to create their own profile container while blocking access to the profile containers from other users.
 
      ```cmd
-     icacls <mounted-drive-letter>: /grant <user-email>:(f)
+     icacls <mounted-drive-letter>: /grant <user-email>:(M)
+     icacls <mounted-drive-letter>: /grant "Creator Owner":(OI)(CI)(IO)(M)
+     icacls <mounted-drive-letter>: /remove "Authenticated Users"
+     icacls <mounted-drive-letter>: /remove "Builtin\Users"
      ```
 
-    - Replace `<mounted-drive-letter>` with the letter of the drive you want the user to use.
-    - Replace `<user-email>` with the UPN of the user who will use this profile to access the session host VMs.
+    - Replace `<mounted-drive-letter>` with the letter of the drive you used to map the drive.
+    - Replace `<user-email>` with the UPN of the user or Active Directory group that contains the users that will require access to the share.
 
     For example:
 
      ```cmd
-     icacls y: /grant john.doe@contoso.com:(f)
+     icacls <mounted-drive-letter>: /grant john.doe@contoso.com:(M)
+     icacls <mounted-drive-letter>: /grant "Creator Owner":(OI)(CI)(IO)(M)
+     icacls <mounted-drive-letter>: /remove "Authenticated Users"
+     icacls <mounted-drive-letter>: /remove "Builtin\Users"
      ```
 
 ## Create a profile container

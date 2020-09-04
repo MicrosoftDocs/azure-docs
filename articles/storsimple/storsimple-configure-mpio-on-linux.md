@@ -371,9 +371,9 @@ Repeat this command for all the connected network interfaces on the iSCSI target
 `iscsiadm -m node --login -T <TARGET_IQN>`
 
 
-Q. I am not sure if my device is whitelisted.
+Q. I am not sure if my device is allowed.
 
-A. To verify whether your device is whitelisted, use the following troubleshooting interactive command:
+A. To verify whether your device is allowed, use the following troubleshooting interactive command:
 
 ```console
 multipathd -k
@@ -443,4 +443,3 @@ As you are configuring MPIO on Linux host, you may also need to refer to the fol
 
 * [Setting up MPIO on CentOS](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/dm_multipath/index)
 * [Linux Training Guide](http://linux-training.be/linuxsys.pdf)
-

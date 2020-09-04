@@ -34,7 +34,7 @@ To complete this tutorial series, you need:
 
 ## Initial setup
 
-In these tutorials, you update and use several configuration files. Initial versions of these files are available in the [LVA-gateway](https://github.com/Azure/live-video-analytics) GitHub repository. The repository also includes a scratchpad text file for you to download and use to record configuration values from the services you deploy.
+In these tutorials, you update and use several configuration files. Initial versions of these files are available in the [LVA-gateway](https://github.com/Azure/live-video-analytics/tree/master/ref-apps/lva-edge-iot-central-gateway) GitHub repository. The repository also includes a scratchpad text file for you to download and use to record configuration values from the services you deploy.
 
 Create a folder called *lva-configuration* on your local machine to save copies of these files. Then right-click on each of the following links and choose **Save as** to save the file into the *lva-configuration* folder:
 
@@ -92,7 +92,7 @@ To create a new Azure IoT Central application:
 
 To create a new video analytics application:
 
-1. Select the **Video analytics - object and motion detection** application template. This template includes device templates for the devices used in the tutorial. The template also provides an operator dashboard for monitoring the video.
+1. Select the **Video analytics - object and motion detection** application template. This template includes device templates for the devices used in the tutorial. The template includes sample dashboards that operators can use to perform tasks such as monitoring and managing cameras.
 
 1. Optionally, choose a friendly **Application name**. This application is based on a fictional retail store named Northwind Traders. The tutorial uses the **Application name** *Northwind Traders video analytics*.
 

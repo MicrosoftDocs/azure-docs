@@ -60,6 +60,6 @@ The Microsoft Authenticator app replaced the Azure Authenticator app, and it's t
 
 - If you want more information about two-step verification, see [Set up my account for two-step verification](multi-factor-authentication-end-user-first-time.md)
 
-- If you want more information about security info, see [Security info (preview) overview](user-help-security-info-overview.md)
+- If you want more information about security info, see [Security info (preview) overview](./security-info-setup-signin.md)
 
 - If your question wasn't answered here, we want to hear from you. Go to the [Microsoft Authenticator app forum](https://social.technet.microsoft.com/Forums/en-us/home?forum=MicrosoftAuthenticatorApp) to post your question and get help from the community, or leave a comment on this page.

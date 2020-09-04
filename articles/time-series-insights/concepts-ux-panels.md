@@ -1,6 +1,6 @@
 ---
-title: 'Visualize data in the Gen2 Explorer - Azure Time Series Insights Gen2| Microsoft Docs'
-description:  Learn about features and options available in the Azure Time Series Insights Gen2 Explorer.
+title: 'Visualize data in the TSI Explorer - Azure Time Series Insights Gen2| Microsoft Docs'
+description:  Learn about features and options available in the Azure Time Series Insights Explorer.
 author: deepakpalled
 ms.author: dpalled
 manager: diviso
@@ -8,17 +8,17 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 08/12/2020
+ms.date: 08/27/2020
 ms.custom: seodec18
 ---
 
-# Azure Time Series Insights Gen2 Explorer
+# Azure Time Series Insights Explorer
 
 This article describes the various features and options available within the Azure Time Series Insights Gen2 [Demo environment](https://insights.timeseries.azure.com/preview/demo).
 
 ## Prerequisites
 
-To get started with the Azure Time Series Insights Gen2 Explorer, you must:
+To get started with the Azure Time Series Insights Explorer, you must:
 
 * Have an Azure Time Series Insights Gen2 environment provisioned. Learn more about provisioning an instance by reading the [Azure Time Series Insights Gen2](./time-series-insights-update-create-environment.md) tutorial.
 * [Provide data access](./time-series-insights-data-access.md) to the Azure Time Series Insights Gen2 environment that you created for the account. You can provide access to others as well as to yourself.
@@ -26,11 +26,11 @@ To get started with the Azure Time Series Insights Gen2 Explorer, you must:
   * Learn [how to connect to an event hub](./time-series-insights-how-to-add-an-event-source-eventhub.md)
   * Learn [how to connect to an IoT hub](./time-series-insights-how-to-add-an-event-source-iothub.md)
 
-## Explore the Azure Time Series Insights Gen2 Explorer
+## Explore the Azure Time Series Insights Explorer
 
-The Azure Time Series Insights Gen2 Explorer consists of the following seven elements:
+The Azure Time Series Insights Explorer consists of the following seven elements:
 
-[![Azure Time Series Insights Gen2 Explorer overview](media/v2-update-explorer/preview-explorer-overview.png)](media/v2-update-explorer/preview-explorer-overview.png#lightbox)
+[![Azure Time Series Insights Explorer overview](media/v2-update-explorer/preview-explorer-overview.png)](media/v2-update-explorer/preview-explorer-overview.png#lightbox)
 
 1. [Environment panel](#1-environment-panel): Displays all your Azure Time Series Insights Gen2 environments.
 1. [Navigation bar](#2-navigation-bar): Lets you switch between the **Analyze** and **Model** pages.
@@ -188,7 +188,7 @@ To select a new theme, select your profile icon located in the upper-right corne
 > [!TIP]
 > Language selection is also available by selecting your profile icon.
 
-Azure Time Series Insights Gen2 Explorer supports two themes:
+Azure Time Series Insights Explorer supports two themes:
 
 * **Light theme**: The default theme shown throughout this document.
 * **Dark theme**: Renders the Explorer as shown here:
@@ -199,7 +199,7 @@ Azure Time Series Insights Gen2 Explorer supports two themes:
 
 ### Gen2 terms panel
 
-This section applies only to existing Gen 1 environments that attempt to use the Explorer in the updated UI. You might want to use the Gen 1 product and Gen2 product in combination. We've added some functionality from the existing UI to the updated Explorer, but you can get the full UI experience for a Gen 1 environment in the new Azure Time Series Insights Gen2 Explorer.
+This section applies only to existing Gen 1 environments that attempt to use the Explorer in the updated UI. You might want to use the Gen 1 product and Gen2 product in combination. We've added some functionality from the existing UI to the updated Explorer, but you can get the full UI experience for a Gen 1 environment in the new Azure Time Series Insights Explorer.
 
 Instead of the hierarchy, the Azure Time Series Insights Gen2 terms panel is displayed. The terms panel allows you to define queries in your environment. Use it to also filter data based on a predicate.
 

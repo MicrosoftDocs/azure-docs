@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: normesta
 ms.reviewer: fryu
-ms.custom: monitoring
+ms.custom: "monitoring, devx-track-csharp"
 ---
 
 # Monitor Azure Storage

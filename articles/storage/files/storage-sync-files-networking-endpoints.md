@@ -6,7 +6,8 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 5/11/2020
 ms.author: rogarana
-ms.subservice: files
+ms.subservice: files 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Configuring Azure File Sync network endpoints

@@ -79,9 +79,6 @@
     href: samples-powershell.md
   - name: Resource Manager templates
     href: samples-resource-manager-templates.md
-  - name: Azure Policy built-ins
-    displayName: samples, policies, definitions
-    href: ./policy-samples.md
   - name: Terraform
     href: samples-terraform.md
 - name: Concepts
@@ -285,6 +282,9 @@
     href: /rest/api/appservice/
   - name: Resource Manager template
     href: /azure/templates/microsoft.web/allversions
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-reference.md
 - name: Resources
   items:
   - name: App Service Blog
@@ -310,7 +310,7 @@
   - name: Cookbooks
     items:
     - name: Reference Architectures
-      href: https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/basic-web-app
+      href: /azure/architecture/reference-architectures/app-service-web-app/basic-web-app
     - name: Deployment Scripts
       href: https://azure.microsoft.com/documentation/scripts/
   - name: Troubleshooting
