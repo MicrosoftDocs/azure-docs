@@ -263,7 +263,7 @@ Yes.
 
 ### What is the Recovery Point Objective (RPO)/Recovery Time Objective (RTO) for database restore in Hyperscale
 
-The RPO is 0 min. The RTO goal is less than 10 minutes, regardless of database size.
+The RPO is 0 min. Most restore operations complete within 60 minutes regardless of database size. Restore time may be longer for larger databases, and if the database had experienced significant write activity before and up to the restore point in time.
 
 ### Does database backup affect compute performance on my primary or secondary replicas
 
@@ -339,9 +339,9 @@ Scaling up or down results in existing connections being dropped when a failover
 
 End-user. Not automatic.  
 
-### Does the size of my `tempdb` database also grow as the compute is scaled up
+### Does the size of my `tempdb` database and RBPEX cache also grow as the compute is scaled up
 
-Yes. The `tempdb` database will scale up automatically as the compute grows.  
+Yes. The `tempdb` database and [RBPEX cache](service-tier-hyperscale.md#distributed-functions-architecture) size on compute nodes will scale up automatically as the number of cores is increased.
 
 ### Can I provision multiple primary compute replicas, such as a multi-master system, where multiple primary compute heads can drive a higher level of concurrency
 
@@ -355,7 +355,7 @@ We create one secondary replica for Hyperscale databases by default. If you want
 
 ### How do I connect to these secondary compute replicas
 
-You can connect to these additional read-only compute replicas by setting the `ApplicationIntent` argument on your connection string to `ReadOnly`. Any connections marked with `ReadOnly` are automatically routed to one of the additional read-only compute replicas.  
+You can connect to these additional read-only compute replicas by setting the `ApplicationIntent` argument on your connection string to `ReadOnly`. Any connections marked with `ReadOnly` are automatically routed to one of the additional read-only compute replicas. For details, see [Use read-only replicas to offload read-only query workloads](read-scale-out.md).
 
 ### How do I validate if I have successfully connected to secondary compute replica using SSMS or other client tools?
 
@@ -385,7 +385,7 @@ No. Hyperscale databases have shared storage, meaning that all compute replicas 
 
 ### How much delay is there going to be between the primary and secondary compute replicas
 
-Data latency from the time a transaction is committed on the primary to the time it is visible on a secondary depends on current log generation rate. Typical data latency is in low milliseconds.
+Data latency from the time a transaction is committed on the primary to the time it is readable on a secondary depends on current log generation rate, transaction size, load on the replica, and other factors. Typical data latency for small transactions is in tens of milliseconds, however there is no upper bound on data latency. Data on a given secondary replica is always transactionally consistent. However, at a given point in time data latency may be different for different secondary replicas. Workloads that need to read committed data immediately should run on the primary replica.
 
 ## Next steps
 
