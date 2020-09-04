@@ -8,7 +8,7 @@ ms.topic: conceptual
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
-ms.date: 07/13/2020
+ms.date: 09/03/2020
 ---
 
 # Supported features of Azure SQL Edge (Preview) 
@@ -84,6 +84,10 @@ The following list includes the SQL Server 2019 on Linux features that aren't cu
 | &nbsp; | CLR-dependent date and time catalog views, functions, and query clauses. |
 | &nbsp; | Buffer pool extension. |
 | &nbsp; | Database mail. |
+| &nbsp; | Service Broker |
+| &nbsp; | Policy Based Management |
+| &nbsp; | Management Data Warehouse |
+| &nbsp; | Contained Databases |
 | **SQL Server Agent** |  Subsystems: CmdExec, PowerShell, Queue Reader, SSIS, SSAS, and SSRS. |
 | &nbsp; | Alerts. |
 | &nbsp; | Managed backup. |
