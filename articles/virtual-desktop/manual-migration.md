@@ -67,6 +67,6 @@ To prevent downtime, you should first register your existing session hosts to th
 
 ## Next steps
 
-Once you've migrated, familiarize yourself with how Windows Virtual Desktop works by checking out [our tutorials](create-azure-marketplace.md).
+Once you've migrated, familiarize yourself with how Windows Virtual Desktop works by checking out [our tutorials](create-host-pools-azure-marketplace.md).
 
 To learn more about service objects, check out [Windows Virtual Desktop environment](environment-setup.md).
