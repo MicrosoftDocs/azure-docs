@@ -431,6 +431,9 @@
       href: flexible-server/concepts-limitations.md
     - name: Compute and storage
       href: flexible-server/concepts-compute-storage.md
+    - name: Networking
+      href: flexible-server/concepts-networking.md
+      displayName: virtual network, IP address, public access
     - name: Business continuity
       items:
       - name: Overview
