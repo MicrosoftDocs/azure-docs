@@ -14,7 +14,7 @@
     - name: Deploy Managed Instance (Jumpstart)
     - name: Deploy PostgreSQL (Jumpstart)
 - name: How-to guides
-    - Install tools
+    - name: Install tools
       items:
       - name: Install client tools
         href: install-client-tools.md
