@@ -8,7 +8,7 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: jlian
-ms.custom: amqp, mqtt, fasttrack-edit
+ms.custom: [amqp, mqtt, fasttrack-edit, iot]
 ---
 
 # Trace Azure IoT device-to-cloud messages with distributed tracing (preview)

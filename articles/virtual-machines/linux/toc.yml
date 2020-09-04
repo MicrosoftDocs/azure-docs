@@ -307,14 +307,6 @@
       href: ../acu.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: vCPU quotas
       href: quotas.md
-    - name: Reserved instances
-      items:
-      - name: Prepay for VMs
-        href: prepay-reserved-vm-instances.md
-      - name: What are Azure reservations?
-        href: ../../cost-management-billing/reservations/save-compute-costs-reservations.md
-      - name: VM instance size flexibility
-        href: ../reserved-vm-instance-size-flexibility.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Benchmark scores
       href: compute-benchmark-scores.md
   - name: Endorsed distros
