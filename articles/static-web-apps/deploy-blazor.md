@@ -15,10 +15,20 @@ Azure Static Web Apps publishes a website to a production environment by buildin
 
 If you don't have an Azure subscription, [create a free trial account](https://azure.microsoft.com/free).
 
+:::image type="content" source="./media/deploy-blazor/blazor-app-complete.png" alt-text="Complete Blazor app":::
+
 ## Prerequisites
 
 - [GitHub](https://github.com) account
 - [Azure](https://portal.azure.com) account
+
+## Application overview
+
+```files
+|- Api
+|- Client
+|- Shared
+```
 
 ## Create a repository
 
@@ -92,9 +102,37 @@ The Static Web Apps overview window displays a series of links that help you int
 
 1. Clicking on the banner that says, _Click here to check the status of your GitHub Actions runs_ takes you to the GitHub Actions running against your repository. Once you verify the deployment job is complete, then you can navigate to your website via the generated URL.
 
-2. Once GitHub Actions workflow is complete, you can click on the _URL_ link to open the website in new tab.
+2. Once GitHub Actions workflow is complete, you can select the _URL_ link to open the website in new tab.
 
-:::image type="content" source="./media/deploy-blazor/static-blazor-website.png" alt-text="Blazor starter website":::
+## Shared resources
+
+The [`WeatherForecast`](https://github.com/staticwebdev/blazor-starter/blob/main/Shared/WeatherForecast.cs) class is shared among the front-end Blazor web assembly app, and the back-end Azure Functions app.
+
+## API
+
+The application's API functionality is supported by a C# Azure Functions app. The [`WeatherForecastFunction`](https://github.com/staticwebev/blazor-starter/blob/main/Api/WeatherForecastFunction.cs) returns an array of `WeatherForecast` objects.
+
+## Fallback route
+
+The application exposes URLs like _/counter_ and _/fetchdata_. 
+
+The routes file defines a fallback route
+
+_wwwroot/routes.json_
+
+```json
+{
+  "routes": [
+    {
+      "route": "/*",
+      "serve": "/index.html",
+      "statusCode": 200
+    }
+  ]
+}
+```
+
+<!-- -->
 
 ## Clean up resources
 
