@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with DocuSign | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and DocuSign.
+description: Learn how to configure single sign-on (SSO) between Azure Active Directory and DocuSign.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
