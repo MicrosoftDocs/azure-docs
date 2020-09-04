@@ -23,13 +23,31 @@ If you choose to install and use the CLI locally, this tutorial requires that yo
 
 ## Before you begin
 
-### Register the resource provider
+### Register the resource providers
 
-Next, you need to register the `Microsoft.RedHatOpenShift` resource provider in your subscription.
+1. If you have multiple Azure subscriptions, specify the relevant subscription ID:
 
-```azurecli-interactive
-az provider register -n Microsoft.RedHatOpenShift --wait
-```
+    ```azurecli-interactive
+    az account set --subscription <SUBSCRIPTION ID>
+    ```
+
+1. Register the `Microsoft.RedHatOpenShift` resource provider:
+
+    ```azurecli-interactive
+    az provider register -n Microsoft.RedHatOpenShift --wait
+    ```
+
+1. Register the `Microsoft.Compute` resource provider:
+
+    ```azurecli-interactive
+    az provider register -n Microsoft.Compute --wait
+    ```
+
+1. Register the `Microsoft.Storage` resource provider:
+
+    ```azurecli-interactive
+    az provider register -n Microsoft.Storage --wait
+    ```
 
 ### Get a Red Hat pull secret (optional)
 
