@@ -13,20 +13,20 @@ ms.author: mimart
 ms.subservice: B2C
 ---
 
-# Overview policy keys in Azure Active Directory B2C
+# Overview of policy keys in Azure Active Directory B2C
 
-Azure Active Directory B2C (Azure AD B2C) uses secrets and certificates to establish trust with the services it integrates with. These trusts consist of:
+Azure Active Directory B2C (Azure AD B2C) stores secrets and certificates in the form of policy keys to establish trust with the services it integrates with. These trusts consist of:
 
 - External identity providers
 - Connecting with [REST API services](restful-technical-profile.md)
 - Token signing and encryption
 
- This article discusses what you need to know about policy keys that are used by Azure AD B2C.
+ This article discusses what you need to know about the policy keys that are used by Azure AD B2C.
 
 > [!NOTE]
 > Currently, configuration of policy keys is limited to [custom policies](active-directory-b2c-get-started-custom.md) only.
 
-You can configure secrets and certificates for establishing trust in the Azure portal under the **Policy keys** menu. Keys can be symmetric or asymmetric. *Symmetric* cryptography, or private key cryptography, is where a shared secret is used to both encrypt and decrypt the data. *Asymmetric* cryptography, or public key cryptography, is a cryptographic system that uses pairs of keys, consisting of public keys that are shared with the relying party application and private keys that are known only to Azure AD B2C.
+You can configure secrets and certificates for establishing trust between services in the Azure portal under the **Policy keys** menu. Keys can be symmetric or asymmetric. *Symmetric* cryptography, or private key cryptography, is where a shared secret is used to both encrypt and decrypt the data. *Asymmetric* cryptography, or public key cryptography, is a cryptographic system that uses pairs of keys, consisting of public keys that are shared with the relying party application and private keys that are known only to Azure AD B2C.
 
 ## Policy keyset and keys
 
@@ -44,21 +44,21 @@ To create a key, you can choose one of the following methods:
 
 - **Manual** - Create a secret with a string you define. The secret is a symmetric key. You can set the activation and expiration dates.
 - **Generated** - Auto-generate a key. You can set activation and expiration dates. There are two options:
-  - **Secret** - Generates a symmetric key.
+  - **Secret** - Generates a symmetric key and displayed to the user temporarily.
   - **RSA** - Generates a key pair (asymmetric keys).
 - **Upload** - Upload a certificate, or a PKCS12 key. The certificate must contain the private and public keys (asymmetric keys).
 
 ## Key rollover
 
-For security purposes, Azure AD B2C can roll over the key periodically, or immediately in case of emergency. Any application, identity provider, or REST API that integrates with Azure AD B2C should be prepared to handle a key rollover event, no matter how frequently it may occur. Otherwise, if your application attempts to use an expired key to verify the signature on a token, the sign-in request will fail.
+For security purposes, Azure AD B2C can rollover keys periodically, or immediately in case of emergency. Any application, identity provider, or REST API that integrates with Azure AD B2C should be prepared to handle a key rollover event, no matter how frequently it may occur. Otherwise, if your application or Azure AD B2C attempts to use an expired key to perform a cryptographic operation, the sign-in request will fail.
 
- If an Azure AD B2C keyset has multiple keys, only one of the keys is active at any time, based on the following criteria:
+If an Azure AD B2C keyset has multiple keys, only one of the keys is active at any one time, based on the following criteria:
 
 - The key activation is based on the **activation date**.
   - The keys are sorted by activation date in ascending order. Keys with activation dates further into the future appear lower in the list. Keys without an activation date are located at the bottom of the list.
-  - When the current date and time is greater than a key's activation date, Azure AD B2C will activate the key and stop using the prior one.
-- When the current key's expiration time has elapsed and the key container  contains a new key with valid *not before* and *expiration* times, the new key will become active automatically.
-- When the current key's expiration time has elapsed and the key container *does not* contain a new key with valid *not before* and *expiration* times, Azure AD B2C won't be able to use the expired key. Azure AD B2C will raise an error message within a dependant component of your custom policy. To avoid this issue, you can create a default key without activation and expiration dates.
+  - When the current date and time is greater than a key's activation date, Azure AD B2C will activate the key and stop using the prior active key.
+- When the current key's expiration time has elapsed and the key container contains a new key with valid *not before* and *expiration* times, the new key will become active automatically.
+- When the current key's expiration time has elapsed and the key container *does not* contain a new key with valid *not before* and *expiration* times, Azure AD B2C won't be able to use the expired key. Azure AD B2C will raise an error message within a dependant component of your custom policy. To avoid this issue, you can create a default key without activation and expiration dates as a safety net.
 - The key's endpoint (JWKS URI) of the OpenId Connect well-known configuration endpoint reflects the keys configured in the Key Container, when the Key is referenced in the [JwtIssuer Technical Profile](https://docs.microsoft.com/azure/active-directory-b2c/jwt-issuer-technical-profile). An application using an OIDC library will automatically fetch this metadata to ensure it uses the correct keys to validate tokens. For more information, learn how to use [Microsoft Authentication Library](https://docs.microsoft.com/azure/active-directory/develop/msal-b2c-overview), which always fetches the latest token signing keys automatically.
 
 ## Policy key management
