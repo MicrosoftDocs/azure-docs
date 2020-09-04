@@ -14,6 +14,7 @@
     - name: Deploy Managed Instance (Jumpstart)
     - name: Deploy PostgreSQL (Jumpstart)
 - name: How-to guides
+  items:
     - name: Install tools
       items:
       - name: Install client tools
@@ -24,15 +25,15 @@
           href: /sql/azdata/install/deploy-install-azdata?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
         - name: macOS
           href: /sql/azdata/install/deploy-install-azdata-macos?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
-        - name: 
+        - name: Windows
           href: /sql/azdata/install/deploy-install-azdata-installer?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
-        - name: 
+        - name: Linux with apt
           href: /sql/azdata/install/deploy-install-azdata-linux-package?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
-        - name: 
+        - name: Linux with yum
           href: /sql/azdata/install/deploy-install-azdata-yum?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
-        - name: 
+        - name: Linux with zypper
           href: /sql/azdata/install/deploy-install-azdata-zypper?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
-        - name: 
+        - name: Linux with pip
           href: /sql/azdata/install/deploy-install-azdata-pip?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
     - name: Create SQL Managed Instance
       href: create-sql-managed-instance.md
