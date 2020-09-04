@@ -16,7 +16,8 @@ ms.date: 05/01/2020
 
 A media graph lets you define where media should be captured from, how it should be processed, and where the results should be delivered. You accomplish this by connecting components, or nodes, in the desired manner. The diagram below provides a graphical representation of a media graph.  
 
-![A graphical representation of a media graph](./media/media-graph/overview.png)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/media-graph/media-graph.svg" alt-text="Media graph":::
 
 Live Video Analytics on IoT Edge supports different types of sources, processors, and sinks.
 
@@ -34,7 +35,8 @@ The values for the parameters in the topology are specified when you create grap
 
 The lifecycle of graph topologies and graph instances is shown in the following state diagram.
 
-![Graph topology and graph instance lifecycle](./media/media-graph/graph-topology-lifecycle.svg)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/media-graph/graph-topology-lifecycle.svg" alt-text="Graph topology and graph instance lifecycle":::
 
 You begin with [creating a graph topology](direct-methods.md#graphtopologyset). Then, for each live video feed that you want to process with this topology, you [create a graph instance](direct-methods.md#graphinstanceset). 
 
