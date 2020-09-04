@@ -36,9 +36,9 @@ FROM sys.databases;
 
 ## Enable data retention for a table
 
-Data Retention must be enabled for each table for which you want data to be automatically purged. When Data Retention is enabled on the database and the table, a background system task will periodically scan the table to identify any obsolete rows and delete the obsolete rows. Data Retention can be enabled on a table either during table creation using [Create Table](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql) or by using [Alter Table](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql).
+Data Retention must be enabled for each table for which you want data to be automatically purged. When Data Retention is enabled on the database and the table, a background system task will periodically scan the table to identify and delete any obselete (aged) rows. Data Retention can be enabled on a table either during table creation using [Create Table](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql) or by using [Alter Table](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql).
 
-The following example shows how to enable data retention for table by using [Create Table](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql). 
+The following example shows how to enable data retention for a table by using [Create Table](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql). 
 
 ```sql
 CREATE TABLE [dbo].[data_retention_table] 
@@ -53,8 +53,13 @@ CONSTRAINT [pk_current_data_retention_table] PRIMARY KEY CLUSTERED ([product_cod
 The `WITH (DATA_DELETION = ON ( FILTER_COLUMN = [dbdatetime2], RETENTION_PERIOD = 1 day ) )` part of the create table command sets the data retention on the table. The command uses the following required parameters 
 
 - DATA_DELETION - Indicates whether data retention is ON or OFF.
-- FILTER_COLUMN - Name on the column in the table, which will be used to ascertain if the rows are obsolete or not. The filter column can only be a column with the following data types 
-- RETENTION_PERIOD - An integer value followed by a unit descriptor. The allowed units are DAY, WEEK, MONTH, or YEAR.
+- FILTER_COLUMN - Name on the column in the table, which will be used to ascertain if the rows are obselete or not. The filter column can only be a column with the following data types 
+    - Date
+    - SmallDateTime
+    - DateTime
+    - DateTime2
+    - DateTimeOffset
+- RETENTION_PERIOD - An integer value followed by a unit descriptor. The allowed units are DAY, WEEK, MONTH, and YEAR.
 
 The following example shows how to enable data retention for table by using [Alter Table](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql).  
 
