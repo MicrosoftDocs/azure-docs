@@ -107,8 +107,6 @@
       href: concepts-supported-versions.md
     - name: PostgreSQL extensions
       href: concepts-extensions.md
-    - name: High availability
-      href: concepts-high-availability.md
     - name: Understand pricing tiers
       items:
       - name: Pricing tiers
@@ -128,23 +126,12 @@
       - name: Connectivity architecture
         href: concepts-connectivity-architecture.md
         displayName: security, architecture
-    - name: Business continuity
-      items:
-      - name: Firewall rules
-        href: concepts-firewall-rules.md
-        displayName: firewall rules, security, connect
-      - name: Virtual network
-        href: concepts-data-access-and-security-vnet.md
-        displayName: security, service endpoint
       - name: Advanced threat protection
         href: concepts-data-access-and-security-threat-protection.md
         displayName: security, advanced threat protection
       - name: Azure AD authentication
         href: concepts-aad-authentication.md
         displayName: security, aad, active directory
-      - name: Private link
-        href: concepts-data-access-and-security-private-link.md
-        displayName: security, private link, private endpoint
       - name: Data encryption
         href: concepts-data-encryption-postgresql.md
         displayName: security, data encryption
@@ -153,11 +140,24 @@
         displayName: security, infrastructure encryption
       - name: Security baseline for Azure Security Benchmark
         href: security-baseline.md
+    - name: Networking
+      items:
+      - name: Firewall rules
+        href: concepts-firewall-rules.md
+        displayName: firewall rules, security, connect
+      - name: Virtual network
+        href: concepts-data-access-and-security-vnet.md
+        displayName: security, service endpoint
+      - name: Private link
+        href: concepts-data-access-and-security-private-link.md
+        displayName: security, private link, private endpoint
     - name: Business continuity
       items:
       - name: Business continuity intro
         displayName: backup, restore, backups, restores, georestore, geo-restore, outage
         href: concepts-business-continuity.md
+      - name: High availability
+        href: concepts-high-availability.md   
       - name: Backup and restore
         href: concepts-backup.md
         displayName: backup ,restore, georestore, geo-restore, outage
@@ -188,7 +188,7 @@
       - name: Performance recommendations
         href: concepts-performance-recommendations.md
         displayName: query store, performance, optimize, recommendations
-    - name: Development
+    - name: App Development
       items:
       - name: Connection libraries
         href: concepts-connection-libraries.md
