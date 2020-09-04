@@ -75,7 +75,8 @@ The following example shows how to add/remove counters. This customization would
 
 ## Disabling EventCounter collection module
 
-`EventCounterCollectionModule` can be disabled by using `ApplicationInsightsServiceOptions`, as shown in the below example.
+`EventCounterCollectionModule` can be disabled by using `ApplicationInsightsServiceOptions`. An
+example when using ASP.NET Core SDK is shown below.
 
 ```csharp
     using Microsoft.ApplicationInsights.AspNetCore.Extensions;
@@ -87,8 +88,20 @@ The following example shows how to add/remove counters. This customization would
 
         var applicationInsightsServiceOptions = new ApplicationInsightsServiceOptions();
         applicationInsightsServiceOptions.EnableEventCounterCollectionModule = false;
-        services.AddApplicationInsightsTelemetry(applicationInsightsServiceOptions);        
+        services.AddApplicationInsightsTelemetry(applicationInsightsServiceOptions);
     }
+```
+
+Similar approach can be used for WorkerService SDK as well, but the
+namespace must be changed as shown in below example.
+
+```csharp
+    using Microsoft.ApplicationInsights.WorkerService;
+    using Microsoft.Extensions.DependencyInjection;
+
+    var applicationInsightsServiceOptions = new ApplicationInsightsServiceOptions();
+    applicationInsightsServiceOptions.EnableEventCounterCollectionModule = false;
+    services.AddApplicationInsightsTelemetryWorkerService(applicationInsightsServiceOptions);
 ```
 
 ## Event counters in Metric Explorer
