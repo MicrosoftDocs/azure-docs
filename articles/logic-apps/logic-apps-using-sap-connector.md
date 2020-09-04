@@ -404,7 +404,7 @@ This example uses a logic app that triggers when the app receives a message from
 
    Or, you can manually specify an action:
 
-   ![Manually enter SAP action](media/logic-apps-using-sap-connector/manual-enter-SAP-action-trigger.png)
+   ![Manually enter SAP action that you want to use](media/logic-apps-using-sap-connector/manual-enter-SAP-action-trigger.png)
 
    Here's an example that shows how the action appears when you set up the trigger to receive more than one message.
 
