@@ -115,7 +115,7 @@ The Data Upload API is a long running transaction that implements the pattern de
 4. Start a new **GET** HTTP method in the builder tab. Append your Azure Maps primary subscription key to the `status URL`. Make a **GET** request at the `status URL` that you copied in step 3. The `status URL` looks like the following URL:
 
     ```http
-    https://atlas.microsoft.com/conversion/operations/<operationId>?api-version=1.0
+    https://atlas.microsoft.com/conversion/operations/<operationId>?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
     If the conversion process hasn't yet completed, you may see something like the following JSON response:
@@ -203,7 +203,7 @@ A tileset is a set of vector tiles that render on the map. Tilesets are created 
 3. Make a **GET** request at the `statusURL` for the tileset. Append your Azure Maps primary subscription key for authentication. The request should look like the following URL:
 
    ```http
-    https://atlas.microsoft.com/tileset/operations/<operationId>?api-version=1.0&subscription-key=<Azure-Maps-Primary-Subscription-key>
+    https://atlas.microsoft.com/tileset/operations/<operationId>?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
 4. When the **GET** HTTP request completes successfully, the response header will contain the `tilesetId` for the created tileset. Copy the `tilesetId`.

@@ -51,6 +51,18 @@ The steps below are necessary whether you're setting up a continuous export to L
 
 1. Select the data type you'd like to export and choose from the filters on each type (for example, export only high severity alerts).
 
+1. Optionally, if your selection includes one of these four recommendations, you can include the vulnerability assessment findings together with them:
+
+    - Vulnerability Assessment findings on your SQL databases should be remediated
+    - Vulnerability Assessment findings on your SQL servers on machines should be remediated (Preview)
+    - Vulnerabilities in Azure Container Registry images should be remediated (powered by Qualys)
+    - Vulnerabilities in your virtual machines should be remediated
+
+    To include the findings with these recommendations, enable the **include security findings** option.
+
+    :::image type="content" source="./media/continuous-export/include-security-findings-toggle.png" alt-text="Include security findings toggle in continuous export configuration" :::
+
+
 1. From the "Export target" area, choose where you'd like the data saved. Data can be saved in a target on a different subscription (for example on a Central Event Hub instance or a central Log Analytics workspace).
 
 1. Select **Save**.
