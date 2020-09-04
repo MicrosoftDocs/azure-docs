@@ -72,14 +72,14 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, enter the values for the following fields:
 
-    a. In the **Identifier** text box, type a URL using one of the following pattern:
+    a. In the **Identifier** text box, type a URL using one of the following patterns:
 
     |Identifier|
     |----------|
     |`<CUSTOMER_NAME>.raumfuerraum.de`|
     |`<CUSTOMER_NAME>.rfr.md.intra`|
 
-    b. In the **Reply URL** text box, type a URL using one of the following pattern:
+    b. In the **Reply URL** text box, type a URL using one of the following patterns:
 
     |Reply URL|
     |----------|
@@ -88,7 +88,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-    In the **Sign-on URL** text box, type a URL using one of the following pattern:
+    In the **Sign-on URL** text box, type a URL using one of the following patterns:
 
     |Sign-on URL|
     |----------|
@@ -127,7 +127,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. In the app's overview page, find the **Manage** section and select **Users and groups**.
 1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
 1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
-1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been setup for this app, you see "Default Access" role selected.
+1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
 1. In the **Add Assignment** dialog, click the **Assign** button.
 
 ## Configure raumfurraum SSO
@@ -152,7 +152,7 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Click on **Test this application** in Azure portal and you should be automatically signed in to the raum]für[raum for which you set up the SSO 
 
-You can also use Microsoft Access Panel to test the application in any mode. When you click the raum]für[raum tile in the Access Panel, you should be automatically signed in to the raum]für[raum for which you set up the SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+You can also use Microsoft Access Panel to test the application in any mode. When you click the raum]für[raum tile in the Access Panel,if configured in SP mode you would be redirected to the application sign-on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the raum]für[raum for which you set up the SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## Next Steps
 Once you configure raum]für[raum you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
