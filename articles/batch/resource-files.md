@@ -94,7 +94,7 @@ If each task has many files unique to that task, resource files are the best opt
 
 If there are several hundred resource files specified on a task, Batch might reject the task as being too large. It's best to keep your tasks small by minimizing the number of resource files on the task itself.
 
-If there's no way to minimize the number of files your task needs, you can optimize the task by creating a single resource file that references a storage container of resource files. To do this, put your resource files into an Azure Storage container and use the different "container" [methods](/dotnet/api/microsoft.azure.batch.resourcefileazure-dotnet#methods) for resource files. Use the blob prefix options to specify collections of files to be downloaded for your tasks.
+If there's no way to minimize the number of files your task needs, you can optimize the task by creating a single resource file that references a storage container of resource files. To do this, put your resource files into an Azure Storage container and use the different "container" [methods](/dotnet/api/microsoft.azure.batch.resourcefile#methods) for resource files. Use the blob prefix options to specify collections of files to be downloaded for your tasks.
 
 ## Next steps
 

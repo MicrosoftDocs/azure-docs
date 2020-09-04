@@ -1378,8 +1378,6 @@
         href: robin-tutorial.md
       - name: RStudio Connect
         href: rstudio-connect-tutorial.md
-      - name: RStudio Server Pro
-        href: rstudio-server-pro-tutorial.md
       - name: RolePoint
         href: rolepoint-tutorial.md
       - name: Rollbar
@@ -1925,6 +1923,8 @@
         href: cernercentral-provisioning-tutorial.md
       - name: Cisco Webex
         href: cisco-webex-provisioning-tutorial.md
+      - name: Coda
+        href: coda-provisioning-tutorial.md
       - name: Comeet Recruiting Software
         href: comeet-recruiting-software-provisioning-tutorial.md
       - name: Concur

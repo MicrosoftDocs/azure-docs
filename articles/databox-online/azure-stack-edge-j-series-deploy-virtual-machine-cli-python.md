@@ -6,13 +6,13 @@ author: alkohli
 
 ms.service: databox
 ms.subservice: edge
-ms.topic: overview
+ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to create and manage virtual machines (VMs) on my Azure Stack Edge device using APIs so that I can efficiently manage my VMs.
 ---
 
-# Deploy VMs on your Azure Stack Edge device using Azure CLI and Python
+# Deploy VMs on your Azure Stack Edge GPU device using Azure CLI and Python
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
@@ -57,13 +57,13 @@ Before you begin creating and managing a VM on your Azure Stack Edge device usin
 
     2. Enable compute on the network interface. Azure Stack Edge creates and manages a virtual switch corresponding to that network interface.
 
-    If you decide to use another network interface for compute, make sure that you:
+    <!--If you decide to use another network interface for compute, make sure that you:
 
     - Delete all the VMs that you have deployed using Azure Resource Manager.
 
     - Delete all virtual network interfaces and the virtual network associated with this network interface.
 
-    - You can now enable another network interface for compute.
+    - You can now enable another network interface for compute.-->
 
 3. You created and installed all the certificates on your Azure Stack Edge device and in the trusted store of your client. Follow the procedure described in [Step 2: Create and install certificates](azure-stack-edge-j-series-connect-resource-manager.md#step-2-create-and-install-certificates).
 
