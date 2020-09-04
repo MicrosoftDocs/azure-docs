@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
-ms.date: 08/26/2020
+ms.date: 09/04/2020
 ---
 
 # Reference guide to using functions in expressions for Azure Logic Apps and Power Automate
@@ -4039,7 +4039,7 @@ substring('<text>', <startIndex>, <length>)
 |||||
 
 > [!NOTE]
-> Make sure that the sum between the *startIndex* and *length* parameter values is less than the length of the string that you provide for the *text* parameter.
+> Make sure that the sum from adding the *startIndex* and *length* parameter values is less than the length of the string that you provide for the *text* parameter.
 > Otherwise, you get an error, unlike similar functions in other languages where the result is the substring from the *startIndex* to the end of the string.
 
 | Return value | Type | Description |
