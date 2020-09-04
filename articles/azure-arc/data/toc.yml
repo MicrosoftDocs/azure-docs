@@ -54,7 +54,7 @@
           href: uninstall-azure-arc-data-controller.md
         - name: Uninstall client tools update
           href: uninstall-update-client-tools.md
-    - name: Postgres
+    - name: PostgreSQL
       items:
         - name: Back up PostgreSQL Hyperscale
           href: backup-restore-postgresql-hyperscale.md
@@ -68,11 +68,11 @@
           href: manage-roles-in-postgresql-with-cli.md
         - name: Migrate a PostgreSQL database to Arc
           href: migrate-postgresql-db-into-arc.md
-        - name: Restore AdventureWorks to Postgres
+        - name: Restore AdventureWorks to PostgreSQL
           href: restore-adventureworks-sample-db-postgresql.md
         - name: Manage PostgreSQL (Azure Data Studio)
           href: manage-postgresql-with-azure-data-studio.md
-        - name: Delete Postgres
+        - name: Delete PostgreSQL
           href: delete-postgresql-instance.md
     - name: SQL Managed Instance
       items:
