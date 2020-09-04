@@ -14,7 +14,10 @@ ms.author: aahi
 
 # How-to: Diagnose an incident using Metrics Monitor
 
-Metrics Advisor provides several features for diagnostics, and to give an in-depth view of detected incidents, and provide root-cause analysis. When data is ingested, Metrics Advisor will group incidents into a hierarchy to provide structure.
+Metrics Advisor provides several features for diagnostics, and gives an in-depth view of detected incidents, and provide root-cause analysis. When a group of anomalies detected on a metric, Metrics Advisor will group anomalies into a hierarchy and analyze on top of it.
+
+> [!Note]
+> As of now, Metrics Advisor supports incident diagnostics for metrics with **at least one dimension** and measure with **numeric type**. There also needs to have an aggregated dimension value, like SUM for each dimension, which is used to build the hierarchy. Metrics Advisor offers [Automatic roll up settings]() to help with generating aggregated value. 
 
 Click on **Incident hub** in the left navigation window to see all incidents under a given metric. At the top of the page, you can select different metrics to see their detection configurations, and detection results, and change the time range.
 
@@ -32,7 +35,7 @@ The **Diagnostic** section lets you perform in-depth analysis on an incident, an
 
 ## Root cause advice
 
-The **Root cause advices** tab contains automatic suggestions for likely causes for an incident. this feature is only available if there is an  **all up** setting for the dimension. If the metric has no dimension, the root cause will be itself. Root causes are listed in the section under the tab and there might be several reasons listed. If there is no data in the table, it means your dimension doesn't satisfy the requirements to perform the analysis.
+When there's a group of anomalies detected on one metric which causes an incident, Metrics Advisor will try to analyze on the root cause. **Root cause advices** provides automatic suggestions for likely causes of an incident. This feature is only available if there is an aggregated value within dimension. If the metric has no dimension, the root cause will be itself. Root causes are listed at right side panel and there might be several reasons listed. If there is no data in the table, it means your dimension doesn't satisfy the requirements to perform the analysis.
 
 ![Root Cause Advice](../media/diagnostics/root-cause-advice.png)
 
