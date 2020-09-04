@@ -5,7 +5,7 @@
  author: cherylmc
  ms.service: vpn-gateway
  ms.topic: include
- ms.date: 10/04/2019
+ ms.date: 09/03/2020
  ms.author: cherylmc
  ms.custom: include file
 ---
@@ -20,7 +20,7 @@
 
    - **Name:** Specify a name for your local network gateway object.
    - **IP address:** This is the public IP address of the VPN device that you want Azure to connect to. Specify a valid public IP address. If you don't have the IP address right now, you can use the values shown in the example, but you'll need to go back and replace your placeholder IP address with the public IP address of your VPN device. Otherwise, Azure will not be able to connect.
-   - **Address Space** refers to the address ranges for the network that this local network represents. You can add multiple address space ranges. Make sure that the ranges you specify here do not overlap with ranges of other networks that you want to connect to. Azure will route the address range that you specify to the on-premises VPN device IP address. *Use your own values here if you want to connect to your on-premises site, not the values shown in the example*.
+   - **Address Space** refers to the address ranges for the network that the local network object represents (your on-premises network). You add the address spaces that you want to route to your on-premises network. You can add multiple address space ranges. Make sure that the ranges you specify here do not overlap with ranges of other networks that you want to connect to. Azure will route the address range that you specify to the on-premises VPN device IP address. *Use your own values here if you want to connect to your on-premises site, not the values shown in the example*.
    - **Configure BGP settings:** Use only when configuring BGP. Otherwise, don't select this.
    - **Subscription:** Verify that the correct subscription is showing.
    - **Resource Group:** Select the resource group that you want to use. You can either create a new resource group, or select one that you have already created.

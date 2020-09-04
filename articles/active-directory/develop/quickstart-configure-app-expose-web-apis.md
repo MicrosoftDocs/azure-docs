@@ -90,7 +90,7 @@ To add the `Employees.Write.All` example scope, follow the steps in the [Add a s
 
 ## Verify the exposed scopes
 
-If you successfully both example scopes described in the previous section, they'll appear in the **Expose an API** pane of your web API's app registration, similar to this image:
+If you successfully added both example scopes described in the previous sections, they'll appear in the **Expose an API** pane of your web API's app registration, similar to this image:
 
 :::image type="content" source="media/quickstart-configure-app-expose-web-apis/portal-03-scopes-list.png" alt-text="Screenshot of the Expose an API pane showing two exposed scopes.":::
 
