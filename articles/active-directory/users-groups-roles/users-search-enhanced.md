@@ -61,8 +61,6 @@ The following are the displayed user properties on the **All users** page:
 - Creation type: Indicates how the user account was created.
 - Company name: The company name which the user is associated.
 - Mail: The email of the user.
-- Invitation state: The status of the external partner (B2B) invitation for the user.
-- Last sign-in: The date the user last signed in.
 
    ![new user properties displayed on All users and Deleted users pages](./media/users-search-enhanced/user-properties.png)
 
@@ -97,7 +95,6 @@ The following are the filterable properties on the **All users** page:
 - User type - Member or guest
 - Directory synced status - Yes
 - Creation type - Invitation, Email verified, Local account
-- Invitation state  – Pending acceptance, Accepted
 - Administrative unit - Select this option to restrict the scope of the users you view to a single administrative unit. For more information, see [Administrative units management preview](directory-administrative-units.md).
 
 ## Filtering Deleted Users page
@@ -107,7 +104,6 @@ The **Deleted users** page has additional filters not in the **All users** page.
 - User type - Member or guest
 - Directory synced status - Yes
 - Creation type - Invitation, Email verified, Local account
-- Invitation state – Pending acceptance, Accepted
 - Deletion date - Last 7, 14, or 30 days
 - Permanent deletion date - Last 7, 14, or 30 days
 
