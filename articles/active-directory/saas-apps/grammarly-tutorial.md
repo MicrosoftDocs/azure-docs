@@ -38,7 +38,7 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 > [!NOTE]
 > Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
 
-## Adding Grammarly from the gallery
+## Add Grammarly from the gallery
 
 To configure the integration of Grammarly into Azure AD, you need to add Grammarly from the gallery to your list of managed SaaS apps.
 
@@ -135,6 +135,6 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 2. You can use Microsoft Access Panel. When you click the Grammarly tile in the Access Panel, you should be automatically signed in to the Grammarly for which you set up the SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## Next Steps
+## Next steps
 
 Once you configure Grammarly you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
