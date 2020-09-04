@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.date: 09/08/2020
 ---
 
-# Adjust the capacity of a Azure Cognitive Search service
+# Adjust the capacity of an Azure Cognitive Search service
 
 Before [provisioning a search service](search-create-service-portal.md) and locking in a specific pricing tier, take a few minutes to understand how capacity works and how you might adjust replicas and partitions to accommodate workload fluctuation.
 
@@ -30,7 +30,7 @@ Capacity is expressed in *search units* that can be articulated in combinations 
 |*Partition* | Physical storage and I/O for read/write operations (for example, when rebuilding or refreshing an index). Each partition has a slice of the total index. If you allocate three partitions, your index is divided into thirds. |
 |*Shard* | A chunk of an index. Within a partition, a search service further divides an index into shards to make the process of adding partitions faster (by moving a shard to a new search unit). |
 
-In the top left quadrant, the first search unit is a combination of one replica and one partition, resulting in a minimally viable service. An additional unit to the side or below adds a single replica or a single partition. If you want two of each, you will need four search units, as captured in the following diagram.
+In the top-left quadrant, the first search unit is a combination of one replica and one partition, resulting in a minimally viable service. An additional unit to the side or below adds a single replica or a single partition. If you want two of each, you will need four search units, as captured in the entirety of the following diagram.
 
 :::image type="content" source="media/search-capacity-planning/shards.png" alt-text="Search indexes are sharded across partitions.":::
 
@@ -69,7 +69,7 @@ As a general rule, search applications tend to need more replicas than partition
 
    ![Add replicas and partitions](media/search-capacity-planning/2-add-2-each.png "Add replicas and partitions")
 
-1. Click **Save** to confirm the changes.
+1. Select **Save** to confirm the changes.
 
    ![Confirm changes to scale and billing](media/search-capacity-planning/3-save-confirm.png "Confirm changes to scale and billing")
 
