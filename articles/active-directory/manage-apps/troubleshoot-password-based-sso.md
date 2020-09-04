@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot password-based single sign-on in Azure AD
-description: How to troubleshoot issues with an Azure AD app that's configured for password-based single sign-on.
+title: Troubleshoot password-based single sign-on in Azure Active Directory
+description: Troubleshoot issues with an Azure AD app that's configured for password-based single sign-on.
 author: kenwith
 manager: celestedg
 ms.service: active-directory

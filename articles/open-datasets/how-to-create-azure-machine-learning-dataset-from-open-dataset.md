@@ -108,7 +108,7 @@ You can also create Azure Machine Learning datasets from Azure Open Datasets wit
 
     ![Choose dataset](./media/how-to-create-dataset-from-open-dataset/open-datasets-2.png)
 
-1. Choose a name under which to register the dataset, and optionally filter the data by using the available filters. In this case, for the **public holidays** dataset, you filter the time period to one year and the country code to only the US. See the [Azure Open Datasets Catalog](https://azure.microsoft.com/services/op[en-datasets/catalog/) for data detail such as, field descriptions and date ranges. Select **Create**.
+1. Choose a name under which to register the dataset, and optionally filter the data by using the available filters. In this case, for the **public holidays** dataset, you filter the time period to one year and the country code to only the US. See the [Azure Open Datasets Catalog](https://azure.microsoft.com/services/open-datasets/catalog) for data detail such as, field descriptions and date ranges. Select **Create**.
 
     ![Set dataset params and create dataset](./media/how-to-create-dataset-from-open-dataset/open-datasets-3.png)
 
