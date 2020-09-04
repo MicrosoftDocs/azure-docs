@@ -25,16 +25,12 @@ To starting, you need to install Azure Data Studio as explained in [Install clie
 
 Once installed, start Azure Data Studio and reach its welcome page.
 
-<!--![Screenshot of Azure Data Studio Welcome page.](/assets/ADS_Jul2020_welcome.jpg)-->
-
 ## Connect to the Azure Arc Data Controller
 
 In Azure Data Studio, expand the node **Azure Arc Controllers** and select the **Connect Controller** button:
 
-![Screenshot of Azure Data Controllers node expanded.](/assets/ADS_Jul2020_ConnectDataController.jpg)
-
-
 Enter the connection information to your Azure Data Controller:
+
 - **Controller URL:**
 
     The URL to connect to your controller in Kubernetes. Entered in the form of `https://<IP_address_of_the_controller>:<Kubernetes_port.`
@@ -49,21 +45,17 @@ Enter the connection information to your Azure Data Controller:
 - **Password:**
     The password of the user account you use to connect to the Controller
 
-![Screenshot of Azure Data Controllers connection details pane.](/assets/ADS_Jul2020_ConnectDataController_Details.jpg)
-and select the [Connect] button.
 
-Your Arc Data Controller node is now showing up. Expand it and it shows the list of PostgreSQL instances that it manages.
-![Screenshot of Azure Data Controllers node expanded.](/assets/ADS_Jul2020_Controller_node_expanded.jpg)
+Azure data studio shows your Arc Data Controller. Expand it and it shows the list of PostgreSQL instances that it manages.
 
 ## Manage your PostgreSQL instances
 
 Right-click on the PostgreSQL instance you want to manage and select [Manage]
-![Screenshot of Azure Data Controllers [Manage] contextual menu.](/assets/ADS_Jul2020_Controller_Postgres_Manage.jpg)
 
 The PostgreSQL Dashboard view:
-![Screenshot of Azure Data Controllers\Postgres dashboard - List.](/assets/ADS_Jul2020_Controller_Postgres_Dashboard_List.jpg)
 
 That features several dashboards listed on the left side of that pane:
+
 - **Overview:** 
     Displays summary information about your instance like name, Azure subscription ID, configuration, version of the database engine, endpoints for Grafana and Kibana...
     ![Screenshot of Azure Data Controllers\Postgres dashboard - Overview.](/assets/ADS_Jul2020_Controller_Postgres_Dashboard_Overview.jpg)
@@ -81,11 +73,9 @@ That features several dashboards listed on the left side of that pane:
 - **New support request:** 
     Is the landing page from which you will be able to request assistance from our support services starting Public Preview announcement.
 
-
 ## Work with your data and schema
 
 On the left side of the Azure Data Studio window, expand the node [Servers]:
-![Screenshot of Servers node.](/assets/ADS_Jul2020_Servers.jpg)
 
 And select [Add Connection] and fill in the connection details to your PostgreSQL instance:
 - **Connection Type:** PostgreSQL
@@ -102,8 +92,6 @@ And select [Add Connection] and fill in the connection details to your PostgreSQ
     - **Other parameters:** They should be self-explicit, you can live with the default/blank values they appear with.
 
 Select **[OK] and [Connect]** to connect to your server.
-![Screenshot of Servers node.](/assets/ADS_Jul2020_Servers_AddConnection.jpg)
-![Screenshot of Servers node.](/assets/ADS_Jul2020_Servers_AddConnection_Advanced.jpg)
 
 Once connected, several experiences are available:
 - **New query**
@@ -111,8 +99,8 @@ Once connected, several experiences are available:
 - **Expand the display of your server and browse/work on the objects inside your database**
 - **...**
 
-![Screenshot of Servers node.](/assets/ADS_Jul2020_Servers_Experiences.jpg)
-![Screenshot of Servers node.](/assets/ADS_Jul2020_Servers_Experiences2.jpg)
-
-
 Stay tune for more dashboards and richer experiences as we continuously and incrementally augment them.
+
+## Next steps
+
+[Migrate a PostgreSQL database into Arc](migrate-postgresql-db-into-arc.md)
