@@ -15,56 +15,60 @@ ms.topic: how-to
 
 This document describes the steps to get your existing PostgreSQL databases into your Arc setup.
 
-## Considerations for Azure Database for PostgreSQL single node enabled by Azure Arc
+## Considerations
 
 Azure Database for PostgreSQL single node enabled by Azure Arc is the community version of PostgreSQL. Azure Arc enabled data services provides the manageability experience around it but the engine is unchanged.
 This means anything that works on PostgreSQL outside of Arc should work on PostgreSQL inside Arc.
 
 As such, if you're using a community compatible version of PostgreSQL then you can:
+
 1. Back up your PostgreSQL database from your instance hosted outside of Arc
 2. Restore it in your PostgreSQL instance in Arc
 
 The remaining steps are:
-- reset the server parameters to the values you need for your application to work as it is working outside of Arc
-- reset the security contexts: recreate users, roles, and reset permissions
 
-To do this backup/restore operation, use any tool that can do a backup/restore for PostgreSQL. For example:
-- `pg_dump`
-- `pg_restore`
-- `pgAdmin`
-- Azure Data Studio
-- ...
+1. Reset the server parameters to the values you need for your application to work as it is working outside of Arc
+2. Reset the security contexts: recreate users, roles, and reset permissions
 
-### Example
+   To do this backup/restore operation, use any tool that can do a backup/restore for PostgreSQL. For example:
+   - `pg_dump`
+   - `pg_restore`
+   - `pgAdmin`
+   - Azure Data Studio
+   - ...
+
+## Example
 
 Let's illustrate those steps using the `pgAdmin` standard tool.
 Consider the following setup:
 - **Source:**  
-    A PostgreSQL server running on a bare metal server and named JEANYDSRV. It is of version 12 and hosts a database named MyOnPremPostgresDB that has one table T1, which has one row
-    ![Screenshot of source system on `pgAdmin`.](/assets/Migrate_PG_SingleNode_Source.jpg)
-- **Destination:**  
+    A PostgreSQL server running on a bare metal server and named JEANYDSRV. It is of version 12 and hosts a database named MyOnPremPostgresDB that has one table T1, which has one row.
+
+**Destination:**  
     A PostgreSQL server running in an Azure Arc environment and named postgres01. It is of version 12. It doesn't have any database except the standard PostgreSQL database.  
-    ![Screenshot of destination system on `pgAdmin`.](/assets/Migrate_PG_SingleNode_Destination.jpg)
 
-
-
-#### Take a backup of the source database on-premises
-![Screenshot of source backup action.](/assets/Migrate_PG_SingleNode_Source_Backup.jpg)
+## Back up source database on-premises
 
 Configure it:
 - Give it a file name: *MySourceBackup*
 - Set the format to *Custom*
 
-The backup completes successfully:  
+The backup completes successfully.
 
-#### Create an empty database on the destination system in your Arc setup
+## Create an empty database
+
+On the destination system in your Arc enabled database, create an upty database
 
 > [!NOTE]
 > To register a PostgreSQL instance in the `pgAdmin` tool, you need to you use public IP of your instance in your Kubernetes cluster and set the port and security context appropriately. You will find these details on the `psql` endpoint line after running the following command:
 
 ```console
 azdata postgres server endpoint -n postgres01
+```
 
+`azdata` returns the following information.
+
+```output
 Description           Endpoint
 --------------------  ----------------------------------------------------------------------------------------------------------------
 Log Search Dashboard  https://10.0.0.4:30777/kibana/app/kibana#/discover?_a=(query:(language:kuery,query:'cluster_name:"postgres01"'))
@@ -74,7 +78,9 @@ PostgreSQL Instance   postgresql://postgres:9xxxXXXxXx4XXXX308,40@10.0.0.4:32639
 
 Name the destination database **RESTORED_MyOnPremPostgresDB**  
 
-#### Restore the database in your Arc setup
+## Restore the database 
+
+In your Arc enabled system, restore the database.
 
 Configure the restore:
 - point to the file that contains the backup to restore: *MySourceBackup*
@@ -84,7 +90,9 @@ Select **Restore**.
 
 The restore is successful.  
 
-#### Verify that the database was successfully restored in your Arc setup and the data is available
+## Verify restoration
+
+Verify that the database was successfully restored in your Arc setup and the data is available.
 
 There are two methods available:
 
@@ -97,9 +105,12 @@ Expand the PostgreSQL instance hosted in your Arc setup. You'll see the table in
 Within the Arc set-up use `psql` to connect to PostgreSQL instance, set the database context to RESTORED_MyOnPremPostgresDB and query the data:
 
 List the end points to help create  your `psql` connection string:
+
 ```console
 azdata postgres server endpoint -n postgres01
+```
 
+```output
 Description           Endpoint
 --------------------  ----------------------------------------------------------------------------------------------------------------
 Log Search Dashboard  https://10.0.0.4:30777/kibana/app/kibana#/discover?_a=(query:(language:kuery,query:'cluster_name:"postgres01"'))
@@ -108,9 +119,11 @@ PostgreSQL Instance   postgresql://postgres:9ampMLNBmYz4ZHOT308,40@10.0.0.4:3263
 ```
 
 Form your `psql` connection string use the -d parameter to indicate the database name. With the below command you'll be prompted for the password:
+
 ```console
 psql -d RESTORED_MyOnPremPostgresDB -U postgres -h 10.0.0.4 -p 32639
 ```
+
 And you're connected:
 ```console
 Password for user postgres:
@@ -124,6 +137,7 @@ RESTORED_MyOnPremPostgresDB=#
 ```
 
 Select the table and you'll see the data coming from the on-premises PostgreSQL instance:
+
 ```console
 RESTORED_MyOnPremPostgresDB=# select * from t1;
  col1 |    col2
@@ -131,3 +145,7 @@ RESTORED_MyOnPremPostgresDB=# select * from t1;
     1 | BobbyIsADog
 (1 row)
 ```
+
+## Next steps
+
+[Restore the AdventureWorks sample database to PostgreSQL](restore-adventureworks-sample-db-postgresql.md)

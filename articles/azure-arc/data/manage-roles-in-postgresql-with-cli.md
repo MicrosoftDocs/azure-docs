@@ -11,11 +11,13 @@ ms.date: 08/04/2020
 ms.topic: how-to
 ---
 
-# Scenario: Manage roles and users in your Azure PostgreSQL Hyperscale server group from CLI
+# Manage roles and users in your Azure PostgreSQL Hyperscale server group from CLI
 
 This scenario guides you in managing roles in your server group and explains how to create, edit, list, and delete database roles or users for your server group.
 
-## Getting started with managing database roles and users for your server group
+## Manage 
+
+You can manage database roles and users for your server group.
 
 The concepts of roles and users in this guide relate to the standard database roles and users in PostgreSQL. PostgreSQL documentation:
 
@@ -135,25 +137,69 @@ Run the following `azdata` command:
 azdata postgres user delete -ns <namespace of your Arc setup> -n <server group name> -r <role name for the user> -u <user name>
 ```
 
-## Getting details about each azdata command available to manage roles and users
+## azdata commands
+
+This section describes `azdata` commands available to manage roles and users.
 
 Run the following `azdata` commands as you need:
 
 ### Roles
 
-- Details about `role` related commands: ```azdata postgres role --help```
-- Details about `create role`: ```azdata postgres role create --help```
-- Details about `delete role`: ```azdata postgres role delete --help```
-- Details about `list role`: ```azdata postgres role list --help```
+- Details about `role` related commands: 
+
+   ```console
+   azdata postgres role --help
+   ```
+- Details about `create role`: 
+
+   ```console
+   azdata postgres role create --help
+   ```
+- Details about `delete role`: 
+
+   ```console
+   azdata postgres role delete --help
+   ```
+
+- Details about `list role`: 
+
+   ```console
+   azdata postgres role list --help
+   ```
 
 ### Users
 
-- Details about `users` related commands: ```azdata postgres user --help```
-- Details about `create user`: ```azdata postgres user create --help```
-- Details about `edit user`: ```azdata postgres user edit --help```
-- Details about `delete user`: ```azdata postgres user delete --help```
-- Details about `list user`: ```azdata postgres user list --help```
+- Details about `users` related commands: 
+
+   ```console
+   azdata postgres user --help
+   ```
+
+- Details about `create user`: 
+
+   ```console
+   azdata postgres user create --help
+   ```
+
+- Details about `edit user`: 
+
+   ```console
+   azdata postgres user edit --help
+   ```
+
+- Details about `delete user`: 
+
+   ```console
+   azdata postgres user delete --help
+   ```
+
+- Details about `list user`:
+
+   ```console
+   azdata postgres user list --help
+   ```
 
 ## Next steps
 
-Try out other [scenarios](https://github.com/microsoft/Azure-data-services-on-Azure-Arc/tree/master/scenarios)
+[Backup and restore Arc enabled Azure Database: PostgreSQL Hyperscale server groups](backup-restore-postgresql-hyperscale.md)
+S

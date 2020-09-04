@@ -167,12 +167,14 @@ azdata postgres server restore -n pg1 -ns arc -t '1.5h' -f <your server ID>
 azdata postgres server restore -n target1 -ns arc -t 2d -f <your server ID>
 ```
 
-## Replicating backups to other locations for disaster recovery or long-term retention
+## Replication for DR or retention
 
-_Azure Database for PostgreSQL Hyperscale - Azure Arc_ supports multiple backup storage locations (`tiers`).
+You can replicate backups to other locations for disaster recovery (DR) or long-term retention
+
+Azure Database for PostgreSQL Hyperscale - Azure Arc supports multiple backup storage locations (`tiers`).
 A typical use case might be to store two weeks' worth of backups on fast, local storage and a year's worth in a remote storage.
 
- First-tier backups are complete, and the synchronization of backups to other tiers is automatic.
+First-tier backups are complete, and the synchronization of backups to other tiers is automatic.
 
 To configure multiple backup tiers, provide multiple comma-separated Kubernetes persistent volume claims to `--backupVolumeClaims` when you create your Azure Database for PostgreSQL Hyperscale Server Group. For instance:
 

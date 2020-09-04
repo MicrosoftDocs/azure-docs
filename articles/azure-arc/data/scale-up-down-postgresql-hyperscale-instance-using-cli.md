@@ -11,7 +11,7 @@ ms.date: 08/04/2020
 ms.topic: how-to
 ---
 
-# Scale up and down an Azure Database for PostgreSQL Hyperscale server group using CLI (azdata)
+# Scale Azure Database for PostgreSQL Hyperscale server group using CLI (azdata)
 
 There are times when you may need to change the characteristics or the definition of a server group:
 
@@ -23,7 +23,9 @@ This guide explains you how to scale vCore and memory.
 
 Scale the vCore or memory settings of your server group up or down to set a min/max for each of the vCore and memory settings. To set a specific number for vCore or memory you would set the min settings equal to max settings.
 
-## Show the current definition of the server group
+## Show current definition
+
+View the current definition of the server group.
 
 To see what are the current vCore and Memory settings, run the following command:
 
@@ -65,7 +67,9 @@ spec:
     volumeSize: 1Gi
 ```
 
-## Interpret the definition of the server group
+## Interpret the definition 
+
+Interpret the definition of the server group.
 
 The **scheduling** section defines the settings of min/max vCore per node and min/max memory per node. In that section, the max settings will be persisted in a subsection called **"limits"** and the min settings are persisted in the subsection called **"requests"**.
 
@@ -101,7 +105,9 @@ The command executes successfully when it shows:
 PostgreSQL server group '<the name of the workspace>.<the name of your server group>' edited.
 ```
 
-## Show the scaled up definition of the server group
+## Show scaled up definition
+
+Show the scaled up definition of the server group.
 
 Repeat the command to display the definition of the server group and verify it's set:
 
@@ -147,11 +153,11 @@ spec:
     volumeSize: 1Gi
 ```
 
-## Scale down the server group
+## Scale down
 
 Scale down the server group to execute the same command but set lesser values for the settings you want to scale down.
 
-## Getting more details about the azdata postgres server update command
+## Review details
 
 As side note, if you want to know the details about how to use this edit command, run the following query:
 

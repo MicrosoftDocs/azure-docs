@@ -11,13 +11,13 @@ ms.date: 08/04/2020
 ms.topic: how-to
 ---
 
-# Scenario: Deploy Azure Database for PostgreSQL Hyperscale using Azure Data Studio
+# Deploy Azure Database for PostgreSQL Hyperscale: Azure Data Studio
 
 This document walks you through the steps for using Azure Data Studio to provision Azure Database for PostgreSQL Hyperscale server groups.
 
-## Pre-requisites
+## Prerequisites
 
-- [Install azdata, Azure Data Studio, and Azure CLI](/scenarios/install-client-tools.md)
+- [Install azdata, Azure Data Studio, and Azure CLI](install-client-tools.md)
 
 ## Connect to the Azure Arc data controller
 
@@ -38,19 +38,23 @@ Namespace: arc
 Logged in successfully to `https://10.0.0.4:30080` in namespace `arc`. Setting active context to `arc`
 ```
 
-## Deploy Azure Database for PostgreSQL Hyperscale server group on Azure Arc
+## Deploy Database
+
+Deploy Azure Database for PostgreSQL Hyperscale server group on Azure Arc.
 
 1. Select the three dots on the top left to create a new instance
 
 1. Select PostgreSQL server groups - Azure Arc and hit select
-  
+
 1. Fill in the required input fields and hit deploy
 
 1. You should see that the deployment has started
 
 1. The deployment completes successfully in a few minutes.
 
-## View PostgreSQL Hyperscale server groups on Azure Arc
+## View server groups
+
+Next, view PostgreSQL Hyperscale server groups on Azure Arc.
 
 To view the PostgreSQL Hyperscale server groups on Azure Arc, use the following command:
 
@@ -66,9 +70,11 @@ pg1  Running   10.102.204.135:30655  10.0.0.4:30655  False
 
 You can then use the ExternalIP and port number when connecting.
 
-Are you testing with Azure VM? Use the following instructions:
+## Testing with Azure VM
 
-## Azure virtual machine deployments
+If you are using Azure VM, follow these steps:
+
+### Azure virtual machine deployments
 
 The endpoint IP address won't show the _public_ IP address on an Azure virtual machine. To locate the public IP address, use the following command:
 
