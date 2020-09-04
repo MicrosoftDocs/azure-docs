@@ -281,6 +281,11 @@ public int getServerPort()
 
 To disable this feature, create an Application Setting named `WEBSITE_AUTH_SKIP_PRINCIPAL` with a value of `1`. To disable all servlet filters added by App Service, create a setting named `WEBSITE_SKIP_FILTERS` with a value of `1`.
 
+
+# [JBoss EAP](#tab/jboss)
+
+TODO
+
 ---
 
 ### Configure TLS/SSL
@@ -378,6 +383,10 @@ Create an environment variable named `JAVA_OPTS` with the value `-javaagent:/hom
 
 If you're using **Tomcat**, create an environment variable named `CATALINA_OPTS` with the value `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar`.
 
+# [JBoss EAP](#tab/jboss)
+
+TODO
+
 ---
 
 ::: zone-end
@@ -420,6 +429,10 @@ Create an environment variable named `JAVA_OPTS` with the value `-javaagent:/hom
 # [Tomcat](#tab/tomcat)
 
 Create an environment variable named `CATALINA_OPTS` with the value `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>` where `<app-name>` is your App Service name.
+
+# [JBoss EAP](#tab/jboss)
+
+TODO
 
 ---
 
@@ -703,6 +716,7 @@ TODO
 
 ::: zone-end
 
+[!INCLUDE [robots933456](../../includes/app-service-web-configure-robots933456.md)]
 
 ## Java runtime statement of support
 
@@ -724,7 +738,6 @@ Tomcat 8.0 has reached [End of Life (EOL) as of September 30, 2018](https://tomc
 
 If a supported Java runtime will be retired, Azure developers using the affected runtime will be given a deprecation notice at least six months before the runtime is retired.
 
-[!INCLUDE [robots933456](../../includes/app-service-web-configure-robots933456.md)]
 
 ### Local development
 
