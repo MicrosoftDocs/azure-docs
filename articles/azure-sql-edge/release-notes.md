@@ -9,22 +9,39 @@ ms.subservice:
 author: VasiyaKrishnan
 ms.author: vakrishn
 ms.reviewer: sstein
-ms.date: 07/27/2020
+ms.date: 09/03/2020
 ---
 # Azure SQL Edge release notes 
 
 This article describes what is new and what has changed with every new build of Azure SQL Edge.
 
+## CTP 2.3
+### SQL Engine build number - 15.0.2000.1549
+### What's new?
+1. Support for custom origins in the Date_Bucket() function. 
+2. Support for BacPac files as part of SQL deployment.
+
+### Fixes
+1. Additional error messages and details for troubleshooting TSQL Streaming operations. 
+2. Imporvements to preserve Battery life in Idle mode. 
+3. TSQL Streaming engine fixes: 
+   - Fix stuck watermark issue with substreamed hopping window 
+   - Fix framework exception handling to make sure it is collected as user actionable error
+
+
 ## CTP 2.2
 ### SQL Engine build number - 15.0.2000.1546
-### Fixes
+### What's new?
 1. Support for non-root containers 
 2. Support for Usage and Diagnostic data collection 
 3. T-SQL Streaming updates
    - Support for Unicode characters for stream object names
+
+### Fixes
+1. T-SQL Streaming updates
    - Process cleanup improvements
    - Logging and diagnostics improvements
-4. Performance improvement for data ingestion
+2. Performance improvement for data ingestion
 
 ## CTP 2.1 
 ### SQL Engine build number - 15.0.2000.1545
