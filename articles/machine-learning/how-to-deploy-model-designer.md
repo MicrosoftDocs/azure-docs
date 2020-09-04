@@ -8,7 +8,7 @@ ms.subservice: core
 ms.author: keli19
 author: likebupt
 ms.reviewer: peterlu
-ms.date: 08/24/2020
+ms.date: 09/04/2020
 ms.topic: conceptual
 ms.custom: how-to
 ---
@@ -136,7 +136,7 @@ print(f'Inference result = {score_result}')
 
 This section describes how to change parameters in entry script files to enable different score functions.
 
-Here is one example for Wide & Deep recommender. By default, the `score.py` file enables web service to predict ratings between users and items.
+Here is one example for trained **Wide & Deep recommender** model. By default, the `score.py` file enables web service to predict ratings between users and items.
 
 The codes below shows how to change code to make item recommendations, and return recommended items.
 
@@ -190,14 +190,14 @@ def run(data):
     return json.dumps(result_df.to_dict("list"))
 ```
 
-For **Wide & Deep recommendation** and **Vowpal Wabbit** trained model, you can configure parameters using following tips:
+For **Wide & Deep recommender** and **Vowpal Wabbit** trained model, you can configure parameters of scoring mode in the `score.py` files using following tips:
 
-- The parameter names are the lowercases and underscores combination of the score module parameter names;
+- The parameter names are the lowercases and underscores combination of parameter names of [Score Vowpal Wabbit Model](./algorithm-module-reference/score-vowpal-wabbit-model.md) and [Score Wide and Deep Recommender](./algorithm-module-reference/score-wide-and-deep-recommender.md);
 - Mode type parameter values are strings of the corresponding option names. Take **Recommender prediction kind** in the above codes as example, the value can be `'Rating Prediction'`or `'Item Recommendation'`, and other values are not allowed.
 
-For **SVD recommendation** trained model, the parameter names and values maybe less obvious, and you can look up the tables below to decide how to set parameters.
+For **SVD recommender** trained model, the parameter names and values maybe less obvious, and you can look up the tables below to decide how to set parameters.
 
-| Parameter name in the score module                           | Parameter name in the entry script file |
+| Parameter name in [Score SVD Recommender](./algorithm-module-reference/score-svd-recommender.md)                           | Parameter name in the entry script file |
 | ------------------------------------------------------------ | --------------------------------------- |
 | Recommender prediction kind                                  | prediction_kind                         |
 | Recommended item selection                                   | recommended_item_selection              |
