@@ -93,11 +93,11 @@ The following table lists all of the supported map class events.
 | `sourceremoved`     | Fired when a `DataSource` or `VectorTileSource` is removed from the map.|
 | `styledata`         | Fired when the map's style loads or changes.|
 | `styleimagemissing` | Fired when a layer tries to load an image from the image sprite that doesn't exist |
-| `tokenacquired`     | Fired when an AAD access token is obtained.|
-| `touchcancel`       | Fired when a touchcancel event occurs within the map.|
-| `touchend`          | Fired when a touchend event occurs within the map.|
-| `touchmove`         | Fired when a touchmove event occurs within the map.|
-| `touchstart`        | Fired when a touchstart event occurs within the map.|
+| `tokenacquired`     | Fired when an Azure Active Directory access token is obtained.|
+| `touchcancel`       | Fired when a `touchcancel` event occurs within the map.|
+| `touchend`          | Fired when a `touchend` event occurs within the map.|
+| `touchmove`         | Fired when a `touchmove` event occurs within the map.|
+| `touchstart`        | Fired when a `touchstart` event occurs within the map.|
 | `wheel`             | Fired when a mouse wheel event occurs within the map.|
 | `zoom`              | Fired repeatedly during an animated transition from one zoom level to another, as the result of either user interaction or methods.|
 | `zoomend`           | Fired just after the map completes a transition from one zoom level to another, as the result of either user interaction or methods.|
