@@ -93,6 +93,10 @@ The reason for the warnings is the cluster has RBAC enabled and access to the da
 
 Ensure ports 22, 9000 and 1194 are open to connect to the API server. Check whether the `tunnelfront` or `aks-link` pod is running in the *kube-system* namespace using the `kubectl get pods --namespace kube-system` command. If it isn't, force deletion of the pod and it will restart.
 
+## I'm getting `"tls: client offered only unsupported versions"` from my client when connecting to AKS API. What should I do?
+
+The minimum supported TLS version in AKS is TLS 1.2.
+
 ## I'm trying to upgrade or scale and am getting a `"Changing property 'imageReference' is not allowed"` error. How do I fix this problem?
 
 You might be getting this error because you've modified the tags in the agent nodes inside the AKS cluster. Modify or delete tags and other properties of resources in the MC_* resource group can lead to unexpected results. Altering the resources under the MC_* group in the AKS cluster breaks the service-level objective (SLO).
@@ -171,9 +175,9 @@ Use the following workarounds for this issue:
 * If using automation scripts, add time delays between service principal creation and AKS cluster creation.
 * If using Azure portal, return to the cluster settings during create and retry the validation page after a few minutes.
 
+## I'm getting `"AADSTS7000215: Invalid client secret is provided."` when using AKS API. What should I do?
 
-
-
+This is generally due to expiry of service principal credentials. [Update the credentials for an AKS cluster.](update-credentials.md)
 
 ## I'm receiving errors after restricting egress traffic
 
