@@ -6,16 +6,15 @@ services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice:
+ms.subservice: metrics-advisor
 ms.topic: quickstart
 ms.date: 08/19/2020
 ms.author: aahi
-zone_pivot_groups: programming-languages-metrics-monitor
 ---
 
-# Quickstart: Use the Metrics Advisor REST API and client library
+# Quickstart: Use the Metrics Advisor REST API
 
-Get started with the the Metrics Advisor REST API and client library. Follow these steps to install the package and try out the example code for basic tasks.
+Get started with the the Metrics Advisor REST API. Follow these steps to install the package and try out the example code for basic tasks.
 
 Use Metrics Advisor to perform:
 
@@ -25,37 +24,7 @@ Use Metrics Advisor to perform:
 * Query the anomaly detection results
 * Diagnose anomalies
 
-
-::: zone pivot="programming-language-csharp"
-
-[!INCLUDE [C# quickstart](../includes/quickstarts/csharp.md)]
-
-::: zone-end
-
-::: zone pivot="programming-language-java"
-
-[!INCLUDE [Java quickstart](../includes/quickstarts/java.md)]
-
-::: zone-end
-
-::: zone pivot="programming-language-javascript"
-
-[!INCLUDE [JavaScript quickstart](../includes/quickstarts/javascript.md)]
-
-::: zone-end
-
-::: zone pivot="programming-language-python"
-
-[!INCLUDE [Python quickstart](../includes/quickstarts/python.md)]
-
-::: zone-end
-
-::: zone pivot="programming-language-rest-api"
-
 [!INCLUDE [REST API quickstart](../includes/quickstarts/rest-api.md)]
-
-
-::: zone-end
 
 ## Clean up resources
 
@@ -66,7 +35,7 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 
 ## Next steps
 
-- [Onboard and manage data feeds](../how-tos/manage-data-feeds.md)
+- [Onboard and manage data feeds](../how-tos/datafeeds.md)
     - [Configurations for different data sources](../data-feeds-from-different-sources.md)
 - [Use the web portal](web-portal.md)
 - [Send anomaly feedback to your instance](../how-tos/anomaly-feedback.md)

@@ -18,6 +18,11 @@ Metrics Advisor provides several features for diagnostics, and to give an in-dep
 
 Click on **Incident hub** in the left navigation window to see all incidents under a given metric. At the top of the page, you can select different metrics to see their detection configurations, and detection results, and change the time range.
 
+> [!TIP]
+> You can also get to the **Incident hub** by:
+> * Clicking on a data point in the visualization for your metric, and using the links at the bottom of the **Add feedback** window that appears.
+> * Clicking on one of the anomalies in the **incidents** tab for your metric. 
+
 The **overview** section contains detection results, including counts of the anomalies and alerts within in the selected time range.
 
 ![Incidents overview](../media/diagnostics/incident-hub-overview.png)

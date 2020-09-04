@@ -6,7 +6,7 @@ author: aahill
 manager: nitinme
 ms.service: metrics-advisor
 ms.topic: include
-ms.date: 08/19/2020
+ms.date: 09/04/2020
 ms.author: aahi
 ---
     

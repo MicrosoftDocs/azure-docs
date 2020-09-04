@@ -21,7 +21,7 @@
     href: how-tos/manage-data-feeds.md
   - name: Configure metrics and anomaly detection
     href: how-tos/configure-metrics.md
-  - name: Create and send alerts
+  - name: Configure alerts and web hooks
     href: How-tos/alerts.md
   - name: Diagnose an incident
     href: how-tos/diagnose-incident.md
