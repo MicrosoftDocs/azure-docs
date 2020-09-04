@@ -76,7 +76,7 @@ landingContent:
             url: /azure/data-factory/tutorial-incremental-copy-overview
           - text: Load ADLS Gen2
             url: /azure/data-factory/load-azure-data-lake-storage-gen2
-          - text: Load SQL DW
+          - text: Load Azure Synapse Analytics
             url: /azure/data-factory/load-azure-sql-data-warehouse
           - text: Load SAP BW
             url: /azure/data-factory/load-sap-bw-data

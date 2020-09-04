@@ -37,7 +37,7 @@ View related articles:
 
 By walking through this article, you create and configure a load balancer in the Azure portal. After the process is complete, you configure the cluster to use the IP address from the load balancer for the availability group listener.
 
-## Create and configure the load balancer in the Azure portal
+## Create & configure load balancer 
 
 In this portion of the task, do the following steps:
 
