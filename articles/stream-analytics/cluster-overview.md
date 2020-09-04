@@ -30,7 +30,7 @@ Stream Analytics clusters are powered by the same engine that powers Stream Anal
 
 * Zero maintenance cost allowing you to focus your effort on building real-time analytics solutions.
 
-* Reservation pricing discounts for 1 or 3-year commitments.
+* Commitment pricing [discounts](https://aka.ms/asaclusterpricing).
 
 ## How to get started
 
@@ -42,7 +42,7 @@ You can [create a Stream Analytics cluster](create-cluster.md) through the [Azur
 
 The easiest way to get started is to create and develop a Stream Analytics job to become familiar with the service and see how it can meet your analytics requirements.
 
-Stream Analytics jobs don't support VNets. If your inputs or outputs are secured behind a firewall or an Azure Virtual Network, you have the following two options:
+Stream Analytics jobs alone don't support VNets. If your inputs or outputs are secured behind a firewall or an Azure Virtual Network, you have the following two options:
 
 1. If your local machine has access to the input and output resources secured by a VNet (for example, Azure Event Hubs or Azure SQL Database), you can [install Azure Stream Analytics tools for Visual Studio](stream-analytics-tools-for-visual-studio-install.md) on your local machine. You can develop and [test Stream Analytics jobs locally](stream-analytics-live-data-local-testing.md) on your device without incurring any cost. Once you are ready to use Stream Analytics in your architecture, you can then create a Stream Analytics cluster, configure private endpoints, and run your jobs at scale.
 
@@ -50,7 +50,7 @@ Stream Analytics jobs don't support VNets. If your inputs or outputs are secured
 
 ### What performance can I expect?
 
-An SU is the same across the Standard and Dedicated offerings. A single job that utilizes a full 36 SU cluster can achieve approximately 36 MB/second throughput with millisecond latency. The exact number depends on the format of events and the type of analytics. Because it is dedicated, Stream Analytics cluster offers more reliable performance guarantees. All the jobs running a the cluster belong only to you.
+An SU is the same across the Standard and Dedicated offerings. A single job that utilizes a full 36 SU cluster can achieve approximately 36 MB/second throughput with millisecond latency. The exact number depends on the format of events and the type of analytics. Because it is dedicated, Stream Analytics cluster offers more reliable performance guarantees. All the jobs running on your cluster belong only to you.
 
 ### Can I scale my cluster?
 
@@ -62,9 +62,9 @@ Yes. You can link your existing jobs to your newly created Stream Analytics clus
 
 ### How much will these clusters cost me?
 
-Your Stream Analytics clusters are charged based on the chosen SU capacity. Clusters are billing hourly and there are no additional charges per job running in these clusters.
+Your Stream Analytics clusters are charged based on the chosen SU capacity. Clusters are billing hourly and there are no additional charges per job running in these clusters. See the [Private Link Service pricing page](https://azure.microsoft.com/pricing/details/private-link/) for private endpoint billing updates.
 
-You can contact your account team or the [Stream Analytics team](mailto:askasa@microsoft.com) to learn about [reservation pricing](https://aka.ms/asaclusterpricing) discounts for 1 and 3-year commitments. Reservation pricing will be made available on the Azure portal in the coming months.
+You can contact your account team or the [Stream Analytics team](mailto:askasa@microsoft.com) to learn about [commitment pricing](https://aka.ms/asaclusterpricing) discounts.
 
 ### Which inputs and outputs can I privately connect to from my Stream Analytics cluster?
 

@@ -12,17 +12,17 @@ ms.date: 09/22/2020
 
 # Manage jobs in an Azure Stream Analytics cluster
 
-You can run multiple Azure Stream Analytics jobs on a Stream Analytics cluster. Running jobs on a cluster is a simple 2-step process: add the job to the cluster and start the job. This article shows you how to add and remove jobs from an existing cluster. If you don't have a Stream Analytics cluster, you can follow the quickstart to create one.
+You can run multiple Azure Stream Analytics jobs on a Stream Analytics cluster. Running jobs on a cluster is a simple 2-step process: add the job to the cluster and start the job. This article shows you how to add and remove jobs from an existing cluster. Follow the quickstart to [create a Stream Analytics cluster](create-cluster.md) if you don't have one already.
 
 ## Add a Stream Analytics job to a cluster
 
-If you don't already have a Stream Analytics job, you can [create one](stream-analytics-quick-create-portal.md) using the Azure portal. Once you have a job that you want to add to a cluster, use the following steps to add the job to your cluster.
+Only existing Stream Analytics jobs can be added to clusters. Follow the quickstart to [learn how to create a job](stream-analytics-quick-create-portal.md) using the Azure portal. Once you have a job that you want to add to a cluster, use the following steps to add the job to your cluster.
 
 1. In the Azure portal, locate and select your Stream Analytics cluster.
 
 1. Under **Settings**, select **Stream Analytics jobs**. Then, select **Add existing job**.
 
-1. Select the subscription and the Stream Analytics job you want to add to the cluster. Only Stream Analytics that are in the same region as the cluster can be added to the cluster.
+1. Select the subscription and the Stream Analytics job you want to add to the cluster. Only Stream Analytics jobs that are in the same region as the cluster can be added to the cluster.
 
    ![Add job to cluster](./media/manage-jobs-cluster/add-job.png)
 

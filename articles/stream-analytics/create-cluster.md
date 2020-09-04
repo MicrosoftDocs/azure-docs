@@ -12,7 +12,7 @@ ms.date: 09/22/2020
 
 # Quickstart: Create a dedicated Stream Analytics cluster using Azure portal
 
-Get started with Azure Stream Analytics clusters by using the Azure portal to run a Stream Analytics job on a cluster. A [Stream Analytics cluster](cluster-overview.md) is a single-tenant deployment that can be used for complex and demanding streaming use cases. You can run multiple jobs on a Stream Analytics cluster.
+Use the Azure portal to create a Azure Stream Analytics cluster. A [Stream Analytics cluster](cluster-overview.md) is a single-tenant deployment that can be used for complex and demanding streaming use cases. You can run multiple Stream Analytics jobs on a Stream Analytics cluster.
 
 ## Prerequisites
 
