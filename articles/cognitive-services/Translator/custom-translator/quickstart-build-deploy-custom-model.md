@@ -101,6 +101,12 @@ Deployment](how-to-view-system-test-results.md#deploy-a-model)
 
 ![Deploy a trained model](media/quickstart/ct-how-to-deploy.png)
 
+## Swap deployed model
+
+To swap a deployed model with another within a project click the "Swap" button displayed next to the desired model. During the swap process, the deployed model will continue to be available to serve translation requests. 
+
+![Swap deployed model](media/quickstart/ct-how-to-swap-model.png)
+
 ## Use a deployed model
 
 Deployed models can be accessed via the Microsoft Translator [Text API V3 by
