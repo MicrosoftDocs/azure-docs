@@ -29,10 +29,10 @@ Before you install Azure AD Connect, there are a few things that you need.
   * The [Azure portal](https://portal.azure.com).
   * The [Office portal](https://portal.office.com).
 * [Add and verify the domain](../fundamentals/add-custom-domain.md) you plan to use in Azure AD. For example, if you plan to use contoso.com for your users, make sure this domain has been verified and you're not using only the contoso.onmicrosoft.com default domain.
-* An Azure AD tenant allows, by default, 50,000 objects. When you verify your domain, the limit increases to 300,000 objects. If you need even more objects in Azure AD, open a support case to have the limit increased even further. If you need more than 500,000 objects, you need a license, such as Office 365, Azure AD Premium, or Enterprise Mobility + Security.
+* An Azure AD tenant allows, by default, 50,000 objects. When you verify your domain, the limit increases to 300,000 objects. If you need even more objects in Azure AD, open a support case to have the limit increased even further. If you need more than 500,000 objects, you need a license, such as Microsoft 365, Azure AD Premium, or Enterprise Mobility + Security.
 
 ### Prepare your on-premises data
-* Use [IdFix](https://support.office.com/article/Install-and-run-the-Office-365-IdFix-tool-f4bd2439-3e41-4169-99f6-3fabdfa326ac) to identify errors such as duplicates and formatting problems in your directory before you synchronize to Azure AD and Office 365.
+* Use [IdFix](https://support.office.com/article/Install-and-run-the-Office-365-IdFix-tool-f4bd2439-3e41-4169-99f6-3fabdfa326ac) to identify errors such as duplicates and formatting problems in your directory before you synchronize to Azure AD and Microsoft 365.
 * Review [optional sync features you can enable in Azure AD](how-to-connect-syncservice-features.md), and evaluate which features you should enable.
 
 ### On-premises Active Directory
