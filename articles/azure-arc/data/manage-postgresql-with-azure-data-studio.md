@@ -21,7 +21,7 @@ This scenario will show you:
 
 ## Get started with Azure Data Studio
 
-To starting, you need to install Azure Data Studio as explained in [Install client tools](install-client-tools.md).
+To start, you need to install Azure Data Studio as explained in [Install client tools](install-client-tools.md).
 
 Once installed, start Azure Data Studio and reach its welcome page.
 
@@ -58,16 +58,12 @@ That features several dashboards listed on the left side of that pane:
 
 - **Overview:** 
     Displays summary information about your instance like name, Azure subscription ID, configuration, version of the database engine, endpoints for Grafana and Kibana...
-    ![Screenshot of Azure Data Controllers\Postgres dashboard - Overview.](/assets/ADS_Jul2020_Controller_Postgres_Dashboard_Overview.jpg)
 - **Connection Strings:** 
     Displays various connection strings you may need to connect to your PostgreSQL instance like psql, Node.js, PHP, Ruby...
-    ![Screenshot of Azure Data Controllers\Postgres dashboard - Connection strings.](/assets/ADS_Jul2020_Controller_Postgres_Dashboard_ConnectionStrings.jpg)
 - **Properties:**
     Displays various properties like PostgreSQL admin user name, associated resources group for the shadow resource...
-    ![Screenshot of Azure Data Controllers\Postgres dashboard - Properties.](/assets/ADS_Jul2020_Controller_Postgres_Dashboard_Properties.jpg)
 - **Resource health:** 
     Health of the pods hosting your instance: overview and details for various states like running, pending, failed...
-    ![Screenshot of Azure Data Controllers\Postgres dashboard - Resource Health.](/assets/ADS_Jul2020_Controller_Postgres_Dashboard_ResourceHealth.jpg)
 - **Diagnose and solve problems:** 
     Is the landing page where you will find various resources that will help you troubleshoot your instance as we expand the troubleshooting notebooks
 - **New support request:** 
@@ -75,7 +71,7 @@ That features several dashboards listed on the left side of that pane:
 
 ## Work with your data and schema
 
-On the left side of the Azure Data Studio window, expand the node [Servers]:
+On the left side of the Azure Data Studio window, expand the node **Servers**:
 
 And select [Add Connection] and fill in the connection details to your PostgreSQL instance:
 - **Connection Type:** PostgreSQL
@@ -98,8 +94,6 @@ Once connected, several experiences are available:
 - **New Notebook**
 - **Expand the display of your server and browse/work on the objects inside your database**
 - **...**
-
-Stay tune for more dashboards and richer experiences as we continuously and incrementally augment them.
 
 ## Next steps
 
