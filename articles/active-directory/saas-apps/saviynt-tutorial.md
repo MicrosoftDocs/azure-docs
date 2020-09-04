@@ -35,7 +35,7 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 * Saviynt supports **SP and IDP** initiated SSO
 * Saviynt supports **Just In Time** user provisioning
 
-## Adding Saviynt from the gallery
+## Add Saviynt from the gallery
 
 To configure the integration of Saviynt into Azure AD, you need to add Saviynt from the gallery to your list of managed SaaS apps.
 
@@ -142,7 +142,7 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 You can also use Microsoft Access Panel to test the application in any mode. When you click the Saviynt tile in the Access Panel, you should be automatically signed in to the Saviynt for which you set up the SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## Next Steps
+## Next steps
 
 Once you configure Saviynt you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
