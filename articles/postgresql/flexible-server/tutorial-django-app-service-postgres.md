@@ -77,18 +77,15 @@ Create a private flexible server and a database inside a virtual network (VNET) 
 
 az postgres flexible-server create --resource-group myresourcegroup --location westus2
 
-# Create a postgres database
-
-az postgres flexible-server db create --name pollsdb
-
 ```
+
 This command performs the following actions, which may take a few minutes:
 
 - Create the resource group if it doesn't already exist.
 - Generates a server name if it is not provided.
 - Create a new virtual network for your new postgreSQL server. **Make a note of virtual network name and subnet name** created for your server since you need to add the web app to the same virtual network.
 - Creates admin username , password for your server if not provided. **Make a note of the username and password** to use in the next step.
-- Create a database ```pollsdb``` for your Django sample application
+- Create a database ```postgres``` that can be used for development. You can run [**psql** to connect to the database](quickstart-create-server-portal.md#connect-to-the-postgresql-database-using-psql) to create a different database.
 
 > [!NOTE]
 > Make a note of your password that will be generate for you if not provided. If you forget the password you would have to reset the password using ``` az postgres flexible-server update``` command
@@ -118,7 +115,7 @@ az webapp vnet-integration add -g myresourcegroup -n  mywebapp --vnet <vnet-name
 # Configure database information as environment variables
 # Use the postgres server name , database name , username , password for the database created in the previous steps
 
-az webapp config appsettings set --settings DJANGO_ENV="production" DBHOST="<postgres-server-name>.postgres.database.azure.com" DBNAME="pollsdb" DBUSER="<username>" DBPASS="<password>"
+az webapp config appsettings set --settings DJANGO_ENV="production" DBHOST="<postgres-server-name>.postgres.database.azure.com" DBNAME="postgres" DBUSER="<username>" DBPASS="<password>"
 ```
 - For the `--location` argument, use the same location as you did for the database in the previous section.
 - Replace *\<app-name>* with a unique name across all Azure (the server endpoint is `https://\<app-name>.azurewebsites.net`). Allowed characters for *\<app-name>* are `A`-`Z`, `0`-`9`, and `-`. A good pattern is to use a combination of your company name and an app identifier.
@@ -153,13 +150,13 @@ Django database migrations ensure that the schema in the PostgreSQL on Azure dat
     python manage.py createsuperuser
     ```
 
-1. The `createsuperuser` command prompts you for superuser credentials. For the purposes of this tutorial, use the default username `root`, press **Enter** for the email address to leave it blank, and enter `Pollsdb1` for the password.
+1. The `createsuperuser` command prompts you for superuser credentials. For the purposes of this tutorial, use the default username `root`, press **Enter** for the email address to leave it blank, and enter `postgres1` for the password.
 
 ### Create a poll question in the app
 
 1. In a browser, open the URL *http:\//\<app-name>.azurewebsites.net*. The app should display the message "No polls are available" because there are no specific polls yet in the database.
 
-1. Browse to *http:\//\<app-name>.azurewebsites.net/admin*. Sign in using superuser credentials from the previous section (`root` and `Pollsdb1`). Under **Polls**, select **Add** next to **Questions** and create a poll question with some choices.
+1. Browse to *http:\//\<app-name>.azurewebsites.net/admin*. Sign in using superuser credentials from the previous section (`root` and `postgres1`). Under **Polls**, select **Add** next to **Questions** and create a poll question with some choices.
 
 1. Browse again to *http:\//\<app-name>.azurewebsites.net/* to confirm that the questions are now presented to the user. Answer questions however you like to generate some data in the database.
 
