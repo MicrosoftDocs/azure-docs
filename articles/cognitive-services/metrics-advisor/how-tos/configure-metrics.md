@@ -26,7 +26,7 @@ You can also select time ranges, and change the layout of the page. Note the fol
 - The start time is inclusive.
 - The end time is exclusive. 
 
-You can click the **Incidents** tab to view anomalies, and find a link to the [Incident hub](diagnose-an-incident.md).
+You can click the **Incidents** tab to view anomalies, and find a link to the [Incident hub](diagnose-incident.md).
 
 ## Tune the anomaly detection configuration
 
@@ -176,7 +176,7 @@ Click on an incident and you will be taken to the **Anomaly Incidents** page whe
 
 If you'd like to get notified whenever an anomaly is detected, you can subscribe to alerts for the metric, using a web hook. See [How to: configure alerts](alerts.md) for more information.
 
-- [Add and manage data feeds](datafeeds.md)
+- [Add and manage data feeds](manage-data-feeds.md)
     - [Configurations for different data sources](../data-feeds-from-different-sources.md)
 - [Send anomaly feedback to your instance](anomaly-feedback.md)
 - [Diagnose incidents](diagnose-incident.md).

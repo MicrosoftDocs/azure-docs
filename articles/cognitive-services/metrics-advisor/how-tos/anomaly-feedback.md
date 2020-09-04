@@ -66,7 +66,7 @@ There are many reasons when you might consider an anomaly is a false alarm. Cons
 |There is a regular pattern to detected anomalies (for example on weekends) and they should not be anomalies.      |Use the feedback feature, or preset events.        |
 
 ## Next steps
-- [Add and manage data feeds](datafeeds.md)
+- [Add and manage data feeds](manage-data-feeds.md)
     - [Configurations for different data sources](../data-feeds-from-different-sources.md)
 - [Diagnose incidents](diagnose-incident.md).
 - [Configure metrics and anomaly detection](configure-metrics.md)

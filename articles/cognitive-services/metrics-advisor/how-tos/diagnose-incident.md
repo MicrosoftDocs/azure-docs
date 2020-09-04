@@ -131,7 +131,7 @@ After selecting a shifted comparison, you can select whether you want to compare
 
 ## Next steps 
 
-- [Add and manage data feeds](datafeeds.md)
+- [Add and manage data feeds](manage-data-feeds.md)
     - [Configurations for different data sources](../data-feeds-from-different-sources.md)
 - [Send anomaly feedback to your instance](anomaly-feedback.md)
 - [Configure metrics and anomaly detection](configure-metrics.md)

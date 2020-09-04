@@ -22,7 +22,7 @@ Partial data is caused by inconsistencies between the data stored in Metrics Adv
 
 For example, suppose you have two data sources. If the data for a given date is available in the first data source, but not the second, Metrics Advisor will only retrieve metrics from the first data source. If this data is later added to the second data source, Metrics Advisor won't retrieve it. 
 
-You can try to [backfill](#backfill-your-data-feed) historical data (described later) to mitigate inconsistencies but this won't trigger new anomaly alerts, if alerts for those time points have already been triggered. This process may add additional workload to the system, and is not automatic.
+You can try to [backfill](manage-data-feeds.md#backfill-your-data-feed) historical data (described later) to mitigate inconsistencies but this won't trigger new anomaly alerts, if alerts for those time points have already been triggered. This process may add additional workload to the system, and is not automatic.
 
 To avoid loading partial data, we recommend two approaches:
 
@@ -32,7 +32,7 @@ To avoid loading partial data, we recommend two approaches:
 
 2. Set the ingestion time offset parameter:
 
-    Set the **Ingestion time offset** parameter for your data feed to delay the ingestion until the data is fully prepared. This can be useful for some data sources which don't support transactions such as Azure Table Storage. See [Advanced settings](#advanced-settings) for details.
+    Set the **Ingestion time offset** parameter for your data feed to delay the ingestion until the data is fully prepared. This can be useful for some data sources which don't support transactions such as Azure Table Storage. See [Advanced settings](manage-data-feeds.md#advanced-settings) for details.
 
 ## Add a data feed using the web Portal
 
@@ -101,7 +101,7 @@ An *Error* status indicates Metrics Advisor won't retry for the data source. To 
 You can also reload the progress of an ingestion by clicking **Refresh Progress**.
 
 ## Next steps
-- [Managing your data feed](../datafeeds.md)
+- [Managing your data feed](manage-data-feeds.md)
 - [Configurations for different data sources](../data-feeds-from-different-sources.md)
 - [Send anomaly feedback to your instance](anomaly-feedback.md)
 - [Diagnose incidents](diagnose-incident.md).

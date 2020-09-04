@@ -41,7 +41,7 @@ To get started, sign into your Metrics Advisor portal, with your Active Director
 ### Configure connection settings
 
 > [!TIP]
-> See [how to add data feeds](../how-tos/datafeeds.md) for details on the available parameters.
+> See [how to add data feeds](../how-tos/manage-data-feeds.md) for details on the available parameters.
 
 Add the data feed by connecting to your time-series data source. Start by selecting the following parameters:
 
@@ -122,7 +122,7 @@ After creating a web hook, an alert setting determines how and which alert notif
 
 ## Next Steps
 
-- [Onboard and manage data feeds](../how-tos/datafeeds.md)
+- [Onboard and manage data feeds](../how-tos/manage-data-feeds.md)
     - [Configurations for different data sources](../data-feeds-from-different-sources.md)
 - [Use the REST API or Client libraries](rest-api-and-client-library.md)
 - [Send anomaly feedback to your instance](../how-tos/anomaly-feedback.md)

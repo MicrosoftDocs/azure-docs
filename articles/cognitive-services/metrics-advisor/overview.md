@@ -61,4 +61,4 @@ The workflow is simple: after onboarding your data, you can fine-tune the anomal
 * Try the [demo site](quickstarts/explore-the-demo.md).
 * Create a Metrics Advisor instance using the [web portal](quickstarts/web-portal.md), and onboard your data. 
   * You can also use the [REST API or client libraries](quickstarts/rest-api-and-client-library.md). 
-* Learn about [managing data feeds](how-tos/datafeeds.md). 
+* Learn about [managing data feeds](how-tos/manage-data-feeds.md). 

@@ -18,7 +18,7 @@
   - name: Onboard your data
     href: how-tos/onboard-your-data.md
   - name: Manage data feeds
-    href: how-tos/datafeeds.md
+    href: how-tos/manage-data-feeds.md
   - name: Configure metrics and anomaly detection
     href: how-tos/configure-metrics.md
   - name: Create and send alerts
