@@ -4,7 +4,7 @@ description: The Service Bus security baseline provides procedural guidance and 
 author: msmbaldwin
 ms.service: service-bus-messaging
 ms.topic: conceptual
-ms.date: 09/03/2020
+ms.date: 01/01/2000
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 
@@ -273,15 +273,17 @@ You may use Azure PowerShell or Azure CLI to look-up or perform actions on resou
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32095.).
 
-**Guidance**: 
-Azure Active Directory (AD) has built-in roles that must be explicitly assigned and are queryable. Use the Azure AD PowerShell module to perform ad hoc queries to discover accounts that are members of administrative groups.
+**Guidance**: Azure Active Directory (AD) has built-in roles that must be explicitly assigned and are queryable. Use the Azure AD PowerShell module to perform ad hoc queries to discover accounts that are members of administrative groups.
+
 Built-in roles for Azure Service Bus
+
 authenticate-application.md#azure-built-in-roles-for-azure-service-bus
 
 - [How to get a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+
 - [How to get members of a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
@@ -290,12 +292,13 @@ authenticate-application.md#azure-built-in-roles-for-azure-service-bus
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32096.).
 
-**Guidance**: 
-Control plane access to Service Bus is controlled through Azure Active Directory (AD). Azure AD does not have the concept of default passwords.
+**Guidance**: Control plane access to Service Bus is controlled through Azure Active Directory (Azure AD). Azure AD does not have the concept of default passwords.
+
 Data plane access to Service Bus is controlled through Azure AD with Managed Identities or App registrations as well as shared access signatures. Shared access signatures are used by the clients connecting to your Service Bus namespace and can be regenerated at any time.
+
 - [Understand shared access signatures for Service Bus](service-bus-sas.md)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -304,16 +307,19 @@ Data plane access to Service Bus is controlled through Azure AD with Managed Ide
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32097.).
 
-**Guidance**: 
-Create standard operating procedures around the use of dedicated administrative accounts. Use Azure Security Center Identity and Access Management to monitor the number of administrative accounts.
+**Guidance**: Create standard operating procedures around the use of dedicated administrative accounts. Use Azure Security Center Identity and Access Management to monitor the number of administrative accounts.
+
 Additionally, to help you keep track of dedicated administrative accounts, you may use recommendations from Azure Security Center or built-in Azure Policies, such as:
-There should be more than one owner assigned to your subscription
-Deprecated accounts with owner permissions should be removed from your subscription
-External accounts with owner permissions should be removed from your subscription
-- [How to use Azure Security Center to monitor identity and access (Preview)](../security-center/security-center-identity-access.md)
+
+- There should be more than one owner assigned to your subscription
+- Deprecated accounts with owner permissions should be removed from your subscription
+- External accounts with owner permissions should be removed from your subscription
+
+- [How to use Azure Security Center to monitor identity and access](../security-center/security-center-identity-access.md)
+
 - [How to use Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
@@ -322,12 +328,13 @@ External accounts with owner permissions should be removed from your subscriptio
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32098.).
 
-**Guidance**: 
-Microsoft Azure provides integrated access control management for resources and applications based on Azure Active Directory (AD). A key advantage of using Azure AD with Azure Service Bus is that you don't need to store your credentials in the code anymore. Instead, you can request an OAuth 2.0 access token from the Microsoft Identity platform. The resource name to request a token is https://servicebus.azure.net/. Azure AD authenticates the security principal (a user, group, or service principal) running the application. If the authentication succeeds, Azure AD returns an access token to the application, and the application can then use the access token to authorize request to Azure Service Bus resources.
+**Guidance**: Microsoft Azure provides integrated access control management for resources and applications based on Azure Active Directory (Azure AD). A key advantage of using Azure AD with Azure Service Bus is that you don't need to store your credentials in the code anymore. Instead, you can request an OAuth 2.0 access token from the Microsoft Identity platform. The resource name to request a token is https://servicebus.azure.net/. Azure AD authenticates the security principal (a user, group, or service principal) running the application. If the authentication succeeds, Azure AD returns an access token to the application, and the application can then use the access token to authorize request to Azure Service Bus resources.
+
 - [How to authenticate an application with Azure AD to access Service Bus resources](authenticate-application.md)
+
 - [Understanding SSO with Azure AD](../active-directory/manage-apps/what-is-single-sign-on.md)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -336,12 +343,13 @@ Microsoft Azure provides integrated access control management for resources and 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32099.).
 
-**Guidance**: 
-Enable Azure Active Directory Multi-Factor Authentication (MFA) and follow Azure Security Center Identity and access management recommendations to help protect your Service Bus-enabled resources.
+**Guidance**: Enable Azure Active Directory Multi-Factor Authentication (MFA) and follow Azure Security Center Identity and access management recommendations to help protect your Service Bus-enabled resources.
+
 - [How to enable MFA in Azure](../active-directory/authentication/howto-mfa-getstarted.md)
+
 - [How to monitor identity and access within Azure Security Center](../security-center/security-center-identity-access.md)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
@@ -350,12 +358,13 @@ Enable Azure Active Directory Multi-Factor Authentication (MFA) and follow Azure
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32100.).
 
-**Guidance**: 
-Use privileged access workstations (PAW) with Multi-Factor Authentication (MFA) configured to log into and configure Service Bus-enabled resources.
+**Guidance**: Use privileged access workstations (PAW) with Multi-Factor Authentication (MFA) configured to log into and configure Service Bus-enabled resources.
+
 - [Learn about Privileged Access Workstations](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+
 - [How to enable MFA in Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -364,7 +373,7 @@ Use privileged access workstations (PAW) with Multi-Factor Authentication (MFA) 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32101.).
 
-**Guidance**: Use Azure Active Directory (AD) Privileged Identity Management (PIM) for generation of logs and alerts when suspicious or unsafe activity occurs in the environment. Use Azure AD risk detections to view alerts and reports on risky user behavior. For additional logging, send Azure Security Center risk detection alerts into Azure Monitor and configure custom alerting/notifications using action groups.
+**Guidance**: Use Azure Active Directory (Azure AD) Privileged Identity Management (PIM) for generation of logs and alerts when suspicious or unsafe activity occurs in the environment. Use Azure AD risk detections to view alerts and reports on risky user behavior. For additional logging, send Azure Security Center risk detection alerts into Azure Monitor and configure custom alerting/notifications using action groups.
 
 - [How to deploy Privileged Identity Management (PIM)](../active-directory/privileged-identity-management/pim-deployment-plan.md)
 
@@ -372,7 +381,7 @@ Use privileged access workstations (PAW) with Multi-Factor Authentication (MFA) 
 
 - [How to configure action groups for custom alerting and notification](../azure-monitor/platform/action-groups.md)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
@@ -385,7 +394,7 @@ Use privileged access workstations (PAW) with Multi-Factor Authentication (MFA) 
 
 - [How to configure Named Locations in Azure](../active-directory/reports-monitoring/quickstart-configure-named-locations.md)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -394,12 +403,13 @@ Use privileged access workstations (PAW) with Multi-Factor Authentication (MFA) 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32103.).
 
-**Guidance**: 
-Use Azure Active Directory (AD) as the central authentication and authorization system for Azure resources such as Service Bus. This allows for role-based access control (RBAC) to administrative sensitive resources.
-- [How to create and configure an Azure AD instance](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
-- [To learn about how Azure Service Bus integrates with Azure Active Directory (AAD), see Authorize access to Service Bus resources using Azure Active Directory](authenticate-application.md)
+**Guidance**: Use Azure Active Directory (AD) as the central authentication and authorization system for Azure resources such as Service Bus. This allows for role-based access control (RBAC) to administrative sensitive resources.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+- [How to create and configure an Azure AD instance](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
+
+- [Authorize access to Service Bus resources using Azure Active Directory](authenticate-application.md)
+
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -408,14 +418,17 @@ Use Azure Active Directory (AD) as the central authentication and authorization 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32104.).
 
-**Guidance**: 
-Azure Active Directory (AD) provides logs to help you discover stale accounts. In addition, use Azure Identity Access Reviews to efficiently manage group memberships, access to enterprise applications, and role assignments. User access can be reviewed on a regular basis to make sure only the right Users have continued access.
+**Guidance**: Azure Active Directory (Azure AD) provides logs to help you discover stale accounts. In addition, use Azure Identity Access Reviews to efficiently manage group memberships, access to enterprise applications, and role assignments. User access can be reviewed on a regular basis to make sure only the right Users have continued access.
+
 In additional, regularly rotate your Service Bus namespace's shared access signature.
+
 - [Understand Azure AD reporting](/azure/active-directory/reports-monitoring/)
+
 - [How to use Azure Identity Access Reviews](../active-directory/governance/access-reviews-overview.md)
+
 - [Understanding shared access signatures for Service Bus namespace](service-bus-sas.md)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
@@ -424,13 +437,15 @@ In additional, regularly rotate your Service Bus namespace's shared access signa
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32105.).
 
-**Guidance**: 
-You have access to Azure Active Directory (AD) sign-in activity, audit and risk event log sources, which allow you to integrate with any SIEM/Monitoring tool.
+**Guidance**: You have access to Azure Active Directory (Azure AD) sign-in activity, audit and risk event log sources, which allow you to integrate with any SIEM/Monitoring tool.
+
 You can streamline this process by creating diagnostic settings for Azure AD user accounts and sending the audit logs and sign-in logs to a Log Analytics workspace. You can configure desired log alerts within Log Analytics.
+
 - [How to integrate Azure Activity Logs into Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+
 - [Authorize access to Service Bus resources using Azure Active Directory](authenticate-application.md)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -439,13 +454,15 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32106.).
 
-**Guidance**: 
-Use Azure Active Directory's Identity Protection and risk detection features to configure automated responses to detected suspicious actions related to your Service Bus-enabled resources. You should enable automated responses through Azure Sentinel to implement your organization's security responses.
+**Guidance**: Use Azure Active Directory's Identity Protection and risk detection features to configure automated responses to detected suspicious actions related to your Service Bus-enabled resources. You should enable automated responses through Azure Sentinel to implement your organization's security responses.
+
 - [How to view Azure AD risky sign-ins](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+
 - [How to configure and enable Identity Protection risk policies](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
+
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -454,11 +471,11 @@ Use Azure Active Directory's Identity Protection and risk detection features to 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32107.).
 
-**Guidance**: 
-Currently not available; Customer Lockbox is not yet supported for Service Bus.
+**Guidance**: Currently not available; Customer Lockbox is not yet supported for Service Bus.
+
 - [List of Customer Lockbox-supported services](../security/fundamentals/customer-lockbox-overview.md#supported-services-and-scenarios-in-general-availability)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -471,11 +488,11 @@ Currently not available; Customer Lockbox is not yet supported for Service Bus.
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32108.).
 
-**Guidance**: 
-Use tags on resources related to your Service Bus to assist in tracking Azure resources that store or process sensitive information.
+**Guidance**: Use tags on resources related to your Service Bus to assist in tracking Azure resources that store or process sensitive information.
+
 - [How to create and use Tags](/azure/azure-resource-manager/resource-group-using-tags)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -484,16 +501,21 @@ Use tags on resources related to your Service Bus to assist in tracking Azure re
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32109.).
 
-**Guidance**: 
-Implement separate subscriptions and/or management groups for development, test, and production. Service Bus namespaces should be separated by virtual network with service endpoints enabled and tagged appropriately.
+**Guidance**: Implement separate subscriptions and/or management groups for development, test, and production. Service Bus namespaces should be separated by virtual network with service endpoints enabled and tagged appropriately.
+
 You may also secure your Azure Service Bus namespace by using firewalls. Azure Service Bus supports IP-based access controls for inbound firewall support. You can set firewall rules by using the Azure portal, Azure Resource Manager templates, or through the Azure CLI or Azure PowerShell.
+
 - [How to create additional Azure subscriptions](/azure/billing/billing-create-subscription)
-- [How to create Management Groups](/azure/governance/management-groups/createConfigure) IP firewall rules for Azure Service Bus namespaces: service-bus-ip-filtering.md
+
+- [How to create Management Groups](/azure/governance/management-groups/create)
+
+- [Configure IP firewall rules for Azure Service Bus namespaces](service-bus-ip-filtering.md)
 
 - [How to create and utilize tags](/azure/azure-resource-manager/resource-group-using-tags)
+
 - [How to create a Virtual Network](../virtual-network/quick-create-portal.md)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -502,21 +524,21 @@ You may also secure your Azure Service Bus namespace by using firewalls. Azure S
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32110.).
 
-**Guidance**: 
-When using virtual machines to access your Service Bus entities, make use of virtual networks, service endpoints, Service Bus firewall, network security groups, and service tags to mitigate the possibility of data exfiltration.
+**Guidance**: When using virtual machines to access your Service Bus entities, make use of virtual networks, service endpoints, Service Bus firewall, network security groups, and service tags to mitigate the possibility of data exfiltration.
+
 Microsoft manages the underlying infrastructure for Azure Service Bus and has implemented strict controls to prevent the loss or exposure of customer data.
+
 - [Configure IP firewall rules for Azure Service Bus namespaces](service-bus-ip-filtering.md)
-Allow access to Azure Service Bus namespace from specific virtual networks
-service-bus-service-endpoints.md
 
-Allow access to Azure Service Bus namespaces via private endpoints
+- [Allow access to Azure Service Bus namespace from specific virtual networks](service-bus-service-endpoints.md)
 
-private-link-service.md
+- [Allow access to Azure Service Bus namespaces via private endpoints](private-link-service.md)
 
 - [Understand Network Security Groups and Service Tags](../virtual-network/security-overview.md)
+
 - [Understand customer data protection in Azure](../security/fundamentals/protection-customer-data.md)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Shared
 
@@ -525,11 +547,11 @@ private-link-service.md
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32111.).
 
-**Guidance**: 
-Azure Service Bus enforces TLS-encrypted communications by default. TLS versions 1.0, 1.1 and 1.2 are currently supported. However, TLS 1.0 and 1.1 are on a path to deprecation industry-wide, so use TLS 1.2 if at all possible.
+**Guidance**: Azure Service Bus enforces TLS-encrypted communications by default. TLS versions 1.0, 1.1 and 1.2 are currently supported. However, TLS 1.0 and 1.1 are on a path to deprecation industry-wide, so use TLS 1.2 if at all possible.
+
 - [To understand security features of Service Bus, see Network security](network-security.md)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Shared
 
@@ -538,12 +560,13 @@ Azure Service Bus enforces TLS-encrypted communications by default. TLS versions
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32112.).
 
-**Guidance**: 
-Data identification, classification, and loss prevention features are not yet available for Azure Service Bus. Implement third-party solution if required for compliance purposes.
+**Guidance**: Data identification, classification, and loss prevention features are not yet available for Azure Service Bus. Implement third-party solution if required for compliance purposes.
+
 For the underlying platform which is managed by Microsoft, Microsoft treats all customer content as sensitive and goes to great lengths to guard against customer data loss and exposure. To ensure customer data within Azure remains secure, Microsoft has implemented and maintains a suite of robust data protection controls and capabilities.
+
 - [Understand customer data protection in Azure](../security/fundamentals/protection-customer-data.md)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not currently available
 
 **Responsibility**: Shared
 
@@ -552,38 +575,24 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32113.).
 
-**Guidance**: 
-Azure Service Bus supports using Azure Active Directory (AD) to authorize requests to Service Bus entities. With Azure AD, you can use role-based access control (RBAC) to grant permissions to a security principal, which may be a user, or an application service principal.
-- [Understand Azure AD RBAC and available roles for Azure Service Bus](authenticate-application.md)
+**Guidance**: Azure Service Bus supports using Azure Active Directory (Azure AD) to authorize requests to Service Bus entities. With Azure AD, you can use Azure role-based access control (Azure RBAC) to grant permissions to a security principal, which may be a user, or an application service principal.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+- [Understand Azure RBAC and available roles for Azure Service Bus](authenticate-application.md)
+
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
-
-### 4.7: Use host-based data loss prevention to enforce access control
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32114.).
-
-**Guidance**: 
-Not applicable; this guideline is intended for compute resources.
-Microsoft manages the underlying infrastructure for Service Bus and has implemented strict controls to prevent the loss or exposure of customer data.
-- [Understand customer data protection in Azure](../security/fundamentals/protection-customer-data.md)
-
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
-
-**Responsibility**: Shared
 
 ### 4.8: Encrypt sensitive information at rest
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32115.).
 
-**Guidance**: 
-Azure Service Bus supports the option of encrypting data at rest with either Microsoft-managed keys or customer-managed keys. This feature enables you to create, rotate, disable, and revoke access to the customer-managed keys that are used for encrypting Azure Service Bus data at rest.
-- [How to configure customer-managed keys for encrypting Azure Service Bus ](configure-customer-managed-key.md)
+**Guidance**: Azure Service Bus supports the option of encrypting data at rest with either Microsoft-managed keys or customer-managed keys. This feature enables you to create, rotate, disable, and revoke access to the customer-managed keys that are used for encrypting Azure Service Bus data at rest.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+- [How to configure customer-managed keys for encrypting Azure Service Bus](configure-customer-managed-key.md)
+
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
