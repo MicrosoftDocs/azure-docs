@@ -1,6 +1,6 @@
 ---
-title: Using SQL Database DAC packages - Azure SQL Edge (Preview)
-description: Learn about using dacpacs in Azure SQL Edge (Preview)
+title: Using SQL Database DAC packages - Azure SQL Edge
+description: Learn about using dacpacs in Azure SQL Edge
 keywords: SQL Edge, sqlpackage
 services: sql-edge
 ms.service: sql-edge
@@ -13,7 +13,7 @@ ms.date: 05/19/2020
 
 # SQL Database DAC packages in SQL Edge
 
-Azure SQL Edge (Preview) is an optimized relational database engine geared for IoT and edge deployments. It's built on the latest versions of the Microsoft SQL Server Database Engine, which provides industry-leading performance, security, and query processing capabilities. Along with the industry-leading relational database management capabilities of SQL Server, Azure SQL Edge provides in-built streaming capability for real-time analytics and complex event-processing.
+Azure SQL Edge is an optimized relational database engine geared for IoT and edge deployments. It's built on the latest versions of the Microsoft SQL Server Database Engine, which provides industry-leading performance, security, and query processing capabilities. Along with the industry-leading relational database management capabilities of SQL Server, Azure SQL Edge provides in-built streaming capability for real-time analytics and complex event-processing.
 
 Azure SQL Edge also provides a native implementation of SqlPackage.exe that enables you to deploy a [SQL Database DAC](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/data-tier-applications) package during the deployment of SQL Edge. SQL Database dacpacs can be deployed to SQL Edge using the SqlPackage parameter exposed via the `module twin's desired properties` option of the SQL Edge module:
 
@@ -82,4 +82,4 @@ On each restart of the Azure SQL Edge container, the *.dacpac file package is do
 
 - [Deploy SQL Edge through Azure portal](deploy-portal.md).
 - [Stream Data](stream-data.md)
-- [Machine learning and AI with ONNX in SQL Edge (Preview)](onnx-overview.md)
+- [Machine learning and AI with ONNX in SQL Edge](onnx-overview.md)

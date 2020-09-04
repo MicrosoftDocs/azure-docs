@@ -1,6 +1,6 @@
 ---
-title: ALTER EXTERNAL STREAM (Transact-SQL) - Azure SQL Edge (Preview)
-description: Learn about the ALTER EXTERNAL STREAM statement in Azure SQL Edge (Preview)
+title: ALTER EXTERNAL STREAM (Transact-SQL) - Azure SQL Edge
+description: Learn about the ALTER EXTERNAL STREAM statement in Azure SQL Edge
 keywords: 
 services: sql-edge
 ms.service: sql-edge

@@ -1,6 +1,6 @@
 ---
-title: Supported features of Azure SQL Edge (Preview) 
-description: Learn about details of features supported by Azure SQL Edge (Preview).
+title: Supported features of Azure SQL Edge 
+description: Learn about details of features supported by Azure SQL Edge.
 keywords: introduction to SQL Edge, what is SQL Edge, SQL Edge overview
 services: sql-edge
 ms.service: sql-edge
@@ -11,7 +11,7 @@ ms.reviewer: sstein
 ms.date: 07/13/2020
 ---
 
-# Supported features of Azure SQL Edge (Preview) 
+# Supported features of Azure SQL Edge 
 
 Azure SQL Edge is built on the latest version of the Microsoft SQL Server Database Engine on Linux. It supports a subset of the features supported in SQL Server 2019 on Linux, in addition to some features that are currently not supported or available in SQL Server 2019 on Linux (or in SQL Server on Windows).
 

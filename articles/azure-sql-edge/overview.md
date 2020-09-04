@@ -1,6 +1,6 @@
 ---
-title: What is Azure SQL Edge (Preview)? 
-description: Learn about Azure SQL Edge (Preview)
+title: What is Azure SQL Edge? 
+description: Learn about Azure SQL Edge
 keywords: introduction to SQL Edge,what is SQL Edge, SQL Edge overview
 services: sql-edge
 ms.service: sql-edge
@@ -11,9 +11,9 @@ ms.reviewer: sstein
 ms.date: 05/19/2020
 ---
 
-# What is Azure SQL Edge (Preview)?
+# What is Azure SQL Edge?
 
-Azure SQL Edge (Preview) is an optimized relational database engine geared for IoT and IoT Edge deployments. It provides capabilities to create a high-performance data storage and processing layer for IoT applications and solutions. Azure SQL Edge provides capabilities to stream, process, and analyze relational and non-relational such as JSON, graph and time-series data, which makes it the right choice for a variety of modern IoT applications.
+Azure SQL Edge is an optimized relational database engine geared for IoT and IoT Edge deployments. It provides capabilities to create a high-performance data storage and processing layer for IoT applications and solutions. Azure SQL Edge provides capabilities to stream, process, and analyze relational and non-relational such as JSON, graph and time-series data, which makes it the right choice for a variety of modern IoT applications.
 
 Azure SQL Edge is built on the latest versions of the Microsoft SQL Database Engine(/sql/sql-server/sql-server-technical-documentation?toc=/azure/azure-sql-edge/toc.json), which provides industry-leading performance, security and query processing capabilities. Since, Azure SQL Edge is built on the same engine as [SQL Server](/sql/sql-server/sql-server-technical-documentation?toc=/azure/azure-sql-edge/toc.json) and [Azure SQL](https://docs.microsoft.com/azure/azure-sql/), it provides the same T-SQL programming surface area that makes development of applications or solutions easier and faster, and at the same time makes application portability between IoT Edge devices, data centers and the cloud straight forward.
 
