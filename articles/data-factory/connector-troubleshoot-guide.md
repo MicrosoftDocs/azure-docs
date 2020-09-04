@@ -204,7 +204,7 @@ busy to handle requests, it returns an HTTP error 503.
 - **Resolution**: Rerun the copy activity after several minutes.
 			      
 
-## Azure SQL Data Warehouse/Azure SQL Database/SQL Server
+## Azure Synapse Analytics (formerly SQL Data Warehouse)/Azure SQL Database/SQL Server
 
 ### Error code:  SqlFailedToConnect
 
@@ -357,16 +357,16 @@ busy to handle requests, it returns an HTTP error 503.
 
 ### Error message: Conversion failed when converting from a character string to uniqueidentifier
 
-- **Symptoms**: When you copy data from tabular data source (such as SQL Server) into Azure SQL Data Warehouse using staged copy and PolyBase, you hit the following error:
+- **Symptoms**: When you copy data from tabular data source (such as SQL Server) into Azure Synapse Analytics using staged copy and PolyBase, you hit the following error:
 
     ```
     ErrorCode=FailedDbOperation,Type=Microsoft.DataTransfer.Common.Shared.HybridDeliveryException,
-    Message=Error happened when loading data into SQL Data Warehouse.,
+    Message=Error happened when loading data into Azure Synapse Analytics.,
     Source=Microsoft.DataTransfer.ClientLibrary,Type=System.Data.SqlClient.SqlException,
     Message=Conversion failed when converting from a character string to uniqueidentifier...
     ```
 
-- **Cause**: Azure SQL Data Warehouse PolyBase cannot convert empty string to GUID.
+- **Cause**: Azure Synapse Analytics PolyBase cannot convert empty string to GUID.
 
 - **Resolution**: In Copy activity sink, under Polybase settings, set "**use type default**" option to false.
 
@@ -376,19 +376,19 @@ busy to handle requests, it returns an HTTP error 503.
 
     ```
     ErrorCode=FailedDbOperation,Type=Microsoft.DataTransfer.Common.Shared.HybridDeliveryException,
-    Message=Error happened when loading data into SQL Data Warehouse.,
+    Message=Error happened when loading data into Azure Synapse Analytics.,
     Source=Microsoft.DataTransfer.ClientLibrary,Type=System.Data.SqlClient.SqlException,
     Message=Query aborted-- the maximum reject threshold (0 rows) was reached while reading from an external source: 1 rows rejected out of total 415 rows processed. (/file_name.txt) 
     Column ordinal: 18, Expected data type: DECIMAL(x,x), Offending value:..
     ```
 
-- **Cause**: Azure SQL Data Warehouse Polybase cannot insert empty string (null value) into decimal column.
+- **Cause**: Azure Synapse Analytics Polybase cannot insert empty string (null value) into decimal column.
 
 - **Resolution**: In Copy activity sink, under Polybase settings, set "**use type default**" option to false.
 
 ### Error message: Java exception message: HdfsBridge::CreateRecordReader
 
-- **Symptoms**: You copy data into Azure SQL Data Warehouse using PolyBase, and hit the following error:
+- **Symptoms**: You copy data into Azure Synapse Analytics using PolyBase, and hit the following error:
 
     ```
     Message=110802;An internal DMS error occurred that caused this operation to fail. 
@@ -421,15 +421,15 @@ busy to handle requests, it returns an HTTP error 503.
 
 ### Error message: The condition specified using HTTP conditional header(s) is not met
 
-- **Symptoms**: You use SQL query to pull data from Azure SQL Data Warehouse and hit the following error:
+- **Symptoms**: You use SQL query to pull data from Azure Synapse Analytics and hit the following error:
 
     ```
     ...StorageException: The condition specified using HTTP conditional header(s) is not met...
     ```
 
-- **Cause**: Azure SQL Data Warehouse hit issue querying the external table in Azure Storage.
+- **Cause**: Azure Synapse Analytics hit issue querying the external table in Azure Storage.
 
-- **Resolution**: Run the same query in SSMS and check if you see the same result. If yes, open a support ticket to Azure SQL Data Warehouse and provide your SQL DW server and database name to further troubleshoot.
+- **Resolution**: Run the same query in SSMS and check if you see the same result. If yes, open a support ticket to Azure Synapse Analytics and provide your SQL DW server and database name to further troubleshoot.
             
 
 ## Delimited Text Format
