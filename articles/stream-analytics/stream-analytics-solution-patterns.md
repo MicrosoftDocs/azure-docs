@@ -97,7 +97,7 @@ Most data science and analytics activities still happen offline. Data can be arc
 
 ## Use reference data for enrichment
 
-Data enrichment is often a requirement for ETL engines. Azure Stream Analytics supports data enrichment with [reference data](stream-analytics-use-reference-data.md) from both SQL Database and Azure Blob storage. Data enrichment can be done for data landing in both Azure Data Lake and SQL Data Warehouse.
+Data enrichment is often a requirement for ETL engines. Azure Stream Analytics supports data enrichment with [reference data](stream-analytics-use-reference-data.md) from both SQL Database and Azure Blob storage. Data enrichment can be done for data landing in both Azure Data Lake and Azure Synapse Analytics.
 
 
 ![ASA offline analytics with data enrichment](media/stream-analytics-solution-patterns/offline-analytics-enriched.png)

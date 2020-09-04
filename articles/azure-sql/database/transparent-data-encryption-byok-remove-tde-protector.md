@@ -29,7 +29,7 @@ Keep in mind that once the TDE protector is deleted in Key Vault, in up to 10 mi
 This how-to guide goes over two approaches depending on the desired result after a compromised incident response:
 
 - To make the databases in Azure SQL Database / Azure Synapse Analytics **inaccessible**.
-- To make the databases in Azure SQL Database / Azure SQL Data Warehouse **inaccessible**.
+- To make the databases in Azure SQL Database / Azure Azure Synapse Analytics (formerly SQL Data Warehouse) **inaccessible**.
 
 ## Prerequisites
 

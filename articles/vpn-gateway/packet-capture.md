@@ -6,7 +6,7 @@ author: radwiv
 
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 10/15/2019
+ms.date: 09/03/2020
 ms.author: radwiv
 ---
 
@@ -349,6 +349,7 @@ Stop-AzVirtualNetworkGatewayConnectionPacketCapture -ResourceGroupName "YourReso
 - Running packet capture can affect performance. Remember to stop the packet capture when you don't need it.
 - Suggested minimum packet capture duration is 600 seconds. Because of sync issues among multiple components on the path, shorter packet captures might not provide complete data.
 - Packet capture data files are generated in PCAP format. Use Wireshark or other commonly available applications to open PCAP files.
+- Packet captures aren't supported on policy-based gateways.
 
 ## Next steps
 
