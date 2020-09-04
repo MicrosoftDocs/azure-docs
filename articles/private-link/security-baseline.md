@@ -4,7 +4,7 @@ description: The Azure Private Link security baseline provides procedural guidan
 author: msmbaldwin
 ms.service: private-link
 ms.topic: conceptual
-ms.date: 09/03/2020
+ms.date: 01/01/2000
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 
