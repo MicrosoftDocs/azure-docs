@@ -20,6 +20,12 @@
       - name: Minimal-downtime migration with DMS
         href: howto-migrate-online.md
         displayName: migrate, dms, database migration service
+  - name: Create databases and users
+    href: howto-create-users.md
+    displayName: users
+  - name: Mitigate database corruption
+    href: how-to-fix-corrupt-database.md
+    displayName: corrupt data
 - name: Single Server
   items:
   - name: Documentation
@@ -218,9 +224,6 @@
           displayName: firewall
     - name: Authentication
       items:
-        - name: Create users
-          href: howto-create-users.md
-          displayName: users
         - name: Configure Azure AD integration
           href: howto-configure-sign-in-azure-ad-authentication.md
           displayName:  active directory
@@ -436,7 +439,6 @@
         href: flexible-server/concepts-backup-restore.md
       - name: High availability
         href: flexible-server/concepts-high-availability.md
-    - name: Manage
     - name: Monitoring & Logs
       items:
       - name: Slow query logs
@@ -453,6 +455,10 @@
         href: flexible-server/how-to-manage-portal.md
       - name: Azure CLI
         href: flexible-server/how-to-manage-cli.md
+    - name: Stop/start server
+      items:
+      - name: Azure portal
+        href: flexible-server/how-to-stop-start-server-portal.md
     - name: Restore a server
       items:
       - name: Azure portal
@@ -479,6 +485,14 @@
       items:
       - name: Create alerts on metrics
         href: flexible-server/how-to-alert-on-metric.md
+      - name: Slow query logs
+        items:
+        - name: Azure portal
+          href: flexible-server/how-to-configure-slow-query-logs-portal.md
+      - name: Audit logs
+        items:
+        - name: Azure portal
+          href: flexible-server/how-to-configure-audit-logs-portal.md
     - name: Troubleshoot
       items:
       - name: Connection errors

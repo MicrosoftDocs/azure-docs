@@ -1,12 +1,12 @@
 ---
-title: 'Tutorial: Design a server - Azure portal - Azure Database for MySQL Flexible Server'
-description: This tutorial explains how to create and manage Azure Database for MySQL Flexible server and database using Azure portal.
+title: 'Tutorial: Build a PHP (Laravel) app with Azure Database for MySQL Flexible Server'
+description: This tutorial explains how to build a PHP app with flexible server.
 author: mksuni
 ms.author: sumuth
 ms.service: mysql
 ms.topic: tutorial
 ms.devlang: php
-ms.date: 9/22/2020
+ms.date: 9/21/2020
 ms.custom: mvc
 ---
 

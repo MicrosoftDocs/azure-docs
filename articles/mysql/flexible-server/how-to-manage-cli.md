@@ -5,7 +5,7 @@ author: mksuni
 ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
-ms.date: 9/22/2020
+ms.date: 9/21/2020
 ---
 
 # Manage an Azure Database for MySQL Flexible Server (Preview) using the Azure CLI
