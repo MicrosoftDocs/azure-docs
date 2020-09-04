@@ -15,17 +15,15 @@ ms.custom: how-to
 
 # Deploy trained models from the designer
 
-In this article, you will learn how to deploy a trained model from the designer as a real-time endpoint in the Azure Machine Learning studio.
+In this article, you learn how to deploy a trained model from the designer as a real-time endpoint in Azure Machine Learning studio.
 
-The workflow consists of the following steps:
+Deployment consists of the following steps:
 
 1. Register the trained model in the completed pipeline run.
 1. Download entry script file and conda dependencies file for the trained model.
 1. Deploy the model to a compute target.
 
-For more information on the concepts involved in the deployment workflow, see [Manage, deploy, and monitor models with Azure Machine Learning](concept-model-management-and-deployment.md).
-
-Models trained  in the designer can also be deployed through the SDK or CLI, see [Deploy your existing model with Azure Machine Learning](how-to-deploy-existing-model.md)
+Models trained in the designer can also be deployed through the SDK or command-line interface (CLI). For more information, see [Deploy your existing model with Azure Machine Learning](how-to-deploy-existing-model.md).
 
 ## Prerequisites
 
@@ -33,9 +31,9 @@ Models trained  in the designer can also be deployed through the SDK or CLI, see
 
 * A completed training pipeline containing a [Train Model module](./algorithm-module-reference/train-model.md)
 
-## Register your model
+## Register the model
 
-After the training pipeline completes:
+After the training pipeline completes, register the trained model to your Azure Machine Learning workspace to access the model in other projects.
 
 1. Select the [Train Model module](./algorithm-module-reference/train-model.md).
 1. Select the **Outputs + logs** tab in the right pane.
@@ -43,22 +41,20 @@ After the training pipeline completes:
 
     ![Screenshot of right pane of Train Model module](./media/how-to-deploy-model-designer/train-model-right-pane.png)
 
-1. Enter a name for your model in the pop-up window, and select **Save**.
+1. Enter a name for your model, then select **Save**.
 
-    ![Screenshot of register trained model](./media/how-to-deploy-model-designer/register-trained-model.png)
-
-After registering your model, you can find it in the **Models** asset page.
+After registering your model, you can find it in the **Models** asset page in the studio.
     
-![Screenshot of register model in Models asset page](./media/how-to-deploy-model-designer/models-asset-page.png)
+![Screenshot of registered model in the Models asset page](./media/how-to-deploy-model-designer/models-asset-page.png)
 
 
-## Download entry script file and conda dependencies file
+## Download the entry script file and conda dependencies file
 
 You need the following files to deploy a model in Azure Machine Learning studio:
 
-- An **entry script file** - loads trained model, processes input data from requests, does real-time inferences and returns the result. In designer, a `score.py` file will be automatically generated when the **Train Model** module is completed.
+- **Entry script file** - loads the trained model, processes input data from requests, does real-time inferences, and returns the result. The designer automatically generates a `score.py` entry script file when the **Train Model** module completes.
 
-- A **conda dependencies file** - specifies which pip and conda packages your webservice depends on. In designer, a `conda_env.yaml` file will be automatically generated when the **Train Model** module is completed.
+- **Conda dependencies file** - specifies which pip and conda packages your webservice depends on. The designer automatically creates a `conda_env.yaml` file when the **Train Model** module completes.
 
 You can download these two files in the right pane of the **Train Model** module:
 
@@ -68,7 +64,7 @@ You can download these two files in the right pane of the **Train Model** module
 
     ![Screenshot of download files for deployment in right pane](./media/how-to-deploy-model-designer/download-artifacts-in-right-pane.png)
 
-Alternatively, you can download the files from the **Models** asset page:
+Alternatively, you can download the files from the **Models** asset page after registering your model:
 
 1. Navigate to the **Models** asset page.
 1. Select the model you want to deploy.
@@ -79,20 +75,25 @@ Alternatively, you can download the files from the **Models** asset page:
     ![Screenshot of download files for deployment in model detail page](./media/how-to-deploy-model-designer/download-artifacts-in-models-page.png)
 
 > [!NOTE]
-> The `score.py` files provide almost the same functions as the **Score Model** modules. But for some modules like [Score SVD Recommender](./algorithm-module-reference/score-svd-recommender.md), [Score Wide and Deep Recommender](./algorithm-module-reference/score-wide-and-deep-recommender.md), and [Score Vowpal Wabbit Model](./algorithm-module-reference/score-vowpal-wabbit-model.md), user can set parameters for different score mode. Similarly, user can also change parameters in the `score.py` files to enable different score functions. See [Configure entry script file](#technical-notes) for how to set different parameters in the `score.py` files.
+> The `score.py` file provides nearly the same functionality as the **Score Model** modules. However, some modules like [Score SVD Recommender](./algorithm-module-reference/score-svd-recommender.md), [Score Wide and Deep Recommender](./algorithm-modul0e-reference/score-wide-and-deep-recommender.md), and [Score Vowpal Wabbit Model](./algorithm-module-reference/score-vowpal-wabbit-model.md) have parameters for different scoring modes. You can also change those parameters in the entry script.
+>
+>For more information on setting parameters in the `score.py` file, see the section, [Configure the entry script](#configure-the-entry-script).
 
-## Deploy your model
+## Deploy the model
 
-You're now ready to deploy your model.
+After downloading the necessary files, you're ready to deploy the model.
 
 1. In the **Models** asset page, select the registered model.
 1. Select the **Deploy** button.
 1. In the configuration menu, enter the following information:
 
-    - Input the name of the endpoint.
+    - Input a name for the endpoint.
     - Select to deploy the model to [Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md) or [Azure Container Instance](how-to-deploy-azure-container-instance.md).
-    - Upload the `score.py` for the **Entry script file**, and `conda_env.yml` for the **Conda dependencies file**. 
-    - (Optional) In **Advanced** setting, you can set CPU/Memory reserve capacity and other parameters for deployment. These settings are important for certain models such as         PyTorch models, which consum considerable amount of momery (about 4 GB).
+    - Upload the `score.py` for the **Entry script file**.
+    - Upload the `conda_env.yml` for the **Conda dependencies file**. 
+
+    >[!TIP]
+    > In **Advanced** setting, you can set CPU/Memory capacity and other parameters for deployment. These settings are important for certain models such as PyTorch models, which consume considerable amount of memery (about 4 GB).
 
 1. Select **Deploy** to deploy your model as a real-time endpoint.
 
@@ -103,10 +104,9 @@ You're now ready to deploy your model.
 After deployment succeeds, you can find the real-time endpoint in the **Endpoints** asset page. Once there, you will find a REST endpoint, which clients can use to submit requests to the real-time endpoint. 
 
 > [!NOTE]
-> The designer also generates sample data json file for consuming, you can download `_samples.json` in the **trained_model_outputs** folder. 
-> `_samples.json` is good reference for consuming, especially when input data contains too many columns.
+> The designer also generates a sample data json file for testing, you can download `_samples.json` in the **trained_model_outputs** folder.
 
-Following is sample code to consume the real-time endpoint.
+Use the following code sample to consume a real-time endpoint.
 
 ```python
 
@@ -129,15 +129,14 @@ score_result = service.run(json.dumps(sample_data))
 print(f'Inference result = {score_result}')
 ```
 
-## Technical notes
+## Configure the entry script
 
-### (Optional) Configure entry script file
+Some modules in the designer like [Score SVD Recommender](./algorithm-module-reference/score-svd-recommender.md), [Score Wide and Deep Recommender](./algorithm-modul0e-reference/score-wide-and-deep-recommender.md), and [Score Vowpal Wabbit Model](./algorithm-module-reference/score-vowpal-wabbit-model.md) have parameters for different scoring modes. In this section, you learn how to update these parameters in the entry script file too.
 
-This section describes how to change parameters in entry script files to enable different score functions.
+The following example updates the default behavior for a trained **Wide & Deep recommender** model. By default, the `score.py` file tells the web service to predict ratings between users and items. 
 
-Here is one example for trained **Wide & Deep recommender** model. By default, the `score.py` file enables web service to predict ratings between users and items.
+You can modify the entry script file to make item recommendations, and return recommended items by changing the `recommender_prediction_kind` parameter.
 
-The codes below shows how to change code to make item recommendations, and return recommended items.
 
 ```python
 import os
@@ -189,10 +188,10 @@ def run(data):
     return json.dumps(result_df.to_dict("list"))
 ```
 
-For **Wide & Deep recommender** and **Vowpal Wabbit** trained model, you can configure parameters of scoring mode in the `score.py` files using following tips:
+For **Wide & Deep recommender** and **Vowpal Wabbit** models, you can configure the scoring mode parameter using the following methods:
 
-- The parameter names are the lowercases and underscores combination of parameter names of [Score Vowpal Wabbit Model](./algorithm-module-reference/score-vowpal-wabbit-model.md) and [Score Wide and Deep Recommender](./algorithm-module-reference/score-wide-and-deep-recommender.md);
-- Mode type parameter values are strings of the corresponding option names. Take **Recommender prediction kind** in the above codes as example, the value can be `'Rating Prediction'`or `'Item Recommendation'`, and other values are not allowed.
+- The parameter names are the lowercase and underscore combinations of parameter names for [Score Vowpal Wabbit Model](./algorithm-module-reference/score-vowpal-wabbit-model.md) and [Score Wide and Deep Recommender](./algorithm-module-reference/score-wide-and-deep-recommender.md);
+- Mode type parameter values are strings of the corresponding option names. Take **Recommender prediction kind** in the above codes as example, the value can be `'Rating Prediction'`or `'Item Recommendation'`. Other values are not allowed.
 
 For **SVD recommender** trained model, the parameter names and values maybe less obvious, and you can look up the tables below to decide how to set parameters.
 
@@ -204,7 +203,7 @@ For **SVD recommender** trained model, the parameter names and values maybe less
 | Maximum number of items to recommend to a user               | max_recommended_item_count              |
 | Whether to return the predicted ratings of the items along with the labels | return_ratings                          |
 
-Following code shows how to set parameters for SVD recommender, which uses all 6 parameters to recommend rated items with predicted ratings attached.
+The following code shows you how to set parameters for an SVD recommender, which uses all six parameters to recommend rated items with predicted ratings attached.
 
 ```python
 score_params = dict(
