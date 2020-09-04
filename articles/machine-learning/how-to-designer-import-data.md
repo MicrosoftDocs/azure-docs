@@ -39,9 +39,11 @@ You can also register the output for any designer module as a dataset.
 
 1. If the module output data is in tabular format, there will be option to register output as file dataset or tabular dataset.
  
-    The **file dataset** option will register module's output folder as a file dataset. The output folder contains data file and meta files that support functionalities in designer, for example visualize data and mark column type. So this option is recommended if you want to continue use the registered dataset in designer. 
+    ![Screenshot showing register dataset options](media/how-to-designer-import-data/register-dataset-option.png)
+
+    The **file dataset** option will register module's output folder as a file dataset. The output folder contains data file and meta files that support functionalities in designer, for example visualize data and mark column type. So this option is recommended if you want to continue to use the registered dataset in designer. 
     
-    The **tabular dataset** option will register only the output data as a tabular dataset. And it can be easily consumed out of designer, for example in Automated Machine Learning UI or Python SDK. This option is recommended is you want to use the registered dataset out of designer.  
+    The **tabular dataset** option will register only the output data file as a tabular dataset. And it can be easily consumed out of designer, for example in Automated Machine Learning UI or Python SDK. This option is recommended if you want to use the registered dataset out of designer.  
 
 
 
