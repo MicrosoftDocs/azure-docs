@@ -44,15 +44,16 @@ Several communication channels are required between Azure Data Factory and the c
 With the support of Private Link for Azure Data Factory, you can:
 * Create a private endpoint in your virtual network.
 * Enable the private connection to a specific data factory instance. 
+
 The communications to Azure Data Factory service go through Private Link and help provide secure private connectivity. You don’t need to configure the preceding domain and port in a virtual network or your corporate firewall to provide a more secure way to protect your resources.  
 
 ![Diagram of Private Link for Azure Data Factory architecture.](./media/data-factory-private-link/private-link-architecture.png)
 
-Enabling the Private Link service for each of the preceding communication channels offers the following benefits:
-- Supported
+Enabling the Private Link service for each of the preceding communication channels offers the following functionality:
+- **Supported**:
    - You can author and monitor the data factory in your virtual network, even if you block all outbound communications.
    - The command communications between the self-hosted integration runtime and the Azure Data Factory service can be performed securely in a private network environment. The traffic between the self-hosted integration runtime and the Azure Data Factory service goes through Private Link. 
-- Not currently supported
+- **Not currently supported**:
    - Interactive authoring that uses a self-hosted integration runtime, such as test connection, browse folder list and table list, get schema, and preview data, goes through Private Link.
    - The new version of the self-hosted integration runtime can be automatically downloaded from Microsoft Download Center if you enable AutoUpdate.
 
