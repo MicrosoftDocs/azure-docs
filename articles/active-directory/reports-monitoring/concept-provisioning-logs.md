@@ -210,7 +210,7 @@ The **summary** tab provides an overview of what happened and identifiers for th
 
 - You can use the Change ID attribute as unique identifier. This is, for example, helpful when interacting with product support.
 
-- There is currently no option to download provisioning data.
+- There is currently no option to download provisioning data as a CSV file, but you can export the data using [Microsoft Graph](https://docs.microsoft.com/graph/api/provisioningobjectsummary-list?view=graph-rest-beta&tabs=http).
 
 - There is currently no support for log analytics.
 
