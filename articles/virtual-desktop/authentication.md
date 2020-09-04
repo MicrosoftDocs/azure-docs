@@ -38,9 +38,9 @@ These are the currently supported sign-in methods:
 >[!NOTE]
 >Smartcard and Windows Hello can only use Kerberos to sign in. Signing in with Kerberos requires line of sight to the domain controller.
 
-## Active Directory Federation Services (ADFS)
+## Hybrid identity
 
-Windows Virtual Desktop supports federated identities with Azure Active Directory. Standalone Active Directory deployments with ADFS are not supported since Windows Virtual Desktop requires Azure Active Directory.
+Windows Virtual Desktop supports [hybrid identities](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/whatis-hybrid-identity) through Azure Active Directory, including those which are federated using Active Directory Federation Services (ADFS). Since the users must be discoverable through Azure Active Directory, standalone Active Directory deployments with ADFS are not supported in Windows Virtual Desktop.
 
 ## Single sign-on (SSO)
 
