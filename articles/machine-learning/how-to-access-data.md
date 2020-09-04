@@ -18,7 +18,7 @@ ms.custom: how-to, contperfq1, devx-track-python
 # Connect to Azure storage services
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-In this article, learn how to **connect to Azure storage services via Azure Machine Learning datastores**. Datastores securely connect to your Azure storage service without putting your authentication credentials and the integrity of your original data source at risk. They store connection information, like your subscription ID and token authorization in your [Key Vault](https://azure.microsoft.com/services/key-vault/) associated with the workspace, so you can securely access your storage without having to hard code them in your scripts. You can use the [Azure Machine Learning Python SDK](#python) or the [Azure Machine Learning studio](how-to-access-data-ui.md) to create and register datastores.
+In this article, learn how to **connect to Azure storage services via Azure Machine Learning datastores**. Datastores securely connect to your Azure storage service without putting your authentication credentials and the integrity of your original data source at risk. They store connection information, like your subscription ID and token authorization in your [Key Vault](https://azure.microsoft.com/services/key-vault/) associated with the workspace, so you can securely access your storage without having to hard code them in your scripts. You can use the [Azure Machine Learning Python SDK](#python) or the [Azure Machine Learning studio](how-to-connect-data-ui.md) to create and register datastores.
 
 If you prefer to create and manage datastores using the Azure Machine Learning VS Code extension; visit the [VS Code resource management how-to guide](how-to-manage-resources-vscode.md#datastores) to learn more.
 
@@ -126,7 +126,7 @@ Within this section are examples for how to create and register a datastore via 
 
  To create datastores for other supported storage services, see the [reference documentation for the applicable `register_azure_*` methods](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore.datastore?view=azure-ml-py#methods).
 
-If you prefer a low code experience, see [Create datastores in Azure Machine Learning studio](#studio).
+If you prefer a low code experience, see [Connect to data with Azure Machine Learning studio](how-to-connect-data-ui.md).
 
 > [!NOTE]
 > Datastore name should only consist of lowercase letters, digits and underscores. 
