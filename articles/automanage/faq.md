@@ -1,13 +1,13 @@
 ---
 title: Azure Automanage for virtual machines FAQ
 description: Answers to frequently asked questions about Azure Automanage for virtual machines.
-author: ju-shim
+author: deanwe
 ms.service: virtual-machines
 ms.subservice: automanage
 ms.workload: infrastructure
 ms.topic: troubleshooting
 ms.date: 09/04/2020
-ms.author: jushiman
+ms.author: deanwe
 ---
 
 # Frequently asked questions for Azure Automanage for VMs
