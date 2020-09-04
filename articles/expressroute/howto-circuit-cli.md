@@ -2,12 +2,12 @@
 title: 'Create and modify an ExpressRoute circuit: Azure CLI'
 description: This article shows how to create, provision, verify, update, delete, and deprovision an ExpressRoute circuit using CLI.
 services: expressroute
-author: cherylmc
+author: duongau
 
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 11/13/2019
-ms.author: cherylmc 
+ms.author: duau 
 ms.custom: devx-track-azurecli
 
 ---

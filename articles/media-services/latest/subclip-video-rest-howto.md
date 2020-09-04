@@ -11,7 +11,7 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/10/2019
 ms.author: inhenkel
 

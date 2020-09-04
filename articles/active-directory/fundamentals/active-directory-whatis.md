@@ -24,7 +24,7 @@ Azure Active Directory (Azure AD) is Microsoft’s cloud-based identity and acce
 
 - Internal resources, such as apps on your corporate network and intranet, along with any cloud apps developed by your own organization. For more information about creating a tenant for your organization, see [Quickstart: Create a new tenant in Azure Active Directory](active-directory-access-create-new-tenant.md).
 
-To learn the difference between Azure AD and Active Directory Domain Services, see [Compare Active Directory to Azure Active Directory](active-directory-compare-azure-ad-to-ad.md). You can also use the various [Microsoft Cloud for Enterprise Architects Series](https://docs.microsoft.com/microsoft-365/solutions/cloud-architecture-models?view=o365-worldwide) posters to better understand the core identity services in Azure, Azure AD, and Office 365.
+To learn the difference between Azure AD and Active Directory Domain Services, see [Compare Active Directory to Azure Active Directory](active-directory-compare-azure-ad-to-ad.md). You can also use the various [Microsoft Cloud for Enterprise Architects Series](/microsoft-365/solutions/cloud-architecture-models?view=o365-worldwide) posters to better understand the core identity services in Azure, Azure AD, and Office 365.
 
 ## Who uses Azure AD?
 
@@ -66,7 +66,7 @@ After you choose your Azure AD license, you'll get access to some or all of the 
 |Application management|Manage your cloud and on-premises apps using Application Proxy, single sign-on, the My Apps portal (also known as the Access panel), and Software as a Service (SaaS) apps. For more information, see [How to provide secure remote access to on-premises applications](../manage-apps/application-proxy.md) and [Application Management documentation](../manage-apps/index.yml).|
 |Authentication|Manage Azure Active Directory self-service password reset, Multi-Factor Authentication, custom banned password list, and smart lockout. For more information, see [Azure AD Authentication documentation](../authentication/index.yml).|
 |Azure Active Directory for developers|Build apps that sign in all Microsoft identities, get tokens to call Microsoft Graph, other Microsoft APIs, or custom APIs. For more information, see [Microsoft identity platform (Azure Active Directory for developers)](../develop/index.yml).|
-|Business-to-Business (B2B)|Manage your guest users and external partners, while maintaining control over your own corporate data. For more information, see [Azure Active Directory B2B documentation](../b2b/index.yml).|
+|Business-to-Business (B2B)|Manage your guest users and external partners, while maintaining control over your own corporate data. For more information, see [Azure Active Directory B2B documentation](../external-identities/index.yml).|
 |Business-to-Customer (B2C)|Customize and control how users sign up, sign in, and manage their profiles when using your apps. For more information, see [Azure Active Directory B2C documentation](../../active-directory-b2c/index.yml).|
 |Conditional Access|Manage access to your cloud apps. For more information, see [Azure AD Conditional Access documentation](../conditional-access/index.yml).|
 |Device Management|Manage how your cloud or on-premises devices access your corporate data. For more information, see [Azure AD Device Management documentation](../devices/index.yml).|
