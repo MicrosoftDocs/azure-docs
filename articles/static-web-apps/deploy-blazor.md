@@ -94,7 +94,7 @@ The Static Web Apps overview window displays a series of links that help you int
 
 2. Once GitHub Actions workflow is complete, you can click on the _URL_ link to open the website in new tab.
 
-:::image type="content" source="./media/deploy-blazor/static-blazor-web-site.png" alt-text="Blazor starter website":::
+:::image type="content" source="./media/deploy-blazor/static-blazor-website.png" alt-text="Blazor starter website":::
 
 ## Clean up resources
 
