@@ -191,7 +191,7 @@ AzureDiagnostics 
 | where  OperationName startswith "SqlContainersThroughputUpdate"
 ```
 
-Query to get the logs corresponding to the caller and the activityId when a container is deleted:
+Query to get the activityId and the caller who initiated the container delete operation:
 
 ```kusto
 (AzureDiagnostics

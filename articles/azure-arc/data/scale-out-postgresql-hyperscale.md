@@ -4,8 +4,8 @@ description: Scale out your Azure Database for PostgreSQL Hyperscale server grou
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-author: twright-msft
-ms.author: twright
+author: TheJY
+ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 08/04/2020
 ms.topic: how-to
@@ -13,14 +13,14 @@ ms.topic: how-to
 
 # Scenario: Scale out your Azure Database for PostgreSQL Hyperscale server group
 
-These instructions utilize the PostgreSQL server group that was [provisioned in an earlier guide](https://github.com/microsoft/Azure-data-services-on-Azure-Arc/blob/ctp2.0/scenarios/004-create-pghsaa-instance.md).
+The instructions refer to the PostgreSQL server group that was [provisioned in an earlier guide](https://github.com/microsoft/Azure-data-services-on-Azure-Arc/blob/ctp2.0/scenarios/004-create-pghsaa-instance.md).
 
 >[!NOTE]
 > It is not yet possible to scale back in, i.e. reduce the number of worker nodes. If you need to do so, you need to extract the data, drop the server group, create a new server group with less worker nodes and then import the data.
 
 ## Load test data
 
-First of all, to test scaling out, its helpful to have test data. We utilize a sample of publicly available GitHub data, available from the Citus Data website (Citus Data is part of Microsoft).
+We use a sample of publicly available GitHub data, available from the Citus Data website (Citus Data is part of Microsoft).
 
 Let's connect to our database by first getting the connection information:
 
@@ -43,7 +43,7 @@ Metrics Dashboard     https://52.152.248.25:30777/grafana/d/postgres-metrics?var
 
 Now, connect to the Postgres instance using Azure Data Studio.
 
-Open a new query window and run the following query to verify that we currently have two or more Hyperscale worker nodes, each corresponding to a Kubernetes pod:
+Run the following query to verify that we currently have two or more Hyperscale worker nodes, each corresponding to a Kubernetes pod:
 
 ```sql
 SELECT * FROM pg_dist_node;
@@ -84,14 +84,14 @@ CREATE TABLE github_users
 );
 ```
 
-On the payload field of events we have a JSONB datatype. JSONB is the JSON datatype in binary form in Postgres. This makes it easy to store a more flexible schema in a single column and with Postgres we can create a GIN index on this which will index every key and value within it. With a GIN index it becomes fast and easy to query with various conditions directly on that payload. So we’ll go ahead and create a couple of indexes before we load our data:
+JSONB is the JSON datatype in binary form in PostgreSQL. Store a flexible schema in a single column and with PostgreSQL. The schema will have a GIN index on it to index every key and value within it. With a GIN index, it becomes fast and easy to query with various conditions directly on that payload. So we’ll go ahead and create a couple of indexes before we load our data:
 
 ```sql
 CREATE INDEX event_type_index ON github_events (event_type);
 CREATE INDEX payload_index ON github_events USING GIN (payload jsonb_path_ops);
 ```
 
-Next we’ll actually take those standard Postgres tables and tell Postgres to shard them out. To do so we’ll run a query for each table. With this query we’ll specify the table we want to shard, as well as the key we want to shard it on. In this case we’ll shard both the events and users table on user_id:
+To shard standard tables, run a query for each table. Specify the table we want to shard, and the key we want to shard it on. We’ll shard both the events and users table on user_id:L
 
 ```sql
 SELECT create_distributed_table('github_events', 'user_id');
@@ -130,7 +130,7 @@ azdata arc postgres server edit -n <name of your postgresql server group> -ns <n
 #azdata arc postgres server edit -n postgres01 -ns arc -w 4
 ```
 
-This will first start adding the nodes, and you'll see a Pending state for the server group:
+First start adding the nodes, and you'll see a Pending state for the server group:
 
 ```console
 azdata arc postgres server list
@@ -163,9 +163,9 @@ SELECT * FROM pg_dist_node;
 (4 rows)
 ```
 
-And now the same count query can be performed across the four worker nodes, without any changes in the SQL statement.
+The same count query can be used across the four worker nodes, without any changes in the SQL statement.
 
-If you deploy on a single VM for testing this likely has similar runtime as before, if you deploy on a production-sized multi-node cluster, the performance should have improved:
+A single VM will likely have a similar runtime as before. If you deploy on a production-sized multi-node cluster, the performance should have improved:
 
 ```sql
 SELECT COUNT(*) FROM github_events;
