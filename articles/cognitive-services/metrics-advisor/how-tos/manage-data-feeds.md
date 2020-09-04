@@ -12,13 +12,9 @@ ms.date: 08/28/2020
 ms.author: aahi
 ---
 
-# How to: Manage the data feed
+# How to: Manage your data feeds
 
 Learn how to create and manage data feeds in Metrics Advisor. This article guides you through managing data feeds in Metrics Monitor.
-
-## Manage your data feed
-
-After creating your data feed, use these features to manage and customize it.
 
 ## Automatic roll up settings
 

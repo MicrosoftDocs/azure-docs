@@ -54,7 +54,8 @@ The workflow is simple: after onboarding your data, you can fine-tune the anomal
     1. Onboard your data
     2. Fine-tune anomaly detection
     3. Subscribe to alerts
-4. Use the REST API or Client libraries to customize your instance.
+    4. View diagnostic insights
+1. Use the REST API or Client libraries to customize your instance.
 
 ## Next Steps
 

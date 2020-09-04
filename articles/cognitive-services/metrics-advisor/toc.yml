@@ -9,7 +9,7 @@
   items:
   - name: Use the web portal
     href: quickstarts/web-portal.md
-  - name: Use the Client library or REST API
+  - name: Use the REST API
     href: quickstarts/rest-api-and-client-library.md
   - name: Explore the demo site
     href: quickstarts/explore-the-demo.md

@@ -16,14 +16,11 @@ ms.author: aahi
 ## Prerequisites
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
-* Once you have your Azure subscription, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Create a [Product Name] resource"  target="_blank">create a [Product Name] resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> in the Azure portal to get your key and endpoint. Wait for it to deploy and click the **Go to resource** button.
+* Once you have your Azure subscription, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Create a Metrics Advisor resource"  target="_blank">create a Metrics Advisor resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> in the Azure portal to get your key and endpoint. Wait for it to deploy and click the **Go to resource** button.
     You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
-
-* In the overview page of [Product Name] you've created, you can get Web portal and API endpoint.
-* Select **Keys and Endpoint** in left menu to get the resource key,  In the following code, replace {REPLACE-WITH-YOUR-RESOURCE-KEY} with this resource key.
-* Open web portal of [Product Name] and select **API keys** in left menu to get the api key.In the following code, replace {REPLACE-WITH-YOUR-API-KEY} with this api key. 
-
-* The current version of [cURL](https://curl.haxx.se/). Several command-line switches are used in the quickstarts, which are noted in the [cURL documentation](https://curl.haxx.se/docs/manpage.html).
+* In the overview page of Metrics Advisor resource you've created, you can get Web portal and API endpoint.
+    * Select **Keys and Endpoint** in left menu to get the resource key,  In the following code, replace `REPLACE-WITH-YOUR-RESOURCE-KEY` with this key.
+* The current version of [cURL](https://curl.haxx.se/). Several command-line switches are used in this article, which are noted in the [cURL documentation](https://curl.haxx.se/docs/manpage.html).
 
 > [!CAUTION]
 > The following BASH examples use the `\` line continuation character. If you console or terminal uses a different line continuation character, use this character.
