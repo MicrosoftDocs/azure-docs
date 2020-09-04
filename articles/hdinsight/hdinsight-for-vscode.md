@@ -241,12 +241,9 @@ The tool also supports the **Spark SQL** query:
 
     ![add #%%](./media/hdinsight-for-vscode/run-cell.png)
 
-2. Click on **Run Cell**. After a few moments, the Python Interactive results appear in a new tab.
+2. Click on **Run Cell**. After a few moments, the Python Interactive results appear in a new tab. Click on PySpark to switch the kernel to PySpark/Synapse PySpark, then, click on **Run Cell** again, and the code will run successfully.
 
    ![run cell results](./media/hdinsight-for-vscode/run-cell-get-results.png)
-
-   > [!NOTE]  
-   > When the kernel or settings mess up, use the **Python: Select Interpreter to start Jupyter server** command and **Restart IPython kernel**, then reload the VSCode, it can be solved.
 
 ## Leverage IPYNB support from Python extension
 
@@ -296,13 +293,13 @@ The tool also supports the **Spark SQL** query:
 
 4. [Connect](#connect-to-an-azure-account) to your Azure account, or link a cluster if you haven't yet done so.
 
-5. Right-click the script editor, and then select **Spark: PySpark Batch**, or use the Ctrl+Alt+H keyboard shortcut.
+5. Right-click the script editor, and then select **Spark: PySpark Batch**, or **Synapse: PySpark Batch***.
 
-6. Select a cluster to submit your PySpark job to:
+6. Select a cluster/spark pool to submit your PySpark job to:
 
    ![Submit Python job result output](./media/hdinsight-for-vscode/submit-pythonjob-result.png)
 
-After you submit a Python job, submission logs appear in the **OUTPUT** window in Visual Studio Code. The Spark UI URL and Yarn UI URL are also shown. You can open the URL in a web browser to track the job status.
+After you submit a Python job, submission logs appear in the **OUTPUT** window in Visual Studio Code. The Spark UI URL and Yarn UI URL are also shown. If you submit the batch job to an Apache Spark pool, the Saprk history UI URL and the Spark Job Application UI URL are also shown. You can open the URL in a web browser to track the job status.
 
 ## Integrate with HDInsight Identity Broker (HIB)
 
