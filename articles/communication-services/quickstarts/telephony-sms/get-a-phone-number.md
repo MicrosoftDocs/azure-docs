@@ -35,7 +35,7 @@ Navigate to the Phone Numbers blade in the resource menu:
 
 Press the **Get** button to launch the wizard. The wizard on the "Phone numbers" blade will walk you through a series of questions that allows you to get the phone number that best fits your scenario. 
 
-When you start selecting the number, you'll select the [Number Type](../../concepts/telephony-and-sms/plan-your-telephony-and-SMS-solution.md#phone-number-types-in-microsoft-direct-offer) and [Plans](../../concepts/telephony-and-sms/plan-your-telephony-and-SMS-solution.md#phone-number-types-in-microsoft-direct-offer) according to your needs.
+When you start selecting the number, you'll select the [Number Type](../../concepts/telephony-sms/plan-your-telephony-and-SMS-solution.md#phone-number-types-in-microsoft-direct-offer) and [Plans](../../concepts/telephony-sms/plan-your-telephony-and-SMS-solution.md#phone-number-types-in-microsoft-direct-offer) according to your needs.
 
 <!-- TODO: high res version of this: ![Search experience](../media/quickstart-search-and-acquire-main-page.png) -->
 
@@ -113,5 +113,5 @@ In this quickstart you learned how to:
 > * Release a phone number
 
 > [!div class="nextstepaction"]
-> [Send an SMS](../telephony-and-sms/send-sms.md)
-> [Get started with calling](../voice-and-video-calling/getting-started-with-calling.md)
+> [Send an SMS](../telephony-sms/send-sms.md)
+> [Get started with calling](../voice-video-calling/getting-started-with-calling.md)

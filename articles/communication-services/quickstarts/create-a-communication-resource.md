@@ -12,11 +12,11 @@ ms.service: azure-communication-services
 zone_pivot_groups: acs-plat-azp-net
 ---
 
-# Quickstart: Create and manage Communication Services resources
+# Quickstart: Create and manage Communication Services accounts
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
-Get started with Azure Communication Services by provisioning your first Communication Services resource. Communication services resources can be provisioned through the Azure portal or with the .NET management SDK. The management SDK allows you to create, configure, update and delete your resources and interfaces with [Azure Resource Manager (ARM)](https://docs.microsoft.com/azure/azure-resource-manager/management/overview), Azure's deployment and management service. All functionality available in the SDKs is available in the Azure portal. 
+Get started with Azure Communication Services by provisioning your first Communication Services account. Communication services accounts can be provisioned through the Azure portal or with the .NET management SDK. The management SDK allows you to create, configure, update and delete your account and interfaces with [Azure Resource Manager (ARM)](https://docs.microsoft.com/azure/azure-resource-manager/management/overview), Azure's deployment and management service. All functionality available in the SDKs is available in the Azure portal. 
 
 > [!WARNING]
 > Note that Communication Services availability is restricted to the US geography during public preview. Also note that communication resources cannot be transferred to a different subscription during public preview.
@@ -33,7 +33,7 @@ Get started with Azure Communication Services by provisioning your first Communi
 
 Connection strings allow the Communication Services SDKs to connect and authenticate to Azure. You can access your Communication Services connection strings and service endpoints from the Azure portal or programmatically with Azure Resource Management (ARM) APIs. 
 
-After navigating to your Communication Services resource, select **Keys** from the navigation menu and copy the **Connection string** or **Endpoint** values for usage by the Communication Services SDKs. Note that you have access to primary and secondary keys. This can be useful in scenarios where you would like to provide temporary access to your Communication Services resources to a third party or staging environment.
+After navigating to your Communication Services resource, select **Keys** from the navigation menu and copy the **Connection string** or **Endpoint** values for usage by the Communication Services SDKs. Note that you have access to primary and secondary keys. This can be useful in scenarios where you would like to provide temporary access to your Communication Services accounts to a third party or staging environment.
 
 ![Screenshot of Communication Services Key page.](./media/key.png)
 
@@ -83,9 +83,9 @@ After you add the environment variable, run `source ~/.bash_profile` from your c
 If you created the environment variable with your IDE open, you may need to close and reopen the editor, IDE, or shell in order to access the variable.
 
 
-## Clean up resources
+## Clean up accounts
 
-If you want to clean up and remove a Communication Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. You can find out more about cleaning up resources [here](./create-a-communication-resource.md#clean-up-resources).
+If you want to clean up and remove a Communication Services subscription, you can delete the account or resource group. Deleting the resource group also deletes any other resources associated with it. You can find out more about cleaning up resources [here](./create-a-communication-resource.md#clean-up-resources).
 
 If you have any phone numbers assigned to your resource upon resource deletion, the phone numbers will be released from your account automatically at the same time. 
 
@@ -95,10 +95,10 @@ If you have any phone numbers assigned to your resource upon resource deletion, 
 In this quickstart you learned how to:
 
 > [!div class="checklist"]
-> * Create a Communication Services resource
+> * Create a Communication Services account
 > * Configure resource geography and tags
-> * Access the keys for that resource
-> * Delete the resource
+> * Access the keys for that account
+> * Delete the account
 
 
 > [!div class="nextstepaction"]

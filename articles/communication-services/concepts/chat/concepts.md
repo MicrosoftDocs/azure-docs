@@ -15,13 +15,13 @@ ms.service: azure-communication-services
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
-Azure Communication Services Chat SDKs can be used to add rich, real-time chat to your applications. These SDKs give you access to the same technology that powers Skype and Teams without requiring you to manage the underlying infrastructure yourself.
+Azure Communication Services Chat SDKs can be used to add real-time text chat to your applications. This page summarizes key concepts and capabilities in the Chat system.
 
-See the [Communication Services chat SDK Overview](./chat-sdk-features.md) to learn more about SDK capabilities.
+See the [Communication Services Chat SDK Overview](./chat-sdk-features.md) to learn more about specific SDK languages and capabilities.
 
 ## Chat Overview 
 
-A chat conversation is represented by a chat thread. A chat thread can contain many messages and many users. Every message belongs uniquely to a thread, and a user can be part of one or many threads. 
+The core of chat are individual chat threads. A chat thread can contain many messages and many users. Every message belongs uniquely to a thread, and a user can be part of one or many threads. 
 
 Each user in the chat thread is a called member. You can have up to 250 members in a chat thread. Only thread members can send and receive messages in a chat thread. Max message size allowed is approximately 28KB. Communication Services stores chat history until you execute a delete operation on the chat thread. You can retrieve all messages in a chat thread using the `List Messages` operation.
 
@@ -37,19 +37,19 @@ Apart from messages being sent by members in chat thread, Chat also exposes syst
 ```xml
 <addmember>
     <eventtime>1598478187549</eventtime>
-    <initiator>8:acs:57b9bac9-df6c-4d39-a73b-26e944adf6ea_3f0116-7c009490dc</initiator>
+    <initiator>8:acs:57b9bac9-df6c-4d39-a73b-26e944adf6ea_0e59221d-0c1d-46ae-9544-c963ce56c10b</initiator>
     <detailedinitiatorinfo>
         <friendlyName>User 1</friendlyName>
     </detailedinitiatorinfo>
     <rosterVersion>1598478184564</rosterVersion>
-    <target>8:acs:57b9bac9-df6c-4d39-a73b-26e944adf6ea_3f0116-7c009490dc</target>
+    <target>8:acs:57b9bac9-df6c-4d39-a73b-26e944adf6ea_0e59221d-0c1d-46ae-9544-c963ce56c10b</target>
     <detailedtargetinfo>
-        <id>8:acs:57b9bac9-df6c-4d39-a73b-26e944adf6ea_3f0116-7c009490dc</id>
+        <id>8:acs:57b9bac9-df6c-4d39-a73b-26e944adf6ea_0e59221d-0c1d-46ae-9544-c963ce56c10b</id>
         <friendlyName>User 1</friendlyName>
     </detailedtargetinfo>
-    <target>8:acs:57b9bac9-df6c-4d39-a73b-26e944adf6ea_4b0143-7c019490d3</target>
+    <target>8:acs:57b9bac9-df6c-4d39-a73b-26e944adf6ea_8540c0de-899f-5cce-acb5-3ec493af3800</target>
     <detailedtargetinfo>
-        <id>8:acs:57b9bac9-df6c-4d39-a73b-26e944adf6ea_4b0143-7c019490d3</id>
+        <id>8:acs:57b9bac9-df6c-4d39-a73b-26e944adf6ea_8540c0de-899f-5cce-acb5-3ec493af3800</id>
         <friendlyName>User 2</friendlyName>
     </detailedtargetinfo>
 </addmember>
@@ -59,14 +59,14 @@ Apart from messages being sent by members in chat thread, Chat also exposes syst
 ```xml
 <deletemember>
     <eventtime>1598478187642</eventtime>
-    <initiator>8:acs:57b9bac9-df6c-4d39-a73b-26e944adf6ea_3f0116-7c009490dc</initiator>
+    <initiator>8:acs:57b9bac9-df6c-4d39-a73b-26e944adf6ea_0e59221d-0c1d-46ae-9544-c963ce56c10b</initiator>
     <detailedinitiatorinfo>
         <friendlyName>User 1</friendlyName>
     </detailedinitiatorinfo>
     <rosterVersion>1598478184564</rosterVersion>
-    <target>8:acs:57b9bac9-df6c-4d39-a73b-26e944adf6ea_4b0143-7c019490d3</target>
+    <target>8:acs:57b9bac9-df6c-4d39-a73b-26e944adf6ea_8540c0de-899f-5cce-acb5-3ec493af3800</target>
     <detailedtargetinfo>
-        <id>8:acs:57b9bac9-df6c-4d39-a73b-26e944adf6ea_4b0143-7c019490d3</id>
+        <id>8:acs:57b9bac9-df6c-4d39-a73b-26e944adf6ea_8540c0de-899f-5cce-acb5-3ec493af3800</id>
         <friendlyName>User 2</friendlyName>
     </detailedtargetinfo>
 </deletemember>
@@ -76,14 +76,14 @@ Apart from messages being sent by members in chat thread, Chat also exposes syst
 ```xml
 <topicupdate>
     <eventtime>1598477591811</eventtime>
-    <initiator>8:acs:57b9bac9-df6c-4d39-a73b-26e944adf6ea_3f0116-7c009490dc</initiator>
+    <initiator>8:acs:57b9bac9-df6c-4d39-a73b-26e944adf6ea_0e59221d-0c1d-46ae-9544-c963ce56c10b</initiator>
     <value>New topic</value>
 </topicupdate>
 ```
 
 ## Real-time Signaling Events 
 
-Chat JS SDK comes with real-time signaling features which allows clients to listen for live updates to a chat thread, without having to poll the APIs. The available events are:
+The Chat JavaScript SDK includes real-time signaling features which allows clients to listen for real-time updates to a chat thread, without having to poll the APIs. Available events include:
 
  - `ChatMessageReceived` - when a new message is sent to a chat thread that the user is member of. This event is not sent for auto generated system messages which we discussed in the previous topic.  
  - `ChatMessageEdited` - when a message is edited in a chat thread that the user is member of. 
@@ -97,16 +97,16 @@ There are two core parts to chat architecture: 1) Trusted Service and 2) Client 
 
 ![Architecture Diagram](../../media/chat-architecture.png)
 
- - **Trusted Service:** In order to properly manage the chat session, you'll need a central service that will set up the chat session with Communication Services. In order to set up the session you'll need to pass through the full connection string, so it is preferable (and secure) to do this in a trusted environment. This service then will perform the following functions:
+ - **Trusted Service:** To properly manage the chat session, you need a central service that will set up the chat session with Communication Services. In order to set up the session you'll need to pass through the full connection string, so it is preferable (and secure) to do this in a trusted environment. This service then will perform the following functions:
     - Create chat threads
     - Add/remove users from chat threads
     - Pass access tokens for chat thread to users. More information on access tokens [here](../../quickstarts/user-access-tokens.md)
 
- - **Client App:** A key aspect of a chat application is the user experience for chat participants to send and receive messages. Here you have the freedom to use your choice of frontend experience using Communication Services chat client SDKs. The client app will need to perform some core functions:
+ - **Client App:** A key aspect of a chat application is the end-user experience for sending and receiving messages and you have complete freedom over this front-end experience. The client app will need to perform two core functions:
     - Connect to your trusted service to receive required access tokens
-    - Connect directly to Communication Services to send and receive messages
+    - Connect directly to Communication Services to send and receive messages using these tokens
 
-![CS Architecture Diagram](../../media/chat-cognitive-service.png)
+<!--todo: higher res image of this ![CS Architecture Diagram](../../media/chat-cognitive-service.png) -->
 
 ## Next steps
 

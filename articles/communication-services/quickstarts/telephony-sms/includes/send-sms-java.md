@@ -4,6 +4,7 @@ description: include file
 services: azure-communication-services
 author: chrwhit
 manager: nimag
+
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
 ms.date: 08/20/2020
@@ -104,12 +105,12 @@ public class App
 
 The following classes and interfaces handle some of the major features of the Azure Communication Services SMS SDK for Java.
 
-| Name                                        | Description                                                  |
-| ------------------------------------------- | ------------------------------------------------------------ |
-| [SmsClientBuilder](../../../references/overview.md)| This class creates the SmsClient. You provide it with endpoint, credential, and an http client.
-| [SmsClient](../../../references/overview.md)       | This class is needed for all SMS functionality. You use it to send SMS messages. 
-| [SendSmsResponse](../../../references/overview.md) | This class contains the response from the SMS service.
-| [CommunicationClientCredential](../../../references/overview.md)| This class handles signing requests.
+| Name                                                             | Description                                                                                     |
+| ---------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| [SmsClientBuilder](../../../references/overview.md)              | This class creates the SmsClient. You provide it with endpoint, credential, and an http client. |
+| [SmsClient](../../../references/overview.md)                     | This class is needed for all SMS functionality. You use it to send SMS messages.                |
+| [SendSmsResponse](../../../references/overview.md)               | This class contains the response from the SMS service.                                          |
+| [CommunicationClientCredential](../../../references/overview.md) | This class handles signing requests.                                                            |
 
 ## Authenticate the client
 
@@ -132,7 +133,7 @@ SmsClient client = new SmsClientBuilder()
     .buildClient();
 ```
 
-You can initialize the client with any custom HTTP client the implements the `com.azure.core.http.HttpClient` interface. The above code demonstrates use of the [Azure Core Netty HTTP client](https://docs.microsoft.com/en-us/java/api/overview/azure/core-http-netty-readme?view=azure-java-stable) that is provided by `azure-core`.
+You can initialize the client with any custom HTTP client the implements the `com.azure.core.http.HttpClient` interface. The above code demonstrates use of the [Azure Core Netty HTTP client](https://docs.microsoft.com/java/api/overview/azure/core-http-netty-readme?view=azure-java-stable) that is provided by `azure-core`.
 
 ## Send an SMS message
 
@@ -157,7 +158,7 @@ SendSmsResponse response = smsClient.sendMessage(
 System.out.println("MessageId: " + response.getMessageId());
 ```
 
-You should replace `<leased-phone-number>` with an SMS enabled phone number associated with your Communication Services resource and `<to-phone-number>` with the phone number you wish to send a message to. All phone number parameters should adhere to the [E.164 standard](../../../concepts/telephony-and-sms/plan-your-telephony-and-sms-solution.md#optional-reading-international-public-telecommunication-numbering-plan-e164).
+You should replace `<leased-phone-number>` with an SMS enabled phone number associated with your Communication Services resource and `<to-phone-number>` with the phone number you wish to send a message to. All phone number parameters should adhere to the [E.164 standard](../../../concepts/telephony-sms/plan-solution.md#optional-reading-international-public-telecommunication-numbering-plan-e164).
 
 The `enableDeliveryReport` parameter is an optional parameter that you can use to configure Delivery Reporting. This is useful for scenarios where you want to emit events when SMS messages are delivered. See the [Handle SMS Events](../handle-sms-events.md) quickstart to configure Delivery Reporting for your SMS messages.
 

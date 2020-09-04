@@ -35,10 +35,10 @@ The following list presents the set of features which are currently available in
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Get started with sending sms](../../quickstarts/telephony-and-sms/send-sms.md)
+> [Get started with sending sms](../../quickstarts/telephony-sms/send-sms.md)
 
 The following documents may be interesting to you:
 
-- Familiarize yourself with general [SMS concepts](../telephony-and-sms/sms-concepts.md)
-- Get an SMS capable [phone number](../../quickstarts/telephony-and-sms/get-a-phone-number.md)
-- [Plan your SMS solution](../telephony-and-sms/plan-your-telephony-and-SMS-solution.md)
+- Familiarize yourself with general [SMS concepts](../telephony-sms/sms-concepts.md)
+- Get an SMS capable [phone number](../../quickstarts/telephony-sms/get-a-phone-number.md)
+- [Plan your SMS solution](../telephony-sms/plan-your-telephony-and-SMS-solution.md)
