@@ -60,7 +60,7 @@
           href: create-data-controller-azure-data-studio.md
         - name: Create data controller (azdata)
           href: create-data-controller-using-azdata.md
-        - name: Create data controler (Kubernetes tools)
+        - name: Create data controller (Kubernetes tools)
           href: create-data-controller-using-k8s-native-tools.md
         - name: Monitor with dashboards (Azure Data Studio)
           href: azure-data-studio-dashboards.md
@@ -74,7 +74,7 @@
           href: uninstall-azure-arc-data-controller.md
         - name: Uninstall client tools update
           href: uninstall-update-client-tools.md
-- name: Azure SQL Datatabase for PostgreSQL enabled for Azure Arc (preview) 
+- name: Azure SQL Database for PostgreSQL enabled for Azure Arc (preview) 
   items:
     - name: How-to
       items:
