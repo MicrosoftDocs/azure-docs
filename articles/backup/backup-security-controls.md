@@ -16,8 +16,9 @@ This article documents the security controls built into Azure Backup.
 |---|---|--|--|
 | Service endpoint support| No |  |  |
 | VNet injection support| No |  |  |
-| Network isolation and firewalling support| Yes | Forced tunneling is supported for VM backup. Forced tunneling isn't supported for workloads running inside VMs. |  |
-| Forced tunneling support| No |  |  |
+| Network isolation and firewalling support| Yes | |  |
+| Forced tunneling support for Azure VMs | Yes  |  |  |
+| Forced tunneling support for applications running inside Azure VMs| No  |  |  |
 
 ## Monitoring & logging
 

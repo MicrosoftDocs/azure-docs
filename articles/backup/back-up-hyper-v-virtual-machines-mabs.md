@@ -73,7 +73,7 @@ These are the prerequisites for backing up Hyper-V virtual machines with MABS:
 
 2. Set up the MABS protection agent on the Hyper-V server or Hyper-V cluster nodes. If you're doing guest-level backup, you'll install the agent on the VMs you want to back up at the guest-level.
 
-3. In  the MABS Administrator console, click **Protection** > **Create protection group** to open the **Create New Protection Group** wizard.
+3. In  the MABS Administrator console, select **Protection** > **Create protection group** to open the **Create New Protection Group** wizard.
 
 4. On the **Select Group Members** page, select the VMs you want to protect from the Hyper-V host servers on which they're located. We recommend you put all VMs that will have the same protection policy into one protection group. To make efficient use of space, enable colocation. Colocation allows you to locate data from different protection groups on the same disk or tape storage, so that multiple data sources have a single replica and recovery point volume.
 
@@ -105,7 +105,7 @@ If MABS is running on Windows Server 2012 R2 or greater, then you can back up re
 
 **Enables hoster backup** - You can use a hosted datacenter as a replica site, with no need for a secondary datacenter. In this case, the hoster SLA requires consistent backup of replica virtual machines.
 
-A replica virtual machine is turned off until a failover is initiated, and VSS can't guarantee an application-consistent backup for a replica virtual machine. Thus the backup of a replica virtual machine will be crash-consistent only. If crash-consistency can't be guaranteed, then the backup will fail and this might occur in a number of conditions:
+A replica virtual machine is turned off until a failover is initiated, and VSS can't guarantee an application-consistent backup for a replica virtual machine. So the backup of a replica virtual machine will be crash-consistent only. If crash-consistency can't be guaranteed, then the backup will fail and this might occur in a number of conditions:
 
 - The replica virtual machine isn't healthy and is in a critical state.
 
@@ -123,13 +123,13 @@ When you can recover a backed up virtual machine, you use the Recovery wizard to
 
 1. In the MABS Administrator console, type the name of the VM, or expand the list of protected items and select the VM you want to recover.
 
-2. In the **Recovery points for** pane, on the calendar, click any date to see the recovery points available. Then in the **Path** pane, select the recovery point you want to use in the Recovery wizard.
+2. In the **Recovery points for** pane, on the calendar, select any date to see the recovery points available. Then in the **Path** pane, select the recovery point you want to use in the Recovery wizard.
 
-3. From the **Actions** menu, click **Recover** to open the Recovery Wizard.
+3. From the **Actions** menu, select **Recover** to open the Recovery Wizard.
 
-    The VM and recovery point you selected appear in the **Review Recovery Selection** screen. Click **Next**.
+    The VM and recovery point you selected appear in the **Review Recovery Selection** screen. Select **Next**.
 
-4. On the **Select Recovery Type** screen, select where you want to restore the data and then click **Next**.
+4. On the **Select Recovery Type** screen, select where you want to restore the data and then select **Next**.
 
     - **Recover to original instance**: When you recover to the original instance, the original VHD is deleted. MABS recovers the VHD and other configuration files to the original location using Hyper-V VSS writer. At the end of the recovery process, virtual machines are still highly available.
         The resource group must be present for recovery. If it isn't available, recover to an alternate location and then make the virtual machine highly available.
@@ -138,13 +138,13 @@ When you can recover a backed up virtual machine, you use the Recovery wizard to
 
     - **Copy to a network folder**: MABS supports item-level recovery (ILR), which allows you to do item-level recovery of files, folders, volumes, and virtual hard disks (VHDs) from a host-level backup of Hyper-V virtual machines to a network share or a volume on a MABS protected server. The MABS protection agent doesn't have to be installed inside the guest to perform item-level recovery. If you choose this option, the Recovery Wizard presents you with an additional screen for identifying the destination and destination path.
 
-5. In **Specify Recovery Options** configure the recovery options and click **Next**:
+5. In **Specify Recovery Options** configure the recovery options and select **Next**:
 
-    - If you are recovering a VM over low bandwidth, click **Modify** to enable **Network bandwidth usage throttling**. After turning on the throttling option, you can specify the amount of bandwidth you want to make available and the time when that bandwidth is available.
-    - Select **Enable SAN based recovery using hardware snapshots** if you have configured your network.
+    - If you are recovering a VM over low bandwidth, select **Modify** to enable **Network bandwidth usage throttling**. After turning on the throttling option, you can specify the amount of bandwidth you want to make available and the time when that bandwidth is available.
+    - Select **Enable SAN based recovery using hardware snapshots** if you've configured your network.
     - Select **Send an e-mail when the recovery completes** and then provide the email addresses, if you want email notifications sent once the recovery process completes.
 
-6. In the Summary screen, make sure all details are correct. If the details aren't correct, or you want to make a change, click **Back**. If you're satisfied with the settings, click **Recover** to start the recovery process.
+6. In the Summary screen, make sure all details are correct. If the details aren't correct, or you want to make a change, select **Back**. If you're satisfied with the settings, select **Recover** to start the recovery process.
 
 7. The **Recovery Status** screen provides information about the recovery job.
 
