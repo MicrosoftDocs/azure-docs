@@ -4,19 +4,44 @@
   items:
     - name: What are Azure Arc enabled data services
       href: overview.md
+    - name: Release notes
+    - name: Architecture
 - name: Quickstarts
   items:
-    - name: Install client tools
-      href: install-client-tools.md
-    - name: Create data controller
+    - name: Prerequisites
+    - name: Deploy data controller
       href: create-data-controller.md
+    - name: Deploy Managed Instance (Jumpstart)
+    - name: Deploy PostgreSQL (Jumpstart)
+- name: How-to guides
+  items:
+    - name: Install tools
+      items:
+      - name: Install client tools
+        href: install-client-tools.md
+      - name: azdata
+        items:
+        - name: Install
+          href: /sql/azdata/install/deploy-install-azdata?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
+        - name: macOS
+          href: /sql/azdata/install/deploy-install-azdata-macos?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
+        - name: Windows
+          href: /sql/azdata/install/deploy-install-azdata-installer?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
+        - name: Linux with apt
+          href: /sql/azdata/install/deploy-install-azdata-linux-package?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
+        - name: Linux with yum
+          href: /sql/azdata/install/deploy-install-azdata-yum?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
+        - name: Linux with zypper
+          href: /sql/azdata/install/deploy-install-azdata-zypper?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
+        - name: Linux with pip
+          href: /sql/azdata/install/deploy-install-azdata-pip?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
     - name: Create SQL Managed Instance
       href: create-sql-managed-instance.md
     - name: Create PostgreSQL Instance
       href: create-postgresql-instances.md
     - name: Extend PostgreSQL SingleNode
       href: postgresql-extend-single-node-to-hyperscale.md
-    - name: Scale out PostgreSQL to hyper Scale
+    - name: Scale out PostgreSQL to Hyperscale
       href: scale-out-postgresql-hyperscale.md
 - name: Concepts
   items:
