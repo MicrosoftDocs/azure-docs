@@ -19,7 +19,7 @@ You may be in a situation where you need to retrieve the user name and password 
 azdata login
 ```
 
-If you are the Kubernestes administrator for the cluster. As such you have the privileges to run commands to retrieve from the Kubernetes secret stores the information that Azure Arc persists there.
+If you are the Kubernetes administrator for the cluster. As such you have the privileges to run commands to retrieve from the Kubernetes secret stores the information that Azure Arc persists there.
 
 > [!NOTE]
 >  If you used a different name for the namespace where the data controller was deployed, be sure to change the `-n arc` parameter in the commands below to use the name of the namespace that you deployed the data controller to.
