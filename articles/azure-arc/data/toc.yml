@@ -8,7 +8,6 @@
       href: release-notes.md
 - name: Quickstarts
   items:
-    - name: Prerequisites
     - name: Deploy data controller
       href: create-data-controller.md
     - name: Deploy Managed Instance (Jumpstart)
@@ -77,9 +76,6 @@
           href: uninstall-update-client-tools.md
 - name: Azure SQL Datatabase for PostgreSQL enabled for Azure Arc (preview) 
   items:
-    - name: Overview
-    - name: Concepts
-    - name: Quickstarts
     - name: How-to
       items:
       - name: Extend single-node to Hyperscale
@@ -114,8 +110,6 @@
       items:
       - name: Features
         href: managed-instance-features.md
-    - name: Concepts
-    - name: Quickstarts
     - name: How-to
       items:
         - name: Configure
