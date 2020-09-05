@@ -5,7 +5,7 @@
     - name: What are Azure Arc enabled data services
       href: overview.md
     - name: Release notes
-    - name: Architecture
+      href: release-notes.md
 - name: Quickstarts
   items:
     - name: Prerequisites

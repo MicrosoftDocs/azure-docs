@@ -165,7 +165,7 @@ The table below lists the paths inside the Azure SQL Managed Instance container 
 
 |Parameter name, short name|Path inside mssql-miaa container|Description|
 |---|---|---|
-|`--storage-class-data`, `-scd`|/var/opt|Contains directories for the mssql installation and other system processes. The mssql directory contains default data (including transaction logs), errorlog & backup directories|
+|`--storage-class-data`, `-scd`|/var/opt|Contains directories for the mssql installation and other system processes. The mssql directory contains default data (including transaction logs), error log & backup directories|
 |`--storage-class-logs`, `-scl`|/var/log|Contains directories that store console output (stderr, stdout), other logging information of processes inside the container|
 
 The table below lists the paths inside the PostgreSQL instance container that is mapped to the persistent volume for data and logs:
