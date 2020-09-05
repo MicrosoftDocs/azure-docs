@@ -11,35 +11,31 @@ ms.date: 08/04/2020
 ms.topic: how-to
 ---
 
-# Scenario: Create an Azure Arc data controller in the Azure portal
+# Create an Azure Arc data controller in the Azure portal
 
-> [!NOTE]
-> This scenario is not completed end:end yet, but you can start to try out the experience and provide us feedback on it.
+## Introduction
 
-## Connectivity Modes
+You can use the Azure Portal to deploy an Azure Arc data controller.
 
-- **Indirectly connected** - There is no direct connection to Azure. Data is sent to Azure only through an export/upload process. All Azure Arc data services deployments work in this mode today in preview.
+Many of the creation experiences for Azure Arc start in the Azure portal even though the resource to be created or managed is outside of Azure infrastructure. The user experience pattern in these cases, especially when there is no direct connectivity between Azure and your environment, is to use the Azure portal to generate a script which can then be downloaded and executed in your environment to establish a secure connection back to Azure. For example, Azure Arc enabled servers follows this pattern to [create Arc enabled servers](/azure-arc/servers/onboard-portal).
 
-You can read more about the difference between the [connectivity modes](connectivity.md).
+For now, given that the preview only supports the Indirect Connected mode of Azure Arc enabled data services, you can use the Azure portal to generate a notebook for you that can then be downloaded and run in Azure Data Studio against your Kubernetes cluster. In the future, when the Directly Connected mode is available, you will be able to provision the data controller directly from the Azure portal. You can read more about [connectivity modes](connectivity.md).
 
-In the indirectly connected mode, you can use the Azure portal to generate a script for you that can then be downloaded and executed against your Kubernetes cluster. In the upcoming directly connected mode you will be able to provision the data controller directly from the portal through the Azure Arc enabled Kubernetes connection. More details on the directly connected mode deployment of a data controller will be provided soon. For now this scenario document covers how to use the Azure portal in the indirectly connected mode.
+## Use the Azure portal to create an Azure Arc data controller
 
-## Using the Azure portal to create an Azure Arc data controller
+Follow the steps below to create an Azure Arc data controller using the Azure Portal and Azure Data Studio.
 
-Many of the experiences for Azure Arc start in the Azure portal even though the resource to be created or managed is outside of Azure infrastructure. The user experience pattern in these cases, especially when there is no direct connectivity between Azure and the customer environment is to use the Azure portal to generate a script which can then be downloaded and executed in the customer environment to establish a secure connection back to Azure. For example, Azure Arc enabled for servers follows this pattern to [create Arc connected machines](/azure-arc/servers/onboard-portal).
-
-In this scenario, you will see the initial experience for creating a data controller resource in the Azure portal. The experience will be changing as we evolve the design and thinking, but we value your early feedback on it so we are publishing the scenario documentation now.
-
-Steps:
-
-1. First, log in to the Azure portal using the special URL [https://portal.azure.com](https://ms.portal.azure.com/#blade/Microsoft_Azure_Marketplace/MarketplaceOffersBlade/selectedMenuItemId/home/searchQuery/azure%20arc%20data%20controller).
-1. In the Marketplace search box, type 'Azure Arc' and hit enter. 
-1. If the first step has not entered the search criteria. Please enter in to the search results, click on 'Azure Arc data controller'.
-1. Select the Azure Data Controller tile from the marketplace. 
-1. Click on the Create button.
-1. Choose a Subscription, resource group and region just like you would for any other resource that you would create in the Azure portal.
-1. Enter a name for your data controller.
-1. Enter the name of a namespace that you want to create in your Kubernetes cluster where the data controller will be deployed.
-1. Choose a connection mode (Disconnected is fine for now; it doesn't really make a difference at the moment).
-1. Click the Review and Generate button at the bottom of the page.
-1. On the next screen, you will see a summary of your selections and a script that is generated.  You can click the Download button to download the script. 
+1. First, log in to the [Azure portal marketplace](https://ms.portal.azure.com/#blade/Microsoft_Azure_Marketplace/MarketplaceOffersBlade/selectedMenuItemId/home/searchQuery/azure%20arc%20data%20controller).  The marketplace search results will be filtered to show you the 'Azure Arc data controller'.
+2. If the first step has not entered the search criteria. Please enter in to the search results, click on 'Azure Arc data controller'.
+3. Select the Azure Data Controller tile from the marketplace.
+4. Click on the **Create** button.
+5. Review the requirements to deploy an Azure Arc data controller and install any missing prerequisite software such as Azure Data Studio and kubectl.
+6. Click on the **Data controller details** button.
+7. Choose a subscription, resource group and Azure location just like you would for any other resource that you would create in the Azure portal. In this case the Azure location that you select will be where the metadata about the resource will be stored.  The resource itself will be deployed on whatever infrastructure you choose. It doesn't need to be on Azure infrastructure.
+8. Enter a name for your data controller.
+9. Only the Indirectly Connected mode is supported currently in the preview.
+10. Select a deployment configuration profile.
+11. Click the **Open in Azure Studio** button.
+12. On the next screen, you will see a summary of your selections and a notebook that is generated.  You can click the **Download provisioning notebook** button to download the notebook.
+13. Open the notebook in Azure Data Studio and click the **Run All** button at the top.
+14. Follow the prompts and instructions in the notebook to complete the data controller deployment.
