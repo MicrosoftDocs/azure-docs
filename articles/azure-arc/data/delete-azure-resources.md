@@ -13,48 +13,81 @@ ms.topic: how-to
 
 # Delete resources from Azure
 
-The Arc data resources in Azure portal can be deleted as follows:
-
-- Browse to the Resource Group in Azure portal where the Arc resources have been projected
-- Select all the resources that need to be deleted while in the Resource Group view
-- Click on the Delete button
-- Confirm the deletion
-
-
-Alternatively, to delete Azure resources from Azure you can also use the Azure CLI by following this guide.
+> [!NOTE]
+>  The options to delete resources in this article are irreversible!
 
 > [!NOTE]
->  Since the only connectivity mode that is offered right now is the indirect mode, deleting an instance from Kubernetes will not remove it from Azure and deleting an instance from Azure will not remove it from Kubernetes.  For now, it needs to be a two step process and this will be improved in the future.  Going forward, Kubernetes will be the source of truth and Azure will be updated to reflect it on each upload.
+>  Since the only connectivity mode that is offered for Azure Arc enabled data services currently is the Indirect Connected mode, deleting an instance from Kubernetes will not remove it from Azure and deleting an instance from Azure will not remove it from Kubernetes.  For now deleting a resource is a two step process and this will be improved in the future.  Going forward, Kubernetes will be the source of truth and Azure will be updated to reflect it.
 
-## Delete SQL managed instances
+In some cases, you may need to manually delete Azure Arc enabled data services resources in Azure Resource Manager (ARM).  You can delete these resources using any of the following options.
 
-To delete SQL managed instances from Azure using the Azure CLI replace the placeholder values in the command below and run it.
+- [Delete resources from Azure](#delete-resources-from-azure)
+  - [Delete an entire resource group](#delete-an-entire-resource-group)
+  - [Delete specific resources in the resource group](#delete-specific-resources-in-the-resource-group)
+  - [Delete resources using the Azure CLI](#delete-resources-using-the-azure-cli)
+    - [Delete SQL managed instance resources using the Azure CLI](#delete-sql-managed-instance-resources-using-the-azure-cli)
+    - [Delete PostgreSQL Hyperscale server group resources using the Azure CLI](#delete-postgresql-hyperscale-server-group-resources-using-the-azure-cli)
+    - [Delete Azure Arc data controller resources using the Azure CLI](#delete-azure-arc-data-controller-resources-using-the-azure-cli)
+    - [Delete a resource group using the Azure CLI](#delete-a-resource-group-using-the-azure-cli)
+
+## Delete an entire resource group
+If you have been using a specific and dedicated resource group for Azure Arc enabled data services and you want to delete *everything* inside of the resource group you can delete the resource group which will delete everything inside of it.  
+
+You can delete a resource group in the Azure portal by doing the following:
+
+- Browse to the Resource Group in the Azure portal where the Azure Arc enabled data services resources have been created.
+- Click the **Delete resource group** button.
+- Confirm the deletion by entering the resource group name and click **Delete**.
+
+## Delete specific resources in the resource group
+
+You can delete specific Azure Arc enabled data services resources in a resource group in the Azure portal by doing the following:
+
+- Browse to the Resource Group in the Azure portal where the Azure Arc enabled data services resources have been created.
+- Select all the resources to be deleted.
+- Click on the Delete button.
+- Confirm the deletion by typing 'yes' and click **Delete**.
+
+## Delete resources using the Azure CLI
+
+You can delete specific Azure Arc enabled data services resources using the Azure CLI.
+
+### Delete SQL managed instance resources using the Azure CLI
+
+To delete SQL managed instance resources from Azure using the Azure CLI replace the placeholder values in the command below and run it.
 
 ```console
-az resource delete -n <sql instance name> --resource-type Microsoft.AzureData/sqlManagedInstances -g <resource group name>
+az resource delete --name <sql instance name> --resource-type Microsoft.AzureData/sqlManagedInstances --resource-group <resource group name>
 
 #Example
-#az resource delete -n sqltest1 --resource-type Microsoft.AzureData/sqlManagedInstances -g user-arc-demo
+#az resource delete --name sql1 --resource-type Microsoft.AzureData/sqlManagedInstances --resource-group rg1
 ```
 
-## Delete PostgreSQL instances
+### Delete PostgreSQL Hyperscale server group resources using the Azure CLI
 
-To delete PostgreSQL  instances from Azure using the Azure CLI replace the placeholder values in the command below and run it.
+To delete a PostgreSQL Hyperscale server group resource from Azure using the Azure CLI replace the placeholder values in the command below and run it.
 
 ```console
-az resource delete -n <postgresql instance name> --resource-type Microsoft.AzureData/postgresInstances -g <resource group name>
+az resource delete --name <postgresql instance name> --resource-type Microsoft.AzureData/postgresInstances --resource-group <resource group name>
 
 #Example
-#az resource delete -n pgtest1 --resource-type Microsoft.AzureData/postgresInstances -g user-arc-demo
+#az resource delete --name pg1 --resource-type Microsoft.AzureData/postgresInstances --resource-group rg1
 ```
 
-## Delete Azure Arc data controllers
+### Delete Azure Arc data controller resources using the Azure CLI
 
-To delete Azure Arc data controllers from Azure using the Azure CLI replace the placeholder values in the command below and run it.
+> [!NOTE]
+> Before deleting an Azure Arc data controller, you should delete all of the database instance resources that it is managing.
+
+To delete an Azure Arc data controller from Azure using the Azure CLI replace the placeholder values in the command below and run it.
 
 ```console
-az resource delete -n <data controller name> --resource-type Microsoft.AzureData/dataControllers -g <resource group name>
+az resource delete --name <data controller name> --resource-type Microsoft.AzureData/dataControllers --resource-group <resource group name>
 
 #Example
-#az resource delete -n arc-cp1 --resource-type Microsoft.AzureData/dataControllers -g user-arc-demo
+#az resource delete --name dc1 --resource-type Microsoft.AzureData/dataControllers --resource-group rg1
 ```
+
+### Delete a resource group using the Azure CLI
+
+You can also use the Azure CLI to [delete a resource group](/azure-resource-manager/management/delete-resource-group).
