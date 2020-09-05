@@ -105,7 +105,7 @@
       - name: Troubleshooting
         items:
           - name: Troubleshoot with notebook
-            href: troubleshooting-postgresql-hyperscale-server-group.md
+            href: troubleshoot-postgresql-hyperscale-server-group.md
       - name: Delete PostgreSQL resources
         href: delete-postgresql-hyperscale-server-group.md
 - name: SQL Managed Instance for Azure Arc (preview)
