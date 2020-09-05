@@ -20,6 +20,12 @@
       - name: Minimal-downtime migration with DMS
         href: howto-migrate-online.md
         displayName: migrate, dms, database migration service
+  - name: Create databases and users
+    href: howto-create-users.md
+    displayName: users
+  - name: Mitigate database corruption
+    href: how-to-fix-corrupt-database.md
+    displayName: corrupt data
 - name: Single Server
   items:
   - name: Documentation
@@ -87,7 +93,7 @@
         href: tutorial-design-database-using-powershell.md
       - name: Azure Resource Manager template
         href: tutorial-provision-mysql-server-using-Azure-Resource-Manager-templates.md
-    - name: Build an PHP web app with MySQL
+    - name: Build a PHP web app with MySQL
       items:
       - name: Wordpress in containers with MySQL
         href: ../app-service/containers/tutorial-multi-container-app.md
@@ -125,7 +131,7 @@
          href: concepts-data-access-security-private-link.md
      - name: Security
        items:
-       - name: Security overview
+       - name: Overview
          href: concepts-security.md
        - name: Configuring SSL
          href: concepts-ssl-connection-security.md
@@ -179,12 +185,11 @@
          displayName:  recommendation
      - name: Application development
        items:
+       - name: Overview
+         href: concepts-database-application-development.md
        - name: Drivers and tools compatibility
          href: concepts-compatibility.md
          displayName: drivers, tools
-       - name: How to develop
-         href: concepts-database-application-development.md
-         displayName: developement
        - name: Application Best practices
          href: app-development-best-practices.md
          displayName: application
@@ -219,9 +224,6 @@
           displayName: firewall
     - name: Authentication
       items:
-        - name: Create users
-          href: howto-create-users.md
-          displayName: users
         - name: Configure Azure AD integration
           href: howto-configure-sign-in-azure-ad-authentication.md
           displayName:  active directory
@@ -431,7 +433,7 @@
       href: flexible-server/concepts-compute-storage.md
     - name: Business continuity
       items:
-      - name: Business continuity overview
+      - name: Overview
         href: flexible-server/concepts-business-continuity.md
       - name: Backup and restore
         href: flexible-server/concepts-backup-restore.md

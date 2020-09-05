@@ -89,6 +89,6 @@ For Human Resources focused applications, or other applications with a large set
 
 ## Next steps
 
-- [Quickstart Series on App Management in Azure AD](view-applications-portal.md)
+- [Quickstart Series on Application Management](view-applications-portal.md)
 - [Get started with application integration](plan-an-application-integration.md)
 - [Learn how to automate provisioning](../app-provisioning/user-provisioning.md)

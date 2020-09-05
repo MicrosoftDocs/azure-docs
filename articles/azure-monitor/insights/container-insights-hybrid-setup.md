@@ -66,9 +66,11 @@ Before you start, make sure that you have the following:
 
 Enabling Azure Monitor for containers for the hybrid Kubernetes cluster consists of performing the following steps in order.
 
-1. Configure your Log Analytics workspace with Container Insights solution.
+1. Configure your Log Analytics workspace with Container Insights solution.   
 
 2. Enable the Azure Monitor for containers HELM chart with Log Analytics workspace.
+
+For additional information on Monitoring solutions in Azure Monitor refer [here](../../azure-monitor/insights/solutions.md).
 
 ### How to add the Azure Monitor Containers solution
 

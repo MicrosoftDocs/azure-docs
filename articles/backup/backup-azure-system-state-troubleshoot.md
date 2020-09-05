@@ -61,20 +61,20 @@ To install Windows Server Backup using PowerShell, run the following command:
 
 To install Windows Server Backup using Server Manager, perform the following steps:
 
-1. In **Server Manger**, click **Add roles and features**. The **Add roles and features wizard** appears.
+1. In **Server Manger**, select **Add roles and features**. The **Add roles and features wizard** appears.
 
     ![Dashboard](./media/backup-azure-system-state-troubleshoot/server_management.jpg)
 
-2. Select **Installation Type** and click **Next**.
+2. Select **Installation Type** and select **Next**.
 
     ![Installation Type](./media/backup-azure-system-state-troubleshoot/install_type.jpg)
 
-3. Select a server from the server pool and click **Next**. In the Server Role, leave the default selection and click **Next**.
-4. Select **Windows Server Backup** in **Features** tab and click **Next**.
+3. Select a server from the server pool and select **Next**. In the Server Role, leave the default selection and select **Next**.
+4. Select **Windows Server Backup** in **Features** tab and select **Next**.
 
     ![Select features window](./media/backup-azure-system-state-troubleshoot/features.png)
 
-5. In the **Confirmation** tab, click **Install** to start the installation process.
+5. In the **Confirmation** tab, select **Install** to start the installation process.
 6. In the **Results** tab, it will display the Windows Server Backup feature is successfully installed on your Windows Server.
 
     ![Results of installation](./media/backup-azure-system-state-troubleshoot/results.jpg)

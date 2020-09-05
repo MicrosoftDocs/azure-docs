@@ -202,7 +202,7 @@ Please note that RLS as an out-of-the-box database feature is applicable only to
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
 | **References**              | [Event Hubs authentication and security model overview](https://azure.microsoft.com/documentation/articles/event-hubs-authentication-and-security-model-overview/) |
-| **Steps** | A token that grants direct access to the event hub should not be given to the device. Using a least privileged token for the device that gives access only to a publisher would help identify and blacklist it if found to be a rogue or compromised device.|
+| **Steps** | A token that grants direct access to the event hub should not be given to the device. Using a least privileged token for the device that gives access only to a publisher would help identify and disallow it if found to be a rogue or compromised device.|
 
 ## <a id="sas-minimum-permissions"></a>Connect to Event Hub using SAS keys that have the minimum permissions required
 

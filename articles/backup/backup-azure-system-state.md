@@ -56,7 +56,7 @@ Now that you've created a vault, configure it for backing up Windows System Stat
 
     ![Configuring files and folders](./media/backup-azure-system-state/backup-goal-system-state.png)
 
-    After clicking OK, a checkmark appears next to **Backup goal**, and the **Prepare infrastructure** pane opens.
+    After selecting **OK**, a checkmark appears next to **Backup goal**, and the **Prepare infrastructure** pane opens.
 
     ![Backup goal configured, next prepare infrastructure](./media/backup-try-azure-backup-in-10-mins/backup-goal-configed.png)
 
