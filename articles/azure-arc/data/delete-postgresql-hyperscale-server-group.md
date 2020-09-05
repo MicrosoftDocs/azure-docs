@@ -53,7 +53,7 @@ For more details about the delete command, run:
 azdata arc postgres server delete --help
 ```
 
-###Let's delete the server group used in this example:
+### Let's delete the server group used in this example:
 ```console
 azdata arc postgres server delete -n postgres01
 ```
