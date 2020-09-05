@@ -45,22 +45,7 @@ Select **Create** to generate the offer and continue.
 
 ## Offer setup
 
-### How do you want potential customers to interact with this listing offer?
-
-Select the option you'd like to use for this offer.
-
-#### Get it now (free)
-
-List your offer to customers for free by providing a valid URL (beginning with *http* or *https*) where they can access your app.  For example, `https://contoso.com/my-app`
-
-#### Free trial (listing)
-
-List your offer to customers with a link to a free trial by providing a valid URL (beginning with `http` or `https`) where they can get a trial. For example, `https://contoso.com/trial/my-app`. Offer listing free trials are created, managed, and configured by your service and do not have subscriptions managed by Microsoft.
-
-> [!NOTE]
-> The tokens your application will receive through your trial link can only be used to obtain user information through Azure Active Directory (Azure AD) to automate account creation in your app. Microsoft accounts are not supported for authentication using this token.
-
-#### Contact me
+### Contact me
 
 Collect customer contact information by connecting your Customer Relationship Management (CRM) system. The customer will be asked for permission to share their information. These customer details, along with the offer name, ID, and marketplace source where they found your offer, will be sent to the CRM system that you've configured. For more information about configuring your CRM, see [Customer leads](#customer-leads).
 
