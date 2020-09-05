@@ -9,6 +9,7 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/20/2020
+ms.custom: devx-track-csharp
 ---
 
 # Analyzers for text processing in Azure Cognitive Search

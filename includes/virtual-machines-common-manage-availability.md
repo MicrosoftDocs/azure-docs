@@ -29,7 +29,7 @@ To reduce the impact of downtime due to one or more of these events, we recommen
 * [Configure multiple virtual machines in an availability set for redundancy]
 * [Use managed disks for VMs in an availability set]
 * [Use scheduled events to proactively respond to VM impacting events](../articles/virtual-machines/linux/scheduled-events.md)
-* [Configure each application tier into separate availability sets]
+* [Configure each application tier into separate availability sets](../articles/virtual-machines/windows/tutorial-availability-sets.md)
 * [Combine a load balancer with availability zones or sets]
 * [Use availability zones to protect from datacenter level failures]
 
@@ -78,13 +78,12 @@ az vm list-skus --resource-type availabilitySets --query '[?name==`Aligned`].{Lo
 ```
 
 > [!NOTE]
-> Under certain circumstances, 2 VMs in the same AvailabilitySet could shared the same FaultDomain. This can be confirmed by going into your availability set and checking the **Fault Domain** column.
-> This can be cause from the following sequence while deploying the VMs:
-> - Deploy the 1st VM
-> - Stop/Deallocate the 1st VM
-> - Deploy the 2nd VM
-> Under these circumstances, the OS Disk of the 2nd VM might be created on the same Fault Domain as the 1st VM, and so the 2nd VM will also land on the same FaultDomain. 
-> To avoid this issue, it's recommended to not stop/deallocate the VMs between deployments.
+> Under certain circumstances, two VMs in the same availability set might share a fault domain. You can confirm a shared fault domain by going to your availability set and checking the **Fault Domain** column. A shared fault domain might be caused by the completing following sequence when you deployed the VMs:
+> 1. Deploy the first VM.
+> 1. Stop/deallocate the first VM.
+> 1. Deploy the second VM.
+>
+> Under these circumstances, the OS disk of the second VM might be created on the same fault domain as the first VM, so the two VMs will be on same fault domain. To avoid this issue, we recommend that you don't stop/deallocate VMs between deployments.
 
 If you plan to use VMs with unmanaged disks, follow below best practices for Storage accounts where virtual hard disks (VHDs) of VMs are stored as [page blobs](https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs#about-page-blobs).
 

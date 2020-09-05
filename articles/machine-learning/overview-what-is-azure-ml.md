@@ -58,13 +58,13 @@ You can even use [MLflow to track metrics and deploy models](how-to-use-mlflow.m
 
 Start training on your local machine using the Azure Machine Learning <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">Python SDK</a> or <a href="https://azure.github.io/azureml-sdk-for-r/reference/index.html" target="_blank">R SDK</a>. Then, you can scale out to the cloud. 
 
-With many available [compute targets](how-to-set-up-training-targets.md), like Azure Machine Learning Compute and [Azure Databricks](/azure/azure-databricks/what-is-azure-databricks), and with [advanced hyperparameter tuning services](how-to-tune-hyperparameters.md), you can build better models faster by using the power of the cloud.
+With many available [compute targets](how-to-create-attach-compute-sdk.md), like Azure Machine Learning Compute and [Azure Databricks](/azure/azure-databricks/what-is-azure-databricks), and with [advanced hyperparameter tuning services](how-to-tune-hyperparameters.md), you can build better models faster by using the power of the cloud.
 
 You can also [automate model training and tuning](tutorial-auto-train-models.md) using the SDK.
 
 ## Build ML models in the studio
 
-[Azure Machine Learning studio](https://www.ml.azure.com) is a web portal in Azure Machine Learning for low-code and no-code options for model training, deployment, and asset management. The studio integrates with the Azure Machine Learning SDK for a seamless experience. For more information, see [What is Azure Machine Learning studio](overview-what-is-machine-learning-studio.md).
+[Azure Machine Learning studio](https://studio.azureml.net) is a web portal in Azure Machine Learning for low-code and no-code options for model training, deployment, and asset management. The studio integrates with the Azure Machine Learning SDK for a seamless experience. For more information, see [What is Azure Machine Learning studio](overview-what-is-machine-learning-studio.md).
 
 + **Azure Machine Learning designer (preview)**
 
@@ -81,7 +81,7 @@ You can also [automate model training and tuning](tutorial-auto-train-models.md)
 
 + **And much more...**
 
-  Visit Azure Machine Learning studio at [ml.azure.com](https://www.ml.azure.com). 
+  Visit Azure Machine Learning studio at [ml.azure.com](https://studio.azureml.net). 
 
 
 ## MLOps: Deploy & lifecycle management

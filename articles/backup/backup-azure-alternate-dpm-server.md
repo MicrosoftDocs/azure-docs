@@ -15,7 +15,7 @@ You can use Azure Backup Server to recover the data you've backed up to a Recove
 
 To recover data from an Azure Backup Server:
 
-1. From the **Recovery** tab of the Azure Backup Server management console, click **'Add External DPM'** (at the top left of the screen).
+1. From the **Recovery** tab of the Azure Backup Server management console, select **'Add External DPM'** (at the top left of the screen).
 
     ![Add External DPM](./media/backup-azure-alternate-dpm-server/add-external-dpm.png)
 2. Download new **vault credentials** from the vault associated with the **Azure Backup Server** where the data is being recovered, choose the Azure Backup Server from the list of Azure Backup Servers registered with the Recovery Services vault, and provide the **encryption passphrase** associated with the server whose data is being recovered.
@@ -36,10 +36,10 @@ To recover data from an Azure Backup Server:
     A list of files and folders appears in the bottom pane, which can be browsed and recovered to any location.
 
     ![External DPM Server Recovery Points](./media/backup-azure-alternate-dpm-server/external-dpm-recoverypoint.png)
-5. Right-click the appropriate item and click **Recover**.
+5. Right-click the appropriate item and select **Recover**.
 
     ![External DPM recovery](./media/backup-azure-alternate-dpm-server/recover.png)
-6. Review the **Recover Selection**. Verify the data and time of the backup copy being recovered, as well as the source from which the backup copy was created. If the selection is incorrect, click **Cancel** to navigate back to recovery tab to select appropriate recovery point. If the selection is correct, click **Next**.
+6. Review the **Recover Selection**. Verify the data and time of the backup copy being recovered, as well as the source from which the backup copy was created. If the selection is incorrect, select **Cancel** to navigate back to recovery tab to select appropriate recovery point. If the selection is correct, select **Next**.
 
     ![External DPM recovery summary](./media/backup-azure-alternate-dpm-server/external-dpm-recovery-summary.png)
 7. Select **Recover to an alternate location**. **Browse** to the correct location for the recovery.
@@ -56,7 +56,7 @@ To recover data from an Azure Backup Server:
      Identify whether a **Notification** is sent, once the recovery successfully completes.
 
      ![External DPM Recovery Notifications](./media/backup-azure-alternate-dpm-server/external-dpm-recovery-notifications.png)
-9. The **Summary** screen lists the options chosen so far. Once you click **‘Recover’**, the data is recovered to the appropriate on-premises location.
+9. The **Summary** screen lists the options chosen so far. Once you select **Recover**, the data is recovered to the appropriate on-premises location.
 
     ![External DPM Recovery Options Summary](./media/backup-azure-alternate-dpm-server/external-dpm-recovery-options-summary.png)
 
@@ -66,7 +66,7 @@ To recover data from an Azure Backup Server:
    >
 
     ![Monitoring Recovery](./media/backup-azure-alternate-dpm-server/monitoring-recovery.png)
-10. You can click **Clear External DPM** on the **Recovery** tab of the DPM server to remove the view of the external DPM server.
+10. You can select **Clear External DPM** on the **Recovery** tab of the DPM server to remove the view of the external DPM server.
 
     ![Clear External DPM](./media/backup-azure-alternate-dpm-server/clear-external-dpm.png)
 

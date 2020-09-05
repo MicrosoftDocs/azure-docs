@@ -97,7 +97,7 @@ Currently, we continue to support the AzureBackupReport event for backward compa
 
 2. Use the [built-in Azure Policy definitions](./azure-policy-configure-diagnostics.md) in Azure Backup to add a new diagnostics setting for all vaults in a specified scope. This policy adds a new diagnostics setting to vaults that either don't have a diagnostics setting or have only a legacy diagnostics setting. This policy can be assigned to an entire subscription or resource group at a time. You must have Owner access to each subscription for which the policy is assigned.
 
-You might choose to have separate diagnostics settings for AzureBackupReport and the six new events until you have migrated all of your custom queries to use data from the new tables. The following image shows an example of a vault that has two diagnostic settings. The first setting, named **Setting1**, sends data of an AzureBackupReport event to a Log Analytics workspace in Azure diagnostics mode. The second setting, named **Setting2**, sends data of the six new Azure Backup events to a Log Analytics workspace in the resource-specific mode.
+You might choose to have separate diagnostics settings for AzureBackupReport and the six new events until you've migrated all of your custom queries to use data from the new tables. The following image shows an example of a vault that has two diagnostic settings. The first setting, named **Setting1**, sends data of an AzureBackupReport event to a Log Analytics workspace in Azure diagnostics mode. The second setting, named **Setting2**, sends data of the six new Azure Backup events to a Log Analytics workspace in the resource-specific mode.
 
 ![Two settings](./media/backup-azure-diagnostics-events/two-settings-example.png)
 

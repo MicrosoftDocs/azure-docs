@@ -5,8 +5,6 @@
   items:
     - name: What is Azure Spring Cloud?
       href: spring-cloud-overview.md
-    - name: Java and Base OS for Spring Microservice Apps
-      href: spring-cloud-principles-microservice-apps.md
 - name: Quickstarts
   expanded: true 
   items:
@@ -49,11 +47,6 @@
       href: spring-cloud-tutorial-managed-identities-key-vault.md
     - name: Deploy Azure Spring Cloud in virtual network
       href: spring-cloud-tutorial-deploy-in-azure-virtual-network.md
-- name: Samples
-  items:  
-  - name: Azure Policy built-ins
-    displayName: samples, policies, definitions
-    href: ./policy-samples.md
 - name: Concepts
   items: 
     - name: Understand app and deployment
@@ -128,3 +121,6 @@
       href: spring-cloud-faq.md
     - name: REST API reference
       href: https://docs.microsoft.com/rest/api/azurespringclould/
+    - name: Azure Policy built-ins
+      displayName: samples, policies, definitions
+      href: ./policy-reference.md

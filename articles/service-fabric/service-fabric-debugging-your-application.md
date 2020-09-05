@@ -6,6 +6,7 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: vturecek
+ms.custom: devx-track-csharp
 ---
 # Debug your Service Fabric application by using Visual Studio
 > [!div class="op_single_selector"]

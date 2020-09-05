@@ -8,6 +8,7 @@ ms.topic: article
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
+ms.custom: devx-track-csharp
 ---
 
 # Process change feed in Azure Blob Storage (Preview)

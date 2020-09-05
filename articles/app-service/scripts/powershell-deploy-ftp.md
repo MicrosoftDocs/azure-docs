@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'PowerShell: Upload files using FTP'
 description: Learn how to use Azure PowerShell to automate deployment and management of App Service. This sample shows how to upload files to an app using FTP.
 tags: azure-service-management
@@ -6,7 +6,7 @@ tags: azure-service-management
 ms.assetid: b7d46d6f-44fd-454c-8008-87dab6eefbc1
 ms.topic: sample
 ms.date: 03/20/2017
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurepowershell
 ---
 
 # Upload files to a web app using FTP

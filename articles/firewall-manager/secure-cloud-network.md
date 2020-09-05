@@ -5,7 +5,7 @@ services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: tutorial
-ms.date: 07/29/2020
+ms.date: 08/28/2020
 ms.author: victorh
 ---
 
@@ -27,6 +27,10 @@ In this tutorial, you learn how to:
 > * Deploy the servers
 > * Create a firewall policy and secure your hub
 > * Test the firewall
+
+## Prerequisites
+
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Create a hub and spoke architecture
 
@@ -265,6 +269,10 @@ Now test the network rule.
 
 So now you've verified that the firewall network rule is working:
 * You can connect a remote desktop to a server located in another virtual network.
+
+## Clean up resources
+
+When you are done testing your firewall resources, delete the **fw-manager** resource group to delete all firewall-related resources.
 
 ## Next steps
 

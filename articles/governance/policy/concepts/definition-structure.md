@@ -807,7 +807,7 @@ Policy, use one of the following methods:
 
   > [!NOTE]
   > To find aliases that can be used with the [modify](./effects.md#modify) effect, use the
-  > following command:
+  > following command in Azure PowerShell **4.6.0** or higher:
   >
   > ```azurepowershell-interactive
   > Get-AzPolicyAlias | Select-Object -ExpandProperty 'Aliases' | Where-Object { $_.DefaultMetadata.Attributes -eq 'Modifiable' }

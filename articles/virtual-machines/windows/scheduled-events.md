@@ -7,7 +7,8 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 06/01/2020
 ms.author: ericrad
-ms.reviwer: mimckitt
+ms.reviwer: mimckitt 
+ms.custom: devx-track-azurepowershell
 
 ---
 

@@ -5,6 +5,7 @@ author: jumeder
 ms.author: jumeder
 ms.date: 06/15/2020
 ms.topic: article
+ms.custom: devx-track-csharp
 ---
 
 # Debug Rendering

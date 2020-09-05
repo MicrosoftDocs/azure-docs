@@ -8,6 +8,7 @@ ms.author: anfeldma
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
+ms.custom: devx-track-dotnet
 ---
 # Diagnose and troubleshoot issues when using Azure Cosmos DB .NET SDK
 

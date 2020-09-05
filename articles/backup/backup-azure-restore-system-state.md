@@ -40,7 +40,7 @@ The following steps explain how to roll back your Windows Server configuration t
 
     ![Volume and Date](./media/backup-azure-restore-system-state/select-date.png)
 
-6. Once you have chosen the recovery point to restore, select **Next**.
+6. Once you've chosen the recovery point to restore, select **Next**.
 
     Azure Backup mounts the local recovery point, and uses it as a recovery volume.
 
@@ -50,7 +50,7 @@ The following steps explain how to roll back your Windows Server configuration t
 
 8. Verify the details of recovery on the **Confirmation** pane and select **Recover**.
 
-   ![click Recover to acknowledge the recover action](./media/backup-azure-restore-system-state/confirm-recovery.png)
+   ![Select Recover to acknowledge the recover action](./media/backup-azure-restore-system-state/confirm-recovery.png)
 
 9. Copy the *WindowsImageBackup* directory in the Recovery destination to a non-critical volume of the server. Usually, the Windows OS volume is the critical volume.
 
@@ -88,7 +88,7 @@ The terminology used in these steps includes:
 
     ![Search items](./media/backup-azure-restore-system-state/select-date.png)
 
-9. Once you have chosen the recovery point to restore, select **Next**.
+9. Once you've chosen the recovery point to restore, select **Next**.
 
 10. On the **Select System State Recovery Mode** pane, specify the destination where you want System State files to be recovered, then select **Next**.
 
@@ -98,7 +98,7 @@ The terminology used in these steps includes:
 
 11. Verify the details of recovery on the Confirmation pane, and select **Recover**.
 
-    ![click the Recover button to confirm the recovery process](./media/backup-azure-restore-system-state/confirm-recovery.png)
+    ![Select the Recover button to confirm the recovery process](./media/backup-azure-restore-system-state/confirm-recovery.png)
 
 12. Copy the *WindowsImageBackup* directory to a non-critical volume of the server (for example D:\). Usually the Windows OS volume is the critical volume.
 
@@ -106,7 +106,7 @@ The terminology used in these steps includes:
 
 ## Apply restored System State on a Windows Server
 
-Once you have recovered System State as files using Azure Recovery Services Agent, use the Windows Server Backup utility to apply the recovered System State to Windows Server. The Windows Server Backup utility is already available on the server. The following steps explain how to apply the recovered System State.
+Once you've recovered System State as files using Azure Recovery Services Agent, use the Windows Server Backup utility to apply the recovered System State to Windows Server. The Windows Server Backup utility is already available on the server. The following steps explain how to apply the recovered System State.
 
 1. Open the Windows Server Backup snap-in. If you don't know where the snap-in was installed, search the computer or server for **Windows Server Backup**.
 

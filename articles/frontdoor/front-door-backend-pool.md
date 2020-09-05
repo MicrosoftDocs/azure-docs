@@ -3,14 +3,14 @@ title: Backends and backend pools in Azure Front Door| Microsoft Docs
 description: This article describes what backends and backend pools are in Front Door configuration.
 services: front-door
 documentationcenter: ''
-author: sharad4u
+author: duongau
 ms.service: frontdoor
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
-ms.author: sharadag
+ms.author: duau
 ---
 
 # Backends and backend pools in Azure Front Door

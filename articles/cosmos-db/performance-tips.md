@@ -6,6 +6,7 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 06/26/2020
 ms.author: sngun
+ms.custom: devx-track-dotnet
 
 ---
 

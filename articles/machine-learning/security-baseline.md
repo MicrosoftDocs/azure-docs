@@ -6,7 +6,7 @@ ms.service: machine-learning
 ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
+ms.custom: subject-security-benchmark
 
 # Important: This content is machine generated; do not modify this topic directly. Contact mbaldwin for more information.
 
@@ -271,9 +271,9 @@ Alternatively, you may enable and on-board data to Azure Sentinel.
 
 Azure Machine Learning has varying support across different compute resources and even your own compute resources. For compute resources that are owned by your organization, enable antimalware event collection for Microsoft Antimalware for Azure Cloud Services and Virtual Machines.
 
-- [How to configure Microsoft Antimalware for a virtual machine](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azurevmmicrosoftantimalwareextension?view=azuresmps-4.0.0)
+- [How to configure Microsoft Antimalware for a virtual machine](/powershell/module/servicemanagement/azure.service/set-azurevmmicrosoftantimalwareextension)
 
-- [How to configure the Microsoft Antimalware extension for cloud services](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azureserviceantimalwareextension?view=azuresmps-4.0.0)
+- [How to configure the Microsoft Antimalware extension for cloud services](/powershell/module/servicemanagement/azure.service/set-azureserviceantimalwareextension?view=azuresmps-4.0.0)
 
 - [Understand Microsoft Antimalware](../security/fundamentals/antimalware.md)
 
@@ -327,7 +327,7 @@ You can also use the Azure AD PowerShell module to perform adhoc queries to disc
 
 ### 3.3: Use dedicated administrative accounts
 
-**Guidance**: Azure Machine Learning comes with three default roles when a new workspace is created, create standard operating procedures around the use of owner accounts.
+**Guidance**: Azure Machine Learning comes with three default roles when a new workspace is created, creating standard operating procedures around the use of owner accounts.
 
 You can also enable a just-in-time access to administrative accounts by using Azure AD Privileged Identity Management and Azure Resource Manager. 
 
@@ -982,7 +982,9 @@ Use Azure Key Vault to pass secrets to remote runs securely instead of cleartext
 
 - [How to create a Key Vault](/azure/key-vault/quick-create-portal)
 
-- [How to provide Key Vault authentication with a managed identity](/azure/key-vault/managed-identity)
+- [How to authenticate to Key Vault](https://docs.microsoft.com/azure/key-vault/general/authentication)
+
+- [How to assign a Key Vault access policy](https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal)
 
 **Azure Security Center monitoring**: Yes
 

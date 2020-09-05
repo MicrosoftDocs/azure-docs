@@ -9,7 +9,7 @@ ms.author: kgremban
 ms.date: 08/03/2020
 ms.topic: tutorial
 ms.service: iot-edge
-ms.custom: [mvc, amqp]
+ms.custom: "mvc, amqp, devx-track-csharp"
 
 ---
 

@@ -9,6 +9,7 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
+ms.custom: devx-track-csharp
 ---
 # How to manage concurrency in Azure Cognitive Search
 
