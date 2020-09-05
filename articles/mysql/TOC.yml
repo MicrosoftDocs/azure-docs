@@ -431,6 +431,9 @@
       href: flexible-server/concepts-limitations.md
     - name: Compute and storage
       href: flexible-server/concepts-compute-storage.md
+    - name: Networking
+      href: flexible-server/concepts-networking.md
+      displayName: virtual network, IP address, public access
     - name: Business continuity
       items:
       - name: Overview
@@ -439,7 +442,6 @@
         href: flexible-server/concepts-backup-restore.md
       - name: High availability
         href: flexible-server/concepts-high-availability.md
-    - name: Manage
     - name: Monitoring & Logs
       items:
       - name: Slow query logs
@@ -456,6 +458,10 @@
         href: flexible-server/how-to-manage-portal.md
       - name: Azure CLI
         href: flexible-server/how-to-manage-cli.md
+    - name: Stop/start server
+      items:
+      - name: Azure portal
+        href: flexible-server/how-to-stop-start-server-portal.md
     - name: Restore a server
       items:
       - name: Azure portal
@@ -482,6 +488,14 @@
       items:
       - name: Create alerts on metrics
         href: flexible-server/how-to-alert-on-metric.md
+      - name: Slow query logs
+        items:
+        - name: Azure portal
+          href: flexible-server/how-to-configure-slow-query-logs-portal.md
+      - name: Audit logs
+        items:
+        - name: Azure portal
+          href: flexible-server/how-to-configure-audit-logs-portal.md
     - name: Troubleshoot
       items:
       - name: Connection errors
