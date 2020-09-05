@@ -115,9 +115,6 @@ Key benefits of using Azure RBAC permission over vault access policies are centr
 
 [Assign Azure role to access to keys, secrets, and certificates](rbac-guide.md)
 
-[Establish a private link connection to Key Vault](private-link-service.md)
-
 [Configure Key Vault firewalls and virtual networks](network-security.md)
 
-[Configure Azure Policy for Key Vault](azure-policy.md)
-
+[Establish a private link connection to Key Vault](private-link-service.md)
