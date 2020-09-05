@@ -66,7 +66,7 @@ azdata arc postgres server create -n <name> --workers 2 --storage-class-data <st
 
 > **NOTE:** If you deployed the data controller using AZDATA_USERNAME and AZDATA_PASSWORD in the same terminal session, then the values for AZDATA_USERNAME and AZDATA_PASSWORD will be used to deploy the PostgreSQL Hyperscale server group too. The name of the default administrator user for the Postgres Hyperscale database engine is _postgresql_ and cannot be changed at this point.
 
-> **NOTE:** Creating a PostgreSQL Hyperscale server group will not immediately register resources in Azure. As part of the process of [uploading metrics/logs](articles\azure-arc\data\upload-metrics-and-logs-to-azure-monitor.md) or [usage data](articles\azure-arc\data\view-billing-data-in-azure.md) to Azure, the resources will be created in Azure and you will be able to see your resources in the Azure Portal.
+> **NOTE:** Creating a PostgreSQL Hyperscale server group will not immediately register resources in Azure. As part of the process of uploading [resource inventory](upload-metrics-and-logs-to-azure-monitor.md)  or [usage data](view-billing-data-in-azure.md) to Azure, the resources will be created in Azure and you will be able to see your resources in the Azure Portal.
 
 > **NOTE:** The --port parameter cannot be changed at this point.
 
