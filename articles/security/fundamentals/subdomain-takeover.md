@@ -31,12 +31,13 @@ A common scenario for a subdomain takeover:
 1. **CREATION:**
 
     1. You provision an Azure resource with a fully qualified domain name (FQDN) of `app-contogreat-dev-001.azurewebsites.net`.
+
     1. You assign a CNAME record in your DNS zone with the subdomain `greatapp.contoso.com` that routes traffic to your Azure resource.
 
 1. **DEPROVISIONING:**
 
     1. The Azure resource is deprovisioned or deleted after it is no longer needed. 
-
+    
         At this point, the CNAME record `greatapp.contoso.com` *should* be removed from your DNS zone. If the CNAME record isn't removed, it's advertised as an active domain but doesn't route traffic to an active Azure resource. This is the definition of a “dangling” DNS record.
 
     1. The dangling subdomain, `greatapp.contoso.com`, is now vulnerable and can be taken over by being assigned to another Azure subscription’s resource.
