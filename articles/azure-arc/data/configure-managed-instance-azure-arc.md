@@ -14,11 +14,11 @@ ms.topic: configure
 
 # Configure Azure Arc enabled SQL managed instance
 
-## Congigure Resoruces for Azure Arc enabled SQL managed instance
+## Configure Resource for Azure Arc enabled SQL managed instance
 
 You can modify the settings using azdata or kubectl.
 
-**insert examples about changing resoruce limits**
+**insert examples about changing resource limits**
 
 ## Configure Server options 
 Server configuration settings can configured for Azure Arc enabled SQL managed instance after deployment time. This article describes how to configure settings like enabling or disabling mssql Agent, enable specific trace flags for troubleshooting scenarios.
