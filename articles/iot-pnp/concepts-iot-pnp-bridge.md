@@ -18,16 +18,16 @@ The IoT Plug and Play bridge is an open-source application for connecting existi
 
 IoT Plug and Play bridge can be deployed as a standalone executable on any IoT device, industrial PC, server, or gateway running Windows 10 or Linux. It can also be compiled into your application code. A simple configuration JSON file tells the IoT Plug and Play bridge which attached devices/peripherals should be exposed up to Azure.
 
-IoT Plug and Play bridge supports the following types of peripherals by default:
+IoT Plug and Play bridge supports the following types of peripherals by default, with links to the adapter documentation:
 
 |Peripheral|Windows|Linux|
 |---------|---------|---------|
-|[Bluetooth LE](https://aka.ms/iot-pnp-bridge-bluetooth)   |Yes|No|
-|[Cameras](https://aka.ms/iot-pnp-bridge-camera)           |Yes|No|
-|[Modbus](https://aka.ms/iot-pnp-bridge-modbus)            |Yes|Yes|
-|[MQTT](https://aka.ms/iot-pnp-bridge-mqtt)                |Yes|Yes|
-|[Serial](https://aka.ms/iot-pnp-bridge-serial)            |Yes|Yes|
-|Windows USB peripherals                                   |Yes|Not Applicable|
+|[Bluetooth LE](https://aka.ms/iot-pnp-bridge-bluetooth)       |Yes|No|
+|[Cameras](https://aka.ms/iot-pnp-bridge-camera)               |Yes|No|
+|[Modbus](https://aka.ms/iot-pnp-bridge-modbus)                |Yes|Yes|
+|[MQTT](https://aka.ms/iot-pnp-bridge-mqtt)                    |Yes|Yes|
+|[Serial](https://aka.ms/iot-pnp-bridge-serial)                |Yes|Yes|
+|[Windows USB peripherals](https://aka.ms/iot-pnp-bridge-usb)  |Yes|Not Applicable|
 
 >[!Important]
 >Developers can extend the IoT Plug and Play bridge to support additional device protocols via the instructions in the **[IoT Plug and Play bridge developer documentation here](https://aka.ms/iot-pnp-bridge-dev-doc)**.
@@ -40,8 +40,8 @@ The following OS platforms and versions are supported:
 
 |Platform  |Supported Versions  |
 |---------|---------|
-|Windows 10 |     All Windows SKUs are supported. For example: IoT Enterprise, Server, Desktop, IoT Core *For Camera health monitoring functionality, 20H1 or later build is recommended. All other functionality is available on all Windows 10 builds.*  |
-|Linux     |Tested and Supported on Ubuntu 18.04, functionality on other distributions has not been tested.         |
+|Windows 10 |     All Windows SKUs are supported. For example: IoT Enterprise, Server, Desktop, IoT Core. *For Camera health monitoring functionality, 20H1 or later build is recommended. All other functionality is available on all Windows 10 builds.*  |
+|Linux     |Tested and supported on Ubuntu 18.04, functionality on other distributions has not been tested.         |
 ||
 
 ### Hardware

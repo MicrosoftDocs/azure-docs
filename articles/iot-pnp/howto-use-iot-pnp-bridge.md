@@ -11,15 +11,13 @@ services: iot-pnp
 # As a device builder, I want to see a working IoT Plug and Play device sample connecting to IoT Hub and sending properties and telemetry, and responding to commands. As a solution builder, I want to use a tool to view the properties, commands, and telemetry an IoT Plug and Play device reports to the IoT hub it connects to.
 ---
 
-# How to Connect a sample IoT Plug and Play bridge device application running on Linux or Windows to IoT Hub
+# How to connect a sample IoT Plug and Play bridge running on Linux or Windows to IoT Hub
 
-This quickstart shows you how to build IoT Plug and Play bridge, connect it to your IoT Hub, and use the Azure IoT explorer tool to view the telemetry it sends. The sample application is written in C and is included in the Azure IoT device SDK for C. A solution builder can use the Azure IoT explorer tool to understand the capabilities of an IoT Plug and Play device without the need to view any device code.
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+This how-to shows you how to build the IoT Plug and Play bridge's sample environmental adapter, connect it to your IoT Hub, and use the Azure IoT explorer tool to view the telemetry it sends. The IoT Plug and Play bridge is written in C and includes the Azure IoT device SDK for C. A solution builder can use the Azure IoT explorer tool to understand the capabilities of an IoT Plug and Play device without the need to view any device code.
 
 ## Prerequisites
 
-You can run this quickstart on Linux or Windows. The shell commands in this quickstart follow the Linux convention for path separators '`/`', if you're following along on Windows be sure to swap these separators for '`\`'.
+You can run this quickstart on Linux or Windows. The shell commands in this how-to guide follow the Windows convention for path separators '`\`', if you're following along on Linux be sure to swap these separators for '`/`'.
 
 The prerequisites differ by operating system:
 
@@ -57,23 +55,33 @@ To interact with the sample device in the second part of this quickstart, you us
 
 [!INCLUDE [iot-pnp-prepare-iot-hub.md](../../includes/iot-pnp-prepare-iot-hub.md)]
 
-Run the following command to get the _IoT hub connection string_ for your hub. Make a note of this connection string, you use it later in this quickstart:
+Run the following command to get the _IoT Hub connection string_ for your hub. Make a note of this connection string, you use it later in this quickstart:
 
 ```azurecli-interactive
 az iot hub show-connection-string --hub-name <YourIoTHubName> --output table
 ```
 
 > [!TIP]
-> You can also use the Azure IoT explorer tool to find the IoT hub connection string.
+> You can also use the Azure IoT explorer tool to find the IoT Hub connection string.
 
 Run the following command to get the _device connection string_ for the device you added to the hub. Make a note of this connection string, you use it later in this quickstart:
 
 ```azurecli-interactive
 az iot hub device-identity show-connection-string --hub-name <YourIoTHubName> --device-id <YourDeviceID> --output table
 ```
-## Get the required dependencies (Environmental Sensor)
 
-### Download the code
+## Download the model
+
+You will use Azure IoT Explorer in later steps to view the device when it connects to your IoT Hub. Azure IoT Explorer will need a local copy of the model file that matches the **Model ID** your device sends. The model file lets the IoT Explorer display the telemetry, properties, and commands that your device implements.
+
+Download the sample model files:
+
+1. Create a folder called *models* on your local machine.
+1. Right-click [EnvironmentalSensor.json](https://aka.ms/iot-pnp-bridge-env-model) and save the JSON file to the *models* folder.
+1. Right-click [RootBridgeSampleDevice.json](https://aka.ms/iot-pnp-bridge-root-model) and save the JSON file to the *models* folder.
+
+## Download the code
+
 Open a command prompt in the directory of your choice. Execute the following command to clone the [IoT Plug and Play bridge](https://aka.ms/iotplugandplaybridge) GitHub repository into this location:
 
 ```cmd
@@ -83,17 +91,20 @@ git clone https://github.com/Azure/AzurePnPBridgePreview.git
 After cloning the IoT Plug and Play bridge repo to your machine, open an administrative cmd prompt and navigate to the directory of the cloned repo:
 
 ```cmd
-%REPO_DIR%\> cd pnpbridge
-
-%REPO_DIR%\pnpbridge\> git submodule update --init --recursive
+cd pnpbridge
+git submodule update --init --recursive
 ```
+
+Expect this operation to take several minutes to complete.
 
 >[!NOTE]
 > If you run into issues with the git clone sub module update failing, this is a known issue with Windows file paths and git see: https://github.com/msysgit/git/pull/110 . You can try the following command to resolve the issue: `git config --system core.longpaths true`
 
-### Setting up the Configuration JSON (Environmental Sensor)
+## Setting up the Configuration JSON
 
-After cloning the IoT Plug and Play bridge repo to your machine, open the "Developer Command Prompt for VS 2017" and navigate to the directory of the cloned repo. Modify the folowing parameters under **pnp_bridge_parameters** node in the config file  (%REPO_DIR%\pnpbridge\src\adapters\samples\environmental_sensor\config.json):
+After cloning the IoT Plug and Play bridge repo to your machine, navigate to the directory of the cloned repository. For convenience, a sample `config.json` for the environmental sensor can be found [here](https://aka.ms/iot-pnp-bridge-env-config). You can learn more about config files in the IoT Plug and Play bridge concepts document [here](concepts-iot-pnp-bridge.md)
+
+Modify the folowing parameters under **pnp_bridge_parameters** node in the `config.json` file:
 
   Using Connection string (Note: the symmetric_key must match the SAS key in the connection string):
 
@@ -111,7 +122,7 @@ After cloning the IoT Plug and Play bridge repo to your machine, open the "Devel
   }
   ```
 
- Once filled in you the config file should resemble:
+ Once filled in you the `config.json` file should resemble:
 
    ```JSON
     {
@@ -125,33 +136,49 @@ After cloning the IoT Plug and Play bridge repo to your machine, open the "Devel
       }
     }
   }
-  ```
+```
+
+ Once you build the bridge, you will need to place this `config.json` in the same the directory as the bridge or specify it's path when it is run.
 
 ## Build the IoT Plug and Play bridge
 
-On Windows run the following:
-```
-%REPO_DIR%\pnpbridge\> cd scripts\windows
+Navigate to the *pnpbridge* folder in the repository directory.
 
-%REPO_DIR%\pnpbridge\scripts\windows> build.cmd
+For Windows run the following:
+
+```cmd
+cd scripts\windows
+
+build.cmd
 ```
 
-Similarly on Linux run the following:
+Similarly for Linux run the following:
 
 ```bash
- /%REPO_DIR%/pnpbridge/ $ cd scripts/linux
+cd scripts/linux
 
- /%REPO_DIR%/pnpbridge/scripts/linux $ ./setup.sh
+./setup.sh
 
- /%REPO_DIR%/pnpbridge/scripts/linux $ ./build.sh
+./build.sh
 ```
-## Start the IoT Plug and Play bridge (Environmental Sensor)
- Start the IoT Plug and Play bridge sample for Environmental sensors by running it in a command prompt:
+
+>[!TIP]
+>On Windows, you can open the solution generated by the cmake command in Visual Studio 2019. Open the *azure_iot_pnp_bridge.sln* project file in the cmake directory and set the *pnpbridge_bin* project as the startup project in the solution. You can now build the sample in Visual Studio and run it in debug mode.
+
+## Start the IoT Plug and Play bridge
+
+ Start the IoT Plug and Play bridge sample for Environmental sensors by navigating to the *pnpbridge* folder and running the following in a command prompt:
+
+```bash
+ cd cmake/pnpbridge_x86/src/adaptors/samples/environmental_sensor/
+./pnpbridge_environmentalsensor
 
 ```
-    %REPO_DIR%\pnpbridge\> cd cmake\pnpbridge_x86\src\adaptors\samples\environmental_sensor
 
-    %REPO_DIR%\pnpbridge\cmake\pnpbridge_x86\src\adaptors\samples\environmental_sensor>  Debug\pnpbridge_environmentalsensor.exe
+```cmd
+REM Windows
+cd cmake\pnpbridge_x86\src\adaptors\samples\environmental_sensor
+Debug\pnpbridge_environmentalsensor.exe
 ```
 
 ## Use Azure IoT explorer to validate the code
