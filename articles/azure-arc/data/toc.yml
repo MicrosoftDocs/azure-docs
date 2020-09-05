@@ -72,7 +72,7 @@
         - name: View data controller (portal)
           href: view-data-controller-in-azure-portal.md
         - name: Deploy using Kubernetes tools
-          href: deploy-using-k8s-native-tools.md
+          href: create-data-controller-using-k8s-native-tools.md
         - name: Delete resources
           href: delete-azure-resources.md
         - name: Uninstall Azure Arc data controller
