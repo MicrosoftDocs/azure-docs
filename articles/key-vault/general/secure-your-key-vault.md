@@ -23,7 +23,7 @@ Access to a key vault is controlled through two interfaces: the **management pla
 
 To access a key vault in either plane, all callers (users or applications) must have proper authentication and authorization. Authentication establishes the identity of the caller. Authorization determines which operations the caller can execute.
 
-Both planes use Azure Active Directory (Azure AD) for authentication. For authorization, the management plane uses role-based access control (RBAC) and the data plane uses a Key Vault access policy and Azure RBAC (preview).
+Both planes use Azure Active Directory (Azure AD) for authentication. For authorization, the management plane uses Azure role-based access control (RBAC) and the data plane uses a Key Vault access policy and Azure RBAC (preview).
 
 ## Active Directory authentication
 
