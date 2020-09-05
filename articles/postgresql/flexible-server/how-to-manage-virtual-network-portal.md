@@ -9,7 +9,6 @@ ms.date: 9/21/2020
 ---
 
 # Create and manage virtual networks for Azure Database for PostgreSQL - Flexible Server using the Azure portal
-
 > [!IMPORTANT]
 > Azure Database for PostgreSQL Flexible Server is currently in public preview
 
