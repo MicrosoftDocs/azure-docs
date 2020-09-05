@@ -62,7 +62,7 @@ The soft-delete method may not fit in some scenarios such as development and tes
 > [!IMPORTANT]
 > Use permanent workspace delete operation with caution since its irreversible and you won't be able to recover your workspace and its data.
 
-Add '-ForceDelete' tag to permanently delete your workspace. The '-ForceDelete' option is currently available with Az.OperationalInsights 2.3.0 or higher. 
+Us the '-ForceDelete' parameter to [Remove-AzOperationalInsightsWorkspace](/powershell/module/az.operationalinsights/remove-azoperationalinsightsworkspace) to permanently delete your workspace. The '-ForceDelete' option is currently available with Az.OperationalInsights 2.3.0 or higher. 
 
 ```powershell
 PS C:\>Remove-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-name" -Name "workspace-name" -ForceDelete
@@ -97,7 +97,7 @@ You can recover your workspace during the soft-delete period including its data,
 
 ### PowerShell
 
-Use [Get-AzOperationalInsightsDeletedWorkspace](/powershell/module/az.operationalinsights/get-azoperationalinsightsdeletedworkspace?view=azps-4.6.1) to locate and [Restore-AzOperationalInsightsWorkspace](/powershell/module/az.operationalinsights/restore-azoperationalinsightsworkspace) to recover soft-deleted workspaces.
+Use [Get-AzOperationalInsightsDeletedWorkspace](/powershell/module/az.operationalinsights/get-azoperationalinsightsdeletedworkspace) to locate and [Restore-AzOperationalInsightsWorkspace](/powershell/module/az.operationalinsights/restore-azoperationalinsightsworkspace) to recover soft-deleted workspaces.
 
 > [!NOTE]
 > If the resource group that contained the workspace has been deleted, it must be recreated first. Resource groups can't be recovered. 
