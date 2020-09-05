@@ -16,8 +16,7 @@ While in preview, NFS has the following limitations:
 - Must create a new storage account in order to create an NFS share.
 - Does not currently support storage explorer, Data Box, or AzCopy.
 - Only available for Linux clients.
-- NFS 4.1 for Azure Files only supports the mandatory features of the [NFS specification](https://tools.ietf.org/html/rfc5661).
-- NFS v 4.1 current implementation only supports the mandatory features from the protocol spec
+- NFS 4.1 currently only supports the mandatory features from the [protocol specification](https://tools.ietf.org/html/rfc5661).
 
 Also, the following Azure Files features are not available with NFS shares:
 
