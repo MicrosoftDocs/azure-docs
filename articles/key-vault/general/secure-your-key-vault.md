@@ -111,9 +111,9 @@ For guide on how to use Azure RBAC on Key Vault data plane, see [Use an Azure RB
 
 ## Next steps
 
+[Authenticate to Azure Key Vault](authentication.md)
+
+[Assign a Key Vault access policy](assign-access-policy-portal.md)
+
 Configure [Key Vault firewalls and virtual networks](network-security.md).
-
-For more information about usage logging for Key Vault, see [Azure Key Vault logging](logging.md)).
-
-For more information about using keys and secrets with Azure Key Vault, see [About keys, secrets, and certificates](about-keys-secrets-certificates.md).
 
