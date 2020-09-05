@@ -233,7 +233,7 @@ azdata arc dc upload --path metrics.json
 
 Once your metrics are uploaded you should be able to visualize them from the Azure portal.
 
-To view your metrics in the portal, use this special link to open the portal: <https://aka.ms/arcdata>
+To view your metrics in the portal, use this special link to open the portal: <https://portal.azure.com>
 Then, search for your database instance by name in the search bar:
 
 You can view CPU utilization on the Overview page or if you want more detailed metrics you can click on metrics from the left navivation panel
