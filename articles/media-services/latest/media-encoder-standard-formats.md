@@ -3,7 +3,7 @@ title: Standard Encoder formats and codecs - Azure
 description: This article contains a list of the most common import and export file formats that you can use with StandardEncoderPreset.
 services: media-services
 documentationcenter: ''
-author: juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 
@@ -11,13 +11,15 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 02/10/2019
-ms.author: juliako
+ms.topic: conceptual
+ms.date: 08/31/2020
+ms.author: inhenkel
 ms.reviewer: anilmur
 
 ---
 # Standard Encoder formats and codecs
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 This article contains a list of the most common import and export file formats that you can use with [StandardEncoderPreset](/rest/api/media/transforms/createorupdate#standardencoderpreset). For information on how to create custom presets using **StandardEncoderPreset**, see [Create a transform with a custom preset](customize-encoder-presets-how-to.md).
 

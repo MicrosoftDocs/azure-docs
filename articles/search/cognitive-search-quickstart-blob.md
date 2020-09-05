@@ -71,7 +71,7 @@ Next, configure AI enrichment to invoke OCR, image analysis, and natural languag
 
 1. For this quickstart, we are using the **Free** Cognitive Services resource. The sample data consists of 14 files, so the free allotment of 20 transaction on Cognitive Services is sufficient for this quickstart. 
 
-   ![Attach Cognitive Services](media/cognitive-search-quickstart-blob/cog-search-attach.png)
+   ![Attach Cognitive Services attach base service](media/cognitive-search-quickstart-blob/cog-search-attach.png)
 
 1. Expand **Add enrichments** and make four selections. 
 
@@ -81,7 +81,7 @@ Next, configure AI enrichment to invoke OCR, image analysis, and natural languag
 
    Choose entity recognition (people, organizations, locations) and image analysis skills.
 
-   ![Attach Cognitive Services](media/cognitive-search-quickstart-blob/skillset.png)
+   ![Attach Cognitive Services select services for skillset](media/cognitive-search-quickstart-blob/skillset.png)
 
    Continue to the next page.
 

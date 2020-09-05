@@ -253,7 +253,7 @@ The data is read as a data frame:
 ### Azure Synapse Analytics (formerly SQL DW) and databases
 Azure Synapse Analytics (formerly SQL DW) is an elastic data warehouse as a service with an enterprise-class SQL Server experience.
 
-You can provision Azure Synapse Analytics by following the instructions in [this article](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md). After you provision your SQL data warehouse, you can use [this walkthrough](../team-data-science-process/sqldw-walkthrough.md) to do data upload, exploration, and modeling by using data within the SQL data warehouse.
+You can provision Azure Synapse Analytics by following the instructions in [this article](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md). After you provision Azure Synapse Analytics, you can use [this walkthrough](../team-data-science-process/sqldw-walkthrough.md) to do data upload, exploration, and modeling by using data within Azure Synapse Analytics.
 
 #### Azure Cosmos DB
 Azure Cosmos DB is a NoSQL database in the cloud. You can use it to work with documents like JSON, and to store and query the documents.

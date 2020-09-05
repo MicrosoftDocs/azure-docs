@@ -44,9 +44,6 @@
       href: https://github.com/Azure/azure-batch-samples
   - name: Azure CLI
     href: cli-samples.md
-  - name: Azure Policy built-ins
-    displayName: samples, policies, definitions
-    href: ./policy-samples.md
 - name: Concepts
   items:
   - name: Security
@@ -110,12 +107,8 @@
       href: batch-aad-auth-management.md
     - name: Securely access Key Vault with Batch
       href: credential-access-key-vault.md
-
     - name: Using certificates with Batch
       href: batch-certificates.md
-  - name: Using application packages
-    href: batch-application-packages.md
-
   - name: Copy files and applications to pool nodes
     items: 
     - name: Copying applications and data to pool nodes
@@ -124,7 +117,6 @@
       href: batch-application-packages.md
     - name: Create resource files
       href: resource-files.md
-
   - name: Create and manage pools
     items:
     - name: Autoscale compute nodes
@@ -271,6 +263,9 @@
       href: batch-task-complete-event.md
     - name: Task fail event
       href: batch-task-fail-event.md
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-reference.md
 - name: Resources
   items:
   - name: Azure updates
