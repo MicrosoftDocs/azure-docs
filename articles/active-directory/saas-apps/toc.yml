@@ -618,6 +618,8 @@
         href: fiscalnote-tutorial.md
       - name: Five9 Plus Adapter (CTI, Contact Center Agents)
         href: five9-tutorial.md
+      - name: Fivetran
+        href: fivetran-tutorial.md
       - name: Flatter Files
         href: flatter-files-tutorial.md
       - name: Float
@@ -690,6 +692,8 @@
         href: citrix-gotomeeting-tutorial.md
       - name: gr8 People
         href: gr8-people-tutorial.md
+      - name: Grammarly
+        href: grammarly-tutorial.md
       - name: Gra-Pe
         href: grape-tutorial.md
       - name: Greenhouse
@@ -1432,6 +1436,8 @@
         href: qualtrics-tutorial.md
       - name: Sauce Labs - Mobile and Web Testing
         href: saucelabs-mobileandwebtesting-tutorial.md
+      - name: Saviynt
+        href: saviynt-tutorial.md
       - name: ScaleX Enterprise
         href: scalex-enterprise-tutorial.md
       - name: SCC LifeCycle
