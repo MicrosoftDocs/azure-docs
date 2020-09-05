@@ -17,7 +17,7 @@ This article identifies troubleshooting resources for Azure Arc enabled data ser
 
 ## Resources by type
 
-[Scenario: Troubleshooting PostgreSQL Hyperscale server groups](troubleshooting-postgresql-hyperscale-server-group.md)
+[Scenario: Troubleshooting PostgreSQL Hyperscale server groups](troubleshoot-postgresql-hyperscale-server-group.md)
 
 [View logs and metrics using Kibana and Grafana](monitor-grafana-kibana.md)
 

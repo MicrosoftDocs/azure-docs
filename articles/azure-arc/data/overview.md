@@ -46,12 +46,12 @@ Many of the services such as self-service provisioning, automated backups/restor
 ## Next steps
 
 > **Just want to try things out?**  
-> Get started quickly with [Azure Arc JumpStart](https://github.com/microsoft/azure_arc#azure-arc-enabled-data-services) on Azure Kubernetes Service (AKS), AWS Elastic Kubernetes Service (EKS), Google Cloud Kubernetes Engine (GKE) or in an Azure VM!
+> Get started quickly with [Azure Arc JumpStart](https://github.com/microsoft/azure_arc#azure-arc-enabled-data-services) on Azure Kubernetes Service (AKS), AWS Elastic Kubernetes Service (EKS), Google Cloud Kubernetes Engine (GKE) or in an Azure VM.
 
 [Install the client tools](install-client-tools.md)
 
 [Deploy the Azure Arc data controller](create-data-controller.md) (requires installing the client tools first)
 
-[Deploy an Azure SQL managed instance on Azure Arc](create-sql-managed-instance.md) (requires deployment of an Azure Arc data controller first)
+After you deploy the data controller, see [Deploy an Azure SQL managed instance on Azure Arc](create-sql-managed-instance.md) 
 
 [Deploy an Azure Database for PostgreSQL Hyperscale server group on Azure Arc](create-postgresql-hyperscale-server-group.md) (requires deployment of an Azure Arc data controller first)

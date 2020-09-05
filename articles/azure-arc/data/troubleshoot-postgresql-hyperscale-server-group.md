@@ -1,6 +1,6 @@
 ---
-title: Troubleshooting PostgreSQL Hyperscale server groups
-description: Troubleshooting PostgreSQL Hyperscale server groups
+title: Troubleshoot PostgreSQL Hyperscale server groups
+description: Troubleshoot PostgreSQL Hyperscale server groups with a Jupyter Notebook
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -11,7 +11,7 @@ ms.date: 08/04/2020
 ms.topic: how-to
 ---
 
-# Scenario: Troubleshooting PostgreSQL Hyperscale server groups
+# Troubleshoot PostgreSQL Hyperscale server groups
 
 Notebooks can document procedures by including markdown content to describe what to do/how to do it. It can also provide executable code to automate a procedure.  This pattern is useful for everything from standard operating procedures to troubleshooting guides.
 

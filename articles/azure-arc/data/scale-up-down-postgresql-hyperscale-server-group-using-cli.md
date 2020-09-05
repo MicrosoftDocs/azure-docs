@@ -167,4 +167,4 @@ azdata postgres server update --help
 
 ## Next steps
 
-[Scale out your Azure Database for PostgreSQL Hyperscale server group](scale-out-postgresql-hyperscale.md)
+[Scale out your Azure Database for PostgreSQL Hyperscale server group](scale-out-postgresql-hyperscale-server-group.md)

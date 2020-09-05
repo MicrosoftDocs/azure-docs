@@ -97,4 +97,4 @@ Once connected, several experiences are available:
 
 ## Next steps
 
-[Troubleshooting PostgreSQL Hyperscale server groups](troubleshooting-postgresql-hyperscale-server-group.md)
+[Troubleshooting PostgreSQL Hyperscale server groups](troubleshoot-postgresql-hyperscale-server-group.md)

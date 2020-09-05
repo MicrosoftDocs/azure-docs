@@ -11,7 +11,7 @@ ms.date: 08/04/2020
 ms.topic: how-to
 ---
 
-# Scenario: Scale out your Azure Database for PostgreSQL Hyperscale server group
+# Scale out your Azure Database for PostgreSQL Hyperscale server group
 
 The instructions refer to the PostgreSQL server group that was [provisioned in an earlier guide](https://github.com/microsoft/Azure-data-services-on-Azure-Arc/blob/ctp2.0/scenarios/004-create-pghsaa-instance.md).
 

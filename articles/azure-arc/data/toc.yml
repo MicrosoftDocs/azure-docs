@@ -37,10 +37,6 @@
           href: /sql/azdata/install/deploy-install-azdata-pip?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
     - name: Create SQL Managed Instance
       href: create-sql-managed-instance.md
-    - name: Extend PostgreSQL SingleNode
-      href: postgresql-extend-single-node-to-hyperscale.md
-    - name: Scale out PostgreSQL to Hyperscale
-      href: scale-out-postgresql-hyperscale.md
 - name: Concepts
   items:
     - name: Connectivity modes and requirements
@@ -77,18 +73,35 @@
           href: uninstall-azure-arc-data-controller.md
         - name: Uninstall client tools update
           href: uninstall-update-client-tools.md
-    - name: PostgreSQL
+- name: Azure SQL Datatabase for PostgreSQL enabled for Azure Arc (preview) 
+  items:
+    - name: Overview
+    - name: Concepts
+    - name: Quickstarts
+    - name: How-to
       items:
-        - name: Back up PostgreSQL Hyperscale
-          href: backup-restore-postgresql-hyperscale.md
-    - name: SQL Managed Instance
-      items:
-        - name: Create SQL Managed Instance (Azure Data Studio)
-          href: create-sql-managed-instance-azure-data-studio.md
-        - name: Migrate to SQL Managed Instance (Azure Arc)
-          href: migrate-to-managed-instance-azure-arc.md
-        - name: Restore AdventureWorks
-          href: restore-adventureworks-sample-db.md
+      - name: Extend single-node to Hyperscale
+        href: postgresql-extend-single-node-to-hyperscale.md
+      - name: Create Hyperscale (Azure Data Studio)
+        href: create-postgresql-hyperscale-server-group-azure-data-studio.md
+      - name: Create Hyperscale
+        href: create-postgresql-hyperscale-server-group.md
+      - name: Scale out Hyperscale
+        href: scale-out-postgresql-hyperscale-server-group.md
+      - name: Troubleshooting
+        items:
+          - name: Troubleshoot with notebook
+            href: troubleshooting-postgresql-hyperscale-server-group.md
+    - name: Back up PostgreSQL Hyperscale
+      href: backup-restore-postgresql-hyperscale.md
+- name: SQL Managed Instance
+  items:
+    - name: Create SQL Managed Instance (Azure Data Studio)
+      href: create-sql-managed-instance-azure-data-studio.md
+    - name: Migrate to SQL Managed Instance (Azure Arc)
+      href: migrate-to-managed-instance-azure-arc.md
+    - name: Restore AdventureWorks
+      href: restore-adventureworks-sample-db.md
     - name: Troubleshoot
       items:
       - name: Guide

@@ -161,17 +161,16 @@ You can now connect either psql:
 psql postgresql://postgres:<EnterYourPassword>@10.0.0.4:30655
 ```
 
-## Next Steps
-
+## Next steps
 
 - Read the concepts and How-to guides of Azure Database for Postgres Hyperscale to distribute your data across multiple Postgres Hyperscale nodes and to benefit from all the power of Azure Database for Postgres Hyperscale. :
-    * [Nodes and tables](https://docs.microsoft.com/en-us/azure/postgresql/concepts-hyperscale-nodes)
-    * [Determine application type](https://docs.microsoft.com/en-us/azure/postgresql/concepts-hyperscale-app-type)
-    * [Choose a distribution column](https://docs.microsoft.com/en-us/azure/postgresql/concepts-hyperscale-choose-distribution-column)
-    * [Table colocation](https://docs.microsoft.com/en-us/azure/postgresql/concepts-hyperscale-colocation)
-    * [Distribute and modify tables](https://docs.microsoft.com/en-us/azure/postgresql/howto-hyperscale-modify-distributed-tables)
-    * [Design a multi-tenant database](https://docs.microsoft.com/en-us/azure/postgresql/tutorial-design-database-hyperscale-multi-tenant)*
-    * [Design a real-time analytics dashboard](https://docs.microsoft.com/en-us/azure/postgresql/tutorial-design-database-hyperscale-realtime)*
+    * [Nodes and tables](../../postgresql/concepts-hyperscale-nodes.md)
+    * [Determine application type](../../postgresql/concepts-hyperscale-app-type.md)
+    * [Choose a distribution column](../../postgresql/concepts-hyperscale-choose-distribution-column.md)
+    * [Table colocation](../../postgresql/concepts-hyperscale-colocation.md)
+    * [Distribute and modify tables](../../postgresql/howto-hyperscale-modify-distributed-tables.md)
+    * [Design a multi-tenant database](../../postgresql/tutorial-design-database-hyperscale-multi-tenant.md)*
+    * [Design a real-time analytics dashboard](../../postgresql/tutorial-design-database-hyperscale-realtime.md)*
 
 > *In these documents, skip the sections [Sign in to the Azure portal], [Create an Azure Database for Postgres - Hyperscale (Citus)] and implement the remaining steps in your Azure Arc deployment. Those sections are specific to the Azure Database for Postgres Hyperscale (Citus) offered as a PaaS service in the Azure cloud but the other parts of the documents are directly applicable to your Azure Arc enabled Postgres Hyperscale.
 

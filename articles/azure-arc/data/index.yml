@@ -43,11 +43,13 @@ landingContent:
             url: install-client-tools.md
 
   # Card (optional)
-  - title: Do with Postgres
+  - title: Do with PostgreSQL
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Extend single node to hyperscale
+          - text: Create PostgreSQL Hyperscale server group
+            url: create-postgresql-hyperscale-server-group.md
+          - text: Extend single node to Hyperscale
             url: postgresql-extend-single-node-to-hyperscale.md
 
   # Card (optional)
