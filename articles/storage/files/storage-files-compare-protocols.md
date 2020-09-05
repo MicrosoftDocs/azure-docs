@@ -72,10 +72,10 @@ Azure Files offers NFS v4.1 protocol that is fully managed, network-attached sto
 
 NFS with Azure Files is ideal for:
 
-- Fully POSIX-compliant
-- SAP
+- Workloads that require POSIX-compliant file shares.
+- SAP.
 - Linux-centric workloads that do not require SMB access.
-- Inherent locking system that you do not need to manage.
+- A workload that necessitates frequent random access.
 
 ## Next steps
 
