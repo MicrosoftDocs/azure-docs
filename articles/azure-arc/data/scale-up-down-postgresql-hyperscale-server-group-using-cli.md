@@ -1,6 +1,6 @@
 ---
-title: Scale up and down an Azure Database for PostgreSQL Hyperscale server group using CLI (azdata)
-description: Scale up and down an Azure Database for PostgreSQL Hyperscale server group using CLI (azdata)
+title: Scale up and down an Azure Database for PostgreSQL Hyperscale server group using CLI (azdata or kubectl)
+description: Scale up and down an Azure Database for PostgreSQL Hyperscale server group using CLI (azdata or kubectl)
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -10,7 +10,7 @@ ms.reviewer: mikeray
 ms.date: 08/04/2020
 ms.topic: how-to
 ---
-# Scenario: Scale up and down an Azure Database for PostgreSQL Hyperscale server group using CLI (azdata)
+# Scenario: Scale up and down an Azure Database for PostgreSQL Hyperscale server group using CLI (azdata or kubectl)
 
 
 
