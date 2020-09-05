@@ -208,8 +208,10 @@ If you would like to compare the execution time of the select count query agains
 ```sql
 SELECT COUNT(*) FROM github_events;
 ```
+Note the execution time.
 
-## Notes:
+
+## 5. Notes:
 > Depending on your environment _- for example if you have deployed your test server group with kubeadm on a single node VM -_ you may see a modest improvement in the execution time. To get a better idea of the type of performance improvement you could reach with Azure Arc enabled PostgreSQL Hyperscale, watch the following short videos:
 * [High performance HTAP with Azure PostgreSQL Hyperscale (Citus)](https://www.youtube.com/watch?v=W_3e07nGFxY)
 * [Building HTAP applications with Python & Azure PostgreSQL Hyperscale (Citus)](https://www.youtube.com/watch?v=YDT8_riLLs0)
@@ -217,7 +219,7 @@ SELECT COUNT(*) FROM github_events;
 > It is not yet possible to scale back in, i.e. it is not yet possible to reduce the number of worker nodes. If you need to do so, you need to extract/backup the data, drop the server group, create a new server group with less worker nodes and then import the data.
 
 
-## 5. Suggested next step
+## 6. Suggested next step
 - Read about how to [scale up and down (memory, vCores) your Azure Arc enabled PostgreSQL Hyperscale server group](scale-up-down-postgresql-hyperscale-server-group-using-cli.md)
 - Read about how to set server parameters in your Azure Arc enabled PostgreSQL Hyperscale server group
 - Read the concepts and How-to guides of Azure Database for Postgres Hyperscale to distribute your data across multiple Postgres Hyperscale nodes and to benefit from all the power of Azure Database for Postgres Hyperscale. :
