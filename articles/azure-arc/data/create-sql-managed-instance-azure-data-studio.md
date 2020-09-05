@@ -52,8 +52,8 @@ Logged in successfully to `https://10.0.0.4:30080` in namespace `arc`. Setting a
 - In the Deploy Azure SQL managed instance - Azure Arc blade, enter the following information:
   - Enter a name for the SQL Server instance
   - Enter and confirm a password for the SQL Server instance
-  - Select the storage class as arppropriate for Data
-  - Select the storage class as appropriate for Logs
+  - Select the storage class as appropriate for data
+  - Select the storage class as appropriate for logs
 
 - Click the **Deploy** button
 
@@ -83,7 +83,7 @@ Name          Replicas    ServerEndpoint     State
 sqlinstance1  1/1         25.51.65.109:1433  Ready
 ```
 
-- In Azure Data Studio, under **Cconnections** tab, click on the **New Connection** on the **Servers** view
+- In Azure Data Studio, under **Connections** tab, click on the **New Connection** on the **Servers** view
 - In the **Connection** blade, paste the ServerEndpoint into the Server textbox
 - Select "SQL Login" as the Authentication type
 - Enter "sa" as the user name
