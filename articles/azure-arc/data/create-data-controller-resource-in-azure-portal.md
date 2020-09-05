@@ -11,7 +11,7 @@ ms.date: 08/04/2020
 ms.topic: how-to
 ---
 
-# Scenario: Create an Azure Arc data controller in the Azure portal
+# Create an Azure Arc data controller in the Azure portal
 
 > [!NOTE]
 > This scenario is not completed end:end yet, but you can start to try out the experience and provide us feedback on it.

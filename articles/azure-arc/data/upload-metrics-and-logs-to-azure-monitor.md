@@ -11,9 +11,9 @@ ms.date: 08/04/2020
 ms.topic: how-to
 ---
 
-# Scenario: Upload resource inventory, usage data, metrics and logs to Azure Monitor
+# Upload resource inventory, usage data, metrics and logs to Azure Monitor
 
-With Azure Arc data services you can *optionally* upload your metrics and logs to Azure Monitor so you can aggregate and analyze metrics, logs, raise alerts, send notifications or trigger automated actions.  Sending your data to Azure Monitor also allows you to store monitoring and logs data off site and at huge scale enabling long-term storage of the data for advanced analytics.  If you have multiple sites which have Azure Arc data services, you can use Azure Monitor as a central location to collect all of your logs and metrics across your sites.
+With Azure Arc data services you can *optionally* upload your metrics and logs to Azure Monitor so you can aggregate and analyze metrics, logs, raise alerts, send notifications or trigger automated actions. Sending your data to Azure Monitor also allows you to store monitoring and logs data off site and at huge scale enabling long-term storage of the data for advanced analytics.  If you have multiple sites which have Azure Arc data services, you can use Azure Monitor as a central location to collect all of your logs and metrics across your sites.
 
 ## Before you begin
 
