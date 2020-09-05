@@ -9,17 +9,18 @@ ms.author: rogarana
 ms.subservice: files
 ---
 
-# Enable SMB Multichannel on a filestorage account 
+# Enable SMB Multichannel on a filestorage account (preview) 
 
-Azure FileStorage accounts support SMB Multichannel (preview), which increases the performance from an SMB 3.x client by establishing multiple network connection to your premium file shares. This article provides step-by-step guidance to enable SMB Multichannel on an existing storage account. For conceptual information on SMB Multichannel, see SMB Multichannel performance.
+Azure FileStorage accounts support SMB Multichannel (preview), which increases the performance from an SMB 3.x client by establishing multiple network connection to your premium file shares. This article provides step-by-step guidance to enable SMB Multichannel on an existing storage account. For detailed information on Azure Files SMB Multichannel, see SMB Multichannel performance.
 
 ## Restrictions
 
-- Only available for SMB shares in filestorage accounts.
+- Only available for premium SMB shares in filestorage accounts.
+- Supported client: Windows only
 
 ### Regional availability
 
-SMB Multichannel for premium file shares is in public preview and is available in a subset of Azure regions. Please check region availability section in SMB Multichannel performance article.
+SMB Multichannel for premium file shares is in preview and is available in a subset of Azure regions. Please check region availability section in SMB Multichannel performance article.
 
 ## Prerequisites
 
@@ -66,4 +67,5 @@ Enabling SMB Multichannel will apply the affect to every file share inside the s
 
 - [Remount your file share](storage-how-to-use-files-windows.md) to take advantage of SMB Multichannel.
 - [Troubleshoot any issues you have related to SMB Multichannel](storage-troubleshooting-files-performance.md#smb-multichannel-option-not-visible-under-file-share-settings).
-- To learn more about the performance improvements of SMB Multichannel, see our article.
+- To learn more about the improvements, see Azure Files SMB Multichannel performance article.
+ - To learn more about the Windows SMB Multichannel feature, see [Deploy SMB Mulitchannel](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn610980(v=ws.11)).
