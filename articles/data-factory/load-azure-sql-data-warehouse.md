@@ -17,7 +17,7 @@ ms.date: 06/08/2020
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-[Azure Synapse Analytics (formerly SQL DW)](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) is a cloud-based, scale-out database that's capable of processing massive volumes of data, both relational and non-relational. Azure Synapse Analytics is built on the massively parallel processing (MPP) architecture that's optimized for enterprise data warehouse workloads. It offers cloud elasticity with the flexibility to scale storage and compute independently.
+[Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) is a cloud-based, scale-out database that's capable of processing massive volumes of data, both relational and non-relational. Azure Synapse Analytics is built on the massively parallel processing (MPP) architecture that's optimized for enterprise data warehouse workloads. It offers cloud elasticity with the flexibility to scale storage and compute independently.
 
 Getting started with Azure Synapse Analytics is now easier than ever when you use Azure Data Factory. Azure Data Factory is a fully managed cloud-based data integration service. You can use the service to populate an Azure Synapse Analytics with data from your existing system and save time when building your analytics solutions.
 
@@ -97,13 +97,13 @@ This article shows you how to use the Data Factory Copy Data tool to _load data 
 
     a. Click **+ Create new connection** to add a connection
 
-    b. Select **Azure Synapse Analytics (formerly SQL DW)** from the gallery, and select **Continue**. You can type "SQL" in the search box to filter the connectors.
+    b. Select **Azure Synapse Analytics (formerly SQL Data Warehouse)** from the gallery, and select **Continue**. You can type "SQL" in the search box to filter the connectors.
 
-    ![Select Azure SQL DW](./media/load-azure-sql-data-warehouse/select-azure-sql-dw-sink.png)
+    ![Select Azure Synapse Analytics](./media/load-azure-sql-data-warehouse/select-azure-sql-dw-sink.png)
 
     c. In the **New Linked Service** page, select your server name and DB name from the dropdown list, and specify the username and password. Click **Test connection** to validate the settings, then select **Create**.
 
-    ![Configure Azure SQL DW](./media/load-azure-sql-data-warehouse/configure-azure-sql-dw.png)
+    ![Configure Azure Synapse Analytics](./media/load-azure-sql-data-warehouse/configure-azure-sql-dw.png)
 
     d. Select the newly created linked service as sink, then click **Next**.
 
