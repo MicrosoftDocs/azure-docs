@@ -148,4 +148,4 @@ RESTORED_MyOnPremPostgresDB=# select * from t1;
 
 ## Next steps
 
-[Restore the AdventureWorks sample database to PostgreSQL](restore-adventureworks-sample-db-postgresql.md)
+[Restore the AdventureWorks sample database to PostgreSQL](restore-adventureworks-sample-db-into-postgresql-hyperscale-server-group.md)

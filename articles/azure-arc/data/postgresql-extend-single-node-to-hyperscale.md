@@ -13,7 +13,7 @@ ms.topic: how-to
 
 # Scale out from Azure Database for PostgreSQL single node instance
 
-These instructions use the PostgreSQL single node instance that was created by following the steps in[Create an Azure Database for PostgreSQL Hyperscale server group on Azure Arc](create-postgresql-instances.md).
+These instructions use the PostgreSQL single node instance that was created by following the steps in[Create an Azure Database for PostgreSQL Hyperscale server group on Azure Arc](migrate-postgresql-data-into-postgresql-hyperscale-server-group.md).
 
 The Citus extension enables they Hyperscale server group. For more information, see [Nodes in Azure Database for PostgreSQL – Hyperscale (Citus)](../../postgresql/concepts-hyperscale-nodes.md). 
 

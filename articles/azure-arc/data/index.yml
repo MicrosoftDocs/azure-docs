@@ -47,12 +47,8 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Create PostgreSQL instance
-            url: create-postgresql-instances.md
           - text: Extend single node to hyperscale
             url: postgresql-extend-single-node-to-hyperscale.md
-          - text: Restore sample database
-            url: restore-adventureworks-sample-db-postgresql.md
 
   # Card (optional)
   - title: Do with SQL Managed Instance

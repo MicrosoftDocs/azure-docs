@@ -87,6 +87,7 @@ Azure Arc enabled SQL Managed Instance share a common code base with the latest 
 |Encryption for backups|	Yes|
 
 ###  <a name="RDBMSM"></a> RDBMS manageability  
+
 |Feature|Azure Arc enabled SQL Managed Instance|
 |-------------|----------------|
 |Dedicated admin connection|	Yes|
