@@ -69,7 +69,8 @@ In a default configuration, only the minimum memory is set to 256Mi as it is the
 ## Scale up the server group
 
 The settings you are about to set have to be considered within the configuration you set for your Kubernetes cluster. Make sure you are not setting values that your Kubernetes cluster won't be able to satisfy. That could lead to errors or unpredictable behavior. As an example, if the status of your server group stays in status _updating_ for a long time after you change the configuration, it may be an indication that you set the below parameters to values that your Kubernetes cluster cannot satisfy. If that is the case, revert the change or read the _troubleshooting_section.
-let's assume you want to scale up the definition of your server group to:
+
+Let's assume you want to scale up the definition of your server group to:
 
 - Min vCore = 2
 - Max vCore = 4
