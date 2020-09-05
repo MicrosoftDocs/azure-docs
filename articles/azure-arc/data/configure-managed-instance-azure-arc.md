@@ -8,8 +8,7 @@ author: vin-yu
 ms.author: vinsonyu
 ms.reviewer: mikeray
 ms.date: 08/30/2020
-ms.topic: configure
-
+ms.topic: how-to
 ---
 
 # Configure Azure Arc enabled SQL managed instance

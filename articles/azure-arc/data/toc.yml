@@ -37,8 +37,6 @@
           href: /sql/azdata/install/deploy-install-azdata-pip?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
     - name: Create SQL Managed Instance
       href: create-sql-managed-instance.md
-    - name: Create PostgreSQL Instance
-      href: create-postgresql-instances.md
     - name: Extend PostgreSQL SingleNode
       href: postgresql-extend-single-node-to-hyperscale.md
     - name: Scale out PostgreSQL to Hyperscale
@@ -85,20 +83,6 @@
           href: backup-restore-postgresql-hyperscale.md
         - name: Use PostgreSQL extensions
           href: using-postgresql-extensions.md
-        - name: Create PostgreSQL instance (Azure Data Studio)
-          href: create-postgresql-hyperscale-instance-azure-data-studio.md
-        - name: Scale  PostgreSQL instance (CLI)
-          href: scale-up-down-postgresql-hyperscale-instance-using-cli.md
-        - name: Manage roles in PostgreSQL (CLI)
-          href: manage-roles-in-postgresql-with-cli.md
-        - name: Migrate a PostgreSQL database to Arc
-          href: migrate-postgresql-db-into-arc.md
-        - name: Restore AdventureWorks to PostgreSQL
-          href: restore-adventureworks-sample-db-postgresql.md
-        - name: Manage PostgreSQL (Azure Data Studio)
-          href: manage-postgresql-with-azure-data-studio.md
-        - name: Delete PostgreSQL
-          href: delete-postgresql-instance.md
     - name: SQL Managed Instance
       items:
         - name: Create SQL Managed Instance (Azure Data Studio)
@@ -109,8 +93,8 @@
           href: restore-adventureworks-sample-db.md
     - name: Troubleshoot
       items:
-        - name: Troubleshoot PostgreSQL
-          href: troubleshooting-postgresql.md
+      - name: Guide
+        href: troubleshooting.md
 - name: Reference
   items:
   - name: azdata

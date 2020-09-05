@@ -54,4 +54,4 @@ Many of the services such as self-service provisioning, automated backups/restor
 
 [Deploy an Azure SQL managed instance on Azure Arc](create-sql-managed-instance.md) (requires deployment of an Azure Arc data controller first)
 
-[Deploy an Azure Database for PostgreSQL Hyperscale server group on Azure Arc](create-postgresql-instances.md) (requires deployment of an Azure Arc data controller first)
+[Deploy an Azure Database for PostgreSQL Hyperscale server group on Azure Arc](create-postgresql-hyperscale-server-group.md) (requires deployment of an Azure Arc data controller first)

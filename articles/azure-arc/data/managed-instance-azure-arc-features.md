@@ -8,18 +8,17 @@ author: vin-yu
 ms.author: vinsonyu
 ms.reviewer: mikeray
 ms.date: 08/30/2020
-ms.topic: configure
-
+ms.topic: how-to
 ---
 
 # Features and Capabilities of Azure Arc enabled SQL Managed Instance
 
 Azure Arc enabled SQL Managed Instance share a common code base with the latest stable version of SQL Server. Most of the standard SQL language, query processing, and database management features are identical. The features that are common between SQL Server and SQL Database or SQL Managed Instance are:
 
-- Language features - [Control of flow language keywords](https://docs.microsoft.com/sql/t-sql/language-elements/control-of-flow), [Cursors](https://docs.microsoft.com/sql/t-sql/language-elements/cursors-transact-sql), [Data types](https://docs.microsoft.com/sql/t-sql/data-types/data-types-transact-sql), [DML statements](https://docs.microsoft.com/sql/t-sql/queries/queries), [Predicates](https://docs.microsoft.com/sql/t-sql/queries/predicates), [Sequence numbers](https://docs.microsoft.com/sql/relational-databases/sequence-numbers/sequence-numbers), [Stored procedures](https://docs.microsoft.com/sql/relational-databases/stored-procedures/stored-procedures-database-engine), and [Variables](https://docs.microsoft.com/sql/t-sql/language-elements/variables-transact-sql).
-- Database features - [Automatic tuning (plan forcing)](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning), [Change tracking](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server), [Database collation](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-database-collation), [Contained databases](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases), [Contained users](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable), [Data compression](https://docs.microsoft.com/sql/relational-databases/data-compression/data-compression), [Database configuration settings](https://docs.microsoft.com/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql), [Online index operations](https://docs.microsoft.com/sql/relational-databases/indexes/perform-index-operations-online), [Partitioning](https://docs.microsoft.com/sql/relational-databases/partitions/partitioned-tables-and-indexes), and [Temporal tables](https://docs.microsoft.com/sql/relational-databases/tables/temporal-tables) ([see getting started guide](../temporal-tables.md)).
-- Security features - [Application roles](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/application-roles), [Dynamic data masking](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking) ([see getting started guide](dynamic-data-masking-overview.md)), [Row Level Security](https://docs.microsoft.com/sql/relational-databases/security/row-level-security)
-- Multi-model capabilities - [Graph processing](https://docs.microsoft.com/sql/relational-databases/graphs/sql-graph-overview), [JSON data](https://docs.microsoft.com/sql/relational-databases/json/json-data-sql-server) ([see getting started guide](json-features.md)), [OPENXML](https://docs.microsoft.com/sql/t-sql/functions/openxml-transact-sql), [Spatial](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-sql-server), [OPENJSON](https://docs.microsoft.com/sql/t-sql/functions/openjson-transact-sql), and [XML indexes](https://docs.microsoft.com/sql/t-sql/statements/create-xml-index-transact-sql).
+- Language features - [Control of flow language keywords](/sql/t-sql/language-elements/control-of-flow), [Cursors](/sql/t-sql/language-elements/cursors-transact-sql), [Data types](/sql/t-sql/data-types/data-types-transact-sql), [DML statements](/sql/t-sql/queries/queries), [Predicates](/sql/t-sql/queries/predicates), [Sequence numbers](/sql/relational-databases/sequence-numbers/sequence-numbers), [Stored procedures](/sql/relational-databases/stored-procedures/stored-procedures-database-engine), and [Variables](/sql/t-sql/language-elements/variables-transact-sql).
+- Database features - [Automatic tuning (plan forcing)](/sql/relational-databases/automatic-tuning/automatic-tuning), [Change tracking](/sql/relational-databases/track-changes/about-change-tracking-sql-server), [Database collation](/sql/relational-databases/collations/set-or-change-the-database-collation), [Contained databases](/sql/relational-databases/databases/contained-databases), [Contained users](/sql/relational-databases/security/contained-database-users-making-your-database-portable), [Data compression](/sql/relational-databases/data-compression/data-compression), [Database configuration settings](/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql), [Online index operations](/sql/relational-databases/indexes/perform-index-operations-online), [Partitioning](/sql/relational-databases/partitions/partitioned-tables-and-indexes), and [Temporal tables](/sql/relational-databases/tables/temporal-tables) ([see getting started guide](/sql/relational-databases/tables/getting-started-with-system-versioned-temporal-tables)).
+- Security features - [Application roles](/sql/relational-databases/security/authentication-access/application-roles), [Dynamic data masking](/sql/relational-databases/security/dynamic-data-masking) ([see getting started guide](dynamic-data-masking-overview.md)), [Row Level Security](/sql/relational-databases/security/row-level-security)
+- Multi-model capabilities - [Graph processing](/sql/relational-databases/graphs/sql-graph-overview), [JSON data](/sql/relational-databases/json/json-data-sql-server) ([see getting started guide](json-features.md)), [OPENXML](/sql/t-sql/functions/openxml-transact-sql), [Spatial](/sql/relational-databases/spatial/spatial-data-sql-server), [OPENJSON](/sql/t-sql/functions/openjson-transact-sql), and [XML indexes](/sql/t-sql/statements/create-xml-index-transact-sql).
 
 
 
@@ -135,14 +134,14 @@ Azure Arc enabled SQL Managed Instance support various data tools that can help 
 | --- | --- | --- |
 | Azure portal <sup>1</sup> | No |
 | Azure CLI | Yes|
-| [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/what-is) | Yes |
+| [Azure Data Studio](/sql/azure-data-studio/what-is) | Yes |
 | Azure Powershell | Yes |
-| [BACPAC file (export)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application) | Yes |
-| [BACPAC file (import)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database) | Yes |
-| [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt) | Yes |
-| [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) | Yes |
-| [SQL Server PowerShell](https://docs.microsoft.com/sql/relational-databases/scripting/sql-server-powershell) | Yes |
-| [SQL Server Profiler](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler) | Yes |
+| [BACPAC file (export)](/sql/relational-databases/data-tier-applications/export-a-data-tier-application) | Yes |
+| [BACPAC file (import)](/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database) | Yes |
+| [SQL Server Data Tools (SSDT)](/sql/ssdt/download-sql-server-data-tools-ssdt) | Yes |
+| [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) | Yes |
+| [SQL Server PowerShell](/sql/relational-databases/scripting/sql-server-powershell) | Yes |
+| [SQL Server Profiler](/sql/tools/sql-server-profiler/sql-server-profiler) | Yes |
 
 <sup>1</sup> Read-only
 

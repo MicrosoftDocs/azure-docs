@@ -97,4 +97,4 @@ Once connected, several experiences are available:
 
 ## Next steps
 
-[Migrate a PostgreSQL database into Arc](migrate-postgresql-db-into-arc.md)
+[Troubleshooting PostgreSQL Hyperscale server groups](troubleshooting-postgresql-hyperscale-server-group.md)
