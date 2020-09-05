@@ -1,6 +1,6 @@
 ---
-title: Migrate a PostgreSQL database into Arc
-description: Migrate a PostgreSQL database into Arc
+title: Migrate data from a PostgreSQL database into an Azure Arc enabled Postgres Hyperscale server group
+description: Migrate data from a PostgreSQL database into an Azure Arc enabled Postgres Hyperscale server group
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -11,121 +11,117 @@ ms.date: 08/04/2020
 ms.topic: how-to
 ---
 
-# Migrate a PostgreSQL database into Arc
+# Migrate data from an PostgreSQL database outside of Azure Arc into an Azure Arc enabled Postgres Hyperscale server group
 
-This document describes the steps to get your existing PostgreSQL databases into your Arc setup.
+This document describes the steps to get your existing PostgreSQL database _(one that not hosted in Azure Arc enabled Data Services)_ into your Azure Arc enabled Postgres Hyperscale server group.
 
 ## Considerations
 
-Azure Database for PostgreSQL single node enabled by Azure Arc is the community version of PostgreSQL. Azure Arc enabled data services provides the manageability experience around it but the engine is unchanged.
-This means anything that works on PostgreSQL outside of Arc should work on PostgreSQL inside Arc.
+Azure Arc enabled Postgres Hyperscale server group is the community version of PostgreSQL and runs with the CitusData extension enabled. So any tool that that works on PostgreSQL outside of Azure Arc should work with Azure Arc enabled Postgres Hyperscale server group.
 
-As such, if you're using a community compatible version of PostgreSQL then you can:
 
-1. Back up your PostgreSQL database from your instance hosted outside of Arc
-2. Restore it in your PostgreSQL instance in Arc
+As such, with the set of tools you use today for Postgres, you should be able to:
+1. Backup your Postgres database from your instance hosted outside of Azure Arc
+2. Restore it in your Azure Arc enabled Postgres Hyperscale server group
 
-The remaining steps are:
+What will be left for you to do is:
+- reset the server parameters
+- reset the security contexts: recreate users, roles, and reset permissions...
 
-1. Reset the server parameters to the values you need for your application to work as it is working outside of Arc
-2. Reset the security contexts: recreate users, roles, and reset permissions
-
-   To do this backup/restore operation, use any tool that can do a backup/restore for PostgreSQL. For example:
-   - `pg_dump`
-   - `pg_restore`
-   - `pgAdmin`
-   - Azure Data Studio
-   - ...
+To do this backup/restore operation, you can use any tool that is capable of doing backup/restore for Postgres. For example:
+- Azure Data Studio and its Postgres extension
+- pgcli
+- pgAdmin
+- pg_dump
+- pg_restore
+- psql
+- ...
 
 ## Example
-
-Let's illustrate those steps using the `pgAdmin` standard tool.
+Let's illustrate those steps using the pgAdmin tool.
 Consider the following setup:
 - **Source:**  
-    A PostgreSQL server running on a bare metal server and named JEANYDSRV. It is of version 12 and hosts a database named MyOnPremPostgresDB that has one table T1, which has one row.
+    A Postgres server running on premises on a bare metal server and named JEANYDSRV. It is of version 12 and hosts a database named MyOnPremPostgresDB that has one table T1 which has 1 row
+    :::image type="content" source="../media/data/postgres-hyperscale/Migrate-PG-Source.jpg" alt-text="Migrate-source":::
 
-**Destination:**  
-    A PostgreSQL server running in an Azure Arc environment and named postgres01. It is of version 12. It doesn't have any database except the standard PostgreSQL database.  
+- **Destination:**  
+    A Postgres server running in an Azure Arc environment and named postgres01. It is of version 12. It does not have any database except the standard Postgres database.  
+    :::image type="content" source="../media/data/postgres-hyperscale/Migrate-PG-Destination.jpg" alt-text="Migrate-destination":::
 
-## Back up source database on-premises
+
+### Step 1: take a backup of the source database on premises
+:::image type="content" source="../media/data/postgres-hyperscale/Migrate-PG-Source-Backup.jpg" alt-text="Migrate-source-backup":::
 
 Configure it:
-- Give it a file name: *MySourceBackup*
-- Set the format to *Custom*
+- give it a file name: **MySourceBackup**
+- let the format set to **Custom**
+:::image type="content" source="../media/data/postgres-hyperscale/Migrate-PG-Source-Backup2.jpg" alt-text="Migrate-source-backup-configure":::
 
-The backup completes successfully.
+The backup completes successfully:  
+:::image type="content" source="../media/data/postgres-hyperscale/Migrate-PG-Source-Backup3.jpg" alt-text="Migrate-source-backup-completed":::
 
-## Create an empty database
 
-On the destination system in your Arc enabled database, create an upty database
 
-> [!NOTE]
-> To register a PostgreSQL instance in the `pgAdmin` tool, you need to you use public IP of your instance in your Kubernetes cluster and set the port and security context appropriately. You will find these details on the `psql` endpoint line after running the following command:
+### Step 2: create an empty database on the destination system in your Azure Arc enabled Postgres Hyperscale server group
 
-```console
-azdata postgres server endpoint -n postgres01
-```
-
-`azdata` returns the following information.
-
-```output
+>**Note:** to register a Postgres instance in the pgAdmin tool, you need to you use public IP of your instance in your Kubernetes cluster and set the port and security context appropriately. You will find these details on the psql endpoint line after running the following command:
+```terminal
+azdata arc postgres server endpoint list -n postgres01
+Command group 'postgres server' is in preview. It may be changed/removed in a future release.
 Description           Endpoint
 --------------------  ----------------------------------------------------------------------------------------------------------------
+PostgreSQL Instance   postgresql://postgres:<replace with password>@10.0.0.4:32639
 Log Search Dashboard  https://10.0.0.4:30777/kibana/app/kibana#/discover?_a=(query:(language:kuery,query:'cluster_name:"postgres01"'))
 Metrics Dashboard     https://10.0.0.4:30777/grafana/d/postgres-metrics?var-Namespace=default&var-Name=postgres01
-PostgreSQL Instance   postgresql://postgres:9xxxXXXxXx4XXXX308,40@10.0.0.4:32639
 ```
 
-Name the destination database **RESTORED_MyOnPremPostgresDB**  
+Let's name the destination database **RESTORED_MyOnPremPostgresDB**  
+:::image type="content" source="../media/data/postgres-hyperscale/Migrate-PG-Destination-DBCreate.jpg" alt-text="Migrate-destination-db-create":::
 
-## Restore the database 
 
-In your Arc enabled system, restore the database.
+
+### Step 3: restore the database in your Arc setup
+:::image type="content" source="../media/data/postgres-hyperscale/Migrate-PG-Destination-DBRestore.jpg" alt-text="Migratre-db-restore":::
 
 Configure the restore:
-- point to the file that contains the backup to restore: *MySourceBackup*
-- keep the format set  to *Custom or tar*
+- point to the file that contains the backup to restore: **MySourceBackup**
+- keep the format set  to **Custom or tar**
+:::image type="content" source="../media/data/postgres-hyperscale/Migrate-PG-Destination-DBRestore2.jpg" alt-text="Migrate-db-restore-configure":::
 
-Select **Restore**.  
-
+Click the **[Restore]** button.  
 The restore is successful.  
-
-## Verify restoration
-
-Verify that the database was successfully restored in your Arc setup and the data is available.
-
-There are two methods available:
-
-**From `pgAdmin`:**  
-Expand the PostgreSQL instance hosted in your Arc setup. You'll see the table in the database that we restored. When you select the data, it shows the same row as that it has in the on-premises instance:
-![Screenshot of detination DB restore verification.](/assets/Migrate_PG_SingleNode_Destination_DBRestoreVerif.jpg)
+:::image type="content" source="../media/data/postgres-hyperscale/Migrate-PG-Destination-DBRestore3.jpg" alt-text="Migrate-db-restore-completed":::
 
 
-**From `psql` inside your Arc setup:**  
-Within the Arc set-up use `psql` to connect to PostgreSQL instance, set the database context to RESTORED_MyOnPremPostgresDB and query the data:
+### Step 4: verify that the database was successfully restored in your Azure Arc enabled Postgres Hyperscale server group
 
-List the end points to help create  your `psql` connection string:
+Use either of the following methods:
 
-```console
-azdata postgres server endpoint -n postgres01
-```
+**From pgAdmin:**  
+Expand the Postgres instance hosted in your Azure Arc setup. You will see the table in the database that you have restored and when you select the data it shows the same row as that it has in the on-premises instance:
+:::image type="content" source="../media/data/postgres-hyperscale/Migrate-PG-Destination-DBRestoreVerif.jpg" alt-text="Migrate-db-restore-verification":::
 
-```output
+
+**From psql inside your Azure Arc setup:**  
+Within your Arc setup you can use psql to connect to your Postgres instance, set the database context to RESTORED_MyOnPremPostgresDB and query the data:
+
+List the end points to help from your psql connection string:
+```terminal
+azdata arc postgres server endpoint list -n postgres01
+Command group 'postgres server' is in preview. It may be changed/removed in a future release.
 Description           Endpoint
 --------------------  ----------------------------------------------------------------------------------------------------------------
+PostgreSQL Instance   postgresql://postgres:<replace with password>@10.0.0.4:32639
 Log Search Dashboard  https://10.0.0.4:30777/kibana/app/kibana#/discover?_a=(query:(language:kuery,query:'cluster_name:"postgres01"'))
 Metrics Dashboard     https://10.0.0.4:30777/grafana/d/postgres-metrics?var-Namespace=default&var-Name=postgres01
-PostgreSQL Instance   postgresql://postgres:9ampMLNBmYz4ZHOT308,40@10.0.0.4:32639
 ```
 
-Form your `psql` connection string use the -d parameter to indicate the database name. With the below command you'll be prompted for the password:
-
-```console
+Form your psql connection string use the -d parameter to indicate the database name. With the below command, you will be prompted for the password:
+```terminal
 psql -d RESTORED_MyOnPremPostgresDB -U postgres -h 10.0.0.4 -p 32639
 ```
-
-And you're connected:
-```console
+And you are connected:
+```terminal
 Password for user postgres:
 psql (10.12 (Ubuntu 10.12-0ubuntu0.18.04.1), server 12.3 (Debian 12.3-1.pgdg100+1))
 WARNING: psql major version 10, server major version 12.
@@ -136,9 +132,8 @@ Type "help" for help.
 RESTORED_MyOnPremPostgresDB=#   
 ```
 
-Select the table and you'll see the data coming from the on-premises PostgreSQL instance:
-
-```console
+Select the table and you'll see the data that you restored from the on-premises Postgres instance:
+```terminal
 RESTORED_MyOnPremPostgresDB=# select * from t1;
  col1 |    col2
 ------+-------------
@@ -146,6 +141,19 @@ RESTORED_MyOnPremPostgresDB=# select * from t1;
 (1 row)
 ```
 
-## Next steps
+> Notes
+> It is not possible today to "onboard into Azure Arc" an existing Postgres instance that would running on premises or in any other cloud. In other words, it is not possible to install some sort of "Azure Arc agent" on your existing Postgres instance to make it a Postgres setup enabled by Azure Arc. Instead, you need to deploy a new Postgres instance and transfer data into it. You may use the technique shown above to do this or you may use any ETL tool of your choice.
 
-[Restore the AdventureWorks sample database to PostgreSQL](restore-adventureworks-sample-db-into-postgresql-hyperscale-server-group.md)
+## Next steps
+- Read the concepts and How-to guides of Azure Database for Postgres Hyperscale to distribute your data across multiple Postgres Hyperscale nodes and to benefit from all the power of Azure Database for Postgres Hyperscale. :
+    * [Nodes and tables](https://docs.microsoft.com/en-us/azure/postgresql/concepts-hyperscale-nodes)
+    * [Determine application type](https://docs.microsoft.com/en-us/azure/postgresql/concepts-hyperscale-app-type)
+    * [Choose a distribution column](https://docs.microsoft.com/en-us/azure/postgresql/concepts-hyperscale-choose-distribution-column)
+    * [Table colocation](https://docs.microsoft.com/en-us/azure/postgresql/concepts-hyperscale-colocation)
+    * [Distribute and modify tables](https://docs.microsoft.com/en-us/azure/postgresql/howto-hyperscale-modify-distributed-tables)
+    * [Design a multi-tenant database](https://docs.microsoft.com/en-us/azure/postgresql/tutorial-design-database-hyperscale-multi-tenant)*
+    * [Design a real-time analytics dashboard](https://docs.microsoft.com/en-us/azure/postgresql/tutorial-design-database-hyperscale-realtime)*
+
+> *In these documents, skip the sections [Sign in to the Azure portal], [Create an Azure Database for Postgres - Hyperscale (Citus)] and implement the remaining steps in your Azure Arc deployment. Those sections are specific to the Azure Database for Postgres Hyperscale (Citus) offered as a PaaS service in the Azure cloud but the other parts of the documents are directly applicable to your Azure Arc enabled Postgres Hyperscale.
+
+- [Scale out your Azure Database for PostgreSQL Hyperscale server group](scale-out-postgresql-hyperscale-server-group.md)
