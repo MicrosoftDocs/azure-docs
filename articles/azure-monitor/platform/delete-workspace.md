@@ -110,6 +110,9 @@ PS C:\>Recover-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group
 
 The workspace and all its data are brought back after the recovery operation. Solutions and linked services were permanently removed from the workspace when it was deleted and these should be reconfigured to bring the workspace to its previously configured state. Some of the data may not be available for query after the workspace recovery until the associated solutions are re-installed and their schemas are added to the workspace.
 
+> [!NOTE]
+> Creating a workspace with the same name, location and resource group as a workspace in the soft-delete period may restore it instead. Otherwise an error occurs indicating the name is already in use. 
+
 ## Troubleshooting
 
 You must have at least *Log Analytics Contributor* permissions to delete a workspace.
