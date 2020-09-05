@@ -4,7 +4,7 @@ description: This quickstart shows you how to create and manage your knowledge b
 ms.topic: quickstart
 ms.date: 06/18/2020
 ms.custom: "devx-track-python, devx-track-javascript, devx-track-csharp"
-zone_pivot_groups: programming-languages-set-six
+zone_pivot_groups: programming-languages-set-sixteen
 ---
 
 # Quickstart: QnA Maker client library
