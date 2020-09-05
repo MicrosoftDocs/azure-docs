@@ -121,8 +121,8 @@ See the following example of a successful JSON response:
   }
 }
 ```
-
-Get started with the [Computer Vision OCR SDK quickstarts](./quickstarts-sdk/client-library?pivots=programming-language-csharp) and the [Read REST API quickstarts](./QuickStarts/CSharp-hand-text.md) to implement OCR using C# and the REST API.
+### Get started with SDK and API quickstarts
+Get started with the [Computer Vision OCR SDK quickstarts](./quickstarts-sdk/client-library?pivots=programming-language-csharp) and the [Read REST API quickstarts](./QuickStarts/CSharp-hand-text.md) to start integrating OCR capabilities into your applications.
 
 ### Supported languages for print text
 The [Read 3.0 API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) supports extracting printed text in English, Spanish, German, French, Italian, Portuguese, and Dutch languages. 
