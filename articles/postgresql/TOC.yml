@@ -388,6 +388,10 @@
         href: flexible-server/quickstart-create-server-portal.md
       - name: ARM template
         href: flexible-server/quickstart-create-server-arm-template.md
+    - name: Connect and query
+      items:
+        - name: Python
+          href: flexible-server/connect-python.md
   - name: Tutorials
     items:
     - name: Configure web app and database server in virtual network
@@ -402,8 +406,13 @@
       href: flexible-server/concepts-supported-versions.md
     - name: Compute and storage
       href: flexible-server/concepts-compute-storage.md
+    - name: Networking
+      href: flexible-server/concepts-networking.md
+      displayName: virtual networks, vnet, IP address, public access
     - name: Limits
       href: flexible-server/concepts-limits.md
+    - name: Extensions
+      href: flexible-server/concepts-extensions.md
     - name: Business continuity
       items:
       - name: Overview
@@ -414,9 +423,15 @@
         href: flexible-server/concepts-high-availability.md
     - name: Monitor and tune
       items:
+      - name: Overview
+        href: flexible-server/concepts-monitoring.md
+        displayName: monitor, metrics
       - name: Logs
         href: flexible-server/concepts-logging.md
         displayName: monitor, server logs
+    - name: Replication
+      href: flexible-server/concepts-logical.md
+      displayName: logical decoding
   - name: How-to guides
     items:
     - name: Manage a server
@@ -425,6 +440,24 @@
         href: flexible-server/how-to-manage-server-portal.md
       - name: Azure CLI
         href: flexible-server/how-to-manage-server-cli.md
+    - name: Networking
+      items:
+      - name: Private access (VNet Integration)
+        items:
+        - name: Azure portal
+          href: flexible-server/how-to-manage-virtual-network-portal.md
+        - name: Azure CLI
+          href: flexible-server/how-to-manage-virtual-network-cli.md
+      - name: Public access (allowed IP addresses)
+        items:
+        - name: Azure portal
+          href: flexible-server/how-to-manage-firewall-portal.md
+        - name: Azure CLI
+          href: flexible-server/how-to-manage-firewall-cli.md
+      - name: TLS/SSL
+        items:
+        - name: Connect using TLS/SSL
+          href: flexible-server/how-to-connect-tls-ssl.md
     - name: Scale a server
       items:
       - name: Azure portal
@@ -451,6 +484,10 @@
   items:
   - name: Documentation
     href: hyperscale/index.yml
+  - name: Overview
+    items:
+    - name: What is Hyperscale (Citus)?
+      href: hyperscale-overview.md
   - name: Quickstart
     items:
     - name: Create server group

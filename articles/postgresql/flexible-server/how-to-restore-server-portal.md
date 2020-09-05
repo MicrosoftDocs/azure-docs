@@ -10,7 +10,7 @@ ms.date: 09/21/2020
 
 # Point-in-time restore of a Flexible Server (Preview)
 
-This article provides step-by-step procedure to perform point-in-time recoveries in flexible server using backups.
+This article provides step-by-step procedure to perform point-in-time recoveries in flexible server using backups. You can perform either to an earliest restore point or a custom restore point within your retention period.
 
 ## Pre-requisites
 
@@ -27,13 +27,13 @@ existing backup.
 
 2.  Click **Overview** from the left panel and click **Restore**
    
- ![view restore overview](./media/how-to-restore-server-portal/restore-overview.png)
+ :::image type="content" source="./media/how-to-restore-server-portal/restore-overview.png" alt-text="Restore overview":::
 
 3.  Restore page will be shown with an option to choose between Earliest restore point and Custom restore point.
 
-4.  Select **Earliest restore point** and provide a new server name in the **Restore to new server** field.
+4.  Select **Earliest restore point** and provide a new server name in the **Restore to new server** field. The earliest timestamp that you can restore to is displayed. 
    
- ![Earliest restore time](./media/how-to-restore-server-portal/restore-earliest.png)
+ :::image type="content" source="./media/how-to-restore-server-portal/restore-earliest.png" alt-text="Earliest restore time":::
 
 5.  Click **OK**.
 
@@ -47,14 +47,15 @@ existing backup.
 1.  In the [Azure portal](https://portal.azure.com/), choose your flexible server that you want to restore the backup from.
 
 2.  From the overview page, click **Restore**.
-    ![view restore overview - earliest backup](./media/how-to-restore-server-portal/restore-overview.png)
+ :::image type="content" source="./media/how-to-restore-server-portal/restore-overview.png" alt-text="Restore overview":::
+    
 3.  Restore page will be shown with an option to choose between Earliest restore point and Custom restore point.
 
 4.  Choose **Custom restore point**.
 
 5.  Select date and time and provide a new server name in the **Restore to new server** field. 
    
- ![view overview - custom restore](./media/how-to-restore-server-portal/restore-custom.png)
+:::image type="content" source="./media/how-to-restore-server-portal/restore-custom.png" alt-text="Custom restore time":::
  
 6.  Click **OK**.
 

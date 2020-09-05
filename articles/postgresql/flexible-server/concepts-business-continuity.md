@@ -9,10 +9,16 @@ ms.date: 09/21/2020
 ---
 # Overview of business continuity with Azure Database for PostgreSQL - Flexible Server (Preview)
 
-Azure Database for PostgreSQL Flexible Server, which is currently in preview, offers features that protect data and mitigates downtime for your mission critical databases in the event of planned and unplanned outages. Built on top of Azure infrastructure that already offers robust resiliency and availability, flexible server has business continuity features that provide fault-protection, address recovery time requirements, and reduce data loss exposure. As you architect your applications, you should consider the downtime tolerance - which is the recovery time objective (RTO) and data loss exposure - which is the recovery point objective (RPO). For example, your business-critical database requires much stricter uptime requirements compared to a test database.  
+**Business continuity** in Azure Database for PostgreSQL - Flexible Server refers to the mechanisms, policies, and procedures that enable your business to continue operating in the face of disruption, particularly to its computing infrastructure. In the most of the cases, flexible server will handle the disruptive events that might happen in the cloud environment and keep your applications and business processes running. However, there are some disruptive events that cannot be handled by PostgreSQL database  automatically such as:
+
+- User accidentally deleted or updated a row in a table.
+- Earthquake caused a power outage and temporary disabled datacenter or the availability zone.
+- Database patching to fix a bug or security issue.
+
+Flexible server provides features that protect data and mitigates downtime for your mission critical databases in the event of planned and unplanned outages. Built on top of Azure infrastructure that already offers robust resiliency and availability, flexible server has business continuity features that provide fault-protection, address recovery time requirements, and reduce data loss exposure. As you architect your applications, you should consider the downtime tolerance - which is the recovery time objective (RTO) and data loss exposure - which is the recovery point objective (RPO). For example, your business-critical database requires much stricter uptime requirements compared to a test database.  
 
 > [!IMPORTANT]
-> Service level agreements (SLAs) for uptime %, RTO and RPO are not offered during the preview. These details are provided in this article for your planning purposes.
+> Uptime % service level agreement (SLA) is not offered during the preview. 
 
 The table below illustrates the features that Flexible server offers.
 
