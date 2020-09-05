@@ -43,8 +43,17 @@ logs-postgres01-3   Bound    pvc-f9e4cb98-c943-45b0-aa07-dd5cff7ea585   5Gi     
 ```
 There are 8 PVCs for this server group.
 
-Let's delete the server group:
 
+The general format of the delete command is:
+```terminal
+azdata arc postgres server delete -n <server group name>
+```
+For more details about the delete command, run:
+```terminal
+azdata arc postgres server delete --help
+``
+
+###Let's delete the server group used in this example:
 ```console
 azdata arc postgres server delete -n postgres01
 ```
