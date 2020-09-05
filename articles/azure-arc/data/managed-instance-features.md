@@ -105,10 +105,10 @@ Azure Arc enabled SQL Managed Instance share a common code base with the latest 
 |Parallel consistency check	|Yes|
 
 
-###  <a name="Programmability"></a> Programmability  
+### <a name="Programmability"></a> Programmability  
 
 |Feature|Azure Arc enabled SQL Managed Instance|
-|-------------|----------------|		
+|-------------|----------------|
 |JSON|	Yes	|		|
 |Query Store	|Yes	|		
 |Temporal|	Yes	|		

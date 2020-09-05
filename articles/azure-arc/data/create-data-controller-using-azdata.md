@@ -338,4 +338,4 @@ kubectl describe po/<pod name> -n arc
 
 ## Troubleshooting deployment problems
 
-If you encounter any troubles with deployment, please see the [troubleshooting guide](troubleshooting.md).
+If you encounter any troubles with deployment, please see the [troubleshooting guide](troubleshoot-guide.md).
