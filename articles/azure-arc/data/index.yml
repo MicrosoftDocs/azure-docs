@@ -60,6 +60,6 @@ landingContent:
           - text: Create Managed instance
             url: create-sql-managed-instance.md
           - text: Migrate to Managed Instance
-            url: migrate-to-managed-instance-azure-arc.md
+            url: migrate-to-managed-instance.md
           - text: Restore sample database
             url: restore-adventureworks-sample-db.md
