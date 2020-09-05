@@ -63,7 +63,7 @@ Follow the appropriate section below depending on your target platform to config
 
 [Install on AKS on Azure Stack HCI](#install-on-aks-on-azure-stack-hci)
 
-[Install on Azure Red Hat OpenShift (ARO)](#install-on-azure-redhat-openshift-aro)
+[Install on Azure Red Hat OpenShift (ARO)](#install-on-azure-red-hat-openshift-aro)
 
 [Install on Red Hat OpenShift Container Platform (OCP)](#install-on-red-hat-openshift-container-platform-ocp)
 
