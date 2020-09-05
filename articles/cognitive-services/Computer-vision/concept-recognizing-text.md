@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: Concepts related to optical character recognition (OCR) of images and documents with printed and handwritten text using the Computer Vision API.
 services: cognitive-services
 author: PatrickFarley
-manager: netahw
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: computer-vision
