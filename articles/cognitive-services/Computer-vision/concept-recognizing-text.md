@@ -134,10 +134,10 @@ See the [Supported languages](https://docs.microsoft.com/azure/cognitive-service
 ### Supported languages for handwritten text
 The Read operation currently supports extracting handwritten text exclusively in English.
 
-### Use the cloud API or client SDK
+### Integrate with the REST API or SDK
 The [Read 3.x REST API](./QuickStarts/CSharp-hand-text.md) is the preferred option for most customers because of ease of integration and fast productivity out of the box. Azure and the Computer Vision service handle scale, performance, data security, and compliance needs while you focus on meeting your customers' needs.
 
-### Use containers for on-premise deployment
+### Integrate on-premise wtih Docker containers
 The [Read 2.0 Docker container (preview)](https://docs.microsoft.com/azure/cognitive-services/computer-vision/computer-vision-how-to-install-containers) enables you to deploy the new OCR capabilities in your own local environment. Containers are great for specific security and data governance requirements.
 
 ### Text from images
