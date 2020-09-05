@@ -12,6 +12,7 @@ ms.date: 09/21/2020
 
 > [!IMPORTANT]
 > Azure Database for PostgreSQL Flexible Server is currently in public preview
+
 Azure Database for PostgreSQL Flexible Server supports connecting your client applications to the PostgreSQL service using Transport Layer Security (TLS), previously known as Secure Sockets Layer (SSL). TLS is an industry standard protocol that ensures encrypted network connections between your database server and client applications, allowing you to adhere to compliance requirements.
 
 Azure Database for PostgreSQL Flexible Server supports encrypted connections using Transport Layer Security (TLS 1.2+) and all incoming connections with TLS 1.0 and TLS 1.1 will be denied. For all flexible servers enforcement of TLS connections is enabled and you cannot disable TLS/SSL for connecting to flexible server.
