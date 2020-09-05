@@ -190,7 +190,7 @@ SELECT * FROM pg_extension;
 
 to list the extensions created in your PostgreSQL instance.
 
-## The timescaledb extension
+## The `timescaledb` extension
 
 TimescaleDB is an open-source database designed to make SQL scale for time-series data. For more information, see the documentation of the `timescaledb` extension [here](https://github.com/timescale/`timescaledb`).
 

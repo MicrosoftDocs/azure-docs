@@ -22,7 +22,7 @@ To install the Azure Arc data Controller using the Azure Data CLI you will need 
 
 Regardless of which target deployment platform you choose, you will need to set the following environment variables prior to the deployment for the data controller administrator user.  You can provide these credentials to other people that need to have administrator access to the data controller as needed.
 
-**AZDATA_USERNAME** - A username of your choice for the data controller administrator user.  Example: arcadmin
+**AZDATA_USERNAME** - A username of your choice for the data controller administrator user.  Example: `arcadmin`
 
 **AZDATA_PASSWORD** - A password of your choice for the data controller administrator user.  The password must be at least 8 characters long and contain characters from three of the following four sets: uppercase letters, lowercase letters, numbers, and symbols.
 
