@@ -94,8 +94,6 @@ When an Azure role is assigned to an Azure AD security principal, Azure grants a
 
 Key benefits of using Azure RBAC permission over vault access policies are centralized access control management and it's integration with Privileged Identity Management (PIM). Privileged Identity Management provides time-based and approval-based role activation to mitigate the risks of excessive, unnecessary, or misused access permissions on resources that you care about.
 
-For guide on how to use Azure RBAC on Key Vault data plane, see [Use an Azure RBAC for managing access to keys, secrets, and certificates](rbac-guide.md)
-
 > [!TIP]
 > You can restrict data plane access by using [virtual network service endpoints for Azure Key Vault](overview-vnet-service-endpoints.md)). You can configure [firewalls and virtual network rules](network-security.md) for an additional layer of security.
 
@@ -115,5 +113,11 @@ For guide on how to use Azure RBAC on Key Vault data plane, see [Use an Azure RB
 
 [Assign a Key Vault access policy](assign-access-policy-portal.md)
 
-Configure [Key Vault firewalls and virtual networks](network-security.md).
+[Assign Azure roles to access to keys, secrets, and certificates](rbac-guide.md)
+
+[Establish a private link connection to Key Vault](private-link-service.md)
+
+[Configure Key Vault firewalls and virtual networks](network-security.md)
+
+[Configure Azure Policy for Key Vault](azure-policy.md)
 
