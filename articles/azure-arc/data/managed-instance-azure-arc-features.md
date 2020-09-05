@@ -17,8 +17,8 @@ Azure Arc enabled SQL Managed Instance share a common code base with the latest 
 
 - Language features - [Control of flow language keywords](/sql/t-sql/language-elements/control-of-flow), [Cursors](/sql/t-sql/language-elements/cursors-transact-sql), [Data types](/sql/t-sql/data-types/data-types-transact-sql), [DML statements](/sql/t-sql/queries/queries), [Predicates](/sql/t-sql/queries/predicates), [Sequence numbers](/sql/relational-databases/sequence-numbers/sequence-numbers), [Stored procedures](/sql/relational-databases/stored-procedures/stored-procedures-database-engine), and [Variables](/sql/t-sql/language-elements/variables-transact-sql).
 - Database features - [Automatic tuning (plan forcing)](/sql/relational-databases/automatic-tuning/automatic-tuning), [Change tracking](/sql/relational-databases/track-changes/about-change-tracking-sql-server), [Database collation](/sql/relational-databases/collations/set-or-change-the-database-collation), [Contained databases](/sql/relational-databases/databases/contained-databases), [Contained users](/sql/relational-databases/security/contained-database-users-making-your-database-portable), [Data compression](/sql/relational-databases/data-compression/data-compression), [Database configuration settings](/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql), [Online index operations](/sql/relational-databases/indexes/perform-index-operations-online), [Partitioning](/sql/relational-databases/partitions/partitioned-tables-and-indexes), and [Temporal tables](/sql/relational-databases/tables/temporal-tables) ([see getting started guide](/sql/relational-databases/tables/getting-started-with-system-versioned-temporal-tables)).
-- Security features - [Application roles](/sql/relational-databases/security/authentication-access/application-roles), [Dynamic data masking](/sql/relational-databases/security/dynamic-data-masking) ([see getting started guide](dynamic-data-masking-overview.md)), [Row Level Security](/sql/relational-databases/security/row-level-security)
-- Multi-model capabilities - [Graph processing](/sql/relational-databases/graphs/sql-graph-overview), [JSON data](/sql/relational-databases/json/json-data-sql-server) ([see getting started guide](json-features.md)), [OPENXML](/sql/t-sql/functions/openxml-transact-sql), [Spatial](/sql/relational-databases/spatial/spatial-data-sql-server), [OPENJSON](/sql/t-sql/functions/openjson-transact-sql), and [XML indexes](/sql/t-sql/statements/create-xml-index-transact-sql).
+- Security features - [Application roles](/sql/relational-databases/security/authentication-access/application-roles), [Dynamic data masking](/sql/relational-databases/security/dynamic-data-masking) ([Get started with SQL Database dynamic data masking with the Azure portal](../../azure-sql/database/dynamic-data-masking-configure-portal.md)), [Row Level Security](/sql/relational-databases/security/row-level-security)
+- Multi-model capabilities - [Graph processing](/sql/relational-databases/graphs/sql-graph-overview), [JSON data](/sql/relational-databases/json/json-data-sql-server), [OPENXML](/sql/t-sql/functions/openxml-transact-sql), [Spatial](/sql/relational-databases/spatial/spatial-data-sql-server), [OPENJSON](/sql/t-sql/functions/openjson-transact-sql), and [XML indexes](/sql/t-sql/statements/create-xml-index-transact-sql).
 
 
 
@@ -105,6 +105,7 @@ Azure Arc enabled SQL Managed Instance share a common code base with the latest 
 
 
 ###  <a name="Programmability"></a> Programmability  
+
 |Feature|Azure Arc enabled SQL Managed Instance|
 |-------------|----------------|		
 |JSON|	Yes	|		|
@@ -112,7 +113,7 @@ Azure Arc enabled SQL Managed Instance share a common code base with the latest 
 |Temporal|	Yes	|		
 |Native XML support|	Yes	|		
 |XML indexing	|Yes	|		
-MERGE & UPSERT capabilities|	Yes	|		
+|MERGE & UPSERT capabilities|	Yes	|		
 |Date and Time datatypes	|Yes	|		
 |Internationalization support|	Yes	|		
 |Full-text and semantic search <sup>1</sup>|	No		|

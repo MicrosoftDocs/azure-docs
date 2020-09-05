@@ -81,8 +81,6 @@
       items:
         - name: Back up PostgreSQL Hyperscale
           href: backup-restore-postgresql-hyperscale.md
-        - name: Use PostgreSQL extensions
-          href: using-postgresql-extensions.md
     - name: SQL Managed Instance
       items:
         - name: Create SQL Managed Instance (Azure Data Studio)
