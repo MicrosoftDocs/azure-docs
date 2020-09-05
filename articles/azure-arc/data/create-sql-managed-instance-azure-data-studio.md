@@ -11,13 +11,14 @@ ms.date: 08/04/2020
 ms.topic: how-to
 ---
 
-# Scenario: Deploy Azure SQL managed instance using Azure Data Studio
+# Deploy SQL managed instance - Azure Arc using Azure Data Studio
 
-This document walks you through the steps for installing Azure SQL managed instance on Azure Arc with Azure Data Studio
+This document walks you through the steps for installing Azure SQL managed instance - Azure Arc using Azure Data Studio
 
 ## Pre-requisites
 
 - [Install azdata, Azure Data Studio, and Azure CLI](/scenarios/install-client-tools.md)
+- Ensure the **Azure Data CLI** and **Azure Arc** extensions are installed.
 
 ## Log in to the Azure Arc data controller
 
@@ -27,9 +28,9 @@ Before you can create an instance, log in to the Azure Arc data controller if yo
 azdata login
 ```
 
-You will then be prompted for the username, password, and the system namespace.  
+You will then be prompted for the namespace where the data controller is deployed, the username and password to login to the controller.  
 
-> If you used the script to install the data controller then your namespace should be **arc**
+> If you need to validate the namespace, you can run ```kubectl get pods -A``` to get a list of all the namespaces on the cluster.
 
 ```console
 Username: arcadmin
@@ -40,75 +41,59 @@ Logged in successfully to `https://10.0.0.4:30080` in namespace `arc`. Setting a
 
 ## Deploy Azure SQL managed instance on Azure Arc
 
-- Click on the three dots on the top left to create a new instance
+- Launch Azure Data Studio
+- On the Connections tab, Click on the three dots on the top left and choose "New Deployment"
+- From the deployment options, select **Azure SQL managed instance - Azure Arc** 
+  > **Note:** You may be prompted to install the azdata CLI here if it is not currently installed.
+- Accept the Privacy and license terms and click **Select** at the bottom
 
-- Select Azure SQL managed instance - Azure Arc and hit select
-  > **Note:** You may be prompted to install the azdata CLI here if it is not currently installed.  **DO NOT** install azdata from Azure Data Studio!  It will install the wrong version currently.  Instead you should [install azdata by following these instructions](/scenarios/install-client-tools.md).
 
-- Fill in the required input fields and hit deploy
 
-- You should see that the deployment has started
+- In the Deploy Azure SQL managed instance - Azure Arc blade, enter the following information:
+  - Enter a name for the SQL Server instance
+  - Enter and confirm a password for the SQL Server instance
+  - Select the storage class as arppropriate for Data
+  - Select the storage class as appropriate for Logs
+
+- Click the **Deploy** button
+
+- This should initiate the deployment the Azure SQL managed instance - Azure Arc on the data controller.
 
 - In a few minutes, your deployment should successfully complete
 
-## View instance on Azure Arc
+## Connect to Azure SQL managed instance - Azure Arc from Azure Data Studio
 
-To view all the instances you provisioned, use the following command:
-
+- Login to the Azure Arc data controller, by providing the namespace, username and password for the data controller: 
 ```console
-azdata sql instance list
+azdata login
 ```
 
-Output should look like this, copy the external ip and port number from here.
+- View all the Azure SQL managed instances provisioned, using the following commands:
 
 ```console
-Cluster Endpoint                                                   External Endpoint  Name          Status
------------------------------------------------------------------  ------------------ ------------  ------
-demosql-svc.azure-arc-sqldb-mi-system.svc.cluster.local,1433      12.10.144.21,1433  demosql      Ready
+azdata arc sql mi list
 ```
 
-## Azure virtual machine deployments
-
-If you are using an Azure virtual machine, then the endpoint IP address will not show the public IP address. To locate the external IP address use the following command:
+Output should look like this, copy the ServerEndpoint (including the port number) from here.
 
 ```console
-az network public-ip list -g azurearcvm-rg --query "[].{PublicIP:ipAddress}" -o table
+
+Name          Replicas    ServerEndpoint     State
+------------  ----------  -----------------  -------
+sqlinstance1  1/1         25.51.65.109:1433  Ready
 ```
 
-You can then combine the public IP address with the port to make your connection.
+- In Azure Data Studio, under **Cconnections** tab, click on the **New Connection** on the **Servers** view
+- In the **Connection** blade, paste the ServerEndpoint into the Server textbox
+- Select "SQL Login" as the Authentication type
+- Enter "sa" as the user name
+- Enter the password for the "sa" account
+- Optionally, enter the specific database name to connect to
+- Optionally, select/Add New Server Group as appropriate
+- Select **Connect** to connect to the Azure SQL managed instance - Azure Arc
 
-You may also need to expose the port of the sql instance through the network security gateway (NSG). To allow traffic through the (NSG) you will need to add a rule, which you can do using the following command:
 
-To set a rule you will need to know the name of your NSG which you can find out using the command below:
 
-```console
-az network nsg list -g azurearcvm-rg --query "[].{NSGName:name}" -o table
-```
-
-Once you have the name of the NSG, you can add a firewall rule using the following command. The example values here create an NSG rule for port 30913 and allows connection from **any** source IP address. 
-
-> [!CAUTION]
-> This article demonstrates allow connection from **any** for simplicity. In an operational environment this is not security best practice. You can secure things better by specifying a `-source-address-prefixes` value that is specific to your client IP address or an IP address range that covers your team's or organization's IP addresses.
-
-Replace the value of the `--destination-port-ranges` parameter below with the port number you got from the `azdata sql instance list` command above.
-
-```console
-az network nsg rule create -n db_port --destination-port-ranges 30913 --source-address-prefixes '*' --nsg-name azurearcvmNSG --priority 500 -g azurearcvm-rg --access Allow --description 'Allow port through for db access' --destination-address-prefixes '*' --direction Inbound --protocol Tcp --source-port-ranges '*'
-```
-
-## Connect with Azure Data Studio
-
-Open Azure Data Studio and connect to your instance with the external endpoint IP address and port number above. Remember if you are using an Azure VM you will need the _public_ IP address which is accessible via the following command:
-
-```console
-az network public-ip list -g azurearcvm-rg --query "[].{PublicIP:ipAddress}" -o table
-```
-
-For example:
-
-- Server: 52.229.9.30,30913
-- Username: sa
-- Password: your specified SQL password at provisioning time
 
 ## Next Steps
 
