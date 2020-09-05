@@ -39,3 +39,31 @@ Follow the steps below to create an Azure Arc data controller using the Azure Po
 12. On the next screen, you will see a summary of your selections and a notebook that is generated.  You can click the **Download provisioning notebook** button to download the notebook.
 13. Open the notebook in Azure Data Studio and click the **Run All** button at the top.
 14. Follow the prompts and instructions in the notebook to complete the data controller deployment.
+
+## Monitoring the deployment status
+
+Creating the controller will take a few minutes to complete. You can monitor the progress in another terminal window with the following commands:
+
+> [!NOTE]
+>  The example commands below assume that you created a data controller and Kubernetes namespace with the name 'arc'.  If you used a different namespace/data controller name, you can replace 'arc' with your name.
+
+```console
+kubectl get datacontroller/arc --namespace arc
+```
+
+```console
+kubectl get pods --namespace arc
+```
+
+You can also check on the deployment status of any particular pod by running a command like below.  This is especially useful for troubleshooting any issues.
+
+```console
+kubectl describe po/<pod name> --namespace arc
+
+#Example:
+#kubectl describe po/control-2g7bl --namespace arc
+```
+
+## Troubleshooting deployment problems
+
+If you encounter any troubles with deployment, please see the [troubleshooting guide](troubleshooting.md).
