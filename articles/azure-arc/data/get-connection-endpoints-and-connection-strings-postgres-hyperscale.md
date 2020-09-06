@@ -87,23 +87,7 @@ postgres01   Ready   3/3          123.456.789.4:31066      5d20h
 
 
 ## Form connection strings:
-DO.NET
-Server=<server group name>;Database={your_database};Port=5432;User Id=postgres;Password={your_password};Ssl Mode=Require;
-C++ (libpq)
-host=jeanyd-pg.postgres.database.azure.com port=5432 dbname={your_database} user=MyAdmin@jeanyd-pg password={your_password} sslmode=require
-JDBC
-jdbc:postgresql://jeanyd-pg.postgres.database.azure.com:5432/{your_database}?user=MyAdmin@jeanyd-pg&password={your_password}&sslmode=require
-Node.js
-host=jeanyd-pg.postgres.database.azure.com port=5432 dbname={your_database} user=MyAdmin@jeanyd-pg password={your_password} sslmode=require
-PHP
-host=jeanyd-pg.postgres.database.azure.com port=5432 dbname={your_database} user=MyAdmin@jeanyd-pg password={your_password} sslmode=require
-psql
-psql "host=jeanyd-pg.postgres.database.azure.com port=5432 dbname={your_database} user=MyAdmin@jeanyd-pg password={your_password} sslmode=require"
-Python
-dbname='{your_database}' user='MyAdmin@jeanyd-pg' host='jeanyd-pg.postgres.database.azure.com' password='{your_password}' port='5432' sslmode='true'
-Ruby
-host=jeanyd-pg.postgres.database.azure.com; dbname={your_database} user=MyAdmin@jeanyd-pg password={your_password} port=5432 sslmode=require
-Web App
+Use the below table of templates of connections strings for your server group. You can then copy/paste and customize them as further needed:
 
 
 
