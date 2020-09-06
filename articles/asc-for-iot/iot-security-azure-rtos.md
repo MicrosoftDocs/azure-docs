@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/15/2020
+ms.date: 09/06/2020
 ms.author: mlottner
 ---
 
-# Azure Security Center for IoT Security Solution for Azure RTOS 
+# Azure Security Center for IoT Security Solution for Azure RTOS (preview)
 
 The Azure Security Center for IoT security module provides a comprehensive security solution for Azure RTOS devices. Azure RTOS ships with a built-in security module that covers common threats on real-time operating system devices. 
 
@@ -51,9 +51,7 @@ By leveraging the recommended infrastructure Azure Security Center for IoT provi
 
 In this article, you learned about Azure Security Center for IoT Azure RTOS support. To learn how to get started and enable your security solution in IoT Hub, see the following articles:
 
-- [Service prerequisites](service-prerequisites.md)
-- [Getting started](getting-started.md)
-- [Configure your solution](quickstart-configure-your-solution.md)
-- [Enable security in IoT Hub](quickstart-onboard-iot-hub.md)
-- [Azure Security Center for IoT FAQ](resources-frequently-asked-questions.md)
-- [Azure Security Center for IoT security alerts](concept-security-alerts.md)
+- [Azure RTOS IoT security module concepts](concept-rtos-security-module.md)
+- [Azure RTOS IoT security module quickstart](quickstart-azure-rtos-security-module.md)
+
+
