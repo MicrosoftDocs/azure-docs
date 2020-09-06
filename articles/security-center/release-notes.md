@@ -45,6 +45,20 @@ Related pages:
 - [Continuous export](continuous-export.md)
 
 
+### Deprecating the preview AKS recommendation ""Pod Security Policies should be defined on Kubernetes Services"
+
+The preview recommendation "Pod Security Policies should be defined on Kubernetes Services" is being deprecated as described in the [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/use-pod-security-policies) documentation.
+
+The pod security policy (preview) feature, is set for deprecation and will no longer be available after October 15th, 2020 in favor of Azure Policy for AKS.
+
+After pod security policy (preview) is deprecated, you must disable the feature on any existing clusters using the deprecated feature to perform future cluster upgrades and stay within Azure support.
+
+It is highly recommended to begin testing scenarios with Azure Policy for AKS, which offers built-in policies to secure pods and built-in initiatives which map to pod security policies. Click here to learn about migrating to Azure Policy from pod security policy (preview).
+
+
+
+
+
 
 ## August 2020
 
