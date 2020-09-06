@@ -2,7 +2,7 @@
 title: 'View Azure VPN Gateway metrics'
 description: Steps to view VPN Gateway metrics
 services: vpn-gateway
-author: kumudD
+author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: how-to

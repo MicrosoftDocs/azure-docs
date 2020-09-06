@@ -4,217 +4,139 @@ description: Backup and Restore for Azure Database for PostgreSQL Hyperscale ser
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-author: twright-msft
-ms.author: twright
+author: TheJY
+ms.author: jeanyd
 ms.reviewer: mikeray
-ms.date: 08/04/2020
+ms.date: 09/04/2020
 ms.topic: how-to
 ---
 
-# Backup and restore Arc enabled Azure Database: PostgreSQL Hyperscale server groups
+# Backup and restore for Azure Arc enabled PostgreSQL Hyperscale server groups
 
-These instructions utilize the PostgreSQL server group that created from [Create an Azure Database for PostgreSQL Hyperscale server group on Azure Arc](create-postgresql-instances.md).
+You can do full backup/restore of your Azure Arc enabled PostgreSQL Hyperscale server group. When you do so, the entire set of databases on all the nodes of your Azure Arc enabled PostgreSQL Hyperscale server group is backed-up and/or restored.
+To take a backup and restore it, you need to make sure that a backup storage class is configured for your server group. For now, you need to indicate a backup storage class at the time you create the server group. It is not yet possible to configure your server group to use a backup storage class after it has been created.
 
-## Enable backup volumes
-
-First, provision a backup volume for each node in the server group. To provision the backup volume, edit the server group configuration:
-
+## Step 1: Verify if your existing server group has been configured to use backup storage class
+Run the following command after setting the name of your server group:
 ```console
-azdata postgres server update -n <name of your postgresql server group> -ns <name of the namespace> --backupSizesMb <size of backup in MBs>
+ azdata arc postgres server show -n postgres01
+```
+Look at the storage section of the output:
+```console
+...
+"storage": {
+      "backups": {
+        "className": "local-storage"
+      },
+      "data": {
+        "className": "local-storage",
+        "size": "5Gi"
+      },
+      "logs": {
+        "className": "local-storage",
+        "size": "5Gi"
+      }
+    }
+...
+```
+If you see  a section "backups", it means your server group has been configured to use a backup storage class and is ready for you to take backups and do restores. If you do not see a section "backups", you need to delete and recreate your server group to configure backup storage class. At this point, it is not yet possible to configure a backup storage class after the server group has been created.
 
-#Example:
-#azdata postgres server update -n pg1 -ns arc --backupSizesMb 500
+If your server group is already configured to use a backup storage class, skip Step 2 and go directly to Step 3.
+
+## Step 2: Create a server group configured for backup/restore
+
+In order to be able to take backups and restore them, you need to create a server that is configured with a storage class.
+To get a list of the storage classes available on your Kubernetes cluster, run the following command:
+```console
+kubectl get sc
 ```
 
-Verify that the system provisions backup volumes next to the data volumes, one for each node:
+<!--The general format of create server group command is documented [here](create-postgresql-instances.md)-->
 
 ```console
-kubectl get pvc -n default
-
-NAME                                                                   STATUS   VOLUME              CAPACITY   ACCESS MODES   STORAGECLASS    AGE
-pg1-93f1d33e-458a-11ea-bbaa-2a742840465e-backups-pg1-0   Bound    local-pv-1aad2e4d   62Gi       RWO            local-storage   18m
-pg1-93f1d33e-458a-11ea-bbaa-2a742840465e-backups-pg1-1   Bound    local-pv-27567b68   62Gi       RWO            local-storage   17m
-pg1-93f1d33e-458a-11ea-bbaa-2a742840465e-backups-pg1-2   Bound    local-pv-7cf6c23    62Gi       RWO            local-storage   17m
-pg1-93f1d33e-458a-11ea-bbaa-2a742840465e-data-pg1-0      Bound    local-pv-f20c5865   62Gi       RWO            local-storage   24m
-pg1-93f1d33e-458a-11ea-bbaa-2a742840465e-data-pg1-1      Bound    local-pv-d663110b   62Gi       RWO            local-storage   24m
-pg1-93f1d33e-458a-11ea-bbaa-2a742840465e-data-pg1-2      Bound    local-pv-aba563ba   62Gi       RWO            local-storage   24m
+azdata arc postgres server create -n <name> --workers 2 --storage-class-backups <storage class name> [--storage-class-data <storage class name>] [--storage-class-logs <storage class name>]
 ```
 
-You can also specify an existing persistent volume claim. For example:
-
+For example if you have deployed a simple environment based on kubeadm:
 ```console
-azdata postgres server update -n <name of your postgresql server group> -ns <name of the namespace> --backupVolumeClaims <pvc name>
-
-#Example
-#azdata postgres server update -n pg1 -ns arc --backupVolumeClaims pvc1
+azdata arc postgres server create -n postgres01 --workers 2 --storage-class-backups local-storage
 ```
 
-In this configuration the backup volumes are shared across all nodes in the server group. This argument can also be used to share the backup volumes across multiple PostgreSQL server groups.
-
-## Run and restore a manual backup
-
-Issue a manual backup. For example:
-
+## Step 3: Take a manual full backup
+To take a full backup of the entire data and log folders of your server group, run the following command:
 ```console
-azdata postgres backup take -n <name of your postgresql server group> -ns <name of the namespace> -bn <backup name>
-
-#Example:
-#azdata postgres backup take -n pg1 -ns default -bn test
-
-ID                                    Name           State    Tiers    Timestamp
-------------------------------------  -------------  -------  -------  ----------------------------
-3e249df4-889d-4ceb-9358-44e7e4fb5a73  backup-m6e3br  Pending  1        2020-02-02T07:17:39.3228459Z
+azdata arc postgres backup create [--name <backup name>] --server-name <server group name> [--no-wait] 
 ```
+Where:
+- __name__ indicates the name of a backup
+- __server-name__ indicates a server group
+- __no-wait__ indicates that the command line will not wait for the backup to complete for you to be able to continue to use this command-line window
 
-Verify that the backup completed by using the `azdata postgres backup list` command:
+>**Note**: The command that allows you to list the backups that are available to restore does not show yet, the date/time at which the backup was taken. So it is recommended you give a name to the backup (using the --name parameter) that includes the date/time information.
 
+This command will coordinate a distributed full backup across all the nodes that constitute your Azure Arc enabled PostgreSQL Hyperscale server group. In other words, it will backup all data in your Coordinator and Worker nodes.
+
+For example:
 ```console
-azdata postgres backup list -n <name of your postgresql server group> -ns <name of the namespace>
-
-#Example:
-#azdata postgres backup list -n pg1 -ns default
-
-ID                                    Name           Size     State      Tiers    Timestamp
-------------------------------------  -------------  -------  ---------  -------  --------------------
-3e249df4-889d-4ceb-9358-44e7e4fb5a73  backup-m6e3br  14.5 MB  Succeeded  1        2020-02-02T07:17:42Z
+azdata arc postgres backup create --name MyBackup_Aug31_0730amPST --server-name postgres01
 ```
 
-Now, restore this backup:
-
+When the backup completes, the ID, name, and state of the backup will be returned. For example:
 ```console
-azdata postgres server restore -n <name of your postgresql server group> -ns <name of the namespace> -bn <name of backup>
-
-#Example:
-#azdata postgres server restore -n pg1 -ns default -bn test
+{
+  "ID": "d134f51aa87f4044b5fb07cf95cf797f",
+  "name": "MyBackup_Aug31_0730amPS",
+  "state": "Done"
+}
 ```
 
-At first, the server group is in the state `Pending` - once it is back in `Running`, the backup was restored:
+>**Note:** It is not yet possible to schedule automatic backups
+>**Note:** It is not yet possible to show the progress of a backup while it is being taken
 
+
+## Step 4: List the backups that are available to restore
+To list the backups that are available to restore, run the following command:
 ```console
-azdata postgres server list
-
-ClusterIP         ExternalIP      MustRestart    Name        Status
-----------------  --------------  -------------  ----------  --------
-10.98.62.6:31815  10.0.0.4:31815  False          pg1         Running
+azdata arc postgres backup list --server-name <servergroup name>
 ```
 
-## Configure backup schedules
-
-You can also run backups on a scheduled, instead of triggering them manually.
-
-There are two kinds of backups:
-
-* **Full backups** - The previous example is a full backup. A full backup is a complete physical copy of the PostgreSQL data directory
-* **Delta backups** - A delta backup backs up the PostgreSQL WAL archive, and is required for point-in-time-restore between full backups. Typically, these backups are done frequently. For example, once per minute.
-
-For testing, schedule the backup with a very low full backup setting, and a standard delta backup setting. In the following example, the delta backup is scheduled for every minute and the full backup is scheduled for every 5 minutes:
-
+For example:
 ```console
-azdata postgres server update -n <name of your postgresql server group> -ns <name of the namespace> --deltaBackupInterval <interval in mins> --fullBackupInterval <interval in mins>
-
-#Example:
-#azdata postgres server update -n pg1 -ns arc --deltaBackupInterval 1 --fullBackupInterval 5
+azdata arc postgres backup list --server-name postgres01
 ```
 
-After a few minutes, we can see our first scheduled backup:
-
+It will return an output like:
 ```console
-azdata postgres backup list -n <name of your postgresql server group> -ns <name of the namespace>
-
-#Example:
-#azdata postgres backup list -n pg1 -ns arc
-
-ID                                    Name           Size     State      Tiers    Timestamp
-------------------------------------  -------------  -------  ---------  -------  --------------------
-3e249df4-889d-4ceb-9358-44e7e4fb5a73  test           14.5 MB  Succeeded  1        2020-02-02T07:17:42Z
-40165eb7-5173-441d-bc39-3bbd96e5d8a3  1061937090     8.7 MB   Succeeded  1        2020-02-02T07:30:01Z
+ID                                Name                      State
+--------------------------------  ------------------------  -------
+d134f51aa87f4044b5fb07cf95cf797f  MyBackup_Aug31_0730amPST  Done
 ```
 
-## Backup retention
-
-To avoid our backup volume running out of storage, set backup retention to automatically remove backups after a certain amount of time.
-
-The following example sets retention to 7 days:
-
+## Step 5: Restore a backup
+To restore the backup of an entire server group, run the command:
 ```console
-azdata postgres server update -n <name of your postgresql server group> -ns <name of the namespace> --retentionMin <retention period> --retentionMax <retention period>
-
-#Example:
-#azdata postgres server update -n pg1 -ns arc --retentionMin '7d' --retentionMax '7d'
+azdata arc postgres backup restore --server-name <server group name> --backup-id <backup id>
 ```
+Where:
+- __backup-id__ is the ID of the backup shown in the list backup command (refer to Step 3).
+This will coordinate a distributed full restore across all the nodes that constitute your Azure Arc enabled PostgreSQL Hyperscale server group. In other words, it will restore all data in your Coordinator and Worker nodes.
 
-## Performa point-in-time restore
-
-To perform a point-in-time restore, specify the `-t` parameter to the `azdata postgres server restore` command. You can either specify a timestamp (For example, `2019-12-17 17:34:02`, expressed in your local time) or a time span (For example, `30m`, `6h`, `2.5d`, or `1w` for 30 minutes, 6 hours, 2.5 days, or 1 week, respectively).
-x`
-
-At least one backup with a timestamp no later than the given time must exist. The time is assumed to be in local time if no time zone is specified.
-
-You must also specify the -f parameter and give the ID of the server to restore from. The ID of a server can be obtained from `azdata postgres server list`. You can restore from a server even after it's been deleted, if you know its ID.
-
+For example:
 ```console
-azdata postgres server restore -n pg1 -ns arc -t '2019-09-06T21:00:10.87966Z' -f <your server ID>
-azdata postgres server restore -n pg1 -ns arc -t '06 Sep, 2019 21:00' -f <your server ID>
-azdata postgres server restore -n pg1 -ns arc -t '06 Sep 21:00' -f <your server ID>
-azdata postgres server restore -n pg1 -ns arc -t '9:00 pm' -f <your server ID>
-azdata postgres server restore -n pg1 -ns arc -t '1.5h' -f <your server ID>
-azdata postgres server restore -n target1 -ns arc -t 2d -f <your server ID>
+azdata arc postgres backup restore --server-name postgres01 --backup-id d134f51aa87f4044b5fb07cf95cf797f
 ```
 
-**A note about point in time restore:**
-When restoring from another server you may not be able to restore to a recent timestamp if the other server hasn't archived the write-ahead log (WAL) file containing the data for that timestamp yet, since cross-server restores can only access WAL files from the archive. The time-based frequency with which WAL files are archived is determined by the `--deltaBackupInterval` parameter given when creating the server, defaulting to 3 hours.
-In addition, if you have written a full WAL file of data (16 MB) that will also cause the WAL file to be moved to the archive.
-You can also manually trigger a WAL archival by running `SELECT pg_switch_wal()` on the server that you want to restore from.
-
-## Replicating backups to other locations for disaster recovery or long-term retention
-
-_Azure Database for PostgreSQL Hyperscale - Azure Arc_ supports multiple backup storage locations (`tiers`).
-A typical use case might be to store two weeks' worth of backups on fast, local storage and a year's worth in a remote storage.
-
-Backups are always taken on the first tier and the synchronization of backups to other tiers is automatic.
-
-To configure multiple backup tiers, provide multiple comma-separated Kubernetes persistent volume claims to `--backupVolumeClaims` when you create your Azure Database for PostgreSQL Hyperscale Server Group. For instance:
-
+When the restore operation is complete, it will return an output like this to the command line:
 ```console
-azdata postgres server create -n <name of your postgresql server group> -ns <name of the namespace> --dataSizeMb <database size> --serviceType <service type> --backupVolumeClaims <backup claim names>
-
-#Example:
-#azdata postgres server create -n pg1 -ns arc --dataSizeMb 1024 --serviceType NodePort --backupVolumeClaims pvc1,pvc2
+{
+  "ID": "d134f51aa87f4044b5fb07cf95cf797f",
+  "state": "Done"
+}
 ```
+ 
+>**Note:** It is not yet possible to restore a backup by indicating its name.
+>**Note:** It is not yet possible to restore a server group under a different name or on a different server group.
+>**Note:** It is not yet possible to show the progress of a restore operation.
 
-If the Kubernetes cluster has a dynamic storage provisioner, multiple comma-separated Kubernetes storage classes can be provided to --backupClasses along with their requested sizes to --backupSizesMb. For example:
-
-```console
-azdata postgres server create -n pg1 --dataSizeMb 1024 --serviceType NodePort --backupClasses managed-premium,default --backupSizesMb 1024,2048
-```
-
-> [!NOTE]
-> Each tier that you configure has its own retention settings.
-
-## Managing backups
-
-You can use the command-line tool to manage the individual backup tiers and take the following actions:
-
-### List backups
-
-```console
-azdata postgres backup list -n <name of your postgresql server group> -ns <name of the namespace> --tier 1
-
-#Example:
-#azdata postgres backup list -n pg1 -ns default --tier 1
-```
-
-### Delete backups
-
-You can delete a backup from just one tier rather than deleting it from all tiers. Most backup-related commands accept a `--tier` parameter, which can either be the ordinal of a tier (For example, 1, 2, 3…) to restrict the command to, or `all` (the default) to operate on all tiers
-
-```console
-azdata postgres backup delete -n <server group name> -bn <backup name> --tier <tier>
-
-#Example:
-azdata postgres backup delete -n pg1 -ns arc --tier 1
-```
-
-## Next Steps
-
-Try out [using PostgreSQL extensions](using-postgresql-extensions.md).
+## Deleting backups
+It is not yet possible to set the retention of backups and it is not yet possible to delete backups. If you are blocked on reclaiming space on the storage you are using, reach out to us.

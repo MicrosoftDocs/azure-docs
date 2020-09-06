@@ -405,7 +405,7 @@ There is no limit on the total number of VNet service endpoints in a virtual net
 |---|---|
 |Azure Storage|	100|
 |Azure SQL|	128|
-|Azure SQL Data Warehouse|	128|
+|Azure Synapse Analytics|	128|
 |Azure KeyVault|	127|
 |Azure Cosmos DB|	64|
 |Azure Event Hub|	128|

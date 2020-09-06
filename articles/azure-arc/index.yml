@@ -76,7 +76,7 @@ productDirectory:
           text: Install tools
         - url: ./data/create-sql-managed-instance.md
           text: Create SQL Managed Instance
-        - url: ./data/create-postgresql-instances.md
+        - url: ./data/create-postgresql-hyperscale-server-group.md
           text: Create PostgreSQL Hyperscale
         - url: ./data/index.yml
           text: See more...

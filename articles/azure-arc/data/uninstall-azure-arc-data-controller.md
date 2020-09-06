@@ -13,41 +13,48 @@ ms.topic: how-to
 
 # Uninstall Azure Arc data controller
 
-## Kickstarter scenario
+The following article describes how to uninstall an Azure Arc data controller.
 
-If you ran the Ubuntu VM setup-controller.sh script, you can uninstall it by running the cleanup-controller.sh script.
+Before you proceed, ensure all the data services that have been deployed on the data controller are removed as follows:
 
-### Step 01:  Download the script
+Login to the data controller that you want to delete:
 
-``` bash
-curl --output cleanup-controller.sh https://raw.githubusercontent.com/microsoft/sql-server-samples/master/samples/features/azure-arc/deployment/kubeadm/ubuntu-single-node-vm/cleanup-controller.sh
+```
+azdata login
+```
+Run the following command to check if there are any SQL managed instances deployed:
+
+```
+azdata arc sql mi list
+```
+For each SQL managed instance from the list above, run the delete command as follows:
+```
+azdata arc sql mi delete -n <name>
+# for example: azdata arc sql mi delete -n sqlinstance1
 ```
 
-### Step 02: Make the script executable
+Similarly, to check for PostgreSQL Hyperscale instances, run:
 
-``` bash
-chmod +x cleanup-controller.sh
+```
+azdata arc posgtres server list
 ```
 
-### Step 03: Run the script
-
-``` bash
-./cleanup-controller.sh
+And, for each PostgreSQL Hyperscale instance, run the delete command as follows:
+```
+azdata arc postgres server delete -n <name>
+# for example: azdata arc postgres server delete -n pg1
 ```
 
-## Deployed data controller on kubernetes cluster scenario
+After all the SQL managed instances and PostgreSQL Hyperscale instances have been removed, the data controller can be uninstalled as follows:
 
-If you deployed the Azure Arc data controller on your existing Kubernetes cluster, you can uninstall it and its associated namespaces by running the following commands:
-
-### Step 01: Delete the Azure Arc data controller components
-
-```console
-azdata postgres uninstall
-azdata arc dc delete -ns <namespaceSpecifiedDuringCreation> -n <nameofDataController>
-# for example azdata arc dc delete -ns arc -n arc
+```
+azdata arc dc delete -n <name> -ns <namespace>
+# for example: azdata arc dc delete -ns arc -n arcdc
 ```
 
-### Step 02: Optionally, delete the Azure Arc data controller namespace
+
+### Optionally, delete the Azure Arc data controller namespace
+
 
 ```console
 kubectl delete ns <nameSpecifiedDuringCreation>
