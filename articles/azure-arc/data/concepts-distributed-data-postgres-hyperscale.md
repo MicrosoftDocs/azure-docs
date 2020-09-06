@@ -11,7 +11,7 @@ ms.date: 08/04/2020
 ms.topic: how-to
 ---
 
-
+ 
 # Concepts for distributing data with Arc enabled PostgreSQL Hyperscale server group
 
 This article explains key concepts that are important to benefit the most from Azure Arc enabled Postgres Hyperscale.
