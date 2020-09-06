@@ -1,6 +1,6 @@
 ---
-title: Create data controller using Azure Data CLI (azdata)
-description: Create an Azure Arc data controller on a typical multi-node Kubernetes cluster which you already have deployed using the Azure Data CLI (azdata).
+title: Get logs to troubleshoot Azure Arc enabled data controller
+description: Get service logs to troubleshoot Azure Arc enalbed data controller.
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
