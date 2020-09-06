@@ -186,9 +186,7 @@ Learn more about using your own privately licensed vulnerability assessment solu
 
 Threat protection for Azure Storage detects potentially harmful activity on your Azure Storage accounts. Security Center displays alerts when it detects attempts to access or exploit your storage accounts. 
 
-Your data can be protected whether it's stored as blob containers, file shares, or data lakes. 
-
-Learn more about [threat protection for Azure Storage](threat-protection.md#threat-protection-for-azure-storage-).
+Your data can be protected whether it's stored as blob containers, file shares, or data lakes.
 
 
 

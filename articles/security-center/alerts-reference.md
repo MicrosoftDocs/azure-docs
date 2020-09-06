@@ -29,7 +29,7 @@ At the bottom of this page, there's a table describing the Azure Security Center
 
 ## <a name="alerts-windows"></a>Alerts for Windows machines
 
-[Further details and notes](threat-protection.md#windows-machines)
+[Further details and notes](defender-for-servers-intro.md)
 
 |Alert|Description|Intent ([Learn more](#intentions))|Severity|
 |----|----|:----:|--|
@@ -121,7 +121,7 @@ At the bottom of this page, there's a table describing the Azure Security Center
 
 ## <a name="alerts-linux"></a>Alerts for Linux machines
 
-[Further details and notes](threat-protection.md#linux-machines)
+[Further details and notes](defender-for-servers-intro.md)
 
 |Alert|Description|Intent ([Learn more](#intentions))|Severity|
 |----|----|:----:|--|
@@ -213,7 +213,7 @@ At the bottom of this page, there's a table describing the Azure Security Center
 
 ## <a name="alerts-azureappserv"></a>Alerts for Azure App Service
 
-[Further details and notes](threat-protection.md#app-services)
+[Further details and notes](defender-for-app-services-intro.md)
 
 | Alert                                                                                            | Description                                                                                                                                                                                                                                                                                                                                                                           | Intent ([Learn more](#intentions)) | Severity |
 |---------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------:|----------|
@@ -238,7 +238,7 @@ At the bottom of this page, there's a table describing the Azure Security Center
 
 ## <a name="alerts-akscluster"></a>Alerts for containers - Azure Kubernetes Service clusters
 
-[Further details and notes](threat-protection.md#azure-containers)
+[Further details and notes](defender-for-kubernetes-intro.md)
 
 | Alert                                                   | Description                                                                                                                                                                                                                                                                                                 | Intent ([Learn more](#intentions)) | Severity |
 |---------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------:|----------|
@@ -253,7 +253,7 @@ At the bottom of this page, there's a table describing the Azure Security Center
 
 ## <a name="alerts-containerhost"></a>Alerts for containers - host level
 
-[Further details and notes](threat-protection.md#azure-containers)
+[Further details and notes](defender-for-kubernetes-intro.md)
 
 | Alert                                              | Description                                                                                                                                                                                                                                                                                                | Intent ([Learn more](#intentions)) | Severity |
 |----------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------:|----------|
@@ -269,7 +269,7 @@ At the bottom of this page, there's a table describing the Azure Security Center
 
 ## <a name="alerts-sql-db-and-warehouse"></a>Alerts for SQL Database and Azure Synapse Analytics
 
-[Further details and notes](threat-protection.md#data-sql)
+[Further details and notes](defender-for-sql-intro.md)
 
 | Alert                                           | Description                                                                                                                                                                                                                                                                                                                                                                                                                                 | Intent ([Learn more](#intentions)) | Severity |
 |-------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------:|----------|
@@ -285,7 +285,7 @@ At the bottom of this page, there's a table describing the Azure Security Center
 
 ## <a name="alerts-azurestorage"></a>Alerts for Azure Storage
 
-[Further details and notes](threat-protection.md#azure-storage)
+[Further details and notes](defender-for-storage-intro.md)
 
 | Alert                                                         | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Intent ([Learn more](#intentions)) | Severity |
 |---------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------:|----------|
@@ -308,7 +308,7 @@ At the bottom of this page, there's a table describing the Azure Security Center
 
 ## <a name="alerts-azurecosmos"></a>Alerts for Azure Cosmos DB (Preview)
 
-[Further details and notes](threat-protection.md#cosmos-db)
+[Further details and notes](other-threat-protections.md#cosmos-db)
 
 | Alert                                                         | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | Intent ([Learn more](#intentions)) | Severity |
 |---------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------:|----------|
@@ -319,7 +319,7 @@ At the bottom of this page, there's a table describing the Azure Security Center
 
 ## <a name="alerts-azurenetlayer"></a>Alerts for Azure network layer
 
-[Further details and notes](threat-protection.md#network-layer)
+[Further details and notes](other-threat-protections.md#network-layer)
 
 | Alert                                                                 | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Intent ([Learn more](#intentions)) | Severity |
 |-----------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------:|----------|
@@ -344,7 +344,7 @@ At the bottom of this page, there's a table describing the Azure Security Center
 
 ## <a name="alerts-azureresourceman"></a>Alerts for Azure Resource Manager (Preview)
 
-[Further details and notes](threat-protection.md#management-layer)
+[Further details and notes](other-threat-protections.md#management-layer)
 
 | Alert                                                                          | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | Intent ([Learn more](#intentions)) | Severity |
 |--------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------:|----------|
@@ -363,7 +363,7 @@ At the bottom of this page, there's a table describing the Azure Security Center
 
 ## <a name="alerts-azurekv"></a>Alerts for Azure Key Vault (Preview)
 
-[Further details and notes](threat-protection.md#azure-keyvault)
+[Further details and notes](defender-for-key-vault-intro.md)
 
 | Alert                                                        | Description                                                                                                                                                                                                                                                                                                                            | Intent ([Learn more](#intentions)) | Severity |
 |--------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------:|----------|
@@ -381,7 +381,7 @@ At the bottom of this page, there's a table describing the Azure Security Center
 
 ## <a name="alerts-azureddos"></a>Alerts for Azure DDoS Protection
 
-[Further details and notes](threat-protection.md#azure-ddos)
+[Further details and notes](other-threat-protections.md#azure-ddos)
 
 | Alert                                   | Description                                                          | Intent ([Learn more](#intentions)) | Severity |
 |-----------------------------------------|----------------------------------------------------------------------|:----------------------------------:|----------|
