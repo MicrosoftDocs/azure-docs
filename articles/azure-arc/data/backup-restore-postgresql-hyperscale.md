@@ -18,11 +18,11 @@ To take a backup and restore it, you need to make sure that a backup storage cla
 
 ## Step 1: Verify if your existing server group has been configured to use backup storage class
 Run the following command after setting the name of your server group:
-```terminal
+```console
  azdata arc postgres server show -n postgres01
 ```
 Look at the storage section of the output:
-```terminal
+```console
 ...
 "storage": {
       "backups": {
@@ -47,23 +47,24 @@ If your server group is already configured to use a backup storage class, skip S
 
 In order to be able to take backups and restore them, you need to create a server that is configured with a storage class.
 To get a list of the storage classes available on your Kubernetes cluster, run the following command:
-```terminal
+```console
 kubectl get sc
 ```
 
-The general format of create server group command is documented [here](articles\azure-arc\data\create-postgresql-instances.md)
-```terminal
+<!--The general format of create server group command is documented [here](create-postgresql-instances.md)-->
+
+```console
 azdata arc postgres server create -n <name> --workers 2 --storage-class-backups <storage class name> [--storage-class-data <storage class name>] [--storage-class-logs <storage class name>]
 ```
 
 For example if you have deployed a simple environment based on kubeadm:
-```terminal
+```console
 azdata arc postgres server create -n postgres01 --workers 2 --storage-class-backups local-storage
 ```
 
 ## Step 3: Take a manual full backup
 To take a full backup of the entire data and log folders of your server group, run the following command:
-```terminal
+```console
 azdata arc postgres backup create [--name <backup name>] --server-name <server group name> [--no-wait] 
 ```
 Where:
@@ -76,12 +77,12 @@ Where:
 This command will coordinate a distributed full backup across all the nodes that constitute your Azure Arc enabled PostgreSQL Hyperscale server group. In other words, it will backup all data in your Coordinator and Worker nodes.
 
 For example:
-```terminal
+```console
 azdata arc postgres backup create --name MyBackup_Aug31_0730amPST --server-name postgres01
 ```
 
 When the backup completes, the ID, name, and state of the backup will be returned. For example:
-```terminal
+```console
 {
   "ID": "d134f51aa87f4044b5fb07cf95cf797f",
   "name": "MyBackup_Aug31_0730amPS",
@@ -95,17 +96,17 @@ When the backup completes, the ID, name, and state of the backup will be returne
 
 ## Step 4: List the backups that are available to restore
 To list the backups that are available to restore, run the following command:
-```terminal
+```console
 azdata arc postgres backup list --server-name <servergroup name>
 ```
 
 For example:
-```terminal
+```console
 azdata arc postgres backup list --server-name postgres01
 ```
 
 It will return an output like:
-```terminal
+```console
 ID                                Name                      State
 --------------------------------  ------------------------  -------
 d134f51aa87f4044b5fb07cf95cf797f  MyBackup_Aug31_0730amPST  Done
@@ -113,7 +114,7 @@ d134f51aa87f4044b5fb07cf95cf797f  MyBackup_Aug31_0730amPST  Done
 
 ## Step 5: Restore a backup
 To restore the backup of an entire server group, run the command:
-```terminal
+```console
 azdata arc postgres backup restore --server-name <server group name> --backup-id <backup id>
 ```
 Where:
@@ -121,12 +122,12 @@ Where:
 This will coordinate a distributed full restore across all the nodes that constitute your Azure Arc enabled PostgreSQL Hyperscale server group. In other words, it will restore all data in your Coordinator and Worker nodes.
 
 For example:
-```terminal
+```console
 azdata arc postgres backup restore --server-name postgres01 --backup-id d134f51aa87f4044b5fb07cf95cf797f
 ```
 
 When the restore operation is complete, it will return an output like this to the command line:
-```terminal
+```console
 {
   "ID": "d134f51aa87f4044b5fb07cf95cf797f",
   "state": "Done"

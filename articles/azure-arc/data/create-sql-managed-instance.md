@@ -32,32 +32,17 @@ Namespace: arc
 Logged in successfully to `https://10.0.0.4:30080` in namespace `arc`. Setting active context to `arc`
 ```
 
-Log in to your Azure account.
-
-> [!NOTE]
-> Logging into Azure is optional at this point. If you wish to use Azure attached capabilities such as Azure monitor and Azure Log Analytics, log in with your Azure account, else you can skip it.
-
-```console
-az login
-```
-
-> [!NOTE]
->  The `az login` command provides a URL and a code to use in a internet browser. If you press CTRL+C to copy this information, it kills the `az login` session and you will have to redo it. Do not press CTRL+C but instead use some other method to copy the code and URL.
-
 ## Create an Azure SQL Managed Instance
 
 To create an Azure SQL Managed Instance, use the following command:
 
 > [!NOTE]
 >  Names must be less than 13 characters in length and conform to DNS naming conventions
-
-> [!NOTE]
+>
 >  When specifying memory allocation and vCore allocation use this formula to ensure your deployment is successful - for each 1 vCore you need at least 4GB of RAM of capacity available on the Kubernetes node where the SQL managed instance pod will run.
-
-> [!NOTE]
+>
 >  When creating a SQL instance do not use upper case in the name if you are provisioning in Azure
-
-> [!NOTE]
+>
 >  To list available storage classes in your Kubernetes cluster run `kubectl get storageclass` 
 
 ```console
@@ -72,9 +57,9 @@ azdata arc sql mi create -n sqldemo --external-endpoint --storage-class-data man
 
 You will then be asked to submit a username and password for the system administrator account:
 
-> If you want to automate the deployment of SQL instances and avoid the interactive prompt for the SA password, you can set the `AZDATA_USERNAME` and `AZDATA_PASSWORD` environment variables to the desired username and password prior to running the `azdata arc sql mi create` command.
-
 > [!NOTE]
+> If you want to automate the deployment of SQL instances and avoid the interactive prompt for the SA password, you can set the `AZDATA_USERNAME` and `AZDATA_PASSWORD` environment variables to the desired username and password prior to running the `azdata arc sql mi create` command.
+> 
 >  If you deployed the data controller using AZDATA_USERNAME and AZDATA_PASSWORD in the same terminal session, then the values for AZDATA_USERNAME and AZDATA_PASSWORD will be used to deploy the SQL managed instance too.
 
 

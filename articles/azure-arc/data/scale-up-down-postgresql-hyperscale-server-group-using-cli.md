@@ -36,7 +36,7 @@ azdata arc postgres server show -n <server group name>
 ```terminal
 kubectl describe postgresql-12/<server group name> 
 ```
-> Note: if you deployed a server group of PostgreSQL version 11, run kubectl describe postgresql-11/<server group name> instead.
+> Note: if you deployed a server group of PostgreSQL version 11, run `kubectl describe postgresql-11/<server group name>` instead.
 
 It returns the configuration of your server group. If you have created the server group with the default settings, you should see the definition as follows:
 
@@ -152,3 +152,7 @@ It will show the new definition of the server group:
 
 To scale down the server group you execute the same command but set lesser values for the settings you want to scale down. 
 To remove the requests and/or limits, specify its value as empty string.
+
+## Next steps
+
+[Scale out your Azure Database for PostgreSQL Hyperscale server group](scale-out-postgresql-hyperscale-server-group.md)
