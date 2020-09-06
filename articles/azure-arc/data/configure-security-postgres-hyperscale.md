@@ -28,14 +28,7 @@ In addition of encrypting the disks used to host your Azure Arc setup, you can c
 In summary, with the following commands, you enable the extension, you create it and you use it:
 
 #### Enable the pgcrypto extension
-**Enable the pgcrypto extension at the creation time of a server group:**
-```terminal
-azdata arc postgres server create -n <server group name> --extensions pgcrypto
-```
-**Enable the pgcrypto extension on a server group that already exists:**
-```terminal
-azdata arc postgres server edit -n <server group name> --extensions pgcrypto
-```
+This step is not needed because pgcrypto is part of contrib.
 
 #### Create the pgcrypto extension
 Connect to your server group with the client tool of your choice and run the standard PostgreSQL query:
