@@ -28,8 +28,7 @@ Managed HSM is a cloud service that safeguards encryption keys. As these keys ar
 
 ## Backup
 
-- Make sure you take regular backups of your HSM. Backups can be done at the HSM level and for specific keys.
-
+- Make sure you take regular backups of your HSM. Backups can be done at the HSM level and for specific keys. 
 ## Turn on Logging
 
 - [Turn on logging](logging.md) for your HSM. Also set up alerts.
@@ -38,3 +37,9 @@ Managed HSM is a cloud service that safeguards encryption keys. As these keys ar
 
 - [Soft Delete](../general/soft-delete-overview.md) is on by default.
 - Turn on purge protection if you want to guard against force deletion of the HSM even after soft delete is turned on.
+
+## Next Steps
+- See [Full backup/restore and selective restore](backup-restore.md) for information.
+- See [Manage managed HSM with Azure CLI](manage-with-cli.md)
+
+

@@ -13,9 +13,9 @@ ms.date: 09/15/2020
 
 The Managed HSM Security Domain (SD) is a set of core credentials needed to recover a Managed HSM in event of a total disaster. The Security Domain is generated in the Managed HSM hardware and the service software enclaves and represents "ownership" of the HSM. 
 
-Every Managed HSM must have a security domain to operate. When you request a new Managed HSM, it is provisioned but is not activate until you initialize and download the Security Domain. When a Managed HSM is in provisioned, but not activated, state, there are two ways to initialize it: 
+Every Managed HSM must have a security domain to operate. When you request a new Managed HSM, it is provisioned but is not activated until you initialize and download the Security Domain. When a Managed HSM is in provisioned, but not activated, state, there are two ways to activate it: 
 - Download your Security Domain. This is the default method and allows you safely store the Security Domain either to use with another Managed HSM or to recover from a total disaster.  
-- Upload an existing Security Domain you already have. This method allows you to create multiple Managed HSM that share the same Security Domain. 
+- Upload an existing Security Domain you already have. This method allows you to create multiple Managed HSM instances that share the same Security Domain. 
 
 ## Download your security domain 
 
