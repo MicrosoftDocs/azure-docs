@@ -41,7 +41,7 @@ This routine enables the Azure IoT Security Module subsystem. An internal state 
 
 | Name | Description |
 |---------|---------|
-| nx_azure_iot_ptr  [in]    | A pointer to a `NX_AZURE_IOT`. Test for publish |
+| nx_azure_iot_ptr  [in]    | A pointer to a `NX_AZURE_IOT`.  |
 
 
 
