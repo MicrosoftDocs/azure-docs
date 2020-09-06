@@ -8,7 +8,7 @@ ms.devlang:
 ms.topic: conceptual
 author: MashaMSFT
 ms.author: mathoma
-ms.reviewer: rajpo
+ms.reviewer: mokabiru
 ms.date: 08/25/2020
 ---
 # Migration overview: SQL Server to SQL Managed Instance
@@ -58,11 +58,6 @@ You can choose compute and storage resources at deployment time and then change 
 > [!IMPORTANT]
 > It is important to keep your destination VNet and subnet in accordance with [managed instance VNet requirements](https://review.docs.microsoft.com/en-us/azure/azure-sql/managed-instance/connectivity-architecture-overview?branch=release-ignite-arc-data#network-requirements). Any discrepancy in the VNet requirements can prevent you from creating new instances or using those that you already created. Learn more about [creating new](https://review.docs.microsoft.com/en-us/azure/azure-sql/managed-instance/virtual-network-subnet-create-arm-template?branch=release-ignite-arc-data) and [configuring existing](https://review.docs.microsoft.com/en-us/azure/azure-sql/managed-instance/vnet-existing-add-subnet?branch=release-ignite-arc-data) networks. 
 
-### Encryption 
-When you're migrating a database protected by [Transparent Data Encryption](https://review.docs.microsoft.com/en-us/azure/azure-sql/database/transparent-data-encryption-tde-overview?branch=release-ignite-arc-data&tabs=azure-portal) to a managed instance using native restore option, the corresponding certificate from the on-premises or Azure VM SQL Server needs to be migrated before database restore. For detailed steps, see Migrate a TDE cert to a managed instance. 
-
-Restore of system databases is not supported. To migrate instance-level objects (stored in master or msdb databases), we recommend to script them out and run T-SQL scripts on the destination instance. 
-
 
 ## Migration options
 
@@ -111,6 +106,11 @@ SQL logins from source SQL Server can be moved to Azure SQL Managed Instance usi
 Windows users and groups can also be migrated using DMS by enabling the corresponding toggle button in the DMS Configuration page. 
 
 Alternatively, you can leverage this [PowerShell utility tool](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/MoveLogins) that was built by Microsoft Data Migration Architects to help customers migrate their on-premises Windows and SQL logins to Azure SQL Managed Instance. The utility is a PowerShell script that creates a T-SQL command script to re-create logins and select database users from an on-premises SQL Server to Azure SQL Managed Instance. The tool allows automatic mapping of Windows AD accounts to Azure AD accounts or it can do UPN lookups for each login against the on-premises Windows Active Directory. The tool optionally moves SQL Server native logins as well. Custom server and database roles are scripted, as well as role membership and database role and user permissions. Contained databases are not yet supported and only a subset of possible SQL Server permissions are scripted. 
+
+### Encryption 
+When you're migrating a database protected by [Transparent Data Encryption](https://review.docs.microsoft.com/en-us/azure/azure-sql/database/transparent-data-encryption-tde-overview?branch=release-ignite-arc-data&tabs=azure-portal) to a managed instance using native restore option, the corresponding certificate from the on-premises or Azure VM SQL Server needs to be migrated before database restore. For detailed steps, see Migrate a TDE cert to a managed instance. 
+
+Restore of system databases is not supported. To migrate instance-level objects (stored in master or msdb databases), we recommend to script them out and run T-SQL scripts on the destination instance. 
 
 ## Partners
 
@@ -179,9 +179,9 @@ To start migrating your SQL Server to Azure SQL Managed Instance, see the [Datab
 
 - For a matrix of the Microsoft and third-party services and tools that are available to assist you with various database and data migration scenarios as well as specialty tasks, see the article [Service and tools for data migration.](../../../dms/dms-tools-matrix.md)
 
-- To learn more about Azure SQL see:
-   - [Deployment options](../../azure-sql-iaas-vs-paas-what-is-overview.md)
-   - [Azure SQL Managed Instance](../../azure/azure-sql/managed-instance/sql-managed-instance-paas-overview)
+- To learn more about Azure SQL Managed Instance see:
+   - [Service Tiers in Azure SQL Managed Instance](../../azure/azure-sql/managed-instance/sql-managed-instance-paas-overview#service-tiers)
+   - [Differences between SQL Server and Azure SQL Managed Instance](../../azure/azure-sql/managed-instance/transact-sql-tsql-differences-sql-server)
    - [Azure total Cost of Ownership Calculator](https://azure.microsoft.com/pricing/tco/calculator/) 
 
 
