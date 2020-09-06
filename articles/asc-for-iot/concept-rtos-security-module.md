@@ -49,7 +49,7 @@ The Azure IoT Security Module - RTOS monitors the following device activity and 
 - System information as **Threadx** and **NetX Duo** versions
 - Heartbeat events
 
-Each IoT collector is linked to a priority group and each priority group has its own interval with possible values of **Low**, **Medium**, and **High**. The intervals affect the time interval in which the data is collected and sent.
+Each collector is linked to a priority group and each priority group has its own interval with possible values of **Low**, **Medium**, and **High**. The intervals affect the time interval in which the data is collected and sent.
 
 Each time interval is configurable and the IoT connectors can be enabled and disabled in order to further [customize your solution](how-to-azure-rtos-security-module.md). 
 
