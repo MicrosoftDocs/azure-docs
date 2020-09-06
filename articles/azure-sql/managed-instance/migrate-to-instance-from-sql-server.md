@@ -120,7 +120,7 @@ RESTORE of native backups (.bak files) taken from a SQL Server instance, availab
 
 The following diagram provides a high-level overview of the process:
 
-![migration-flow](./media/migrate-to-instance-from-sql-server/migration-flow.png)
+![migration flow](./media/migrate-to-instance-from-sql-server/migration-flow.png)
 
 The following table provides more information regarding the methods you can use depending on source SQL Server version you are running:
 
