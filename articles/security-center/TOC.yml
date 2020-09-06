@@ -228,6 +228,7 @@
     - name: Automate responses to alerts
       href: workflow-automation.md
     - name: Export alerts
+      displayName: continuous    
       href: continuous-export.md
   - name: Monitor your containers
     href: monitor-container-security.md
