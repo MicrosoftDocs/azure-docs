@@ -16,7 +16,8 @@ ms.topic: how-to
 ## Configure Resources for Azure Arc enabled SQL Managed Instance
 
 ### Configure using azdata
-You can edit the configuration of Azure Arc enabled SQL Managed Instances with the `azdata` cli. Run the following command to see configuration options. 
+
+You can edit the configuration of Azure Arc enabled SQL Managed Instances with the `azdata` CLI. Run the following command to see configuration options. 
 
 ```
 azdata arc sql mi edit --help
@@ -28,8 +29,9 @@ The following example sets the cpu core and memory requests and limits.
 azdata arc sql mi edit --cores-limit 4 --cores-request 2 --memory-limit 4Gi --memory-request 2Gi -n <NAME_OF_SQL_MI>
 ```
 
-## Configure Server options 
-Server configuration settings can configured for Azure Arc enabled SQL managed instance after deployment time. This article describes how to configure settings like enabling or disabling mssql Agent, enable specific trace flags for troubleshooting scenarios.
+## Configure Server options
+
+You can configure server configuration settings for Azure Arc enabled SQL managed instance after deployment time. This article describes how to configure settings like enabling or disabling mssql Agent, enable specific trace flags for troubleshooting scenarios.
 
 To change any of these settings, follow these steps:
 
