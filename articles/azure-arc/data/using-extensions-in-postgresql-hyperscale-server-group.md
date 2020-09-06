@@ -226,3 +226,6 @@ SELECT * FROM the_best_coffee_shop;
 ```
 
 See the [pg_cron README](https://github.com/citusdata/pg_cron) for full details on the syntax.
+
+## Next step:
+
