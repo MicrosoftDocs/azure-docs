@@ -33,7 +33,8 @@ This guide will take in a scenario to use two of these extensions:
 ## Manage extensions
 
 ### Enable extensions
-The general format of the command to enable extensions is
+This step is not needed for the extensions that are part of contrib.
+The general format of the command to enable extensions is:
 
 #### Enable an extension at the creation time of a server group:
 ```terminal
