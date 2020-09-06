@@ -102,17 +102,9 @@
     - name: Steps to deploy
       displayName: standards, fedramp, high
       href: ./samples/fedramp-h/deploy.md
-  - name: HIPAA HITRUST
-    items:
-    - name: Overview
-      displayName: standards, HIPAA HITRUST
-      href: ./samples/HIPAA-HITRUST/index.md
-    - name: Control mapping
-      displayName: standards, HIPAA HITRUST
-      href: ./samples/HIPAA-HITRUST/control-mapping.md
-    - name: Steps to deploy
-      displayName: standards, HIPAA HITRUST
-      href: ./samples/HIPAA-HITRUST/deploy.md
+  - name: HIPAA HITRUST 9.2
+    displayName: standards, HIPAA HITRUST
+    href: ./samples/hipaa-hitrust-9-2.md
   - name: IRS 1075
     items:
     - name: Overview
