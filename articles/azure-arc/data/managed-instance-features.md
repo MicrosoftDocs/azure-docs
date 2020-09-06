@@ -117,15 +117,13 @@ Azure Arc enabled SQL Managed Instance share a common code base with the latest 
 |MERGE & UPSERT capabilities|	Yes	|		
 |Date and Time datatypes	|Yes	|		
 |Internationalization support|	Yes	|		
-|Full-text and semantic search <sup>1</sup>|	No		|
+|Full-text and semantic search |	No		|
 |Specification of language in query	|Yes		|	
 |Service Broker (messaging)|	Yes		|	
 |Transact-SQL endpoints|	Yes	|		
 |Graph|	Yes	|	
-|Machine Learning Services<sup>1</sup>| No	|	
-|PolyBase<sup>1</sup>| No	|
-
-<sup>1</sup> Coming in future.
+|Machine Learning Services| No	|	
+|PolyBase| No	|
 
 
 ### Tools
