@@ -57,7 +57,7 @@ If you're still not able to find the issue, you can capture diagnostics and send
 
 Similar to uploading a model, upload an empty file named `debug` to the `LocalState` folder.
 
-:::image type="content" source="media/portal-upload-debug.png" alt-text="Portal Upload Debug":::
+:::image type="content" source="./media/portal-upload-debug.png" alt-text="Portal Upload Debug":::
 
 Restart the app to begin recording diagnostics. Try to detect your object again. Then, close the app to stop the recording.
 

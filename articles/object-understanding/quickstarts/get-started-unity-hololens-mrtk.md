@@ -48,9 +48,21 @@ You can also do other actions using the hand menu:
 
 **Toggle SpatialMapping**: Show/hide spatial mapping rendering. This option can be used to debug if the scan is complete or not.
 
+**High Precision Mode**: An experimental feature used to get a more accurate pose. This will require more system resources. The object mesh will be rendered in pink when in this mode. Click this button again to switch back to normal tracking mode.
+
 **Lock/Unlock search area**: Lock area bounding box to prevent accidental movement by hands.
 
 **Start/Stop Tracing**: Capture diagnostics data and save it to the device. See more detail in section **Debug Detection Issues and Capture Diagnostics**
+
+**Upload Tracing**: Upload diagnostics data to the Object Understanding service. A user must provide their subscription account in `subscription.json` and upload it to the `LocalState` folder. A sample `subscription.json` file can be found below.
+
+```json
+{
+  "AccountId": "<your account id>",
+  "AccountKey": "<your account key>",
+  "AccountRegion": "<your account region>"
+}
+```
 
 :::image type="content" source="./media/unity-readme-handmenu.png" alt-text="Unity hand menu":::
 

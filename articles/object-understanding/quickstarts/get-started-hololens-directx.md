@@ -74,9 +74,11 @@ From the HoloLens, launch the **OUSampleApp** app (if it was already open, close
 
 Figure: a detected chair rendered with its bounding box (pink), point cloud (yellow), and a search area (large yellow box).
 
-You can define a search space for the object in the app by finger clicking in the air with either your right or left hand. The search space will switch among a sphere of 2 meters radius, a 4 m^3 bounding box and a view frustum. Each time when the search area changes, the app will remove instances currently being tracked, and then try to find them from scratch in the new search area.
+You can define a search space for the object in the app by finger clicking in the air with either your right or left hand. The search space will switch among a sphere of 2-meters radius, a 4 m^3 bounding box and a view frustum. Each time when the search area changes, the app will remove instances currently being tracked, and then try to find them from scratch in the new search area.
 
 This app can track multiple objects at one time. To do that, upload multiple models to the **LocalState** folder and set a search area that covers both objects. It may take longer to detect and track multiple objects.
+
+The app detects objects at coarse pose with a rough 2+ cm error. A user can air tap using their left hand to turn on the high precision tracking mode, which can compute a more accurate pose. This is still an experimental feature, which consumes more system resources, and could result in higher jitter in the estimated pose. Air tap again with the left hand to switch back to the normal tracking mode.
 
 ## Capture diagnostics from the application
 
@@ -87,6 +89,20 @@ You can optionally capture diagnostics from the **OUSampleApp**. You can enable 
 The next time the app runs, it will capture diagnostics and write data to the application's **TempState** folder, as shown below. The diagnostics file packs information about the scene and model, which could be used for offline debugging. Send us the data if you want us to look into some detection problems with your objects.
 
 :::image type="content" source="./media/portal-debug-diagnostics.png" alt-text="Portal Upload Diagnostics":::
+
+#### Upload diagnostics to Object Understanding Azure Blob Storage
+
+The captured diagnostics can be uploaded to the Object Understanding Azure service when a user provides their subscription account information to the app.
+
+Create a new file called `subscription.json`. Fill in the account information below and save the contents to `subscription.json`. Upload the `subscription.json` you created to the `LocalState` folder. The next time the app starts, it will load the account information and upload a diagnostics archive to the service.
+
+```json
+{
+  "AccountId": "<your account id>",
+  "AccountKey": "<your account key>",
+  "AccountRegion": "<your account region>"
+}
+```
 
 ## Next steps
 
