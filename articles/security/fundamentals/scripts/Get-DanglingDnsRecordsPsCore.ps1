@@ -145,6 +145,8 @@ If ( $PSBoundParameters.Values.Count -eq 0 -and $args.count -eq 0 )
     return 
 }
 
+$ErrorActionPreference = "Stop"
+
 $scriptStartTime = Get-Date
 
 # Input param set customization
@@ -153,8 +155,7 @@ If($FileAndAzureSubscription)
     $FetchDnsRecordsFromAzureSubscription = $true
 }
 # List of interedsted Azure DNS zone suffixes delimited by "|"
-$interestedAzureDnsZones = "azurefd.net|blob.core.windows.net|azureedge.net|cloudapp.azure.com|
-                            trafficmanager.net|azurecontainer.io|azure-api.net|azurewebsites.net|cloudapp.net"
+$interestedAzureDnsZones = "azurefd.net|blob.core.windows.net|azureedge.net|cloudapp.azure.com|trafficmanager.net|azurecontainer.io|azure-api.net|azurewebsites.net|cloudapp.net"
 
 # Run in serial or parallel by subscription
 [switch]$runParallel = $true
@@ -184,7 +185,7 @@ $resourceProviderList = @(
     [pscustomObject]@{'Service' = 'Azure Blob Storage'; 'DomainSuffix' = 'blob.core.windows.net'},
     [pscustomObject]@{'Service' = 'Azure Public IP addresses'; 'DomainSuffix' = 'cloudapp.azure.com'},
     [pscustomObject]@{'Service' = 'Azure Classic Cloud'; 'DomainSuffix' = 'cloudapp.net'},
-    [pscustomObject]@{'Service' = 'Azure Traffic Manager'; 'DomainSuffix' = 'trafficmanager.net'}    
+    [pscustomObject]@{'Service' = 'Azure Traffic Manager'; 'DomainSuffix' = 'trafficmanager.net'}
     )
 
 # Function to compute the time
@@ -323,14 +324,14 @@ $AzLibrariesLoadTime = Get-TimeToProcess $AzLibrariesLoadStart
 #Initialize
 #
 $AZAccountConnectStart = Get-Date
-try 
-{ 
+try
+{
     Get-AzTenant  -ErrorAction Stop
-} 
+}
 catch{
     Write-warning "AzAccount not connected trying to connect to AzAccount"
     $connectionDoneFromScript = $true
-    Connect-AzAccount 
+    Connect-AzAccount
 }
 
 $AZAccountConnectTime = Get-TimeToProcess $AZAccountConnectStart
@@ -341,7 +342,8 @@ $interestedResourcesQuery = "
     | where type in ('microsoft.network/frontdoors','microsoft.storage/storageaccounts',
     'microsoft.cdn/profiles/endpoints','microsoft.network/publicipaddresses',
     'microsoft.network/trafficmanagerprofiles','microsoft.containerinstance/containergroups',
-    'microsoft.apimanagement/service','microsoft.web/sites','microsoft.web/sites/slots')
+    'microsoft.apimanagement/service','microsoft.web/sites','microsoft.web/sites/slots',
+    'microsoft.classiccompute/domainnames')
     | extend dnsEndpoint = case
     (
        type =~ 'microsoft.network/frontdoors', properties.cName,
@@ -354,6 +356,7 @@ $interestedResourcesQuery = "
        type =~ 'microsoft.apimanagement/service', properties.hostnameConfigurations.hostName,
        type =~ 'microsoft.web/sites', properties.defaultHostName,
        type =~ 'microsoft.web/sites/slots', properties.defaultHostName,
+       type =~ 'microsoft.classiccompute/domainnames',properties.hostName,
        ''
     )
     | where isnotempty(dnsEndpoint)
