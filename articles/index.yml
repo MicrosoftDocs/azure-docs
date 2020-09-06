@@ -346,7 +346,7 @@ productDirectory:
       url: data-share/index.yml
     # Card
     - title: Azure Stream Analytics
-      summary: Real-time data stream processing from millions of IoT devices
+      summary: Real-time analytics on fast moving streams of data from applications and devices
       imageSrc: https://static.docs.com/ui/media/product/azure/stream-analytics.svg
       azureCategories:
         - analytics
@@ -867,12 +867,26 @@ productDirectory:
         - hybrid
       url: https://docs.microsoft.com/azure-stack/
     # Card
-    - title: Azure Stack HCI solutions
-      summary: Run virtual machines on-premises and easily connect to Azure with a hyperconverged infrastructure (HCI) solution
+    - title: Azure Stack HCI (Preview)
+      summary: Integrate hyperconverged infrastructure with Azure and hybrid services to run virtual workloads on premises
       imageSrc: https://static.docs.com/ui/media/product/azure/stack-hci.svg
       azureCategories:
         - hybrid
       url: https://docs.microsoft.com/azure-stack/hci/
+    # Card
+    - title: Azure Stack Hub
+      summary: Azure Stack Hub is sold as an integrated hardware system, with software pre-installed on validated hardware
+      imageSrc: ./media/index/azure-stack-hci.svg
+      azureCategories:
+        - hybrid
+      url: https://docs.microsoft.com/azure-stack/operator/
+    # Card
+    - title: Azure Stack Edge
+      summary: An Azure managed appliance that brings the compute, storage, and intelligence of Azure to the edge
+      imageSrc: ./media/index/azure-stack-edge.svg
+      azureCategories:
+        - hybrid
+      url: https://docs.microsoft.com/azure/databox-online/
     # Card
     - title: Security Center
       summary: Unify security management and enable advanced threat protection across hybrid cloud workloads
