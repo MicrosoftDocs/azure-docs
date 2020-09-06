@@ -10,7 +10,7 @@ ms.date: 11/04/2019
 ms.author: memildin
 
 ---
-# Threat protection for Azure Key Vault (preview)
+# Threat protection for Azure Key Vault
 
 Advanced threat protection for Azure Key Vault provides an additional layer of security intelligence. This tool detects potentially harmful attempts to access or exploit Key Vault accounts. Using the native advanced threat protection in Azure Security Center, you can address threats without being a security expert, and without learning additional security monitoring systems.
 

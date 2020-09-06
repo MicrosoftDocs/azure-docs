@@ -362,7 +362,7 @@ At the bottom of this page, there's a table describing the Azure Security Center
 |                                                                                |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |                                    |          |
 
 
-## <a name="alerts-azurekv"></a>Alerts for Azure Key Vault (Preview)
+## <a name="alerts-azurekv"></a>Alerts for Azure Key Vault
 
 [Further details and notes](defender-for-key-vault-intro.md)
 

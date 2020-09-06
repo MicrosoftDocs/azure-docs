@@ -36,7 +36,7 @@ The table below shows the availability of Azure Security Center features for the
 |Azure Database for PostgreSQL*|✔|✔|-|
 |Azure Event Hubs namespace|✔|-|-|
 |Azure Functions app|✔|-|-|
-|Azure Key Vault|✔|✔ *|-|
+|Azure Key Vault|✔|✔|-|
 |Azure Kubernetes Service|✔|✔|-|
 |Azure Load Balancer|✔|-|-|
 |Azure Logic Apps|✔|-|-|
