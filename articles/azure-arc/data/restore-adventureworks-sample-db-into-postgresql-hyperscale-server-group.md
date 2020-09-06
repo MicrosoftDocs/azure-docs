@@ -1,6 +1,6 @@
 ---
-title: Restore the AdventureWorks sample database to PostgreSQL
-description: Restore the AdventureWorks sample database to PostgreSQL
+title: Restore the AdventureWorks sample database to Azure Arc enabled PostgreSQL Hyperscale
+description: Restore the AdventureWorks sample database to Azure Arc enabled PostgreSQL Hyperscale
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -11,53 +11,70 @@ ms.date: 08/04/2020
 ms.topic: how-to
 ---
 
-# Restore the AdventureWorks sample database to PostgreSQL
+# Restore the AdventureWorks sample database to Azure Arc enabled PostgreSQL Hyperscale
 
 [AdventureWorks](/sql/samples/adventureworks-install-configure) is a sample database containing an OLTP database used in tutorials, and examples. It's provided and maintained by Microsoft as part of the [SQL Server samples GitHub repository](https://github.com/microsoft/sql-server-samples/tree/master/samples/databases).
 
-An open-source project has converted the AdventureWorks database to be compatible with PostgreSQL
+An open-source project has converted the AdventureWorks database to be compatible with Azure Arc enabled PostgreSQL Hyperscale.
 - [Original project](https://github.com/lorint/AdventureWorks-for-Postgres)
 - [Follow on project that pre-converts the CSV files to be compatible with PostgreSQL](https://github.com/NorfolkDataSci/adventure-works-postgres)
 
-This document describes a simple process to get the AdventureWorks sample database restored into your PostgreSQL instance.
+This document describes a simple process to get the AdventureWorks sample database restored into your PostgreSQL Hyperscale server group.
 
 ## Download the AdventureWorks backup file
 
-Download the AdventureWorks .sql file into your PostgreSQL instance container. In this example, we'll use the `kubectl exec` command to remotely execute a command in the PostgreSQL instance container to download the file into the container. You could download this file from any location accessible by `curl`. Use this same method if you have other database back up files you want to pull in the PostgreSQL instance container. Once it's in the PostgreSQL instance container, it's easy to create the database, schema, and populate the data.
+Download the AdventureWorks .sql file into your PostgreSQL Hyperscale server group container. In this example, we'll use the `kubectl exec` command to remotely execute a command in the PostgreSQL Hyperscale server group container to download the file into the container. You could download this file from any location accessible by `curl`. Use this same method if you have other database back up files you want to pull in the PostgreSQL Hyperscale server group container. Once it's in the PostgreSQL Hyperscale server group container, it's easy to create the database, schema, and populate the data.
 
 Run a command like this to download the files replace the value of the pod name and namespace name before you run it:
 
 > [!NOTE]
->  Your container will need to have internet connectivity over 443 to download the file from GitHub
+>  Your container will need to have Internet connectivity over 443 to download the file from GitHub.
 
 > [!NOTE]
->  Use the pod name with 'r###' at the end not any of the 's###' pod names.  If you are not sure of the pod name run the command `kubectl get pod`
+>  Use the pod name of the Coordinator node of the Postgres Hyperscale server group. Its name is <server group name>-0.  If you are not sure of the pod name run the command `kubectl get pod`
 
-```console
-kubectl exec <PostgreSQL pod name> -n <namespace name> -c database  -- /bin/bash -c "cd /tmp && curl -k -O https://raw.githubusercontent.com/microsoft/azure_arc/master/azure_arc_data_jumpstart/aks/arm_template/postgres_hs/AdventureWorks.sql"
+```terminal
+kubectl exec <PostgreSQL pod name> -n <namespace name> -c postgres  -- /bin/bash -c "cd /tmp && curl -k -O https://raw.githubusercontent.com/microsoft/azure_arc/master/azure_arc_data_jumpstart/aks/arm_template/postgres_hs/AdventureWorks.sql"
 
 #Example:
-#kubectl exec postgres02-r000 -n arc -c database -- /bin/bash -c "cd /tmp && curl -k -O https://raw.githubusercontent.com/microsoft/azure_arc/master/azure_arc_data_jumpstart/aks/arm_template/postgres_hs/AdventureWorks.sql"
+#kubectl exec postgres02-0 -n arc -c postgres -- /bin/bash -c "cd /tmp && curl -k -O https://raw.githubusercontent.com/microsoft/azure_arc/master/azure_arc_data_jumpstart/aks/arm_template/postgres_hs/AdventureWorks.sql"
 ```
 
-## Restore the AdventureWorks database
+## Step 2: Restore the AdventureWorks database
 
-Similarly, you can run a `kubectl exec` command to use the `psql` CLI tool that is included in the PostgreSQL instance container to create and load the database.
+Similarly, you can run a kubectl exec command to use the psql CLI tool that is included in the PostgreSQL Hyperscale server group containers to create and load the database.
 
-Run a command like this to create the empty database first, insert the value of the pod name and the namespace name before you run it.
+Run a command like this to create the empty database first substituting the value of the pod name and the namespace name before you run it.
 
-```console
-kubectl exec <PostgreSQL pod name> -n <namespace name> -c database -- psql -c 'CREATE DATABASE "adventureworks";'
+```terminal
+kubectl exec <PostgreSQL pod name> -n <namespace name> -c postgres -- psql --username postgres -c 'CREATE DATABASE "adventureworks";'
 
 #Example
-#kubectl exec postgres02-r000 -n arc -c database -- psql -c 'CREATE DATABASE "adventureworks";'
+#kubectl exec postgres02-0 -n arc -c postgres -- psql --username postgres -c 'CREATE DATABASE "adventureworks";'
 ```
 
-Then, run a command like this to restore the database. Replace the value of the pod name and the namespace name before you run it.
+Then, run a command like this to restore the database substituting the value of the pod name and the namespace name before you run it.
 
-```console
-kubectl exec <PostgreSQL pod name> -n <namespace name> -c database -- psql -d adventureworks -f /tmp/AdventureWorks.sql
+```terminal
+kubectl exec <PostgreSQL pod name> -n <namespace name> -c postgres -- psql --username postgres -d adventureworks -f /tmp/AdventureWorks.sql
 
 #Example
-#kubectl exec postgres02-r000 -n arc -c database -- psql -d adventureworks -f /tmp/AdventureWorks.sql
+#kubectl exec postgres02-0 -n arc -c postgres -- psql --username postgres -d adventureworks -f /tmp/AdventureWorks.sql
 ```
+
+
+> **Note: You will not see so much performance benefits of running on Azure Arc enabled PostgreSQL Hyperscale until you scale out and you shard/distribute the data/tables across the worker nodes of your PostgreSQL Hyperscale server group. See [Suggested next steps](#suggested-next-steps).**
+
+## Suggested next steps
+- Read the concepts and How-to guides of Azure Database for PostgreSQL Hyperscale to distribute your data across multiple PostgreSQL Hyperscale nodes and to benefit from all the power of Azure Database for PostgreSQL Hyperscale. :
+    * [Nodes and tables](https://docs.microsoft.com/en-us/azure/postgresql/concepts-hyperscale-nodes)
+    * [Determine application type](https://docs.microsoft.com/en-us/azure/postgresql/concepts-hyperscale-app-type)
+    * [Choose a distribution column](https://docs.microsoft.com/en-us/azure/postgresql/concepts-hyperscale-choose-distribution-column)
+    * [Table colocation](https://docs.microsoft.com/en-us/azure/postgresql/concepts-hyperscale-colocation)
+    * [Distribute and modify tables](https://docs.microsoft.com/en-us/azure/postgresql/howto-hyperscale-modify-distributed-tables)
+    * [Design a multi-tenant database](https://docs.microsoft.com/en-us/azure/postgresql/tutorial-design-database-hyperscale-multi-tenant)*
+    * [Design a real-time analytics dashboard](https://docs.microsoft.com/en-us/azure/postgresql/tutorial-design-database-hyperscale-realtime)*
+
+> *In these documents, skip the sections [Sign in to the Azure portal], [Create an Azure Database for Postgres - Hyperscale (Citus)] and implement the remaining steps in your Azure Arc deployment. Those sections are specific to the Azure Database for Postgres Hyperscale (Citus) offered as a PaaS service in the Azure cloud but the other parts of the documents are directly applicable to your Azure Arc enabled Postgres Hyperscale.
+
+- [Scale out your Azure Database for PostgreSQL Hyperscale server group](scale-out-postgresql-hyperscale-server-group.md)
