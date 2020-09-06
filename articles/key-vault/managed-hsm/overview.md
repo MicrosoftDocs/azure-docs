@@ -45,3 +45,7 @@ Azure Key Vault Managed HSM is a fully managed, highly available, single-tenant,
 
 ### Import keys from your on-premise HSMs
 - Generate HSM-protected keys in your on-premise HSM and import them securely into Managed HSM
+
+## Next Steps
+- See [Quickstart: Provision and activate a managed HSM pool using Azure CLI](quick-create-cli.md) to create and activate a managed HSM
+- See [Best Practices using Azure Key Vault Managed HSM](best-practices.md)
