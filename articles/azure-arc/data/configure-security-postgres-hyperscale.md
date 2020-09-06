@@ -18,10 +18,10 @@ This document describes various aspects related to security of your server group
 - User management
 
 ## Encryption at rest
-There are two ways you can implement at rest for your server group. You can implement either of them or combine them.
+There are two ways you can implement encryption at rest for your server group. You can implement either of them or combine them.
 
 ### Hardware: Linux host volume encryption
-Implement system data encryption to secure any data that resides on the disks used by your Azure Arc enabled Data Services. You can read [here](https://wiki.archlinux.org/index.php/Data-at-rest_encryption), for example, more about the perspectives and solution you have in this area. Since Azure Arc enabled Data Services runs on the physical infrastructure that you provide, you are in charge of securing the infrastructure.
+Implement system data encryption to secure any data that resides on the disks used by your Azure Arc enabled Data Services setup. You can read [here](https://wiki.archlinux.org/index.php/Data-at-rest_encryption), for example, more about the perspectives and solutions that you have in this area. Since Azure Arc enabled Data Services runs on the physical infrastructure that you provide, you are in charge of securing the infrastructure.
 
 ### Software: Use the PostgreSQL pgcrypto extension in your server group
 In addition of encrypting the disks used to host your Azure Arc setup, you can configure your Azure Arc enabled PostgreSQL Hyperscale server group to expose mechanisms that your applications can use to encrypt data in your database(s). The pgcrypto extension is part of the contrib extensions of Postgres and is available in your Azure Arc enabled PostgreSQL Hyperscale server group. You find details about the pgcrypto extension [here](https://www.postgresql.org/docs/current/pgcrypto.html).
@@ -99,6 +99,7 @@ Returns:
 - USERid: 1
 - USERname: Me
 - USERpassword: $1$Uc7jzZOp$NTfcGo7F10zGOkXOwjHy31
+
 When I connect with my application and I pass a password, it will look up in the mysecrets table and will return the name of the user if there is a match between the password that is provided to the application and the passwords stored in the table. For example:
 - I pass the wrong password:
 ```terminal
@@ -110,7 +111,7 @@ Returns
 ---------
 (0 rows)
 ```
-- I pass the correct password
+- I pass the correct password:
 ```terminal
 select USERname from mysecrets where (USERpassword = crypt('MySecretPasswrod', USERpassword));
 ``` 
@@ -133,4 +134,4 @@ This small example demonstrates that you can encrypt data at rest (store encrypt
 Azure Arc enabled Postgres Hyperscale comes with the standard Postgres administrative user _postgres_ for which you set the password when you deploy your server group.
 It is not yet possible to change this password. This functionality comes soon. Updates will be posted here when it is available.
 
-You can also use the standard Postgres way to  create user or role. However, if you do so, these artifacts will only be available on the coordinator role. As such these users/roles will not yet be able to access data that is distributed outside the Coordinator node and on the Worker nodes of your server group. The reason is that the replication of the user definition is not yet replicated to the Worker nodes. This functionality comes soon. Updates will be posted here when it is available.
+You can also use the standard Postgres way to  create users or roles. However, if you do so, these artifacts will only be available on the coordinator role. As such these users/roles will not yet be able to access data that is distributed outside the Coordinator node and on the Worker nodes of your server group. The reason is that the user definition is not yet replicated to the Worker nodes. This functionality comes soon. Updates will be posted here when it is available.
