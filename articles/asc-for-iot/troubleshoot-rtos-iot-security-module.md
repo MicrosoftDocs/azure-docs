@@ -34,7 +34,8 @@ In this troubleshooting guide you'll learn how to:
 
 - To view the iot_security_module logs, use this command:
 
-```sudo journalctl -u iot_security_module | tail -n 200
+```bash
+sudo journalctl -u iot_security_module | tail -n 200
 ```
 
 ## Enable and disable RTOS IoT security module baseline checks
@@ -44,12 +45,14 @@ Follow these steps to enable/disable the baseline checks:
     1. You can enable/disable a group of checks by changing the enable field of the group. You can also enable/disable a specific check by changing the enable field of that specific check. 
 2.	Restart the iot_security_module using the following command:
 
-```sudo systemctl restart iot_security_module
+```bash
+sudo systemctl restart iot_security_module
 ```
 
 - To initiate a new baseline report, restart the iot_security_module using the following command: 
 
-```sudo systemctl restart iot_security_module
+```bash
+sudo systemctl restart iot_security_module
 ```
 
 
