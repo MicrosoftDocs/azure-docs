@@ -64,7 +64,8 @@ Those vCore and memory settings apply to each of the Postgres Hyperscale nodes (
 
 In a default configuration, only the minimum memory is set to 256Mi as it is the minimum amount of memory that is recommended to run PostgreSQL Hyperscale.
 
-> **Note:** Setting a minimum does not mean the server group will necessarily use that minimum. It means that if the server group needs it, it is guaranteed to be allocated at least this minimum. For example, let's consider we set --minCpu 2. It does not mean that the server group will be using at least 2 vCores at all times. It instead means that the sever group may start using less than 2 vCores if it does not need that much and it is guaranteed to be allocated at least 2 vCores if it needs them later on. It implies that the Kubernetes cluster allocates resources to other workloads in such a way that it can allocate 2 vCores to the server group if it ever needs them.
+> [!NOTE]
+> Setting a minimum does not mean the server group will necessarily use that minimum. It means that if the server group needs it, it is guaranteed to be allocated at least this minimum. For example, let's consider we set --minCpu 2. It does not mean that the server group will be using at least 2 vCores at all times. It instead means that the sever group may start using less than 2 vCores if it does not need that much and it is guaranteed to be allocated at least 2 vCores if it needs them later on. It implies that the Kubernetes cluster allocates resources to other workloads in such a way that it can allocate 2 vCores to the server group if it ever needs them.
 
 ## Scale up the server group
 
@@ -91,7 +92,8 @@ The command executes successfully when it shows:
 <name of your server group> is Ready
 ```
 
-> **Note:** For details about those parameters, run `azdata arc postgres server edit --help`
+> [!NOTE]
+> For details about those parameters, run `azdata arc postgres server edit --help`.
 
 ### CLI with kubectl
 
@@ -126,7 +128,8 @@ azdata arc postgres server show -n <the name of your server group>
 ```terminal
 kubectl describe postgresql-12/<server group name>
 ```
-> Note: if you deployed a server group of PostgreSQL version 11, run _kubectl describe postgresql-11/<server group name>_ instead.
+> [!NOTE]
+> If you deployed a server group of PostgreSQL version 11, run `kubectl describe postgresql-11/<server group name>` instead.
 
 
 It will show the new definition of the server group:
