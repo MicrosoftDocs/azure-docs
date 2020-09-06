@@ -56,11 +56,6 @@ You need to provide following information to execute a full restore:
 
 Restore is a long running operation. After issuing the restore command it immediately returns with a Job ID. You can check the status of the restore process using this Job ID. When the restore process is in progress, the HSM enters a restore mode and all data plane command (except check restore status) are disabled.
 
-## Selective restore
-
-Selective restore allows you to restore one single key from a full HSM backup. This is a quick way to restore a permanently deleted key from an existing backup.
-
-
 
 ## Next Steps
 - See [Manage a Managed HSM using the Azure CLI](manage-with-cli.md) to learn how to use Azure CLI to perform backup and restore operations.
