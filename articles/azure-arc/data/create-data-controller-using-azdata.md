@@ -319,21 +319,24 @@ Once you have run the command, continue on to [Monitoring the deployment status]
 
 Creating the controller will take a few minutes to complete. You can monitor the progress in another terminal window with the following commands:
 
+> [!NOTE]
+>  The example commands below assume that you created a data controller and Kubernetes namespace with the name 'arc'.  If you used a different namespace/data controller name, you can replace 'arc' with your name.
+
 ```console
-kubectl get datacontroller/arc -n arc
+kubectl get datacontroller/arc --namespace arc
 ```
 
 ```console
-kubectl get pods -n arc
+kubectl get pods --namespace arc
 ```
 
 You can also check on the deployment status of any particular pod by running a command like below.  This is especially useful for troubleshooting any issues.
 
 ```console
-kubectl describe po/<pod name> -n arc
+kubectl describe po/<pod name> --namespace arc
 
 #Example:
-#kubectl describe po/control-2g7bl -n arc
+#kubectl describe po/control-2g7bl --namespace arc
 ```
 
 ## Troubleshooting deployment problems
