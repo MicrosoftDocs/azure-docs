@@ -11,14 +11,14 @@ As a backup admin, you can use Backup Center as a single pane of glass to monito
 
 ## Supported scenarios
 
-* Backup Center currently supports all Azure-based workloads that are supported by Azure Backup – this includes Azure VM backup, SQL in Azure VM backup, SAP HANA in Azure VM backup, Azure File Share backup, Azure Database for PostgreSQL Server backup.
+* Backup Center is currently supported for Azure VM backup and Azure Database for PostgreSQL Server backup.
 * Refer to the [support matrix]() for a detailed list of supported and unsupported scenarios.
 
 ## Backup Instances
 
 Backup Center allows for easy search and discoverability of backup instances across your backup estate.
 
-Selecting the **Backup Instances** tab in Backup Center lets you view details of all the backup instances that you have access to. You can view the datasource subscription, resource group, latest recovery point, vault and protection status of each backup instance. You can also filter the list by datasource subscription, resource group, location, type, vault, protection status, and datasource tags.
+Selecting the **Backup Instances** tab in Backup Center lets you view details of all the backup instances that you have access to. You can view the datasource subscription, resource group, latest recovery point, vault, and protection status of each backup instance. You can also filter the list by datasource subscription, resource group, location, type, vault, protection status, and datasource tags.
 
 Right-clicking on any of the items in the grid lets you perform actions on the given backup instance, such as navigating to the resource, triggering on-demand backups and restores, or stopping backup.
 
