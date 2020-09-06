@@ -18,7 +18,7 @@ ms.date: 09/06/2020
 ms.author: mlottner
 ---
 
-# Azure RTOS IoT security module API
+# Azure RTOS IoT security module API (preview)
 
 This API is intended for use with the Azure RTOS IoT security module. For additional resources, see the [Azure RTOS IoT Security GitHub resource](github.com/azure-rtos/azure-iot-preview). 
 
@@ -38,9 +38,11 @@ UINT nx_azure_iot_security_module_enable(NX_AZURE_IOT *nx_azure_iot_ptr);
 This routine enables the Azure IoT Security Module subsystem. An internal state machine manages collection of security events and sends them to Azure IoT Hub. Only one NX_AZURE_IOT_SECURITY_MODULE instance is required and needed to manage data collection.
 
 **Parameters**
+
 | Name | Description |
 |---------|---------|
-| nx_azure_iot_ptr [in]    | A pointer to a `NX_AZURE_IOT` |
+| nx_azure_iot_ptr  [in]    | A pointer to a `NX_AZURE_IOT`. Test for publish |
+
 
 
 **Return values**
