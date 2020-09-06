@@ -6,7 +6,7 @@ description: Understand what has changed in the new version of Azure Digital Twi
 author: baanders
 ms.author: baanders # Microsoft employees only
 ms.date: 3/12/2020
-ms.topic: overview
+ms.topic: conceptual
 ms.service: digital-twins
 
 # Optional fields. Don't forget to remove # if you need a field.

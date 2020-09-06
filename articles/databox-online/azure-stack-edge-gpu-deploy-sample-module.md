@@ -1,5 +1,5 @@
 ---
-title: Deploy GPU module on your Microsoft Azure Stack Edge device| Microsoft Docs
+title: Deploy GPU module on your Azure Stack Edge GPU device| Microsoft Docs
 description: Describes how to enable compute and make your Azure Stack Edge device compute-ready via the local UI.
 services: databox
 author: alkohli
@@ -7,13 +7,13 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 07/23/2020
+ms.date: 08/31/2020
 ms.author: alkohli
 ---
 
-# Deploy a GPU enabled IoT module on Azure Stack Edge device
+# Deploy a GPU enabled IoT module on Azure Stack Edge GPU device
 
-This article describes how to deploy a GPU enabled IoT Edge module on your Azure Stack Edge device. 
+This article describes how to deploy a GPU enabled IoT Edge module on your Azure Stack Edge GPU device. 
 
 In this article, you learn how to:
   - Prepare Azure Stack Edge to run a GPU module.

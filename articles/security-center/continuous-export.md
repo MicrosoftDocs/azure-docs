@@ -31,12 +31,12 @@ Using these tools you can:
 |Release state:|Generally Available|
 |Pricing:|Free tier|
 |Required roles and permissions:|**Security admin role** on the resource group (or **Owner**)<br>Must also have write permissions for the target resource|
-|Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![Yes](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) China Gov, Other Gov|
+|Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![Yes](./media/icons/yes-icon.png) US Gov<br>![Yes](./media/icons/yes-icon.png) China Gov (to Event Hub), Other Gov|
 |||
 
 
 
-## Setting up a continuous export
+## Set up a continuous export
 
 The steps below are necessary whether you're setting up a continuous export to Log Analytics workspace or Azure Event Hubs.
 
@@ -51,12 +51,24 @@ The steps below are necessary whether you're setting up a continuous export to L
 
 1. Select the data type you'd like to export and choose from the filters on each type (for example, export only high severity alerts).
 
+1. Optionally, if your selection includes one of these four recommendations, you can include the vulnerability assessment findings together with them:
+
+    - Vulnerability Assessment findings on your SQL databases should be remediated
+    - Vulnerability Assessment findings on your SQL servers on machines should be remediated (Preview)
+    - Vulnerabilities in Azure Container Registry images should be remediated (powered by Qualys)
+    - Vulnerabilities in your virtual machines should be remediated
+
+    To include the findings with these recommendations, enable the **include security findings** option.
+
+    :::image type="content" source="./media/continuous-export/include-security-findings-toggle.png" alt-text="Include security findings toggle in continuous export configuration" :::
+
+
 1. From the "Export target" area, choose where you'd like the data saved. Data can be saved in a target on a different subscription (for example on a Central Event Hub instance or a central Log Analytics workspace).
 
 1. Select **Save**.
 
 
-## Setting up continuous export via the REST API
+## Set up continuous export via the REST API
 
 The continuous export feature can be configured and managed via the Azure Security Center [automations API](https://docs.microsoft.com/rest/api/securitycenter/automations). Use this API to create or update automations for exporting to any of the following possible destinations:
 
@@ -79,7 +91,7 @@ Learn more about the automations API in the [REST API documentation](https://doc
 
 
 
-## Configuring SIEM integration via Azure Event Hubs
+## Configure SIEM integration via Azure Event Hubs
 
 Azure Event Hubs is a great solution for programatically consuming any streaming data. For Azure Security Center alerts and recommendations, it's the preferred way to integrate with a third-party SIEM.
 

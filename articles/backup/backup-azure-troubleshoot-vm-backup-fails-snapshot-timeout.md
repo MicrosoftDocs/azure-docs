@@ -55,13 +55,13 @@ Azure Backup uses the VM Snapshot Extension to take an application consistent ba
 
 - **Check if network access is required**: Extension packages are downloaded from the Azure Storage extension repository and extension status uploads are posted to Azure Storage. [Learn more](../virtual-machines/extensions/features-windows.md#network-access).
   - If you're on a non-supported version of the agent, you need to allow outbound access to Azure storage in that region from the VM.
-  - If you have blocked access to `168.63.129.16` using the guest firewall or with a proxy, extensions will fail regardless of the above. Ports 80, 443, and 32526 are required, [Learn more](../virtual-machines/extensions/features-windows.md#network-access).
+  - If you've blocked access to `168.63.129.16` using the guest firewall or with a proxy, extensions will fail regardless of the above. Ports 80, 443, and 32526 are required, [Learn more](../virtual-machines/extensions/features-windows.md#network-access).
 
 - **Ensure DHCP is enabled inside the guest VM**: This is required to get the host or fabric address from DHCP for the IaaS VM backup to work. If you need a static private IP, you should configure it through the Azure portal or PowerShell and make sure the DHCP option inside the VM is enabled, [Learn more](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken).
 
 - **Ensure the VSS writer service is up and running**: Follow these steps To [Troubleshoot VSS writer issues](backup-azure-vms-troubleshoot.md#extensionfailedvsswriterinbadstate---snapshot-operation-failed-because-vss-writers-were-in-a-bad-state).
 - **Follow backup best practice guidelines**: Review the [best practices to enable Azure VM backup](backup-azure-vms-introduction.md#best-practices).
-- **Review guidelines for encrypted disks**: If you're enabling backup for VMs with encrypted disk, ensure you have provided all the required permissions. To learn more, see [Back up and restore encrypted Azure VM](backup-azure-vms-encryption.md).
+- **Review guidelines for encrypted disks**: If you're enabling backup for VMs with encrypted disk, ensure you've provided all the required permissions. To learn more, see [Back up and restore encrypted Azure VM](backup-azure-vms-encryption.md).
 
 ## <a name="UserErrorGuestAgentStatusUnavailable-vm-agent-unable-to-communicate-with-azure-backup"></a>UserErrorGuestAgentStatusUnavailable - VM agent unable to communicate with Azure Backup
 

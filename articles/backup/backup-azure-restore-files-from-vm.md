@@ -279,7 +279,7 @@ In Linux, the OS of the computer used to restore files must support the file sys
 | openSUSE | 42.2 and above |
 
 > [!NOTE]
-> We have found some issues in running the file recovery script on machines with SLES 12 SP4 OS and we're investigating with the SLES team.
+> We've found some issues in running the file recovery script on machines with SLES 12 SP4 OS and we're investigating with the SLES team.
 > Currently, running the file recovery script is working on machines with SLES 12 SP2 and SP3 OS versions.
 >
 

@@ -41,6 +41,8 @@
     href: location-condition.md
   - name: What if tool
     href: what-if-tool.md
+  - name: Continuous access evaluation
+    href: concept-continuous-access-evaluation.md
   - name: Custom controls
     href: controls.md
   - name: Classic policy migrations

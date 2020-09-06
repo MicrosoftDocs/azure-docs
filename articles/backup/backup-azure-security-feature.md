@@ -16,7 +16,7 @@ Concerns about security issues, like malware, ransomware, and intrusion, are inc
 > [!NOTE]
 > Security features shouldn't be enabled if you're using infrastructure as a service (IaaS) VM backup. These features aren't yet available for IaaS VM backup, so enabling them won't have any impact. Security features should be enabled only if you're using: <br/>
 >
-> - **Azure Backup agent**. Minimum agent version 2.0.9052. After you have enabled these features, you should upgrade to this agent version to perform critical operations. <br/>
+> - **Azure Backup agent**. Minimum agent version 2.0.9052. After you've enabled these features, you should upgrade to this agent version to perform critical operations. <br/>
 > - **Azure Backup Server**. Minimum Azure Backup agent version 2.0.9052 with Azure Backup Server update 1. <br/>
 > - **System Center Data Protection Manager**. Minimum Azure Backup agent version 2.0.9052 with Data Protection Manager 2012 R2 UR12 or Data Protection Manager 2016 UR2. <br/>
 
@@ -42,7 +42,7 @@ If you're creating a Recovery Services vault, you can use all the security featu
     ![Screenshot of Recovery Services vault properties](./media/backup-azure-security-feature/security-settings-update.png)
 
     The update link opens the **Security Settings** pane, which provides a summary of the features and lets you enable them.
-5. From the drop-down list **Have you configured Azure Multi-Factor Authentication?**, select a value to confirm if you have enabled [Azure Multi-Factor Authentication](../active-directory/authentication/concept-mfa-howitworks.md). If it's enabled, you're asked to authenticate from another device (for example, a mobile phone) while signing in to the Azure portal.
+5. From the drop-down list **Have you configured Azure Multi-Factor Authentication?**, select a value to confirm if you've enabled [Azure Multi-Factor Authentication](../active-directory/authentication/concept-mfa-howitworks.md). If it's enabled, you're asked to authenticate from another device (for example, a mobile phone) while signing in to the Azure portal.
 
    When you perform critical operations in Backup, you have to enter a security PIN, available on the Azure portal. Enabling Azure Multi-Factor Authentication adds a layer of security. Only authorized users with valid Azure credentials, and authenticated from a second device, can access the Azure portal.
 6. To save security settings, select **Enable** and select **Save**. You can select **Enable** only after you select a value from the **Have you configured Azure Multi-Factor Authentication?** list in the previous step.
