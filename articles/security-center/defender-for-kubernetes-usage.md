@@ -48,7 +48,7 @@ To view Azure Security Center's security recommendations for your containers' Do
 
 1. Optionally, read the description, information, threats, and remediation steps. 
 
-1. Select **Take Action** at the bottom of the page.
+1. From the bottom of the page, select **Take Action**.
 
     [![Take action button](media/monitor-container-security/host-security-take-action-button.png)](media/monitor-container-security/host-security-take-action.png#lightbox)
 
