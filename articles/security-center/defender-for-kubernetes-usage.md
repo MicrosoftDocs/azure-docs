@@ -72,38 +72,51 @@ To configure the bundle, first you must install the add on:
     > [!TIP]
     > Notice that the recommendation is included in five different security controls. 
 
-1. Select the recommendation to see the resources on which you can install the add on, and select **Remediate**. 
+1. From any of the security controls, select the recommendation to see the resources on which you can install the add on, and select **Remediate**. 
 
     :::image type="content" source="./media/defender-for-kubernetes-usage/recommendation-to-install-azure-policy-add-on-for-kubernetes-details.png" alt-text="Recommendation details page for "Azure Policy add-on for Kubernetes should be installed and enabled on your clusters":::
 
-1. Approximately 30 minutes after the add-on installation completes, Security Center shows the clusters’ health status for the following recommendations, each in the relevant security controls as shown:
+1. Approximately 30 minutes after the add-on installation completes, Security Center shows the clusters’ health status for the following recommendations, each in the relevant security control as shown:
 
     > [!TIP]
-    > Some recommendations have parameters must be customized to use them effectively. For example, to benefit from the recommendation **Container images should be deployed only from trusted registries**, you'll have to define your trusted registries.
+    > Some recommendations have parameters must be customized via Azure Policy to use them effectively. For example, to benefit from the recommendation **Container images should be deployed only from trusted registries**, you'll have to define your trusted registries.
+    > 
+    > If you don't enter the necessary parameters for the recommendations that require configuration, your workloads will be shown as unhealthy.
 
-    |Recommendation name |Security control |Configuration required |
-    |-----|-----|----|
-    |Container CPU and memory limits should be enforced (preview)    |Protect applications against DDoS attack  |No  |
-    |Privileged containers should be avoided (preview)   |Manage access and permissions  |No  |
-    |Container images should be deployed only from trusted registries (preview)  |Remediate vulnerabilities    |**Yes**  |
-    |Containers should listen on allowed ports only (preview)  |Restrict unauthorized network access  |**Yes**   |
-    |Services should listen on allowed ports only (preview)  |Restrict unauthorized network access  |**Yes**  |
-    |Least privileged Linux capabilities should be enforced for containers (preview)  |Manage access and permissions  |**Yes**     |
-    |Immutable (read-only) root filesystem should be enforced for containers (preview)    |Manage access and permissions  |No  |
-    |Container with privilege escalation should be avoided (preview)  |Manage access and permissions  |No  |
-    |Running containers as root user should be avoided (preview)  |Manage access and permissions  |No  |
-    |Usage of host networking and ports should be restricted (preview)  |Restrict unauthorized network access  |**Yes**    |
-    |Containers sharing sensitive host namespaces should be avoided (preview)  |Manage access and permissions  |No   |
-    |Usage of pod HostPath volume mounts should be restricted to a known list (preview) |Manage access and permissions  |**Yes**    |
-    |Overriding or disabling of containers AppArmor profile should be restricted (preview)  |Remediate security configurations  |**Yes**    |
+    | Recommendation name                                                                   | Security control                         | Configuration required |
+    |---------------------------------------------------------------------------------------|------------------------------------------|------------------------|
+    | Container CPU and memory limits should be enforced (preview)                          | Protect applications against DDoS attack | No                     |
+    | Privileged containers should be avoided (preview)                                     | Manage access and permissions            | No                     |
+    | Immutable (read-only) root filesystem should be enforced for containers (preview)     | Manage access and permissions            | No                     |
+    | Container with privilege escalation should be avoided (preview)                       | Manage access and permissions            | No                     |
+    | Running containers as root user should be avoided (preview)                           | Manage access and permissions            | No                     |
+    | Containers sharing sensitive host namespaces should be avoided (preview)              | Manage access and permissions            | No                     |
+    | Least privileged Linux capabilities should be enforced for containers (preview)       | Manage access and permissions            | **Yes**                |
+    | Usage of pod HostPath volume mounts should be restricted to a known list (preview)    | Manage access and permissions            | **Yes**                |
+    | Containers should listen on allowed ports only (preview)                              | Restrict unauthorized network access     | **Yes**                |
+    | Services should listen on allowed ports only (preview)                                | Restrict unauthorized network access     | **Yes**                |
+    | Usage of host networking and ports should be restricted (preview)                     | Restrict unauthorized network access     | **Yes**                |
+    | Overriding or disabling of containers AppArmor profile should be restricted (preview) | Remediate security configurations        | **Yes**                |
+    | Container images should be deployed only from trusted registries (preview)            | Remediate vulnerabilities                | **Yes**                |
 
-1. To see which recommendations apply to your clusters, open Security Center's [asset inventory](asset-inventory.md) page and use the resource type filter to **Kubernetes services**.
 
-1. Select a cluster to investigate and review the available recommendations available for it. 
+1. For the recommendations have parameters must be customized, set the parameters via the security policy pages:
 
-1. To enforce any of the recommendations, set it **Deny** in Azure Policy's policy assignment **Parameters** tab. This will deny any non-compliant request to your AKS clusters.
+    1. STEPS FROM THE REC "Additional details"
+
+
+
+1. To enforce any of the recommendations, set it **Deny** in Security Center's Security Policy **Parameters** tab:
 
     :::image type="content" source="./media/defender-for-kubernetes-usage/enforce-workload-protection-example.png" alt-text="Recommendation details page for "Azure Policy add-on for Kubernetes should be installed and enabled on your clusters":::
+
+    This will deny any non-compliant request to your AKS clusters
+
+1. To see which recommendations apply to your clusters:
+
+    1. Open Security Center's [asset inventory](asset-inventory.md) page and use the resource type filter to **Kubernetes services**.
+
+    1. Select a cluster to investigate and review the available recommendations available for it. 
 
 1. To test the enforcement, use the two Kubernetes deployments below:
 
