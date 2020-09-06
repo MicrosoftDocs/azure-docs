@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/04/2020
+ms.date: 09/06/2020
 ms.author: mlottner
 ---
 
@@ -43,7 +43,7 @@ To configure your Azure Security Center for IoT solution recommendations, do the
 
 1. Open your **IoT Hub** in Azure portal.
 1. Select and open **Settings** under **Security** in the left menu.
-1. Under **Settings**, select **Recommended Configuration**.
+1. Under **Settings**, select **Recommended Configurations**.
 1. Disable/enable the solution recommendations relevant for your organization and workflows.
 
 

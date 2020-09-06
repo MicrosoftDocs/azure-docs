@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/04/2020
+ms.date: 09/06/2020
 ms.author: mlottner
 ---
 
@@ -66,7 +66,7 @@ By default, turning on the Azure Security Center for IoT solution automatically 
 
 To turn Azure Security Center for IoT service on a specific IoT Hub on or off:
 
-1. Open your IoT Hub and then select **Overview** from the **Security** menu.
+1. Open your IoT Hub and then select **Settings** from the **Security** menu.
 1. Choose the **Data Collection** screen and modify the security settings of any IoT hub in your Azure subscription as you wish.
 
 ## Next steps

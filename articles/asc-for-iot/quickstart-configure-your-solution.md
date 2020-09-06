@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/04/2020
+ms.date: 09/06/2020
 ms.author: mlottner
 ---
 
@@ -41,7 +41,7 @@ After defining all of the resource relationships, Azure Security Center for IoT 
 To add new resource to your IoT solution, do the following:
 
 1. Open your **IoT Hub** in Azure portal.
-1. Select and open **Settings** from the **Security** section in the left menu.
+1. Select and open **Settings** from the **Security** section in the left menu, and then select **Monitored Resources**.
 1. Select **Edit** and select the monitored resources that belong to your IoT solution.
 1. Click **Add**.
 
