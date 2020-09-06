@@ -85,41 +85,6 @@ This page explains how to use the container security features described in the [
 
 ## Harden your containers' Docker hosts
 
-Security Center constantly monitors the configuration of your Docker hosts, and generates security recommendations that reflect industry standards.
-
-To view Azure Security Center's security recommendations for your containers' Docker hosts:
-
-1. From the Security Center navigation bar, open **Compute & apps** and select the **Containers** tab.
-
-1. Optionally, filter the list of your container resources to container hosts hosts.
-
-    ![Container resources filter](media/monitor-container-security/container-resources-filter.png)
-
-1. From the list of your container host machines, select one to investigate further.
-
-    ![Container host recommendations](media/monitor-container-security/container-resources-filtered-to-hosts.png)
-
-    The **Container host information page** opens with details of the host and a list of recommendations.
-
-1. From the recommendations list, select a recommendation to investigate further.
-
-    ![Container host recommendation list](media/monitor-container-security/container-host-rec.png)
-
-1. Optionally, read the description, information, threats, and remediation steps. 
-
-1. Select **Take Action** at the bottom of the page.
-
-    [![Take action button](media/monitor-container-security/host-security-take-action-button.png)](media/monitor-container-security/host-security-take-action.png#lightbox)
-
-    Log Analytics opens with a custom operation ready to run. The default custom query includes a list of all failed rules that were assessed, along with guidelines to help you resolve the issues.
-
-    [![Log Analytics action](media/monitor-container-security/log-analytics-for-action-small.png)](media/monitor-container-security/log-analytics-for-action.png#lightbox)
-
-1. Tweak the query parameters if necessary.
-
-1. When you're sure the command is appropriate and ready for your host, select **Run**.
-
-
 
 ## Next steps
 
