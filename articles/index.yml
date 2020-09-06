@@ -876,7 +876,7 @@ productDirectory:
     # Card
     - title: Azure Stack Hub
       summary: Azure Stack Hub is sold as an integrated hardware system, with software pre-installed on validated hardware
-      imageSrc: ./media/index/azure-stack-hci.svg
+      imageSrc: ./media/index/azure-stack-hub.svg
       azureCategories:
         - hybrid
       url: https://docs.microsoft.com/azure-stack/operator/
