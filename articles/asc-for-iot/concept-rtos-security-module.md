@@ -24,20 +24,33 @@ This article explains the Azure Security Center for IoT security module delivere
 
 ## Azure RTOS IoT Security Module
 
-Azure Security Center for IoT security module provides a comprehensive security solution for Azure RTOS devices. Azure RTOS now ships with the Azure Security Center for IoT security module built-in and provides coverage for common threats on real-time operating system devices.
+Azure Security Center for IoT security module provides a comprehensive security solution for Azure RTOS devices as part of the NetxDuo offering. Azure RTOS now ships with the Azure Security Center for IoT security module built-in and provides coverage for common threats on real-time operating system devices and offers the following features:
 
-:::image type="content" source="media/concept/asc_for_iot_monitoring_capabilities.png" alt-text="Conceptualized image of Azure Security Center for IoT security module information flow":::
+- **Detect malicious network activities**
+- **Device behavior baselines based on custom alerts**
+- **Improve device security hygiene**
 
-Azure Security Center for IoT security module with Azure RTOS support offers the following features:
+## Azure RTOS NetX Duo
 
-- **Detect malicious network activities**: 
-All inbound and outbound network activity of every device is monitored over these supported protocols: TCP, UDP, ICMP on IPv4 and IPv6. The security module inspects each of these network activities against the Microsoft Threat Intelligence feed. The feed gets updated in real-time with millions of unique threat indicators collected worldwide.
-- **Device behavior baselines based on custom alerts**: 
-Cluster your devices into logical security groups, then use the baseline tool to define the  expected behavior of each group accordingly. As IoT devices are typically designed to operate in well-defined and limited scenarios, we’ve made it easy to create a baseline that defines their expected behavior using a set of parameters. Any deviation from your baseline definitions, trigger an alert.
-- **Improve device security hygiene**: 
-Leverage the recommended infrastructure Azure Security Center for IoT provides to gain knowledge and actionable insights about issues in your environment that impact and damage the security posture of your devices. Reduced IoT device security posture can allow potential attacks to succeed if left unchanged, as security is always measured by the weakest link within any organization.
+This advanced, industrial-grade TCP/IP network stack is designed specifically for deeply embedded real-time and IoT applications. Azure RTOS NetX Duo is a dual IPv4 and IPv6 network stack that provides a rich set of protocols, including security and cloud protocols.
+[Learn more](https://aka.ms/netxduo).
 
-Azure Security Center for IoT security module for Azure RTOS is provided as a free download for your IoT devices. The Azure Security Center for IoT cloud service is available with a 30 day trial per Azure subscription. Download the Azure Security Center for IoT security module for Azure RTOS now to get started.
+
+## Azure IoT security module architecture
+
+Azure IoT Security Module is initialized by the Azure IoT middleware platform and uses its IoT Hub clients to send security telemetry to the Hub.
+
+:::image type="content" source="media/architecture/security_module_state_diagram.png" alt-text="Azure IoT security module state diagram and information flow":::
+
+The Azure RTOS IoT security module monitors the following:
+- Device network activity **TCP**, **UDP** and **ICM**
+- System information as **Threadx** and **NetX versions**
+- Heartbeat events
+
+Each collector is linked to a priority group and each priority group has its own interval with possible values of **Low**, **Medium** and **High**. The intervals affect the time interval in which the data is collected.
+
+Azure Security Center for IoT security module for Azure RTOS is provided as a free download for your IoT devices. The Azure Security Center for IoT cloud service is available with a 30 day trial per Azure subscription. Download the security module now and let's get started. 
+
 
 ## Next steps
 
