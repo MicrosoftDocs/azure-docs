@@ -35,9 +35,9 @@ azdata login --endpoint https://<IP address>:<port>
 
 Replace `<IP address>` with the IP address of your Kubernetes cluster, and `<port>` the port on which Kubernetes is listening. You will be prompted for user name and password. To see more details, run:_
 
-    ```console
-    azdata login --help
-    ```
+```console
+azdata login --help
+```
 
 ## Log into your Kubernetes cluster with kubectl
 
@@ -63,7 +63,7 @@ Implement the steps described in  [033-manage-Postgres-with-AzureDataStudio.md](
 3. Select the **[Diagnose and solve problems] dashboard**
 4. Select the **[Troubleshoot] link**
 
-:::image type="content" source="../media/data/postgres-hyperscale/ads-controller-postgres-troubleshooting-nodtebook.jpg" alt-text="Azure Data Studio - Open PostgreSQL troubleshooting Notebook":::
+:::image type="content" source="../media/data/postgres-hyperscale/ads-controller-postgres-troubleshooting-notebook.jpg" alt-text="Azure Data Studio - Open PostgreSQL troubleshooting Notebook":::
 
 The **TSG100 - The Azure Arc enabled PostgreSQL Hyperscale troubleshooter notebook** opens up:
 :::image type="content" source="../media/data/postgres-hyperscale/ads-controller-postgres-troubleshooting-notebook2.jpg" alt-text="Azure Data Studio - Use PostgreSQL troubleshooting notebook":::
