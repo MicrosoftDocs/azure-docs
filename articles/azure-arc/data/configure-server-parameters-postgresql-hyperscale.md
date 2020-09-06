@@ -16,13 +16,13 @@ ms.topic: how-to
 This document describes the steps to set the database engine settings of your PostgreSQL Hyperscale server group to custom (non-default) values. For details about what database engine parameters can be set and what their default value is, refer to the PostgreSQL documentation [here](https://www.postgresql.org/docs/current/runtime-config.html).
 
 
-# Syntax
+## Syntax
 The general format of the command to configure the database engine settings is:
 ```terminal
 azdata arc postgres server edit -n <server group name>, [{--engine-settings, -e}] [{--replace-engine-settings, --re}] {'<parameter name>=<parameter value>, ...'}
 ```
 
-# Show the current custom values of the parameters settings
+## Show the current custom values of the parameters settings
 
 ## With azdata CLI command
 ```terminal
@@ -97,7 +97,7 @@ Engine:
       Default:
 ```
 
-# Set custom values for the engine settings:
+## Set custom values for the engine settings:
 The below commands set the parameters of the Coordinator node and the Worker nodes of your Postgres Hyperscale to the same values. It is not yet possible to set parameters per role in your server group. That is, it is not yet possible to configure a given parameter to a specific on the Coordinator node and to another value for the Worker nodes.
 
 ## Set a single parameter:
