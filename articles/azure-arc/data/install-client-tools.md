@@ -14,7 +14,7 @@ ms.topic: how-to
 # Install client tools for deploying and managing Azure Arc enabled data services
 
 > [!IMPORTANT]
-> If you are have used any private preview bits, please be sure to uninstall `azdata` and extensions first and upgrade to the latest release of Azure Data Studio and the Azure Arc extension by following [uninstall/update client tools](uninstall-update-client-tools.md) first, and then follow the instructions below to reinstall `azdata` and extensions.
+> If you are have used any private preview bits, uninstall `azdata` and extensions first and upgrade to the latest release of Azure Data Studio and the Azure Arc extension, and then follow the instructions below to reinstall `azdata` and extensions.
 
 
 This article describes the client tools that should be installed for creating, managing, and using Azure Arc enabled data services. The following section provides a list of tools and links to installation instructions. 
