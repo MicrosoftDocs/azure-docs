@@ -44,7 +44,7 @@ The output also includes the individual domains for each of these external ident
 >[!NOTE]
 >The script referenced above is a sample script that checks for group membership, role assignments, and application assignments in Azure AD. There may be other assignments in applications that external users received outside of Azure AD, such as SharePoint (direct membership assignment) or Azure RBAC or Azure DevOps.
 
-## Create Access Reviews for resources used by external identities
+## Review resources used by external identities
 
 If you have external identities using resources such as Teams or other applications not yet governed by Entitlement Management, you may want to review access to these resources regularly, too. Azure AD [Access Reviews](create-access-review.md) gives you the ability to review external identities’ access by either letting the resource owner,external identities themselves, or another delegated person you trust attest to whether continued access it required. Access Reviews target a resource and create a review activity scoped to either Everyone who has access to the resource or Guest users only. The reviewer then will see the resulting list of users they need to review – either all users, including employees of your organization or external identities only.
 
@@ -52,7 +52,7 @@ If you have external identities using resources such as Teams or other applicati
 
 Establishing a resource owner-driven review culture helps govern access for external identities. Resource owners, accountable for access, availability, and security of the information they own, are, in most cases, your best audience to drive decisions around access to their resources and are closer to the users who access them than central IT or a sponsor who manages many externals.
 
-## Create Access Reviews to have external identities self-attest for continued, required access
+## Create Access Reviews for external identities
 
 Users that no longer have access to any resources in your tenant can be removed if they no longer work with your organization. Before you block and delete these external identities, you may want to reach out to these external users and make sure you have not overlooked a project or standing access they have that they still need. When you create a group that contains all external identities as members that you found have no access to any resources in your tenant, you can use Access Reviews to have all externals self-attest to whether they still need or have access – or will still need access in the future. As part of the review, the review creator in Access Reviews can use the **Require reason on approval** function to require external users to provide a justification for continued access, through which you can learn where and how they still need access in your tenant. Also, you can enable the setting **Additional content for reviewer email** feature, to let users know that they will be losing access if they don’t respond and, should they still need access, a justification is required. If you want to go ahead and let Access Reviews **disable and delete** external identities, should they fail to respond or provide a valid reason for continued access, you can use the Disable and delete option, as described in the next section.
 
