@@ -33,6 +33,7 @@ Updates in September include:
 - [Vulnerability assessment findings are now available in continuous export](#vulnerability-assessment-findings-are-now-available-in-continuous-export)
 - [Deprecated preview AKS recommendation "Pod Security Policies should be defined on Kubernetes Services"](#deprecated-preview-aks-recommendation-pod-security-policies-should-be-defined-on-kubernetes-services)
 - [Email notifications from Azure Security Center improved](#email-notifications-from-azure-security-center-improved)
+- [Secure score doesn't include preview recommendations](#secure-score-doesnt-include-preview-recommendations)
 
 ### Vulnerability assessment findings are now available in continuous export
 
@@ -75,6 +76,14 @@ The following areas of the emails regarding security alerts hae been improved:
 
 Learn more in [Set up email notifications for security alerts](security-center-provide-security-contact-details.md).
 
+
+### Secure score doesn't include preview recommendations 
+
+Security recommendations marked as preview will have no impact on your secure score.
+
+Security Center continually assesses your resources, subscriptions, and organization for security issues. It then aggregates all the findings into a single score so that you can tell, at a glance, your current security situation: the higher the score, the lower the identified risk level.
+
+[Learn more about secure score](secure-score-security-controls.md).
 
 ## August 2020
 
