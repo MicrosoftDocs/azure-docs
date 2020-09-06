@@ -115,7 +115,7 @@ Returns:
 Me
 (1 row)
 ```
-This small example demonstrates that you can encrypt data at rest (store encrypted data) in Azure Arc enabled Postgres Hyperscale using the Postgres pgcrypto extension and your applications can use functions offered by pgcrypto to manipulate this encrypted data.
+This small example demonstrates that you can encrypt data at rest (store encrypted data) in Azure Arc enabled PostgreSQL Hyperscale using the Postgres pgcrypto extension and your applications can use functions offered by pgcrypto to manipulate this encrypted data.
 
 #### What's next?
 - Read details about the pgcrypto extension [here](https://www.postgresql.org/docs/current/pgcrypto.html).
@@ -124,7 +124,7 @@ This small example demonstrates that you can encrypt data at rest (store encrypt
 
 
 ## User management
-Azure Arc enabled Postgres Hyperscale comes with the standard Postgres administrative user _postgres_ for which you set the password when you deploy your server group.
+Azure Arc enabled PostgreSQL Hyperscale comes with the standard Postgres administrative user _postgres_ for which you set the password when you deploy your server group.
 It is not yet possible to change this password. This functionality comes soon. Updates will be posted here when it is available.
 
 You can also use the standard Postgres way to  create users or roles. However, if you do so, these artifacts will only be available on the coordinator role. As such these users/roles will not yet be able to access data that is distributed outside the Coordinator node and on the Worker nodes of your server group. The reason is that the user definition is not yet replicated to the Worker nodes. This functionality comes soon. Updates will be posted here when it is available.
