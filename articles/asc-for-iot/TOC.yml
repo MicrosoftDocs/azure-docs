@@ -39,12 +39,16 @@
     href: quickstart-investigate-security-alerts.md
 - name: Concepts
   items:
+  - name: Azure IoT Security Module - RTOS
+    items: 
+      - name: Understand the Azure IoT security module - RTOS
+        href: concept-rtos-security-module.md
+      - name:  RTOS Security Module alerts and recommendations 
+        href: concept-rtos-security-alerts-recommendations.md
   - name: Security agent authentication
     href: concept-security-agent-authentication-methods.md
   - name: Security module
     href: concept-security-module.md
-  - name: Azure RTOS security module
-    href: concept-rtos-security-module.md
   - name: Security alerts
     href: concept-security-alerts.md
   - name: Customizable security alerts
