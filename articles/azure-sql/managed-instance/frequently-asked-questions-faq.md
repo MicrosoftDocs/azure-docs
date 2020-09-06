@@ -10,8 +10,8 @@ ms.devlang:
 ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: sstein, carlrab
-ms.date: 03/17/2020
+ms.reviewer: sstein
+ms.date: 09/21/2020
 ---
 # Azure SQL Managed Instance frequently asked questions (FAQ)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -344,7 +344,7 @@ To mitigate any data exfiltration risks, customers are recommended to apply a se
 - Access the instance with a low-privileged DBA account.
 - Configure JIT jumpbox access for the sysadmin account.
 - Turn on [SQL auditing](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine), and integrate it with alerting mechanisms.
-- Turn on [Threat Detection](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection) from the [advanced data security (ADS)](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security) suite.
+- Turn on [Threat Detection](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection) from the [Azure Defender for SQL](https://docs.microsoft.com/azure/azure-sql/database/azure-defender-for-sql) suite.
 
 ## DNS
 

@@ -4,7 +4,7 @@ description: Azure Security Baseline for Azure SQL Database and Azure SQL Manage
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 04/09/2020
+ms.date: 09/21/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 
@@ -282,15 +282,15 @@ https://docs.microsoft.com/azure/sql-database/sql-database-insights-alerts-porta
 
 ### 2.7: Enable alerts for anomalous activity
 
-**Guidance**: Use Azure Security Center Advanced Threat Protection for Azure SQL Database for monitoring and alerting on anomalous activity. Enable Advanced Data Security for your SQL Databases. Advanced Data Security includes functionality for discovering and classifying sensitive data, surfacing and mitigating potential database vulnerabilities, and detecting anomalous activities that could indicate a threat to your database.
+**Guidance**: Use Azure Security Center Advanced Threat Protection for Azure SQL Database for monitoring and alerting on anomalous activity. Enable Azure Defender for SQL for your SQL Databases. Azure Defender for SQL includes functionality for surfacing and mitigating potential database vulnerabilities, and detecting anomalous activities that could indicate a threat to your database.
 
 Understand Advanced Threat Protection and alerting for Azure SQL Database:
 
 https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview
 
-How to enable Advanced Data Security for Azure SQL Database:
+How to enable Azure Defender for SQL for Azure SQL Database:
 
-https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security
+https://docs.microsoft.com/azure/azure-sql/database/azure-defender-for-sql
 
 How to manage alerts in Azure Security Center:
 
@@ -652,15 +652,15 @@ https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
 
 ### 5.1: Run automated vulnerability scanning tools
 
-**Guidance**: Enable Advanced Data Security for Azure SQL Database and follow recommendations from Azure Security Center on performing vulnerability assessments on your servers.
+**Guidance**: Enable Azure Defender for SQL for Azure SQL Database and follow recommendations from Azure Security Center on performing vulnerability assessments on your servers.
 
 How to run vulnerability assessments on Azure SQL Database:
 
 https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment
 
-How to enable Advanced Data Security:
+How to enable Azure Defender for SQL:
 
-https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security
+https://docs.microsoft.com/azure/azure-sql/database/azure-defender-for-sql
 
 How to implement Azure Security Center vulnerability assessment recommendations:
 

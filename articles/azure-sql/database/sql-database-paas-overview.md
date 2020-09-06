@@ -10,8 +10,8 @@ ms.devlang:
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.reviewer: carlrab
-ms.date: 04/08/2019
+ms.reviewer:
+ms.date: 09/21/2020
 ---
 
 # What is Azure SQL Database?
@@ -157,11 +157,8 @@ SQL Database provides a range of [built-in security and compliance features](../
 
 ### Advance threat protection
 
-Advanced data security is a unified package for advanced SQL security capabilities. It includes functionality for discovering and classifying sensitive data, managing your database vulnerabilities, and detecting anomalous activities that might indicate a threat to your database. It provides a single location for enabling and managing these capabilities.
+Azure Defender for SQL is a unified package for advanced SQL security capabilities. It includes functionality for managing your database vulnerabilities, and detecting anomalous activities that might indicate a threat to your database. It provides a single location for enabling and managing these capabilities.
 
-- [Data discovery and classification](data-discovery-and-classification-overview.md):
-
-  This feature provides capabilities built into Azure SQL Database for discovering, classifying, labeling, and protecting the sensitive data in your databases. It provides visibility into your database classification state, and tracks the access to sensitive data within the database and beyond its borders.
 - [Vulnerability assessment](sql-vulnerability-assessment.md):
 
   This service can discover, track, and help you remediate potential database vulnerabilities. It provides visibility into your security state, and includes actionable steps to resolve security issues, and enhance your database fortifications.
@@ -176,6 +173,10 @@ Advanced data security is a unified package for advanced SQL security capabiliti
 ### Data encryption
 
 SQL Database helps secure your data by providing encryption. For data in motion, it uses [transport layer security](https://support.microsoft.com/kb/3135244). For data at rest, it uses [transparent data encryption](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql). For data in use, it uses [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine).
+
+### Data discovery and classification
+
+[Data discovery and classification](data-discovery-and-classification-overview.md) provides capabilities built into Azure SQL Database for discovering, classifying, labeling, and protecting the sensitive data in your databases. It provides visibility into your database classification state, and tracks the access to sensitive data within the database and beyond its borders.
 
 ### Azure Active Directory integration and multi-factor authentication
 

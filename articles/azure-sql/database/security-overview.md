@@ -10,8 +10,8 @@ ms.devlang:
 ms.topic: conceptual
 author: jaszymas
 ms.author: jaszymas
-ms.reviewer: vanto, carlrab, emlisa
-ms.date: 05/14/2019
+ms.reviewer: vanto, emlisa
+ms.date: 09/21/2020
 ---
 # An overview of Azure SQL Database and SQL Managed Instance security capabilities
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -130,7 +130,7 @@ Dynamic data masking limits sensitive data exposure by masking it to non-privile
 
 ### Vulnerability assessment
 
-[Vulnerability assessment](sql-vulnerability-assessment.md) is an easy to configure service that can discover, track, and help remediate potential database vulnerabilities with the goal to proactively improve overall database security. Vulnerability assessment (VA) is part of the advanced data security offering, which is a unified package for advanced SQL security capabilities. Vulnerability assessment can be accessed and managed via the central SQL Advanced Data Security portal.
+[Vulnerability assessment](sql-vulnerability-assessment.md) is an easy to configure service that can discover, track, and help remediate potential database vulnerabilities with the goal to proactively improve overall database security. Vulnerability assessment (VA) is part of the Azure Defender for SQL offering, which is a unified package for advanced SQL security capabilities. Vulnerability assessment can be accessed and managed via the central Azure Defender for SQL portal.
 
 ### Data discovery and classification
 
