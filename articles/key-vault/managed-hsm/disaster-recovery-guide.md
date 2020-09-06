@@ -22,6 +22,7 @@ In case your managed HSM is lost or unavailable due to any of the below reasons,
 - most recent full HSM backup
 or you want to create an exact replica of your HSM
 
+
 Here is a quick outline of the disaster recovery procedure:
 1. Create a new HSM Instance
 2. When the HSM is in “Provisioned” state, activate “Security Domain restore mode”. A new RSA key pair (Security Domain Exchange Key) is generated for Security Domain transfer.
@@ -30,6 +31,8 @@ Here is a quick outline of the disaster recovery procedure:
 5. Upload security domain to activate the HSM
 6. Take a backup of the new HSM (a backup is required before any restore, even when the HSM is empty. This allows easy roll-back.) 
 7. Restore recent HSM backup from the source HSM
+=======
+The contents of your key vault are replicated within the region and to a secondary region at least 150 miles away but within the same geography. This maintains high durability of your keys and secrets. See the [Azure paired regions](../../best-practices-availability-paired-regions.md) document for details on specific region pairs.
 
 
 

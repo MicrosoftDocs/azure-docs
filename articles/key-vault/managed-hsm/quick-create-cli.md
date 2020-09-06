@@ -88,6 +88,7 @@ Now, you have created a Key Vault, stored a secret, and retrieved it.
 ## Clean up resources
 
 Other quickstarts and tutorials in this collection build upon this quickstart. If you plan to continue on to work with subsequent quickstarts and tutorials, you may wish to leave these resources in place.
+
 When no longer needed, you can use the [az group delete](/cli/azure/group) command to remove the resource group, and all related resources. You can delete the resources as follows:
 
 ```azurecli
@@ -99,6 +100,6 @@ az group delete --name ContosoResourceGroup
 In this quickstart you created a Key Vault and stored a secret in it. To learn more about Key Vault and how to integrate it with your applications, continue on to the articles below.
 
 - Read an [Overview of Managed HSM](overview.md)
-- Learn more [About managed HSM security domain](security-domain.md)
+- Learn more [About managed HSM security domain](service-limits.md)
 - Learn about [Managing managed HSM with Azure CLI](manage-with-cli.md)
 - Review [Managed HSM best practices](best-practices.md)
