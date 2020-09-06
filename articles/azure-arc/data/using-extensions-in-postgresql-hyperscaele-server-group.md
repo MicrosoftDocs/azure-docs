@@ -18,10 +18,10 @@ PostgreSQL is at its best when you use it with extensions. In fact, a key elemen
 
 ## List of extensions
 In addition of the extensions in [contrib](https://www.postgresql.org/docs/12/contrib.html), the list of extensions present in the containers of your Azure Arc enabled Postgres Hyperscale server group is:
-- citus v: 9.3-2
-- plpgsql v: 1.0
-- postgis v: 3.0.2
-- pg_cron v: 1.2
+- citus, v: 9.3-2
+- pg_cron, v: 1.2
+- plpgsql, v: 1.0
+- postgis, v: 3.0.2
 This list evolves overtime and updates will be posted in this document. It is not yet possible for you to add extensions beyond those listed above.
 
 This guide will take in a scenario to use two of these extensions:
