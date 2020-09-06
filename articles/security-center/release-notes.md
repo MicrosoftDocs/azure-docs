@@ -59,7 +59,9 @@ The pod security policy (preview) feature, is set for deprecation and will no lo
 
 After pod security policy (preview) is deprecated, you must disable the feature on any existing clusters using the deprecated feature to perform future cluster upgrades and stay within Azure support.
 
-It is highly recommended to begin testing scenarios with Azure Policy for AKS, which offers built-in policies to secure pods and built-in initiatives which map to pod security policies. Click here to learn about migrating to Azure Policy from pod security policy (preview).
+It is highly recommended to begin testing scenarios with Azure Policy for AKS, which offers built-in policies to secure pods and built-in initiatives which map to pod security policies. 
+
+Learn about [migrating to Azure Policy from pod security policy (preview)](https://docs.microsoft.com/azure/aks/use-pod-security-on-azure-policy#migrate-from-kubernetes-pod-security-policy-to-azure-policy).
 
 
 ### Email notifications from Azure Security Center improved
