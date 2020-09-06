@@ -17,9 +17,9 @@ ms.date: 09/06/2020
 ms.author: mlottner
 ---
 
-# Quickstart: Onboard Azure IoT Security Module - Azure RTOS  
+# Quickstart: Azure IoT Security Module - Azure RTOS (preview)
 
-This article provides an explanation of the prerequisites before getting started and explains how to enable the Azure IoT Security Module for Azure RTOS service on an IoT Hub. If you don't currently have an IoT Hub, see [Create an IoT Hub using the Azure portal](https://docs.microsoft.com/azure/iot-hub/iot-hub-create-through-portal) to get started.
+This article provides an explanation of the prerequisites before getting started and explains how to enable the Azure IoT Security Module - RTOS service on an IoT Hub. If you don't currently have an IoT Hub, see [Create an IoT Hub using the Azure portal](https://docs.microsoft.com/azure/iot-hub/iot-hub-create-through-portal) to get started.
 
 > [!NOTE]
 > Azure IoT Security Module -RTOS is currently only supported in standard tier IoT Hubs.
@@ -42,14 +42,14 @@ An IoT Hub connection is required to get started.
 1. Open your **IoT Hub** in Azure portal.
 1. Copy the IoT connection string.
 
-The Azure IoT Security Module uses Azure IoT Middleware connections based on the **MQTT** protocol.
+The Azure IoT Security Module - RTOS uses Azure IoT Middleware connections based on the **MQTT** protocol.
 Connections credentials are taken from the user application configuration **HOST_NAM**, **DEVICE_ID**,and **DEVICE_SYMMETRIC_KEY**.
 
 
 
 ## Next steps
 
-Advance to the next article to configure the solution...
+Advance to the next article to finish configuring and customizing your solution...
 
 > [!div class="nextstepaction"]
 > [Complete configuration and customization of your solution](how-to-azure-rtos-security-module.md)

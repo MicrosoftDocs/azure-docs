@@ -62,74 +62,16 @@ Compile flags allows you to override the predefined configurations.
 | collector_network_activity_enabled | Boolean | ON | Enable the network activity collector |
 | collector_system_information_enabled | Boolean | ON | Enable the system information collector |
 
-## Supported security alerts
+## Supported security alerts and recommendations
 
-The Azure IoT Security Module - RTOS supports specific security alerts and recommendations. Make sure to review the alerts and customize the relevant alert values for your service. 
+The Azure IoT Security Module - RTOS supports specific security alerts and recommendations. Make sure to [review and customize the relevant alert and recommendation values](concept-rtos-security-alerts-recommendations.md) for your service.
 
-### Device related security alerts
+## Log Analytics (optional)
 
-|Device security alert  |Reason  |
-|---------|---------|
-|IP address| Communication with a suspicious IP address detected|
-|X.509 device certificate thumbprint|Thumbprint mismatch|
-|X.509 certificate| Expired|
-|SAS Token| Expired|
-|SAS Token| Invalid signature|
-
-
-
-### IoT Hub related security alerts
-
-|IoT Hub security alert  |Reason  |
-|---------|---------|
-|New certificate     |  Detected addition of new certificate to an IoT Hub       |
-|Deleted certificate    | Detected deletion of a certificate from an IoT Hub        |
-|Add a certificate    |  Detected unsuccessful attempt to add a certificate to an IoT Hub       |
-|Delete a certificate    |  Detected unsuccessful attempt to delete a certificate from an IoT Hub       |
-|Addition or editing of a diagnostic setting    | Detected an attempt to add or edit a diagnostic setting of an IoT Hub      |
-|Delete a diagnostic setting    |  Detected attempt to delete a diagnostic setting from an IoT Hub      |
-
-## Supported customizable alerts
-
-### Device related customizable alerts
-
-- Number of active connections is outside the allowed range.
-- Outbound connection created to an forbidden IP.
-- Number of cloud to device messages in **MQTT** protocol is outside the allowed range.
-
-### Hub related customizable alerts 
-
-
-|Customizable value  |Reason  |
-|---------|---------|
-|Command queue purges     |  Number outside the allowed range       |
-|Cloud to device messages in **MQTT** protocol    |  Number outside the allowed range       |
-|Device to cloud messages in **MQTT** protocol    | Number outside the allowed range        |
-|Direct method invokes     |  Number outside the allowed range       |
-|Rejected cloud to device messages in **MQTT** protocol     |   Number outside the allowed range      |
-|Updates to twin modules     |  Number outside the allowed range       |
-|Unauthorized operations    |  Number outside the allowed range       |
-
-
-For a complete list of all Azure Security Center for IoT service related alerts and recommendations, see IoT [security alerts](concept-security-alerts.md), IoT security [recommendations](concept-recommendations.md).
-
-## Supported recommendations
-
-### Device related recommendations
-
-- Identical authentication credentials used by multiple devices.
-
-### Hub related recommendations
-
-- Default IP filter policy should be deny.
-- IP filter rule includes large IP range.
-- Enable diagnostics logs in IoT Hub.
-
-### Log Analytics (optional)
-
-Not required, but Log Analytics can be helpful when you wish to investigate events and activities. Read more about using [Log Analytics with Azure Security Center for IoT]() to learn more. 
+While optional and not required, enabling and configuring Log Analytics can be helpful when you wish to further investigate device events and activities. Read about how to setting up and use [Log Analytics with the Azure Security Center for IoT service](how-to-security-data-access.md#log-analytics) to learn more. 
 
 ## Next steps
 
-- Review Azure IoT Security Module - RTOS [security alerts and recommendations](concept-rtos-alerts-recommendations.md)
+- Review and customize Azure IoT Security Module - RTOS [security alerts and recommendations](concept-rtos-security-alerts-recommendations.md)
+- Refer to the [Azure IoT Security Module - RTOS API](azure-rtos-security-module-api.md) as needed.
 

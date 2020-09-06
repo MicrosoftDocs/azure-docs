@@ -18,14 +18,16 @@ ms.date: 09/07/2020
 ms.author: mlottner
 ---
 
-# Azure IoT Security Module - RTOS security alerts and recommendations
+# Azure IoT Security Module - RTOS security alerts and recommendations (preview)
 
 Azure IoT Security Module - RTOS continuously analyzes your IoT solution using advanced analytics and threat intelligence to alert you to potential malicious activity and suspicious system modifications.
+
 In addition, you can create custom alerts based on your knowledge of expected device behavior and baselines.
 An alert acts as an indicator of potential compromise, and should be investigated and remediated. A recommendation identifies weak security posture and should also be remediated and updated. 
 
-In this article, you'll find a list of built-in alerts and recommendations which can be triggered as well as those that you can customize with your own values based on expected or baseline behavior.
-For more details, see [customizable alerts](concept-customizable-security-alerts.md).
+In this article, you'll find a list of built-in alerts and recommendations which can be triggered as well as those that you can customize with your own values based on expected or baseline behavior. 
+
+For more details on how alert customization works in the Azure Security Center for IoT service, see [customizable alerts](concept-customizable-security-alerts.md). The specific alerts and recommendations available for customization when using the Azure IoT Security Module - RTOS are detailed in the following tables. 
 
 ## Azure IoT Security Module - RTOS supported security alerts
 
@@ -60,9 +62,7 @@ For more details, see [customizable alerts](concept-customizable-security-alerts
 |Cloud to device messages in **MQTT** protocol|Number of cloud to device messages in **MQTT** protocol is outside the allowed range|
 |Outbound connection| Outbound connection created to  forbidden IP|
 
-
 ### Hub related customizable alerts 
-
 
 |Hub related customizable value  |Reason  |
 |---------|---------|
@@ -96,5 +96,6 @@ For a complete list of all Azure Security Center for IoT service related alerts 
 
 ## Next steps
 
-- [Configure Azure IoT Security Module - RTOS](how-to-azure-rtos-security-module.md)
-
+- [Quickstart: Azure IoT Security Module - RTOS](quickstart-azure-rtos-security-module.md)
+- [Configure and customize Azure IoT Security Module - RTOS](how-to-azure-rtos-security-module.md)
+- Refer to the [Azure IoT Security Module - RTOS API](azure-rtos-security-module-api.md)

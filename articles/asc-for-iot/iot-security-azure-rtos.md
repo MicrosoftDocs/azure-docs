@@ -1,6 +1,6 @@
 ---
-title: Azure RTOS support
-description: Learn about support of Azure RTOS in the Azure Security Center for IoT service.
+title: Azure IoT Security Module - RTOS overview
+description: Learn more about Azure IoT Security Module - RTOS support and implementation as part of the Azure Security Center for IoT service.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/06/2020
+ms.date: 09/07/2020
 ms.author: mlottner
 ---
 
-# Azure Security Center for IoT Security Solution for Azure RTOS (preview)
+# Azure IoT Security Module - RTOS (preview)
 
-The Azure Security Center for IoT security module provides a comprehensive security solution for Azure RTOS devices. Azure RTOS ships with a built-in security module that covers common threats on real-time operating system devices. 
+The Azure Security Center for IoT RTOS security module provides a comprehensive security solution for Azure RTOS devices. Azure RTOS now ships with the Azure IoT Security Module built-in and provides coverage for common threats and potential malicious activities on real-time operating system devices. 
 
 ![Azure Security Center for IoT Azure RTOS](./media/architecture/azure-rtos-security-monitoring.png)
 
 
-Azure Security Center for IoT security module with Azure RTOS support offers the following features: 
+Azure IoT Security Module - RTOS offers the following features: 
 - Malicious network activity detection
 - Custom alert based, device behavior baselining
 - Improve device security hygiene
@@ -40,18 +40,18 @@ Baselining allows for clustering of devices into security groups and defining th
 
 ### Improve your device security hygiene
 
-By leveraging the recommended infrastructure Azure Security Center for IoT provides, gain knowledge and insights about issues in your environment that impact and damage the security posture of your devices. Poor IoT device security posture can allow potential attacks to succeed if left unchanged, as security is always measured by the weakest link within any organization. 
+By leveraging the recommended infrastructure Azure Security Center for IoT provides, gain knowledge and insights about issues in your environment that impact and damage the security posture of your devices. Weak IoT device security posture can allow potential attacks to succeed if left unchanged, as security is always measured by the weakest link within any organization. 
 
 ## Get started protecting Azure RTOS devices
 
-- Azure Security Center for IoT security module for Azure RTOS is provided as a free download for your devices. The Azure Security Center for IoT cloud service is available with a 30 day trial per Azure subscription. Download the [Azure Security Center for IoT security module for Azure RTOS](https://github.com/azure-rtos/iot-security-module-preview) to get started. 
+Azure IoT Security Module - RTOS is provided as a free download for your devices. The Azure Security Center for IoT cloud service is available with a 30 day trial per Azure subscription. Download the [Azure IoT Security Module - RTOS](https://github.com/azure-rtos/iot-security-module-preview) to get started. 
 
 
 ## Next steps
 
-In this article, you learned about Azure Security Center for IoT Azure RTOS support. To learn how to get started and enable your security solution in IoT Hub, see the following articles:
+In this article, you learned about Azure IoT Security Module - RTOS support. To learn more about the security module and get started, see the following articles:
 
 - [Azure RTOS IoT security module concepts](concept-rtos-security-module.md)
-- [Azure RTOS IoT security module quickstart](quickstart-azure-rtos-security-module.md)
+- [Quickstart: Azure RTOS IoT security module](quickstart-azure-rtos-security-module.md)
 
 

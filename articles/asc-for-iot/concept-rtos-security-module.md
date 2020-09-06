@@ -1,6 +1,6 @@
 ---
-title: Azure RTOS IoT security module 
-description: Learn about the Azure RTOS IoT security module concepts and workflow.
+title: Conceptual explanation of the basics of the Azure IoT Security Module - Azure RTOS 
+description: Learn the basics about the Azure RTOS IoT security module concepts and workflow.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -14,28 +14,29 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/06/2020
+ms.date: 09/07/2020
 ms.author: mlottner
 ---
 
-# Azure Security Center for IoT, Azure RTOS security module (preview)
+# Azure IoT Security Module - RTOS (preview)
 
-Get a better understanding of the Azure Security Center for IoT security module delivered with Azure RTOS, including  features and benefits as well as links to relevant configuration and reference resources. 
+Use this article to get a better understanding of the Azure IoT Security Module - RTOS, including features and benefits as well as links to relevant configuration and reference resources. 
 
 ## Azure RTOS IoT security module
 
-Azure Security Center for IoT security module provides a comprehensive security solution for Azure RTOS devices as part of the NetxDuo offering. Within the NetXDuo offering, Azure RTOS ships with the Azure Security Center for IoT security module built-in, and provides coverage for common threats on real-time operating system devices once activated. 
+Azure IoT Security Module - RTOS provides a comprehensive security solution for Azure RTOS devices as part of the NetX Duo offering. Within the NetX Duo offering, Azure RTOS ships with the Azure IoT Security Module built-in, and provides coverage for common threats on your real-time operating system devices once activated. 
 
-The IoT security module offers the following features:
-
-- **Detect malicious network activities**
-- **Device behavior baselines based on custom alerts**
-- **Improve device security hygiene**
+The Azure IoT Security Module - RTOS runs in the background, and provides a seamless user experience, while sending security messages using each customer's unique connections to their IoT Hub. The Azure IoT Security Module - RTOS is enabled by default.  
 
 ## Azure RTOS NetX Duo
 
 Azure RTOS NetX Duo is an advanced, industrial-grade TCP/IP network stack designed specifically for deeply embedded real-time and IoT applications. Azure RTOS NetX Duo is a dual IPv4 and IPv6 network stack providing a rich set of protocols, including security and cloud. Learn more about [Azure RTOS NetX Duo](https://aka.ms/netxduo) solutions.
 
+The module offers the following features:
+
+- **Detect malicious network activities**
+- **Device behavior baselines based on custom alerts**
+- **Improve device security hygiene**
 
 ## Azure RTOS IoT security module architecture
 
@@ -43,18 +44,26 @@ The Azure RTOS IoT security module is initialized by the Azure IoT middleware pl
 
 :::image type="content" source="media/architecture/security_module_state_diagram.png" alt-text="Azure IoT security module state diagram and information flow":::
 
-The Azure RTOS IoT security module monitors the following device activity and information:
+The Azure IoT Security Module - RTOS monitors the following device activity and information using three collectors:
 - Device network activity **TCP**, **UDP, and **ICM**
-- System information as **Threadx** and **NetX versions**
+- System information as **Threadx** and **NetX Duo** versions
 - Heartbeat events
 
-Each IoT collector is linked to a priority group and each priority group has its own interval with possible values of **Low**, **Medium, and **High**. The intervals affect the time interval in which the data is collected and sent.
+Each IoT collector is linked to a priority group and each priority group has its own interval with possible values of **Low**, **Medium**, and **High**. The intervals affect the time interval in which the data is collected and sent.
 
-Azure Security Center for IoT security module for Azure RTOS is provided as a free download for your IoT devices. The Azure Security Center for IoT cloud service is available with a 30-day trial per Azure subscription. Download the security module now and let's get started. 
+Each time interval is configurable and the IoT connectors can be enabled and disabled in order to further [customize your solution](how-to-azure-rtos-security-module.md). 
 
+## Supported security alerts and recommendations
+
+The Azure IoT Security Module - RTOS supports specific security alerts and recommendations. Make sure to [review and customize the relevant alert and recommendation values](concept-rtos-security-alerts-recommendations.md) for your service after completing the initial configuration.
+
+## Ready to begin?
+
+Azure IoT Security Module - RTOS is provided as a free download for your IoT devices. The Azure Security Center for IoT cloud service is available with a 30-day trial per Azure subscription. [Download the security module now](https://github.com/azure-rtos/azure-iot-preview/releases) and let's get started. 
 
 ## Next steps
 
-- Get started with Azure RTOS IoT security module [prerequisites and setup](quickstart-azure-rtos-security-module.md).
+- Get started with Azure IoT Security Module [prerequisites and setup](quickstart-azure-rtos-security-module.md).
+- Learn more about Azure IoT Security Module -RTOS [security alerts and recommendation support](concept-rtos-security-alerts-recommendations.md). 
 - Use the Azure RTOS IoT Security Module [reference API](azure-rtos-security-module-api.md).
 

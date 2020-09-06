@@ -20,7 +20,7 @@ ms.author: mlottner
 
 # Azure RTOS IoT security module API (preview)
 
-This API is intended for use with the Azure RTOS IoT security module. For additional resources, see the [Azure RTOS IoT Security GitHub resource](github.com/azure-rtos/azure-iot-preview). 
+This API is intended for use with the Azure RTOS IoT security module. For additional resources, see the [Azure RTOS IoT Security GitHub resource](hhtps://github.com/azure-rtos/azure-iot-preview/releases). 
 
 ## Enable Azure IoT Security Module
 
