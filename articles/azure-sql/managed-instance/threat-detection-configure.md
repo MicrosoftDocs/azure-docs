@@ -33,9 +33,6 @@ You can receive notifications about the detected threats via [email notification
    - Select the **Advanced Threat Protection types** that you would like configured. Learn more about [Advanced Threat Protection alerts](../database/threat-detection-overview.md).
 4. Click **Save** to save the new or updated Azure Defender for SQL policy.
 
-   ![Advanced Threat Protection](./media/threat-detection-configure/threat-detection.png)
-
-
 ## Next steps
 
 - Learn more about [Advanced Threat Protection](../database/threat-detection-overview.md).

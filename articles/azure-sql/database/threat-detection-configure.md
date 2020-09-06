@@ -28,8 +28,6 @@ You can receive notifications about the detected threats via [email notification
 
    - Enable Azure Defender on the server.
    - In **Advanced Threat Protection Settings**, in the **Send alerts to** text box, provide the list of emails to receive security alerts upon detection of anomalous database activities.
-  
-   ![Set up Advanced Threat Protection](./media/threat-detection/set_up_threat_detection.png)
 
 ## Set up Advanced Threat Protection using PowerShell
 

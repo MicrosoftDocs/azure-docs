@@ -73,8 +73,6 @@ After the organization-wide policy has been defined, you can continue classifyin
 
 1. Go to **Data Discovery & Classification** under the Security heading in your Azure SQL Database pane. The Overview tab includes a summary of the current classification state of the database. The summary includes a detailed list of all classified columns, which you can also filter to show only specific schema parts, information types, and labels. If you haven’t classified any columns yet, [skip to step 4](#step-4).
 
-   ![Summary of current classification state](./media/data-discovery-and-classification-overview/2_data_classification_overview_dashboard.png)
-
 1. To download a report in Excel format, select **Export** in the top menu of the pane.
 
 1. <a id="step-4"></a>To begin classifying your data, select the **Classification** tab on the **Data Discovery & Classification** page.
@@ -87,8 +85,6 @@ After the organization-wide policy has been defined, you can continue classifyin
 
    - To accept a recommendation for a specific column, select the check box in the left column of the relevant row. To mark all recommendations as accepted, select the leftmost check box in the recommendations table header.
 
-       ![Review and select from list of classification recommendations](./media/data-discovery-and-classification-overview/6_data_classification_recommendations_list.png)
-
    - To apply the selected recommendations, select **Accept selected recommendations**.
 
 1. You can also classify columns manually, as an alternative or in addition to the recommendation-based classification:
@@ -98,8 +94,6 @@ After the organization-wide policy has been defined, you can continue classifyin
    1. In the context window that opens, select the schema, table, and column that you want to classify, and the information type and sensitivity label.
 
    1. Select **Add classification** at the bottom of the context window.
-
-      ![Select a column to classify](./media/data-discovery-and-classification-overview/9_data_classification_manual_classification.png)
 
 1. To complete your classification and persistently label (tag) the database columns with the new classification metadata, select **Save** in the top menu of the window.
 

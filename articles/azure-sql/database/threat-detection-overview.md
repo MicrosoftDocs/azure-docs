@@ -54,10 +54,6 @@ Advanced Threat Protection integrates its alerts with [Azure security center](ht
 
 Click **Advanced Threat Protection alert** to launch the Azure Security Center alerts page and get an overview of active SQL threats detected on the database.
 
-   ![Advanced Threat Protection alert](./media/threat-detection-overview/threat_detection_alert.png)
-
-   ![Advanced Threat Protection alert2](./media/threat-detection-overview/threat_detection_alert_atp.png)
-
 ## Next steps
 
 - Learn more about [Advanced Threat Protection in Azure SQL Database & Azure Synapse](threat-detection-configure.md).
