@@ -125,9 +125,7 @@ Full details and instructions are included in the readme on GitHub, https://aka.
 
 ## Remediate dangling DNS entries 
 
-Review your DNS records for the subdomains we have specified below to determine if they are dangling or have been taken over.  
-
-If subdomains are found to be dangling or have been taken over, remove the vulnerable subdomains and mitigate the risks with the following steps:
+Review your DNS zones and identify CNAME records that are dangling or have been taken over. If subdomains are found to be dangling or have been taken over, remove the vulnerable subdomains and mitigate the risks with the following steps:
 
 1. From your DNS zone, remove all CNAME records that point to FQDNs of resources no longer provisioned.
 
