@@ -330,7 +330,7 @@ https://docs.microsoft.com/azure/security-center/security-center-managing-and-re
 
 ### 3.1: Maintain an inventory of administrative accounts
 
-**Guidance**: Azure Active Directory (AAD) has built-in roles that must be explicitly assigned and are queryable. Use the AAD PowerShell module to perform ad-hoc queries to discover accounts that are members of administrative groups.
+**Guidance**: Azure Active Directory (Azure AD) has built-in roles that must be explicitly assigned and are queryable. Use the Azure AD PowerShell module to perform ad-hoc queries to discover accounts that are members of administrative groups.
 
 How to get a directory role in Azure AD with PowerShell:
 
@@ -378,7 +378,7 @@ https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
 ### 3.5: Use multi-factor authentication for all Azure Active Directory based access
 
-**Guidance**: Enable Azure Active Directory (AAD) Multi-Factor Authentication (MFA) and follow Azure Security Center Identity and Access Management recommendations.
+**Guidance**: Enable Azure Active Directory (Azure AD) Multi-Factor Authentication (MFA) and follow Azure Security Center Identity and Access Management recommendations.
 
 How to enable MFA in Azure:
 
@@ -442,13 +442,13 @@ How to configure Named Locations in Azure: https://docs.microsoft.com/azure/acti
 
 ### 3.9: Use Azure Active Directory
 
-**Guidance**: Create an Azure Active Directory (AAD) administrator for your server.
+**Guidance**: Create an Azure Active Directory (Azure AD) administrator for your server.
 
 How to configure and manage Azure Active Directory authentication with Azure SQL:
 
 https://docs.microsoft.com/azure/azure-sql/database/authentication-aad-configure
 
-How to create and configure an AAD instance:
+How to create and configure an Azure AD instance:
 
 https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance
 
@@ -458,7 +458,7 @@ https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-creat
 
 ### 3.10: Regularly review and reconcile user access
 
-**Guidance**: Azure Active Directory (AAD) provides logs to help discover stale accounts. In addition, use Azure Identity access reviews to efficiently manage group memberships, access to enterprise applications, and role assignments. Users' access can be reviewed on a regular basis to make sure only the right users have continued access.
+**Guidance**: Azure Active Directory (Azure AD) provides logs to help discover stale accounts. In addition, use Azure Identity access reviews to efficiently manage group memberships, access to enterprise applications, and role assignments. Users' access can be reviewed on a regular basis to make sure only the right users have continued access.
 
 How to use Azure Identity Access Reviews:
 
@@ -470,7 +470,7 @@ https://docs.microsoft.com/azure/active-directory/governance/access-reviews-over
 
 ### 3.11: Monitor attempts to access deactivated accounts
 
-**Guidance**: Configure Azure Active Directory (AAD) authentication with Azure SQL and create Diagnostic Settings for Azure Active Directory user accounts, sending the audit logs and sign-in logs to a Log Analytics workspace. Configure desired Alerts within Log Analytics workspace.
+**Guidance**: Configure Azure Active Directory (Azure AD) authentication with Azure SQL and create Diagnostic Settings for Azure Active Directory user accounts, sending the audit logs and sign-in logs to a Log Analytics workspace. Configure desired Alerts within Log Analytics workspace.
 
 How to configure and manage Azure Active Directory authentication with Azure SQL:
 
@@ -486,7 +486,7 @@ https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integ
 
 ### 3.12: Alert on account login behavior deviation
 
-**Guidance**: Use Azure Active Directory (AAD) Identity Protection and risk detections to configure automated responses to detected suspicious actions related to user identities. Additionally, you can ingest data into Azure Sentinel for further investigation.
+**Guidance**: Use Azure Active Directory (Azure AD) Identity Protection and risk detections to configure automated responses to detected suspicious actions related to user identities. Additionally, you can ingest data into Azure Sentinel for further investigation.
 
 How to view Azure AD risk sign-ins:
 
@@ -596,7 +596,7 @@ https://docs.microsoft.com/azure/sql-database/sql-database-data-discovery-and-cl
 
 ### 4.6: Use Azure RBAC to control access to resources
 
-**Guidance**: Use Azure Active Directory (AAD) for authenticating and controlling access to Azure SQL Database instances.
+**Guidance**: Use Azure Active Directory (Azure AD) for authenticating and controlling access to Azure SQL Database instances.
 
 How to integrate Azure SQL Database with Azure Active Directory for authentication:
 
@@ -991,7 +991,7 @@ https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azur
 
 ### 7.12: Manage identities securely and automatically
 
-**Guidance**: Use Managed Identities to provide Azure services with an automatically managed identity in Azure Active Directory (AAD). Managed Identities allows you to authenticate to any service that supports AAD authentication, including Azure Key Vault, without any credentials in your code.
+**Guidance**: Use Managed Identities to provide Azure services with an automatically managed identity in Azure Active Directory (Azure AD). Managed Identities allows you to authenticate to any service that supports Azure AD authentication, including Azure Key Vault, without any credentials in your code.
 
 Tutorial: Use a Windows VM system-assigned managed identity to access Azure SQL:
 
