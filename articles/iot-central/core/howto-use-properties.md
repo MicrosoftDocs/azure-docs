@@ -30,20 +30,20 @@ The following screenshot shows a property definition in Azure IoT Central Applic
 
 The following table shows the configuration settings for a property capability:
 
-| Field | Description |
-| ----- | ----------- |
-| Display Name | The display name for the property value used on dashboards and forms. |
-| Name | The name of the property. IoT Central generates a value for this field from the display name, but you can choose your own value if necessary. This field needs to be alphanumeric. |
-| Capability Type | Property. |
-| Semantic Type | The semantic type of the property, such as temperature, state, or event. The choice of semantic type determines which of the following fields are available. |
-| Schema | The property data type, such as double, string, or vector. The available choices are determined by the semantic type. Schema isn't available for the event and state semantic types. |
-| Writeable | If the property isn't writeable, the device can report property values to IoT Central. If the property is writeable, the device can report property values to IoT Central and IoT Central can send property updates to the device.
-| Severity | Only available for the event semantic type. The severities are **Error**, **Information**, or **Warning**. |
-| State Values | Only available for the state semantic type. Define the possible state values, each of which has display name, name, enumeration type, and value. |
-| Unit | A unit for the property value, such as **mph**, **%**, or **&deg;C**. |
-| Display Unit | A display unit for use on dashboards and forms. |
-| Comment | Any comments about the property capability. |
-| Description | A description of the property capability. |
+| Field           | Description                                                                                                                                                                                                                        |
+|-----------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Display Name    | The display name for the property value used on dashboards and forms.                                                                                                                                                              |
+| Name            | The name of the property. IoT Central generates a value for this field from the display name, but you can choose your own value if necessary. This field needs to be alphanumeric.                                                 |
+| Capability Type | Property.                                                                                                                                                                                                                          |
+| Semantic Type   | The semantic type of the property, such as temperature, state, or event. The choice of semantic type determines which of the following fields are available.                                                                       |
+| Schema          | The property data type, such as double, string, or vector. The available choices are determined by the semantic type. Schema isn't available for the event and state semantic types.                                               |
+| Writeable       | If the property isn't writeable, the device can report property values to IoT Central. If the property is writeable, the device can report property values to IoT Central and IoT Central can send property updates to the device. |
+| Severity        | Only available for the event semantic type. The severities are **Error**, **Information**, or **Warning**.                                                                                                                         |
+| State Values    | Only available for the state semantic type. Define the possible state values, each of which has display name, name, enumeration type, and value.                                                                                   |
+| Unit            | A unit for the property value, such as **mph**, **%**, or **&deg;C**.                                                                                                                                                              |
+| Display Unit    | A display unit for use on dashboards and forms.                                                                                                                                                                                    |
+| Comment         | Any comments about the property capability.                                                                                                                                                                                        |
+| Description     | A description of the property capability.                                                                                                                                                                                          |
 
 The properties can also be defined in an interface in a device template as below:
 
@@ -175,11 +175,14 @@ You can use the Azure IoT device SDK to send a property update to your IoT Centr
 Device twin properties can be sent to your Azure IoT Central application by using the below function:
 
 ```javascript
-    // Send device twin reported properties.
-    function sendDeviceProperties(twin, properties) {
-      twin.properties.reported.update(properties, (err) => console.log(`Sent device properties: ${JSON.stringify(properties)}; ` +
-        (err ? `error: ${err.toString()}` : `status: success`)));
-    }
+hubClient.getTwin((err, twin) => {
+var properties = {
+      model: 'environmentalSensor1.0'
+};
+   twin.properties.reported.update(properties, (err) => {
+      console.log(err ? `error: ${err.toString()}` : `status: success`)
+   });
+});
 ```
 
 This article uses Node.js for simplicity, for complete information about device application examples see the [Create and connect a client application to your Azure IoT Central application (Node.js)](tutorial-connect-device-nodejs.md) and [Create and connect a client application to your Azure IoT Central application (Python)](tutorial-connect-device-python.md) tutorials.
@@ -215,14 +218,21 @@ A device client should send a JSON payload that looks like the following example
 To define and handle the writeable properties your device responds to, you can use the following code.
 
 ```javascript
-// Handle changes to the Brightness desired property
-twin.on('properties.desired.brightness', function(brightness) {
-    console.log(chalk.green('\nSetting brightness to ' + brightness));
-
-    // Update the reported property
-    reportedPropertiesPatch.brightness = twin.properties.desired.components.brightness;
-    sendReportedProperties();
-
+hubClient.getTwin((err, twin) => {
+    twin.on('properties.desired.brightness', function (desiredBrightness) {
+      console.log(`Received setting: ${desiredBrightness.value}`);
+      var patch = {
+        brightness: {
+          value: desiredBrightness.value,
+          ad: 'success',
+          ac: 200,
+          av: desiredBrightness.$version
+        }
+      }
+      twin.properties.reported.update(patch, (err) => {
+        console.log(err ? `error: ${err.toString()}` : `status: success`)
+      });
+    });
 });
 ```
 
