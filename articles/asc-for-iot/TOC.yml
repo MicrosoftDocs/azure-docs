@@ -44,7 +44,7 @@
   - name: Security module
     href: concept-security-module.md
   - name: Azure RTOS security module
-    href: concept-rtos-security.module.md
+    href: concept-rtos-security-module.md
   - name: Security alerts
     href: concept-security-alerts.md
   - name: Customizable security alerts
