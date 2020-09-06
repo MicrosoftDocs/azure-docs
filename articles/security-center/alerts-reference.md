@@ -27,6 +27,7 @@ At the bottom of this page, there's a table describing the Azure Security Center
 
 
 
+
 ## <a name="alerts-windows"></a>Alerts for Windows machines
 
 [Further details and notes](defender-for-servers-intro.md)
