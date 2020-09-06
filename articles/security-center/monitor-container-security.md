@@ -13,77 +13,9 @@ ms.author: memildin
 
 # Monitor the security of your containers
 
-This page explains how to use the container security features described in the [Container Security article](container-security.md) in our concepts section.
 
 
-## Scan your ARM-based container registries for vulnerabilities 
 
-1. To enable vulnerability scans of your Azure Container Registry images:
-
-    1. Ensure you're on Azure Security Center's standard pricing tier.
-
-    1. From the **Pricing & settings** page, enable the optional Container Registries bundle for your subscription:
-    ![Enabling the Container Registries bundle](media/monitor-container-security/enabling-container-registries-bundle.png)
-
-        Security Center is now ready to scan images that get pushed to the registry. 
-
-        >[!NOTE]
-        >This feature is charged per image.
-
-
-1. To trigger the scan of an image, push it to your registry. 
-
-    When the scan completes (typically after approximately 2 minutes, but can be up to 15 minutes), findings are available as Security Center recommendations like this:
-
-1. To view the findings, go to the **Recommendations** page. If issues were found, you'll see the following recommendation:
-
-    ![Recommendation to remediate issues ](media/monitor-container-security/acr-finding.png)
-
-1. Select the recommendation. 
-    The recommendation details page opens with additional information. This information includes the list of registries with vulnerable images ("Affected resources") and the remediation steps. 
-
-1. Select a specific registry to see the repositories within it that have vulnerable repositories.
-
-    ![Select a registry](media/monitor-container-security/acr-finding-select-registry.png)
-
-    The registry details page opens with the list of affected repositories.
-
-1. Select a specific repository to see the repositories within it that have vulnerable images.
-
-    ![Select a repository](media/monitor-container-security/acr-finding-select-repository.png)
-
-    The repository details page opens. It lists the vulnerable images together with an assessment of the severity of the findings.
-
-1. Select a specific image to see the vulnerabilities.
-
-    ![Select images](media/monitor-container-security/acr-finding-select-image.png)
-
-    The list of findings for the selected image opens.
-
-    ![List of findings](media/monitor-container-security/acr-findings.png)
-
-1. To learn more about a finding, select the finding. 
-
-    The findings details pane opens.
-
-    [![Findings details pane](media/monitor-container-security/acr-finding-details-pane.png)](media/monitor-container-security/acr-finding-details-pane.png#lightbox)
-
-    This pane includes a detailed description of the issue and links to external resources to help mitigate the threats.
-
-1. Follow the steps in the remediation section of this pane.
-
-1. When you have taken the steps required to remediate the security issue, replace the image in your registry:
-
-    1. Push the updated image. This will trigger a scan. 
-    
-    1. Check the recommendations page for the recommendation "Vulnerabilities in Azure Container Registry images should be remediated". 
-    
-        If the recommendation still appears and the image you've handled still appears in the list of vulnerable images, check the remediation steps again.
-
-    1. When you are sure the updated image has been pushed, scanned, and is no longer appearing in the recommendation, delete the “old” vulnerable image from your registry.
-
-
-## Harden your containers' Docker hosts
 
 
 ## Next steps

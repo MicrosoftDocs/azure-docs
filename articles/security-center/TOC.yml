@@ -36,7 +36,7 @@
       href: azure-defender.md
     - name: Azure Defender for servers
       href: defender-for-servers-intro.md
-    - name: Azure Defender for 
+    - name: Azure Defender for App Service
       href: defender-for-app-services-intro.md
     - name: Azure Defender for Storage
       href: defender-for-storage-intro.md
@@ -46,11 +46,13 @@
       href: defender-for-iot-intro.md
     - name: Azure Defender for Key Vault
       href: defender-for-key-vault-intro.md
+      displayName: KV
     - name: Azure Defender for Kubernetes
       href: defender-for-kubernetes-intro.md
       displayName: clusters, k8s
     - name: Azure Defender for container registries
       href: defender-for-container-registries-intro.md
+      displayName: ACR, registry, images
     - name: Additional threat protections
       href: other-threat-protections.md
 
@@ -206,7 +208,8 @@
   - name: Use Azure Defender for App Services
     href: security-center-app-services.md
   - name: Use Azure Defender for container registries
-    href: azure-container-registry-integration.md
+    href: defender-for-container-registries-usage.md
+    displayName: ACR, registry, images
   - name: Use Azure Defender for Kubernetes
     href: defender-for-kubernetes-usage.md
     displayName: clusters, k8s
@@ -266,7 +269,7 @@
     href: /learn/browse/?term=securityS
   - name: Manage user data
     href: security-center-privacy.md
-  - name: Azure Security Center for IoT documentation
+  - name: Azure Defender for IoT documentation
     href: https://docs.microsoft.com/azure/asc-for-iot/
   - name: Azure security documentation
     href: /azure/security/
@@ -274,12 +277,12 @@
     href: https://azure.microsoft.com/updates/?category=security-identity
   - name: Readiness Roadmap
     href: security-center-readiness-roadmap.md
-  - name: Azure Security, Privacy, & Compliance blog
-    href: https://blogs.msdn.com/b/azuresecurity/
+  - name: Azure Security Center tech community blogs
+    href: https://techcommunity.microsoft.com/t5/azure-security-center/bg-p/AzureSecurityCenterBlog
   - name: Azure Security Center on Stack Overflow
     href: https://stackoverflow.com/search?q=azure-security-center
-  - name: Videos
-    href: https://azure.microsoft.com/documentation/videos/index/?services=security-center
+  - name: ASCinTheField YouTube videos
+    href: https://www.youtube.com/results?search_query=%23ASCInTheField
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/security-center/
   - name: Regional availability

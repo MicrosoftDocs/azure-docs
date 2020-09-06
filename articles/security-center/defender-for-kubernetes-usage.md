@@ -26,6 +26,8 @@ Together, Azure Security Center and AKS form the best cloud-native Kubernetes se
 |Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![No](./media/icons/no-icon.png) National/Sovereign (US Gov, China Gov, Other Gov)|
 |||
 
+
+
 ## Harden your containers' Docker hosts
 
 Security Center constantly monitors the configuration of your Docker hosts, and generates security recommendations that reflect industry standards.
@@ -57,6 +59,8 @@ To view Azure Security Center's security recommendations for your containers' Do
 1. Tweak the query parameters if necessary.
 
 1. When you're sure the command is appropriate and ready for your host, select **Run**.
+
+
 
 
 ## Setup workload protection - define and enforce best-practices
@@ -100,10 +104,15 @@ To configure the bundle, first you must install the add on:
     | Container images should be deployed only from trusted registries (preview)            | Remediate vulnerabilities                | **Yes**                |
 
 
-1. For the recommendations have parameters must be customized, set the parameters via the security policy pages:
+1. For the recommendations with parameters must be customized, set the parameters:
 
-    1. STEPS FROM THE REC "Additional details"
-
+    1. From Security Center's menu, select **Security policy**.
+    1. Select the relevant subscription.
+    1. From the **Security Center default policy** section, select **View effective policy**.
+    1. Select "ASC Default".
+    1. Open the **Parameters** tab and modify the values as required.
+    1. Select **Review + save**.
+    1. Select **Save**.
 
 
 1. To enforce any of the recommendations, set it **Deny** in Security Center's Security Policy **Parameters** tab:
@@ -117,6 +126,10 @@ To configure the bundle, first you must install the add on:
     1. Open Security Center's [asset inventory](asset-inventory.md) page and use the resource type filter to **Kubernetes services**.
 
     1. Select a cluster to investigate and review the available recommendations available for it. 
+
+1. When viewing a recommendation from the workload protection set, you'll see the number of affected pods ("Kubernetes components") listed alongside the cluster. For a list of the specific pods, select the cluster and then select **Take action**.
+
+    :::image type="content" source="./media/defender-for-kubernetes-usage/view-affected-pods-for-recommendation.gif" alt-text="Viewing the affected pods for a K8s recommendation"::: 
 
 1. To test the enforcement, use the two Kubernetes deployments below:
 
