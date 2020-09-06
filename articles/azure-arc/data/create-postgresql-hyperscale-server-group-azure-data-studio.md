@@ -147,6 +147,6 @@ For example:
 
 Once connected, you can use the full functionality of PostgreSQL Hyperscale, including [creating distributed tables](/postgresql/quickstart-create-hyperscale-portal#create-and-distribute-tables).
 
-## Next Steps
+## Next steps
 
-Try to [Scale out your Azure Database for PostgreSQL Hyperscale server group](scale-out-postgresql-hyperscale.md).
+- [Scale out your Azure Database for PostgreSQL Hyperscale server group](scale-out-postgresql-hyperscale-server-group.md)).

@@ -5,10 +5,9 @@
     - name: What are Azure Arc enabled data services
       href: overview.md
     - name: Release notes
-    - name: Architecture
+      href: release-notes.md
 - name: Quickstarts
   items:
-    - name: Prerequisites
     - name: Deploy data controller
       href: create-data-controller.md
     - name: Deploy Managed Instance (Jumpstart)
@@ -37,12 +36,6 @@
           href: /sql/azdata/install/deploy-install-azdata-pip?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
     - name: Create SQL Managed Instance
       href: create-sql-managed-instance.md
-    - name: Create PostgreSQL Instance
-      href: create-postgresql-instances.md
-    - name: Extend PostgreSQL SingleNode
-      href: postgresql-extend-single-node-to-hyperscale.md
-    - name: Scale out PostgreSQL to Hyperscale
-      href: scale-out-postgresql-hyperscale.md
 - name: Concepts
   items:
     - name: Connectivity modes and requirements
@@ -65,52 +58,70 @@
           href: create-data-controller-resource-in-azure-portal.md
         - name: Create data controller (Azure Data Studio)
           href: create-data-controller-azure-data-studio.md
+        - name: Create data controller (azdata)
+          href: create-data-controller-using-azdata.md
+        - name: Create data controller (Kubernetes tools)
+          href: create-data-controller-using-k8s-native-tools.md
         - name: Monitor with dashboards (Azure Data Studio)
           href: azure-data-studio-dashboards.md
         - name: View billing data (Azure)
           href: view-billing-data-in-azure.md
         - name: View data controller (portal)
           href: view-data-controller-in-azure-portal.md
-        - name: Deploy using Kubernetes tools
-          href: deploy-using-k8s-native-tools.md
         - name: Delete resources
           href: delete-azure-resources.md
         - name: Uninstall Azure Arc data controller
           href: uninstall-azure-arc-data-controller.md
-        - name: Uninstall client tools update
-          href: uninstall-update-client-tools.md
-    - name: PostgreSQL
+- name: Azure SQL Database for PostgreSQL enabled for Azure Arc (preview) 
+  items:
+    - name: How-to
       items:
-        - name: Back up PostgreSQL Hyperscale
-          href: backup-restore-postgresql-hyperscale.md
-        - name: Use PostgreSQL extensions
-          href: using-postgresql-extensions.md
-        - name: Create PostgreSQL instance (Azure Data Studio)
-          href: create-postgresql-hyperscale-instance-azure-data-studio.md
-        - name: Scale  PostgreSQL instance (CLI)
-          href: scale-up-down-postgresql-hyperscale-instance-using-cli.md
-        - name: Manage roles in PostgreSQL (CLI)
-          href: manage-roles-in-postgresql-with-cli.md
-        - name: Migrate a PostgreSQL database to Arc
-          href: migrate-postgresql-db-into-arc.md
-        - name: Restore AdventureWorks to PostgreSQL
-          href: restore-adventureworks-sample-db-postgresql.md
-        - name: Manage PostgreSQL (Azure Data Studio)
-          href: manage-postgresql-with-azure-data-studio.md
-        - name: Delete PostgreSQL
-          href: delete-postgresql-instance.md
-    - name: SQL Managed Instance
+      - name: Extend single-node to Hyperscale
+        href: postgresql-extend-single-node-to-hyperscale.md
+      - name: Create Hyperscale (Azure Data Studio)
+        href: create-postgresql-hyperscale-server-group-azure-data-studio.md
+      - name: Create Hyperscale
+        href: create-postgresql-hyperscale-server-group.md
+      - name: Scale out Hyperscale
+        href: scale-out-postgresql-hyperscale-server-group.md
+      - name: Scale up or down Hyperscale
+        href: scale-up-down-postgresql-hyperscale-server-group-using-cli.md
+      - name: Manage Hyperscale group
+        href: manage-postgresql-hyperscale-server-group-with-azure-data-studio.md
+      - name: Migrate PostgreSQL data into Hyperscale server group
+        href: migrate-postgresql-data-into-postgresql-hyperscale-server-group.md
+      - name: Restore AdventureWorks sample database
+        href: restore-adventureworks-sample-db-into-postgresql-hyperscale-server-group.md
+      - name: Back up PostgreSQL Hyperscale
+        href: backup-restore-postgresql-hyperscale.md
+      - name: Use extensions in PostgreSQL Hyperscale
+        href: using-extensions-in-postgresql-hyperscale-server-group.md
+      - name: Troubleshooting
+        items:
+          - name: Troubleshoot with notebook
+            href: troubleshoot-postgresql-hyperscale-server-group.md
+      - name: Delete PostgreSQL resources
+        href: delete-postgresql-hyperscale-server-group.md
+- name: SQL Managed Instance for Azure Arc (preview)
+  items:
+    - name: Overview
       items:
-        - name: Create SQL Managed Instance (Azure Data Studio)
-          href: create-sql-managed-instance-azure-data-studio.md
-        - name: Migrate to SQL Managed Instance (Azure Arc)
-          href: migrate-to-managed-instance-azure-arc.md
-        - name: Restore AdventureWorks
-          href: restore-adventureworks-sample-db.md
+      - name: Features
+        href: managed-instance-features.md
+    - name: How-to
+      items:
+        - name: Configure
+          href: configure-managed-instance.md
+    - name: Create SQL Managed Instance (Azure Data Studio)
+      href: create-sql-managed-instance-azure-data-studio.md
+    - name: Migrate to SQL Managed Instance (Azure Arc)
+      href: migrate-to-managed-instance.md
+    - name: Restore AdventureWorks
+      href: restore-adventureworks-sample-db.md
     - name: Troubleshoot
       items:
-        - name: Troubleshoot PostgreSQL
-          href: troubleshooting-postgresql.md
+      - name: Guide
+        href: troubleshoot-guide.md
 - name: Reference
   items:
   - name: azdata
