@@ -1,6 +1,6 @@
 ---
-title: Using PostgreSQL extensions
-description: Using PostgreSQL extensions
+title: Use PostgreSQL extensions
+description: Use PostgreSQL extensions
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -11,46 +11,131 @@ ms.date: 08/04/2020
 ms.topic: how-to
 ---
 
-# Scenario: Using PostgreSQL extensions
+# Use PostgreSQL extensions in your Azure Arc enabled PostgreSQL Hyperscale server group
 
-PostgreSQL is at its best when you use it with extensions. In fact, a key element of our own Hyperscale functionality is the Microsoft-provided `citus` extension that is installed by default, which allows PostgreSQL to transparently shard data across multiple nodes.
+PostgreSQL is at its best when you use it with extensions. In fact, a key element of our own Hyperscale functionality is the Microsoft-provided `citus` extension that is installed by default, which allows Postgres to transparently shard data across multiple nodes.
 
-In this guide we'll look at two additional extensions:
 
+## List of extensions
+In addition of the extensions in [contrib](https://www.postgresql.org/docs/12/contrib.html), the list of extensions present in the containers of your Azure Arc enabled Postgres Hyperscale server group is:
+- citus, v: 9.3-2
+- pg_cron, v: 1.2
+- plpgsql, v: 1.0
+- postgis, v: 3.0.2
+
+This list evolves overtime and updates will be posted in this document. It is not yet possible for you to add extensions beyond those listed above.
+
+This guide will take in a scenario to use two of these extensions:
 - [PostGIS](https://postgis.net/)
 - [pg_cron](https://github.com/citusdata/pg_cron)
-- [plv8](https://plv8.github.io/#plv8)
-- [`timescale`](https://github.com/timescale/timescaledb)
 
-## The PostGIS extension
 
-We can enable the PostGIS extension on an existing server group, or create a new one with the extension already enabled:
+## Manage extensions
 
-```console
-azdata postgres server create -n <name of your postgresql server group> -ns <name of the namespace> --extensions <extension names>
+### Enable extensions
+The general format of the command to enable extensions is
 
-#Example:
-azdata postgres server create -n pg2 -ns arc -w 2 --extensions postgis
+#### Enable an extension at the creation time of a server group:
+```terminal
+azdata arc postgres server create -n <name of your postgresql server group> --extensions <extension names>
+```
+#### Enable an extension on an instance that already exists:
+```terminal
+azdata arc postgres server edit -n <name of your postgresql server group> --extensions <extension names>
 ```
 
-Now, let's go through a PostGIS example. We'll start by getting some [sample data](http://duspviz.mit.edu/tutorials/intro-postgis/) from the MIT’s Department of Urban Studies & Planning. 
+#### Get the list of extensions enabled:
+Run either of the following command.
 
-> [!NOTE]
-> You may need to run `apt-get install unzip` to install unzip when using the VM for testing.
+##### With azdata
+```terminal
+azdata arc postgres server show -n <server group name>
+```
+Scroll in the output and notice the engine\extensions sections in the specifications of your server group. For example:
+```terminal
+"engine": {
+      "extensions": [
+        {
+          "name": "citus"
+        },
+        {
+          "name": "pg_cron"
+        }
+      ]
+    },
+```
+##### With kubectl
+```terminal
+kubectl describe postgresql-12s/postgres02
+```
+Scroll in the output and notice the engine\extensions sections in the specifications of your server group. For example:
+```terminal
+Engine:
+    Extensions:
+      Name:  citus
+      Name:  pg_cron
+```
 
-```console
+
+### Create extensions:
+Connect to your server group with the client tool of your choice and run the standard PostgreSQL query:
+```terminal
+CREATE EXTENSION <extension name>;
+```
+
+### Get the list of extension created in your server group:
+Connect to your server group with the client tool of your choice and run the standard PostgreSQL query:
+```terminal
+select * from pg_extension;
+```
+
+### Drop an extension from your server group:
+Connect to your server group with the client tool of your choice and run the standard PostgreSQL query:
+```terminal
+drop extension <extension name>;
+```
+
+## Scenario: use the PostGIS and the Pg_cron extensions
+
+### The PostGIS extension
+
+We can either enable the PostGIS extension on an existing server group, or create a new one with the extension already enabled:
+
+**Enabling an extension at the creation time of a server group:**
+```terminal
+azdata arc postgres server create -n <name of your postgresql server group> --extensions <extension names>
+
+#Example:
+azdata arc postgres server create -n pg2 -w 2 --extensions postgis
+```
+
+**Enabling an extension on an instance that already exists:**
+```terminal
+azdata arc postgres server edit -n <name of your postgresql server group> --extensions <extension names>
+
+#Example:
+azdata arc postgres server edit --extensions postgis -n pg2
+```
+
+To verify what extensions are installed, use the below standard PostgreSQL command after connecting to the instance with your favorite PostgreSQL client tool like Azure Data Studio:
+```terminal
+select * from pg_extension;
+```
+
+Now, let's go through a PostGIS example. We'll start by getting some [sample data](http://duspviz.mit.edu/tutorials/intro-postgis/) from the MIT’s Department of Urban Studies & Planning. Note you may need to run `apt-get install unzip` to install unzip when using the VM for testing.
+
+```terminal
 wget http://duspviz.mit.edu/_assets/data/intro-postgis-datasets.zip
 unzip intro-postgis-datasets.zip
 ```
 
 Let's connect to our database, and create the PostGIS extension:
 
-```console
+```terminal
 CREATE EXTENSION postgis;
 ```
 
-> [!NOTE]
-> If you would like to use one of the extensions in the postgis package (for example postgis_raster, postgis_topology, postgis_sfcgal, fuzzystrmatch...) you need to first create the postgis extension and then create the other extension. For instance: CREATE EXTENSION postgis; CREATE EXTENSION postgis_raster;
+>**Note:** If you would like to use one of the extensions in the postgis package (for example postgis_raster, postgis_topology, postgis_sfcgal, fuzzystrmatch...) you need to first create the postgis extension and then create the other extension. For instance: CREATE EXTENSION postgis; CREATE EXTENSION postgis_raster;
 
 And create the schema:
 
@@ -69,7 +154,7 @@ CREATE TABLE coffee_shops (
 CREATE INDEX coffee_shops_gist ON coffee_shops USING gist (geom);
 ```
 
-Now, we can combine PostGIS with the scaled functionality, by making the coffee_shops table distributed:
+Now, we can combine PostGIS with the scale out functionality, by making the coffee_shops table distributed:
 
 ```sql
 SELECT create_distributed_table('coffee_shops', 'id');
@@ -77,7 +162,7 @@ SELECT create_distributed_table('coffee_shops', 'id');
 
 Let's load some data:
 
-```console
+```terminal
 \copy coffee_shops(id,name,address,city,state,zip,lat,lon) from cambridge_coffee_shops.csv CSV HEADER;
 ```
 
@@ -93,16 +178,16 @@ Now we can list the coffee shops closest to MIT (77 Massachusetts Ave at 42.3590
 SELECT name, address FROM coffee_shops ORDER BY geom <-> ST_SetSRID(ST_MakePoint(-71.093500,42.359055),4326);
 ```
 
-## The pg_cron extension
 
-Let's enable `pg_cron` on our PostgreSQL server group, including PostGIS:
+### The pg_cron extension
 
-```console
+Let's enable `pg_cron` on our PostgreSQL server group, in addition to PostGIS:
+
+```terminal
 azdata postgres server update -n pg2 -ns arc --extensions postgis,pg_cron
 ```
 
-> [!NOTE]
-> This will restart the nodes and install the additional extensions, which may take 2 - 3 minutes.
+Note that this will restart the nodes and install the additional extensions, which may take 2 - 3 minutes.
 
 We can now connect again, and create the `pg_cron` extension:
 
@@ -110,7 +195,7 @@ We can now connect again, and create the `pg_cron` extension:
 CREATE EXTENSION pg_cron;
 ```
 
-For test purposes, lets make a table `the_best_coffee_shop` that takes a random name from our earlier `coffee_shops` table:
+For test purposes, lets make a table `the_best_coffee_shop` that takes a random name from our earlier `coffee_shops` table, and sets the table contents:
 
 ```sql
 CREATE TABLE the_best_coffee_shop(name text);
@@ -133,7 +218,7 @@ And now, once a minute, we'll get a different name:
 SELECT * FROM the_best_coffee_shop;
 ```
 
-```console
+```terminal
       name
 -----------------
  B & B Snack Bar
@@ -142,79 +227,5 @@ SELECT * FROM the_best_coffee_shop;
 
 See the [pg_cron README](https://github.com/citusdata/pg_cron) for full details on the syntax.
 
-## The plv8 extension
+## Next step:
 
-PLV8 is a trusted JavaScript language extension for PostgreSQL. 
-
-PLV8 works well with:
-+ stored procedures
-+ triggers
-+ most versions of PostgreSQL
-+ works best with 9.1 and above
-+ works with 10.0 and 11
-
-For more information, see the documentation of the plv8 extension [here](https://plv8.github.io/#plv8).
-
-The plv8 extension is already installed on your Arc system. To install it in your PostgreSQL database, connect with psql and run the command:
-
-```console
-CREATE EXTENSION plv8;
-```
-
-As it completes successfully, it will return:
-
-```console
-CREATE EXTENSION
-```
-
-To verify that the installation was indeed successful, run:
-
-```console
-SELECT plv8_version();
-```
-
-It will return
-
-```console
- plv8_version
---------------
- 2.3.14
-(1 row)
-```
-
-Optionally you can run
-
-```console
-SELECT * FROM pg_extension;
-```
-
-to list the extensions created in your PostgreSQL instance.
-
-## The `timescaledb` extension
-
-TimescaleDB is an open-source database designed to make SQL scale for time-series data. For more information, see the documentation of the `timescaledb` extension [here](https://github.com/timescale/`timescaledb`).
-
-The `timescaledb` extension is installed in your Arc system. To preload it, run the below command. This command restarts your PostgreSQL server so you should make sure to run it when you can take this short downtime:
-
-```console
-azdata postgres server update -n <insert your PostgreSQL server name> --extensions timescaledb
-```
-
-After your PostgreSQL instance is restarted, connect to it with psql for instance and create the extension:
-
-```console
-CREATE EXTENSION timescaledb;
-```
-
-The results will show the `timescaledb` welcome email in the output in your psql session:
-You can also run:
-
-```console
-SELECT * FROM pg_extension;
-```
-
-to list the extensions that have been created in your PostgreSQL instance.
-
-## Next steps
-
-Now, try to [view logs and metrics using Kibana and Grafana](monitor-grafana-kibana.md)
