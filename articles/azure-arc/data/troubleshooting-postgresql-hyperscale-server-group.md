@@ -11,35 +11,35 @@ ms.date: 08/04/2020
 ms.topic: how-to
 ---
 
-# Scenario: Troubleshooting PostgreSQL Hyperscale server groups
+# Troubleshooting PostgreSQL Hyperscale server groups
 
 Notebooks can document procedures by including markdown content to describe what to do/how to do it. It can also provide executable code to automate a procedure.  This pattern is useful for everything from standard operating procedures to troubleshooting guides.
 
- For example, let's troubleshoot a PostgreSQL Hyperscale server group that might have some problems using Azure Data Studios.
+For example, let's troubleshoot a PostgreSQL Hyperscale server group that might have some problems using Azure Data Studio.
 
-## Install Azure Data Studio, kubectl and azdata
-You need to have installed Azure Data Studio, kubectl and azdata **on the client machine you're using to run the notebook in Azure Data Studio**.  Follow this scenario: [install-client-tools.md](https://github.com/microsoft/Azure-data-services-on-Azure-Arc/blob/jul-2020/scenarios/install-client-tools.md)
+### Step 1: Install Azure Data Studio, kubectl and azdata
+You need to have installed Azure Data Studio, kubectl and azdata **on the client machine you are using to run the notebook in Azure Data Studio**. To do this, please follow scenario [here](001-install-client-tools.md)
 
-## Update the PATH environment variable
-Confirm that the tools can be invoked from anywhere on this client machine. Update the PATH system environment variable in Windows to add the folder in which you installed kubectl.
+### Step 2: Update the PATH environment variable
+Makes sure that these tools can be invoked from anywhere on this client machine. For example, on a Windows client machine, update the PATH system environment variable and add the folder in which you installed kubectl.
 
-## Sign into Azdata
-Sign into your Arc Data Controller from the client machine and before you launch Azure Data Studio. Enter a run a command like:
+### Step 3: Sign in Azdata
+Sign in your Arc Data Controller from this client machine and before you launch Azure Data Studio. To do this, run a command like:
 
-```console
-azdata login --endpoint https://12.345.67.890:30080
-```
-Replace the IP address and port with the values of your Kubernetes cluster. You'll be prompted for user and password. For more details, run:
+    ```terminal
+    azdata login --endpoint https://12.345.67.890:30080
+    ```
+    _Replacing the IP address with the one of your Kubernetes cluster and the port on which Kubernetes is listening. You will be prompted for user and password. You can read more details by running:_
 
-```console
-azdata login --help
-```
+    ```terminal
+    azdata login --help
+    ```
 
-## Log into your Kubernetes cluster with kubectl
-Use the commands provided in the blog post to log into cluster: https://blog.christianposta.com/kubernetes/logging-into-a-kubernetes-cluster-with-kubectl/
+### Step 4: Log into your Kubernetes cluster with kubectl
+To do this, you may want to use the example commands provided in [this](https://blog.christianposta.com/kubernetes/logging-into-a-kubernetes-cluster-with-kubectl/) blog post.
 You would run commands like:
 
-```console
+```terminal
 kubectl config view
 kubectl config set-credentials kubeuser/my_kubeuser --username=<your Arc Data Controller Admin user name> --password=<password>
 kubectl config set-cluster my_kubeuser --server=https://12.345.67.890:30080
@@ -47,20 +47,28 @@ kubectl config set-context default/my_kubeuser/ArcDataControllerAdmin --user=Arc
 kubectl config use-context default/my_kubeuser/ArcDataControllerAdmin
 ```
 
-## Launch Azure Data Studio
+### Step 5: Launch Azure Data Studio
 
-## Open the troubleshooting notebook
+### Step 6: Open the troubleshooting notebook
 
-Implement the steps described in [Manage PostgreSQL with Azure Data Studio](manage-postgresql-with-azure-data-studio.md) to:
+Implement the steps described in  [033-manage-Postgres-with-AzureDataStudio.md](manage-postgres-hyperscale-server-group-with-azure-data-studio.md) to:
 1. Connect to your Arc Data Controller
-2. Select your Postgres instance and choose **Manage**
-3. Select the **Diagnose and solve problems** dashboard
-4. Select the **Troubleshoot** link
+2. Right select your Postgres instance and choose **[Manage]**
+3. Select the **[Diagnose and solve problems] dashboard**
+4. Select the **[Troubleshoot] link**
 
-## Run the scripts
+:::image type="content" source="../media/data/postgres-hyperscale/ads-controller-postgres-troubleshooting-notebook.jpg" alt-text="Azure Data Studio - Postgres troubleshooting notebook":::
+
+The **TSG100 - The Azure Arc enabled PostgreSQL Hyperscale troubleshooter notebook** opens up:
+:::image type="content" source="../media/data/postgres-hyperscale/ads-controller-postgres-troubleshooting-notebook2.jpg" alt-text="Azure Data Studio - Postgres troubleshooting notebook":::
+
+
+### Step 7: Run the scripts
 Select the 'Run All' button at the top to execute the notebook all at once, or you can step through and execute each code cell one by one.
 
 View the output from the execution of the code cells for any potential issues.
 
-## Next
+We'll add more details to the notebook over time about how to recognize common problems and how to solve them.
+
+## Next step
 You can create your own notebooks to meet your needs.
