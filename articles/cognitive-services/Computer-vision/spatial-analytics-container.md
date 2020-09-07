@@ -84,7 +84,7 @@ Spatial Analytics uses the compute features of the Azure Stack Edge to run an AI
 
 * You've [connected and activated](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-deploy-connect-setup-activate) your Azure Stack Edge device. 
 * You have a Windows client system running PowerShell 5.0 or later, to access the device.  
-* To deploy a Kubernetes cluster, you need to configure your Azure Stack Edge device via the **Local UI** on the [Azure Portal](https://portal.azure.com/): 
+* To deploy a Kubernetes cluster, you need to configure your Azure Stack Edge device via the **Local UI** on the [Azure portal](https://portal.azure.com/): 
   1. Enable the compute feature on your Azure Stack Edge device. To enable compute, go to the **Compute** page in the web interface for your device. 
   2. Select a network interface that you want to enable for compute, then click **Enable**. This will create a virtual switch on your device, on that network interface.
   3. Leave the Kubernetes test node IPs and the Kubernetes external services IPs blank.
@@ -201,7 +201,7 @@ sudo systemctl --now enable nvidia-mps.service
 
 To deploy the Spatial Analytics container on the host computer, create an instance of an [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-create-through-portal) service using the Standard (S1) or Free (F0) pricing tier. If your host computer is an Azure Stack Edge, use the same subscription and resource group that is used by the Azure Stack Edge resource.
 
-Use the Azure CLI to create an instance of Azure IoT Hub. Replace the parameters where appropriate. Alternatively, you can create the Azure IoT Hub on the [Azure Portal](https://portal.azure.com/).
+Use the Azure CLI to create an instance of Azure IoT Hub. Replace the parameters where appropriate. Alternatively, you can create the Azure IoT Hub on the [Azure portal](https://portal.azure.com/).
 
 ```bash
 az login
@@ -290,8 +290,8 @@ The following table shows the various Environment Variables used by the IoT Edge
 | ARCHON_NODES_LOG_LEVEL | Info; Verbose | Logging level, select one of the two values|
 | OMP_WAIT_POLICY | PASSIVE | Do not modify|
 | QT_X11_NO_MITSHM | 1 | Do not modify|
-| API_KEY | your API Key| Collect this value from Azure Portal from your **Project Archon** resource _Keys_ page|
-| BILLING_ENDPOINT | your Endpoint URI| Collect this value from Azure Portal from your **Project Archon** resource _Overview_ page|
+| API_KEY | your API Key| Collect this value from Azure portal from your **Project Archon** resource _Keys_ page|
+| BILLING_ENDPOINT | your Endpoint URI| Collect this value from Azure portal from your **Project Archon** resource _Overview_ page|
 | EULA | accept | This value needs to be **accept** for the container to run|
 | DISPLAY | :1 | This value needs to be same as the output of `echo $DISPLAY` on the host computer|
 
@@ -333,7 +333,7 @@ Change the following parameters:
 | `--target-condition` | Your IoT Edge device name for the host computer. |
 | `-–subscription` | Subscription ID or name. |
 
-This command will start the deployment. Navigate to the page of your Azure IoT Hub instance in the Azure Portal to see the deployment status. The status may show as *417 – The device’s deployment configuration is not set* until the device finishes downloading the container images and starts running.
+This command will start the deployment. Navigate to the page of your Azure IoT Hub instance in the Azure portal to see the deployment status. The status may show as *417 – The device’s deployment configuration is not set* until the device finishes downloading the container images and starts running.
 
 
 ```
@@ -342,7 +342,7 @@ az iot edge deployment create --deployment-id "<deployment name>" --hub-name "<I
 
 ## Validate that the deployment is successful
 
-There are several ways to validate that the container is running. Locate the *Runtime Status* in the **IoT Edge Module Settings** for the Spatial Analytics module in your Azure IoT Hub instance on Azure Portal. Validate that the **Desired Value** and **Reported Value** for the *Runtime Status* is *Running*.
+There are several ways to validate that the container is running. Locate the *Runtime Status* in the **IoT Edge Module Settings** for the Spatial Analytics module in your Azure IoT Hub instance on the Azure portal. Validate that the **Desired Value** and **Reported Value** for the *Runtime Status* is *Running*.
 
 Once the deployment is complete and the container is running, the **host computer** will start sending events to the Azure IoT Hub. If you used the `.Debug` version of the operations, you’ll see a visualizer window for each camera you configured in the deployment manifest. You can now define the lines and zones you want to monitor in the deployment manifest and follow the instructions to deploy again. 
 

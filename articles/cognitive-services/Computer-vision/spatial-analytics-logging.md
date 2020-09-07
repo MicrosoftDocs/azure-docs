@@ -48,7 +48,7 @@ Outputs:
 
 The supplied Telegraf module will publish all the telemetry data emitted by the Spatial Analytics container to Azure Monitor. See the [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) for information on adding Azure monitor to your subscription.
 
-After setting up Azure Monitor, you will need to create credentials that enable the module to send telemetry. You can use the Azure Portal to create a new Service Principal, or use the Azure CLI command below to create one.
+After setting up Azure Monitor, you will need to create credentials that enable the module to send telemetry. You can use the Azure portal to create a new Service Principal, or use the Azure CLI command below to create one.
 
 > [!NOTE] 
 > This command requires you to have Owner privileges on the subscription. 
@@ -169,7 +169,7 @@ It can also be set through the IoT Edge Module Twin document either globally, fo
 > the `penginelogs` module does not effect the logging content, it is only assists in collecting, filtering and uploading existing logs.
 > You must have Docker API version 1.40 or higher to use this module.`
 
-The sample deployment manifest file includes a module named `penginelogs` that collects and uploads logs. This module is disabled by default and should be enabled through the IoTEdge module configuration when you need to access logs. 
+The sample deployment manifest file includes a module named `penginelogs` that collects and uploads logs. This module is disabled by default and should be enabled through the IoT Edge module configuration when you need to access logs. 
 
 The `penginelogs` operation is on-demand and controlled via an IoT Edge direct method, and can send logs to an Azure Blob Storage.
 
@@ -192,7 +192,7 @@ From the IoT Edge portal, select your device and then the **penginelogs** module
 ```
 
 >[!NOTE]
-> If you are running in a Non ASE Kubernetes environment, replace the container create options for the logging module to the following:
+> If you are not running in a ASE Kubernetes environment, replace the container create options for the logging module to the following:
 >
 >`"createOptions": "{\"HostConfig\": {\"Binds\": [\"/var/run/docker.sock:/var/run/docker.sock\",\"/usr/bin/docker:/usr/bin/docker\"],\"LogConfig\": {\"Config\": {\"max-size\": \"500m\"}}}}"`
 
@@ -232,10 +232,10 @@ The following table lists the attributes in the query response.
 | Keyword | Description|
 |--|--|
 |DoPost|[true,false] Indicates if logs have been uploaded or not. When you choose not to upload logs, the api returns information ***synchronously***. When you choose to upload logs, the api returns 200, if the request is valid, and starts uploading logs ***asynchronously***.|
-|TimeFilter| Time filter applyed to the logs.|
-|ValueFilters| Keywords filters applyed to the logs. |
+|TimeFilter| Time filter applied to the logs.|
+|ValueFilters| Keywords filters applied to the logs. |
 |TimeStamp| Method execution start time. |
-|ContainerId| Target container id. |
+|ContainerId| Target container ID. |
 |FetchCounter| Total number of log lines. |
 |FetchSizeInByte| Total amount of log data in bytes. |
 |MatchCounter| Valid number of log lines. |
@@ -290,7 +290,7 @@ Check fetch log's lines, times, and sizes, replace ***DoPost*** to `true`, then 
 
  Follow these steps to export the log file from the Azure Blob Storage account. Shrey to add instructions.
 
- Once you create a Suport Ticket, you will be in contact with a Microsoft suport engineer which will colect the log file and will further investigate the issue at hand.
+ Once you create a Support Ticket, you will be in contact with a Microsoft support engineer who will collect the log file and investigate.
 
 ## Troubleshooting the Azure Stack Edge device
 
@@ -313,8 +313,8 @@ The following section is provided for help with debugging and verification of th
 	* Start a Windows PowerShell session on the device: Enter-PSSession -ComputerName $ip -Credential $ip\EdgeUser -ConfigurationName Minishell 
 	* Provide the password when prompted. Use the same password that is used to sign into the local web UI. The default local web UI password is Password1. 
     <br><br>
-	##### Powershell Setup for Linux
-	This step is only required if you do not have a Windows client. Install Powershell from this location: https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-linux?view=powershell-6
+	##### PowerShell Setup for Linux
+	This step is only required if you do not have a Windows client. Install PowerShell from this location: https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-linux?view=powershell-6
 		
 	* Download the Microsoft repository GPG keys
 	wget -q https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb

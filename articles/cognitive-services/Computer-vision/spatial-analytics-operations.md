@@ -21,8 +21,8 @@ The Spatial Analytics container implements the following operations:
 | Operation Identifier| Description|
 |---------|---------|
 | cognitiveservices.vision.spatialanalysis-personcount | Counts people in a designated zone in the camera's field of view. <br> Emits an initial _personCountEvent_ event and then _personCountEvent_ events when the count changes.  |
-| cognitiveservices.vision.spatialanalysis-personcrossingline | Tracks when a person crosses a designated line in the camera's field of view. <br>Emits a _personLineEvent_ event when the person crosssed the line and provides directional info. 
-| cognitiveservices.vision.spatialanalysis-personcrossingpolygon | Tracks when a person crosses a designated line in the camera's field of view. <br> Emits a _personLineEvent_ event when the person crosssed the zone and provides directional info. |
+| cognitiveservices.vision.spatialanalysis-personcrossingline | Tracks when a person crosses a designated line in the camera's field of view. <br>Emits a _personLineEvent_ event when the person crossed the line and provides directional info. 
+| cognitiveservices.vision.spatialanalysis-personcrossingpolygon | Tracks when a person crosses a designated line in the camera's field of view. <br> Emits a _personLineEvent_ event when the person crossed the zone and provides directional info. |
 | cognitiveservices.vision.spatialanalysis-persondistance | Tracks when people violate a distance rule. <br> Emits a _personDistanceEvent_ periodically with the location of each distance violation. |
 cognitiveservices.vision.spatialanalysis-videorecorder | This operation enables recording of video streams as being processed into an Azure Blob Storage instance you can deploy on the edge or in the cloud. You are in control of where the data is being stored. The data is not transmitted to Microsoft. |
 
@@ -31,8 +31,8 @@ All above the operations except `cognitiveservices.vision.spatialanalysis-videor
 | Operation Identifier| Description|
 |---------|---------|
 | cognitiveservices.vision.spatialanalysis-personcount.debug | Counts people in a designated zone in the camera's field of view. <br> Emits an initial _personCountEvent_ event and then _personCountEvent_ events when the count changes.  |
-| cognitiveservices.vision.spatialanalysis-personcrossingline.debug | Tracks when a person crosses a designated line in the camera's field of view. <br>Emits a _personLineEvent_ event when the person crosssed the line and provides directional info. 
-| cognitiveservices.vision.spatialanalysis-personcrossingpolygon.debug | Tracks when a person crosses a designated line in the camera's field of view. <br> Emits a _personLineEvent_ event when the person crosssed the zone and provides directional info. |
+| cognitiveservices.vision.spatialanalysis-personcrossingline.debug | Tracks when a person crosses a designated line in the camera's field of view. <br>Emits a _personLineEvent_ event when the person crossed the line and provides directional info. 
+| cognitiveservices.vision.spatialanalysis-personcrossingpolygon.debug | Tracks when a person crosses a designated line in the camera's field of view. <br> Emits a _personLineEvent_ event when the person crossed the zone and provides directional info. |
 | cognitiveservices.vision.spatialanalysis-persondistance.debug | Tracks when people violate a distance rule. <br> Emits a _personDistanceEvent_ periodically with the location of each distance violation. |
 
 Spatial Analytics can also be run with [Live Video Analytics](https://azure.microsoft.com/services/media-services/live-video-analytics/) as their Video AI module. 
@@ -42,11 +42,11 @@ Spatial Analytics can also be run with [Live Video Analytics](https://azure.micr
 | Operation Identifier| Description|
 |---------|---------|
 | cognitiveservices.vision.spatialanalysis-personcount.livevideoanalytics | Counts people in a designated zone in the camera's field of view. <br> Emits an initial _personCountEvent_ event and then _personCountEvent_ events when the count changes.  |
-| cognitiveservices.vision.spatialanalysis-personcrossingline.livevideoanalytics | Tracks when a person crosses a designated line in the camera's field of view. <br>Emits a _personLineEvent_ event when the person crosssed the line and provides directional info. 
-| cognitiveservices.vision.spatialanalysis-personcrossingpolygon.livevideoanalytics | Tracks when a person crosses a designated line in the camera's field of view. <br> Emits a _personLineEvent_ event when the person crosssed the zone and provides directional info. |
+| cognitiveservices.vision.spatialanalysis-personcrossingline.livevideoanalytics | Tracks when a person crosses a designated line in the camera's field of view. <br>Emits a _personLineEvent_ event when the person crossed the line and provides directional info. 
+| cognitiveservices.vision.spatialanalysis-personcrossingpolygon.livevideoanalytics | Tracks when a person crosses a designated line in the camera's field of view. <br> Emits a _personLineEvent_ event when the person crossed the zone and provides directional info. |
 | cognitiveservices.vision.spatialanalysis-persondistance.livevideoanalytics | Tracks when people violate a distance rule. <br> Emits a _personDistanceEvent_ periodically with the location of each distance violation. |
 
-Live Video Analytics operations are also available in the `.debug` version (e.g. cognitiveservices.vision.spatialanalysis-personcount.livevideoanalytics.debug) which has the capability to visualize the video frames as being processed. You will need to run "xhost +" on the host computer to enable the visualization of the video frames and events
+Live Video Analytics operations are also available in the `.debug` version (e.g. cognitiveservices.vision.spatialanalysis-personcount.livevideoanalytics.debug) which has the capability to visualize the video frames as being processed. You will need to run `xhost +` on the host computer to enable the visualization of the video frames and events
 
 > [!IMPORTANT]
 > The computer vision AI models detect and locate human presence in video footage and output by using a bounding box around a human body. The AI models do not attempt to detect faces or discover the identities or demographics of individuals.
@@ -56,7 +56,7 @@ These are the parameters required by each of these Spatial Analysis operations.
 |---------|---------|
 | Operation ID | The Operation Identifier from table above.|
 | enabled | Boolean: true or false|
-| VIDEO_URL| The rtsp url for the camera device(Example: `rtsp://username:password@url`). Spatial Analytics supports H.264 encoded stream either through rtsp or http and in case of file format(container format) should be mp4
+| VIDEO_URL| The RTSP url for the camera device(Example: `rtsp://username:password@url`). Spatial Analytics supports H.264 encoded stream either through RTSP or http and in case of file format(container format) should be mp4
 | VIDEO_SOURCE_ID | A friendly name for the camera device or video stream. This will be returned with the event JSON output.|
 | VIDEO_IS_LIVE| True for camera devices; false for recorded videos.|
 | VIDEO_DECODE_GPU_INDEX| Which GPU to decode the video frame. By default it is 0. Should be the same as the `gpu_index` in other node config like `VICA_NODE_CONFIG`, `DETECTOR_NODE_CONFIG`.|
@@ -305,7 +305,7 @@ Sample JSON for an event output by this operation.
 
 | Event Field Name | Type| Description|
 |---------|---------|---------|
-| `id` | string| Event id|
+| `id` | string| Event ID|
 | `type` | string| Event type|
 | `detectionsId` | array| Array of size 1 of unique identifier of the person detection that triggered this event|
 | `properties` | collection| Collection of values|
@@ -317,7 +317,7 @@ Sample JSON for an event output by this operation.
 
 | Detections Field Name | Type| Description|
 |---------|---------|---------|
-| `id` | string| Detection id|
+| `id` | string| Detection ID|
 | `type` | string| Detection type|
 | `region` | collection| Collection of values|
 | `type` | string| Type of region|
@@ -326,8 +326,8 @@ Sample JSON for an event output by this operation.
 
 | SourceInfo Field Name | Type| Description|
 |---------|---------|---------|
-| `id` | string| Camera id|
-| `timestamp` | date| UTC date when the JSON paylod was emmitted|
+| `id` | string| Camera ID|
+| `timestamp` | date| UTC date when the JSON payload was emitted|
 | `width` | int | Video frame width|
 | `height` | int | Video frame height|
 | `frameId` | int | Frame identifier|
@@ -339,8 +339,8 @@ Sample JSON for an event output by this operation.
 
 | SourceInfo Field Name | Type| Description|
 |---------|---------|---------|
-| `id` | string| Camera id|
-| `timestamp` | date| UTC date when the JSON paylod was emmitted|
+| `id` | string| Camera ID|
+| `timestamp` | date| UTC date when the JSON payload was emitted|
 | `width` | int | Video frame width|
 | `height` | int | Video frame height|
 | `frameId` | int | Frame identifier|
@@ -401,7 +401,7 @@ Sample JSON for detections output by this operation.
 ```
 | Event Field Name | Type| Description|
 |---------|---------|---------|
-| `id` | string| Event id|
+| `id` | string| Event ID|
 | `type` | string| Event type|
 | `detectionsId` | array| Array of size 1 of unique identifier of the person detection that triggered this event|
 | `properties` | collection| Collection of values|
@@ -411,7 +411,7 @@ Sample JSON for detections output by this operation.
 
 | Detections Field Name | Type| Description|
 |---------|---------|---------|
-| `id` | string| Detection id|
+| `id` | string| Detection ID|
 | `type` | string| Detection type|
 | `region` | collection| Collection of values|
 | `type` | string| Type of region|
@@ -420,8 +420,8 @@ Sample JSON for detections output by this operation.
 
 | SourceInfo Field Name | Type| Description|
 |---------|---------|---------|
-| `id` | string| Camera id|
-| `timestamp` | date| UTC date when the JSON paylod was emmitted|
+| `id` | string| Camera ID|
+| `timestamp` | date| UTC date when the JSON payload was emitted|
 | `width` | int | Video frame width|
 | `height` | int | Video frame height|
 | `frameId` | int | Frame identifier|
@@ -486,7 +486,7 @@ Sample JSON for detections output by this operation.
 
 | Event Field Name | Type| Description|
 |---------|---------|---------|
-| `id` | string| Event id|
+| `id` | string| Event ID|
 | `type` | string| Event type|
 | `detectionsId` | array| Array of size 1 of unique identifier of the person detection that triggered this event|
 | `properties` | collection| Collection of values|
@@ -496,7 +496,7 @@ Sample JSON for detections output by this operation.
 
 | Detections Field Name | Type| Description|
 |---------|---------|---------|
-| `id` | string| Detection id|
+| `id` | string| Detection ID|
 | `type` | string| Detection type|
 | `region` | collection| Collection of values|
 | `type` | string| Type of region|
@@ -598,7 +598,7 @@ Sample JSON for detections output by this operation.
 
 | Event Field Name | Type| Description|
 |---------|---------|---------|
-| `id` | string| Event id|
+| `id` | string| Event ID|
 | `type` | string| Event type|
 | `detectionsId` | array| Array of size 1 of unique identifier of the person detection that triggered this event|
 | `properties` | collection| Collection of values|
@@ -613,7 +613,7 @@ Sample JSON for detections output by this operation.
 
 | Detections Field Name | Type| Description|
 |---------|---------|---------|
-| `id` | string| Detection id|
+| `id` | string| Detection ID|
 | `type` | string| Detection type|
 | `region` | collection| Collection of values|
 | `type` | string| Type of region|
@@ -623,8 +623,8 @@ Sample JSON for detections output by this operation.
 
 | SourceInfo Field Name | Type| Description|
 |---------|---------|---------|
-| `id` | string| Camera id|
-| `timestamp` | date| UTC date when the JSON paylod was emmitted|
+| `id` | string| Camera ID|
+| `timestamp` | date| UTC date when the JSON payload was emitted|
 | `width` | int | Video frame width|
 | `height` | int | Video frame height|
 | `frameId` | int | Frame identifier|
