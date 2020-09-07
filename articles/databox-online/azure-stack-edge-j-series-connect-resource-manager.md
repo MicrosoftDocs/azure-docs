@@ -44,7 +44,7 @@ The process of connecting to local APIs of the device using Azure Resource Manag
 
 | Step # | You'll do this step ... | .. on this location. |
 | --- | --- | --- |
-| 1. | [Configure your Azure Stack Edge Pro device](#step-1-configure-azure-stack-edge-device) | Local web UI |
+| 1. | [Configure your Azure Stack Edge Pro device](#step-1-configure-azure-stack-edge-pro-device) | Local web UI |
 | 2. | [Create and install certificates](#step-2-create-and-install-certificates) | Windows client/local web UI |
 | 3. | [Review and configure the prerequisites](#step-3-install-powershell-on-the-client) | Windows client |
 | 4. | [Set up Azure PowerShell on the client](#step-4-set-up-azure-powershell-on-the-client) | Windows client |

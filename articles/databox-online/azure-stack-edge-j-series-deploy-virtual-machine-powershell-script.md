@@ -24,7 +24,7 @@ Before you begin creating and managing a VM on your Azure Stack Edge Pro device 
 
 ### For Azure Stack Edge Pro device via the local web UI
 
-1. You completed the network settings on your Azure Stack Edge Pro device as described in [Step 1: Configure Azure Stack Edge Pro device](azure-stack-edge-j-series-connect-resource-manager.md#step-1-configure-azure-stack-edge-device).
+1. You completed the network settings on your Azure Stack Edge Pro device as described in [Step 1: Configure Azure Stack Edge Pro device](azure-stack-edge-j-series-connect-resource-manager.md##step-1-configure-azure-stack-edge-pro-device).
 
 2. Enabled a network interface for compute. This network interface IP is used to create a virtual switch for the VM deployment. The following steps walk you through the process:
 
