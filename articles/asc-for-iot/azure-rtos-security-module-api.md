@@ -1,6 +1,6 @@
 ---
-title: Azure RTOS IoT security module API
-description: Reference API for the Azure RTOS IoT security module.
+title: Azure IoT Security Module - RTOS API
+description: Reference API for the Azure IoT Security Module for Azure RTOS.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -11,16 +11,16 @@ editor: ''
 
 ms.subservice: asc-for-iot
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/06/2020
+ms.date: 09/07/2020
 ms.author: mlottner
 ---
 
-# Azure RTOS IoT security module API (preview)
+# Azure IoT Security Module - RTOS API (preview)
 
-This API is intended for use with the Azure RTOS IoT security module. For additional resources, see the [Azure RTOS IoT Security GitHub resource](https://github.com/azure-rtos/azure-iot-preview/releases). 
+This API is intended for use with the Azure IoT Security Module - RTOS only. For additional resources, see the [Azure IoT Security Module - RTOS GitHub resource](https://github.com/azure-rtos/azure-iot-preview/releases). 
 
 ## Enable Azure IoT Security Module
 
