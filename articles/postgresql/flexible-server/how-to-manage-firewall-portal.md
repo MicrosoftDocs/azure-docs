@@ -12,6 +12,7 @@ ms.date: 9/21/2020
 
 > [!IMPORTANT]
 > Azure Database for PostgreSQL Flexible Server is currently in public preview.
+
 Azure Database for PostgreSQL Flexible Server supports two types of mutually exclusive network connectivity methods to connect to your flexible server. The two options are:
 
 * Public access (allowed IP addresses)
