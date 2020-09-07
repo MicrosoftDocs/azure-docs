@@ -42,6 +42,7 @@ Because running efficient queries on a Azure Arc enabled PostgreSQL Hyperscale s
 The recommended distribution varies by the type of application and its query patterns. There are broadly two kinds of applications that work well on Azure Arc enabled Postgres Hyperscale:
 - Multi-Tenant Applications
 - Real-Time Applications
+
 The first step in data modeling is to identify which of them more closely resembles your application.
 
 Read on [here](https://docs.microsoft.com/azure/postgresql/concepts-hyperscale-app-type).
