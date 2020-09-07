@@ -2,7 +2,7 @@
 title: Register the Azure VMware Solution resource provider
 description: Steps to register the Azure VMware Solution resource provider.
 ms.topic: include
-ms.date: 08/26/2020
+ms.date: 09/04/2020
 ---
 
 To use Azure VMware Solution, you must first register the resource provider with your subscription.

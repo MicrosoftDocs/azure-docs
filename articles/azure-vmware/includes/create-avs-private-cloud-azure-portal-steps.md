@@ -2,7 +2,7 @@
 title: Deploy Azure VMware Solution
 description: Steps to deploy Azure VMware Solution using the Azure portal.
 ms.topic: include
-ms.date: 08/26/2020
+ms.date: 09/07/2020
 ---
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
