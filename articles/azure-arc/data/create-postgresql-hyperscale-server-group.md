@@ -15,6 +15,16 @@ ms.topic: how-to
 
 This document describes the steps to deploy a PostgreSQL Hyperscale server group on Azure Arc.
 
+## Getting started
+If you are already familiar with the topics below you may skip this paragraph.
+There are important topics you may want read before you proceed with deployment:
+- [Overview of Azure Arc enabled data services](overview.md)
+- [Connectity modes and requirements](connectivity.md)
+- [Storage configuration and Kubernetes storage concepts](storage-configuration.md)
+
+If you prefer to try things out without provisioning an full environemnt yourself, **get started quickly with [Azure Arc JumpStart](https://github.com/microsoft/azure_arc#azure-arc-enabled-data-services) on Azure Kubernetes Service (AKS), AWS Elastic Kubernetes Service (EKS), Google Cloud Kubernetes Engine (GKE) or in an Azure VM**.
+
+
 ## Login to the Azure Arc data controller
 
 Before you can create an instance, you must first login to the Azure Arc data controller. If you are already logged in into the data controller, you can skip this step.
@@ -39,9 +49,10 @@ Logged in successfully to `https://10.0.0.4:30080` in namespace `arc`. Setting a
 Implement this preliminary step before moving to the next step. To deploy PostgreSQL Hyperscale server group onto Red Hat OpenShift in a project other than the default, you need to execute the following commands against your cluster to relax the security constraints. This command grants the necessary privileges to the service accounts that will run your Postgres Hyperscale server group. It is a temporary requirement that will be removed in the future.
 
 ```terminal
-oc adm policy add-scc-to-group anyuid -z <Postgres Hyperscale server group name> -n <namespace name>
+oc adm policy add-scc-to-group anyuid -z <PostgreSQL-Hyperscale-server-group-name> -n <namespace name>
 ```
-
+_**PostgreSQL-Hyperscale-server-group-name** is the name of the server group you will deploy during the next step._
+   
 For more details on the Security Context Constraints (SCC) in OpenShift, please refer to the OpenShift documentation [here](https://docs.openshift.com/container-platform/4.2/authentication/managing-security-context-constraints.html).
 You may now implement the next step.
 
