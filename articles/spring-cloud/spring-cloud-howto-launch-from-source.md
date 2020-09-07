@@ -11,11 +11,11 @@ ms.custom: devx-track-java, devx-track-azurecli
 
 # How to Launch your Spring Cloud application from source code
 
-Azure Spring Cloud enables you to run Spring Cloud based microservice applications on Azure.
+Azure Spring Cloud enables Spring Cloud based microservice applications on Azure.
 
-Azure Spring Cloud allows you to launch your application directly from your java source code or from a pre-built JAR. This article walks you through required steps.
+You can launch applications directly from java source code or from a pre-built JAR. This article explains the deployment procedures.
 
-Following this quickstart, you will learn how to:
+This quickstart explains how to:
 
 > [!div class="checklist"]
 > * Provision a service instance
@@ -46,7 +46,7 @@ az extension add --name spring-cloud
 
 ## Provision a service instance using the Azure CLI
 
-Login to the Azure CLI and choose your active subscription. Be sure to choose the active subscription that is whitelisted for Azure Spring Cloud
+Login to the Azure CLI and choose your active subscription. 
 
 ```azurecli
 az login
@@ -60,7 +60,7 @@ Create a resource group to contain your Azure Spring Cloud service. You can lear
 az group create --location eastus --name <resource group name>
 ```
 
-Run the following commands to provision an instance of Azure Spring Cloud. Prepare a name for your Azure Spring Cloud service. The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens. The first character of the service name must be a letter and the last character must be either a letter or a number.
+Run the following commands to provision an instance of Azure Spring Cloud. Prepare a name for your Azure Spring Cloud service. The name must be between 4 and 32 characters and can contain only lowercase letters, numbers, and hyphens. The first character of the service name must be a letter and the last character must be either a letter or a number.
 
 ```azurecli
 az spring-cloud create -n <resource name> -g <resource group name>
@@ -68,7 +68,7 @@ az spring-cloud create -n <resource name> -g <resource group name>
 
 The service instance will take about five minutes to deploy.
 
-Set your default resource group name and cluster name using the following commands:
+Set your default resource group name and Azure Spring Cloud instance name using the following commands:
 
 ```azurecli
 az configure --defaults group=<service group name>
@@ -78,9 +78,9 @@ az configure --defaults spring-cloud=<service instance name>
 > [!div class="nextstepaction"]
 > [I ran into an issue](https://www.research.net/r/javae2e?tutorial=asc-source-quickstart&step=provision)
 
-## Create the Spring Cloud application
+## Create the Azure Spring Cloud application
 
-The following command creates a Spring Cloud application in your subscription.  This creates an empty Spring Cloud service to which we can upload our application.
+The following command creates an Azure Spring Cloud application in your subscription.  This creates an empty service to which we can upload our application.
 
 ```azurecli
 az spring-cloud app create -n <app-name>
@@ -111,7 +111,7 @@ az spring-cloud app deployment create --app <app-name> -n <deployment-name> --ja
 Azure Spring Cloud uses [kpack](https://github.com/pivotal/kpack) to build your project.  You can use Azure CLI to upload your source code, build your project using kpack, and deploy it to the target application.
 
 > [!WARNING]
-> The project must produce only one JAR file with a `main-class` entry in the `MANIFEST.MF` in `target` (for Maven deployments or `build/libs` (for Gradle deployments).  Multiple JAR files with `main-class` entries will cause the deployment to fail.
+> The project must produce only one JAR file with a `main-class` entry in the `MANIFEST.MF` in `target` (for Maven deployments) or `build/libs` (for Gradle deployments).  Multiple JAR files with `main-class` entries will cause the deployment to fail.
 
 For single module Maven / Gradle projects:
 
@@ -145,7 +145,7 @@ az spring-cloud app show-deploy-log -n <app-name> [-d <deployment-name>]
 
 1. Open the **Application Dashboard** page.
 2. Select the `gateway` application to show the **Application Details** page.
-3. Select **Assign Domain** to assign a public endpoint to gateway. This can a few minutes. 
+3. Select **Assign endpoint** to assign a public endpoint to gateway. This can take a few minutes. 
 4. Enter the assigned public IP into your browser to view your running application.
 
 > [!div class="nextstepaction"]
