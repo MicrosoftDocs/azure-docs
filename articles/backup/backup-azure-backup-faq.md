@@ -40,7 +40,7 @@ Yes. To move a Recovery Services vault, refer this [article](backup-azure-move-r
 
 No. Backup data stored in a vault can't be moved to a different vault.
 
-### Can I change from GRS to LRS after a backup?
+### Can I change the storage redundancy setting after a backup?
 
 The storage replication type by default is set to geo-redundant storage (GRS). Once you configure the backup, the option to modify is disabled and can't be changed.
 

@@ -132,14 +132,17 @@ As one of the [restore options](#restore-options), Cross Region Restore (CRR) al
 
 To onboard to the feature during the preview, read the [Before You Begin section](./backup-create-rs-vault.md#set-cross-region-restore).
 
-To see if CRR is enabled, follow the instructions in [Configure Cross Region Restore](backup-create-rs-vault.md#configure-cross-region-restore)
+To see if CRR is enabled, follow the instructions in [Configure Cross Region Restore](backup-create-rs-vault.md#configure-cross-region-restore).
 
 ### View backup items in secondary region
 
 If CRR is enabled, you can view the backup items in the secondary region.
 
-1. From the portal, go to **Recovery Services vault** > **Backup items**
+1. From the portal, go to **Recovery Services vault** > **Backup items**.
 1. Select **Secondary Region** to view the items in the secondary region.
+
+>[!NOTE]
+>Only Backup Management Types supporting the CRR feature will be shown in the list. Currently, only support for restoring secondary region data to a secondary region is allowed.
 
     ![Virtual machines in secondary region](./media/backup-azure-arm-restore-vms/secbackedupitem.png)
 

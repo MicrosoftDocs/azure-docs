@@ -163,6 +163,51 @@ If the total string size of files in a database is greater than a [particular li
 
   ![Restore Database with large file](./media/backup-azure-sql-database/restore-large-files.jpg)
 
+## Cross Region Restore
+
+As one of the restore options, Cross Region Restore (CRR) allows you to restore SQL databases hosted on Azure VMs in a secondary region, which is an Azure paired region.
+
+To onboard to the feature during the preview, read the [Before You Begin section](./backup-create-rs-vault.md#set-cross-region-restore).
+
+To see if CRR is enabled, follow the instructions in [Configure Cross Region Restore](backup-create-rs-vault.md#configure-cross-region-restore)
+
+### View backup items in secondary region
+
+If CRR is enabled, you can view the backup items in the secondary region.
+
+1. From the portal, go to **Recovery Services vault** > **Backup items**.
+1. Select **Secondary Region** to view the items in the secondary region.
+
+>[!NOTE]
+>Only Backup Management Types supporting the CRR feature will be shown in the list. Currently, only support for restoring secondary region data to a secondary region is allowed.
+
+![Backup items in secondary region](./media/backup-azure-sql-database/backup-items-secondary-region.png)
+
+![Databases in secondary region](./media/backup-azure-sql-database/databases-secondary-region.png)
+
+### Restore in secondary region
+
+The secondary region restore user experience will be similar to the primary region restore user experience. When configuring details in the Restore Configuration pane to configure your restore, you'll be prompted to provide only secondary region parameters.
+
+![Where and how to restore](./media/backup-azure-sql-database/restore-secondary-region.png)
+
+>[!NOTE]
+>The virtual network in the secondary region needs to be assigned uniquely, and can't be used for any other VMs in that resource group.
+
+![Trigger restore in progress notification](./media/backup-azure-arm-restore-vms/restorenotifications.png)
+
+>[!NOTE]
+>
+>- After the restore is triggered and in the data transfer phase, the restore job can't be cancelled.
+>- The Azure roles needed to restore in the secondary region are the same as those in the primary region.
+
+### Monitoring secondary region restore jobs
+
+1. From the portal, go to **Recovery Services vault** > **Backup Jobs**
+1. Select **Secondary Region** to view the items in the secondary region.
+
+    ![Backup jobs filtered](./media/backup-azure-sql-database/backup-jobs-secondary-region.png)
+
 ## Next steps
 
 [Manage and monitor](manage-monitor-sql-database-backup.md) SQL Server databases that are backed up by Azure Backup.
