@@ -147,18 +147,6 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-you can also write the following (which is equivalent)
-
-```csharp
-public void ConfigureServices(IServiceCollection services)
-{
- // Adds Microsoft Identity platform (AAD v2.0) support to protect this API
- services.AddMicrosoftIdentityWebApiAuthentication(Configuration, "AzureAd");
-
- services.AddControllers();
-}
-```
-
 > [!NOTE]
 > If you use Microsoft.Identity.Web and don't set the `Audience` in *appsettings.json*, the following is used:
 > -  `$"{ClientId}"` if you have set the [access token accepted version](scenario-protected-web-api-app-registration.md#accepted-token-version) to `2`, or for Azure AD B2C web APIs.
