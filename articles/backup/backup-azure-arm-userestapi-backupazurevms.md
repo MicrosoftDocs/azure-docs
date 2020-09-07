@@ -296,7 +296,7 @@ In the request body above, the list of disks to be backed up are provided in the
 |diskLunList     | The disk LUN list is a list of *LUNs of data disks*. **OS disk is always backed up and doesn't need to be mentioned**.        |
 |IsInclusionList     | Should be **true** for the LUNs to be included during backup. If it is **false**, the aforementioned LUNs will be excluded.         |
 
-So, if the requirement is to backup only the OS disk, then *all* data disks should be excluded. An easier way is to say that no data disks should be included. So the disk LUN list will be empty and the **IsInclusionList** will be **true**. Similarly, think of what is the easier way of selecting a sub-set: Few disks should be always excluded or few disks should always be included. Choose the LUN list and the boolean variable value accordingly.
+So, if the requirement is to backup only the OS disk, then _all_ data disks should be excluded. An easier way is to say that no data disks should be included. So the disk LUN list will be empty and the **IsInclusionList** will be **true**. Similarly, think of what is the easier way of selecting a subset: A few disks should be always excluded or a few disks should always be included. Choose the LUN list and the boolean variable value accordingly.
 
 ## Trigger an on-demand backup for a protected Azure VM
 

@@ -266,7 +266,7 @@ When you enable backup using Azure portal, you can choose the **Backup OS Disk o
 
 ## Using Azure REST API
 
-You can configure Azure VM Backup with few select disks or modify existing VM's protection to include/exclude few disks as documented [here](backup-azure-arm-userestapi-backupazurevms.md#excluding-disks-in-azure-vm-backup).
+You can configure Azure VM Backup with a few select disks or you can modify an existing VM's protection to include/exclude few disks as documented [here](backup-azure-arm-userestapi-backupazurevms.md#excluding-disks-in-azure-vm-backup).
 
 ## Selective disk restore
 
