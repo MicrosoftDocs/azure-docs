@@ -14,34 +14,42 @@ ms.topic: how-to
  
 # Show the configuration of an Arc enabled PostgreSQL Hyperscale server group
 
-This article explains how can display the configuration of your server group(s). It does so by anticipating some questions you may be asking to yourself and it answers them. At time there may be several valid answers, this article pitches the most common or useful ones. It groups those questions by theme:
-- from a Kubernestes point of view
-- from an Azure Arc enabled Data Services point of view
+This article explains how to display the configuration of your server group(s). It does so by anticipating some questions you may be asking to yourself and it answers them. At times there may be several valid answers. This article pitches the most common or useful ones. It groups those questions by theme:
+
+- from a Kubernetes point of view
+- from an Azure Arc enabled data services point of view
 
 ## From a Kubernetes point of view
 
-> ### How many pods are used by Azure Arc enabled PostgreSQL Hyperscale?
+### How many pods are used by Azure Arc enabled PostgreSQL Hyperscale?
 
 List the Kubernetes resources of type Postgres. Run the command:
-```terminal
+
+```console
 kubectl get postgresqls
 ```
+
 The output of this command shows the list of server groups deployed. For each, it indicates the number of pods. For example:
-```terminal
+
+```output
 NAME                                             STATE   READY-PODS   EXTERNAL-ENDPOINT   AGE
 postgresql-12.arcdata.microsoft.com/postgres01   Ready   3/3          10.0.0.4:30499      6h34m
 postgresql-12.arcdata.microsoft.com/postgres02   Ready   3/3          10.0.0.4:31066      6d7h
 ```
-This example shows that 2 server groups are deployed and each runs on 3 pods (1 coordinator + 2 workers). That means the server groups deployed in this Arc Data Contoller use 6 pods.
 
-> ### What pods are used by Azure Arc enabled PostgreSQL Hyperscale server groups?
+This example shows that 2 server groups are deployed and each runs on 3 pods (1 coordinator + 2 workers). That means the server groups deployed in this Azure Arc Data Controller use 6 pods.
+
+### What pods are used by Azure Arc enabled PostgreSQL Hyperscale server groups?
 
 Run:
-```terminal
+
+```console
 kubectl get pods
 ```
+
 This returns the list of pods. You will see the pods used by your server groups based on the names you gave to those server groups. For example:
-```terminal 
+
+```console 
 NAME                 READY   STATUS    RESTARTS   AGE
 bootstrapper-vdltm   1/1     Running   0          6d8h
 control-h6kc9        2/2     Running   0          6d8h
@@ -60,37 +68,42 @@ postgres02-0         3/3     Running   0          22h
 postgres02-1         3/3     Running   0          22h
 postgres02-2         3/3     Running   0          22h
 ```
+
 In this example, the six pods that host the two server groups that are deployed are:
-- postgres01-0
-- postgres01-1
-- postgres01-2
-- postgres02-0
-- postgres02-1
-- postgres02-2  
+- `postgres01-0`
+- `postgres01-1`
+- `postgres01-2`
+- `postgres02-0`
+- `postgres02-1`
+- `postgres02-2`  
 
-> ### What server group pod is used for what role the server group?
+### What server group pod is used for what role the server group?
 
-Any pod name suffixed with _-0_ represents a coordinator node. Any node name suffixed by _-x_ where is 1 or greaters is worker node. In the above example:
-- The coordinators are: postgres01-0, postgres02-0
-- The workers are: postgres01-2, postgres01-2, postgres02-1, postgres02-2
+Any pod name suffixed with `-0` represents a coordinator node. Any node name suffixed by `-x` where is 1 or greaters is worker node. In the above example:
+- The coordinators are: `postgres01-0`, `postgres02-0`
+- The workers are: `postgres01-2`, `postgres01-2`, `postgres02-1`, `postgres02-2`
 
-> ### What is the status of the pods?
+### What is the status of the pods?
 
-Run _kubectl get pods_ and look at the column _STATUS_
+Run `kubectl get pods` and look at the column `STATUS`
 
-> ### What PVCs are being used? 
-> ### What PVCs are used for data, logs and backups?
-Run: 
-```terminal
+### What persistent volume claims (PVCs) are being used? 
+
+To understand what PVCs are used, as well as which are used for data, logs and backups, run: 
+
+```console
 kubectl get pvc
 ```
+
 By default, the prefix of the name of a PVC indicates its usage:
-- backups-...: is a pvc used for backups
-- data-...: is pvc used for data files
-- logs-...: is a pvc used for transaction logs/WAL files
+
+- `backups-`...: is a pvc used for backups
+- `data-`...: is pvc used for data files
+- `logs-`...: is a pvc used for transaction logs/WAL files
 
 For example:
-```terminal
+
+```output
 NAME                   STATUS   VOLUME              CAPACITY   ACCESS MODES   STORAGECLASS    AGE
 backups-postgres01-0   Bound    local-pv-485e37db   1938Gi     RWO            local-storage   6d6h
 backups-postgres01-1   Bound    local-pv-9d3d4a15   1938Gi     RWO            local-storage   6d6h
@@ -107,54 +120,71 @@ logs-postgres01-2      Bound    local-pv-5ccd02e6   1938Gi     RWO            lo
 ```
 
 
-## From an Azure Arc enabled Data Services point of view:
+## From an Azure Arc enabled data services point of view:
 
-> ### How many server groups are deployed in an Arc Data Controller?
-> ### What are their names?
-> ### How many worker nodes do they use?
-> ### What version of Postgres do they run?
+* How many server groups are deployed in an Arc Data Controller?
+* What are their names?
+* How many worker nodes do they use?
+* What version of Postgres do they run?
+
 Use either of the following commands.
 - **With kubectl:**
-```terminal
-kubectl get postgresqls
-``` 
-For example it produces the below output where each line is a servergroup. The structure of the name in the below display is formed as:
-_Name-Of-Custom-Resource-Definition_/_Server-Group-Name_
-```terminal
-NAME                                             STATE   READY-PODS   EXTERNAL-ENDPOINT   AGE
-postgresql-12.arcdata.microsoft.com/postgres01   Ready   3/3          10.0.0.4:30499      7h15m
-postgresql-12.arcdata.microsoft.com/postgres02   Ready   3/3          10.0.0.4:31066      6d7h
-```
-The output above shows 2 server groups that are of Postgres version 12. If the version was Postgres 11, the name of the CRD would be postgresql-11.arcdata.microsoft.com instead.
-Each of them runs on 3 nodes/pods: 1 coordinator and 2 workers.
+
+   ```console
+   kubectl get postgresqls
+   ``` 
+
+   For example it produces the below output where each line is a servergroup. The structure of the name in the below display is formed as:
+
+   `<Name-Of-Custom-Resource-Definition>`/`<Server-Group-Name>`
+
+   ```output
+   NAME                                             STATE   READY-PODS   EXTERNAL-ENDPOINT   AGE
+   postgresql-12.arcdata.microsoft.com/postgres01   Ready   3/3          10.0.0.4:30499      7h15m
+   postgresql-12.arcdata.microsoft.com/postgres02   Ready   3/3          10.0.0.4:31066      6d7h
+   ```
+
+   The output above shows 2 server groups that are of Postgres version 12. If the version was Postgres 11, the name of the CRD would be postgresql-11.arcdata.microsoft.com instead.
+
+   Each of them runs on 3 nodes/pods: 1 coordinator and 2 workers.
 
 - **With azdata:**
+
 Run the following command. The output shows similar information to what kubectl shows:
-```terminal
-azdata arc postgres server list
 
-Name        State    Workers
-----------  -------  ---------
-postgres01  Ready    2
-postgres02  Ready    2
-```
+   ```console
+   azdata arc postgres server list
 
-> ### How much memory and vcores are being used?
-> ### What extensions were created in a given server group?
+   `output
+   Name        State    Workers
+   ----------  -------  ---------
+   postgres01  Ready    2
+   postgres02  Ready    2
+   ```
+
+
+### How much memory and vcores are being used and what extensions were created for a group?
+
 Run either of the following commands
 
 **With Kubectl:**
+
 Use kubectl to describe a Postgres resources. To do so, you need its kind (name of the Kubernetes resource (CRD) for the corresponding Postgres version as shown above) and the name of the server group.
 The general format of this command is:
-```terminal
+
+```console
 kubectl describe <CRD name>/<server group name>
 ```
+
 For example:
-```terminal
+
+```console
 kubectl describe postgresql-12/postgres02
 ```
+
 This commands shows the configuration of the server group:
-```terminal
+
+```output
 Name:         postgres02
 Namespace:    arc
 Labels:       <none>
@@ -210,19 +240,21 @@ Status:
   State:              Ready
 Events:               <none>
 ```
+
 Let's call out some specific points of interest in the description of the servergroup shown above. What does it tell us about this server group?
+
 - It is of version 12 of Postgres: 
-   > Kind:         postgresql-12
+   > Kind:         `postgresql-12`
 - It was created during the month of August 2020:
-   > Creation Timestamp:  2020-08-31T21:01:07Z
-- Two Postgres extensions were created in this server group: citus and pg_stat_statements
+   > Creation Timestamp:  `2020-08-31T21:01:07Z`
+- Two Postgres extensions were created in this server group: `citus` and `pg_stat_statements`
    > Engine:
    >    Extensions:
-   >      Name:  citus
-   >      Name:  pg_stat_statements
+   >      Name:  `citus`
+   >      Name:  `pg_stat_statements`
 - It uses two worker nodes
    > Scale:
-   >    Shards:  2
+   >    Shards:  `2`
 - It is guaranteed to use 1 cpu/vcore and 512MB of Ram per node. It will use more than 4 cpu/vcores and 1024MB of memory:
    > Scheduling:
    >    Default: 
@@ -240,16 +272,22 @@ Let's call out some specific points of interest in the description of the server
    >  State:              Ready
 
 **With azdata:**
+
 The general format of the command is:
-```terminal
+
+```console
 azdata arc postgres server show -n <server group name>
 ```
+
 For example:
-```terminal
+
+```console
 azdata arc postgres server show -n postgres02
 ```
+
 Returns the below output in a format and content very similar to the one returned by kubectl.
-```terminal
+
+```output
 {
   "apiVersion": "arcdata.microsoft.com/v1alpha1",
   "kind": "postgresql-12",
@@ -331,8 +369,6 @@ Returns the below output in a format and content very similar to the one returne
   }
 }
 ```
-
-
 ## Next steps
 - [Read about the concepts of Azure Arc enabled PostgreSQL Hyperscale](concepts-distributed-data-postgres-hyperscale.md)
 - [Read about how to scale out (add worker nodes) a server group](scale-out-postgresql-hyperscale-server-group.md)
