@@ -29,11 +29,11 @@ If the paths are stored as relative paths and the relative location between the 
 Due to the many ways assets can be generated, the conversion service has to be flexible.
 In particular, it has to handle situations where the paths in the asset and the location of textures don't match precisely.
 An example is when assets are generated containing absolute paths, since these paths will never match the filesystem used by the conversion service.
-To handle this situation among other, we use a best effort approach to finding textures.
+To handle this situation among others, we use a best effort approach to finding textures.
 
 The algorithm for locating textures is as follows:
 Given a path as stored in an asset, find the longest sub-path suffix which, when used as a relative path from the location of the source asset, targets a file that exists.
-If no such path (including the whole path) targets a file, the texture is regarded as missing.
+If no such sub-path (including the whole path) targets a file, the texture is regarded as missing.
 
 Consider the following contrived filesystem: 
 ```
