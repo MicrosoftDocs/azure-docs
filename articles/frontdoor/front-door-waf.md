@@ -114,7 +114,7 @@ Initially the custom domain name of your web application (the one that customers
 
 Specific steps to update your DNS records will depend on your DNS service provider, but if you are using Azure DNS to host your DNS name, you can refer to the documentation for [steps do update a DNS record](https://docs.microsoft.com/azure/dns/dns-operations-recordsets-cli) and point to the AFD hostName. 
 
-One key thing to note here is that, if you need your users to navigate to your website using the zone apex, for exmaple, contoso.com, you have to use Azure DNS and it's [ALIAS record type](https://docs.microsoft.com/azure/dns/dns-alias) to host your DNS name. 
+One key thing to note here is that, if you need your users to navigate to your website using the zone apex, for example, contoso.com, you have to use Azure DNS and it's [ALIAS record type](https://docs.microsoft.com/azure/dns/dns-alias) to host your DNS name. 
 
 In addition, you also need to update your AFD configuration to [add this custom domain](https://docs.microsoft.com/azure/frontdoor/front-door-custom-domain) to it so that AFD understands this mapping.
 
