@@ -10,7 +10,7 @@ ms.date: 8/20/2020
 ms.author: allensu
 ---
 
-# Azure CDN endpoint multi-origin
+# Azure CDN endpoint multi-origin(Preview)
 
 Multi-origin support eliminates downtime and establishes global redundancy. 
 
@@ -19,7 +19,8 @@ By choosing multiple origins within an Azure CDN endpoint, the redundancy provid
 Setup one or more origin groups and choose a default origin group. Each origin group is a collection of one or more origins that can take similar workloads.
 
 > [!NOTE]
-> Currently this feature is only available from Azure CDN from Microsoft. 
+> This public preview is provided without a service level agreement and should not be used for production workloads. Currently this feature is only available from Azure CDN from Microsoft. 
+>
 
 ## Create the origin group
 
