@@ -327,7 +327,7 @@ Set-AzureRmPublicIpAddress -PublicIpAddress $PublicIP
 
 The previously mentioned solution uses one nodeType per AZ. The following solution will allow users to deploy 3 AZ's in the same nodeType.
 
-Full sample template is present [here](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/crossAZ/15-VM-Windows-Multiple-AZ-Secure).
+Full sample template is present [here](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/15-VM-Windows-Multiple-AZ-Secure).
 
 ### Configuring zones on a virtual machine scale set
 To enable zones on a virtual machine scale set you must include the following three values in the virtual machine scale set resource.
