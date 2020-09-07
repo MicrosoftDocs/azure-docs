@@ -66,7 +66,6 @@ Security Center offers enhanced security and threat protection for your hybrid c
 ## Next steps
 In this article, you were introduced to pricing for Security Center. To learn more about the standard tier's enhanced security and advanced threat protection, see:
 
-- [Threat protection in Azure Security Center](threat-protection.md)
 - [Just-in-time VM access control](security-center-just-in-time.md)
 - [Container security overview](container-security.md)
 - [Pricing details in your currency of choice, and according to your region](https://azure.microsoft.com/pricing/details/security-center/)

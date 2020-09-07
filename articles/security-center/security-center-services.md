@@ -26,7 +26,7 @@ The two tabs below show the features of Azure Security Center that are available
 |**Feature**|**Azure Virtual Machines**|**Azure Virtual Machine Scale Sets**|**Non-Azure Machines**|**Pricing**
 |----|:----:|:----:|:----:|:----:|
 |[Microsoft Defender ATP integration](security-center-wdatp.md)|✔</br>(on supported versions)|✔</br>(on supported versions)|✔|Standard|
-|[Virtual machine behavioral analytics (and security alerts)](threat-protection.md)|✔|✔|✔|Standard|
+|[Virtual machine behavioral analytics (and security alerts)](alerts-reference.md)|✔|✔|✔|Standard|
 |[Fileless security alerts](alerts-reference.md#alerts-windows)|✔|✔|✔|Standard|
 |[Network-based security alerts](other-threat-protections.md#network-layer)|✔|✔|-|Standard|
 |[Just-in-time VM access](security-center-just-in-time.md)|✔|-|-|Standard|

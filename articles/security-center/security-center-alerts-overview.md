@@ -86,6 +86,5 @@ These combined efforts culminate in new and improved detections, which you can b
 
 In this article, you learned about the different types of alerts available in Security Center. For more information, see:
 
-* [Threat protection in Azure Security Center](threat-protection.md) - For a brief description of the sources of the security alerts displayed by Azure Security Center 
-* **Security alerts in Azure Activity Log** - In addition to being available in the Azure portal or programmatically, Security alerts and incidents are audited as events in [Azure Activity Log](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view). For more information on the event schema, see [Security Alerts in Azure Activity log](https://go.microsoft.com/fwlink/?linkid=2114113)
+- **Security alerts in Azure Activity Log** - In addition to being available in the Azure portal or programmatically, Security alerts and incidents are audited as events in [Azure Activity Log](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view). For more information on the event schema, see [Security Alerts in Azure Activity log](https://go.microsoft.com/fwlink/?linkid=2114113)
 

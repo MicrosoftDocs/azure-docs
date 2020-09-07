@@ -1,36 +1,25 @@
 ---
-title: 43-59 chars 
-description: 115-145 characters
+title: Connect your machines to Azure Security Center
+description: Monitoring your machines from Azure Security Center
 author: memildin
 ms.author: memildin
 ms.date: 9/12/2020
-ms.topic: article-type-from-white-list
+ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
 
 ---
 
-# (Preview)
+#  Connect your machines accounts to Azure Security Center
+
+This page explains
 
 
+## Monitoring your machines from Azure Security Center
 
-
-
-##
-
-
-
-##
-
-
+The overview has
 
 
 ## Next steps
 
-In this article, you learned [x]]. 
-
-For other related material, see the following articles: 
-
-- [title](page.md)
-- [title](page.md)
-- [title](page.md)
+More stuff

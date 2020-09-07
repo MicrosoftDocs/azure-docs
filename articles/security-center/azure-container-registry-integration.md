@@ -61,7 +61,7 @@ Image scans are triggered on every push.
 Yes. The results are under [Sub-Assessments Rest API](/rest/api/securitycenter/subassessments/list/). Also, you can use Azure Resource Graph (ARG), the Kusto-like API for all of your resources: a query can fetch a specific scan.
  
 ### What registry types are scanned? What types are billed?
-The [availability section](#availability) lists the types of container registries supported by the Container Registries bundle. 
+The availability section lists the types of container registries supported by the Container Registries bundle. 
 
 If registries that aren't supported are connected to your Azure subscription, they won't be scanned and you will not be billed for them.
 

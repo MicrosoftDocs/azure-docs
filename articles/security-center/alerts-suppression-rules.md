@@ -158,4 +158,3 @@ This article described the suppression rules in Azure Security Center that autom
 For more information on security alerts in Azure Security Center, see the following pages:
 
 - [Security alerts and the intent kill chain](alerts-reference.md) - A reference guide for the security alerts you might see in Azure Security Center's Threat Protection module.
-- [Threat protection in Azure Security Center](threat-protection.md) - A description of the many aspects of your environment monitored by Azure Security Center's Threat Protection module.

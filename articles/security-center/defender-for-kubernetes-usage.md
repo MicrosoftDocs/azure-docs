@@ -71,14 +71,14 @@ To configure the bundle, first you must install the add on:
 
 1. From the recommendations page, search for the recommendation named **Azure Policy add-on for Kubernetes should be installed and enabled on your clusters**.
 
-    :::image type="content" source="./media/defender-for-kubernetes-usage/recommendation-to-install-azure-policy-add-on-for-kubernetes.png" alt-text="Recommendation "Azure Policy add-on for Kubernetes should be installed and enabled on your clusters":::
+    :::image type="content" source="./media/defender-for-kubernetes-usage/recommendation-to-install-policy-add-on-for-kubernetes.png" alt-text="Recommendation "Azure Policy add-on for Kubernetes should be installed and enabled on your clusters":::
 
     > [!TIP]
     > Notice that the recommendation is included in five different security controls. 
 
 1. From any of the security controls, select the recommendation to see the resources on which you can install the add on, and select **Remediate**. 
 
-    :::image type="content" source="./media/defender-for-kubernetes-usage/recommendation-to-install-azure-policy-add-on-for-kubernetes-details.png" alt-text="Recommendation details page for "Azure Policy add-on for Kubernetes should be installed and enabled on your clusters":::
+    :::image type="content" source="./media/defender-for-kubernetes-usage/recommendation-to-install-policy-add-on-for-kubernetes-details.png" alt-text="Recommendation details page for "Azure Policy add-on for Kubernetes should be installed and enabled on your clusters":::
 
 1. Approximately 30 minutes after the add-on installation completes, Security Center shows the clusters’ health status for the following recommendations, each in the relevant security control as shown:
 
@@ -117,7 +117,7 @@ To configure the bundle, first you must install the add on:
 
 1. To enforce any of the recommendations, set it **Deny** in Security Center's Security Policy **Parameters** tab:
 
-    :::image type="content" source="./media/defender-for-kubernetes-usage/enforce-workload-protection-example.png" alt-text="Recommendation details page for "Azure Policy add-on for Kubernetes should be installed and enabled on your clusters":::
+    :::image type="content" source="./media/defender-for-kubernetes-usage/enforce-workload-protection-example.png" alt-text="Recommendation details page for **Azure Policy add-on for Kubernetes should be installed and enabled on your clusters**":::
 
     This will deny any non-compliant request to your AKS clusters
 

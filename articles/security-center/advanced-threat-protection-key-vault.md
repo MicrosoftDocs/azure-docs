@@ -39,7 +39,6 @@ To enable or disable the protection for a specific subscription:
 
 In this article, you learned how to enable and disable advanced threat protection for Azure Key Vault. 
 
-For related material, see the following articles:
+For related material, see the following article:
 
-- [Threat protection in Azure Security Center](threat-protection.md)--This article describes the sources of security alerts in Azure Security Center.
 - [Key Vault security alerts](alerts-reference.md#alerts-azurekv)--The Key Vault section of the reference table for all Azure Security Center alerts

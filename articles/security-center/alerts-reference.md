@@ -419,7 +419,6 @@ Security Center's supported kill chain intents are based on the [MITRE ATT&CK&tr
 ## Next steps
 To learn more about alerts, see the following:
 
-* [Threat protection in Azure Security Center](threat-protection.md)
-* [Security alerts in Azure Security Center](security-center-alerts-overview.md)
-* [Manage and respond to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md)
-* [Export security alerts and recommendations (Preview)](continuous-export.md)
+- [Security alerts in Azure Security Center](security-center-alerts-overview.md)
+- [Manage and respond to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md)
+- [Export security alerts and recommendations (Preview)](continuous-export.md)
