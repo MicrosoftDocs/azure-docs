@@ -17,7 +17,7 @@ ms.topic: how-to
 This article explains key concepts that are important to benefit the most from Azure Arc enabled Postgres Hyperscale.
 The articles linked below point to the concepts explained for Azure Database for Postgres Hyperscale (Citus). It is the same technology as Azure Arc enabled Postgres Hyperscale so the same concepts and perspectives apply.
 
-**What is the difference between the two"?**
+**What is the difference between the them?**
 - _Azure SQL Database for Postgres Hyperscale (Citus)_
 
 This is the hyperscale form factor of the Postgres database engine available as database as a service in Azure (PaaS). It is powered by the the Citus extension that enables the Hyperscale experience. In this form factor the service runs in the Microsoft datacenters and is operated by Microsoft.
