@@ -24,44 +24,50 @@ This is the hyperscale form factor of the Postgres database engine available as 
 
 - _Azure Arc enabled PostgreSQL Hyperscale_
 
-This is the hyperscale form factor of the Postgres database engine offered avilable with Azure Arc enabled Data Service. In this form factor, our customers provide the infrastructure that host the systems and operate them.
+This is the hyperscale form factor of the Postgres database engine offered available with Azure Arc enabled Data Service. In this form factor, our customers provide the infrastructure that host the systems and operate them.
 
 The key concepts around Azure Arc enabled PostgreSQL Hyperscale are:
 
-### Nodes and tables:
-In this article you'll read about:
-- specialized Postgres nodes in Azure Arc enabled PostgreSQL Hyperscale: coordinator and workers
-- types of tables: distributed tables, reference tables and local tables
-- shards
+## Nodes and tables
 
-Read on [here](https://docs.microsoft.com/azure/postgresql/concepts-hyperscale-nodes).
+This article demonstrates:
+- Specialized Postgres nodes in Azure Arc enabled PostgreSQL Hyperscale: coordinator and workers
+- Types of tables: distributed tables, reference tables and local tables
+- Shards
 
-### Determining an application type:
-In this article you'll read about how to clearly identify the type of application you are building. Why is it important?
+See more information at [Nodes and tables in Azure Database for PostgreSQL – Hyperscale (Citus)](../../postgresql/concepts-hyperscale-nodes.md). 
+
+## Determine the application type
+
+This article explains how to clearly identify the type of application you are building. Why is it important?
 Because running efficient queries on a Azure Arc enabled PostgreSQL Hyperscale server group requires that tables be properly distributed across servers. 
+
 The recommended distribution varies by the type of application and its query patterns. There are broadly two kinds of applications that work well on Azure Arc enabled Postgres Hyperscale:
 - Multi-Tenant Applications
 - Real-Time Applications
 
 The first step in data modeling is to identify which of them more closely resembles your application.
 
-Read on [here](https://docs.microsoft.com/azure/postgresql/concepts-hyperscale-app-type).
+See details at [Determining application type](../../postgresql/concepts-hyperscale-app-type.md).
 
 
-### Choosing a distribution column:
-In this article you'll read about choosing each table's distribution column. Why?
+## Choose a distribution column
+
+Why choose a distributed column?
+
 This is one of the most important modeling decisions you'll make. Azure Arc enabled PostgreSQL Hyperscale stores rows in shards based on the value of the rows' distribution column. The correct choice groups related data together on the same physical nodes, which makes queries fast and adds support for all SQL features. 
+
 An incorrect choice makes the system run slowly and won't support all SQL features across nodes. This article gives distribution column tips for the two most common hyperscale scenarios.
 
-Read on [here](https://docs.microsoft.com/azure/postgresql/concepts-hyperscale-choose-distribution-column).
+See details at [Choose distribution columns](../../postgresql/concepts-hyperscale-choose-distribution-column.md).
 
+## Table colocation
 
-### Table colocation:
-In this article, you'll read about colocation which is about storing related information together on the same nodes. 
+Colocation is about storing related information together on the same nodes. 
+
 Queries can go fast when all the necessary data is available without any network traffic. Colocating related data on different nodes allows queries to run efficiently in parallel on each node.
 
-Read on [here](https://docs.microsoft.com/azure/postgresql/concepts-hyperscale-colocation).
-
+See details at [Table colocation](../../postgresql/concepts-hyperscale-colocation.md).
 
 
 ## Next steps:

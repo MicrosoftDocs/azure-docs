@@ -1,5 +1,6 @@
 --- 
 title: Configure Postgres engine server parameters for your PostgreSQL Hyperscale server group on Azure Arc
+titleSuffix: Azure Arc enabled data services
 description: Configure Postgres engine server parameters for your PostgreSQL Hyperscale server group on Azure Arc
 services: azure-arc
 ms.service: azure-arc
@@ -152,5 +153,16 @@ For example:
 azdata arc postgres server edit -n postgres01 -e 'search_path = "$user"'
 ```
 
----
-> **NOTE:** It is not possible for now that you set the following parameters: archive_command, archive_timeout, log_directory, log_file_mode, log_filename, restore_command, shared_preload_libraries, synchronous_commit, ssl, wal_level.
+> [!NOTE]
+> Private preview does not support setting the following parameters: 
+>
+> - `archive_command`
+> - `archive_timeout`
+> - `log_directory`
+> - `log_file_mode`
+> - `log_filename`
+> - `restore_command`
+> - `shared_preload_libraries`
+> - `synchronous_commit`
+> - `ssl`
+> - `wal_level`

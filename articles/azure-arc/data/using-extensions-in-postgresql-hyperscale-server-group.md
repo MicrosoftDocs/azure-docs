@@ -1,6 +1,7 @@
 ---
 title: Use PostgreSQL extensions
 description: Use PostgreSQL extensions
+titleSuffix: Azure Arc enabled data services
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -17,23 +18,23 @@ PostgreSQL is at its best when you use it with extensions. In fact, a key elemen
 
 
 ## List of extensions
-In addition of the extensions in [contrib](https://www.postgresql.org/docs/12/contrib.html), the list of extensions present in the containers of your Azure Arc enabled Postgres Hyperscale server group is:
-- citus, v: 9.3-2
-- pg_cron, v: 1.2
-- plpgsql, v: 1.0
-- postgis, v: 3.0.2
+In addition of the extensions in [`contrib`](https://www.postgresql.org/docs/12/contrib.html), the list of extensions present in the containers of your Azure Arc enabled Postgres Hyperscale server group is:
+- `citus`, v: 9.3-2
+- `pg_cron`, v: 1.2
+- `plpgsql`, v: 1.0
+- `postgis`, v: 3.0.2
 
 This list evolves overtime and updates will be posted in this document. It is not yet possible for you to add extensions beyond those listed above.
 
 This guide will take in a scenario to use two of these extensions:
 - [PostGIS](https://postgis.net/)
-- [pg_cron](https://github.com/citusdata/pg_cron)
+- [`pg_cron`](https://github.com/citusdata/pg_cron)
 
 
 ## Manage extensions
 
 ### Enable extensions
-This step is not needed for the extensions that are part of contrib.
+This step is not needed for the extensions that are part of `contrib`.
 The general format of the command to enable extensions is:
 
 #### Enable an extension at the creation time of a server group:
@@ -123,7 +124,7 @@ To verify what extensions are installed, use the below standard PostgreSQL comma
 select * from pg_extension;
 ```
 
-Now, let's go through a PostGIS example. We'll start by getting some [sample data](http://duspviz.mit.edu/tutorials/intro-postgis/) from the MIT’s Department of Urban Studies & Planning. Note you may need to run `apt-get install unzip` to install unzip when using the VM for testing.
+For a PostGIS example, first, get [sample data](http://duspviz.mit.edu/tutorials/intro-postgis/) from the MIT’s Department of Urban Studies & Planning. You may need to run `apt-get install unzip` to install unzip when using the VM for testing.
 
 ```terminal
 wget http://duspviz.mit.edu/_assets/data/intro-postgis-datasets.zip
@@ -136,7 +137,8 @@ Let's connect to our database, and create the PostGIS extension:
 CREATE EXTENSION postgis;
 ```
 
->**Note:** If you would like to use one of the extensions in the postgis package (for example postgis_raster, postgis_topology, postgis_sfcgal, fuzzystrmatch...) you need to first create the postgis extension and then create the other extension. For instance: CREATE EXTENSION postgis; CREATE EXTENSION postgis_raster;
+> [!NOTE]
+> If you would like to use one of the extensions in the `postgis` package (for example `postgis_raster`, `postgis_topology`, `postgis_sfcgal`, `fuzzystrmatch`...) you need to first create the postgis extension and then create the other extension. For instance: `CREATE EXTENSION postgis`; `CREATE EXTENSION postgis_raster`;
 
 And create the schema:
 
@@ -228,5 +230,6 @@ SELECT * FROM the_best_coffee_shop;
 
 See the [pg_cron README](https://github.com/citusdata/pg_cron) for full details on the syntax.
 
->[!NOTE]. It is not supported to drop the citus extension. The citus extension is required to provide the hyperscale experience.
+>[!NOTE]
+>It is not supported to drop the `citus` extension. The `citus` extension is required to provide the Hyperscale experience.
 
