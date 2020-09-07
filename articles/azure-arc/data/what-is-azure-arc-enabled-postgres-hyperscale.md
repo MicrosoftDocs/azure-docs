@@ -22,7 +22,7 @@ Azure Arc enabled PostgreSQL Hyperscale is one of the database services availabl
 
 Read more details on the [overview page](overview.md).
 
-## How does Azure Arc enabled PostgreSQL Hyperscale differ from Azure Database for PostgreSQL Hyperscale (Citus)?
+## How does _Azure Arc enabled PostgreSQL Hyperscale_ differ from _Azure Database for PostgreSQL Hyperscale (Citus)_?
 
 :::image type="icon" source="../../../media/01848-icon-menu-AzurePostgreSQLHyperscale.svg" border="false":::_Azure Arc enabled PostgreSQL Hyperscale_
 _Azure SQL Database for PostgreSQL Hyperscale (Citus)_
