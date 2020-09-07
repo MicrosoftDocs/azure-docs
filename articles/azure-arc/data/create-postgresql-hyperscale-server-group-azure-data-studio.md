@@ -53,7 +53,7 @@ Logged in successfully to `https://10.0.0.4:30080` in namespace `arc`. Setting a
   - Select the storage class as appropriate for data
   - Select the storage class as appropriate for logs
   - Select the storage class as appropriate for backups
-  - Sekect the number of worker nodes to provision
+  - Select the number of worker nodes to provision
 
 - Click the **Deploy** button
 
