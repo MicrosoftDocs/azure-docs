@@ -6,16 +6,15 @@ services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice:
+ms.subservice: metrics-advisor
 ms.topic: quickstart
 ms.date: 08/19/2020
 ms.author: aahi
-zone_pivot_groups: programming-languages-metrics-monitor
 ---
 
-# Quickstart: Use the Metrics Advisor REST API and client library
+# Quickstart: Use the Metrics Advisor REST API
 
-Get started with the the Metrics Advisor REST API and client library. Follow these steps to install the package and try out the example code for basic tasks.
+Get started with the the Metrics Advisor REST API. Follow these steps to install the package and try out the example code for basic tasks.
 
 Use Metrics Advisor to perform:
 
@@ -25,37 +24,7 @@ Use Metrics Advisor to perform:
 * Query the anomaly detection results
 * Diagnose anomalies
 
-
-::: zone pivot="programming-language-csharp"
-
-[!INCLUDE [C# quickstart](../includes/quickstarts/csharp.md)]
-
-::: zone-end
-
-::: zone pivot="programming-language-java"
-
-[!INCLUDE [Java quickstart](../includes/quickstarts/java.md)]
-
-::: zone-end
-
-::: zone pivot="programming-language-javascript"
-
-[!INCLUDE [JavaScript quickstart](../includes/quickstarts/javascript.md)]
-
-::: zone-end
-
-::: zone pivot="programming-language-python"
-
-[!INCLUDE [Python quickstart](../includes/quickstarts/python.md)]
-
-::: zone-end
-
-::: zone pivot="programming-language-rest-api"
-
 [!INCLUDE [REST API quickstart](../includes/quickstarts/rest-api.md)]
-
-
-::: zone-end
 
 ## Clean up resources
 

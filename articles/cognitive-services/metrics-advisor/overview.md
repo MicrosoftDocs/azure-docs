@@ -6,9 +6,9 @@ services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice:
+ms.subservice: metrics-advisor
 ms.topic: overview
-ms.date: 08/27/2020
+ms.date: 09/03/2020
 ms.author: aahi
 ms.custom: seodec2018
 ---
@@ -54,11 +54,12 @@ The workflow is simple: after onboarding your data, you can fine-tune the anomal
     1. Onboard your data
     2. Fine-tune anomaly detection
     3. Subscribe to alerts
-4. Use the REST API or Client libraries to customize your instance.
+    4. View diagnostic insights
+1. Use the REST API or Client libraries to customize your instance.
 
 ## Next Steps
 
 * Try the [demo site](quickstarts/explore-the-demo.md).
 * Create a Metrics Advisor instance using the [web portal](quickstarts/web-portal.md), and onboard your data. 
   * You can also use the [REST API or client libraries](quickstarts/rest-api-and-client-library.md). 
-* Learn about [managing data feeds](how-tos/datafeeds.md). 
+* Learn about [managing data feeds](how-tos/manage-data-feeds.md). 

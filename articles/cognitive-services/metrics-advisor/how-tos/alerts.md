@@ -12,7 +12,7 @@ ms.date: 08/19/2020
 ms.author: aahi
 ---
 
-# How-to: Configure and subscribe to an alert
+# How-to: Configure alerts and get notifications using a web hook
 
 After an anomaly is detected by your Metrics Advisor instance, an alert notification can be sent out based on your alert settings, using a web hook. An alert settings can correspond to multiple detection configurations, and you can set specific alert conditions.
 
@@ -32,7 +32,7 @@ You can use the **add**, **edit** and **delete** icons to modify alerts.
 
 A web hook is the entry point for all the information available from the Metrics Advisor service, and calls a user-provided api when an alert is triggered. All alerts, including "Data feed not available" and "Incident report" alerts are sent through web hooks only.
 
-To create a web hook, you will need to add the following information
+To create a web hook, you will need to add the following information:
 
 
 |Parameter |Description  |
@@ -101,7 +101,7 @@ You can manage all your hooks in the hook settings page.
 
 ## Next Steps
 
-- [Add and manage data feeds](datafeeds.md)
+- [Add and manage data feeds](manage-data-feeds.md)
     - [Configurations for different data sources](../data-feeds-from-different-sources.md)
 - [Send anomaly feedback to your instance](anomaly-feedback.md)
 - [Diagnose incidents](diagnose-incident.md).

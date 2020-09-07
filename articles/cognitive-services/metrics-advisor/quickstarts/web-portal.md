@@ -41,7 +41,7 @@ To get started, sign into your Metrics Advisor portal, with your Active Director
 ### Configure connection settings
 
 > [!TIP]
-> See [how to add data feeds](../how-tos/datafeeds.md) for details on the available parameters.
+> See [how to add data feeds](../how-tos/manage-data-feeds.md) for details on the available parameters.
 
 Add the data feed by connecting to your time-series data source. Start by selecting the following parameters:
 
@@ -111,18 +111,18 @@ But you can also pivot across more diagnostics insights leveraging additional fe
 
 If you'd like to get alerted when an anomaly is detected in your data, you can create a subscription for one or more of your metrics. Metrics Advisor uses web hooks to send alerts.
 
-### Step 1: Create a web hook
+### Create a web hook
 
 A web hook is the entry point for all of the information you alerts you will receive. Currently, Metrics Advisor only supports sending alerts through a web hook. For details on how to create a hook, please refer to the **Create a web hook** section in [How-to: Configure and subscribe to an alert](../how-tos/alerts.md#create-a-web-hook). 
 
-### Step 2: Configure alert settings
+### Configure alert settings
 
-An alert setting determines how and which alert notifications should be sent. You can set multiple alert settings for each metric. two important settings are **Alert for** which specifies the anomalies to be included, and **Filter anomaly options** which defines which anomalies to include in the alert. See the **Add or Edit alert settings** section in [How-to: Configure and subscribe to an alert](../how-tos/alerts.md#add-or-edit-alert-settings). for more details.
+After creating a web hook, an alert setting determines how and which alert notifications should be sent. You can set multiple alert settings for each metric. two important settings are **Alert for** which specifies the anomalies to be included, and **Filter anomaly options** which defines which anomalies to include in the alert. See the **Add or Edit alert settings** section in [How-to: Configure and subscribe to an alert](../how-tos/alerts.md#add-or-edit-alert-settings). for more details.
 
 
 ## Next Steps
 
-- [Onboard and manage data feeds](../how-tos/datafeeds.md)
+- [Onboard and manage data feeds](../how-tos/manage-data-feeds.md)
     - [Configurations for different data sources](../data-feeds-from-different-sources.md)
 - [Use the REST API or Client libraries](rest-api-and-client-library.md)
 - [Send anomaly feedback to your instance](../how-tos/anomaly-feedback.md)

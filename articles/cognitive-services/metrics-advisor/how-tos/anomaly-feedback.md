@@ -24,15 +24,11 @@ After feedback annotation mode is activated, you can give feedback for one point
 
 ### Give feedback for one point 
 
-With feedback annotation mode activated, click on a point to open a **Add feedback** menu. You can set the point's anomaly status, seasonality, and change point status. This feedback will be incorporated in the detection for future points.  
+With feedback annotation mode activated, click on a point to open a **Add feedback** menu. You can set the type of feedback you want to apply. This feedback will be incorporated in the detection for future points.  
 
-* Select **Anomaly** if you think the point should be an anomaly that wasn't detected. (Note that currently we will not process this kind of feedback in following calculation, but it is still valuable to leave such kind of annotation, they will be applied as soon as we onboard related algorithm in the future.)
-
-* If you think the point is not an anomaly, but was detected as one, select **Normal**.
-
-* If you want to clear previous annotation, choose **Ignore**.
-
-* If you don't want to annotate anomaly, leave **Mark Anomaly** empty.
+* Select **Anomaly** if you think the point was incorrectly labeled by Metrics Monitor. You can specify whether a point should or shouldn't be an anomaly. 
+* Select **ChangePoint** if you think the point indicates the start of a trend change.
+* Select **Period** to indicate seasonality. Metric Monitor can automatically detect intervals of seasonality, or you can specify this manually. 
 
 Consider leaving a comment in the **Comment** text box at the same time, and click **Save** to save your feedback.
 
@@ -66,7 +62,7 @@ There are many reasons when you might consider an anomaly is a false alarm. Cons
 |There is a regular pattern to detected anomalies (for example on weekends) and they should not be anomalies.      |Use the feedback feature, or preset events.        |
 
 ## Next steps
-- [Add and manage data feeds](datafeeds.md)
+- [Add and manage data feeds](manage-data-feeds.md)
     - [Configurations for different data sources](../data-feeds-from-different-sources.md)
 - [Diagnose incidents](diagnose-incident.md).
 - [Configure metrics and anomaly detection](configure-metrics.md)
