@@ -22,7 +22,7 @@ ms.author: mlottner
 
 Security Module for Azure RTOS continuously analyzes your IoT solution using advanced analytics and threat intelligence to alert you to potential malicious activity and suspicious system modifications. You can also create custom alerts based on your knowledge of expected device behavior and baselines.
 
-An IoT Security Module alert acts as an indicator of potential compromise, and should be investigated and remediated. An IoT Security Module recommendation identifies weak security posture to be remediated and updated. 
+A Security Module for Azure RTOS alert acts as an indicator of potential compromise, and should be investigated and remediated. A Security Module for Azure RTOS recommendation identifies weak security posture to be remediated and updated. 
 
 In this article, you'll find a list of built-in alerts and recommendations that are triggered based on the default ranges, and customizable with your own values, based on expected or baseline behavior. 
 
@@ -32,30 +32,30 @@ For more information on how alert customization works in the Azure Security Cent
 
 ### Device-related security alerts
 
-|Device-related security alert  |Reason  |
+|Device-related security alert activity  |Alert name  |
 |---------|---------|
 |IP address| Communication with a suspicious IP address detected|
-|X.509 device certificate thumbprint|Thumbprint mismatch|
-|X.509 certificate| Expired|
-|SAS Token| Expired|
-|SAS Token| Invalid signature|
+|X.509 device certificate thumbprint|X.509 device certificate thumbprint mismatch|
+|X.509 certificate| X.509 certificate expired|
+|SAS Token| Expired SAS Token|
+|SAS Token| Invalid SAS Token signature|
 
 ### IoT Hub-related security alerts
 
-|IoT Hub security alert  |Reason  |
+|IoT Hub security alert activity  |Alert name  |
 |---------|---------|
-|New certificate     |  Detected addition of new certificate to an IoT Hub       |
-|Deleted certificate    | Detected deletion of a certificate from an IoT Hub        |
 |Add a certificate    |  Detected unsuccessful attempt to add a certificate to an IoT Hub       |
-|Delete a certificate    |  Detected unsuccessful attempt to delete a certificate from an IoT Hub       |
 |Addition or editing of a diagnostic setting    | Detected an attempt to add or edit a diagnostic setting of an IoT Hub      |
+|Delete a certificate    |  Detected unsuccessful attempt to delete a certificate from an IoT Hub       |
 |Delete a diagnostic setting    |  Detected attempt to delete a diagnostic setting from an IoT Hub      |
+|Deleted certificate    | Detected deletion of a certificate from an IoT Hub        |
+|New certificate     |  Detected addition of new certificate to an IoT Hub       |
 
 ## Security Module for Azure RTOS supported customizable alerts
 
 ### Device related customizable alerts
 
-|Device related customizable value  |Reason  |
+|Device related activity |Alert name  |
 |---------|---------|
 |Active connections|Number of active connections is not in the allowed range|
 |Cloud to device messages in **MQTT** protocol|Number of cloud to device messages in **MQTT** protocol is not in the allowed range|
@@ -63,7 +63,7 @@ For more information on how alert customization works in the Azure Security Cent
 
 ### Hub related customizable alerts 
 
-|Hub related customizable value  |Reason  |
+|Hub related activity  |Alert name  |
 |---------|---------|
 |Command queue purges     |  Number of command queue purges outside the allowed range       |
 |Cloud to device messages in **MQTT** protocol    |  Number of Cloud to device messages in **MQTT** protocol outside the allowed range       |
@@ -77,16 +77,16 @@ For more information on how alert customization works in the Azure Security Cent
 
 ### Device-related recommendations
 
-|Device-related recommendation  |Reason |
+|Device-related activity  |Recommendation name |
 |---------|---------|
 |Authentication credentials    |  Identical authentication credentials used by multiple devices       |
 
 ### Hub-related recommendations
 
-|IoT Hub-related recommendation  |Reason |
+|IoT Hub-related activity  |Recommendation name |
 |---------|---------|
 |IP filter policy   |  The Default IP filter policy should be set to **deny**  |
-|IP filter rule| IP filter rule includes large IP range|
+|IP filter rule| IP filter rule includes a large IP range|
 |Diagnostics logs|Suggestion to enable diagnostics logs in IoT Hub|
 
 ### All Azure Security Center for IoT alerts and recommendations

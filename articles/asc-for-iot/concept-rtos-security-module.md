@@ -38,14 +38,14 @@ The module offers the following features:
 - **Device behavior baselines based on custom alerts**
 - **Improve device security hygiene**
 
-## Azure RTOS IoT security module architecture
+## Security Module for Azure RTOS architecture
 
-The Azure RTOS IoT security module is initialized by the Azure IoT middleware platform and uses IoT Hub clients to send security telemetry to the Hub.
+The Security Module for Azure RTOS is initialized by the Azure IoT middleware platform and uses IoT Hub clients to send security telemetry to the Hub.
 
 :::image type="content" source="media/architecture/security_module_state_diagram.png" alt-text="Azure IoT security module state diagram and information flow":::
 
 The Security Module for Azure RTOS monitors the following device activity and information using three collectors:
-- Device network activity **TCP**, **UDP, and **ICM**
+- Device network activity **TCP**, **UDP**, and **ICM**
 - System information as **Threadx** and **NetX Duo** versions
 - Heartbeat events
 
@@ -63,7 +63,7 @@ Security Module for Azure RTOS is provided as a free download for your IoT devic
 
 ## Next steps
 
-- Get started with Azure IoT Security Module [prerequisites and setup](quickstart-azure-rtos-security-module.md).
-- Learn more about Azure IoT Security Module -RTOS [security alerts and recommendation support](concept-rtos-security-alerts-recommendations.md). 
-- Use the Azure RTOS IoT Security Module [reference API](azure-rtos-security-module-api.md).
+- Get started with Security Module for Azure RTOS [prerequisites and setup](quickstart-azure-rtos-security-module.md).
+- Learn more about Security Module for Azure RTOS [security alerts and recommendation support](concept-rtos-security-alerts-recommendations.md). 
+- Use the Security Module for Azure RTOS [reference API](azure-rtos-security-module-api.md).
 

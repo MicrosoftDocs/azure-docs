@@ -22,7 +22,7 @@ ms.author: mlottner
 This article provides an explanation of the prerequisites before getting started and explains how to enable the Security Module for Azure RTOS service on an IoT Hub. If you don't currently have an IoT Hub, see [Create an IoT Hub using the Azure portal](https://docs.microsoft.com/azure/iot-hub/iot-hub-create-through-portal) to get started.
 
 > [!NOTE]
-> Security Module for Azure RTOS is currently only supported in standard tier IoT Hubs.
+> Security Module for Azure RTOS is only supported in standard tier IoT Hubs.
 
 ## Prerequisites 
 
@@ -70,4 +70,4 @@ Log Analytics ingestion in IoT Hub is off by default Azure Security Center for I
 Advance to the next article to finish configuring and customizing your solution...
 
 > [!div class="nextstepaction"]
-> [Complete configuration and customization of your solution](how-to-azure-rtos-security-module.md)
+> [Configure Security Module for Azure RTOS](how-to-azure-rtos-security-module.md)
