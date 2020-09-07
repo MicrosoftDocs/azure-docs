@@ -1,6 +1,6 @@
 ---
 title: Service mode in Azure SignalR Service
-description: An overview of different service modes in Azure SignalR Service, explain their differences and appliable user scenarios
+description: An overview of different service modes in Azure SignalR Service, explain their differences and applicable user scenarios
 author: chenkennt
 ms.service: signalr
 ms.topic: conceptual
@@ -11,30 +11,30 @@ ms.author: kenchen
 
 Service mode is an important concept in Azure SignalR Service. When you create a new SignalR resource, you will be asked to specify a service mode:
 
-![service-mode-create](media/signalr-concept-service-mode/service-mode-create.png)
+![Choose service mode when create](media/signalr-concept-service-mode/service-mode-create.png)
 
-You can also change it later in the settings blade:
+You can also change it later in the settings menu:
 
-![service-mode-create](media/signalr-concept-service-mode/service-mode-update.png)
+![Update service mode](media/signalr-concept-service-mode/service-mode-update.png)
 
-Azure SignalR Service currently supports three service modes: **default**, **serverless** and **classic**. Your SignalR resource will behave differently in different modes. In this article you'll learn their differences and how to choose the right service mode based on your scenario.
+Azure SignalR Service currently supports three service modes: **default**, **serverless** and **classic**. Your SignalR resource will behave differently in different modes. In this article, you'll learn their differences and how to choose the right service mode based on your scenario.
 
 ## Default mode
 
-Default mode is the default value for service mode when you create a new SignalR resource. In this mode, you application works as a typical ASP.NET Core (or ASP.NET) SignalR application, where you have a web server that hosts a hub (called hub server hereinafter) and clients can have duplex real time communication with the hub server. The only difference when you use the service is instead of connecting client and server directly, client and server both connect to SignalR service and use the service as a proxy. Below is a diagram that illustrates the typical application structure in default mode:
+Default mode is the default value for service mode when you create a new SignalR resource. In this mode, your application works as a typical ASP.NET Core (or ASP.NET) SignalR application, where you have a web server that hosts a hub (called hub server hereinafter) and clients can have duplex real-time communication with the hub server. The only difference is instead of connecting client and server directly, client and server both connect to SignalR service and use the service as a proxy. Below is a diagram that illustrates the typical application structure in default mode:
 
-![default-mode](media/signalr-concept-service-mode/default-mode.png)
+![Application structure in default mode](media/signalr-concept-service-mode/default-mode.png)
 
 So if you have a SignalR application and want to integrate with SignalR service, default mode should be the right choice for most cases.
 
 ### Connection routing in default mode
 
-In default mode, there will be websocket connections between hub server and SignalR service (called server connections). These connections are used to transfer messages between server and client. When a new client is connected, SignalR service will route the client to one hub server (assume you have more than one servers) through existing server connections. Then the client connection will stick to the same hub server during its lifetime, which means when client sends messages, they always go to the same hub server. With this behavior, you can safely maintain some states for individual connections on your hub server (for example, if you want to stream something between server and client, you don't need to consider the case that data packets go to different servers).
+In default mode, there will be websocket connections between hub server and SignalR service (called server connections). These connections are used to transfer messages between server and client. When a new client is connected, SignalR service will route the client to one hub server (assume you have more than one server) through existing server connections. Then the client connection will stick to the same hub server during its lifetime. When client sends messages, they always go to the same hub server. With this behavior, you can safely maintain some states for individual connections on your hub server. For example, if you want to stream something between server and client, you don't need to consider the case that data packets go to different servers.
 
 > [!IMPORTANT]
 > This also means in default mode client cannot connect without server being connected first. If all your hub servers are disconnected due to network interruption or server reboot, your client connect will get an error telling you no server is connected. So it's your responsibility to make sure at any time there is at least one hub server connected to SignalR service (for example, have multiple hub servers and make sure they won't go offline at the same time for things like maintenance).
 
-This routing model also means when a hub server goes offline, the connections routed that server will be dropped. So you should expect connection drop when your server is offline for maintenance and handle reconnect properly so that it won't have negative impact to your application.
+This routing model also means when a hub server goes offline, the connections routed that server will be dropped. So you should expect connection drop when your hub server is offline for maintenance and handle reconnect properly so that it won't have negative impact to your application.
 
 ## Serverless mode
 
@@ -45,15 +45,15 @@ Also there is no server connection in this mode (if you try to use service SDK t
 > [!NOTE]
 > Both REST API and websocket way are supported in SignalR service [management SDK](https://github.com/Azure/azure-signalr/blob/dev/docs/management-sdk-guide.md). If you're using a language other than .NET, you can also manually invoke the REST APIs following this [spec](https://github.com/Azure/azure-signalr/blob/dev/docs/rest-api.md).
 >
-> If you're using Azure Functions, you can use [SignalR service bindings for Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-signalr-service) (hereinafter called function binding) to send messages as an output binding.
+> If you're using Azure Functions, you can use [SignalR service bindings for Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-bindings-signalr-service) (hereinafter called function binding) to send messages as an output binding.
 
 It's also possible for your server application to receive messages and connection events from clients. Service will deliver messages and connection events to preconfigured endpoints (called Upstream) using webhooks. Comparing to default mode, there is no guarantee of stickiness and HTTP requests may be less efficient than websocket connections.
 
-You can refer to this [doc](https://docs.microsoft.com/en-us/azure/azure-signalr/concept-upstream) for more information about how to configure upstream.
+For more information about how to configure upstream, see this [doc](https://docs.microsoft.com/azure/azure-signalr/concept-upstream).
 
 Below is a diagram that illustrates how serverless mode works:
 
-![serverless-mode](media/signalr-concept-service-mode/serverless-mode.png)
+![Application structure in serverless mode](media/signalr-concept-service-mode/serverless-mode.png)
 
 > [!NOTE]
 > Please note in default mode you can also use REST API/management SDK/function binding to directly send messages to client if you don't want to go through hub server. But in default mode client connections are still handled by hub servers and upstream won't work in that mode.

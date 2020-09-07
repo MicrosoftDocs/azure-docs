@@ -77,7 +77,7 @@ When you select `ManagedIdentity`, you must enable a managed identity in Azure S
 3. Add URLs under **Upstream URL Pattern**. Then settings such as **Hub Rules** will show the default value.
 4. To set settings for **Hub Rules**, **Event Rules**, **Category Rules**, and **Upstream Authentication**, select the value of **Hub Rules**. A page that allows you to edit settings appears:
 
-    :::image type="content" source="media/concept-upstream/upstream-detail-portal.png" alt-text="Upstream settings":::
+    :::image type="content" source="media/concept-upstream/upstream-detail-portal.png" alt-text="Upstream setting details":::
 
 5. To set **Upstream Authentication**, make sure you've enabled a managed identity first. Then select **Use Managed Identity**. According to your needs, you can choose any options under **Auth Resource ID**. See [Managed identities for Azure SignalR Service](howto-use-managed-identity.md) for details.
 
