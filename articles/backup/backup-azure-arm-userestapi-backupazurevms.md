@@ -296,7 +296,7 @@ In the request body above, the list of disks to be backed up are provided in the
 |diskLunList     | The disk LUN list is a list of *LUNs of data disks*. **OS disk is always backed up and doesn't need to be mentioned**.        |
 |IsInclusionList     | Should be **true** for the LUNs to be included during backup. If it is **false**, the aforementioned LUNs will be excluded.         |
 
-So, if the requirement is to backup only the OS disk, then *all* data disks should be excluded. An easier way is to say that No data disks should be included. So the disk LUN list will be empty and the **IsInclusionList** will be **true**. Similarly, think of what is the easier way of selecting a sub-set: Few disks should be always excluded or few disks should always be included. Choose the LUN list and the boolean variable value accordingly.
+So, if the requirement is to backup only the OS disk, then *all* data disks should be excluded. An easier way is to say that no data disks should be included. So the disk LUN list will be empty and the **IsInclusionList** will be **true**. Similarly, think of what is the easier way of selecting a sub-set: Few disks should be always excluded or few disks should always be included. Choose the LUN list and the boolean variable value accordingly.
 
 ## Trigger an on-demand backup for a protected Azure VM
 
@@ -430,7 +430,7 @@ The response will follow the same format as mentioned [for enabling protection](
 If the Azure VM is already backed up, you can specify the list of disks to be backed up or excluded by changing the policy of protection. Just prepare the request in the same format as [excluding disks during enabling protection](#excluding-disks-in-azure-vm-backup)
 
 > [!IMPORTANT]
-> The request body above is always the final copy of data disks to be excluded or included. This doesn't *add* to the previous configuration. For eg: If you first update the protection as "exclude data disk 1" and then repeat with "exclude data disk 2", *only data disk 2 is excluded* in the subsequent backups and data disk 1 will be included. This is always the final list which will be included/excluded in the subsequent backups.
+> The request body above is always the final copy of data disks to be excluded or included. This doesn't *add* to the previous configuration. For example: If you first update the protection as "exclude data disk 1" and then repeat with "exclude data disk 2", *only data disk 2 is excluded* in the subsequent backups and data disk 1 will be included. This is always the final list which will be included/excluded in the subsequent backups.
 
 To get the current list of disks which are excluded or included, get the protected item information as mentioned [here](https://docs.microsoft.com/rest/api/backup/protecteditems/get). The response will provide the list of data disk LUNs and indicates whether they are included or excluded.
 
