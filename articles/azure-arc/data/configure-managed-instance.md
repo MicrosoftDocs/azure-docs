@@ -13,6 +13,8 @@ ms.topic: how-to
 
 # Configure Azure Arc enabled SQL managed instance
 
+This article explains how to configure Azure Arc enabled SQL managed instance.
+
 ## Configure Resources for Azure Arc enabled SQL Managed Instance
 
 ### Configure using azdata

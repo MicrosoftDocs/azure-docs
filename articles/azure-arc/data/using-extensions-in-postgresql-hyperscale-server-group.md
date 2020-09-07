@@ -1,6 +1,7 @@
 ---
 title: Use PostgreSQL extensions
 description: Use PostgreSQL extensions
+titleSuffix: Azure Arc enabled data services
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -123,7 +124,7 @@ To verify what extensions are installed, use the below standard PostgreSQL comma
 select * from pg_extension;
 ```
 
-Now, let's go through a PostGIS example. We'll start by getting some [sample data](http://duspviz.mit.edu/tutorials/intro-postgis/) from the MIT’s Department of Urban Studies & Planning. Note you may need to run `apt-get install unzip` to install unzip when using the VM for testing.
+For a PostGIS example, first, get [sample data](http://duspviz.mit.edu/tutorials/intro-postgis/) from the MIT’s Department of Urban Studies & Planning. You may need to run `apt-get install unzip` to install unzip when using the VM for testing.
 
 ```terminal
 wget http://duspviz.mit.edu/_assets/data/intro-postgis-datasets.zip
@@ -136,7 +137,8 @@ Let's connect to our database, and create the PostGIS extension:
 CREATE EXTENSION postgis;
 ```
 
->**Note:** If you would like to use one of the extensions in the postgis package (for example postgis_raster, postgis_topology, postgis_sfcgal, fuzzystrmatch...) you need to first create the postgis extension and then create the other extension. For instance: CREATE EXTENSION postgis; CREATE EXTENSION postgis_raster;
+> [!NOTE]
+> If you would like to use one of the extensions in the `postgis` package (for example `postgis_raster`, `postgis_topology`, `postgis_sfcgal`, `fuzzystrmatch`...) you need to first create the postgis extension and then create the other extension. For instance: `CREATE EXTENSION postgis`; `CREATE EXTENSION postgis_raster`;
 
 And create the schema:
 

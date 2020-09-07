@@ -145,6 +145,7 @@ This small example demonstrates that you can encrypt data at rest (store encrypt
 
 ## User management
 Azure Arc enabled PostgreSQL Hyperscale comes with the standard Postgres administrative user _postgres_ for which you set the password when you deploy your server group.
-It is not yet possible to change this password. This functionality comes soon. Updates will be posted here when it is available.
+
+Private preview does not support changing this password.
 
 You can also use the standard Postgres way to  create users or roles. However, if you do so, these artifacts will only be available on the coordinator role. As such these users/roles will not yet be able to access data that is distributed outside the Coordinator node and on the Worker nodes of your server group. The reason is that the user definition is not yet replicated to the Worker nodes. This functionality comes soon. Updates will be posted here when it is available.

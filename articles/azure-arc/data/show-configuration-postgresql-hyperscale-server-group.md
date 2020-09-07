@@ -1,5 +1,6 @@
 --- 
 title: Show the configuration of an Arc enabled PostgreSQL Hyperscale server group
+titleSuffix: Azure Arc enabled data services
 description: Show the configuration of an Arc enabled PostgreSQL Hyperscale server group
 services: azure-arc
 ms.service: azure-arc
