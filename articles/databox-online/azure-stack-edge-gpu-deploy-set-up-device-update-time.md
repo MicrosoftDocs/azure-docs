@@ -1,6 +1,6 @@
 ---
-title: Tutorial to connect to, configure, activate Azure Stack Edge device with GPU in Azure portal | Microsoft Docs
-description: Tutorial to deploy Azure Stack Edge GPU instructs you to connect, set up, and activate your physical device.
+title: Tutorial to connect to, configure, activate Azure Stack Edge Pro device with GPU in Azure portal | Microsoft Docs
+description: Tutorial to deploy Azure Stack Edge Pro GPU instructs you to connect, set up, and activate your physical device.
 services: databox
 author: alkohli
 
@@ -9,11 +9,11 @@ ms.subservice: edge
 ms.topic: tutorial
 ms.date: 08/29/2020
 ms.author: alkohli
-Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge so I can use it to transfer data to Azure. 
+Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Pro so I can use it to transfer data to Azure. 
 ---
-# Tutorial: Configure device settings for Azure Stack Edge with GPU
+# Tutorial: Configure device settings for Azure Stack Edge Pro with GPU
 
-This tutorial describes how you configure device related settings for your Azure Stack Edge device with an onboard GPU. You can set up your device name, update server, and time server via the local web UI.
+This tutorial describes how you configure device related settings for your Azure Stack Edge Pro device with an onboard GPU. You can set up your device name, update server, and time server via the local web UI.
 
 The device settings can take around 5-7 minutes to complete.
 
@@ -28,12 +28,12 @@ In this tutorial, you learn about:
 
 ## Prerequisites
 
-Before you configure device related settings on your Azure Stack Edge device with GPU, make sure that:
+Before you configure device related settings on your Azure Stack Edge Pro device with GPU, make sure that:
 
 * For your physical device:
 
-    - You've installed the physical device as detailed in [Install Azure Stack Edge](azure-stack-edge-gpu-deploy-install.md).
-    - You've configured network and enabled and configured compute network on your device as detailed in [Tutorial: Configure network for Azure Stack Edge with GPU](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md).
+    - You've installed the physical device as detailed in [Install Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-install.md).
+    - You've configured network and enabled and configured compute network on your device as detailed in [Tutorial: Configure network for Azure Stack Edge Pro with GPU](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md).
 
 
 ## Configure device settings
@@ -129,7 +129,7 @@ In this tutorial, you learn about:
 > * Configure update 
 > * Configure time
 
-To learn how to configure certificates for your Azure Stack Edge device, see:
+To learn how to configure certificates for your Azure Stack Edge Pro device, see:
 
 > [!div class="nextstepaction"]
 > [Configure certificates](./azure-stack-edge-gpu-deploy-configure-certificates.md)
