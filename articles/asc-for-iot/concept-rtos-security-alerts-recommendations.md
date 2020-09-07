@@ -20,20 +20,19 @@ ms.author: mlottner
 
 # Azure IoT Security Module - RTOS security alerts and recommendations (preview)
 
-Azure IoT Security Module - RTOS continuously analyzes your IoT solution using advanced analytics and threat intelligence to alert you to potential malicious activity and suspicious system modifications.
+Azure IoT Security Module - RTOS continuously analyzes your IoT solution using advanced analytics and threat intelligence to alert you to potential malicious activity and suspicious system modifications. You can also create custom alerts based on your knowledge of expected device behavior and baselines.
 
-In addition, you can create custom alerts based on your knowledge of expected device behavior and baselines.
-An alert acts as an indicator of potential compromise, and should be investigated and remediated. A recommendation identifies weak security posture and should also be remediated and updated. 
+An IoT Security Module alert acts as an indicator of potential compromise, and should be investigated and remediated. An IoT Security Module recommendation identifies weak security posture to be remediated and updated. 
 
-In this article, you'll find a list of built-in alerts and recommendations which can be triggered as well as those that you can customize with your own values based on expected or baseline behavior. 
+In this article, you'll find a list of built-in alerts and recommendations that are triggered based on the default ranges, and customizable with your own values, based on expected or baseline behavior. 
 
-For more details on how alert customization works in the Azure Security Center for IoT service, see [customizable alerts](concept-customizable-security-alerts.md). The specific alerts and recommendations available for customization when using the Azure IoT Security Module - RTOS are detailed in the following tables. 
+For more information on how alert customization works in the Azure Security Center for IoT service, see [customizable alerts](concept-customizable-security-alerts.md). The specific alerts and recommendations available for customization when using the Azure IoT Security Module - RTOS are detailed in the following tables. 
 
 ## Azure IoT Security Module - RTOS supported security alerts
 
-### Device related security alerts
+### Device-related security alerts
 
-|Device related security alert  |Reason  |
+|Device-related security alert  |Reason  |
 |---------|---------|
 |IP address| Communication with a suspicious IP address detected|
 |X.509 device certificate thumbprint|Thumbprint mismatch|
@@ -41,7 +40,7 @@ For more details on how alert customization works in the Azure Security Center f
 |SAS Token| Expired|
 |SAS Token| Invalid signature|
 
-### IoT Hub related security alerts
+### IoT Hub-related security alerts
 
 |IoT Hub security alert  |Reason  |
 |---------|---------|
@@ -59,8 +58,8 @@ For more details on how alert customization works in the Azure Security Center f
 |Device related customizable value  |Reason  |
 |---------|---------|
 |Active connections|Number of active connections is outside the allowed range|
-|Cloud to device messages in **MQTT** protocol|Number of cloud to device messages in **MQTT** protocol is outside the allowed range|
-|Outbound connection| Outbound connection created to  forbidden IP|
+|Cloud to device messages in **MQTT** protocol|Amount of cloud to device messages in **MQTT** protocol is outside the allowed range|
+|Outbound connection| An outbound connection was created to a forbidden IP|
 
 ### Hub related customizable alerts 
 
@@ -76,17 +75,17 @@ For more details on how alert customization works in the Azure Security Center f
 
 ## Azure IoT Security Module - RTOS supported recommendations
 
-### Device related recommendations
+### Device-related recommendations
 
-|Device related recommendation  |Reason |
+|Device-related recommendation  |Reason |
 |---------|---------|
 |Authentication credentials    |  Identical authentication credentials used by multiple devices       |
 
-### Hub related recommendations
+### Hub-related recommendations
 
-|IoT Hub related recommendation  |Reason |
+|IoT Hub-related recommendation  |Reason |
 |---------|---------|
-|IP filter policy   |  Default IP filter policy should be deny  |
+|IP filter policy   |  The Default IP filter policy should be set to **deny**  |
 |IP filter rule| IP filter rule includes large IP range|
 |Diagnostics logs|Suggestion to enable diagnostics logs in IoT Hub|
 
