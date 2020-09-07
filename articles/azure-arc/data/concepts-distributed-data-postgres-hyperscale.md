@@ -52,14 +52,14 @@ In this article you'll read about choosing each table's distribution column. Why
 This is one of the most important modeling decisions you'll make. Azure Arc enabled PostgreSQL Hyperscale stores rows in shards based on the value of the rows' distribution column. The correct choice groups related data together on the same physical nodes, which makes queries fast and adds support for all SQL features. 
 An incorrect choice makes the system run slowly and won't support all SQL features across nodes. This article gives distribution column tips for the two most common hyperscale scenarios.
 
-Read on [here](https://docs.microsoft.com/azure/postgresql/concepts-hyperscale-choose-distribution-column)
+Read on [here](https://docs.microsoft.com/azure/postgresql/concepts-hyperscale-choose-distribution-column).
 
 
 ### Table colocation:
 In this article, you'll read about colocation which is about storing related information together on the same nodes. 
 Queries can go fast when all the necessary data is available without any network traffic. Colocating related data on different nodes allows queries to run efficiently in parallel on each node.
 
-Read on [here](https://docs.microsoft.com/azure/postgresql/concepts-hyperscale-colocation)
+Read on [here](https://docs.microsoft.com/azure/postgresql/concepts-hyperscale-colocation).
 
 
 
