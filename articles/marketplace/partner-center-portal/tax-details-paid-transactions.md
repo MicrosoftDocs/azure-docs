@@ -1,7 +1,7 @@
 ---
 title: Tax details for Microsoft commercial marketplace
 Description: To understand your tax considerations for price selection, payout implications, and tax responsibility, see your countries/regions of distribution in the tables below.
-ms.topic: conceptual
+ms.topic: article
 ms.service: marketplace
 ms.date: 09/02/2020
 author: mingshen-ms
@@ -18,8 +18,8 @@ The Commerce Expansion Adjustment may have payout implications in a limited set 
 > Tax responsibility for Reseller countries/regions and circumstances (as described [below](#reseller-countriesregions)) is covered by Exhibit A of the [Microsoft Azure Marketplace Publisher Agreement](https://go.microsoft.com/fwlink/p/?LinkID=699560), notwithstanding the information in the table below.
 > Note that the **Payout implication** column only applies to publishers. Tax rates noted in this column are subject to change at any time, and Microsoft cannot guarantee that the rates in the tables below will always be accurate.
 
-| Country/region                   | Tax consideration for price selection                                                                                                             | Payout implication                    | Tax responsibility |
-|----------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------|--------------------|
+| Country/region  | Tax consideration for price selection  | Payout implication  | Tax responsibility |
+|---|---|---|---|
 | Afghanistan                      | Price being selected is the final sale price and includes any applicable taxes.                                                                   | Price minus Store fee                 | Publisher          |
 | Albania                          | Price being selected is the final sale price and includes any applicable taxes.                                                                   | Price minus Store fee                 | Publisher          |
 | Algeria                          | Price being selected is the final sale price and includes any applicable taxes.                                                                   | Price minus Store fee                 | Publisher          |
@@ -32,7 +32,7 @@ The Commerce Expansion Adjustment may have payout implications in a limited set 
 | Argentina                        | Price being selected is the final sale price and includes any applicable taxes.  | Price minus Store fee  | Publisher          |
 | Armenia                          | Price being selected is the final sale price and includes any applicable taxes.                                                                   | Price minus 20% tax, minus Store fee       | Microsoft          |
 | Aruba                      | Price being selected is the final sale price and includes any applicable taxes.                                                                   | Price minus Store fee                 | Publisher          |
-| Australia                        | Price being selected is the final sale price and includes any applicable taxes.                                                             | Price minus 10% tax, minus Store fee             | Microsoft          |
+| Australia                        | Price being selected excludes any applicable taxes.*        | Price minus Store fee*        | Microsoft          |
 | Austria                          | Price being selected is the final sale price and includes any applicable taxes. Taxes are subtracted from the price prior to payout.       | Price minus 20% tax, minus Store fee     | Microsoft          |
 | Azerbaijan                       | Price being selected is the final sale price and includes any applicable taxes.                                                                   | Price minus Store fee                 | Publisher          |
 | The Bahamas                      | Price being selected is the final sale price and includes any applicable taxes.                                                                   | Price minus Store fee                 | Publisher          |
@@ -252,10 +252,12 @@ The Commerce Expansion Adjustment may have payout implications in a limited set 
 | Zambia                           | Price being selected is the final sale price and includes any applicable taxes.                                                                   | Price minus Store fee                 | Publisher          |
 | Zimbabwe                         | Price being selected is the final sale price and includes any applicable taxes.                                                                   | Price minus Store fee                 | Publisher          |
 
+\* For purchases made through all customer purchase scenarios except Enterprise Agreement.
+
 The following applies only to Azure Marketplace Publishers, notwithstanding anything to the contrary above:
 
-| Country/region                   | Tax consideration for price selection                                                                                                             | Tax management                    |
-|----------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------|
+| Country/region | Tax consideration for price selection | Tax management |
+| --- |--- | --- |
 | Australia (for purchases made through all customer purchase scenarios except Enterprise Agreement) | Price being selected is the final sale price and includes any applicable taxes. | Microsoft |
 | Australia (only for purchases made through the Enterprise Agreement customer purchase scenario) | Price being selected is the final sale price and includes any applicable taxes. | Publisher |
 | Brazil | Price being selected is the final sale price and includes any applicable taxes. | Publisher (**See Reseller countries/regions**) |
@@ -281,6 +283,6 @@ The following applies only to Azure Marketplace Publishers:
 | Brazil (for purchases made through all customer purchase scenarios except CSP) |
 | Mexico (only for purchases made through the Enterprise Agreement customer purchase scenario) |
 
-## Next steps
+## Next step
 
 [Set up your payout account and tax forms](set-up-your-payout-account-tax-forms.md)

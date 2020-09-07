@@ -16,7 +16,7 @@ ms.custom: devx-track-csharp
 ---
 # Automate the rotation of a secret for resources that use one set of authentication credentials
 
-The best way to authenticate to Azure services is by using a [managed identity](../general/managed-identity.md), but there are some scenarios where that isn't an option. In those cases, access keys or secrets are used. You should periodically rotate access keys or secrets.
+The best way to authenticate to Azure services is by using a [managed identity](../general/authentication.md), but there are some scenarios where that isn't an option. In those cases, access keys or secrets are used. You should periodically rotate access keys or secrets.
 
 This tutorial shows how to automate the periodic rotation of secrets for databases and services that use one set of authentication credentials. Specifically, this tutorial rotates SQL Server passwords stored in Azure Key Vault by using a function triggered by Azure Event Grid notification:
 
@@ -110,7 +110,7 @@ akvrotation-fnapp        akvrotation       eastus      Microsoft.Web/sites
 akvrotation-fnapp        akvrotation       eastus      Microsoft.insights/components
 ```
 
-For information on how to create a function app and use managed identity to access Key Vault, see [Create a function app from the Azure portal](../../azure-functions/functions-create-function-app-portal.md) and [Provide Key Vault authentication with a managed identity](../general/managed-identity.md).
+For information on how to create a function app and use managed identity to access Key Vault, see [Create a function app from the Azure portal](/azure/azure-functions/functions-create-function-app-portal), [How to use managed identity for App Service and Azure Functions](/azure/app-service/overview-managed-identity), and [Assign a Key Vault access policy using the Azure portal](../general/assign-access-policy-portal.md).
 
 ### Rotation function
 Deployed in previous step function uses an event to trigger the rotation of a secret by updating Key Vault and the SQL database. 

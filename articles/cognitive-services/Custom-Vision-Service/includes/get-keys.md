@@ -8,7 +8,10 @@
 
 ## Get the training and prediction keys
 
-The project needs a valid set of subscription keys to interact with the service. You can find the items at the  [Custom Vision website](https://customvision.ai). Sign in with the account associated with the Azure account used to create your Custom Vision resources. On the home page (the page with the option to add a new project), select the __gear icon__ in the upper right. Find your training and prediction resources in the list and expand them. Here you can find your training key, prediction key, and prediction resource ID values. Save these values to a temporary location.
+The project needs a valid set of subscription keys to interact with the service. You can find the items at the  [Custom Vision website](https://customvision.ai). Sign in with the account associated with the Azure account you used to create your Custom Vision resources. On the home page (the page with the option to add a new project), select the __gear icon__ in the upper right. Find your training and prediction resources in the list and expand them. Here you can find your training key, prediction key, and prediction resource ID values. Save these values to a temporary location.
+
+> [!NOTE]
+> If you're using a Cognitive Services all-in-one key to access Custom Vision, then you'll only see one key on the settings screen. In this case, you'll use the same key for both training and prediction operations.
 
 ![Image of the keys UI](../media/csharp-tutorial/training-prediction-keys.png)
 

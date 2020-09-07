@@ -94,7 +94,6 @@ Commercial marketplace offerings can be purchased in 141 geographies as defined 
 | Lithuania                           | LT        | EUR          |
 | Luxembourg                          | LU        | EUR          |
 | Macao SAR                           | MO        | USD          |
-| North Macedonia                     | MK        | USD          |
 | Malaysia                            | MY        | USD          |
 | Malta                               | MT        | EUR          |
 | Mauritius                           | MU        | USD          |
@@ -110,6 +109,7 @@ Commercial marketplace offerings can be purchased in 141 geographies as defined 
 | New Zealand                         | NZ        | NZD          |
 | Nicaragua                           | NI        | USD          |
 | Nigeria                             | NG        | USD          |
+| North Macedonia                     | MK        | USD          |
 | Norway                              | NO        | NOK          |
 | Oman                                | OM        | USD          |
 | Pakistan                            | PK        | USD          |

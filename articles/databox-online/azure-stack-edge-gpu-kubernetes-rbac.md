@@ -27,10 +27,7 @@ When you set up the Kubernetes cluster, a single user is created corresponding t
 
 Kubernetes resources, such as pods and deployments, are logically grouped into a namespace. These groupings provide a way to logically divide a Kubernetes cluster and restrict access to create, view, or manage resources. Users can only interact with resources within their assigned namespaces.
 
-Namespaces are intended for use in environments with many users spread across multiple teams, or projects. For clusters with a few to tens of users, you should not need to create or think about namespaces at all. Start using namespaces when you need the features they provide.
-
-For more information, see [Kubernetes namespaces](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/).
-
+Namespaces are intended for use in environments with many users spread across multiple teams, or projects. For more information, see [Kubernetes namespaces](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/).
 
 Your Azure Stack Edge device has the following namespaces:
 
@@ -49,11 +46,11 @@ Your Azure Stack Edge device has the following namespaces:
     Make sure to not use any reserved names for user namespaces that you create. 
 <!--- **default namespace** - This namespace is where pods and deployments are created by default when none is provided and you have admin access to this namespace. When you interact with the Kubernetes API, such as with `kubectl get pods`, the default namespace is used when none is specified.-->
 
-- **User namespace** - These are the namespaces that you can create via **kubectl** to locally deploy applications.
+- **User namespace** - These are the namespaces that you can create via **kubectl** or via the PowerShell interface of the device to locally deploy applications.
  
-- **IoT Edge namespace** - You connect to this `iotedge` namespace to deploy applications via IoT Edge.
+- **IoT Edge namespace** - You connect to this `iotedge` namespace to manage applications deployed via IoT Edge.
 
-- **Azure Arc namespace** - You connect to this `azure-arc` namespace to deploy applications via Azure Arc. 
+- **Azure Arc namespace** - You connect to this `azure-arc` namespace to manage applications deployed via Azure Arc. With Azure Arc, you can also deploy applications in other user namespaces. 
 
 ## Namespaces and users
 

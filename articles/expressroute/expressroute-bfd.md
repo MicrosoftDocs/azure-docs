@@ -2,12 +2,12 @@
 title: 'Azure ExpressRoute: Configure BFD'
 description: This article provides instructions on how to configure BFD (Bidirectional Forwarding Detection) over private-peering of an ExpressRoute circuit.
 services: expressroute
-author: rambk
+author: duongau
 
 ms.service: expressroute
 ms.topic: article
 ms.date: 11/1/2018
-ms.author: rambala
+ms.author: duau
 
 ---
 # Configure BFD over ExpressRoute
