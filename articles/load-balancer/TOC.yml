@@ -23,6 +23,10 @@
   expanded: true
 - name: Tutorials
   items:
+  - name: Cross-region load balancer
+    items:
+    - name: Create cross-region load balancer - Portal
+      href: create-cross-region-portal.md
   - name: Internal Load Balancer
     items: 
     - name: Create an internal Load Balancer - Portal

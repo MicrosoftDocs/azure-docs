@@ -49,7 +49,7 @@ When you use Azure Security Center to monitor servers, a Microsoft Defender ATP 
 Once configured, you cannot change the location where your data is stored. If you need to move your data to another location, contact Microsoft Support to reset the tenant.
 
 
-## Onboarding servers to Security Center 
+## Onboard servers to Security Center 
 
 To onboard servers to Security Center, click **Go to Azure Security Center to onboard servers** from the Microsoft Defender ATP server onboarding.
 

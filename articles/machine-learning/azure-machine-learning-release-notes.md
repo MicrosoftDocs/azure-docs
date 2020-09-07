@@ -62,6 +62,22 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + Reverting PyTorch Default Version to 1.4.
     + Adding PyTorch 1.6 & Tensorflow 2.2 images and curated environment.
 
+### Azure Machine Learning Studio Notebooks Experience (August Update)
++ **New features**
+  + New Getting started landing Page 
+  
++ **Preview features**
+    + Gather feature in Notebooks. With the [Gather](https://github.com/microsoft/gather) feature, users can now easily clean up notebooks with, Gather uses an automated dependency analysis of your notebook, ensuring the essential code is kept, but removing any irrelevant pieces.
+
++ **Bug fixes and improvements**
+  + Improvement in speed and reliability
+  + Dark mode bugs fixed
+  + Output Scroll Bugs fixed
+  + Sample Search now searches all the content of all the files in the Azure Machine Learning sample notebooks repo
+  + Multi-line R cells can now run
+  + "I trust contents of this file" is now auto checked after first-time
+  + Improved Conflict resolution dialog, with new "Make a copy" option
+  
 ## 2020-08-17
 
 ### Azure Machine Learning SDK for Python v1.12.0

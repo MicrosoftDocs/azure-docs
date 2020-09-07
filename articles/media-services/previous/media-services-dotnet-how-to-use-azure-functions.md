@@ -20,6 +20,8 @@ ms.custom: devx-track-csharp
 ---
 # Develop Azure Functions with Media Services
 
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 This article shows you how to get started with creating Azure Functions that use Media Services. The Azure Function defined in this article monitors a storage account container named **input** for new MP4 files. Once a file is dropped into the storage container, the blob trigger executes the function. To review Azure functions, see  [Overview](../../azure-functions/functions-overview.md) and other topics in the **Azure functions** section.
 
 If you want to explore and deploy existing Azure Functions that use Azure Media Services, check out [Media Services Azure Functions](https://github.com/Azure-Samples/media-services-dotnet-functions-integration). This repository contains examples that use Media Services to show workflows related to ingesting content directly from blob storage, encoding, and writing content back to blob storage. It also includes examples of how to monitor job notifications via WebHooks and Azure Queues. You can also develop your Functions based on the examples in the [Media Services Azure Functions](https://github.com/Azure-Samples/media-services-dotnet-functions-integration) repository. To deploy the functions, press the **Deploy to Azure** button.
