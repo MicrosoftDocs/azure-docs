@@ -63,10 +63,10 @@ Implement the steps described in  [033-manage-Postgres-with-AzureDataStudio.md](
 3. Select the **[Diagnose and solve problems] dashboard**
 4. Select the **[Troubleshoot] link**
 
-:::image type="content" source="../media/data/postgres-hyperscale/ads-controller-postgres-troubleshooting-notebook.jpg" alt-text="Azure Data Studio - Open PostgreSQL troubleshooting Notebook":::
+:::image type="content" source="media/postgres-hyperscale/ads-controller-postgres-troubleshooting-notebook.jpg" alt-text="Azure Data Studio - Open PostgreSQL troubleshooting Notebook":::
 
 The **TSG100 - The Azure Arc enabled PostgreSQL Hyperscale troubleshooter notebook** opens up:
-:::image type="content" source="../media/data/postgres-hyperscale/ads-controller-postgres-troubleshooting-notebook2.jpg" alt-text="Azure Data Studio - Use PostgreSQL troubleshooting notebook":::
+:::image type="content" source="media/postgres-hyperscale/ads-controller-postgres-troubleshooting-notebook2.jpg" alt-text="Azure Data Studio - Use PostgreSQL troubleshooting notebook":::
 
 ### Run the scripts
 Select the 'Run All' button at the top to execute the notebook all at once, or you can step through and execute each code cell one by one.
