@@ -8,12 +8,27 @@
       href: release-notes.md
 - name: Quickstarts
   items:
-    - name: Deploy data controller
-      href: create-data-controller.md
-    - name: Deploy Managed Instance (Jumpstart)
-    - name: Deploy PostgreSQL (Jumpstart)
+    - name: Data controller
+      items:
+        - name: Create data controller
+          href: create-data-controller.md
+        - name: Deploy Managed Instance
+          href: jummpstart-managed-instance.md
+        - name: Deploy PostgreSQL Hyperscale
+          href: jumpstart-postgresql-hyperscale.md
 - name: How-to guides
   items:
+    - name: Create data controller
+      items:
+      - name: Create data controller (Azure data studio)
+        href: create-data-controller-azure-data-studio.md
+      - name: Create data controller resource (portal)
+        href: create-data-controller-resource-in-azure-portal.md
+    - name: Common experiences across Azure Arc enabled data services
+      items:
+        - name: Monitoring
+        - name: View billing data
+        - name: Upload registration information
     - name: Install tools
       items:
       - name: Install client tools
@@ -34,8 +49,6 @@
           href: /sql/azdata/install/deploy-install-azdata-zypper?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
         - name: Linux with pip
           href: /sql/azdata/install/deploy-install-azdata-pip?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
-    - name: Create SQL Managed Instance
-      href: create-sql-managed-instance.md
 - name: Concepts
   items:
     - name: Connectivity modes and requirements
@@ -54,14 +67,6 @@
           href: view-inventory-sql-instances.md
         - name: Get data controller username & password
           href: retrieve-the-username-password-for-data-controller.md
-        - name: Create data controller (portal)
-          href: create-data-controller-resource-in-azure-portal.md
-        - name: Create data controller (Azure Data Studio)
-          href: create-data-controller-azure-data-studio.md
-        - name: Create data controller (azdata)
-          href: create-data-controller-using-azdata.md
-        - name: Create data controller (Kubernetes tools)
-          href: create-data-controller-using-k8s-native-tools.md
         - name: Monitor with dashboards (Azure Data Studio)
           href: azure-data-studio-dashboards.md
         - name: View billing data (Azure)
@@ -151,6 +156,8 @@
       items:
         - name: Configure
           href: configure-managed-instance.md
+    - name: Create SQL Managed Instance
+      href: create-sql-managed-instance.md
     - name: Create SQL Managed Instance (Azure Data Studio)
       href: create-sql-managed-instance-azure-data-studio.md
     - name: Migrate to SQL Managed Instance (Azure Arc)
