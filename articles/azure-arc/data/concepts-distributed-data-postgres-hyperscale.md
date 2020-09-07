@@ -14,23 +14,23 @@ ms.topic: how-to
  
 # Concepts for distributing data with Arc enabled PostgreSQL Hyperscale server group
 
-This article explains key concepts that are important to benefit the most from Azure Arc enabled Postgres Hyperscale.
-The articles linked below point to the concepts explained for Azure Database for Postgres Hyperscale (Citus). It is the same technology as Azure Arc enabled Postgres Hyperscale so the same concepts and perspectives apply.
+This article explains key concepts that are important to benefit the most from Azure Arc enabled PostgreSQL Hyperscale.
+The articles linked below point to the concepts explained for Azure Database for PostgreSQL Hyperscale (Citus). It is the same technology as Azure Arc enabled PostgreSQL Hyperscale so the same concepts and perspectives apply.
 
 **What is the difference between the them?**
-- _Azure SQL Database for Postgres Hyperscale (Citus)_
+- _Azure SQL Database for PostgreSQL Hyperscale (Citus)_
 
 This is the hyperscale form factor of the Postgres database engine available as database as a service in Azure (PaaS). It is powered by the the Citus extension that enables the Hyperscale experience. In this form factor the service runs in the Microsoft datacenters and is operated by Microsoft.
 
-- _Azure Arc enabled Postgres Hyperscale_
+- _Azure Arc enabled PostgreSQL Hyperscale_
 
 This is the hyperscale form factor of the Postgres database engine offered avilable with Azure Arc enabled Data Service. In this form factor, our customers provide the infrastructure that host the systems and operate them.
 
-The key concepts around Azure Arc enabled Postgres Hyperscale are:
+The key concepts around Azure Arc enabled PostgreSQL Hyperscale are:
 
 ### Nodes and tables:
 In this article you'll read about:
-- specialized Postgres nodes in Azure Arc enabled Postgres Hyperscale: coordinator and workers
+- specialized Postgres nodes in Azure Arc enabled PostgreSQL Hyperscale: coordinator and workers
 - types of tables: distributed tables, reference tables and local tables
 - shards
 
@@ -38,7 +38,7 @@ Read on [here](https://docs.microsoft.com/azure/postgresql/concepts-hyperscale-n
 
 ### Determining an application type:
 In this article you'll read about how to clearly identify the type of application you are building. Why is it important?
-Because running efficient queries on a Azure Arc enabled Postgres Hyperscale server group requires that tables be properly distributed across servers. 
+Because running efficient queries on a Azure Arc enabled PostgreSQL Hyperscale server group requires that tables be properly distributed across servers. 
 The recommended distribution varies by the type of application and its query patterns. There are broadly two kinds of applications that work well on Azure Arc enabled Postgres Hyperscale:
 - Multi-Tenant Applications
 - Real-Time Applications
@@ -64,7 +64,7 @@ Read on [here](https://docs.microsoft.com/azure/postgresql/concepts-hyperscale-c
 
 
 ## Next steps:
-- [Read about deploying Azure Arc enabled Postgres Hyperscale](create-postgresql-hyperscale-server-group.md)
-- [Read about scaling out Azure Arc enabled Postgres Hyperscale server groups deployed in your Arc Data Controller](scale-out-postgresql-hyperscale-server-group.md)
-- [Read about Azure Arc enabled Data Services]()
-- [Read about Azure Arc]()
+- [Read about deploying Azure Arc enabled PostgreSQL Hyperscale](create-postgresql-hyperscale-server-group.md)
+- [Read about scaling out Azure Arc enabled PostgreSQL Hyperscale server groups deployed in your Arc Data Controller](scale-out-postgresql-hyperscale-server-group.md)
+- [Read about Azure Arc enabled Data Services](https://azure.microsoft.com/services/azure-arc/hybrid-data-services)
+- [Read about Azure Arc](https://http://aka.ms/azurearc)
