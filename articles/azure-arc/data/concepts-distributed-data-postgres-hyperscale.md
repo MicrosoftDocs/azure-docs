@@ -24,7 +24,7 @@ This is the hyperscale form factor of the Postgres database engine available as 
 
 - _Azure Arc enabled PostgreSQL Hyperscale_
 
-This is the hyperscale form factor of the Postgres database engine offered avilable with Azure Arc enabled Data Service. In this form factor, our customers provide the infrastructure that host the systems and operate them.
+This is the hyperscale form factor of the Postgres database engine offered available with Azure Arc enabled Data Service. In this form factor, our customers provide the infrastructure that host the systems and operate them.
 
 The key concepts around Azure Arc enabled PostgreSQL Hyperscale are:
 

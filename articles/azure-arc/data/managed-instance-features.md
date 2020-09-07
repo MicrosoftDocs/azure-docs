@@ -158,7 +158,7 @@ The following features and services are not available for Azure Arc enabled SQL 
 | &nbsp; | Distributed query with 3rd-party connections |
 | &nbsp; | Linked Servers to data sources other than SQL Server and Azure SQL products |
 | &nbsp; | System extended stored procedures (XP_CMDSHELL, etc.) |
-| &nbsp; | Filetable, FILESTREAM |
+| &nbsp; | FileTable, FILESTREAM |
 | &nbsp; | CLR assemblies with the EXTERNAL_ACCESS or UNSAFE permission set |
 | &nbsp; | Buffer Pool Extension |
 | **SQL Server Agent** |  Subsystems: CmdExec, PowerShell, Queue Reader, SSIS, SSAS, SSRS |
