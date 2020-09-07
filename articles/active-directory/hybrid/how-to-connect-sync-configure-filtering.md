@@ -212,7 +212,7 @@ Inbound filtering uses the default configuration, where objects going to Azure A
 In inbound filtering, you use the power of **scope** to determine which objects to synchronize or not synchronize. This is where you make adjustments to fit your own organization's requirements. The scope module has a **group** and a **clause** to determine when a sync rule is in scope. A group contains one or many clauses. There is a logical "AND" between multiple clauses, and a logical "OR" between multiple groups.
 
 Let us look at an example:  
-![Scope](./media/how-to-connect-sync-configure-filtering/scope.png)  
+![A screenshot showing an example of adding scoping filters](./media/how-to-connect-sync-configure-filtering/scope.png)  
 This should be read as **(department = IT) OR (department = Sales AND c = US)**.
 
 In the following samples and steps, you use the user object as an example, but you can use this for all object types.
