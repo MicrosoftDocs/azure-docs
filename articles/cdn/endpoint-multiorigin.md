@@ -10,7 +10,7 @@ ms.date: 8/20/2020
 ms.author: allensu
 ---
 
-# Azure CDN endpoint multi-origin
+# Azure CDN endpoint multi-origin (Preview)
 
 Multi-origin support eliminates downtime and establishes global redundancy. 
 
