@@ -1,6 +1,6 @@
 ---
-title: Azure IoT Security Module - RTOS overview
-description: Learn more about Azure IoT Security Module - RTOS support and implementation as part of the Azure Security Center for IoT service.
+title: Security Module for Azure RTOS overview
+description: Learn more about Security Module for Azure RTOS support and implementation as part of the Azure Security Center for IoT service.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -18,14 +18,14 @@ ms.date: 09/07/2020
 ms.author: mlottner
 ---
 
-# Overview: Azure IoT Security Module - RTOS (preview)
+# Overview: Security Module for Azure RTOS (preview)
 
 The Azure Security Center for IoT RTOS security module provides a comprehensive security solution for Azure RTOS devices. Azure RTOS now ships with the Azure IoT Security Module built-in and provides coverage for common threats and potential malicious activities on real-time operating system devices. 
 
 ![Azure Security Center for IoT Azure RTOS](./media/architecture/azure-rtos-security-monitoring.png)
 
 
-Azure IoT Security Module - RTOS offers the following features: 
+Security Module for Azure RTOS offers the following features: 
 - Malicious network activity detection
 - Custom alert based, device behavior baselining
 - Improve device security hygiene
@@ -44,12 +44,12 @@ By leveraging the recommended infrastructure Azure Security Center for IoT provi
 
 ## Get started protecting Azure RTOS devices
 
-Azure IoT Security Module - RTOS is provided as a free download for your devices. The Azure Security Center for IoT cloud service is available with a 30 day trial per Azure subscription. Download the [Azure IoT Security Module - RTOS](https://github.com/azure-rtos/iot-security-module-preview) to get started. 
+Security Module for Azure RTOS is provided as a free download for your devices. The Azure Security Center for IoT cloud service is available with a 30 day trial per Azure subscription. Download the [Security Module for Azure RTOS](https://github.com/azure-rtos/iot-security-module-preview) to get started. 
 
 
 ## Next steps
 
-In this article, you learned about Azure IoT Security Module - RTOS support. To learn more about the security module and get started, see the following articles:
+In this article, you learned about the Security Module for Azure RTOS service. To learn more about the security module and get started, see the following articles:
 
 - [Azure RTOS IoT security module concepts](concept-rtos-security-module.md)
 - [Quickstart: Azure RTOS IoT security module](quickstart-azure-rtos-security-module.md)

@@ -5,7 +5,7 @@
   items:
   - name: Solution architecture
     href: architecture.md
-  - name: Security solution for Azure RTOS
+  - name: Security Module for Azure RTOS
     href: iot-security-azure-rtos.md
   - name: Security agents
     href: security-agent-architecture.md
@@ -23,7 +23,7 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Configure Azure RTOS IoT security module
+  - name: Configure Security Module for Azure RTOS
     href: quickstart-azure-rtos-security-module.md
   - name: Onboard Azure Security Center for IoT in IoT Hub
     href: quickstart-onboard-iot-hub.md
@@ -39,11 +39,11 @@
     href: quickstart-investigate-security-alerts.md
 - name: Concepts
   items:
-  - name: Azure IoT Security Module - RTOS
+  - name: Security Module for Azure RTOS
     items: 
-      - name: Understand the Azure IoT security module - RTOS
+      - name: Understand the Security Module for Azure RTOS
         href: concept-rtos-security-module.md
-      - name:  RTOS Security Module alerts and recommendations 
+      - name: Security Module for Azure RTOS alerts and recommendations 
         href: concept-rtos-security-alerts-recommendations.md
   - name: Security agent authentication
     href: concept-security-agent-authentication-methods.md
@@ -63,7 +63,7 @@
     href: concept-pricing.md
 - name: How-to guides
   items:
-  - name: Work with Azure RTOS security module
+  - name: Work with Security Module for Azure RTOS
     href: how-to-azure-rtos-security-module.md
   - name: Which agent should I deploy?
     items:
@@ -99,7 +99,7 @@
     href: how-to-customize-solution.md
 - name: References
   items:
-  - name: Azure RTOS security module API
+  - name: Security Module for Azure RTOS API
     href: azure-rtos-security-module-api.md
   - name: Frequently asked questions
     href: resources-frequently-asked-questions.md

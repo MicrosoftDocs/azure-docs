@@ -24,7 +24,7 @@ landingContent:
         links:
           - text: What is Azure Security Center for IoT?
             url: overview.md
-          - text: Azure RTOS security solution
+          - text: Security Module for Azure RTOS 
             url: iot-security-azure-rtos.md
           - text: Plan your solution
             url: service-prerequisites.md
@@ -56,7 +56,7 @@ landingContent:
             url: quickstart-onboard-iot-hub.md
           - text: Configure your IoT security solution
             url: quickstart-configure-your-solution.md
-          - text: Configure your Azure IoT Security Module-RTOS solution
+          - text: Configure your Security Module for Azure RTOS 
             url: quickstart-azure-rtos-security-module.md
           - text: Create an Azure Security Center for IoT module twin
             url: quickstart-create-security-twin.md
@@ -68,7 +68,7 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Customize Azure IoT Security Module-RTOS
+          - text: Customize the Security Module for Azure RTOS 
             url: how-to-azure-rtos-security-module.md
           - text: Choose an agent
             url: how-to-deploy-agent.md

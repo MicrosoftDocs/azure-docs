@@ -64,7 +64,7 @@ Compile flags allows you to override the predefined configurations.
 
 ## Supported security alerts and recommendations
 
-The Azure IoT Security Module - RTOS supports specific security alerts and recommendations. Make sure to [review and customize the relevant alert and recommendation values](concept-rtos-security-alerts-recommendations.md) for your service.
+The Security Module for Azure RTOS supports specific security alerts and recommendations. Make sure to [review and customize the relevant alert and recommendation values](concept-rtos-security-alerts-recommendations.md) for your service.
 
 ## Log Analytics (optional)
 
@@ -72,6 +72,6 @@ While optional and not required, enabling and configuring Log Analytics can be h
 
 ## Next steps
 
-- Review and customize Azure IoT Security Module - RTOS [security alerts and recommendations](concept-rtos-security-alerts-recommendations.md)
-- Refer to the [Azure IoT Security Module - RTOS API](azure-rtos-security-module-api.md) as needed.
+- Review and customize Security Module for Azure RTOS [security alerts and recommendations](concept-rtos-security-alerts-recommendations.md)
+- Refer to the [Security Module for Azure RTOS API](azure-rtos-security-module-api.md) as needed.
 

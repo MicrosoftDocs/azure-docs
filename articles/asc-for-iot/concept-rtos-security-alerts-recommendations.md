@@ -1,5 +1,5 @@
 ---
-title: Azure IoT Security Module - RTOS built-in & customizable alerts and recommendations 
+title: Security Module for Azure RTOS built-in & customizable alerts and recommendations 
 description: Learn about security alerts and recommended remediation using the Azure IoT Security Module -RTOS.
 services: asc-for-iot
 ms.service: asc-for-iot
@@ -18,17 +18,17 @@ ms.date: 09/07/2020
 ms.author: mlottner
 ---
 
-# Azure IoT Security Module - RTOS security alerts and recommendations (preview)
+# Security Module for Azure RTOS security alerts and recommendations (preview)
 
-Azure IoT Security Module - RTOS continuously analyzes your IoT solution using advanced analytics and threat intelligence to alert you to potential malicious activity and suspicious system modifications. You can also create custom alerts based on your knowledge of expected device behavior and baselines.
+Security Module for Azure RTOS continuously analyzes your IoT solution using advanced analytics and threat intelligence to alert you to potential malicious activity and suspicious system modifications. You can also create custom alerts based on your knowledge of expected device behavior and baselines.
 
 An IoT Security Module alert acts as an indicator of potential compromise, and should be investigated and remediated. An IoT Security Module recommendation identifies weak security posture to be remediated and updated. 
 
 In this article, you'll find a list of built-in alerts and recommendations that are triggered based on the default ranges, and customizable with your own values, based on expected or baseline behavior. 
 
-For more information on how alert customization works in the Azure Security Center for IoT service, see [customizable alerts](concept-customizable-security-alerts.md). The specific alerts and recommendations available for customization when using the Azure IoT Security Module - RTOS are detailed in the following tables. 
+For more information on how alert customization works in the Azure Security Center for IoT service, see [customizable alerts](concept-customizable-security-alerts.md). The specific alerts and recommendations available for customization when using the Security Module for Azure RTOS are detailed in the following tables. 
 
-## Azure IoT Security Module - RTOS supported security alerts
+## Security Module for Azure RTOS supported security alerts
 
 ### Device-related security alerts
 
@@ -51,29 +51,29 @@ For more information on how alert customization works in the Azure Security Cent
 |Addition or editing of a diagnostic setting    | Detected an attempt to add or edit a diagnostic setting of an IoT Hub      |
 |Delete a diagnostic setting    |  Detected attempt to delete a diagnostic setting from an IoT Hub      |
 
-## Azure IoT Security Module - RTOS supported customizable alerts
+## Security Module for Azure RTOS supported customizable alerts
 
 ### Device related customizable alerts
 
 |Device related customizable value  |Reason  |
 |---------|---------|
-|Active connections|Number of active connections is outside the allowed range|
-|Cloud to device messages in **MQTT** protocol|Amount of cloud to device messages in **MQTT** protocol is outside the allowed range|
-|Outbound connection| An outbound connection was created to a forbidden IP|
+|Active connections|Number of active connections is not in the allowed range|
+|Cloud to device messages in **MQTT** protocol|Number of cloud to device messages in **MQTT** protocol is not in the allowed range|
+|Outbound connection| Outbound connection to an IP that isn't allowed|
 
 ### Hub related customizable alerts 
 
 |Hub related customizable value  |Reason  |
 |---------|---------|
-|Command queue purges     |  Number outside the allowed range       |
-|Cloud to device messages in **MQTT** protocol    |  Number outside the allowed range       |
-|Device to cloud messages in **MQTT** protocol    | Number outside the allowed range        |
-|Direct method invokes     |  Number outside the allowed range       |
-|Rejected cloud to device messages in **MQTT** protocol     |   Number outside the allowed range      |
-|Updates to twin modules     |  Number outside the allowed range       |
-|Unauthorized operations    |  Number outside the allowed range       |
+|Command queue purges     |  Number of command queue purges outside the allowed range       |
+|Cloud to device messages in **MQTT** protocol    |  Number of Cloud to device messages in **MQTT** protocol outside the allowed range       |
+|Device to cloud messages in **MQTT** protocol    | Number of device to cloud messages in **MQTT** protocol outside the allowed range        |
+|Direct method invokes     |  Number of direct method invokes outside the allowed range       |
+|Rejected cloud to device messages in **MQTT** protocol     |   Number of rejected cloud to device messages in **MQTT** protocol outside the allowed range      |
+|Updates to twin modules     |  Number of updates to twin modules outside the allowed range       |
+|Unauthorized operations    |  Number of unauthorized operations outside the allowed range       |
 
-## Azure IoT Security Module - RTOS supported recommendations
+## Security Module for Azure RTOS supported recommendations
 
 ### Device-related recommendations
 
@@ -95,6 +95,6 @@ For a complete list of all Azure Security Center for IoT service related alerts 
 
 ## Next steps
 
-- [Quickstart: Azure IoT Security Module - RTOS](quickstart-azure-rtos-security-module.md)
-- [Configure and customize Azure IoT Security Module - RTOS](how-to-azure-rtos-security-module.md)
-- Refer to the [Azure IoT Security Module - RTOS API](azure-rtos-security-module-api.md)
+- [Quickstart: Security Module for Azure RTOS](quickstart-azure-rtos-security-module.md)
+- [Configure and customize Security Module for Azure RTOS](how-to-azure-rtos-security-module.md)
+- Refer to the [Security Module for Azure RTOS API](azure-rtos-security-module-api.md)
