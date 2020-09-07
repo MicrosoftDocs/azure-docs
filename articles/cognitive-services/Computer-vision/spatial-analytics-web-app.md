@@ -6,7 +6,7 @@ services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: vision-service
+ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 06/10/2020
 ms.author: aahi
@@ -18,7 +18,7 @@ Use this article to learn how to integrate Spatial Analytics into a web app that
 
 In this tutorial you will learn how to:
 
-* Deploy the Project Archon container
+* Deploy the Spatial Analytics container
 * Configure the operation and camera
 * Configure the IoT Hub connection in the Web Application
 * Deploy and Test the Web Application
@@ -29,14 +29,14 @@ In this tutorial you will learn how to:
 * [The Visual Studio IDE](https://visualstudio.microsoft.com/vs/community/) or higher.
     * Be sure to install the **ASP.NET and web development** and **Azure development** options.
 * Basic understanding of [Node.js](https://docs.microsoft.com/azure/app-service/quickstart-nodejs?pivots=platform-linux) development
-* Basic understanding of Azure IoT Edge deployment configurations, and an [Azure IoT Hub](https://docs.microsoft.com/en-us/azure/iot-hub/)
+* Basic understanding of Azure IoT Edge deployment configurations, and an [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/)
 * A configured [host computer](spatial-analytics-container.md).
 
-## Deploy the Spatial Analysis Container
+## Deploy the Spatial Analysis Container to the host computer
 
-Fill out the [request application](http://aka.ms/csgate) to get access to run the container. 
+Fill out the [request application](https://aka.ms/csgate) to get access to run the container. 
 
-Follow [the Host Computer Setup](./sptaial-analytics-container.md) to configure the Azure Stack Edge device and connect an IoT Edge device to Azure IoT Hub. 
+Follow [the Host Computer Setup](./spatial-analytics-container.md) to configure the host computer and connect an IoT Edge device to Azure IoT Hub. 
 
 ### Deploy an Azure IoT Hub service in your Subscription
 
