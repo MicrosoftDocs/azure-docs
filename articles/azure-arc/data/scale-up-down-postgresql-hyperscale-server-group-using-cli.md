@@ -61,7 +61,7 @@ If you set min settings that are different from the max settings, the configurat
 
 The resources (vCores and memory) that will actually be used by your server group are up to the max settings and depend on the workloads and the resources available on the cluster. If you do not cap the settings with a max, your server group may use up to all the resources that the Kubernetes cluster allocates to the Kubernetes nodes your server group is  scheduled on.
 
-Those vCore and memory settings apply to each of the Postgres Hyperscale nodes (coordinator node and worker nodes). It is not yet supported to set the definitions of the coordinator node and the worker nodes separately.
+Those vCore and memory settings apply to each of the PostgreSQL Hyperscale nodes (coordinator node and worker nodes). It is not yet supported to set the definitions of the coordinator node and the worker nodes separately.
 
 In a default configuration, only the minimum memory is set to 256Mi as it is the minimum amount of memory that is recommended to run PostgreSQL Hyperscale.
 
