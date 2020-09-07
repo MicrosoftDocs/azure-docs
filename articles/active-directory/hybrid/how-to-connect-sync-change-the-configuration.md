@@ -108,7 +108,7 @@ If everything is as expected, you can enable the scheduler again. From PowerShel
 The previous section described how to make changes to an attribute flow. In this section, some additional examples are provided. The steps for how to create the sync rule is abbreviated, but you can find the full steps in the previous section.
 
 ### Use an attribute other than the default
-In this Fabrikam scenario, there is a forest where the local alphabet is used for given name, surname, and display name. The Latin character representation of these attributes can be found in the extension attributes. For building a global address list in Azure AD and Office 365, the organization wants to use these attributes instead.
+In this Fabrikam scenario, there is a forest where the local alphabet is used for given name, surname, and display name. The Latin character representation of these attributes can be found in the extension attributes. For building a global address list in Azure AD and Microsoft 365, the organization wants to use these attributes instead.
 
 With a default configuration, an object from the local forest looks like this:  
 ![Attribute flow 1](./media/how-to-connect-sync-change-the-configuration/attributeflowjp1.png)
