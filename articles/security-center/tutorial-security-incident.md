@@ -63,13 +63,13 @@ Security Center provides a unified view of all security alerts. Security alerts 
 
    ![Security alerts](./media/tutorial-security-incident/tutorial-security-incident-fig1.png)
 
-2. In the list of alerts, click on a security incident, which is a collection of alerts, to learn more about this incident. **Security incident detected** opens.
+2. In the list of alerts, select a security incident, which is a collection of alerts, to learn more about this incident. **Security incident detected** opens.
 
-   ![Security incident](./media/tutorial-security-incident/tutorial-security-incident-fig2.png)
+   ![Security incident detected](./media/tutorial-security-incident/tutorial-security-incident-fig2.png)
 
 3. On this screen you have the security incident description on top, and the list of alerts that are part of this incident. Click on the alert that you want to investigate further to obtain more information.
 
-   ![Security incident](./media/tutorial-security-incident/tutorial-security-incident-fig3.png)
+   ![Alert details from incident](./media/tutorial-security-incident/tutorial-security-incident-fig3.png)
 
    The type of alert can vary, read [Understanding security alerts in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-type) for more details about the type of alert, and potential remediation steps. For alerts that can be safely dismissed, you can right click on the alert and select the option **Dismiss**:
 

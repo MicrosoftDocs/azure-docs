@@ -15,17 +15,18 @@ ms.date: 04/28/2020
 ms.author: memildin
 ---
 
-# Enable Azure Defender for enhanced security
+# Benefits of enabling Azure Defender
 
 Azure Security Center provides unified security management and advanced threat protection for workloads running in Azure, on-premises, and in other clouds. It delivers visibility and control over hybrid cloud workloads, active defenses that reduce your exposure to threats, and intelligent detection to help you keep pace with rapidly evolving cyber attacks.
 
-## Pricing tiers
+## Free option vs Azure Defender enabled
+
 Security Center is offered in two modes:
 
 - **Azure Defender OFF** - Security Center without Azure Defender is enabled for free on all your Azure subscriptions when you visit the Azure Security Center dashboard in the Azure portal for the first time, or if enabled programmatically via API. Using this free mode provides security policy, continuous security assessment, and actionable security recommendations to help you protect your Azure resources.
 
 - **Azure Defender ON** - Enabling Azure Defender extends the capabilities of the free mode to workloads running in private and other public clouds, providing unified security management and threat protection across your hybrid cloud workloads. Azure Defender also adds threat protection capabilities, which use built-in behavioral analytics and machine learning to identify attacks and zero-day exploits, access and application controls to reduce exposure to network attacks and malware, and more. In addition, Azure Defender adds vulnerability scanning for your virtual machines and container registries. You can try the Azue Defender for 30-days for free.
-- 
+
 Most of the free security assessments for VMs, as well many of the Azure Defender security alerts, require the installation of the Log Analytics agent. You can enable auto provisioning to automatically deploy the agent on your Azure VMs.
 
 

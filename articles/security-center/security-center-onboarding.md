@@ -95,9 +95,9 @@ If you have existing workspaces, they are listed under **Add new Non-Azure compu
 
 You can add a computer by following the workflow from **Onboarding**, as shown above. You can also add a computer by following the workflow from **Compute**. In this example, we use **Compute**.
 
-1. Return to Security Center’s main menu and **Overview** dashboard.
+1. Return to Security Center’s main menu **Overview** dashboard.
 
-   ![Overview][5]
+   ![The overview dashboard][5]
 
 2. Select **Compute & apps**.
 
