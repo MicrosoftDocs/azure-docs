@@ -41,16 +41,6 @@ To secure your AKS nodes and hosts, Security Center:
     >[!NOTE]
     > These CIS benchmark checks will not run on AKS-managed instances or Databricks-managed VMs.
 
-###  Workload protection best-practices using Kubernetes admission control
-
-Kubernetes admission controllers are plugins that enforce how your clusters are used. 
-
-Azure Defender for Kubernetes includes a bundle of recommendations that are available when you've installed the **Azure Policy add-on for Kubernetes**. As explained in [Understand Azure Policy for Kubernetes clusters](../governance/policy/concepts/policy-for-kubernetes.md) this add-on extends the open source Gatekeeper v3, *an admission controller webhook* for Open Policy Agent/OPA. The add-on registers as a web hook to Kubernetes admission control and makes it possible to apply at-scale enforcements and safeguards on your clusters in a centralized, consistent manner. 
-
-When you've installed the add-on on your AKS cluster, every request to the Kubernetes API server will be monitored against the predefined set of best practices before being persisted to the cluster. You can then configure to **enforce** the best practices and mandate them for future workloads. 
-
-For example, you can mandate that privileged containers shouldn't be created, and any future requests to do so will be blocked.
-
 
 ### Run-time protection
 
