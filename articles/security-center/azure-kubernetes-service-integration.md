@@ -19,7 +19,7 @@ ms.author: memildin
 
 Azure Kubernetes Service (AKS) is Microsoft's managed service for developing, deploying, and managing containerized applications. 
 
-If you're on Azure Security Center's standard tier, you can add the AKS bundle (see [pricing](security-center-pricing.md)) to gain deeper visibility to your AKS nodes, cloud traffic, and security controls.
+Enable Azure **Defender for Kubernetes** to gain deeper visibility to your AKS nodes, cloud traffic, and security controls.
 
 Together, Security Center and AKS form the best cloud-native Kubernetes security offering.
 

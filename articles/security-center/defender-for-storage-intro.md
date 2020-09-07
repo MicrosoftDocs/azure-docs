@@ -22,7 +22,7 @@ manager: rkarlin
 |Aspect|Details|
 |----|:----|
 |Release state:|[Blob Storage](https://azure.microsoft.com/services/storage/blobs/) (general availability)<br>[Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) (preview)<br>[Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction) (preview)|
-|Pricing:|Standard tier|
+|Pricing:|**Azure Defender for Storage** required|
 |Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![Yes](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) China Gov, Other Gov|
 |||
 

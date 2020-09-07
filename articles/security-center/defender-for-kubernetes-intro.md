@@ -79,7 +79,7 @@ Also, our global team of security researchers constantly monitor the threat land
 
 ### Can I still get AKS protections without the Log Analytics agent?
 
-As mentioned above, the optional Kubernetes bundle provides protections at the cluster level, the Log Analytics agent of Azure Security Center standard tier protect your nodes. 
+As mentioned above, the optional **Azure Defender for Kubernetes** plan provides protections at the cluster level, the Log Analytics agent of **Azure Defender for servers** protects your nodes. 
 
 We recommend deploying both, for the most complete protection possible.
 

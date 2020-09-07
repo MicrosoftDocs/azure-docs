@@ -94,13 +94,12 @@ To perform a search open the **Security Center** dashboard, click **Search** in 
 
 ## Clean up resources
 
-Other quickstarts and tutorials in this collection build upon this quickstart. If you plan to continue on to work with subsequent quickstarts and tutorials, continue running the standard tier and keep automatic provisioning enabled. If you do not plan to continue or wish to return to the Free tier:
+Other quickstarts and tutorials in this collection build upon this quickstart. If you plan to continue to work with subsequent quickstarts and tutorials, keep automatic provisioning and Azure Defender enabled. If you do not plan to continue or wish to disable Azure Defender:
 
-1. Return to the Security Center main menu and select **Security Policy**.
-2. Select the subscription or policy that you want to return to Free. **Security policy** opens.
-3. Under **POLICY COMPONENTS**, select **Pricing tier**.
-4. Select **Free** to change subscription from standard tier to Free tier.
-5. Select **Save**.
+1. Return to the Security Center main menu and select **Pricing and settings**.
+1. Select the subscription that you want to downgrade.
+1. Set **Azure Defender** to Off.
+1. Select **Save**.
 
 If you wish to disable automatic provisioning:
 

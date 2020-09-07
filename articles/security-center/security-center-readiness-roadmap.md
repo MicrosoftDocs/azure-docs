@@ -50,7 +50,6 @@ Use the following resources to assist you during the onboarding processes.
 Article
 * [Onboarding to Azure Security Center Standard for enhanced security](https://docs.microsoft.com/azure/security-center/security-center-onboarding)
 
-Video
 * [Azure Security Center Hybrid - Overview](https://youtu.be/NMa4L_M597k)
 
 ## Mitigating security issues using Security Center

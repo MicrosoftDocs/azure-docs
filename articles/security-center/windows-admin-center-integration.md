@@ -58,12 +58,8 @@ Once onboarded, you can view your alerts and recommendations directly in the Azu
 ## View security recommendations and alerts for Windows Admin Center managed servers in Security Center
 From Azure Security Center:
 
-* To view security recommendations for all your Windows Admin Center servers, open **Compute & Apps** and click the **VMs and Computers** tab. Filter the list by resource "Server" as shown here:
-
-    [![View security recommendations for Windows Admin Center managed servers](media/windows-admin-center-integration/viewing-recommendations-wac.png)](media/windows-admin-center-integration/viewing-recommendations-wac.png#lightbox)
+* To view security recommendations for all your Windows Admin Center servers, open [asset inventory](asset-inventory.md) and filter to the machine type that you want to investigate. select the **VMs and Computers** tab.
 
 * To view security alerts for all your Windows Admin Center servers, open **Security alerts**. Click **Filter** and ensure **only** "Non-Azure" is selected:
 
-    ![Filter security alerts for Windows Admin Center managed servers](./media/windows-admin-center-integration/filtering-alerts-to-non-azure.png)
-
-    [![View security alerts for Windows Admin Center managed servers](media/windows-admin-center-integration/viewing-alerts-wac.png)](media/windows-admin-center-integration/viewing-alerts-wac.png#lightbox)
+    :::image type="content" source="./media/windows-admin-center-integration/filtering-alerts-by-environment.png" alt-text="Filter security alerts for Windows Admin Center managed servers" lightbox="./media/windows-admin-center-integration/filtering-alerts-by-environment.png":::

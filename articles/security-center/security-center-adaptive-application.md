@@ -47,7 +47,7 @@ By defining lists of known-safe applications, and generating alerts when anythin
 |Aspect|Details|
 |----|:----|
 |Release state:|General availability|
-|Pricing:|Standard tier|
+|Pricing:|Requires [Azure Defender for servers](defender-for-servers-intro.md)|
 |Supported machines:|![Yes](./media/icons/yes-icon.png) Azure and non-Azure machines running Windows and Linux<br>![Yes](./media/icons/yes-icon.png) [Azure Arc](https://docs.microsoft.com/azure/azure-arc/) machines|
 |Required roles and permissions:|**Security Reader** and **Reader** roles can both view groups and the lists of known-safe applications<br>**Contributor** and **Security Admin** roles can both edit groups and the lists of known-safe applications|
 |Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![Yes](./media/icons/yes-icon.png) National/Sovereign (US Gov, China Gov, Other Gov)|
@@ -82,7 +82,7 @@ Select the recommendation, or open the adaptive application controls page to vie
       - It's a Windows machine with a pre-existing [AppLocker](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/applocker/applocker-overview) policy enabled by either a GPO or a local security policy
 
       > [!TIP]
-      > Security Center needs at least two weeks of data to define the unique recommendations per group of machines. Machines that have recently been created, or which belong to subscriptions that were only recently enabled with standard tier, will appear under the **No recommendation** tab.
+      > Security Center needs at least two weeks of data to define the unique recommendations per group of machines. Machines that have recently been created, or which belong to subscriptions that were only recently enabled with Azure Defender, will appear under the **No recommendation** tab.
 
 
 1. Open the **Recommended** tab. The groups of machines with recommended allow lists appears.

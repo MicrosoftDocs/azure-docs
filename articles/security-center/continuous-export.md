@@ -121,11 +121,11 @@ Also, if you'd like to move the continuously exported data automatically from yo
 
 If you want to analyze Azure Security Center data inside a Log Analytics workspace or use Azure alerts together with Security Center, setup continuous export to your Log Analytics workspace.
 
-To export to a Log Analytics workspace, you must have Security Center's Log Analytics solutions enabled on your workspace. If you're using the Azure portal, Security Center's free tier solution is automatically enabled when you enable continuous export. However, if you're configuring your continuous export settings programmatically, you must manually turn Azure Defender on or off from within the **Pricing & settings** page.
+To export to a Log Analytics workspace, you must have Security Center's Log Analytics solutions enabled on your workspace. If you're using the Azure portal, Security Center's free solution is automatically enabled when you enable continuous export. However, if you're configuring your continuous export settings programmatically, you must manually turn Azure Defender on or off from within the **Pricing & settings** page.
 
 ### Log Analytics tables and schemas
 
-Security alerts and recommendations are stored in the *SecurityAlert* and *SecurityRecommendations* tables respectively. The name of the Log Analytics solution containing these tables depends on whether you are on the free or standard tier (see [pricing](security-center-pricing.md)): Security('Security and Audit') or SecurityCenterFree.
+Security alerts and recommendations are stored in the *SecurityAlert* and *SecurityRecommendations* tables respectively. The name of the Log Analytics solution containing these tables depends on whether you have Azure Defender enabled: Security ('Security and Audit') or SecurityCenterFree.
 
 ![The *SecurityAlert* table in Log Analytics](./media/continuous-export/log-analytics-securityalert-solution.png)
 

@@ -89,12 +89,13 @@ Adaptive application controls help you define a set of applications that are all
 4. Once you finish your selections, select **Create**.
 
 ## Clean up resources
-Other quickstarts and tutorials in this collection build upon this quickstart. If you plan to continue to work with subsequent quickstarts and tutorials, keep Azure Defender enabled and keep automatic provisioning enabled. If you do not plan to continue or wish to disable Azure Defender:
+
+Other quickstarts and tutorials in this collection build upon this quickstart. If you plan to continue to work with subsequent quickstarts and tutorials, keep automatic provisioning and Azure Defender enabled. If you do not plan to continue or wish to disable Azure Defender:
 
 1. Return to the Security Center main menu and select **Pricing and settings**.
-2. Select the subscription that you want to downgrade.
-3. Set **Azure Defender** to Off.
-5. Select **Save**.
+1. Select the subscription that you want to downgrade.
+1. Set **Azure Defender** to Off.
+1. Select **Save**.
 
 If you wish to disable automatic provisioning:
 

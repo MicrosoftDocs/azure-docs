@@ -34,7 +34,7 @@ Security Center leverages the scale of the cloud, and the visibility that Azure 
 2. Go to **Pricing & settings** and choose a subscription.
 3. Under **Pricing tier**, in the **App service** row, toggle your plan to **Enabled**.
 
-    [![Enabling app services in your standard tier subscription](media/security-center-app-services/app-services-toggle.png)](media/security-center-app-services/app-services-toggle.png#lightbox)
+    [![Enabling Azure Defender for App Service in your subscription](media/security-center-app-services/app-services-toggle.png)](media/security-center-app-services/app-services-toggle.png#lightbox)
 
 
 >[!NOTE]

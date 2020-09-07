@@ -1,5 +1,5 @@
 ---
-title: Standard tier's enhanced security - Azure Security Center
+title: Azure Defender's enhanced security - Azure Security Center
 description: " Learn how to onboard to Azure Security Center Standard for enhanced security. "
 services: security-center
 documentationcenter: na
@@ -90,7 +90,8 @@ You can add a computer by following the workflow from **Onboarding**, as shown a
    ![Overview][5]
 
 2. Select **Compute & apps**.
-3. Under **Compute & apps**, select **Add computers**.
+
+1. Under **Compute & apps**, select **Add computers**.
 
    ![Compute blade][6]
 

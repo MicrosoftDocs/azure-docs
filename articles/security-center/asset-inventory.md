@@ -20,9 +20,9 @@ When any resource has outstanding recommendations, they'll appear in the invento
 
 Use this view and its filters to address such questions as:
 
-- Which of my standard tier subscriptions has outstanding recommendations?
+- Which of my subscriptions with Azure Defender enabled have outstanding recommendations?
 - Which of my machines with the tag 'Production' are missing the Log Analytics agent?
-- How many of my machines, tagged with a specific tag have outstanding recommendations?
+- How many of my machines tagged with a specific tag have outstanding recommendations?
 - How many resources in a specific resource group have security findings from a vulnerability assessment service?
 
 The asset management possibilities for this tool are substantial and continue to grow. 
