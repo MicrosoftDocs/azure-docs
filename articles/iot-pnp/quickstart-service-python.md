@@ -20,7 +20,7 @@ IoT Plug and Play Preview simplifies IoT by enabling you to interact with a devi
 
 ## Prerequisites
 
-Make sure you've [setup your environment](set-up-environment.md), including your IoT hub, before continuing.
+[!INCLUDE [iot-pnp-prerequisites](../../includes/iot-pnp-prerequisites.md)]
 
 To complete this quickstart, you need Python 3.7 on your development machine. You can download the latest recommended version for multiple platforms from [python.org](https://www.python.org/). You can check your Python version with the following command:  
 
@@ -36,6 +36,8 @@ pip3 install azure-iot-hub==2.2.1rc0
 
 ## Run the sample device
 
+[!INCLUDE [iot-pnp-environment](../../includes/iot-pnp-environment.md)]
+
 In this quickstart, you use a sample thermostat device, written in Python, as the IoT Plug and Play device. To run the sample device:
 
 1. Open a terminal window in a folder of your choice. Run the following command to clone the [Azure IoT Python SDK](https://github.com/Azure/azure-iot-sdk-python) GitHub repository into this location:
@@ -45,12 +47,6 @@ In this quickstart, you use a sample thermostat device, written in Python, as th
     ```
 
 1. This terminal window is used as your **device** terminal. Go to the folder of your cloned repository, and navigate to the */azure-iot-sdk-python/azure-iot-device/samples/pnp* folder.
-
-1. Configure the _device connection string_:
-
-    ```cmd/sh
-    set IOTHUB_DEVICE_CONNECTION_STRING=<YourDeviceConnectionString>
-    ```
 
 1. Run the sample thermostat device with the following command:
 
@@ -72,16 +68,14 @@ In this quickstart, you use a sample IoT solution in Python to interact with the
 
 1. Go to the folder of this cloned repository branch, and navigate to the */azure-iot-sdk-python/azure-iot-hub/samples* folder.
 
-1. Configure environment variables for your device ID and _IoT Hub connection string_:
-
-    ```cmd/sh
-    set IOTHUB_CONNECTION_STRING=<YourIOTHubConnectionString>
-    set IOTHUB_DEVICE_ID=<Your device ID>
-    ```
-
 1. In the samples folder, there are four sample files with a `pnp` prefix. These samples show how to use each API for interacting with IoT Plug and Play devices:
 
 ### Get digital twin
+
+In [Set up your environment for the IoT Plug and Play quickstarts and tutorials](set-up-environment.md) you created two environment variables to configure the sample to connect to your IoT hub and device:
+
+* **IOTHUB_CONNECTION_STRING**: the IoT hub connection string you made a note of previously.
+* **IOTHUB_DEVICE_ID**: `"my-pnp-device"`.
 
 Use the following command in the **service** terminal to run this sample:
 
