@@ -37,13 +37,13 @@ Scale in Event Hubs is controlled by how many throughput units you purchase, wit
 
 ### The Azure Messaging services fleet
 
-Coming from building applications using Apache Kafka, it will also useful to understand that Azure Event Hubs is part of a fleet of services which also includes [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md), and [Azure Event Grid](event-grid/overview.md). 
+Coming from building applications using Apache Kafka, it will also useful to understand that Azure Event Hubs is part of a fleet of services which also includes [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md), and [Azure Event Grid](../event-grid/overview.md). 
 
 While some providers of commercial distributions of Apache Kafka might suggest that Apache Kafka is a one-stop-shop for all your messaging platform needs, the reality is that Apache Kafka does not implement, for instance, the [competing-consumer](/azure/architecture/patterns/competing-consumers) queue pattern, does not have support for  [publish-subscribe](/azure/architecture/patterns/publisher-subscriber) at a level that allows subscribers access to the incoming messages based on server-evaluated rules other than plain offsets, and it has no facilities to track the lifecycle of a job initiated by a message or sidelining faulty messages into a dead-letter queue, all of which are foundational for many enterprise messaging scenarios.
 
 To understand the differences between patterns and which pattern is best covered by which service, please review the [Asynchronous messaging options in Azure](/azure/architecture/guide/technology-choices/messaging) guidance. As an Apache Kafka user, you may find that communication paths you have so far realized with Kafka, can be realized with far less basic complexity and yet more powerful capabilities using either Event Grid or Service Bus. 
 
-If you need specific features of Apache Kafka that are not available through the Event Hubs for Apache Kafka interface or if your implementation pattern exceeds the [Event Hubs quotas](event-hubs-quotas), you can also run a [native Apache Kafka cluster in Azure HDInsight](../hdinsight/kafka/apache-kafka-introduction.md).  
+If you need specific features of Apache Kafka that are not available through the Event Hubs for Apache Kafka interface or if your implementation pattern exceeds the [Event Hubs quotas](event-hubs-quotas.md), you can also run a [native Apache Kafka cluster in Azure HDInsight](../hdinsight/kafka/apache-kafka-introduction.md).  
 
 ## Security and authentication
 Every time you publish or consume events from an Event Hubs for Kafka, your client is trying to access the Event Hubs resources. You want to ensure that the resources are accessed using an authorized entity. When using Apache Kafka protocol with your clients, you can set your configuration for authentication and encryption using the SASL mechanisms. When using Event Hubs for Kafka  requires the TLS-encryption (as all data in transit with Event Hubs is TLS encrypted). It can be done specifying the SASL_SSL option in your configuration file. 
@@ -110,7 +110,7 @@ The payload of any Event Hub event is a byte stream and the content can be compr
 
 ### Log Compaction
 
-Apache Kafka log compaction is a feature that allows evicting all but the last record of each key from a partition, which effectively turns an Apache Kafka topic into a key-value store where the last value added overrides the previous one. The key-value store pattern, even with frequent updates, is far better supported by database services like [Azure Cosmos DB](../cosmos-db/).
+Apache Kafka log compaction is a feature that allows evicting all but the last record of each key from a partition, which effectively turns an Apache Kafka topic into a key-value store where the last value added overrides the previous one. The key-value store pattern, even with frequent updates, is far better supported by database services like [Azure Cosmos DB](../cosmos-db/introduction.md).
 
 The log compaction feature is used by the Kafka Connect and Kafka Streams client frameworks.
 
@@ -126,7 +126,7 @@ Standalone and without ksqlDB, Kafka Streams has fewer capabilities than many al
 
 - [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md)
 - [Azure Synapse Analytics (via Event Hubs Capture)](../event-grid/event-grid-event-hubs-integration.md)
-- [Azure Databricks](../databricks/scenarios/databricks-stream-from-eventhubs.md)
+- [Azure Databricks](/azure/databricks/scenarios/databricks-stream-from-eventhubs.md)
 - [Apache Samza](https://samza.apache.org/learn/documentation/latest/connectors/eventhubs)
 - [Apache Storm](event-hubs-storm-getstarted-receive.md)
 - [Apache Spark](event-hubs-kafka-spark-tutorial.md)
