@@ -107,10 +107,10 @@ Next, execute these commands to create a Log Analytics Workspace and set the acc
 > Skip this step if you already have a workspace.
 
 ```console
-az monitor log-analytics workspace create -g <resource group name> -n <some name you choose>
+az monitor log-analytics workspace create --resource-group <resource group name> --name <some name you choose>
 
 #Example:
-#az monitor log-analytics workspace create -g MyResourceGroup -n MyLogsWorkpace
+#az monitor log-analytics workspace create --resource-group MyResourceGroup --name MyLogsWorkpace
 ```
 
 Example output:
@@ -155,7 +155,7 @@ export WORKSPACE_ID='<the customerId from the 'log-analytics workspace create' c
 This command will print the access keys required to connect to your log analytics workspace:
 
 ```console
-az monitor log-analytics workspace get-shared-keys -g MyResourceGroup -n MyLogsWorkpace
+az monitor log-analytics workspace get-shared-keys --resource-group MyResourceGroup --name MyLogsWorkpace
 ```
 
 Example output:
@@ -254,7 +254,7 @@ Change the frequency to last 30 minutes:
 This will export all logs to the specified file:
 
 ```console
-azdata arc dc export -t logs -path logs.json
+azdata arc dc export -t logs --path logs.json
 ```
 
 This will upload logs to an Azure monitor log analytics workspace:
@@ -284,7 +284,7 @@ If you want to constantly upload metrics and logs, you can create a script and r
 In your favorite text/code editor, add the following to the script content to the file and save as a script executable file such as .sh (Linux/Mac) or .cmd, .bat, .ps1.
 
 ```console
-azdata arc dc export -t metrics --path metrics.json --force
+azdata arc dc export --type metrics --path metrics.json --force
 azdata arc dc upload --path metrics.json
 ```
 
