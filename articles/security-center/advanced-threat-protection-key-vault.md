@@ -18,7 +18,7 @@ When Security Center detects anomalous activity, it displays alerts. It also ema
 
 ## Configure threat protection from Security Center
 
-By default, advanced threat protection is enabled for all of your Key Vault accounts when you subscribe to Security Center's standard pricing tier. For more information, see [Pricing](security-center-pricing.md).
+By default, advanced threat protection is enabled for all of your Key Vault accounts when you enable Azure Defender.
 
 To enable or disable the protection for a specific subscription:
 

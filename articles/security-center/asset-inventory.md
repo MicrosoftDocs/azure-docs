@@ -101,13 +101,13 @@ Using the [Kusto Query Language (KQL)](https://docs.microsoft.com/azure/data-exp
     > [!TIP]
     > The **Security findings contain** and **Tags** filters only accept a single value. To filter by more than one, use **Add filters**.
 
-1. To use the **Pricing tier** filter, select one or more options (Free, Partial, or Standard):
+1. To use the **Azure Defender** filter, select one or more options (Off, On, or Partial):
 
-    - **Free** - Resources that are on the free pricing tier
-    - **Standard** - Resources that are on the standard pricing tier
-    - **Partial** - This applies to subscriptions that are on the standard pricing tier but have some of the optional security plans disabled. For example, the following subscription is on the standard tier but has five elements of the standard tier disabled. 
+    - **Off** - Resources that are on the free pricing tier and have no Azure Defender plans enabled
+    - **On** - Resources that are protected by an Azure Defender plan
+    - **Partial** - This applies to **subscriptions** that have some but not all of the Azure Defender plans disabled. For example, the following subscription has five Azure Defender plans disabled. 
 
-        ![Subscription on standard(partial) pricing tier](./media/asset-inventory/pricing-tier-partial.png)
+        :::image type="content" source="./media/asset-inventory/pricing-tier-partial.png" alt-text="Subscription on standard(partial) pricing tier":::
 
 1. To further examine the results of your query, select the resources that interest you.
 
@@ -124,20 +124,17 @@ Using the [Kusto Query Language (KQL)](https://docs.microsoft.com/azure/data-exp
 
 The inventory view lists your resources from a Cloud Security Posture Management (CSPM) perspective. The filters don't return every resource in your environment; only the ones with outstanding (or 'active') recommendations. 
 
-For example, if you have nine subscriptions but only eight currently have recommendations, when you filter by **Resource type = Subscriptions** you will only see the eight subscriptions with active recommendations:
+For example, the following screenshot shows a user with access to 38 subscriptions but only 10 currently have recommendations. So when they filter by **Resource type = Subscriptions**, only those 10 subscriptions with active recommendations appear in the inventory:
 
-![Not all subs returned when there are no active recommendations](./media/asset-inventory/filtered-subscriptions-some.png)
+:::image type="content" source="./media/asset-inventory/filtered-subscriptions-some.png" alt-text="Not all subs returned when there are no active recommendations":::
 
-
-### Why do some of my resources show blank values in the pricing or agent monitoring columns?
+### Why do some of my resources show blank values in the Azure Defender or agent monitoring columns?
 
 Not all Security Center monitored resources have agents. For example, Azure Storage accounts or PaaS resources such as disks, Logic Apps, Data Lake Analysis, and Event Hub.
 
 When pricing or agent monitoring isn't relevant for a resource, nothing will be shown in those columns of inventory.
 
-![Some resources show blank info in agent monitoring or pricing columns](./media/asset-inventory/agent-pricing-blanks.png)
-
-
+:::image type="content" source="./media/asset-inventory/agent-pricing-blanks.png" alt-text="Some resources show blank info in the agent monitoring or Azure Defender columns":::
 
 ## Next steps
 
