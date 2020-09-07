@@ -214,7 +214,7 @@ At the bottom of this page, there's a table describing the Azure Security Center
 
 ## <a name="alerts-azureappserv"></a>Alerts for Azure App Service
 
-[Further details and notes](defender-for-app-services-intro.md)
+[Further details and notes](defender-for-app-service-intro.md)
 
 | Alert                                                                                            | Description                                                                                                                                                                                                                                                                                                                                                                           | Intent ([Learn more](#intentions)) | Severity |
 |---------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------:|----------|

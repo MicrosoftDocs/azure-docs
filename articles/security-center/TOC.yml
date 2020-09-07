@@ -37,7 +37,7 @@
     - name: Azure Defender for servers
       href: defender-for-servers-intro.md
     - name: Azure Defender for App Service
-      href: defender-for-app-services-intro.md
+      href: defender-for-app-service-intro.md
     - name: Azure Defender for Storage
       href: defender-for-storage-intro.md
     - name: Azure Defender for SQL

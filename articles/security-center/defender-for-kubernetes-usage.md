@@ -117,7 +117,7 @@ To configure the bundle, first you must install the add on:
 
 1. To enforce any of the recommendations, set it **Deny** in Security Center's Security Policy **Parameters** tab:
 
-    :::image type="content" source="./media/defender-for-kubernetes-usage/enforce-workload-protection-example.png" alt-text="Recommendation details page for **Azure Policy add-on for Kubernetes should be installed and enabled on your clusters**":::
+    :::image type="content" source="./media/defender-for-kubernetes-usage/enforce-workload-protection-example.png" alt-text="Deny option for Azure Policy parameter":::
 
     This will deny any non-compliant request to your AKS clusters
 

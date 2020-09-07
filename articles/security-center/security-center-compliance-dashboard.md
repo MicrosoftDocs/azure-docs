@@ -66,13 +66,13 @@ Given the information in the Regulatory compliance dashboard, you can improve yo
 
 1.  You can select a particular resource to view more details and resolve the recommendation for that resource. <br>For example, in the **Azure CIS standard** tab, you can click on the recommendation **Require secure transfer to storage account**.
 
-    ![compliance recommendation](./media/security-center-compliance-dashboard/compliance-recommendation.png)
+    ![Selecting the recommendation **Require secure transfer to storage account**](./media/security-center-compliance-dashboard/compliance-recommendation.png)
 
 1. As you click through to the recommendation information and select an unhealthy resource, it leads you directly to the experience of enabling **secure storage transfer** within the Azure portal.
 
     For more information about how to apply recommendations, see [Implementing security recommendations in Azure Security Center](security-center-recommendations.md).
 
-    ![compliance recommendation](./media/security-center-compliance-dashboard/compliance-remediate-recommendation.png)
+    ![Storage account configuration](./media/security-center-compliance-dashboard/compliance-remediate-recommendation.png)
 
 1.  After you take action to resolve recommendations, you will see the impact in the compliance dashboard report because your compliance score improves.
 

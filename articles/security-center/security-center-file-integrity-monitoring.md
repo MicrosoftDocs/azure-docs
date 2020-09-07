@@ -90,13 +90,18 @@ Security Center provides the following list of recommended items to monitor base
 |||HKLM\SYSTEM\CurrentControlSet\Services\SharedAccess\Parameters\FirewallPolicy\PublicProfile|
 |||HKLM\SYSTEM\CurrentControlSet\Services\SharedAccess\Parameters\FirewallPolicy\StandardProfile|
 
-## Using File Integrity Monitoring
-1. Open the **Security Center** dashboard.
-2. In the left pane under **Advanced Cloud Defense**, select **File Integrity Monitoring**.
-![Security Center dashboard][1]
 
-**File Integrity Monitoring** opens.
-  ![Security Center dashboard][2]
+## Using File Integrity Monitoring
+
+1. Open the **Azure Defender** dashboard.
+
+1. From the **Advanced protection** area, select **File integrity monitoring**.
+
+    :::image type="content" source="./media/security-center-file-integrity-monitoring/opening-fim.png" alt-text="Launching FIM" lightbox="./media/security-center-file-integrity-monitoring/opening-fim.png":::
+
+
+    **File Integrity Monitoring** opens.
+    ![Security Center dashboard][2]
 
 The following information is provided for each workspace:
 
@@ -117,17 +122,19 @@ Under **File Integrity Monitoring**, you can select a workspace to enable FIM fo
 To enable FIM on a workspace:
 
 1. Under **File Integrity Monitoring**, select a workspace with the **Enable** button.
-2. **Enable file integrity monitoring** opens displaying the number of Windows and Linux machines under the workspace.
+
+1. **Enable file integrity monitoring** opens displaying the number of Windows and Linux machines under the workspace.
 
    ![Enable file integrity monitoring][5]
 
    The recommended settings for Windows and Linux are also listed.  Expand **Windows files**, **Registry**, and **Linux files** to see the full list of recommended items.
 
-3. Uncheck any recommended entities you do not want to apply FIM to.
-4. Select **Apply file integrity monitoring** to enable FIM.
+1. Uncheck any recommended entities you do not want to apply FIM to.
+
+1. Select **Apply file integrity monitoring** to enable FIM.
 
 > [!NOTE]
-> You can change the settings at any time. See Edit monitored entities below to learn more.
+> You can change the settings at any time. See [Edit monitored entities](#edit-monitored-entities) below to learn more.
 
 
 ## View the FIM dashboard

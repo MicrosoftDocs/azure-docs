@@ -61,7 +61,9 @@ If Security Center has identified groups of machines in your subscriptions that 
 
 Select the recommendation, or open the adaptive application controls page to view the list of suggested known-safe applications and groups of machines.
 
-1. From Security Center's menu, select **Adaptive application controls**.
+1. Open the Azure Defender dashboard and from the advanced protection area, select **Adaptive application controls**.
+
+    :::image type="content" source="./media/security-center-adaptive-application/opening-adaptive-application-control.png" alt-text="Opening adaptive application controls from the Azure Dashboard" lightbox="./media/security-center-adaptive-application/opening-adaptive-application-control.png":::
 
     The **Adaptive application controls** page opens with your VMs grouped into the following tabs:
 
@@ -117,7 +119,7 @@ You might decide to edit the allow list for a group of machines because of known
 
 To edit the rules for a group of machines:
 
-1. From Security Center's menu, select **Adaptive application controls**.
+1. Open the Azure Defender dashboard and from the advanced protection area, select **Adaptive application controls**.
 
 1. From the **Configured** tab, select the group with the rule you want to edit.
 
@@ -165,7 +167,7 @@ To remediate the issues:
 
 ## Audit alerts and violations
 
-1. From Security Center's menu, select **Adaptive application controls**.
+1. Open the Azure Defender dashboard and from the advanced protection area, select **Adaptive application controls**.
 
 1. To see groups with machines that have recent alerts, review the groups listed in the **Configured** tab.
 
@@ -180,6 +182,8 @@ To remediate the issues:
 ## Move a machine from one group to another
 
 When you move a machine from one group to another, the application control policy applied to it changes to the settings of the group that you moved it to. You can also move a machine from a configured group to a non-configured group, doing so removes any application control rules that were applied to the machine.
+
+1. Open the Azure Defender dashboard and from the advanced protection area, select **Adaptive application controls**.
 
 1. From the **Adaptive application controls** page, from the **Configured** tab, select the group containing the  machine to be moved.
 
