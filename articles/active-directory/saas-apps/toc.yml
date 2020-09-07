@@ -1388,6 +1388,8 @@
         href: rolepoint-tutorial.md
       - name: Rollbar
         href: rollbar-tutorial.md
+      - name: RSA Archer Suite
+        href: rsa-archer-suite-tutorial.md
       - name: RunMyProcess
         href: runmyprocess-tutorial.md
     - name: S
@@ -1758,6 +1760,8 @@
         href: visitly-tutorial.md
       - name: Visma
         href: visma-tutorial.md
+      - name: VMware Horizon - Unified Access Gateway
+        href: vmware-horizon-unified-access-gateway-tutorial.md
       - name: Vocoli
         href: vocoli-tutorial.md
       - name: Vodeclic
