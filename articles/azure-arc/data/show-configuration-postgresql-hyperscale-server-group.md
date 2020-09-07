@@ -369,11 +369,12 @@ Returns the below output in a format and content very similar to the one returne
   }
 }
 ```
+
 ## Next steps
 - [Read about the concepts of Azure Arc enabled PostgreSQL Hyperscale](concepts-distributed-data-postgres-hyperscale.md)
 - [Read about how to scale out (add worker nodes) a server group](scale-out-postgresql-hyperscale-server-group.md)
 - [Read about how to scale up/down (increase or reduce memory and/or vcores) a server group](scale-up-down-postgresql-hyperscale-server-group-using-cli.md)
-- [Read about using Postgres extensions in a server group](using-extensions-in-postgresql-hyperscaele-server-group.md)
-- [Read about changing Postgres engine parameters settings](configure-postgresql-hyperscale-server-group-database-engine-settings.md)
 - [Read about storage configuration](storage-configuration.md)
 - [Read how to monitor a database instance deployed in a Arc Data Controller](monitor-grafana-kibana.md)
+- [Use PostgreSQL extensions in your Azure Arc enabled PostgreSQL Hyperscale server group](using-extensions-in-postgresql-hyperscale-server-group.md)
+- [Configure security for your Azure Arc enabled PostgreSQL Hyperscale server group](configure-security-postgres-hyperscale.md)

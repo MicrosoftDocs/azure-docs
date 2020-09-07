@@ -228,5 +228,5 @@ SELECT * FROM the_best_coffee_shop;
 
 See the [pg_cron README](https://github.com/citusdata/pg_cron) for full details on the syntax.
 
->[!NOTE]. It is not supported to drop the citus extension. The citus extension is required to provide the hyperscale experience.
+>[!NOTE] It is not supported to drop the citus extension. The citus extension is required to provide the hyperscale experience.
 

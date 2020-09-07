@@ -68,7 +68,7 @@ In a default configuration, only the minimum memory is set to 256Mi as it is the
 > [!NOTE]
 > Setting a minimum does not mean the server group will necessarily use that minimum. It means that if the server group needs it, it is guaranteed to be allocated at least this minimum. For example, let's consider we set `--minCpu 2`. It does not mean that the server group will be using at least 2 vCores at all times. It instead means that the sever group may start using less than 2 vCores if it does not need that much and it is guaranteed to be allocated at least 2 vCores if it needs them later on. It implies that the Kubernetes cluster allocates resources to other workloads in such a way that it can allocate 2 vCores to the server group if it ever needs them.
 
->[!NOTE]. 
+>[!NOTE]
 >Before you modify the configuration of your system please make sure to familiarize yourself with the Kubernetes resource model [here](https://github.com/kubernetes/community/blob/master/contributors/design-proposals/scheduling/resources.md#resource-quantities)
 
 ## Scale up the server group
