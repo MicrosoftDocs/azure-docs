@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page
   author: keferna
   ms.author: keferna
-  ms.date: 04/02/2020
+  ms.date: 09/02/2020
 
 landingContent:
   - title: Working in the commercial marketplace
@@ -34,8 +34,6 @@ landingContent:
     linkLists:
     - linkListType: overview
       links:
-      - text: Create a new SaaS offer
-        url: ./create-new-saas-offer.md
       - text: Marketing best practices
         url: ./gtm-marketing-best-practices.md  
       - text: Cloud solution providers
@@ -76,12 +74,12 @@ landingContent:
       - text: Ratings and reviews dashboard
         url: ./partner-center-portal/ratings-reviews.md
 
-  - title: Manage your offers
+  - title: Create an offer
     linkLists:
     - linkListType: how-to-guide
       links:
       - text: SaaS offers
-        url: create-new-saas-offer.md
+        url: plan-saas-offer.md
       - text: Virtual machines offers
         url: ./marketplace-virtual-machines.md
       - text: Azure application offers

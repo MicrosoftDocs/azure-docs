@@ -44,7 +44,7 @@ Data Lake Analytics is a cost-effective solution for running big data workloads.
 
 ## Works with all your Azure data
   
-Data Lake Analytics works with Azure Data Lake Storage for the highest performance, throughput, and parallelization and works with Azure Storage blobs, Azure SQL Database, Azure Synapse Analytics (formerly Azure SQL Data Warehouse).
+Data Lake Analytics works with Azure Data Lake Storage for the highest performance, throughput, and parallelization and works with Azure Storage blobs, Azure SQL Database, Azure Synapse Analytics (formerly SQL Data Warehouse).
 
 
 ## Next steps
