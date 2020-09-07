@@ -28,21 +28,20 @@ Metrics Advisor is a time series monitoring platform that provides a set of APIs
 
 :::image type="content" source="media/overview-scenarios.png" alt-text="Metrics Advisor overview scenarios":::-->
 
+## Customizable anomaly detection at scale
+
+Use Metrics Advisor to analyze your time series data, regardless of industry, scenario, or data volume. Metrics Advisor provides visualizations, analysis tools, and applies detection models without you needing to know machine learning.
+
+Like the [Anomaly Detector API](../anomaly-detector/overview.md), Metrics Advisor automatically identifies and applies the best-fitting models to your data. Using your time series data, Metrics Advisor determines boundaries for anomaly detection, expected values, and which data points are anomalies. You can also customize the model used to fit your data.
+
 ## Interactive Web portal
 
-Use the web portal to easily onboard your data and work with the Metrics Advisor service. Take a look at the [demo site](quickstarts/explore-the-demo.md) to learn about using it.
+Use the web portal to easily onboard your data and work with the Metrics Advisor service.  
 
-## Onboard your data from different sources
+## Use your own data source 
 
-Metrics Advisor lets you onboard your data from a variety of different sources and databases, including: SQL Servers, Azure Blob Storage, MongoDB and more.
+Metrics Advisor lets you connect to a variety of different sources and databases, including: SQL Servers, Azure Blob Storage, MongoDB and more.
 
-## Customizable anomaly detection
-
-Configure the anomaly detection model that is applied on your data. Take into account seasonality, , and planned events that might generate anomalies. 
-
-## Incident diagnostic and analysis tools 
-
-Metrics Advisor provides a set of of tools for diagnosing incidents and anomalies. These include: automated root-cause analysis, incident trees, and detailed anomaly information. 
 
 ## Typical workflow
 
@@ -55,11 +54,11 @@ The workflow is simple: after onboarding your data, you can fine-tune the anomal
     2. Fine-tune anomaly detection
     3. Subscribe to alerts
     4. View diagnostic insights
-1. Use the REST API or Client libraries to customize your instance.
+1. Use the REST API to customize your instance.
 
 ## Next Steps
 
 * Try the [demo site](quickstarts/explore-the-demo.md).
 * Create a Metrics Advisor instance using the [web portal](quickstarts/web-portal.md), and onboard your data. 
-  * You can also use the [REST API or client libraries](quickstarts/rest-api-and-client-library.md). 
+  * You can also use the [REST API](quickstarts/rest-api-and-client-library.md). 
 * Learn about [managing data feeds](how-tos/manage-data-feeds.md). 
