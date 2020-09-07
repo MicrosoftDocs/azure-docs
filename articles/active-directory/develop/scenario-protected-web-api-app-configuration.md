@@ -155,6 +155,8 @@ public void ConfigureServices(IServiceCollection services)
  // Adds Microsoft Identity platform (AAD v2.0) support to protect this API
  services.AddAuthentication(AzureADDefaults.JwtBearerAuthenticationScheme)
              .AddMicrosoftIdentityWebApi(Configuration, "AzureAd");
+
+services.AddControllers();
 }
 ```
 
