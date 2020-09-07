@@ -167,7 +167,7 @@ A passphrase is used to encrypt and decrypt data while backing up or restoring y
 
 This section discusses a scenario where your source machine that was protected with MARS is no longer available because it was deleted, corrupted, infected with malware/ransomware, or decommissioned.
 
-For these machines, the Azure Backup service ensures that the last recovery point doesn't expire (that is, doesn't get pruned) according to the retention rules specified in the backup policy. Therefore, you can safely restore the machine.  Consider the following scenarios you can perform on the backed-up data:
+For these machines, the Azure Backup service ensures that the most recent recovery point doesn't expire (that is, doesn't get pruned) according to the retention rules specified in the backup policy. Therefore, you can safely restore the machine.  Consider the following scenarios you can perform on the backed-up data:
 
 ### Scenario 1: The source machine is unavailable, and you no longer need to retain backup data
 

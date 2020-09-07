@@ -6,7 +6,7 @@ author: anumjs
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: 
+ms.subservice: machine-learning
 ms.date: 07/21/2020
 ms.author: anjangsh
 ms.reviewer: jrasnick

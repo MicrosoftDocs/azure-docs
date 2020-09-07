@@ -40,15 +40,15 @@ In this tutorial, you learn how to:
 
 Familiarize yourself with these articles:
 
-- [Tutorial: Collect and analyze resource logs from an Azure resource](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-resource-logs)
+- [Tutorial: Collect and analyze resource logs from an Azure resource](../../azure-monitor/learn/tutorial-resource-logs.md)
 
-- [How to integrate activity logs with Log Analytics](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [How to integrate activity logs with Log Analytics](./howto-integrate-activity-logs-with-log-analytics.md)
 
-- [Manage emergency access account in Azure AD](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-emergency-access)
+- [Manage emergency access account in Azure AD](../users-groups-roles/directory-emergency-access.md)
 
-- [KQL quick reference](https://docs.microsoft.com/azure/data-explorer/kql-quick-reference)
+- [KQL quick reference](/azure/data-explorer/kql-quick-reference)
 
-- [Azure Monitor Workbooks](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview)
+- [Azure Monitor Workbooks](../../azure-monitor/platform/workbooks-overview.md)
 
 
 

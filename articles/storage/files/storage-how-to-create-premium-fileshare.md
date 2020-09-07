@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.date: 08/26/2020
 ms.author: rogarana
 ms.subservice: files 
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # How to create an Azure premium file share

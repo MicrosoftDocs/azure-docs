@@ -157,7 +157,7 @@
         displayName: backup, restore, backups, restores, georestore, geo-restore, outage
         href: concepts-business-continuity.md
       - name: High availability
-        href: concepts-high-availability.md   
+        href: concepts-high-availability.md
       - name: Backup and restore
         href: concepts-backup.md
         displayName: backup ,restore, georestore, geo-restore, outage

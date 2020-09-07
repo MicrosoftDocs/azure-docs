@@ -128,6 +128,8 @@ cosmos.queryMetricsEnabled=true
 
 ## Release history
 
+### 3.0.0-beta.2 (Unreleased)
+
 ### 3.0.0-beta.1 (2020-08-17)
 #### New features
 * Updated group ID to `com.azure`.

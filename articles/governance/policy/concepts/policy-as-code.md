@@ -1,7 +1,7 @@
 ---
 title: Design Policy as Code workflows
 description: Learn to design workflows to deploy your Azure Policy definitions as code and automatically validate resources.
-ms.date: 07/23/2020
+ms.date: 08/27/2020
 ms.topic: conceptual
 ---
 # Design Policy as Code workflows
@@ -138,12 +138,13 @@ specifically for validating policies.
 > REST API calls, compliant and non-compliant resources, and edge cases like a property missing from
 > the resource.
 
-After the assignment is deployed, use the Policy SDK to
-[get compliance data](../how-to/get-compliance-data.md) for the new assignment. The environment used
-to test the policies and assignments should have both compliant and non-compliant resources. Like a
-good unit test for code, you want to test that resources are as expected and that you also have no
-false-positives or false-negatives. If you test and validate only for what you expect, there may be
-unexpected and unidentified impact from the policy. For more information, see
+After the assignment is deployed, use the Policy SDK or the
+[Azure Policy Compliance Scan GitHub Action](https://github.com/marketplace/actions/azure-policy-compliance-scan)
+to [get compliance data](../how-to/get-compliance-data.md) for the new assignment. The environment
+used to test the policies and assignments should have both compliant and non-compliant resources.
+Like a good unit test for code, you want to test that resources are as expected and that you also
+have no false-positives or false-negatives. If you test and validate only for what you expect, there
+may be unexpected and unidentified impact from the policy. For more information, see
 [Evaluate the impact of a new Azure Policy definition](./evaluate-impact.md).
 
 ### Enable remediation tasks

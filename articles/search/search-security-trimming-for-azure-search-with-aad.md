@@ -9,6 +9,7 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/04/2020
+ms.custom: devx-track-csharp
 ---
 # Security filters for trimming Azure Cognitive Search results using Active Directory identities
 

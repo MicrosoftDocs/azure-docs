@@ -10,13 +10,15 @@ editor: ''
 ms.service: media-services
 ms.subservice:  
 ms.workload: 
-ms.topic: article
+ms.topic: conceptual
 ms.custom: 
-ms.date: 07/15/2020
+ms.date: 08/31/2020
 ms.author: inhenkel
 ---
 
 # High Availability with Media Services and Video on Demand (VOD)
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 ## High availability for VOD
 

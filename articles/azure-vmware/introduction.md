@@ -41,7 +41,7 @@ Regular upgrades of the Azure VMware Solution private cloud and VMware software 
 
 ## Monitoring your private cloud
 
-You can use [Logs in Azure Monitor](../azure-monitor/overview.md) to collect logs on your virtual machines running in your Azure VMware Solution private cloud. You can [download and install the MMA agent](../azure-monitor/platform/log-analytics-agent.md#installation-and-configuration) on Linux and Windows virtual machines running in your Azure VMware Solution private clouds, using the same queries that you run on your on-premises VMs. You can run the same queries you would normally run on your virtual machines just the same. To learn more about creating queries, see [how to write queries](../azure-monitor/log-query/log-query-overview.md#how-can-i-learn-how-to-write-queries).
+You can use [Logs in Azure Monitor](../azure-monitor/overview.md) to collect logs on your virtual machines running in your Azure VMware Solution private cloud. You can [download and install the MMA agent](../azure-monitor/platform/log-analytics-agent.md#installation-options) on Linux and Windows virtual machines running in your Azure VMware Solution private clouds, using the same queries that you run on your on-premises VMs. You can run the same queries you would normally run on your virtual machines just the same. To learn more about creating queries, see [how to write queries](../azure-monitor/log-query/log-query-overview.md#how-can-i-learn-how-to-write-queries).
 
 ## Next steps
 

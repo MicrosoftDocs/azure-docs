@@ -28,7 +28,7 @@ The following table contains common problems during pipeline development, with p
 | Ambiguous errors with compute targets | Try deleting and re-creating compute targets. Re-creating compute targets is quick and can solve some transient issues. |
 | Pipeline not reusing steps | Step reuse is enabled by default, but ensure you haven't disabled it in a pipeline step. If reuse is disabled, the `allow_reuse` parameter in the step will be set to `False`. |
 | Pipeline is rerunning unnecessarily | To ensure that steps only rerun when their underlying data or scripts change, decouple your source-code directories for each step. If you use the same source directory for multiple steps, you may experience unnecessary reruns. Use the `source_directory` parameter on a pipeline step object to point to your isolated directory for that step, and ensure you aren't using the same `source_directory` path for multiple steps. |
-
+| Step slowing down over training epochs or other looping behavior | Try switching any file writes, including logging, from `as_mount()` to `as_upload()`. The **mount** mode uses a remote virtualized filesystem and uploads the entire file each time it is appended to. |
 
 ## Debugging techniques
 
@@ -126,6 +126,8 @@ Click on the module for the specific step. Navigate to the **Logs** tab. Other l
 > [!TIP]
 > Runs for *published pipelines* can be found in the **Endpoints** tab in your workspace. 
 > Runs for *non-published pipelines* can be found in **Experiments** or **Pipelines**.
+
+For more information on logging and tracing from a `ParallelRunStep`, see [Debug and troubleshoot ParallelRunStep](how-to-debug-parallel-run-step.md).
 
 ## Logging in Azure Machine Learning designer (preview)
 

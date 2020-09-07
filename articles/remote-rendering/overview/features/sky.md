@@ -5,6 +5,7 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/07/2020
 ms.topic: article
+ms.custom: devx-track-csharp
 ---
 
 # Sky reflections

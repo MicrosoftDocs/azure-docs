@@ -53,7 +53,7 @@ Use the following steps to change the default backup options for an existing Azu
 
    * **Backup Retention** - It represents the period where each backup is retained. You can configure it in hours or days. The minimum retention period can’t be less than two times the backup interval (in hours) and it can’t be greater than 720 hours.
 
-   * **Copies of data retained** - By default, two backup copies of your data are offered at free of charge. If you need additional copies, you must create a support request through the Azure portal and the additional copies will be charged. See the Consumed Storage section in the [Pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/) to know the exact price for additional copies.
+   * **Copies of data retained** - By default, two backup copies of your data are offered at free of charge. There is an additional charge if you need more than two copies. See the Consumed Storage section in the [Pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/) to know the exact price for additional copies.
 
    :::image type="content" source="./media/online-backup-and-restore/configure-backup-interval-retention.png" alt-text="Configure backup interval and retention for an existing Azure Cosmos account" border="true":::
 

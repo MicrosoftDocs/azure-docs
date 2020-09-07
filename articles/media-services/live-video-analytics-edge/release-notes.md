@@ -2,7 +2,7 @@
 title: Live Video Analytics on IoT Edge release notes - Azure
 description: This topic provides release notes of Live Video Analytics on IoT Edge releases, improvements, bug fixes, and known issues.
 ms.topic: conceptual
-ms.date: 04/27/2020
+ms.date: 08/19/2020
 
 ---
 # Live Video Analytics on IoT Edge release notes

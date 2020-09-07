@@ -259,6 +259,9 @@ Jump to a resource provider namespace:
 > | service | Yes | Yes |
 > | validateServiceName | No | No |
 
+> [!NOTE]
+> Azure API Management only supports creating a maximum of 15 tag name/value pairs for each service.
+
 ## Microsoft.AppConfiguration
 
 > [!div class="mx-tableFixed"]

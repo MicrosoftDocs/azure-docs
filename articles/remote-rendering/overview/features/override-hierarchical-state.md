@@ -5,6 +5,7 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/10/2020
 ms.topic: article
+ms.custom: devx-track-csharp
 ---
 
 # Hierarchical state override

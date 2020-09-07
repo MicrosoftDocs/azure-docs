@@ -89,7 +89,7 @@ public class TableStorage
 
 ### CloudTable
 
-`IQueryable` isn't supported in the [Functions v2 runtime](functions-versions.md). An alternative is to use a `CloudTable` method parameter to read the table by using the Azure Storage SDK. Here's an example of a function that queries an Azure Functions log table:
+`IQueryable` is only supported in the [Functions v1 runtime](functions-versions.md). An alternative is to use a `CloudTable` method parameter to read the table by using the Azure Storage SDK. Here's an example of a function that queries an Azure Functions log table:
 
 ```csharp
 using Microsoft.Azure.WebJobs;
