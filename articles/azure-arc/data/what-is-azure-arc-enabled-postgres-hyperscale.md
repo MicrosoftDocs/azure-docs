@@ -19,6 +19,7 @@ Azure Arc enabled PostgreSQL Hyperscale is one of the database services availabl
 - Self-service provisioning
 - Unified management
 - Disconnected scenario support
+
 Read more details on the [overview page](overview.md).
 
 ## How does Azure Arc enabled PostgreSQL Hyperscale differ from Azure Database for PostgreSQL Hyperscale (Citus)?
