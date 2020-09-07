@@ -1,8 +1,8 @@
 ---
 title: Laying out files for conversion
 description: Recommendations about how best to place files in the input container.
-author: florianborn71
-ms.author: flborn
+author: MalcolmTyrrell
+ms.author: matyrr
 ms.date: 09/03/2020
 ms.topic: how-to
 ---
@@ -11,29 +11,29 @@ ms.topic: how-to
 
 In order to correctly process an asset, the conversion service needs to be able to find all the input files.
 These consist of the main asset file being converted and usually some other files referenced by paths within the asset file.
-The request to convert an asset is given two parameters which determine how the conversion service finds these files: The **input.folderPath** (which is optional) and the **input.inputAssetPath**.
+The request to convert an asset is given two parameters which determine how the conversion service finds these files: The `input.folderPath` (which is optional) and the `input.inputAssetPath`.
 They are fully documented in the [Conversion REST API](conversion-rest-api.md) page.
-From the purpose of laying out files, the important thing to note is that the `folderPath` determines complete set of files which are available to the conversion service when processing the asset.
+For the purpose of laying out files, the important thing to note is that the `folderPath` determines complete set of files which are available to the conversion service when processing the asset.
 
-## Placing textures so they can be found
+## Placing files so they can be found
 
-When a source asset makes use of external texture files, paths to those files will be stored within the asset.
+When a source asset makes use of external files, paths to those files will be stored within the asset.
 The conversion service has to interpret these paths in a file system that is different from the asset's original file system.
-If the paths are stored as relative paths and the relative location between the source asset and its texture files is unchanged, then it's easy for the conversion service to find the referenced textures.
+If the paths are stored as relative paths and the relative location between the source asset and the file it references is unchanged, then it's easy for the conversion service to find the referenced file.
 
 > [!Note]
-> We recommend that you place files in the input container so the relative locations of the asset and its textures are the same as they were when the asset was created.
+> We recommend that you place files in the input container so the relative locations of the files are the same as they were when the asset was created.
 
-## Finding textures: The full picture
+## Finding textures
 
-Due to the many ways assets can be generated, the conversion service has to flexible.
-It has to handle situations where the paths in the asset and the location of the textures don't match precisely.
+Due to the many ways assets can be generated, the conversion service has to be flexible.
+In particular, it has to handle situations where the paths in the asset and the location of textures don't match precisely.
 An example is when assets are generated containing absolute paths, since these paths will never match the filesystem used by the conversion service.
 To handle this situation among other, we use a best effort approach to finding textures.
 
 The algorithm for locating textures is as follows:
-Given a path as stored in an asset, find the longest suffix which, when used as a relative path from the location of the source asset, targets a file that exists.
-If no suffix (including the whole path) targets a file, the texture is regarded as missing.
+Given a path as stored in an asset, find the longest sub-path suffix which, when used as a relative path from the location of the source asset, targets a file that exists.
+If no such path (including the whole path) targets a file, the texture is regarded as missing.
 
 Consider the following contrived filesystem: 
 ```
