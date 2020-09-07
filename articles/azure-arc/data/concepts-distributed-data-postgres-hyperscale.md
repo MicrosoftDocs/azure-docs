@@ -69,3 +69,4 @@ Read on [here](https://docs.microsoft.com/azure/postgresql/concepts-hyperscale-c
 - [Read about scaling out Azure Arc enabled PostgreSQL Hyperscale server groups deployed in your Arc Data Controller](scale-out-postgresql-hyperscale-server-group.md)
 - [Read about Azure Arc enabled Data Services](https://azure.microsoft.com/services/azure-arc/hybrid-data-services)
 - [Read about Azure Arc](https://http://aka.ms/azurearc)
+
