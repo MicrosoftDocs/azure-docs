@@ -63,5 +63,5 @@ Logged in successfully to `https://10.0.0.4:30080` in namespace `arc`. Setting a
 
 
 ## Next steps
-- Now try to [monitor your server group](monitor-grafana-kibana.md)
+- [Monitor your server group](monitor-grafana-kibana.md)
 
