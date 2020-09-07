@@ -241,7 +241,7 @@ The following request body defines properties required to trigger a disk restore
 
 ### Restore disks selectively
 
-If you are [selectively backing up disks](backup-azure-arm-userestapi-backupazurevms.md#excluding-disks-in-azure-vm-backup), then the current backed-up disk list is provided in the [recovery point summary](#select-recovery-point) and [detailed response](https://docs.microsoft.com/rest/api/backup/recoverypoints/get). You can selectively restore disks too. To selectively restore a disk among the list of backed up disks, then find the LUN of disk from the recovery point response and just add the following property (restoreDiskLunList) to the [request body above](#example-request) as shown below.
+If you are [selectively backing up disks](backup-azure-arm-userestapi-backupazurevms.md#excluding-disks-in-azure-vm-backup), then the current backed-up disk list is provided in the [recovery point summary](#select-recovery-point) and [detailed response](https://docs.microsoft.com/rest/api/backup/recoverypoints/get). You can selectively restore disks too and more details are provided [here](selective-disk-backup-restore.md#selective-disk-restore). To selectively restore a disk among the list of backed up disks, then find the LUN of disk from the recovery point response and just add the following property (restoreDiskLunList) to the [request body above](#example-request) as shown below.
 
 ```json
 {
