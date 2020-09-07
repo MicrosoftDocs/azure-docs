@@ -28,6 +28,13 @@ This page is updated regularly, so revisit it often. If you're looking for items
 
 ## September 2020
 
+Updates in September include:
+
+- [Vulnerability assessment findings are now available in continuous export](#vulnerability-assessment-findings-are-now-available-in-continuous-export)
+- [Deprecated preview AKS recommendation "Pod Security Policies should be defined on Kubernetes Services"](#deprecated-preview-aks-recommendation-pod-security-policies-should-be-defined-on-kubernetes-services)
+- [Email notifications from Azure Security Center improved](#email-notifications-from-azure-security-center-improved)
+- [Secure score doesn't include preview recommendations](#secure-score-doesnt-include-preview-recommendations)
+
 ### Vulnerability assessment findings are now available in continuous export
 
 Use continuous export to stream your alerts and recommendations in real-time to Azure Event Hubs, Log Analytics workspaces, or Azure Monitor. From there, you can integrate this data with SIEMs (such as Azure Sentinel, Power BI, Azure Data Explorer, and more.
@@ -45,6 +52,34 @@ Related pages:
 - [Continuous export](continuous-export.md)
 
 
+### Deprecated preview AKS recommendation "Pod Security Policies should be defined on Kubernetes Services"
+
+The preview recommendation "Pod Security Policies should be defined on Kubernetes Services" is being deprecated as described in the [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/use-pod-security-policies) documentation.
+
+The pod security policy (preview) feature, is set for deprecation and will no longer be available after October 15th, 2020 in favor of Azure Policy for AKS.
+
+After pod security policy (preview) is deprecated, you must disable the feature on any existing clusters using the deprecated feature to perform future cluster upgrades and stay within Azure support.
+
+
+### Email notifications from Azure Security Center improved
+
+The following areas of the emails regarding security alerts hae been improved: 
+
+- Added the ability to send email notifications about alerts for all severity levels
+- Added the ability to notify users with different RBAC roles on the subscription
+- We're proactively notifying subscription owners by default on high-severity alerts (which have a high-probability of being genuine breaches)
+- We've removed the phone number field from the email notifications configuration page
+
+Learn more in [Set up email notifications for security alerts](security-center-provide-security-contact-details.md).
+
+
+### Secure score doesn't include preview recommendations 
+
+Security recommendations marked as preview will have no impact on your secure score.
+
+Security Center continually assesses your resources, subscriptions, and organization for security issues. It then aggregates all the findings into a single score so that you can tell, at a glance, your current security situation: the higher the score, the lower the identified risk level.
+
+[Learn more about secure score](secure-score-security-controls.md).
 
 ## August 2020
 
