@@ -34,7 +34,7 @@ You can configure the SAP SuccessFactors Writeback app to write specific attribu
 
 This SuccessFactors Writeback user provisioning solution is ideally suited for:
 
-* Organizations using Office 365 that desire to write-back authoritative attributes managed by IT (such as email address, phone, username) back to SuccessFactors Employee Central.
+* Organizations using Microsoft 365 that desire to write-back authoritative attributes managed by IT (such as email address, phone, username) back to SuccessFactors Employee Central.
 
 ## Configuring SuccessFactors for the integration
 
