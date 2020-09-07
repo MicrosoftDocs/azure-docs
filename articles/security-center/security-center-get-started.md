@@ -85,7 +85,7 @@ To enable automatic provisioning of the Log Analytics agent:
 
 With this new insight into your Azure VMs, Security Center can provide additional Recommendations related to system update status, OS security configurations, endpoint protection, as well as generate additional Security alerts.
 
-  ![Recommendations][8]
+  ![Endpoint protection recommendations][8]
 
 ## Clean up resources
 
@@ -99,7 +99,7 @@ Other quickstarts and tutorials in this collection build upon this quickstart. I
 If you wish to disable automatic provisioning:
 
 1. Return to the Security Center main menu and select **Pricing & settings**.
-2. Clean on the subscription that you want to disable automatic provisioning on.
+2. Select the subscription that you want to disable automatic provisioning on.
 3. In the **Data Collection** tab, set **Auto provisioning** to **Off**.
 4. Select **Save**.
 

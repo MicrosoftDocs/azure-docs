@@ -69,8 +69,7 @@ Azure Defender brings enhanced security and threat protection for your hybrid cl
 
 
 ## Next steps
-In this article, you were introduced to pricing for Security Center. To learn more about the Azure Defender's enhanced security and advanced threat protection, see:
+In this article, you were introduced to pricing for Security Center. For related material see:
 
-- [Just-in-time VM access control](security-center-just-in-time.md)
-- [Container security overview](container-security.md)
+- [How to optimize your Azure workload costs](https://azure.microsoft.com/blog/how-to-optimize-your-azure-workload-costs/)
 - [Pricing details in your currency of choice, and according to your region](https://azure.microsoft.com/pricing/details/security-center/)

@@ -31,14 +31,16 @@ When automatic provisioning is on, Security Center deploys the Log Analytics age
 
 
 To enable automatic provisioning of the Log Analytics agent:
+
 1. From Security Center's menu in the portal, select **Pricing & settings**.
-2. Select the relevant subscription.
 
-   ![Select subscription][7]
+1. Select the relevant subscription.
 
-3. Select **Data Collection**.
-4. Under **Auto Provisioning**, select **On** to enable automatic provisioning.
-5. Select **Save**. The agent will be deployed on all VMs within 15 minutes. 
+1. Select **Data Collection**.
+
+1. Under **Auto Provisioning**, select **On** to enable automatic provisioning.
+
+1. Select **Save**. The agent will be deployed on all VMs within 15 minutes. 
 
 >[!TIP]
 > If a workspace needs to be provisioned, agent installation might take up to 25 minutes.
@@ -94,7 +96,7 @@ To select an existing Log Analytics workspace:
 
 1. Under **Default workspace configuration**, select **Use another workspace**.
 
-   ![Select existing workspace][2]
+   ![Use another workspace][2]
 
 2. From the pull-down menu, select a workspace to store collected data.
 
@@ -114,24 +116,28 @@ To select an existing Log Analytics workspace:
    >
    >
 
-   - Select **Cancel** to cancel the operation.
+   - To cancel the operation, select **Cancel**.
 
-     ![Select existing workspace][3]
+     ![Review options to reconfigure monitored VMs][3]
 
-5. Select the pricing tier for the desired workspace you intend to set the Log Analytics agent. <br>To use an existing workspace, set the pricing tier for the workspace. This will install a security Center solution on the workspace if one is not already present.
+5. Select whether or not the workspace will have Azure Defender enabled.
 
-    a.  In the Security Center main menu, select **Pricing & settings**.
+    To use an existing workspace, set the pricing tier for the workspace. This will install a security Center solution on the workspace if one is not already present.
+
+    1. In the Security Center main menu, select **Pricing & settings**.
      
-    b.	Select the desired Workspace in which you intend to connect the agent.
-        ![Select workspace][7]
-    c. Set the pricing tier.
-        ![Select pricing tier][9]
+    1. Select the workspace to which you'll be connecting the agent.
+
+    1. Select **Azure Defender on** or **Azure Defender off**.
+
    
    >[!NOTE]
    >If the workspace already has a **Security** or **SecurityCenterFree** solution enabled, the pricing will be set automatically. 
 
+
 ## Cross-subscription workspace selection
 When you select a workspace in which to store your data, all the workspaces across all your subscriptions are available. Cross-subscription workspace selection allows you to collect data from virtual machines running in different subscriptions and store it in the workspace of your choice. This selection is useful if you are using a centralized workspace in your organization and want to use it for security data collection. For more information on how to manage workspaces, see [Manage workspace access](https://docs.microsoft.com/azure/log-analytics/log-analytics-manage-access).
+
 
 
 ## Data collection tier

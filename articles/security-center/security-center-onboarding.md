@@ -55,12 +55,11 @@ Security Center can monitor the security posture of your non-Azure computers but
 
 ### Add new non-Azure computers from **Getting started**
 
-1. Return to **Getting started**.
-2. Select the **Get started** tab.
+1. Return to the **Getting started** page and open the **Get started** tab.
 
-   ![Non-Azure](./media/security-center-onboarding/non-azure.png)
+    :::image type="content" source="./media/security-center-onboarding/onboarding-get-started-tab.png" alt-text="Get Started tab in the Getting started page" lightbox="./media/security-center-onboarding/onboarding-get-started-tab.png":::
 
-3. Click **Configure** under **Add new non-Azure computers**. A list of your Log Analytics workspaces is shown. The list includes, if applicable, the default workspace created for you by Security Center when automatic provisioning was enabled. Select this workspace or another workspace you want to use.
+1. Select **Configure** under **Add non-Azure servers**. A list of your Log Analytics workspaces is shown. The list includes, if applicable, the default workspace created for you by Security Center when automatic provisioning was enabled. Select this workspace or another workspace you want to use.
 
    ![Add non-Azure computer][7]
 
@@ -77,6 +76,7 @@ If you have existing workspaces, they are listed under **Add new Non-Azure compu
 2. Under **Security and Audit**, select **OMS Workspace** to create a new workspace.
    > [!NOTE]
    > OMS workspaces are now referred to as Log Analytics workspaces.
+
 3. Under **OMS Workspace**, enter the information for your workspace.
 4. Under **OMS Workspace**, select **OK**. After you select OK, you will get a link for downloading a Windows or Linux agent and keys for your workspace ID to use in configuring the agent.
 5. Under **Security and Audit**, select **OK**.
