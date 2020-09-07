@@ -49,8 +49,6 @@ landingContent:
         links:
           - text: Create PostgreSQL Hyperscale server group
             url: create-postgresql-hyperscale-server-group.md
-          - text: Extend single node to Hyperscale
-            url: postgresql-extend-single-node-to-hyperscale.md
 
   # Card (optional)
   - title: Do with SQL Managed Instance
