@@ -90,7 +90,7 @@ The service runs the community version of PostgreSQL. This allows full applicati
 
 Now that you've read an introduction to Azure Database for PostgreSQL single server deployment mode, you're ready to:
 - Create your first server.
-  - [Create an Azure Database for PostgreSQL flexible server using Azure portal](./quickstart-create-server-portal.md)]
+  - [Create an Azure Database for PostgreSQL flexible server using Azure portal](./quickstart-create-server-portal.md)
   - Create an Azure Database for PostgreSQL flexible server using Azure CLI
 - Azure CLI samples for Azure Database for PostgreSQL
 - Build your first app using your preferred language:
