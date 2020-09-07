@@ -57,5 +57,5 @@ kubectl get postgresql-12
 To list the server groups running the version 11 of Postgres, replace _postgresql-12_ with _postgresql-11_.
 
 ## Next steps:
-1. [Read the article about how to get the connection end points and form the connection strings to connect to your server group](get-connection-endpoints-and-connection-strings-postgres-hyperscale.md)
-2. [Read the article about how to show the configuration of your server group](show-configuration-postgresql-hyperscale-server-group.md)
+
+* [Read the article about how to get the connection end points and form the connection strings to connect to your server group](get-connection-endpoints-and-connection-strings-postgres-hyperscale.md)
