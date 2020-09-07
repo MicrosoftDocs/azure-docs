@@ -79,7 +79,7 @@ In this example, the six pods that host the two server groups that are deployed 
 
 ### What server group pod is used for what role the server group?
 
-Any pod name suffixed with `-0` represents a coordinator node. Any node name suffixed by `-x` where is 1 or greaters is worker node. In the above example:
+Any pod name suffixed with `-0` represents a coordinator node. Any node name suffixed by `-x` where is 1 or greater is worker node. In the above example:
 - The coordinators are: `postgres01-0`, `postgres02-0`
 - The workers are: `postgres01-2`, `postgres01-2`, `postgres02-1`, `postgres02-2`
 
@@ -97,9 +97,9 @@ kubectl get pvc
 
 By default, the prefix of the name of a PVC indicates its usage:
 
-- `backups-`...: is a pvc used for backups
-- `data-`...: is pvc used for data files
-- `logs-`...: is a pvc used for transaction logs/WAL files
+- `backups-`...: is a PVC used for backups
+- `data-`...: is PVC used for data files
+- `logs-`...: is a PVC used for transaction logs/WAL files
 
 For example:
 
@@ -134,7 +134,7 @@ Use either of the following commands.
    kubectl get postgresqls
    ``` 
 
-   For example it produces the below output where each line is a servergroup. The structure of the name in the below display is formed as:
+   For example it produces the below output where each line is a `servergroup`. The structure of the name in the below display is formed as:
 
    `<Name-Of-Custom-Resource-Definition>`/`<Server-Group-Name>`
 
@@ -163,7 +163,7 @@ Run the following command. The output shows similar information to what kubectl 
    ```
 
 
-### How much memory and vcores are being used and what extensions were created for a group?
+### How much memory and vCores are being used and what extensions were created for a group?
 
 Run either of the following commands
 
@@ -241,7 +241,7 @@ Status:
 Events:               <none>
 ```
 
-Let's call out some specific points of interest in the description of the servergroup shown above. What does it tell us about this server group?
+Let's call out some specific points of interest in the description of the `servergroup` shown above. What does it tell us about this server group?
 
 - It is of version 12 of Postgres: 
    > Kind:         `postgresql-12`
@@ -255,7 +255,7 @@ Let's call out some specific points of interest in the description of the server
 - It uses two worker nodes
    > Scale:
    >    Shards:  `2`
-- It is guaranteed to use 1 cpu/vcore and 512MB of Ram per node. It will use more than 4 cpu/vcores and 1024MB of memory:
+- It is guaranteed to use 1 cpu/vCore and 512MB of Ram per node. It will use more than 4 cpu/vCores and 1024MB of memory:
    > Scheduling:
    >    Default: 
    >      Resources:
@@ -373,7 +373,7 @@ Returns the below output in a format and content very similar to the one returne
 ## Next steps
 - [Read about the concepts of Azure Arc enabled PostgreSQL Hyperscale](concepts-distributed-data-postgres-hyperscale.md)
 - [Read about how to scale out (add worker nodes) a server group](scale-out-postgresql-hyperscale-server-group.md)
-- [Read about how to scale up/down (increase or reduce memory and/or vcores) a server group](scale-up-down-postgresql-hyperscale-server-group-using-cli.md)
+- [Read about how to scale up/down (increase or reduce memory and/or vCores) a server group](scale-up-down-postgresql-hyperscale-server-group-using-cli.md)
 - [Read about storage configuration](storage-configuration.md)
 - [Read how to monitor a database instance deployed in a Arc Data Controller](monitor-grafana-kibana.md)
 - [Use PostgreSQL extensions in your Azure Arc enabled PostgreSQL Hyperscale server group](using-extensions-in-postgresql-hyperscale-server-group.md)
