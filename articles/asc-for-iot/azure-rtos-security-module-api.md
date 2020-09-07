@@ -1,6 +1,6 @@
 ---
 title: Security Module for Azure RTOS API
-description: Reference API for the Azure IoT Security Module for Azure RTOS.
+description: Reference API for the Security Module for Azure RTOS.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -22,30 +22,27 @@ ms.author: mlottner
 
 This API is intended for use with the Security Module for Azure RTOS only. For additional resources, see the [Security Module for Azure RTOS GitHub resource](https://github.com/azure-rtos/azure-iot-preview/releases). 
 
-## Enable Azure IoT Security Module
+## Enable Security Module for Azure RTOS
 
 **nx_azure_iot_security_module_enable**
 
-
-**Prototype**
+### Prototype
 
 ```c
 UINT nx_azure_iot_security_module_enable(NX_AZURE_IOT *nx_azure_iot_ptr);
 ```
 
-**Description**
+### Description
 
 This routine enables the Azure IoT Security Module subsystem. An internal state machine manages collection of security events and sends them to Azure IoT Hub. Only one NX_AZURE_IOT_SECURITY_MODULE instance is required and needed to manage data collection.
 
-**Parameters**
+### Parameters
 
 | Name | Description |
 |---------|---------|
 | nx_azure_iot_ptr  [in]    | A pointer to a `NX_AZURE_IOT`.  |
 
-
-
-**Return values**
+### Return values
 
 |Return values  |Description |
 |---------|---------|
@@ -53,7 +50,7 @@ This routine enables the Azure IoT Security Module subsystem. An internal state 
 |NX_AZURE_IOT_FAILURE   |  Failed to enable the Azure IoT Security Module due to an internal error.    |
 |NX_AZURE_IOT_INVALID_PARAMETER   |  Security module requires a valid #NX_AZURE_IOT instance.      |
 
-**Allowed from**
+### Allowed from
 
 Threads
 
@@ -86,7 +83,6 @@ This routine disables the Azure IoT Security Module subsystem.
 |NX_AZURE_IOT_INVALID_PARAMETER   |  Azure IoT Hub instance is different than the singleton composite instance.       |
 |NX_AZURE_IOT_FAILURE    |  Failed to disable the Azure IoT Security Module due to an internal error.       |
 
-
 ### Allowed from
 
 Threads
@@ -96,5 +92,4 @@ Threads
 
 To learn more about how to get started with Azure RTOS Security Module, see the following articles:
 
-- Review the Azure Security Center for IoT RTOS security module [overview](iot-security-azure-rtos.md)
-
+- Review the Azure Security Center for IoT RTOS security module [overview](iot-security-azure-rtos.md).

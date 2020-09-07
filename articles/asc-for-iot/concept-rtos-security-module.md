@@ -42,7 +42,7 @@ The module offers the following features:
 
 The Security Module for Azure RTOS is initialized by the Azure IoT middleware platform and uses IoT Hub clients to send security telemetry to the Hub.
 
-:::image type="content" source="media/architecture/security_module_state_diagram.png" alt-text="Azure IoT security module state diagram and information flow":::
+:::image type="content" source="media/architecture/security-module-state-diagram.png" alt-text="Azure IoT security module state diagram and information flow":::
 
 The Security Module for Azure RTOS monitors the following device activity and information using three collectors:
 - Device network activity **TCP**, **UDP**, and **ICM**

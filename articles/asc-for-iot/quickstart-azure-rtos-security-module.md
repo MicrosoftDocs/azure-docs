@@ -67,7 +67,7 @@ Log Analytics ingestion in IoT Hub is off by default Azure Security Center for I
 
 ## Next steps
 
-Advance to the next article to finish configuring and customizing your solution...
+Advance to the next article to finish configuring and customizing your solution.
 
 > [!div class="nextstepaction"]
 > [Configure Security Module for Azure RTOS](how-to-azure-rtos-security-module.md)

@@ -26,19 +26,6 @@ In this guide, learn how to customize different settings in Azure Security Cente
 > * Configure solution recommendations
 > * Change settings
 
-## Change settings
-
-Manage your Azure Security Center for IoT setting:
-
-On your IoT Hub, go to the security overview blade
- on the top left corner, see "settings"
-To configure your Azure Security Center for IoT settings, do the following:
-
-1. Open your **IoT Hub** in Azure portal.
-1. From the left menu under **Security**, select and open **Overview**.
-1. Under Settings, select the solution setting you'd like to change.
-1. Remember to always click **Save** at the top of any setting screen to save your setting changes.
-
 ## Configure solution recommendations
 
 To configure your Azure Security Center for IoT solution recommendations, do the following:
@@ -48,6 +35,16 @@ To configure your Azure Security Center for IoT solution recommendations, do the
 1. Under Settings, select **Recommended Configuration** from the left menu.
 1. Disable/enable the solution recommendations relevant for your organization and workflows.
 1. Select **Save** at the top of the screen to save your selections.
+
+
+## Change settings
+
+To configure your Azure Security Center for IoT settings, do the following:
+
+1. Open your **IoT Hub** in Azure portal.
+1. From the left menu under **Security**, select and open **Overview**.
+1. Under Settings, select the solution setting you'd like to change.
+1. Remember to always click **Save** at the top of any setting screen to save your setting changes.
 
 ## Next steps
 

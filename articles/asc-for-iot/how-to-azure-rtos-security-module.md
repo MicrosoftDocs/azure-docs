@@ -1,6 +1,6 @@
 ---
-title: Configure and customize Azure IoT Security Module - Azure RTOS
-description: Learn about how to configure and customize your Azure IoT Security Module - Azure RTOS.
+title: Configure and customize Security Module for Azure RTOS
+description: Learn about how to configure and customize your Security Module for Azure RTOS.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -17,11 +17,13 @@ ms.date: 09/06/2020
 ms.author: mlottner
 ---
 
-# Configure and customize Azure IoT Security Module- Azure RTOS (preview)
+# Configure and customize Security Module for Azure RTOS (preview)
+
+Use this following file to configure your device behavior.
 
 ## azure_iot_security_module/inc/asc_port.h
 
-Use this file to configure your device behavior. The default behavior of each configuration is provided in the following tables: 
+ The default behavior of each configuration is provided in the following tables: 
 
 ### General
 
