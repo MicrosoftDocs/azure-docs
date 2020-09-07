@@ -16,10 +16,10 @@ ms.date: 03/11/2020
 ms.author: memildin
 ---
 
-# Adaptive Network Hardening in Azure Security Center
+# Adaptive network hardening in Azure Security Center
 Learn how to configure Adaptive Network Hardening in Azure Security Center.
 
-## What is Adaptive Network Hardening?
+## What is adaptive network hardening?
 Applying [network security groups (NSG)](https://docs.microsoft.com/azure/virtual-network/security-overview) to filter traffic to and from resources, improves your network security posture. However, there can still be some cases in which the actual traffic flowing through the NSG is a subset of the NSG rules defined. In these cases, further improving the security posture can be achieved by hardening the NSG rules, based on the actual traffic patterns.
 
 Adaptive Network Hardening provides recommendations to further harden the NSG rules. It uses a machine learning algorithm that factors in actual traffic, known trusted configuration, threat intelligence, and other indicators of compromise, and then provides recommendations to allow traffic only from specific IP/port tuples.
@@ -31,6 +31,17 @@ For example, let's say the existing NSG rule is to allow traffic from 140.20.30.
 
 
 ![Network hardening view](./media/security-center-adaptive-network-hardening/traffic-hardening.png)
+
+
+## Availability
+
+|Aspect|Details|
+|----|:----|
+|Release state:|General availability|
+|Pricing:|Standard tier|
+|Required roles and permissions:|Write permissions on the machine’s NSGs|
+|Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![No](./media/icons/no-icon.png) National/Sovereign (US Gov, China Gov, Other Gov)|
+|||
 
 
 ## View Adaptive Network Hardening alerts and rules

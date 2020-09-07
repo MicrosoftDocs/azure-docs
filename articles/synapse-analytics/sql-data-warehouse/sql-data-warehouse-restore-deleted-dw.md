@@ -72,7 +72,7 @@ $RestoredDatabase.status
 
     ![Deleted Databases](./media/sql-data-warehouse-restore-deleted-dw/restoring-deleted-01.png)
 
-4. Select the deleted SQL Data Warehouse that you want to restore.
+4. Select the deleted Azure Synapse Analytics that you want to restore.
 
     ![Select Deleted Databases](./media/sql-data-warehouse-restore-deleted-dw/restoring-deleted-11.png)
 

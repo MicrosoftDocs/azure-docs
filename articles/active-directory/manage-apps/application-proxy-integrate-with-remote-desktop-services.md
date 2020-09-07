@@ -1,6 +1,6 @@
 ---
 title: Publish Remote Desktop with Azure AD App Proxy | Microsoft Docs
-description: Covers the basics about Azure AD Application Proxy connectors.
+description: Covers how to configure App Proxy with RDS
 services: active-directory
 documentationcenter: ''
 author: kenwith
@@ -130,7 +130,7 @@ The configuration outlined in this article is for access to RDS via RD Web or th
 
 | Authentication method | Supported client configuration |
 | --------------------- | ------------------------------ |
-| Pre-authentication    | RD Web-  Windows 7/10 using Internet Explorer + RDS ActiveX add-on |
+| Pre-authentication    | RD Web-  Windows 7/10 using Internet Explorer or [Edge Chromium IE mode](https://docs.microsoft.com/deployedge/edge-ie-mode) + RDS ActiveX add-on |
 | Pre-authentication    | RD Web Client- HTML5-compatible web browser such as Microsoft Edge, Internet Explorer 11, Google Chrome, Safari, or Mozilla Firefox (v55.0 and later) |
 | Passthrough | Any other operating system that supports the Microsoft Remote Desktop application |
 

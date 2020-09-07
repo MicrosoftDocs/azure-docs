@@ -327,7 +327,7 @@ You can also use the Azure AD PowerShell module to perform adhoc queries to disc
 
 ### 3.3: Use dedicated administrative accounts
 
-**Guidance**: Azure Machine Learning comes with three default roles when a new workspace is created, create standard operating procedures around the use of owner accounts.
+**Guidance**: Azure Machine Learning comes with three default roles when a new workspace is created, creating standard operating procedures around the use of owner accounts.
 
 You can also enable a just-in-time access to administrative accounts by using Azure AD Privileged Identity Management and Azure Resource Manager. 
 
@@ -982,7 +982,9 @@ Use Azure Key Vault to pass secrets to remote runs securely instead of cleartext
 
 - [How to create a Key Vault](/azure/key-vault/quick-create-portal)
 
-- [How to provide Key Vault authentication with a managed identity](/azure/key-vault/managed-identity)
+- [How to authenticate to Key Vault](https://docs.microsoft.com/azure/key-vault/general/authentication)
+
+- [How to assign a Key Vault access policy](https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal)
 
 **Azure Security Center monitoring**: Yes
 

@@ -57,10 +57,6 @@ You can also [enable Azure Private Link](how-to-configure-private-link.md) to co
 > | Customer Managed Keys for workspace | ✔ | |
 > 
 
-> [!WARNING]
-> 
-> Azure Machine Learning compute instances preview is not supported in a workspace where Private Link is enabled.
-
 <a id="amlcompute"></a>
 
 ## Machine Learning studio
@@ -68,6 +64,11 @@ You can also [enable Azure Private Link](how-to-configure-private-link.md) to co
 If your data is stored in a virtual network, you must use a workspace [managed identity](../active-directory/managed-identities-azure-resources/overview.md) to grant the studio access to your data.
 
 > [!IMPORTANT]
+> A managed identity __only enables access to the datastore from Azure Machine Learning studio__. It does not enable access to the data from the SDK.
+> 
+> To access the data using SDK, you must use the authentication method required by the individual service that the data is stored in. For example, if you register a datastore to access Azure Data Lake Store Gen2, you must still use a service principal as documented in [Connect to Azure storage services](how-to-access-data.md#azure-data-lake-storage-generation-2).
+
+> [!WARNING]
 > While most of studio works with data stored in a virtual network, integrated notebooks __do not__. Integrated notebooks do not support using storage that is in a virtual network. Instead, you can use Jupyter Notebooks from a compute instance. For more information, see the [Access data in a Compute Instance notebook](#access-data-in-a-compute-instance-notebook) section.
 
 If you fail to grant studio access, you will receive this error, `Error: Unable to profile this dataset. This might be because your data is stored behind a virtual network or your data does not support profile.` and disable the following operations:
@@ -266,6 +267,7 @@ To use either a [managed Azure Machine Learning __compute target__](concept-comp
 > In the case of clusters these resources are deleted (and recreated) every time the cluster scales down to 0 nodes, however for an instance the resources are held onto till the instance is completely deleted (stopping does not remove the resources). 
 > These resources are limited by the subscription's [resource quotas](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
 
+To use a compute instance in a workspace where Private Link is enabled, the compute instance and workspace must be in the __eastus__, __westus2__, or __southcentralus__ regions.
 
 ### <a id="mlcports"></a> Required ports
 

@@ -3,15 +3,15 @@ title: Azure Front Door | Microsoft Docs
 description: This article provides an overview of Azure Front Door. Find out if it is the right choice for load-balancing user traffic for your application.
 services: frontdoor
 documentationcenter: ''
-author: sharad4u
+author: duongau
 editor: ''
 ms.service: frontdoor
 ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/23/2019
-ms.author: sharadag
+ms.date: 09/02/2020
+ms.author: duau
 # customer intent: As an IT admin, I want to learn about Front Door and what I can use it for. 
 ---
 
@@ -77,6 +77,10 @@ The HTTP/2 protocol enables full-duplex communication between application backen
 ## Pricing
 
 For pricing information, see [Front Door Pricing](https://azure.microsoft.com/pricing/details/frontdoor/).
+
+## What's new?
+
+Subscribe to the RSS feed and view the latest Azure Front Door feature updates on the [Azure Updates](https://azure.microsoft.com/updates/?category=networking&query=Azure%20Front%20Door) page.
 
 ## Next steps
 

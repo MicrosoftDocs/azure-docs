@@ -43,7 +43,7 @@ The following example shows a Conditional Access technical profile:
 
 ## Conditional Access evaluation
 
-For every sign-in, Azure AD B2C evaluates all policies and ensures all requirements are met before granting the user access. "Block access" overrides all other configuration settings. The **Evaluation** mode of the Conditional Access technical profile evaluates the signals collected by Azure AD B2C during the sign-in with a local account. The outcome of the Conditional Access technical profile is a set of claims that result from Conditional Access evaluation. The Azure AD B2C policy uses these claims in a next orchestration step to take an action, such as block the user or challenge the use with multi-factor authentication. The following options can be configured for this mode.
+For every sign-in, Azure AD B2C evaluates all policies and ensures all requirements are met before granting the user access. "Block access" overrides all other configuration settings. The **Evaluation** mode of the Conditional Access technical profile evaluates the signals collected by Azure AD B2C during the sign-in with a local account. The outcome of the Conditional Access technical profile is a set of claims that result from Conditional Access evaluation. The Azure AD B2C policy uses these claims in a next orchestration step to take an action, such as block the user or challenge the user with multi-factor authentication. The following options can be configured for this mode.
 
 ### Metadata
 
