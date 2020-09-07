@@ -367,7 +367,7 @@ Ensure the following prerequisites are met:
 
 ### Connection Procedure
 
-Use the following procedure to create a Provance connection:
+Use the following procedure to create a Cherwell connection:
 
 1. In Azure portal, go to **All Resources** and look for **ServiceDesk(YourWorkspaceName)**
 
