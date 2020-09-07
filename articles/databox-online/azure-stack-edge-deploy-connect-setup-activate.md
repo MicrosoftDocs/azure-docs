@@ -29,7 +29,7 @@ In this tutorial, you learn how to:
 Before you configure and set up your Azure Stack Edge Pro device, make sure that:
 
 * You've installed the physical device as detailed in [Install Azure Stack Edge Pro](azure-stack-edge-deploy-install.md).
-* You have the activation key from the Azure Stack Edge Pro service that you created to manage the Azure Stack Edge Pro device. For more information, go to [Prepare to deploy Azure Stack Edge Pro](azure-stack-edge-deploy-prep.md).
+* You have the activation key from the Azure Stack Edge service that you created to manage the Azure Stack Edge Pro device. For more information, go to [Prepare to deploy Azure Stack Edge Pro](azure-stack-edge-deploy-prep.md).
 
 ## Connect to the local web UI setup
 
@@ -60,7 +60,7 @@ You're now at the dashboard of your device.
 
 ## Set up and activate the physical device
  
-Your dashboard displays the various settings that are required to configure and register the physical device with the Azure Stack Edge Pro service. The **Device name**, **Network settings**, **Web proxy settings**, and **Time settings** are optional. The only required settings are **Cloud settings**.
+Your dashboard displays the various settings that are required to configure and register the physical device with the Azure Stack Edge service. The **Device name**, **Network settings**, **Web proxy settings**, and **Time settings** are optional. The only required settings are **Cloud settings**.
    
 ![Local web UI "Dashboard" page](./media/azure-stack-edge-deploy-connect-setup-activate/set-up-activate-1.png)
 
@@ -126,7 +126,7 @@ Your dashboard displays the various settings that are required to configure and 
 
     ![Local web UI "Storage settings" page](./media/azure-stack-edge-deploy-connect-setup-activate/storage-settings.png)
 
-6. In the left pane, select **Cloud settings**, and then activate your device with the Azure Stack Edge Pro service in the Azure portal.
+6. In the left pane, select **Cloud settings**, and then activate your device with the Azure Stack Edge service in the Azure portal.
     
     1. In the **Activation key** box, enter the activation key that you got in [Get the activation key](azure-stack-edge-deploy-prep.md#get-the-activation-key) for Azure Stack Edge Pro.
     2. Select **Apply**.

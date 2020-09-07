@@ -61,7 +61,7 @@ The Azure Stack Edge Pro solution comprises of Azure Stack Edge resource, Azure 
     
 * **Azure Stack Edge resource** – a resource in the Azure portal that lets you manage an Azure Stack Edge Pro device from a web interface that you can access from different geographical locations. Use the Azure Stack Edge resource to create and manage resources, view, and manage devices and alerts, and manage shares.  
 
-    <!--![The Azure Stack Edge Pro service in Azure portal](media/data-box-overview/data-box-Edge-service1.png)-->
+    <!--![The Azure Stack Edge service in Azure portal](media/data-box-overview/data-box-Edge-service1.png)-->
 
     For more information, go to [Create an order for your Azure Stack Edge Pro device](azure-stack-edge-deploy-prep.md#create-a-new-resource).
 

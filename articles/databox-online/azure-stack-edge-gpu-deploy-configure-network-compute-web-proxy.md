@@ -37,7 +37,7 @@ Before you configure and set up your Azure Stack Edge Pro device with GPU, make 
 
 ## Configure network
 
-Your **Get started** page displays the various settings that are required to configure and register the physical device with the Azure Stack Edge Pro service. 
+Your **Get started** page displays the various settings that are required to configure and register the physical device with the Azure Stack Edge service. 
 
 Follow these steps to configure the network for your device.
 

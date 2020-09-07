@@ -74,7 +74,7 @@ You can also register resource providers via the `az cli`. For more information,
 
 ## Create service principal, assign role
 
-1. Make sure that you have `Subscription ID` and the name of the resource group you used for the resource deployment for your Azure Stack Edge Pro service. To get the subscription ID, go to your Azure Stack Edge resource in the Azure portal. Navigate to **Overview > Essentials**.
+1. Make sure that you have `Subscription ID` and the name of the resource group you used for the resource deployment for your Azure Stack Edge service. To get the subscription ID, go to your Azure Stack Edge resource in the Azure portal. Navigate to **Overview > Essentials**.
 
     ![Get subscription ID](media/azure-stack-edge-gpu-connect-powershell-interface/get-subscription-id-1.png)
 

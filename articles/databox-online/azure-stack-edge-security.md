@@ -18,14 +18,14 @@ This article describes the Azure Stack Edge Pro security features that help prot
 
 Azure Stack Edge Pro consists of four main components that interact with each other:
 
-- **Azure Stack Edge Pro service, hosted in Azure**. The management resource that you use to create the device order, configure the device, and then track the order to completion.
+- **Azure Stack Edge service, hosted in Azure**. The management resource that you use to create the device order, configure the device, and then track the order to completion.
 - **Azure Stack Edge Pro device**. The transfer device that's shipped to you so you can import your on-premises data into Azure.
 - **Clients/hosts connected to the device**. The clients in your infrastructure that connect to the Azure Stack Edge Pro device and contain data that needs to be protected.
 - **Cloud storage**. The location in the Azure cloud platform where data is stored. This location is typically the storage account linked to the Azure Stack Edge resource that you create.
 
-## Azure Stack Edge Pro service protection
+## Azure Stack Edge service protection
 
-The Azure Stack Edge Pro service is a management service that's hosted in Azure. The service is used to configure and manage the device.
+The Azure Stack Edge service is a management service that's hosted in Azure. The service is used to configure and manage the device.
 
 [!INCLUDE [data-box-edge-gateway-data-rest](../../includes/data-box-edge-gateway-service-protection.md)]
 
@@ -33,7 +33,7 @@ The Azure Stack Edge Pro service is a management service that's hosted in Azure.
 
 The Azure Stack Edge Pro device is an on-premises device that helps transform your data by processing it locally and then sending it to Azure. Your device:
 
-- Needs an activation key to access the Azure Stack Edge Pro service.
+- Needs an activation key to access the Azure Stack Edge service.
 - Is protected at all times by a device password.
 - Is a locked-down device. The device BMC and BIOS are password-protected. The BIOS is protected by limited user-access.
 - Has secure boot enabled.
@@ -41,7 +41,7 @@ The Azure Stack Edge Pro device is an on-premises device that helps transform yo
 
 ### Protect the device via activation key
 
-Only an authorized Azure Stack Edge Pro device is allowed to join the Azure Stack Edge Pro service that you create in your Azure subscription. To authorize a device, you need to use an activation key to activate the device with the Azure Stack Edge Pro service.
+Only an authorized Azure Stack Edge Pro device is allowed to join the Azure Stack Edge service that you create in your Azure subscription. To authorize a device, you need to use an activation key to activate the device with the Azure Stack Edge service.
 
 [!INCLUDE [data-box-edge-gateway-data-rest](../../includes/data-box-edge-gateway-activation-key.md)]
 
@@ -80,7 +80,7 @@ This section describes the Azure Stack Edge Pro security features that protect i
 
 ## Manage personal information
 
-The Azure Stack Edge Pro service collects personal information in the following scenarios:
+The Azure Stack Edge service collects personal information in the following scenarios:
 
 [!INCLUDE [data-box-edge-gateway-data-rest](../../includes/data-box-edge-gateway-manage-personal-data.md)]
 

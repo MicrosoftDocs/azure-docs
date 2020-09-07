@@ -21,7 +21,7 @@ Compute can be configured for simple or advanced deployment flow on your device.
 | Criteria | Simple deployment                                | Advanced deployment                   |
 |------------------|--------------------------------------------------|---------------------------------------|
 | Intended for     | IT administrators                                | Developers                            |
-| Type             | Use Azure Stack Edge Pro service to deploy modules      | Use IoT Hub service to deploy modules |
+| Type             | Use Azure Stack Edge service to deploy modules      | Use IoT Hub service to deploy modules |
 | Modules deployed | Single                                           | Chained or multiple modules           |
 
 

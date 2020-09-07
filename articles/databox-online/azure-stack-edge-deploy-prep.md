@@ -100,7 +100,7 @@ To create a Azure Stack Edge resource, take the following steps in the Azure por
     
     In the **Azure Stack Edge Pro** option, select **Create**.
 
-    ![Search Azure Stack Edge Pro service](media/azure-stack-edge-deploy-prep/data-box-edge-sku.png)
+    ![Search Azure Stack Edge service](media/azure-stack-edge-deploy-prep/data-box-edge-sku.png)
 
 3. On the **Basics** tab, enter or select the following **Project details**.
     

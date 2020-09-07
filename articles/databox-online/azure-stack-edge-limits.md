@@ -15,7 +15,7 @@ ms.author: alkohli
 
 Consider these limits as you deploy and operate your Microsoft Azure Stack Edge Pro solution. 
 
-## Azure Stack Edge Pro service limits
+## Azure Stack Edge service limits
 
 [!INCLUDE [data-box-edge-gateway-service-limits](../../includes/data-box-edge-gateway-service-limits.md)]
 
