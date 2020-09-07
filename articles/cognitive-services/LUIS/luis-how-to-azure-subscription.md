@@ -31,7 +31,7 @@ LUIS allows three types of Azure resources and one non-Azure resource:
 > [!Note]
 > There are two types of F0 (free tier) resources that LUIS provides. One for authoring transactions and one for prediction transactions. If you are running out of free quota for prediction transactions, make sure that you are in fact using the F0 prediction resource that gives you a 10,000 free transactions monthly and not the authoring resource that gives you 1000 prediction transactions monthly.
 
-When the Azure resource creation process is finished, [assign the key](#assign-a-resource-to-an-app) to the app in the LUIS portal.
+When the Azure resource creation process is finished, [assign the resource](#assign-a-resource-to-an-app) to the app in the LUIS portal.
 
 It is important to author LUIS apps in [regions](luis-reference-regions.md#publishing-regions) where you want to publish and query.
 
