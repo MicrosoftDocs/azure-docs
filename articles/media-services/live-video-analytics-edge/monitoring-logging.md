@@ -15,7 +15,8 @@ You will also learn about how you can control the logs that the module generates
 
 Live Video Analytics on IoT Edge emits events, or telemetry data according to the following taxonomy.
 
-![Live Video Analytics on IoT Edge telemetry schema](./media/telemetry-schema/taxonomy.png)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/telemetry-schema/taxonomy.png" alt-text="Taxonomy of events":::
 
 * Operational: events that are generated as part of actions taken by a user, or during the execution of a [media graph](media-graph-concept.md).
    
