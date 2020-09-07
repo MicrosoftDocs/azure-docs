@@ -3,7 +3,7 @@
 - name: Overview
   items:
     - name: What are Azure Arc enabled data services
-      href: overview.md
+      href: Overview.md
     - name: Release notes
       href: release-notes.md
 - name: Quickstarts
@@ -79,9 +79,9 @@
           href: uninstall-azure-arc-data-controller.md
 - name: Azure Arc enabled PostgreSQL (preview) 
   items:
-    - name: overview
+    - name: Overview
       items:
-        - name: Whats Azure Arc enabled PostgreSQL Hyperscale
+        - name: What is Azure Arc enabled PostgreSQL Hyperscale
         - name: Features & capabilites
     - name: Concepts
       items:
