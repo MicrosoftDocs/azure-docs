@@ -12,7 +12,7 @@ ms.date: 09/21/2020
 
 [Azure Database for PostgreSQL](../overview.md) powered by the PostgreSQL community edition is available in three deployment modes:
 
-- Single Server
+- [Single Server](../overview-single-server.md)
 - Flexible Server (Preview)
 - Hyperscale (Citus)
 
@@ -21,6 +21,9 @@ In this article, we will provide an overview and introduction to core concepts o
 ## Overview
 
 Azure Database for PostgreSQL Flexible Server is a fully managed database service designed to provide more granular control and flexibility over database management functions and configuration settings. In general, the service provides more flexibility and server configuration customizations based on the user requirements. The flexible server architecture allows users to collocate database engine with the client-tier for lower latency,  choose high availability within a single availability zone and across multiple availability zones. Flexible servers also provide better cost optimization controls with ability to stop/start your server and burstable compute tier that is ideal for workloads that do not need full compute capacity continuously. The service currently supports community version of PostgreSQL 11 and 12. The service is currently in preview, available today in wide variety of  [Azure regions](https://azure.microsoft.com/global-infrastructure/services/).
+
+:::image type="content" source="./media/overview/overview-flexible-server.png" alt-text="Overview - Flexible Server"::: 
+
 
 Flexible servers are best suited for
 
@@ -45,7 +48,8 @@ Picture below shows transition for VM and storage failure.
 
 If zone redundant high availability is configured, the service provisions and maintains a hot standby server across availability zone within the same Azure region. The data changes on the source server is synchronously replicated to the standby server to ensure zero data loss. With zone redundant high availability, once the planned or unplanned failover event is triggered, the standby server comes online immediately and is available to process incoming transactions. This allows the service resiliency from availability zone failure within an Azure region that supports multiple availability zones as shown in the picture below.
 
- ![Flexible server - HA](./media/overview/overview-azure-postgres-flex-high-availability.png)
+ :::image type="content" source="./media/overview/connectivity-architecture-overview-proxy.png" alt-text="zone redundant high availability"::: 
+
 
  See [High availability document](./concepts-high-availability.md) for more details.
 
@@ -86,8 +90,8 @@ The service runs the community version of PostgreSQL. This allows full applicati
 
 Now that you've read an introduction to Azure Database for PostgreSQL single server deployment mode, you're ready to:
 - Create your first server.
-- Create an Azure Database for PostgreSQL flexible server using Azure portal
-- Create an Azure Database for PostgreSQL flexible server using Azure CLI
+  - [Create an Azure Database for PostgreSQL flexible server using Azure portal](./quickstart-create-server-portal.md)
+  - Create an Azure Database for PostgreSQL flexible server using Azure CLI
 - Azure CLI samples for Azure Database for PostgreSQL
 - Build your first app using your preferred language:
     - Python
