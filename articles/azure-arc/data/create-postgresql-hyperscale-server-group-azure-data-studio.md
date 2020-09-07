@@ -63,5 +63,6 @@ Logged in successfully to `https://10.0.0.4:30080` in namespace `arc`. Setting a
 
 
 ## Next steps
+- [Manage your server group using Azure Data Studio](manage-postgresql-hyperscale-server-group-with-azure-data-studio.md)
 - [Monitor your server group](monitor-grafana-kibana.md)
 
