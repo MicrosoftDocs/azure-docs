@@ -1,6 +1,6 @@
 ---
-title: Tutorial to filter, analyze data for advanced deployment with compute on Azure Stack Edge | Microsoft Docs
-description: Learn how to configure compute role on Azure Stack Edge and use it to transform data for advanced deployment flow before sending to Azure.
+title: Tutorial to filter, analyze data for advanced deployment with compute on Azure Stack Edge Pro | Microsoft Docs
+description: Learn how to configure compute role on Azure Stack Edge Pro and use it to transform data for advanced deployment flow before sending to Azure.
 services: databox
 author: alkohli
 
@@ -9,12 +9,12 @@ ms.subservice: edge
 ms.topic: tutorial
 ms.date: 05/20/2019
 ms.author: alkohli
-Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge for advanced deployment flow so I can use it to transform the data before sending it to Azure.
+Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro for advanced deployment flow so I can use it to transform the data before sending it to Azure.
 ---
 
-# Tutorial: Transform data with Azure Stack Edge for advanced deployment flow
+# Tutorial: Transform data with Azure Stack Edge Pro for advanced deployment flow
 
-This tutorial describes how to configure a compute role for an advanced deployment flow on your Azure Stack Edge device. After you configure the compute role, Azure Stack Edge can transform data before sending it to Azure.
+This tutorial describes how to configure a compute role for an advanced deployment flow on your Azure Stack Edge Pro device. After you configure the compute role, Azure Stack Edge Pro can transform data before sending it to Azure.
 
 Compute can be configured for simple or advanced deployment flow on your device.
 
@@ -39,14 +39,14 @@ In this tutorial, you learn how to:
  
 ## Prerequisites
 
-Before you set up a compute role on your Azure Stack Edge device, make sure that:
+Before you set up a compute role on your Azure Stack Edge Pro device, make sure that:
 
-- You've activated your Azure Stack Edge device as described in [Connect, set up, and activate Azure Stack Edge](azure-stack-edge-deploy-connect-setup-activate.md).
+- You've activated your Azure Stack Edge Pro device as described in [Connect, set up, and activate Azure Stack Edge Pro](azure-stack-edge-deploy-connect-setup-activate.md).
 
 
 ## Configure compute
 
-To configure compute on your Azure Stack Edge, you'll create an IoT Hub resource.
+To configure compute on your Azure Stack Edge Pro, you'll create an IoT Hub resource.
 
 1. In the Azure portal of your Azure Stack Edge resource, go to **Overview**. In the right-pane, on the **Compute** tile, select **Get started**.
 
@@ -146,9 +146,9 @@ For the advanced deployment in this tutorial, you'll need two shares: one Edge s
 
 ## Add a module
 
-There are no custom modules on this Edge device. You could add a custom or a pre-built module. To learn how to create a custom module, go to [Develop a C# module for your Azure Stack Edge device](azure-stack-edge-create-iot-edge-module.md).
+There are no custom modules on this Edge device. You could add a custom or a pre-built module. To learn how to create a custom module, go to [Develop a C# module for your Azure Stack Edge Pro device](azure-stack-edge-create-iot-edge-module.md).
 
-In this section, you add a custom module to the IoT Edge device that you created in [Develop a C# module for your Azure Stack Edge](azure-stack-edge-create-iot-edge-module.md). This custom module takes files from an Edge local share on the Edge device and moves them to an Edge (cloud) share on the device. The cloud share then pushes the files to the Azure storage account that's associated with the cloud share.
+In this section, you add a custom module to the IoT Edge device that you created in [Develop a C# module for your Azure Stack Edge Pro](azure-stack-edge-create-iot-edge-module.md). This custom module takes files from an Edge local share on the Edge device and moves them to an Edge (cloud) share on the device. The cloud share then pushes the files to the Azure storage account that's associated with the cloud share.
 
 1. Go to **Edge compute > Get started**. On the **Add modules** tile, select the scenario type as **advanced**. Select **Go to IoT Hub**.
 
@@ -171,7 +171,7 @@ In this section, you add a custom module to the IoT Edge device that you created
 4. Under **Add Modules**, do the following:
 
     1. Enter the name, address, user name, and password for the container registry settings for the custom module.
-    The name, address, and listed credentials are used to retrieve modules with a matching URL. To deploy this module, under **Deployment modules**, select **IoT Edge module**. This IoT Edge module is a docker container that you can deploy to the IoT Edge device that's associated with your Azure Stack Edge device.
+    The name, address, and listed credentials are used to retrieve modules with a matching URL. To deploy this module, under **Deployment modules**, select **IoT Edge module**. This IoT Edge module is a docker container that you can deploy to the IoT Edge device that's associated with your Azure Stack Edge Pro device.
 
         ![The Set Modules page](./media/azure-stack-edge-deploy-configure-compute-advanced/add-module-4.png) 
  
@@ -179,7 +179,7 @@ In this section, you add a custom module to the IoT Edge device that you created
      
         |Field  |Value  |
         |---------|---------|
-        |Name     | A unique name for the module. This module is a docker container that you can deploy to the IoT Edge device associated with your Azure Stack Edge.        |
+        |Name     | A unique name for the module. This module is a docker container that you can deploy to the IoT Edge device associated with your Azure Stack Edge Pro.        |
         |Image URI     | The image URI for the corresponding container image for the module.        |
         |Credentials required     | If checked, username and password are used to retrieve modules with a matching URL.        |
     
@@ -266,7 +266,7 @@ In this tutorial, you learned how to:
 > * Add a compute module
 > * Verify data transform and transfer
 
-To learn how to administer your Azure Stack Edge device, see:
+To learn how to administer your Azure Stack Edge Pro device, see:
 
 > [!div class="nextstepaction"]
-> [Use local web UI to administer a Azure Stack Edge](azure-stack-edge-manage-access-power-connectivity-mode.md)
+> [Use local web UI to administer a Azure Stack Edge Pro](azure-stack-edge-manage-access-power-connectivity-mode.md)

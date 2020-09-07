@@ -1,6 +1,6 @@
 ---
-title: Tutorial to configure certificates for Azure Stack Edge device with GPU in Azure portal | Microsoft Docs
-description: Tutorial to deploy Azure Stack Edge with GPU instructs you to configure certificates on your physical device.
+title: Tutorial to configure certificates for Azure Stack Edge Pro device with GPU in Azure portal | Microsoft Docs
+description: Tutorial to deploy Azure Stack Edge Pro with GPU instructs you to configure certificates on your physical device.
 services: databox
 author: alkohli
 
@@ -9,11 +9,11 @@ ms.subservice: edge
 ms.topic: tutorial
 ms.date: 08/29/2020
 ms.author: alkohli
-Customer intent: As an IT admin, I need to understand how to configure certificates for Azure Stack Edge so I can use it to transfer data to Azure. 
+Customer intent: As an IT admin, I need to understand how to configure certificates for Azure Stack Edge Pro so I can use it to transfer data to Azure. 
 ---
-# Tutorial: Configure certificates for your Azure Stack Edge with GPU
+# Tutorial: Configure certificates for your Azure Stack Edge Pro with GPU
 
-This tutorial describes how you can configure certificates for your Azure Stack Edge device with an onboard GPU by using the local web UI.
+This tutorial describes how you can configure certificates for your Azure Stack Edge Pro device with an onboard GPU by using the local web UI.
 
 The time taken for this step can vary depending on the specific option you choose and how the certificate flow is established in your environment.
 
@@ -26,9 +26,9 @@ In this tutorial, you learn about:
 
 ## Prerequisites
 
-Before you configure and set up your Azure Stack Edge device with GPU, make sure that:
+Before you configure and set up your Azure Stack Edge Pro device with GPU, make sure that:
 
-* You've installed the physical device as detailed in [Install Azure Stack Edge](azure-stack-edge-gpu-deploy-install.md).
+* You've installed the physical device as detailed in [Install Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-install.md).
 * If you plan to bring your own certificates:
     - You should have your certificates ready in the appropriate format including the signing chain certificate.
 <!--    - If your device is deployed in Azure Government or Azure Government Secret or Azure Government top secret cloud and not deployed in Azure public cloud, a signing chain certificate is required before you can activate your device. 
@@ -50,9 +50,9 @@ Before you configure and set up your Azure Stack Edge device with GPU, make sure
 
     - If you changed the device name or DNS domain, then to successfully activate your device, you can choose one of the following options: 
     
-        - **Generate all the device certificates**. The device certificates should only be used for testing and not used with production workloads.** For more information, go to [Generate device certificates on your Azure Stack Edge](#generate-device-certificates).
+        - **Generate all the device certificates**. The device certificates should only be used for testing and not used with production workloads.** For more information, go to [Generate device certificates on your Azure Stack Edge Pro](#generate-device-certificates).
 
-        - **Bring your own certificates**. You can bring your own signed endpoint certificates and the corresponding signing chains. You first add the signing chain and then upload the endpoint certificates. **We recommend that you always bring your own certificates for production workloads.** For more information, go to [Bring your own certificates on your Azure Stack Edge device](#bring-your-own-certificates).
+        - **Bring your own certificates**. You can bring your own signed endpoint certificates and the corresponding signing chains. You first add the signing chain and then upload the endpoint certificates. **We recommend that you always bring your own certificates for production workloads.** For more information, go to [Bring your own certificates on your Azure Stack Edge Pro device](#bring-your-own-certificates).
     
         - You can bring some of your own certificates and generate some device certificates. The **Generate certificates** option will only regenerate the device certificates.
 
@@ -63,7 +63,7 @@ Before you configure and set up your Azure Stack Edge device with GPU, make sure
 
 Follow these steps to generate device certificates.
 
-Use these steps to regenerate and download the Azure Stack Edge device certificates:
+Use these steps to regenerate and download the Azure Stack Edge Pro device certificates:
 
 1. In the local UI of your device, go to **Configuration > Certificates**. Select **Generate certificates**.
 
@@ -100,7 +100,7 @@ Use these steps to regenerate and download the Azure Stack Edge device certifica
 
 You will need to install these certificates on the client system that you are using to access the endpoints on the ASE device. These certificates establish trust between the client and the device.
 
-To import and install these certificates on the client that you are using to access the device, follow the steps in [Import certificates on the clients accessing your Azure Stack Edge device](azure-stack-edge-j-series-manage-certificates.md#import-certificates-on-the-client-accessing-the-device). 
+To import and install these certificates on the client that you are using to access the device, follow the steps in [Import certificates on the clients accessing your Azure Stack Edge Pro device](azure-stack-edge-j-series-manage-certificates.md#import-certificates-on-the-client-accessing-the-device). 
 
 If using Azure Storage Explorer, you will need to install certificates on your client in PEM format and you will need to convert the device generated certificates into PEM format. 
 
@@ -153,7 +153,7 @@ In this tutorial, you learn about:
 > * Prerequisites
 > * Configure certificates for the physical device
 
-To learn how to activate your Azure Stack Edge device, see:
+To learn how to activate your Azure Stack Edge Pro device, see:
 
 > [!div class="nextstepaction"]
-> [Activate Azure Stack Edge device](./azure-stack-edge-gpu-deploy-activate.md)
+> [Activate Azure Stack Edge Pro device](./azure-stack-edge-gpu-deploy-activate.md)
