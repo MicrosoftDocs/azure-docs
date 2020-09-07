@@ -43,16 +43,14 @@ landingContent:
             url: install-client-tools.md
 
   # Card (optional)
-  - title: Do with Postgres
+  - title: Do with PostgreSQL
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Create PostgreSQL instance
-            url: create-postgresql-instances.md
-          - text: Extend single node to hyperscale
+          - text: Create PostgreSQL Hyperscale server group
+            url: create-postgresql-hyperscale-server-group.md
+          - text: Extend single node to Hyperscale
             url: postgresql-extend-single-node-to-hyperscale.md
-          - text: Restore sample database
-            url: restore-adventureworks-sample-db-postgresql.md
 
   # Card (optional)
   - title: Do with SQL Managed Instance
@@ -62,6 +60,6 @@ landingContent:
           - text: Create Managed instance
             url: create-sql-managed-instance.md
           - text: Migrate to Managed Instance
-            url: migrate-to-managed-instance-azure-arc.md
+            url: migrate-to-managed-instance.md
           - text: Restore sample database
             url: restore-adventureworks-sample-db.md
