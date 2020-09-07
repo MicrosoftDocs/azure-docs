@@ -54,8 +54,8 @@ To take full advantage of Security Center, you need to complete the steps below 
 For the purpose of the Security Center quickstarts and tutorials you must enable Azure Defender. A free 30-day trial is available. To learn more, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/). 
 
 1. From Security Center's sidebar, select **Getting started**.
- 
-   ![Getting started](./media/security-center-get-started/get-started-upgrade-tab.png)
+
+    :::image type="content" source="./media/security-center-get-started/get-started-upgrade-tab.png" alt-text="Upgrade tab of the getting started page"::: 
 
     The **Upgrade** tab lists subscriptions and workspaces eligible for onboarding.
 

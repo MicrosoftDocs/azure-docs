@@ -15,10 +15,10 @@ ms.date: 02/19/2019
 ms.author: memildin
 
 ---
-# Onboarding to Azure Security Center Standard for enhanced security
-Upgrade to Security Center Standard to take advantage of enhanced security management and threat protection for your hybrid cloud workloads. You can try Standard free. See the Security Center [pricing page](https://azure.microsoft.com/pricing/details/security-center/) for more information.
+# Enable Azure Defender for enhanced security
+For enhanced security management and threat protection for your hybrid cloud workloads, enable Azure Defender on your subscription. You can try Azure Defender for free for 30 days.
 
-Security Center standard tier includes:
+Azure Defender includes:
 
 - **Hybrid security** – Get a unified view of security across all of your on-premises and cloud workloads. Apply security policies and continuously assess the security of your hybrid cloud workloads to ensure compliance with security standards. Collect, search, and analyze security data from a variety of sources, including firewalls and other partner solutions.
 - **Security alerts** - Use advanced analytics and the Microsoft Intelligent Security Graph to get an edge over evolving cyber-attacks. Leverage built-in behavioral analytics and machine learning to identify attacks and zero-day exploits. Monitor networks, machines, and cloud services for incoming attacks and post-breach activity. Streamline investigation with interactive tools and contextual threat intelligence.
@@ -27,7 +27,7 @@ Security Center standard tier includes:
 ## Detecting unprotected resources
 Security Center automatically detects any Azure subscriptions or workspaces not enabled for Security Center Standard. This includes Azure subscriptions using Security Center Free and workspaces that do not have the Security solution enabled.
 
-You can upgrade an entire Azure subscription to the standard tier, which is inherited by all supported resources within the subscription. Applying the standard tier to a workspace applies to all resources reporting to the workspace.
+You can upgrade an entire Azure subscription to Azure Defender, which is inherited by all supported resources within the subscription. Enabling Azure Defender on a workspace applies to all resources reporting to the workspace.
 
 > [!NOTE]
 > You may want to manage your costs and limit the amount of data collected for a solution by limiting it to a particular set of agents. [Solution targeting](../operations-management-suite/operations-management-suite-solution-targeting.md) allows you to apply a scope to the solution and target a subset of computers in the workspace. If you are using solution targeting, Security Center lists the workspace as not having a solution.
@@ -35,10 +35,20 @@ You can upgrade an entire Azure subscription to the standard tier, which is inhe
 >
 
 ## Upgrade an Azure subscription or workspace
-To upgrade a subscription or workspace to standard:
-1. Under the Security Center main menu, select **Getting started**.
-  ![Getting started](./media/security-center-onboarding/get-started.png)
-2. Under **Upgrade**, Security Center lists subscriptions and workspaces eligible for onboarding. 
+To enable Azure Defender for a subscription or workspace:
+
+1. From Security Center's menu, select **Getting started**.
+ 
+    :::image type="content" source="./media/security-center-get-started/get-started-upgrade-tab.png" alt-text="Upgrade tab of the getting started page"::: 
+
+    The **Upgrade** tab lists subscriptions and workspaces eligible for onboarding.
+
+1. From the **Select workspaces to enable Azure Defender on** list, select the workspaces to upgrade.
+
+    > [!TIP]
+    > If you select a workspace that's eligible for a free trial, the next step will begin a trial. If the workspaces isn't eligible for trial, it will be upgraded and charges will begin.
+
+1. Select **Upgrade** to enable Azure Defender.
    - You can click on the expandable **Apply your trial** to see a list of all subscriptions and workspaces with their trial eligibility status.
    -	You can upgrade subscriptions and workspaces that are not eligible for trial.
    -	You can select eligible workspaces and subscriptions to start your trial.
