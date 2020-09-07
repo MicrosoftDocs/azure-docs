@@ -18,7 +18,7 @@ ms.date: 09/07/2020
 ms.author: mlottner
 ---
 
-# Azure IoT Security Module - RTOS (preview)
+# Overview: Azure IoT Security Module - RTOS (preview)
 
 The Azure Security Center for IoT RTOS security module provides a comprehensive security solution for Azure RTOS devices. Azure RTOS now ships with the Azure IoT Security Module built-in and provides coverage for common threats and potential malicious activities on real-time operating system devices. 
 
