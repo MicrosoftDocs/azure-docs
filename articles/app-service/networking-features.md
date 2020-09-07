@@ -85,7 +85,9 @@ You can learn how to set an address on your app with the tutorial on [Add a TLS/
 
 ### Access Restrictions 
 
-The Access Restrictions capability lets you filter **inbound** requests. The filtering action takes place on the front-end roles that are upstream from the worker roles where your apps are running. Since the front-end roles are upstream from the workers, the Access Restrictions capability can be regarded as network level protection for your apps. The feature allows you to build a list of allow and deny rules that are evaluated in priority order. It is similar to the Network Security Group (NSG) feature that exists in Azure Networking.  You can use this feature in an ASE or in the multi-tenant service. When used with an ILB ASE or Private Endpoint, you can restrict access from private address blocks. Up to 512 Access Restriction rules are allowed per app. 
+The Access Restrictions capability lets you filter **inbound** requests. The filtering action takes place on the front-end roles that are upstream from the worker roles where your apps are running. Since the front-end roles are upstream from the workers, the Access Restrictions capability can be regarded as network level protection for your apps. The feature allows you to build a list of allow and deny rules that are evaluated in priority order. It is similar to the Network Security Group (NSG) feature that exists in Azure Networking.  You can use this feature in an ASE or in the multi-tenant service. When used with an ILB ASE or Private Endpoint, you can restrict access from private address blocks.
+> [!NOTE]
+> Up to 512 Access Restriction rules can be configured per app. 
 
 ![Access Restrictions](media/networking-features/access-restrictions.png)
 #### IP based Access Restriction rules
