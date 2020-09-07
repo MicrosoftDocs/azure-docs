@@ -1,5 +1,5 @@
 ---
-title: Outbound connections in Azure
+title: Outbound connections
 titleSuffix: Azure Load Balancer
 description: This article explains how Azure enables VMs to communicate with public internet services.
 services: load-balancer
@@ -15,25 +15,96 @@ ms.date: 06/24/2020
 ms.author: allensu
 ---
 
-# Outbound connections in Azure
+# Outbound connections
 
-Azure Load Balancer provides outbound connectivity through different mechanisms. This article describes the scenarios and how to manage them. If you are experiencing issue with outbound connectivity through an Azure Load Balancer, see the [troubleshooting guide for outbound connections](../load-balancer/troubleshoot-outbound-connection.md).
+Azure Load Balancer provides outbound connectivity through different mechanisms. This article describes the scenarios and how to manage them. 
 
->[!NOTE]
->This article covers Resource Manager deployments. Microsoft recommends Resource Manager for production workloads.
+If you're experiencing issues with outbound connectivity through an Azure Load Balancer, see the [troubleshooting guide for outbound connections](../load-balancer/troubleshoot-outbound-connection.md).
 
 ## Terminology
 
-| Term | Applicable protocol(s) | Details|
-| ---------|---------| -------|
-| Source network address translation (SNAT) | TCP, UDP | A deployment in Azure can communicate with endpoints outside Azure in the public IP address space. When an instance initiates an outbound flow to a destination in the public IP address space, Azure dynamically maps the private IP address to a public IP address. After this mapping is created, return traffic for this outbound originated flow can also reach the private IP address where the flow originated. Azure uses **source network address translation (SNAT)** to perform this function.|
-| Port masquerading SNAT (PAT)| TCP, UDP |  When multiple private IP addresses are masquerading behind a single public IP address, Azure uses **port address translation (PAT)** to masquerade/hide private IP addresses. Ephemeral ports are used for PAT and are [preallocated](#preallocatedports) based on pool size. When a public Load Balancer resource is associated with VM instances, which do not have dedicated Public IP addresses, each outbound connection source is rewritten. The source is rewritten from the virtual network private IP address space to the frontend Public IP address of the load balancer. In the public IP address space, the 5-tuple of the flow (source IP address, source port, IP transport protocol, destination IP address, destination port) must be unique. Port masquerading SNAT can be used with either TCP or UDP IP protocols. Ephemeral ports (SNAT ports) are used to achieve this after rewriting the private source IP address, because multiple flows originate from a single public IP address. The port masquerading SNAT algorithm allocates SNAT ports differently for UDP versus TCP.|
-| SNAT Ports| TCP | SNAT ports are ephemeral ports available for a particular public IP source address. One SNAT port is consumed per flow to a single destination IP address, port. For multiple TCP flows to the same destination IP address, port, and protocol, each TCP flow consumes a single SNAT port. This ensures that the flows are unique when they originate from the same public IP address and go to the same destination IP address, port, and protocol. Multiple flows, each to a different destination IP address, port, and protocol, share a single SNAT port. The destination IP address, port, and protocol make flows unique without the need for additional source ports to distinguish flows in the public IP address space.|
-|SNAT Ports | UDP | UDP SNAT ports are managed by a different algorithm than TCP SNAT ports.  Load Balancer uses an algorithm known as "port-restricted cone NAT" for UDP.  One SNAT port is consumed for each flow, irrespective of destination IP address, port.|
-| Exhaustion | - | When SNAT port resources are exhausted, outbound flows fail until existing flows release SNAT ports. Load Balancer reclaims SNAT ports when the flow closes and uses a [4-minute idle timeout](../load-balancer/troubleshoot-outbound-connection.md#idletimeout) for reclaiming SNAT ports from idle flows. UDP SNAT ports generally exhaust much faster than TCP SNAT ports due to the difference in algorithm used. You must design and scale test with this difference in mind.|
-| SNAT port release behavior | TCP | If either server/client sends FINACK, SNAT port will be released after 240 seconds. If a RST is seen, SNAT port will be released after 15 seconds. If idle timeout has been reached, port is released.|
-| SNAT port release behavior | UDP |If idle timeout has been reached, port is released.|
-| SNAT port reuse | TCP, UDP | Once a port has been released, the port is available for reuse as needed.  You can think of SNAT ports as a sequence from lowest to highest available for a given scenario, and the first available SNAT port is used for new connections.|
+### Source network address translation
+
+| Applicable protocol(s) |
+|------------------------|
+| TCP </br> UDP          |
+
+#### Details
+
+A deployment in Azure can communicate with endpoints outside Azure in the public IP address space. When an instance initiates an outbound flow to a destination in the public IP address space, Azure dynamically maps the private IP address to a public IP address. After this mapping is created, return traffic for this outbound originated flow can also reach the private IP address where the flow originated. Azure uses **source network address translation (SNAT)** to perform this function.
+
+### Port masquerading SNAT (PAT)
+
+| Applicable protocol(s) |
+|------------------------|
+| TCP </br> UDP          |
+
+#### Details
+
+When multiple private IP addresses are masquerading behind a single public IP address, Azure uses **port address translation (PAT)** to masquerade/hide private IP addresses. Ephemeral ports are used for PAT and are [preallocated](#preallocatedports) based on pool size. When a public Load Balancer resource is associated with VM instances, which do not have dedicated Public IP addresses, each outbound connection source is rewritten. The source is rewritten from the virtual network private IP address space to the frontend Public IP address of the load balancer. In the public IP address space, the 5-tuple of the flow (source IP address, source port, IP transport protocol, destination IP address, destination port) must be unique. Port masquerading SNAT can be used with either TCP or UDP IP protocols. Ephemeral ports (SNAT ports) are used to achieve this after rewriting the private source IP address, because multiple flows originate from a single public IP address. The port masquerading SNAT algorithm allocates SNAT ports differently for UDP versus TCP.
+
+### SNAT ports (TCP)
+
+| Applicable protocol(s) |
+|------------------------|
+| TCP |
+
+#### Details
+
+SNAT ports are ephemeral ports available for a particular public IP source address. One SNAT port is consumed per flow to a single destination IP address, port. For multiple TCP flows to the same destination IP address, port, and protocol, each TCP flow consumes a single SNAT port. This ensures that the flows are unique when they originate from the same public IP address and go to the same destination IP address, port, and protocol. Multiple flows, each to a different destination IP address, port, and protocol, share a single SNAT port. The destination IP address, port, and protocol make flows unique without the need for additional source ports to distinguish flows in the public IP address space.
+
+
+### SNAT ports (UDP)
+
+| Applicable protocol(s) |
+|------------------------|
+| UDP |
+
+#### Details
+
+UDP SNAT ports are managed by a different algorithm than TCP SNAT ports.  Load Balancer uses an algorithm known as "port-restricted cone NAT" for UDP.  One SNAT port is consumed for each flow, irrespective of destination IP address, port.
+
+
+### Exhaustion
+
+| Applicable protocol(s) |
+|------------------------|
+| N/A |
+
+#### Details
+
+When SNAT port resources are exhausted, outbound flows fail until existing flows release SNAT ports. Load Balancer reclaims SNAT ports when the flow closes and uses a [4-minute idle timeout](../load-balancer/troubleshoot-outbound-connection.md#idletimeout) for reclaiming SNAT ports from idle flows. UDP SNAT ports generally exhaust much faster than TCP SNAT ports due to the difference in algorithm used. You must design and scale test with this difference in mind.
+
+### SNAT port release behavior (TCP)
+
+| Applicable protocol(s) |
+|------------------------|
+| TCP |
+
+#### Details
+
+If either server/client sends FINACK, SNAT port will be released after 240 seconds. If a RST is seen, SNAT port will be released after 15 seconds. If idle timeout has been reached, port is released.
+
+### SNAT port release behavior (UDP)
+
+| Applicable protocol(s) |
+|------------------------|
+| TCP |
+
+#### Details
+
+If idle timeout has been reached, port is released.
+
+### SNAT port reuse
+
+| Applicable protocol(s) |
+|------------------------|
+| TCP </br> UDP |
+
+#### Details
+
+Once a port has been released, the port is available for reuse as needed.  You can think of SNAT ports as a sequence from lowest to highest available for a given scenario, and the first available SNAT port is used for new connections.
+
 
 ### <a name="preallocatedports"></a>Port allocation algorithm
 
