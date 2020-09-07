@@ -56,7 +56,8 @@ As explained in the [media graph concept](media-graph-concept.md) article, a med
  
  To accomplish CVR, you need to capture the video from an RTSP-capable camera and continuously record it to an [Azure Media Services asset](terminology.md#asset). This diagram shows a graphical representation of that media graph.
 
-![Media graph](./media/continuous-video-recording-tutorial/continuous-video-recording-overview.png)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/continuous-video-recording-tutorial/continuous-video-recording-overview.svg" alt-text="Media graph:::
 
 In this tutorial, you'll use one edge module built by using the [Live555 Media Server](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) to simulate an RTSP camera. Inside the media graph, you'll use an [RTSP source](media-graph-concept.md#rtsp-source) node to get the live feed and send that video to the [asset sink node](media-graph-concept.md#asset-sink), which records the video to an asset.
 
