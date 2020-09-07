@@ -30,7 +30,7 @@ To stay up-to-date with the most recent developments, this article provides you 
 
 ### Mobile design for the Video Indexer website
 
-The Video Indexer website experience is now supporting mobile devices. The user experience is responsive to adapt to your mobile screen size. 
+The Video Indexer website experience is now supporting mobile devices. The user experience is responsive to adapt to your mobile screen size (excluding customization UIs). 
 
 ### Accessibility improvements and bug fixes 
 
