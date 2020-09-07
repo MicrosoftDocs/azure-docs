@@ -63,6 +63,5 @@ For a full list of the recommendations you might see on this page, see [Data and
 
 To learn more about recommendations that apply to other Azure resource types, see the following topics:
 
-* [Full reference list of Azure Security Center's security recommendations](recommendations-reference.md)
-* [Protecting your machines and applications in Azure Security Center](security-center-virtual-machine-protection.md)
-* [Protecting your network in Azure Security Center](security-center-network-recommendations.md)
+- [Full reference list of Azure Security Center's security recommendations](recommendations-reference.md)
+- [Protecting your network in Azure Security Center](security-center-network-recommendations.md)

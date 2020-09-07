@@ -125,8 +125,6 @@
       href: security-center-monitoring.md
     - name: Reference list of recommendations
       href: recommendations-reference.md
-    - name: Protect your machines and apps
-      href: security-center-virtual-machine-protection.md
     - name: Protect network resources
       href: security-center-network-recommendations.md
     - name: Protect data and storage services

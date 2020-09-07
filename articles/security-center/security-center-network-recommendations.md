@@ -135,5 +135,4 @@ The third level displays virtual machines, which is similar to what is described
 
 To learn more about recommendations that apply to other Azure resource types, see the following:
 
-* [Protecting your machines and applications in Azure Security Center](security-center-virtual-machine-protection.md)
 * [Protecting your Azure SQL service in Azure Security Center](security-center-sql-service-recommendations.md)

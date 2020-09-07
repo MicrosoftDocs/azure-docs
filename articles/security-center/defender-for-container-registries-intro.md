@@ -88,4 +88,4 @@ To learn more about Security Center's container security features, see:
 
 * [Integration with Azure Kubernetes Service](azure-kubernetes-service-integration.md)
 
-* [Virtual Machine protection](security-center-virtual-machine-protection.md) - Describes Security Center's recommendations
+

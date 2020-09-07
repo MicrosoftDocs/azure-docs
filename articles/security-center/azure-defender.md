@@ -30,7 +30,7 @@ Azure Defender provides security alerts and advanced threat protection for virtu
 When you enable Azure Defender from the **Pricing and settings** area of Azure Security Center, the following Defender plans are all enabled simultaneously and provide comprehensive defenses for the compute, data, and service layers of your environment:
 
 - [Azure Defender for servers](defender-for-servers-intro.md)
-- [Azure Defender for App Services](defender-for-app-services-intro.md)
+- [Azure Defender for App Service](defender-for-app-service-intro.md)
 - [Azure Defender for Storage](defender-for-storage-intro.md)
 - [Azure Defender for SQL](defender-for-sql-intro.md)
 - [Azure Defender for IoT](defender-for-iot-intro.md)
