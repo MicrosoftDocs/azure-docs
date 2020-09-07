@@ -98,18 +98,62 @@ The Backup operation failed due to an issue with Windows service **COM+ System**
 Error code: ExtensionFailedVssWriterInBadState <br/>
 Error message: Snapshot operation failed because VSS writers were in a bad state.
 
-Restart VSS writers that are in a bad state. From an elevated command prompt, run ```vssadmin list writers```. The output contains all VSS writers and their state. For every VSS writer with a state that's not **[1] Stable**, to restart VSS writer, run the following commands from an elevated command prompt:
+This error occurs because the VSS writers were in a bad state. Azure Backup extensions interact with VSS Writers to take snapshots of the disks. To resolve this issue, follow these steps:
 
-* ```net stop serviceName```
-* ```net start serviceName```
+Restart VSS writers that are in a bad state.
+- From an elevated command prompt, run ```vssadmin list writers```.
+- The output contains all VSS writers and their state. For every VSS writer with a state that's not **[1] Stable**, restart the respective VSS writer's service. 
+- To restart the service, run the following commands from an elevated command prompt:
 
-Another procedure that can help is to run the following command from an elevated command-prompt (as an administrator).
+ ```net stop serviceName``` <br>
+ ```net start serviceName```
+
+> [!NOTE]
+> Restarting some services can have an impact on your production environment. Ensure the approval process is followed and the service is restarted at the scheduled downtime.
+ 
+   
+If restarting the VSS writers did not resolve the issue and the issue still persists due to a time-out, then:
+- Run the following command from an elevated command-prompt (as an administrator) to prevent the threads from being created for blob-snapshots.
 
 ```console
 REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v SnapshotWithoutThreads /t REG_SZ /d True /f
 ```
 
-Adding this registry key will cause the threads to not be created for blob-snapshots, and prevent the time-out.
+### ExtensionFailedVssServiceInBadState - Snapshot operation failed due to VSS (Volume Shadow Copy) service in bad state
+
+Error code: ExtensionFailedVssServiceInBadState <br/>
+Error message: Snapshot operation failed due to VSS (Volume Shadow Copy) service in bad state.
+
+This error occurs because the VSS service was in a bad state. Azure Backup extensions interact with VSS service to take snapshots of the disks. To resolve this issue, follow these steps:
+
+Restart VSS (Volume Shadow Copy) service.
+- Navigate to Services.msc and restart 'Volume Shadow Copy service'.<br>
+(or)<br>
+- Run the following commands from an elevated command prompt:
+
+ ```net stop VSS``` <br>
+ ```net start VSS```
+
+ 
+If the issue still persists, restart the VM at the scheduled downtime.
+
+### UserErrorSkuNotAvailable - VM creation failed as VM size selected is not available
+
+Error code: UserErrorSkuNotAvailable 
+Error message: VM creation failed as VM size selected is not available. 
+ 
+This error occurs because the VM size selected during the restore operation is an unsupported size. <br>
+
+To resolve this issue, use the [restore disks](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#restore-disks) option during the restore operation. Use those disks to create a VM from the list of [available supported VM sizes](https://docs.microsoft.com/azure/backup/backup-support-matrix-iaas#vm-compute-support) using [Powershell cmdlets](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#create-a-vm-from-restored-disks).
+
+### UserErrorMarketPlaceVMNotSupported - VM creation failed due to Market Place purchase request being not present
+
+Error code: UserErrorMarketPlaceVMNotSupported 
+Error message: VM creation failed due to Market Place purchase request being not present. 
+ 
+Azure Backup supports backup and restore of VMs which are available in Azure Marketplace. This error occurs when you are trying to restore a VM (with a specific Plan/Publisher setting) which is no longer available in Azure Marketplace, [Learn more here](https://docs.microsoft.com/legal/marketplace/participation-policy#offering-suspension-and-removal).
+- To resolve this issue, use the [restore disks](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#restore-disks) option during the restore operation and then use [PowerShell](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#create-a-vm-from-restored-disks) or [Azure CLI](https://docs.microsoft.com/azure/backup/tutorial-restore-disk) cmdlets to create the VM with the latest marketplace information corresponding to the VM.
+- If the publisher does not have any Marketplace information, you can use the data disks to retrieve your data and you can attach them to an existing VM.
 
 ### ExtensionConfigParsingFailure - Failure in parsing the config for the backup extension
 
@@ -152,7 +196,7 @@ The Backup operation failed due to inconsistent state of Backup Extension. To re
 
 * Ensure Guest Agent is installed and responsive
 * From the Azure portal, go to **Virtual Machine** > **All Settings** > **Extensions**
-* Select the backup extension VmSnapshot or VmSnapshotLinux and click **Uninstall**
+* Select the backup extension VmSnapshot or VmSnapshotLinux and select **Uninstall**.
 * After deleting backup extension, retry the backup operation
 * The subsequent backup operation will install the new extension in the desired state
 

@@ -148,7 +148,7 @@ secret = secret_client.get_secret(my_secret_name)
 ```
 
 > [!IMPORTANT]
-> This example uses the DefaultAzureCredential. To grant your identity access using a specific access policy, see [Part 4: Retrieve the secret from you Azure Key Vault](../key-vault/general/authentication.md#part-4-retrieve-the-secret-from-your-azure-key-vault-in-an-application-python).
+> This example uses the DefaultAzureCredential. To grant your identity access using a specific access policy, see [Assign a Key Vault access policy using the Azure CLI](/azure/key-vault/general/assign-access-policy-cli).
 
 ### Access Blob from your web service
 

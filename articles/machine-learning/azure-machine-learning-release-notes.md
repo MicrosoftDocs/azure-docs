@@ -17,6 +17,67 @@ In this article, learn about Azure Machine Learning releases.  For the full SDK 
 
 See [the list of known issues](resource-known-issues.md) to learn about known bugs and workarounds.
 
+## 2020-08-31
+
+### Azure Machine Learning SDK for Python v1.13.0
++ **Preview features**
+  + **azureml-core**
+  
+    With the new output datasets capability, you can write back to cloud storage including Blob, ADLS Gen 1, ADLS Gen 2, and FileShare. You can configure where to output data, how to output data (via mount or upload), whether to register the output data for future reuse and sharing and pass intermediate data between pipeline steps seamlessly. This enables reproducibility, sharing, prevents duplication of data, and results in cost efficiency and productivity gains. [Learn how to use it](https://docs.microsoft.com/python/api/azureml-core/azureml.data.output_dataset_config.outputfiledatasetconfig?view=azure-ml-py)
+	
++ **Bug fixes and improvements**
+  + **azureml-automl-core**
+    + Added validated_{platform}_requirements.txt file for pinning all pip dependencies for AutoML.
+    + This release supports models greater than 4Gb.
+    + Upgraded AutoML dependencies: `scikit-learn` (now 0.22.1), `pandas` (now 0.25.1), `numpy` (now 1.18.2).
+  + **azureml-automl-runtime**
+    + Set horovod for text dnns to always use fp16 compression.
+    + This release supports models greater than 4Gb.
+    + Fixed issue where AutoML fails with ImportError: cannot import name `RollingOriginValidator`.
+    + Upgraded AutoML dependencies: `scikit-learn` (now 0.22.1), `pandas` (now 0.25.1), `numpy` (now 1.18.2).
+  + **azureml-contrib-automl-dnn-forecasting**
+    + Upgraded AutoML dependencies: `scikit-learn` (now 0.22.1), `pandas` (now 0.25.1), `numpy` (now 1.18.2).
+  + **azureml-contrib-fairness**
+    + Provide a short description for azureml-contrib-fairness.
+  + **azureml-contrib-pipeline-steps**
+    + Added message indicating this package is deprecated and user should use azureml-pipeline-steps instead.
+  + **azureml-core**
+    + Added list key command for workspace.
+    + Add tags parameter in Workspace SDK and CLI.
+    + Fixed the bug where submitting a child run with Dataset will fail due to `TypeError: can't pickle _thread.RLock objects`.
+    + Adding page_count default/documentation for Model list().
+    + Modify CLI&SDK to take adbworkspace parameter and Add workspace adb lin/unlink runner.
+    + Fix bug in Dataset.update which caused newest Dataset version to be updated not the version of the Dataset update was called on. 
+    + Fix bug in Dataset.get_by_name which would show the tags for the newest Dataset version even when a specific older version was actually retrieved.
+  + **azureml-interpret**
+    + Added probability outputs to shap scoring explainers in azureml-interpret based on shap_values_output parameter from original explainer.
+  + **azureml-pipeline-core**
+    + Improved `PipelineOutputAbstractDataset.register`'s documentation.
+  + **azureml-train-automl-client**
+    + Upgraded AutoML dependencies: `scikit-learn` (now 0.22.1), `pandas` (now 0.25.1), `numpy` (now 1.18.2).
+  + **azureml-train-automl-runtime**
+    + Upgraded AutoML dependencies: `scikit-learn` (now 0.22.1), `pandas` (now 0.25.1), `numpy` (now 1.18.2).
+  + **azureml-train-core**
+    + Users must now provide a valid hyperparameter_sampling arg when creating a HyperDriveConfig. In addition, the documentation for HyperDriveRunConfig has been edited to inform users of the deprecation of HyperDriveRunConfig.
+    + Reverting PyTorch Default Version to 1.4.
+    + Adding PyTorch 1.6 & Tensorflow 2.2 images and curated environment.
+
+### Azure Machine Learning Studio Notebooks Experience (August Update)
++ **New features**
+  + New Getting started landing Page 
+  
++ **Preview features**
+    + Gather feature in Notebooks. With the [Gather](https://github.com/microsoft/gather) feature, users can now easily clean up notebooks with, Gather uses an automated dependency analysis of your notebook, ensuring the essential code is kept, but removing any irrelevant pieces.
+
++ **Bug fixes and improvements**
+  + Improvement in speed and reliability
+  + Dark mode bugs fixed
+  + Output Scroll Bugs fixed
+  + Sample Search now searches all the content of all the files in the Azure Machine Learning sample notebooks repo
+  + Multi-line R cells can now run
+  + "I trust contents of this file" is now auto checked after first-time
+  + Improved Conflict resolution dialog, with new "Make a copy" option
+  
 ## 2020-08-17
 
 ### Azure Machine Learning SDK for Python v1.12.0
@@ -1507,10 +1568,6 @@ At the time, of this release, the following browsers are supported: Chrome, Fire
   + Enabled `TabularDataset` to be consumed by AutomatedML. To learn more about `TabularDataset`, please visit https://aka.ms/azureml/howto/createdatasets.
 
 + **Bug fixes and improvements**
-  + **automl-client-core-nativeclient**
-    + Fixed the error, raised when training and/or validation labels (y and y_valid) are provided in the form of pandas dataframe but not as numpy array.
-    + Updated interface to create a `RawDataContext` to only require the data and the `AutoMLBaseSettings` object.
-    +  Allow AutoML users to drop training series that are not long enough when forecasting. - Allow AutoML users to drop grains from the test set that does not exist in the training set when forecasting.
   + **azure-cli-ml**
     + You can now update the TLS/SSL certificate for the scoring endpoint deployed on AKS cluster both for Microsoft generated and customer certificate.
   + **azureml-automl-core**
@@ -1647,9 +1704,6 @@ At the time, of this release, the following browsers are supported: Chrome, Fire
     + Learn how to [use estimators to resume training from a previous run](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/tensorflow/training/train-tensorflow-resume-training/train-tensorflow-resume-training.ipynb)
 
 + **Bug fixes and improvements**
-  + **automl-client-core-nativeclient**
-    + Fix the bug about loosing columns types after the transformation (bug linked);
-    + Allow y_query to be an object type containing None(s) at the begin (#459519).
   + **azure-cli-ml**
     + CLI commands "model deploy" and "service update" now accept parameters, config files, or a combination of the two. Parameters have precedence over attributes in files.
     + Model description can now be updated after registration

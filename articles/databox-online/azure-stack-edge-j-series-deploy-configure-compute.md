@@ -1,13 +1,13 @@
 ---
-title: Tutorial to filter, analyze data with compute on Azure Stack Edge | Microsoft Docs
-description: Learn how to configure compute role on Azure Stack Edge and use it to transform data before sending to Azure.
+title: Tutorial to filter, analyze data with compute on Azure Stack Edge with GPU | Microsoft Docs
+description: Learn how to configure compute role on Azure Stack Edge GPU device and use it to transform data before sending to Azure.
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 12/09/2019
+ms.date: 08/28/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge so I can use it to transform the data before sending it to Azure.
 ---

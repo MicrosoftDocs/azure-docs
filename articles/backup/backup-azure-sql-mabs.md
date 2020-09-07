@@ -44,7 +44,7 @@ To back up a SQL Server database and recover it from Azure:
 
 ## Before you start
 
-Before you begin, ensure that you have [installed and prepared Azure Backup Server](backup-azure-microsoft-azure-backup.md).
+Before you begin, ensure that you've [installed and prepared Azure Backup Server](backup-azure-microsoft-azure-backup.md).
 
 ## Create a backup policy
 

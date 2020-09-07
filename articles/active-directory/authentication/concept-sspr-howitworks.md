@@ -24,7 +24,7 @@ Azure Active Directory (Azure AD) self-service password reset (SSPR) gives users
 >
 > If your IT team hasn't enabled the ability to reset your own password, reach out to your helpdesk for additional assistance.
 
-## How does the password reset portal work?
+## How does the password reset process work?
 
 A user can reset or change their password using the [SSPR portal](https://aka.ms/sspr). They must first have registered their desired authentication methods. When a user accesses the SSPR portal, the Azure platform considers the following factors:
 
@@ -55,6 +55,11 @@ After the SSPR portal is displayed in the required language, the user is prompte
   * If SSPR writeback isn't deployed and the user's password is managed on-premises, the user is asked to contact their administrator to reset their password.
 
 If all of the previous checks are successfully completed, the user is guided through the process to reset or change their password.
+
+> [!NOTE]
+> SSPR may send email notifications to users as part of the password reset process. These emails are sent using the SMTP relay service, which operates in an active-active mode across several regions.
+>
+> SMTP relay services receive and process the email body, but don't store it. The body of the SSPR email that may potentially contain customer provided info isn't stored in the SMTP relay service logs. The logs only contain protocol metadata.
 
 To get started with SSPR, complete the following tutorial:
 

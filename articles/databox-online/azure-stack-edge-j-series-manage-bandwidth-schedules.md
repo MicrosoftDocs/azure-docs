@@ -1,16 +1,16 @@
 ---
-title: Azure Stack Edge manage bandwidth schedules | Microsoft Docs 
-description: Describes how to use the Azure portal to manage bandwidth schedules on your Azure Stack Edge.
+title: Azure Stack Edge GPU manage bandwidth schedules | Microsoft Docs 
+description: Describes how to use the Azure portal to manage bandwidth schedules on your Azure Stack Edge GPU.
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: edge
-ms.topic: article
-ms.date: 12/12/2019
+ms.topic: how-to
+ms.date: 08/28/2020
 ms.author: alkohli
 ---
-# Use the Azure portal to manage bandwidth schedules on your Azure Stack Edge 
+# Use the Azure portal to manage bandwidth schedules on your Azure Stack Edge GPU 
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 

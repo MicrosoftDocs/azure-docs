@@ -29,6 +29,8 @@ landingContent:
         links:
           - text: Frequently asked questions
             url: application-gateway-faq.md
+          - text: What's new
+            url: https://azure.microsoft.com/updates/?category=networking&query=Application%20Gateway
 
   # Card
   - title: Support high traffic volumes
