@@ -19,13 +19,10 @@ Offers on the marketplace must comply with our policies and terms. We update the
 
 ## Policies and terms
 
-* [Commercial marketplace certification policies](https://docs.microsoft.com/legal/marketplace/certification-policies)
-
-* [Participation policies](https://docs.microsoft.com/legal/marketplace/participation-policy)
-
-* [Rating and review policies](https://docs.microsoft.com/legal/marketplace/rating-review-policies)
-
-* [Azure Marketplace terms](https://docs.microsoft.com/legal/marketplace/terms)
+- [Commercial marketplace certification policies](https://docs.microsoft.com/legal/marketplace/certification-policies?context=/azure/marketplace/context/context)
+- [Microsoft AppSource and Azure Marketplace review policies](https://docs.microsoft.com/legal/marketplace/rating-review-policies?context=/azure/marketplace/context/context)
+- [Azure Marketplace participation policies](https://docs.microsoft.com/legal/marketplace/participation-policy?context=/azure/marketplace/context/context)
+- [Azure Marketplace terms](https://docs.microsoft.com/legal/marketplace/terms?context=/azure/marketplace/context/context)
 
 ## Next steps
 

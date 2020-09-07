@@ -3,8 +3,6 @@
   items:
   - name: Commercial marketplace updates
     href: ./marketplace-roadmap.md
-  - name: Commercial marketplace policies and terms
-    href: ./policies-terms.md
   - name: Commercial marketplace overview and benefits
     href: ./marketplace-publishers-guide.md
     items:
@@ -322,7 +320,19 @@
       href: ./cloud-partner-portal-api-troubleshooting-authentication-errors.md
   - name: Support options
     href: ./partner-center-portal/support.md
-  - name: Resources
-    items:
-    - name: Supported HTML tags
-      href: supported-html-tags.md
+- name: Commercial marketplace policies and terms
+  items:    
+  - name: About our policies and terms
+    href: policies-terms.md
+  - name: Commercial marketplace certification policies
+    href: https://docs.microsoft.com/legal/marketplace/offer-policies-change-history?context=/azure/marketplace/context/context
+  - name: Commercial marketplace review policies
+    href: https://docs.microsoft.com/legal/marketplace/rating-review-policies?context=/azure/marketplace/context/context
+  - name: Azure Marketplace participation policies
+    href: https://docs.microsoft.com/legal/marketplace/participation-policy?context=/azure/marketplace/context/context
+  - name: Azure Marketplace terms
+    href: https://docs.microsoft.com/legal/marketplace/terms?context=/azure/marketplace/context/context
+- name: Resources
+  items:
+  - name: Supported HTML tags
+    href: supported-html-tags.md
