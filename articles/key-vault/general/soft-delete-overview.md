@@ -53,7 +53,7 @@ The default retention period is 90 days, but it is possible to set the retention
 
 ### Permitted purge
 
-Permanently deleting, purging, a key vault is possible via the Azure CLI command [`az keyvault purge --name` command](https://docs.microsoft.com/en-us/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-purge). To perform this action you require special privileges. Generally, only the subscription owner will be able to purge a key vault. The CLI operation triggers the immediate and irrecoverable deletion of that vault. 
+Permanently deleting, purging, a key vault is possible via the Azure CLI command [`az keyvault purge --name`](https://docs.microsoft.com/en-us/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-purge). To perform this action you require special privileges. Generally, only the subscription owner will be able to purge a key vault. The CLI operation triggers the immediate and irrecoverable deletion of that vault. 
 
 Exceptions are:
 - When the Azure subscription has been marked as *undeletable*. In this case, only the service may then perform the actual deletion, and does so as a scheduled process. 
