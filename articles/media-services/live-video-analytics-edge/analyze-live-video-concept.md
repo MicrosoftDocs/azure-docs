@@ -28,7 +28,7 @@ The media graph shown below consists of a [RTSP source](media-graph-concept.md#r
 The media graph shown below enables you to analyze a live video stream using a custom vision model packaged in a separate module. The JSON representation of the graph topology of such a media graph can be found [here](https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/httpExtension/topology.json). You can see some examples [here](https://github.com/Azure/live-video-analytics/tree/master/utilities/video-analysis) on wrapping models into IoT Edge modules that run as an inference service.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/analyze-live-video/external-inferencing-module.svg" alt-text="Live Video Analytics based on an external inferencing module":::
+> :::image type="content" source="./media/analyze-live-video/external-inferencing-module.png" alt-text="Live Video Analytics based on an external inferencing module":::
 
 In this media graph, the frame rate filter processor node lowers the frame rate of the incoming live video stream before sending it to a [HTTP extension processor](media-graph-concept.md#http-extension-processor) node, which sends image frames (in JPEG, BMP, or PNG formats) to an external inference service over REST. The results from the external inference service are retrieved by the HTTP extension node, and relayed to the IoT Edge hub via IoT Hub message sink node. This type of media graph can be used to build solutions for a variety of scenarios, such as understanding the time-series distribution of vehicles at an intersection, understanding the consumer traffic pattern in a retail store, and so on.
 
