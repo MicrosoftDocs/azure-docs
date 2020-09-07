@@ -31,7 +31,13 @@ If you're experiencing issues with outbound connectivity through an Azure Load B
 
 #### Details
 
-A deployment in Azure can communicate with endpoints outside Azure in the public IP address space. When an instance initiates an outbound flow to a destination in the public IP address space, Azure dynamically maps the private IP address to a public IP address. After this mapping is created, return traffic for this outbound originated flow can also reach the private IP address where the flow originated. Azure uses **source network address translation (SNAT)** to perform this function.
+A deployment in Azure can communicate with endpoints outside Azure in the public IP address space.
+
+When an instance starts outbound traffic to a destination with a public ip address, Azure dynamically maps the private IP address of the resource to a public IP address. 
+
+After this mapping is created, return traffic for this outbound originated flow reaches the private IP address where the flow originated. 
+
+Azure uses **source network address translation (SNAT)** to do this function.
 
 ### Port masquerading SNAT (PAT)
 
@@ -41,7 +47,21 @@ A deployment in Azure can communicate with endpoints outside Azure in the public
 
 #### Details
 
-When multiple private IP addresses are masquerading behind a single public IP address, Azure uses **port address translation (PAT)** to masquerade/hide private IP addresses. Ephemeral ports are used for PAT and are [preallocated](#preallocatedports) based on pool size. When a public Load Balancer resource is associated with VM instances, which do not have dedicated Public IP addresses, each outbound connection source is rewritten. The source is rewritten from the virtual network private IP address space to the frontend Public IP address of the load balancer. In the public IP address space, the 5-tuple of the flow (source IP address, source port, IP transport protocol, destination IP address, destination port) must be unique. Port masquerading SNAT can be used with either TCP or UDP IP protocols. Ephemeral ports (SNAT ports) are used to achieve this after rewriting the private source IP address, because multiple flows originate from a single public IP address. The port masquerading SNAT algorithm allocates SNAT ports differently for UDP versus TCP.
+When private IPs are behind a single public IP address, Azure uses **port address translation (PAT)** to hide the private IP addresses. 
+
+Ephemeral ports are used for PAT and are [preallocated](#preallocatedports) based on pool size. 
+
+When a public load balancer resource is associated with VM instances without public IP addresses, each outbound connection source is rewritten. The source is rewritten from the virtual network private IP address to the frontend public IP address of the load balancer. 
+
+In the public IP address space, the five-tuple of the flow below must be unique:
+
+* Source IP address
+* Source port
+* IP transport protocol
+* Destination IP address
+* Destination port 
+
+Port masquerading SNAT can be used with either TCP or UDP protocols. SNAT ports are used to after rewriting the private source IP address because multiple flows originate from a single public IP address. The port masquerading SNAT algorithm gives SNAT ports differently for UDP versus TCP.
 
 ### SNAT ports (TCP)
 
@@ -51,7 +71,13 @@ When multiple private IP addresses are masquerading behind a single public IP ad
 
 #### Details
 
-SNAT ports are ephemeral ports available for a particular public IP source address. One SNAT port is consumed per flow to a single destination IP address, port. For multiple TCP flows to the same destination IP address, port, and protocol, each TCP flow consumes a single SNAT port. This ensures that the flows are unique when they originate from the same public IP address and go to the same destination IP address, port, and protocol. Multiple flows, each to a different destination IP address, port, and protocol, share a single SNAT port. The destination IP address, port, and protocol make flows unique without the need for additional source ports to distinguish flows in the public IP address space.
+SNAT ports are ephemeral ports available for a public IP source address. One SNAT port is consumed per flow to a single destination IP address and port. 
+
+For multiple TCP flows to the same destination IP address, port, and protocol, each TCP flow consumes a single SNAT port. 
+
+This consumption ensures that the flows are unique when they originate from the same public IP address and go to the same destination IP address, port, and protocol. 
+
+Multiple flows, each to a different destination IP address, port, and protocol, share a single SNAT port. The destination IP address, port, and protocol make flows unique without the need for additional source ports to distinguish flows in the public IP address space.
 
 
 ### SNAT ports (UDP)
