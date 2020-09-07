@@ -266,6 +266,8 @@ Per-device terms of use has the following constraints:
 
 If the user's device is not joined, they will receive a message that they need to join their device. Their experience will be dependent on the platform and software.
 
+Note:- "Consent per device" setting on TOU, does not support when the CA policy has Intune enrollment app in scope.
+
 ### Join a Windows 10 device
 
 If a user is using Windows 10 and Microsoft Edge, they will receive a message similar to the following to [join their device](../user-help/user-help-join-device-on-network.md#to-join-an-already-configured-windows-10-device).
