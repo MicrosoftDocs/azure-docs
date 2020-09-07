@@ -12,7 +12,7 @@ ms.topic: how-to
 ---
 
 # Scale out your Azure Arc enabled PostgreSQL Hyperscale server group by adding more worker nodes
-This document explains how to scale out an Azure Arc enabled PostgreSQL Hyperscale server group. It does so by taking you through a scenario. If you do not want to run through the scenario and want to just read about how to scale out, jump to the paragraph [Scale out](#scale-out).
+This document explains how to scale out an Azure Arc enabled PostgreSQL Hyperscale server group. It does so by taking you through a scenario. **If you do not want to run through the scenario and want to just read about how to scale out, jump to the paragraph [Scale out](#scale-out)**.
 
 ## Get started
 If you are already familiar with the scaling model of Azure Arc enabled PostgreSQL Hyperscale or Azure Database for PostgreSQL Hyperscale (Citus), you may skip this paragraph. If you are not, it is recommended you start by reading about this scaling model in the documentation page of Azure Database for PostgreSQL Hyperscale (Citus). Azure Database for PostgreSQL Hyperscale (Citus) is the same technology that is hosted as a service in Azure (Platform As A Service also known as PAAS) instead of being offered as part of Azure Arc enabled Data Services:
