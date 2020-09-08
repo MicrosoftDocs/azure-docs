@@ -14,11 +14,11 @@ ms.author: deanwe
 
 This article covers information about Azure Automanage for virtual machines, which have the following benefits:
 
-1.	Intelligently onboards virtual machines to select best practices Azure services
-2.	Automatically configures each service per Azure best practices
-3.	Configures the guest operating system per Microsoft baseline configuration
-4.	Monitors for drift and corrects for it when detected
-5.	Provides a simple experience (point, click, set, forget)
+- Intelligently onboards virtual machines to select best practices Azure services
+- Automatically configures each service per Azure best practices
+- Configures the guest operating system per Microsoft baseline configuration
+- Monitors for drift and corrects for it when detected
+- Provides a simple experience (point, click, set, forget)
 
 
 ## Overview
