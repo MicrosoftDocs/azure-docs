@@ -16,6 +16,7 @@ ms.author: memildin
 
 ---
 # Use Azure Security Center recommendations to enhance security
+
 You can reduce the chances of a significant security event by configuring a security policy and then implementing the recommendations provided by Azure Security Center. This article shows you how to use security policies and recommendations in Security Center to help mitigate a security attack. 
 
 Security Center automatically runs continuous scans to analyze the security state of your Azure resources. When Security Center identifies potential security vulnerabilities, it creates recommendations that guide you through the process of configuring the needed security controls. Security Center updates its recommendations within 24 hours, with the following exceptions:
@@ -61,6 +62,11 @@ As part of their daily monitoring activities, Jeff signs in to Azure and opens S
 6. Jeff has numerous Internet facing VMs, and because their ports are exposed, they're worried that an attacker could gain control over the servers. So Jeff chooses to use [**just-in-time VM access**](security-center-just-in-time.md).
 
 Jeff continues to move through the high priority and medium priority recommendations, and makes decisions on implementation. For each recommendation, Jeff looks at the detailed information provided by Security Center to understand which resources are impacted, what the Secure Score impact is, what each recommendation means and remediation steps for how to mitigate each issue.
+
+### Enforce recommendations to prevent security misconfigurations
+
+To ensure users don't create resources that negatively impact Jeff's score, they configure the Enforce and Deny options on the recommendations most important to them. Learn more in [Prevent misconfigurations with Enforce/Deny recommendations](prevent-misconfigurations.md).
+
 
 ## Conclusion
 Monitoring recommendations in Security Center helps you eliminate security vulnerabilities before an attack occurs. When you remediate recommendations, your Secure Score and your workloads' security posture improve. Security Center automatically discovers new resources you deploy, assesses them against your security policy and provides new recommendations for securing them.
