@@ -26,34 +26,21 @@ Otherwise, your deployment method will depend on your archive type:
 
 ::: zone pivot="platform-windows"  
 
-# [Java SE](#tab/javase)
+### Java SE
 
 To deploy .jar files to Java SE, use the `/api/zipdeploy/` endpoint of the Kudu site. For more information on this API, please see [this documentation](./deploy-zip.md#rest).
 
-# [Tomcat](#tab/tomcat)
+### Tomcat
 
 To deploy .war files to Tomcat, use the `/api/wardeploy/` endpoint to POST your archive file. For more information on this API, please see [this documentation](./deploy-zip.md#deploy-war-file).
 
----
-
-::: zone-end
 ::: zone pivot="platform-linux"
 
-# [Java SE](#tab/javase)
-
-To deploy .jar files to Java SE, use the `/api/zipdeploy/` endpoint of the Kudu site. For more information on this API, please see [this documentation](./deploy-zip.md#rest).
-
-# [Tomcat](#tab/tomcat)
-
-To deploy .war files to Tomcat, use the `/api/wardeploy/` endpoint to POST your archive file. For more information on this API, please see [this documentation](./deploy-zip.md#deploy-war-file).
-
-# [JBoss EAP](#tab/jboss)
+### JBoss EAP
 
 To deploy .war files to JBoss, use the `/api/wardeploy/` endpoint to POST your archive file. For more information on this API, please see [this documentation](./deploy-zip.md#deploy-war-file).
 
 To deploy .ear files, use FTP.
-
----
 
 ::: zone-end
 
@@ -243,11 +230,11 @@ Java applications running in App Service have the same set of [security best pra
 
 Set up app authentication in the Azure portal with the **Authentication and Authorization** option. From there, you can enable authentication using Azure Active Directory or social logins like Facebook, Google, or GitHub. Azure portal configuration only works when configuring a single authentication provider. For more information, see [Configure your App Service app to use Azure Active Directory login](configure-authentication-provider-aad.md) and the related articles for other identity providers. If you need to enable multiple sign-in providers, follow the instructions in the [customize App Service authentication](app-service-authentication-how-to.md) article.
 
-# [Java SE](#tab/javase)
+#### Java SE
 
 Spring Boot developers can use the [Azure Active Directory Spring Boot starter](/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory?view=azure-java-stable) to secure applications using familiar Spring Security annotations and APIs. Be sure to increase the maximum header size in your *application.properties* file. We suggest a value of `16384`.
 
-# [Tomcat](#tab/tomcat)
+#### Tomcat
 
 Your Tomcat application can access the user's claims directly from the servlet by casting the Principal object to a Map object. The Map object will map each claim type to a collection of the claims for that type. In the code below, `request` is an instance of `HttpServletRequest`.
 
@@ -283,12 +270,11 @@ To disable this feature, create an Application Setting named `WEBSITE_AUTH_SKIP_
 
 ::: zone pivot="platform-linux"
 
-# [JBoss EAP](#tab/jboss)
+#### JBoss EAP
 
 TODO
 
 ::: zone-end
----
 
 ### Configure TLS/SSL
 
@@ -356,15 +342,8 @@ This section shows how to connect Java applications deployed on Azure App Servic
 6. Modify the YAML file at */home/site/wwwroot/apm/newrelic/newrelic.yml* and replace the placeholder license value with your own license key.
 7. In the Azure portal, browse to your application in App Service and create a new Application Setting.
 
-# [Java SE](#tab/javase)
-
-Create an environment variable named `JAVA_OPTS` with the value `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar`.
-
-# [Tomcat](#tab/tomcat)
-
-If you're using **Tomcat**, create an environment variable named `CATALINA_OPTS` with the value `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar`.
-
----
+    - For **Java SE** apps, create an environment variable named `JAVA_OPTS` with the value `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar`.
+    - For **Tomcat**, create an environment variable named `CATALINA_OPTS` with the value `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar`.
 
 ::: zone-end
 ::: zone pivot="platform-linux"
@@ -377,19 +356,9 @@ If you're using **Tomcat**, create an environment variable named `CATALINA_OPTS`
 6. Modify the YAML file at */home/site/wwwroot/apm/newrelic/newrelic.yml* and replace the placeholder license value with your own license key.
 7. In the Azure portal, browse to your application in App Service and create a new Application Setting.
    
-# [Java SE](#tab/javase)
-
-Create an environment variable named `JAVA_OPTS` with the value `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar`.
-
-# [Tomcat](#tab/tomcat)
-
-If you're using **Tomcat**, create an environment variable named `CATALINA_OPTS` with the value `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar`.
-
-# [JBoss EAP](#tab/jboss)
-
-TODO
-
----
+    - For **Java SE** apps, create an environment variable named `JAVA_OPTS` with the value `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar`.
+    - For **Tomcat**, create an environment variable named `CATALINA_OPTS` with the value `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar`.
+    - For **JBoss EAP**, TODO
 
 ::: zone-end
 
@@ -405,15 +374,8 @@ TODO
 4. Upload the Java agent files into a directory under */home/site/wwwroot/apm*. The files for your agent should be in */home/site/wwwroot/apm/appdynamics*.
 5. In the Azure portal, browse to your application in App Service and create a new Application Setting.
 
-# [Java SE](#tab/javase)
-
-Create an environment variable named `JAVA_OPTS` with the value `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>` where `<app-name>` is your App Service name.
-
-# [Tomcat](#tab/tomcat)
-
-Create an environment variable named `CATALINA_OPTS` with the value `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>` where `<app-name>` is your App Service name.
-
----
+   - For **Java SE** apps, create an environment variable named `JAVA_OPTS` with the value `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>` where `<app-name>` is your App Service name.
+   - For **Tomcat** apps, create an environment variable named `CATALINA_OPTS` with the value `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>` where `<app-name>` is your App Service name.
 
 ::: zone-end
 ::: zone pivot="platform-linux"
@@ -424,19 +386,9 @@ Create an environment variable named `CATALINA_OPTS` with the value `-javaagent:
 4. Upload the Java agent files into a directory under */home/site/wwwroot/apm*. The files for your agent should be in */home/site/wwwroot/apm/appdynamics*.
 5. In the Azure portal, browse to your application in App Service and create a new Application Setting.
 
-# [Java SE](#tab/javase)
-
-Create an environment variable named `JAVA_OPTS` with the value `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>` where `<app-name>` is your App Service name.
-
-# [Tomcat](#tab/tomcat)
-
-Create an environment variable named `CATALINA_OPTS` with the value `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>` where `<app-name>` is your App Service name.
-
-# [JBoss EAP](#tab/jboss)
-
-TODO
-
----
+   - For **Java SE** apps, create an environment variable named `JAVA_OPTS` with the value `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>` where `<app-name>` is your App Service name.
+   - For **Tomcat** apps, create an environment variable named `CATALINA_OPTS` with the value `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>` where `<app-name>` is your App Service name.
+   - For **JBoss EAP**, TODO
 
 ::: zone-end
 
@@ -445,9 +397,7 @@ TODO
 
 ## Configure data sources
 
-::: zone pivot="platform-windows"
-
-# [Java SE](#tab/javase)
+### Java SE
 
 To connect to data sources in Spring Boot applications, we suggest creating connection strings and injecting them into your *application.properties* file.
 
@@ -463,7 +413,9 @@ To connect to data sources in Spring Boot applications, we suggest creating conn
 
 Please see the [Spring Boot documentation on data access](https://docs.spring.io/spring-boot/docs/current/reference/html/howto-data-access.html) and [externalized configurations](https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html) for more information on this topic.
 
-# [Tomcat](#tab/tomcat)
+::: zone pivot="platform-windows"
+
+### Tomcat
 
 These instructions apply to all database connections. You will need to fill placeholders with your chosen database's driver class name and JAR file. Provided is a table with class names and driver downloads for common databases.
 
@@ -541,23 +493,7 @@ Alternatively, you can use an FTP client to upload the JDBC driver. Follow these
 ::: zone-end
 ::: zone pivot="platform-linux"
 
-# [Java SE](#tab/javase)
-
-To connect to data sources in Spring Boot applications, we suggest creating connection strings and injecting them into your *application.properties* file.
-
-1. In the "Configuration" section of the App Service page, set a name for the string, paste your JDBC connection string into the value field, and set the type to "Custom". You can optionally set this connection string as slot setting.
-
-    This connection string is accessible to our application as an environment variable named `CUSTOMCONNSTR_<your-string-name>`. For example, the connection string we created above will be named `CUSTOMCONNSTR_exampledb`.
-
-2. In your *application.properties* file, reference this connection string with the environment variable name. For our example, we would use the following.
-
-    ```yml
-    app.datasource.url=${CUSTOMCONNSTR_exampledb}
-    ```
-
-Please see the [Spring Boot documentation on data access](https://docs.spring.io/spring-boot/docs/current/reference/html/howto-data-access.html) and [externalized configurations](https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html) for more information on this topic.
-
-# [Tomcat](#tab/tomcat)
+### Tomcat
 
 These instructions apply to all database connections. You will need to fill placeholders with your chosen database's driver class name and JAR file. Provided is a table with class names and driver downloads for common databases.
 
@@ -710,7 +646,7 @@ Finally, place the driver JARs in the Tomcat classpath and restart your App Serv
 
 2. If you created a server-level data source, restart the App Service Linux application. Tomcat will reset `CATALINA_BASE` to `/home/tomcat` and use the updated configuration.
 
-# [JBoss EAP](#tab/jboss)
+### JBoss EAP
 
 TODO
 
