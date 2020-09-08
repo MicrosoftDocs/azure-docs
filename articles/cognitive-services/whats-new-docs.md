@@ -52,7 +52,7 @@ Welcome to what's new in the Cognitive Services docs from August 1, 2020 through
 
 ## Community contributors
 
-The following people contributed to the Cognitive Services docs during this period. Thank you! Learn how to contribute by following the links under "Get involved" in the [what's new landing page](index.yml).
+The following people contributed to the Cognitive Services docs during this period. Thank you! 
 
 - [hyoshioka0128](https://github.com/hyoshioka0128) - Hiroshi Yoshioka (2)
 - [anwesh-b](https://github.com/anwesh-b) - Anwesh Budhathoki (1)
