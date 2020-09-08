@@ -298,6 +298,10 @@ Once the user is successfully created, the status of **Check Installation Checkl
 
 The following sections provide details about how to connect your Provance product to ITSMC in Azure.
 
+> [!NOTE]
+> 
+> As of 1-Oct-2020 Provance ITSM integration with Azure Alert will no longer will be enabled for new customers. New ITSM Connections will not be supported. 
+> Existing ITSM connections will be supported.
 
 ### Prerequisites
 
