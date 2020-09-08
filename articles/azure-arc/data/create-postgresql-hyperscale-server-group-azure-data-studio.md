@@ -45,17 +45,16 @@ Logged in successfully to `https://10.0.0.4:30080` in namespace `arc`. Setting a
 1. Launch Azure Data Studio
 1. On the Connections tab, Click on the three dots on the top left and choose "New Deployment"
 1. From the deployment options, select **PostgreSQL Hyperscale server group - Azure Arc**
-   >[!NOTE]
-   > You may be prompted to install the `azdata` CLI here if it is not currently installed.
+    >[!NOTE]
+    > You may be prompted to install the `azdata` CLI here if it is not currently installed.
 1. Accept the Privacy and license terms and click **Select** at the bottom
 1. In the Deploy PostgreSQL Hyperscale server group - Azure Arc blade, enter the following information:
-  - Enter a name for the server group
-  - Enter and confirm a password for the _postgres_ administrator user of the server group
-  - Select the storage class as appropriate for data
-  - Select the storage class as appropriate for logs
-  - Select the storage class as appropriate for backups
-  - Select the number of worker nodes to provision
-
+   - Enter a name for the server group
+   - Enter and confirm a password for the _postgres_ administrator user of the server group
+   - Select the storage class as appropriate for data
+   - Select the storage class as appropriate for logs
+   - Select the storage class as appropriate for backups
+   - Select the number of worker nodes to provision
 1. Click the **Deploy** button
 
 This starts the deployment of the Azure Arc enabled PostgreSQL Hyperscale server group on the data controller.
