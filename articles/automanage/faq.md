@@ -19,6 +19,25 @@ If your Azure issue is not addressed in this article, visit the Azure forums on 
 
 ## Azure Automanage for virtual machines
 
+**What are all of the prerequisites required to enable Azure Automanage?**
+
+The following are prerequisites for enabling Azure Automanage:
+- Windows Server VMs only
+- VMs must be running
+- VMs must be in a supported region
+- User must have correct permissions
+- Non-scale set VMs only
+
+
+**What RBAC permission is needed to enable Automanage?**
+
+Users must have the Owner role. Alternatively, users can have the Contributor role along with User Access Administrator role to apply Automanage.
+
+
+**What regions are supported?**
+
+VMs in the following regions are supported: Central US, East US 2, East US, North Central US, South Central US, West US 2, West Central US, West US, North Europe, West Europe, Canada Central, Canada East.
+
 
 **Which capabilities does Azure Automanage automate?**
 
@@ -40,14 +59,14 @@ Currently, Automanage supports Windows Server Azure VMs.
 Automanage can be enabled with click and point simplicity on selected new and existing VMs. Automanage can also be disabled at any time.
 
 
+**Does Azure Automanage support VMs in a Virtual Machine Scale Set?**
+
+No, Azure Automanage does not currently support VMs in a Virtual Machine Scale Set.
+
+
 **How much does Azure Automanage cost?**
 
 Azure Automanage is available at no additional cost in public preview. Attached Azure resources, such as Azure Backup, will incur cost.
-
-
-**What regions are supported?**
-
-VMs in the following regions are supported: Central US, East US 2, East US, North Central US, South Central US, West US 2, West Central US, West US, North Europe, West Europe, Canada Central, Canada East.
 
 
 **Can I apply Automanage through Azure policy?**
@@ -58,11 +77,6 @@ Yes, we have a built-in policy that will automatically apply Automanage to all V
 **What is an Automanage account?**
 
 The Automanage Account is an MSI (Managed Service Identity) that provides the security context or the identity under which the automated operations occur.
-
-
-**What RBAC permission is needed to enable Automanage?**
-
-Users must have the Owner role. Alternatively, users can have the Contributor role along with User Access Administrator role to apply Automanage.
 
 
 **Can I change the configuration profile of my VM?**

@@ -31,6 +31,23 @@ Azure Automanage also configures the guest operating system per Microsoft’s ow
 
 Lastly, the experience is incredibly simple.
 
+
+## Prerequisites
+
+There are several prerequisites to consider before trying to enable Azure Automanage on your virtual machines.
+
+> [!div class="checklist"]
+> * Windows Server VMs only
+> * VMs must be running
+> * Non-scale set VMs only
+> * VMs must be in a supported region
+> * User must have correct permissions
+
+The following RBAC permission is needed to enable Automanage: **Owner** role or **Contributor** along with **User Access Administrator** roles.
+
+It is also important to note that Automanage only supports Windows VMs located in the following regions: Central US, East US 2, East US, North Central US, South Central US, West US 2, West Central US, West US, North Europe, West Europe, Canada Central, Canada East.
+
+
 ## Participating services
 
 ![Intelligently onboard services](media\automanage-virtual-machines\intelligently-onboard-services.png)
@@ -45,11 +62,6 @@ For all of these services, we will auto-onboard, autoconfigure, monitor for drif
 ## Enabling Automanage for VMs in Azure portal
 
 In the Azure portal, you can enable Automanage on an existing virtual machine or when you are creating a new virtual machine. For concise steps to this process, check out the [Automanage for virtual machines quickstart](quick-create-virtual-machines-portal.md).
-
-> [!NOTE]
-> The following RBAC permission is needed to enable Automanage: **Owner** role or **Contributor** along with **User Access Administrator** roles.
-
-It is also important to note that Automanage only supports Windows VMs located in the following regions: Central US, East US 2, East US, North Central US, South Central US, West US 2, West Central US, West US, North Europe, West Europe, Canada Central, Canada East.
 
 If it is your first time enabling Automanage for your VM, you can search in the Azure portal for **Automanage – Azure virtual machine best practices**. Click **Enable on existing VM**, select the VMs you would like to onboard, click **Select**, click **Enable**, and you're done.
 
