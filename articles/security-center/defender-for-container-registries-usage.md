@@ -29,20 +29,23 @@ When **Azure Defender for container registries** is enabled, any image you push 
 |||
 
 
-## Scan your ARM-based container registries for vulnerabilities 
+## Identify vulnerabilities in images in Azure container registries 
 
-1. To enable vulnerability scans of your Azure Container Registry images:
+1. To enable vulnerability scans of images stored in your ARM-based Azure Container Registry:
 
-    1. Enable **Azure Defender for container registries** for your registration.
+    1. Enable **Azure Defender for container registries** for your subscription.
 
         Security Center is now ready to scan images in your registries.
 
         >[!NOTE]
         > This feature is charged per image.
 
-1. To trigger the scan of an image, push it to your registry.
+1. Image scans are triggered on every push or import, and if the image has been pulled within the last 30 days. 
 
     When the scan completes (typically after approximately 2 minutes, but can be up to 15 minutes), findings are available as Security Center recommendations like this:
+
+
+## View and remediate findings
 
 1. To view the findings, go to the **Recommendations** page. If issues were found, you'll see the following recommendation:
 

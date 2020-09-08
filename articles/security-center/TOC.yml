@@ -9,12 +9,14 @@
     - name: What is Azure Security Center?
       href: security-center-intro.md
     - name: Supported platforms
+      displayName: coverage
       href: security-center-os-coverage.md
     - name: Feature coverage for VMs
       href: security-center-services.md
     - name: Feature coverage for Azure PaaS resources
       href: features-paas.md
   - name: What's new in Security Center?
+    displayName: release notes
     href: release-notes.md
   - name: Security Center fundamentals
     items:
@@ -30,7 +32,7 @@
       href: security-center-permissions.md
     - name: Pricing tiers explained
       href: security-center-pricing.md
-  - name: Azure Defender
+  - name: Azure Defender's advanced security
     items:
     - name: Overview of Azure Defender and pricing
       href: azure-defender.md
@@ -45,16 +47,18 @@
     - name: Azure Defender for IoT
       href: defender-for-iot-intro.md
     - name: Azure Defender for Key Vault
-      href: defender-for-key-vault-intro.md
       displayName: KV
+      href: defender-for-key-vault-intro.md
     - name: Azure Defender for Kubernetes
-      href: defender-for-kubernetes-intro.md
       displayName: clusters, k8s
+      href: defender-for-kubernetes-intro.md
     - name: Azure Defender for container registries
-      href: defender-for-container-registries-intro.md
       displayName: ACR, registry, images
+      href: defender-for-container-registries-intro.md
     - name: Additional threat protections
       href: other-threat-protections.md
+  - name: Container security features of Security Center
+    href: container-security.md
 
 - name: Quickstarts
   items:
@@ -105,7 +109,7 @@
     - name: Overview of security policies
       href: tutorial-security-policy.md
     - name: Built-in security policies
-
+      displayName: samples, policy
       href: ./policy-reference.md
     - name: Use recommendations to enhance security
       href: security-center-using-recommendations.md
@@ -161,20 +165,21 @@
     - name: Manage policies with the Azure Policy REST API
       href: configure-security-policy-azure-policy.md
     - name: Choose standards for your compliance dashboard
+      displayName: regulatory, regulation, CIS, PCI DSS, ISO, SOC, Benchmark, Azure Security Benchmark, HIPAA
       href: update-regulatory-compliance-packages.md
   - name: Use Azure Defender for servers
     items:
     - name: Vulnerability scanning for VMs
       items:
       - name: Scan your VMs with the integrated VA solution
-        href: deploy-vulnerability-assessment-vm.md
         displayName: qualys, vulnerability
+        href: deploy-vulnerability-assessment-vm.md
       - name: Scan your VMs with a BYOL VA solution
+        displayName: qualys, rapid7, vulnerability
         href: deploy-vulnerability-assessment-byol-vm.md
-        displayName: qualys, rapid7, vulnerability
       - name: Review and remediate vulnerabilities on your VMs
-        href: remediate-vulnerability-findings-vm.md
         displayName: qualys, rapid7, vulnerability
+        href: remediate-vulnerability-findings-vm.md
     - name: Secure management ports with just-in-time VM access
       items:
       - name: Overview of just-in-time VM access
@@ -206,11 +211,11 @@
   - name: Use Azure Defender for App Services
     href: security-center-app-services.md
   - name: Use Azure Defender for container registries
-    href: defender-for-container-registries-usage.md
     displayName: ACR, registry, images
+    href: defender-for-container-registries-usage.md
   - name: Use Azure Defender for Kubernetes
-    href: defender-for-kubernetes-usage.md
     displayName: clusters, k8s
+    href: defender-for-kubernetes-usage.md
   - name: Handle Azure Defender alerts
     items:
     - name: Manage security alerts

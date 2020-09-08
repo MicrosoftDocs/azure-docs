@@ -14,7 +14,7 @@ manager: rkarlin
 
 Azure Container Registry (ACR) is a managed, private Docker registry service that stores and manages your container images for Azure deployments in a central registry. It's based on the open-source Docker Registry 2.0.
 
-To protect all the Azure Resource Manager based registries in your subscription, enable **Azure Defender for container registries** at the subscription level. Security Center will then scan images that are pushed to the registry as well as images pulled within the last 30 days. This feature is charged per image.
+To protect all the Azure Resource Manager based registries in your subscription, enable **Azure Defender for container registries** at the subscription level. Security Center will then scan images that are pushed to the registry, imported into the registry, or any images pulled within the last 30 days. This feature is charged per image.
 
 ## What are the benefits of Azure Defender for container registries?
 
@@ -35,18 +35,18 @@ There are three triggers for an image scan:
 
 - **On push** - Whenever an image is pushed to your registry, Security Center automatically scans that image. To trigger the scan of an image, push it to your repository.
 
-- **Recently pulled** - Since new vulnerabilities are discovered every day, **Azure Defender for container registries** also scans any image that has been pulled within the last 30 days. There is no additional charge for a rescan; as mentioned above, you're billed once per image.
+- **Recently pulled** - Since new vulnerabilities are discovered every day, **Azure Defender for container registries** also scans any image that has been pulled within the last 30 days. There's no additional charge for a rescan; as mentioned above, you're billed once per image.
 
-- **On import** - When you use the ACR tools to bring images to your registry from Docker Hub, Microsoft Container Registry, or another Azure container registry, the images are scanned by **Azure Defender for container registries**. Learn more in [Import container images to a container registry](../container-registry/container-registry-import-images.md).
+- **On import** - Azure Container Registry has import tools to bring images to your registry from Docker Hub, Microsoft Container Registry, or another Azure container registry. **Azure Defender for container registries** scans any supported images you import. Learn more in [Import container images to a container registry](../container-registry/container-registry-import-images.md).
  
-When the scan completes (typically after approximately 2 minutes, but can be up to 15 minutes), findings are available as Security Center recommendations like this:
+The scan completes typically within 2 minutes, but it might take up to 15 minutes. Findings are made available as Security Center recommendations such as this one:
 
 [![Sample Azure Security Center recommendation about vulnerabilities discovered in an Azure Container Registry (ACR) hosted image](media/azure-container-registry-integration/container-security-acr-page.png)](media/azure-container-registry-integration/container-security-acr-page.png#lightbox)
 
 
 ## How does Azure Security Center work with Azure Container Registry
 
-Below is a high-level diagram of the components and benefits of integrating Security Center with your Azure Container Registry service.
+Below is a high-level diagram of the components and benefits of protecting your registries with Security Center.
 
 ![Azure Security Center and Azure Container Registry (ACR) high-level overview](./media/azure-container-registry-integration/aks-acr-integration-detailed.png)
 
@@ -69,7 +69,7 @@ Yes. The results are under [Sub-Assessments Rest API](/rest/api/securitycenter/s
 ### What registry types are scanned? What types are billed?
 The availability section lists the types of container registries supported by Azure Defender for container registries. 
 
-If registries that aren't supported are connected to your Azure subscription, they won't be scanned and you will not be billed for them.
+If you connect unsupported registries to your Azure subscription, they won't be scanned and you won't be billed for them.
 
 
 ## Next steps
