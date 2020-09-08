@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 9/22/2020
 ---
 
-# Azure Database for PostgreSQL - Flexible Server
+# Servers - Azure Database for PostgreSQL - Flexible Server
 
 > [!IMPORTANT]
 > Azure Database for PostgreSQL - Flexible Server is in preview
