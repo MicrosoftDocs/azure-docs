@@ -8,7 +8,7 @@ ms.devlang:
 ms.topic: conceptual
 author: MashaMSFT
 ms.author: mathoma
-ms.reviewer: carlrab
+ms.reviewer: mokabiru
 ms.date: 08/25/2020
 ---
 # Migration guide: SQL Server to SQL Managed Instance
@@ -85,6 +85,23 @@ After you have completed the tasks associated with the Pre-migration stage, 
 
 Migrate your data using your chosen [migration method](sql-server-to-managed-instance-overview.md#migration-options). 
 
+Some general guidelines that would help you choose the right service tier and characteristics of Azure SQL MI based on the performance baseline that you captured are below:
+
+-   Based on the baseline CPU usage, you can provision a managed instance that matches the number of cores that you are using on SQL Server, having in mind that CPU characteristics might need to be scaled to match [VM characteristics where the managed instance is installed](/azure/azure-sql/managed-instance/resource-limits#hardware-generation-characteristics).
+-   Based on the baseline memory usage, choose [the service tier that has matching memory](/azure/azure-sql/managed-instance/resource-limits#hardware-generation-characteristics). The amount of memory cannot be directly chosen, so you would need to select the managed instance with the amount of vCores that has matching memory (for example, 5.1 GB/vCore in Gen5).
+-   Based on the baseline IO latency of the file subsystem, choose between the General Purpose (latency greater than 5 ms) and Business Critical (latency less than 3 ms) service tiers.
+-   Based on baseline throughput, pre-allocate the size of data or log files to get expected IO performance.
+
+
+One of the key benefits of migrating your SQL Servers to Azure SQL MI is that you can move an entire instance or a bunch of databases as part of the migration process. Hence, it is important to carefully plan your migration activities to include the following:
+
+-   The migration of all databases that need to be co-located on the same instance.
+-   The migration of instance-level objects that your application depends on, including logins, credentials, SQL Agent jobs and operators, and server-level triggers
+
+	> [!IMPORTANT]
+	> -   When you're migrating a database protected by [**Transparent Data Encryption**](/azure/azure-sql/database/transparent-data-encryption-tde-overview) to a managed instance using native restore option, the corresponding certificate from the on-premises or Azure VM SQL Server needs to be migrated before database restore. For detailed steps, see [**Migrate a TDE cert to a managed instance**](/azure/azure-sql/managed-instance/tde-certificate-migrate).
+	> -   Restore of system databases is not supported. To migrate instance-level objects (stored in master or msdb databases), we recommend to script them out and run T-SQL scripts on the destination instance.
+	
 ## Data sync and cutover
 
 When using online migration options (DMS online mode, Transactional Replication), the source you are migrating from would continue to change and drift from the target in terms of data and schema. During the Data sync phase, you need to ensure that all changes in the source are captured and applied to the target during the online migration process. After you verify that all changes in source have been applied to the target, you can cutover from the source to the target environment. It is important to plan the cutover process with the business / application teams to ensure the minimal interruption during the cutover does not affect the business continuity. 
@@ -94,12 +111,9 @@ When using online migration options (DMS online mode, Transactional Replication)
 
 
 ## Post-migration
-After you have successfully completed the Migration stage, you need to go through a series of post-migration tasks to ensure that everything is functioning as smoothly and efficiently as possible. 
+After you have successfully completed the Migration stage, you need to go through a series of post-migration tasks to ensure that everything is functioning as smoothly and efficiently as possible. After the data is migrated to the target environment, all the applications that formerly consumed the source need to start consuming the target. Accomplishing this will in some cases require changes to the applications. 
 
-### Remediate applications 
-
-After the data is migrated to the target environment, all the applications that formerly consumed the source need to start consuming the target. Accomplishing this will in some cases require changes to the applications. 
-
+The post-migration phase is also crucial for reconciling any data accuracy issues and verifying completeness, as well as addressing performance issues with the workload. Optimizing your Managed Instance also includes leveraging the best of Azure SQL PaaS features that you can now benefit from after the migration to enable your databases adapt to newer and modern applications.
 
 
 
