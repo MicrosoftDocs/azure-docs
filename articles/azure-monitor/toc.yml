@@ -566,6 +566,8 @@
         href: platform/itsmc-overview.md
       - name: IT Service Management connections
         href: platform/itsmc-connections.md
+      - name: Secure Export Integration
+        href: platform/it-service-management-connector-secure-webhook-connections.md
       - name: Create Service Manager web app
         href: platform/itsmc-service-manager-script.md
       - name: Fix ServiceNow ITSM sync problems
