@@ -29,6 +29,8 @@ To secure your Azure Kubernetes Service nodes and hosts, Security Center analyze
     You'll also see the recommendations per resource by applying the relevant filters on the [asset inventory](asset-inventory.md) page. 
 
     For details of the relevant Security Center recommendations that might appear for this feature, see the [container section](recommendations-reference.md#recs-containers) of the recommendations reference table.
+      >[!NOTE]
+      >This feature is charged per image.
 
     >[!NOTE]
     > These CIS benchmark checks will not run on AKS-managed instances or Databricks-managed VMs.
@@ -36,6 +38,7 @@ To secure your Azure Kubernetes Service nodes and hosts, Security Center analyze
 ## Harden your containers' Docker hosts
 
 Security Center constantly monitors the configuration of your Docker hosts, and generates security recommendations that reflect industry standards.
+    When the scan completes (typically after approximately 2 minutes, but can be up to 15 minutes), findings are available as Security Center recommendations.
 
 To view Azure Security Center's security recommendations for your containers' Docker hosts:
 
