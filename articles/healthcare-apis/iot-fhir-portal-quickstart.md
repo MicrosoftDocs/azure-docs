@@ -6,7 +6,7 @@ author: ms-puneet-nagpal
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: quickstart 
-ms.date: 08/04/2020
+ms.date: 09/08/2020
 ms.author: punagpal
 ---
 
@@ -157,6 +157,9 @@ Preserve this connection string to be used at a later step.
 ## Connect your devices to IoT
 
 Azure offers an extensive suite of IoT products to connect and manage your IoT devices. You can build your own solution based on PaaS using Azure IoT Hub, or start with a manage IoT apps platform with Azure IoT Central. For this tutorial, we'll leverage Azure IoT Central, which has industry-focused solution templates to help you get started.
+
+> [!WARNING]
+> The Azure IoT Connector for FHIR currently supports Data Export (legacy) and not Data Export (preview) within IoT Central. 
 
 Deploy the [Continuous patient monitoring application template](https://docs.microsoft.com/azure/iot-central/healthcare/tutorial-continuous-patient-monitoring#create-an-application-template). This template includes two simulated devices producing real-time data to help you get started: **Smart Vitals Patch** and **Smart Knee Brace**.
 
