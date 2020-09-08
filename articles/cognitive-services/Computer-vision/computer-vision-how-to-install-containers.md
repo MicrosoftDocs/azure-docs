@@ -65,30 +65,30 @@ Container images for Read are available.
 
 | Container | Container Registry / Repository / Image Name |
 |-----------|------------|
-| Read 2.0 | `mcr.microsoft.com/azure-cognitive-services/vision/read-2.0` |
-| Read 3.0 | `mcr.microsoft.com/azure-cognitive-services/vision/read-3.0` |
-| Read 3.1 | `mcr.microsoft.com/azure-cognitive-services/vision/read-3.1` |
+| Read 2.0 | `mcr.microsoft.com/azure-cognitive-services/vision/read:2.0` |
+| Read 3.0 | `mcr.microsoft.com/azure-cognitive-services/vision/read:3.0` |
+| Read 3.1 | `mcr.microsoft.com/azure-cognitive-services/vision/read:3.1` |
 
 Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image.
 
 ### Docker pull for the Read container
 
-# [Version 3.1](#tab/version-3-1)
+# [Version 3.1-preview](#tab/version-3-1)
 
 ```bash
-docker pull mcr.microsoft.com/azure-cognitive-services/vision/read-3.1:latest
+docker pull mcr.microsoft.com/azure-cognitive-services/vision/read:3.1-preview
 ```
 
 # [Version 3.0](#tab/version-3)
 
 ```bash
-docker pull mcr.microsoft.com/azure-cognitive-services/vision/read-3.0:latest
+docker pull mcr.microsoft.com/azure-cognitive-services/vision/read:3.0
 ```
 
 # [Version 2.0](#tab/version-2)
 
 ```bash
-docker pull mcr.microsoft.com/azure-cognitive-services/vision/read-2.0:latest
+docker pull mcr.microsoft.com/azure-cognitive-services/vision/read:2.0
 ```
 ---
 
@@ -107,14 +107,14 @@ Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) 
 
 [Examples](computer-vision-resource-container-config.md#example-docker-run-commands) of the `docker run` command are available.
 
-# [Version 3.1](#tab/version-3-1)
+# [Version 3.1-preview](#tab/version-3-1)
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
---env Eula=accept \
---env Billing={ENDPOINT_URI} \
---env ApiKey={API_KEY} \
-mcr.microsoft.com/azure-cognitive-services/vision/read-3.1 \
+mcr.microsoft.com/azure-cognitive-services/vision/read:3.1-preview \
+Eula=accept \
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
 ```
 
 This command:
@@ -128,10 +128,11 @@ This command:
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
---env Eula=accept \
---env Billing={ENDPOINT_URI} \
---env ApiKey={API_KEY} \
-mcr.microsoft.com/azure-cognitive-services/vision/read-3.0 \
+mcr.microsoft.com/azure-cognitive-services/vision/read:3.0 \
+Eula=accept \
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
+
 ```
 
 This command:
@@ -145,7 +146,7 @@ This command:
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 16g --cpus 8 \
-mcr.microsoft.com/azure-cognitive-services/vision/read-2.0 \
+mcr.microsoft.com/azure-cognitive-services/vision/read:2.0 \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
@@ -417,52 +418,7 @@ When the image is read in its entirety, then and only then does the API return a
 }
 ```
 
-The JSON response object has the same object graph as the asynchronous version. If you're a JavaScript user and want type safety, the following types could be used to cast the JSON response as an `AnalyzeResult` object.
-
-```typescript
-export interface AnalyzeResult {
-    status: Status;
-    recognitionResults?: RecognitionResult[] | null;
-}
-
-export enum Status {
-    NotStarted = 0,
-    Running = 1,
-    Failed = 2,
-    Succeeded = 3
-}
-
-export enum Unit {
-    Pixel = 0,
-    Inch = 1
-}
-
-export interface RecognitionResult {
-    page?: number | null;
-    clockwiseOrientation?: number | null;
-    width?: number | null;
-    height?: number | null;
-    unit?: Unit | null;
-    lines?: Line[] | null;
-}
-
-export interface Line {
-    boundingBox?: number[] | null;
-    text: string;
-    words?: Word[] | null;
-}
-
-export enum Confidence {
-    High = 0,
-    Low = 1
-}
-
-export interface Word {
-  boundingBox?: number[] | null;
-  text: string;
-  confidence?: Confidence | null;
-}
-```
+The JSON response object has the same object graph as the asynchronous version. If you're a JavaScript user and want type safety, consider using TypeScript to cast the JSON response.
 
 For an example use-case, see the <a href="https://aka.ms/ts-read-api-types" target="_blank" rel="noopener noreferrer">TypeScript sandbox here <span class="docon docon-navigate-external x-hidden-focus"></span></a> and select **Run** to visualize its ease-of-use.
 

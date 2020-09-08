@@ -110,21 +110,21 @@ The following Docker examples are for the Read container.
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
---env Eula=accept \
---env Billing={ENDPOINT_URI} \
---env ApiKey={API_KEY} \
-mcr.microsoft.com/azure-cognitive-services/vision/read-3.0 \
+mcr.microsoft.com/azure-cognitive-services/vision/read:3.0 \
+Eula=accept \
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
 ```
 
 ### Logging example 
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
---env Eula=accept \
---env Billing={ENDPOINT_URI} \
---env ApiKey={API_KEY} \
+mcr.microsoft.com/azure-cognitive-services/vision/read:3.0 \
+Eula=accept \
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
 Logging:Console:LogLevel:Default=Information
-mcr.microsoft.com/azure-cognitive-services/vision/read-3.0 \
 ```
 
 # [Version 3.1](#tab/version-3-1)
@@ -133,20 +133,21 @@ mcr.microsoft.com/azure-cognitive-services/vision/read-3.0 \
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
---env Eula=accept \
---env Billing={ENDPOINT_URI} \
---env ApiKey={API_KEY} \
-mcr.microsoft.com/azure-cognitive-services/vision/read-3.1 \
+mcr.microsoft.com/azure-cognitive-services/vision/read:3.1-preview \
+Eula=accept \
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
+
 ```
 
 ### Logging example 
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
---env Eula=accept \
---env Billing={ENDPOINT_URI} \
---env ApiKey={API_KEY} \
-mcr.microsoft.com/azure-cognitive-services/vision/read-3.1 \
+mcr.microsoft.com/azure-cognitive-services/vision/read:3.1-preview \
+Eula=accept \
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
 Logging:Console:LogLevel:Default=Information
 ```
 
