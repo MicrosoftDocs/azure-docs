@@ -59,8 +59,8 @@ Unplanned outages include software bugs or infrastructure component failures imp
 :::image type="content" source="./media/business-continuity/concepts-high-availability-failover-state.png" alt-text="zone redundant high availability - failover"::: 
 
 1. Primary database server is down and the clients lose database connectivity. 
-2. Standby server is activated to become the new primary server. The client connects to the new primary using the same connection string. while the client application can be on any zone, having them in the same zone as the primary database server reduces latency and improves performance.
-3. The old primary database server is discarded. A new standby server is provisioned in the same AZ as the old primary server. The streaming replication is then initiated. 
+2. Standby server is activated to become the new primary server. The client connects to the new primary server using the same connection string. Having the client application in the same zone as the primary database server reduces latency and improves performance.
+3. Standby server is established in the same zone as the old primary server and the streaming replication is initiated. 
 4. Once the steady-state replication is established, the client application commits and writes are acknowledged after the data is persisted on both the sites.
 
 ## Point-in-time restore 
