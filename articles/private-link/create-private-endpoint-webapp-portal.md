@@ -175,7 +175,16 @@ In this section, you will connect privately to the Web App using the Private End
 > [!Important]
 > As this feature is in preview, you need to manually manage the DNS entry.
 
-1. Create the host entry, open file explorer and locate the hosts file
+For the DNS, you have two choices:
+- use the host file of the VM 
+- or use Azure DNS private zone service.
+
+1. First solution: you can create a DNS private zone named privatelink.azurewebsites.net and link it to the VNet
+1. Then you need to create the two A records (app name and SCM name) with the IP address of your Private Endpoint
+   > [!div class="mx-imgBorder"]
+   >![Hosts file][21]
+
+1. Second solution: create the host entry, open file explorer and locate the hosts file
 
    > [!div class="mx-imgBorder"]
    >![Hosts file][18]
@@ -227,6 +236,7 @@ In this Quickstart, you created a VM on a virtual network, a Web App, and a Priv
 [18]: ./media/create-private-endpoint-webapp-portal/explorer.png
 [19]: ./media/create-private-endpoint-webapp-portal/hosts.png
 [20]: ./media/create-private-endpoint-webapp-portal/webappwithpe.png
+[21]: ./media/create-private-endpoint-webapp-portal/dnsprivatezone.png
 
 <!--Links-->
 [privatenedpointwebapp]: https://docs.microsoft.com/azure/app-service/networking/private-endpoint
