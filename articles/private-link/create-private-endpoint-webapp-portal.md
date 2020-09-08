@@ -1,6 +1,6 @@
 ---
 title: Connect privately to a Web App using Azure Private Endpoint
-description: Connect privately to a Web App using Azure Private Endpoint
+description: This article explain how to connect privately to a Web App using Azure Private Endpoint
 author: ericgre
 ms.assetid: b8c5c7f8-5e90-440e-bc50-38c990ca9f14
 ms.topic: how-to
@@ -170,7 +170,7 @@ In this section, you will connect privately to the Web App using the Private End
 1. In the myVM, verify that the Web App is not accessible through the public IP. Open a browser and paste the Web App name, you must have a 403 forbidden error page
 
    > [!div class="mx-imgBorder"]
-   >![Forbidden][17]
+   >![error Forbidden when trying to use the IP address][17]
 
 > [!Important]
 > As this feature is in preview, you need to manually manage the DNS entry.
@@ -182,7 +182,7 @@ For the DNS, you have two choices:
 1. First solution: you can create a DNS private zone named privatelink.azurewebsites.net and link it to the VNet
 1. Then you need to create the two A records (app name and SCM name) with the IP address of your Private Endpoint
    > [!div class="mx-imgBorder"]
-   >![Hosts file][21]
+   >![DNS private zone records][21]
 
 1. Second solution: create the host entry, open file explorer and locate the hosts file
 
