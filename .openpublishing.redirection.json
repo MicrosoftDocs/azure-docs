@@ -36789,8 +36789,13 @@
     },
     {
       "source_path": "articles/active-directory/active-directory-b2b-licensing.md",
-      "redirect_url": "/azure/active-directory/b2b/licensing-guidance",
-      "redirect_document_id": true
+      "redirect_url": "/azure/active-directory/external-identities/external-identities-pricing",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/b2b/licensing-guidance.md",
+      "redirect_url": "/azure/active-directory/external-identities/external-identities-pricing",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/active-directory-b2b-mfa-instructions.md",
@@ -40246,6 +40251,21 @@
       "source_path": "articles/cognitive-services/Speech-Service/speaker-recognition-basics.md",
       "redirect_url": "/azure/cognitive-services/speech-service/get-started-speaker-recognition",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/get-started-speech-to-text",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-file.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/get-started-speech-to-text",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/speech-to-text-basics.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/get-started-speech-to-text",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/Speech-Service/text-to-speech-basics.md",
@@ -56665,11 +56685,6 @@
     {
       "source_path": "articles/active-directory/b2b/leave-the-organization.md",
       "redirect_url": "/azure/active-directory/external-identities/leave-the-organization",
-      "redirect_document_id": true
-    },
-    {
-      "source_path": "articles/active-directory/b2b/licensing-guidance.md",
-      "redirect_url": "/azure/active-directory/external-identities/licensing-guidance",
       "redirect_document_id": true
     },
     {
