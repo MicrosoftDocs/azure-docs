@@ -46,7 +46,7 @@ If the Azure Cosmos DB container name has any special characters (e.g., a dash '
 
 In this article, you'll learn how to write a query using SQL on-demand (preview) that will query data from Azure Cosmos DB containers that are Synapse Link enabled. You can then learn more about building SQL on-demand views over Azure Cosmos DB containers and connecting them to Power BI models in [this](../tutorial/TODO) tutorial. 
 
-## Data set
+## Sample data set
 
 The examples in this article are based on data from [European Centre for Disease Prevention and Control (ECDC) COVID-19 Cases](https://azure.microsoft.com/services/open-datasets/catalog/ecdc-covid-19-cases/) and [COVID-19 Open Research Dataset (CORD-19), doi:10.5281/zenodo.3715505](https://azure.microsoft.com/services/open-datasets/catalog/covid-19-open-research/). 
 
