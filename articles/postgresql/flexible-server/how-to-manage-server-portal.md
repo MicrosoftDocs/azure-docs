@@ -22,7 +22,7 @@ Sign in to the [Azure portal](https://portal.azure.com). Go to your flexible ser
 
 ## Scale compute and storage
 
-After server creation you can scale between the various [pricing tiers](https://azure.microsoft.com/pricing/details/mysql/) as your needs change. You can also scale up or down your compute and memory by increasing or decreasing vCores.
+After server creation you can scale between the various [pricing tiers](https://azure.microsoft.com/pricing/details/postgresql/) as your needs change. You can also scale up or down your compute and memory by increasing or decreasing vCores.
 
 > [!NOTE]
 > Storage cannot be scaled down to lower value.
@@ -57,16 +57,15 @@ You can delete your server if you no longer need it.
 
 1. Select your server in the Azure portal. In the **Overview** window select **Delete**.
 2. Type the name of the server into the input box to confirm that you want to delete the server.
-
-> [!div class="mx-imgBorder"]
-> ![delete the flexible server](./media/howto-manage-server-portal/delete-server.png)
-     
-   > [!NOTE]
+   > [!IMPORTANT]
    > Deleting a server is irreversible.
+
+  > [!div class="mx-imgBorder"]
+  > ![delete the flexible server](./media/howto-manage-server-portal/delete-server.png)  
 
 3. Select **Delete**.
 
 ## Next steps
 
-- Understand backup and restore concepts
-- Tune and monitor the server
+- [Understand backup and restore concepts](concepts-backup-restore.md)
+- [Tune and monitor the server](concepts-monitoring.md)

@@ -212,7 +212,7 @@
         href: howto-create-manage-server-portal.md
         displayName: scale server, reset password
       - name: Azure CLI
-        href: how-to-manage-cli.md
+        href: how-to-manage-server-cli.md
         displayName: scale server, reset password
     - name: Restart server
       items:

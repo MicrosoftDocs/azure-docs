@@ -50,8 +50,8 @@ resource-group | myresourcegroup | Provide the name of the Azure resource group.
 sku-name|Standard_D4ds_v3|Enter the name of the compute tier and size. Follows the convention Standard_{VM size} in shorthand. See the [pricing tiers](../concepts-pricing-tiers.md) for more information.
 storage-size | 6144 | The storage capacity of the server (unit is megabytes). Minimum 5120 and increases in 1024 increments.
 
-> [!Important]
-> - Storage can be scaled up (however, you cannot scale storage down)
+> [!IMPORTANT]
+> Storage can cannot be scaled down. 
 
 ## Manage PostgreSQL databases on a server
 
@@ -90,16 +90,16 @@ There are a number of applications you can use to connect to your Azure Database
    >
    > Confirm your client's IP is allowed in the firewall rules step above.
 
-2. Create a blank database called "mypgsqldb" at the prompt by typing the following command:
+2. Create a blank database called "postgresdb" at the prompt by typing the following command:
 
     ```bash
-    CREATE DATABASE mypgsqldb;
+    CREATE DATABASE postgresdb;
     ```
 
-3. At the prompt, execute the following command to switch connections to the newly created database **mypgsqldb**:
+3. At the prompt, execute the following command to switch connections to the newly created database **postgresdb**:
 
     ```bash
-    \c mypgsqldb
+    \c postgresdb
     ```
 
 4. Type  `\q`, and then select the Enter key to quit psql.
@@ -112,11 +112,12 @@ You can change the administrator role's password with this command
 az postgres flexible-server update --resource-group myresourcegroup --name mydemoserver --admin-password <new-password>
 ```
 
-> [!Important]
+> [!IMPORTANT]
 > Make sure password is minimum 8 characters and maximum 128 characters.
 > Password must contain characters from three of the following categories: English uppercase letters, English lowercase letters, numbers, and non-alphanumeric characters.
 
 ## Delete a server
+
 If you would just like to delete the PostgreSQL Flexible server, you can run [az postgres flexible-server delete](/cli/azure/PostgreSQL/server#az-PostgreSQL-flexible-server-delete) command.
 
 ```azurecli-interactive
@@ -124,5 +125,6 @@ az postgres flexible-server delete --resource-group myresourcegroup --name mydem
 ```
 
 ## Next steps
-- Understand backup and restore concepts
-- Tune and monitor the server
+
+- [Understand backup and restore concepts](concepts-backup-restore.md)
+- [Tune and monitor the server](concepts-monitoring.md)
