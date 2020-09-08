@@ -42,13 +42,13 @@ Logged in successfully to `https://10.0.0.4:30080` in namespace `arc`. Setting a
 
 ## Deploy an Azure Arc enabled PostgreSQL Hyperscale server group
 
-- Launch Azure Data Studio
-- On the Connections tab, Click on the three dots on the top left and choose "New Deployment"
-- From the deployment options, select **PostgreSQL Hyperscale server group - Azure Arc** 
+1. Launch Azure Data Studio
+1. On the Connections tab, Click on the three dots on the top left and choose "New Deployment"
+1. From the deployment options, select **PostgreSQL Hyperscale server group 1. Azure Arc** 
    >[!NOTE]
    > You may be prompted to install the `azdata` CLI here if it is not currently installed.
-- Accept the Privacy and license terms and click **Select** at the bottom
-- In the Deploy PostgreSQL Hyperscale server group - Azure Arc blade, enter the following information:
+1. Accept the Privacy and license terms and click **Select** at the bottom
+1. In the Deploy PostgreSQL Hyperscale server group - Azure Arc blade, enter the following information:
   - Enter a name for the server group
   - Enter and confirm a password for the _postgres_ administrator user of the server group
   - Select the storage class as appropriate for data
@@ -56,11 +56,11 @@ Logged in successfully to `https://10.0.0.4:30080` in namespace `arc`. Setting a
   - Select the storage class as appropriate for backups
   - Select the number of worker nodes to provision
 
-- Click the **Deploy** button
+1. Click the **Deploy** button
 
-- This starts the deployment of the Azure Arc enabled PostgreSQL Hyperscale server group on the data controller.
+This starts the deployment of the Azure Arc enabled PostgreSQL Hyperscale server group on the data controller.
 
-- In a few minutes, your deployment should successfully complete
+In a few minutes, your deployment should successfully complete
 
 ## Next steps
 - [Manage your server group using Azure Data Studio](manage-postgresql-hyperscale-server-group-with-azure-data-studio.md)
@@ -74,7 +74,7 @@ Logged in successfully to `https://10.0.0.4:30080` in namespace `arc`. Setting a
     * [Design a multi-tenant database](../../postgresql/tutorial-design-database-hyperscale-multi-tenant.md)*
     * [Design a real-time analytics dashboard](../../postgresql/tutorial-design-database-hyperscale-realtime.md)*
 
-> *In these documents, skip the sections [Sign in to the Azure portal], [Create an Azure Database for Postgres - Hyperscale (Citus)] and implement the remaining steps in your Azure Arc deployment. Those sections are specific to the Azure Database for Postgres Hyperscale (Citus) offered as a PaaS service in the Azure cloud but the other parts of the documents are directly applicable to your Azure Arc enabled Postgres Hyperscale.
+    > * In the documents above, skip the sections **Sign in to the Azure portal**, & **Create an Azure Database for Postgres - Hyperscale (Citus)**. Implement the remaining steps in your Azure Arc deployment. Those sections are specific to the Azure Database for Postgres Hyperscale (Citus) offered as a PaaS service in the Azure cloud but the other parts of the documents are directly applicable to your Azure Arc enabled Postgres Hyperscale.
 
 - [Scale out your Azure Database for PostgreSQL Hyperscale server group](scale-out-postgresql-hyperscale-server-group.md)
 - [Storage configuration and Kubernetes storage concepts](storage-configuration.md)

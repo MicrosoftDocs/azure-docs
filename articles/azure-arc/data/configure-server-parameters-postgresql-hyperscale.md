@@ -154,7 +154,7 @@ azdata arc postgres server edit -n postgres01 -e 'search_path = "$user"'
 ```
 
 > [!NOTE]
-> Private preview does not support setting the following parameters: 
+> Preview does not support setting the following parameters: 
 >
 > - `archive_command`
 > - `archive_timeout`

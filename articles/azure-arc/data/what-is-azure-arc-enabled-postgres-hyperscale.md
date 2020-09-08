@@ -50,4 +50,4 @@ This is the hyperscale form factor of the Postgres database engine offered avail
       - [Deploy the Azure Arc data controller](create-data-controller.md) (requires installing the client tools first)
       - [Deploy an Azure Database for PostgreSQL Hyperscale server group on Azure Arc](create-postgresql-hyperscale-server-group.md) (Requires deployment of an Azure Arc data controller first.)
 - [**Read more about Azure Arc enabled data services**](https://azure.microsoft.com/services/azure-arc/hybrid-data-services)
-- [**Read about Azure Arc**](https://http://aka.ms/azurearc)
+- [**Read about Azure Arc**](https://aka.ms/azurearc)
