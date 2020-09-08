@@ -30,7 +30,7 @@ When you use [Boot diagnostics](https://docs.microsoft.com/azure/virtual-machine
 
 ## Cause
 
-This may be due to recent changes made to the Default Domain Controllers Policy. Otherwise, a memory dump file analysis will need to be performed to determine the root cause.
+This issue may be due to recent changes made to the Default Domain Controllers Policy. Otherwise, a memory dump file analysis will need to be performed to determine the root cause.
 
 ## Solution
 
