@@ -2,7 +2,7 @@
 title: Deploy resources to tenant
 description: Describes how to deploy resources at the tenant scope in an Azure Resource Manager template.
 ms.topic: conceptual
-ms.date: 08/06/2020
+ms.date: 09/04/2020
 ---
 
 # Create resources at the tenant level
@@ -146,7 +146,7 @@ To target a management group within the tenant, add a nested deployment and spec
             "properties": {
                 "mode": "Incremental",
                 "template": {
-                    nested-template
+                    nested-template-with-resources-in-mg
                 }
             }
         }
@@ -162,9 +162,11 @@ For tenant deployments, there are some important considerations when using templ
 * The [resourceGroup()](template-functions-resource.md#resourcegroup) function is **not** supported.
 * The [subscription()](template-functions-resource.md#subscription) function is **not** supported.
 * The [reference()](template-functions-resource.md#reference) and [list()](template-functions-resource.md#list) functions are supported.
-* Use the [tenantResourceId()](template-functions-resource.md#tenantresourceid) function to get the resource ID for resources that are deployed at tenant level.
+* Don't use [resourceId()](template-functions-resource.md#resourceid) to get the resource ID for resources that are deployed at tenant level.
 
-  For example, to get the resource ID for a policy definition, use:
+  Instead, use the [tenantResourceId()](template-functions-resource.md#tenantresourceid) function.
+
+  For example, to get the resource ID for a built-in policy definition, use:
 
   ```json
   tenantResourceId('Microsoft.Authorization/policyDefinitions/', parameters('policyDefinition'))
