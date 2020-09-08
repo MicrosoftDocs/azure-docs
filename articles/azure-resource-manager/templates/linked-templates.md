@@ -13,7 +13,7 @@ For small to medium solutions, a single template is easier to understand and mai
 For a tutorial, see [Tutorial: create linked Azure Resource Manager templates](./deployment-tutorial-linked-template.md).
 
 > [!NOTE]
-> For linked or nested templates, you can only set the deployment mode to [Incremental](deployment-modes.md). However, the main template can be deployed in complete mode. If you deploy the main template in the complete mode, and the linked or nested template targets the same resource group, the resources deployed in the linked or nested template are included in the evaluation for complete mode deployment. A resource deployed in the linked template isn't deleted.
+> For linked or nested templates, you can only set the deployment mode to [Incremental](deployment-modes.md). However, the main template can be deployed in complete mode. If you deploy the main template in the complete mode, and the linked or nested template targets the same resource group, the resources deployed in the linked or nested template are included in the evaluation for complete mode deployment. The combined collection of resources deployed in the main template and linked or nested templates is compared against the existing resources in the resource group. Any resources not included in this combined collection are deleted.
 >
 > If the linked or nested template targets a different resource group, that deployment uses incremental mode.
 >
