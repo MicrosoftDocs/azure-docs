@@ -199,7 +199,7 @@ For more information on how to use the SignalR client SDK, refer to the document
 
 ### Sending messages from a client to the service
 
-If you have [upstream](concept-upstream.md) configured for your SignalR resource, you can send messages from client to your Azure Functions using any SignalR client. Here is an example in javascript:
+If you have [upstream](concept-upstream.md) configured for your SignalR resource, you can send messages from client to your Azure Functions using any SignalR client. Here is an example in JavaScript:
 
 ```javascript
 connection.send('method1', 'arg1', 'arg2');

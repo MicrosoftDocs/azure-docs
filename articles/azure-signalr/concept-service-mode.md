@@ -11,11 +11,11 @@ ms.author: kenchen
 
 Service mode is an important concept in Azure SignalR Service. When you create a new SignalR resource, you will be asked to specify a service mode:
 
-![Choose service mode when create](media/signalr-concept-service-mode/service-mode-create.png)
+:::image type="content" source="media/concept-service-mode/create.png" alt-text="Choose service mode when create":::
 
 You can also change it later in the settings menu:
 
-![Update service mode](media/signalr-concept-service-mode/service-mode-update.png)
+:::image type="content" source="media/concept-service-mode/update.png" alt-text="Update service mode":::
 
 Azure SignalR Service currently supports three service modes: **default**, **serverless** and **classic**. Your SignalR resource will behave differently in different modes. In this article, you'll learn their differences and how to choose the right service mode based on your scenario.
 
@@ -23,7 +23,7 @@ Azure SignalR Service currently supports three service modes: **default**, **ser
 
 Default mode is the default value for service mode when you create a new SignalR resource. In this mode, your application works as a typical ASP.NET Core (or ASP.NET) SignalR application, where you have a web server that hosts a hub (called hub server hereinafter) and clients can have duplex real-time communication with the hub server. The only difference is instead of connecting client and server directly, client and server both connect to SignalR service and use the service as a proxy. Below is a diagram that illustrates the typical application structure in default mode:
 
-![Application structure in default mode](media/signalr-concept-service-mode/default-mode.png)
+:::image type="content" source="media/concept-service-mode/default.png" alt-text="Application structure in default mode":::
 
 So if you have a SignalR application and want to integrate with SignalR service, default mode should be the right choice for most cases.
 
@@ -53,7 +53,7 @@ For more information about how to configure upstream, see this [doc](https://doc
 
 Below is a diagram that illustrates how serverless mode works:
 
-![Application structure in serverless mode](media/signalr-concept-service-mode/serverless-mode.png)
+:::image type="content" source="media/concept-service-mode/serverless.png" alt-text="Application structure in serverless mode":::
 
 > [!NOTE]
 > Please note in default mode you can also use REST API/management SDK/function binding to directly send messages to client if you don't want to go through hub server. But in default mode client connections are still handled by hub servers and upstream won't work in that mode.
@@ -71,13 +71,13 @@ Classic mode also doesn't support some new features like upstream in serverless 
 
 Now you should understand the differences between service modes and know how to choose between them. As you already learned in the previous section, classic mode is not encouraged and you should only choose between default and serverless. Here are some more tips that can help you make the right choice for new applications and retire classic mode for existing applications.
 
-1. If you're already familiar with how SignalR library works and want to move from a self-hosted SignalR to use Azure SignalR Service, choose default mode. Default mode works exactly the same way as self-hosted SignalR (and you can use the same programming model in SignalR library), SignalR service just acts as a proxy between clients and hub servers.
+* If you're already familiar with how SignalR library works and want to move from a self-hosted SignalR to use Azure SignalR Service, choose default mode. Default mode works exactly the same way as self-hosted SignalR (and you can use the same programming model in SignalR library), SignalR service just acts as a proxy between clients and hub servers.
 
-2. If you're creating a new application and don't want to maintain hub server and server connections, choose serverless mode. This mode usually works together with Azure Functions so you don't need to maintain any server at all. You can still have duplex communications (with REST API/management SDK/function binding + upstream) but the programming model will be different than SignalR library.
+* If you're creating a new application and don't want to maintain hub server and server connections, choose serverless mode. This mode usually works together with Azure Functions so you don't need to maintain any server at all. You can still have duplex communications (with REST API/management SDK/function binding + upstream) but the programming model will be different than SignalR library.
 
-3. If you have both hub servers to serve client connections and backend application to directly push messages to clients (for example through REST API), you should still choose default mode. Keep in mind that the key difference between default and serverless mode is whether you have hub servers and how client connections are routed. REST API/management SDK/function binding can be used in both modes.
+* If you have both hub servers to serve client connections and backend application to directly push messages to clients (for example through REST API), you should still choose default mode. Keep in mind that the key difference between default and serverless mode is whether you have hub servers and how client connections are routed. REST API/management SDK/function binding can be used in both modes.
 
-4. If you really have a mixed scenario, for example, you have two different hubs on the same SignalR resource, one used as a traditional SignalR hub and the other one used with Azure Functions and doesn't have hub server, you should really consider to separate them into two SignalR resources, one in default mode and one in serverless mode.
+* If you really have a mixed scenario, for example, you have two different hubs on the same SignalR resource, one used as a traditional SignalR hub and the other one used with Azure Functions and doesn't have hub server, you should really consider to separate them into two SignalR resources, one in default mode and one in serverless mode.
 
 ## Next steps
 
