@@ -8,7 +8,7 @@ tags: azure-key-vault
 
 ms.service: key-vault
 ms.subservice: managed-hsm
-ms.topic: conceptual
+ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: ambapat
 # Customer intent: As a developer using Key Vault I want to know the best practices so I can implement them.
@@ -38,6 +38,24 @@ Backup is a long running operation. After issuing the backup command it immediat
 While the backup is in progress the HSM may not operate at full throughput as some HSM partitions will be busy performing the backup operation.
 
 
+```azurecli
+# time for 30 minutes later for SAS token expiry
+end=$(date -u -d "30 minutes" '+%Y-%m-%dT%H:%MZ')
+
+# Get storage account key
+skey=$(az storage account keys list --query '[0].value' -o tsv --account-name mhsmdemobackup --subscription a1ba9aaa-b7f6-4a33-b038-6e64553a6c7b)
+
+# Generate a container sas token
+sas=$(az storage container generate-sas -n mhsmdemobackupcontainer --account-name mhsmdemobackup --permissions crdw --expiry $end --account-key $skey -o tsv --subscription a1ba9aaa-b7f6-4a33-b038-6e64553a6c7b)
+
+# Backup HSM 
+az keyvault backup start --hsm-name mhsmdemo2 --storage-account-name mhsmdemobackup --blob-container-name mhsmdemobackupcontainer --storage-container-SAS-token $sas --subscription 361da5d4-a47a-4c79-afdd-d66f684f4070
+
+```
+
+
+
+
 ## Full restore
 
 Full restore allows you to completely restore the contents of the HSM with a previous backup. This includes all keys, versions, attributes, tags, and role assignments. This will effectively wipe out everything currently stored in the HSM and return it to the same state when the source backup was created.
@@ -55,6 +73,26 @@ You need to provide following information to execute a full restore:
 - Storage container folder name where the source backup is store
 
 Restore is a long running operation. After issuing the restore command it immediately returns with a Job ID. You can check the status of the restore process using this Job ID. When the restore process is in progress, the HSM enters a restore mode and all data plane command (except check restore status) are disabled.
+
+```azurecli
+# time for 30 minutes later for SAS token expiry
+
+end=$(date -u -d "30 minutes" '+%Y-%m-%dT%H:%MZ')
+
+# Get storage account key
+
+skey=$(az storage account keys list --query '[0].value' -o tsv --account-name mhsmdemobackup --subscription a1ba9aaa-b7f6-4a33-b038-6e64553a6c7b)
+
+# Generate a container sas token
+
+sas=$(az storage container generate-sas -n mhsmdemobackupcontainer --account-name mhsmdemobackup --permissions rl --expiry $end --account-key $skey -o tsv --subscription a1ba9aaa-b7f6-4a33-b038-6e64553a6c7b)
+
+# Backup HSM 
+
+az keyvault restore start --hsm-name mhsmdemo2 --storage-account-name mhsmdemobackup --blob-container-name mhsmdemobackupcontainer --storage-container-SAS-token $sas --backup-folder mhsm-mhsmdemo-2020083120161860
+
+
+```
 
 
 ## Next Steps
