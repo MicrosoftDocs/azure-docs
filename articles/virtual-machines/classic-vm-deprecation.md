@@ -34,25 +34,25 @@ This retirement does *not* affect the following Azure services and functionality
 
 Start planning your migration to Azure Resource Manager, today. 
 
-Make a list of all affected VMs: 
+1. Make a list of all affected VMs: 
 
-- The VMs of type **virtual machines (classic)** on the [Azure portal's VM pane](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.ClassicCompute%2FVirtualMachines) are all the affected VMs within the subscription. 
-- You can also query Azure Resource Graph by using the [portal](https://portal.azure.com/#blade/HubsExtension/ArgQueryBlade/query/resources%0A%7C%20where%20type%20%3D%3D%20%22microsoft.classiccompute%2Fvirtualmachines%22) or [PowerShell](https://docs.microsoft.com/azure/governance/resource-graph/concepts/work-with-data) to view the list of all flagged VMs (classic) and related information for the selected subscriptions. 
-- We sent out emails to subscription owners with a list of all subscriptions that contain these VMs (classic). Please use them to build this list. 
+   - The VMs of type **virtual machines (classic)** on the [Azure portal's VM pane](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.ClassicCompute%2FVirtualMachines) are all the affected VMs within the subscription. 
+   - You can also query Azure Resource Graph by using the [portal](https://portal.azure.com/#blade/HubsExtension/ArgQueryBlade/query/resources%0A%7C%20where%20type%20%3D%3D%20%22microsoft.classiccompute%2Fvirtualmachines%22) or [PowerShell](https://docs.microsoft.com/azure/governance/resource-graph/concepts/work-with-data) to view the list of all flagged VMs (classic) and related information for the selected subscriptions. 
+   - On February 8 and September 2, 2020, we sent out emails to subscription owners with a list of all subscriptions that contain these VMs (classic). Please use them to build this list. 
 
-[Learn more](./windows/migration-classic-resource-manager-overview.md) about migrating your [Linux](./linux/migration-classic-resource-manager-plan.md) and [Windows](./windows/migration-classic-resource-manager-plan.md) VMs (classic) to Azure Resource Manager. For more information, see [Frequently asked questions about classic to Azure Resource Manager migration](./migration-classic-resource-manager-faq.md).
+1. [Learn more](./windows/migration-classic-resource-manager-overview.md) about migrating your [Linux](./linux/migration-classic-resource-manager-plan.md) and [Windows](./windows/migration-classic-resource-manager-plan.md) VMs (classic) to Azure Resource Manager. For more information, see [Frequently asked questions about classic to Azure Resource Manager migration](./migration-classic-resource-manager-faq.md).
 
-We recommend starting the planning by using the [platform support migration tool](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-overview) to migrate your existing VMs with three easy steps: validate, prepare, and commit. The tool is designed to migrate your VMs within minimal to no downtime. 
+1. We recommend starting the planning by using the [platform support migration tool](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-overview) to migrate your existing VMs with three easy steps: validate, prepare, and commit. The tool is designed to migrate your VMs within minimal to no downtime. 
 
-1. The first step, validate, has no impact on your existing deployment and provides a list of all unsupported scenarios for migration. 
-2. Go through the [list of workarounds](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-overview#unsupported-features-and-configurations) to fix your deployment and make it ready for migration. 
-3. Ideally after all validation errors are fixed, you should not encounter any issues during the prepare and commit steps. After the commit is successful, your deployment is live migrated to Azure Resource Manager and can then be managed through new APIs exposed by Azure Resource Manager. 
+   1. The first step, validate, has no impact on your existing deployment and provides a list of all unsupported scenarios for migration. 
+   1. Go through the [list of workarounds](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-overview#unsupported-features-and-configurations) to fix your deployment and make it ready for migration. 
+   1. Ideally after all validation errors are fixed, you should not encounter any issues during the prepare and commit steps. After the commit is successful, your deployment is live migrated to Azure Resource Manager and can then be managed through new APIs exposed by Azure Resource Manager. 
 
-If the migration tool is not suitable for your migration, you can explore [other compute offerings](https://docs.microsoft.com/azure/architecture/guide/technology-choices/compute-decision-tree) for the migration. Because there are many Azure compute offerings, and they're different from one another, we can't provide a platform-supported migration path to them.  
+   If the migration tool is not suitable for your migration, you can explore [other compute offerings](https://docs.microsoft.com/azure/architecture/guide/technology-choices/compute-decision-tree) for the migration. Because there are many Azure compute offerings, and they're different from one another, we can't provide a platform-supported migration path to them.  
 
-For technical questions, issues, and help with adding subscriptions to the allow list, [contact support](https://ms.portal.azure.com/#create/Microsoft.Support/Parameters/{"pesId":"6f16735c-b0ae-b275-ad3a-03479cfa1396","supportTopicId":"8a82f77d-c3ab-7b08-d915-776b4ff64ff4"}).
+1. For technical questions, issues, and help with adding subscriptions to the allow list, [contact support](https://ms.portal.azure.com/#create/Microsoft.Support/Parameters/{"pesId":"6f16735c-b0ae-b275-ad3a-03479cfa1396","supportTopicId":"8a82f77d-c3ab-7b08-d915-776b4ff64ff4"}).
 
-Complete the migration as soon as possible to prevent business impact and to take advantage of the improved performance, security, and new features of Azure Resource Manager. 
+1. Complete the migration as soon as possible to prevent business impact and to take advantage of the improved performance, security, and new features of Azure Resource Manager. 
 
 ## What resources are available for this migration?
 
