@@ -12,7 +12,7 @@ ms.date: 09/22/2020
 
 # Manage private endpoints in an Azure Stream Analytics cluster
 
-You can connect your Azure Stream Analytics jobs running on a cluster to input and output resources that are behind a firewall or a Azure Virtual Network (VNet). First, you create a private endpoint for a resource, such as Azure Event Hub or Azure SQL Database, in your Stream Analytics cluster. Then, approve the private endpoint connection from your input or output.
+You can connect your Azure Stream Analytics jobs running on a cluster to input and output resources that are behind a firewall or an Azure Virtual Network (VNet). First, you create a private endpoint for a resource, such as Azure Event Hub or Azure SQL Database, in your Stream Analytics cluster. Then, approve the private endpoint connection from your input or output.
 
 Once you approve the connection, any job running in your Stream Analytics cluster has access the resource through the private endpoint. This article shows you how to create and delete private endpoints in a Stream Analytics cluster.
 
@@ -33,19 +33,19 @@ In this section, you learn how to create a private endpoint in a Stream Analytic
    |Subscription|Select your subscription.|
    |Resource type|Choose the [resource type that maps to your resource](../private-link/private-endpoint-overview.md#private-link-resource).|
    |Resource|Select the resource you want to connect to using private endpoint.|
-   |Target sub-resource|The type of sub-resource for the resource selected above that your private endpoint will be able to access.|
+   |Target subresource|The type of subresource for the resource selected above that your private endpoint will be able to access.|
 
    ![The private endpoint create experience](./media/private-endpoints/create-private-endpoint.png)
 
-1. You have now created a private endpoint in your Stream Analytics cluster. The next step is to approve this connection from the target resource side. For example, if you created a private endpoint to a Azure SQL Database instance in the previous step, you should go to this SQL Database instance and see a pending connection that should be approved. Note that it might take a few minutes for connection request to show up.
+1. Approve the connection from the target resource. For example, if you created a private endpoint to an Azure SQL Database instance in the previous step, you should go to this SQL Database instance and see a pending connection that should be approved. It might take a few minutes for connection request to show up.
 
     ![approve private endpoint](./media/private-endpoints/approve-private-endpoint.png)
 
-1. You can go back to you Stream Analytics cluster to see the state change from **Pending customer approval** to **Pending DNS Setup** to **Setup complete** within couple of minutes.
+1. You can go back to your Stream Analytics cluster to see the state change from **Pending customer approval** to **Pending DNS Setup** to **Set up complete** within couple of minutes.
 
 ## Delete a private endpoint in a Stream Analytics cluster
 
-1. In the Azure poral, locate and select your Stream Analytics cluster.
+1. In the Azure portal, locate and select your Stream Analytics cluster.
 
 1. Under **Settings**, select **Private endpoints**.
 
