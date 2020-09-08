@@ -1,6 +1,6 @@
 ---
 title: Connect Azure Defender data to Azure Sentinel
-description: Learn how to connect alerts from Azure Defender (formerly Azure Security Center) and stream them into Azure Sentinel.
+description: Learn how to connect Azure Defender alerts from Azure Security Center and stream them into Azure Sentinel.
 author: yelevin
 manager: rkarlin
 ms.assetid: d28c2264-2dce-42e1-b096-b5a234ff858a
@@ -10,21 +10,21 @@ ms.topic: how-to
 ms.date: 09/07/2020
 ms.author: yelevin
 ---
-# Connect data from Azure Defender (formerly Azure Security Center)
+# Connect Azure Defender alert data from Azure Security Center
 
-Azure Sentinel enables you to connect alerts from [Azure Defender](../security-center/security-center-intro.md) and stream them into Azure Sentinel. 
+Use the Azure Defender alert connector to ingest Azure Defender alerts from [Azure Security Center](../security-center/security-center-intro.md) and stream them into Azure Sentinel. 
 
 ## Prerequisites
 
-- To export alerts from Azure Defender, you must have the Security Reader role in the subscription of the logs you stream.
+- Your user must have the Security Reader role in the subscription of the logs you stream.
 
-- Standard tier no longer exists. There is no longer any licensing prerequisite.
+- You will need to enable Azure Defender within Azure Security Center. (Standard tier no longer exists, and is no longer a license requirement.)
 
 ## Connect to Azure Defender
 
 1. In Azure Sentinel, select **Data connectors** from the navigation menu.
 
-1. From the data connectors gallery, select **Azure Defender** (formerly Azure Security Center), and click the **Open connector page** button.
+1. From the data connectors gallery, select **Azure Defender alerts from ASC** (may still be called Azure Security Center), and click the **Open connector page** button.
 
 1. Under **Configuration**, click **Connect** next to each subscription whose alerts you want to stream into Azure Sentinel. The Connect button will be available only if you have the required permissions.
 

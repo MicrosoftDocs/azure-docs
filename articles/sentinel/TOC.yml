@@ -56,7 +56,7 @@
         href: connect-azure-atp.md
       - name: Azure Firewall
         href: connect-azure-firewall.md
-      - name: Azure Defender (formerly ASC)
+      - name: Azure Defender alerts from ASC
         href: connect-azure-security-center.md
       - name: Azure Defender (formerly ASC) for IoT
         href: connect-asc-iot.md
