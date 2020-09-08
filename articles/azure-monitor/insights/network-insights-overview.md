@@ -74,24 +74,25 @@ Click on **Detailed Metric View** to launch a pre-configured workbook with detai
 
 The **Connectivity** tab provides an effortless way to visualize all tests configured using Connection Monitor and Connection Monitor (Preview) for the selected set of subscriptions.
 
-<image>
+![Connectivity tab](media/network-insights-overview/connectivity-tab.png)
 
 Tests are grouped by Sources and Destinations tiles and display the reachability status for each test. Reachable settings provide an easy access to configure your reachability criteria based on Checks failed (%) and RTT (ms). Once the values are set the status for each test is updated based on the selection criteria.
 
-<image>
+![Connectivity tab](media/network-insights-overview/connectivity-tests.png)
 
 Clicking on any source or destination tile launches a metric view.
 
-<image>
+![Connectivity tab](media/network-insights-overview/connectivity-metrics.png)
 
-You can click on each element in the grid view. Click on Reachability icon to redirect to the Connection Monitor portal page to view the hop by hop topology and connectivity impacting issues identified. Click on Alerts to redirect to alerts and Checks Failed Percent/Round-Trip Time to redirect to metrics page for the selected Connection Monitor.
+
+You can click on each element in the grid view. Click on **Reachability** icon to redirect to the **Connection Monitor** portal page to view the hop by hop topology and connectivity impacting issues identified. Click on **Alerts** to redirect to alerts and **Checks Failed Percent/Round-Trip Time** to redirect to metrics page for the selected Connection Monitor.
 
 The **Alerts** grid on the right provides a view of all the alerts generated for the connectivity tests configured across all subscriptions. Click on the alert counts to navigate to detailed alerts page.
 
 ## Traffic
 Traffic tab provides access to all NSGs configured for NSG Flow logs and Traffic Analytics for the selected set of subscriptions and grouped by locations. The search functionality provided on this tab enables identifying the NSGs configured for the searched IP address. You can search for any IP address in your environment and the tiled regional view will display all NSGs along with the NSG Flow logs and Traffic analytics configuration status.
 
-<image>
+![Connectivity tab](media/network-insights-overview/traffic-view.png)
 
 Clicking on any region tile launches a grid view that provides easy to view and configure NSG flow logs and Traffic Analytics.  
 
@@ -101,8 +102,12 @@ You can click on each element in the grid view. Click on configuration status to
 
 The Alerts grid on the right provides a view of all the Traffic Analytics workspace based alerts across all subscriptions. Click on the alert counts to navigate to detailed alerts page.
 
+![Connectivity tab](media/network-insights-overview/traffic-region-view.png)
+
 ## Diagnostic toolkit
 Diagnostic Toolkit provides access to all Diagnostic features available for troubleshooting the network. From this dropdown you get can access to features such as [Packet Capture](../../network-watcher/network-watcher-packet-capture-overview.md), [VPN Troubleshoot](../../network-watcher/network-watcher-troubleshoot-overview.md), [Connection Troubleshoot](../../network-watcher/network-watcher-connectivity-overview.md), [Next Hop](../../network-watcher/network-watcher-next-hop-overview.md) and [IP Flow Verify](../../network-watcher/network-watcher-ip-flow-verify-overview.md).
+
+![Diagnostic toolkit tab](media/network-insights-overview/diagnostic-toolkit.png)
 
 ## Next steps
 
