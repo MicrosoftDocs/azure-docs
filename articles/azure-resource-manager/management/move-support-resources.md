@@ -2,7 +2,7 @@
 title: Move operation support by resource type
 description: Lists the Azure resource types that can be moved to a new resource group or subscription.
 ms.topic: conceptual
-ms.date: 07/13/2020
+ms.date: 09/08/2020
 ---
 
 # Move operation support for resources
@@ -2784,7 +2784,7 @@ Jump to a resource provider namespace:
 > | locations / jobagentoperationresults | No | No |
 > | locations / longtermretentionbackupazureasyncoperation | No | No |
 > | locations / longtermretentionbackupoperationresults | No | No |
-> | locations / longtermretentionbackups | No | No |
+> | locations / longtermretentionbackups | Yes | Yes |
 > | locations / longtermretentionmanagedinstancebackupazureasyncoperation | No | No |
 > | locations / longtermretentionmanagedinstancebackupoperationresults | No | No |
 > | locations / longtermretentionmanagedinstancebackups | No | No |
@@ -2867,7 +2867,7 @@ Jump to a resource provider namespace:
 > | servers / databases / auditingsettings | No | No |
 > | servers / databases / auditrecords | No | No |
 > | servers / databases / automatictuning | No | No |
-> | servers / databases / backuplongtermretentionpolicies | No | No |
+> | servers / databases / backuplongtermretentionpolicies | Yes | Yes |
 > | servers / databases / backupshorttermretentionpolicies | No | No |
 > | servers / databases / connectionpolicies | No | No |
 > | servers / databases / datamaskingpolicies | No | No |
