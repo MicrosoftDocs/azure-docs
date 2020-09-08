@@ -38,6 +38,14 @@ Yes. You must have write operation permission on the virtual networks and the pr
 
 Yes. If you delete a virtual machine within a linked virtual network with autoregistration enabled, the registered records are automatically deleted.
 
+## I've reconfigured the OS in my virtual machine to have a new hostname or static IP address but I don't see that reflected in the private zone.  Why not?
+
+The private zone's records are populated by the Azure DHCP servers; client registration messages are ignored.  Thus, if you have disabled DHCP client support in the VM by configuring a static IP address, changes to the hostname or static IP in the VM will not be reflected in the zone.
+
+## I have configured a preferred DNS suffix in my Windows virtual machine, but my records are still registered in the zone linked to the virtual network.  Why?
+
+The Azure DHCP servers ignore any DNS suffix when registering the private DNS zone.  For example, if your virtual machine is configured for `wingtiptoys.com` as the primary DNS suffix, but the virtual network is linked to the `fabrikam.com` private DNS zone, the virtual machine's registration will appear in the `fabrikam.com` private DNS zone.
+
 ## Can an automatically registered virtual machine record in a private zone from a linked virtual network be deleted manually?
 
 Yes. You can overwrite the automatically registered DNS records with a manually created DNS record in the zone. The following question and answer address this topic.
