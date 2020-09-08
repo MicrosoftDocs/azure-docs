@@ -99,13 +99,13 @@ Key benefits of using Azure RBAC permission over vault access policies are centr
 
 ## Example
 
-In this example, we're developing an application that uses a certificate for TLS/SSL, Azure Storage to store data, and an RSA 2,048-bit key for Azure Storage data encryption. Our application runs in an Azure virtual machine (VM) (or a virtual machine scale set). We can use a key vault to store the application secrets. We can store the bootstrap certificate that's used by the application to authenticate with Azure AD.
+In this example, we're developing an application that uses a certificate for TLS/SSL, Azure Storage to store data, and an RSA 2,048-bit key for encrypting data in Azure Storage. Our application runs in an Azure virtual machine (VM) (or a virtual machine scale set). We can use a key vault to store the application secrets. We can store the bootstrap certificate that's used by the application to authenticate with Azure AD.
 
 We need access to the following stored keys and secrets:
 - **TLS/SSL certificate**: Used for TLS/SSL.
 - **Storage key**: Used to access the Storage account.
-- **RSA 2,048-bit key**: Used for wrap/unwrap storage data encryption key.
-- **Bootstrap certificate**: Used to authenticate with Azure AD. After access is granted, we can fetch the storage key and use the RSA key for wrap.
+- **RSA 2,048-bit key**: Used for wrap/unwrap data encryption key by Azure Storage.
+- **Application Managed Identity**: Used to authenticate with Azure AD. After access to Key Vault is granted, application can fetch the storage key and certificate.
 
 We need to define the following roles to specify who can manage, deploy, and audit our application:
 - **Security team**: IT staff from the office of the CSO (Chief Security Officer) or similar contributors. The security team is responsible for the proper safekeeping of secrets. The secrets can include TLS/SSL certificates, RSA keys for encryption, connection strings, and storage account keys.
@@ -121,12 +121,12 @@ We need to authorize the following operations for our roles:
 - Turn on Key Vault logging.
 - Add keys and secrets.
 - Create backups of keys for disaster recovery.
-- Set Key Vault access policies to grant permissions to users and applications for specific operations.
+- Set Key Vault access policies and assign roles to grant permissions to users and applications for specific operations.
 - Roll the keys and secrets periodically.
 
 **Developers and operators**
 - Get references from the security team for the bootstrap and TLS/SSL certificates (thumbprints), storage key (secret URI), and RSA key (key URI) for wrap/unwrap.
-- Develop and deploy the application to access certifcates and secrets programmatically.
+- Develop and deploy the application to access certificates and secrets programmatically.
 
 **Auditors**
 - Review the Key Vault logs to confirm proper use of keys and secrets, and compliance with data security standards.
@@ -141,7 +141,7 @@ The following table summarizes the access permissions for our roles and applicat
 | Azure Storage | None | Keys: get, list, wrapKey, unwrapKey <br> | Key Vault Crypto Service Encryption |
 | Application | None | Secrets: get,list <br> Certificates: get, list | Key Vault Reader (preview), Key Vault Secret User (preview) |
 
-The three team roles need access to other resources along with Key Vault permissions. To deploy VMs (or the Web Apps feature of Azure App Service), developers and operators need `Contributor` access to those resource types. Auditors need read access to the Storage account where the Key Vault logs are stored.
+The three team roles need access to other resources along with Key Vault permissions. To deploy VMs (or the Web Apps feature of Azure App Service), developers and operators need deploy access. Auditors need read access to the Storage account where the Key Vault logs are stored.
 
 Our example describes a simple scenario. Real-life scenarios can be more complex. You can adjust permissions to your key vault based on your needs. We assumed the security team provides the key and secret references (URIs and thumbprints), which are used by the DevOps staff in their applications. Developers and operators don't require any data plane access. We focused on how to secure your key vault.
 
