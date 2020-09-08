@@ -289,6 +289,15 @@ The workflow in this example adds this trigger and these actions:
 
    ![Screenshot that shows Logic App Designer and **Add an action** pane with "When a HTTP request is received" trigger selected](./media/create-stateless-stateful-workflows/add-request-trigger.png)
 
+   > [!TIP]
+   > If you have to delete an item that you added to the designer, follow these steps:
+   >
+   > 1. On the Logic App Designer, select the item.
+   >
+   > 1. In the item's details pane that opens to the right side, select the ellises (**...**) button > **Delete**.
+   > 
+   >    ![Screenshot that shows selected item on designer with open details pane and with selected ellipses button and "Delete" option](./media/create-stateless-stateful-workflows/delete-item-from-designer.png)
+
 1. Under the trigger that now appears on the designer, select **Next step**.
 
    The **Add an action pane** reopens so that you can select the next action.
@@ -323,6 +332,7 @@ The workflow in this example adds this trigger and these actions:
    * [Debug and test your workflow app on your local computer](#debug-test-workflow-locally).
 
    * Create an Azure function that you can directly call from your workflow app.
+
 
 <a name="create-call-azure-function"></a>
 
