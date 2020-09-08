@@ -29,7 +29,7 @@ Name    Replicas    ServerEndpoint    State
 demo-mi 1/1         10.240.0.4:32023  Ready
 ```
 
-## View Existing Azure Arc Enabled SQL Managed Instances
+## Delete a Azure Arc Enabled SQL Managed Instance
 To delete a SQL Managed Instance, run the following command:
 
 ```terminal
