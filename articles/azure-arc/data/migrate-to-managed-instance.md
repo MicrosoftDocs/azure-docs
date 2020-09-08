@@ -27,9 +27,9 @@ This method uses Azure Blob Storage as a temporary storage location that you can
 
 ### Step 1: Provision Azure Blob Storage
 
-1. Follow the steps described in [Create an Azure Blob Storage account](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-create-account-block-blob?tabs=azure-portal)
+1. Follow the steps described in [Create an Azure Blob Storage account](../../storage/blobs/storage-blob-create-account-block-blob.md?tabs=azure-portal)
 1. Launch Azure Storage Explorer
-1. [Sign in to Azure](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows#sign-in-to-azure) to access the blob storage created in previous step
+1. [Sign in to Azure](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#sign-in-to-azure) to access the blob storage created in previous step
 1. Right-click on the blob storage account and select **Create Blob Container** to create a new container where the backup file will be stored
 
 ### Step 2: Get Storage Blob Credentials
