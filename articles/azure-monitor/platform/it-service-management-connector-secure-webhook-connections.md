@@ -8,9 +8,11 @@ ms.author: v-jysur
 ms.date: 09/08/2020
 
 ---
-[!div class="mx-imgBorder"]
+
 
 # Connect Azure to ITSM tools using Secure Export
+
+[!div class="mx-imgBorder"]
 
 This article provides information about how to configure the connection between your ITSM product/service using Secure Export.
 
