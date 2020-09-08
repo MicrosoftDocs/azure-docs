@@ -54,11 +54,14 @@ for this tutorial.
 Import the `Workspace` class, and load your subscription information from the file `config.json` using the function `from_config().` This looks for the JSON file in the current directory by default, but you can also specify a path parameter to point to the file using `from_config(path="your/file/path")`. If you are running this notebook in a cloud notebook server in your workspace, the file is automatically in the root directory.
 
 If the following code asks for additional authentication, simply paste the link in a browser and enter the authentication token. In addition, if you have more than one tenant linked to your user, you will need to add the following lines:
-```
+
+```python
 from azureml.core.authentication import InteractiveLoginAuthentication
 interactive_auth = InteractiveLoginAuthentication(tenant_id="your-tenant-id")
-Additional details on authentication can be found here: https://aka.ms/aml-notebook-auth 
 ```
+
+For more information on authentication, see [Authentication in Azure Machine Learning](https://aka.ms/aml-notebook-auth)
+
 
 ```python
 from azureml.core import Workspace
