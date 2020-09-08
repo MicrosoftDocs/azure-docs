@@ -36,7 +36,7 @@ Users must have the Owner role. Alternatively, users can have the Contributor ro
 
 **What regions are supported?**
 
-VMs in the following regions are supported: Central US, East US 2, East US, North Central US, South Central US, West US 2, West Central US, West US, North Europe, West Europe, Canada Central, Canada East.
+VMs in the following regions are supported: West Europe, East US, West US 2, Canada Central, West Central US.
 
 
 **Which capabilities does Azure Automanage automate?**

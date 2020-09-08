@@ -45,8 +45,7 @@ There are several prerequisites to consider before trying to enable Azure Automa
 
 The following RBAC permission is needed to enable Automanage: **Owner** role or **Contributor** along with **User Access Administrator** roles.
 
-It is also important to note that Automanage only supports Windows VMs located in the following regions: Central US, East US 2, East US, North Central US, South Central US, West US 2, West Central US, West US, North Europe, West Europe, Canada Central, Canada East.
-
+It is also important to note that Automanage only supports Windows VMs located in the following regions: West Europe, East US, West US 2, Canada Central, West Central US.
 
 ## Participating services
 
