@@ -39,7 +39,7 @@ Azure Load Balancer provides outbound connectivity through different mechanisms.
 
 Azure uses an algorithm to determine the number of preallocated SNAT ports available based on the size of the backend pool when using PAT. For each Public IP address associated with a load balancer there are 64,000 ports available as SNAT ports for each IP transport protocol. The same number of SNAT ports are preallocated for UDP and TCP respectively and consumed independently per IP transport protocol.  However, the SNAT port usage is different depending on whether the flow is UDP or TCP. When outbound flows are created, these ports are consumed dynamically (up to the preallocated limit) and released when the flow closes or [idle timeouts](../load-balancer/troubleshoot-outbound-connection.md#idletimeout) happen. Ports are consumed only if it's necessary to make flows unique.
 
-#### <a name="snatporttable"></a> Default SNAT ports allocated
+#### <a name="snatporttable"></a> Dynamic SNAT ports allocated
 
 The following table shows the SNAT port preallocations for tiers of backend pool sizes:
 

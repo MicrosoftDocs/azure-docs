@@ -148,6 +148,10 @@
       items:
         - name: REST API
           href: https://docs.microsoft.com/rest/api/appconfiguration/
+        - name: PowerShell
+          href: https://docs.microsoft.com/powershell/module/az.appconfiguration/
+        - name: Terraform
+          href: https://www.terraform.io/docs/providers/azurerm/r/app_configuration.html
     - name: Azure Policy built-ins
       displayName: samples, policies, definitions
       href: ./policy-reference.md
