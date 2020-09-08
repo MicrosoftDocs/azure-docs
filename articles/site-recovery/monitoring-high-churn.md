@@ -14,11 +14,11 @@ This article provides an overview of various tools that can be used to monitor c
 
 ## For Azure virtual machines (Windows or Linux)
 
-If your machine is hosted in Azure and is using a managed or unmanaged disk for storage then you can easily track performance, by tracking disk metrics. This enables you to closely monitor and make the right disk selection to suit your application usage pattern. You can also use it to create alerts, diagnosis, and build automation. [Learn more](https://azure.microsoft.com/blog/per-disk-metrics-managed-disks/).
+If your machine is hosted in Azure and is using a managed or unmanaged disk for storage, then you can easily track performance, by tracking disk metrics. This enables you to closely monitor and make the right disk selection to suit your application usage pattern. You can also use it to create alerts, diagnosis, and build automation. [Learn more](https://azure.microsoft.com/blog/per-disk-metrics-managed-disks/).
 
 Once you have protected your machines with Azure Site Recovery, you can monitor your machines by using Azure Monitor Logs and Log Analytics. [Learn more](https://docs.microsoft.com/azure/site-recovery/monitor-log-analytics).
 
-There are also some operating system specific tools that you can use.
+There are also some operating system-specific tools that you can use.
 
 ## For Windows machines
 
@@ -31,7 +31,7 @@ Apart from checking the disk usage on Task Manager, you can always refer to **Re
 **Resource Monitor** displays information about the use of hardware and software resources in real time. To run Resource Monitor on a Windows machine, follow the below steps –
 
 1. Press Win + R and type _resmon_.
-1. Once the resmon, i.e. Resource Monitor, window opens switch to the Disk tab. It gives following view -
+1. Once the resmon, that is, Resource Monitor, window opens switch to the Disk tab. It gives following view -
 
     ![Resource Monitor Disk Tab](./media/monitoring-high-churn/resmon-disk-tab.png)
 
@@ -44,15 +44,15 @@ Once you have identified the applications causing high churn on your machine, yo
 **Performance Monitor** monitors various activities on a computer such as CPU or memory usage. To run Performance Monitor on a Windows machine, follow the below steps –
 
 1. Press Win + R and type _perfmon_.
-1. Once the perfmon, i.e. Performance Monitor, window opens, it gives following view -
+1. Once the perfmon, that is, Performance Monitor, window opens, it gives following view -
 
     ![Performance Monitor Step1](./media/monitoring-high-churn/perfmon-step1.png)
 
-1. Expand the **Monitoring Tools** folder on the right and click on Performance Monitor. This will open the below view giving you a real time information about the current performance -
+1. Expand the **Monitoring Tools** folder on the right and click on Performance Monitor. This will open the below view giving you a real-time information about the current performance -
 
     ![Performance Monitor Step2](./media/monitoring-high-churn/perfmon-step1.png)
 
-1. This graph is currently monitoring just one monitor, i.e. the '% Processor Time' – as indicated by the table right below the graph. You can add more items for monitoring by clicking on the **‘+’** on top of the tool.
+1. This graph is currently monitoring just one monitor, that is, the '% Processor Time' – as indicated by the table right below the graph. You can add more items for monitoring by clicking on the **‘+’** on top of the tool.
 1. Below is a visual of how Performance Monitor looks like once we add more counters to it -
 
     ![Performance Monitor Step2](./media/monitoring-high-churn/perfmon-step3.png)
