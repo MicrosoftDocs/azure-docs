@@ -142,6 +142,15 @@ The persistent session ID can be queried via `AzureSession.SessionUUID()` and ca
 
 When `AzureSession.IsConnected` is true, `AzureSession.Actions` returns an instance of `RemoteManager`, which contains the functions to [load models](models.md), manipulate [entities](entities.md), and [query information](../overview/features/spatial-queries.md) about the rendered scene.
 
+## API documentation
+
+* [C# AzureSession class](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.azuresession)
+* [C# AzureFrontend.CreateNewRenderingSessionAsync()](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.azurefrontend.createnewrenderingsessionasync)
+* [C# AzureFrontend.OpenRenderingSession()](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.azurefrontend.openrenderingsession)
+* [C++ AzureSession class](https://docs.microsoft.com/cpp/api/remote-rendering/azuresession)
+* [C++ AzureFrontend::CreateNewRenderingSessionAsync](https://docs.microsoft.com/cpp/api/remote-rendering/azurefrontend#createnewrenderingsessionasync)
+* [C++ AzureFrontend::OpenRenderingSession](https://docs.microsoft.com/cpp/api/remote-rendering/azurefrontend#openrenderingsession)
+
 ## Next steps
 
 * [Entities](entities.md)

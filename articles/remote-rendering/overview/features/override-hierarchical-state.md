@@ -91,6 +91,11 @@ An instance of `HierarchicalStateOverrideComponent` itself doesn't add much runt
 
 Transparent rendering puts more workload on the server's GPUs than standard rendering. If large parts of the scene graph are switched to *see-through*, with many layers of geometry being visible, it may become a performance bottleneck. The same is valid for objects with [selection outlines](../../overview/features/outlines.md#performance).
 
+## API documentation
+
+* [C# HierarchicalStateOverrideComponent class](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.hierarchicalstateoverridecomponent)
+* [C++ HierarchicalStateOverrideComponent class](https://docs.microsoft.com/cpp/api/remote-rendering/hierarchicalstateoverridecomponent)
+
 ## Next steps
 
 * [Outlines](../../overview/features/outlines.md)

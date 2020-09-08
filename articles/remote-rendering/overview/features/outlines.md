@@ -56,6 +56,11 @@ void SetOutlineParameters(ApiHandle<AzureSession> session)
 
 Outline rendering may have a significant impact on rendering performance. This impact varies based on screen-space spatial relation between selected and non-selected objects for a given frame.
 
+## API documentation
+
+* [C# RemoteManager.OutlineSettings property](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanager.outlinesettings)
+* [C++ RemoteManager::OutlineSettings()](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#outlinesettings)
+
 ## Next steps
 
 * [Hierarchical state override component](../../overview/features/override-hierarchical-state.md)
