@@ -8,7 +8,7 @@ ms.devlang:
 ms.topic: conceptual
 author: MashaMSFT
 ms.author: mathoma
-ms.reviewer: carlrab
+ms.reviewer: mokabiru
 ms.date: 08/25/2020
 ---
 # Migration performance: SQL Server to SQL Managed Instance performance analysis
