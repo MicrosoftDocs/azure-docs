@@ -57,11 +57,13 @@ Data Factory offers full support for CI/CD of your data pipelines using Azure De
 After you have successfully built and deployed your data integration pipeline, providing business value from refined data, monitor the scheduled activities and pipelines for success and failure rates. Azure Data Factory has built-in support for pipeline monitoring via Azure Monitor, API, PowerShell, Azure Monitor logs, and health panels on the Azure portal.
 
 ## Top-level concepts
-An Azure subscription might have one or more Azure Data Factory instances (or data factories). Azure Data Factory is composed of four key components.
+An Azure subscription might have one or more Azure Data Factory instances (or data factories). Azure Data Factory is composed of below key components.
 - Pipelines
 - Activities
 - Datasets
 - Linked services
+- Data Flows
+- Integration Runtimes
 
 These components work together to provide the platform on which you can compose data-driven workflows with steps to move and transform data.
 
