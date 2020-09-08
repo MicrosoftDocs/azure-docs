@@ -35,7 +35,7 @@ When specifying preferences for the maintenance schedule, you can pick a day of 
 
 You can update scheduling settings at any time. If there is a maintenance scheduled for your Flexible server and you update scheduling preferences, the current event will proceed as scheduled and the scheduling settings change will become effective upon its successful completion. 
 
-If maintenance event is cancelled by the system or fails to complete successfully, the system will create a notification about cancelled or failed maintenance event respectively. The next attempt to perform maintenance will be scheduled as per current scheduling settings and you will receive notification about it five days in advance.
+If maintenance event is canceled by the system or fails to complete successfully, the system will create a notification about canceled or failed maintenance event respectively. The next attempt to perform maintenance will be scheduled as per current scheduling settings and you will receive notification about it five days in advance.
  
 ## Next steps
  
