@@ -60,7 +60,7 @@ For virtual machines and servers running in other environments, e.g. on-premises
 
 **Azure Security Center Storage**: Information about security alerts, including partner alerts, is stored regionally according to the location of the related Azure resource, whereas Information about security health status and recommendation is stored centrally in either the United States or Europe according to customer’s location. Machine artifacts are stored centrally in the same region as the VM.
 
-## Managing data collection from virtual machines
+## Manage data collection from virtual machines
 
 When you enable Security Center in Azure, data collection is turned on for each of your Azure subscriptions. You can also turn on data collection for your subscriptions in the Security Policy section of Azure Security Center. When Data collection is turned on, Azure Security Center provisions the Log Analytics agent on all existing supported Azure virtual machines and any new ones that are created.
 The Log Analytics agent scans for various security-related configurations and events it into [Event Tracing for Windows](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx) (ETW) traces. In addition, the operating system will raise event log events during the course of running the machine. Examples of such data are: operating system type and version, operating system logs (Windows event logs), running processes, machine name, IP addresses, logged in user, and tenant ID. The Log Analytics agent reads event log entries and ETW traces and copies them to your workspace(s) for analysis. The Log Analytics agent also enables process creation events and command line auditing.
@@ -85,4 +85,4 @@ In this document, you learned how data is managed and safeguarded in Azure Secur
 * [Security health monitoring in Azure Security Center](security-center-monitoring.md) — Learn how to monitor the health of your Azure resources
 * [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) — Learn how to manage and respond to security alerts
 * [Monitoring partner solutions with Azure Security Center](security-center-partner-solutions.md) — Learn how to monitor the health status of your partner solutions.
-* [Azure Security Blog](https://blogs.msdn.com/b/azuresecurity/) — Find blog posts about Azure security and compliance
+* [Azure Security Blog](https://docs.microsoft.com/archive/blogs/azuresecurity/) — Find blog posts about Azure security and compliance

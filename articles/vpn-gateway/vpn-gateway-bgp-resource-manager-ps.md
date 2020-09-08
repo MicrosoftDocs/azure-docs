@@ -6,7 +6,7 @@ author: yushwang
 
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 04/12/2017
+ms.date: 09/02/2020
 ms.author: yushwang 
 ms.custom: devx-track-azurepowershell
 

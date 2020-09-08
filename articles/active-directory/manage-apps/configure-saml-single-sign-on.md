@@ -47,7 +47,6 @@ You should get the values from the application vendor. You can manually enter th
 | **Relay State** | Optional | Optional | Specifies to the application where to redirect the user after authentication is completed. Typically the value is a valid URL for the application. However, some applications use this field differently. For more information, ask the application vendor.
 | **Logout URL** | Optional | Optional | Used to send the SAML Logout responses back to the application.
 
-
 ## User attributes and claims 
 
 When a user authenticates to the application, Azure AD issues the application a SAML token with information (or claims) about the user that uniquely identifies them. By default, this information includes the user's username, email address, first name, and last name. You might need to customize these claims if, for example, the application requires specific claim values or a **Name** format other than username. 

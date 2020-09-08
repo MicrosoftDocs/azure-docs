@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 09/09/2019
 ms.author: jmprieur
-ms.custom: aaddev 
+ms.custom: aaddev
 #Customer intent: As an application developer, I want to know how to write a desktop app that calls web APIs by using the Microsoft identity platform for developers.
 ---
 
@@ -25,7 +25,7 @@ The account types supported in a desktop application depend on the experience th
 
 ### Audience for interactive token acquisition
 
-If your desktop application uses interactive authentication, you can sign in users from any [account type](quickstart-register-app.md#register-a-new-application-using-the-azure-portal).
+If your desktop application uses interactive authentication, you can sign in users from any [account type](quickstart-register-app.md).
 
 ### Audience for desktop app silent flows
 
@@ -38,7 +38,7 @@ If your desktop application uses interactive authentication, you can sign in use
 The redirect URIs to use in a desktop application depend on the flow you want to use.
 
 - If you use interactive authentication or device code flow, use `https://login.microsoftonline.com/common/oauth2/nativeclient`. To achieve this configuration, select the corresponding URL in the **Authentication** section for your application.
-  
+
   > [!IMPORTANT]
   > Today, MSAL.NET uses another redirect URI by default in desktop applications that run on Windows (`urn:ietf:wg:oauth:2.0:oob`). In the future, we'll want to change this default, so we recommend that you use `https://login.microsoftonline.com/common/oauth2/nativeclient`.
 

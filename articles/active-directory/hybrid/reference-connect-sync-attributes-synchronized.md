@@ -392,7 +392,7 @@ This group is a set of attributes that can be used if the Azure AD directory is 
 | userPrincipalName |X | | |UPN is the login ID for the user. Most often the same as [mail] value. |
 
 ## Windows 10
-A Windows 10 domain-joined computer(device) synchronizes some attributes to Azure AD. For more information on the scenarios, see [Connect domain-joined devices to Azure AD for Windows 10 experiences](../active-directory-azureadjoin-devices-group-policy.md). These attributes always synchronize and Windows 10 does not appear as an app you can unselect. A Windows 10 domain-joined computer is identified by having the attribute userCertificate populated.
+A Windows 10 domain-joined computer(device) synchronizes some attributes to Azure AD. For more information on the scenarios, see [Connect domain-joined devices to Azure AD for Windows 10 experiences](../devices/hybrid-azuread-join-plan.md). These attributes always synchronize and Windows 10 does not appear as an app you can unselect. A Windows 10 domain-joined computer is identified by having the attribute userCertificate populated.
 
 | Attribute Name | Device | Comment |
 | --- |:---:| --- |

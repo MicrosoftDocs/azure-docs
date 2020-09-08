@@ -23,7 +23,7 @@ In this article you learn how to:
 
 ## Prerequisites
 
-To follow these procedures, you need an Azure Spring Cloud service that is already provisioned and running. Complete the [quickstart on deploying an app via the Azure CLI](spring-cloud-quickstart-launch-app-cli.md) to provision and run an Azure Spring Cloud service.
+To follow these procedures, you need an Azure Spring Cloud service that is already provisioned and running. Complete the [quickstart on deploying an app via the Azure CLI](spring-cloud-quickstart.md) to provision and run an Azure Spring Cloud service.
     
 ## Add dependencies
 
