@@ -67,10 +67,10 @@ In case you have a machine, be it on-premises or not, which is running Linux ope
 
 One of the most used tools is _iotop_. It is a utility for displaying real-time disk activity. It can list the processes that are performing I/O, along with the disk bandwidth they are using.
 
-Open the command prompt and run the command `iotop`.
+Open the command prompt and run the command `iotop` .
 
 ### IoStat
 
 IoStat is simple tool that will collect and show system input and output storage device statistics. This tool is often used to trace storage device performance issues including devices, local disks, remote disks.
 
-Open the command prompt and run the command `iostat`.
+Open the command prompt and run the command `iostat` .
