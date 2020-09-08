@@ -372,7 +372,7 @@ busy to handle requests, it returns an HTTP error 503.
 
 ### Error message: Expected data type: DECIMAL(x,x), Offending value
 
-- **Symptoms**: When you copy data from tabular data source (such as SQL Server) into SQL DW using staged copy and PolyBase, you hit the following error:
+- **Symptoms**: When you copy data from tabular data source (such as SQL Server) into Azure Synapse Analytics using staged copy and PolyBase, you hit the following error:
 
     ```
     ErrorCode=FailedDbOperation,Type=Microsoft.DataTransfer.Common.Shared.HybridDeliveryException,
@@ -397,7 +397,7 @@ busy to handle requests, it returns an HTTP error 503.
     Java exception message:HdfsBridge::CreateRecordReader - Unexpected error encountered creating the record reader.: Error [HdfsBridge::CreateRecordReader - Unexpected error encountered creating the record reader.] occurred while accessing external file.....
     ```
 
-- **Cause**: The possible cause is that the schema (total column width) being too large (larger than 1 MB). Check the schema of the target SQL DW table by adding the size of all columns:
+- **Cause**: The possible cause is that the schema (total column width) being too large (larger than 1 MB). Check the schema of the target Azure Synapse Analytics table by adding the size of all columns:
 
     - Int -> 4 bytes
     - Bigint -> 8 bytes
@@ -429,7 +429,7 @@ busy to handle requests, it returns an HTTP error 503.
 
 - **Cause**: Azure Synapse Analytics hit issue querying the external table in Azure Storage.
 
-- **Resolution**: Run the same query in SSMS and check if you see the same result. If yes, open a support ticket to Azure Synapse Analytics and provide your SQL DW server and database name to further troubleshoot.
+- **Resolution**: Run the same query in SSMS and check if you see the same result. If yes, open a support ticket to Azure Synapse Analytics and provide your Azure Synapse Analytics server and database name to further troubleshoot.
             
 
 ## Delimited Text Format

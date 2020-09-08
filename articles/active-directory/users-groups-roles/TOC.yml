@@ -52,6 +52,8 @@
       href: users-sharing-accounts.md
     - name: Assign users to admin roles    
       href: ../fundamentals/active-directory-users-assign-role-azure-portal.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context
+    - name: User management enhancements
+      href: users-search-enhanced.md
     - name: Bulk delete users
       href: users-bulk-delete.md
     - name: Restore a deleted user    
