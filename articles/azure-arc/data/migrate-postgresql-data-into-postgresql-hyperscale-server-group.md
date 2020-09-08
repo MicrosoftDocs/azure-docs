@@ -31,15 +31,15 @@ What will be left for you to do is:
 
 To do this backup/restore operation, you can use any tool that is capable of doing backup/restore for Postgres. For example:
 - Azure Data Studio and its Postgres extension
-- pgcli
-- pgAdmin
-- pg_dump
-- pg_restore
+- `pgcli`
+- `pgAdmin`
+- `pg_dump`
+- `pg_restore`
 - `psql`
 - ...
 
 ## Example
-Let's illustrate those steps using the pgAdmin tool.
+Let's illustrate those steps using the `pgAdmin` tool.
 Consider the following setup:
 - **Source:**  
     A Postgres server running on premises on a bare metal server and named JEANYDSRV. It is of version 12 and hosts a database named MyOnPremPostgresDB that has one table T1 which has 1 row
@@ -65,7 +65,7 @@ The backup completes successfully:
 ### Create an empty database on the destination system in your Azure Arc enabled PostgreSQL Hyperscale server group
 
 > [!NOTE]
-> To register a Postgres instance in the pgAdmin tool, you need to you use public IP of your instance in your Kubernetes cluster and set the port and security context appropriately. You will find these details on the `psql` endpoint line after running the following command:
+> To register a Postgres instance in the `pgAdmin` tool, you need to you use public IP of your instance in your Kubernetes cluster and set the port and security context appropriately. You will find these details on the `psql` endpoint line after running the following command:
 
 ```console
 azdata arc postgres server endpoint list -n postgres01
@@ -97,10 +97,11 @@ Configure the restore:
 
 Use either of the following methods:
 
-**From pgAdmin:**  
+**From `pgAdmin`:**  
 
 Expand the Postgres instance hosted in your Azure Arc setup. You will see the table in the database that you have restored and when you select the data it shows the same row as that it has in the on-premises instance:
-:::image type="content" source="media/postgres-hyperscale/migrate-pg-destination-dbrestoreverif.jpg" alt-text="Migrate-db-restore-verification":::
+
+   :::image type="content" source="media/postgres-hyperscale/migrate-pg-destination-dbrestoreverif.jpg" alt-text="Migrate-db-restore-verification":::
 
 **From `psql` inside your Azure Arc setup:**  
 
