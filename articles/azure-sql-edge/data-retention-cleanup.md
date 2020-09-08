@@ -76,6 +76,6 @@ The following six extended events help track the state of the cleanup operations
 | data_retention_cleanup_completed	| Occurs when clean up process of table with data retention policy ends. |
 
 
-## See also
+## Next Steps
 - [Data Retention Policy](data-retention-overview.md)
 - [Enable and Disable Data Retention Policies](data-retention-enable-disable.md)
