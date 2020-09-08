@@ -28,12 +28,17 @@ In this quickstart, you create a notification hub using the Azure CLI. The first
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/azure-cli-prepare-your-environment-for-extensions.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-      Install the extension for Notification Hubs.
-      ```azurecli
-      az extension add --name notification-hub
-      ```
+## Install the Azure CLI extension
+
+When working with extension references for the Azure CLI, you must first install the extension. Azure CLI extensions give you access to experimental and pre-release commands that Haven't shipped as part of the core CLI. To learn more about extensions including updating and uninstalling, see [Use extensions with Azure CLI](/cli/azure/azure-cli-extensions-overview).
+
+Install the Azure CLI extension for Notification Hubs.
+
+```azurecli
+az extension add --name notification-hub
+```
 
 ## Create a Notification Hubs namespace
 

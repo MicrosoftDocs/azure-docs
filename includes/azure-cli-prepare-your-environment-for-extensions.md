@@ -28,3 +28,9 @@ manager: barbkess
     ```azurecli
     az extension list-available
    ```
+
+   Install the Azure CLI extension replacing **extensionName** with the actual name of the extension.
+
+   ```azurecli
+   az extension add --name extensionName
+   ```
