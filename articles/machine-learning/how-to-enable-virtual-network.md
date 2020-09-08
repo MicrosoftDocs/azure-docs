@@ -294,7 +294,7 @@ The NSG rule configuration in the Azure portal is shown in the following images:
 
 
 
-![The outbound NSG rules for Machine Learning Compute](./media/how-to-enable-virtual-network/experimentation-virtual-network-outbound.png)
+![List of outbound NSG rules for Machine Learning Compute](./media/how-to-enable-virtual-network/experimentation-virtual-network-outbound.png)
 
 ### <a id="limiting-outbound-from-vnet"></a> Limit outbound connectivity from the virtual network
 
@@ -775,7 +775,7 @@ To use Azure Machine Learning experimentation capabilities with Azure Key Vault 
     - Under __Virtual networks__, select __Add existing virtual networks__ to add the virtual network where your experimentation compute resides.
     - Under __Allow trusted Microsoft services to bypass this firewall__, select __Yes__.
 
-   [![The "Firewalls and virtual networks" section in the Key Vault pane](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks-page.png)](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks-page.png#lightbox)
+   [![The "Firewalls and virtual networks" configuration for Key Vault](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks-page.png)](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks-page.png#lightbox)
 
 
 ## Azure Databricks
