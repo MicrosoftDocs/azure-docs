@@ -13,13 +13,13 @@ ms.author: pafarley
 
 # Copy and move your Custom Vision projects
 
-When you create and train a Custom Vision project, you may sometimes want to copy your project to another resource. For example, you might want to move a project from a development to production environment, or back up a project to an account in a different Azure region for increased data security.
+When you create and train a Custom Vision project, you may want to copy your project to another resource. For example, you might want to move a project from a development to production environment, or back up a project to an account in a different Azure region for increased data security.
 
 The **[ExportProject](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc6548b571998fddeb3])** and **[ImportProject](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc7548b571998fddee3)** APIs enable this scenario by allowing you to copy projects from one Custom Vision account into others, which can exist in any supported geographical region. This guide shows you how to use these REST APIs with cURL. You can also use an HTTP request service like Postman to issue the requests.
 
 ## Business scenarios
 
-If your app or business depends on the use of a Custom Vision project, we recommend you copy your model to another Custom Vision account in another region. If a regional outage occurs, you can then access your project in the region where it was copied.
+If your app or business depends on the use of a Custom Vision project, we recommend you copy your model to another Custom Vision account in another region. Then if a regional outage occurs, you can access your project in the region where it was copied.
 
 ##  Prerequisites
 
@@ -36,7 +36,7 @@ The process for copying a project consists of the following steps:
 
 ## Get project ID
 
-First call **[GetProjects](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc6548b571998fddead)** to see a list of your existing Custom Vision projects and their IDs. You must use the training key and endpoint of your source account.
+First call **[GetProjects](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc6548b571998fddead)** to see a list of your existing Custom Vision projects and their IDs. Use the training key and endpoint of your source account.
 
 ```curl
 @ECHO OFF
