@@ -30,7 +30,7 @@ Speech containers enable customers to build a speech application architecture th
 > * Speech Language Detection 
 > * Neural Text-to-speech
 >
-> All Speech containers require an application to run them.
+> To use the speech containers you must submit an online request, and have it approved. See the **Request access to the run the container** section below for more information.
 
 | Function | Features | Latest |
 |--|--|--|
