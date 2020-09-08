@@ -1,5 +1,5 @@
 ---
-title: 'Site-to-site VPN connections over ExpressRoute private peering'
+title: 'Site-to-Site VPN connections over ExpressRoute private peering'
 description: This article helps you enable site-to-site VPN over ExpressRoute private peering in order to encrypt traffic.
 services: vpn-gateway
 author: cherylmc
