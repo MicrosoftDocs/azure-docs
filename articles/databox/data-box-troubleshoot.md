@@ -108,11 +108,15 @@ These are errors related to data exceeding the size of data allowed in a contain
 
 ### ERROR_CONTAINER_OR_SHARE_CAPACITY_EXCEEDED
 
-**Error description:** Azure file share limits a share to 5 TB of data. This limit has exceeded for some shares.
+**Error description:** Azure file share limits a share to 5 TB of data when large file shares (LFS) are not enabled on the storage account. This limit was exceeded for some shares.
 
 **Suggested resolution:** On the **Connect and copy** page of the local web UI, download, and review the error files.
 
-Identify the folders that have this issue from the error logs and make sure that the files in that folder are under 5 TB.
+- Identify the folders that have this issue from the error logs and make sure that the files in that folder are under 5 TB.
+- The 5 TB limit does not apply to a storage account that allows large file shares. However, you must have LFS configured when you place the data box order. 
+  - [Enable LFS on the storage account.] (../storage/files/storage-files-how-to-create-large-file-share.md#enable-large-file-shares-on-an-existing-account)
+  - [Expand existing file shares in the storage account to 10 TiB] (../storage/files/storage-files-how-to-create-large-file-share.md#expand-existing-file-shares) and set the quota to 100 TiB.
+  - Contact [Microsoft Support] (../data-box-disk-contact-microsoft-support)
 
 
 ## Object or file size limit errors
