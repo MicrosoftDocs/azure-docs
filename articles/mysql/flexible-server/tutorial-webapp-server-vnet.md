@@ -3,7 +3,7 @@ title: 'Tutorial: Create Azure Database for MySQL Flexible Server (Preview) and 
 description: Quickstart guide to create Azure Database for MySQL Flexible Server (Preview) with Web App in a virtual network
 author: mksuni
 ms.author: sumuth
-ms.service: postgresql
+ms.service: mysql
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 9/21/2020
@@ -12,7 +12,7 @@ ms.custom: mvc, devx-track-azurecli
 
 # Create an Azure Database for MySQL - Flexible Server (Preview) with App Services Web App in virtual network
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > Azure Database for MySQL - Flexible Server is currently in public preview.
 
 This tutorial shows you how create a Azure App Service Web app with  MySQL Flexible Server (Preview) inside a [Virtual network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview).
@@ -50,11 +50,11 @@ This command performs the following actions, which may take a few minutes:
 - Creates an empty database called **flexibleserverdb**
 
 > [!NOTE]
-> Make a note of your password that will be generate for you if not provided. If you forget the password you would have to reset the password using ``` az postgres flexible-server update``` command
+> Make a note of your password that will be generate for you if not provided. If you forget the password you would have to reset the password using ``` az mysql flexible-server update``` command
 
 ## Create a Web App
 
-In this section, you create app host in App Service app and connect this app to the Postgres database. Make sure you're in the repository root of your application code in the terminal.
+In this section, you create app host in App Service app and connect this app to the MySQL database. Make sure you're in the repository root of your application code in the terminal.
 
 Create an App Service app (the host process) with the az webapp up command
 
@@ -90,7 +90,7 @@ With the code now deployed to App Service, the next step is to connect the app t
 az webapp config appsettings set --settings DBHOST="<mysql-server-name>.mysql.database.azure.com" DBNAME="flexibleserverdb" DBUSER="<username>" DBPASS="<password>"
 ```
 
-- Replace ```<postgres-server-name>```, ```<username>```, ```<password>``` for the newly created flexible server command.
+- Replace ```<mysql-server-name>```, ```<username>```, ```<password>``` for the newly created flexible server command.
 - Replace <username> and <password> with the credentials that the command also generated for you.
 - The resource group and app name are drawn from the cached values in the .azure/config file.
 - The command creates settings named DBHOST, DBNAME, DBUSER, and DBPASS. If your application code is using different name for the database information then use those names for the app settings as mentioned in the code.
