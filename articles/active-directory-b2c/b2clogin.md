@@ -20,17 +20,17 @@ When you set up an identity provider for sign-up and sign-in in your Azure Activ
 
 ## What endpoints does this apply to
 The transition to b2clogin.com only applies to authentication endpoints that use the Azure AD B2C policies to authenticate users. These endpoints have a `<policy-name>` parameter. For example:
-- `https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/**<policy-name>**/oauth2/v2.0/authorize`
-- `https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/**<policy-name>**/oauth2/v2.0/token`
+- `https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/`**`<policy-name>`**`/oauth2/v2.0/authorize`
+- `https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/`**`<policy-name>`**`/oauth2/v2.0/token`
 
 Alternatively, the `<policy-name>` may be passed as a query parameter:
-- `https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/oauth2/v2.0/authorize?p=**<policy-name>**`
-- `https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/oauth2/v2.0/token?p=**<policy-name>**`
+- `https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/oauth2/v2.0/authorize?`**`p=<policy-name>`**
+- `https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/oauth2/v2.0/token?`**`p=<policy-name>`**
 
 > [!IMPORTANT]
-> Endpoints that use the 'policy' parameter must be updated.
+> Endpoints that use the 'policy' parameter must be updated. 
 
-Some Azure AD B2C customers use the shared capabilities of  Azure AD enterprise tenants like OAuth 2.0 client credentials grant flow. These features are accessed using Azure AD's login.microsoftonline.com endpoints, which don't contain the "policy" parameter. __These endpoints are not affected.__
+Some Azure AD B2C customers use the shared capabilities of  Azure AD enterprise tenants like OAuth 2.0 client credentials grant flow. These features are accessed using Azure AD's login.microsoftonline.com endpoints, which don't contain a policy parameter. **These endpoints are not being deprecated.**
 
 ## Deprecation of login.microsoftonline.com
 
