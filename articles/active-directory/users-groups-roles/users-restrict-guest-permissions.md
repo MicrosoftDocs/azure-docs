@@ -5,7 +5,7 @@ services: active-directory
 author: curtand
 ms.author: curtand
 manager: daveba
-ms.date: 08/20/2020
+ms.date: 09/04/2020
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: users-groups-roles
@@ -35,10 +35,7 @@ You must be in the Global Administrator role to configure the external collabora
 
 We’ve made changes to the existing Azure portal controls for guest user permissions.
 
-> [!IMPORTANT]
-> For a short time, the new portal controls for guest user permissions will be visible only using the URL [https://aka.ms/AADRestrictedGuestAccess](https://aka.ms/AADRestrictedGuestAccess). PowerShell and Microsoft Graph can still be used to set the controls and changes will be honored by the portal.
-
-1. Sign in to the [Azure AD admin center](https://aka.ms/AADRestrictedGuestAccess) with Global administrator permissions.
+1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with Global administrator permissions.
 1. On the **Azure Active Directory** overview page for your organization, select **User settings**.
 1. Under **External users**, select **Manage external collaboration settings**.
 1. On the **External collaboration settings** page, select **Guest user access is restricted to properties and memberships of their own directory objects** option.
