@@ -31,6 +31,7 @@ This page is updated regularly, so revisit it often. If you're looking for items
 Updates in September include:
 
 - [Vulnerability assessment findings are now available in continuous export](#vulnerability-assessment-findings-are-now-available-in-continuous-export)
+- [Prevent security misconfigurations by enforcing recommendations when creating new resources](#prevent-security-misconfigurations-by-enforcing-recommendations-when-creating-new-resources)
 - [Network security group recommendations improved](#network-security-group-recommendations-improved)
 - [Deprecated preview AKS recommendation "Pod Security Policies should be defined on Kubernetes Services"](#deprecated-preview-aks-recommendation-pod-security-policies-should-be-defined-on-kubernetes-services)
 - [Email notifications from Azure Security Center improved](#email-notifications-from-azure-security-center-improved)
@@ -52,6 +53,22 @@ Related pages:
 - [Security Center's integrated vulnerability assessment solution for Azure virtual machines](deploy-vulnerability-assessment-vm.md)
 - [Security Center's integrated vulnerability assessment solution for Azure Container Registry images](monitor-container-security.md)
 - [Continuous export](continuous-export.md)
+
+### Prevent security misconfigurations by enforcing recommendations when creating new resources
+
+Security misconfigurations are a major cause of security incidents. Security Center now has the ability to help *prevent* misconfigurations of new resources with regards to specific recommendations. 
+
+This feature can help keep your workloads secure and stabilize your secure score.
+
+Enforcing a secure configuration, based on a specific recommendation, is offered in two modes:
+
+- Using the **Deny** effect of Azure Policy, you can stop unhealthy resources from being created
+
+- Using the **Enforce** option, you can take advantage of Azure policy's **DeployIfNotExist** effect and automatically remediate non-compliant resources upon creation
+ 
+This is available for selected security recommendations and can be found at the top of the resource details page.
+
+
 
 ###  Network security group recommendations improved
 
