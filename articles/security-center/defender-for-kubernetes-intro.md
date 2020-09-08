@@ -14,32 +14,14 @@ manager: rkarlin
 
 Azure Kubernetes Service (AKS) is Microsoft's managed service for developing, deploying, and managing containerized applications.
 
-Enable **Azure Defender for Kubernetes** in Azure Security Center to gain deeper visibility into your AKS nodes, cloud traffic, and security controls.
+Azure Security Center and AKS form the best cloud-native Kubernetes security offering and together they provide environment hardening, workload protection, and run-time protection as outlined below.
+
+[Azure Defender for servers](defender-for-servers-intro.md) provides host level threat detection for your Linux AKS nodes. For threat detection for your Kubernetes clusters, enable **Azure Defender for Kubernetes**.
+
 
 ## What are the benefits of Azure Defender for Kubernetes?
 
-Azure Security Center and AKS form the best cloud-native Kubernetes security offering and together they provide environment hardening, workload protection, and run-time protection as outlined below.
 
-### Cluster hardening
-
-To secure your AKS nodes and hosts, Security Center:
-
-- **Discovers and categorizes**:
-    - your AKS resources, from clusters to individual virtual machines
-    - unmanaged containers hosted on IaaS Linux VMs, or other Linux machines running Docker containers
-
-- **Performs continuous monitoring** of the configuration of your AKS clusters and your Docker hosts.
-
-- **Generates security recommendations** if your containers don't satisfy any of the controls in the [Center for Internet Security (CIS) Docker Benchmark](https://www.cisecurity.org/benchmark/docker/).
-
-    Use the **recommendations page** to view recommendations and remediate issues. 
-
-    You'll also see the recommendations per resource by applying the relevant filters on the [asset inventory](asset-inventory.md) page. 
-
-    For details of the relevant Security Center recommendations that might appear for this feature, see the [container section](recommendations-reference.md#recs-containers) of the recommendations reference table.
-
-    >[!NOTE]
-    > These CIS benchmark checks will not run on AKS-managed instances or Databricks-managed VMs.
 
 
 ### Run-time protection

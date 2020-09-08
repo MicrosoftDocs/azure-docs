@@ -42,7 +42,17 @@ When **Azure Defender for container registries** is enabled, any image you push 
 
 1. Image scans are triggered on every push or import, and if the image has been pulled within the last 30 days. 
 
-    When the scan completes (typically after approximately 2 minutes, but can be up to 15 minutes), findings are available as Security Center recommendations like this:
+    When the scan completes (typically after approximately 2 minutes, but can be up to 15 minutes), findings are available as Security Center recommendations.
+
+
+## Identify vulnerabilities in images in other container registries 
+
+1. Use the ACR tools to bring images to your registry from Docker Hub or Microsoft Container Registry.
+
+    Learn more in [Import container images to a container registry]()../container-registry/container-registry-import-images.md)
+
+	When the import completes, the imported images are scanned by Azure Defender. 
+    When the scan completes (typically after approximately 2 minutes, but can be up to 15 minutes), findings are available as Security Center recommendations.
 
 
 ## View and remediate findings
