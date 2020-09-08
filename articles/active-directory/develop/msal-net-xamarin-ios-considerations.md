@@ -125,7 +125,7 @@ Your app is impacted if you're building with Xcode 11 and you use either iOS bro
 
 In such cases, use [MSAL.NET 4.4.0+](https://www.nuget.org/packages/Microsoft.Identity.Client/) to enable successful authentication.
 
-### Additional requirements:
+### Additional requirements
 
 - When using the latest MSAL libraries, ensure that **Microsoft Authenticator version 6.3.19+** is installed on the device.
 - When updating to MSAL.NET 4.4.0+, update the your `LSApplicationQueriesSchemes` in the *Info.plist* file and add `msauthv3`:
