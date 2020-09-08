@@ -13,7 +13,7 @@ ms.topic: how-to
 
 Azure Key Vault allows you to store secrets and control their distribution in a centralized, secure cloud repository, which eliminates the need to store credentials in applications. Applications need only authenticate with Key Vault at run time to access those secrets.
 
-## App identity and service principals
+## App identity and security principals
 
 Authentication with Key Vault works in conjunction with [Azure Active Directory (Azure AD)](/azure/active-directory/fundamentals/active-directory-whatis), which is responsible for authenticating the identity of any given **security principal**.
 
@@ -35,7 +35,7 @@ For applications, there are two ways to obtain a service principal:
 
 * If you cannot use managed identity, you instead **register** the application with your Azure AD tenant, as described on [Quickstart: Register an application with the Azure identity platform](/azure/active-directory/develop/quickstart-register-app). Registration also creates a second application object that identifies the app across all tenants.
 
-## Authorize a service principal to access Key Vault
+## Authorize a security principal to access Key Vault
 
 Key Vault works with two separate levels of authorization:
 
