@@ -56673,11 +56673,6 @@
       "redirect_document_id": true
     },
     {
-      "source_path": "articles/active-directory/b2b/licensing-guidance.md",
-      "redirect_url": "/azure/active-directory/external-identities/licensing-guidance",
-      "redirect_document_id": true
-    },
-    {
       "source_path": "articles/active-directory/b2b/o365-external-user.md",
       "redirect_url": "/azure/active-directory/external-identities/o365-external-user",
       "redirect_document_id": true
