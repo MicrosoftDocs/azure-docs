@@ -67,7 +67,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
   + New Getting started landing Page 
   
 + **Preview features**
-    + Gather feature in Notebooks. With the [Gather](https://github.com/microsoft/gather) feature, users can now easily clean up notebooks with, Gather uses an automated dependency analysis of your notebook, ensuring the essential code is kept, but removing any irrelevant pieces.
+    + Gather feature in Notebooks. With the [Gather](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#clean-your-notebook-preview) feature, users can now easily clean up notebooks with, Gather uses an automated dependency analysis of your notebook, ensuring the essential code is kept, but removing any irrelevant pieces.
 
 + **Bug fixes and improvements**
   + Improvement in speed and reliability
