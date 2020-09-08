@@ -35,6 +35,7 @@ To retrieve the cluster ip address use the following command:
 kubectl cluster-info
 ```
 
+
 ### AKS or other load balanced cluster
 
 To monitor your environment in AKS or other load balanced cluster, you need to get the ip address of the management proxy service. Use this command to retrieve the **external ip** address:
