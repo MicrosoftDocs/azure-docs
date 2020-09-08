@@ -55,7 +55,7 @@ Once you have identified the applications causing high churn on your machine, yo
 1. This graph is currently monitoring just one monitor, that is, the '% Processor Time' – as indicated by the table right below the graph. You can add more items for monitoring by clicking on the **‘+’** on top of the tool.
 1. Below is a visual of how Performance Monitor looks like once we add more counters to it -
 
-    ![Performance Monitor Step2](./media/monitoring-high-churn/perfmon-step3.png)
+    ![Performance Monitor Step3](./media/monitoring-high-churn/perfmon-step3.png)
 
 Learn more about Performance Monitor [here](https://docs.microsoft.com/dynamics365/business-central/dev-itpro/administration/monitor-use-performance-monitor-collect-event-trace-data).
 
