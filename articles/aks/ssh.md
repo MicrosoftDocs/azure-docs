@@ -59,6 +59,12 @@ az vmss update-instances --instance-ids '*' \
     --name $SCALE_SET_NAME
 ```
 
+> [!NOTE]
+> If executing via PowerShell, the *protected-settings* argument must be modified:
+```powershell
+--protected-settings "{'username':'azureuser', 'ssh_key':'$(cat ~/.ssh/id_rsa.pub)'}"
+```
+
 The above example uses the *CLUSTER_RESOURCE_GROUP* and *SCALE_SET_NAME* variables from the previous commands. The above example also uses *~/.ssh/id_rsa.pub* as the location for your SSH public key.
 
 > [!NOTE]
