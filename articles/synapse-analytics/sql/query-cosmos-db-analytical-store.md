@@ -224,9 +224,9 @@ The result of this query might look like:
 | title | authors | first | last | affiliation |
 | --- | --- | --- | --- | --- |
 | Supplementary Information An eco-epidemi… |	`[{"first":"Julien","last":"Mélade","suffix":"","affiliation":{"laboratory":"Centre de Recher…` | Julien | Mélade | `	{"laboratory":"Centre de Recher…` |
-Supplementary Information An eco-epidemi… | `[{"first":"Julien","last":"Mélade","suffix":"","affiliation":{"laboratory":"Centre de Recher…` | Nicolas | 4# |`{"laboratory":"","institution":"U…` | 
-| Supplementary Information An eco-epidemi… |	`[{"first":"Julien","last":"Mélade","suffix":"","affiliation":{"laboratory":"Centre de Recher…` | Beza | Ramazindrazana |	`{"laboratory":"Centre de Recher…` |
-| Supplementary Information An eco-epidemi… |	`[{"first":"Julien","last":"Mélade","suffix":"","affiliation":{"laboratory":"Centre de Recher…` | Olivier | Flores |`{"laboratory":"UMR C53 CIRAD, …` |		
+Supplementary Information An eco-epidemi… | `[{"first":"Nicolas","last":"4#","suffix":"","affiliation":{"laboratory":"","institution":"U…` | Nicolas | 4# |`{"laboratory":"","institution":"U…` | 
+| Supplementary Information An eco-epidemi… |	`[{"first":"Beza","last":"Ramazindrazana","suffix":"","affiliation":{"laboratory":"Centre de Recher…` | Beza | Ramazindrazana |	`{"laboratory":"Centre de Recher…` |
+| Supplementary Information An eco-epidemi… |	`[{"first":"Olivier","last":"Flores","suffix":"","affiliation":{"laboratory":"UMR C53 CIRAD, …` | Olivier | Flores |`{"laboratory":"UMR C53 CIRAD, …` |		
 
 > [!IMPORTANT]
 > If you see unexpected characters in your text like `MÃƒÂ©lade` instead of `Mélade` then your database collation is not set to [UTF8](https://docs.microsoft.com/sql/relational-databases/collations/collation-and-unicode-support#utf8) collation. 
