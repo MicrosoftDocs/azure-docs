@@ -19,13 +19,13 @@ ms.custom: "user-help, seo-update-azuread-jan"
 You can use your work or school account with the web-based **My Apps** portal to:
 
 - View and start many of your organization’s cloud-based apps
-- Update your profile and account information
-- See your **Groups** information
+- Go to [the **My Groups** portal](https://account.activedirectory.windowsazure.com/r#/groups)
+- Go to [the **My Account** portal](https://myaccount.microsoft.com/)
 
-If you don’t have access to the **My Apps** portal, contact your Helpdesk for permission.
+If you don’t have access to the **My Apps** portal, contact your organization's Help desk for permission.
 
 > [!IMPORTANT]
-> This content is intended for My Apps users. If you're an administrator, you can find more information about how to set up and manage your cloud-based apps in the [Application Management Documentation](../manage-apps/index.yml).
+> This content is intended for **My Apps** users. If you're an administrator, you can find more information about how to set up and manage your cloud-based apps in the [Application Management Documentation](../manage-apps/index.yml).
 
 ## Supported browsers
 
@@ -35,9 +35,30 @@ You can get to the **My Apps** portal from any of the following web browsers:
 - Google Chrome
 - Mozilla Firefox, version 26.0 or later
 
-## Download and install the My Apps Secure Sign-in Extension
+You can access and use the My Apps portal on your computer, or from the mobile version of the Edge browser on an iOS or Android mobile device.
 
-Download and install the **My Apps Secure Sign-in Extension**, if you're prompted. This extension helps you use your desktop browser to use single sign-on with your organization's cloud apps. If your organization has already set you up for single sign-on, the extension is installed automatically and you can skip this section.
+![Apps page in the My Apps portal](media/my-apps-portal/my-apps-portal-apps-page.png)
+
+## Access and use the My Apps portal on your computer
+
+If you have permission to access and use your organization's cloud-based apps, you can get to them through the **My Apps** portal.
+
+1. Sign in to your work or school account on your computer.
+
+2. In a supported web browser, go to https://myapps.microsoft.com, or use the link provided by your organization if they direct you to a customized page such as `https://myapps.microsoft.com/contoso.com`.
+
+   The **Apps** page appears, showing all the cloud-based apps owned by your organization that are available for you to use.
+
+3. From the **Apps** page, select the app you want to start using.
+
+   A new page opens for the app, where you can sign in (if necessary) or begin using the app.
+
+### Download and install the My Apps Secure Sign-in Extension
+
+Download and install the **My Apps Secure Sign-in Extension**, if you're prompted. This extension helps you use your desktop browser to use single sign-on with your organization's cloud apps. For password single sign- on apps, go to Manage Application
+
+If your organization has already set you up for single sign-on, the extension is installed automatically and you can skip this section.
+
 
 This extension helps you:
 
@@ -58,7 +79,7 @@ Download and install the extension, based on the browser you're using.
 
 An icon is added to the right of your **Address** bar, letting you sign in and customize the extension.
 
-## To change your My Apps portal using the extension
+### To change your My Apps portal using the extension
 
 You can choose how many apps to view in the **Recently Used** section and decide whether to allow your organization's internal URLs to redirect.
 
@@ -70,61 +91,13 @@ You can choose how many apps to view in the **Recently Used** section and decide
 
    ![Settings page of the extension, showing the available customizations](media/my-apps-portal/my-apps-portal-extension-settings-page.png)
 
-## Access to the My Apps portal by device
+## Access and use the My Apps portal on the mobile version of Edge
 
-You can access and use the My Apps portal on your computer, from an Intune-managed browser, or from an iOS or Android mobile device.
+View and use your organization's apps from the mobile version of the Edge browser on your devices.
 
-![Apps page in the My Apps portal](media/my-apps-portal/my-apps-portal-apps-page.png)
+1. On your mobile device, download and install the mobile Edge browser app from the Apple App Store and the Google Play Store.
 
-### Access and use the My Apps portal on your computer
-
-If you have permission to access and use your organization's cloud-based apps, you can get to them through the **My Apps** portal.
-
-1. Sign in to your work or school account on your computer.
-
-2. In a supported web browser, go to https://myapps.microsoft.com, or use the link provided by your organization if they direct you to a customized page such as `https://myapps.microsoft.com/contoso.com`.
-
-   The **Apps** page appears, showing all the cloud-based apps owned by your organization that are available for you to use.
-
-3. From the **Apps** page, select the app you want to start using.
-
-   A new page opens for the app, where you can sign in (if necessary) or begin using the app.
-
-### Access and use the My Apps portal on an Intune-managed browser
-
-View and use your organization's apps from an Intune Managed Browser on your iOS and Android devices.
-
-1. On your mobile device, download and install the Intune Managed Browser app from the Apple App Store and the Google Play Store.
-
-2. Open the Intune Managed Browser app, go to https://myapps.microsoft.com, or use the link provided by your organization if they direct you to a customized page, such as https://myapps.microsoft.com/contoso.com.
-
-   The **Apps** page appears, showing all the cloud-based apps owned by your organization and available for you to use.
-
-3. From the **Apps** page, select the app you want to start using.
-
-   A new page opens for the app, where you can sign in (if necessary) or begin using the app.
-
-### Access and use the My Apps portal on an iOS device
-
-View and use the **My Apps** portal from an iPhone or iPad device, running iOS version 7 or later. You can also install the [My Apps mobile app](https://itunes.apple.com/us/app/my-apps-azure-active-directory/id824048653?mt=8) to access your organization's apps on your iOS devices.
-
-1. On your mobile device, start a web browser app, such as Safari.
-
-2. Go to https://myapps.microsoft.com, or use the link provided by your organization if they direct you to a customized page, such as https://myapps.microsoft.com/contoso.com.
-
-   The **Apps** page appears, showing all the cloud-based apps owned by your organization that are available for you to use.
-
-3. From the **Apps** page, select the app you want to start using.
-
-   A new page opens for the app, where you can sign in (if necessary) or begin using the app.
-
-### Access and use the My Apps portal on an Android device
-
-View and use the **My Apps** portal on an Android device.
-
-1. On your mobile device, start a web browser app, such as Google Chrome.
-
-2. Go to https://myapps.microsoft.com, or use the link provided by your organization if they direct you to a customized page, such as https://myapps.microsoft.com/contoso.com.
+2. Open the mobile Edge browser and go to https://myapps.microsoft.com, or use the link provided by your organization if they direct you to a customized page, such as https://myapps.microsoft.com/contoso.com.
 
    The **Apps** page appears, showing all the cloud-based apps owned by your organization and available for you to use.
 
