@@ -20,12 +20,12 @@ Azure's Computer Vision API includes Optical Character Recognition (OCR) capabil
 
 ## Read API 
 
-The Computer Vision Read API is Azure's latest OCR technology ([learn what's new](./whats-new.md#read-api-v31-public-preview-adds-simplified-chinese-support)) that extracts printed text (in several languages), handwritten text (English only), digits, and currency symbols from images and multi-page PDF documents. It's optimized to extract text from text-heavy images and multi-page PDF documents with mixed languages. It supports detecting both printed and handwritten text in the same image or document.
+The Computer Vision [Read API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) is Azure's latest OCR technology ([learn what's new](./whats-new.md#read-api-v31-public-preview-adds-simplified-chinese-support)) that extracts printed text (in several languages), handwritten text (English only), digits, and currency symbols from images and multi-page PDF documents. It's optimized to extract text from text-heavy images and multi-page PDF documents with mixed languages. It supports detecting both printed and handwritten text in the same image or document.
 
 ![How OCR converts images and documents into structured output with extracted text](./Images/how-ocr-works.svg)
 
 ### Input requirements
-The Read API's **Read** operation takes images and documents as its input. They have the following requirements:
+The **Read** call takes images and documents as its input. They have the following requirements:
 
 * Supported file formats: JPEG, PNG, BMP, PDF, and TIFF
 * For PDF and TIFF files, up to 2000 pages (only first two pages for the free tier) are processed.
@@ -35,11 +35,11 @@ The Read API's **Read** operation takes images and documents as its input. They 
 > [!NOTE]
 > **Language input** 
 >
-> The [Read operation](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) has an optional request parameter for language. This is the BCP-47 language code of the text in the document. Read supports auto language identification and multilingual documents, so only provide a language code if you would like to force the document to be processed as that specific language.
+> The [Read call](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) has an optional request parameter for language. This is the BCP-47 language code of the text in the document. Read supports auto language identification and multilingual documents, so only provide a language code if you would like to force the document to be processed as that specific language.
 
-### The Read operation
+### Read
 
-The [Read operation](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) takes an image or PDF document as the input and extracts text asynchronously. The call returns with a response header field called `Operation-Location`. The `Operation-Location` value is a URL that contains the Operation ID to be used in the next step.
+The Read API's [Analyze operation](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) takes an image or PDF document as the input and extracts text asynchronously. The call returns with a response header field called `Operation-Location`. The `Operation-Location` value is a URL that contains the Operation ID to be used in the next step.
 
 |Response header| Result URL |
 |:-----|:----|
@@ -50,9 +50,9 @@ The [Read operation](https://westcentralus.dev.cognitive.microsoft.com/docs/serv
 >
 > The [Computer Vision pricing](https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision/) page includes the pricing tier for Read. Each analyzed image or page is one transaction. If you call the operation with a PDF or TIFF document containing 100 pages, the Read operation will count it as 100 transactions and you will be billed for 100 transactions. if you made 50 calls to the operation and each call submitted a document with 100 pages, you will be billed for 50 X 100 = 5000 transactions.
 
-### The Get Read Results operation
+### Get Read Results
 
-The second step is to call the [Get Read Results](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d9869604be85dee480c8750) operation. This operation takes as input the operation ID that was created by the Read operation. It returns a JSON response that contains a **status** field with the following possible values. You call this operation iteratively until it returns with the **succeeded** value. Use an interval of 1 to 2 seconds to avoid exceeding the requests per second (RPS) rate.
+The second step is to call [Get Read Results](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d9869604be85dee480c8750) operation. This operation takes as input the operation ID that was created by the Read operation. It returns a JSON response that contains a **status** field with the following possible values. You call this operation iteratively until it returns with the **succeeded** value. Use an interval of 1 to 2 seconds to avoid exceeding the requests per second (RPS) rate.
 
 |Field| Type | Possible values |
 |:-----|:----:|:----|
