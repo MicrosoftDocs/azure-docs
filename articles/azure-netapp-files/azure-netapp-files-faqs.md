@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/18/2020
+ms.date: 09/08/2020
 ms.author: b-juche
 ---
 # FAQs About Azure NetApp Files
@@ -44,6 +44,10 @@ Yes, you can, if you create the required DNS entries. Azure NetApp Files supplie
 ### Can I set or select my own IP address for an Azure NetApp Files volume?  
 
 No. IP assignment to Azure NetApp Files volumes is dynamic. Static IP assignment is not supported. 
+
+### Does Azure NetApp Files support dual stack (IPv4 and IPv6) VNet?
+
+No, Azure NetApp Files does not currently support dual stack (IPv4 and IPv6) VNet.  
  
 ## Security FAQs
 
