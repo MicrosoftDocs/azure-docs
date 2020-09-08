@@ -4,11 +4,15 @@ description: This article describes the compute and storage options in Azure Dat
 author: lfittl-msft
 ms.author: lufittl
 ms.service: postgresql
+ms.subservice: flexible-server
 ms.topic: conceptual
 ms.date: 9/22/2020
 ---
 
 # Compute and Storage options in Azure Database for PostgreSQL - Flexible Server
+
+> [!IMPORTANT]
+> Azure Database for PostgreSQL - Flexible Server is in preview
 
 You can create an Azure Database for PostgreSQL server in one of three different pricing tiers: Burstable, General Purpose, and Memory Optimized. The pricing tiers are differentiated by the amount of compute in vCores that can be provisioned, memory per vCore, and the storage technology used to store the data. All resources are provisioned at the PostgreSQL server level. A server can have one or many databases.
 

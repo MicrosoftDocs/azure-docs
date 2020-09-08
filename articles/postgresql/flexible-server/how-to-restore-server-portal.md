@@ -4,11 +4,15 @@ description: This article describes how to perform restore operations in Azure D
 author: sr-msft
 ms.author: srranga
 ms.service: postgresql
+ms.subservice: flexible-server
 ms.topic: how-to
 ms.date: 09/21/2020
 ---
 
-# Point-in-time restore of a Flexible Server (Preview)
+# Point-in-time restore of a Flexible Server
+
+> [!IMPORTANT]
+> Azure Database for PostgreSQL - Flexible Server is in preview
 
 This article provides step-by-step procedure to perform point-in-time recoveries in flexible server using backups. You can perform either to an earliest restore point or a custom restore point within your retention period.
 

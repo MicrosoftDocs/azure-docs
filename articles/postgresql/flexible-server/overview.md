@@ -5,9 +5,11 @@ author: sunilagarwal
 ms.author: sunila
 ms.custom: mvc
 ms.service: postgresql
+ms.subservice: flexible-server
 ms.topic: overview
-ms.date: 09/21/2020
+ms.date: 09/22/2020
 ---
+
 # Azure Database for PostgreSQL Flexible Server
 
 [Azure Database for PostgreSQL](../overview.md) powered by the PostgreSQL community edition is available in three deployment modes:
@@ -17,6 +19,9 @@ ms.date: 09/21/2020
 - Hyperscale (Citus)
 
 In this article, we will provide an overview and introduction to core concepts of flexible server deployment model.
+
+> [!IMPORTANT]
+> Azure Database for PostgreSQL Flexible Server is in preview
 
 ## Overview
 

@@ -4,10 +4,15 @@ description: Learn about the concepts of zone redundant high availability with A
 author: sr-msft
 ms.author: srranga
 ms.service: postgresql
+ms.subservice: flexible-server
 ms.topic: conceptual
-ms.date: 09/21/2020
+ms.date: 09/22/2020
 ---
-# High availability concepts in Azure Database for PostgreSQL Flexible Server (Preview)
+
+# High availability concepts in Azure Database for PostgreSQL - Flexible Server
+
+> [!IMPORTANT]
+> Azure Database for PostgreSQL - Flexible Server is in preview
 
 Azure Database for PostgreSQL - Flexible Server offers high availability configuration with automatic failover capability using **zone redundant** server deployment. When deployed in a zone redundant configuration, flexible server automatically provisions and manages a standby replica in a different availability zone. Using PostgreSQL streaming replication, the data is replicated to the standby replica server in **synchronous** mode. 
 

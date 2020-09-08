@@ -1,16 +1,21 @@
 ---
-title: Backup and restore in Azure Database for PostgreSQL - Flexible Server (Preview)
+title: Backup and restore in Azure Database for PostgreSQL - Flexible Server
 description: Learn about the concepts of backup and restore with Azure Database for PostgreSQL - Flexible Server
 author: sr-msft
 ms.author: srranga
 ms.service: postgresql
+ms.subservice: flexible-server
 ms.topic: conceptual
-ms.date: 09/21/2020
+ms.date: 09/22/2020
 ---
-# Backup and restore in Azure Database for PostgreSQL - Flexible Server (Preview)
- 
- ## Overview
- Backups form an essential part of any business continuity strategy. They help with protecting data from accidental corruption or deletion. Azure Database for PostgreSQL Flexible Server automatically backs up your server and retains the backups for the duration of up to 35 days. During the restore process, you can specify the date and time to which you want to restore within the retention period The overall time to restore and recover depends on the size of the database files and the amount of recovery. 
+
+# Backup and restore in Azure Database for PostgreSQL - Flexible Server
+
+> [!IMPORTANT]
+> Azure Database for PostgreSQL - Flexible Server is in preview
+
+## Overview
+Backups form an essential part of any business continuity strategy. They help with protecting data from accidental corruption or deletion. Azure Database for PostgreSQL Flexible Server automatically backs up your server and retains the backups for the duration of up to 35 days. During the restore process, you can specify the date and time to which you want to restore within the retention period The overall time to restore and recover depends on the size of the database files and the amount of recovery. 
 
 ### Backup process in flexible server
 The first snapshot backup is scheduled immediately after the flexible server is created. Subsequently, a daily snapshot backup of data files is performed. Backups are stored in a zone redundant storage within a region. Transaction logs (write ahead logs - WAL) are also archived continuously, so that you will be able to restore to the last committed transaction. These data and logs backups allow you to restore a server to any point-in-time within your configured backup retention period. All backups are encrypted using AES 256-bit encryption.

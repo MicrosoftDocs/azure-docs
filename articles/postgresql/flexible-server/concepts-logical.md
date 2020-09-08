@@ -4,14 +4,15 @@ description: Learn about using logical replication and logical decoding in Azure
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
+ms.subservice: flexible-server
 ms.topic: conceptual
-ms.date: 09/21/2020
+ms.date: 09/22/2020
 ---
 
 # Logical replication and logical decoding in Azure Database for PostgreSQL Flexible Server
 
 > [!IMPORTANT]
-> Azure Database for PostgreSQL Flexible Server is in preview.
+> Azure Database for PostgreSQL Flexible Server is in preview
 
 PostgreSQL's logical replication and logical decoding features are supported in Azure Database for PostgreSQL Flexible Server.
 

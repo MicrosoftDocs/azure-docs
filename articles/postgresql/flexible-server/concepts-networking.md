@@ -4,16 +4,17 @@ description: Learn about connectivity and networking options in the Flexible Ser
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
+ms.subservice: flexible-server
 ms.topic: conceptual
-ms.date: 9/21/2020
+ms.date: 9/22/2020
 ---
 
-# Networking overview
-
-This article describes connectivity and networking concepts for Azure Database for PostgreSQL Flexible server. 
+# Networking overview - Azure Database for PostgreSQL Flexible Server
 
 > [!IMPORTANT]
-> Azure Database for PostgreSQL Flexible Server is in preview.
+> Azure Database for PostgreSQL Flexible Server is in preview
+
+This article describes connectivity and networking concepts for Azure Database for PostgreSQL Flexible server. 
 
 ## Choosing a networking option
 You have two networking options for your Azure Database for PostgreSQL Flexible Server. The options are **private access (VNet integration)** and **public access (allowed IP addresses)**. At server creation, you must pick one option. 

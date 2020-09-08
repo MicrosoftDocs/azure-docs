@@ -4,11 +4,15 @@ description: This article describes how to perform restart operations in Azure D
 author: sr-msft
 ms.author: srranga
 ms.service: postgresql
+ms.subservice: flexible-server
 ms.topic: how-to
 ms.date: 09/21/2020
 ---
 
-# Restart Flexible Server (Preview)
+# Restart Azure Database for PostgreSQL Flexible Server
+
+> [!IMPORTANT]
+> Azure Database for PostgreSQL - Flexible Server is in preview
 
 This article provides step-by-step procedure to perform restart of the flexible server. This operation is useful to apply any static parameter changes that requires database server restart. The procedure is same for servers configured with zone redundant high availability. 
 

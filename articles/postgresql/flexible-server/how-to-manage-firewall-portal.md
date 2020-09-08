@@ -4,14 +4,15 @@ description: Create and manage firewall rules for Azure Database for PostgreSQL 
 author: ambhatna
 ms.author: ambhatna
 ms.service: postgresql
+ms.subservice: flexible-server
 ms.topic: how-to
-ms.date: 9/21/2020
+ms.date: 9/22/2020
 ---
 
 # Create and manage firewall rules for Azure Database for PostgreSQL - Flexible Server using the Azure portal
 
 > [!IMPORTANT]
-> Azure Database for PostgreSQL Flexible Server is currently in public preview.
+> Azure Database for PostgreSQL - Flexible Server is currently in public preview.
 
 Azure Database for PostgreSQL Flexible Server supports two types of mutually exclusive network connectivity methods to connect to your flexible server. The two options are:
 
