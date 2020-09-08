@@ -40,7 +40,7 @@ This method uses Azure Blob Storage as a temporary storage location that you can
 
 1. Select **Create**
 
-Note down the URI and the Query String from this screen. These will be needed in later steps. Click on the **Copy** button to save to a Notepad/OneNote etc.
+   Take note of the URI and the Query String from this screen. These will be needed in later steps. Click on the **Copy** button to save to a Notepad/OneNote etc.
 
 1. Close the **Shared Access Signature** window.
 
