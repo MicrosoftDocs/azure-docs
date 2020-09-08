@@ -52,6 +52,7 @@ The following OS platforms and versions are supported:
 ### Development Environment
 
 To build, extend, and develop the IoT Plug and Play  
+
 - A development environment that supports compiling C++ such as: [Visual Studio (Community, Professional, or Enterprise)](https://visualstudio.microsoft.com/downloads/)- make sure that you include the Desktop Development with C++ workload when you install Visual Studio.
 - [CMake](https://cmake.org/download/) - when you install CMake, select the option `Add CMake to the system PATH`.
 - If you are building on Windows, you will also need to download Windows 17763 SDK: [https://developer.microsoft.com/en-US/windows/downloads/windows-10-sdk](https://developer.microsoft.com/en-US/windows/downloads/windows-10-sdk)

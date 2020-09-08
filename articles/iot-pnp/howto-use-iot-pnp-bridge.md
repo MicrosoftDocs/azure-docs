@@ -144,11 +144,10 @@ Modify the folowing parameters under **pnp_bridge_parameters** node in the `conf
 
 Navigate to the *pnpbridge* folder in the repository directory.
 
-For Windows run the following:
+For Windows run the following in a [Developer Command Prompt for Visual Studio](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs):
 
 ```cmd
 cd scripts\windows
-
 build.cmd
 ```
 
@@ -156,9 +155,7 @@ Similarly for Linux run the following:
 
 ```bash
 cd scripts/linux
-
 ./setup.sh
-
 ./build.sh
 ```
 
@@ -193,5 +190,6 @@ After the device client sample starts, use the Azure IoT explorer tool to verify
 
 In this quickstart, you've learned how to connect an IoT Plug and Play device to an IoT hub. To learn more about how to build a solution that interacts with your IoT Plug and Play devices, see:
 
-> [!div class="nextstepaction"]
-> [How-to: Connect to and interact with a device](howto-develop-solution.md)
+* [What is IoT Plug and Play bridge](./concepts-iot-pnp-bridge.md)
+* [See the GitHub Developer reference for IoT Plug and Play bridge](https://aka.ms/iot-pnp-bridge-dev-doc)
+* [IoT Plug and Play bridge on GitHub](https://aka.ms/iotplugandplaybridge)
