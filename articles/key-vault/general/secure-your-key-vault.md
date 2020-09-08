@@ -126,7 +126,7 @@ We need to authorize the following operations for our roles:
 
 **Developers and operators**
 - Get references from the security team for the bootstrap and TLS/SSL certificates (thumbprints), storage key (secret URI), and RSA key (key URI) for wrap/unwrap.
-- Develop and deploy the application to access keys and secrets programmatically.
+- Develop and deploy the application to access certifcates and secrets programmatically.
 
 **Auditors**
 - Review the Key Vault logs to confirm proper use of keys and secrets, and compliance with data security standards.
@@ -138,7 +138,8 @@ The following table summarizes the access permissions for our roles and applicat
 | Security team | Key Vault Contributor | Certificates: all operations <br> Keys: all operations <br> Secrets: all operations | Key Vault Administrator (preview) |
 | Developers and&nbsp;operators | Key Vault deploy permission<br><br> **Note**: This permission allows deployed VMs to fetch secrets from a key vault. | None | None |
 | Auditors | None | Certificates: list <br> Keys: list<br>Secrets: list<br><br> **Note**: This permission enables auditors to inspect attributes (tags, activation dates, expiration dates) for keys and secrets not emitted in the logs. | Key Vault Reader (preview) |
-| Application | None | Keys: get, list, wrapKey, unwrapKey <br>Secrets: get,list <br> Certificates: get, list | Key Vault Reader (preview), Key Vault Crypto Service Encryption (preview) |
+| Azure Storage | None | Keys: get, list, wrapKey, unwrapKey <br> | Key Vault Crypto Service Encryption |
+| Application | None | Secrets: get,list <br> Certificates: get, list | Key Vault Reader (preview), Key Vault Secret User (preview) |
 
 The three team roles need access to other resources along with Key Vault permissions. To deploy VMs (or the Web Apps feature of Azure App Service), developers and operators need `Contributor` access to those resource types. Auditors need read access to the Storage account where the Key Vault logs are stored.
 
