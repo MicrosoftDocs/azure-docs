@@ -39,12 +39,12 @@ public override bool OpenUrl(UIApplication app, NSUrl url, NSDictionary options)
 }
 ```
 
-Also do the following tasks:
+Also, perform the following tasks:
 
-* Define a URL scheme.
+* Define a redirect URI scheme.
 * Require permissions for your app to call another app.
-* Have a specific form for the redirect URL.
-* Register the redirect URL in the [Azure portal](https://portal.azure.com).
+* Have a specific form for the redirect URI.
+* [Register a redirect URI](quickstart-register-app.md#add-a-redirect-uri) in the Azure portal.
 
 ### Enable keychain access
 
@@ -53,6 +53,7 @@ To enable keychain access, make sure that your application has a keychain access
 To benefit from the cache and single sign-on (SSO), set the keychain access group to the same value in all of your applications.
 
 This example of the setup uses MSAL 4.x:
+
 ```csharp
 var builder = PublicClientApplicationBuilder
      .Create(ClientId)
@@ -86,11 +87,7 @@ To enable this cache sharing, use the `WithIosKeychainSecurityGroup()` method to
 Earlier in this article, you learned that MSAL adds `$(AppIdentifierPrefix)` whenever you use the `WithIosKeychainSecurityGroup()` API. MSAL adds this element because the team ID `AppIdentifierPrefix` ensures that only applications that are made by the same publisher can share keychain access.
 
 > [!NOTE]
-> The `KeychainSecurityGroup` property is deprecated.
->
-> Starting in MSAL 2.x, developers were forced to include the `TeamId` prefix when they used the `KeychainSecurityGroup` property. But starting in MSAL 2.7.x, when you use the new `iOSKeychainSecurityGroup` property, MSAL resolves the `TeamId` prefix during runtime. When you use this property, don't include the `TeamId` prefix in the value. The prefix is not required.
->
-> Because the `KeychainSecurityGroup` property is obsolete, use the `iOSKeychainSecurityGroup` property.
+> The `KeychainSecurityGroup` property is deprecated. Use the `iOSKeychainSecurityGroup` property instead. The `TeamId` prefix is not required when you use `iOSKeychainSecurityGroup`.
 
 ### Use Microsoft Authenticator
 
@@ -104,45 +101,32 @@ For details about how to enable a broker, see [Use Microsoft Authenticator or Mi
 
 ## Known issues with iOS 12 and authentication
 
-Microsoft released a [security advisory](https://github.com/aspnet/AspNetCore/issues/4647) about an incompatibility between iOS 12 and some types of authentication. The incompatibility breaks social, WSFed, and OIDC sign-ins. The security advisory helps developers understand how to remove ASP.NET security restrictions from their applications to make them compatible with iOS 12.
+Microsoft released a [security advisory](https://github.com/aspnet/AspNetCore/issues/4647) about an incompatibility between iOS 12 and some types of authentication. The incompatibility breaks social, WSFed, and OIDC sign-ins. The security advisory helps you understand how to remove ASP.NET security restrictions from your applications to make them compatible with iOS 12.
 
-When you develop MSAL.NET applications on Xamarin iOS, you might see an infinite loop when you try to sign in to websites from iOS 12. This behavior is similar to this [ADAL issue](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/issues/1329).
+When you develop MSAL.NET applications on Xamarin iOS, you might see an infinite loop when you try to sign in to websites from iOS 12. Such behavior is similar to this ADAL issue on GitHub: [Infinite loop when trying to login to website from iOS 12 #1329](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/issues/1329).
 
 You might also see a break in ASP.NET Core OIDC authentication with iOS 12 Safari. For more information, see this [WebKit issue](https://bugs.webkit.org/show_bug.cgi?id=188165).
 
 ## Known issues with iOS 13 and authentication
 
-If your app requires conditional access or certificate authentication support, you must set up your app to be able to talk to the Azure Authenticator app. MSAL is then responsible for handling requests and responses between your application and the Azure Authenticator app.
+If your app requires conditional access or certificate authentication support, enable your app to communicate with the Microsoft Authenticator broker app. MSAL is then responsible for handling requests and responses between your application and Microsoft Authenticator.
 
-On iOS 13, Apple made a breaking API change, and removed the application's ability to read the source application when receiving a response from an external application through custom URL schemes. See the notes from Apple [here](https://developer.apple.com/documentation/uikit/uiapplicationopenurloptionssourceapplicationkey?language=objc).
+On iOS 13, Apple made a breaking API change by removing the application's ability to read the source application when receiving a response from an external application through custom URL schemes.
 
-> If the request originated from another app belonging to your team, UIKit sets the value of this key to the ID of that app. If the team identifier of the originating app is different than the team identifier of the current app, the value of the key is nil.
+Apple's documentation for [UIApplicationOpenURLOptionsSourceApplicationKey](https://developer.apple.com/documentation/uikit/uiapplicationopenurloptionssourceapplicationkey?language=objc) states:
 
-This is a breaking change for MSAL, because it relied on `UIApplication.SharedApplication.OpenUrl` to verify communication between MSAL and the Azure Authenticator app.
+> *If the request originated from another app belonging to your team, UIKit sets the value of this key to the ID of that app. If the team identifier of the originating app is different than the team identifier of the current app, the value of the key is nil.*
 
-Additionally, on iOS 13 the developer is required to provide a presentation controller when using ASWebAuthenticationSession.
+This is a breaking change for MSAL because it relied on `UIApplication.SharedApplication.OpenUrl` to verify communication between MSAL and the Microsoft Authenticator app.
 
-In order to mitigate these changes, we released MSAL.NET 4.4.0 with iOS 13 support:
+Additionally, on iOS 13, the developer is required to provide a presentation controller when using `ASWebAuthenticationSession`.
 
-- [MSAL 4.4.0](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/releases/tag/4.4.0)
-
-### Your app IS impacted if:
-1. Your app is leveraging iOS broker, AND you're building with Xcode 11, OR
-2. You're using ASWebAuthenticationSession, AND you're building with Xcode 11.
-
-In those cases you need to use latest MSAL releases to be able to complete authentication successfully.
-
-### Your app is NOT impacted if:
-1. Your app is not using iOS broker, OR
-2. Your app is being built with Xcode 11, OR
-3. Your app is distributed by Microsoft (signed by Microsoft developer distribution profile), OR
-4. You're not using ASWebAuthenticationSession.
+Your app is impacted if you're building with Xcode 11 and you use either iOS broker or `ASWebAuthenticationSession`. In those cases, use [MSAL.NET 4.4.0+](https://www.nuget.org/packages/Microsoft.Identity.Client/) to enable successful authentication.
 
 ### Additional considerations:
 
-1. When using the latest MSAL libraries, you need to ensure that you have the latest Authenticator app installed. **Authenticator app with a version 6.3.19 or later is supported**.
-1. When updating to MSAL.NET 4.4.0, make sure you update your `LSApplicationQueriesSchemes` in the `Info.plist`.
-The additional value should be `msauthv3`. See below:
+1. When using the latest MSAL libraries, ensure that **Microsoft Authenticator version 6.3.19+** is installed on the device.
+1. When updating to MSAL.NET 4.4.0+, update your `LSApplicationQueriesSchemes` in the *Info.plist* file and add `msauthv3`:
 
     ```xml
     <key>LSApplicationQueriesSchemes</key>
@@ -152,9 +136,11 @@ The additional value should be `msauthv3`. See below:
     </array>
     ```
 
-This is necessary to detect the presence of the latest Authenticator app on device that supports iOS 13.
+    Adding `msauthv3` to *Info.plist* is necessary to detect the presence of the latest Microsoft Authenticator app on the device that supports iOS 13.
 
-Please open a [Github issue](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues) if you have additional questions or seeing any issues.
+## Report an issue
+
+If you have questions or would like to report an issue you've found in MSAL.NET, please open an issue in the [AzureAD/microsoft-authentication-library-for-dotnet](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues) repository on GitHub.
 
 ## Next steps
 
