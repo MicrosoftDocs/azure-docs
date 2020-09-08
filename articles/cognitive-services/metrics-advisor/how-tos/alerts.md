@@ -77,8 +77,8 @@ To create a Azure DevOps hook, you will need to add the following information
 | Access Token |  A token for authenticating to DevOps. | 
 
 > [!Note]
-> Please grant 'write' permission if you'd like Metrics Advisor to create work items on anomaly alerts. 
-After creating hooks you're free to use it in any alert settings and you can manage all your hooks in the hook settings page.
+> You need to grant **write** permissions if you want Metrics Advisor to create work items based on anomaly alerts. 
+> After creating hooks, you can use them in any of your alert settings. Manage your hooks in the **hook settings** page.
 
 ### Add or Edit alert settings
 
