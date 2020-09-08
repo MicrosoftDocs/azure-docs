@@ -146,6 +146,30 @@
               href: backup-restore-postgresql-hyperscale.md
         - name: Troubleshoot
           href: troubleshooting-postgresql-hyperscale-server-group.md
+      - name: Create Hyperscale (Azure Data Studio)
+        href: create-postgresql-hyperscale-server-group-azure-data-studio.md
+      - name: Create Hyperscale
+        href: create-postgresql-hyperscale-server-group.md
+      - name: Scale out Hyperscale
+        href: scale-out-postgresql-hyperscale-server-group.md
+      - name: Scale up or down Hyperscale
+        href: scale-up-down-postgresql-hyperscale-server-group-using-cli.md
+      - name: Manage Hyperscale group
+        href: manage-postgresql-hyperscale-server-group-with-azure-data-studio.md
+      - name: Migrate PostgreSQL data into Hyperscale server group
+        href: migrate-postgresql-data-into-postgresql-hyperscale-server-group.md
+      - name: Restore AdventureWorks sample database
+        href: restore-adventureworks-sample-db-into-postgresql-hyperscale-server-group.md
+      - name: Back up PostgreSQL Hyperscale
+        href: backup-restore-postgresql-hyperscale.md
+      - name: Use extensions in PostgreSQL Hyperscale
+        href: using-extensions-in-postgresql-hyperscale-server-group.md
+      - name: Troubleshooting
+        items:
+          - name: Troubleshoot with notebook
+            href: troubleshoot-postgresql-hyperscale-server-group.md
+      - name: Delete PostgreSQL resources
+        href: delete-postgresql-hyperscale-server-group.md
 - name: SQL Managed Instance for Azure Arc (preview)
   items:
     - name: Overview

@@ -11,19 +11,19 @@ ms.date: 08/04/2020
 ms.topic: how-to
 ---
 
-# Use Azure Data Studio to manage your PostgreSQL instance
+# Use Azure Data Studio to manage your Azure Arc enabled PostgreSQL Hyperscale server group
 
 
-This scenario will show you:
-- how to manage your PostgreSQL instances with dashboard views like Overview, Connection Strings, Properties, Resource Health...
+This article describes how to:
+- manage your PostgreSQL instances with dashboard views like Overview, Connection Strings, Properties, Resource Health...
+- work with your data and schema
 
-- how to work with your data and schema
+## Prerequisites
 
-## Get started with Azure Data Studio
-
-To start, you need to install Azure Data Studio as explained in [Install client tools](install-client-tools.md).
-
-Once installed, start Azure Data Studio and reach its welcome page.
+- [Install azdata, Azure Data Studio, and Azure CLI](install-client-tools.md)
+- Install in Azure Data Studio the **Azure Data CLI** and **Azure Arc** and **PostgreSQL** extensions
+- Install the [Azure Arc Data Controller](create-data-controller-using-azdata.md)
+- Launch Azure Data Studio
 
 ## Connect to the Azure Arc Data Controller
 
@@ -48,7 +48,7 @@ Enter the connection information to your Azure Data Controller:
 
 Azure data studio shows your Arc Data Controller. Expand it and it shows the list of PostgreSQL instances that it manages.
 
-## Manage your PostgreSQL instances
+## Manage your Azure Arc enabled PostgreSQL Hyperscale server groups
 
 Right-click on the PostgreSQL instance you want to manage and select [Manage]
 
@@ -62,8 +62,6 @@ That features several dashboards listed on the left side of that pane:
     Displays various connection strings you may need to connect to your PostgreSQL instance like psql, Node.js, PHP, Ruby...
 - **Properties:**
     Displays various properties like PostgreSQL admin user name, associated resources group for the shadow resource...
-- **Resource health:** 
-    Health of the pods hosting your instance: overview and details for various states like running, pending, failed...
 - **Diagnose and solve problems:** 
     Is the landing page where you will find various resources that will help you troubleshoot your instance as we expand the troubleshooting notebooks
 - **New support request:** 
@@ -95,6 +93,5 @@ Once connected, several experiences are available:
 - **Expand the display of your server and browse/work on the objects inside your database**
 - **...**
 
-## Next steps
-
-[Troubleshooting PostgreSQL Hyperscale server groups](troubleshoot-postgresql-hyperscale-server-group.md)
+## Next step
+[Monitor your server group](monitor-grafana-kibana.md)

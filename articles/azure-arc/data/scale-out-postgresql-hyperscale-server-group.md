@@ -12,11 +12,10 @@ ms.topic: how-to
 ---
 
 # Scale out your Azure Arc enabled PostgreSQL Hyperscale server group by adding more worker nodes
-This document explains how to scale out an Azure Arc enabled PostgreSQL Hyperscale server group. It does so by taking you through a scenario. If you do not want to run through the scenario and want to just read about how to scale out, jump to the paragraph [Scale out](#scale-out).
+This document explains how to scale out an Azure Arc enabled PostgreSQL Hyperscale server group. It does so by taking you through a scenario. **If you do not want to run through the scenario and want to just read about how to scale out, jump to the paragraph [Scale out](#scale-out)**.
 
 ## Get started
-If you are already familiar with the scaling model of Azure Arc enabled PostgreSQL Hyperscale or Azure Database for PostgreSQL Hyperscale (Citus), you may skip this paragraph. If you are not, read on. 
-It is recommended you start by reading about this scaling model. For this, you may read them on the documentation page of Azure Database for PostgreSQL Hyperscale (Citus). Azure Database for PostgreSQL Hyperscale (Citus) is the same technology that is hosted as a service in Azure (Platform As A Service also known as PAAS) instead of being offered as part of Azure Arc enabled Data Services:
+If you are already familiar with the scaling model of Azure Arc enabled PostgreSQL Hyperscale or Azure Database for PostgreSQL Hyperscale (Citus), you may skip this paragraph. If you are not, it is recommended you start by reading about this scaling model in the documentation page of Azure Database for PostgreSQL Hyperscale (Citus). Azure Database for PostgreSQL Hyperscale (Citus) is the same technology that is hosted as a service in Azure (Platform As A Service also known as PAAS) instead of being offered as part of Azure Arc enabled Data Services:
 - [Nodes and tables](../../postgresql/concepts-hyperscale-nodes.md)
 - [Determine application type](../../postgresql/concepts-hyperscale-app-type.md)
 - [Choose a distribution column](../../postgresql/concepts-hyperscale-choose-distribution-column.md)
@@ -25,8 +24,7 @@ It is recommended you start by reading about this scaling model. For this, you m
 - [Design a multi-tenant database](../../postgresql/tutorial-design-database-hyperscale-multi-tenant.md)*
 - [Design a real-time analytics dashboard](../../postgresql/tutorial-design-database-hyperscale-realtime.md)*
 
-> [!NOTE]
-> In these documents, skip the steps: **Sign in to the Azure portal**, **Create an Azure Database for Postgres - Hyperscale (Citus)**. Implement the remaining steps in your Azure Arc deployment. Those sections are specific to the Azure Database for PostgreSQL Hyperscale (Citus) offered as a PaaS service in the Azure cloud but the other parts of the documents are directly applicable to your Azure Arc enabled PostgreSQL Hyperscale.
+> \* In the documents above, skip the sections **Sign in to the Azure portal**, & **Create an Azure Database for Postgres - Hyperscale (Citus)**. Implement the remaining steps in your Azure Arc deployment. Those sections are specific to the Azure Database for Postgres Hyperscale (Citus) offered as a PaaS service in the Azure cloud but the other parts of the documents are directly applicable to your Azure Arc enabled Postgres Hyperscale.
 
 ## Scenario
 This scenario refers to the PostgreSQL Hyperscale server group that was deployed as an example in the [Create an Azure Arc enabled PostgreSQL Hyperscale server group](create-postgresql-hyperscale-server-group.md) documentation.
@@ -232,7 +230,8 @@ Note the execution time.
     * [Design a multi-tenant database](../../postgresql/tutorial-design-database-hyperscale-multi-tenant.md)*
     * [Design a real-time analytics dashboard](../../postgresql/tutorial-design-database-hyperscale-realtime.md)*
 
-> [!NOTE]
-> In these documents, skip the sections **Sign in to the Azure portal**, and **Create an Azure Database for Postgres - Hyperscale (Citus)** 
->
-> Implement the remaining steps in your Azure Arc deployment. Those sections are specific to the Azure Database for Postgres Hyperscale (Citus) offered as a PaaS service in the Azure cloud but the other parts of the documents are directly applicable to your Azure Arc enabled Postgres Hyperscale._
+ > \* In the documents above, skip the sections **Sign in to the Azure portal**, & **Create an Azure Database for Postgres - Hyperscale (Citus)**. Implement the remaining steps in your Azure Arc deployment. Those sections are specific to the Azure Database for Postgres Hyperscale (Citus) offered as a PaaS service in the Azure cloud but the other parts of the documents are directly applicable to your Azure Arc enabled Postgres Hyperscale.
+
+- [Storage configuration and Kubernetes storage concepts](storage-configuration.md)
+- [Expanding Persistent volume claims](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#expanding-persistent-volumes-claims)
+- [Kubernetes resource model](https://github.com/kubernetes/community/blob/master/contributors/design-proposals/scheduling/resources.md#resource-quantities)

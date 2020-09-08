@@ -99,3 +99,6 @@ persistentvolumeclaim "data-postgres01-0" deleted
     > Status:         Failed  
     > Reason:         Evicted  
     > Message:        The node was low on resource: ephemeral-storage. Container controller was using 16372Ki, which exceeds its request of 0.
+    
+## Next step
+Deploy [Azure Arc enabled Postgres Hyperscale](create-postgresql-hyperscale-server-group.md)
