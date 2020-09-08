@@ -44,15 +44,17 @@ When **Azure Defender for container registries** is enabled, any image you push 
 
     When the scan completes (typically after approximately 2 minutes, but can be up to 15 minutes), findings are available as Security Center recommendations.
 
+1. [View and remediate findings as explained below](#view-and-remediate-findings).
 
 ## Identify vulnerabilities in images in other container registries 
 
-1. Use the ACR tools to bring images to your registry from Docker Hub or Microsoft Container Registry.
+1. Use the ACR tools to bring images to your registry from Docker Hub or Microsoft Container Registry.	When the import completes, the imported images are scanned by Azure Defender. 
 
-    Learn more in [Import container images to a container registry]()../container-registry/container-registry-import-images.md)
+    Learn more in [Import container images to a container registry](../container-registry/container-registry-import-images.md)
 
-	When the import completes, the imported images are scanned by Azure Defender. 
     When the scan completes (typically after approximately 2 minutes, but can be up to 15 minutes), findings are available as Security Center recommendations.
+
+1. [View and remediate findings as explained below](#view-and-remediate-findings).
 
 
 ## View and remediate findings
@@ -62,6 +64,7 @@ When **Azure Defender for container registries** is enabled, any image you push 
     ![Recommendation to remediate issues ](media/monitor-container-security/acr-finding.png)
 
 1. Select the recommendation. 
+
     The recommendation details page opens with additional information. This information includes the list of registries with vulnerable images ("Affected resources") and the remediation steps. 
 
 1. Select a specific registry to see the repositories within it that have vulnerable repositories.
@@ -103,7 +106,6 @@ When **Azure Defender for container registries** is enabled, any image you push 
         If the recommendation still appears and the image you've handled still appears in the list of vulnerable images, check the remediation steps again.
 
     1. When you are sure the updated image has been pushed, scanned, and is no longer appearing in the recommendation, delete the “old” vulnerable image from your registry.
-
 
 
 ## Next steps

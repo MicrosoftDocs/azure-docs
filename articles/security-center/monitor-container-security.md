@@ -13,65 +13,60 @@ ms.author: memildin
 
 # Monitor and secure your container workloads
 
-This page describes how to use the container security features available to all users of Azure Security Center.
+This page describes how to use the container security features available to **all** users of Azure Security Center. 
+
+
+> [!TIP]
+> Learn more about these features in [Container security in Security Center](container-security.md)
+
+For a list of all the Security Center recommendations that might appear for containers, see the [container section](recommendations-reference.md#recs-containers) of the recommendations reference table.
 
 Additional container security is available if you enable Azure Defender. Specifically:
 
 - Scan your container registries for vulnerabilities with [Azure Defender for container registries](defender-for-container-registries-intro.md)
 - Get real-time threat detection alerts for your K8s clusters [Azure Defender for Kubernetes](defender-for-kubernetes-intro.md)
 
-## Cluster hardening
 
-To secure your Azure Kubernetes Service nodes and hosts, Security Center analyzes their status and **generates security recommendations** if your containers don't satisfy any of the controls in the [Center for Internet Security (CIS) Docker Benchmark](https://www.cisecurity.org/benchmark/docker/).
+## Harden your Docker hosts
 
-    Use the **recommendations page** to view recommendations and remediate issues. 
+Azure Security Center identifies unmanaged containers hosted on IaaS Linux VMs, or other Linux machines running Docker containers. Security Center continuously assesses the configurations of these containers. It then compares them with the [Center for Internet Security (CIS) Docker Benchmark](https://www.cisecurity.org/benchmark/docker/).
 
-    You'll also see the recommendations per resource by applying the relevant filters on the [asset inventory](asset-inventory.md) page. 
+Security Center includes the entire ruleset of the CIS Docker Benchmark and alerts you if your containers don't satisfy any of the controls. When it finds misconfigurations, Security Center generates security recommendations. Use the **recommendations page** to view recommendations and remediate issues. You'll also see the recommendations on the **Containers** tab that displays all virtual machines deployed with Docker. 
 
-    For details of the relevant Security Center recommendations that might appear for this feature, see the [container section](recommendations-reference.md#recs-containers) of the recommendations reference table.
-      >[!NOTE]
-      >This feature is charged per image.
+>[!NOTE]
+> These CIS benchmark checks will not run on AKS-managed instances or Databricks-managed VMs.
 
-    >[!NOTE]
-    > These CIS benchmark checks will not run on AKS-managed instances or Databricks-managed VMs.
+When vulnerabilities are found, they're grouped inside a single recommendation.
 
-## Harden your containers' Docker hosts
+1. From Security Center's menu, open the **Recommendations** page.
 
-Security Center constantly monitors the configuration of your Docker hosts, and generates security recommendations that reflect industry standards.
-    When the scan completes (typically after approximately 2 minutes, but can be up to 15 minutes), findings are available as Security Center recommendations.
+1. Filter to the recommendation **Vulnerabilities in container security configurations should be remediated** and select the recommendation.
 
-To view Azure Security Center's security recommendations for your containers' Docker hosts:
+    The recommendation page shows the affected resources (Docker hosts). 
 
-1. Open Security Center's [asset inventory](asset-inventory.md) page and use the resource type filter to **Container hosts**.
+    :::image type="content" source="./media/monitor-container-security/docker-host-vulns-found.png" alt-text="Recommendation to remediate vulnerabilities in container security configurations ":::
 
-    ![Container resources filter](media/monitor-container-security/container-resources-filter.png)
+1. To view and remediate the CIS controls that a specific host failed, select the host you want to investigate. 
 
-1. From the list of your container host machines, select one to investigate further.
-
-    The **Container host information page** opens with details of the host and a list of recommendations.
-
-1. From the recommendations list, select a recommendation to investigate further.
-
-    ![Container host recommendation list](media/monitor-container-security/container-host-rec.png)
-
-1. Optionally, read the description, information, threats, and remediation steps. 
-
-1. From the bottom of the page, select **Take Action**.
-
-    [![Take action button](media/monitor-container-security/host-security-take-action-button.png)](media/monitor-container-security/host-security-take-action.png#lightbox)
+    > [!TIP]
+    > If you started at the asset inventory page and reached this recommendation from there, selec tthe **Take action** button on the recommendation page.
+    >
+    > :::image type="content" source="./media/monitor-container-security/host-security-take-action-button.png" alt-text="Take action button to launch Log Analytics":::
 
     Log Analytics opens with a custom operation ready to run. The default custom query includes a list of all failed rules that were assessed, along with guidelines to help you resolve the issues.
 
-    [![Log Analytics action](media/monitor-container-security/log-analytics-for-action-small.png)](media/monitor-container-security/log-analytics-for-action.png#lightbox)
+    :::image type="content" source="./media/monitor-container-security/docker-host-vulns-in-query.png" alt-text="Log Analytics page with the query showing all failed CIS controls":::
 
 1. Tweak the query parameters if necessary.
 
 1. When you're sure the command is appropriate and ready for your host, select **Run**.
 
 
+
+
 ## Setup Kubernetes workload protection - define and enforce best-practices
 
-Azure Defender for Kubernetes includes a bundle of recommendations that are available when you've installed the **Azure Policy add-on for Kubernetes**.
+Azure Security Center includes a bundle of recommendations that are available when you've installed the **Azure Policy add-on for Kubernetes**.
 
 To configure the bundle, first you must install the add on:
 
@@ -87,6 +82,7 @@ To configure the bundle, first you must install the add on:
     :::image type="content" source="./media/defender-for-kubernetes-usage/recommendation-to-install-policy-add-on-for-kubernetes-details.png" alt-text="Recommendation details page for **Azure Policy add-on for Kubernetes should be installed and enabled on your clusters**":::
 
 1. Approximately 30 minutes after the add-on installation completes, Security Center shows the clusters’ health status for the following recommendations, each in the relevant security control as shown:
+
 
     > [!TIP]
     > Some recommendations have parameters must be customized via Azure Policy to use them effectively. For example, to benefit from the recommendation **Container images should be deployed only from trusted registries**, you'll have to define your trusted registries.

@@ -16,13 +16,12 @@ Azure Kubernetes Service (AKS) is Microsoft's managed service for developing, de
 
 Azure Security Center and AKS form the best cloud-native Kubernetes security offering and together they provide environment hardening, workload protection, and run-time protection as outlined below.
 
-[Azure Defender for servers](defender-for-servers-intro.md) provides host level threat detection for your Linux AKS nodes. For threat detection for your Kubernetes clusters, enable **Azure Defender for Kubernetes**.
+For threat detection for your Kubernetes clusters, enable **Azure Defender for Kubernetes**.
+
+Host-level threat detection for your Linux AKS nodes is available if you enable [Azure Defender for servers](defender-for-servers-intro.md).
 
 
 ## What are the benefits of Azure Defender for Kubernetes?
-
-
-
 
 ### Run-time protection
 
@@ -53,9 +52,16 @@ Also, our global team of security researchers constantly monitor the threat land
 
 ## How does Security Center's Kubernetes protection work?
 
-![Azure Security Center and Azure Kubernetes Service (AKS) in more detail](./media/azure-kubernetes-service-integration/aks-asc-integration-detailed.png)
+Below is a high-level diagram of the interaction between Azure Security Center, Azure Kubernetes Service, and Azure Policy.
 
+You can see that the items received and analyzed by Security Center include:
 
+- audit logs from the API server
+- raw security events from the Log Analytics agent
+- cluster configuration information from the AKS cluster
+- workload configuration from Azure Policy (via the **Azure Policy add-on for Kubernetes**). [Learn more about workload protection best-practices using Kubernetes admission control](container-security.md#workload-protection-best-practices-using-kubernetes-admission-control)
+
+:::image type="content" source="./media/defender-for-kubernetes-intro\aks-asc-integration-detailed.png" alt-text="High-level architecture of the interaction between Azure Security Center, Azure Kubernetes Service, and Azure Policy" lightbox="./media/defender-for-kubernetes-intro\aks-asc-integration-detailed.png":::
 
 ## Azure Defender for Kubernetes - FAQ
 
