@@ -245,9 +245,12 @@ When an ExpressRoute circuit is connected to virtual hub, the Microsoft edge rou
 
 The current behavior is to prefer the ExpressRoute circuit path over hub-to-hub for VNet-to-VNet connectivity. However, this is not encouraged in a virtual WAN setup. The Virtual WAN team is working on a fix to enable the preference for hub-to-hub over the ExpressRoute path. The recommendation is for multiple ExpressRoute circuits (different providers) to connect to one hub and use the hub-to-hub connectivity provided by Virtual WAN for inter-region traffic flows.
 
+### Can hubs be created in different resource group in Virtual WAN?
+Yes. This option is currently available via powershell only. Virtual WAN portal mandates the hubs in the same resource group as the Virtual WAN resource itself.
+
 ### Is there support for IPv6 in Virtual WAN?
 
-IPv6 is not supported in Virtual WAN hub and its gateways. If you have a VNet that has IPv6 support and you would like to connect the VNet to Virtual WAN, this scenario not currently supported.
+IPv6 is not supported in Virtual WAN hub and its gateways. If you have a VNet that has IPv4 and IPv6 support and you would like to connect the VNet to Virtual WAN, this scenario not currently supported. 
 
 ### What is the recommended API version to be used by scripts automating various Virtual WAN functionalities?
 

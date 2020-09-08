@@ -10,7 +10,7 @@ editor: ''
 ms.service: media-services
 ms.subservice:  
 ms.workload: 
-ms.topic: article
+ms.topic: conceptual
 ms.custom: 
 ms.date: 08/31/2020
 ms.author: inhenkel

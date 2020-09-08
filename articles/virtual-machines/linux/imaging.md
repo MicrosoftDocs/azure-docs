@@ -42,7 +42,7 @@ Azure offers two main image types, generalized and specialized. The terms genera
 
 ### Generalized images
 
-A generalized image is an image that requires setup to be completed on first boot. For example, on first boot you set the hostname, admin user and other VM-specific configurations. This is useful when you want the image to be reused multiple times, and when you want to pass in parameters during creation. If the generalized image contains the Azure agent, the agent will process the parameters, and signal back to the platform that the initial configuration has completed. This process is called **provisioning**. 
+A generalized image is an image that requires setup to be completed on first boot. For example, on first boot you set the hostname, admin user and other VM-specific configurations. This is useful when you want the image to be reused multiple times, and when you want to pass in parameters during creation. If the generalized image contains the Azure agent, the agent will process the parameters, and signal back to the platform that the initial configuration has completed. This process is called [provisioning](https://docs.microsoft.com/azure/virtual-machines/linux/provisioning). 
 
 Provisioning requires that a provisioner is included in the image. There are two provisioners:
 - [Azure Linux Agent](../extensions/agent-linux.md)
