@@ -43,7 +43,7 @@ The HTTP extension node plays the role of a proxy. It converts the video frames 
 
 In this tutorial, you will:
 
-1. Create and deploy the media graph, modifying it 
+1. Create and deploy the media graph, modifying it.
 1. Interpret the results.
 1. Clean up resources.
 
