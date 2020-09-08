@@ -180,6 +180,12 @@ It takes some time to download a parent image during app start-up. However, you 
 
 > [!div class="nextstepaction"]
 > [Migrate to Windows container in Azure](tutorial-custom-container.md)
+
+Or, check out other resources:
+
+> [!div class="nextstepaction"]
+> [Configure custom container](configure-custom-container.md)
+
 ::: zone-end  
 
 ::: zone pivot="container-linux"
@@ -256,5 +262,10 @@ Next, check out the other Azure extensions.
 
 Or get them all by installing the
 [Azure Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) extension pack.
+
+Check out other resources:
+
+> [!div class="nextstepaction"]
+> [Configure custom container](configure-custom-container.md)
 
 ::: zone-end

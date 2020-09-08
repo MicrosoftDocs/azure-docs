@@ -613,6 +613,8 @@ The resources you created in this article may incur ongoing costs. to clean up t
 az group delete --name AppSvc-DockerTutorial-rg
 ```
 
+::: zone-end
+
 ## Next steps
 
 What you learned:
@@ -620,9 +622,13 @@ What you learned:
 > [!div class="checklist"]
 > * Deploy a custom image to a private container registry
 > * Deploy and the custom image in App Service
+::: zone pivot="container-linux"
 > * Update and redeploy the image
+::: zone-end
 > * Access diagnostic logs
+::: zone pivot="container-linux"
 > * Connect to the container using SSH
+::: zone-end
 
 In the next tutorial, you learn how to map a custom DNS name to your app.
 
@@ -634,7 +640,7 @@ Or, check out other resources:
 > [!div class="nextstepaction"]
 > [Configure custom container](configure-custom-container.md)
 
+::: zone pivot="container-linux"
 > [!div class="nextstepaction"]
 > [Tutorial: Multi-container WordPress app](tutorial-multi-container-app.md)
-
 ::: zone-end

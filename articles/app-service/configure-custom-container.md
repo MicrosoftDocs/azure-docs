@@ -1,16 +1,27 @@
 ---
-title: Configure a custom Linux container
-description: Learn how to configure a custom Linux container in Azure App Service. This article shows the most common configuration tasks. 
+title: Configure a custom container
+description: Learn how to configure a custom container in Azure App Service. This article shows the most common configuration tasks. 
 
 ms.topic: article
-ms.date: 03/28/2019
+ms.date: 09/06/2020
+zone_pivot_groups: app-service-containers-windows-linux
 ---
 
-# Configure a custom Linux container for Azure App Service
+# Configure a custom container for Azure App Service
 
-This article shows you how to configure a custom Linux container to run on Azure App Service.
+This article shows you how to configure a custom container to run on Azure App Service.
 
-This guide provides key concepts and instructions for containerization of Linux apps in App Service. If you've never used Azure App Service, follow the [custom container quickstart](quickstart-custom-container.md?pivots=container-linux) and [tutorial](tutorial-custom-container.md?pivots=container-linux) first. There's also a [multi-container app quickstart](quickstart-multi-container.md) and [tutorial](tutorial-multi-container-app.md).
+This guide provides key concepts and instructions for containerization of Windows or Linux apps in App Service. If you've never used Azure App Service, follow the [custom container quickstart](quickstart-custom-container.md) and [tutorial](tutorial-custom-container.md) first. For Linux, there's also a [multi-container app quickstart](quickstart-multi-container.md) and [tutorial](tutorial-multi-container-app.md).
+
+## I don't see the updated container
+
+If you change your Docker container settings to point to a new container and then click *Save*, it may take a minute or so before the app serves HTTP requests from the new container. While the new container is being pulled and started, App Service continues to serve requests from the old container. Only when the new container is started and ready to receive requests does App Service start sending requests to it.
+
+## How container images are stored
+
+The first time you run a custom Docker image in App Service, App Service does a `docker pull` and pulls all image layers. These layers are stored on disk just as if you were using Docker on-premises. Each time the app restarts, App Service does a `docker pull`, but only pulls layers that have changed. If there have been no changes, App Service uses existing layers on the local disk.
+
+If the app changes compute instances for any reason, such as scaling up and down the pricing tiers, App Service must pull down all layers again. The same is true if you scale out to add additional instances. There are also rare cases where the app instances may change without a scale operation.
 
 ## Configure port number
 
@@ -20,15 +31,17 @@ By default, App Service assumes your custom container is listening on port 80. T
 az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --settings WEBSITES_PORT=8000
 ```
 
+App Service currently allows your container to expose only one port for HTTP requests. 
+
 ## Configure environment variables
 
 Your custom container may use environment variables that need to be supplied externally. You can pass them in by running [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) command in the Cloud Shell. For example:
 
 ```azurecli-interactive
-az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --settings WORDPRESS_DB_HOST="myownserver.mysql.database.azure.com"
+az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --settings DB_HOST="myownserver.mysql.database.azure.com"
 ```
 
-This method works both for single-container apps or multi-container apps, where the environment variables are specified in the *docker-compose.yml* file.
+When your app runs, App Service injects the app setting into the process as an environment variable automatically. This method works both for single-container apps or multi-container apps (Linux), where the environment variables are specified in the *docker-compose.yml* file.
 
 ## Use persistent shared storage
 
@@ -43,7 +56,113 @@ az webapp config appsettings set --resource-group <resource-group-name> --name <
 ```
 
 > [!NOTE]
-> You can also [configure your own persistent storage](configure-connect-to-azure-storage.md?pivots=platform-linux).
+> You can also [configure your own persistent storage](configure-connect-to-azure-storage.md).
+
+## Detect HTTPS session
+
+App Service terminates TLS/SSL at the front ends. That means that TLS/SSL requests never get to your app. You don't need to, and shouldn't implement any support for TLS/SSL into your app. 
+
+The front ends are located inside Azure data centers. If you use TLS/SSL with your app, your traffic across the Internet will always be safely encrypted.
+
+::: zone pivot="container-windows"
+
+## Connect to container with Win-RM
+
+You can connect to your Windows container remotely for administrative tasks use Win-RM. Follow the steps below to enable it:
+
+1. In the [Azure portal](https://portal.azure.com), navigate to your App Service app.
+1. From your app's left navigation, select **Win-RM** > **On** and click **Save**.
+
+    ![](./media/configure-custom-container/enable-winrm.png)
+1. Confirm the selection by clicking **Yes**.
+
+1. From your app's left navigation, select **Overview** > **Restart**.
+
+The Win-RM page shows you the PowerShell commands to run on your local machine in order to connect to your Windows container. However, you can also just run the following PowerShell command in the [Cloud Shell PowerShell window](../cloud-shell/quickstart-powershell.md):
+
+```azurepowershell-interactive
+Enter-AzureRmWebAppContainerPSSession -ResourceGroupName <group-name> -Name <app-name>
+```
+
+> [!NOTE] Any change you make to the container within the WinRM session does *not* persist when your app is restarted (except for changes in a [persistent shared storage](#use-persistent-shared-storage)), because it's not part of the Docker image. When your app restarts, App Service recreates the Docker container from your deployed image. 
+>
+> To persist your changes, such as registry settings and software installation, you need to make them in the Dockerfile for your image. For example, in the tutorial [Migrate custom software to Azure App Service using a custom container](tutorial-custom-container.md?tab=container-windows), the custom font project uses this method to [install a custom font in Dockerfile](tutorial-custom-container.md#configure-windows-container?tab=container-windows).
+
+If your site does not start then check the Docker log
+
+We log useful information into the Docker log that can help you troubleshoot your site when it doesn't start or if it's restarting. We log a lot more than you might be used to seeing in a Docker log, and we will continue to work on making this logging more useful.
+
+## Access diagnostic logs
+
+There are several ways to access Docker logs:
+
+### In Azure portal
+
+Docker logs are displayed in the portal, in the **Container Settings** page of your app. The logs are truncated, but you can download all the logs clicking **Download**. 
+
+### From the Kudu console 
+
+Navigate to `https://<app-name>.scm.azurewebsites.net/DebugConsole` and click the **LogFiles** folder to see the individual log files. To download the entire **LogFiles** directory, click the **Download** icon to the left of the directory name. You can also access this folder using an FTP client.
+
+The naming convention for the Docker log is YYYY_MM_DD_RDxxxxxxxxxxxx_docker.log. If you try to download the Docker log that is currently in use using an FTP client, you may get an error because of a file lock.
+
+### With the Kudu API
+
+Navigate directly to `https://<app-name>.scm.azurewebsites.net/api/logs/docker` to see metadata for the Docker logs. You may see more than one log file listed, and the `href` property lets you download the log file directly. 
+
+To download all the logs together in one ZIP file, access `https://<app-name>.scm.azurewebsites.net/api/logs/docker/zip`.
+
+## Customize container memory
+
+By default all Windows Containers deployed in Azure App Service are limited to 1GB RAM. You can change this value by providing the `WEBSITE_MEMORY_LIMIT_MB` app setting. You can set it by running [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) command in the Cloud Shell. For example:
+
+```azurecli-interactive
+az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --settings WEBSITE_MEMORY_LIMIT_MB=2000
+```
+
+The value is defined in MB and must be less and equal to the total physical memory of the host.
+
+## Customize the number of compute cores
+
+By default, a Windows container runs with all available cores for your chosen pricing tier. You may want to reduce the number of cores used in your staging slot in comparison to your production slot. To reduce the number of cores used by a container, set the `WEBSITE_CPU_CORES_LIMIT` app setting to the preferred number of cores. You can set it by running [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) command in the Cloud Shell. For example:
+
+```azurecli-interactive
+az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --slot staging --settings WEBSITE_CPU_CORES_LIMIT=1
+```
+
+> [!NOTE]
+> Updating the app setting triggers automatic restart, causing minimal downtime. For a production app, consider swapping it into a staging slot, change the app setting in the staging slot, and then swap it back into production.
+
+Verify your adjusted number by going to the Kudu Console (`https://<app-name>.scm.azurewebsites.net`) and typing in the following commands using PowerShell. Each command outputs a number.
+
+```PowerShell
+Get-ComputerInfo | ft CsNumberOfLogicalProcessors # Total number of enabled logical processors. Disabled processors are excluded.
+Get-ComputerInfo | ft CsNumberOfProcessors # Number of physical processors.
+```
+
+The processors may be multicore or hyperthreading processors. Information on how many cores are available per SKU can be found in [](https://azure.microsoft.com/en-us/pricing/details/app-service/windows/), in the **Premium Container (Windows) Plan** section.
+
+## Customize health ping behavior
+
+App Service considers a container to be successfully started when the container starts and responds to an HTTP ping. If the container starts but does not respond to a ping after a certain amount of time, App Service logs an event in the Docker log, saying that the container didn't start. 
+
+If your application is resource intensive, the container might not respond to the HTTP ping in time. To control the actions when HTTP pings fail, set the `CONTAINER_AVAILABILITY_CHECK_MODE` app setting. You can set it by running [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) command in the Cloud Shell. For example:
+
+```azurecli-interactive
+az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --settings CONTAINER_AVAILABILITY_CHECK_MODE="ReportOnly"
+```
+
+The following table shows the possible values:
+
+| Value | Descriptions |
+| - | - |
+| **Repair** | The default value. Restart the container after 3 consecutive availability checks |
+| **ReportOnly** | Don't restart the container but reports in the Docker logs for the container after 3 consecutive availability checks. |
+| **Off** | Don't check for availability. |
+
+::: zone-end
+
+::: zone pivot="container-linux"
 
 ## Enable SSH
 
@@ -172,10 +291,16 @@ The following lists show supported and unsupported Docker Compose configuration 
 
 [!INCLUDE [robots933456](../../includes/app-service-web-configure-robots933456.md)]
 
+::: zone-end
+
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Tutorial: Deploy from private container repository](tutorial-custom-container.md?pivots=container-linux)
+> [Tutorial: Migrate custom software to Azure App Service using a custom container](tutorial-custom-container.md)
+
+::: zone pivot="container-linux"
 
 > [!div class="nextstepaction"]
 > [Tutorial: Multi-container WordPress app](tutorial-multi-container-app.md)
+
+::: zone-end
