@@ -11,7 +11,8 @@ This quickstart walks you through the steps to get started with Live Video Analy
 
 After completing the setup steps, you'll be able to run a simulated live video stream through a media graph that detects and reports any motion in that stream. The following diagram graphically represents that media graph.
 
-![Live Video Analytics based on motion detection](./media/analyze-live-video/motion-detection.png)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/analyze-live-video/motion-detection.svg" alt-text="Live Video Analytics based on motion detection":::
 
 ## Prerequisites
 
