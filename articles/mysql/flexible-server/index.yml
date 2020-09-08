@@ -45,5 +45,5 @@ landingContent:
           - text: Manage server from Azure portal
             url: how-to-manage-server-portal.md
           - text: Manage server with Azure CLI
-            url: how-to-manage-cli.md
+            url: how-to-manage-server-cli.md
 
