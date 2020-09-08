@@ -86,7 +86,7 @@ where is_data_deletion_filter_column =1
 and object_id = object_id(N'dbo.data_retention_table', N'U')
 ```
 
-## Corelating DB and Table data retention settings
+## Corelating DB and table data retention settings
 
 The data retention setting on the database and the table, are used in conjunction to determine if autocleanup for aged rows will run on the tables or not. 
 
@@ -114,6 +114,6 @@ Data Retention can be disabled on a table by using [Alter Database](https://docs
 ALTER DATABASE <DatabaseName> SET DATA_RETENTION  OFF;
 ```
 
-## Next Steps
+## Next steps
 - [Data Retention and Automatic Data Purging](data-retention-overview.md)
 - [Manage historical data with retention policy](data-retention-cleanup.md)
