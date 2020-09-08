@@ -1,6 +1,6 @@
 ---
 title: Extend Azure Sentinel across workspaces and tenants | Microsoft Docs
-description:  How to work with multiple tenants to Azure Sentinel for MSSP service providers.
+description:  How to use Azure Sentinel to query and analyze data across workspaces and tenants.
 services: sentinel
 documentationcenter: na
 author: yelevin

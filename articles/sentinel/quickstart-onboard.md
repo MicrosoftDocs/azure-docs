@@ -40,13 +40,13 @@ After you connect your data sources, choose from a gallery of expertly created w
 
 1. Search for and select **Azure Sentinel**.
 
-   ![search](./media/quickstart-onboard/search-product.png)
+   ![Services search](./media/quickstart-onboard/search-product.png)
 
 1. Select **Add**.
 
 1. Select the workspace you want to use or create a new one. You can run Azure Sentinel on more than one workspace, but the data is isolated to a single workspace.
 
-   ![search](./media/quickstart-onboard/choose-workspace.png)
+   ![Choose a workspace](./media/quickstart-onboard/choose-workspace.png)
 
    >[!NOTE] 
    > - Default workspaces created by Azure Defender (formerly Azure Security Center) will not appear in the list; you can't install Azure Sentinel on them.

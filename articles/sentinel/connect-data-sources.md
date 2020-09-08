@@ -4,7 +4,7 @@ description: Learn how to connect data sources like Microsoft 365 Defender (form
 services: sentinel
 documentationcenter: na
 author: yelevin
-manager: angrobe
+manager: rkarlin
 editor: ''
 
 ms.service: azure-sentinel
@@ -14,7 +14,7 @@ ms.topic: how-to
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/04/2019
+ms.date: 09/08/2020
 ms.author: yelevin
 
 ---
@@ -24,17 +24,16 @@ Once you have enabled Azure Sentinel, the first thing you need to do is connect 
 
 1. On the menu, select **Data connectors**. This page lets you see the full list of connectors that Azure Sentinel provides and their status. Select the connector you want to connect and select **Open connector page**. 
 
-   ![Data collectors](./media/collect-data/collect-data-page.png)
+   ![Data connectors gallery](./media/collect-data/collect-data-page.png)
 
 1. On the specific connector page, make sure you have fulfilled all the prerequisites and follow the instructions to connect the data to Azure Sentinel. It may take some time for the logs to start syncing with Azure Sentinel. After you connect, you see a summary of the data in the **Data received** graph, and connectivity status of the data types.
 
-   ![Connect collectors](./media/collect-data/opened-connector-page.png)
+   ![Configure data connectors](./media/collect-data/opened-connector-page.png)
   
 1. Click the **Next steps** tab to get a list of out-of-the-box content Azure Sentinel provides for the specific data type.
 
-   ![Data collectors](./media/collect-data/data-insights.png)
+   ![Next steps for connectors](./media/collect-data/data-insights.png)
  
-
 ## Data connection methods
 
 The following data connection methods are supported by Azure Sentinel:
