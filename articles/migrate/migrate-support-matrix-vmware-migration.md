@@ -63,7 +63,7 @@ The table summarizes agentless migration requirements for VMware VMs.
 **Storage vMotion** | Not supported. Replication won't work if a VM uses storage vMotion.
 **Teamed NICs** | Not supported.
 **IPv6** | Not supported.
-**Target disk** | VMs can only be migrated to managed disks (standard HDD, premium SSD) in Azure.
+**Target disk** | VMs can only be migrated to managed disks (standard HDD, standard SSD, premium SSD) in Azure.
 **Simultaneous replication** | 300 VMs per vCenter Server. If you have more, migrate them in batches of 300.
 
 
@@ -113,7 +113,7 @@ The table summarizes VMware VM support for VMware VMs you want to migrate using 
 **Mobility service** | The Mobility service agent must be installed on each VM you want to migrate.
 **UEFI boot** | Supported.
 **UEFI - Secure boot**         | Not supported for migration.
-**Target disk** | VMs can only be migrated to managed disks (standard HDD, premium SSD) in Azure.
+**Target disk** | VMs can only be migrated to managed disks (standard HDD, standard SSD, premium SSD) in Azure.
 **Disk size** | 2 TB OS disk; 8 TB for data disks.
 **Disk limits** |  Up to 63 disks per VM.
 **Encrypted disks/volumes** | VMs with encrypted disks/volumes aren't supported for migration.
