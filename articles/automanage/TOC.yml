@@ -8,7 +8,7 @@
 - name: Concepts
   expanded: true
   items:
-  - name: Virtual Machines
+  - name: Virtual machines
     href: automanage-virtual-machines.md
   - name: Best Practices for VMs
     href: virtual-machines-best-practices.md
