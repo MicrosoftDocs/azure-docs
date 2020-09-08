@@ -10,11 +10,14 @@ ms.date: 9/22/2020
 
 # Limits in Azure Database for PostgreSQL - Flexible Server
 
+> [!IMPORTANT]
+> Azure Database for PostgreSQL - Flexible Server is in preview
+
 The following sections describe capacity and functional limits in the database service. If you'd like to learn about resource (compute, memory, storage) tiers, see the [compute and storage](concepts-compute-storage.md) article.
 
 ## Maximum connections
 
-The maximum number of connections per pricing tier and vCores are shown below. The Azure system requires three connections to monitor the Azure Database for PostgreSQL flexible server.
+The maximum number of connections per pricing tier and vCores are shown below. The Azure system requires three connections to monitor the Azure Database for PostgreSQL - Flexible Server.
 
 | SKU Name             | vCores | Memory Size | Max Connections | Max User Connections |
 |----------------------|--------|-------------|-----------------|----------------------|

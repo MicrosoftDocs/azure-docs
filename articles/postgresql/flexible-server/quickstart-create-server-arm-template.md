@@ -6,12 +6,15 @@ ms.service: mysql
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: sumuth
-ms.date: 09/20/2020
+ms.date: 09/22/2020
 ---
 
-# Quickstart: Use an ARM template to create an Azure Database for PostgreSQL flexible Server (Preview)
+# Quickstart: Use an ARM template to create an Azure Database for PostgreSQL - Flexible Server
 
-Flexible server (Preview) is a managed service that you use to run, manage, and scale highly available PostgreSQL databases in the cloud. You can use ARM templates to provision a PostgreSQL Flexible server to deploy multiple servers or multiple databases on a server.
+> [!IMPORTANT]
+> Azure Database for PostgreSQL - Flexible Server is in preview
+
+Flexible server is a managed service that you use to run, manage, and scale highly available PostgreSQL databases in the cloud. You can use ARM templates to provision a PostgreSQL Flexible server to deploy multiple servers or multiple databases on a server.
 
 Azure Resource Manager is the deployment and management service for Azure. It provides a management layer that enables you to create, update, and delete resources in your Azure account. You use management features, like access control, locks, and tags, to secure and organize your resources after deployment.
 
@@ -178,7 +181,7 @@ Follow these steps to verify if your server was created in Azure.
 
 # [Azure portal](#tab/portal)
 
-1. In the [Azure portal](https://portal.azure.com), search for and select **Azure Database for PostgreSQL Flexible servers (Preview)**.
+1. In the [Azure portal](https://portal.azure.com), search for and select **Azure Database for PostgreSQL Flexible Servers (Preview)**.
 
 2. In the database list, select your new server to view the **Overview** page to manage the server.
 
