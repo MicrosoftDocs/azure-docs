@@ -55,7 +55,7 @@ If you are a new user signing up to LUIS, the signup experience will slightly di
     ![Confirm authoring resource](../LUIS/media/sign-in/signup-confirm-2.png)
 
 > [!Note]
-> If you have one subscription and one authoring resource in the region you are signing up to in the portal, you will automatically sign in to LUIS migrated and associated with this resource without the need of choosing which path to go in.
+> If you have a subscription and at least one authoring resource in the region same as the one you are signing up to in the portal, you might automatically sign in to LUIS migrated and associated with a resource without the need of choosing which path to go in.
 
 
 ## Not associated with an Azure subscription
