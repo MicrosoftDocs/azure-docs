@@ -50,14 +50,14 @@ Planned downtime events include Azure scheduled periodic software updates and mi
  You can schedule the Azure initiated maintenance activities by choosing a 30-minute window in a day of your preference where the activities on the databases are expected to be low. Azure maintenance tasks such as patching or minor version upgrades would happen during that window.  For flexible servers configured with high availability, these maintenance activities are performed on the standby replica first and then it is activated. Applications then reconnect to the new primary server and resume their operations while a new standby is provisioned.
 
 ## Failover process - unplanned outage
-Unplanned outages include software bugs or infrastructure component failures impact the availability of the database. In the event of the database unavailability is detected by the monitoring system, the replication to the standby replica is severed and the standby replica is activated to be the primary database. Clients can reconnect to the database server and resume their operations. The overall failover time is expected to take 60-120s. However, depending on the activity in the primary database server at the time of the failover such as large transactions and recovery time, the failover may take longer.
+Unplanned outages include software bugs or infrastructure component failures impact the availability of the database. In the event of the database unavailability is detected by the monitoring system, the replication to the standby replica is severed and the standby replica is activated to be the primary database server. Clients can reconnect to the database server using the same connection string and resume their operations. The overall failover time is expected to take 60-120s. However, depending on the activity in the primary database server at the time of the failover such as large transactions and recovery time, the failover may take longer.
 
 :::image type="content" source="./media/business-continuity/concepts-high-availability-failover-state.png" alt-text="zone redundant high availability - failover"::: 
 
 1. Primary database server is down and the clients lose database connectivity. 
-2. Standby is activated with the same database server name as primary, and client connects to the new primary. Note that the client application can be on any zone. Having application and the database server in the same zone reduces latency.
-3. A new standby server is provisioned in the same AZ. 
-4. Once the steady-state is established, the client application commits and writes are acknowledged after the data is persisted on both sites.
+2. Standby server is activated to become the new primary server. The client connects to the new primary using the same connection string. while the client application can be on any zone, having them in the same zone as the primary database server reduces latency and improves performance.
+3. The old primary database server is discarded. A new standby server is provisioned in the same AZ as the old primary server. The streaming replication is then initiated. 
+4. Once the steady-state replication is established, the client application commits and writes are acknowledged after the data is persisted on both the sites.
 
 ## Point-in-time restore 
 
@@ -84,7 +84,7 @@ Flexible servers that are configured with high availability, replicate data in r
 
 -   Ability to restart both primary and standby servers to pick up any static server parameter changes.
 
-## Zone redundant high availability - considerations
+## Zone redundant high availability - limitations
 
 -   High availability is not supported in burstable compute tier.
 -   High availability is supported only in regions where multiple zones are available.
@@ -99,7 +99,7 @@ Flexible servers that are configured with high availability, replicate data in r
 
 -   Logical decoding is not supported when configured in high availability.
 
--   Configuring read replicas are not supported
+-   Configuring read replicas are not supported.
 
 -   Configuring customer initiated management tasks cannot be scheduled during managed maintenance window.
 
