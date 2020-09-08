@@ -8,6 +8,7 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 11/01/2019
 tags: connectors
+ROBOTS: NOINDEX
 ---
 
 # Monitor, create, and manage SFTP files by using Azure Logic Apps [Deprecated]
