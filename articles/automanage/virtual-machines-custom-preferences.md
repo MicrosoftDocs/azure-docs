@@ -53,11 +53,11 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 4. Under **Configuration profile**, click **Browse and change profiles and preferences**
 
-:::image type="content" source="media\virtual-machine-custom-preferences\existing-vm-quick-create.png" alt-text="Browse and change profiles and preferences.":::
+    :::image type="content" source="media\virtual-machine-custom-preferences\existing-vm-quick-create.png" alt-text="Browse and change profiles and preferences.":::
 
 5. On the **Select configuration profile + preferences** blade, select a profile on left hand side: *Dev/Test* for testing, *Prod* for production
 
-:::image type="content" source="media\virtual-machine-custom-preferences\browse-production-profile.png" alt-text="Browse production configuration profile.":::
+    :::image type="content" source="media\virtual-machine-custom-preferences\browse-production-profile.png" alt-text="Browse production configuration profile.":::
 
 6. On the chosen profile, under **Configuration preferences** there is a dropdown where you can adjust for certain services
     1. Click **Create new preferences**
@@ -84,7 +84,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 Quickly stop using Azure Automanage for virtual machines by disabling automanagement.
 
-:::image type="content" source="media\virtual-machine-custom-preferences\disable-step-1.png" alt-text="Disabling Automanage on a virtual machine.":::
+    :::image type="content" source="media\virtual-machine-custom-preferences\disable-step-1.png" alt-text="Disabling Automanage on a virtual machine.":::
 
 1. Go to the **Automanage – Azure virtual machine best practices** page that lists all of your auto-managed VMs
 1. Select the checkbox next to the virtual machine you want to disable
