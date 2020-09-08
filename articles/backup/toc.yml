@@ -50,6 +50,8 @@
     items:
     - name: Azure Backup support matrix
       href: backup-support-matrix.md
+    - name: Backup Center support matrix
+      href: backup-center-support-matrix.md
     - name: Azure VM backup support matrix
       href: backup-support-matrix-iaas.md
     - name: DPM/Azure Backup Server (MABS) support matrix
@@ -116,6 +118,8 @@
       href: backup-center-obtain-insights.md
     - name: Govern environment
       href: backup-center-govern-environment.md
+    - name: Perform actions
+      href: backup-center-actions.md
   - name: Azure VM backup
     items:
     - name: Overview

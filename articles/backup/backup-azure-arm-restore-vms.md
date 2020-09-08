@@ -144,9 +144,9 @@ If CRR is enabled, you can view the backup items in the secondary region.
 >[!NOTE]
 >Only Backup Management Types supporting the CRR feature will be shown in the list. Currently, only support for restoring secondary region data to a secondary region is allowed.
 
-    ![Virtual machines in secondary region](./media/backup-azure-arm-restore-vms/secbackedupitem.png)
+![Virtual machines in secondary region](./media/backup-azure-arm-restore-vms/secbackedupitem.png)
 
-    ![Select Secondary Region](./media/backup-azure-arm-restore-vms/backupitems-sec.png)
+![Select Secondary Region](./media/backup-azure-arm-restore-vms/backupitems-sec.png)
 
 ### Restore in secondary region
 

@@ -11,14 +11,14 @@ Backup Center provides a **single unified management experience** in Azure for e
 
 Some of the key benefits of Backup Center include:
 
-* **Single pane of glass to manage backups** – You can use Backup Center to efficiently manage backups spanning multiple workload types, vaults, subscriptions, regions, and [Azure Lighthouse]() tenants.
+* **Single pane of glass to manage backups** – You can use Backup Center to efficiently manage backups spanning multiple workload types, vaults, subscriptions, regions, and [Azure Lighthouse](https://docs.microsoft.com/azure/lighthouse/overview) tenants.
 * **Datasource-centric management** – Backup Center provides views and filters that are centered on the datasources that you're backing up (for example, VMs and databases). This allows a resource owner or a backup admin to monitor and operate backups of items without needing to focus on which vault an item is backed up to. A key feature of this design is the ability to filter views by datasource-specific properties, such as datasource subscription, datasource resource group, and datasource tags.
-* **Connected experiences** – Backup Center provides native integrations to existing Azure services that enable management at scale. For example, Backup Center uses the [Azure Policy]() experience to help you govern your backups. It also leverages [Azure workbooks]() and [Azure Monitor Logs]() to help you view detailed reports on backups. So you don't need to learn any new principles to use the varied features that Backup Center offers.
+* **Connected experiences** – Backup Center provides native integrations to existing Azure services that enable management at scale. For example, Backup Center uses the [Azure Policy](https://docs.microsoft.com/azure/governance/policy/overview) experience to help you govern your backups. It also leverages [Azure workbooks](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview) and [Azure Monitor Logs](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-logs) to help you view detailed reports on backups. So you don't need to learn any new principles to use the varied features that Backup Center offers.
 
 ## Supported scenarios
 
 * Backup Center is currently supported for Azure VM backup and Azure Database for PostgreSQL Server backup.
-* Refer to the [support matrix]() for a detailed list of supported and unsupported scenarios.
+* Refer to the [support matrix](backup-center-support-matrix.md) for a detailed list of supported and unsupported scenarios.
 
 ## Get Started
 
@@ -38,7 +38,7 @@ Follow the steps below to understand the different capabilities that Backup Cent
 
 ## Next Steps
 
-* [Monitor and Operate backups]()
-* [Govern your backup estate]()
-* [Perform actions using Backup Center]()
-* [Obtain insights on your backups]()
+* [Monitor and Operate backups](backup-center-monitor-operate.md)
+* [Govern your backup estate](backup-center-govern-environment.md)
+* [Obtain insights on your backups](backup-center-obtain-insights.md)
+* [Perform actions using Backup Center](backup-center-actions.md)

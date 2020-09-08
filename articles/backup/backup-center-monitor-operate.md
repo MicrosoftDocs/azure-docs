@@ -12,13 +12,31 @@ As a backup admin, you can use Backup Center as a single pane of glass to monito
 ## Supported scenarios
 
 * Backup Center is currently supported for Azure VM backup and Azure Database for PostgreSQL Server backup.
-* Refer to the [support matrix]() for a detailed list of supported and unsupported scenarios.
+* Refer to the [support matrix](backup-center-support-matrix.md) for a detailed list of supported and unsupported scenarios.
 
 ## Backup Instances
 
 Backup Center allows for easy search and discoverability of backup instances across your backup estate.
 
-Selecting the **Backup Instances** tab in Backup Center lets you view details of all the backup instances that you have access to. You can view the datasource subscription, resource group, latest recovery point, vault, and protection status of each backup instance. You can also filter the list by datasource subscription, resource group, location, type, vault, protection status, and datasource tags.
+Selecting the **Backup Instances** tab in Backup Center lets you view details of all the backup instances that you have access to.
+
+ You can view the following information about each of your backup instances:
+
+* Datasource subscription
+* Datasource resource group
+* Latest recovery point
+* Vault associated with the backup instance
+* Protection status
+
+ You can also filter the list of backup instances on the following parameters:
+
+* Datasource subscription
+* Datasource resource group
+* Datasource location
+* Datasource type
+* Vault
+* Protection S=status
+* Datasource tags
 
 Right-clicking on any of the items in the grid lets you perform actions on the given backup instance, such as navigating to the resource, triggering on-demand backups and restores, or stopping backup.
 
@@ -28,17 +46,33 @@ Right-clicking on any of the items in the grid lets you perform actions on the g
 
 Backup Center allows you to view detailed information on all jobs that were created in your backup estate and take appropriate action for failing jobs.
 
-Selecting the **Backup jobs** menu item in Backup Center provides a view of all your jobs, with information about backup instance, datasource subscription, resource group, location, operation, status, vault, start time and duration. Selecting an item in the grid allows you to view more details about the given job. Right-clicking on an item helps you navigate to the resource to take necessary action.
+Selecting the **Backup jobs** menu item in Backup Center provides a view of all your jobs. Each job contains the following information:
+
+* Backup instance associated with the job
+* Datasource subscription
+* Datasource resource group
+* Datasource location
+* Job Operation
+* Job Status
+* Job Start time
+* Job Duration
+
+Selecting an item in the grid allows you to view more details about the given job. Right-clicking on an item helps you navigate to the resource to take necessary action.
 
 ![Backup Center - Jobs](./media/backup-center-monitor-operate/backup-center-jobs.png)
 
-Using the **Backup jobs** tab, you can view jobs up to the last seven days. To view older jobs, use [Backup Reports]().
+Using the **Backup jobs** tab, you can view jobs up to the last seven days. To view older jobs, use [Backup Reports](backup-center-obtain-insights.md).
 
 ## Vaults
 
-Backup Center allows you to have an aggregated and drill down view of all your vaults.
+Selecting the **Vaults** menu item in Backup Center allows you to see a list of all [Recovery Services vaults](backup-azure-recovery-services-vault-overview.md) and [Backup vaults](backup-vault-overview.md) that you have access to. You can filter the list with the following parameters:
 
-Selecting the **Vaults** menu item in Backup Center allows you to see a list of all [Recovery Services vaults]() and [Backup vaults]() that you have access to. You can filter the list by vault subscription, resource group, location, tags, and type. Selecting any item in the list allows you to navigate to a given vault.
+* Vault subscription
+* Vault resource group
+* Vault name
+* Datasource type associated with the policy
+
+Selecting any item in the list allows you to navigate to a given vault.
 
 ![Backup Center - Vaults](./media/backup-center-monitor-operate/backup-center-vaults.png)
 
@@ -52,6 +86,6 @@ Selecting the **Backup Policies** menu item allows you to view all the policies 
 
 ## Next Steps
 
-* [Govern your backup estate]()
-* [Perform actions using Backup Center]()
-* [Obtain insights on your backups]()
+* [Govern your backup estate](backup-center-govern-environment.md)
+* [Perform actions using Backup Center](backup-center-actions.md)
+* [Obtain insights on your backups](backup-center-obtain-insights.md)

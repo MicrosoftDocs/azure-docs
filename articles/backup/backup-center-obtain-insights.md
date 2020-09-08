@@ -7,7 +7,7 @@ ms.date: 09/01/2020
 
 # Obtain Insights using Backup Center
 
-For analyzing historical trends and gaining deeper insights on your backups, Backup Center provides an interface to Backup Reports, which uses Azure Monitor Logs and Azure Workbooks. Backup Reports offers the following capabilities:
+For analyzing historical trends and gaining deeper insights on your backups, Backup Center provides an interface to [Backup Reports](configure-reports.md), which uses [Azure Monitor Logs](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-logs) and [Azure Workbooks](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview). Backup Reports offers the following capabilities:
 
 - Allocating and forecasting of cloud storage consumed.
 
@@ -15,11 +15,13 @@ For analyzing historical trends and gaining deeper insights on your backups, Bac
 
 - Identifying key trends at different levels of granularity.
 
+- Gaining visibility and insights into cost optimization opportunities for your backups.
+
 ## Supported Scenarios
 
 - Backup Reports is currently not available for Azure Database for PostgreSQL server backup.
 
-- Refer to the support matrix for a detailed list of supported and unsupported scenarios.
+- Refer to the [support matrix](backup-center-support-matrix.md) for a detailed list of supported and unsupported scenarios.
 
 ## Get started
 
@@ -49,8 +51,6 @@ Following are the views available:
 
 ## Next Steps
 
-- [Govern your backup estate]()
-
-- [Perform actions using Backup Center]()
-
-- [Obtain insights on your backups]()
+- [Monitor and Operate backups](backup-center-monitor-operate.md)
+- [Govern your backup estate](backup-center-govern-environment.md)
+- [Perform actions using Backup Center](backup-center-actions.md)
