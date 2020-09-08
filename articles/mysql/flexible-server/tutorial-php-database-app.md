@@ -21,12 +21,11 @@ ms.custom: mvc
 ![PHP Web App in Azure with Flexible Server](media/tutorial-php-database-app/complete-checkbox-published.png)
 
 In this tutorial, you learn how to:
-
+- Setup a PHP (Laravel) app with local MySQL
 - Create a MySQL Flexible Server (Preview)
-- Connect a PHP app to MySQL
-- Deploy the app to Azure
+- Connect a PHP app to MySQL Flexible Server (Preview)
+- Deploy the app to Azure App Service
 - Update the data model and redeploy the app
-- Stream diagnostic logs from Azure
 - Manage the app in the Azure portal
 
 If you don't have an [Azure subscription](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing), create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
@@ -78,9 +77,7 @@ In this step, you get a Laravel sample application, configure its database conne
 
 ### Clone the sample
 
-In the terminal window, `cd` to a working directory.
-
-Run the following command to clone the sample repository.
+In the terminal window, navigate to an empty directory where you can clone the sample application.  Run the following command to clone the sample repository.
 
 ```bash
 git clone https://github.com/Azure-Samples/laravel-tasks
@@ -147,9 +144,9 @@ az mysql flexible-server create  --resource-group myResourceGroup --public-acces
 
 JSON output will show you all the server properties being configured. 
 
-> [!Important]
+> [!IMPORTANT]
 > - Make a note of the **servername** and **connection string** to use it in the next step to connect and run laravel data migration.
-> - For <IP-address> , provide the IP of your client machine. The server is locked when created and you need to permit access to your client machine to manage the server locally.
+> - For **IP-Address**  argument, provide the IP of your client machine. The server is locked when created and you need to permit access to your client machine to manage the server locally.
 
 ### Configure server firewall
 In the Cloud Shell, create a firewall rule for your MySQL server to allow client connections by using the az mysql server firewall-rule create command. When both starting IP and end IP are set to 0.0.0.0, the firewall is only opened for other Azure services that do not have a static IP to connect to the server.
@@ -281,7 +278,7 @@ In this step, you deploy the MySQL-connected PHP application to Azure App Servic
 
 FTP and local Git can deploy to an Azure web app by using a deployment user. Once you configure your deployment user, you can use it for all your Azure deployments. Your account-level deployment username and password are different from your Azure subscription credentials.
 
-To configure the deployment user, run the [az webapp deployment user set](https://docs.microsoft.com/cli/azure/webapp/deployment/user?view=azure-cli-latest#az-webapp-deployment-user-set) command in Azure Cloud Shell. Replace <username> and <password> with a deployment user username and password.
+To configure the deployment user, run the [az webapp deployment user set](https://docs.microsoft.com/cli/azure/webapp/deployment/user?view=azure-cli-latest#az-webapp-deployment-user-set) command in Azure Cloud Shell. Replace ```<username>``` and ```<password>``` with your deployment user username and password.
 
 The username must be unique within Azure, and for local Git pushes, must not contain the ‘@’ symbol.
 The password must be at least eight characters long, with two of the following three elements: letters, numbers, and symbols.
