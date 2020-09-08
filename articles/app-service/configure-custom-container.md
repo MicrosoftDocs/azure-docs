@@ -97,6 +97,10 @@ We log useful information into the Docker log that can help you troubleshoot you
 
 There are several ways to access Docker logs:
 
+- [In Azure portal](#in-azure-portal)
+- [From the Kudu console](#from-the-kudu-console)
+- [With the Kudu API](#with-the-kudu-api)
+
 ### In Azure portal
 
 Docker logs are displayed in the portal, in the **Container Settings** page of your app. The logs are truncated, but you can download all the logs clicking **Download**. 
