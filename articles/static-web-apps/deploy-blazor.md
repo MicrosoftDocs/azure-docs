@@ -15,8 +15,6 @@ Azure Static Web Apps publishes a website to a production environment by buildin
 
 If you don't have an Azure subscription, [create a free trial account](https://azure.microsoft.com/free).
 
-:::image type="content" source="./media/deploy-blazor/blazor-app-complete.png" alt-text="Complete Blazor app":::
-
 ## Prerequisites
 
 - [GitHub](https://github.com) account
@@ -24,15 +22,41 @@ If you don't have an Azure subscription, [create a free trial account](https://a
 
 ## Application overview
 
-```files
-|- Api
-|- Client
-|- Shared
+Azure Static Web Apps allows you to create static web applications supported by a serverless backend. The following tutorial demonstrates how to deploy C# Blazor web application that returns weather data.
+
+:::image type="content" source="./media/deploy-blazor/blazor-app-complete.png" alt-text="Complete Blazor app":::
+
+The app featured in this tutorial is made up from three different Visual Studio projects:
+
+- **Api**: The C# Azure Functions application which implements the API endpoint that provides weather information to the static app. The [`WeatherForecastFunction`](https://github.com/staticwebev/blazor-starter/blob/main/Api/WeatherForecastFunction.cs) returns an array of `WeatherForecast` objects.
+
+- **Client**: The front-end Blazor web assembly project. A [fallback route](#fallback-route) is implemented to ensure all routes are served the _index.html_ file.
+
+- **Shared**: Holds common classes referenced by both the Api and Client projects which allows data to flow from the back to the front end. The [`WeatherForecast`](https://github.com/staticwebdev/blazor-starter/blob/main/Shared/WeatherForecast.cs) class is shared among the front-end Blazor web assembly app, and the back-end Azure Functions app.
+
+Together, these projects make up the parts required to send data from the backend endpoint to the Blazor web assembly application running in the browser.
+
+## Fallback route
+
+The application exposes URLs like _/counter_ and _/fetchdata_ which map to specific routes of the application. Since this app is implemented as a single page application, each route is served by the single _index.html_. To ensure that request for any path return _index.html_ a [fallback route](./routes.md#fallback-routes) is implemented in the _routes.json_ file found in the _wwwroot_ folder of the Client project.
+
+```json
+{
+  "routes": [
+    {
+      "route": "/*",
+      "serve": "/index.html",
+      "statusCode": 200
+    }
+  ]
+}
 ```
+
+The above configuration ensures that requests to any route in the app returns the _index.html_ page.
 
 ## Create a repository
 
-This article uses a GitHub template repository to make it easy for you to get started. The template features a starter app used to deploy using Azure Static Web Apps.
+This article uses a GitHub template repository to make it easy for you to get started. The template features a starter app deployed to Azure Static Web Apps.
 
 1. Make sure you're signed in to GitHub and navigate to the following location to create a new repository:
     1. https://github.com/staticwebdev/blazor-starter/generate
@@ -40,7 +64,7 @@ This article uses a GitHub template repository to make it easy for you to get st
 
 ## Create a static web app
 
-Now that the repository is created, you can create a static web app from the Azure portal.
+Now that the repository is created, create a static web app from the Azure portal.
 
 1. Navigate to the [Azure portal](https://portal.azure.com)
 1. Select **Create a Resource**
@@ -54,8 +78,8 @@ In the _Basics_ section, begin by configuring your new app and linking it to a G
 
 1. Select your _Azure subscription_
 1. Select or create a new _Resource Group_
-1. Name the app **my-first-static-blazor-app**.
-      1. Valid characters are `a-z` (case insensitive), `0-9`, and `-`.
+1. Name the app **my-first-static-blazor-app**
+    1. Valid characters are `a-z` (case insensitive), `0-9`, and `-`.
 1. Select a _Region_ closest to you
 1. Select the **Free** _SKU_
 1. Select the **Sign-in with GitHub** button and authenticate with GitHub
@@ -104,36 +128,6 @@ The Static Web Apps overview window displays a series of links that help you int
 
 2. Once GitHub Actions workflow is complete, you can select the _URL_ link to open the website in new tab.
 
-## Shared resources
-
-The [`WeatherForecast`](https://github.com/staticwebdev/blazor-starter/blob/main/Shared/WeatherForecast.cs) class is shared among the front-end Blazor web assembly app, and the back-end Azure Functions app.
-
-## API
-
-The application's API functionality is supported by a C# Azure Functions app. The [`WeatherForecastFunction`](https://github.com/staticwebev/blazor-starter/blob/main/Api/WeatherForecastFunction.cs) returns an array of `WeatherForecast` objects.
-
-## Fallback route
-
-The application exposes URLs like _/counter_ and _/fetchdata_. 
-
-The routes file defines a fallback route
-
-_wwwroot/routes.json_
-
-```json
-{
-  "routes": [
-    {
-      "route": "/*",
-      "serve": "/index.html",
-      "statusCode": 200
-    }
-  ]
-}
-```
-
-<!-- -->
-
 ## Clean up resources
 
 If you're not going to continue to use this application, you can delete the Azure Static Web Apps instance through the following steps:
@@ -147,4 +141,4 @@ If you're not going to continue to use this application, you can delete the Azur
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Define routes](routes.md)
+> [Authentication and authorization](./authentication-authorization.md)
