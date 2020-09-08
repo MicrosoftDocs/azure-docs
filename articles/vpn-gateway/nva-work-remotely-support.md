@@ -50,6 +50,8 @@ Most major NVA partners have posted guidance around scaling for sudden, unexpect
 
 [Barracuda Enable Work from home while securing your data during COVID-19](https://www.barracuda.com/covid-19/work-from-home "Enable Work from home while securing your data during COVID-19")
 
+[Check Point Secure Remote Workforce During Coronavirus](https://www.checkpoint.com/solutions/secure-remote-workforce-during-coronavirus/ "Secure Remote Workforce During Coronavirus")
+
 [Cisco AnyConnect Implementation and Performance/Scaling Reference for COVID-19 Preparation](https://www.cisco.com/c/en/us/support/docs/security/anyconnect-secure-mobility-client/215331-anyconnect-implementation-and-performanc.html "Cisco AnyConnect Implementation and Performance/Scaling Reference for COVID-19 Preparation")
 
 [Citrix COVID-19 Response Support Center](https://www.citrix.com/support/covid-19-coronavirus.html "Citrix COVID-19 Response Support Center")
