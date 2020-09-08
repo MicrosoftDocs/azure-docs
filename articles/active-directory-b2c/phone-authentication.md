@@ -29,13 +29,14 @@ One-time passwords are sent to your users by using SMS text messages, and you ma
 With phone sign-up and sign-in, the user can sign up for the app using a phone number as their primary identifier. The end user's experience during sign-up and sign-in is described below. 
 
 > [!NOTE]
-> We suggest you include the following consent information in your sign-up and sign-in experience:
+> We strongly suggest you include consent information in your sign-up and sign-in experience, similar to the sample text below. This sample text is for informational purposes only; you should consult with your own legal or compliance experts for guidance on your final text and feature configuration to meet your own compliance needs:
 >
 > *&lt;Your application name&gt;*
 >
 > *By providing your phone number, you consent to recieving a one-time passcode sent by text message to help you sign in to this application. Standard message and data rates may apply.*
 >
-> *For more information,*<br>*&lt;link to your Privacy Statement&gt;*<br>*&lt;link to your Terms of Service&gt;*
+> *For more information,*<br/>*&lt;link to your Privacy Statement&gt;*<br/>*&lt;link to your Terms of Service&gt;*
+
 
 ### Phone sign-up
 
@@ -63,7 +64,7 @@ If the user has an existing account with phone number as their identifier, the u
 
 ![Phone sign-in user experience](media/phone-authentication/phone-signin-screens.png)
 
-### Deleting a user account
+## Deleting a user account
 
 There might be scenarios in which you want to manually delete an account in your Azure AD B2C directory. For details, see [Delete a consumer user](manage-users-portal.md#delete-a-consumer-user).
 
@@ -131,15 +132,14 @@ GET https://graph.microsoft.com/v1.0/users?$filter=identities/any(c:c/issuerAssi
 
 ## Next steps
 
-You can find the phone sign-up and sign-in custom policy starter pack (and other starter packs) on GitHub:
-
-[Azure-Samples/active-directory-b2c-custom-policy-starterpack/scenarios/phone-number-passwordless][starter-pack-phone]
-
-The starter pack policy files use multi-factor authentication technical profiles and phone number claims transformations:
-
-* [Define an Azure Multi-Factor Authentication technical profile](multi-factor-auth-technical-profile.md)
-* [Define phone number claims transformations](phone-number-claims-transformations.md)
+* You can find the phone sign-up and sign-in custom policy starter pack (and other starter packs) on GitHub:
+  [Azure-Samples/active-directory-b2c-custom-policy-starterpack/scenarios/phone-number-passwordless][starter-pack-phone]
+  The starter pack policy files use multi-factor authentication technical profiles and phone number claims transformations:
+  * [Define an Azure Multi-Factor Authentication technical profile](multi-factor-auth-technical-profile.md)
+  * [Define phone number claims transformations](phone-number-claims-transformations.md)
 
 <!-- LINKS - External -->
 [starter-pack]: https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack
 [starter-pack-phone]: https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/phone-number-passwordless
+
+* For information about the **Short Code Registry**, find best practices and the *Short Code Monitoring Handbook* on the CTIA website at [https://www.ctia.org/programs](https://www.ctia.org/programs).
