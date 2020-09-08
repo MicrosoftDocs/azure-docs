@@ -117,7 +117,7 @@ download.microsoft.com/download | Allow downloads from Microsoft download.
 graph.windows.net | Sign in to your Azure subscription.
 login.microsoftonline.us  | Create Azure Active Directory (AD) apps for the appliance to communicate with Azure Migrate.
 management.usgovcloudapi.net | Create Azure AD apps for the appliance to communicate with the Azure Migrate service.
-dc.services.visualstudio.com | Upload app logs used for internal monitoring.
+*.services.visualstudio.com | Upload app logs used for internal monitoring.
 *.vault.usgovcloudapi.net | Manage secrets in the Azure Key Vault.
 aka.ms/* | Allow access to aka links. Used for Azure Migrate appliance updates.
 download.microsoft.com/download | Allow downloads from Microsoft download.
