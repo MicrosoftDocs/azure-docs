@@ -25,39 +25,20 @@ In this quickstart, you create a notification hub using the Azure CLI. The first
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+> [!IMPORTANT]
+> Notification Hubs requires version 2.0.67 or later of the Azure CLI. Run `az --version` to find the version and dependent libraries that are installed. To install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
-Notification Hubs requires version 2.0.67 or later of the Azure CLI. Run `az --version` to find the version and dependent libraries that are installed. To install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
+[!INCLUDE [cloud-shell-try-it.md](../../includes/azure-cli-prepare-your-environment-for-extensions.md)]
 
-## Prepare your environment
-
-1. Sign in using the [az login](/cli/azure/reference-index#az-login) command if you're using a local install of the CLI.
-
-    ```azurecli
-    az login
-    ```
-
-    Follow the steps displayed in your terminal to complete the authentication process.
-
-2. When working with extension references for the Azure CLI, you must first install the extension. Azure CLI extensions give you access to experimental and pre-release commands that have not yet shipped as part of the core CLI. To learn more about extensions including updating and uninstalling, see [Use extensions with Azure CLI](/cli/azure/azure-cli-extensions-overview).
-
-   Install the [extension for Notification Hubs](/cli/azure/ext/notification-hub/notification-hub) by running the following command:
-
-    ```azurecli
-    az extension add --name notification-hub
-   ```
-
-3. Create a resource group.
-
-   Azure Notification Hubs, like all Azure resources, must be deployed into a resource group. Resource groups allow you to organize and manage related Azure resources.
-
-   For this quickstart, create a resource group named _spnhubrg_ in the _eastus_ location with the following [az group create](/cli/azure/group#az-group-create) command:
-
-   ```azurecli
-   az group create --name spnhubrg --location eastus
-   ```
+> [!NOTE]
+> The Azure CLI extension name for Notification Hubs is **notification-hub**, so the syntax for installing the extension is as follows:
+> ```azurecli
+> az extension add --name notification-hub
+> ```
 
 ## Create a Notification Hubs namespace
+
+This article uses a resource group named **spnhubrg** in the **eastus** region.
 
 1. Create a namespace for your notification hubs.
 
