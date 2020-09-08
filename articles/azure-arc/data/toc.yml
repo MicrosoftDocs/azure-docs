@@ -109,15 +109,15 @@
             - name: Secure
               href: configure-security-postgres-hyperscale.md
             - name: Configure & scale
-                items:
-                  - name: Show configuration
-                    href: show-configuration-postgresql-hyperscale-server-group.md
-                  - name: Scale out - add worker nodes
-                    href: scale-out-postgresql-hyperscale-server-group.md
-                  - name: Scale up|down memory & vCores
-                    href: scale-up-down-postgresql-hyperscale-server-group-using-cli.md
-                  - name: Configure server parameters
-                    href: configure-server-parameters-postgresql-hyperscale.md
+              items:
+                - name: Show configuration
+                  href: show-configuration-postgresql-hyperscale-server-group.md
+                - name: Scale out - add worker nodes
+                  href: scale-out-postgresql-hyperscale-server-group.md
+                - name: Scale up|down memory & vCores
+                  href: scale-up-down-postgresql-hyperscale-server-group-using-cli.md
+                - name: Configure server parameters
+                  href: configure-server-parameters-postgresql-hyperscale.md
         - name: Use extensions in PostgreSQL Hyperscale
           href: using-extensions-in-postgresql-hyperscale-server-group.md
         - name: Manage Hyperscale group
