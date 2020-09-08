@@ -316,13 +316,7 @@ The `operation-location` is the fully qualified URL and is accessed via an HTTP 
 
 You can use the following operation to synchronously read an image. 
 
-# [Version 3.1](#tab/version-3-1)
-
-```json
-{
-    "status": "Failed"
-}
-```
+# [Version 3.1-preview](#tab/version-3-1)
 
 `POST /vision/v3.1/read/syncAnalyze` 
 
@@ -336,7 +330,7 @@ When the image is read in its entirety, then and only then does the API return a
 
 ```json
 {
-    status: "Failed"
+    "status": "Failed"
 }
 ```
 
