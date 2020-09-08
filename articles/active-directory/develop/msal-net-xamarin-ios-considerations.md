@@ -10,15 +10,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 07/16/2019
+ms.date: 09/09/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: "devx-track-csharp, aaddev"
-#Customer intent: As an application developer, I want to learn about considerations for using Xamarin iOS and MSAL.NET so I can decide if this platform meets my application development needs.
+#Customer intent: As an application developer, I want to learn about considerations for using Xamarin iOS and MSAL.NET.
 ---
 
 # Considerations for using Xamarin iOS with MSAL.NET
-When you use Microsoft Authentication Library for .NET (MSAL.NET) on Xamarin iOS, you should: 
+
+When you use Microsoft Authentication Library for .NET (MSAL.NET) on Xamarin iOS, you should:
 
 - Override and implement the `OpenUrl` function in `AppDelegate`.
 - Enable keychain groups.
@@ -38,7 +39,8 @@ public override bool OpenUrl(UIApplication app, NSUrl url, NSDictionary options)
 }
 ```
 
-Also do the following tasks: 
+Also do the following tasks:
+
 * Define a URL scheme.
 * Require permissions for your app to call another app.
 * Have a specific form for the redirect URL.
@@ -71,7 +73,7 @@ Also enable keychain access in the `Entitlements.plist` file. Use either the fol
 
 When you use the `WithIosKeychainSecurityGroup()` API, MSAL automatically appends your security group to the end of the application's *team ID* (`AppIdentifierPrefix`). MSAL adds your security group because when you build your application in Xcode, it will do the same. That's why the entitlements in the `Entitlements.plist` file need to include `$(AppIdentifierPrefix)` before the keychain access group.
 
-For more information, see the [iOS entitlements documentation](https://developer.apple.com/documentation/security/keychain_services/keychain_items/sharing_access_to_keychain_items_among_a_collection_of_apps). 
+For more information, see the [iOS entitlements documentation](https://developer.apple.com/documentation/security/keychain_services/keychain_items/sharing_access_to_keychain_items_among_a_collection_of_apps).
 
 ### Enable token cache sharing across iOS applications
 
@@ -85,7 +87,7 @@ Earlier in this article, you learned that MSAL adds `$(AppIdentifierPrefix)` whe
 
 > [!NOTE]
 > The `KeychainSecurityGroup` property is deprecated.
-> 
+>
 > Starting in MSAL 2.x, developers were forced to include the `TeamId` prefix when they used the `KeychainSecurityGroup` property. But starting in MSAL 2.7.x, when you use the new `iOSKeychainSecurityGroup` property, MSAL resolves the `TeamId` prefix during runtime. When you use this property, don't include the `TeamId` prefix in the value. The prefix is not required.
 >
 > Because the `KeychainSecurityGroup` property is obsolete, use the `iOSKeychainSecurityGroup` property.
@@ -101,24 +103,27 @@ Your application can use Microsoft Authenticator as a broker to enable:
 For details about how to enable a broker, see [Use Microsoft Authenticator or Microsoft Intune Company Portal on Xamarin iOS and Android applications](msal-net-use-brokers-with-xamarin-apps.md).
 
 ## Known issues with iOS 12 and authentication
-Microsoft released a [security advisory](https://github.com/aspnet/AspNetCore/issues/4647) about an incompatibility between iOS 12 and some types of authentication. The incompatibility breaks social, WSFed, and OIDC sign-ins. The security advisory helps developers understand how to remove ASP.NET security restrictions from their applications to make them compatible with iOS 12.  
 
-When you develop MSAL.NET applications on Xamarin iOS, you might see an infinite loop when you try to sign in to websites from iOS 12. This behavior is similar to this [ADAL issue](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/issues/1329). 
+Microsoft released a [security advisory](https://github.com/aspnet/AspNetCore/issues/4647) about an incompatibility between iOS 12 and some types of authentication. The incompatibility breaks social, WSFed, and OIDC sign-ins. The security advisory helps developers understand how to remove ASP.NET security restrictions from their applications to make them compatible with iOS 12.
+
+When you develop MSAL.NET applications on Xamarin iOS, you might see an infinite loop when you try to sign in to websites from iOS 12. This behavior is similar to this [ADAL issue](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/issues/1329).
 
 You might also see a break in ASP.NET Core OIDC authentication with iOS 12 Safari. For more information, see this [WebKit issue](https://bugs.webkit.org/show_bug.cgi?id=188165).
 
 ## Known issues with iOS 13 and authentication
+
 If your app requires conditional access or certificate authentication support, you must set up your app to be able to talk to the Azure Authenticator app. MSAL is then responsible for handling requests and responses between your application and the Azure Authenticator app.
 
-On iOS 13, Apple made a breaking API change, and removed the application's ability to read the source application when receiving a response from an external application through custom URL schemes. See the notes from Apple [here](https://developer.apple.com/documentation/uikit/uiapplicationopenurloptionssourceapplicationkey?language=objc). 
+On iOS 13, Apple made a breaking API change, and removed the application's ability to read the source application when receiving a response from an external application through custom URL schemes. See the notes from Apple [here](https://developer.apple.com/documentation/uikit/uiapplicationopenurloptionssourceapplicationkey?language=objc).
 
 > If the request originated from another app belonging to your team, UIKit sets the value of this key to the ID of that app. If the team identifier of the originating app is different than the team identifier of the current app, the value of the key is nil.
 
-This is a breaking change for MSAL, because it relied on `UIApplication.SharedApplication.OpenUrl` to verify communication between MSAL and the Azure Authenticator app. 
+This is a breaking change for MSAL, because it relied on `UIApplication.SharedApplication.OpenUrl` to verify communication between MSAL and the Azure Authenticator app.
 
 Additionally, on iOS 13 the developer is required to provide a presentation controller when using ASWebAuthenticationSession.
 
 In order to mitigate these changes, we released MSAL.NET 4.4.0 with iOS 13 support:
+
 - [MSAL 4.4.0](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/releases/tag/4.4.0)
 
 ### Your app IS impacted if:
@@ -135,22 +140,21 @@ In those cases you need to use latest MSAL releases to be able to complete authe
 
 ### Additional considerations:
 
-1. When using latest MSAL SDKs, you need to ensure that you have the latest Authenticator app installed. **Authenticator app with a version 6.3.19 or later is supported**. 
-
-2. When updating to MSAL.NET 4.4.0, make sure you update your `LSApplicationQueriesSchemes` in the `Info.plist`. 
+1. When using the latest MSAL libraries, you need to ensure that you have the latest Authenticator app installed. **Authenticator app with a version 6.3.19 or later is supported**.
+1. When updating to MSAL.NET 4.4.0, make sure you update your `LSApplicationQueriesSchemes` in the `Info.plist`.
 The additional value should be `msauthv3`. See below:
 
-```
-<key>LSApplicationQueriesSchemes</key>
-<array>
-     <string>msauthv2</string>
-     <string>msauthv3</string>
-</array>
-```
+    ```xml
+    <key>LSApplicationQueriesSchemes</key>
+    <array>
+         <string>msauthv2</string>
+         <string>msauthv3</string>
+    </array>
+    ```
 
-This is necessary to detect the presence of the latest Authenticator app on device that supports iOS 13. 
+This is necessary to detect the presence of the latest Authenticator app on device that supports iOS 13.
 
-Please open [a Github issue](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues) if you have additional questions or seeing any issues. 
+Please open a [Github issue](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues) if you have additional questions or seeing any issues.
 
 ## Next steps
 
