@@ -689,7 +689,8 @@ Also, Azure Marketplace Virtual Machine Images published by Microsoft are manage
 - [Configure managed identity to deploy Azure Resource Manager environments in DevTest Labs](use-managed-identities-environments.md)
 - [Configure managed identity to deploy virtual machines in DevTest Labs](enable-managed-identities-lab-vms.md)
 - [How to create a key vault](../key-vault/quick-create-portal.md)
-- [How to provide Key Vault authentication with a managed identity](../key-vault/managed-identity.md)
+- [How to authenticate to Key Vault](../key-vault/general/authentication.md)
+- [How to assign a Key Vault access policy](../key-vault/general/assign-access-policy-portal.md)
 
 **Azure Security Center monitoring:** Yes
 

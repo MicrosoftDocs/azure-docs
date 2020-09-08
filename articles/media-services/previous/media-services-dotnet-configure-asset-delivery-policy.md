@@ -19,6 +19,9 @@ ms.custom: devx-track-csharp
 
 ---
 # Configure asset delivery policies with .NET SDK
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 [!INCLUDE [media-services-selector-asset-delivery-policy](../../../includes/media-services-selector-asset-delivery-policy.md)]
 
 ## Overview
