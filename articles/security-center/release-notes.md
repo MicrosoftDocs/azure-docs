@@ -50,7 +50,7 @@ The security findings are now available for export through continuous export whe
 Related pages:
 
 - [Security Center's integrated vulnerability assessment solution for Azure virtual machines](deploy-vulnerability-assessment-vm.md)
-- [Security Center's integrated vulnerability assessment solution for Azure Container Registry images](monitor-container-security.md)
+- [Security Center's integrated vulnerability assessment solution for Azure Container Registry images](defender-for-container-registries-usage.md)
 - [Continuous export](continuous-export.md)
 
 ###  Network security group recommendations improved

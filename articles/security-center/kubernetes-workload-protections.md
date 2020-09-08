@@ -1,91 +1,52 @@
 ---
-title: Monitoring the security of your containers in Azure Security Center
-description: Learn how to check the security posture of your containers from Azure Security Center
+title: Workload protections for your Kubernetes workloads
+description: Learn how to use Azure Security Center's set of Kubernetes workload protection security recommendations
 services: security-center
 author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 09/12/2020
 ms.author: memildin
 ---
 
 
-# Monitor and secure your container workloads
+# Protect your Kubernetes workloads
 
-This page describes how to use the container security features available to **all** users of Azure Security Center. 
+This page describes how to use Azure Security Center's set of security recommendations dedicated to Kubernetes workload protection.
 
+Learn more about these features in [ Workload protection best-practices using Kubernetes admission control](container-security.md#workload-protection-best-practices-using-kubernetes-admission-control)
 
-> [!TIP]
-> Learn more about these features in [Container security in Security Center](container-security.md)
-
-For a list of all the Security Center recommendations that might appear for containers, see the [container section](recommendations-reference.md#recs-containers) of the recommendations reference table.
-
-Additional container security is available if you enable Azure Defender. Specifically:
+Security Center offers more container security features if you enable Azure Defender. Specifically:
 
 - Scan your container registries for vulnerabilities with [Azure Defender for container registries](defender-for-container-registries-intro.md)
 - Get real-time threat detection alerts for your K8s clusters [Azure Defender for Kubernetes](defender-for-kubernetes-intro.md)
 
-
-## Harden your Docker hosts
-
-Azure Security Center identifies unmanaged containers hosted on IaaS Linux VMs, or other Linux machines running Docker containers. Security Center continuously assesses the configurations of these containers. It then compares them with the [Center for Internet Security (CIS) Docker Benchmark](https://www.cisecurity.org/benchmark/docker/).
-
-Security Center includes the entire ruleset of the CIS Docker Benchmark and alerts you if your containers don't satisfy any of the controls. When it finds misconfigurations, Security Center generates security recommendations. Use the **recommendations page** to view recommendations and remediate issues. You'll also see the recommendations on the **Containers** tab that displays all virtual machines deployed with Docker. 
-
->[!NOTE]
-> These CIS benchmark checks will not run on AKS-managed instances or Databricks-managed VMs.
-
-When vulnerabilities are found, they're grouped inside a single recommendation.
-
-1. From Security Center's menu, open the **Recommendations** page.
-
-1. Filter to the recommendation **Vulnerabilities in container security configurations should be remediated** and select the recommendation.
-
-    The recommendation page shows the affected resources (Docker hosts). 
-
-    :::image type="content" source="./media/monitor-container-security/docker-host-vulns-found.png" alt-text="Recommendation to remediate vulnerabilities in container security configurations ":::
-
-1. To view and remediate the CIS controls that a specific host failed, select the host you want to investigate. 
-
-    > [!TIP]
-    > If you started at the asset inventory page and reached this recommendation from there, selec tthe **Take action** button on the recommendation page.
-    >
-    > :::image type="content" source="./media/monitor-container-security/host-security-take-action-button.png" alt-text="Take action button to launch Log Analytics":::
-
-    Log Analytics opens with a custom operation ready to run. The default custom query includes a list of all failed rules that were assessed, along with guidelines to help you resolve the issues.
-
-    :::image type="content" source="./media/monitor-container-security/docker-host-vulns-in-query.png" alt-text="Log Analytics page with the query showing all failed CIS controls":::
-
-1. Tweak the query parameters if necessary.
-
-1. When you're sure the command is appropriate and ready for your host, select **Run**.
+> [!TIP]
+> For a list of *all* security recommendations that might appear for Kubernetes clusters and nodes, see the [container section](recommendations-reference.md#recs-containers) of the recommendations reference table.
 
 
-
-
-## Setup Kubernetes workload protection - define and enforce best-practices
+## Setup your workload protection
 
 Azure Security Center includes a bundle of recommendations that are available when you've installed the **Azure Policy add-on for Kubernetes**.
 
-To configure the bundle, first you must install the add on:
+1. To configure the bundle, first you must install the add on:
 
-1. From the recommendations page, search for the recommendation named **Azure Policy add-on for Kubernetes should be installed and enabled on your clusters**.
+    1. From the recommendations page, search for the recommendation named **Azure Policy add-on for Kubernetes should be installed and enabled on your clusters**.
 
-    :::image type="content" source="./media/defender-for-kubernetes-usage/recommendation-to-install-policy-add-on-for-kubernetes.png" alt-text="Recommendation **Azure Policy add-on for Kubernetes should be installed and enabled on your clusters**":::
+        :::image type="content" source="./media/defender-for-kubernetes-usage/recommendation-to-install-policy-add-on-for-kubernetes.png" alt-text="Recommendation **Azure Policy add-on for Kubernetes should be installed and enabled on your clusters**":::
 
-    > [!TIP]
-    > Notice that the recommendation is included in five different security controls. 
+        > [!TIP]
+        > The recommendation is included in five different security controls and it doesn't matter which one you select in the next step.
 
-1. From any of the security controls, select the recommendation to see the resources on which you can install the add on, and select **Remediate**. 
+    1. From any of the security controls, select the recommendation to see the resources on which you can install the add on, and select **Remediate**. 
 
-    :::image type="content" source="./media/defender-for-kubernetes-usage/recommendation-to-install-policy-add-on-for-kubernetes-details.png" alt-text="Recommendation details page for **Azure Policy add-on for Kubernetes should be installed and enabled on your clusters**":::
+        :::image type="content" source="./media/defender-for-kubernetes-usage/recommendation-to-install-policy-add-on-for-kubernetes-details.png" alt-text="Recommendation details page for **Azure Policy add-on for Kubernetes should be installed and enabled on your clusters**":::
 
 1. Approximately 30 minutes after the add-on installation completes, Security Center shows the clusters’ health status for the following recommendations, each in the relevant security control as shown:
 
-
     > [!TIP]
-    > Some recommendations have parameters must be customized via Azure Policy to use them effectively. For example, to benefit from the recommendation **Container images should be deployed only from trusted registries**, you'll have to define your trusted registries.
+    > Some recommendations have parameters that must be customized via Azure Policy to use them effectively. For example, to benefit from the recommendation **Container images should be deployed only from trusted registries**, you'll have to define your trusted registries.
     > 
     > If you don't enter the necessary parameters for the recommendations that require configuration, your workloads will be shown as unhealthy.
 
@@ -141,7 +102,7 @@ To configure the bundle, first you must install the add on:
     Deploy the example .yaml files as-is, or use them as a reference to remediate your own workload (step VIII)  
 
 
-### Healthy deployment example .yaml file
+## Healthy deployment example .yaml file
 
 ```yml
 apiVersion: apps/v1
@@ -192,7 +153,7 @@ spec:
     targetPort: 80
 ```
 
-### Unhealthy deployment example .yaml file
+## Unhealthy deployment example .yaml file
 
 ```yml
 apiVersion: apps/v1
@@ -255,7 +216,7 @@ spec:
 
 ## Next steps
 
-In this article, you learned how to use Security Center's container security features. 
+In this article, you learned how to configure Kubernetes workload protection. 
 
 For other related material, see the following pages: 
 

@@ -20,6 +20,15 @@ For threat detection for your Kubernetes clusters, enable **Azure Defender for K
 
 Host-level threat detection for your Linux AKS nodes is available if you enable [Azure Defender for servers](defender-for-servers-intro.md).
 
+## Availability
+
+|Aspect|Details|
+|----|:----|
+|Release state:|Generally Available|
+|Pricing:|Requires **Azure Defender for Kubernetes**|
+|Required roles and permissions:|**Security admin** can dismiss alerts.<br>**Security reader** can view findings.|
+|Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![No](./media/icons/no-icon.png) National/Sovereign (US Gov, China Gov, Other Gov)|
+|||
 
 ## What are the benefits of Azure Defender for Kubernetes?
 
@@ -49,20 +58,6 @@ Also, our global team of security researchers constantly monitor the threat land
 > You can simulate container alerts by following the instructions in [this blog post](https://techcommunity.microsoft.com/t5/azure-security-center/how-to-demonstrate-the-new-containers-features-in-azure-security/ba-p/1011270).
 
 
-
-## How does Security Center's Kubernetes protection work?
-
-Below is a high-level diagram of the interaction between Azure Security Center, Azure Kubernetes Service, and Azure Policy.
-
-You can see that the items received and analyzed by Security Center include:
-
-- audit logs from the API server
-- raw security events from the Log Analytics agent
-- cluster configuration information from the AKS cluster
-- workload configuration from Azure Policy (via the **Azure Policy add-on for Kubernetes**). [Learn more about workload protection best-practices using Kubernetes admission control](container-security.md#workload-protection-best-practices-using-kubernetes-admission-control)
-
-:::image type="content" source="./media/defender-for-kubernetes-intro\aks-asc-integration-detailed.png" alt-text="High-level architecture of the interaction between Azure Security Center, Azure Kubernetes Service, and Azure Policy" lightbox="./media/defender-for-kubernetes-intro\aks-asc-integration-detailed.png":::
-
 ## Azure Defender for Kubernetes - FAQ
 
 ### Can I still get AKS protections without the Log Analytics agent?
@@ -83,5 +78,3 @@ For related material, see the following articles:
 - [Enable Azure Defender](security-center-pricing.md)
 - [Export alerts to a Azure Sentinel or a third-party SIEM](continuous-export.md)
 - [Reference table of alerts](alerts-reference.md)
-- > [!div class="nextstepaction"]
-    > [How to use Azure Defender for Kubernetes](defender-for-kubernetes-usage.md)

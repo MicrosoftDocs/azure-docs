@@ -30,9 +30,6 @@ This article describes how you can use Security Center, together with the option
 
 :::image type="content" source="./media/container-security/container-security-tab.png" alt-text="Container-related resources in Security Center's asset inventory page" lightbox="./media/container-security/container-security-tab.png":::
 
-For instructions on how to use these features, see [Monitoring the security of your containers](monitor-container-security.md).
-
-
 ## Vulnerability management - scanning container images
 
 To monitor your ARM-based Azure Container Registry, enable [Azure Defender for container registries](defender-for-container-registries-intro.md). Security Center scans any images pulled within the last 30 days, pushed to your registry, or imported. The integrated scanner is provided by the industry-leading vulnerability scanning vendor, Qualys.
@@ -75,18 +72,33 @@ When you've installed the add-on on your AKS cluster, every request to the Kuber
 
 For example, you can mandate that privileged containers shouldn't be created, and any future requests to do so will be blocked.
 
-Learn more in 
+Learn more in [Protect your Kubernetes workloads](kubernetes-workload-protections.md).
 
 
 
-## Run-time protection - Real-time threat detection
+## Run-time protection for AKS nodes and clusters
 
 [!INCLUDE [AKS in ASC threat protection](../../includes/security-center-azure-kubernetes-threat-protection.md)]
+
+
+## How does Security Center's Kubernetes protection work?
+
+Below is a high-level diagram of the interaction between Azure Security Center, Azure Kubernetes Service, and Azure Policy.
+
+You can see that the items received and analyzed by Security Center include:
+
+- audit logs from the API server
+- raw security events from the Log Analytics agent
+- cluster configuration information from the AKS cluster
+- workload configuration from Azure Policy (via the **Azure Policy add-on for Kubernetes**). [Learn more about workload protection best-practices using Kubernetes admission control](container-security.md#workload-protection-best-practices-using-kubernetes-admission-control)
+
+:::image type="content" source="./media/defender-for-kubernetes-intro\aks-asc-integration-detailed.png" alt-text="High-level architecture of the interaction between Azure Security Center, Azure Kubernetes Service, and Azure Policy" lightbox="./media/defender-for-kubernetes-intro\aks-asc-integration-detailed.png":::
 
 
 
 ## Next steps
 
-In this overview, you learned about the core elements of container security in Azure Security Center. Continue to [how to monitor the security of your containers](monitor-container-security.md).
-> [!div class="nextstepaction"]
-> [Monitoring the security of your containers](monitor-container-security.md)
+In this overview, you learned about the core elements of container security in Azure Security Center. For related material see:
+
+= [Introduction to Azure Defender for Kubernetes](defender-for-kubernetes-intro.md)
+- [Introduction to Azure Defender for container registries](defender-for-container-registries-intro.md)

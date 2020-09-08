@@ -200,6 +200,9 @@
       href: security-center-adaptive-network-hardening.md
     - name: Integrate Microsoft Defender ATP
       href: security-center-wdatp.md
+    - name: Harden your Docker hosts
+      displayName: containers
+      href: harden-docker-hosts.md
   - name: Use Azure Defender for Key Vault
     href: advanced-threat-protection-key-vault.md
   - name: Use Azure Defender for SQL
@@ -213,9 +216,6 @@
   - name: Use Azure Defender for container registries
     displayName: ACR, registry, images
     href: defender-for-container-registries-usage.md
-  - name: Use Azure Defender for Kubernetes
-    displayName: clusters, k8s
-    href: defender-for-kubernetes-usage.md
   - name: Handle Azure Defender alerts
     items:
     - name: Manage security alerts
@@ -233,8 +233,9 @@
     - name: Export alerts
       displayName: continuous    
       href: continuous-export.md
-  - name: Monitor your containers
-    href: monitor-container-security.md
+  - name: Protect your Kubernetes workloads
+    displayName: k8s, containers
+    href: kubernetes-workload-protections.md
   - name: Manage investigation user data
     href: security-center-investigation-user-data.md
   - name: Gain tenant-wide visibility
