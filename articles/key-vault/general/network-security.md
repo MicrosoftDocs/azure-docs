@@ -124,4 +124,4 @@ Here's how to configure Key Vault firewalls and virtual networks by using PowerS
 ## Next steps
 
 * [Virtual network service endpoints for Key Vault](overview-vnet-service-endpoints.md)
-* [Secure your key vault](secure-your-key-vault.md))
+* [Secure your key vault](secure-your-key-vault.md)
