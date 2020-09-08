@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/02/2020
+ms.date: 09/08/2020
 ms.author: tamram
 ms.subservice: blobs 
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
@@ -142,85 +142,6 @@ Set-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname `
     -InputObject $destPolicy
 ```
 
-# [Azure CLI](#tab/azure-cli)
-
-To create a replication policy with Azure CLI, first install Azure CLI version 2.11.1 or later. For more information, see [Get started with Azure CLI](/cli/azure/get-started-with-azure-cli).
-
-Next, enable blob versioning on the source and destination storage accounts, and enable change feed on the source account. Remember to replace values in angle brackets with your own values:
-
-```azurecli
-az storage blob service-properties update \
-    --resource-group <resource-group> \
-    --account-name <source-storage-account> \
-    --enable-versioning
-
-az storage blob service-properties update \
-    --resource-group <resource-group> \
-    --account-name <source-storage-account> \
-    --enable-change-feed
-
-az storage blob service-properties update \
-    --resource-group <resource-group> \
-    --account-name <dest-storage-account> \
-    --enable-versioning
-```
-
-Create the source and destination containers in their respective storage accounts.
-
-```azurecli
-az storage container create \
-    --account-name <source-storage-account> \
-    --name source-container3 \
-    --auth-mode login
-az storage container create \
-    --account-name <source-storage-account> \
-    --name source-container4 \
-    --auth-mode login
-
-az storage container create \
-    --account-name <dest-storage-account> \
-    --name source-container3 \
-    --auth-mode login
-az storage container create \
-    --account-name <dest-storage-account> \
-    --name source-container4 \
-    --auth-mode login
-```
-
-Create a new replication policy and associated rules on the destination account.
-
-```azurecli
-az storage account or-policy create \
-    --account-name <dest-storage-account> \
-    --resource-group <resource-group> \
-    --source-account <source-storage-account> \
-    --destination-account <dest-storage-account> \
-    --source-container source-container3 \
-    --destination-container dest-container3 \
-    --min-creation-time '2020-05-10T00:00:00Z' \
-    --prefix-match a
-
-az storage account or-policy rule add \
-    --account-name <dest-storage-account> \
-    --destination-container dest-container4 \
-    --policy-id <policy-id> \
-    --resource-group <resource-group> \
-    --source-container source-container4 \
-    --prefix-match b
-```
-
-Create the policy on the source account using the policy ID.
-
-```azurecli
-az storage account or-policy show \
-    --resource-group <resource-group> \
-    --account-name <dest-storage-account> \
-    --policy-id <policy-id> |
-    az storage account or-policy create --resource-group <resource-group> \
-    --account-name <source-storage-account> \
-    --policy "@-"
-```
-
 ---
 
 ### Configure object replication when you have access only to the destination account
@@ -315,10 +236,6 @@ Set-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname `
     -Rule $object.Rules
 ```
 
-# [Azure CLI](#tab/azure-cli)
-
-TBD
-
 ---
 
 ## Remove a replication policy
@@ -348,22 +265,6 @@ Remove-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname `
 Remove-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname `
     -StorageAccountName $srcAccountName `
     -PolicyId $destPolicy.PolicyId
-```
-
-# [Azure CLI](#tab/azure-cli)
-
-To remove a replication policy, delete the policy from both the source account and the destination account. Deleting the policy also deletes any rules associated with it.
-
-```azurecli
-az storage account or-policy delete \
-    --policy-id $policyid \
-    --account-name <source-storage-account> \
-    --resource-group <resource-group>
-
-az storage account or-policy delete \
-    --policy-id $policyid \
-    --account-name <dest-storage-account> \
-    --resource-group <resource-group>
 ```
 
 ---
