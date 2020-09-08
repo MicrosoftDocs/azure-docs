@@ -22,7 +22,7 @@ This quickstart shows you how to build a sample IoT Plug and Play device applica
 
 ## Prerequisites
 
-Make sure you've [setup your environment](set-up-environment.md), including your IoT hub, before continuing.
+[!INCLUDE [iot-pnp-prerequisites](../../includes/iot-pnp-prerequisites.md)]
 
 To complete this quickstart, you need Python 3.7 on your development machine. You can download the latest recommended version for multiple platforms from [python.org](https://www.python.org/). You can check your Python version with the following command:  
 
@@ -74,6 +74,8 @@ Open the **pnp_thermostat.py** file in a text editor. Notice how it:
 
     1. Disables all the listeners and tasks, and exist the loop when you press **Q** or **q**.
 
+[!INCLUDE [iot-pnp-environment](../../includes/iot-pnp-environment.md)]
+
 Now that you've seen the code, use the following command to run the sample:
 
 ```cmd/sh
@@ -83,7 +85,6 @@ python pnp_thermostat.py
 You see the following output, which indicates the device is sending telemetry data to the hub, and is now ready to receive commands and property updates:
 
 ```cmd/sh
-Connecting using Connection String HostName=<your hub name>.azure-devices.net;DeviceId=<your device id>;SharedAccessKey=<your device shared access key>
 Listening for command requests and property updates
 Press Q to quit
 Sending telemetry for temperature
