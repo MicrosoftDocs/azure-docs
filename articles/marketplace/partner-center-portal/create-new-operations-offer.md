@@ -16,7 +16,7 @@ This topic explains how to create a new Dynamics 365 for Operations offer. [Micr
 Before starting, [Create a Commercial Marketplace account in Partner Center](create-account.md) if you haven't done so yet. Ensure your account is enrolled in the commercial marketplace program.
 
 >[!NOTE]
-> Once an offer has been published, edits to the offer made in Partner Center will only be updated in the system and store fronts after re-publishing. Ensure that you submit the offer for publication after you make changes.
+> Once an offer is published, edits to the offer will only be updated in Partner Center and the online store after you re-submit the offer for publication.
 
 ## Create a new offer
 
@@ -188,12 +188,16 @@ In this section, you can provide logos and images that will be used when showing
 
 #### Store logos
 
-Provide your offer's logo in two pixel sizes:
+Provide a PNG file for the **Large** size logo. Partner Center will use this to create a **Small** logo. You can optionally replace this with a different image later.
 
-- **Small** (48 x 48)
-- **Large** (216 x 216)
+- **Large** (from 216 x 216 to 350 x 350 px, required)
+- **Small** (48 x 48 px, optional)
+
+These logos are used in different places in the listing:
 
 [!INCLUDE [logos-appsource-only](../includes/logos-appsource-only.md)]
+
+[!INCLUDE [Logo tips](../includes/graphics-suggestions.md)]
 
 #### Screenshots
 

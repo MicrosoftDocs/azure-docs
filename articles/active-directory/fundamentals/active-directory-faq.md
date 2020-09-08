@@ -47,7 +47,7 @@ Azure AD paid services like Enterprise Mobility + Security complement other web 
 
 **A:** By default, the person who signs up for an Azure subscription is assigned the Owner role for Azure resources. An Owner can use either a Microsoft account or a work or school account from the directory that the Azure subscription is associated with.  This role is authorized to manage services in the Azure portal.
 
-If others need to sign in and access services by using the same subscription, you can assign them the appropriate [built-in role](../../role-based-access-control/built-in-roles.md). For additional information, see [Manage access using RBAC and the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+If others need to sign in and access services by using the same subscription, you can assign them the appropriate [built-in role](../../role-based-access-control/built-in-roles.md). For additional information, see [Add or remove Azure role assignments using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
 By default, the person who signs up for an Azure subscription is assigned the Global Administrator role for the directory. The Global Administrator has access to all Azure AD directory features. Azure AD has a different set of administrator roles to manage the directory and identity-related features. These administrators will have access to various features in the Azure portal. The administrator's role determines what they can do, like create or edit users, assign administrative roles to others, reset user passwords, manage user licenses, or manage domains.  For additional information on Azure AD directory admins and their roles, see [Assign a user to administrator roles in Azure Active Directory](active-directory-users-assign-role-azure-portal.md) and [Assigning administrator roles in Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md).
 
@@ -88,14 +88,14 @@ For more information, see [Integrating your on-premises identities with Azure Ac
 
 **A:** Yes, Azure AD provides you with the [Azure AD Access Panel](https://myapps.microsoft.com) for user self-service and application access. If you are an Office 365 customer, you can find many of the same capabilities in the [Office 365 portal](https://portal.office.com).
 
-For more information, see [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md).
+For more information, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ---
 **Q: Does Azure AD help me manage my on-premises infrastructure?**
 
 **A:** Yes. The Azure AD Premium edition provides you with Azure AD Connect Health. Azure AD Connect Health helps you monitor and gain insight into your on-premises identity infrastructure and the synchronization services.  
 
-For more information, see [Monitor your on-premises identity infrastructure and synchronization services in the cloud](../hybrid/whatis-hybrid-identity-health.md).  
+For more information, see [Monitor your on-premises identity infrastructure and synchronization services in the cloud](../hybrid/whatis-azure-ad-connect.md).  
 
 ---
 ## Password management
@@ -108,7 +108,7 @@ For more information, see [Monitor your on-premises identity infrastructure and 
 
 **A:** Password write-back operates in real time.
 
-For more information, see [Getting started with password management](../authentication/quickstart-sspr.md).
+For more information, see [Getting started with password management](../authentication/tutorial-enable-sspr.md).
 
 ---
 **Q: Can I use password write-back with passwords that are managed by an admin?**
@@ -180,8 +180,8 @@ For more information, see [End user experiences for applications](../manage-apps
 
 For more information, see:
 
-* [Authentication Scenarios for Azure AD](../develop/authentication-scenarios.md)
-* [Active Directory authentication protocols](https://msdn.microsoft.com/library/azure/dn151124.aspx)
+* [Authentication Scenarios for Azure AD](../develop/authentication-vs-authorization.md)
+* [Active Directory authentication protocols](/previous-versions/azure/dn151124(v=azure.100))
 * [Single sign-on for applications in Azure AD](../manage-apps/what-is-single-sign-on.md)
 
 ---

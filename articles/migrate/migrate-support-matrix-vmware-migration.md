@@ -63,7 +63,7 @@ The table summarizes agentless migration requirements for VMware VMs.
 **Storage vMotion** | Not supported. Replication won't work if a VM uses storage vMotion.
 **Teamed NICs** | Not supported.
 **IPv6** | Not supported.
-**Target disk** | VMs can only be migrated to managed disks (standard HDD, premium SSD) in Azure.
+**Target disk** | VMs can only be migrated to managed disks (standard HDD, standard SSD, premium SSD) in Azure.
 **Simultaneous replication** | 300 VMs per vCenter Server. If you have more, migrate them in batches of 300.
 
 
@@ -111,8 +111,9 @@ The table summarizes VMware VM support for VMware VMs you want to migrate using 
 **Network/Storage** | For the latest information, review the [network](../site-recovery/vmware-physical-azure-support-matrix.md#network) and [storage](../site-recovery/vmware-physical-azure-support-matrix.md#storage) prerequisites for Site Recovery. Azure Migrate provides identical network/storage requirements.
 **Azure requirements** | For the latest information, review the [Azure network](../site-recovery/vmware-physical-azure-support-matrix.md#azure-vm-network-after-failover), [storage](../site-recovery/vmware-physical-azure-support-matrix.md#azure-storage), and [compute](../site-recovery/vmware-physical-azure-support-matrix.md#azure-compute) requirements for Site Recovery. Azure Migrate has identical requirements for VMware migration.
 **Mobility service** | The Mobility service agent must be installed on each VM you want to migrate.
-**UEFI boot** | The migrated VM in Azure will be automatically converted to a BIOS boot VM.<br/><br/> The OS disk should have up to four partitions, and volumes should be formatted with NTFS.
-**Target disk** | VMs can only be migrated to managed disks (standard HDD, premium SSD) in Azure.
+**UEFI boot** | Supported.
+**UEFI - Secure boot**         | Not supported for migration.
+**Target disk** | VMs can only be migrated to managed disks (standard HDD, standard SSD, premium SSD) in Azure.
 **Disk size** | 2 TB OS disk; 8 TB for data disks.
 **Disk limits** |  Up to 63 disks per VM.
 **Encrypted disks/volumes** | VMs with encrypted disks/volumes aren't supported for migration.
@@ -120,7 +121,7 @@ The table summarizes VMware VM support for VMware VMs you want to migrate using 
 **Independent disks** | Supported.
 **Passthrough disks** | Supported.
 **NFS** | NFS volumes mounted as volumes on the VMs won't be replicated.
-**iSCSI targets** | VMs with iSCSI targets aren't supported for agentless migration.
+**iSCSI targets** | Supported.
 **Multipath IO** | Not supported.
 **Storage vMotion** | Supported
 **Teamed NICs** | Not supported.

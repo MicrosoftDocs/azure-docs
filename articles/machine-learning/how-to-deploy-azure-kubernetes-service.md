@@ -229,6 +229,10 @@ For more information, see the [az ml computetarget attach aks](https://docs.micr
 
 To deploy a model to Azure Kubernetes Service, create a __deployment configuration__ that describes the compute resources needed. For example, number of cores and memory. You also need an __inference configuration__, which describes the environment needed to host the model and web service. For more information on creating the inference configuration, see [How and where to deploy models](how-to-deploy-and-where.md).
 
+> [!NOTE]
+> The number of models to be deployed is limited to 1,000 models per deployment (per container).
+
+
 ### Using the SDK
 
 ```python

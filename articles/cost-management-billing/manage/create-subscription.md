@@ -68,7 +68,7 @@ You need the following permissions to create subscriptions:
 
 ## Create an additional Azure subscription programmatically
 
-You can also create additional subscriptions programmatically. For more information, see [Programmatically create Azure subscriptions](../../azure-resource-manager/management/programmatically-create-subscription.md).
+You can also create additional subscriptions programmatically. For more information, see [Programmatically create Azure subscriptions](programmatically-create-subscription.md).
 
 ## Next steps
 

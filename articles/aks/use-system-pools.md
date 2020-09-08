@@ -5,6 +5,7 @@ services: container-service
 ms.topic: article
 ms.date: 06/18/2020
 ms.author: mlearned
+ms.custom: fasttrack-edit
 ---
 
 # Manage system node pools in Azure Kubernetes Service (AKS)
@@ -85,7 +86,7 @@ az aks nodepool add \
     --name systempool \
     --node-count 3 \
     --node-taints CriticalAddonsOnly=true:NoSchedule \
-    --mode system
+    --mode System
 ```
 ## Show details for your node pool
 

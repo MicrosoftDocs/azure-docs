@@ -73,5 +73,5 @@ After the pipeline run completes, you can see the *Mean_Absolute_Error* in the E
 
 In this article, you learned how to use logs in the designer. For next steps, see these related articles:
 
-* Learn how to troubleshoot designer pipelines, see [Debug & troubleshoot ML pipelines](how-to-debug-pipelines.md#azure-machine-learning-designer-preview).
+* Learn how to troubleshoot designer pipelines, see [Debug & troubleshoot ML pipelines](how-to-debug-pipelines.md#logging-in-azure-machine-learning-designer-preview).
 * Learn how to use the Python SDK to log metrics in the SDK authoring experience, see [Enable logging in Azure ML training runs](how-to-track-experiments.md).

@@ -5,6 +5,7 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/06/2020
 ms.topic: article
+ms.custom: devx-track-csharp
 ---
 
 # Cut planes
@@ -42,11 +43,11 @@ void CreateCutPlane(AzureSession session, Entity ownerEntity)
 void CreateCutPlane(ApiHandle<AzureSession> session, ApiHandle<Entity> ownerEntity)
 {
     ApiHandle<CutPlaneComponent> cutPlane = session->Actions()->CreateComponent(ObjectType::CutPlaneComponent, ownerEntity)->as<CutPlaneComponent>();;
-    cutPlane->Normal(Axis::X); // normal points along the positive x-axis of the owner object's orientation
+    cutPlane->SetNormal(Axis::X); // normal points along the positive x-axis of the owner object's orientation
     Color4Ub fadeColor;
     fadeColor.channels = { 255, 0, 0, 128 }; // fade to 50% red
-    cutPlane->FadeColor(fadeColor);
-    cutPlane->FadeLength(0.05f); // gradient width: 5cm
+    cutPlane->SetFadeColor(fadeColor);
+    cutPlane->SetFadeLength(0.05f); // gradient width: 5cm
 }
 ```
 

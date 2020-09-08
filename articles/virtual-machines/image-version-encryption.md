@@ -22,9 +22,9 @@ Server-side encryption using customer-managed keys uses Azure Key Vault. You can
 
 This article requires that you already have a disk encryption set to use for your image.
 
-- To use only a customer-managed key, see **Enable customer-managed keys with server-side encryption** using the [Azure portal](./windows/disks-enable-customer-managed-keys-portal.md) or [PowerShell](./windows/disks-enable-customer-managed-keys-powershell.md#set-up-your-azure-key-vault-and-diskencryptionset).
+- To use only a customer-managed key, see **Enable customer-managed keys with server-side encryption** using the [Azure portal](./disks-enable-customer-managed-keys-portal.md) or [PowerShell](./windows/disks-enable-customer-managed-keys-powershell.md#set-up-your-azure-key-vault-and-diskencryptionset).
 
-- To use both platform-managed and customer-managed keys (for double encryption), see **Enable double encryption at rest** using the [Azure portal](./windows/disks-enable-double-encryption-at-rest-portal.md) or [PowerShell](./windows/disks-enable-double-encryption-at-rest-powershell.md).
+- To use both platform-managed and customer-managed keys (for double encryption), see **Enable double encryption at rest** using the [Azure portal](./disks-enable-double-encryption-at-rest-portal.md) or [PowerShell](./windows/disks-enable-double-encryption-at-rest-powershell.md).
     > [!IMPORTANT]
     > You must use this link [https://aka.ms/diskencryptionupdates](https://aka.ms/diskencryptionupdates) to access the Azure portal. Double encryption at rest is not currently visible in the public Azure portal without using the link.
 
@@ -145,7 +145,7 @@ az provider register -n Microsoft.Compute
 ```
 
 
-To specify a disk encryption set to for an image version, use  [az image gallery create-image-version](/cli/azure/sig/image-version#az-sig-image-version-create) with the `--target-region-encryption` parameter. The format for `--target-region-encryption` is a space-separated list of keys for encrypting the OS and data disks. It should look like this: `<encryption set for the OS disk>,<Lun number of the data disk>, <encryption set for the data disk>, <Lun number for the second data disk>, <encryption set for the second data disk>`. 
+To specify a disk encryption set to for an image version, use  [az image gallery create-image-version](/cli/azure/sig/image-version#az-sig-image-version-create) with the `--target-region-encryption` parameter. The format for `--target-region-encryption` is a comma-separated list of keys for encrypting the OS and data disks. It should look like this: `<encryption set for the OS disk>,<Lun number of the data disk>,<encryption set for the data disk>,<Lun number for the second data disk>,<encryption set for the second data disk>`. 
 
 If the source for the OS disk is a managed disk or a VM, use `--managed-image` to specify the source for the image version. In this example, the source is a managed image that has an OS disk as well as a data disk at LUN 0. The OS disk will be encrypted with DiskEncryptionSet1 and the data disk will be encrypted with DiskEncryptionSet2.
 

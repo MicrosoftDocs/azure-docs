@@ -244,16 +244,17 @@ Provide logos and images to use with your offer. All images must be in PNG forma
 
 #### Store logos
 
-Provide PNG files of your offer's logo in the following three pixel sizes:
+Provide a PNG file for the **Large** size logo. Partner Center will use this to create a **Small** and a **Medium** logo. You can optionally replace these with different images later.
 
-- **Small** (48 x 48)
-- **Medium** (90 x 90)
-- **Large** (216 x 216)
-- **Wide** (255 x 115)
+- **Large** (from 216 x 216 to 350 x 350 px, required)
+- **Medium** (90 x 90 px, optional)
+- **Small** (48 x 48 px, optional)
 
-All three logos are required and are used in different places in the listing.
+These logos are used in different places in the listing:
 
 [!INCLUDE [logos-azure-marketplace-only](../includes/logos-azure-marketplace-only.md)]
+
+[!INCLUDE [Logo tips](../includes/graphics-suggestions.md)]
 
 #### Screenshots
 

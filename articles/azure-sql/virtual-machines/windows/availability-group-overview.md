@@ -39,8 +39,9 @@ To increase redundancy and high availability, the SQL Server VMs should either b
 
 |  | Windows Server Version | SQL Server Version | SQL Server Edition | WSFC Quorum Config | DR with Multi-region | Multi-subnet support | Support for an existing AD | DR with multi-zone same region | Dist-AG support with no AD domain | Dist-AG support with no cluster |  
 | :------ | :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----|
-| **[SQL VM CLI](availability-group-az-cli-configure.md)** | 2016 | 2017 </br>2016   | Ent | Cloud witness | No | Yes | Yes | Yes | No | No |
-| **[Quickstart Templates](availability-group-quickstart-template-configure.md)** | 2016 | 2017</br>2016  | Ent | Cloud witness | No | Yes | Yes | Yes | No | No |
+| **[Azure portal](availability-group-azure-portal-configure.md)** | 2019 </br> 2016 | 2019 </br>2017 </br>2016   | Ent | Cloud witness | No | Yes | Yes | Yes | No | No |
+| **[Azure CLI / PowerShell](availability-group-az-cli-configure.md)** | 2019 </br> 2016 | 2019 </br>2017 </br>2016   | Ent | Cloud witness | No | Yes | Yes | Yes | No | No |
+| **[Quickstart Templates](availability-group-quickstart-template-configure.md)** | 2019 </br> 2016 | 2019 </br>2017 </br>2016  | Ent | Cloud witness | No | Yes | Yes | Yes | No | No |
 | **[Manual](availability-group-manually-configure-prerequisites-tutorial.md)** | All | All | All | All | Yes | Yes | Yes | Yes | Yes | Yes |
 
 The **SQL Server AlwaysOn Cluster (preview)** template has been removed from the Azure Marketplace and is no longer available. 

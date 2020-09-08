@@ -5,6 +5,7 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/07/2020
 ms.topic: article
+ms.custom: devx-track-csharp
 ---
 
 # Sky reflections
@@ -70,17 +71,17 @@ void ChangeEnvironmentMap(ApiHandle<AzureSession> session)
     ApiHandle<LoadTextureAsync> skyTextureLoad = *session->Actions()->LoadTextureFromSASAsync(params);
 
     skyTextureLoad->Completed([&](ApiHandle<LoadTextureAsync> res)
-    {
-        if (res->IsRanToCompletion())
         {
-            ApiHandle<SkyReflectionSettings> settings = *session->Actions()->SkyReflectionSettings();
-            settings->SkyReflectionTexture(*res->Result());
-        }
-        else
-        {
-            printf("Texture loading failed!");
-        }
-    });
+            if (res->GetIsRanToCompletion())
+            {
+                ApiHandle<SkyReflectionSettings> settings = session->Actions()->GetSkyReflectionSettings();
+                settings->SetSkyReflectionTexture(res->GetResult());
+            }
+            else
+            {
+                printf("Texture loading failed!");
+            }
+        });
 }
 
 ```

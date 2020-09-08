@@ -60,10 +60,16 @@
     href: ../../postgresql/postgresql-hyperscale-security-baseline.md
   - name: Azure Databricks security baseline
     href: ../../azure-databricks/security-baseline.md
+  - name: Azure DNS security baseline
+    href: ../../dns/security-baseline.md
   - name: Azure Firewall security baseline
     href: ../../firewall/security-baseline.md
   - name: Azure Functions security baseline
     href: ../../azure-functions/security-baseline.md
+  - name: Azure IoT Hub security baseline
+    href: ../../iot-hub/security-baseline.md
+  - name: Azure Monitor security baseline
+    href: ../../azure-monitor/security-baseline.md
   - name: Azure Machine Learning security baseline
     href: ../../machine-learning/security-baseline.md
   - name: Azure Policy security baseline
