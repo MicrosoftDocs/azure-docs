@@ -87,7 +87,7 @@ Enter-AzureRmWebAppContainerPSSession -ResourceGroupName <group-name> -Name <app
 > [!NOTE]
 > Any change you make to the container within the WinRM session does *not* persist when your app is restarted (except for changes in a [persistent shared storage](#use-persistent-shared-storage)), because it's not part of the Docker image. When your app restarts, App Service recreates the Docker container from your deployed image. 
 >
-> To persist your changes, such as registry settings and software installation, you need to make them in the Dockerfile for your image. For example, in the tutorial [Migrate custom software to Azure App Service using a custom container](tutorial-custom-container.md?tab=container-windows), the custom font project uses this method to [install a custom font in Dockerfile](tutorial-custom-container.md#configure-windows-container?tab=container-windows).
+> To persist your changes, such as registry settings and software installation, you need to make them in the Dockerfile for your image. For example, in the tutorial [Migrate custom software to Azure App Service using a custom container](tutorial-custom-container.md?tab=container-windows), the custom font project uses this method to [install a custom font in Dockerfile](tutorial-custom-container.md?pivots=container-windows#configure-windows-container).
 
 If your site does not start then check the Docker log
 
