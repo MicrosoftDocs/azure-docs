@@ -26,7 +26,7 @@ Notifications about upcoming scheduled maintenance can be:
 * Pushed as a notification to an Azure app
 * Delivered as a voice message
  
-When specifying preferences for the maintenance schedule, you can pick a day of the week and a time window. If you don't specify, the system will pick times between 11pm and 7am in your server's region time. You can define different schedules for each flexible server in your Azure subscription.
+When specifying preferences for the maintenance schedule, you can pick a day of the week and a time window. If you don't specify, the system will pick times between 11pm and 7am in your server's region time. You can define different schedules for each flexible server in your Azure subscription. 
  
 > [!IMPORTANT]
 > Normally there are at least 30 days between successful scheduled maintenance events for a server.
