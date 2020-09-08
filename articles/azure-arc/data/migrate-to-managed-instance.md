@@ -1,6 +1,6 @@
 ---
-title: Migrate a database from SQL Server to Azure Arc Enabled SQL Managed Instance
-description: Migrate a database from SQL Server to Enabled SQL Managed Instance
+title: Migrate a database from SQL Server to Azure Arc enabled SQL Managed Instance
+description: Migrate database from SQL Server to Azure Arc enabled SQL Managed Instance
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -11,28 +11,30 @@ ms.date: 09/08/2020
 ms.topic: how-to
 ---
 
-# Scenario: Migrate a database from SQL Server to Enabled SQL Managed Instance
+# Migrate: SQL Server to Azure Arc enabled SQL Managed Instance
 
 This scenario walks you through the steps for migrating a database from a SQL Server instance to Azure SQL managed instance in Azure Arc via two different backup and restore methods.
 
-## Method 1: Using Azure Blob Storage for migrating to Enabled SQL Managed Instance
+## Use Azure blob storage 
+
+Use Azure blob storage for migrating to Azure Arc enabled SQL Managed Instance.
 
 This method uses Azure Blob Storage as a temporary storage location that you can back up to and then restore from.
 
-### Pre-requisites
+### Prerequisites
 
 - [Install Azure Data Studio](install-client-tools.md)
 - [Install Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)
 - Azure subscription
 
-### Step 1: Provision Azure Blob Storage
+### Step 1: Provision Azure blob storage
 
 1. Follow the steps described in [Create an Azure Blob Storage account](../../storage/blobs/storage-blob-create-account-block-blob.md?tabs=azure-portal)
 1. Launch Azure Storage Explorer
 1. [Sign in to Azure](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#sign-in-to-azure) to access the blob storage created in previous step
 1. Right-click on the blob storage account and select **Create Blob Container** to create a new container where the backup file will be stored
 
-### Step 2: Get Storage Blob Credentials
+### Step 2: Get storage blob credentials
 
 1. In Azure Storage Explorer, right-click on the blob container that was just created and select **Get Shared Access Signature**
 
@@ -70,7 +72,7 @@ In this step, we will connect to the source SQL Server and create the backup fil
 
 1. Open Azure Storage Explorer and validate that the backup file created in previous step is visible in the Blob container
 
-### Step 4: Restore the database from Azure Blob Storage to SQL Managed Instance - Azure Arc
+### Step 4: Restore the database from Azure blob storage to SQL Managed Instance - Azure Arc
 
 1. From Azure Data Studio, login and connect to the SQL Managed Instance - Azure Arc.
 1. Expand the **System Databases**, right-click on **master** database and select **New Query**.
@@ -177,3 +179,12 @@ WITH MOVE 'test' to '/var/opt/mssql/data/test.mdf'
 ,STATS = 5;  
 GO
 ```
+
+
+## Next steps
+
+Learn more about [Features and Capabilities of Azure Arc enabled SQL Managed Instance](managed-instance-features.md)
+
+[Start by deploying a Data Controller](create-data-controller.md)
+
+Already deployed a Data Controller? [Create an Azure Arc enabled SQL Managed Instance](create-sql-managed-instance.md)

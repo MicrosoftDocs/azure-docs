@@ -1,6 +1,6 @@
 ---
-title: Delete Azure Arc Enabled SQL Managed Instance
-description: Delete Azure Arc Enabled SQL Managed Instance
+title: Delete Azure Arc enabled SQL Managed Instance
+description: Delete Azure Arc enabled SQL Managed Instance
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -11,10 +11,10 @@ ms.date: 09/08/2020
 ms.topic: how-to
 ---
 
-# Delete Azure Arc Enabled SQL Managed Instance
-This article describes how you can delete a deployed Azure Arc Enabled SQL Managed Instance.
+# Delete Azure Arc enabled SQL Managed Instance
+This article describes how you can delete a deployed Azure Arc enabled SQL Managed Instance.
 
-## View Existing Azure Arc Enabled SQL Managed Instances
+## View Existing Azure Arc enabled SQL Managed Instances
 To view deployed SQL Managed Instances, run the following command:
 
 ```terminal
@@ -29,7 +29,7 @@ Name    Replicas    ServerEndpoint    State
 demo-mi 1/1         10.240.0.4:32023  Ready
 ```
 
-## Delete a Azure Arc Enabled SQL Managed Instance
+## Delete a Azure Arc enabled SQL Managed Instance
 To delete a SQL Managed Instance, run the following command:
 
 ```terminal
@@ -90,3 +90,11 @@ persistentvolumeclaim "logs-demo-mi-0" deleted
 > - Status:         Failed  
 > - Reason:         Evicted  
 > - Message:        The node was low on resource: ephemeral-storage. Container controller was using 16372Ki, which exceeds its request of 0.
+
+## Next steps
+
+Learn more about [Features and Capabilities of Azure Arc enabled SQL Managed Instance](managed-instance-features.md)
+
+[Start by deploying a Data Controller](create-data-controller.md)
+
+Already deployed a Data Controller? [Create an Azure Arc enabled SQL Managed Instance](create-sql-managed-instance.md)

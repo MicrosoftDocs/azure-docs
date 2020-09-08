@@ -35,7 +35,9 @@ If you are using AKS or kubeadm or OpenShift etc., you can copy the external IP 
 > [!NOTE]
 > Your corporate policies may block access to the IP and port, especially if this is deployed in the public cloud.
 
-## Connect with Azure Data Studio or SQL Server Management Studio
+## Connect 
+
+Connect with Azure Data Studio or SQL Server Management Studio
 
 Open Azure Data Studio and connect to your instance with the external endpoint IP address and port number above. If you are using an Azure VM you will need the _public_ IP address, which is identifiable using the [Special note about Azure virtual machine deployments](#special-note-about-azure-virtual-machine-deployments).
 
