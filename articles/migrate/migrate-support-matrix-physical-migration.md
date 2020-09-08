@@ -40,7 +40,7 @@ The table summarizes support for physical servers you want to migrate using agen
 **Mobility service** | The Mobility service agent must be installed on each machine you want to migrate.
 **UEFI boot** | The migrated machine in Azure will be automatically converted to a BIOS boot Azure VM. Only server running Windows Server 2012 and later supported.<br/><br/> The OS disk should have up to four partitions, and volumes should be formatted with NTFS.
 **UEFI - Secure boot**         | Not supported for migration.
-**Target disk** | Machines can only be migrated to managed disks (standard HDD, premium SSD) in Azure.
+**Target disk** | Machines can only be migrated to managed disks (standard HDD, standard SSD, premium SSD) in Azure.
 **Disk size** | 2 TB OS disk; 8 TB for data disks.
 **Disk limits** |  Up to 63 disks per machine.
 **Encrypted disks/volumes** |  Machines with encrypted disks/volumes aren't supported for migration.
