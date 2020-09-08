@@ -45,11 +45,11 @@ If you have permission to access and use your organization's cloud-based apps, y
 
 1. Sign in to your work or school account on your computer.
 
-2. In a supported web browser, go to https://myapps.microsoft.com, or use the link provided by your organization if they direct you to a customized page such as `https://myapps.microsoft.com/contoso.com`.
+1. In a supported web browser, go to https://myapps.microsoft.com, or use the link provided by your organization if they direct you to a customized page such as `https://myapps.microsoft.com/contoso.com`.
 
    The **Apps** page appears, showing all the cloud-based apps owned by your organization that are available for you to use.
 
-3. From the **Apps** page, select the app you want to start using.
+1. From the **Apps** page, select the app you want to start using.
 
    A new page opens for the app, where you can sign in (if necessary) or begin using the app.
 
@@ -84,23 +84,23 @@ You can choose how many apps to view in the **Recently Used** section and decide
 
 1. Select the new **My Apps Secure Sign-in Extension** icon ![Extension icon](media/my-apps-portal/my-apps-portal-extension-icon.png) to the right of your **Address** bar, and then select **Sign in to get started**.
 
-2. Right-click the **Settings** icon ![Settings icon](media/my-apps-portal/my-apps-portal-extension-settings-icon.png), and then select **Settings**.
+1. Right-click the **Settings** icon ![Settings icon](media/my-apps-portal/my-apps-portal-extension-settings-icon.png), and then select **Settings**.
 
-3. In the **Settings** box, select the number of recent apps you want to see on the portal, and whether to allow your organization's internal URLs to redirect so you can use them remotely.
+1. In the **Settings** box, select the number of recent apps you want to see on the portal, and whether to allow your organization's internal URLs to redirect so you can use them remotely.
 
    ![Settings page of the extension, showing the available customizations](media/my-apps-portal/my-apps-portal-extension-settings-page.png)
 
-## Access and use the My Apps portal on the mobile version of Edge
+## Access and use the My Apps portal on mobile Edge
 
 View and use your organization's apps from the mobile version of the Edge browser on your devices.
 
 1. On your mobile device, download and install the mobile Edge browser app from the Apple App Store and the Google Play Store.
 
-2. Open the mobile Edge browser and go to https://myapps.microsoft.com, or use the link provided by your organization if they direct you to a customized page, such as https://myapps.microsoft.com/contoso.com.
+1. Open the mobile Edge browser and go to https://myapps.microsoft.com, or use the link provided by your organization if they direct you to a customized page, such as https://myapps.microsoft.com/contoso.com.
 
    The **Apps** page appears, showing all the cloud-based apps owned by your organization and available for you to use.
 
-3. From the **Apps** page, select the app you want to start using.
+1. From the **Apps** page, select the app you want to start using.
 
    A new page opens for the app, where you can sign in (if necessary) or begin using the app.
 
@@ -112,9 +112,9 @@ If your administrator has given you permission, you can add a new app to the **A
 
    ![Add apps page, in the My Apps portal at myapplications.microsoft.com](media/my-apps-portal/my-apps-portal-add-app-link.png)
 
-2. Select the app you want to add from the provided list, and then select **Add**.
+1. Select the app you want to add from the provided list, and then select **Add**.
 
-3. The app is added to the list on the **Apps** page.
+1. The app is added to the list on the **Apps** page.
 
    Some apps might require administrator approval before being added. When that happens, the app isn't added to the **Apps** page until the administrator approves it.
 
