@@ -88,7 +88,7 @@ Configure the restore:
 2. Keep the format set  to **Custom or tar**
    :::image type="content" source="media/postgres-hyperscale/migrate-pg-destination-dbrestore2.jpg" alt-text="Migrate-db-restore-configure":::
 
-3. Click **Restore]**.  
+3. Click **Restore**.  
 
    The restore is successful.  
    :::image type="content" source="media/postgres-hyperscale/migrate-pg-destination-dbrestore3.jpg" alt-text="Migrate-db-restore-completed":::
