@@ -722,6 +722,10 @@
               href: app/monitor-performance-live-website-now.md
         - name: Java
           href: app/java-on-premises.md
+    - name: OpenTelemetry
+      items: 
+      - name: FAQ
+        href: faq.md#opentelemetry
     - name: Create a resource (classic)
       href: app/create-new-resource.md
     - name: Create a resource (workspace-based)
@@ -1012,6 +1016,8 @@
       href: insights/container-insights-health.md
     - name: Monitor GPU performance
       href: insights/container-insights-gpu-monitoring.md
+    - name: Monitor Deployments & HPAs
+      href: insights/container-insights-deployment-hpa-metrics.md
     - name: View live data
       items:
       - name: Live Data (preview) overview
