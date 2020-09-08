@@ -169,8 +169,8 @@ Sometimes it can be helpful if you can provide diagnostic information when askin
 > Moving your Azure Machine Learning workspace to a different subscription, or moving the owning subscription to a new tenant, is not supported. Doing so may cause errors.
 
 * **Azure portal**: 
-  * If you go directly to view your workspace from a share link from the SDK or the portal, you will not be able to view the normal **Overview** page with subscription information in the extension. You will also not be able to switch into another workspace. If you need to view another workspace, go directly to [Azure Machine Learning studio](https://ml.azure.com) and search for the workspace name.
-  * All assets (Datasets, Experiments, Computes, etc.) are available only in [Azure Machine Learning studio](https://ml.azure.com) and are **NOT** available from Azure portal anymore.
+  * If you go directly to your workspace from a share link from the SDK or Azure portal, you can't view the normal **Overview** page that has subscription information in the extension. In this scenario, you also can't switch to another workspace. To view another workspace, go directly to [Azure Machine Learning studio](https://ml.azure.com) and search for the workspace name.
+  * All assets (Datasets, Experiments, Computes, and so on) are available only in [Azure Machine Learning studio](https://ml.azure.com). They're *not* available from the Azure portal.
 
 * **Supported browsers in Azure Machine Learning studio web portal**: We recommend that you use the most up-to-date browser that's compatible with your operating system. The following browsers are supported:
   * Microsoft Edge (The new Microsoft Edge, latest version. Not Microsoft Edge legacy)
