@@ -79,8 +79,9 @@ echo $hubConnectionString
 ```
 
 > [!NOTE]
-> These two commands are valid for a host running under Bash. If you are using a local Windows/CMD shell or a PowerShell host, you need to modify the commands to use  the correct syntax for that environment.
->
+> These two commands are valid for a host running under Bash.
+> If you are using a local Windows/CMD shell or a PowerShell host, you need to modify the commands to use the correct syntax for that environment.
+> If you are using Azure Cloud Shell, check that the environment drop-down from the left-hand side of shell window says `Bash`.
 
 ## Link the IoT hub and the provisioning service
 
