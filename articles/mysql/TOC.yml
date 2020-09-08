@@ -457,7 +457,7 @@
       - name: Azure portal
         href: flexible-server/how-to-manage-portal.md
       - name: Azure CLI
-        href: flexible-server/how-to-manage-cli.md
+        href: flexible-server/how-to-manage-server-cli.md
     - name: Stop/start server
       items:
       - name: Azure portal
@@ -465,7 +465,7 @@
     - name: Restore a server
       items:
       - name: Azure portal
-        href: flexible-server/how-to-restore-mysql-server-portal.md
+        href: flexible-server/how-to-restore-server-portal.md
     - name: Networking
       items:
       - name: Private access (VNet Integration)

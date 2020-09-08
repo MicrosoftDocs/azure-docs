@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 9/21/2020
 ---
 
-# Compute and storage options in Azure Database for MySQL - Flexible Server
+# Compute and storage options in Azure Database for MySQL - Flexible Server (Preview)
 
 > [!IMPORTANT] 
-> Azure Database for MySQL Flexible Server is currently in public preview
+> Azure Database for MySQL - Flexible Server is currently in public preview.
 
 You can create an Azure Database for MySQL Flexible Server in one of three different compute tiers: Burstable, General Purpose, and Memory Optimized. The compute tiers are differentiated by the underlying VM SKU used B-series, D-series, and E-series. The choice of compute tier and size determines the memory and vCores available on the server. The same storage technology is used across all compute tiers. All resources are provisioned at the MySQL server level. A server can have one or many databases.
 

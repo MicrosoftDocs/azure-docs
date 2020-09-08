@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 9/21/2020
 ---
 
-# Audit Logs in Azure Database for MySQL Flexible Server
+# Track database activity with Audit Logs in Azure Database for MySQL Flexible Server
 
 > [!IMPORTANT] 
 > Azure Database for MySQL Flexible Server is currently in public preview

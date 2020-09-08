@@ -8,7 +8,11 @@ ms.topic: how-to
 ms.date: 09/21/2020
 ---
 
-# Stop/Start an Azure Database for MySQL Flexible Server (Preview)
+# Stop/Start an Azure Database for MySQL - Flexible Server (Preview)
+
+
+> [!IMPORTANT] 
+> Azure Database for MySQL - Flexible Server is currently in public preview.
 
 This article provides step-by-step procedure to perform Stop and Start of the flexible server.
 

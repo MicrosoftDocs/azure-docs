@@ -8,7 +8,10 @@ ms.topic: how-to
 ms.date: 9/21/2020
 ---
 
-# Manage an Azure Database for MySQL Flexible Server (Preview) using the Azure CLI
+# Manage an Azure Database for MySQL - Flexible Server (Preview) using the Azure CLI
+
+> [!IMPORTANT]
+> Azure Database for MySQL - Flexible Server is currently in public preview.
 
 This article shows you how to manage your Flexible Server (Preview) deployed in Azure. Management tasks include compute and storage scaling, admin password reset, and viewing server details.
 

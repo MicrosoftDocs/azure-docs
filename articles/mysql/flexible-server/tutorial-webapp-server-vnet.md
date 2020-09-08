@@ -10,7 +10,10 @@ ms.date: 9/21/2020
 ms.custom: mvc, devx-track-azurecli
 ---
 
-# Create an Azure Database for MySQL Flexible Server (Preview) with App Services Web App in virtual network
+# Create an Azure Database for MySQL - Flexible Server (Preview) with App Services Web App in virtual network
+
+> [!IMPORTANT] 
+> Azure Database for MySQL - Flexible Server is currently in public preview.
 
 This tutorial shows you how create a Azure App Service Web app with  MySQL Flexible Server (Preview) inside a [Virtual network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview).
 

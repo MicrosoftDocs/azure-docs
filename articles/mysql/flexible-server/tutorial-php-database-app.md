@@ -12,6 +12,10 @@ ms.custom: mvc
 
 # Tutorial: Build a PHP (Laravel) and MySQL Flexible Server (Preview) app in Azure App Service
 
+
+> [!IMPORTANT] 
+> Azure Database for MySQL - Flexible Server is currently in public preview.
+
 [Azure App Service](https://docs.microsoft.com/azure/app-service/overview) provides a highly scalable, self-patching web hosting service using the Linux operating system. This tutorial shows how to create a PHP app in Azure and connect it to a MySQL database. When you're finished, you'll have a [Laravel](https://laravel.com/) app running on Azure App Service on Linux.
 
 ![PHP Web App in Azure with Flexible Server](media/tutorial-php-database-app/complete-checkbox-published.png)
