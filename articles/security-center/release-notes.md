@@ -68,7 +68,7 @@ Enforcing a secure configuration, based on a specific recommendation, is offered
  
 This is available for selected security recommendations and can be found at the top of the resource details page.
 
-
+Learn more in [Prevent misconfigurations with Enforce/Deny recommendations](prevent-misconfigurations.md).
 
 ###  Network security group recommendations improved
 

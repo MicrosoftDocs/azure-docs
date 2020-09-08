@@ -65,51 +65,6 @@ To implement Quick Fix remediation:
 The remediation operation uses a template deployment or REST PATCH API call to apply the configuration on the resource. These operations are logged in [Azure activity log](../azure-resource-manager/management/view-activity-logs.md).
 
 
-## Enforcing recommendations on newly created resources
-
-Security misconfigurations are a major cause of security incidents. Security Center now has the ability to help *prevent* misconfigurations of new resources with regards to specific recommendations. 
-
-This feature can help keep your workloads secure and stabilize your secure score.
-
-Enforcing a secure configuration, based on a specific recommendation, is offered in two modes:
-
-- Using the **Deny** effect of Azure Policy, you can stop unhealthy resources from being created
-
-- Using the **Enforce** option, you can take advantage of Azure policy's **DeployIfNotExist** effect and automatically remediate non-compliant resources upon creation
- 
-This is available for selected security recommendations and can be found at the top of the resource details page.
-
-- **To prevent resource creation:**
-
-    1. Open the recommendation that your new resources must satisfy, and select the **Deny** button at the top of the page.
-
-        :::image type="content" source="./media/security-center-remediate-recommendations/recommendation-deny-button.png" alt-text="Recommendation page with Deny button highlighted":::
-
-        The configuration pane opens listing the scope options. 
-
-    1. Set the scope by selecting the relevant subscription or management group.
-
-        > [!TIP]
-        > You can use the three dots at the end of the row to change a single subscription, or use the checkboxes to select multiple subscriptions or groups then select **Change to Deny**.
-
-        :::image type="content" source="./media/security-center-remediate-recommendations/recommendation-prevent-resource-creation.png" alt-text="Setting the scope for Azure Policy deny":::
-
-
-- **To enforce a secured configuration:**
-
-    1. Open the recommendation that you'll deploy a template deployment for if new resources don't  satisfy it, and select the **Enforce** button at the top of the page.
-
-        :::image type="content" source="./media/security-center-remediate-recommendations/recommendation-enforce-button.png" alt-text="Recommendation page with Enforce button highlighted":::
-
-        The configuration pane opens with all of the policy configuration options. 
-
-        :::image type="content" source="./media/security-center-remediate-recommendations/recommendation-enforce-config.png" alt-text="Enforce configuration options":::
-
-    1. Set the scope, assignment name, and other relevant options.
-
-    1. Select **Review + create**.
-
-
 ## Next steps
 
 In this document, you were shown how to remediate recommendations in Security Center. To learn more about Security Center, see the following topics:
