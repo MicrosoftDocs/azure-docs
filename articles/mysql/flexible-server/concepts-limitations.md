@@ -62,8 +62,8 @@ The following are unsupported:
 
 ### Networking
 - Connectivity method cannot be changed after creating the server. If the server is created with *Private access (VNet Integration)*, it cannot be changed to *Public access (allowed IP addresses)* after create, and vice versa
-- SSL is enabled by default and cannot be disabled.
-- Minimum TLS version supported on the server is TLS1.2.
+- TLS/SSL is enabled by default and cannot be disabled.
+- Minimum TLS version supported on the server is TLS1.2. Refer to [connect using TLS/SSL](./how-to-connect-tls-ssl.md) to learn more.
 
 ### Stop/start operation
 - Not supported with zone redundant HA configurations (both primary and standby).
