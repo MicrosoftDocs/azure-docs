@@ -12,8 +12,6 @@ ms.date: 09/08/2020
 
 # Connect Azure to ITSM tools using Secure Export
 
-[!div class="mx-imgBorder"]
-
 This article provides information about how to configure the connection between your ITSM product/service using Secure Export.
 
 Secure Export is and updated version of [ITSMC](./itsmc-overview.md) (IT Service Management). Both versions allow you to create work items in an ITSM tool when Azure Monitor alerts fire. The functionality includes metric, log and activity log alerts.
