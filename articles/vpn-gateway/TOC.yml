@@ -92,8 +92,12 @@
       href: vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md
     - name: Connect to multiple policy-based VPN devices
       href: vpn-gateway-connect-multiple-policybased-rm-ps.md
-    - name: Site-to-Site and ExpressRoute coexisting connections
+  - name: Site-to-Site with ExpressRoute connections
+    items:
+    - name: Coexisting connections
       href: ../expressroute/expressroute-howto-coexist-resource-manager.md?toc=%2fazure%2fvpn-gateway%2ftoc.json
+    - name: VPN over private peering
+      href: site-to-site-vpn-private-peering.md
   - name: VNet-to-VNet connections
     items:
     - name: Configure VNet-to-VNet connections
