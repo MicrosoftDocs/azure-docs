@@ -63,7 +63,7 @@ View [examples and parameter definitions](https://docs.microsoft.com/cli/azure/k
 If you want to download the whole certificate (both the public and private portions of its composition), download the certificate as a secret.
 
 ```azurecli
-az keyvault secret download –file {nameofcert.pfx}
+az keyvault secret download -–file {nameofcert.pfx}
                             [--encoding {ascii, base64, hex, utf-16be, utf-16le, utf-8}]
                             [--id]
                             [--name]

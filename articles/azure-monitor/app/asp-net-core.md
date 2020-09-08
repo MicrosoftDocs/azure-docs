@@ -154,17 +154,17 @@ The preceding steps are enough to help you start collecting server-side telemetr
 
 1. In `_ViewImports.cshtml`, add injection:
 
-    ```cshtml
-        @inject Microsoft.ApplicationInsights.AspNetCore.JavaScriptSnippet JavaScriptSnippet
-    ```
+```cshtml
+    @inject Microsoft.ApplicationInsights.AspNetCore.JavaScriptSnippet JavaScriptSnippet
+```
 
 2. In `_Layout.cshtml`, insert `HtmlHelper` at the end of the `<head>` section but before any other script. If you want to report any custom JavaScript telemetry from the page, inject it after this snippet:
 
-    ```cshtml
-        @Html.Raw(JavaScriptSnippet.FullScript)
-        </head>
-    ```
-    
+```cshtml
+    @Html.Raw(JavaScriptSnippet.FullScript)
+    </head>
+```
+
 Alternatively to using the `FullScript` the `ScriptBody` is available starting in SDK v2.14. Use this if you need to control the `<script>` tag to set a Content Security Policy:
 
 ```cshtml
@@ -179,7 +179,7 @@ If your project doesn't include `_Layout.cshtml`, you can still add [client-side
 
 ## Configure the Application Insights SDK
 
-You can customize the Application Insights SDK for ASP.NET Core to change the default configuration. Users of the Application Insights ASP.NET SDK might be familiar with changing configuration by using `ApplicationInsights.config` or by modifying `TelemetryConfiguration.Active`. You change configuration differently for ASP.NET Core. Add the ASP.NET Core SDK to the application and configure it by using ASP.NET Core built-in [dependency injection](/aspnet/core/fundamentals/dependency-injection). Make almost all configuration changes in the `ConfigureServices()` method of your `Startup.cs` class, unless you're directed otherwise. The following sections offer more information.
+You can customize the Application Insights SDK for ASP.NET Core to change the default configuration. Users of the Application Insights ASP.NET SDK might be familiar with changing configuration by using `ApplicationInsights.config` or by modifying `TelemetryConfiguration.Active`. For ASP.NET Core, almost all configuration changes are done in the `ConfigureServices()` method of your `Startup.cs` class, unless you're directed otherwise. The following sections offer more information.
 
 > [!NOTE]
 > In ASP.NET Core applications, changing configuration by modifying `TelemetryConfiguration.Active` isn't supported.

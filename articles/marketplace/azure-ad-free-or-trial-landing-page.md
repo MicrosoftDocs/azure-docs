@@ -7,7 +7,7 @@ ms.reviewer: dannyevers
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 08/03/2020
+ms.date: 09/04/2020
 ---
 
 # Build the landing page for your free or trial SaaS offer in the commercial marketplace
@@ -22,7 +22,7 @@ The purpose of the landing page is simply to receive the user so they can activa
 
 Because the information needed to activate the subscription is limited and provided by Azure AD and Microsoft Graph, there should be no need to request information that requires more than basic consent. If you need user details that require additional consent for your application, you should request this information after subscription activation is complete. This enables frictionless subscription activation for the user and decreases the risk of abandonment.
 
-The landing page typically includes the following information and calls to action:
+The landing page typically includes the following information and listing options:
 
 - Present the name and details of the free trial or free subscription. For example, specify the usage limits or duration of a trial.
 - Present the user's account details, including first and last name, organization, and email.
