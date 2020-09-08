@@ -1,7 +1,7 @@
 ---
-title: Spatial Analytics zone and line placement
+title: Spatial Analysis zone and line placement
 titleSuffix: Azure Cognitive Services
-description: Learn how to set up zones and lines with Spatial Analytics
+description: Learn how to set up zones and lines with Spatial Analysis
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -17,7 +17,7 @@ ms.author: aahi
 
 This article provides guidelines for how to define zones and lines for Spatial Analysis operations to achieve accurate analysis of peoples movements in a space. This applies to **cognitiveservices.vision.spatialanalysis-personcrossingpolygon**, **cognitiveservices.vision.spatialanalysis-personcrossingline**, **cognitiveservices.vision.spatialanalysis-personcount**, and **cognitiveservices.vision.spatialanalysis-persondistance**. 
 
-Zones and lines are defined using the JSON SPACEANALYSIS_CONFIG parameter. See the [Spatial Analytics operations](spatial-analytics-operations.md) article for more information.
+Zones and lines are defined using the JSON SPACEANALYSIS_CONFIG parameter. See the [Spatial Analysis operations](spatial-analysis-operations.md) article for more information.
 
 ## Guidelines for drawing zones
 

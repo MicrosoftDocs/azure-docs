@@ -1,7 +1,7 @@
 ---
-title: Telemetry and logging for Spatial Analytics containers
+title: Telemetry and logging for Spatial Analysis containers
 titleSuffix: Azure Cognitive Services
-description: Spatial Analytics provides each container with a common configuration framework, so that you can easily configure and manage compute, AI insight egress, logging, telemetry, and security settings.
+description: Spatial Analysis provides each container with a common configuration framework, so that you can easily configure and manage compute, AI insight egress, logging, telemetry, and security settings.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -14,11 +14,11 @@ ms.author: aahi
 
 # Telemetry and troubleshooting
 
-Spatial Analytics includes a set of features to monitor the health of the system and help with diagnosing issues.
+Spatial Analysis includes a set of features to monitor the health of the system and help with diagnosing issues.
 
 ## Enable video frame and JSON output visualization on the host computer
 
-To enable a visualization of spatial events in a video frame, you need to use the `.Debug` version of a [Spatial Analysis Operation](spatial-analytics-operations.md). There are two Debug skills available: `Microsoft.ComputerVision.PersonCrossingLine.Debug` and `Microsoft.ComputerVision.PersonCrossingPolygon.Debug`.
+To enable a visualization of spatial events in a video frame, you need to use the `.Debug` version of a [Spatial Analysis Operation](spatial-analysis-operations.md). There are two Debug skills available: `Microsoft.ComputerVision.PersonCrossingLine.Debug` and `Microsoft.ComputerVision.PersonCrossingPolygon.Debug`.
 
 You must edit the deployment manifest to use the correct value for the `DISPLAY` environment variable. It needs to match the `$DISPLAY` variable on the host computer. After updating the deployment manifest, re-deploy the container.
 
@@ -34,10 +34,10 @@ xhost +
 
 ## Collecting System Health Telemetry with Telegraf
 
-Telegraf is open source and the image built by the Spatial Analytics team takes the following inputs and uses the Azure Monitor service as the output sink. The telegraf module can be built with desired custom Inputs and Outputs by the end user. The Telegraf module in Spatial Analytics is part of the deployment manifest. This module is optional and can be removed from the manifest if you don't need it. 
+Telegraf is open source and the image built by the Spatial Analysis team takes the following inputs and uses the Azure Monitor service as the output sink. The telegraf module can be built with desired custom Inputs and Outputs by the end user. The Telegraf module in Spatial Analysis is part of the deployment manifest. This module is optional and can be removed from the manifest if you don't need it. 
 
 Inputs: 
-1. Spatial Analytics Metrics
+1. Spatial Analysis Metrics
 2. Disk Metrics
 3. CPU Metrics
 4. Docker Metrics
@@ -46,7 +46,7 @@ Inputs:
 Outputs:
 1. Azure Monitor
 
-The supplied Telegraf module will publish all the telemetry data emitted by the Spatial Analytics container to Azure Monitor. See the [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) for information on adding Azure monitor to your subscription.
+The supplied Telegraf module will publish all the telemetry data emitted by the Spatial Analysis container to Azure Monitor. See the [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) for information on adding Azure monitor to your subscription.
 
 After setting up Azure Monitor, you will need to create credentials that enable the module to send telemetry. You can use the Azure portal to create a new Service Principal, or use the Azure CLI command below to create one.
 
@@ -117,7 +117,7 @@ You can use `iotedge` command line tool to check the status and logs of the runn
 
 ## Collect log files with the penginelogs container
 
-Spatial Analytics generates Docker debugging logs that you can use to diagnose runtime issues, or include in support tickets.
+Spatial Analysis generates Docker debugging logs that you can use to diagnose runtime issues, or include in support tickets.
 
 To optimize logs uploaded to a remote endpoint, such as Azure Blob Storage, we recommend maintaining a small file size. See the example below for the recommended Docker logs configuration.
 
@@ -181,7 +181,7 @@ From the IoT Edge portal, select your device and then the **penginelogs** module
 
 1. Create your own Azure Blob Storage account, if you haven't already.
 2. Get the **Connection String** for your storage account from the Azure portal. It will be located in **Access Keys**.
-3. Spatial Analytics logs will be automatically uploaded into a Blob Storage container named *rtcvlogs* with the following file name format: `{CONTAINER_NAME}/{START_TIME}-{END_TIME}-{QUERY_TIME}.log`.
+3. Spatial Analysis logs will be automatically uploaded into a Blob Storage container named *rtcvlogs* with the following file name format: `{CONTAINER_NAME}/{START_TIME}-{END_TIME}-{QUERY_TIME}.log`.
 
 ```json
 {

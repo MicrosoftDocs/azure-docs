@@ -1,7 +1,7 @@
 ---
-title: Deploy a Spatial Analytics web app
+title: Deploy a Spatial Analysis web app
 titleSuffix: Azure Cognitive Services
-description: Learn how to use Spatial Analytics in a web application.
+description: Learn how to use Spatial Analysis in a web application.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -14,11 +14,11 @@ ms.author: aahi
 
 # How to: Deploy a People Counting web application
 
-Use this article to learn how to integrate Spatial Analytics into a web app that understands the movement of people, and monitors the number of people occupying a physical space. 
+Use this article to learn how to integrate Spatial Analysis into a web app that understands the movement of people, and monitors the number of people occupying a physical space. 
 
 In this tutorial you will learn how to:
 
-* Deploy the Spatial Analytics container
+* Deploy the Spatial Analysis container
 * Configure the operation and camera
 * Configure the IoT Hub connection in the Web Application
 * Deploy and Test the Web Application
@@ -30,13 +30,13 @@ In this tutorial you will learn how to:
     * Be sure to install the **ASP.NET and web development** and **Azure development** options.
 * Basic understanding of [Node.js](https://docs.microsoft.com/azure/app-service/quickstart-nodejs?pivots=platform-linux) development
 * Basic understanding of Azure IoT Edge deployment configurations, and an [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/)
-* A configured [host computer](spatial-analytics-container.md).
+* A configured [host computer](spatial-analysis-container.md).
 
 ## Deploy the Spatial Analysis Container to the host computer
 
 Fill out the [request application](https://aka.ms/csgate) to get access to run the container. 
 
-Follow [the Host Computer Setup](./spatial-analytics-container.md) to configure the host computer and connect an IoT Edge device to Azure IoT Hub. 
+Follow [the Host Computer Setup](./spatial-analysis-container.md) to configure the host computer and connect an IoT Edge device to Azure IoT Hub. 
 
 ### Deploy an Azure IoT Hub service in your Subscription
 
@@ -61,10 +61,10 @@ az iot hub device-identity create --hub-name "<IoT Hub Name>" --device-id "<Edge
 
 ### Deploy the container on Azure IoT Edge on the host computer
 
-Deploy the Spatial Analytics container as an IoT Module on the host computer, using the Azure CLI. The deployment process requires a deployment manifest file which outlines the required containers, variables, and configurations for your deployment. You can find a sample [deployment manifest](https://github.com/Azure-Samples/cognitive-services-rest-api-samples/) on GitHub, which includes a basic deployment configuration for the *spatial-analysis* container. 
+Deploy the Spatial Analysis container as an IoT Module on the host computer, using the Azure CLI. The deployment process requires a deployment manifest file which outlines the required containers, variables, and configurations for your deployment. You can find a sample [deployment manifest](https://github.com/Azure-Samples/cognitive-services-rest-api-samples/) on GitHub, which includes a basic deployment configuration for the *spatial-analysis* container. 
 
 > [!NOTE] 
-> The *spatial-analysis-telegraf* and *spatial-analysis-diagnostics* containers are optional. You may decide to remove them from the DeploymentManifest.json file. For more information see the [telemetry and troubleshooting](./spatial-analytics-logging.md) a article. 
+> The *spatial-analysis-telegraf* and *spatial-analysis-diagnostics* containers are optional. You may decide to remove them from the DeploymentManifest.json file. For more information see the [telemetry and troubleshooting](./spatial-analysis-logging.md) a article. 
 
 ### Set environment variables
 
