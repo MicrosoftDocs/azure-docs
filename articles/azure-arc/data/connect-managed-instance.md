@@ -46,11 +46,11 @@ For example:
 - Password: your specified SQL password at provisioning time
 
 > [!NOTE]
-> You can use Azure Data Studio to view the Azure Arc enabled SQL Managed Instance Dashboard. [Click here to learn more](azure-data-studio-dashboards.md#view-the-SQL-managed-instance-dashboards)
+> You can use Azure Data Studio [view the SQL managed instance dashboards](azure-data-studio-dashboards.md#view-the-sql-managed-instance-dashboards).
 
 
 ## Special note about Azure virtual machine deployments
-#
+
 If you are using an Azure virtual machine, then the endpoint IP address will not show the public IP address. To locate the external IP address, use the following command:
 
 ```terminal
@@ -77,5 +77,5 @@ az network nsg rule create -n db_port --destination-port-ranges 30913 --source-a
 
 ## Next steps
 
-- [View the SQL Managed Instance Dashboard](azure-data-studio-dashboards.md#view-the-SQL-managed-instance-dashboards)
+- [View the SQL managed instance dashboards](azure-data-studio-dashboards.md#view-the-sql-managed-instance-dashboards)
 - [View SQL Managed Instance in the Azure portal](view-inventory-sql-instances.md)
