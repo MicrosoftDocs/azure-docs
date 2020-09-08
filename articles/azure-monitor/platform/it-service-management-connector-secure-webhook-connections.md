@@ -5,10 +5,9 @@ ms.subservice: logs
 ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
-ms.date: 09/08/2020
+ms.date: 05/12/2020
 
 ---
-[!div class="mx-imgBorder"]
 
 # Connect Azure to ITSM tools using Secure Export
 
@@ -16,7 +15,7 @@ This article provides information about how to configure the connection between 
 
 Secure Export is and updated version of [ITSMC](./itsmc-overview.md) (IT Service Management). Both versions allow you to create work items in an ITSM tool when Azure Monitor alerts fire. The functionality includes metric, log and activity log alerts.
 
-[ITSMC](./itsmc-overview.md) uses user and password credentials, while Secure Export has stronger authentication because it is uses Azure Active Directory (Azure AD). Azure Active Directory (Azure AD) is Microsoft’s cloud-based identity and access management service. It helps users sign in and access internal or external resources. Using Azure AD with ITSM helps to identify Azure alerts (using the Azure AD application ID) that were sent to the external system.
+[ITSMC](./itsmc-overview.md) uses user and password credentials, while Secure Export has stronger authentication because it is uses Azure Active Directory (AAD). Azure Active Directory (Azure AD) is Microsoft’s cloud-based identity and access management service. It helps users sign in and access internal or external resources. Using AAD with ITSM helps to identify Azure alerts (using the AAD application ID) that were sent to the external system.
 
 > [!NOTE]
 > The Connect Azure to ITSM tools using Secure Export is in preview
@@ -25,26 +24,26 @@ Secure Export is and updated version of [ITSMC](./itsmc-overview.md) (IT Service
 
 The secure export architecture introduces the following new capabilities:
 
-* **New Action Group** - Alerts are sent to the ITSM tool using the secure webhook action group (instead of ITSM Action Group using in ITSMC).
-* **Azure AD authentication** - Authentication occurs using Azure AD instead of user/password credentials.
+1) **New Action Group** - Alerts are sent to the ITSM tool using the secure webhook action group (instead of ITSM Action Group using in ITSMC).
+2) **AAD authentication** - Authentication occurs using AAD instead of user/password credentials.
 
 ## Secure Export Data Flow
 
 The Secure Export data flow steps are:
 
-1) An alert which is configured to use secure export fires in Azure Monitor
-2) The alert payload is sent a by secure webhook action to the ITSM tool.
-3) The ITSM application checks with Azure AD if the alert is authorized to enter the ITSM tool.
-4) If the alert is authorized the application:
-    1) Creates a work item (e.g. incident) in the ITSM tool.
-    2) Binds the configuration Item (CI) ID to the customer management database (CMDB).
-![Itsm Diagram](media/it-service-management-connector-secure-webhook-connections/secure-export-diagram.png)
+* An alert which is configured to use secure export fires in Azure Monitor
+* The alert payload is sent a by secure webhook action to the ITSM tool.
+* The ITSM application checks with AAD if the alert is authorized to enter the ITSM tool.
+* If the alert is authorized the application:
+  * Creates a work item (e.g. incident) in the ITSM tool.
+  * Binds the configuration Item (CI) id to the customer management database (CMDB).
+![Itsm Diagram](media/itsmc-secure-webhook-connections/itsm-diagram.png)
 
 ## Connection with BMC Helix
 
 Secure export supports BMC Helix. Some benefits of the integration are:
 
-* **Better authentication** – Azure AD provides more secure authentication without the timeouts that commonly occur in ITSMC.
+* **Better authentication** – AAD provides more secure authentication without the timeouts that commonly occur in ITSMC.
 * **Alerts resolved in ITSM tool** – Metric alerts implement a "fired" and "resolved" state. When the condition is met, the alert state is "Fired". When condition is not met anymore, the alert state is "Resolved". In ITSMC, alerts could not be resolved automatically. With secure export, the resolved state flows to the ITSM tool and so updates automatically.
 * **[Common Schema allows](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema)** – In ITSMC, the schema of the alert payload differed based on the alert type. In secure export, we a common schema for all alert types. This new common schema contains the CI for all alert types. By that all alert types will be able to bind their CI with the CMDB.
 
@@ -54,19 +53,20 @@ Start using the ITSM Connector with these steps:
 2. Create a secure webhook action group.
 3. Configure your partner environment.
 
-## Register with Azure Active Directory
+## Register with Azure active Directory
 
-Follow these steps to register Azure AD  Application with Azure Active Directory
+Register with Azure Active Directory
+Follow these steps to register AAD Application with Azure Active Directory
 
-1) [Azure AD creation](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app)
-2) In the Azure Active Directory select “expose application”
+1) [AAD creation](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app)
+2) In the azure active directory select “expose application”
 3) Select Set on the Application ID URI
-![AAD](media/it-service-management-connector-secure-webhook-connections/azure-ad.png)
+![AAD](media/itsmc-secure-webhook-connections/AAD.png)
 4) Click save.
 
 ## Create a Secure Webhook action group
 
-Once you have your Azure AD registered, you can create work item(s) in your ITSM tool based on Azure alerts, by using the Secure Webhook Action in Action Groups.
+Once you have your AAD created, you can create work item(s) in your ITSM tool based on Azure alerts, by using the Secure Webhook Action in Action Groups.
 Action Groups provide a modular and reusable way of triggering actions for your Azure Alerts. You can use Action Groups with metric alerts, Activity Log alerts and Azure Log Analytics alerts in Azure portal.
 To learn more about action groups, see [Create and manage action groups in the Azure portal](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups).
 Use the following procedure:
@@ -76,7 +76,7 @@ In BMC Helix environment:
 1. Log in to Integration Studio.
 2. Search for the Create Incident from Azure Alerts flow.
 3. Copy the WebHook URL.
-![BMC URL](media/it-service-management-connector-secure-webhook-connections/bmc-url.png)
+![BMC URL](media/itsmc-secure-webhook-connections/bmc-url.png)
 
 To add a webhook to an action, follow the instructions for a secure webhook:
 
@@ -90,7 +90,7 @@ To add a webhook to an action, follow the instructions for a secure webhook:
     2. Paste the in URI field the WebHook URL  that you copied from the "BMC Helix environment"
     3. Set **Common Alert Schema** to **Yes**. 
 7. The following image shows a sample secured webhook action configuration:
-![Secure Webhook](media/it-service-management-connector-secure-webhook-connections/secure-webhook.png)
+![secure Webhook](media/itsmc-secure-webhook-connections/secure-webhook.png)
 
 ## Configure partner environment
 
@@ -102,14 +102,15 @@ The following section provides details about how to connect your BMC Helix produ
 
 Ensure the following prerequisites are met:
 
-* Azure AD is registered.
+* AAD is registered.
 * You the supported version of BMC Helix Multi-Cloud Service Management: 20.02 version or later
 
 To configure the BMC Helix connection:
 
-* [Enabling prebuilt integration with Azure Monitor for version 20.2](https://docs.bmc.com/docs/multicloud/enabling-prebuilt-integration-with-azure-monitor-879728195.html)
+1) [Enabling prebuilt integration with Azure Monitor for version 20.2](https://docs.bmc.com/docs/multicloud/enabling-prebuilt-integration-with-azure-monitor-879728195.html)
 
-* As a part of the configuration of the connection in the BMC Helix, go into your integration service instance (https://XXX.onbmc.com/) and fill teh details:
+2) The configuration of the connection in the BMC Helix:
+Go into your integration service instance (https://XXX.onbmc.com/)
 
 1. Select **catalog**
 2. Select **Azure alerts**
@@ -124,4 +125,8 @@ To configure the BMC Helix connection:
     5. **Number of instances** -  2 – default value
     6. **Check** -  selected by default and enable usage
     7. Azure tenant ID, Azure application ID are taken from the application that were defined in “Created Azure Active Directory” step.
-![BMC configuration](media/it-service-management-connector-secure-webhook-connections/bmc-configuration.png)
+![BMC configuration](media/itsmc-secure-webhook-connections/bmc-conf.png)
+
+## Next steps
+
+* [Create ITSM work items from Azure alerts](./itsmc-overview.md#create-itsm-work-items-from-azure-alerts)
