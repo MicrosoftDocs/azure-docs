@@ -974,7 +974,7 @@
     - name: Monitor GPU performance
       href: insights/container-insights-gpu-monitoring.md
     - name: Monitor Deployments & HPAs
-      href: insights/container-insights-kubestate-metrics.md
+      href: insights/container-insights-deployment-hpa-metrics.md
     - name: View live data
       items:
       - name: Live Data (preview) overview

@@ -1,6 +1,6 @@
 ---
 title: Deployment & HPA metrics with Azure Monitor for containers | Microsoft Docs
-description: This article describes what kubestate metrics are collected with Azure Monitor for containers.
+description: This article describes what deployment & HPA (Horizontal pod autoscaler) metrics are collected with Azure Monitor for containers.
 ms.topic: conceptual
 ms.date: 08/09/2020
 ---
