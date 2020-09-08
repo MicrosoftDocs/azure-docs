@@ -15,11 +15,11 @@ This guide provides key concepts and instructions for containerization of Window
 
 ## I don't see the updated container
 
-If you change your Docker container settings to point to a new container and then click *Save*, it may take a minute or so before the app serves HTTP requests from the new container. While the new container is being pulled and started, App Service continues to serve requests from the old container. Only when the new container is started and ready to receive requests does App Service start sending requests to it.
+If you change your Docker container settings to point to a new container, it may take a few minutes before the app serves HTTP requests from the new container. While the new container is being pulled and started, App Service continues to serve requests from the old container. Only when the new container is started and ready to receive requests does App Service start sending requests to it.
 
 ## How container images are stored
 
-The first time you run a custom Docker image in App Service, App Service does a `docker pull` and pulls all image layers. These layers are stored on disk just as if you were using Docker on-premises. Each time the app restarts, App Service does a `docker pull`, but only pulls layers that have changed. If there have been no changes, App Service uses existing layers on the local disk.
+The first time you run a custom Docker image in App Service, App Service does a `docker pull` and pulls all image layers. These layers are stored on disk, like if you were using Docker on-premises. Each time the app restarts, App Service does a `docker pull`, but only pulls layers that have changed. If there have been no changes, App Service uses existing layers on the local disk.
 
 If the app changes compute instances for any reason, such as scaling up and down the pricing tiers, App Service must pull down all layers again. The same is true if you scale out to add additional instances. There are also rare cases where the app instances may change without a scale operation.
 
@@ -89,13 +89,9 @@ Enter-AzureRmWebAppContainerPSSession -ResourceGroupName <group-name> -Name <app
 >
 > To persist your changes, such as registry settings and software installation, you need to make them in the Dockerfile for your image. For example, in the tutorial [Migrate custom software to Azure App Service using a custom container](tutorial-custom-container.md?pivots=container-windows), the custom font project uses this method to [install a custom font in Dockerfile](tutorial-custom-container.md?pivots=container-windows#configure-windows-container).
 
-If your site does not start then check the Docker log
-
-We log useful information into the Docker log that can help you troubleshoot your site when it doesn't start or if it's restarting. We log a lot more than you might be used to seeing in a Docker log, and we will continue to work on making this logging more useful.
-
 ## Access diagnostic logs
 
-There are several ways to access Docker logs:
+App Service logs actions by the Docker host as well as activities from within the container. There are several ways to access Docker logs:
 
 - [In Azure portal](#in-azure-portal)
 - [From the Kudu console](#from-the-kudu-console)
@@ -119,7 +115,7 @@ To download all the logs together in one ZIP file, access `https://<app-name>.sc
 
 ## Customize container memory
 
-By default all Windows Containers deployed in Azure App Service are limited to 1GB RAM. You can change this value by providing the `WEBSITE_MEMORY_LIMIT_MB` app setting. You can set it by running [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) command in the Cloud Shell. For example:
+By default all Windows Containers deployed in Azure App Service are limited to 1 GB RAM. You can change this value by providing the `WEBSITE_MEMORY_LIMIT_MB` app setting. You can set it by running [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) command in the Cloud Shell. For example:
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --settings WEBSITE_MEMORY_LIMIT_MB=2000
@@ -129,7 +125,7 @@ The value is defined in MB and must be less and equal to the total physical memo
 
 ## Customize the number of compute cores
 
-By default, a Windows container runs with all available cores for your chosen pricing tier. You may want to reduce the number of cores used in your staging slot in comparison to your production slot. To reduce the number of cores used by a container, set the `WEBSITE_CPU_CORES_LIMIT` app setting to the preferred number of cores. You can set it by running [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) command in the Cloud Shell. For example:
+By default, a Windows container runs with all available cores for your chosen pricing tier. You may want to reduce the number of cores that your staging slot uses, for example. To reduce the number of cores used by a container, set the `WEBSITE_CPU_CORES_LIMIT` app setting to the preferred number of cores. You can set it by running [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) command in the Cloud Shell. For example:
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --slot staging --settings WEBSITE_CPU_CORES_LIMIT=1
@@ -151,7 +147,7 @@ The processors may be multicore or hyperthreading processors. Information on how
 
 App Service considers a container to be successfully started when the container starts and responds to an HTTP ping. If the container starts but does not respond to a ping after a certain amount of time, App Service logs an event in the Docker log, saying that the container didn't start. 
 
-If your application is resource intensive, the container might not respond to the HTTP ping in time. To control the actions when HTTP pings fail, set the `CONTAINER_AVAILABILITY_CHECK_MODE` app setting. You can set it by running [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) command in the Cloud Shell. For example:
+If your application is resource-intensive, the container might not respond to the HTTP ping in time. To control the actions when HTTP pings fail, set the `CONTAINER_AVAILABILITY_CHECK_MODE` app setting. You can set it by running [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) command in the Cloud Shell. For example:
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --settings CONTAINER_AVAILABILITY_CHECK_MODE="ReportOnly"
@@ -161,8 +157,8 @@ The following table shows the possible values:
 
 | Value | Descriptions |
 | - | - |
-| **Repair** | The default value. Restart the container after 3 consecutive availability checks |
-| **ReportOnly** | Don't restart the container but reports in the Docker logs for the container after 3 consecutive availability checks. |
+| **Repair** | The default value. Restart the container after three consecutive availability checks |
+| **ReportOnly** | Don't restart the container but report in the Docker logs for the container after three consecutive availability checks. |
 | **Off** | Don't check for availability. |
 
 ::: zone-end
