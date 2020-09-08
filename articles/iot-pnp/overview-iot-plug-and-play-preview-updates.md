@@ -73,9 +73,7 @@ With the convention-based approach, there's no need for separate device client S
 
 Devices that don't use components require minimal code changes - just announcing the **Model ID**. More complex devices using a multiple components might require some reusable functions to implement the [conventions](concepts-convention.md). Device samples include a set of functions that you might reuse in your device implementation.
 
-### Service SDKs
-
-The service SDK is available in [Node.js](https://github.com/Azure/azure-iot-sdk-node/blob/digitaltwins-preview/digitaltwins/service/readme.md) and [Python](https://github.com/Azure/azure-iot-sdk-python/blob/master/azure-iot-hub/README.md).
+To learn more about the available SDKs, see [Microsoft SDKs for IoT Plug and Play](libraries-sdks.md).
 
 ## VS Code extension
 
