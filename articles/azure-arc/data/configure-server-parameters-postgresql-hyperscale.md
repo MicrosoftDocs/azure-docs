@@ -154,7 +154,7 @@ azdata arc postgres server edit -n postgres01 -e 'search_path = "$user"'
 ```
 
 > [!NOTE]
-> Private preview does not support setting the following parameters: 
+> Preview does not support setting the following parameters: 
 >
 > - `archive_command`
 > - `archive_timeout`
@@ -166,3 +166,7 @@ azdata arc postgres server edit -n postgres01 -e 'search_path = "$user"'
 > - `synchronous_commit`
 > - `ssl`
 > - `wal_level`
+
+## Next steps
+- Read about [scaling out (adding worker nodes)](scale-out-postgresql-hyperscale-server-group.md) your server group
+- Read about [scaling up or down (increasing/decreasing memory/vcores)](scale-up-down-postgresql-hyperscale-server-group-using-cli.md) your server group

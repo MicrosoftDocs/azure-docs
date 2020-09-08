@@ -76,8 +76,6 @@
   items:
     - name: How-to
       items:
-      - name: Extend single-node to Hyperscale
-        href: postgresql-extend-single-node-to-hyperscale.md
       - name: Create Hyperscale (Azure Data Studio)
         href: create-postgresql-hyperscale-server-group-azure-data-studio.md
       - name: Create Hyperscale

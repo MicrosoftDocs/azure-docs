@@ -2,7 +2,7 @@
 
 title: Azure Arc enabled data services # < 60 chars
 summary: Run Azure data services on-premises, at the edge, and in multi-cloud environments using Kubernetes on the infrastructure of your choice. # < 160 chars
-
+ 
 metadata:
   title: Azure Arc enabled data services # Required; page title displayed in search results. Include the brand. < 60 chars.
   description: Run Azure data services on-premises, at the edge, and in multi-cloud environments using Kubernetes on the infrastructure of your choice. # Required; article description that is displayed in search results. < 160 chars.
@@ -49,8 +49,6 @@ landingContent:
         links:
           - text: Create PostgreSQL Hyperscale server group
             url: create-postgresql-hyperscale-server-group.md
-          - text: Extend single node to Hyperscale
-            url: postgresql-extend-single-node-to-hyperscale.md
 
   # Card (optional)
   - title: Do with SQL Managed Instance
