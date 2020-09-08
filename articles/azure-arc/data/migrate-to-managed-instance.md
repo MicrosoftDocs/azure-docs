@@ -1,6 +1,6 @@
 ---
-title: Migrate a database from SQL Server to Azure SQL managed instance - Azure Arc
-description: Migrate a database from SQL Server to Azure SQL managed instance - Azure Arc
+title: Migrate a database from SQL Server to Azure Arc Enabled SQL Managed Instance
+description: Migrate a database from SQL Server to Enabled SQL Managed Instance
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -11,36 +11,38 @@ ms.date: 09/08/2020
 ms.topic: how-to
 ---
 
-# Scenario: Migrate a database from SQL Server to Azure SQL managed instance - Azure Arc
+# Scenario: Migrate a database from SQL Server to Enabled SQL Managed Instance
 
 This scenario walks you through the steps for migrating a database from a SQL Server instance to Azure SQL managed instance in Azure Arc via two different backup and restore methods.
 
-## Method 1: Using Azure Blob Storage for migrating to Azure SQL managed instance - Azure Arc
+## Method 1: Using Azure Blob Storage for migrating to Enabled SQL Managed Instance
 
 This method uses Azure Blob Storage as a temporary storage location that you can back up to and then restore from.
 
 ### Pre-requisites
 
-- [Install Azure Data Studio](/scenarios/install-client-tools.md)
+- [Install Azure Data Studio](install-client-tools.md)
 - [Install Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)
 - Azure subscription
 
 ### Step 1: Provision Azure Blob Storage
 
-1. Follow the steps described in [Create an Azure Blob Storage account](/storage/blobs/storage-blob-create-account-block-blob?tabs=azure-portal)
+1. Follow the steps described in [Create an Azure Blob Storage account](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-create-account-block-blob?tabs=azure-portal)
 1. Launch Azure Storage Explorer
-1. [Sign in to Azure](../../vs-azure-tools-storage-manage-with-storage-explorer.md#sign-in-to-azure) to access the blob storage created in previous step
+1. [Sign in to Azure](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows#sign-in-to-azure) to access the blob storage created in previous step
 1. Right-click on the blob storage account and select **Create Blob Container** to create a new container where the backup file will be stored
 
-### Step 2: Get credentials
+### Step 2: Get Storage Blob Credentials
 
-In Azure Storage Explorer, right-click on the blob container that was just created and select **Get Shared Access Signature**
+1. In Azure Storage Explorer, right-click on the blob container that was just created and select **Get Shared Access Signature**
 
-Select  the permissions as shown in the below screenshot:
+1. Select the **Read**, **Write** and **List**
 
-Select **Create**
+1. Select **Create**
+
 Note down the URI and the Query String from this screen. These will be needed in later steps. Click on the **Copy** button to save to a Notepad/OneNote etc.
-Close the **Shared Access Signature** window.
+
+1. Close the **Shared Access Signature** window.
 
 ### Step 3: Backup database file to Azure Blob Storage
 
@@ -66,9 +68,7 @@ In this step, we will connect to the source SQL Server and create the backup fil
    BACKUP DATABASE <database name> TO URL = 'https://<mystorageaccountname>.blob.core.windows.net/<mystorageaccountcontainername>'
    ```
 
-Example:
-
-1. Open Azure Storage Explorer and validate if the backup file created in previous step is visible in the Blob container
+1. Open Azure Storage Explorer and validate that the backup file created in previous step is visible in the Blob container
 
 ### Step 4: Restore the database from Azure Blob Storage to SQL Managed Instance - Azure Arc
 
@@ -90,8 +90,6 @@ Example:
    ```console
    RESTORE FILELISTONLY FROM URL = 'https://<mystorageaccountname>.blob.core.windows.net/<mystorageaccountcontainername>/<file name>.bak'
    ```
-
-Example:
 
 1. Prepare and run the **RESTORE DATABASE** command as follows to restore the backup file to a database on SQL Managed Instance - Azure Arc
 
@@ -140,7 +138,7 @@ Find the name of the pod where the sql instance is deployed. Typically it should
 Get the list of all pods by running:
 
  ```console
-kubectl get all -A
+kubectl get pods -n <namespace of data controller>
 ```
 
 Example:
