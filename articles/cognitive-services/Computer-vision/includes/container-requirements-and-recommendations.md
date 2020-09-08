@@ -17,8 +17,8 @@ The following table describes the minimum and recommended allocation of resource
 
 | Container | Minimum | Recommended |
 |-----------|---------|-------------|
-| Read 3.0 | 1 cores, 8-GB memory | 8 cores, 18-GB memory |
-| Read 3.1 | 1 cores, 8-GB memory | 8 cores, 18-GB memory |
+| Read 3.0 | 1 core, 8-GB memory | 8 cores, 18-GB memory |
+| Read 3.1 | 1 core, 8-GB memory | 8 cores, 18-GB memory |
 
 * Each core must be at least 2.6 gigahertz (GHz) or faster.
 
