@@ -92,8 +92,60 @@ When an Azure role is assigned to an Azure AD security principal, Azure grants a
 
 Key benefits of using Azure RBAC permission over vault access policies are centralized access control management and it's integration with Privileged Identity Management (PIM). Privileged Identity Management provides time-based and approval-based role activation to mitigate the risks of excessive, unnecessary, or misused access permissions on resources that you care about.
 
-> [!TIP]
-> You can restrict data plane access by using [virtual network service endpoints for Azure Key Vault](overview-vnet-service-endpoints.md)). You can configure [firewalls and virtual network rules](network-security.md) for an additional layer of security.
+
+## Firewall and virtual network
+
+## Private endpoint connection
+
+## Example
+
+In this example, we're developing an application that uses a certificate for TLS/SSL, Azure Storage to store data, and an RSA 2,048-bit key for Azure Storage data encryption. Our application runs in an Azure virtual machine (VM) (or a virtual machine scale set). We can use a key vault to store the application secrets. We can store the bootstrap certificate that's used by the application to authenticate with Azure AD.
+
+We need access to the following stored keys and secrets:
+- **TLS/SSL certificate**: Used for TLS/SSL.
+- **Storage key**: Used to access the Storage account.
+- **RSA 2,048-bit key**: Used for wrap/unwrap storage data encryption key.
+- **Bootstrap certificate**: Used to authenticate with Azure AD. After access is granted, we can fetch the storage key and use the RSA key for wrap.
+
+We need to define the following roles to specify who can manage, deploy, and audit our application:
+- **Security team**: IT staff from the office of the CSO (Chief Security Officer) or similar contributors. The security team is responsible for the proper safekeeping of secrets. The secrets can include TLS/SSL certificates, RSA keys for encryption, connection strings, and storage account keys.
+- **Developers and operators**: The staff who develop the application and deploy it in Azure. The members of this team aren't part of the security staff. They shouldn't have access to sensitive data like TLS/SSL certificates and RSA keys. Only the application that they deploy should have access to sensitive data.
+- **Auditors**: This role is for contributors who aren't members of the development or general IT staff. They review the use and maintenance of certificates, keys, and secrets to ensure compliance with security standards.
+
+There's another role that's outside the scope of our application: the subscription (or resource group) administrator. The subscription admin sets up initial access permissions for the security team. They grant access to the security team by using a resource group that has the resources required by the application.
+
+We need to authorize the following operations for our roles:
+
+**Security team**
+- Create key vaults.
+- Turn on Key Vault logging.
+- Add keys and secrets.
+- Create backups of keys for disaster recovery.
+- Set Key Vault access policies to grant permissions to users and applications for specific operations.
+- Roll the keys and secrets periodically.
+
+**Developers and operators**
+- Get references from the security team for the bootstrap and TLS/SSL certificates (thumbprints), storage key (secret URI), and RSA key (key URI) for wrap/unwrap.
+- Develop and deploy the application to access keys and secrets programmatically.
+
+**Auditors**
+- Review the Key Vault logs to confirm proper use of keys and secrets, and compliance with data security standards.
+
+The following table summarizes the access permissions for our roles and application.
+
+| Role | Management plane permissions | Data plane permissions - vault access policies | Data plane permissions -Azure RBAC (preview)  |
+| --- | --- | --- | --- |
+| Security team | Key Vault Contributor | Certificates: all operations <br> Keys: all operations <br> Secrets: all operations | Key Vault Administrator (preview) |
+| Developers and&nbsp;operators | Key Vault deploy permission<br><br> **Note**: This permission allows deployed VMs to fetch secrets from a key vault. | None | None |
+| Auditors | None | Certificates: list <br> Keys: list<br>Secrets: list<br><br> **Note**: This permission enables auditors to inspect attributes (tags, activation dates, expiration dates) for keys and secrets not emitted in the logs. | Key Vault Reader (preview) |
+| Application | None | Keys: get, list, wrapKey, unwrapKey <br>Secrets: get,list <br> Certificates: get, list | Key Vault Reader (preview), Key Vault Crypto Service Encryption (preview) |
+
+The three team roles need access to other resources along with Key Vault permissions. To deploy VMs (or the Web Apps feature of Azure App Service), developers and operators need `Contributor` access to those resource types. Auditors need read access to the Storage account where the Key Vault logs are stored.
+
+Our example describes a simple scenario. Real-life scenarios can be more complex. You can adjust permissions to your key vault based on your needs. We assumed the security team provides the key and secret references (URIs and thumbprints), which are used by the DevOps staff in their applications. Developers and operators don't require any data plane access. We focused on how to secure your key vault.
+
+> [!NOTE]
+> This example shows how Key Vault access is locked down in production. Developers should have their own subscription or resource group with full permissions to manage their vaults, VMs, and the storage account where they develop the application.
 
 ## Resources
 
