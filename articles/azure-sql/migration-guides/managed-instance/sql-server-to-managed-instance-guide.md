@@ -85,9 +85,9 @@ After you have completed the tasks associated with the Pre-migration stage, 
 
 Migrate your data using your chosen [migration method](sql-server-to-managed-instance-overview.md#migration-options). 
 
-	> [!IMPORTANT]
-	> -   When you're migrating a database protected by [**Transparent Data Encryption**](/azure/azure-sql/database/transparent-data-encryption-tde-overview) to a managed instance using native restore option, the corresponding certificate from the on-premises or Azure VM SQL Server needs to be migrated before database restore. For detailed steps, see [**Migrate a TDE cert to a managed instance**](/azure/azure-sql/managed-instance/tde-certificate-migrate).
-	> -   Restore of system databases is not supported. To migrate instance-level objects (stored in master or msdb databases), we recommend to script them out and run T-SQL scripts on the destination instance.
+> [!IMPORTANT]
+> -   When you're migrating a database protected by [**Transparent Data Encryption**](/azure/azure-sql/database/transparent-data-encryption-tde-overview) to a managed instance using native restore option, the corresponding certificate from the on-premises or Azure VM SQL Server needs to be migrated before database restore. For detailed steps, see [**Migrate a TDE cert to a managed instance**](/azure/azure-sql/managed-instance/tde-certificate-migrate).
+> -   Restore of system databases is not supported. To migrate instance-level objects (stored in master or msdb databases), we recommend to script them out and run T-SQL scripts on the destination instance.
 	
 ## Data sync and cutover
 
