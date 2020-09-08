@@ -86,11 +86,12 @@ Let's name the destination database **RESTORED_MyOnPremPostgresDB**
 Configure the restore:
 1. Point to the file that contains the backup to restore: **MySourceBackup**
 2. Keep the format set  to **Custom or tar**
-:::image type="content" source="media/postgres-hyperscale/migrate-pg-destination-dbrestore2.jpg" alt-text="Migrate-db-restore-configure":::
+   :::image type="content" source="media/postgres-hyperscale/migrate-pg-destination-dbrestore2.jpg" alt-text="Migrate-db-restore-configure":::
 
-Click the **[Restore]** button.  
-The restore is successful.  
-:::image type="content" source="media/postgres-hyperscale/migrate-pg-destination-dbrestore3.jpg" alt-text="Migrate-db-restore-completed":::
+3. Click **Restore]**.  
+
+   The restore is successful.  
+   :::image type="content" source="media/postgres-hyperscale/migrate-pg-destination-dbrestore3.jpg" alt-text="Migrate-db-restore-completed":::
 
 ### Verify that the database was successfully restored in your Azure Arc enabled PostgreSQL Hyperscale server group
 
