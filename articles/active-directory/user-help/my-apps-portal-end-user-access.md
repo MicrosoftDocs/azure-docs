@@ -19,8 +19,8 @@ ms.custom: "user-help, seo-update-azuread-jan"
 You can use your work or school account with the web-based **My Apps** portal to:
 
 - View and start many of your organization’s cloud-based apps
-- Go to [the **My Groups** portal](https://account.activedirectory.windowsazure.com/r#/groups)
-- Go to [the **My Account** portal](https://myaccount.microsoft.com/)
+- Go to the [**My Groups** portal](https://account.activedirectory.windowsazure.com/r#/groups)
+- Go to the [**My Account** portal](https://myaccount.microsoft.com/)
 
 If you don’t have access to the **My Apps** portal, contact your organization's Help desk for permission.
 
@@ -132,7 +132,7 @@ After you get to the **My Apps** portal, you can:
 
 - Organize your apps into the various categories created and provided by your organization. For more information, see [Access and use collections in the My Apps portal](my-applications-portal-workspaces.md).
 - Review, update, or revoke permissions granted to applications. For more information, see [Edit or revoke application permissions in the My Apps portal](my-applications-portal-permissions-saved-accounts.md).
-- Create, update, and remove app accounts. For more information, see [Edit or revoke application permissions](my-applications-portal-permissions-saved-accounts.md)
+- Create, update, and remove app accounts. For more information, see [Edit or revoke application permissions](my-applications-portal-permissions-saved-accounts.md).
 - Access [**My Account**](my-account-portal-overview.md) from the **My Apps** portal for account management:
   
   - Checking for unusual sign-in activity
