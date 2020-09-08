@@ -43,7 +43,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Manage server from Azure portal
-            url: how-to-manage-portal.md
+            url: how-to-manage-server-portal.md
           - text: Manage server with Azure CLI
             url: how-to-manage-cli.md
 

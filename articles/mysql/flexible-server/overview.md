@@ -113,12 +113,8 @@ Now that you've read an introduction to Azure Database for MySQL single server d
 - Create your first server. 
   - [Create an Azure Database for MySQL flexible server using Azure portal](quickstart-create-server-portal.md)
   - [Create an Azure Database for MySQL flexible server using Azure CLI](quickstart-create-server-cli.md)
-  - [Manage an Azure Database for MySQL Flexible Server using the Azure CLI](how-to-manage-cli.md)
+  - [Manage an Azure Database for MySQL Flexible Server using the Azure CLI](how-to-manage-server-portal.md)
 
 - Build your first app using your preferred language:
   - [Python](connect-python.md)
   - [Php](connect-php.md)
-  - Java
-  - Ruby
-  - .NET
-  - Go
