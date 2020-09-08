@@ -32,11 +32,12 @@ sqldemo 1/1         10.240.0.4:32023  Ready
 
 If you are using AKS or kubeadm or OpenShift etc., you can copy the external IP and port number from here and connect to it using your favorite tool for connecting to a SQL Sever/Azure SQL instance such as Azure Data Studio or SQL Server Management Studio.  However, if you are using the quick start VM, please see below for special information about how to connect to that VM from outside of Azure. 
 
->**Note**: Your corporate policies may block access to the IP and port, especially if this is deployed in the public cloud.
+> [!NOTE]
+> Your corporate policies may block access to the IP and port, especially if this is deployed in the public cloud.
 
 ## Connect with Azure Data Studio or SQL Server Management Studio
 
-Open Azure Data Studio and connect to your instance with the external endpoint IP address and port number above. If you are using an Azure VM you will need the _public_ IP address which is identifiable using the [steps below](#special-note-about-Azure-virtual-machine-deployments).
+Open Azure Data Studio and connect to your instance with the external endpoint IP address and port number above. If you are using an Azure VM you will need the _public_ IP address which is identifiable using the [Special note about Azure virtual machine deployments](#special-note-about-azure-virtual-machine-deployments).
 
 For example:
 
@@ -44,12 +45,12 @@ For example:
 - Username: sa
 - Password: your specified SQL password at provisioning time
 
-
->**Note**: You can use Azure Data Studio to view the Azure Arc enabled SQL Managed Instance Dashboard. [Click here to learn more](azure-data-studio-dashboards.md#View-the-SQL-managed-instance-dashboards)
+> [!NOTE]
+> You can use Azure Data Studio to view the Azure Arc enabled SQL Managed Instance Dashboard. [Click here to learn more](azure-data-studio-dashboards.md#view-the-SQL-managed-instance-dashboards)
 
 
 ## Special note about Azure virtual machine deployments
-
+#
 If you are using an Azure virtual machine then the endpoint IP address will not show the public IP address. To locate the external IP address use the following command:
 
 ```terminal
@@ -76,5 +77,5 @@ az network nsg rule create -n db_port --destination-port-ranges 30913 --source-a
 
 ## Next steps
 
-- [View the SQL Managed Instance Dashboard](azure-data-studio-dashboards.md#View-the-SQL-managed-instance-dashboards)
+- [View the SQL Managed Instance Dashboard](azure-data-studio-dashboards.md#view-the-SQL-managed-instance-dashboards)
 - [View SQL Managed Instance in the Azure Portal](view-inventory-sql-instances.md)
