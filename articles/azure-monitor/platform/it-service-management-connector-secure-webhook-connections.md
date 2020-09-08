@@ -63,7 +63,7 @@ Follow these steps to register Azure AD Application with Azure Active Directory
 1) [Azure AD creation](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app)
 2) In the Azure Active Directory select “expose application”
 3) Select Set on the Application ID URI
-![Azure AD](media/it-service-management-connector-secure-webhook-connections/azure-ad.png)
+[![Azure AD](media/it-service-management-connector-secure-webhook-connections/azure-ad.png)](media/it-service-management-connector-secure-webhook-connections/azure-ad-expand.png#lightbox)
 4) Click save.
 
 ## Create a Secure Webhook action group
@@ -111,7 +111,7 @@ To configure the BMC Helix connection:
 
 1) [Enabling prebuilt integration with Azure Monitor for version 20.2](https://docs.bmc.com/docs/multicloud/enabling-prebuilt-integration-with-azure-monitor-879728195.html)
 
-2) As a part of the configuration of the connection in the BMC Helix, go into your integration service instance (https://XXX.onbmc.com/) and fill teh details:
+2) As a part of the configuration of the connection in the BMC Helix, go into your integration BMC instance and follow the instructions:
 
 1. Select **catalog**
 2. Select **Azure alerts**
