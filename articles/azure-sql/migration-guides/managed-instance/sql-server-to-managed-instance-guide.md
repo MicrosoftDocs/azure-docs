@@ -116,5 +116,17 @@ After you have successfully completed the Migration stage, you need to go th
 The post-migration phase is also crucial for reconciling any data accuracy issues and verifying completeness, as well as addressing performance issues with the workload. Optimizing your Managed Instance also includes leveraging the best of Azure SQL PaaS features that you can now benefit from after the migration to enable your databases adapt to newer and modern applications.
 
 
+## Leverage advanced features 
+
+Even if you performed a lift-and-shift type migration without fully leveraging the features of Managed Instance, there are high chances that you would turn on some of the new features while you are operating your instance to take advantage of the latest database engine improvements. Some changes are only enabled once the [database compatibility level has been changed](https://docs.microsoft.com/en-us/sql/relational-databases/databases/view-or-change-the-compatibility-level-of-a-database?view=sql-server-ver15). 
+
+For instance, you don’t have to create backups on managed instance - the service performs backups for you automatically. You no longer must worry about scheduling, taking, and managing backups. SQL Managed Instance provides you the ability to restore to any point in time within this retention period using [Point in Time Recovery (PITR)](https://review.docs.microsoft.com/en-us/azure/azure-sql/database/recovery-using-backups?branch=pr-en-us-122187#point-in-time-restore). Additionally, you do not need to worry about setting up high availability, as [high availability is built in](https://review.docs.microsoft.com/en-us/azure/azure-sql/database/high-availability-sla?branch=pr-en-us-122187). 
+
+To strengthen security, consider using [Azure Active Directory Authentication](https://review.docs.microsoft.com/en-us/azure/azure-sql/database/authentication-aad-overview?branch=pr-en-us-122187), [auditing](https://review.docs.microsoft.com/en-us/azure/azure-sql/managed-instance/auditing-configure?branch=pr-en-us-122187), [threat detection](https://review.docs.microsoft.com/en-us/azure/azure-sql/database/advanced-data-security?branch=pr-en-us-122187), [row-level security](https://docs.microsoft.com/en-us/sql/relational-databases/security/row-level-security?view=sql-server-ver15), and [dynamic data masking](https://docs.microsoft.com/en-us/sql/relational-databases/security/dynamic-data-masking?view=sql-server-ver15).
+
+In addition to advanced management and security features, a managed instance provides a set of advanced tools that can help you to [monitor and tune your workload](https://review.docs.microsoft.com/en-us/azure/azure-sql/database/monitor-tune-overview?branch=pr-en-us-122187).[Azure SQL Analytics](https://docs.microsoft.com/en-us/azure/azure-monitor/insights/azure-sql) enables you to monitor a large set of managed instances in a centralized manner. [Automatic tuning](https://docs.microsoft.com/en-us/sql/relational-databases/automatic-tuning/automatic-tuning?view=sql-server-ver15#automatic-plan-correction) in managed instances continuously monitors performance of your SQL plan execution statistics and automatically fixes the identified performance issues. 
+
+For additional detail about these issues and specific steps to mitigate them, see the [Post-migration Validation and Optimization Guide].
+
 
 ## Next steps
