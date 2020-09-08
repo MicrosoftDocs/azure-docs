@@ -33,7 +33,7 @@ landingContent:
           - text: What is Single Server?
             url: single-server-overview.md
           - text: View all Single server documentation
-            url: index.yml
+            url: single-server/index.yml
       - linkListType: concept
         links:
           - text: Understand pricing tiers
