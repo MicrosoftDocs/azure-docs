@@ -37,10 +37,8 @@ The key factors to consider when evaluating migration options depend on:
 Based on these factors, choose between an online and offline migration. During an offline migration, your application incurs downtime the entirety of the migration whereas for an online migration, application downtime is limited to the time required to cut over to SQL Managed Instance during the final step of the migration process. 
 
 One of the key benefits of migrating your SQL Servers to Azure SQL MI is that you can move an entire instance or a bunch of databases as part of the migration process. Hence, it is important to carefully plan your migration activities to include the following: 
-
-The migration of all databases that need to be co-located on the same instance. 
-
-The migration of instance-level objects that your application depends on, including logins, credentials, SQL Agent jobs and operators, and server-level triggers 
+- The migration of all databases that need to be co-located on the same instance. 
+- The migration of instance-level objects that your application depends on, including logins, credentials, SQL Agent jobs and operators, and server-level triggers 
 
 
 
