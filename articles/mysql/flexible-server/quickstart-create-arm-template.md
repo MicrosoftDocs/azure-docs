@@ -206,8 +206,6 @@ read resourcegroupName &&
 az resource show --resource-group $resourcegroupName --name $serverName --resource-type "Microsoft.DbForMySQL/flexibleServers"
 ```
 
----
-
 ## Clean up resources
 
 Keep this resource group, server, and single database if you want to go to the [Next steps](#next-steps). The next steps show you how to connect and query your database using different methods.
@@ -240,6 +238,8 @@ read resourceGroupName &&
 az group delete --name $resourceGroupName &&
 echo "Press [ENTER] to continue ..."
 ```
+---
+
 ## Next steps
 
 For a step-by-step tutorial that guides you through the process of creating an ARM template, see:
