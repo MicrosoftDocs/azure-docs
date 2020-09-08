@@ -31,9 +31,11 @@ This page is updated regularly, so revisit it often. If you're looking for items
 Updates in September include:
 
 - [Vulnerability assessment findings are now available in continuous export](#vulnerability-assessment-findings-are-now-available-in-continuous-export)
+- [Network security group recommendations improved](#network-security-group-recommendations-improved)
 - [Deprecated preview AKS recommendation "Pod Security Policies should be defined on Kubernetes Services"](#deprecated-preview-aks-recommendation-pod-security-policies-should-be-defined-on-kubernetes-services)
 - [Email notifications from Azure Security Center improved](#email-notifications-from-azure-security-center-improved)
 - [Secure score doesn't include preview recommendations](#secure-score-doesnt-include-preview-recommendations)
+- [Recommendations now include a severity indicator and the freshness interval](#recommendations-now-include-a-severity-indicator-and-the-freshness-interval)
 
 ### Vulnerability assessment findings are now available in continuous export
 
@@ -50,6 +52,15 @@ Related pages:
 - [Security Center's integrated vulnerability assessment solution for Azure virtual machines](deploy-vulnerability-assessment-vm.md)
 - [Security Center's integrated vulnerability assessment solution for Azure Container Registry images](monitor-container-security.md)
 - [Continuous export](continuous-export.md)
+
+###  Network security group recommendations improved
+
+The following security recommendations related to network security groups have been improved to reduce some instances of false positives.
+
+- All network ports should be restricted on NSG associated to your VM
+- Management ports should be closed on your virtual machines
+- Internet-facing virtual machines should be protected with Network Security Groups
+- Subnets should be associated with a Network Security Group
 
 
 ### Deprecated preview AKS recommendation "Pod Security Policies should be defined on Kubernetes Services"
@@ -75,11 +86,26 @@ Learn more in [Set up email notifications for security alerts](security-center-p
 
 ### Secure score doesn't include preview recommendations 
 
-Security recommendations marked as preview will have no impact on your secure score.
-
 Security Center continually assesses your resources, subscriptions, and organization for security issues. It then aggregates all the findings into a single score so that you can tell, at a glance, your current security situation: the higher the score, the lower the identified risk level.
 
+As new threats are discovered, new security advice is made available in Security Center through new recommendations. To avoid surprise changes your secure score, and to provide a grace period in which you can explore new recommendations before they impact your scores, recommendations flagged as **Preview** are no longer included in the calculations of your secure score. They should still be remediated wherever possible, so that when the preview period ends they'll contribute towards your score.
+
+Also, **Preview** recommendations don't render a resource "Unhealthy".
+
+An example of a preview recommendation:
+
+:::image type="content" source="./media/secure-score-security-controls/example-of-preview-recommendation.png" alt-text="Recommendation with the preview flag":::
+
 [Learn more about secure score](secure-score-security-controls.md).
+
+
+### Recommendations now include a severity indicator and the freshness interval
+
+The details page for recommendations now includes a freshness interval indicator (whenever relevant) and a clear display of the severity of the recommendation.
+
+:::image type="content" source="./media/release-notes/recommendations-severity-freshness-indicators.png" alt-text="Recommendation page showin freshness and severity":::
+
+
 
 ## August 2020
 

@@ -72,6 +72,16 @@ For example, the security control called "Apply system updates" has a maximum sc
 
 [![The security control "Apply system updates"](media/secure-score-security-controls/apply-system-updates-control.png)](media/secure-score-security-controls/apply-system-updates-control.png#lightbox)
 
+
+> [!NOTE]
+> Recommendations flagged as **Preview** aren't included in the calculations of your secure score.
+>
+> They should still be remediated wherever possible, so that when the preview period ends they'll contribute towards your score.
+>
+> An example of a preview recommendation:
+>
+> :::image type="content" source="./media/secure-score-security-controls/example-of-preview-recommendation.png" alt-text="Recommendation with the preview flag":::
+
 The maximum score for this control, Apply system updates, is always 6. In this example, there are 50 resources. So we divide the max score by 50, and the result is that every resource contributes 0.12 points. 
 
 * **Potential increase** (0.12 x 8 unhealthy resources = 0.96) - The remaining points available to you within the control. If you remediate all the recommendations in this control, your score will increase by 2% (in this case, 0.96 points rounded up to 1 point). 
