@@ -35,7 +35,7 @@ To do this backup/restore operation, you can use any tool that is capable of doi
 - pgAdmin
 - pg_dump
 - pg_restore
-- psql
+- `psql`
 - ...
 
 ## Example
@@ -55,8 +55,8 @@ Consider the following setup:
 :::image type="content" source="media/postgres-hyperscale/Migrate-PG-Source-Backup.jpg" alt-text="Migrate-source-backup":::
 
 Configure it:
-- give it a file name: **MySourceBackup**
-- let the format set to **Custom**
+1. Give it a file name: **MySourceBackup**
+2. Set the format to **Custom**
 :::image type="content" source="media/postgres-hyperscale/Migrate-PG-Source-Backup2.jpg" alt-text="Migrate-source-backup-configure":::
 
 The backup completes successfully:  
@@ -65,7 +65,7 @@ The backup completes successfully:
 ### Create an empty database on the destination system in your Azure Arc enabled PostgreSQL Hyperscale server group
 
 > [!NOTE]
-> To register a Postgres instance in the pgAdmin tool, you need to you use public IP of your instance in your Kubernetes cluster and set the port and security context appropriately. You will find these details on the psql endpoint line after running the following command:
+> To register a Postgres instance in the pgAdmin tool, you need to you use public IP of your instance in your Kubernetes cluster and set the port and security context appropriately. You will find these details on the `psql` endpoint line after running the following command:
 
 ```console
 azdata arc postgres server endpoint list -n postgres01
@@ -84,8 +84,8 @@ Let's name the destination database **RESTORED_MyOnPremPostgresDB**
 :::image type="content" source="media/postgres-hyperscale/migrate-pg-destination-dbrestore.jpg" alt-text="Migratre-db-restore":::
 
 Configure the restore:
-- point to the file that contains the backup to restore: **MySourceBackup**
-- keep the format set  to **Custom or tar**
+1. Point to the file that contains the backup to restore: **MySourceBackup**
+2. Keep the format set  to **Custom or tar**
 :::image type="content" source="media/postgres-hyperscale/migrate-pg-destination-dbrestore2.jpg" alt-text="Migrate-db-restore-configure":::
 
 Click the **[Restore]** button.  
@@ -97,47 +97,60 @@ The restore is successful.
 Use either of the following methods:
 
 **From pgAdmin:**  
+
 Expand the Postgres instance hosted in your Azure Arc setup. You will see the table in the database that you have restored and when you select the data it shows the same row as that it has in the on-premises instance:
 :::image type="content" source="media/postgres-hyperscale/migrate-pg-destination-dbrestoreverif.jpg" alt-text="Migrate-db-restore-verification":::
 
-**From psql inside your Azure Arc setup:**  
-Within your Arc setup you can use psql to connect to your Postgres instance, set the database context to RESTORED_MyOnPremPostgresDB and query the data:
+**From `psql` inside your Azure Arc setup:**  
 
-List the end points to help from your psql connection string:
-```console
-azdata arc postgres server endpoint list -n postgres01
-Command group 'postgres server' is in preview. It may be changed/removed in a future release.
-Description           Endpoint
---------------------  ----------------------------------------------------------------------------------------------------------------
-PostgreSQL Instance   postgresql://postgres:<replace with password>@10.0.0.4:32639
-Log Search Dashboard  https://10.0.0.4:30777/kibana/app/kibana#/discover?_a=(query:(language:kuery,query:'cluster_name:"postgres01"'))
-Metrics Dashboard     https://10.0.0.4:30777/grafana/d/postgres-metrics?var-Namespace=default&var-Name=postgres01
-```
+Within your Arc setup you can use `psql` to connect to your Postgres instance, set the database context to `RESTORED_MyOnPremPostgresDB` and query the data:
 
-Form your psql connection string use the -d parameter to indicate the database name. With the below command, you will be prompted for the password:
-```console
-psql -d RESTORED_MyOnPremPostgresDB -U postgres -h 10.0.0.4 -p 32639
-```
-And you are connected:
-```console
-Password for user postgres:
-psql (10.12 (Ubuntu 10.12-0ubuntu0.18.04.1), server 12.3 (Debian 12.3-1.pgdg100+1))
-WARNING: psql major version 10, server major version 12.
+1. List the end points to help from your `psql` connection string:
+
+   ```console
+   azdata arc postgres server endpoint list -n postgres01
+   ```
+
+   ```output
+   Command group 'postgres server' is in preview. It may be changed/removed in a future release.
+   Description           Endpoint
+      --------------------  ----------------------------------------------------------------------------------------------------------------
+   PostgreSQL Instance   postgresql://postgres:<replace with password>@10.0.0.4:32639
+   Log Search Dashboard  https://10.0.0.4:30777/kibana/app/kibana#/discover?_a=(query:(language:kuery,query:'cluster_name:"postgres01"'))
+   Metrics Dashboard     https://10.0.0.4:30777/grafana/d/postgres-metrics?var-Namespace=default&var-Name=postgres01
+   ```
+
+1. From your `psql` connection string use the `-d` parameter to indicate the database name. With the below command, you will be prompted for the password:
+
+   ```console
+   psql -d RESTORED_MyOnPremPostgresDB -U postgres -h 10.0.0.4 -p 32639
+   ```
+
+   `psql` connects.
+
+   ```output
+   Password for user postgres:
+   psql (10.12 (Ubuntu 10.12-0ubuntu0.18.04.1), server 12.3 (Debian 12.3-1.pgdg100+1))
+   WARNING: psql major version 10, server major version 12.
          Some psql features might not work.
-SSL connection (protocol: TLSv1.3, cipher: TLS_AES_256_GCM_SHA384, bits: 256, compression: off)
-Type "help" for help.
+   SSL connection (protocol: TLSv1.3, cipher: TLS_AES_256_GCM_SHA384, bits: 256, compression: off)
+   Type "help" for help.
 
-RESTORED_MyOnPremPostgresDB=#   
-```
+   RESTORED_MyOnPremPostgresDB=#   
+   ```
 
-Select the table and you'll see the data that you restored from the on-premises Postgres instance:
-```console
-RESTORED_MyOnPremPostgresDB=# select * from t1;
- col1 |    col2
-------+-------------
-    1 | BobbyIsADog
-(1 row)
-```
+1. Select the table and you'll see the data that you restored from the on-premises Postgres instance:
+
+   ```console
+   RESTORED_MyOnPremPostgresDB=# select * from t1;
+   ```
+
+   ```output
+    col1 |    col2
+   ------+-------------
+       1 | BobbyIsADog
+   (1 row)
+   ```
 
 > [!NOTE]
 > - You will not see so much performance benefits of running on Azure Arc enabled PostgreSQL Hyperscale until you scale out and you shard/distribute the data across the worker nodes of your PostgreSQL Hyperscale server group. See [Next steps](#next-steps).
