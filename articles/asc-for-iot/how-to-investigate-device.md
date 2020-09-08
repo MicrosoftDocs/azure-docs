@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/23/2019
+ms.date: 09/04/2020
 ms.author: mlottner
 ---
 
@@ -35,7 +35,7 @@ By default, Azure Security Center for IoT stores your security alerts and recomm
 To locate your Log Analytics workspace for data storage:
 
 1. Open your IoT hub,
-1. Under **Security**, click **Overview**, and then select **Settings**.
+1. Under **Security**, select **Settings**, and then select **Data Collection**.
 1. Change your Log Analytics workspace configuration details.
 1. Click **Save**.
 

@@ -72,6 +72,16 @@ For example, the security control called "Apply system updates" has a maximum sc
 
 [![The security control "Apply system updates"](media/secure-score-security-controls/apply-system-updates-control.png)](media/secure-score-security-controls/apply-system-updates-control.png#lightbox)
 
+
+> [!NOTE]
+> Recommendations flagged as **Preview** aren't included in the calculations of your secure score.
+>
+> They should still be remediated wherever possible, so that when the preview period ends they'll contribute towards your score.
+>
+> An example of a preview recommendation:
+>
+> :::image type="content" source="./media/secure-score-security-controls/example-of-preview-recommendation.png" alt-text="Recommendation with the preview flag":::
+
 The maximum score for this control, Apply system updates, is always 6. In this example, there are 50 resources. So we divide the max score by 50, and the result is that every resource contributes 0.12 points. 
 
 * **Potential increase** (0.12 x 8 unhealthy resources = 0.96) - The remaining points available to you within the control. If you remediate all the recommendations in this control, your score will increase by 2% (in this case, 0.96 points rounded up to 1 point). 
@@ -149,7 +159,7 @@ The table below lists the security controls in Azure Security Center. For each c
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">Remediate security configurations (max score 4)</p></strong>Misconfigured IT assets have a higher risk of being attacked. Basic hardening actions are often forgotten when assets are being deployed and deadlines must be met. Security misconfigurations can be at any level in the infrastructure: from the operating systems and network appliances, to cloud resources.<br>Azure Security Center continually compares the configuration of your resources with requirements in industry standards, regulations, and benchmarks. When you've configured the relevant "compliance packages" (standards and baselines) that matter to your organization, any gaps will result in security recommendations that include the CCEID and an explanation of the potential security impact.<br>Commonly used packages are <a href="https://docs.microsoft.com/azure/security/benchmarks/introduction">Azure Security Benchmark</a> and <a href="https://www.cisecurity.org/benchmark/azure/">CIS Microsoft Azure Foundations Benchmark version 1.1.0</a></td>
-    <td class="tg-lboi"; width=55%>- Pod Security Policies should be defined on Kubernetes Services<br>- Vulnerabilities in container security configurations should be remediated<br>- Vulnerabilities in security configuration on your machines should be remediated<br>- Vulnerabilities in security configuration on your virtual machine scale sets should be remediated<br>- Monitoring agent should be installed on your virtual machines<br>- Monitoring agent should be installed on your machines<br>- Log Analytics agent should be installed on your Windows-based Azure Arc machines (Preview)<br>- Log Analytics agent should be installed on your Linux-based Azure Arc machines (Preview)<br>- Monitoring agent should be installed on virtual machine scale sets<br>- Monitoring agent health issues should be resolved on your machines</td>
+    <td class="tg-lboi"; width=55%>- Vulnerabilities in container security configurations should be remediated<br>- Vulnerabilities in security configuration on your machines should be remediated<br>- Vulnerabilities in security configuration on your virtual machine scale sets should be remediated<br>- Monitoring agent should be installed on your virtual machines<br>- Monitoring agent should be installed on your machines<br>- Log Analytics agent should be installed on your Windows-based Azure Arc machines (Preview)<br>- Log Analytics agent should be installed on your Linux-based Azure Arc machines (Preview)<br>- Monitoring agent should be installed on virtual machine scale sets<br>- Monitoring agent health issues should be resolved on your machines</td>
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">Restrict unauthorized network access (max score 4)</p></strong>Endpoints within an organization provide a direct connection from your virtual network to supported Azure services. Virtual machines in a subnet can communicate with all resources. To limit communication to and from resources within a subnet, create a network security group and associate it to the subnet. Organizations can limit and protect against unauthorized traffic by creating inbound and outbound rules.</td>
