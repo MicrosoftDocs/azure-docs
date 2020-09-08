@@ -2,7 +2,7 @@
 title: 'Quickstart: Create a Python app'
 description: Get started with Azure App Service by deploying your first Python app to a Linux container in App Service.
 ms.topic: quickstart
-ms.date: 06/30/2020
+ms.date: 09/08/2020
 ms.custom: seo-python-october2019, cli-validate, devx-track-python
 
 ---
@@ -11,7 +11,8 @@ ms.custom: seo-python-october2019, cli-validate, devx-track-python
 
 In this quickstart, you deploy a Python web app to [App Service on Linux](overview.md#app-service-on-linux), Azure's highly scalable, self-patching web hosting service. You use the local [Azure command-line interface (CLI)](/cli/azure/install-azure-cli) on a Mac, Linux, or Windows computer. The web app you configure uses a free App Service tier, so you incur no costs in the course of this article.
 
-If you prefer to deploy apps through an IDE, see [Deploy Python apps to App Service from Visual Studio Code](/azure/developer/python/tutorial-deploy-app-service-on-linux-01).
+> [!NOTE]
+> If you prefer to deploy apps through an IDE, see **[Deploy Python apps to App Service from Visual Studio Code](/azure/developer/python/tutorial-deploy-app-service-on-linux-01)**.
 
 ## Set up your initial environment
 
@@ -63,15 +64,10 @@ Once signed in, you can run Azure commands with the Azure CLI to work with resou
 
 ## Clone the sample
 
-Clone the sample repository with the following command. ([Install git](https://git-scm.com/downloads) if you don't have git already.)
+Clone the sample repository with the following command, then navigate into the folder. ([Install git](https://git-scm.com/downloads) if you don't have git already.)
 
 ```terminal
 git clone https://github.com/Azure-Samples/python-docs-hello-world
-```
-
-Then go into that folder:
-
-```terminal
 cd python-docs-hello-world
 ```
 
