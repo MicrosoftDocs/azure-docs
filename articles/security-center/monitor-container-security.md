@@ -22,15 +22,7 @@ Additional container security is available if you enable Azure Defender. Specifi
 
 ## Cluster hardening
 
-To secure your AKS nodes and hosts, Security Center:
-
-- **Discovers and categorizes**:
-    - your AKS resources, from clusters to individual virtual machines
-    - unmanaged containers hosted on IaaS Linux VMs, or other Linux machines running Docker containers
-
-- **Performs continuous monitoring** of the configuration of your AKS clusters and your Docker hosts.
-
-- **Generates security recommendations** if your containers don't satisfy any of the controls in the [Center for Internet Security (CIS) Docker Benchmark](https://www.cisecurity.org/benchmark/docker/).
+To secure your Azure Kubernetes Service nodes and hosts, Security Center analyzes their status and **generates security recommendations** if your containers don't satisfy any of the controls in the [Center for Internet Security (CIS) Docker Benchmark](https://www.cisecurity.org/benchmark/docker/).
 
     Use the **recommendations page** to view recommendations and remediate issues. 
 
