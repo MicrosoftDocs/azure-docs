@@ -131,7 +131,7 @@ For scenarios that involve remote desktop access, you can use Windows event logs
 
 ## Customer Lockbox integration with Azure Security Benchmark
 
-We've introduced a new baseline control ([3.13](https://docs.microsoft.com/en-us/azure/security/benchmarks/security-control-identity-access-control#313-provide-microsoft-with-access-to-relevant-customer-data-during-support-scenarios)) in Azure Security benchmark that covers Lockbox applicability. Customers can now leverage benchmark to review customer Lockbox applicablity for a service.
+We've introduced a new baseline control ([3.13](../benchmarks/security-control-identity-access-control.md#313-provide-microsoft-with-access-to-relevant-customer-data-during-support-scenarios) in Azure Security benchmark that covers Lockbox applicability. Customers can now leverage benchmark to review customer Lockbox applicablity for a service.
 
 
 ## Exclusions
