@@ -7,7 +7,7 @@ ms.subservice:
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 08/21/2020
+ms.date: 09/02/2020
 ---
 
 # Overview of Azure Monitor agents
@@ -144,7 +144,7 @@ The following tables list the operating systems that are supported by the Azure 
 | Windows Server 2012 R2                                   | X | X | X | X |
 | Windows Server 2012                                      | X | X | X | X |
 | Windows Server 2008 R2                                   |   | X | X | X |
-| Windows 10 Enterprise<br>(including multi-session) and Pro  |   | X | X | X |
+| Windows 10 Enterprise<br>(including multi-session) and Pro  | X | X | X | X |
 | Windows 8 Enterprise and Pro                             |   | X | X |   |
 | Windows 7 SP1                                            |   | X | X |   |
 

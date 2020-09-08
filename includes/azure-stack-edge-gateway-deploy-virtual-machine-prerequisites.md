@@ -23,7 +23,7 @@ Make sure that the following steps can be used to access the device from your cl
 
     Provide the username - *EdgeARMuser* and the password to connect via Azure Resource Manager.
 
-1. If you configured **Compute** for Kubernetes, you can skip this step. Proceed to ensure that you've enabled a network interface for compute. In local UI, go to **Compute** settings. Select the network interface that you will use to create a virtual switch. The VMs you create will be attached to a virtual switch attached to this port and the associated network. Be sure to choose a network that matches the static IP address you will use for the VM.  
+1. If you configured **Compute** for Kubernetes, you can skip this step. Proceed to ensure that you've enabled a network interface for compute. In local UI, go to **Compute** settings. Select the network interface that you will use to create a virtual switch. The VMs you create will be attached to a virtual switch attached to this port and the associated network. Be sure to choose a network that matches the IP address you will use for the VM.  
 
     ![Enable compute settings 1](../articles/databox-online/media/azure-stack-edge-gpu-deploy-virtual-machine-templates/enable-compute-setting.png)
 
