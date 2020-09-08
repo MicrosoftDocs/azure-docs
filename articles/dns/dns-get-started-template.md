@@ -12,7 +12,7 @@ ms.author: duau
 #Customer intent: As an administrator or developer, I want to learn how to configure Azure DNS using Azure ARM template so I can use Azure DNS for my name resolution.
 ---
 
-# Quickstart: Create an Azure DNS zone and record using an ARM Template
+# Quickstart: Create an Azure DNS zone and record using an ARM template
 
 This quickstart describes how to use an Azure Resource Manager template (ARM Template) to create a DNS zone with an A record in it.
 
