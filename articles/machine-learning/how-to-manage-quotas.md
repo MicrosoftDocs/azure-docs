@@ -136,7 +136,7 @@ When requesting a quota increase, you need to select the service you are request
 
 ## Private endpoint and private DNS quota increases
 
-There are limitations on the number of private endpoints and private DNS zones that can be created in a subscription. While Azure Machine Learning creates resources in your (customer) subscription, there are some scenarios that create resources in a Microsoft-owned subscription. In the following scenarios, you need to request a quota allowance in the Microsoft-owned subscription:
+There are limitations on the number of private endpoints and private DNS zones that can be created in a subscription. While Azure Machine Learning creates resources in your (customer) subscription, there are some scenarios that create resources in a Microsoft-owned subscription. In the following scenarios, you may need to request a quota allowance in the Microsoft-owned subscription:
 
 * __Private Link enabled workspace with a customer-managed key (CMK)__
 * __Azure Container Registry for the workspace behind your virtual network__
@@ -151,16 +151,10 @@ To request an allowance for these scenarios, use the following steps:
     | Issue type | Technical |
     | Subscription | Your Azure subscription |
     | Service | My services. Select __Machine Learning__ in the dropdown list. |
-    | Resource | The Azure Machine Learning resource |
-    | Summary | Private endpoint request |
     | Problem type | Workspace setup, SDK and CLI |
     | Problem subtype | Problem provisioning or managing workspace |
 
-2. From the __Details__ section, provide the following information:
-
-    * How many Private Link enabled workspace with customer-managed key do you want, per region.
-    * How many Azure container registry behind your virtual network you want, per region.
-    * How many Private Link enabled Azure Kubernetes Service clusters you plan to attach to a workspace, per region.
+2. From the __Details__ section, provide the scenario that you plan to use that may require a quota increase.
 
 3. Use __Create__ to create the request.
 
