@@ -78,11 +78,10 @@
       items:
         - name: What is Azure Arc enabled PostgreSQL Hyperscale
         - href: what-is-azure-arc-enabled-postgres-hyperscale.md
-        - name: Features & capabilites
     - name: Concepts
       items:
         - name: Distributed data
-          href: concepts-distributed-postgresql-hyperscale.md
+          href: concepts-distributed-postgres-hyperscale.md
     - name: Quickstarts
       items:
         - name: Install
@@ -131,7 +130,7 @@
             - name: Restore the sample database AdventureWorks
               href: restore-adventureworks-sample-db-into-postgresql-hyperscale-server-group.md
         - name: Troubleshoot
-          href: troubleshooting-postgresql-hyperscale-server-group.md
+          href: troubleshoot-postgresql-hyperscale-server-group.md
 - name: SQL Managed Instance for Azure Arc (preview)
   items:
     - name: Overview
@@ -155,7 +154,7 @@
         - name: Guide
           href: troubleshoot-guide.md
         - name: Get logs
-          href: troubleshoot-get-logs.md
+          href: troubleshooting-get-logs.md
 - name: Reference
   items:
   - name: azdata
