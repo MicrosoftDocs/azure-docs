@@ -19,3 +19,6 @@ ms.subservice: files
 
 
 ## Mount failure due to lack of NFS package
+
+## SQLite does not work
+
