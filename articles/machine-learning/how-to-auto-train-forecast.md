@@ -243,10 +243,11 @@ automl_config = AutoMLConfig(task='forecasting',
                              ...
                              **time_series_settings)
 ```
+> [!Warning]
+> When you enable DNN for experiments created with the SDK, [best model explanations](how-to-machine-learning-interpretability-automl.md) are disabled.
+
 To enable DNN for an AutoML experiment created in the Azure Machine Learning studio, see the [task type settings in the studio how-to](how-to-use-automated-ml-for-ml-models.md#create-and-run-experiment).
 
-> [!Warning]
-> When you enable DNN, [best model explanations](how-to-machine-learning-interpretability-automl.md) are disabled for your experiment.
 
 Automated ML provides users with both native time-series and deep learning models as part of the recommendation system. 
 
