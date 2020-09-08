@@ -565,5 +565,8 @@ az group delete --name myResourceGroup
 <a name="next"></a>
 
 ## Next steps
-- [How to manage your resources in Azure portal](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resources-portal)
-- [Configure PHP applications in App Service](https://docs.microsoft.com/azure/app-service/configure-language-php?pivots=platform-linux)
+
+> [!div class="nextstepaction"]
+> [How to manage your resources in Azure portal](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resources-portal) <br/>
+> [!div class="nextstepaction"]
+> [How to manage your server](how-to-manage-server-cli.md)

@@ -246,3 +246,8 @@ For a step-by-step tutorial that guides you through the process of creating an A
 
 > [!div class="nextstepaction"]
 > [ Tutorial: Create and deploy your first ARM template](https://docs.microsoft.com/azure/azure-resource-manager/templates/template-tutorial-create-first-template)
+
+For a step-by-step tutorial to build an app with App Service using MySQL, see:
+
+> [!div class="nextstepaction"]
+>[Build a PHP (Laravel) web app with MySQL](tutorial-php-database-app.md)
