@@ -55,7 +55,7 @@ Private endpoint uses a private IP address in the managed Virtual Network to eff
 > It's recommended that you create Managed private endpoints to connect to all your Azure data sources. 
  
 > [!WARNING]
-> If a PaaS data store (Blob, ADLS Gen2, SQL DW) has a private endpoint already created against it, and even if it allows access from all networks, ADF would only be able to access it using managed private endpoint. Make sure you create a Private endpoint in such scenarios. 
+> If a PaaS data store (Blob, ADLS Gen2, Azure Synapse Analytics) has a private endpoint already created against it, and even if it allows access from all networks, ADF would only be able to access it using managed private endpoint. Make sure you create a Private endpoint in such scenarios. 
 
 A private endpoint connection is created in a "Pending" state when you create a Managed private endpoint in Azure Data Factory. An approval workflow is initiated. The private link resource owner is responsible to approve or reject the connection.
 
