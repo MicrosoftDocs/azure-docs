@@ -24,8 +24,10 @@
       href: stream-analytics-quick-create-vs.md
     - name: Visual Studio Code
       href: quick-create-vs-code.md
-  - name: Create a Stream Analytics cluster
-    href: create-cluster.md
+  - name: Create a cluster
+    items:
+    - name: Azure portal
+      href: create-cluster.md
 - name: Create a job
 - name: Tutorials
   items:
@@ -153,13 +155,13 @@
   items:
   - name: Manage
     items:
-    - name: Stream Analytics cluster
+    - name: Clusters
       items:
       - name: Create and delete Private endpoints
         href: private-endpoints.md
-      - name: Add and remove jobs in cluster
+      - name: Add and remove jobs
         href: manage-jobs-cluster.md
-      - name: Scale size of cluster
+      - name: Scale cluster size
         href: scale-cluster.md
     - name: Autoscale jobs
       href: stream-analytics-autoscale.md
