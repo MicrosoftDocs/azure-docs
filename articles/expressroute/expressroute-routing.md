@@ -224,7 +224,7 @@ In addition to the above, Microsoft will also tag prefixes based on the service 
 | Azure Global Services\* | 12076:5050 |
 | Azure Active Directory |12076:5060 |
 | Azure Resource Manager |12076:5070 |
-| Other Microsoft 365 Online services** | 12076:5100 |
+| Other Office 365 Online services** | 12076:5100 |
 
 \* Azure Global Services includes only Azure DevOps at this time.\
 \*\* Authorization required from Microsoft, refer [Configure route filters for Microsoft Peering](how-to-routefilter-portal.md)\
@@ -255,7 +255,7 @@ In addition to the above, Microsoft will also tag prefixes based on the service 
 | Exchange Online |12076:5110 |
 | SharePoint Online |12076:5120 |
 | Skype For Business Online |12076:5130 |
-| Other Microsoft 365 Online services |12076:5200 |
+| Other Office 365 Online services |12076:5200 |
 
 ## Next steps
 * Configure your ExpressRoute connection.
