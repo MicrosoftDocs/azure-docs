@@ -15,13 +15,12 @@ ms.author: aahi
 
 The following table describes the minimum and recommended allocation of resources for each Read container.
 
-| Container | Minimum | Recommended |TPS<br>(Minimum, Maximum)|
-|-----------|---------|-------------|--|
-| Read 2.0 | 1 cores, 8-GB memory, 0.24 TPS | 8 cores, 16-GB memory, 1.17 TPS | 0.24, 1.17 |
-| Read 3.0 | 1 cores, 8-GB memory, 0.24 TPS | 8 cores, 18-GB memory, 1.17 TPS | 0.24, 1.17 |
-| Read 3.1 | 1 cores, 8-GB memory, 0.24 TPS | 8 cores, 18-GB memory, 1.17 TPS | 0.24, 1.17 |
+| Container | Minimum | Recommended |
+|-----------|---------|-------------|
+| Read 2.0 | 1 cores, 8-GB memory | 8 cores, 16-GB memory |
+| Read 3.0 | 1 cores, 8-GB memory | 8 cores, 18-GB memory |
+| Read 3.1 | 1 cores, 8-GB memory | 8 cores, 18-GB memory |
 
 * Each core must be at least 2.6 gigahertz (GHz) or faster.
-* TPS - transactions per second.
 
 Core and memory correspond to the `--cpus` and `--memory` settings, which are used as part of the `docker run` command.

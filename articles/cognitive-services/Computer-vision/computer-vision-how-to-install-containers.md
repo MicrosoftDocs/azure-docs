@@ -65,9 +65,8 @@ Container images for Read are available.
 
 | Container | Container Registry / Repository / Image Name |
 |-----------|------------|
-| Read 2.0 | `mcr.microsoft.com/azure-cognitive-services/vision/read:2.0` |
-| Read 3.0 | `mcr.microsoft.com/azure-cognitive-services/vision/read:3.0` |
-| Read 3.1 | `mcr.microsoft.com/azure-cognitive-services/vision/read:3.1` |
+| Read 3.0-preview | `mcr.microsoft.com/azure-cognitive-services/vision/read:3.0` |
+| Read 3.1-preview | `mcr.microsoft.com/azure-cognitive-services/vision/read:3.1` |
 
 Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image.
 
@@ -79,17 +78,12 @@ Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pul
 docker pull mcr.microsoft.com/azure-cognitive-services/vision/read:3.1-preview
 ```
 
-# [Version 3.0](#tab/version-3)
+# [Version 3.0-preview](#tab/version-3)
 
 ```bash
 docker pull mcr.microsoft.com/azure-cognitive-services/vision/read:3.0
 ```
 
-# [Version 2.0](#tab/version-2)
-
-```bash
-docker pull mcr.microsoft.com/azure-cognitive-services/vision/read:2.0
-```
 ---
 
 [!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)]
@@ -124,7 +118,7 @@ This command:
 * Exposes TCP port 5000 and allocates a pseudo-TTY for the container.
 * Automatically removes the container after it exits. The container image is still available on the host computer.
 
-# [Version 3.0](#tab/version-3)
+# [Version 3.0-preview](#tab/version-3)
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
@@ -139,23 +133,6 @@ This command:
 
 * Runs the Read container from the container image.
 * Allocates 8 CPU core and 18 gigabytes (GB) of memory.
-* Exposes TCP port 5000 and allocates a pseudo-TTY for the container.
-* Automatically removes the container after it exits. The container image is still available on the host computer.
-
-# [Version 2.0](#tab/version-2)
-
-```bash
-docker run --rm -it -p 5000:5000 --memory 16g --cpus 8 \
-mcr.microsoft.com/azure-cognitive-services/vision/read:2.0 \
-Eula=accept \
-Billing={ENDPOINT_URI} \
-ApiKey={API_KEY}
-```
-
-This command:
-
-* Runs the Read container from the container image.
-* Allocates 8 CPU core and 16 gigabytes (GB) of memory.
 * Exposes TCP port 5000 and allocates a pseudo-TTY for the container.
 * Automatically removes the container after it exits. The container image is still available on the host computer.
 
@@ -182,7 +159,7 @@ Use the host, `http://localhost:5000`, for container APIs. You can view the Swag
 ### Asynchronous read
 
 
-# [Version 3.1](#tab/version-3-1)
+# [Version 3.1-preview](#tab/version-3-1)
 
 You can use the `POST /vision/v3.1/read/analyze` and `GET /vision/v3.1/read/operations/{operationId}` operations in concert to asynchronously read an image, similar to how the Computer Vision service uses those corresponding REST operations. The asynchronous POST method will return an `operationId` that is used as the identifer to the HTTP GET request.
 
@@ -260,7 +237,7 @@ The `operation-location` is the fully qualified URL and is accessed via an HTTP 
 }
 ```
 
-# [Version 3.0](#tab/version-3)
+# [Version 3.0-preview](#tab/version-3)
 
 You can use the `POST /vision/v3.0/read/analyze` and `GET /vision/v3.0/read/operations/{operationId}` operations in concert to asynchronously read an image, similar to how the Computer Vision service uses those corresponding REST operations. The asynchronous POST method will return an `operationId` that is used as the identifer to the HTTP GET request.
 
@@ -329,67 +306,6 @@ The `operation-location` is the fully qualified URL and is accessed via an HTTP 
 }
 ```
 
-# [Version 2.0](#tab/version-2)
-
-You can use the `POST /vision/v2.0/read/core/asyncBatchAnalyze` and `GET /vision/v2.0/read/operations/{operationId}` operations in concert to asynchronously read an image, similar to how the Computer Vision service uses those corresponding REST operations. The asynchronous POST method will return an `operationId` that is used as the identifer to the HTTP GET request.
-
-From the swagger UI, select the `asyncBatchAnalyze` to expand it in the browser. Then select **Try it out** > **Choose file**. In this example, we'll use the following image:
-
-![tabs vs spaces](media/tabs-vs-spaces.png)
-
-When the asynchronous POST has run successfully, it returns an **HTTP 202** status code. As part of the response, there is an `operation-location` header that holds the result endpoint for the request.
-
-```http
- content-length: 0
- date: Fri, 13 Sep 2019 16:23:01 GMT
- operation-location: http://localhost:5000/vision/v2.0/read/operations/a527d445-8a74-4482-8cb3-c98a65ec7ef9
- server: Kestrel
-```
-
-The `operation-location` is the fully qualified URL and is accessed via an HTTP GET. Here is the JSON response from executing the `operation-location` URL from the preceding image:
-
-```json
-{
-  "status": "Succeeded",
-  "recognitionResults": [
-    {
-      "page": 1,
-      "clockwiseOrientation": 2.42,
-      "width": 502,
-      "height": 252,
-      "unit": "pixel",
-      "lines": [
-        {
-          "boundingBox": [ 56, 39, 317, 50, 313, 134, 53, 123 ],
-          "text": "Tabs VS",
-          "words": [
-            {
-              "boundingBox": [ 90, 43, 243, 53, 243, 123, 94, 125 ],
-              "text": "Tabs",
-              "confidence": "Low"
-            },
-            {
-              "boundingBox": [ 259, 55, 313, 62, 313, 122, 259, 123 ],
-              "text": "VS"
-            }
-          ]
-        },
-        {
-          "boundingBox": [ 221, 148, 417, 146, 417, 206, 227, 218 ],
-          "text": "Spaces",
-          "words": [
-            {
-              "boundingBox": [ 230, 148, 416, 141, 419, 211, 232, 218 ],
-              "text": "Spaces"
-            }
-          ]
-        }
-      ]
-    }
-  ]
-}
-```
-
 ---
 
 ### Synchronous read
@@ -403,10 +319,6 @@ You can use the following operation to synchronously read an image.
 # [Version 3.0](#tab/version-3)
 
 `POST /vision/v3.0/read/SyncAnalyze`
-
-# [Version 2.0](#tab/version-2)
-
-`POST /vision/v2.0/read/core/Analyze`
 
 ---
 

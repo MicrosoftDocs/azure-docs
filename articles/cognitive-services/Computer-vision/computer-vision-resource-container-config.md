@@ -151,29 +151,6 @@ ApiKey={API_KEY}
 Logging:Console:LogLevel:Default=Information
 ```
 
-# [Version 2.0](#tab/version-2)
-
-### Basic example
-
-  ```docker
-  docker run --rm -it -p 5000:5000 --memory 16g --cpus 8 \
-  containerpreview.azurecr.io/microsoft/cognitive-services-read \
-  Eula=accept \
-  Billing={ENDPOINT_URI} \
-  ApiKey={API_KEY} 
-  ```
-
-### Logging example 
-
-  ```docker
-  docker run --rm -it -p 5000:5000 --memory 16g --cpus 8 \
-  containerpreview.azurecr.io/microsoft/cognitive-services-read \
-  Eula=accept \
-  Billing={ENDPOINT_URI} \
-  ApiKey={API_KEY} \
-  Logging:Console:LogLevel:Default=Information
-  ```
-
 ---
 
 ## Next steps
