@@ -172,6 +172,10 @@
       href: restore-sql-database-azure-vm.md
     - name: Manage
       href: manage-monitor-sql-database-backup.md
+  - name: Azure Database for PostgreSQL backup
+    items:
+    - name: Backup
+      href: backup-azure-database-postgresql.md
   - name: Windows backup using MARS agent
     items:
     - name: Overview
