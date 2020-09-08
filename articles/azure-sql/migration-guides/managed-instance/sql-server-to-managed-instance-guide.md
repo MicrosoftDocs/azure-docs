@@ -85,19 +85,6 @@ After you have completed the tasks associated with the Pre-migration stage, 
 
 Migrate your data using your chosen [migration method](sql-server-to-managed-instance-overview.md#migration-options). 
 
-Some general guidelines that would help you choose the right service tier and characteristics of Azure SQL MI based on the performance baseline that you captured are below:
-
--   Based on the baseline CPU usage, you can provision a managed instance that matches the number of cores that you are using on SQL Server, having in mind that CPU characteristics might need to be scaled to match [VM characteristics where the managed instance is installed](/azure/azure-sql/managed-instance/resource-limits#hardware-generation-characteristics).
--   Based on the baseline memory usage, choose [the service tier that has matching memory](/azure/azure-sql/managed-instance/resource-limits#hardware-generation-characteristics). The amount of memory cannot be directly chosen, so you would need to select the managed instance with the amount of vCores that has matching memory (for example, 5.1 GB/vCore in Gen5).
--   Based on the baseline IO latency of the file subsystem, choose between the General Purpose (latency greater than 5 ms) and Business Critical (latency less than 3 ms) service tiers.
--   Based on baseline throughput, pre-allocate the size of data or log files to get expected IO performance.
-
-
-One of the key benefits of migrating your SQL Servers to Azure SQL MI is that you can move an entire instance or a bunch of databases as part of the migration process. Hence, it is important to carefully plan your migration activities to include the following:
-
--   The migration of all databases that need to be co-located on the same instance.
--   The migration of instance-level objects that your application depends on, including logins, credentials, SQL Agent jobs and operators, and server-level triggers
-
 	> [!IMPORTANT]
 	> -   When you're migrating a database protected by [**Transparent Data Encryption**](/azure/azure-sql/database/transparent-data-encryption-tde-overview) to a managed instance using native restore option, the corresponding certificate from the on-premises or Azure VM SQL Server needs to be migrated before database restore. For detailed steps, see [**Migrate a TDE cert to a managed instance**](/azure/azure-sql/managed-instance/tde-certificate-migrate).
 	> -   Restore of system databases is not supported. To migrate instance-level objects (stored in master or msdb databases), we recommend to script them out and run T-SQL scripts on the destination instance.
