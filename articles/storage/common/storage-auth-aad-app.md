@@ -128,7 +128,7 @@ From Visual Studio, install the Azure Storage client library. From the **Tools**
 ```console
 Install-Package Azure.Storage.Blobs
 Install-Package Azure.Storage.Common
-Install-Package Microsoft.Identity.Web -Version 0.2.3-preview
+Install-Package Microsoft.Identity.Web -Version 0.3.1-preview
 ```
 
 Next, add the following using statements to the HomeController.cs file:
@@ -143,16 +143,15 @@ using Azure.Storage.Common;
 
 ```console
 Install-Package Microsoft.Azure.Storage.Blob
-Install-Package Microsoft.Azure.Storage.Common
-Install-Package Microsoft.Identity.Web -Version 0.2.3-preview
+Install-Package Microsoft.Identity.Web -Version 0.3.1-preview
 ```
 
 Next, add the following using statements to the HomeController.cs file:
 
 ```csharp
 using Microsoft.Identity.Client; //MSAL library for getting the access token
-using Microsoft.WindowsAzure.Storage.Auth;
-using Microsoft.WindowsAzure.Storage.Blob;
+using Microsoft.Azure.Storage.Auth;
+using Microsoft.Azure.Storage.Blob;
 ```
 
 ---
