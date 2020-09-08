@@ -64,7 +64,7 @@ To configure and test Azure AD SSO with TeamzSkill, perform the following steps:
 
 Follow these steps to enable Azure AD SSO in the Azure portal.
 
-1. In the [Azure portal](https://portal.azure.com/), on the **TeamzSkill** application integration page, find the **Manage** section and select **single sign-on**.
+1. In the Azure portal, on the **TeamzSkill** application integration page, find the **Manage** section and select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
 1. On the **Set up single sign-on with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
 
@@ -147,7 +147,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     ![settings in Teamzskill](./media/teamzskill-tutorial/metadata.png)
 
-    a. Navigate to **Company > Single Sign-On**, then select the **Metadata Setup** tab.
+    a. Navigate to **Company > Single Sign-On**, then select the **Metadata Upload** tab.
 
     b. Paste the **Federation Metadata XML** Value, which you have copied from the Azure portal into **XML Metadata** field.
      
