@@ -1,5 +1,5 @@
 ---
-title: VM is unresponsive while applying Default Domain Controllers Policy
+title: VM is unresponsive while applying default domain controllers policy
 titlesuffix: Azure Virtual Machines
 description: This article provides steps to resolve issues where the Default Domain Controllers Policy prevents the booting of an Azure VM.
 services: virtual-machines-windows, azure-resource-manager
@@ -18,7 +18,7 @@ ms.date: 09/08/2020
 ms.author: v-miegge
 ---
 
-# VM is unresponsive while applying Default Domain Controllers Policy
+# VM is unresponsive while applying default domain controllers policy
 
 This article provides steps to resolve issues where the Default Domain Controllers Policy prevents the booting of an Azure Virtual Machine (VM).
 
@@ -36,7 +36,7 @@ This issue may be due to recent changes made to the Default Domain Controllers P
 
 If you have recently made changes to the Default Domain Controllers Policy, you may wish to undo those changes to fix the issue. If you are not sure what is causing the issue, collect a memory dump and then submit a support ticket.
 
-### Collect the Memory Dump File
+### Collect the memory dump file
 
 To resolve this issue, you should first gather the memory dump file for the crash and then contact support with the memory dump file. To collect the dump file, follow these steps:
 
