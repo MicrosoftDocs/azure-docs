@@ -16,8 +16,6 @@ Azure Monitor for Networks is structured around four key components of monitorin
 
 ## Network Health
 
-Network Health tab provides a comprehensive view of health and metrics for all deployed network resource without any configuration. The advanced search capability helps identify resource dependencies, enabling scenarios such as identifying resources that are hosting your website by simply searching for hosted website name.
-
 The Azure Monitor for Networks **Overview** page provides an effortless way to visualize the inventory of your networking resources along with resource health and alerts. It is divided into four key functional areas:
 
 - Search and filtering
