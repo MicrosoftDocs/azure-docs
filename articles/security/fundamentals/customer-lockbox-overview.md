@@ -7,7 +7,7 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.author: terrylan
 manager: rkarlin
-ms.date: 11/04/2019
+ms.date: 09/08/2020
 ---
 
 # Customer Lockbox for Microsoft Azure
@@ -20,6 +20,31 @@ Customer Lockbox for Microsoft Azure provides an interface for customers to revi
 This article covers how Customer Lockbox requests are initiated, tracked, and stored for later reviews and audits.
 
 Customer Lockbox is now generally available and currently enabled for remote desktop access to virtual machines.
+
+## Supported services and scenarios in preview
+
+The following services are now currently in preview for Customer Lockbox:
+
+- API Management
+​- Azure App Service​​
+- Azure Database for MySQL​
+- Azure Databricks
+- Azure Synapse Analytics
+- Cognitive Services
+- Container Registry
+- Azure Data Factory
+- Azure Database for PostgreSQL
+- Azure Kubernetes Service
+- Azure Data Box
+- HDInsight
+- Functions
+- Azure Storage
+- Azure SQL DB
+- Azure Data Explorer
+- Virtual machines (now also covering access to memory dumps and managed disks)
+- Azure subscription transfers
+
+To enable Customer Lockbox for these preview offerings for your organization, sign up for [Customer Lockbox for Azure Public Preview](https://aka.ms/customerlockbox/insiderprogram).
 
 ## Workflow
 
@@ -104,21 +129,9 @@ Customer Lockbox is currently enabled for remote desktop access requests to virt
 
 For scenarios that involve remote desktop access, you can use Windows event logs to review the actions taken by the Microsoft engineer. Consider using Azure Security Center to collect your event logs and copy the data to your workspace for analysis. For more information, see [Data collection in Azure Security Center](../../security-center/security-center-enable-data-collection.md).
 
-## Supported services and scenarios in preview
+## Customer Lockbox integration with Azure Security Benchmark
 
-The following services are now currently in preview for Customer Lockbox:
-
-- Azure Storage
-
-- Azure SQL DB
-
-- Azure Data Explorer
-
-- Virtual machines (now also covering access to memory dumps and managed disks)
-
-- Azure subscription transfers
-
-To enable Customer Lockbox for these preview offerings for your organization, sign up for [Customer Lockbox for Azure Public Preview](https://aka.ms/customerlockbox/insiderprogram).
+We've introduced a new baseline control ([3.13](https://docs.microsoft.com/en-us/azure/security/benchmarks/security-control-identity-access-control#313-provide-microsoft-with-access-to-relevant-customer-data-during-support-scenarios)) in Azure Security benchmark that covers Lockbox applicability. Customers can now leverage benchmark to review customer Lockbox applicablity for a service.
 
 
 ## Exclusions
