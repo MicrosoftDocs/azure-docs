@@ -110,7 +110,7 @@ The result of this query might look like:
 | 2020-08-12 | 235 | RS |
 | 2020-08-11 | 163 | RS |
 
-Look at the [rules for Cosmos DB to SQL type mappings](#type-mappings) at the end of this article for more information about the SQL types that should be used for Azure Cosmos DB data.
+Look at the [rules for Cosmos DB to SQL type mappings](#azure-cosmos-db-to-sql-type-mappings) at the end of this article for more information about the SQL types that should be used for Azure Cosmos DB data.
 
 ## Querying nested objects and arrays
 
