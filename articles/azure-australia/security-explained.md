@@ -22,7 +22,7 @@ Microsoft makes our audit, assessment, and ACSC certification documents availabl
 
 ## Dissemination Limiting Markers and PROTECTED certification
 
-The process of having systems, including cloud services, approved for use by government organisations is defined in the [Information Security Manual (ISM)](https://acsc.gov.au/infosec/ism/) that's produced and published by the ACSC. The ACSC is the entity within the Australian Signals Directorate (ASD) that's responsible for cyber security and cloud certification.
+The process of having systems, including cloud services, approved for use by government organisations is defined in the [Information Security Manual (ISM)](https://www.cyber.gov.au/acsc/view-all-content/ism) that's produced and published by the ACSC. The ACSC is the entity within the Australian Signals Directorate (ASD) that's responsible for cyber security and cloud certification.
 
 There are two steps to the approval process:
 
