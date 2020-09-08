@@ -15,9 +15,9 @@ This article describes the behavior of the most recent Azure Cosmos SDKs when a 
 
 All Azure Cosmos SDKs give users the option to customize the regional preference:
 
-* ConnectionPolicy.PreferredLocations in .NET V2 SDK
-* CosmosClientOptions.ApplicationRegion or CosmosClientOptions.ApplicationPreferredRegions in .NET V3 SDK
-* **Need examples for Java and others**
+* [ConnectionPolicy.PreferredLocations](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.connectionpolicy.preferredlocations) in .NET V2 SDK.
+* [CosmosClientOptions.ApplicationRegion](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.applicationregion) or [CosmosClientOptions.ApplicationPreferredRegions](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.applicationpreferredregions) in .NET V3 SDK.
+* [CosmosClientBuilder.preferredRegions](https://docs.microsoft.com/java/api/com.azure.cosmos.cosmosclientbuilder.preferredregions) in Java V4 SDK.
 
 For single-master accounts, all write operations will always go to the write region, so the preference list applies for read operations. For multi-master accounts, the preference list affects read and write operations.
 
@@ -59,9 +59,5 @@ If the user has configured a preferred region list with more than one region and
 
 * Use the latest [.NET SDK](sql-api-sdk-dotnet-standard.md)
 * Use the latest [Java SDK](sql-api-sdk-java-v4.md)
-
- <!--Anchors-->
-[Common issues and workarounds]: #common-issues-workarounds
-[Enable client SDK logging]: #logging
-[Azure SNAT (PAT) port exhaustion]: #snat
-[Production check list]: #production-check-list
+* Use the latest [Python SDK](sql-api-sdk-python.md)
+* Use the latest [Node SDK](sql-api-sdk-node.md)
