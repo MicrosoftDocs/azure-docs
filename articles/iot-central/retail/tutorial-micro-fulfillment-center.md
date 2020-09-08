@@ -5,7 +5,7 @@ author: avneet723
 ms.author: avneets 
 ms.service: iot-central
 ms.subservice: iot-central-retail
-ms.topic: overview
+ms.topic: tutorial
 ms.date: 01/09/2020
 ---
 
@@ -85,7 +85,15 @@ If you're not going to continue to use this application, delete the application 
 
 ![Screenshot of Micro-fulfillment center Application settings page](./media/tutorial-micro-fulfillment-center-app/delete.png)
 
+### More Information
+
+Learn more about other 
+
+* [Azure IoT Central retail templates](./overview-iot-central-retail.md)
+* [Azure IoT Central overview](../preview/overview-iot-central.md)
+
 ## Next steps
-* Learn more about the [micro-fulfillment center solution architecture](./architecture-micro-fulfillment-center.md).
-* Learn more about other [Azure IoT Central retail templates](./overview-iot-central-retail.md).
-* Read the [Azure IoT Central overview](../preview/overview-iot-central.md).
+
+Learn more about
+> [!div class="nextstepaction"]
+> [micro-fulfillment center solution architecture](./architecture-micro-fulfillment-center.md)

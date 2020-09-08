@@ -170,14 +170,17 @@ To learn how to deploy the solution, see the [Create a video analytics applicati
 
 [Live video analytics](https://github.com/Azure/live-video-analytics) provides a platform for you to build intelligent video applications that span the edge and the cloud. The platform offers the capability to capture, record, analyze live video, and publish the results, which could be video or video analytics, to Azure services. The Azure services could be running in the cloud or the edge. You can use the platform to enhance IoT solutions with video analytics.
 
-## Next steps
+### More Information
 
-To get started building a retail solution:
-
-* Get started with the [Create an in-store analytics application in Azure IoT Central](./tutorial-in-store-analytics-create-app.md) tutorial that walks you through how to build a solution with one of the in-store analytics application templates.
 * [Deploy and walk through a connected logistics application template](./tutorial-iot-central-connected-logistics.md).
 * [Deploy and walk through a digital distribution center application template](./tutorial-iot-central-digital-distribution-center.md).
 * [Deploy and walk through a smart inventory management application template](./tutorial-iot-central-smart-inventory-management.md).
 * [Deploy and walk through the micro-fulfillment center application template](./tutorial-micro-fulfillment-center.md).
 * [Deploy and walk through the video analytics application template](./tutorial-video-analytics-deploy.md).
 * Learn more about IoT Central in the [IoT Central overview](../preview/overview-iot-central.md).
+
+## Next steps
+
+To get started building a retail solution:
+
+* Get started with the [Create an in-store analytics application in Azure IoT Central](./tutorial-in-store-analytics-create-app.md) tutorial that walks you through how to build a solution with one of the in-store analytics application templates.

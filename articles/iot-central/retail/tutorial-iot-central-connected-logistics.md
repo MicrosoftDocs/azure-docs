@@ -5,7 +5,7 @@ author: KishorIoT
 ms.author: nandab
 ms.service: iot-central
 ms.subservice: iot-central-retail
-ms.topic: overview
+ms.topic: tutorial
 ms.date: 10/20/2019
 ---
 
@@ -19,6 +19,13 @@ In this tutorial, you will learn how to,
 
 * create connected logistics application
 * walk through the application 
+
+> [!div class="checklist"]
+> Create connected logistics application template
+> Dashboard
+> Device Template
+> Rules
+> Jobs
 
 ## Prerequisites
 
@@ -109,7 +116,15 @@ If you're not going to continue to use this application, delete the application 
 > [!div class="mx-imgBorder"]
 > ![Connected Logistics Dashboard](./media/tutorial-iot-central-connected-logistics/connected-logistics-cleanup.png)
 
+### More Information
+
+* Learn more about other 
+[IoT Central retail templates](./overview-iot-central-retail.md)
+* Learn more about 
+[IoT Central overview](../core/overview-iot-central.md)
+
 ## Next steps
-* Learn more about [connected logistics concept](./architecture-connected-logistics.md)
-* Learn more about other [IoT Central retail templates](./overview-iot-central-retail.md)
-* Learn more about [IoT Central overview](../core/overview-iot-central.md)
+* Learn more about 
+> [!div class="nextstepaction"]
+> [Connected logistics concept](./architecture-connected-logistics.md)
+

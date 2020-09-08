@@ -267,4 +267,7 @@ If you're not going to continue to use this application, delete your application
 
 ## Next steps
 
-* Learn about more about [Connected waste management concepts](./concepts-connectedwastemanagement-architecture.md)
+* Learn about more about
+ 
+> [!div class="nextstepaction"]
+> [Connected waste management concepts](./concepts-connectedwastemanagement-architecture.md)
