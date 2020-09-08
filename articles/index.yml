@@ -12,7 +12,7 @@ metadata:
   ms.topic: hub-page
   author: rolyon
   ms.author: rolyon
-  ms.date: 09/04/2020
+  ms.date: 09/08/2020
   featureFlags:
   - clicktale
 
@@ -729,7 +729,7 @@ productDirectory:
       azureCategories:
         - developer-tools
       url: https://docs.microsoft.com/sql/azure-data-studio/
-      # Card
+    # Card
     - title: Azure DevOps
       summary: Services for teams to share code, track work, and ship software
       imageSrc: https://static.docs.com/ui/media/product/azure/devops.svg
