@@ -565,7 +565,7 @@ Before you can distribute to the Image Gallery, you must create a gallery and an
 
 ```json
 {
-    "type": "sharedImage",
+    "type": "SharedImage",
     "galleryImageId": "<resource ID>",
     "runOutputName": "<name>",
     "artifactTags": {

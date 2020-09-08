@@ -77,10 +77,10 @@ Only the IoT Edge runtime is supported for production deployments, but the follo
 
 | Tool | Also known as | Supported platforms | Best for |
 | ---- | ------------- | ------------------- | --------- |
-| IoT EdgeHub dev tool  | iotedgehubdev | Windows, Linux, MacOS | Simulating a device to debug modules. |
-| IoT Edge dev container | microsoft/iotedgedev | Windows, Linux, MacOS | Developing without installing dependencies. |
-| IoT Edge runtime in a container | iotedgec | Windows, Linux, MacOS, ARM | Testing on a device that may not support the runtime. |
-| IoT Edge device container | toolboc/azure-iot-edge-device-container | Windows, Linux, MacOS, ARM | Testing a scenario with many IoT Edge devices at scale. |
+| IoT EdgeHub dev tool  | iotedgehubdev | Windows, Linux, macOS | Simulating a device to debug modules. |
+| IoT Edge dev container | microsoft/iotedgedev | Windows, Linux, macOS | Developing without installing dependencies. |
+| IoT Edge runtime in a container | iotedgec | Windows, Linux, macOS, ARM | Testing on a device that may not support the runtime. |
+| IoT Edge device container | toolboc/azure-iot-edge-device-container | Windows, Linux, macOS, ARM | Testing a scenario with many IoT Edge devices at scale. |
 
 ### IoT EdgeHub dev tool
 
@@ -98,7 +98,7 @@ For more information, see [Azure IoT Edge dev container](https://hub.docker.com/
 
 ### IoT Edge runtime in a container
 
-The IoT Edge runtime in a container provides a complete runtime that takes your device connection string as an environment variable. This container enables you to test IoT Edge modules and scenarios on a system that may not support the runtime natively, like MacOS. Any modules that you deploy will be started outside of the runtime container. If you want the runtime and any deployed modules to exist within the same container, consider the IoT Edge device container instead.
+The IoT Edge runtime in a container provides a complete runtime that takes your device connection string as an environment variable. This container enables you to test IoT Edge modules and scenarios on a system that may not support the runtime natively, like macOS. Any modules that you deploy will be started outside of the runtime container. If you want the runtime and any deployed modules to exist within the same container, consider the IoT Edge device container instead.
 
 For more information, see [Running Azure IoT Edge in a container](https://github.com/Azure/iotedgedev/tree/master/docker/runtime).
 
@@ -114,7 +114,7 @@ When you're ready to develop at-scale solutions for extensive production scenari
 
 For more information, guidance, and examples, see the following pages:
 
-* [Continuous integration and continuous deployment to Azure IoT Edge](how-to-ci-cd.md)
-* [Create a CI/CD pipeline for IoT Edge with Azure DevOps Projects](how-to-devops-project.md)
+* [Continuous integration and continuous deployment to Azure IoT Edge](how-to-continuous-integration-continuous-deployment.md)
+* [Create a CI/CD pipeline for IoT Edge with Azure DevOps Starter](how-to-devops-starter.md)
 * [Azure IoT Edge Jenkins plugin](https://plugins.jenkins.io/azure-iot-edge)
 * [IoT Edge DevOps GitHub repo](https://github.com/toolboc/IoTEdge-DevOps)
