@@ -353,7 +353,7 @@ func start
 ```
 func start
 ```
-This command must be [run in a virtual environment](./articles/azure-functions/create-first-function-cli-python.md#create-venv).
+This command must be [run in a virtual environment](./create-first-function-cli-python.md).
 
 # [TypeScript](#tab/ts)
 
