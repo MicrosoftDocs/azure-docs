@@ -43823,6 +43823,21 @@
       "redirect_document_id": false
     },
     {
+        "source_path": "articles/governance/blueprints/samples/HIPAA-HITRUST/index.md",
+        "redirect_url": "/azure/governance/blueprints/samples/hipaa-hitrust",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/governance/blueprints/samples/HIPAA-HITRUST/control-mapping.md",
+        "redirect_url": "/azure/governance/blueprints/samples/hipaa-hitrust",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/governance/blueprints/samples/HIPAA-HITRUST/deploy.md",
+        "redirect_url": "/azure/governance/blueprints/samples/hipaa-hitrust",
+        "redirect_document_id": false
+    },
+    {
       "source_path": "articles/media-services/video-indexer/migrate-from-v1-to-v2.md",
       "redirect_url": "/azure/media-services/video-indexer/video-indexer-overview",
       "redirect_document_id": false

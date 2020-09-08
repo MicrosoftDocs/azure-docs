@@ -1,6 +1,6 @@
 ---
-title: C# IoT Edge module for Azure Stack Edge with GPU | Microsoft Docs
-description: Learn how to develop a C# IoT Edge module that can be deployed on your Azure Stack Edge GPU device.
+title: C# IoT Edge module for Azure Stack Edge Pro with GPU | Microsoft Docs
+description: Learn how to develop a C# IoT Edge module that can be deployed on your Azure Stack Edge Pro GPU device.
 services: databox
 author: alkohli
 
@@ -11,30 +11,30 @@ ms.date: 08/28/2020
 ms.author: alkohli
 ---
 
-# Develop a C# IoT Edge module to move files on Azure Stack Edge
+# Develop a C# IoT Edge module to move files on Azure Stack Edge Pro
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
-This article steps you through how to create an IoT Edge module for deployment with your Azure Stack Edge device. Azure Stack Edge is a storage solution that allows you to process data and send it over network to Azure.
+This article steps you through how to create an IoT Edge module for deployment with your Azure Stack Edge Pro device. Azure Stack Edge Pro is a storage solution that allows you to process data and send it over network to Azure.
 
-You can use Azure IoT Edge modules with your Azure Stack Edge to transform the data as it moved to Azure. The module used in this article implements the logic to copy a file from a local share to a cloud share on your Azure Stack Edge device.
+You can use Azure IoT Edge modules with your Azure Stack Edge Pro to transform the data as it moved to Azure. The module used in this article implements the logic to copy a file from a local share to a cloud share on your Azure Stack Edge Pro device.
 
 In this article, you learn how to:
 
 > [!div class="checklist"]
 > * Create a container registry to store and manage your modules (Docker images).
-> * Create an IoT Edge module to deploy on your Azure Stack Edge device.
+> * Create an IoT Edge module to deploy on your Azure Stack Edge Pro device.
 
 
 ## About the IoT Edge module
 
-Your Azure Stack Edge device can deploy and run IoT Edge modules. Edge modules are essentially Docker containers that perform a specific task, such as ingest a message from a device, transform a message, or send a message to an IoT Hub. In this article, you will create a module that copies files from a local share to a cloud share on your Azure Stack Edge device.
+Your Azure Stack Edge Pro device can deploy and run IoT Edge modules. Edge modules are essentially Docker containers that perform a specific task, such as ingest a message from a device, transform a message, or send a message to an IoT Hub. In this article, you will create a module that copies files from a local share to a cloud share on your Azure Stack Edge Pro device.
 
-1. Files are written to the local share on your Azure Stack Edge device.
+1. Files are written to the local share on your Azure Stack Edge Pro device.
 2. The file event generator creates a file event for each file written to the local share. The file events are also generated when a file is modified. The file events are then sent to IoT Edge Hub (in IoT Edge runtime).
 3. The IoT Edge custom module processes the file event to create a file event object that also contains a relative path for the file. The module generates an absolute path using the relative file path and copies the file from the local share to the cloud share. The module then deletes the file from the local share.
 
-![How Azure IoT Edge module works on Azure Stack Edge](./media/azure-stack-edge-j-series-create-iot-edge-module/how-module-works-1.png)
+![How Azure IoT Edge module works on Azure Stack Edge Pro](./media/azure-stack-edge-j-series-create-iot-edge-module/how-module-works-1.png)
 
 Once the file is in the cloud share, it automatically gets uploaded to your Azure Storage account.
 
@@ -42,11 +42,11 @@ Once the file is in the cloud share, it automatically gets uploaded to your Azur
 
 Before you begin, make sure you have:
 
-- A Azure Stack Edge device that is running.
+- A Azure Stack Edge Pro device that is running.
 
     - The device also has an associated IoT Hub resource.
     - The device has Edge compute role configured.
-    For more information, go to [Configure compute](azure-stack-edge-j-series-deploy-configure-compute.md#configure-compute) for your Azure Stack Edge.
+    For more information, go to [Configure compute](azure-stack-edge-j-series-deploy-configure-compute.md#configure-compute) for your Azure Stack Edge Pro.
 
 - The following development resources:
 
@@ -274,4 +274,4 @@ In the previous section, you created an IoT Edge solution and added code to the 
 
 ## Next steps
 
-To deploy and run this module on Azure Stack Edge, see the steps in [Add a module](azure-stack-edge-j-series-deploy-configure-compute.md#add-a-module).
+To deploy and run this module on Azure Stack Edge Pro, see the steps in [Add a module](azure-stack-edge-j-series-deploy-configure-compute.md#add-a-module).
