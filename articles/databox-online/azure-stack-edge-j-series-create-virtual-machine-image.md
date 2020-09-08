@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/28/2020
+ms.date: 09/04/2020
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to create and upload Azure VM images that I can use with my Azure Stack Edge device so that I can deploy VMs on the device.
 ---
@@ -49,7 +49,22 @@ Do the following steps to create a Linux VM image.
 
 1. Create a Linux Virtual Machine. For more information, go to [Tutorial: Create and manage Linux VMs with the Azure CLI](../virtual-machines/linux/tutorial-manage-vm.md).
 
-2. [Download existing OS disk](../virtual-machines/linux/download-vhd.md).
+1. Deprovision the VM. Use the Azure VM agent to delete machine-specific files and data. Use the `waagent` command with the `-deprovision+user` parameter on your source Linux VM. For more information, see [Understanding and using Azure Linux Agent](../virtual-machines/extensions/agent-linux.md).
+
+    1. Connect to your Linux VM with an SSH client.
+    2. In the SSH window, enter the following command:
+       
+        ```bash
+        sudo waagent -deprovision+user
+        ```
+       > [!NOTE]
+       > Only run this command on a VM that you'll capture as an image. This command does not guarantee that the image is cleared of all sensitive information or is suitable for redistribution. The `+user` parameter also removes the last provisioned user account. To keep user account credentials in the VM, use only `-deprovision`.
+     
+    3. Enter **y** to continue. You can add the `-force` parameter to avoid this confirmation step.
+    4. After the command completes, enter **exit** to close the SSH client.  The VM will still be running at this point.
+
+
+1. [Download existing OS disk](../virtual-machines/linux/download-vhd.md).
 
 Use this VHD to now create and deploy a VM on your Azure Stack Edge device. You can use the following two Azure Marketplace images to create Linux custom images:
 
@@ -58,7 +73,7 @@ Use this VHD to now create and deploy a VM on your Azure Stack Edge device. You 
 |[Ubuntu Server](https://azuremarketplace.microsoft.com/marketplace/apps/canonical.ubuntuserver) |Ubuntu Server is the world's most popular Linux for cloud environments.|Canonical|
 |[Debian 8 "Jessie"](https://azuremarketplace.microsoft.com/marketplace/apps/credativ.debian) |Debian GNU/Linux is one of the most popular Linux distributions.     |credativ|
 
-For a full list of Azure marketplace images that could work (presently not tested), go to [Azure Marketplace items available for Azure Stack Hub](https://docs.microsoft.com/azure-stack/operator/azure-stack-marketplace-azure-items?view=azs-1910).
+For a full list of Azure Marketplace images that could work (presently not tested), go to [Azure Marketplace items available for Azure Stack Hub](https://docs.microsoft.com/azure-stack/operator/azure-stack-marketplace-azure-items?view=azs-1910).
 
 
 ## Next steps
