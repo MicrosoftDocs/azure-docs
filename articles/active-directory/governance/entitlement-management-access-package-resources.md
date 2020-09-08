@@ -92,7 +92,7 @@ For more information, see [Compare groups](/Microsoft 365/admin/create-groups/co
     | --- | --- |
     | Security | Used for granting access to resources. |
     | Distribution | Used for sending notifications to a group of people. |
-    | O365 | Microsoft 365 Group that is not Teams-enabled. Used for collaboration between users, both inside and outside your company. |
+    | Microsoft 365 | Microsoft 365 Group that is not Teams-enabled. Used for collaboration between users, both inside and outside your company. |
     | Team | Microsoft 365 Group that is Teams-enabled. Used for collaboration between users, both inside and outside your company. |
 
 1. In the **Role** list, select **Owner** or **Member**.
