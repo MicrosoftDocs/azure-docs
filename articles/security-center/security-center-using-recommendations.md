@@ -65,7 +65,7 @@ Jeff continues to move through the high priority and medium priority recommendat
 
 ### Enforce recommendations to prevent security misconfigurations
 
-To ensure users don't create resources that negatively impact Jeff's score, they configure the Enforce and Deny options on the recommendations most important to them. Learn more in [Prevent misconfigurations with Enforce/Deny recommendations](prevent-misconfiguration.md).
+To ensure users don't create resources that negatively impact Jeff's score, they configure the Enforce and Deny options on the recommendations most important to them. Learn more in [Prevent misconfigurations with Enforce/Deny recommendations](prevent-misconfigurations.md).
 
 
 ## Conclusion
