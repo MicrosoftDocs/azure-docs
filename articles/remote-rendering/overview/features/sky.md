@@ -131,6 +131,11 @@ Azure Remote Rendering provides a few built-in environment maps that are always 
 |builtin://WinterRiver              | Daytime with bright ambient ground light                 | ![WinterRiver](media/winter-river.png)
 |builtin://DefaultSky               | Same as TearsOfSteelBridge                               | ![DefaultSky](media/tears-of-steel-bridge.png)
 
+## API documentation
+
+* [C# RemoteManager.SkyReflectionSettings property](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanager.skyreflectionsettings)
+* [C++ RemoteManager::SkyReflectionSettings()](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#skyreflectionsettings)
+
 ## Next steps
 
 * [Lights](../../overview/features/lights.md)

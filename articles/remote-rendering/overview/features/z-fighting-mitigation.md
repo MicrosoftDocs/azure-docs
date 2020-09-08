@@ -72,6 +72,11 @@ The provided z-fighting mitigation is a best effort. There is no guarantee that 
 * Enabling z-fighting mitigation incurs little to no performance overhead.
 * Additionally enabling the z-fighting overlay does incur a non-trivial performance overhead, though it may vary depending on the scene.
 
+## API documentation
+
+* [C# RemoteManager.ZFightingMitigationSettings property](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanager.zfightingmitigationsettings)
+* [C++ RemoteManager::ZFightingMitigationSettings()](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#zfightingmitigationsettings)
+
 ## Next steps
 
 * [Rendering modes](../../concepts/rendering-modes.md)
