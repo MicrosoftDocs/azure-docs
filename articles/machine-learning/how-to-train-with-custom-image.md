@@ -13,7 +13,6 @@ ms.custom: how-to
 ---
 
 # Train a model using a custom Docker image
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 In this article, learn how to use a custom Docker image when training models with Azure Machine Learning. 
 

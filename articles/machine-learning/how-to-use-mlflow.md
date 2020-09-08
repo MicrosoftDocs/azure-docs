@@ -21,7 +21,7 @@ With Azure Machine Learning native support for MLflow you can,
 
 + Track and log experiment metrics and artifacts in your [Azure Machine Learning workspace](https://docs.microsoft.com/azure/machine-learning/concept-azure-machine-learning-architecture#workspaces). If you already use MLflow Tracking for your experiments, the workspace provides a centralized, secure, and scalable location to store training metrics and models.
 
-+ Submit training jobs with MLflow Projects with Azure ML backend support (experimental). You can submit jobs locally with AzureML tracking or migrate your runs to the cloud such as aml compute.
++ Submit training jobs with MLflow Projects with Azure Machine Learning backend support (preview). You can submit jobs locally with Azure Machine Learning tracking or migrate your runs to the cloud like via an [Azure Machine Learning Compute](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-create-attach-compute-sdk#amlcompute).
 
 + Track and manage models in MLflow and Azure ML model registry.
 
@@ -142,9 +142,11 @@ With this compute and training run configuration, use the `Experiment.submit('tr
 run = exp.submit(src)
 ```
 
-## Train with MLflow Projects (experimental)
+## Train with MLflow Projects (preview)
 
-[MLflow Projects](https://mlflow.org/docs/latest/projects.html) are a convention for organizing and describing your code to let other data scientists (or automated tools) run it. MLflow Projects with AzureML enabled you to track and manage your training runs in the AzureML workspace. This example will show you to submit MLflow projects locally with AzureML tracking.
+[MLflow Projects](https://mlflow.org/docs/latest/projects.html) are a convention for organizing and describing your code to let other data scientists (or automated tools) run it. MLflow Projects with Azure Machine Learning enables you to track and manage your training runs in your workspace. 
+
+This example shows how to submit MLflow projects locally with Azure Machine Learning tracking.
 
 As mentioned in the previous sections, install the `azureml-mlflow` package to use MLflow Tracking with Azure Machine Learning on your experiments locally run in a Jupyter Notebook or code editor.
 
@@ -170,7 +172,7 @@ experiment_name = 'experiment-with-mlflow-projects'
 mlflow.set_experiment(experiment_name)
 ```
 
-Create the backend configuration object will store necessary information for the integration such as the compute target and whether to use your local managed environment or a system managed environment. 
+Create the backend configuration object to store necessary information for the integration such as, the compute target and which type of managed environment to use.
 
 ```
 backend_config = {"USE_CONDA": False}
@@ -191,7 +193,7 @@ dependencies:
     - mlflow
     - azureml-mlflow
 ```
-Submit it the local run and ensure you set the backend to `azureml`. View your runs and metrics in the Azure ML studio. 
+Submit it the local run and ensure you set the parameter `backend = "azureml" `. View your runs and metrics in the [Azure Machine Learning studio](overview-what-is-machine-learning-studio.md). 
 
 ```
 local_env_run = mlflow.projects.run(uri=".", 
@@ -287,23 +289,7 @@ run.get_metrics()
 ws.get_details()
 ```
 
-## Deploy MLflow models as a web service
-
-Deploying your MLflow experiments as an Azure Machine Learning web service allows you to leverage the Azure Machine Learning model management and data drift detection capabilities and apply them to your production models.
-
-To do so,
-
-1. [Enable logging](#log-your-model) for your model.
-1. Determine which deployment configuration you want to use for your scenario.
-
-    1. [Azure Container Instance (ACI)](#deploy-to-aci) is a suitable choice for a quick dev-test deployment.
-    1. [Azure Kubernetes Service (AKS)](#deploy-to-aks) is suitable for scalable production deployments.
-
-The following diagram demonstrates that with the MLflow deploy API you can deploy your existing MLflow models as an Azure Machine Learning web service, despite their frameworks--PyTorch, Tensorflow, scikit-learn, ONNX, etc., and manage your production models in your workspace.
-
-![mlflow with azure machine learning diagram](./media/how-to-use-mlflow/mlflow-diagram-deploy.png)
-
-### Log your model
+## Save your model
 
 Before you can deploy, be sure that your model is saved so you can reference it and its path location for deployment. In your training script, there should be code similar to the following [mlflow.sklearn.log_model()](https://www.mlflow.org/docs/latest/python_api/mlflow.sklearn.html) method, that saves your model to the specified outputs directory. 
 
@@ -316,6 +302,23 @@ mlflow.sklearn.log_model(regression_model, model_save_path)
 ```
 >[!NOTE]
 > Include the `conda_env` parameter to pass a dictionary representation of the dependencies and environment this model should be run in.
+
+## Deploy and register MLflow models 
+
+Deploying your MLflow experiments as an Azure Machine Learning web service allows you to leverage and apply the Azure Machine Learning model management and data drift detection capabilities to your production models.
+
+To do so,
+
+1. [Save your model](#save-your-model).
+1. Determine which deployment configuration you want to use for your scenario.
+
+    1. [Azure Container Instance (ACI)](#deploy-to-aci) is a suitable choice for a quick dev-test deployment.
+    1. [Azure Kubernetes Service (AKS)](#deploy-to-aks) is suitable for scalable production deployments.
+
+The following diagram demonstrates that with the MLflow deploy API you can deploy your existing MLflow models as an Azure Machine Learning web service, despite their frameworks--PyTorch, Tensorflow, scikit-learn, ONNX, etc., and manage your production models in your workspace.
+
+![mlflow with azure machine learning diagram](./media/how-to-use-mlflow/mlflow-diagram-deploy.png)
+
 
 ### Deploy to ACI
 
@@ -335,7 +338,7 @@ aci_config = AciWebservice.deploy_configuration(cpu_cores=1,
                                                 location='eastus2')
 ```
 
-Then, register and deploy the model by using the Azure Machine Learning SDK [deploy](/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) method. 
+Then, register and deploy the model in one step with the Azure Machine Learning SDK [deploy](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) method. 
 
 ```python
 (webservice,model) = mlflow.azureml.deploy( model_uri='runs:/{}/{}'.format(run.id, model_path),
@@ -381,7 +384,7 @@ aks_config = AksWebservice.deploy_configuration(enable_app_insights=True, comput
 
 ```
 
-Then, deploy the image by using the Azure Machine Learning SDK deploy(). Then, register and deploy the model by using the Azure Machine Learning SDK [deploy](/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) method. 
+Then, register and deploy the model in one step with the Azure Machine Learning SDK [deploy](/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) method. 
 
 ```python
 
