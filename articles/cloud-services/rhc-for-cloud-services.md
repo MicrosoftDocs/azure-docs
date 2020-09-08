@@ -30,17 +30,14 @@ Customers should continue to using load balancer probes to monitor the health of
 ## What are the annotations for Cloud Services?
 Annotations are the health status of the deployment or roles. There are different annotations based on health status, reason for status change, etc. 
 
-## What does it mean by Role Instance is "unavailable"?
+## What does it mean by Role Instance being "unavailable"?
+This means the role instance is not emiting a healthy signal to the platform. Please check the role instance status for detailed explaination of why healthy signal is not being emitted.
 
+## What does it mean by deployment being "unknown"?
+Unknown means the aggregated health of the Cloud Service deployment cannot be determined. Usually this indicates either there is no production deployment created for the Cloud Service, the deployment was newly created (and that Azure is starting to collect health events), or platform is having issues collecting health events for this deployment.
 
-## What is the definition of "degraded"?
-
-
-## What is the definition of "unhealthy"?
-
-
-## What is the definition of "unknown"?
-
+## Why does Role Instance Annotations mentions VMs instead of Role Instances?
+Since Role Instances are basically VMs and the health check for VMs is reused for Role Instances, the VM term is used to represent Role Instances. 
 
 ## Cloud Services (Deployment Level) Annotations & their meanings
 | Annotation | Description | 
@@ -48,7 +45,6 @@ Annotations are the health status of the deployment or roles. There are differen
 | Available| There aren't any known Azure platform problems affecting this Cloud Service deployment |
 | Unknown | We are currently unable to determine the health of this Cloud Service deployment | 
 | Setting up Resource Health | Setting up Resource health for this resource. Resource health watches your Azure resources to provide details about ongoing and past events that have impacted them|
-| Unavailable | Your Cloud Service deployment is unavailable. We're working to automatically recover your Cloud Service deployment and to determine the source of the problem. No additional action is required from you at this time | 
 | Degraded | Your Cloud Service deployment is degraded. We're working to automatically recover your Cloud Service deployment and to determine the source of the problem. No additional action is required from you at this time |
 | Unhealthy | Your Cloud Service deployment is unhealthy because {0} out of {1} role instances are unavailable |
 | Degraded | Your Cloud Service deployment is degraded because {0} out of {1} role instances are unavailable | 
