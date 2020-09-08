@@ -85,7 +85,7 @@ This article uses a resource group named **spnhubrg** in the **eastus** region.
 
 2. Get a list of namespaces.
 
-   To see the details about your new namespace use the [az notification-hub namespace list](/cli/azure/ext/notification-hub/notification-hub/namespace?view=azure-cli-latest#ext-notification-hub-az-notification-hub-namespace-list) command. The `--resource-group` parameter is optional if you want to see all namespaces for a subscription.
+   To see the details about your new namespace use the [az notification-hub namespace list](/cli/azure/ext/notification-hub/notification-hub/namespace#ext-notification-hub-az-notification-hub-namespace-list) command. The `--resource-group` parameter is optional if you want to see all namespaces for a subscription.
 
    ```azurecli
    az notification-hub namespace list --resource-group spnhubrg
@@ -111,7 +111,7 @@ This article uses a resource group named **spnhubrg** in the **eastus** region.
 
 3. Get a list of notification hubs.
 
-   Azure CLI returns either a success or error message with each executed command; however, being able to query for a list of notification hubs is reassuring. The [az notification-hub list](/cli/azure/ext/notification-hub/notification-hub?view=azure-cli-latest#ext-notification-hub-az-notification-hub-list) command was designed for this purpose.
+   Azure CLI returns either a success or error message with each executed command; however, being able to query for a list of notification hubs is reassuring. The [az notification-hub list](/cli/azure/ext/notification-hub/notification-hub#ext-notification-hub-az-notification-hub-list) command was designed for this purpose.
 
    ```azurecli
    az notification-hub list --resource-group spnhubrg --namespace-name spnhubns --output table
