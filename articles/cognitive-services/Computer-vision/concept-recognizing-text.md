@@ -20,7 +20,7 @@ Azure's Computer Vision API includes Optical Character Recognition (OCR) capabil
 
 ## Read API 
 
-The Computer Vision Read API is Azure's latest OCR technology ([learn what's new](./whats-new#read-api-v31-public-preview-adds-simplified-chinese-support)) that extracts printed text (in several languages), handwritten text (English only), digits, and currency symbols from images and multi-page PDF documents. It's optimized to extract text from text-heavy images and multi-page PDF documents with mixed languages. It supports detecting both printed and handwritten text in the same image or document.
+The Computer Vision Read API is Azure's latest OCR technology ([learn what's new](./whats-new.md#read-api-v31-public-preview-adds-simplified-chinese-support)) that extracts printed text (in several languages), handwritten text (English only), digits, and currency symbols from images and multi-page PDF documents. It's optimized to extract text from text-heavy images and multi-page PDF documents with mixed languages. It supports detecting both printed and handwritten text in the same image or document.
 
 ![How OCR converts images and documents into structured output with extracted text](./Images/how-ocr-works.svg)
 
@@ -122,7 +122,7 @@ See the following example of a successful JSON response:
 }
 ```
 ### Get started with SDK and API quickstarts
-Get started with the [Computer Vision OCR SDK quickstarts](./quickstarts-sdk/client-library?pivots=programming-language-csharp) and the [Read REST API quickstarts](./QuickStarts/CSharp-hand-text.md) to start integrating OCR capabilities into your applications.
+Get started with the [Computer Vision OCR SDK quickstarts](./quickstarts-sdk/client-library.md) and the [Read REST API quickstarts](./QuickStarts/CSharp-hand-text.md) to start integrating OCR capabilities into your applications.
 
 ### Supported languages for print text
 The [Read 3.0 API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) supports extracting printed text in English, Spanish, German, French, Italian, Portuguese, and Dutch languages. 
@@ -183,7 +183,7 @@ As with all the cognitive services, developers using the Read/OCR services shoul
 
 ## Next steps
 
-- Get started with the [Computer Vision Read 3.0 SDK quickstarts](./quickstarts-sdk/client-library?pivots=programming-language-csharp) in C#, Java, JavaScript, or Python.
+- Get started with the [Computer Vision Read 3.0 SDK quickstarts](./quickstarts-sdk/client-library.md) in C#, Java, JavaScript, or Python.
 - Use the [Read 3.0 REST API quickstarts](./QuickStarts/CSharp-hand-text.md) in C#, Java, JavaScript, or Python to learn how to use the REST APIs.
 - Learn about the [Read 3.0 REST API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005).
 - Learn about the [Read 3.1 public preview REST API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-1/operations/5d986960601faab4bf452005) with added support for Simplified Chinese.
