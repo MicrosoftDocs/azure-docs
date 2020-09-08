@@ -17,7 +17,7 @@ Azure Monitor for containers is a feature designed to monitor the performance of
 - [Azure Red Hat OpenShift](../../openshift/intro-openshift.md)
 - [Azure Arc enabled Kubernetes](../../azure-arc/kubernetes/overview.md) (preview)
 
-Azure Monitor for containers supports clusters running the Linux and Windows Server 2019 operating system. It also supports ContainerD runtime.
+Azure Monitor for containers supports clusters running the Linux and Windows Server 2019 operating system. The container runtimes it supports are Docker, Moby, and any CRI compatible runtime such as CRI-O and ContainerD.
 
 Monitoring your containers is critical, especially when you're running a production cluster, at scale, with multiple applications.
 
