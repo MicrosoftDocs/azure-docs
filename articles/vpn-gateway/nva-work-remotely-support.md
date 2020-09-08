@@ -6,7 +6,7 @@ author: scottnap
 
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 03/21/2020
+ms.date: 09/08/2020
 ms.author: scottnap
 
 ---
