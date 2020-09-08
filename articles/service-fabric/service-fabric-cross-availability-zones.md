@@ -364,6 +364,7 @@ The Service Fabric nodeType must be enabled to support multiple availability zon
       The property controls the logical grouping of VMs in upgrade domains.
           If value is set to false (flat mode): VMs under the node type will be grouped in UD ignoring the zone info in 5 UDs.
           If value is omitted or set to true (hierarchical mode): VMs will be grouped to reflect the zonal distribution in up to 15 UDs. Each of the 3 zones will have 5 UDs.
+          This property only defines the upgrade behavior for SF. The underlying VMSS upgrades will still be parallel in all AZ’s. We are working with the VMSS folks to allow the control be exposed to SFRP to have parallel and sequential VMSS upgrades.
       This property will not have any impact on the UD distribution for node types which do not have multiple zones enabled.
 * The Service Fabric cluster resource apiVersion should be "2020-12-01-preview" or higher.
 * The cluster code version should be "7.1.417.9590" or higher.
