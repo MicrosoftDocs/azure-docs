@@ -11,7 +11,7 @@ ms.topic: quickstart
 ms.date: 09/01/2020
 ms.author: trbye
 ms.custom: "devx-track-python, devx-track-javascript, devx-track-csharp, cog-serv-seo-aug-2020"
-zone_pivot_groups: programming-languages-set-two-with-js
+zone_pivot_groups: speech-full-stack
 keywords: speech to text, speech to text software
 ---
 
@@ -42,8 +42,8 @@ One of the core features of the Speech service is the ability to recognize and t
 [!INCLUDE [Python Basics include](./includes/how-to/speech-to-text-basics/speech-to-text-basics-python.md)]
 ::: zone-end
 
-::: zone pivot="programming-language-more"
-[!INCLUDE [More languages include](./includes/how-to/speech-to-text-basics/more.md)]
+::: zone pivot="programming-language-spx"
+[!INCLUDE [CLI include](includes/how-to/speech-to-text-basics/speech-to-text-basics-cli.md)]
 ::: zone-end
 
 ## Next steps
