@@ -9,7 +9,7 @@ ms.subservice:
 author: VasiyaKrishnan
 ms.author: vakrishn
 ms.reviewer: sstein
-ms.date: 09/03/2020
+ms.date: 09/04/2020
 ---
 # Azure SQL Edge release notes 
 
@@ -20,6 +20,10 @@ This article describes what is new and what has changed with every new build of 
 ### What's new?
 1. Support for custom origins in the Date_Bucket() function. 
 2. Support for BacPac files as part of SQL deployment.
+3. Support for Data Retention policy based cleanup.      
+   - DDL support for enabling retention policy 
+   - Cleanup stored procedures and background cleanup task
+   - Extended Events to monitor cleanup tasks
 
 ### Fixes
 1. Additional error messages and details for troubleshooting TSQL Streaming operations. 
