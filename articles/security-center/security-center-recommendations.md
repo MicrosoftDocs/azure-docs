@@ -52,6 +52,7 @@ Security Center analyzes the security state of your resources to identify potent
 
     The page includes:
 
+    -**Enforce** and **Deny** buttons on supported recommendations (see [Prevent misconfigurations with Enforce/Deny recommendations](prevent-misconfigurations.md))
     - **Severity indicator**
     - **Freshness interval**  (where relevant) 
     - **Description** - A short description of the issue
@@ -77,4 +78,5 @@ An example of a preview recommendation:
 
 In this document, you were introduced to security recommendations in Security Center. To learn how to remediate the recommendations:
 
-* [Remediate recommendations](security-center-remediate-recommendations.md) — Learn how to configure security policies for your Azure subscriptions and resource groups.
+- [Remediate recommendations](security-center-remediate-recommendations.md) — Learn how to configure security policies for your Azure subscriptions and resource groups.
+- [Prevent misconfigurations with Enforce/Deny recommendations](prevent-misconfigurations.md).
