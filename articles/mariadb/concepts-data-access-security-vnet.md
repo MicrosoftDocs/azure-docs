@@ -87,7 +87,7 @@ There is a separation of security roles in the administration of Virtual Network
 
 The roles of Network Admin and Database Admin have more capabilities than are needed to manage virtual network rules. Only a subset of their capabilities is needed.
 
-You have the option of using [role-based access control (RBAC)][rbac-what-is-813s] in Azure to create a single custom role that has only the necessary subset of capabilities. The custom role could be used instead of involving either the Network Admin or the Database Admin. The surface area of your security exposure is lower if you add a user to a custom role, versus adding the user to the other two major administrator roles.
+You have the option of using [Azure role-based access control (Azure RBAC)][rbac-what-is-813s] in Azure to create a single custom role that has only the necessary subset of capabilities. The custom role could be used instead of involving either the Network Admin or the Database Admin. The surface area of your security exposure is lower if you add a user to a custom role, versus adding the user to the other two major administrator roles.
 
 > [!NOTE]
 > In some cases the Azure Database for MariaDB and the VNet-subnet are in different subscriptions. In these cases you must ensure the following configurations:
@@ -107,7 +107,7 @@ For Azure Database for MariaDB, the virtual network rules feature has the follow
 
 - Virtual network rules apply only to Azure Resource Manager virtual networks; and not to [classic deployment model][resource-manager-deployment-model-568f] networks.
 
-- Turning ON virtual network service endpoints to Azure Database for MariaDB using the **Microsoft.Sql** service tag also enables the endpoints for all Azure Database services: Azure Database for MariaDB, Azure Database for MySQL, Azure Database for PostgreSQL, Azure SQL Database and Azure SQL Data Warehouse.
+- Turning ON virtual network service endpoints to Azure Database for MariaDB using the **Microsoft.Sql** service tag also enables the endpoints for all Azure Database services: Azure Database for MariaDB, Azure Database for MySQL, Azure Database for PostgreSQL, Azure SQL Database and Azure Synapse Analytics (formerly SQL Data Warehouse).
 
 - Support for VNet service endpoints is only for General Purpose and Memory Optimized servers.
 

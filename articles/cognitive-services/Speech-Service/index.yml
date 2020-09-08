@@ -50,29 +50,26 @@ conceptualContent:
         url: index-speech-to-text.yml
     - title: Text-to-speech
       links:
+        - itemType: overview
+          text: About text-to-speech
+          url: text-to-speech.md
         - itemType: quickstart
-          text: Synthesize speech to a speaker
-          url: quickstarts/text-to-speech.md
-        - itemType: quickstart
-          text: Synthesize speech into an audio file
-          url: quickstarts/text-to-speech-audio-file.md
+          text: Get started with text-to-speech
+          url: get-started-text-to-speech.md
         - itemType: how-to-guide
-          text: Speech synthesis basics
-          url: text-to-speech-basics.md          
+          text: Improve synthesis with SSML
+          url: speech-synthesis-markup.md  
       footerLink:
         text: More
         url: index-text-to-speech.yml
     - title: Speech translation
       links:
+      - itemType: overview
+        text: About speech translation
+        url: speech-translation.md
       - itemType: quickstart
-        text: Translate speech-to-text
-        url: quickstarts/translate-speech-to-text.md
-      - itemType: quickstart
-        text: Translate speech to multiple languages
-        url: quickstarts/translate-speech-to-text-multiple-languages.md
-      - itemType: how-to-guide
-        text: Speech translation basics
-        url: speech-translation-basics.md        
+        text: Get started with speech translation
+        url: get-started-speech-translation.md      
       footerLink:
         text: More
         url: index-speech-translation.yml

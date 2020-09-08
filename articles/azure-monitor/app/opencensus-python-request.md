@@ -5,7 +5,7 @@ ms.topic: conceptual
 author: lzchen
 ms.author: lechen
 ms.date: 10/15/2019
-ms.custom: tracking-python
+ms.custom: devx-track-python
 
 ---
 
@@ -13,7 +13,7 @@ ms.custom: tracking-python
 
 Incoming request data is collected using OpenCensus Python and its various integrations. Track incoming request data sent to your web applications built on top of the popular web frameworks `django`, `flask` and `pyramid`. The data is then sent to Application Insights under Azure Monitor as `requests` telemetry.
 
-First, instrument your Python application with latest [OpenCensus Python SDK](../../azure-monitor/app/opencensus-python.md).
+First, instrument your Python application with latest [OpenCensus Python SDK](./opencensus-python.md).
 
 ## Tracking Django applications
 
@@ -115,8 +115,9 @@ First, instrument your Python application with latest [OpenCensus Python SDK](..
 
 ## Next steps
 
-* [Application Map](../../azure-monitor/app/app-map.md)
-* [Availability](../../azure-monitor/app/monitor-web-app-availability.md)
-* [Search](../../azure-monitor/app/diagnostic-search.md)
-* [Log (Analytics) query](../../azure-monitor/log-query/log-query-overview.md)
-* [Transaction diagnostics](../../azure-monitor/app/transaction-diagnostics.md)
+* [Application Map](./app-map.md)
+* [Availability](./monitor-web-app-availability.md)
+* [Search](./diagnostic-search.md)
+* [Log (Analytics) query](../log-query/log-query-overview.md)
+* [Transaction diagnostics](./transaction-diagnostics.md)
+

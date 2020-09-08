@@ -6,6 +6,7 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 05/27/2020
+ms.custom: devx-track-java
 ---
 
 # Java and Base OS for Spring Microservice Apps
@@ -46,5 +47,5 @@ Azul Systems will continuously scan for changes to base operating systems and ke
 > ![Default deployment](media/spring-cloud-principles/spring-cloud-default-deployment.png)
  
 ## Next steps
-* [Quickstart: Launch an existing Azure Spring Cloud application using the Azure portal](spring-cloud-quickstart-launch-app-portal.md)
+* [Quickstart: Launch an existing Azure Spring Cloud application using the Azure portal](spring-cloud-quickstart.md)
 * [Java long-term support for Azure and Azure Stack](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-long-term-support)

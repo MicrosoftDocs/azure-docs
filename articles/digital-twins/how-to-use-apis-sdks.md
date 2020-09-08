@@ -44,7 +44,7 @@ The data plane APIs are used to manage the elements within your Azure Digital Tw
 * **Query** - The Query category lets developers [find sets of digital twins in the twin graph](how-to-query-graph.md) across relationships.
 * **EventRoutes** - The EventRoutes category contains APIs to [route data](concepts-route-events.md), through the system and to downstream services.
 
-The most current data plane API version for public preview is _**2020-05-31-preview**_.
+The most current data plane API version for public preview is _**2020-05-31-preview**_. The _2020-03-01-preview_ API version for data plane operations has now been deprecated.
 
 To use the data plane APIs:
 * You can call the APIs directly, by...
@@ -64,9 +64,9 @@ You can also exercise date plane APIs by interacting with Azure Digital Twins th
 The Azure Digital Twins .NET (C#) SDK is part of the Azure SDK for .NET. It is open source, and is based on the Azure Digital Twins data plane APIs.
 
 > [!NOTE]
-> For in-depth information on SDK design, see the general [design principles for Azure SDKs](https://azure.github.io/azure-sdk/general_introduction.html) and the specific [.NET design guidelines](https://azure.github.io/azure-sdk/dotnet_introduction.html).
+> For more information on SDK design, see the general [design principles for Azure SDKs](https://azure.github.io/azure-sdk/general_introduction.html) and the specific [.NET design guidelines](https://azure.github.io/azure-sdk/dotnet_introduction.html).
 
-To use the SDK, include the NuGet package **Azure.DigitalTwins.Core** with your project. You will also need the **Azure.Identity** package.
+To use the SDK, include the NuGet package **Azure.DigitalTwins.Core** with your project. You will also need the latest version of the **Azure.Identity** package.
 
 * In Visual Studio, you can add packages with the NuGet Package Manager (accessed through *Tools > NuGet Package Manager > Manage NuGet Packages for Solution*). 
 * Using the .NET command-line tool, you can run:
@@ -144,7 +144,7 @@ You can also find additional samples in the [GitHub repo for the .NET (C#) SDK](
 
 #### Serialization Helpers
 
-As described earlier, the core SDK methods return twin data as JSON. However, the SDK also contains helper classes for serialization. These helper functions let you quickly create or deserialize twin data for access to basic information.
+Serialization helpers are helper functions available within the SDK for quickly creating or deserializing twin data for access to basic information. Since the core SDK methods return twin data as JSON by default, it can be helpful to use these helper classes to break the twin data down further.
 
 The available helper classes are:
 * `BasicDigitalTwin`: Represents the core data of a digital twin
@@ -231,7 +231,7 @@ foreach (string prop in rel.CustomProperties.Keys)
 
 ##### Create a relationship
 
-Using the `BasicDigitalTwin` class, you can also prepare data for creating relationships on a twin instance:
+Using the `BasicRelationship` class, you can also prepare data for creating relationships on a twin instance:
 
 ```csharp
 BasicRelationship rel = new BasicRelationship();
@@ -285,14 +285,14 @@ API metrics such as requests, latency, and failure rate can be viewed in the [Az
 
 From the portal homepage, search for your Azure Digital Twins instance to pull up its details. Select the **Metrics** option from the Azure Digital Twins instance's menu to bring up the *Metrics* page.
 
-:::image type="content" source="media/how-to-use-apis-sdks/metrics.png" alt-text="Metrics page of an Azure Digital Twins instance in the Azure portal":::
+:::image type="content" source="media/troubleshoot-metrics/azure-digital-twins-metrics.png" alt-text="Screenshot showing the metrics page for Azure Digital Twins":::
 
 From here, you can view the metrics for your instance and create custom views.
 
 ## Next steps
 
-See how to use the APIs to create an Azure Digital Twins instance:
-* [*How-to: Create an Azure Digital Twins instance*](how-to-set-up-instance.md)
+See how to use the APIs to set up an Azure Digital Twins instance and authentication:
+* [*How-to: Set up an instance and authentication*](how-to-set-up-instance-scripted.md)
 
 Or, walk through the steps to create a client app like the one used in this how-to:
 * [*Tutorial: Code a client app*](tutorial-code.md)

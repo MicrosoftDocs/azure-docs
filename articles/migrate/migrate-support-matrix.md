@@ -2,7 +2,7 @@
 title: Azure Migrate support matrix
 description: Provides a summary of support settings and limitations for the Azure Migrate service.
 ms.topic: conceptual
-ms.date: 04/19/2020
+ms.date: 07/23/2020
 ms.author: raynew
 ---
 
@@ -16,14 +16,16 @@ The table summarizes supported discovery, assessment, and migration scenarios.
 
 **Deployment** | **Details** 
 --- | --- 
-**App-specific discovery** | You can discover apps, roles, and features running on VMware VMs. Currently this feature is limited to discovery only. Assessment is currently at the machine level. We don't yet offer app, role, or feature-specific assessment. 
-**On-premises assessment** | Assess on-premises workloads and data running on VMware VMs, Hyper-V VMs, and physical servers. Assess using Azure Migrate Server Assessment and Microsoft Data Migration Assistant (DMA), as well as other tools and ISV offerings.
-**On-premises migration to Azure** | Migrate workloads and data running on physical servers, VMware VMs, Hyper-V VMs, physical servers, and cloud-based VMS to Azure. Migrate using Azure Migrate Server Assessment and Azure Database Migration Service (DMS), and well as other tools and ISV offerings.
+**Discovery** | You can discover machine metadata, and dynamic performance data.
+**App-discovery** | You can discover apps, roles, and features running on VMware VMs. Currently this feature is limited to discovery only. Assessment is currently at the machine level. We don't yet offer app, role, or feature-based assessments. 
+**Assessment** | Assess on-premises workloads and data running on VMware VMs, Hyper-V VMs, and physical servers. Assess using Azure Migrate Server Assessment, Microsoft Data Migration Assistant (DMA), as well as other tools and ISV offerings.
+**Migration** | Migrate workloads and data running on physical servers, VMware VMs, Hyper-V VMs, physical servers, and cloud-based VMS to Azure. Migrate using Azure Migrate Server Assessment and Azure Database Migration Service (DMS), and well as other tools and ISV offerings.
 
 > [!NOTE]
 > Currently, ISV tools can't send data to Azure Migrate in Azure Government. You can use integrated Microsoft tools, or use partner tools independently.
 
 ## Supported tools
+
 
 Specific tool support is summarized in the table.
 
@@ -38,7 +40,7 @@ Azure Migrate Server Migration | NA | Migrate [VMware VMs](tutorial-migrate-vmwa
 [DMA](/sql/dma/dma-overview?view=sql-server-2017) | Assess SQL Server databases. | NA
 [DMS](../dms/dms-overview.md) | NA | Migrate SQL Server, Oracle, MySQL, PostgreSQL, MongoDB. 
 [Lakeside](https://go.microsoft.com/fwlink/?linkid=2104908) | Assess virtual desktop infrastructure (VDI) | NA
-[Movere](https://www.movere.io/) | Assess VMWare VMs, Hyper-V VMs, Xen VMs, physical machines, workstations (including VDI), public cloud workloads | NA
+[Movere](https://www.movere.io/) | Assess VMware VMs, Hyper-V VMs, Xen VMs, physical machines, workstations (including VDI), public cloud workloads | NA
 [RackWare](https://go.microsoft.com/fwlink/?linkid=2102735) | NA | Migrate VMWare VMs, Hyper-V VMs, Xen VMs, KVM VMs, physical machines, public cloud workloads 
 [Turbonomic](https://go.microsoft.com/fwlink/?linkid=2094295)  | Assess VMware VMs, Hyper-V VMs, physical servers, public cloud workloads. | NA
 [UnifyCloud](https://go.microsoft.com/fwlink/?linkid=2097195) | Assess VMware VMs, Hyper-V VMs, physical servers, public cloud workloads, and SQL Server databases. | NA
@@ -68,7 +70,11 @@ Create a key vault for VMware agentless migration | To migrate VMware VMs with a
 
 ## Supported geographies (public cloud)
 
-You can create an Azure Migrate project in a number of geographies in the public cloud. Although you can only create projects in these geographies, you can assess or migrate machines for other target locations. The project geography is only used to store the discovered metadata.
+You can create an Azure Migrate project in a number of geographies in the public cloud.
+
+- Although you can only create projects in these geographies, you can assess or migrate machines for other target locations.
+- The project geography is only used to store the discovered metadata.
+- When you create a project, you select a geography. The project and related resources are created in one of the regions in the geography. The region is allocated by the Azure Migrate service.
 
 **Geography** | **Metadata storage location**
 --- | ---

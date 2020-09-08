@@ -79,13 +79,13 @@ For more information, see [URL Path Based Routing overview](url-route-overview.m
 
 ## Multiple-site hosting
 
-Multiple-site hosting enables you to configure more than one web site on the same application gateway instance. This feature allows you to configure a more efficient topology for your deployments by adding up to 100 web sites to one Application Gateway (for optimal performance). Each web site can be directed to its own pool. For example, application gateway can serve traffic for `contoso.com` and `fabrikam.com` from two server pools called ContosoServerPool and FabrikamServerPool.
+With Application Gateway, you can configure routing based on host name or domain name for more than one web application on the same application gateway. It allows you to configure a more efficient topology for your deployments by adding up to 100+ websites to one application gateway. Each website can be directed to its own backend pool. For example, three domains, contoso.com, fabrikam.com, and adatum.com, point to the IP address of the application gateway. You'd create three multi-site listeners and configure each listener for the respective port and protocol setting. 
 
-Requests for `http://contoso.com` are routed to ContosoServerPool, and `http://fabrikam.com` are routed to FabrikamServerPool.
+Requests for `http://contoso.com` are routed to ContosoServerPool, `http://fabrikam.com` are routed to FabrikamServerPool, and so on.
 
-Similarly, two subdomains of the same parent domain can be hosted on the same application gateway deployment. Examples of using subdomains could include `http://blog.contoso.com` and `http://app.contoso.com` hosted on a single application gateway deployment.
+Similarly, two subdomains of the same parent domain can be hosted on the same application gateway deployment. Examples of using subdomains could include `http://blog.contoso.com` and `http://app.contoso.com` hosted on a single application gateway deployment. For more information, see [Application Gateway multiple site hosting](multiple-site-overview.md).
 
-For more information, see [Application Gateway multiple site hosting](multiple-site-overview.md).
+You can also define wildcard host names in a multi-site listener and up to 5 host names per listener. To learn more, see [wildcard host names in listener (preview)](multiple-site-overview.md#wildcard-host-names-in-listener-preview).
 
 ## Redirection
 
@@ -143,7 +143,7 @@ For more information, see [Rewrite HTTP headers and URL](rewrite-http-headers-ur
 
 ## Sizing
 
-Application Gateway Standard_v2 can be configured for autoscaling or fixed size deployments. This SKU doesn't offer different instance sizes. For more information on v2 performance and pricing, see [Autoscaling v2 SKU](application-gateway-autoscaling-zone-redundant.md#pricing).
+Application Gateway Standard_v2 can be configured for autoscaling or fixed size deployments. This SKU doesn't offer different instance sizes. For more information on v2 performance and pricing, see [Autoscaling V2](application-gateway-autoscaling-zone-redundant.md) and [Understanding pricing](understanding-pricing.md).
 
 The Application Gateway Standard is offered in three sizes: **Small**, **Medium**, and **Large**. Small instance sizes are intended for development and testing scenarios.
 

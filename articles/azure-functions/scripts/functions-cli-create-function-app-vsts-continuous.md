@@ -3,7 +3,7 @@ title: Create a function app with DevOps deployment - Azure CLI
 description: Create a Function App and deploy function code from Azure DevOps
 ms.date: 07/03/2018
 ms.topic: sample
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ---
 # Create a function in Azure that is deployed from Azure DevOps
 

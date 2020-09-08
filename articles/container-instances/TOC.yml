@@ -16,6 +16,8 @@
   - name: Deploy a container instance - ARM template
     displayName: Resource Manager
     href: container-instances-quickstart-template.md
+  - name: Deploy a container instance - Docker CLI
+    href: container-instances-quickstart-docker-cli.md
 - name: Tutorials
   items:
   - name: Create and deploy container image
@@ -39,7 +41,7 @@
 - name: Samples
   items:
   - name: Code samples
-    href: https://azure.microsoft.com/resources/samples/?sort=0&term=aci
+    href: https://docs.microsoft.com/samples/browse/?products=azure&terms=container%20instance
   - name: Resource Manager templates
     href: container-instances-samples-rm.md
 - name: Concepts

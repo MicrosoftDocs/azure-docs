@@ -63,7 +63,7 @@ Your device needs to be configured to support shared device mode. It must have i
       - Type: Boolean
       - Value: True
 
-    For more information about configuring with Intune, see the [Intune configuration documentation](https://docs.microsoft.com/intune/configuration/ios-device-features-settings).
+    For more information about configuring with Intune, see the [Intune configuration documentation](/intune/configuration/ios-device-features-settings).
 
 1. Next, configure your MDM to push the Microsoft Authenticator app to your device through an MDM profile.
 

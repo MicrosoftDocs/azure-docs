@@ -16,12 +16,12 @@ ms.author: curtand
 
 # Reset your work or school password using security info
 
-If you forgot your work or school password, never got a password from your organization, or have been locked out of your account, you can use your security info and your mobile device to reset your work or school password. Your administrator must turn on this feature for you to be able to set up your information and [reset your own password](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-passwords-reset-register).
+If you forgot your work or school password, never got a password from your organization, or have been locked out of your account, you can use your security info and your mobile device to reset your work or school password. Your administrator must turn on this feature for you to be able to set up your information and [reset your own password](./active-directory-passwords-reset-register.md).
 
-If you know your password and you want to change it, see the [Change your password steps](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-passwords-update-your-own-password#how-to-change-your-password) sections of this article.
+If you know your password and you want to change it, see the [Change your password steps](#how-to-change-your-password) sections of this article.
 
 >[!Important]
->This article is intended for users trying to use reset a forgotten or unknown work or school account password. If you're an administrator looking for information about how to turn on self-service password reset for your employees or other users, see the [Deploy Azure AD self-service password reset and other articles](https://docs.microsoft.com/azure/active-directory/authentication/howto-sspr-deployment).
+>This article is intended for users trying to use reset a forgotten or unknown work or school account password. If you're an administrator looking for information about how to turn on self-service password reset for your employees or other users, see the [Deploy Azure AD self-service password reset and other articles](../authentication/howto-sspr-deployment.md).
 
 ## How to reset or unlock your password for a work or school account
 
@@ -160,6 +160,6 @@ Here are some common error cases and their solutions:
 
 ## Next steps
 
-- Learn about security info in the [Security info (preview) overview](user-help-security-info-overview.md) article.
+- Learn about security info in the [Security info (preview) overview](./security-info-setup-signin.md) article.
 
 - If you're trying to get back into a personal account like Xbox, hotmail.com, or outlook.com, try the suggestions in the [When you can't sign in to your Microsoft account article](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant).

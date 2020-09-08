@@ -74,6 +74,8 @@ subscriptions/{subscriptionId}/resourcesGroups/{resourceGroupName}/providers/Mic
 ```
 
 
+## Get linked storage accounts
+
 ### Get linked storage accounts for all data source types
 
 #### API request
@@ -232,3 +234,4 @@ If the registered storage account of your workspace is on another region, you wi
 ## Next steps
 
 - For more information on setting up a private link, see [Use Azure Private Link to securely connect networks to Azure Monitor](private-link-security.md)
+

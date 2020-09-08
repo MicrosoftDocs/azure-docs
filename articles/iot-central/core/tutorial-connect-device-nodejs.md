@@ -7,8 +7,7 @@ ms.date: 07/07/2020
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.custom:  mqtt
-
+ms.custom:  mqtt, devx-track-javascript
 # As a device developer, I want to try out using Node.js device code that uses the Azure IoT Node.js SDK. I want to understand how to send telemetry from a device, synchronize properties with the device, and control the device using synchronous and asynchronous commands.
 ---
 
@@ -118,7 +117,7 @@ The following steps show you how to create a Node.js client application that con
 
     IoT Central uses device twins to synchronize property values between the device and the IoT Central application. Device property values use device twin reported properties. Writeable properties use both device twin reported and desired properties.
 
-1. To define and handle the writeable properties your device responds to, add the following code:
+1. To define and handle the writeable properties your device responds to, add the following code. The message the device sends in response to the [writeable property update](concepts-telemetry-properties-commands.md#writeable-property-types) must include the `av` and `ac` fields. The `ad` field is optional:
 
     ```javascript
     // Add any writeable properties your device supports,
@@ -334,7 +333,6 @@ You can see how the device responds to commands and property updates:
 
 As a device developer, now that you've learned the basics of how to create a device using Node.js, some suggested next steps are to:
 
-* Learn how to connect a real device to IoT Central in the [Connect an MXChip IoT DevKit device to your Azure IoT Central application](./howto-connect-devkit.md) how-to article.
 * Read [What are device templates?](./concepts-device-templates.md) to learn more about the role of device templates when you're implementing your device code.
 * Read [Get connected to Azure IoT Central](./concepts-get-connected.md) to learn more about how to register devices with IoT Central and how IoT Central secures device connections.
 

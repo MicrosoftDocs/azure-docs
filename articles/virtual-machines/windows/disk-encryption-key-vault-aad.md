@@ -4,7 +4,7 @@ description: This article provides prerequisites for using Microsoft Azure Disk 
 author: msmbaldwin
 ms.service: virtual-machines-windows
 ms.subservice: security
-ms.topic: article
+ms.topic: how-to
 ms.author: mbaldwin
 ms.date: 03/15/2019
 

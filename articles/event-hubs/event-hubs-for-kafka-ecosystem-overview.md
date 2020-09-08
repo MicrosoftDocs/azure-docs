@@ -2,7 +2,7 @@
 title: Use event hub from Apache Kafka app - Azure Event Hubs | Microsoft Docs
 description: This article provides information on Apache Kafka support by Azure Event Hubs. 
 ms.topic: article
-ms.date: 06/23/2020
+ms.date: 07/20/2020
 ---
 # Use Azure Event Hubs from Apache Kafka applications
 Event Hubs provides a Kafka endpoint that can be used by your existing Kafka based applications as an alternative to running your own Kafka cluster. Event Hubs supports [Apache Kafka protocol 1.0 and later](https://kafka.apache.org/documentation/), and works with your existing Kafka applications, including MirrorMaker.  
@@ -40,7 +40,7 @@ Azure Event Hubs provides multiple options to authorize access to your secure re
 - Shared access signature (SAS)
 
 #### OAuth
-Event Hubs integrates with Azure Active Directory (Azure AD), which provides a **OAuth** 2.0 compliant centralized authorization server. With Azure AD, you can use role-based access control (RBAC) to grant fine grained permissions to your client identities. You can use this feature with your Kafka clients by specifying **SASL_SSL** for the protocol and  **OAUTHBEARER** for the mechanism. For details about RBAC roles and levels for scoping access, see [Authorize access with Azure AD](authorize-access-azure-active-directory.md).
+Event Hubs integrates with Azure Active Directory (Azure AD), which provides a **OAuth** 2.0 compliant centralized authorization server. With Azure AD, you can use role-based access control (RBAC) to grant fine grained permissions to your client identities. You can use this feature with your Kafka clients by specifying **SASL_SSL** for the protocol and  **OAUTHBEARER** for the mechanism. For details about Azure roles and levels for scoping access, see [Authorize access with Azure AD](authorize-access-azure-active-directory.md).
 
 ```xml
 bootstrap.servers=NAMESPACENAME.servicebus.windows.net:9093
@@ -60,6 +60,9 @@ sasl.mechanism=PLAIN
 sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="{YOUR.EVENTHUBS.CONNECTION.STRING}";
 ```
 
+> [!NOTE]
+> When using SAS authentication with Kafka clients, established connections aren't disconnected when the SAS key is regenerated. 
+
 #### Samples 
 For a **tutorial** with step-by-step instructions to create an event hub and access it using SAS or OAuth, see [Quickstart: Data streaming with Event Hubs using the Kafka protocol](event-hubs-quickstart-kafka-enabled-event-hubs.md).
 
@@ -73,12 +76,10 @@ The Event Hubs for Kafka feature enables you to write with one protocol and read
 
 Here is the list of Kafka features that are not yet supported:
 
-*	Idempotent producer
 *	Transaction
 *	Compression
 *	Size-based retention
 *	Log compaction
-*	Adding partitions to an existing topic
 *	HTTP Kafka API support
 *	Kafka Streams
 

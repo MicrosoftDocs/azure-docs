@@ -1,6 +1,6 @@
 ---
 title: 'Microsoft global network - Azure'
-description: Describes how Microsoft builds its fast and reliable global network
+description: Learn how Microsoft builds and operates one of the largest backbone networks in the world, and why it is central to delivering a great cloud experience.
 services: networking
 documentationcenter: 
 author: KumudD

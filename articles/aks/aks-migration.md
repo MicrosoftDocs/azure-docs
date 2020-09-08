@@ -18,6 +18,7 @@ This document can be used to help support the following scenarios:
 * Migrating from [Azure Container Service (ACS) - retiring January 31, 2020](https://azure.microsoft.com/updates/azure-container-service-will-retire-on-january-31-2020/) to AKS
 * Migrating from [AKS engine](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908) to AKS
 * Migrating from non-Azure based Kubernetes clusters to AKS
+* Moving existing resources to a different region
 
 When migrating, ensure your target Kubernetes version is within the supported window for AKS. If using an older version, it may not be within the supported range and require upgrading versions to be supported by AKS. See [AKS supported Kubernetes versions](./supported-kubernetes-versions.md) for more information.
 

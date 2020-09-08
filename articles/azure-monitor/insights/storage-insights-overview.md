@@ -50,11 +50,11 @@ To view the utilization and availability of your storage accounts across all of 
 
 ### Overview workbook
 
-On the **Overview** workbook for the selected subscription, the table displays interactive storage metrics and service availability state for up to 10 storage accounts grouped within the subscription. You can filter the results based on the options you select from the following drop-down lists:
+On the **Overview** workbook for the selected subscription, the table displays interactive storage metrics and service availability state for up to 5 storage accounts grouped within the subscription. You can filter the results based on the options you select from the following drop-down lists:
 
 * **Subscriptions** - only subscriptions that have storage accounts are listed.  
 
-* **Storage Accounts** - by default, 10 storage accounts are pre-selected. If you select all or multiple storage accounts in the scope selector, up to 200 storage accounts will be returned. For example, if you had a total of 573 storage accounts across three subscriptions that you've selected, only 200 accounts would be displayed. 
+* **Storage Accounts** - by default, 5 storage accounts are pre-selected. If you select all or multiple storage accounts in the scope selector, up to 200 storage accounts will be returned. For example, if you had a total of 573 storage accounts across three subscriptions that you've selected, only 200 accounts would be displayed. 
 
 * **Time Range** - by default, displays the last 4 hours of information based on the corresponding selections made.
 
@@ -238,7 +238,7 @@ The number of selected storage accounts has a limit of 200, regardless of the nu
 
 ### How to change the coloring and threshold for availability?
 
-Refer to the [Modify the availability threshold](storage-insights-overview.md#modify-the-availability-threshold)
+Refer to the [Modify the availability threshold](#modify-the-availability-threshold)
 section for the detailed steps on how to change the coloring and thresholds for availability.
 
 ### How to analyze and troubleshoot the data shown in Azure Monitor for Storage?
@@ -271,3 +271,4 @@ Each workbook is saved in the storage account that you saved it in. Try to find 
 * Learn the scenarios workbooks are designed to support, how to author new and customize existing reports, and more by reviewing [Create interactive reports with Azure Monitor workbooks](../platform/workbooks-overview.md).
 
 * For an in-depth guide on using Storage Analytics and other tools to identify, diagnose, and troubleshoot Azure Storage-related issues, see [Monitor, diagnose, and troubleshoot Microsoft Azure Storage](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md).
+

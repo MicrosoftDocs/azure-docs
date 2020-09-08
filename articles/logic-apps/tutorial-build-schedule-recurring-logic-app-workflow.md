@@ -3,7 +3,7 @@ title: Build schedule-based automated workflows
 description: Tutorial - Create a schedule-based, recurring, automated workflow by using Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: logicappspm
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 09/12/2019
@@ -41,11 +41,9 @@ When you're done, your logic app looks like this workflow at a high level:
 
 * To get the travel time for a route, you need an access key for the Bing Maps API. To get this key, follow the steps for [how to get a Bing Maps key](/bingmaps/getting-started/bing-maps-dev-center-help/getting-a-bing-maps-key).
 
-## Sign in to the Azure portal
-
-Sign in to the [Azure portal](https://portal.azure.com) with your Azure account credentials.
-
 ## Create your logic app
+
+1. Sign in to the [Azure portal](https://portal.azure.com) with your Azure account credentials.
 
 1. From the main Azure menu, select **Create a resource** > **Integration** > **Logic App**.
 

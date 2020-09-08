@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 04/17/2020
+ms.date: 08/06/2020
 ms.author: swmachan
 ---
 
@@ -132,7 +132,7 @@ The body of the request is a JSON array. Each array element is a JSON object wit
 The following limitations apply:
 
 * The array can have at most 100 elements.
-* The entire text included in the request cannot exceed 5,000 characters including spaces.
+* The entire text included in the request cannot exceed 10,000 characters including spaces.
 
 ## Response body
 

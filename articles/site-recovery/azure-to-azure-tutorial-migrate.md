@@ -2,11 +2,11 @@
 title: Move Azure IaaS VMs to another region with Azure Site Recovery 
 description: Use Azure Site Recovery to move Azure IaaS VMs from one Azure region to another.
 services: site-recovery
-author: rajani-janaki-ram
+author: Sharmistha-Rai
 ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 01/28/2019
-ms.author: rajanaki
+ms.author: sharrai
 ms.custom: MVC 
 ---
 
@@ -77,12 +77,13 @@ The following steps shows how to prepare the virtual machine for the move using 
 
 ### Create the vault in any region, except the source region
 
-1. Sign in to the [Azure portal](https://portal.azure.com) > **Recovery Services**.
-1. Select **Create a resource** > **Management Tools** > **Backup and Site Recovery**.
+1. Sign in to the [Azure portal](https://portal.azure.com)
+1. In search, type Recovery Services > click Recovery Services vaults
+1. In Recovery Services vaults menu, click +Add.
 1. In **Name**, specify the friendly name **ContosoVMVault**. If you have more than one subscription, select the appropriate one.
 1. Create the resource group **ContosoRG**.
 1. Specify an Azure region. To check supported regions, see geographic availability in [Azure Site Recovery pricing details](https://azure.microsoft.com/pricing/details/site-recovery/).
-1. In **Recovery Services vaults**, select **Overview** > **ContosoVMVault** > **+Replicate**.
+1. In **Recovery Services vaults**, select **Overview** > **ContosoVMVault** > **Replicated items** > **+Replicate**.
 1. In **Source**, select **Azure**.
 1. In **Source location**, select the source Azure region where your VMs are currently running.
 1. Select the Resource Manager deployment model. Then select the **Source subscription** and **Source resource group**.

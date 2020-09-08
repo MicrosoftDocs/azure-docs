@@ -9,7 +9,7 @@ ms.topic: reference
 
 author: likebupt
 ms.author: keli19
-ms.date: 07/08/2020
+ms.date: 07/27/2020
 ---
 # Evaluate Model module
 
@@ -76,9 +76,9 @@ The following metrics are reported when evaluating binary classification models.
   
 -   **Accuracy** measures the goodness of a classification model as the proportion of true results to total cases.  
   
--   **Precision** is the proportion of true results over all positive results.  
+-   **Precision** is the proportion of true results over all positive results. Precision = TP/(TP+FP)  
   
--   **Recall** is the fraction of all correct results returned by the model.  
+-   **Recall** is the fraction of the total amount of relevant instances that were actually retrieved. Recall = TP/(TP+FN)  
   
 -   **F1 score** is computed as the weighted average of precision and recall between 0 and 1, where the ideal F1 score value is 1.  
   

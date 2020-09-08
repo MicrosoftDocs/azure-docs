@@ -9,7 +9,8 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 07/16/2020
 ms.author: tamram
-ms.subservice: blobs
+ms.subservice: blobs 
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Configure object replication for block blobs (preview)
@@ -20,6 +21,8 @@ When you configure object replication, you create a replication policy that spec
 
 This article describes how to configure object replication for your storage account by using the Azure portal, PowerShell, or Azure CLI. You can also use one of the Azure Storage resource provider client libraries to configure object replication.
 
+[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
+
 ## Create a replication policy and rules
 
 Before you configure object replication, create the source and destination storage accounts if they do not already exist. Both accounts must be general-purpose v2 storage accounts. For more information, see [Create an Azure Storage account](../common/storage-account-create.md).
@@ -29,7 +32,7 @@ A storage account can serve as the source account for up to two destination acco
 Before you begin, make sure that you have registered for the following feature previews:
 
 - [Object replication (preview)](object-replication-overview.md)
-- [Blob versioning (preview)](versioning-overview.md)
+- [Blob versioning](versioning-overview.md)
 - [Change feed support in Azure Blob Storage (Preview)](storage-blob-change-feed.md)
 
 # [Azure portal](#tab/portal)
@@ -40,7 +43,7 @@ To create a replication policy in the Azure portal, follow these steps:
 
 1. Navigate to the source storage account in the Azure portal.
 1. Under **Blob service**, select **Object replication**.
-1. Select **Set up replication**.
+1. Select **Set up replication rules**.
 1. Select the destination subscription and storage account.
 1. In the **Container pairs** section, select a source container from the source account, and a destination container from the destination account. You can create up to 10 container pairs per replication policy.
 
@@ -170,15 +173,18 @@ az login
 Enable blob versioning on the source and destination storage accounts, and enable change feed on the source account. Remember to replace values in angle brackets with your own values:
 
 ```azurecli
-az storage blob service-properties update --resource-group <resource-group> \
+az storage blob service-properties update \
+    --resource-group <resource-group> \
     --account-name <source-storage-account> \
     --enable-versioning
 
-az storage blob service-properties update --resource-group <resource-group> \
+az storage blob service-properties update \
+    --resource-group <resource-group> \
     --account-name <source-storage-account> \
     --enable-change-feed
 
-az storage blob service-properties update --resource-group <resource-group> \
+az storage blob service-properties update \
+    --resource-group <resource-group> \
     --account-name <dest-storage-account> \
     --enable-versioning
 ```
@@ -186,17 +192,30 @@ az storage blob service-properties update --resource-group <resource-group> \
 Create the source and destination containers in their respective storage accounts.
 
 ```azurecli
-az storage container create --account-name <source-storage-account> --name source-container3 --auth-mode login
-az storage container create --account-name <source-storage-account> --name source-container4 --auth-mode login
+az storage container create \
+    --account-name <source-storage-account> \
+    --name source-container3 \
+    --auth-mode login
+az storage container create \
+    --account-name <source-storage-account> \
+    --name source-container4 \
+    --auth-mode login
 
-az storage container create --account-name <dest-storage-account> --name source-container3 --auth-mode login
-az storage container create --account-name <dest-storage-account> --name source-container4 --auth-mode login
+az storage container create \
+    --account-name <dest-storage-account> \
+    --name source-container3 \
+    --auth-mode login
+az storage container create \
+    --account-name <dest-storage-account> \
+    --name source-container4 \
+    --auth-mode login
 ```
 
 Create a new replication policy and associated rules on the destination account.
 
 ```azurecli
-az storage account or-policy create --account-name <dest-storage-account> \
+az storage account or-policy create \
+    --account-name <dest-storage-account> \
     --resource-group <resource-group> \
     --source-account <source-storage-account> \
     --destination-account <dest-storage-account> \
@@ -205,7 +224,8 @@ az storage account or-policy create --account-name <dest-storage-account> \
     --min-creation-time '2020-05-10T00:00:00Z' \
     --prefix-match a
 
-az storage account or-policy rule add --account-name <dest-storage-account> \
+az storage account or-policy rule add \
+    --account-name <dest-storage-account> \
     --destination-container dest-container4 \
     --policy-id <policy-id> \
     --resource-group <resource-group> \
@@ -216,7 +236,8 @@ az storage account or-policy rule add --account-name <dest-storage-account> \
 Create the policy on the source account using the policy ID.
 
 ```azurecli
-az storage account or-policy show --resource-group <resource-group> \
+az storage account or-policy show \
+    --resource-group <resource-group> \
     --name <dest-storage-account> \
     --policy-id <policy-id> |
     --az storage account or-policy create --resource-group <resource-group> \

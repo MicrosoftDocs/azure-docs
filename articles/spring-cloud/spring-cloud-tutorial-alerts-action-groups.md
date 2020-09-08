@@ -6,8 +6,9 @@ ms.author: barbkess
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 12/29/2019
-
+ms.custom: devx-track-java
 ---
+
 # Tutorial: How to monitor Spring Cloud resources using alerts and action groups
 
 Azure Spring Cloud alerts support monitoring resources based on conditions such as available storage, rate of requests, or data usage. An alert sends notification when rates or conditions meet the defined specifications.
@@ -18,7 +19,7 @@ There are two steps to set up an alert pipeline:
 
 ## Prerequisites
 
-In addition to the Azure Spring requirements, the procedures in this tutorial work with a deployed Azure Spring Cloud instance.  Follow a [quickstart](spring-cloud-quickstart-launch-app-cli.md) to get started.
+In addition to the Azure Spring requirements, the procedures in this tutorial work with a deployed Azure Spring Cloud instance.  Follow a [quickstart](spring-cloud-quickstart.md) to get started.
 
 The following procedures initialize both **Action Group** and **Alert** starting from the **Alerts** option in the left navigation pane of a Spring Cloud instance. (The procedure can also start from the **Monitor Overview** page of the Azure portal.) 
 
@@ -70,11 +71,11 @@ To configure an **Alert**, navigate back to the **Alerts** page, and click **Man
 
 1. Select a condition. This example uses **System CPU Usage Percentage**.
 
-   ![Screenshot Portal new alert rule](media/alerts-action-groups/alerts-3-1.png)
+   ![Screenshot Portal new alert rule 2](media/alerts-action-groups/alerts-3-1.png)
 
 1. Scroll down the **Configure signal logic** pane to set the **Threshold value** to monitor.
 
-   ![Screenshot Portal new alert rule](media/alerts-action-groups/alerts-3-2.png)
+   ![Screenshot Portal new alert rule 3](media/alerts-action-groups/alerts-3-2.png)
 
 1. Click **Done**.
 
@@ -82,7 +83,7 @@ For details of the conditions available to monitor, see [User portal metrics opt
 
  Under **ACTIONS**, click **Select action group**. From **ACTIONS** pane select the previously defined **Action Group**.
 
-   ![Screenshot Portal new alert rule](media/alerts-action-groups/alerts-3-3.png) 
+   ![Screenshot Portal new alert rule 4](media/alerts-action-groups/alerts-3-3.png) 
 
 1. Scroll down, and under **ALERT DETAILS**, name the alert rule.
 
@@ -90,15 +91,15 @@ For details of the conditions available to monitor, see [User portal metrics opt
 
 1. Click **Create alert rule**.
 
-   ![Screenshot Portal new alert rule](media/alerts-action-groups/alerts-3-4.png)
+   ![Screenshot Portal new alert rule 5](media/alerts-action-groups/alerts-3-4.png)
 
 Verify that the new alert rule is enabled.
 
-   ![Screenshot Portal new alert rule](media/alerts-action-groups/alerts-4.png)
+   ![Screenshot Portal new alert rule 6](media/alerts-action-groups/alerts-4.png)
 
 A rule can also be created using the **Metrics** page:
 
-   ![Screenshot Portal new alert rule](media/alerts-action-groups/alerts-5.png)
+   ![Screenshot Portal new alert rule 7](media/alerts-action-groups/alerts-5.png)
 
 ## Next steps
 

@@ -122,6 +122,7 @@ The Azure Import/Export service supports copying data to and from all Azure stor
 |North Central US     |  Australia Southeast       | Brazil South        | UK South        |
 |South Central US     | Japan West        |Korea Central         | Germany Central        |
 |West Central US     |  Japan East       | US Gov Virginia        | Germany Northeast        |
+|South Africa West   |  South Africa North |
 
 ## Security considerations
 

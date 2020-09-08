@@ -48,7 +48,7 @@ Within the selected virtual network, a dedicated subnet must be used for Cloud S
 A network profile is a network configuration template for Azure resources that specifies certain network properties for the resource.
 
 ### Azure Relay
-An [Azure Relay](https://docs.microsoft.com/azure/azure-relay/relay-what-is-it) allows two endpoints that are not directly reachable to communicate. In this case, it is used to allow the administrator's browser to communicate with the container in the private network.
+An [Azure Relay](../azure-relay/relay-what-is-it.md) allows two endpoints that are not directly reachable to communicate. In this case, it is used to allow the administrator's browser to communicate with the container in the private network.
 
 The Azure Relay instance used for Cloud Shell can be configured to control which networks can access container resources: 
 - Accessible from the public internet: In this configuration, Cloud Shell provides a way to reach otherwise internal resources from outside. 
@@ -62,8 +62,22 @@ As in standard Cloud Shell, a storage account is required while using Cloud Shel
 
 * During the preview, fewer regions are supported for Cloud Shell in a virtual network. This is currently limited to: WestUS and WestCentralUS.
 
-* [Azure Relay](https://docs.microsoft.com/azure/azure-relay/relay-what-is-it) is not a free service, please view their [pricing](https://azure.microsoft.com/pricing/details/service-bus/). In the Cloud Shell scenario, one hybrid connection is used for each administrator while they are using Cloud Shell. The connection will automatically be shut down after the Cloud Shell session is complete.
+* [Azure Relay](../azure-relay/relay-what-is-it.md) is not a free service, please view their [pricing](https://azure.microsoft.com/pricing/details/service-bus/). In the Cloud Shell scenario, one hybrid connection is used for each administrator while they are using Cloud Shell. The connection will automatically be shut down after the Cloud Shell session is complete.
 
+## Register the resource provider
+
+The Microsoft.ContainerInstances resource provider needs to be registered in the subscription that holds the virtual network you want to use. Select the appropriate subscription with `Set-AzContext -Subscription {subscriptionName}`, and then run:
+
+```powershell
+PS> Get-AzResourceProvider -ProviderNamespace Microsoft.ContainerInstance | select ResourceTypes,RegistrationState
+
+ResourceTypes                             RegistrationState
+-------------                             -----------------
+{containerGroups}                         Registered
+...
+```
+
+If **RegistrationState** is `Registered`, no action is required. If it is `NotRegistered`, run `Register-AzResourceProvider -ProviderNamespace Microsoft.ContainerInstance`. 
 
 ## Deploy network resources
  
@@ -79,13 +93,13 @@ In the Azure portal, or using Azure CLI, Azure PowerShell, etc. create a resourc
 Utilize the [Azure Quickstart Template](https://aka.ms/cloudshell/docs/vnet/template) for creating Cloud Shell resources in a virtual network, and the [Azure Quickstart Template](https://aka.ms/cloudshell/docs/vnet/template/storage) for creating necessary storage. Take note of your resource names, primarily your file share name.
 
 ### Open relay firewall
-Navigate to the relay created using the above template, select "Networking" in settings, allow access from your browser network to the relay.
+Navigate to the relay created using the above template, select "Networking" in settings, allow access from your browser network to the relay. By default the relay is only accessible from the virtual network it has been created in. 
 
 ### Configuring Cloud Shell to use a virtual network.
 > [!NOTE]
 > This step must be completed for each administrator will use Cloud Shell.
 
-After deploying completing the above steps, navigate to Cloud Shell in the Azure portal or on https://shell.azure.com.
+After deploying completing the above steps, navigate to Cloud Shell in the Azure portal or on https://shell.azure.com. One of these experiences must be used each time you want to connect to an isolated Cloud Shell experience.
 
 > [!NOTE]
 > If Cloud Shell has been used in the past, the existing clouddrive must be unmounted. To do this run `clouddrive unmount` from an active Cloud Shell session, refresh your page.
@@ -95,6 +109,5 @@ Connect to Cloud Shell, you will be prompted with the first run experience. Sele
 
 ![Illustrates the Cloud Shell isolated VNET first experience settings.](media/private-vnet/vnet-settings.png)
 
-
 ## Next steps
-[Learn about Azure Virtual Networks](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)
+[Learn about Azure Virtual Networks](../virtual-network/virtual-networks-overview.md)

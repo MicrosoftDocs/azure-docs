@@ -20,7 +20,7 @@ ms.custom: mvc
 
 ## Configure registry authentication
 
-In a production scenario where you provide access to "headless" services and applications, it's recommended to configure registry access by using a [service principal](../container-registry/container-registry-auth-service-principal.md). A service principal allows you to provide [role-based access control](../container-registry/container-registry-roles.md) to your container images. For example, you can configure a service principal with pull-only access to a registry.
+In a production scenario where you provide access to "headless" services and applications, it's recommended to configure registry access by using a [service principal](../container-registry/container-registry-auth-service-principal.md). A service principal allows you to provide [Azure role-based access control (Azure RBAC)](../container-registry/container-registry-roles.md) to your container images. For example, you can configure a service principal with pull-only access to a registry.
 
 Azure Container Registry provides additional [authentication options](../container-registry/container-registry-authentication.md).
 

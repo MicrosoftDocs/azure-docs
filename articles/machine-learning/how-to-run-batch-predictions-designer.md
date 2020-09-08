@@ -5,11 +5,11 @@ description: Learn how to train a model and set up a batch prediction pipeline u
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.author: peterlu
 author: peterclu
 ms.date: 02/24/2020
-ms.custom: Ignite2019, designer
+ms.topic: conceptual
+ms.custom: how-to, designer
 ---
 
 # Run batch predictions using Azure Machine Learning designer (preview)
@@ -29,6 +29,8 @@ To learn how to set up batch scoring services using the SDK, see the accompanyin
 ## Prerequisites
 
 This how-to assumes you already have a training pipeline. For a guided introduction to the designer, complete [part one of the designer tutorial](tutorial-designer-automobile-price-train-score.md). 
+
+[!INCLUDE [machine-learning-missing-ui](../../includes/machine-learning-missing-ui.md)]
 
 ## Create a batch inference pipeline
 

@@ -16,8 +16,10 @@
       href: tutorial-delete-cluster.md
 - name: How-to guides
   items:
-    - name: Create a private Azure Red Hat OpenShift 4 cluster 
+    - name: Create a private Azure Red Hat OpenShift 4 cluster
       href: howto-create-private-cluster-4x.md
+    - name: Update pull secret for an Azure Red Hat OpenShift 4 cluster
+      href: howto-add-update-pull-secret.md
     - name: Configure DNS forwarding for an Azure Red Hat OpenShift 4 cluster
       href: dns-forwarding.md
     - name: Configure Azure Active Directory authentication for an Azure Red Hat OpenShift 4 cluster
@@ -26,10 +28,16 @@
           href: configure-azure-ad-cli.md
         - name: Configure Azure Active Directory authentication (Portal)
           href: configure-azure-ad-ui.md
+    - name: Create a backup and restore an application with Velero
+      items:
+        - name: Create a backup of a cluster application with Velero
+          href: howto-create-a-backup.md
+        - name: Create a restore of a cluster application with Velero
+          href: howto-create-a-restore.md
     - name: Monitoring and logging for Azure Red Hat OpenShift 4
       items:
         - name: Azure Monitor for containers in Azure Red Hat OpenShift 4 (preview)
-          items: 
+          items:
             - name: Configure Azure Monitor for containers for Azure Red Hat OpenShift 4 (preview)
               href : ../azure-monitor/insights/container-insights-azure-redhat4-setup.md
             - name: Disable Azure Monitor for containers in Azure Red Hat OpenShift 3.11 (preview)
@@ -39,7 +47,7 @@
         - name: Set up your Azure Red Hat OpenShift dev environment for Azure Red Hat OpenShift 3.11
           href: howto-setup-environment.md
           items:
-            - name: Create an Azure AD tenant 
+            - name: Create an Azure AD tenant
               href: howto-create-tenant.md
             - name: Create an Azure AD app object and user
               href: howto-aad-app-configuration.md
@@ -57,7 +65,7 @@
                   href: ../azure-monitor/insights/container-insights-azure-redhat-setup.md
                   maintainContext: true
                 - name: Disable Azure Monitor for containers in Azure Red Hat OpenShift 3.11
-                  href: ../azure-monitor/insights/container-insights-optout-openshift.md
+                  href: ../azure-monitor/insights/container-insights-optout-openshift-v3.md
                   maintainContext: true
         - name: Run privileged containers in Azure Red Hat OpenShift 3.11
           href: howto-run-privileged-containers.md
@@ -67,13 +75,18 @@
               href: cluster-administration-cluster-admin-role.md
             - name: 2 - Managing security context constraints in Azure Red Hat OpenShift 3.11
               href: cluster-administration-security-context-constraints.md
+- name: Concepts
+  items:
+    - name: Networking in Azure Red Hat OpenShift 4 clusters
+      href: concepts-networking.md
+    - name: Migrate from an Azure Red Hat OpenShift 3.11 to Azure Red Hat OpenShift 4
+      href: migration.md 
 - name: Reference
   items:
     - name: Azure Red Hat OpenShift CLI
       href: /cli/azure/aro
     - name: Azure Red Hat OpenShift REST APIs
       href: /rest/api/openshift
-
 - name: Resources
   items:
     - name: Frequently asked questions
@@ -84,6 +97,8 @@
       href: supported-resources.md
     - name: Supported resources for Azure Red Hat OpenShift 4.3
       href: support-policies-v4.md
+    - name: Support lifecycle for Azure Red Hat OpenShift 4 
+      href: support-lifecycle.md
     - name: Regional availability
       href: https://azure.microsoft.com/regions/services/
     - name: Azure Red Hat OpenShift 4.3 documentation

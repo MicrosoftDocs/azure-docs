@@ -9,10 +9,7 @@ ms.subservice: alerts
 ---
 # Use the voluntary migration tool to migrate your classic alert rules
 
-As [previously announced](monitoring-classic-retirement.md), classic alerts in Azure Monitor are being retired in September 2019 (was originally July 2019). A migration tool is available in the Azure portal to customers who use classic alert rules and who want to trigger migration themselves. This article explains how to use the migration tool to voluntarily migrate your classic alert rules before the automatic migration starts in September 2019.
-
-> [!NOTE]
-> Due to delay in roll-out of migration tool, the retirement date for classic alerts migration has been [extended to August 31st, 2019](https://azure.microsoft.com/updates/azure-monitor-classic-alerts-retirement-date-extended-to-august-31st-2019/) from the originally announced date of June 30th, 2019.
+As [previously announced](monitoring-classic-retirement.md), classic alerts in Azure Monitor are retired, though still in limited use for resources that do not yet support the new alerts. A migration tool was available in the Azure portal to customers who used classic alert rules and who want to trigger migration themselves. This article explains how to use the that migration tool, which will also be used to remaining alerts pending further announcement.
 
 ## Benefits of new alerts
 
@@ -31,7 +28,7 @@ The migration process converts classic alert rules to new, equivalent alert rule
 
 - Both the notification payload format and the APIs to create and manage new alert rules are different from those of the classic alert rules because they support more features. [Learn how to prepare for the migration](alerts-prepare-migration.md).
 
-- Some classic alert rules cannot be migrated by using the tool. [Learn which rules cannot be migrated and what to do with them](alerts-understand-migration.md#classic-alert-rules-that-will-not-be-migrated).
+- Some classic alert rules cannot be migrated by using the tool. [Learn which rules cannot be migrated and what to do with them](alerts-understand-migration.md#manually-migrating-classic-alerts-to-newer-alerts).
 
     > [!NOTE]
     > The migration process won't impact the evaluation of your classic alert rules. They'll continue to run and send alerts until they're migrated and the new alert rules take effect.

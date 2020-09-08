@@ -1,10 +1,12 @@
 ---
-title: Usage dashboard in Microsoft commercial marketplace analytics
+title: Usage dashboard in Microsoft commercial marketplace analytics, Azure Marketplace and Microsoft AppSource
 description: Learn how to access all VM offers usage and metered billing metrics. Go to the Usage dashboard in Partner Center under Commercial Marketplace.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 07/01/2020
+ms.date: 07/22/2020
+author: mingshen-ms
+ms.author: mingshen
 ---
 
 # Usage dashboard in Microsoft commercial marketplace analytics
@@ -31,6 +33,8 @@ In the VM usage tab, there are graphical representations of the following items:
 - [Usage by sales channel](#usage-by-sales-channel)
 - [Detailed usage data](#detailed-usage-data)
 
+The maximum latency between usage event generation and reporting in Partner Center is 48 hours.
+
 ### Usage summary
 
 The usage summary table displays the customer usage hours for all offers they have purchased.
@@ -44,7 +48,7 @@ The usage summary table displays the customer usage hours for all offers they ha
 
 ### Usage by geography
 
-The **normalized usage by geography** heatmap displays usage hours mapped according to the customer country/region. Country/region color variation represents normalized usage concentration. Revert to the original view by pressing the **home** button on the map.
+The **normalized usage by geography** heat-map displays usage hours mapped according to the customer country/region. Country/region color variation represents normalized usage concentration. Revert to the original view by pressing the **home** button on the map.
 
 ### Usage by offers
 
@@ -82,7 +86,7 @@ The **usage details table** displays a numbered list of the top 1000 usage recor
 - Each column in the grid is sortable.
 - The data can be extracted to a CSV file if the count of the records is less than 1000.
 - If records count is over 1000, export data will be asynchronously placed in a downloads page that will be available for the next 30 days.
-- Filters can be applied to the **detailed usage data** to display only the data that you are interested in. Data can be filtered by country/region, sales channel, Marketplace license type, usage type, offer name, offer type, free trials, Marketplace subscription ID, customer ID, and company name.
+- Apply filters to **detailed usage data** to display only the data you are interested in. Filter data by country/region, sales channel, Marketplace license type, usage type, offer name, offer type, free trials, Marketplace subscription ID, customer ID, and company name.
 
 > [!NOTE]
 > Select the **Usage type** in the page filter to view charts on the page in either "Normalized view" or "Raw view." The default view for these charts is "Normalized view."
@@ -102,6 +106,8 @@ The **Metered billing usage** tab presents usage info for offer types where usag
 - **Overage trend by plan**: Represents the trend of usage quantity of the selected meter dimension by plans. The plans displayed will represent the top five plans with the highest amount of usage for the offer selected.
 - **Overage trend by Top 50 Customers**: The top 50 offers with the highest usage hours are displayed on a ***leader board*** and are ranked by the highest usage of the custom meter. Select a customer in the leaderboard to view the usage trend of a selected meter dimension.
 - **Overage trend by top customers**: Presents top customer percentile(s) that contribute to the % of overall usage. The top customer percentile is displayed along the X-axis and is determined by the customer's usage quantity. The Y-axis displays the usage quantity. You can display details by hovering over points along the line chart.
+
+If you have multiple offers that use custom meters, the metered billing usage report shows usage information for all your offers, according to their custom meter dimensions.
 
 > [!NOTE]
 > The usage details and all charts on this page are displayed for whichever meter dimension is selected for the page filter.

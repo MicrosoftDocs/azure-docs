@@ -32,7 +32,7 @@ The following table and graphic provide a high-level view of the components used
 
 **Hyper-V to Azure architecture (without VMM)**
 
-![Architecture](./media/hyper-v-azure-architecture/arch-onprem-azure-hypervsite.png)
+![Diagram showing on-premises Hyper-V site to Azure architecture without VMM.](./media/hyper-v-azure-architecture/arch-onprem-azure-hypervsite.png)
 
 
 ## Architectural components - Hyper-V with VMM
@@ -49,13 +49,30 @@ The following table and graphic provide a high-level view of the components used
 
 **Hyper-V to Azure architecture (with VMM)**
 
-![Components](./media/hyper-v-azure-architecture/arch-onprem-onprem-azure-vmm.png)
+![Diagram showing on-premises Hyper-V site to Azure architecture with VMM.](./media/hyper-v-azure-architecture/arch-onprem-onprem-azure-vmm.png)
 
+## Set up outbound network connectivity
+
+For Site Recovery to work as expected, you need to modify outbound network connectivity to allow your environment to replicate.
+
+> [!NOTE]
+> Site Recovery doesn't support using an authentication proxy to control network connectivity.
+
+### Outbound connectivity for URLs
+
+If you're using a URL-based firewall proxy to control outbound connectivity, allow access to these URLs:
+
+| **Name**                  | **Commercial**                               | **Government**                                 | **Description** |
+| ------------------------- | -------------------------------------------- | ---------------------------------------------- | ----------- |
+| Storage                   | `*.blob.core.windows.net`                  | `*.blob.core.usgovcloudapi.net`	            | Allows data to be written from the VM to the cache storage account in the source region. |
+| Azure Active Directory    | `login.microsoftonline.com`                | `login.microsoftonline.us`                   | Provides authorization and authentication to Site Recovery service URLs. |
+| Replication               | `*.hypervrecoverymanager.windowsazure.com` | `*.hypervrecoverymanager.windowsazure.com`   | Allows the VM to communicate with the Site Recovery service. |
+| Service Bus               | `*.servicebus.windows.net`                 | `*.servicebus.usgovcloudapi.net`             | Allows the VM to write Site Recovery monitoring and diagnostics data. |
 
 
 ## Replication process
 
-![Hyper-V to Azure replication](./media/hyper-v-azure-architecture/arch-hyperv-azure-workflow.png)
+![Diagram showing the Hyper-V to Azure replication process](./media/hyper-v-azure-architecture/arch-hyperv-azure-workflow.png)
 
 **Replication and recovery process**
 
@@ -66,8 +83,8 @@ The following table and graphic provide a high-level view of the components used
 2. The job checks that the machine complies with prerequisites, before invoking the [CreateReplicationRelationship](/windows/win32/hyperv_v2/createreplicationrelationship-msvm-replicationservice), to set up replication with the settings you've configured.
 3. The job starts initial replication by invoking the [StartReplication](/windows/win32/hyperv_v2/startreplication-msvm-replicationservice) method, to initialize a full VM replication, and send the VM's virtual disks to Azure.
 4. You can monitor the job in the **Jobs** tab.
-        ![Jobs list](media/hyper-v-azure-architecture/image1.png)
-        ![Enable protection drill down](media/hyper-v-azure-architecture/image2.png)
+        ![Screenshot of the jobs list in the Jobs tab.](media/hyper-v-azure-architecture/image1.png)
+        ![Screenshot of the Enable protection screen with more details.](media/hyper-v-azure-architecture/image2.png)
 
 
 ### Initial data replication
@@ -104,7 +121,7 @@ The following table and graphic provide a high-level view of the components used
 2. After resynchronization finishes, normal delta replication should resume.
 3. If you don't want to wait for default resynchronization outside hours, you can resynchronize a VM manually. For example, if an outage occurs. To do this, in the Azure portal, select the VM > **Resynchronize**.
 
-    ![Manual resynchronization](./media/hyper-v-azure-architecture/image4-site.png)
+    ![Screenshot showing the Resynchronize option.](./media/hyper-v-azure-architecture/image4-site.png)
 
 
 ### Retry process

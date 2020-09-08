@@ -176,7 +176,8 @@ In this tutorial, you
 > * Cleaned up your resources
 
 
-To learn more about autoscale settings, continue on to the [autoscale overview](../../azure-monitor/platform/autoscale-overview.md).
+To learn more about autoscale settings, continue on to the [autoscale overview](../platform/autoscale-overview.md).
 
 > [!div class="nextstepaction"]
 > [Archive your monitoring data](../platform/platform-logs-overview.md)
+

@@ -9,8 +9,8 @@ manager: danielsc
 ms.reviewer: nibaccam
 ms.service: machine-learning
 ms.subservice: core
-ms.workload: data-services
-ms.topic: how-to
+ms.topic: conceptual
+ms.custom: how-to
 ms.date: 03/10/2020
 
 ---
@@ -19,7 +19,7 @@ ms.date: 03/10/2020
 
 In this article, you learn where to save input files, and where to write output files from your experiments to prevent storage limit errors and experiment latency.
 
-When launching training runs on a [compute target](how-to-set-up-training-targets.md), they are isolated from outside environments. The purpose of this design is to ensure reproducibility and portability of the experiment. If you run the same script twice, on the same or another compute target, you receive the same results. With this design, you can treat compute targets as stateless computation resources, each having no affinity to the jobs that are running after they are finished.
+When launching training runs on a [compute target](concept-compute-target.md), they are isolated from outside environments. The purpose of this design is to ensure reproducibility and portability of the experiment. If you run the same script twice, on the same or another compute target, you receive the same results. With this design, you can treat compute targets as stateless computation resources, each having no affinity to the jobs that are running after they are finished.
 
 ## Where to save input files
 
@@ -74,4 +74,4 @@ If you don't require a datastore, write files to the `./outputs` and/or `./logs`
 
 * Learn more about [accessing data from your datastores](how-to-access-data.md).
 
-* Learn more about [How to Set Up Training Targets](how-to-set-up-training-targets.md).
+* Learn more about creating compute targets with the [Python SDK](how-to-create-attach-compute-sdk.md) or using [studio](how-to-create-attach-compute-studio.md).

@@ -126,5 +126,5 @@ You can use a mix of services to create visual representations of data stored in
 
 ![Visualize data in Data Lake Storage Gen1](./media/data-lake-store-data-scenarios/visualize-data.png "Visualize data in Data Lake Storage Gen1")
 
-* You can start by using [Azure Data Factory to move data from Data Lake Storage Gen1 to Azure SQL Data Warehouse](../data-factory/copy-activity-overview.md)
-* After that, you can [integrate Power BI with Azure SQL Data Warehouse](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-get-started-visualize-with-power-bi.md) to create visual representation of the data.
+* You can start by using [Azure Data Factory to move data from Data Lake Storage Gen1 to Azure Synapse Analytics (formerly SQL Data Warehouse)](../data-factory/copy-activity-overview.md)
+* After that, you can [integrate Power BI with Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-get-started-visualize-with-power-bi.md) to create visual representation of the data.

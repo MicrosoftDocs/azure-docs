@@ -4,7 +4,7 @@ description: Lists the Azure resource types that can be moved across Azure regio
 author: rayne-wiselman
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 05/31/2020
+ms.date: 08/25/2020
 ms.author: raynew
 ---
 
@@ -116,6 +116,7 @@ Jump to a resource provider namespace:
 > - [Microsoft.RecoveryServices](#microsoftrecoveryservices)
 > - [Microsoft.Relay](#microsoftrelay)
 > - [Microsoft.ResourceGraph](#microsoftresourcegraph)
+> - [Microsoft.Resources](#microsoftresources)
 > - [Microsoft.SaaS](#microsoftsaas)
 > - [Microsoft.Scheduler](#microsoftscheduler)
 > - [Microsoft.Search](#microsoftsearch)
@@ -538,14 +539,14 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Region move | 
 > | ------------- | ----------- |
-> | servers | If the service is provisioned with geo-redundant backup storage, you can use geo-restore to restore in other regions. [Learn more](../../mariadb/concepts-business-continuity.md#recover-from-an-azure-regional-data-center-outage)
+> | servers | You can use a cross-region read replica to move an existing server. [Learn more](../../postgresql/howto-move-regions-portal.md).<br/><br/> If the service is provisioned with geo-redundant backup storage, you can use geo-restore to restore in other regions. [Learn more](../../mariadb/concepts-business-continuity.md#recover-from-an-azure-regional-data-center-outage).
 
 ## Microsoft.DBforMySQL
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Region move | 
 > | ------------- | ----------- |
-> | servers | No |  
+> | servers | You can use a cross-region read replica to move an existing server. [Learn more](../../mysql/howto-move-regions-portal.md).
 
 ## Microsoft.DBforPostgreSQL
 
@@ -553,7 +554,7 @@ Jump to a resource provider namespace:
 > | Resource type | Region move | 
 > | ------------- | ----------- |
 > | servergroups | No | 
-> | servers | No |  
+> | servers | You can use a cross-region read replica to move an existing server. [Learn-more](../../postgresql/howto-move-regions-portal.md).
 > | serversv2 | No | 
 
 ## Microsoft.DeploymentManager
@@ -1022,6 +1023,14 @@ Jump to a resource provider namespace:
 > | Resource type | Region move | 
 > | ------------- | ----------- |
 > | queries |  No |  
+
+## Microsoft.Resources
+
+> [!div class="mx-tableFixed"]
+> | Resource type | Region move |
+> | ------------- | ----------- |
+> | deploymentScripts |  Yes<br/><br/>[Move Microsoft.Resources resources to new region](microsoft-resources-move-regions.md) |
+> | templateSpecs |  Yes<br/><br/>[Move Microsoft.Resources resources to new region](microsoft-resources-move-regions.md) |  
 
 ## Microsoft.SaaS
 

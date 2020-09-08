@@ -2,6 +2,7 @@
 title: Migrate your application to use the Azure Cosmos DB Java SDK v4 (com.azure.cosmos)
 description: Learn how to upgrade your existing Java application from using the older Azure Cosmos DB Java SDKs to the newer Java SDK 4.0 (com.azure.cosmos package)for Core (SQL) API.
 author: anfeldma-ms
+ms.custom: devx-track-java
 ms.author: anfeldma
 ms.service: cosmos-db
 ms.topic: how-to

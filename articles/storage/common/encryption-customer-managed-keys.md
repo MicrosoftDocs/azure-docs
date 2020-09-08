@@ -6,7 +6,7 @@ services: storage
 author: tamram
 
 ms.service: storage
-ms.date: 07/16/2020
+ms.date: 07/20/2020
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
@@ -66,7 +66,7 @@ To enable customer-managed keys on a storage account, you must use an Azure key 
 
 Azure storage encryption supports RSA and RSA-HSM keys of sizes 2048, 3072 and 4096. For more information about keys, see **Key Vault keys** in [About Azure Key Vault keys, secrets and certificates](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys).
 
-Using Azure Key Vault has associated costs. For more information, see [Key Vault pricing](/pricing/details/key-vault/).
+Using Azure Key Vault has associated costs. For more information, see [Key Vault pricing](https://azure.microsoft.com/pricing/details/key-vault/).
 
 ## Rotate customer-managed keys
 

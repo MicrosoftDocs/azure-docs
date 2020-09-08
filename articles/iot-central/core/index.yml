@@ -40,15 +40,11 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Connect a device
-            url: tutorial-connect-device-nodejs.md
-          - text: Connect an IoT Plug and Play (preview) device
-            url: tutorial-connect-pnp-device.md
+            url: tutorial-connect-device.md
       - linkListType: how-to-guide
         links:
           - text: Set up a device template
             url: howto-set-up-template.md
-          - text: Prepare and connect an MX Chip IoT DevKit
-            url: howto-connect-devkit.md
           - text: Connect other IoT clouds
             url: howto-build-iotc-device-bridge.md
   - title: Stay connected

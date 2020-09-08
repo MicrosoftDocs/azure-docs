@@ -3,7 +3,7 @@ title: Build approval-based automated workflows
 description: Tutorial - Create an approval-based automated workflow that processes mailing list subscriptions by using Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: logicappspm
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 09/20/2019
@@ -16,6 +16,7 @@ This tutorial shows how to build a [logic app](../logic-apps/logic-apps-overview
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
+>
 > * Create a blank logic app.
 > * Add a trigger that monitors emails for subscription requests.
 > * Add an action that sends emails for approving or rejecting these requests.
@@ -36,11 +37,9 @@ When you're done, your logic app looks like this workflow at a high level:
 
 * An email account in Office 365 Outlook or Outlook.com, which supports approval workflows. This article uses Office 365 Outlook. If you use a different email account, the general steps stay the same, but your UI might appear slightly different.
 
-## Sign in to the Azure portal
-
-Sign in to the [Azure portal](https://portal.azure.com) with your Azure account credentials.
-
 ## Create your logic app
+
+1. Sign in to the [Azure portal](https://portal.azure.com) with your Azure account credentials.
 
 1. From the main Azure menu, select **Create a resource** > **Integration** > **Logic App**.
 

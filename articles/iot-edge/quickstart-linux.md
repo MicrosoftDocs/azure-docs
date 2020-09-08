@@ -16,11 +16,12 @@ ms.custom: mvc
 Test out Azure IoT Edge in this quickstart by deploying containerized code to a virtual Linux IoT Edge device. IoT Edge allows you to remotely manage code on your devices so that you can send more of your workloads to the edge. For this quickstart, we recommend using an Azure virtual machine for your IoT Edge device, which allows you to quickly create a test machine with the IoT Edge service installed and then delete it when you're finished.
 
 In this quickstart you learn how to:
-
-1. Create an IoT Hub.
-2. Register an IoT Edge device to your IoT hub.
-3. Install and start the IoT Edge runtime on your virtual device.
-4. Remotely deploy a module to an IoT Edge device.
+> [!div class="checklist"]
+>
+> * Create an IoT Hub.
+> * Register an IoT Edge device to your IoT hub.
+> * Install and start the IoT Edge runtime on your virtual device.
+> * Remotely deploy a module to an IoT Edge device.
 
 ![Diagram - Quickstart architecture for device and cloud](./media/quickstart-linux/install-edge-full.png)
 
@@ -111,14 +112,7 @@ Use the following CLI command to create your IoT Edge device based on the prebui
 * For bash or Cloud Shell users, copy the following command into a text editor, replace the placeholder text with your information, then copy into your bash or Cloud Shell window:
 
    ```azurecli-interactive
-   az deployment group create \
-   --resource-group IoTEdgeResources \
-   --template-uri "https://aka.ms/iotedge-vm-deploy" \
-   --parameters dnsLabelPrefix='my-edge-vm' \
-   --parameters adminUsername='azureUser' \
-   --parameters deviceConnectionString=$(az iot hub device-identity show-connection-string --device-id myEdgeDevice --hub-name <REPLACE_WITH_HUB_NAME> -o tsv) \
-   --parameters authenticationType='password' \
-   --parameters adminPasswordOrKey="<REPLACE_WITH_PASSWORD>"
+   az deployment group create --resource-group IoTEdgeResources --template-uri "https://aka.ms/iotedge-vm-deploy" --parameters dnsLabelPrefix='my-edge-vm' --parameters adminUsername='azureUser' --parameters deviceConnectionString=$(az iot hub device-identity show-connection-string --device-id myEdgeDevice --hub-name <REPLACE_WITH_HUB_NAME> -o tsv) --parameters authenticationType='password' --parameters adminPasswordOrKey="<REPLACE_WITH_PASSWORD>"
    ```
 
 * For PowerShell users, copy the following command into your PowerShell window, then replace the placeholder text with your own information:

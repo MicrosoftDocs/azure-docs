@@ -5,7 +5,7 @@ author: bwren
 services: azure-monitor
 
 ms.topic: conceptual
-ms.date: 12/18/2019
+ms.date: 07/17/2019
 ms.author: bwren
 ms.subservice: logs
 ---
@@ -13,7 +13,7 @@ ms.subservice: logs
 # Azure resource logs
 Azure resource logs are [platform logs](platform-logs-overview.md) that provide insight into operations that were performed within an Azure resource. The content of resource logs varies by the Azure service and resource type. Resource logs are not collected by default. You must create a diagnostic setting for each Azure resource to send its resource logs to a Log Analytics workspace to use with [Azure Monitor Logs](data-platform-logs.md), Azure Event Hubs to forward outside of Azure, or to Azure Storage for archiving.
 
-See [Create diagnostic settings to send platform logs and metrics to different destinations](diagnostic-settings.md) for details on creating a diagnostic setting and [Deploy Azure Monitor at scale using Azure Policy](deploy-scale.md) for details on using Azure Policy to automatically create a diagnostic setting for each Azure resource you create.
+See [Create diagnostic settings to send platform logs and metrics to different destinations](diagnostic-settings.md) for details on creating a diagnostic setting and [Deploy Azure Monitor at scale using Azure Policy](../deploy-scale.md) for details on using Azure Policy to automatically create a diagnostic setting for each Azure resource you create.
 
 ## Send to Log Analytics workspace
  Send resource logs to a Log Analytics workspace to enable the features of [Azure Monitor Logs](data-platform-logs.md) which includes the following:
@@ -85,11 +85,9 @@ Most Azure resources will write data to the workspace in either **Azure Diagnost
   
    ![Diagnostic Settings mode selector](media/resource-logs-collect-workspace/diagnostic-settings-mode-selector.png)
 
-
-
-
 > [!NOTE]
-> Currently, **Azure diagnostics** and **Resource-specific** mode can only be selected when configuring the diagnostic setting in the Azure portal. If you configure the setting using CLI, PowerShell, or Rest API, it will default to **Azure diagnostic**.
+> For an example setting the collection mode using a resource manager template, see [Resource Manager template samples for diagnostic settings in Azure Monitor](../samples/resource-manager-diagnostic-settings.md#diagnostic-setting-for-recovery-services-vault).
+
 
 You can modify an existing diagnostic setting to resource-specific mode. In this case, data that was already collected will remain in the _AzureDiagnostics_ table until it's removed according to your retention setting for the workspace. New data will be collected in  the dedicated table. Use the [union](/azure/kusto/query/unionoperator) operator to query data across both tables.
 

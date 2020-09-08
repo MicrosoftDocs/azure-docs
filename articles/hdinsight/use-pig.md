@@ -105,7 +105,7 @@ Now that you have learned how to use Pig with HDInsight, use the following links
 [hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
 [hdinsight-submit-jobs]:submit-apache-hadoop-jobs-programmatically.md#mapreduce-sdk
 
-[Powershell-install-configure]: /powershell/azureps-cmdlets-docs
+[Powershell-install-configure]: /powershell/azure/
 
 [powershell-start]: https://technet.microsoft.com/library/hh847889.aspx
 

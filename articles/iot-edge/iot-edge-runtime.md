@@ -8,7 +8,7 @@ ms.date: 11/01/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.custom:  [amqp, mqtt]
+ms.custom:  "amqp, mqtt, devx-track-csharp"
 ---
 
 # Understand the Azure IoT Edge runtime and its architecture

@@ -6,7 +6,7 @@ ms.service: security
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
+ms.custom: subject-security-benchmark
 
 ---
 
@@ -636,7 +636,7 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 
 ### 4.6: Use Azure RBAC to control access to resources
 
-**Guidance**: Use role-based access control for controlling access to Azure API Management. Azure API Management relies on Azure Role-Based Access Control (RBAC) to enable fine-grained access management for API Management services and entities (for example, APIs and policies).
+**Guidance**: Use role-based access control for controlling access to Azure API Management. Azure API Management relies on Azure role-based access control (Azure RBAC) to enable fine-grained access management for API Management services and entities (for example, APIs and policies).
 
 * [How to use Role-Based Access Control in Azure API Management](./api-management-role-based-access-control.md)
 
