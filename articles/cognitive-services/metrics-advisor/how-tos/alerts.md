@@ -14,14 +14,30 @@ ms.author: aahi
 
 # How-to: Configure alerts and get notifications using a web hook
 
-After an anomaly is detected by your Metrics Advisor instance, an alert notification can be sent out based on your alert settings, using a web hook. An alert settings can correspond to multiple detection configurations, and you can set specific alert conditions.
+After an anomaly is detected by Metrics Advisor, an alert notification will be triggered based on alert settings, using a hook. An alert setting can be used with multiple detection configurations, various parameters are available to customize your alert rule.
 
-You can find the **Alert settings** options at the bottom left corner of metrics detail page. It lists alert settings that are related to the selected detection configuration. When a detection configuration is first created, the alert setting list will be empty, and no alerts will be sent.  
-You can use the **add**, **edit** and **delete** icons to modify alerts.
+## Create a hook
 
-![Entrance For Alert Setting](../media/alerts/alert-setting.png)
+Metrics Advisor supports three different types of hooks: email hook, web hook and Azure DevOps. You can choose the one that works in your specific scenario. 
 
-## Create a web hook
+### Email hook
+
+> [!Note]
+> The Metrics Advisor resource administrators need to configure the **Email settings**, and input SMTP related information into Metrics Advisor before anomaly alerts can be sent.
+To create a email hook, following parameters are available: 
+
+An email hook is the channel for anomaly alerts to be sent to email addresses specified in the **Email to** section. Two types of alert emails will be sent: *Data feed not available* alerts, and *Incident reports* which contain one or multiple anomalies. 
+
+|Parameter |Description  |
+|---------|---------|
+| Name | Name of the email hook |
+| Email to| Email addresses that would send alert to|
+| External link | Optional field which enables customized redirect, like troubleshooting note, etc|
+| Customized anomaly alert title | Title template supports `${severity}`, `${alertSettingName}`, `${datafeedName}`, `${metricName}`, `${detectConfigName}`, `${timestamp}`, `${topDimension}`, `${incidentCount}`, `${anomalyCount}`
+
+After you click **OK**, an email hook will be created. You can use it in any alert settings to receive anomaly alerts. 
+
+### Create a web hook
 
 > [!TIP]
 > * Web hooks are only only supported for alerts.  
@@ -43,19 +59,45 @@ To create a web hook, you will need to add the following information:
 
 :::image type="content" source="../media/alerts/create_web_hook.png" alt-text="web hook creation window.":::
 
+When a notification is pushed through a web hook, you can use the following APIs to get details of the alert. Set **timestamp** and **alertSettingGuid** in your API service, which is being pushed to, then use the following queries: 
+- `query_alert_result_anomalies`
+- `query_alert_result_incidents`
+
+### Azure DevOps
+
+Metrics Advisor also supports automatically creating a work item in Azure DevOps to track issues/bugs when any anomaly detected. All alerts can be sent through Azure DevOps hooks.
+
+To create a Azure DevOps hook, you will need to add the following information
+
+|Parameter |Description  |
+|---------|---------|
+| Name | A name for the hook |
+| Organization | The organization that your DevOps belongs to |
+| Project | The specific project in DevOps. |
+| Access Token |  A token for authenticating to DevOps. | 
+
+> [!Note]
+> Please grant 'write' permission if you'd like Metrics Advisor to create work items on anomaly alerts. 
+After creating hooks you're free to use it in any alert settings and you can manage all your hooks in the hook settings page.
+
 ### Add or Edit alert settings
+
+Go to metrics detail page, You can find the **Alert settings** section at the bottom left corner of metrics detail page. It lists all alert settings that works together with the selected detection configuration. When a new detection configuration is created, there's no alert setting, and no alerts will be sent.  
+You can use the **add**, **edit** and **delete** icons to modify alert settings.
+
+![Entrance For Alert Setting](../media/alerts/alert-setting.png)
 
 Click the **add** or **edit** buttons to get a window to add or edit your alert settings.
 
 :::image type="content" source="../media/alerts/edit-alert.png" alt-text="Add or edit alert settings":::
 
-**Alert Name**: The name of this alert setting. It will be displayed in the alert email title.
+**Alert setting name**: The name of this alert setting. It will be displayed in the alert email title.
 
-**Hooks**: The list of web hooks to send alerts to.
+**Hooks**: The list of hooks to send alerts to.
 
 The section marked in the screenshot above are the settings for one detecting configuration. You can set different alert settings for different detection configurations. Choose the target configuration using the third drop-down list in this window. 
 
-#### Filter settings 
+### Filter settings 
 
 The following are filter settings for one detection configuration.
 
@@ -77,7 +119,7 @@ The following are filter settings for one detection configuration.
 
 Anomalies not filtered out will be sent in an alert.
 
-#### Add cross-metric settings
+### Add cross-metric settings
 
 Click **+ Add cross-metric settings** in the alert settings page to add another section.
 

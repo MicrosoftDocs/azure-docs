@@ -29,6 +29,8 @@
     href: data-feeds-from-different-sources.md
   - name: Adjust anomaly detection using feedback
     href: how-tos/anomaly-feedback.md
+  - name: Build a metrics graph
+    href: how-tos/metrics-graph.md
 - name: Reference
   items:
   - name: Glossary
