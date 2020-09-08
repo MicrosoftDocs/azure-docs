@@ -77,4 +77,6 @@ We'll add more details to the notebook over time about how to recognize common p
 
 ## Next step
 - Read about [getting logs for Azure Arc enabled data services](troubleshooting-get-logs.md)
+- Read about [searching logs with Kibana](monitor-grafana-kibana.md)
+- Read about [monitoring with Grafana](monitor-grafana-kibana.md)
 - Create your own notebooks
