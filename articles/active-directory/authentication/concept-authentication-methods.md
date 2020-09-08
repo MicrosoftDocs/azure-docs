@@ -35,12 +35,15 @@ To simplify the user on-boarding experience and register for both MFA and SSPR, 
 
 ## Available authentication methods
 
-The following table outlines what methods are available for primary or secondary authentication. These authentication methods provide flexibility for your organization and the user experience.
+Some authentication methods can be used as the primary factor when you sign in to an application or device, such as using a FIDO2 security key or a password. Other authentication methods are only available as a secondary factor when you use Azure Multi-Factor Authentication or SSPR.
+
+The following table outlines when an authentication method can be used during a sign-in event:
 
 | Method                         | Primary authentication | Secondary authentication  |
 |--------------------------------|------------------------|---------------------------|
 | FIDO2 security keys (preview)  | Yes                    | MFA                       |
 | Microsoft Authenticator app    | Yes (preview)          | MFA and SSPR              |
+| Windows Hello for Business     | Yes                    | MFA                       |
 | OATH hardware tokens (preview) | No                     | MFA                       |
 | OATH software tokens           | No                     | MFA                       |
 | SMS                            | Yes (preview)          | MFA and SSPR              |
@@ -49,25 +52,26 @@ The following table outlines what methods are available for primary or secondary
 
 All of these authentication methods can be configured in the Azure portal, and increasingly using the [Microsoft Graph REST API beta](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta).
 
-These authentication methods have different levels of security and convenience. Where possible, use authentication methods with the highest level of security.
+Each authentication method has different levels of security and convenience. Where possible, use authentication methods with the highest level of security. The following table outlines the security considerations for the available authentication methods:
 
-| Authentication method | Security | Convenience | Satisfy Strong authentication requirements? | Phisable? |  Channel jackable? | Availability |
+| Authentication method | Security | Convenience | Phisable? | Channel jackable? | Availability |
 |---------|---------|---------|---------|---------|---------|---------|
-| Windows Hello for Business | High | High | Strong primary and secondary | No | No | High |
-| FIDO2 security key | High | High | Strong authentication | No | No | High |
-| Microsoft Authenticator app | High | High | High  Strong authentication<br /><br />Can satisfy secondary authentication when used with a password. | Yes | No  | High |
-| Hardware OATH tokens | Medium | Medium | Secondary authentication when used with a password. | Yes | No | High |
-| Software OATH tokens | Medium | Medium | Secondary authentication when used with a password. | Yes | No | High |
-| SMS | Medium | High | Primary or secondary authentication when used with a password. | Yes | Yes | Medium |
-| Voice | Medium | Medium | Secondary authentication when used with a password | Yes | Yes | Medium |
-| Password | Low | High | Primary authentication | Yes | Yes | High |
+| FIDO2 security key | High | High | No | No | High |
+| Microsoft Authenticator app | High | High | Yes | No  | High |
+| Windows Hello for Business | High | High | No | No | High |
+| Hardware OATH tokens | Medium | Medium | Yes | No | High |
+| Software OATH tokens | Medium | Medium | Yes | No | High |
+| SMS | Medium | High | Yes | Yes | Medium |
+| Voice | Medium | Medium | Yes | Yes | Medium |
+| Password | Low | High | Yes | Yes | High |
 
 ## How each authentication method works
 
 To learn more about how each authentication method works, see the following separate conceptual articles:
 
-* [Microsoft Authenticator app](concept-authentication-authenticator-app.md)
 * [FIDO2 security keys (preview)](concept-authentication-passwordless.md#fido2-security-keys)
+* [Microsoft Authenticator app](concept-authentication-authenticator-app.md)
+* [Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-overview)
 * [OATH software tokens](concept-authentication-oath-tokens.md#oath-software-tokens)
 * [OATH hardware tokens (preview)](concept-authentication-oath-tokens.md#oath-hardware-tokens-preview)
 * [SMS](concept-authentication-phone-options.md#mobile-phone-verification)
