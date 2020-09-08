@@ -550,7 +550,7 @@ The OpenTelemetry community defines Generally Available (GA) [here](https://medi
 
 ### Can I use Preview builds in production environments?
 
-It’s not recommended. See [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/) for more information.
+It’s not recommended. See [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for more information.
 
 ### What’s the difference between OpenTelemetry SDK and auto-instrumentation?
 
