@@ -19,6 +19,11 @@ ms.author: allensu
 
 Azure Load Balancer provides outbound connectivity through different mechanisms. This article describes the scenarios and how to manage them. 
 
+Azure Load Balancer supports the following protocols:
+
+* Transmission Control Protocol (TCP)
+* User Datagram Protocol (UDP)
+
 If you're experiencing issues with outbound connectivity through an Azure Load Balancer, see the [troubleshooting guide for outbound connections](../load-balancer/troubleshoot-outbound-connection.md).
 
 ## Terminology
@@ -75,7 +80,11 @@ SNAT ports are ephemeral ports available for a public IP source address. One SNA
 
 For multiple TCP flows to the same destination IP address, port, and protocol, each TCP flow consumes a single SNAT port. 
 
-This consumption ensures that the flows are unique when they originate from the same public IP address and go to the same destination IP address, port, and protocol. 
+This consumption ensures that the flows are unique when they originate from the same public IP address and travel to the:
+
+* Same destination IP address
+* Port
+* Protocol 
 
 Multiple flows, each to a different destination IP address, port, and protocol, share a single SNAT port. The destination IP address, port, and protocol make flows unique without the need for additional source ports to distinguish flows in the public IP address space.
 
@@ -88,7 +97,9 @@ Multiple flows, each to a different destination IP address, port, and protocol, 
 
 #### Details
 
-UDP SNAT ports are managed by a different algorithm than TCP SNAT ports.  Load Balancer uses an algorithm known as "port-restricted cone NAT" for UDP.  One SNAT port is consumed for each flow, irrespective of destination IP address, port.
+UDP SNAT ports are managed by a different algorithm than TCP SNAT ports.  Load balancer uses an algorithm named port-restricted cone NAT for UDP.
+
+One SNAT port is consumed for whatever destination IP address and port for each flow.
 
 
 ### Exhaustion
@@ -99,7 +110,9 @@ UDP SNAT ports are managed by a different algorithm than TCP SNAT ports.  Load B
 
 #### Details
 
-When SNAT port resources are exhausted, outbound flows fail until existing flows release SNAT ports. Load Balancer reclaims SNAT ports when the flow closes and uses a [4-minute idle timeout](../load-balancer/troubleshoot-outbound-connection.md#idletimeout) for reclaiming SNAT ports from idle flows. UDP SNAT ports generally exhaust much faster than TCP SNAT ports due to the difference in algorithm used. You must design and scale test with this difference in mind.
+When SNAT port resources are exhausted, outbound flows fail until existing flows release SNAT ports. Load balancer reclaims SNAT ports when the flow closes and uses a [4-minute idle timeout](../load-balancer/troubleshoot-outbound-connection.md#idletimeout) for reclaiming SNAT ports from idle flows. 
+
+UDP SNAT ports generally exhaust much faster than TCP SNAT ports because of the difference in algorithm used. Design and scale test because of this difference.
 
 ### SNAT port release behavior (TCP)
 
@@ -109,7 +122,7 @@ When SNAT port resources are exhausted, outbound flows fail until existing flows
 
 #### Details
 
-If either server/client sends FINACK, SNAT port will be released after 240 seconds. If a RST is seen, SNAT port will be released after 15 seconds. If idle timeout has been reached, port is released.
+When either a server or client sends a FINACK, a SNAT port will be released after 240 seconds. In the event an RST is seen, a SNAT port will be released after 15 seconds. If the idle timeout has been reached, the port is released.
 
 ### SNAT port release behavior (UDP)
 
@@ -129,14 +142,24 @@ If idle timeout has been reached, port is released.
 
 #### Details
 
-Once a port has been released, the port is available for reuse as needed.  You can think of SNAT ports as a sequence from lowest to highest available for a given scenario, and the first available SNAT port is used for new connections.
+Once a port has been released, the port is available for reuse. SNAT ports are a sequence from lowest to highest available for a given scenario, and the first available SNAT port is used for new connections.
 
 
 ### <a name="preallocatedports"></a>Port allocation algorithm
 
-Azure uses an algorithm to determine the number of preallocated SNAT ports available based on the size of the backend pool when using PAT. For each Public IP address associated with a load balancer there are 64,000 ports available as SNAT ports for each IP transport protocol. The same number of SNAT ports are preallocated for UDP and TCP respectively and consumed independently per IP transport protocol.  However, the SNAT port usage is different depending on whether the flow is UDP or TCP. When outbound flows are created, these ports are consumed dynamically (up to the preallocated limit) and released when the flow closes or [idle timeouts](../load-balancer/troubleshoot-outbound-connection.md#idletimeout) happen. Ports are consumed only if it's necessary to make flows unique.
+Azure uses an algorithm to determine the number of preallocated SNAT ports available. The algorithm bases the number of ports on the size of the backend pool. 
 
-#### <a name="snatporttable"></a> Dynamic SNAT ports allocated
+For each public IP address associated with a load balancer, there are 64,000 ports available as SNAT ports for each IP protocol. The same number of SNAT ports are preallocated for UDP and TCP respectively and consumed independently per IP protocol. 
+
+The SNAT port usage is different depending on whether the flow is UDP or TCP. 
+
+Ports are consumed dynamically up to the preallocated limit.  The ports are released when the flow closes or an idle timeout occurs.
+
+For more information on idle timeouts, see [Troubleshoot outbound connections in Azure Load Balancer](../load-balancer/troubleshoot-outbound-connection.md#idletimeout) 
+
+Ports are consumed only if it's necessary to make flows unique.
+
+#### <a name="snatporttable"></a> Dynamic SNAT ports preallocation
 
 The following table shows the SNAT port preallocations for tiers of backend pool sizes:
 
@@ -151,16 +174,44 @@ The following table shows the SNAT port preallocations for tiers of backend pool
 
 Changing the size of your backend pool might affect some of your established flows:
 
-- If the backend pool size increases and transitions into the next tier, half of your preallocated SNAT ports are reclaimed during the transition to the next larger backend pool tier. Flows that are associated with a reclaimed SNAT port will time out and must be reestablished. If a new flow is attempted, the flow will succeed immediately as long as preallocated ports are available.
-- If the backend pool size decreases and transitions into a lower tier, the number of available SNAT ports increases. In this case, existing allocated SNAT ports and their respective flows are not affected.
+- Backend pool size increases trigger transitions into the next tier. Half of the preallocated SNAT ports are reclaimed during the transition to the next tier. 
+
+- Flows that are associated with a reclaimed SNAT port will time out. These flows must be reestablished. If a new flow is attempted, the flow will succeed immediately as long as preallocated ports are available.
+
+- If the backend pool size lowers and transitions into a lower tier, the number of available SNAT ports increases. The existing given SNAT ports and their respective flows aren't affected.
 
 ## <a name="scenarios"></a>Outbound connections scenario overview
 
-| Scenario | Method | IP protocols | Description |
-|  --- | --- | --- | --- |
-|  1. VM with a Public IP address (with or without Azure Load Balancer | SNAT, port masquerading not used | TCP, UDP, ICMP, ESP | Azure uses the public IP assigned to the IP configuration of the instance's NIC for all outbound flows. The instance has all ephemeral ports available. It doesn't matter whether the VM is load balanced or not. This scenario takes precedence over the others. A public IP assigned to a VM is a 1:1 relationship (rather than 1: many) and implemented as a stateless 1:1 NAT. |
-| 2. Public Load Balancer associated with a VM (no Public IP address on the VM/instance) | SNAT with port masquerading (PAT) using the Load Balancer frontends | TCP, UDP | In this scenario, the Load Balancer resource must be configured with a load balancer rule to create a link between the public IP frontend with the backend pool. If you do not complete this rule configuration, the behavior is as described in scenario 3. It is not necessary for the rule to have a working listener in the backend pool for the health probe to succeed. When VM creates an outbound flow, Azure translates the private source IP address of the outbound flow to the public IP address of the public Load Balancer frontend via SNAT. Ephemeral ports of the load balancer's frontend public IP address are used to distinguish individual flows originated by the VM. SNAT dynamically uses [preallocated ephemeral ports](#preallocatedports) when outbound flows are created. In this context, the ephemeral ports used for SNAT are called SNAT ports. SNAT ports are pre-allocated as described in the [Default SNAT ports allocated table](#snatporttable). |
-| 3. VM (no Load Balancer, no Public IP address) or VM associated with Basic Internal Load Balancer | SNAT with port masquerading (PAT) | TCP, UDP | When the VM creates an outbound flow, Azure translates the private source IP address of the outbound flow to a public source IP address. This public IP address is **not configurable**, cannot be reserved, and does not count against the subscription's public IP resource limit. If you redeploy the VM or Availability Set or virtual machine scale set, this public IP address will be released and a new public IP address requested. Do not use this scenario for whitelisting IP addresses. Instead, use scenario 1 or 2 where you explicitly declare outbound behavior. SNAT ports are preallocated as described in the [Default SNAT ports allocated table](#snatporttable).
+### Virtual machine with public IP
+
+| Associations | Method | IP protocols |
+| ---------- | ------ | ------------ |
+| Public load balancer or stand alone | SNAT </br> Port masquerading not used. | TCP </br> UDP </br> ICPM </br> ESP |
+
+#### Description
+
+Azure uses the public IP assigned to the IP configuration of the instance's NIC for all outbound flows. The instance has all ephemeral ports available. It doesn't matter whether the VM is load balanced or not. This scenario takes precedence over the others. A public IP assigned to a VM is a 1:1 relationship (rather than 1: many) and implemented as a stateless 1:1 NAT.
+
+### Virtual machine with no public IP
+
+| Associations | Method | IP protocols |
+| ------------ | ------ | ------------ |
+| Public load balancer | Use of load balancer frontend for SNAT with port masquerading (PAT).| TCP </br> UDP |
+
+#### Description
+
+In this scenario, the Load Balancer resource must be configured with a load balancer rule to create a link between the public IP frontend with the backend pool. If you do not complete this rule configuration, the behavior is as described in scenario 3. It is not necessary for the rule to have a working listener in the backend pool for the health probe to succeed. When VM creates an outbound flow, Azure translates the private source IP address of the outbound flow to the public IP address of the public Load Balancer frontend via SNAT. Ephemeral ports of the load balancer's frontend public IP address are used to distinguish individual flows originated by the VM. SNAT dynamically uses [preallocated ephemeral ports](#preallocatedports) when outbound flows are created. In this context, the ephemeral ports used for SNAT are called SNAT ports. SNAT ports are pre-allocated as described in the [Default SNAT ports allocated table](#snatporttable).
+
+### Virtual machine with no public IP and no standard load balancer
+
+| Associations | Method | IP protocols |
+| ------------ | ------ | ------------ |
+|None </br> Basic load balancer | SNAT with port masquerading (PAT)| TCP </br> UDP | 
+
+#### Description
+
+When the VM creates an outbound flow, Azure translates the private source IP address of the outbound flow to a public source IP address. This public IP address is **not configurable**, cannot be reserved, and does not count against the subscription's public IP resource limit. If you redeploy the VM or Availability Set or virtual machine scale set, this public IP address will be released and a new public IP address requested. Do not use this scenario for whitelisting IP addresses. Instead, use scenario 1 or 2 where you explicitly declare outbound behavior. SNAT ports are preallocated as described in the [Default SNAT ports allocated table](#snatporttable).
+
 
 ## <a name="outboundrules"></a>Outbound rules
 
@@ -213,6 +264,13 @@ When you apply an NSG to a load-balanced VM, pay attention to the [service tags]
 If an NSG blocks health probe requests from the AZURE_LOADBALANCER default tag, your VM health probe fails and the VM is marked down. Load Balancer stops sending new flows to that VM.
 
 ## Scenarios with outbound rules
+
+### Scenario 1
+| Scenario |
+| -------- |
+| Groom outbound connections to a specific set of public IP addresses |
+
+
 
 | # | Scenario| Details|
 |---|---|---|
