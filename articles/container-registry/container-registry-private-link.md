@@ -12,13 +12,9 @@ Limit access to a registry by assigning virtual network private IP addresses to 
 
 You can [configure DNS settings](../private-link/private-endpoint-overview.md#dns-configuration) for the registry's private endpoints, so that the settings resolve to the registry's allocated private IP address. With DNS configuration, clients and services in the network can continue to access the registry at the registry's fully qualified domain name, such as *myregistry.azurecr.io*. 
 
-This feature is available in the **Premium** container registry service tier. For information about registry service tiers and limits, see [Azure Container Registry tiers](container-registry-skus.md).
+This feature is available in the **Premium** container registry service tier. Currently, a maximum of 10 private endpoints can be set up for a registry. For information about registry service tiers and limits, see [Azure Container Registry tiers](container-registry-skus.md).
 
-
-## Things to know
-
-* Currently, image scanning using Azure Security Center isn't available in a registry configured with a private endpoint.
-* Currently, a maximum of 10 private endpoints can be set up for a registry.
+[!INCLUDE [container-registry-scanning-limitation](../../includes/container-registry-scanning-limitation.md)]
 
 ## Prerequisites
 
