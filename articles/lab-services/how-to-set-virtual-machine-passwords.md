@@ -26,7 +26,7 @@ To increase or decrease the lab capacity (number of virtual machines in a lab), 
 
 ## Start VMs
 
-### Start ot stop all VMs
+### Start or stop all VMs
 1. Switch to the **Virtual machine pool** page. 
 2. Select **Start all** from the toolbar. 
 
