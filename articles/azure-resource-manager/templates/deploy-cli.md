@@ -173,7 +173,8 @@ The arrayContent.json format is:
     "value2"
 ]
 ```
-When you want to pass in an object, such as to set tags, use JSON. For example, your template may include a a parameter such as:
+
+To pass in an object, for example, to set tags, use JSON. For example, your template might include a parameter like this one:
 
 ```json
     "resourceTags": {
@@ -183,6 +184,7 @@ When you want to pass in an object, such as to set tags, use JSON. For example, 
       }
     }
 ```
+
 In this case, you can pass in a JSON string to set the parameter as shown in the following Bash script.
 
 ```bash
@@ -191,6 +193,7 @@ az deployment group create --name addstorage  --resource-group myResourceGroup \
 --template-file $templateFile \
 --parameters resourceName=abcdef4556 resourceTags="$tags"
 ```
+
 Use double quotes around the JSON that you want to pass into the object.
 
 ### Parameter files
