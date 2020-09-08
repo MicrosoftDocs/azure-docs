@@ -48,7 +48,7 @@ We recommend starting the planning by using the [platform support migration tool
 2. Go through the [list of workarounds](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-overview#unsupported-features-and-configurations) to fix your deployment and make it ready for migration. 
 3. Ideally after all validation errors are fixed, you should not encounter any issues during the prepare and commit steps. After the commit is successful, your deployment is live migrated to Azure Resource Manager and can then be managed through new APIs exposed by Azure Resource Manager. 
 
-If the migration tool is not suitable for your migration, you can explore [other compute offerings](https://docs.microsoft.com/azure/architecture/guide/technology-choices/compute-decision-tree) for the migration. Because there are many Azure compute offerings, and they're very different from one another, we can't provide a platform-supported migration path to them.  
+If the migration tool is not suitable for your migration, you can explore [other compute offerings](https://docs.microsoft.com/azure/architecture/guide/technology-choices/compute-decision-tree) for the migration. Because there are many Azure compute offerings, and they're different from one another, we can't provide a platform-supported migration path to them.  
 
 For technical questions, issues, and help with adding subscriptions to the allow list, [contact support](https://ms.portal.azure.com/#create/Microsoft.Support/Parameters/{"pesId":"6f16735c-b0ae-b275-ad3a-03479cfa1396","supportTopicId":"8a82f77d-c3ab-7b08-d915-776b4ff64ff4"}).
 
