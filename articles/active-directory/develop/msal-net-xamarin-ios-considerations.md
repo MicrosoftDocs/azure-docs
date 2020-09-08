@@ -117,16 +117,18 @@ Apple's documentation for [UIApplicationOpenURLOptionsSourceApplicationKey](http
 
 > *If the request originated from another app belonging to your team, UIKit sets the value of this key to the ID of that app. If the team identifier of the originating app is different than the team identifier of the current app, the value of the key is nil.*
 
-This is a breaking change for MSAL because it relied on `UIApplication.SharedApplication.OpenUrl` to verify communication between MSAL and the Microsoft Authenticator app.
+This change is breaking for MSAL because it relied on `UIApplication.SharedApplication.OpenUrl` to verify communication between MSAL and the Microsoft Authenticator app.
 
 Additionally, on iOS 13, the developer is required to provide a presentation controller when using `ASWebAuthenticationSession`.
 
-Your app is impacted if you're building with Xcode 11 and you use either iOS broker or `ASWebAuthenticationSession`. In those cases, use [MSAL.NET 4.4.0+](https://www.nuget.org/packages/Microsoft.Identity.Client/) to enable successful authentication.
+Your app is impacted if you're building with Xcode 11 and you use either iOS broker or `ASWebAuthenticationSession`.
 
-### Additional considerations:
+In such cases, use [MSAL.NET 4.4.0+](https://www.nuget.org/packages/Microsoft.Identity.Client/) to enable successful authentication.
 
-1. When using the latest MSAL libraries, ensure that **Microsoft Authenticator version 6.3.19+** is installed on the device.
-1. When updating to MSAL.NET 4.4.0+, update your `LSApplicationQueriesSchemes` in the *Info.plist* file and add `msauthv3`:
+### Additional requirements:
+
+- When using the latest MSAL libraries, ensure that **Microsoft Authenticator version 6.3.19+** is installed on the device.
+- When updating to MSAL.NET 4.4.0+, update the your `LSApplicationQueriesSchemes` in the *Info.plist* file and add `msauthv3`:
 
     ```xml
     <key>LSApplicationQueriesSchemes</key>
@@ -140,7 +142,7 @@ Your app is impacted if you're building with Xcode 11 and you use either iOS bro
 
 ## Report an issue
 
-If you have questions or would like to report an issue you've found in MSAL.NET, please open an issue in the [AzureAD/microsoft-authentication-library-for-dotnet](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues) repository on GitHub.
+If you have questions or would like to report an issue you've found in MSAL.NET, open an issue in the [AzureAD/microsoft-authentication-library-for-dotnet](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues) repository on GitHub.
 
 ## Next steps
 
