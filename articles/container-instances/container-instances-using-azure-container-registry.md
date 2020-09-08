@@ -4,7 +4,6 @@ description: Learn how to deploy containers in Azure Container Instances by pull
 services: container-instances
 ms.topic: article
 ms.date: 07/02/2020
-ms.author: danlep
 ms.custom: mvc
 ---
 
