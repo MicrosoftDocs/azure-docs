@@ -111,9 +111,6 @@
       href: storage-samples-blobs-powershell.md
     - name: Azure CLI
       href: storage-samples-blobs-cli.md
-    - name: Azure Policy built-ins
-      displayName: samples, policies, definitions
-      href: ../common/policy-samples.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   - name: Concepts
     items:
     - name: Storage accounts
@@ -554,6 +551,9 @@
       href: /azure/templates/microsoft.storage/allversions
     - name: Monitoring data
       href: ../common/monitor-storage-reference.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Azure Policy built-ins
+      displayName: samples, policies, definitions
+      href: ../common/policy-reference.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   - name: Resources
     items:
     - name: Azure updates
@@ -826,6 +826,9 @@
     - name: Resource Manager template
       displayName: ARM
       href: /azure/templates/microsoft.storage/allversions
+    - name: Azure Policy built-ins
+      displayName: samples, policies, definitions
+      href: ../common/policy-reference.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   - name: Resources
     items:
     - name: Known issues

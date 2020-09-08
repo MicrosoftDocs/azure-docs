@@ -5,7 +5,7 @@ author: abhijitpai
 ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/19/2020
+ms.date: 09/02/2020
 ---
 
 # Azure Cosmos DB service quotas
@@ -113,6 +113,7 @@ Depending on which API you use, an Azure Cosmos container can represent either a
 | Maximum number of paths in indexing policy| 100 <sup>*</sup>|
 | Maximum number of unique keys per container|10 <sup>*</sup>|
 | Maximum number of paths per unique key constraint|16 <sup>*</sup>|
+| Maximum TTL value |2147483647|
 
 <sup>*</sup> You can increase any of these per-container limits by contacting Azure Support.
 
@@ -131,6 +132,7 @@ Depending on which API you use, an Azure Cosmos item can represent either a docu
 | Maximum length of property value | No practical limit |
 | Maximum length of string property value | No practical limit |
 | Maximum length of numeric property value | IEEE754 double-precision 64-bit |
+| Maximum TTL value |2147483647|
 
 There are no restrictions on the item payloads like number of properties and nesting depth, except for the length restrictions on partition key and ID values, and the overall size restriction of 2 MB. You may have to configure indexing policy for containers with large or complex item structures to reduce RU consumption. See [Modeling items in Cosmos DB](how-to-model-partition-example.md) for a real-world example, and patterns to manage large items.
 

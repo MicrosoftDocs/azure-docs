@@ -3,10 +3,11 @@ title: What's new in Windows Virtual Desktop? - Azure
 description: New features and product updates for Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: overview
-ms.date: 08/07/2020
+ms.date: 09/02/2020
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: lizross
+ms.custom: references_regions
 ---
 # What's new in Windows Virtual Desktop?
 
@@ -18,6 +19,31 @@ Windows Virtual Desktop updates on a regular basis. This article is where you'll
 - Bug fixes
 
 This article is updated monthly. Make sure to check back here often to keep up with new updates.
+
+## August 2020
+
+Here's what changed in August 2020:
+
+- We've improved performance to reduce connection latency in the following Azure regions: 
+
+    - United Kingdom
+    - France
+    - Norway
+    - South Korea
+
+   You can use the [Experience Estimator](https://azure.microsoft.com/services/virtual-desktop/assessment/) to get a general idea of how these changes will affect your users.
+
+- The Microsoft Store Remote Desktop Client (v10.2.1522+) is now generally available! This version of the Microsoft Store Remote Desktop Client is compatible with Windows Virtual Desktop. We've also introduced refreshed UI flows for improved user experiences. This update includes fluent design, light and dark modes, and many other exciting changes. We've also rewritten the client to use the same underlying remote desktop protocol (RDP) engine as the iOS, macOS, and Android clients. This lets us deliver new features at a faster rate across all platforms. [Download the client](https://www.microsoft.com/p/microsoft-remote-desktop/9wzdncrfj3ps?rtc=1&activetab=pivot:overviewtab) and give it a try!
+
+- We fixed an issue in the Teams Desktop client (version 1.3.00.21759) where the client only showed the UTC time zone in the chat, channels, and calendar. The updated client now shows the remote session's time zone instead.
+
+- Azure Advisor is now a part of Windows Virtual Desktop. When you access Windows Virtual Desktop through the Azure portal, you can see recommendations for optimizing your Windows Virtual Desktop environment. Learn more at [Azure Advisor](azure-advisor.md).
+
+- Azure CLI now supports Windows Virtual Desktop (`az desktopvirtualization`) to help you automate your Windows Virtual Desktop deployments. Check out [desktopvirtualization](/cli/azure/ext/desktopvirtualization/?view=azure-cli-latest) for a list of extension commands.
+
+- We've updated our deployment templates to make them fully compatible with the Windows Virtual Desktop Azure Resource Manager interfaces. You can find the templates on [GitHub](https://github.com/Azure/RDS-Templates/tree/master/ARM-wvd-templates).
+
+- The Windows Virtual Desktop US Gov portal is now in public preview. To learn more, see [our announcement](https://azure.microsoft.com/updates/windows-virtual-desktop-is-now-available-in-the-azure-government-cloud-in-preview/).
 
 ## July 2020  
 
@@ -99,9 +125,7 @@ We've made some improvements to Microsoft Teams for Windows Virtual Desktop. Mos
 
 To learn more, see [our blog post](https://azure.microsoft.com/updates/windows-virtual-desktop-media-optimization-for-microsoft-teams-is-now-available-in-public-preview/).
 
-## Next steps
-
-Learn about future plans at the [Microsoft 365 Windows Virtual Desktop roadmap](https://www.microsoft.com/microsoft-365/roadmap?filters=Windows%20Virtual%20Desktop).
+## Client updates
 
 Check out these articles to learn about updates for our clients for Windows Virtual Desktop and Remote Desktop Services:
 
@@ -110,3 +134,8 @@ Check out these articles to learn about updates for our clients for Windows Virt
 - [iOS](/windows-server/remote/remote-desktop-services/clients/ios-whatsnew)
 - [Android](/windows-server/remote/remote-desktop-services/clients/android-whatsnew)
 - [Web](/windows-server/remote/remote-desktop-services/clients/web-client-whatsnew)
+
+## Next steps
+
+Learn about future plans at the [Microsoft 365 Windows Virtual Desktop roadmap](https://www.microsoft.com/microsoft-365/roadmap?filters=Windows%20Virtual%20Desktop).
+

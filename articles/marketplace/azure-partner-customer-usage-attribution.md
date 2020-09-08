@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: vikrambmsft
 ms.author: vikramb
-ms.date: 04/14/2020
+ms.date: 09/01/2020
 ms.custom: devx-track-terraform
 ---
 
@@ -92,9 +92,9 @@ To add a globally unique identifier (GUID), you make a single modification to th
 
 1. Open the Resource Manager template.
 
-1. Add a new resource in the main template file. The resource needs to be in the **mainTemplate.json** or **azuredeploy.json** file only, and not in any nested or linked templates.
+1. Add a new resource of type [Microsoft.Resources/deployments](https://docs.microsoft.com/azure/templates/microsoft.resources/deployments) in the main template file. The resource needs to be in the **mainTemplate.json** or **azuredeploy.json** file only, and not in any nested or linked templates.
 
-1. Enter the GUID value after the `pid-` prefix (for example, pid-eb7927c8-dd66-43e1-b0cf-c346a422063).
+1. Enter the GUID value after the `pid-` prefix as the name of the resource. For example, if the GUID is eb7927c8-dd66-43e1-b0cf-c346a422063, the resource name will be _pid-eb7927c8-dd66-43e1-b0cf-c346a422063_.
 
 1. Check the template for any errors.
 
@@ -107,11 +107,11 @@ To add a globally unique identifier (GUID), you make a single modification to th
 To enable tracking resources for your template, you need to add the following additional resource under the resources section. Please make sure to modify the below sample code with your own inputs when you add it to the main template file.
 The resource needs to be added in the **mainTemplate.json** or **azuredeploy.json** file only, and not in any nested or linked templates.
 
-```
+```json
 // Make sure to modify this sample code with your own inputs where applicable
 
 { // add this resource to the resources section in the mainTemplate.json (do not add the entire file)
-    "apiVersion": "2018-02-01",
+    "apiVersion": "2020-06-01",
     "name": "pid-XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX", // use your generated GUID here
     "type": "Microsoft.Resources/deployments",
     "properties": {
@@ -148,6 +148,20 @@ For Python, use the **config** attribute. You can only add the attribute to a Us
 
 > [!NOTE]
 > Add the attribute for each client. There's no global static configuration. You might tag a client factory to be sure every client is tracking. For more information, see this [client factory sample on GitHub](https://github.com/Azure/azure-cli/blob/7402fb2c20be2cdbcaa7bdb2eeb72b7461fbcc30/src/azure-cli-core/azure/cli/core/commands/client_factory.py#L70-L79).
+
+#### Example: The .NET SDK
+
+For .NET, make sure to set the user agent. The [Microsoft.Azure.Management.Fluent](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.fluent?view=azure-dotnet) library can be used to set the user agent with the following code (example in C#):
+
+```csharp
+
+var azure = Microsoft.Azure.Management.Fluent.Azure
+    .Configure()
+    // Add your pid in the user agent header
+    .WithUserAgent("pid-XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX", String.Empty) 
+    .Authenticate(/* Credentials created via Microsoft.Azure.Management.ResourceManager.Fluent.SdkContext.AzureCredentialsFactory */)
+    .WithSubscription("<subscription ID>");
+```
 
 #### Tag a deployment by using the Azure PowerShell
 
@@ -334,7 +348,7 @@ You can create a VM offer in marketplace using your custom VHD and mark it as Pr
 
 **Failed to update *contentVersion* property for the main template?**
 
-Likely a bug in some cases when the template is being deployed by using a TemplateLink from another template that expect older contentVersion for some reason. The workaround is to use the metadata property:
+This is likely a bug, in cases when the template is being deployed using a TemplateLink from another template that expects older contentVersion for some reason. The workaround is to use the metadata property:
 
 ```
 "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",

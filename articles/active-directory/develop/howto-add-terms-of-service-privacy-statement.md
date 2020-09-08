@@ -66,6 +66,11 @@ Follow these steps in the Azure portal.
 
 If you prefer to modify the app object JSON directly, you can use the manifest editor in the Azure portal or Application Registration Portal to include links to your app's terms of service and privacy statement.
 
+1. Navigating to the **App Registrations** section and select your app.
+2. Open the **Manifest** pane.
+3. Ctrl+F, Search for "informationalUrls". Fill in the information.
+4. Save your changes.
+
 ```json
     "informationalUrls": { 
         "termsOfService": "<your_terms_of_service_url>", 

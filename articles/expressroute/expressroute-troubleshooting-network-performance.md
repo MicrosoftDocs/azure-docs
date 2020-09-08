@@ -2,12 +2,12 @@
 title: 'Troubleshoot network link performance: Azure'
 description: This page provides a standardized method of testing Azure network link performance.
 services: expressroute
-author: tracsman
+author: duongau
 
 ms.service: expressroute
 ms.topic: troubleshooting
 ms.date: 12/20/2017
-ms.author: jonor
+ms.author: duau
 ms.custom: seodec18
 
 ---
