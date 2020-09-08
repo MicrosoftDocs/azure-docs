@@ -33,7 +33,7 @@ This is the hyperscale form factor of the Postgres database engine available as 
 This is the hyperscale form factor of the Postgres database engine offered available with Azure Arc enabled Data Service. In this form factor, our customers provide the infrastructure that host the systems and operate them.
 
 ## Next steps
-- Deploy
+- **Deploy**
    >- **Just want to try things out?**  
    > Quick starter and packaged deployment option: Get started quickly with [Azure Arc JumpStart](https://github.com/microsoft/azure_arc#azure-arc-enabled-data-services) on Azure Kubernetes Service (AKS), AWS Elastic Kubernetes Service (EKS), Google Cloud Kubernetes Engine (GKE) or in an Azure VM.
 

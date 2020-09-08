@@ -92,5 +92,8 @@ postgres01   Ready   3/3          123.456.789.4:31066      5d20h
 Use the below table of templates of connections strings for your server group. You can then copy/paste and customize them as further needed:
 
 
+## Next steps
+- Read about [scaling out (adding worker nodes)](scale-out-postgresql-hyperscale-server-group.md) your server group
+- Read about [scaling up or down (increasing/decreasing memory/vcores)](scale-up-down-postgresql-hyperscale-server-group-using-cli.md) your server group
 
 

@@ -139,4 +139,10 @@ When the restore operation is complete, it will return an output like this to th
 >**Note:** It is not yet possible to show the progress of a restore operation.
 
 ## Deleting backups
-It is not yet possible to set the retention of backups and it is not yet possible to delete backups. If you are blocked on reclaiming space on the storage you are using, reach out to us.
+Backups retention cannot be set in Preview. 
+Backups cannot be deleted in Preview. If you are blocked on reclaiming space on the storage you are using, reach out to us.
+
+
+## Next steps
+- Read about [scaling out (adding worker nodes)](scale-out-postgresql-hyperscale-server-group.md) your server group
+- Read about [scaling up or down (increasing/decreasing memory/vcores)](scale-up-down-postgresql-hyperscale-server-group-using-cli.md) your server group
