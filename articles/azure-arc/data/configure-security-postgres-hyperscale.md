@@ -142,7 +142,7 @@ Azure Arc enabled PostgreSQL Hyperscale comes with the standard Postgres adminis
 
 Private preview does not support changing this password.
 
-You can also use the standard Postgres way to  create users or roles. However, if you do so, these artifacts will only be available on the coordinator role. As such these users/roles will not yet be able to access data that is distributed outside the Coordinator node and on the Worker nodes of your server group. The reason is that the user definition is not yet replicated to the Worker nodes. This functionality comes soon. Updates will be posted here when it is available.
+You can also use the standard Postgres way to  create users or roles. However, if you do so, these artifacts will only be available on the coordinator role. During preview, these users/roles will not yet be able to access data that is distributed outside the Coordinator node and on the Worker nodes of your server group. The reason is that in preview, the user definition is not replicated to the Worker nodes.
 
 ## Next step
 - Read details about the `pgcrypto` extension [here](https://www.postgresql.org/docs/current/pgcrypto.html).

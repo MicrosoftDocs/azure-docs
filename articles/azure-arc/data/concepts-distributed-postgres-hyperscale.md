@@ -1,5 +1,6 @@
 --- 
 title: Concepts for distributing data and scaling out with Arc enabled PostgreSQL Hyperscale server group
+titleSuffix: Azure Arc enabled data services
 description: Concepts for distributing data with Arc enabled PostgreSQL Hyperscale server group
 services: azure-arc
 ms.service: azure-arc
@@ -74,5 +75,5 @@ See details at [Table colocation](../../postgresql/concepts-hyperscale-colocatio
 - [Read about deploying Azure Arc enabled PostgreSQL Hyperscale](create-postgresql-hyperscale-server-group.md)
 - [Read about scaling out Azure Arc enabled PostgreSQL Hyperscale server groups deployed in your Arc Data Controller](scale-out-postgresql-hyperscale-server-group.md)
 - [Read about Azure Arc enabled Data Services](https://azure.microsoft.com/services/azure-arc/hybrid-data-services)
-- [Read about Azure Arc](https://http://aka.ms/azurearc)
+- [Read about Azure Arc](https://aka.ms/azurearc)
 
