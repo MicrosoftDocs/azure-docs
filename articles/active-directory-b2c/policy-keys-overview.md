@@ -1,5 +1,5 @@
 ---
-title: Overview policy keys in Azure Active Directory B2C
+title: Policy keys overview - Azure Active Directory B2C
 description: Learn about the types of encryption policy keys that can be used in Azure Active Directory B2C for signing and validating tokens, client secrets, certificates, and passwords.
 services: active-directory-b2c
 author: msmimart
@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/05/2019
+ms.date: 09/08/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -50,7 +50,7 @@ To create a key, you can choose one of the following methods:
 
 ## Key rollover
 
-For security purposes, Azure AD B2C can rollover keys periodically, or immediately in case of emergency. Any application, identity provider, or REST API that integrates with Azure AD B2C should be prepared to handle a key rollover event, no matter how frequently it may occur. Otherwise, if your application or Azure AD B2C attempts to use an expired key to perform a cryptographic operation, the sign-in request will fail.
+For security purposes, Azure AD B2C can roll over keys periodically, or immediately in case of emergency. Any application, identity provider, or REST API that integrates with Azure AD B2C should be prepared to handle a key rollover event, no matter how frequently it may occur. Otherwise, if your application or Azure AD B2C attempts to use an expired key to perform a cryptographic operation, the sign-in request will fail.
 
 If an Azure AD B2C keyset has multiple keys, only one of the keys is active at any one time, based on the following criteria:
 
