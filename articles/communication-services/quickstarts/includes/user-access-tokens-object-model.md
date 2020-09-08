@@ -14,7 +14,7 @@ ms.author: marobert
 
 ## Object model
 
-User Access Tokens enable you to authorize your application's users to connect directly to your Azure Communication Services resource. You generate these tokens on your server, pass them back to your client application, and then use them to initialize the Communication Services client SDKs. To achieve this, you should build a trusted service endpoint that can authenticate your users, and issue user access tokens. This service should maintain a persistent mapping between your application user identities and Azure Communication Services users.
+User Access Tokens enable you to authorize your application's users to connect directly to your Azure Communication Services resource. You generate these tokens on your server, pass them back to your client application, and then use them to initialize the Communication Services client libraries. To achieve this, you should build a trusted service endpoint that can authenticate your users, and issue user access tokens. This service should maintain a persistent mapping between your application user identities and Azure Communication Services users.
 
 The [CommunicationIdentityClient](../../references/overview.md) class provides all the user and access token related functionality. You instantiate it with a connection string and then use it to manage users, and issue access tokens.
 
@@ -28,8 +28,8 @@ Scopes allow you to specify the exact Azure Communications Services functionalit
 | Name                  | Description                                                  |
 | --------------------- | ------------------------------------------------------------ |
 | `chat`                | Grants the ability to participate in a chat                  |
-| `voip`                | Grants the ability to make and receive VOIP calls using the calling SDK |
-| `pstn`                | Grants the ability to make a PSTN calls using the calling SDK |
+| `voip`                | Grants the ability to make and receive VOIP calls using the calling client library |
+| `pstn`                | Grants the ability to make a PSTN calls using the calling client library |
 | `joinRoom`            | Grants the ability to create or join a group call     |
 
 If you wish to remove a user's ability to access to some specific functionality, you should first [revoke any existing access tokens](#revoke-user-access-tokens) that may include undesired scopes before issuing a new token with a more limited set of scopes.

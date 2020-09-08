@@ -9,12 +9,12 @@ ms.author: mikben
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet/).
-- The latest version [.NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core) for your operating system.
-- Get the latest version of the .NET [Management SDK](../../concepts/sdk-options.md).
+- The latest version [.NET Core client library](https://dotnet.microsoft.com/download/dotnet-core) for your operating system.
+- Get the latest version of the .NET [Management client library](../../concepts/sdk-options.md).
 
-## Installing the SDK
+## Installing the client library
 
-First, include the Communication Services Management SDK in your C# project:
+First, include the Communication Services Management client library in your C# project:
 
 ```dotnetcli
 
@@ -84,12 +84,12 @@ Now that you're authenticated, you can use your management client to make API ca
 
 For each of the following examples, we'll be assigning our Communication Services resources to an existing resource group.
 
-If you need to create a resource group, you can do so by using the [Azure portal](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal) or the [ARM Management SDK](https://github.com/Azure/azure-sdk-for-net/blob/master/doc/mgmt_preview_quickstart.md).
+If you need to create a resource group, you can do so by using the [Azure portal](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal) or the [ARM Management client library](https://github.com/Azure/azure-sdk-for-net/blob/master/doc/mgmt_preview_quickstart.md).
 
 
 ### Create and manage a Communication Services resource
 
-Our instance of the Communication Services Management SDK client (``Azure.ResourceManager.Communication.CommunicationManagementClient``) can be used to perform operations on Communication Services resources.
+Our instance of the Communication Services Management client library client (``Azure.ResourceManager.Communication.CommunicationManagementClient``) can be used to perform operations on Communication Services resources.
 
 #### Create a Communication Services resource
 
@@ -135,7 +135,7 @@ Our instance of the Communication Services Management SDK client (``Azure.Resour
 
 ## Managing keys and connection strings
 
-Every Communication Services resource has a pair of access keys and corresponding connection strings. These keys can be accessed with the Management SDK and then used by other Communication Services SDKs to authenticate themselves to Azure Communication Services.
+Every Communication Services resource has a pair of access keys and corresponding connection strings. These keys can be accessed with the Management client library and then used by other Communication Services client libraries to authenticate themselves to Azure Communication Services.
 
 #### Get access keys for a Communication Services resource
 

@@ -13,7 +13,7 @@ ms.custom: include file
 ms.author: chrwhit
 ---
 
-Get started with Azure Communication Services by using the Communication Services Java SMS SDK to send SMS messages.
+Get started with Azure Communication Services by using the Communication Services Java SMS client library to send SMS messages.
 
 Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
 
@@ -26,7 +26,7 @@ Completing this quickstart incurs a small cost of a few USD cents or less in you
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Java Development Kit (JDK)](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable) version 8 or above.
 - [Apache Maven](https://maven.apache.org/download.cgi).
-- A deployed Communication Services resource. [Create a Communication Services resource](../../create-a-communication-resource.md).
+- A deployed Communication Services resource. [Create a Communication Services resource](../../create-communication-resource.md).
 
 ### Prerequisite check
 
@@ -103,7 +103,7 @@ public class App
 
 ## Object model
 
-The following classes and interfaces handle some of the major features of the Azure Communication Services SMS SDK for Java.
+The following classes and interfaces handle some of the major features of the Azure Communication Services SMS client library for Java.
 
 | Name                                                             | Description                                                                                     |
 | ---------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
@@ -114,7 +114,7 @@ The following classes and interfaces handle some of the major features of the Az
 
 ## Authenticate the client
 
-Instantiate an `SmsClient` with your connection string. The code below retrieves the connection string for the resource from an environment variable named `COMMUNICATION_SERVICES_CONNECTION_STRING`. Learn how to [manage you resource's connection string](../../create-a-communication-resource.md#store-your-connection-string).
+Instantiate an `SmsClient` with your connection string. The code below retrieves the connection string for the resource from an environment variable named `COMMUNICATION_SERVICES_CONNECTION_STRING`. Learn how to [manage you resource's connection string](../../create-communication-resource.md#store-your-connection-string).
 
 Add the following code to the `main` method:
 
@@ -162,7 +162,7 @@ You should replace `<leased-phone-number>` with an SMS enabled phone number asso
 
 The `enableDeliveryReport` parameter is an optional parameter that you can use to configure Delivery Reporting. This is useful for scenarios where you want to emit events when SMS messages are delivered. See the [Handle SMS Events](../handle-sms-events.md) quickstart to configure Delivery Reporting for your SMS messages.
 
-<!--todo: the signature of the `sendMessage` method changes when configuring delivery reporting. Need to confirm that this is how our SDK is to be used.-->
+<!--todo: the signature of the `sendMessage` method changes when configuring delivery reporting. Need to confirm that this is how our client library is to be used.-->
 
 ## Run the code
 

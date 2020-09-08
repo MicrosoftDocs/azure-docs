@@ -1,6 +1,6 @@
 ---
-title: Azure Communication Services calling SDK overview
-description: Provides an overview of the calling SDK.
+title: Azure Communication Services calling client library overview
+description: Provides an overview of the calling client library.
 author: mikben
 manager: jken
 services: azure-communication-services
@@ -11,13 +11,13 @@ ms.topic: overview
 ms.service: azure-communication-services
 ---
 
-# Calling SDK overview
+# Calling client library overview
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
-## Calling SDK capabilities
+## Calling client library capabilities
 
-The following list presents the set of features which are currently available in the Azure Communication Services Calling SDKs.
+The following list presents the set of features which are currently available in the Azure Communication Services Calling client libraries.
 
 | Group of features | Capability                                                                                                          | JS  | Java (Android) | Objective-C (iOS) |
 | ----------------- | ------------------------------------------------------------------------------------------------------------------- | --- | -------------- | ----------------- |
@@ -39,13 +39,13 @@ The following list presents the set of features which are currently available in
 |                   | Remove a participant                                                                                                | ✔️   | ✔️              | ✔️                 |
 | PSTN              | Connect PSTN participants into group calls (dial out from the meetings)                                             | ✔️   | ✔️              | ✔️                 |
 
-## Calling SDK browser support
+## Calling client library browser support
 
 The following table represents the set of supported browsers and versions which are currently available.
 
 |                                  | Windows          | macOS          | Android | Linux  | Ubuntu | iOS    |
 | -------------------------------- | ---------------- | -------------- | ------- | ------ | ------ | ------ |
-| **Calling SDK** | Chrome*, new Edge | Chrome*, Safari** | Chrome*  | Chrome* | Chrome* | Safari** |
+| **Calling client library** | Chrome*, new Edge | Chrome*, Safari** | Chrome*  | Chrome* | Chrome* | Safari** |
 
 
 *Note that the latest version of Chrome is supported in addition to the previous two releases.<br/>
@@ -60,4 +60,4 @@ The following table represents the set of supported browsers and versions which 
 For more information, see the following articles:
 - Familiarize yourself with general [call flows](../call-flows.md)
 - Learn about [call types](../voice-video-calling/about-call-types.md)
-- [Plan your PSTN solution](../telephony-sms/plan-your-telephony-and-SMS-solution.md)
+- [Plan your PSTN solution](../telephony-sms/plan-solution.md)

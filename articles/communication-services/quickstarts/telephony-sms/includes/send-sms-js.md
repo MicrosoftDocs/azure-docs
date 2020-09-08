@@ -24,8 +24,8 @@ Completing this quickstart incurs a small cost of a few USD cents or less in you
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Node.js](https://nodejs.org/) Active LTS and Maintenance LTS versions (8.11.1 and 10.14.1 recommended).
-- An active Communication Services resource and connection string. [Create a Communication Services resource](../../create-a-communication-resource.md).
-- An SMS enabled telephone number. [Get a phone number](../get-a-phone-number.md).
+- An active Communication Services resource and connection string. [Create a Communication Services resource](../../create-communication-resource.md).
+- An SMS enabled telephone number. [Get a phone number](../get-phone-number.md).
 
 ### Prerequisite check
 
@@ -62,7 +62,7 @@ The `--save` option lists the library as a dependency in your **package.json** f
 
 ## Object model
 
-The following classes and interfaces handle some of the major features of the Azure Communication Services SMS SDK for Node.js.
+The following classes and interfaces handle some of the major features of the Azure Communication Services SMS client library for Node.js.
 
 | Name                                  | Description                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
@@ -72,7 +72,7 @@ The following classes and interfaces handle some of the major features of the Az
 
 ## Authenticate the client
 
-Import the **SmsClient** from the client library and instantiate it with your connection string. The code below retrieves the connection string for the resource from an environment variable named `COMMUNICATION_SERVICES_CONNECTION_STRING`. Learn how to [manage you resource's connection string](../../create-a-communication-resource.md#store-your-connection-string).
+Import the **SmsClient** from the client library and instantiate it with your connection string. The code below retrieves the connection string for the resource from an environment variable named `COMMUNICATION_SERVICES_CONNECTION_STRING`. Learn how to [manage you resource's connection string](../../create-communication-resource.md#store-your-connection-string).
 
 Add the following code to **send-sms.js**:
 

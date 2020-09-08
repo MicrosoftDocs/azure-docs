@@ -11,31 +11,29 @@
   expanded: true
   items:
   - name: Create a Communication Services resource
-    href: quickstarts/create-a-communication-resource.md
+    href: quickstarts/create-communication-resource.md
   - name: Create and manage user access tokens
     href: quickstarts/user-access-tokens.md
   - name: Chat
     items:
       - name: Add chat to your app
-        href: quickstarts/chat/get-started-with-chat.md
+        href: quickstarts/chat/get-started.md
   - name: Telephony and SMS
     items:
       - name: Get a telephone number
-        href: quickstarts/telephony-sms/get-a-phone-number.md
+        href: quickstarts/telephony-sms/get-phone-number.md
       - name: Send an SMS message
-        href: quickstarts/telephony-sms/send-sms.md
+        href: quickstarts/telephony-sms/send.md
+      - name: Send an SMS message with an Azure Logic App
+        href: quickstarts/telephony-sms/logic-app.md
       - name: Handle SMS events
         href: quickstarts/telephony-sms/handle-sms-events.md
   - name: Voice and video calling
     items:
     - name: Add voice calling to your app
       href: quickstarts/voice-video-calling/getting-started-with-calling.md
-    - name: Use the calling SDK
+    - name: Use the calling client library
       href: quickstarts/voice-video-calling/calling-client-samples.md
-  - name: Networking
-    items:
-    - name: Get a network relay token
-      href: quickstarts/networking/get-turn-token.md
 - name: Tutorials
   expanded: false
   items:
@@ -46,28 +44,24 @@
   items:
   - name: Chat
     items:
-      - name: Chat SDK overview
-        href: concepts/chat/chat-sdk-features.md
+      - name: Chat client library overview
+        href: concepts/chat/sdk-features.md
       - name: Chat concepts
         href: concepts/chat/concepts.md
   - name: Telephony and SMS
     items: 
-      - name: SMS SDK overview
-        href: concepts/telephony-sms/sms-sdk-features.md
+      - name: SMS client library overview
+        href: concepts/telephony-sms/sdk-features.md
       - name: SMS concepts
-        href: concepts/telephony-sms/sms-concepts.md
+        href: concepts/telephony-sms/concepts.md
       - name: Plan your telephony and SMS solution 
         href: concepts/telephony-sms/plan-solution.md
   - name: Voice and video Calling
     items:
-      - name: Calling SDK overview
+      - name: Calling client library overview
         href: concepts/voice-video-calling/calling-sdk-features.md
       - name: Voice and video concepts
         href: concepts/voice-video-calling/about-call-types.md
-  - name: Networking
-    items:
-      - name: STUN and TURN
-        href: concepts/networking/ice-stun-nat-turn-sdp.md
   - name: Client and server architecture
     href: concepts/client-and-server-architecture.md
   - name: Metric definitions
@@ -76,7 +70,7 @@
     href: concepts/logging-diagnostics.md
   - name: Call flows
     href: concepts/call-flows.md
-  - name: SDKs and REST APIs
+  - name: Client libraries and REST APIs
     href: concepts/sdk-options.md
   - name: Pricing model
     href: concepts/pricing.md

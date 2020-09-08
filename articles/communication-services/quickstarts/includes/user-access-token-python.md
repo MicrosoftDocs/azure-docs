@@ -16,7 +16,7 @@ ms.author: marobert
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Python](https://www.python.org/downloads/) 2.7, 3.5, or above.
-- An active Communication Services resource and connection string. [Create a Communication Services resource](../create-a-communication-resource.md).
+- An active Communication Services resource and connection string. [Create a Communication Services resource](../create-communication-resource.md).
 
 ## Setting Up
 
@@ -54,7 +54,7 @@ pip install azure-communication-administration
 
 ## Authenticate the client
 
-Instantiate a `CommunicationIdentityClient` with your connection string. The code below retrieves the connection string for the resource from an environment variable named `COMMUNICATION_SERVICES_CONNECTION_STRING`. Learn how to [manage you resource's connection string](../create-a-communication-resource.md#store-your-connection-string).
+Instantiate a `CommunicationIdentityClient` with your connection string. The code below retrieves the connection string for the resource from an environment variable named `COMMUNICATION_SERVICES_CONNECTION_STRING`. Learn how to [manage you resource's connection string](../create-communication-resource.md#store-your-connection-string).
 
 Add this code inside the `try` block:
 
@@ -94,7 +94,7 @@ User access tokens are short-lived credentials that need to be reissued in order
 
 ## Revoke user access tokens
 
-In some cases, you may need to explicitly revoke user access tokens, for example, when a user changes the password they use to authenticate to your service. This functionality is available via the Azure Communication Services Administration SDK.
+In some cases, you may need to explicitly revoke user access tokens, for example, when a user changes the password they use to authenticate to your service. This functionality is available via the Azure Communication Services Administration client library.
 
 ```python  
 client.revoke_tokens(user)
