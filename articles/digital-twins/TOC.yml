@@ -36,12 +36,6 @@
     href: concepts-security.md
 - name: How-to guides
   items:
-  - name: Develop
-    items:
-    - name: Use the APIs and SDKs
-      href: how-to-use-apis-sdks.md
-    - name: Create custom SDKs with AutoRest
-      href: how-to-create-custom-sdks.md
   - name: Deploy
     items:
     - name: Use the Azure Digital Twins CLI
@@ -78,6 +72,14 @@
       href: how-to-create-azure-function.md
     - name: Query the twin graph
       href: how-to-query-graph.md
+  - name: Develop client apps
+    items:
+    - name: Use the APIs and SDKs
+      href: how-to-use-apis-sdks.md
+    - name: Create custom SDKs with AutoRest
+      href: how-to-create-custom-sdks.md
+    - name: Integrate with Azure SignalR Service
+      href: how-to-integrate-azure-signalr.md
   - name: Connect input
     items:
     - name: Ingest telemetry from IoT Hub
@@ -188,6 +190,8 @@
         href: https://docs.microsoft.com/samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/ 
       - name: Azure Digital Twins Custom Swaggers
         href: https://docs.microsoft.com/samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/ 
+      - name: SignalR integration sample
+        href: https://docs.microsoft.com/samples/azure-samples/digitaltwins-signalr-webapp-sample/digital-twins-samples/ 
   - name: Azure tools
     items: 
     - name: Azure Cloud Shell
