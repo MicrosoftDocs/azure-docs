@@ -91,7 +91,7 @@ After pod security policy (preview) is deprecated, you must disable the feature 
 
 ### Email notifications from Azure Security Center improved
 
-The following areas of the emails regarding security alerts hae been improved: 
+The following areas of the emails regarding security alerts have been improved: 
 
 - Added the ability to send email notifications about alerts for all severity levels
 - Added the ability to notify users with different RBAC roles on the subscription
@@ -120,7 +120,7 @@ An example of a preview recommendation:
 
 The details page for recommendations now includes a freshness interval indicator (whenever relevant) and a clear display of the severity of the recommendation.
 
-:::image type="content" source="./media/release-notes/recommendations-severity-freshness-indicators.png" alt-text="Recommendation page showin freshness and severity":::
+:::image type="content" source="./media/release-notes/recommendations-severity-freshness-indicators.png" alt-text="Recommendation page showing freshness and severity":::
 
 
 
