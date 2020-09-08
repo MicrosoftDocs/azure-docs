@@ -4,10 +4,10 @@ description: Migrate a database from SQL Server to Azure SQL managed instance - 
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-author: twright-msft
-ms.author: twright
+author: vin-yu
+ms.author: vinsonyu
 ms.reviewer: mikeray
-ms.date: 08/04/2020
+ms.date: 09/08/2020
 ms.topic: how-to
 ---
 
