@@ -24,7 +24,7 @@ The Computer Vision [Read API](https://westcentralus.dev.cognitive.microsoft.com
 
 ![How OCR converts images and documents into structured output with extracted text](./Images/how-ocr-works.svg)
 
-### Input requirements
+## Input requirements
 The **Read** call takes images and documents as its input. They have the following requirements:
 
 * Supported file formats: JPEG, PNG, BMP, PDF, and TIFF
@@ -37,9 +37,9 @@ The **Read** call takes images and documents as its input. They have the followi
 >
 > The [Read call](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) has an optional request parameter for language. This is the BCP-47 language code of the text in the document. Read supports auto language identification and multilingual documents, so only provide a language code if you would like to force the document to be processed as that specific language.
 
-### Read
+## The Read Call
 
-The Read API's [Analyze operation](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) takes an image or PDF document as the input and extracts text asynchronously. The call returns with a response header field called `Operation-Location`. The `Operation-Location` value is a URL that contains the Operation ID to be used in the next step.
+The Read API's [Read call](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) takes an image or PDF document as the input and extracts text asynchronously. The call returns with a response header field called `Operation-Location`. The `Operation-Location` value is a URL that contains the Operation ID to be used in the next step.
 
 |Response header| Result URL |
 |:-----|:----|
@@ -50,7 +50,7 @@ The Read API's [Analyze operation](https://westcentralus.dev.cognitive.microsoft
 >
 > The [Computer Vision pricing](https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision/) page includes the pricing tier for Read. Each analyzed image or page is one transaction. If you call the operation with a PDF or TIFF document containing 100 pages, the Read operation will count it as 100 transactions and you will be billed for 100 transactions. if you made 50 calls to the operation and each call submitted a document with 100 pages, you will be billed for 50 X 100 = 5000 transactions.
 
-### Get Read Results
+## The Get Read Results Call
 
 The second step is to call [Get Read Results](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d9869604be85dee480c8750) operation. This operation takes as input the operation ID that was created by the Read operation. It returns a JSON response that contains a **status** field with the following possible values. You call this operation iteratively until it returns with the **succeeded** value. Use an interval of 1 to 2 seconds to avoid exceeding the requests per second (RPS) rate.
 
@@ -66,7 +66,7 @@ The second step is to call [Get Read Results](https://westcentralus.dev.cognitiv
 
 When the **status** field has the **succeeded** value, the JSON response contains the extracted text content from your image or document. The JSON response maintains the original line groupings of recognized words. It includes the extracted text lines and their bounding box coordinates. Each text line includes all extracted words with their coordinates and confidence scores.
 
-### Sample JSON output
+## Sample JSON output
 
 See the following example of a successful JSON response:
 
@@ -121,24 +121,25 @@ See the following example of a successful JSON response:
   }
 }
 ```
-### Get started with SDK and API quickstarts
 Get started with the [Computer Vision OCR SDK quickstarts](./quickstarts-sdk/client-library.md) and the [Read REST API quickstarts](./QuickStarts/CSharp-hand-text.md) to start integrating OCR capabilities into your applications.
 
-### Supported languages for print text
+## Supported languages for print text
 The [Read 3.0 API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) supports extracting printed text in English, Spanish, German, French, Italian, Portuguese, and Dutch languages. 
 
 The [Read 3.1 API public preview](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-1/operations/5d986960601faab4bf452005) adds support for Simplified Chinese. If your scenario requires supporting more languages, see the [OCR API](#ocr-api) section. 
 
 See the [Supported languages](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#optical-character-recognition-ocr) for the full list of OCR-supported languages.
 
-### Supported languages for handwritten text
+## Supported languages for handwritten text
 The Read operation currently supports extracting handwritten text exclusively in English.
 
-### Integrate with the REST API or SDK
+## Use the REST API and SDK
 The [Read 3.x REST API](./QuickStarts/CSharp-hand-text.md) is the preferred option for most customers because of ease of integration and fast productivity out of the box. Azure and the Computer Vision service handle scale, performance, data security, and compliance needs while you focus on meeting your customers' needs.
 
-### Integrate on-premise wtih Docker containers
+## Deploy on-premise wtih Docker containers
 The [Read 2.0 Docker container (preview)](https://docs.microsoft.com/azure/cognitive-services/computer-vision/computer-vision-how-to-install-containers) enables you to deploy the new OCR capabilities in your own local environment. Containers are great for specific security and data governance requirements.
+
+## Example outputs
 
 ### Text from images
 
