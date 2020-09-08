@@ -23,13 +23,13 @@ ms.author: yelevin
 
 ## What is normalization
 
-Working with various data types and tables together presents challenges. You must become familiar with  many different data types and schemas, having to write and use a unique set of analytics rules, workbooks, and hunting queries for each, even for those that share commonalities (e.g., all pertain to firewall devices).  Correlation between the different data types, necessary for investigation and hunting, is also difficult. Azure Sentinel provides a seamless experience for handling data from various sources in uniform, normalized views.
+Working with various data types and tables together presents challenges. You must become familiar with  many different data types and schemas, having to write and use a unique set of analytics rules, workbooks, and hunting queries for each, even for those that share commonalities (for example, pertaining to firewall devices).  Correlation between the different data types, necessary for investigation and hunting, is also difficult. Azure Sentinel provides a seamless experience for handling data from various sources in uniform, normalized views.
 
-The Sentinel **common information model** consist of 3 aspects:
+The Sentinel **common information model** consists of three aspects:
 
 - **Normalized schemas** cover common sets of predictable event types (tables) that are easy to work with and to build unified capabilities on (for example, networking table). The schema also includes a normalized columns convention, and definitions for value and format standardization (standard consistent representation of data such as IP addresses).
 
-- **Parsers** map existing data of different types to the normalized schema. According to the model, data can be parsed to the normalized schema in query time (using functions) or ingestion time. At this time only query-time parsing is supported.
+- **Parsers** map existing data of different types to the normalized schema. According to the model, data can be parsed to the normalized schema in query time (using functions) or ingestion time. At this time, only query-time parsing is supported.
 
 - **Content for each normalized schema** includes analytics rules, interactive workbooks, hunting queries (?), and additional content.
 
@@ -48,7 +48,7 @@ You can parse data to additional representations and use the [OSSEM entities nam
 
 Sentinel is aligning with the [Open Source Security Events Metadata (OSSEM)](https://ossemproject.com/intro.html) common information model, allowing for predictable entities’ correlation across normalized tables. OSSEM is a community-led project that focuses primarily on the documentation and standardization of security event logs from diverse data sources and operating systems. In addition, the project provides a common information model (CIM) that can be used for data engineers during data normalization procedures to allow security analysts to query and analyze data across diverse data sources.
 
-The [OSSEM CIM](https://ossemproject.com/cdm/intro.html) defines a set of entities (for example: file, host, IP, process), and defines a set of attributes for each such entity. In addition the CIM defines a set of tables (for example, [network session](https://ossemproject.com/cdm/tables/network_session.html) table) that uses relevant attributes from these entities, allowing for seamless and predictable correlation. Note that entities can be nested (for example, Source entity can contain a File entity that will have a name attribute).
+The [OSSEM CIM](https://ossemproject.com/cdm/intro.html) defines a set of entities (for example: file, host, IP, process), and defines a set of attributes for each such entity. In addition, the CIM defines a set of tables (for example, [network session](https://ossemproject.com/cdm/tables/network_session.html) table) that use relevant attributes from these entities, allowing for seamless and predictable correlation. Note that entities can be nested (for example, Source entity can contain a File entity that will have a name attribute).
 
 To learn more about OSSEM entity structure, visit the [official OSSEM reference](https://ossemproject.com/cdm/guidelines/entity_structure.html).
 
@@ -60,7 +60,7 @@ Note that additional columns may exist in the Sentinel implementation due to Log
 
 ### Schema reference
 
-Please see the [schema reference document](./normalization-schema.md), as well the official [OSSEM project documentation](https://ossemproject.com/cdm/intro.html) to learn more.
+See the [schema reference document](./normalization-schema.md), as well the official [OSSEM project documentation](https://ossemproject.com/cdm/intro.html), to learn more.
 
 Note that the schema reference also includes value and format standardization. The source fields, original or parsed, might not be in a standard format or use the schema’s standard list of values, and would therefore need to be converted to the schema standard representation. 
 
@@ -68,7 +68,7 @@ Note that the schema reference also includes value and format standardization. T
 
 ### What is parsing
 
-With a base set of defined normalized tables available, you will need to transform (parse/map) your data into those tables. That is, you will extract specific data from their raw form into well-known columns. Parsing in Azure Sentinel happens at **query time** - parsers are built as Log Analytics user functions (using Kusto Query Language - KQL) that transform data in existing tables (e.g. CommonSecurityLog, custom logs tables, syslog) into the normalized tables schema.
+With a base set of defined normalized tables available, you will need to transform (parse/map) your data into those tables. That is, you will extract specific data from their raw form into well-known columns. Parsing in Azure Sentinel happens at **query time** - parsers are built as Log Analytics user functions (using Kusto Query Language - KQL) that transform data in existing tables (such as CommonSecurityLog, custom logs tables, syslog) into the normalized tables schema.
 
 The other kind of parsing, not yet supported in Azure Sentinel, is at **ingestion time** - allowing to collect data directly into the normalized table(s) as it is ingested from its data sources. Ingestion time parsing provides improved performance as the data model is queried directly without the need to use functions.
 
@@ -78,7 +78,7 @@ The other kind of parsing, not yet supported in Azure Sentinel, is at **ingestio
 
 The available query time parsers are available in the Azure Sentinel official GitHub repository. Each parser is versioned to allow customers to use and monitor for future updates easily. To install a parser:
 
-1. Copy the relevant parser content from each relevant KQL file in the above Github link to your clipboard
+1. Copy the relevant parser content from each relevant KQL file in the above GitHub link to your clipboard
 
 1. In the Azure Sentinel portal, open the Logs page, and paste the content of the KQL file to the logs screen, and click **Save**.
 
@@ -91,7 +91,7 @@ The available query time parsers are available in the Azure Sentinel official Gi
 
     1. **Function Alias**: should be the same as the **Name** field
 
-    1. **Category**: you can select an existing category or create new category (e.g. *NormalizedNetworkSessionsParsers*)
+    1. **Category**: you can select an existing category or create new category (such as *NormalizedNetworkSessionsParsers*)
     
         :::image type="content" source="./media/normalization/save-new-parser.png" alt-text="Save the parser":::
 
@@ -126,11 +126,11 @@ Once the function is altered, click “Save” again and use the same name, alia
 
 #### Automating parser installation
 
-Work in progress – not sure if will land in time for Ignite
+        Work in progress – not sure if it will land in time for Ignite
 
 #### Optimizing parsers with parametrized functions
 
-Work in progress – not sure if will land in time for Ignite
+        Work in progress – not sure if it will land in time for Ignite
 
 #### Additional information
 
