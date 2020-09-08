@@ -11,7 +11,7 @@ tags: connectors
 ROBOTS: NOINDEX
 ---
 
-# Monitor, create, and manage SFTP files by using Azure Logic Apps [Deprecated]
+# Monitor, create, and manage SFTP files in Azure Logic Apps
 
 > [!IMPORTANT]
 > Please use the [SFTP-SSH connector](../connectors/connectors-sftp-ssh.md) as the SFTP connector is deprecated. You can no longer select SFTP 
