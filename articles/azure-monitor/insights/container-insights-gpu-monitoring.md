@@ -20,7 +20,7 @@ Azure Monitor for Containers supports monitoring GPU clusters from following GPU
 Azure Monitor for containers automatically starts monitoring GPU usage on nodes, and GPU requesting pods and workloads by collecting the following metrics at 60sec intervals and storing them in the **InsightMetrics** table.
 
 >[!NOTE]
->Note: After provisioning cluster with GPU nodes, ensure that [GPU driver](../../aks/gpu-cluster.md) is installed as required by AKS to run GPU workloads. Azure Monitor for Containers collect GPU metrics through GPU driver pods running in the node. 
+>After provisioning cluster with GPU nodes, ensure that [GPU driver](../../aks/gpu-cluster.md) is installed as required by AKS to run GPU workloads. Azure Monitor for Containers collect GPU metrics through GPU driver pods running in the node. 
 
 |Metric name |Metric dimension (tags) |Description |
 |------------|------------------------|------------|
