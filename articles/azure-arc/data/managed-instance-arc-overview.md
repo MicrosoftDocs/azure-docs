@@ -23,7 +23,7 @@ Azure Arc enabled SQL Managed Instance is currently in preview.
 
 ## Next steps
 
-Learn more about [Azure Arc enabled Managed Instance features and Capabilities](../linktoMIAAcapabilites.md)
+Learn more about [Azure Arc enabled Managed Instance features and Capabilities](managed-instance-azure-arc-features.md)
 
 [Start by deploying a Data Controller](create-data-controller.md)
 
