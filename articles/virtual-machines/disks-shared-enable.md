@@ -63,6 +63,11 @@ Before using the following template, replace `[parameters('dataDiskName')]`, `[r
 
 ---
 
+# [Azure Portal](#tab/azure-portal)
+
+![Creating Disk Share](./media/disks-shared-enable/Disk-Share.PNG)
+
+---
 ### Deploy an ultra disk as a shared disk
 
 To deploy a managed disk with the shared disk feature enabled, change the `maxShares` parameter to a value greater than 1. This makes the disk shareable across multiple VMs.
