@@ -70,7 +70,7 @@ Azure cross-region load balancer uses geo-proximity load-balancing algorithm for
 
 The configured load distribution mode of the regional load balancers is used for making the final routing decision when multiple regional load balancers are used for geo-proximity.
 
-(https://docs.microsoft.com/azure/load-balancer/load-balancer-distribution-mode)
+For more information, see [Configure the distribution mode for Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-distribution-mode).
 
 
 ### Ability to scale up/down behind a single endpoint
