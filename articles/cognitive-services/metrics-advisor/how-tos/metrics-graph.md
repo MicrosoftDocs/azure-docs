@@ -48,4 +48,6 @@ Repeat above steps, you are able to build a metrics graph which describes the in
 
 When the metrics graph is built, whenever there's anomaly detected on metrics within the graph, you are able to view related anomaly status and better understand the incident from a global view. 
 
-Click into one incident page of a metric within a metrics graph. Scroll down, cross metrics analysis shows under the diagnostic part.
+Click into one incident of a metric which belongs to one metrics graph. Scroll down, cross metrics analysis shows under the diagnostic part, with related incidents. 
+
+![View related metrics anomaly](../media/graph/metrics-graph-cross-metrics-analysis.png)
