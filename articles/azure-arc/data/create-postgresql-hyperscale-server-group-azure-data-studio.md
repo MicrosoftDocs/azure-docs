@@ -44,7 +44,7 @@ Logged in successfully to `https://10.0.0.4:30080` in namespace `arc`. Setting a
 
 1. Launch Azure Data Studio
 1. On the Connections tab, Click on the three dots on the top left and choose "New Deployment"
-1. From the deployment options, select **PostgreSQL Hyperscale server group 1. Azure Arc** 
+1. From the deployment options, select **PostgreSQL Hyperscale server group - Azure Arc**
    >[!NOTE]
    > You may be prompted to install the `azdata` CLI here if it is not currently installed.
 1. Accept the Privacy and license terms and click **Select** at the bottom
