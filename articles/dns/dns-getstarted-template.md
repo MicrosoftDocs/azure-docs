@@ -30,11 +30,11 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-azure-dns-new-zone).
 
-In this quickstart, you'll create a unique DNS zone with a suffix of *<span>azurequickstart.</span>org*. An *A* record pointing to two IP values will also be placed in the zone.
+In this quickstart, you'll create a unique DNS zone with a suffix of *<span>azurequickstart.</span>org*. An *A* record pointing to two IP addresses will also be placed in the zone.
 
 :::code language="json" source="~/quickstart-templates/101-azure-dns-new-zone/azuredeploy.json":::
 
-Two Azure resources are defined in the template:
+Two Azure resources have been defined in the template:
 
 * [**Microsoft.Network/dnsZones**](/azure/templates/microsoft.network/dnsZones)
 * [**Microsoft.Network/dnsZones/A**](/azure/templates/microsoft.network/dnsZones/A) (Used to create an A record in the zone)
@@ -89,6 +89,26 @@ Azure PowerShell is used to deploy the template. In addition to Azure PowerShell
 1. Select the DNS zone with the suffix of **<span>azurequickstart.</span>org** to verify that the zone is created properly with an **A** record referencing the value of **1.2.3.4** and **1.2.3.5**.
 
     :::image type="content" source="./media/dns-getstarted-template/dns-zone-overview.png" alt-text="DNS zone deployment":::
+
+1. Copy one of the name server names from the previous step.
+
+1. Open a command prompt, and run the following command:
+
+   ```
+   nslookup www.<dns zone name> <name server name>
+   ```
+
+   For example:
+
+   ```
+   nslookup www.2lwynbseszpam.azurequickstart.org ns1-09.azure-dns.com.
+   ```
+
+   You should see something like the following screenshot:
+
+    :::image type="content" source="./media/dns-getstarted-template/dns-zone-validation.png" alt-text="DNS zone nslookup":::
+
+The host name **www<span>.2lwynbseszpam.azurequickstart.</span>org** resolves to **1.2.3.4** and **1.2.3.5**, just as you configured it. This result verifies that name resolution is working correctly.
 
 ## Clean up resources
 
