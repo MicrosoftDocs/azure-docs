@@ -59,7 +59,7 @@ Logged in successfully to `https://10.0.0.4:30080` in namespace `arc`. Setting a
 
 This starts the deployment of the Azure Arc enabled PostgreSQL Hyperscale server group on the data controller.
 
-In a few minutes, your deployment should successfully complete
+In a few minutes, your deployment should successfully complete.
 
 ## Next steps
 - [Manage your server group using Azure Data Studio](manage-postgresql-hyperscale-server-group-with-azure-data-studio.md)
