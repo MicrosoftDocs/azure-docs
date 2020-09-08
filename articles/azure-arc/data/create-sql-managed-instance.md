@@ -23,8 +23,6 @@ azdata login
 
 You will then be prompted for the username, password, and the system namespace.  
 
-> If you used the script to install the data controller then your namespace should be **arc**
-
 ```console
 Username: arcadmin
 Password:
@@ -37,7 +35,7 @@ Logged in successfully to `https://10.0.0.4:30080` in namespace `arc`. Setting a
 To create an Azure SQL Managed Instance, use the following command:
 
 > [!NOTE]
->  Names must be less than 13 characters in length and conform to DNS naming conventions
+>  Names must be less than 13 characters in length and conform to [DNS naming conventions](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#dns-label-names)
 >
 >  When specifying memory allocation and vCore allocation use this formula to ensure your deployment is successful - for each 1 vCore you need at least 4GB of RAM of capacity available on the Kubernetes node where the SQL managed instance pod will run.
 >
