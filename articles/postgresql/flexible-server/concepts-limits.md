@@ -4,7 +4,6 @@ description: This article describes limits in Azure Database for PostgreSQL - Fl
 author: lfittl-msft
 ms.author: lufittl
 ms.service: postgresql
-ms.subservice: flexible-server
 ms.topic: conceptual
 ms.date: 9/22/2020
 ---
@@ -18,7 +17,7 @@ The following sections describe capacity and functional limits in the database s
 
 ## Maximum connections
 
-The maximum number of connections per pricing tier and vCores are shown below. The Azure system requires three connections to monitor the Azure Database for PostgreSQL flexible server.
+The maximum number of connections per pricing tier and vCores are shown below. The Azure system requires three connections to monitor the Azure Database for PostgreSQL - Flexible Server.
 
 | SKU Name             | vCores | Memory Size | Max Connections | Max User Connections |
 |----------------------|--------|-------------|-----------------|----------------------|

@@ -4,7 +4,6 @@ description: This article describes how to perform restore operations in Azure D
 author: sr-msft
 ms.author: srranga
 ms.service: postgresql
-ms.subservice: flexible-server
 ms.topic: how-to
 ms.date: 09/21/2020
 ---
@@ -20,7 +19,7 @@ This article provides step-by-step procedure to perform point-in-time recoveries
 
 To complete this how-to guide, you need:
 
--   You must have an Azure Database for PostgreSQL flexible server. The same procedure is also applicable for flexible server configured with zone redundancy.
+-   You must have an Azure Database for PostgreSQL - Flexible Server. The same procedure is also applicable for flexible server configured with zone redundancy.
 
 ## Restoring to the earliest restore point
 

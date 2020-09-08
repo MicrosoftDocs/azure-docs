@@ -4,7 +4,6 @@ description: Describes logging configuration, storage and analysis in Azure Data
 author: lfittl-msft
 ms.author: lufittl
 ms.service: postgresql
-ms.subservice: flexible-server
 ms.topic: how-to
 ms.date: 9/22/2020
 ---

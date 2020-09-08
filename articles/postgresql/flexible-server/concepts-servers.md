@@ -4,7 +4,6 @@ description: This article provides considerations and guidelines for configuring
 author: lfittl-msft
 ms.author: lufittl
 ms.service: postgresql
-ms.subservice: flexible-server
 ms.topic: conceptual
 ms.date: 9/22/2020
 ---

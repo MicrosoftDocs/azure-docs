@@ -4,12 +4,11 @@ description: This article describes how to perform restart operations in Azure D
 author: sr-msft
 ms.author: srranga
 ms.service: postgresql
-ms.subservice: flexible-server
 ms.topic: how-to
 ms.date: 09/21/2020
 ---
 
-# Restart Azure Database for PostgreSQL Flexible Server
+# Restart Azure Database for PostgreSQL - Flexible Server
 
 > [!IMPORTANT]
 > Azure Database for PostgreSQL - Flexible Server is in preview

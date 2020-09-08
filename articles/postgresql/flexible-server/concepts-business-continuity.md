@@ -4,7 +4,6 @@ description: Learn about the concepts of business continuity with Azure Database
 author: sr-msft
 ms.author: srranga
 ms.service: postgresql
-ms.subservice: flexible-server
 ms.topic: conceptual
 ms.date: 09/22/2020
 ---

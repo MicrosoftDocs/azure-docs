@@ -4,7 +4,6 @@ description: This article describes the compute and storage options in Azure Dat
 author: lfittl-msft
 ms.author: lufittl
 ms.service: postgresql
-ms.subservice: flexible-server
 ms.topic: conceptual
 ms.date: 9/22/2020
 ---

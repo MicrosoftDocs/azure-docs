@@ -9,7 +9,7 @@ ms.author: sumuth
 ms.date: 09/22/2020
 ---
 
-# Quickstart: Use an ARM template to create an Azure Database for PostgreSQL Flexible Server
+# Quickstart: Use an ARM template to create an Azure Database for PostgreSQL - Flexible Server
 
 > [!IMPORTANT]
 > Azure Database for PostgreSQL - Flexible Server is in preview

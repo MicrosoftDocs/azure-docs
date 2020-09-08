@@ -1,10 +1,9 @@
 ---
 title: Manage zone redundant high availability - Azure portal - Azure Database for PostgreSQL - Flexible Server
-description: This article describes how to enable or disable zone redundant high availability in Azure Database for PostgreSQL flexible server through the Azure portal.
+description: This article describes how to enable or disable zone redundant high availability in Azure Database for PostgreSQL - Flexible Server through the Azure portal.
 author: sr-msft
 ms.author: srranga
 ms.service: postgresql
-ms.subservice: flexible-server
 ms.topic: how-to
 ms.date: 09/22/2020
 ---
@@ -12,7 +11,7 @@ ms.date: 09/22/2020
 # Manage zone redundant high availability in Flexible Server
 
 > [!IMPORTANT]
-> Azure Database for PostgreSQL Flexible Server is in preview
+> Azure Database for PostgreSQL - Flexible Server is in preview
 
 This article describes how you can enable or disable zone redundant high availability configuration in your flexible server.
 
@@ -81,7 +80,7 @@ Follow these steps to enable high availability for your existing flexible server
 Follow these steps to disable high availability for your flexible server
 that is already configured with zone redundancy.
 
-1.  In the [Azure portal](https://portal.azure.com/), select your existing Azure Database for PostgreSQL flexible server.
+1.  In the [Azure portal](https://portal.azure.com/), select your existing Azure Database for PostgreSQL - Flexible Server.
 
 2.  On the flexible server page, click **High Availability** from the front panel to open high availability page.
    

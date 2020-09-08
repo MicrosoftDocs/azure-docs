@@ -4,7 +4,6 @@ description: This article describes monitoring and metrics features in Azure Dat
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
-ms.subservice: flexible-server
 ms.topic: conceptual
 ms.date: 9/22/2020
 ---
