@@ -75,7 +75,7 @@ For more information, see [Configure the distribution mode for Azure Load Balanc
 
 ### Ability to scale up/down behind a single endpoint
 
-When you expose the global endpoint of cross-region load balancer to customers, you can add or remove regional deployments behind the global endpoint without customer impact. 
+When you expose the global endpoint of a cross-region load balancer to customers, you can add or remove regional deployments behind the global endpoint without customer impact. 
 
 <!---To learn about how to add or remove a regional deployment from the backend, read more [here](TODO: Insert CLI doc here).--->
 
