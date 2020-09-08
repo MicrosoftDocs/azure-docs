@@ -55,12 +55,11 @@ If you have permission to access and use your organization's cloud-based apps, y
 
 ### Download and install the My Apps Secure Sign-in Extension
 
-Download and install the **My Apps Secure Sign-in Extension**, if you're prompted. This extension helps you use your desktop browser to use single sign-on with your organization's cloud apps. For password single sign- on apps, go to Manage Application
+Download and install the **My Apps Secure Sign-in Extension**, if you're prompted. This extension helps you use your desktop browser to use single sign-on with your organization's cloud apps. Just hover over an app in the **My Apps** portal, select **...**, then select **Manage your application**.
 
 If your organization has already set you up for single sign-on, the extension is installed automatically and you can skip this section.
 
-
-This extension helps you:
+The **My Apps Secure Sign-in Extension** helps you:
 
 - Sign in directly to apps from the sign-in page.
 - Start any apps using the **Quick search** feature.
@@ -133,6 +132,7 @@ After you get to the **My Apps** portal, you can:
 
 - Organize your apps into the various categories created and provided by your organization. For more information, see [Access and use collections in the My Apps portal](my-applications-portal-workspaces.md).
 - Review, update, or revoke permissions granted to applications. For more information, see [Edit or revoke application permissions in the My Apps portal](my-applications-portal-permissions-saved-accounts.md).
+- Create, update, and remove app accounts. For more information, see [Edit or revoke application permissions](my-applications-portal-permissions-saved-accounts.md)
 - Access [**My Account**](my-account-portal-overview.md) from the **My Apps** portal for account management:
   
   - Checking for unusual sign-in activity
