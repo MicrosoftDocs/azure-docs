@@ -20,13 +20,21 @@ Azure Arc enabled PostgreSQL Hyperscale is one of the database services availabl
 - Unified management
 - Disconnected scenario support
 
-Read more details in the [_overview_](overview.md) and the [_connectivity_ articles](connectivity.md).
+Read more details at:
+- [What are Azure Arc enabled data services](overview.md)
+- [Connectivity modes and requirements](connectivity.md)
 
-## How does _Azure Arc enabled PostgreSQL Hyperscale_ differ from _Azure Database for PostgreSQL Hyperscale (Citus)_?
+## Compare solutions
+
+This section describes how Azure Arc enabled PostgreSQL Hyperscale differs from Azure Database for PostgreSQL Hyperscale (Citus)?
+
+## Azure Arc enabled PostgreSQL Hyperscale
 
 :::image type="content" source="media/postgres-hyperscale/postgresql-hyperscale.png" alt-text="Azure SQL Database for PostgreSQL Hyperscale":::
 
 This is the hyperscale form factor of the Postgres database engine available as database as a service in Azure (PaaS). It is powered by the Citus extension that enables the Hyperscale experience. In this form factor, the service runs in the Microsoft datacenters and is operated by Microsoft.
+
+## Azure Database for PostgreSQL Hyperscale (Citus)
 
 :::image type="content" source="media/postgres-hyperscale/postgresql-hyperscale-arc.png" alt-text="Azure Arc enabled PostgreSQL Hyperscale":::
 
@@ -34,12 +42,12 @@ This is the hyperscale form factor of the Postgres database engine offered avail
 
 ## Next steps
 - **Deploy**
-   >- **Just want to try things out?**  
+   > **Just want to try things out?**  
    > Quick starter and packaged deployment option: Get started quickly with [Azure Arc JumpStart](https://github.com/microsoft/azure_arc#azure-arc-enabled-data-services) on Azure Kubernetes Service (AKS), AWS Elastic Kubernetes Service (EKS), Google Cloud Kubernetes Engine (GKE) or in an Azure VM.
 
    - **Deploy on your terms:**
       - [Install the client tools](install-client-tools.md)
       - [Deploy the Azure Arc data controller](create-data-controller.md) (requires installing the client tools first)
-      - [Deploy an Azure Database for PostgreSQL Hyperscale server group on Azure Arc](create-postgresql-hyperscale-server-group.md) (requires deployment of an Azure Arc data controller first)
+      - [Deploy an Azure Database for PostgreSQL Hyperscale server group on Azure Arc](create-postgresql-hyperscale-server-group.md) (Requires deployment of an Azure Arc data controller first.)
 - [**Read more about Azure Arc enabled data services**](https://azure.microsoft.com/services/azure-arc/hybrid-data-services)
 - [**Read about Azure Arc**](https://http://aka.ms/azurearc)
