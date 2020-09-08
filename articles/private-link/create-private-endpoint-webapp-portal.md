@@ -236,7 +236,7 @@ In this Quickstart, you created a VM on a virtual network, a Web App, and a Priv
 [18]: ./media/create-private-endpoint-webapp-portal/explorer.png
 [19]: ./media/create-private-endpoint-webapp-portal/hosts.png
 [20]: ./media/create-private-endpoint-webapp-portal/webappwithpe.png
-[21]: ./media/create-private-endpoint-webapp-portal/dnsprivatezone.png
+[21]: ./media/create-private-endpoint-webapp-portal/dns-private-zone.png
 
 <!--Links-->
 [privatenedpointwebapp]: https://docs.microsoft.com/azure/app-service/networking/private-endpoint
