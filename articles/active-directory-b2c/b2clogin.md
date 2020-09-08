@@ -19,7 +19,9 @@ ms.subservice: B2C
 When you set up an identity provider for sign-up and sign-in in your Azure Active Directory B2C (Azure AD B2C) application, you need to specify a redirect URL. You should no longer reference *login.microsoftonline.com* in your applications and APIs for authenticating users with Azure AD B2C. Instead, use *b2clogin.com* for all new applications, and migrate existing applications from *login.microsoftonline.com* to *b2clogin.com*.
 
 ## What endpoints does this apply to
-The transition to b2clogin.com only applies to authentication endpoints that use Azure AD B2C policies to authenticate users. These endpoints have a `<policy-name>` parameter. For example:
+The transition to b2clogin.com only applies to authentication endpoints that use Azure AD B2C policies (user flows) to authenticate users. These endpoints have a `<policy-name>` parameter which specifies the policy Azure AD B2C should use. [Learn more about Azure AD B2C policies](technical-overview.md#identity-experiences-user-flows-or-custom-policies). 
+
+These endpoints may look like:
 - <code>https://\<tenant-name\>.b2clogin.com/\<tenant-name\>.onmicrosoft.com/<b>\<policy-name\></b>/oauth2/v2.0/authorize</code>
 
 - <code>https://\<tenant-name\>.b2clogin.com/\<tenant-name\>.onmicrosoft.com/<b>\<policy-name\></b>/oauth2/v2.0/token</code>
@@ -31,7 +33,7 @@ Alternatively, the `<policy-name>` may be passed as a query parameter:
 > [!IMPORTANT]
 > Endpoints that use the 'policy' parameter must be updated. 
 
-Some Azure AD B2C customers use the shared capabilities of  Azure AD enterprise tenants like OAuth 2.0 client credentials grant flow. These features are accessed using Azure AD's login.microsoftonline.com endpoints, which don't contain a policy parameter. **These endpoints are not being deprecated.**
+Some Azure AD B2C customers use the shared capabilities of  Azure AD enterprise tenants like OAuth 2.0 client credentials grant flow. These features are accessed using Azure AD's login.microsoftonline.com endpoints, *which don't contain a policy parameter*. __These endpoints are not affected__.
 
 ## Deprecation of login.microsoftonline.com
 
