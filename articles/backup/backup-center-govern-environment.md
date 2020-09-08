@@ -19,7 +19,7 @@ Backup Center helps you govern your Azure environment to ensure that all your re
 
 ## Azure Policies for Backup
 
-To view all the Azure Policies that are available for backup, select the **Azure Policies for Backup** menu item. This will display all the built-in and custom [Azure policy definitions for backup](policy-reference.md) that are available for assignment to your subscriptions and resource groups.
+To view all the [Azure Policies](https://docs.microsoft.com/azure/governance/policy/overview) that are available for backup, select the **Azure Policies for Backup** menu item. This will display all the built-in and custom [Azure policy definitions for backup](policy-reference.md) that are available for assignment to your subscriptions and resource groups.
 
 Selecting any of the definitions allows you to [assign the policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage#assign-a-policy) to a scope.
 

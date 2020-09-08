@@ -63,6 +63,8 @@ landingContent:
     linkLists:
       - linkListType: whats-new
         links:
+          - text: Backup Center
+            url: backup-center-overview.md
           - text: Soft Delete for Azure Backup
             url: backup-azure-security-feature-cloud.md
           - text: SQL Server on Azure VMs restore as files
@@ -148,6 +150,8 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
+          - text: Manage at scale with Backup Center
+            url: backup-center-monitor-operate.md
           - text: Govern at scale with Azure Policy
             url: backup-azure-auto-enable-backup.md
           - text: Monitor and operate at scale with Backup Explorer
