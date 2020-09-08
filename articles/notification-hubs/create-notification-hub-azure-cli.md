@@ -30,10 +30,10 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/azure-cli-prepare-your-environment-for-extensions.md)]
 
-   Install the extension for Notification Hubs.
-   ```azurecli
-   az extension add --name notification-hub
-   ```
+      Install the extension for Notification Hubs.
+      ```azurecli
+      az extension add --name notification-hub
+      ```
 
 ## Create a Notification Hubs namespace
 
