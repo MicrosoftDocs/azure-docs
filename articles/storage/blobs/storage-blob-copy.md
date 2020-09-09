@@ -139,7 +139,7 @@ Aborting a copy operation results in a destination blob of zero length for block
 
 You can check the [BlobProperties.CopyStatus](/dotnet/api/azure.storage.blobs.models.blobproperties.copystatus) property on the destination blob to get the status of the copy operation. The final blob will be committed when the copy completes.
 
-When you abort an ongoing blob copy operation, the destination blob's copy status is set to [CopyStatus.Aborted](/dotnet/api/microsoft.azure.storage.blob.copystatus).
+When you abort a blob copy operation, the destination blob's copy status is set to [CopyStatus.Aborted](/dotnet/api/microsoft.azure.storage.blob.copystatus).
 
 The [AbortCopyFromUri](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.abortcopyfromuri) and [AbortCopyFromUriAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.abortcopyfromuriasync) methods cancel an ongoing blob copy operation.
 
@@ -149,7 +149,7 @@ The [AbortCopyFromUri](/dotnet/api/azure.storage.blobs.specialized.blobbaseclien
 
 You can check the [CopyState.Status](/dotnet/api/microsoft.azure.storage.blob.copystate.status) property on the destination blob to get the status of the copy operation. The final blob will be committed when the copy completes.
 
-When you abort an ongoing blob copy operation, the destination blob's copy status is set to [CopyStatus.Aborted](/dotnet/api/microsoft.azure.storage.blob.copystatus).
+When you abort a blob copy operation, the destination blob's copy status is set to [CopyStatus.Aborted](/dotnet/api/microsoft.azure.storage.blob.copystatus).
 
 The [AbortCopy](/dotnet/api/microsoft.azure.storage.blob.cloudblob.abortcopy) and [AbortCopyAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.abortcopyasync) methods cancel an ongoing blob copy operation.
 
@@ -169,7 +169,7 @@ if (destBlob.CopyState.Status == CopyStatus.Pending)
 
 You can check the "copy_status" entry in the [CopyProperties](/azure/developer/python/sdk/storage/azure-storage-blob/azure.storage.blob.copyproperties) dictionary returned by [start_copy_from_url](/azure/developer/python/sdk/storage/azure-storage-blob/azure.storage.blob.blobclient#start-copy-from-url-source-url--metadata-none--incremental-copy-false----kwargs-) method the to get the status of the copy operation. The final blob will be committed when the copy completes.
 
-When you abort an ongoing blob copy operation, the [copy_status](/azure/developer/python/sdk/storage/azure-storage-blob/azure.storage.blob.copyproperties) is set to "aborted".
+When you abort a blob copy operation, the [copy_status](/azure/developer/python/sdk/storage/azure-storage-blob/azure.storage.blob.copyproperties) is set to "aborted".
 
 The [abort_copy](/azure/developer/python/sdk/storage/azure-storage-blob/azure.storage.blob.blobclient#abort-copy-copy-id----kwargs-) method cancels an ongoing blob copy operation.
 
