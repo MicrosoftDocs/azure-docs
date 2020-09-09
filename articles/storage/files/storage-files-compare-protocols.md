@@ -36,7 +36,7 @@ Connecting with SMB is our more mature offering, it has more available features 
 
 ## SMB shares
 
-Mounting Azure file shares with SMB is our more mature offering, it has more available Azure Files features and no Azure Files feature restrictions since it is generally available.
+Azure file shares mounted with SMB offer more Azure Files features and have no Azure Files feature restrictions since it is generally available.
 
 ### Features
 
