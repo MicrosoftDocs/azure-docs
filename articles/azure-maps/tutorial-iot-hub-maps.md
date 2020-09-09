@@ -201,7 +201,7 @@ Now, we'll set up our Azure function.
     * Replace **UDID** with the `udid` of the geofence you uploaded in [Upload a geofence](#upload-a-geofence).
     * The **CreateBlobAsync** function in the script creates a blob per event in the data storage account. Replace the **ACCESS_KEY**, **ACCOUNT_NAME**, and **STORAGE_CONTAINER_NAME** with your storage account's access key, account name, and data storage container. These values were generated when you created your storage account in [Create an Azure storage account](#create-an-azure-storage-account).
 
-9. Click on the **Integration** blade in the left-hand menu. Click on **Event Grid Trigger** in the diagram. Type in a name for the trigger, like *eventCarTelemetry*, and click **Create Event Grid subscription**.
+9. Click on the **Integration** blade in the left-hand menu. Click on **Event Grid Trigger** in the diagram. Type in a name for the trigger, *eventGridEvent*, and click **Create Event Grid subscription**.
 
      :::image type="content" source="./media/tutorial-iot-hub-maps/function-integration.png" alt-text="Add event subscription":::
 
