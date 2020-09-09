@@ -125,9 +125,14 @@ Use the following instructions to lock a RHEL 8.x VM to a particular minor relea
     yum --disablerepo='*' remove 'rhui-azure-rhel8'
     ```
 
+1. Get the EUS repos config file:
+    ```bash
+    wget https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel8-eus.config
+    ```
+
 1. Add EUS repos:
     ```bash
-    yum --config='https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel8-eus.config' install 'rhui-azure-rhel8-eus'
+    yum --config=rhui-microsoft-azure-rhel8-eus.config install rhui-azure-rhel8-eus
     ```
 
 1. Lock the `releasever` variable (run as root):
@@ -137,6 +142,9 @@ Use the following instructions to lock a RHEL 8.x VM to a particular minor relea
 
     >[!NOTE]
     > The above instruction will lock the RHEL minor release to the current minor release. Enter a specific minor release if you are looking to upgrade and lock to a later minor release that is not the latest. For example, `echo 8.1 > /etc/yum/vars/releasever` will lock your RHEL version to RHEL 8.1
+
+    >[!NOTE]
+    > If there are permission issues to access the releasever, you can edit the file using 'nano /etc/yum/vars/releaseve' and add the image version details and save ('Ctrl+o' then press enter and then 'Ctrl+x')  
 
 1. Update your RHEL VM
     ```bash
@@ -178,11 +186,16 @@ Run the following as root:
     yum --disablerepo='*' remove 'rhui-azure-rhel8-eus'
    ```
 
-1. Configure RHEL VM
+1. Get the regular repos config file:
     ```bash
-    yum --config='https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel8.config' install 'rhui-azure-rhel8'
+    wget https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel8.config
     ```
 
+1. Add EUS repos:
+    ```bash
+    yum --config=rhui-microsoft-azure-rhel8.config install rhui-azure-rhel8
+    ```
+    
 1. Update your RHEL VM
     ```bash
     sudo yum update
