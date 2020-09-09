@@ -6,7 +6,7 @@ services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice:
+ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: aahi
@@ -90,7 +90,7 @@ There are several optional advanced settings when creating a new data feed, they
 > [!NOTE]
 > This setting won't affect your data source and will not affect the data charts displayed on the portal. The auto-filling only occurs during anomaly detection.
 
-Some time series are not continuous. When there're missing data points, Metrics Advisor will use the specified value to fill them before anomaly detection for better accuracy.
+Some time series are not continuous. When there are missing data points, Metrics Advisor will use the specified value to fill them before anomaly detection for better accuracy.
 The options are: 
 
 * Using the value from the previous actual data point. This is used by default.
@@ -114,15 +114,16 @@ Once you've filled in the action link, click **Go to action link** on the incide
 
 Examples :
 
-* If the action link template is `https://action-link/metric/%metric?detectConfigId=%detect_config`, we would go to action link `https://action-link/metric/1234?detectConfigId=2345` for anomalies or incidents under metric `1234` and detect config `2345`.
+* If the action link template is `https://action-link/metric/%metric?detectConfigId=%detect_config`,
+  * The action link `https://action-link/metric/1234?detectConfigId=2345` would go to anomalies or incidents under metric `1234` and detect config `2345`.
 
 * If the action link template is `https://action-link?[Dim1=%tagset.get('Dim1','')&][Dim2=%tagset.get('Dim2','')]`, 
-    - The action link would be `https://action-link?Dim1=Val1&Dim2=Val2` when the anomaly is `{ "Dim1": "Val1", "Dim2": "Val2" }`; 
-    - The action link would be `https://action-link?Dim2=Val2` when the anomaly is `{ "Dim1": "", "Dim2": "Val2" } `, since `[Dim1=***&]` is skipped for the dimension value empty string. 
+    * The action link would be `https://action-link?Dim1=Val1&Dim2=Val2` when the anomaly is `{ "Dim1": "Val1", "Dim2": "Val2" }`. 
+    * The action link would be `https://action-link?Dim2=Val2` when the anomaly is `{ "Dim1": "", "Dim2": "Val2" } `, since `[Dim1=***&]` is skipped for the dimension value empty string. 
 
-- If the action link template is `https://action-link?filter=[Name/Dim1 eq '%tagset.get('Dim1','')' and ][Name/Dim2 eq '%tagset.get('Dim2','')']`, 
-    - The action link would be `https://action-link?filter=Name/Dim1 eq 'Val1' and Name/Dim2 eq 'Val2'` when the anomaly is `{ "Dim1": "Val1", "Dim2": "Val2" }`, 
-    - The action link would be `https://action-link?filter=Name/Dim2 eq 'Val2'` when anomaly is `{ "Dim1": "", "Dim2": "Val2" }` since `[Name/Dim1 eq '***' and ]` is skipped for the dimension value empty string. 
+* If the action link template is `https://action-link?filter=[Name/Dim1 eq '%tagset.get('Dim1','')' and ][Name/Dim2 eq '%tagset.get('Dim2','')']`, 
+    * The action link would be `https://action-link?filter=Name/Dim1 eq 'Val1' and Name/Dim2 eq 'Val2'` when the anomaly is `{ "Dim1": "Val1", "Dim2": "Val2" }`, 
+    * The action link would be `https://action-link?filter=Name/Dim2 eq 'Val2'` when anomaly is `{ "Dim1": "", "Dim2": "Val2" }` since `[Name/Dim1 eq '***' and ]` is skipped for the dimension value empty string. 
    
 ### "Data feed not available" alert settings
 

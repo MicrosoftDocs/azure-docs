@@ -6,7 +6,7 @@ services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: 
+ms.subservice: metrics-advisor
 ms.topic: quickstart
 ms.date: 08/19/2020
 ms.author: aahi

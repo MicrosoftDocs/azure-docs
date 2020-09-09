@@ -6,7 +6,7 @@ services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice:
+ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: aahi
@@ -22,9 +22,11 @@ Click on one of the metric names to see its details. In this detailed view, you 
 
 When you first view a metrics' details, you can load a time series by letting Metrics Advisor choose one for you, or by specifying values to be included for each dimension. 
 
-You can also select time ranges, and change the layout of the page. Note the following:
-- The start time is inclusive.
-- The end time is exclusive. 
+You can also select time ranges, and change the layout of the page.
+
+> [!NOTE]
+> - The start time is inclusive.
+> - The end time is exclusive. 
 
 You can click the **Incidents** tab to view anomalies, and find a link to the [Incident hub](diagnose-incident.md).
 
@@ -85,7 +87,7 @@ Use the following steps to use this mode:
 
 2. Select the **out of the range** or **in the range** parameter based on your scenario.
 
-    If you want to detect fluctuations**, select **out of the range**. For example, with the settings below, any data point that changes over 10% compared to the previous one will be detected as an outlier.
+    If you want to detect fluctuations, select **out of the range**. For example, with the settings below, any data point that changes over 10% compared to the previous one will be detected as an outlier.
 
     ![out of range](../media/metrics/out-of-the-range.png)
 
@@ -97,8 +99,8 @@ Use the following steps to use this mode:
     
     **Direction** is only valid if you're using the **out of the range** mode:
     
-    * "Up" means to only detect anomalies when (current data point) - (comparing data point) > **+** threshold%.
-    * "Down" means to only detect anomalies when (current data point) - (comparing data point) < **-** threshold%.
+    * **Up** configures detection to only detect anomalies when (current data point) - (comparison data point) > **+** threshold%.
+    * **Down** configures detection to only detect anomalies when (current data point) - (comparing data point) < **-** threshold%.
  
 **Hard threshold**
 
@@ -162,9 +164,9 @@ Cycle event is used to reduce anomalies if they follow a cyclic pattern, but it 
 
 ## View recent incidents
 
-Metrics Advisor detects anomalies on all your time series data in near real-time. However, not all of these anomalies would be escalated to customers, because they might not critical enough to be noticed. Aggregation will be performed on anomalies to get related anomalies clustered for escalating a potential incident. You can view these incidents from the **Incident** tab in metrics details page. 
+Metrics Advisor detects anomalies on all your time series data as they're ingested. However, not all anomalies need to be escalated, because they might not have a big impact. Aggregation will be performed on anomalies to group related ones into incidents. You can view these incidents from the **Incident** tab in metrics details page. 
 
-Click on an incident and you will be taken to the **Incidents analysis** page where you can see more details about it. Click on **Manage incidents in new Incident hub**, and you will be taken to the [Incident hub](diagnose-incident.md) page where you can find all incidents under the specific metric. 
+Click on an incident to go to the **Incidents analysis** page where you can see more details about it. Click on **Manage incidents in new Incident hub**, to find the [Incident hub](diagnose-incident.md) page where you can find all incidents under the specific metric. 
 
 ## Subscribe anomalies for notification
 

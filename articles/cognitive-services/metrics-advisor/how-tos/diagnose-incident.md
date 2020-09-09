@@ -6,7 +6,7 @@ services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice:
+ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: aahi
@@ -17,7 +17,7 @@ ms.author: aahi
 Metrics Advisor provides several features for diagnostics, and gives an in-depth view of detected incidents, and provide root-cause analysis. When a group of anomalies detected on a metric, Metrics Advisor will group anomalies into a hierarchy and analyze on top of it.
 
 > [!NOTE]
-> Currently Metrics Advisor supports incident diagnostics for metrics with at least one dimension, and measure with the  **numeric** type. Your metric needs to have an **aggregated dimension value** like SUM for each dimension, which is used to build the diagnostics hierarchy. Metrics Advisor offers [Automatic roll up settings](onboard-your-data.md#automatic-roll-up-settings) to help with generating aggregated values. 
+> Currently Metrics Advisor supports incident diagnostics for metrics with at least one dimension, and measure with the  *numeric* type. Your metric needs to have an aggregated dimension value like SUM for each dimension, which is used to build the diagnostics hierarchy. Metrics Advisor offers [Automatic roll up settings](onboard-your-data.md#automatic-roll-up-settings) to help with generating aggregated values. 
 
 Click on **Incident hub** in the left navigation window to see all incidents under a given metric. At the top of the page, you can select different metrics to see their detection configurations, and detection results, and change the time range.
 
@@ -40,7 +40,7 @@ The **Diagnostic** section lets you perform in-depth analysis on an incident, an
 
 ## Root cause advice
 
-When a group of anomalies is detected in a metric and causes an incident, Metrics Advisor will try to analyze the root cause of the incident. **Root cause advices** provides automatic suggestions for likely causes of an incident. This feature is only available if there is an aggregated value within dimension. If the metric has no dimension, the root cause will be itself. Root causes are listed at right side panel and there might be several reasons listed. If there is no data in the table, it means your dimension doesn't satisfy the requirements to perform the analysis.
+When a group of anomalies is detected in a metric and causes an incident, Metrics Advisor will try to analyze the root cause of the incident. **Root cause advice** provides automatic suggestions for likely causes of an incident. This feature is only available if there is an aggregated value within dimension. If the metric has no dimension, the root cause will be itself. Root causes are listed at right side panel and there might be several reasons listed. If there is no data in the table, it means your dimension doesn't satisfy the requirements to perform the analysis.
 
 ![Root Cause Advice](../media/diagnostics/root-cause-advice.png)
 
@@ -52,7 +52,7 @@ Along with automated analysis on potential root causes, Metrics Advisor supports
 
 The quick diagnosis tree is for diagnosing a current incident, and the root node is limited to current incident root node. You can expand and collapse the tree nodes by clicking on it, and its series will be shown together with the current incident series in the chart above the tree.
 
-The interactive tree lets you diagnose current incidents as well as older incidents, and ones that are related. When using the interactive tree,right click on a node to open an action menu, where you can choose a dimension to drill up through the root nodes, and a dimension to drill down for each node. By clicking on the cancel button of the dimension list on the top, you can remove the drilling up or down from this dimension. left click a node to select it and show its series together with current incident series in the chart.
+The interactive tree lets you diagnose current incidents as well as older incidents, and ones that are related. When using the interactive tree, right click on a node to open an action menu, where you can choose a dimension to drill up through the root nodes, and a dimension to drill down for each node. By clicking on the cancel button of the dimension list on the top, you can remove the drilling up or down from this dimension. left click a node to select it and show its series together with current incident series in the chart.
 
 ![Incident tree quick diagnose](../media/diagnostics/incident-tree.png "Incident tree quick diagnose")
 
