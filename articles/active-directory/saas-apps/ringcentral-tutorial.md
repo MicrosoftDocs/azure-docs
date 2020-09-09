@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with RingCentral | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and RingCentral.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: CelesteDG
 ms.reviewer: celested
-
-ms.assetid: 5848c875-5185-4f91-8279-1a030e67c510
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/24/2019
 ms.author: jeedes
-
 ---
 # Tutorial: Integrate RingCentral with Azure Active Directory
 
@@ -34,6 +28,9 @@ To get started, you need the following items:
 
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * RingCentral single sign-on (SSO) enabled subscription.
+
+> [!NOTE]
+> This integration is also available to use from Azure AD US Government Cloud environment. You can find this application in the Azure AD US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
 
 ## Scenario description
 
@@ -87,15 +84,15 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. If you don't have **Service Provider metadata file**, enter the values for the following fields:
 
 	a. In the **Identifier** textbox, type a URL:
-
-	| |
+  
+	| Identifier |
 	|--|
 	|  `https://sso.ringcentral.com` |
 	| `https://ssoeuro.ringcentral.com` |
 
 	b. In the **Reply URL** textbox, type a URL:
 
-	| |
+	| Reply URL |
 	|--|
 	| `https://sso.ringcentral.com/sp/ACS.saml2` |
 	| `https://ssoeuro.ringcentral.com/sp/ACS.saml2` |

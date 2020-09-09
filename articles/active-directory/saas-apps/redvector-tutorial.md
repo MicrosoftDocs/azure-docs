@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with RedVector | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and RedVector.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 99042f39-0ab2-475b-8df8-3016d7f875e9
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with RedVector
 
@@ -105,7 +99,7 @@ To configure Azure AD single sign-on with RedVector, perform the following steps
     `https://sso2.redvector.com/adfs/<Companyname>`
 
     b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
-    `https://<Companyname>.redvector.com/saml2`
+    `https://sso2.redvector.com/saml2`
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [RedVector Client support team](mailto:sso@redvector.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.

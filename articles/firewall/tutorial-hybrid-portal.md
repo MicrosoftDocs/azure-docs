@@ -49,7 +49,7 @@ A hybrid network uses the hub-and-spoke architecture model to route traffic betw
    Additionally, routes to the gateway-connected virtual networks or on-premises networks will automatically propagate to the routing tables for the peered virtual networks using the gateway transit. For more information, see [Configure VPN gateway transit for virtual network peering](../vpn-gateway/vpn-gateway-peering-gateway-transit.md).
 
 - Set **UseRemoteGateways** when you peer VNet-Spoke to VNet-Hub. If **UseRemoteGateways** is set and **AllowGatewayTransit** on remote peering is also set, the spoke virtual network uses gateways of the remote virtual network for transit.
-- To route the spoke subnet traffic through the hub firewall, you need a User Defined route (UDR) that points to the firewall with the **Virtual network gateway route propagation** option disabled. The **Virtual network gateway route propagation** disabled option prevents route distribution to the spoke subnets. This prevents learned routes from conflicting with your UDR.
+- To route the spoke subnet traffic through the hub firewall, you can use a User Defined route (UDR) that points to the firewall with the **Virtual network gateway route propagation** option disabled. The **Virtual network gateway route propagation** disabled option prevents route distribution to the spoke subnets. This prevents learned routes from conflicting with your UDR. If you want to keep **Virtual network gateway route propagation** enabled, make sure to define specific routes to the firewall to override those that are published from on-premises over BGP.
 - Configure a UDR on the hub gateway subnet that points to the firewall IP address as the next hop to the spoke networks. No UDR is required on the Azure Firewall subnet, as it learns routes from BGP.
 
 See the [Create Routes](#create-the-routes) section in this tutorial to see how these routes are created.
@@ -125,18 +125,6 @@ Now create a second subnet for the gateway.
 3. For **Name**, type **GatewaySubnet**.
 4. For **Address range (CIDR block)** type **192.168.2.0/24**.
 5. Select **OK**.
-
-### Create a public IP address
-
-This is the public IP address used for the on-premises gateway.
-
-1. From the Azure portal home page, select **Create a resource**.
-2. In the search text box, type **public IP address** and press **Enter**.
-3. Select **Public IP address** and then select **Create**.
-4. For the name, type **VNet-Onprem-GW-pip**.
-5. For the resource group, type **FW-Hybrid-Test**.
-6. For **Location**, select the same location that you used previously.
-7. Accept the other defaults, and then select **Create**.
 
 ## Configure and deploy the firewall
 

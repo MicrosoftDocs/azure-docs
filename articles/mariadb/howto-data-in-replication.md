@@ -4,15 +4,15 @@ description: This article describes how to set up Data-in Replication in Azure D
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
-ms.topic: conceptual
-ms.date: 3/30/2020
+ms.topic: how-to
+ms.date: 6/11/2020
 ---
 
 # Configure Data-in Replication in Azure Database for MariaDB
 
-This article describes how to set up Data-in Replication in Azure Database for MariaDB by configuring the master and replica servers. This article assumes that you have some prior experience with MariaDB servers and databases.
+This article describes how to set up [Data-in Replication](concepts-data-in-replication.md) in Azure Database for MariaDB by configuring the master and replica servers. This article assumes that you have some prior experience with MariaDB servers and databases.
 
-To create a replica in the Azure Database for MariaDB service, Data-in Replication synchronizes data from a master MariaDB server on-premises, in virtual machines (VMs), or in cloud database services.
+To create a replica in the Azure Database for MariaDB service, [Data-in Replication](concepts-data-in-replication.md) synchronizes data from a master MariaDB server on-premises, in virtual machines (VMs), or in cloud database services. Data-in Replication is based on the binary log (binlog) file position-based replication native to MariaDB. To learn more about binlog replication, see the [binlog replication overview](https://mariadb.com/kb/en/library/replication-overview/).
 
 Review the [limitations and requirements](concepts-data-in-replication.md#limitations-and-considerations) of Data-in replication before performing the steps in this article.
 
@@ -36,6 +36,12 @@ Review the [limitations and requirements](concepts-data-in-replication.md#limita
 3. Add the master server's IP address to the replica's firewall rules. 
 
    Update firewall rules using the [Azure portal](howto-manage-firewall-portal.md) or [Azure CLI](howto-manage-firewall-cli.md).
+
+> [!NOTE]
+> Bias-free communication
+>
+> Microsoft supports a diverse and inclusionary environment. This article contains references to the word _slave_. The Microsoft [style guide for bias-free communication](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) recognizes this as an exclusionary word. The word is used in this article for consistency because it's currently the word that appears in the software. When the software is updated to remove the word, this article will be updated to be in alignment.
+>
 
 ## Configure the master server
 

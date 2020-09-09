@@ -8,7 +8,7 @@ ms.reviewer: kasimpso
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
-ms.topic: overview
+ms.topic: end-user-help
 ms.date: 02/06/2020
 ms.author: curtand
 ms.custom: user-help
@@ -21,7 +21,7 @@ Collections are different app views you see in the **My Apps** portal. Apps can 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-and-workspaces.md)]
 
 >[!Important]
->This content is intended for **My Apps** users. If you're an administrator, you can find more information about how to set up and manage your cloud-based apps in the [Application Management Documentation](https://docs.microsoft.com/azure/active-directory/manage-apps/access-panel-workspaces).
+>This content is intended for **My Apps** users. If you're an administrator, you can find more information about how to set up and manage your cloud-based apps in the [Application Management Documentation](../manage-apps/access-panel-collections.md).
 
 ## Access apps using collections
 

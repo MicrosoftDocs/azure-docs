@@ -1,20 +1,20 @@
 ---
-title: Retrain a web service
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (classic): retrain a web service - Azure'
 description: Learn how to update a web service to use a newly trained machine learning model in Azure Machine Learning Studio (classic).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 
 author: likebupt
 ms.author: keli19
-ms.custom: seodec18
+ms.custom: "seodec18, devx-track-csharp"
 ms.date: 02/14/2019
 ---
 # Retrain and deploy a machine learning model
 
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
+**APPLIES TO:**  ![yes](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic)   ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+
 
 Retraining is one way to ensure machine learning models stay accurate and based on the most relevant data available. This article shows how to retrain and deploy a machine learning model as a new web service in Studio (classic). If you're looking to retrain a classic web service, [view this how-to article.](retrain-classic-web-service.md)
 
@@ -73,7 +73,9 @@ The following screenshot shows the **Consume** page in the Azure Machine Learnin
 
 Locate the **apikey** declaration:
 
-    const string apiKey = "abc123"; // Replace this with the API key for the web service
+```csharp
+const string apiKey = "abc123"; // Replace this with the API key for the web service
+```
 
 In the **Basic consumption info** section of the **Consume** page, locate the primary key, and copy it to the **apikey** declaration.
 
@@ -91,9 +93,11 @@ The BES sample code uploads a file from a local drive (for example, "C:\temp\Cen
 
 Locate the *StorageAccountName*, *StorageAccountKey*, and *StorageContainerName* declarations, and update the values that you saved from the portal.
 
-    const string StorageAccountName = "mystorageacct"; // Replace this with your Azure storage account name
-    const string StorageAccountKey = "a_storage_account_key"; // Replace this with your Azure Storage key
-    const string StorageContainerName = "mycontainer"; // Replace this with your Azure Storage container name
+```csharp
+const string StorageAccountName = "mystorageacct"; // Replace this with your Azure storage account name
+const string StorageAccountKey = "a_storage_account_key"; // Replace this with your Azure Storage key
+const string StorageContainerName = "mycontainer"; // Replace this with your Azure Storage container name
+```
 
 You also must ensure that the input file is available at the location that you specify in the code.
 
@@ -101,15 +105,17 @@ You also must ensure that the input file is available at the location that you s
 
 When you specify the output location in the Request Payload, the extension of the file that is specified in *RelativeLocation* must be specified as `ilearner`.
 
-    Outputs = new Dictionary<string, AzureBlobDataReference>() {
+```csharp
+Outputs = new Dictionary<string, AzureBlobDataReference>() {
+    {
+        "output1",
+        new AzureBlobDataReference()
         {
-            "output1",
-            new AzureBlobDataReference()
-            {
-                ConnectionString = storageConnectionString,
-                RelativeLocation = string.Format("{0}/output1results.ilearner", StorageContainerName) /*Replace this with the location you want to use for your output file and a valid file extension (usually .csv for scoring results or .ilearner for trained models)*/
-            }
-        },
+            ConnectionString = storageConnectionString,
+            RelativeLocation = string.Format("{0}/output1results.ilearner", StorageContainerName) /*Replace this with the location you want to use for your output file and a valid file extension (usually .csv for scoring results or .ilearner for trained models)*/
+        }
+    },
+```
 
 Here is an example of retraining output:
 
@@ -135,55 +141,67 @@ First, sign in to your Azure account from within the PowerShell environment by u
 
 Next, get the Web Service Definition object by calling the [Get-AzMlWebService](https://docs.microsoft.com/powershell/module/az.machinelearning/get-azmlwebservice) cmdlet.
 
-    $wsd = Get-AzMlWebService -Name 'RetrainSamplePre.2016.8.17.0.3.51.237' -ResourceGroupName 'Default-MachineLearning-SouthCentralUS'
+```azurepowershell
+$wsd = Get-AzMlWebService -Name 'RetrainSamplePre.2016.8.17.0.3.51.237' -ResourceGroupName 'Default-MachineLearning-SouthCentralUS'
+```
 
 To determine the resource group name of an existing web service, run the Get-AzMlWebService cmdlet without any parameters to display the web services in your subscription. Locate the web service, and then look at its web service ID. The name of the resource group is the fourth element in the ID, just after the *resourceGroups* element. In the following example, the resource group name is Default-MachineLearning-SouthCentralUS.
 
-    Properties : Microsoft.Azure.Management.MachineLearning.WebServices.Models.WebServicePropertiesForGraph
-    Id : /subscriptions/<subscription ID>/resourceGroups/Default-MachineLearning-SouthCentralUS/providers/Microsoft.MachineLearning/webServices/RetrainSamplePre.2016.8.17.0.3.51.237
-    Name : RetrainSamplePre.2016.8.17.0.3.51.237
-    Location : South Central US
-    Type : Microsoft.MachineLearning/webServices
-    Tags : {}
+```azurepowershell
+Properties : Microsoft.Azure.Management.MachineLearning.WebServices.Models.WebServicePropertiesForGraph
+Id : /subscriptions/<subscription ID>/resourceGroups/Default-MachineLearning-SouthCentralUS/providers/Microsoft.MachineLearning/webServices/RetrainSamplePre.2016.8.17.0.3.51.237
+Name : RetrainSamplePre.2016.8.17.0.3.51.237
+Location : South Central US
+Type : Microsoft.MachineLearning/webServices
+Tags : {}
+```
 
 Alternatively, to determine the resource group name of an existing web service, sign in to the Azure Machine Learning Web Services portal. Select the web service. The resource group name is the fifth element of the URL of the web service, just after the *resourceGroups* element. In the following example, the resource group name is Default-MachineLearning-SouthCentralUS.
 
-    https://services.azureml.net/subscriptions/<subscription ID>/resourceGroups/Default-MachineLearning-SouthCentralUS/providers/Microsoft.MachineLearning/webServices/RetrainSamplePre.2016.8.17.0.3.51.237
+`https://services.azureml.net/subscriptions/<subscription ID>/resourceGroups/Default-MachineLearning-SouthCentralUS/providers/Microsoft.MachineLearning/webServices/RetrainSamplePre.2016.8.17.0.3.51.237`
 
 ### Export the Web Service Definition object as JSON
 
 To modify the definition of the trained model to use the newly trained model, you must first use the [Export-AzMlWebService](https://docs.microsoft.com/powershell/module/az.machinelearning/export-azmlwebservice) cmdlet to export it to a JSON-format file.
 
-    Export-AzMlWebService -WebService $wsd -OutputFile "C:\temp\mlservice_export.json"
+```azurepowershell
+Export-AzMlWebService -WebService $wsd -OutputFile "C:\temp\mlservice_export.json"
+```
 
 ### Update the reference to the ilearner blob
 
 In the assets, locate the [trained model], update the *uri* value in the *locationInfo* node with the URI of the ilearner blob. The URI is generated by combining the *BaseLocation* and the *RelativeLocation* from the output of the BES retraining call.
 
-     "asset3": {
-        "name": "Retrain Sample [trained model]",
-        "type": "Resource",
-        "locationInfo": {
-          "uri": "https://mltestaccount.blob.core.windows.net/azuremlassetscontainer/baca7bca650f46218633552c0bcbba0e.ilearner"
-        },
-        "outputPorts": {
-          "Results dataset": {
+```json
+"asset3": {
+    "name": "Retrain Sample [trained model]",
+    "type": "Resource",
+    "locationInfo": {
+        "uri": "https://mltestaccount.blob.core.windows.net/azuremlassetscontainer/baca7bca650f46218633552c0bcbba0e.ilearner"
+    },
+    "outputPorts": {
+        "Results dataset": {
             "type": "Dataset"
-          }
         }
-      },
+    }
+},
+```
 
 ### Import the JSON into a Web Service Definition object
 
 Use the [Import-AzMlWebService](https://docs.microsoft.com/powershell/module/az.machinelearning/import-azmlwebservice) cmdlet to convert the modified JSON file back into a Web Service Definition object that you can use to update the predicative experiment.
 
-    $wsd = Import-AzMlWebService -InputFile "C:\temp\mlservice_export.json"
+```azurepowershell
+$wsd = Import-AzMlWebService -InputFile "C:\temp\mlservice_export.json"
+```
 
 ### Update the web service
 
 Finally, use the [Update-AzMlWebService](https://docs.microsoft.com/powershell/module/az.machinelearning/update-azmlwebservice) cmdlet to update the predictive experiment.
 
-    Update-AzMlWebService -Name 'RetrainSamplePre.2016.8.17.0.3.51.237' -ResourceGroupName 'Default-MachineLearning-SouthCentralUS'
+```azurepowershell
+Update-AzMlWebService -Name 'RetrainSamplePre.2016.8.17.0.3.51.237' -ResourceGroupName 'Default-MachineLearning-SouthCentralUS'
+```
 
 ## Next steps
 

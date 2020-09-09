@@ -10,7 +10,7 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 03/25/2020
+ms.date: 08/03/2020
 ms.author: jingwang
 
 ---
@@ -51,7 +51,7 @@ To copy data from a source to a sink, the service that runs the Copy activity pe
 
 You can use the Copy activity to copy files as-is between two file-based data stores, in which case the data is copied efficiently without any serialization or deserialization. In addition, you can also parse or generate files of a given format, for example, you can perform the following:
 
-* Copy data from an on-premises SQL Server database and write to Azure Data Lake Storage Gen2 in Parquet format.
+* Copy data from a SQL Server database and write to Azure Data Lake Storage Gen2 in Parquet format.
 * Copy files in text (CSV) format from an on-premises file system and write to Azure Blob storage in Avro format.
 * Copy zipped files from an on-premises file system, decompress them on-the-fly, and write extracted files to Azure Data Lake Storage Gen2.
 * Copy data in Gzip compressed-text (CSV) format from Azure Blob storage and write it to Azure SQL Database.
@@ -182,7 +182,7 @@ See [Schema and data type mapping](copy-activity-schema-and-type-mapping.md) for
 In addition to copying data from source data store to sink, you can also configure to add additional data columns to copy along to sink. For example:
 
 - When copy from file-based source, store the relative file path as an additional column to trace from which file the data comes from.
-- Add a column with ADF expression, to attach ADF system variables like pipeline name/pipeline id, or store other dynamic value from upstream activity's output.
+- Add a column with ADF expression, to attach ADF system variables like pipeline name/pipeline ID, or store other dynamic value from upstream activity's output.
 - Add a column with static value to meet your downstream consumption need.
 
 You can find the following configuration on copy activity source tab: 
@@ -237,6 +237,19 @@ To configure it programmatically, add the `additionalColumns` property in your c
 ]
 ```
 
+## Auto create sink tables
+
+When copying data into SQL database/Azure Synapse Analytics, if the destination table does not exist, copy activity supports automatically creating it based on the source data. It aims to help you quickly get started to load the data and evaluate SQL database/Azure Synapse Analytics. After the data ingestion, you can review and adjust the sink table schema according to your needs.
+
+This feature is supported when copying data from any source into the following sink data stores. You can find the option on *ADF authoring UI* –> *Copy activity sink* –> *Table option* –> *Auto create table*, or via `tableOption` property in copy activity sink payload.
+
+- [Azure SQL Database](connector-azure-sql-database.md)
+- [Azure SQL Database Managed Instance](connector-azure-sql-managed-instance.md)
+- [Azure Synapse Analytics (formerly SQL Data Warehouse)](connector-azure-sql-data-warehouse.md)
+- [SQL Server](connector-sql-server.md)
+
+![Create sink tables](media/copy-activity-overview/create-sink-table.png)
+
 ## Fault tolerance
 
 By default, the Copy activity stops copying data and returns a failure when source data rows are incompatible with sink data rows. To make the copy succeed, you can configure the Copy activity to skip and log the incompatible rows and copy only the compatible data. See [Copy activity fault tolerance](copy-activity-fault-tolerance.md) for details.
@@ -246,4 +259,4 @@ See the following quickstarts, tutorials, and samples:
 
 - [Copy data from one location to another location in the same Azure Blob storage account](quickstart-create-data-factory-dot-net.md)
 - [Copy data from Azure Blob storage to Azure SQL Database](tutorial-copy-data-dot-net.md)
-- [Copy data from an on-premises SQL Server database to Azure](tutorial-hybrid-copy-powershell.md)
+- [Copy data from a SQL Server database to Azure](tutorial-hybrid-copy-powershell.md)

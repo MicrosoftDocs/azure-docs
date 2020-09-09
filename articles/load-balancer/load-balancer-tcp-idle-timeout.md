@@ -8,7 +8,7 @@ author: asudbring
 ms.custom: seodec18
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/09/2020
@@ -38,6 +38,10 @@ TCP keep-alive works for scenarios where battery life isn't a constraint. It isn
 
 The following sections describe how to change idle timeout settings for public IP and load balancer resources.
 
+>[!NOTE]
+> TCP idle timeout does not affect load balancing rules on UDP protocol.
+
+
 ## Configure the TCP timeout for your instance-level public IP to 15 minutes
 
 ```azurepowershell-interactive
@@ -60,6 +64,6 @@ $lb | Set-AzLoadBalancerRuleConfig -Name myLBrule -IdleTimeoutInMinutes 15
 
 [Internal load balancer overview](load-balancer-internal-overview.md)
 
-[Get started configuring an Internet-facing load balancer](quickstart-create-standard-load-balancer-powershell.md)
+[Get started configuring an Internet-facing load balancer](quickstart-load-balancer-standard-public-powershell.md)
 
 [Configure a load balancer distribution mode](load-balancer-distribution-mode.md)

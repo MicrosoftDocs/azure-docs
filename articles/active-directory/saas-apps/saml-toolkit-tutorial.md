@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Azure AD SAML Toolkit | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Azure AD SAML Toolkit.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 3f4348e7-c34e-43c7-926e-f1b26ffacf6d
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 04/24/2020
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with Azure AD SAML Toolkit
@@ -161,7 +155,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ### Create Azure AD SAML Toolkit test user
 
-In this section, a user called B.Simon is created in Azure AD SAML Toolkit. Azure AD SAML Toolkit supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Azure AD SAML Toolkit, a new one is created after authentication.
+In this section, a user called B.Simon is created in Azure AD SAML Toolkit. Please create a test user in the tool by registering a new user and provide all the user details. 
 
 ## Test SSO 
 

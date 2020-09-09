@@ -53,7 +53,9 @@ Follow the instructions in the [tutorial for the preconfigured solutions](../iot
 
 There's a full version (using Azure Resource Manager templates and Visual Studio) for the *remote monitoring* solution. Download from the [Azure-IoT-Remote-Monitoring repository on GitHub](https://github.com/Azure/azure-iot-remote-monitoring). The PowerShell deployment is ready for other environments like Azure Germany. Provide the *Environment* parameter "AzureGermanCloud," so it looks similar to this:
 
-    build.cmd cloud debug AzureGermanCloud
+```powershell
+build.cmd cloud debug AzureGermanCloud
+```
 
 Bing Maps is currently not available in Azure Germany and therefore cannot be subscribed to automatically. You can solve this problem by subscribing to the service in global Azure and using the service there. 
 

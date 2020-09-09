@@ -1,8 +1,9 @@
 ---
-author: sptramer
 ms.topic: include
 ms.date: 05/31/2019
-ms.author: sttramer
+author: dbradish-microsoft
+ms.author: dbradish
+manager: barbkess
 ---
 ## Prerequisite: Install the Azure CLI
 

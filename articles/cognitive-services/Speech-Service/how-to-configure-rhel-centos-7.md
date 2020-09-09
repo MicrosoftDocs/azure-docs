@@ -40,7 +40,7 @@ ldconfig -p | grep libstdc++
 
 The output on vanilla RHEL/CentOS 7 (x64) is:
 
-```
+```bash
 libstdc++.so.6 (libc6,x86-64) => /lib64/libstdc++.so.6
 ```
 
@@ -52,7 +52,7 @@ strings /lib64/libstdc++.so.6 | egrep "GLIBCXX_|CXXABI_"
 
 The output should be:
 
-```
+```bash
 ...
 GLIBCXX_3.4.19
 ...
@@ -67,7 +67,11 @@ The Speech SDK requires **CXXABI_1.3.9** and **GLIBCXX_3.4.21**. You can find th
 
 ## Example
 
-This is a sample command that illustrates how to configure RHEL/CentOS 7 x64 for development (C++, C#, Java, Python) with the Speech SDK 1.10.0 or later:
+This is a sample command set that illustrates how to configure RHEL/CentOS 7 x64 for development (C++, C#, Java, Python) with the Speech SDK 1.10.0 or later:
+
+### 1. General setup
+
+First install all general dependencies:
 
 ```bash
 # Only run ONE of the following two commands
@@ -81,16 +85,53 @@ sudo yum update -y
 sudo yum groupinstall -y "Development tools"
 sudo yum install -y alsa-lib dotnet-sdk-2.1 java-1.8.0-openjdk-devel openssl python3
 sudo yum install -y gstreamer1 gstreamer1-plugins-base gstreamer1-plugins-good gstreamer1-plugins-bad-free gstreamer1-plugins-ugly-free
+```
 
-# Build GCC 5.4.0 and runtimes and install them under /usr/local
+### 2. C/C++ compiler and runtime libraries
+
+Install the prerequisite packages with this command:
+
+```bash
 sudo yum install -y gmp-devel mpfr-devel libmpc-devel
+```
+
+> [!NOTE]
+> The libmpc-devel package has been deprecated in the RHEL 7.8 update. If the output of the previous command includes a message
+>
+> ```bash
+> No package libmpc-devel available.
+> ```
+>
+> then the necessary files need to be installed from original sources. Run the following commands:
+>
+> ```bash
+> curl https://ftp.gnu.org/gnu/mpc/mpc-1.1.0.tar.gz -O
+> tar zxf mpc-1.1.0.tar.gz
+> mkdir mpc-1.1.0-build && cd mpc-1.1.0-build
+> ../mpc-1.1.0/configure --prefix=/usr/local --libdir=/usr/local/lib64
+> make -j$(nproc)
+> sudo make install-strip
+> ```
+
+Next update the compiler and runtime libraries:
+
+```bash
+# Build GCC 5.4.0 and runtimes and install them under /usr/local
 curl https://ftp.gnu.org/gnu/gcc/gcc-5.4.0/gcc-5.4.0.tar.bz2 -O
 tar jxf gcc-5.4.0.tar.bz2
 mkdir gcc-5.4.0-build && cd gcc-5.4.0-build
 ../gcc-5.4.0/configure --enable-languages=c,c++ --disable-bootstrap --disable-multilib --prefix=/usr/local
 make -j$(nproc)
 sudo make install-strip
+```
 
+If the updated compiler and libraries need to be deployed on several machines, you can simply copy them from under `/usr/local` to other machines. If only the runtime libraries are needed then the files in `/usr/local/lib64` will be enough.
+
+### 3. Environment settings
+
+Run the following commands to complete the configuration:
+
+```bash
 # Set SSL cert file location
 # (this is required for any development/testing with Speech SDK)
 export SSL_CERT_FILE=/etc/pki/tls/certs/ca-bundle.crt

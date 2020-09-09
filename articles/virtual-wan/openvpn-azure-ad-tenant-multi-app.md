@@ -2,15 +2,15 @@
 title: 'Virtual WAN: Azure AD tenant for different user groups: Azure AD authentication'
 description: You can use P2S VPN to connect to your VNet using Azure AD authentication
 services: virtual-wan
-author: anzaman
+author: kumudD
 
 ms.service: virtual-wan
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/19/2020
 ms.author: alzam
 
 ---
-# Create an Azure Active Directory tenant for P2S OpenVPN protocol connections
+# Create an Azure Active Directory (AD) tenant for P2S OpenVPN protocol connections
 
 When connecting to your VNet, you can use certificate-based authentication or RADIUS authentication. However, when you use the Open VPN protocol, you can also use Azure Active Directory authentication. If you want different set of users to be able to connect to different gateways, you can register multiple apps in AD and link them to different gateways.
 

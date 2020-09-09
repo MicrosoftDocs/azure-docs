@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Pexip | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Pexip.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 4f7c6d94-bbda-4f35-8dea-f6aa315fac14
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/07/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Pexip
 

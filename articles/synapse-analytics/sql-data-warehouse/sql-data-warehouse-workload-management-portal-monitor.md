@@ -6,14 +6,14 @@ author: ronortloff
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: 
+ms.subservice: sql-dw 
 ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
 ---
 
-# Azure Synapse Analytics – Workload Management Portal Monitoring (Preview)
+# Azure Synapse Analytics – Workload Management Portal Monitoring
 
 This article explains how to monitor [workload group](sql-data-warehouse-workload-isolation.md#workload-groups) resource utilization and query activity.
 For details on how to configure the Azure Metrics Explorer see the [Getting started with Azure Metrics Explorer](../../azure-monitor/platform/metrics-getting-started.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) article.  See the [Resource utilization](sql-data-warehouse-concept-resource-utilization-query-activity.md#resource-utilization) section in Azure Synapse Analytics Monitoring documentation for details on how to monitor system resource consumption.

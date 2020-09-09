@@ -6,7 +6,7 @@ author: curtand
 ms.author: curtand
 manager: mtillman
 ms.date: 04/27/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: active-directory
 ms.subservice: users-groups-roles
 ms.workload: identity
@@ -52,7 +52,7 @@ The rows in a downloaded CSV template are as follows:
 
 1. Open the CSV file and add a line for each group member you want to remove from the group (required values are Member object ID or User principal name). Then save the file.
 
-   ![The CSV file contains names and IDs for the members to remove](./media/groups-bulk-remove-members/csv-file.png)
+    :::image type="content" source="./media/groups-bulk-import-members/csv-file.png" alt-text="The CSV file contains names and IDs of the group members to remove":::
 
 1. On the **Bulk remove group members** page, under **Upload your csv file**, browse to the file. When you select the file, validation of the CSV file starts.
 1. When the file contents are validated, the bulk import page displays **File uploaded successfully**. If there are errors, you must fix them before you can submit the job.
@@ -63,7 +63,7 @@ The rows in a downloaded CSV template are as follows:
 
 You can see the status of all of your pending bulk requests in the **Bulk operation results** page.
 
-[![](media/groups-bulk-remove-members/bulk-center.png "Check status in the Bulk Operations Results page")](media/groups-bulk-remove-members/bulk-center.png#lightbox)
+[![Check status in the Bulk Operations Results page](media/groups-bulk-remove-members/bulk-center.png)](media/groups-bulk-remove-members/bulk-center.png#lightbox)
 
 For details about each line item within the bulk operation, select the values under the **# Success**, **# Failure**, or **Total Requests** columns. If failures occurred, the reasons for failure will be listed.
 

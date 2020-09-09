@@ -48,7 +48,7 @@ To perform the steps described in this article, you must have:
 + When an API Management service is deployed in a virtual network, a [list of ports](./api-management-using-with-vnet.md#required-ports) are used and need to be opened. 
 
 ## <a name="enable-vpn"> </a>Creating an API Management in an internal virtual network
-The API Management service in an internal virtual network is hosted behind an [internal load balancer (classic)](https://docs.microsoft.com/azure/load-balancer/load-balancer-get-started-ilb-classic-cloud). This is the only option available and can't be changed.
+The API Management service in an internal virtual network is hosted behind an [internal load balancer (classic)](/azure/load-balancer/load-balancer-get-started-ilb-classic-cloud). This is the only option available and can't be changed.
 
 ### Enable a virtual network connection using the Azure portal
 
@@ -78,7 +78,7 @@ You can also enable virtual network connectivity by using PowerShell cmdlets.
 * Update an existing deployment of an API Management service inside a virtual network: Use the cmdlet [Update-AzApiManagementRegion](/powershell/module/az.apimanagement/update-azapimanagementregion) to move an existing API Management service inside a virtual network and configure it to use the internal virtual network type.
 
 ## <a name="apim-dns-configuration"></a>DNS configuration
-When API Management is in external virtual network mode, the DNS is managed by Azure. For internal virtual network mode, you have to manage your own routing.
+When API Management is in external virtual network mode, the DNS is managed by Azure. For internal virtual network mode, you have to manage your own DNS.
 
 > [!NOTE]
 > API Management service does not listen to requests coming from IP addresses. It only responds to requests to the host name configured on its service endpoints. These endpoints include gateway, the Azure portal and the Developer portal, direct management endpoint, and Git.
@@ -141,4 +141,3 @@ To learn more, see the following articles:
 [Common network configuration problems]: api-management-using-with-vnet.md#network-configuration-issues
 
 [ServiceTags]: ../virtual-network/security-overview.md#service-tags
-

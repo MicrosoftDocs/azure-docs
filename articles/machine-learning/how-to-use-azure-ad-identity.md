@@ -3,13 +3,14 @@ title: Use AAD identity with your web service
 titleSuffix: Azure Machine Learning
 description: Use AAD identity with your web service in Azure Kubernetes Service to access cloud resources during scoring.
 services: machine-learning
-author: trevorbye
-ms.author: trbye
+ms.author: larryfr
+author: BlackMist
 ms.reviewer: aashishb
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
 ms.date: 02/10/2020
+ms.topic: conceptual
+ms.custom: how-to
 ---
 
 # Use Azure AD identity with your machine learning web service in Azure Kubernetes Service
@@ -100,7 +101,7 @@ spec:
   template:
     metadata:
       labels:
-      - aadpodidbinding: "<value of Selector in AzureIdentityBinding>"
+       aadpodidbinding: "<value of Selector in AzureIdentityBinding>"
       ...
 ```
 
@@ -145,6 +146,9 @@ secret_client = SecretClient(
     credential=credential)
 secret = secret_client.get_secret(my_secret_name)
 ```
+
+> [!IMPORTANT]
+> This example uses the DefaultAzureCredential. To grant your identity access using a specific access policy, see [Assign a Key Vault access policy using the Azure CLI](/azure/key-vault/general/assign-access-policy-cli).
 
 ### Access Blob from your web service
 

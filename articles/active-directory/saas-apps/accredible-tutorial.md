@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Accredible | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Accredible.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 7284dfb6-df62-41f1-a4a4-1b8322b7ef44
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Accredible
 
@@ -104,11 +97,10 @@ To configure Azure AD single sign-on with Accredible, perform the following step
 
     a. In the **Identifier** text box, type a URL using the following pattern:
 
-	| |
-	|--|
-	|  `https://api.accredible.com/sp/admin/accredible` |
-	| `https://api.accredible.com/sp/user/accredible` |
-    | |
+    ```http
+    https://api.accredible.com/sp/admin/accredible
+    https://api.accredible.com/sp/user/accredible
+    ```
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
     `https://api.accredible.com/v1/saml/admin/<Unique id>/consume`

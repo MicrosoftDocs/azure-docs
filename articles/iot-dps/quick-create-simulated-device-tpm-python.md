@@ -8,7 +8,7 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps 
 ms.devlang: python
-ms.custom: mvc
+ms.custom: mvc, devx-track-python
 ---
 
 # Quickstart: Create and provision a simulated TPM device using Python device SDK for IoT Hub Device Provisioning Service

@@ -1,43 +1,49 @@
 ---
-title: Azure applications managed application offer publishing guide | Azure Marketplace
-description: This article describes the requirements to publish a managed application in the Azure Marketplace.
-author: dsindona
+title: Azure applications managed application offer publishing guide - Azure Marketplace
+description: This article describes the requirements for publishing a managed application in Azure Marketplace.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/22/2020
-ms.author: dsindona
-
+author: msjogarrig
+ms.author: jogarrig
+ms.date: 09/04/2020
 ---
 
-# Azure Applications: Managed application offer publishing requirements
+# Publishing guide for Azure managed applications
 
-This article explains the requirements for the managed application offer type, which is one way to publish an Azure application offer in the Azure Marketplace. Managed applications are transact offers that are deployed and billed through the Azure Marketplace. The call to action that a user sees is "Get It Now."
+An Azure *managed application* offer is one way to publish an Azure application in Azure Marketplace. Managed applications are transact offers that are deployed and billed through Azure Marketplace. The listing option that a user sees is *Get It Now*.
 
-Use the managed application offer type when the following conditions are required:
+This article explains the requirements for the managed application offer type.
 
-- You deploy a subscription-based solution for your customer using either a VM or an entire IaaS-based solution.
-- You or your customer require that the solution is managed by a partner.
+Use the managed application offer type under the following conditions:
+
+- You're deploying a subscription-based solution for your customer by using either a virtual machine (VM) or an entire infrastructure as a service (IaaS)-based solution.
+- You or your customer requires the solution to be managed by a partner.
 
 >[!NOTE]
->For example, a partner may be an SI or managed service provider (MSP).  
+>For example, a partner can be a systems integrator or a managed service provider (MSP).  
 
-## Managed Application Offer
+## Managed application offer requirements
 
 |Requirements |Details  |
 |---------|---------|
-|Deployed to a customer's Azure subscription | Managed Apps must be deployed in the customer's subscription and can be managed by a third party. |
-|Billing and metering    |  The resources will be provisioned in the customer's Azure subscription. Pay-as-you-go (PAYGO) virtual machines will be transacted with the customer via Microsoft, billed via the customer's Azure subscription (PAYGO). <br> In the case of bring-your-own-license, while Microsoft will bill infrastructure costs incurred in the customer subscription, you will transact your software licensing fees to the customer directly.        |
-|Azure-compatible virtual hard disk (VHD)    |   VMs must be built on Windows or Linux.<ul> <ul> <li>For more information about creating a Linux VHD, see [Linux distributions endorsed on Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).</li> <li>For more information about creating a Windows VHD, see [create an Azure application offer](./partner-center-portal/create-new-azure-apps-offer.md).</li> </ul> |
+|An Azure subscription | Managed applications must be deployed to a customer's subscription, but they can be managed by a third party. |
+|Billing and metering    |  The resources are provided in a customer's Azure subscription. VMs that use the pay-as-you-go payment model are transacted with the customer via Microsoft and billed via the customer's Azure subscription. <br><br> For bring-your-own-license VMs, Microsoft bills any infrastructure costs that are incurred in the customer subscription, but you transact software licensing fees with the customer directly.        |
+|An Azure-compatible virtual hard disk (VHD)    |   VMs must be built on Windows or Linux.<br><br>For more information about creating a Linux VHD, see [Linux distributions endorsed on Azure](../virtual-machines/linux/endorsed-distros.md).<br><br>For more information about creating a Windows VHD, see [create an Azure application offer](./partner-center-portal/create-new-azure-apps-offer.md). |
 
->[!NOTE]
-> Managed apps must be deployable through the Marketplace. If customer communication is a concern, then you should reach out to interested customers after you have enabled lead sharing.  
+---
 
->[!Note]
->Cloud Solution Providers (CSP) partner channel opt-in is now available. For more information on marketing your offer through the Microsoft CSP partner channels, see [Cloud Solution Providers](./cloud-solution-providers.md).
+> [!NOTE]
+> Managed applications must be deployable through Azure Marketplace. If customer communication is a concern, reach out to interested customers after you've enabled lead sharing.  
+
+> [!Note]
+> A Cloud Solution Provider (CSP) partner channel opt-in is now available. For more information about marketing your offer through the Microsoft CSP partner channels, see [Cloud Solution Providers](./cloud-solution-providers.md).
 
 ## Next steps
 
-- If you haven't already done so, [learn](https://azuremarketplace.microsoft.com/sell) about the Azure Marketplace.
+If you haven't already done so, learn how to [Grow your cloud business with Azure Marketplace](https://azuremarketplace.microsoft.com/sell).
+
+To register for and start working in Partner Center:
+
 - [Sign in to Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) to create or complete your offer.
-- [Create an Azure application offer](./partner-center-portal/create-new-azure-apps-offer.md) for more information.
+- See [Create an Azure application offer](./partner-center-portal/create-new-azure-apps-offer.md) for more information.

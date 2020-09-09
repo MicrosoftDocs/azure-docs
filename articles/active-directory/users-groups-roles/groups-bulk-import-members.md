@@ -6,7 +6,7 @@ author: curtand
 ms.author: curtand
 manager: mtillman
 ms.date: 04/27/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: active-directory
 ms.subservice: users-groups-roles
 ms.workload: identity
@@ -15,7 +15,7 @@ ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
 ---
 
-# Bulk import group members in Azure Active Directory
+# Bulk add group members in Azure Active Directory
 
 Using Azure Active Directory (Azure AD) portal, you can add a large number of members to a group by using a comma-separated values (CSV) file to bulk import group members.
 
@@ -39,6 +39,7 @@ The rows in a downloaded CSV template are as follows:
 - The required columns are listed first.
 - We don't recommend adding new columns to the template. Any additional columns you add are ignored and not processed.
 - We recommend that you download the latest version of the CSV template as often as possible.
+- Add at least two users' UPNs or object IDs to successfully upload the file.
 
 ## To bulk import group members
 
@@ -52,7 +53,7 @@ The rows in a downloaded CSV template are as follows:
 
 1. Open the CSV file and add a line for each group member you want to import into the group (required values are either **Member object ID** or **User principal name**). Then save the file.
 
-   ![The CSV file contains names and IDs for the members to import](./media/groups-bulk-import-members/csv-file.png)
+    :::image type="content" source="./media/groups-bulk-import-members/csv-file.png" alt-text="The CSV file contains names and IDs of the members to import":::
 
 1. On the **Bulk import group members** page, under **Upload your csv file**, browse to the file. When you select the file, validation of the CSV file starts.
 1. When the file contents are validated, the bulk import page displays **File uploaded successfully**. If there are errors, you must fix them before you can submit the job.
@@ -63,7 +64,7 @@ The rows in a downloaded CSV template are as follows:
 
 You can see the status of all of your pending bulk requests in the **Bulk operation results** page.
 
-[![](media/groups-bulk-import-members/bulk-center.png "Check status in the Bulk Operations Results page")](media/groups-bulk-import-members/bulk-center.png#lightbox)
+[![Check status in the Bulk Operations Results page.](media/groups-bulk-import-members/bulk-center.png)](media/groups-bulk-import-members/bulk-center.png#lightbox)
 
 For details about each line item within the bulk operation, select the values under the **# Success**, **# Failure**, or **Total Requests** columns. If failures occurred, the reasons for failure will be listed.
 

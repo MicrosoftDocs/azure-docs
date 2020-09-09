@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/20/2017
 ms.subservice: hybrid
 ms.author: billmath
@@ -57,7 +57,9 @@ Azure AD attempts to monitor the federation metadata, and update the token signi
 ### Step 1: Check the AutoCertificateRollover state
 On your AD FS server, open PowerShell. Check that the AutoCertificateRollover value is set to True.
 
-    Get-Adfsproperties
+```azurepowershell-interactive
+Get-Adfsproperties
+```
 
 ![AutoCertificateRollover](./media/how-to-connect-fed-o365-certs/autocertrollover.png)
 
@@ -73,16 +75,22 @@ On your AD FS server, open the MSOnline PowerShell prompt, and connect to Azure 
 > 
 >
 
-    Install-Module MSOnline
+```azurepowershell-interactive
+Install-Module MSOnline
+```
 
 Connect to Azure AD using the MSOnline PowerShell-Module.
 
-    Import-Module MSOnline
-    Connect-MsolService
+```azurepowershell-interactive
+Import-Module MSOnline
+Connect-MsolService
+```
 
 Check the certificates configured in AD FS and Azure AD trust properties for the specified domain.
 
-    Get-MsolFederationProperty -DomainName <domain.name> | FL Source, TokenSigningCertificate
+```azurepowershell-interactive
+Get-MsolFederationProperty -DomainName <domain.name> | FL Source, TokenSigningCertificate
+```
 
 ![Get-MsolFederationProperty](./media/how-to-connect-fed-o365-certs/certsync.png)
 
@@ -127,7 +135,7 @@ In these scenarios, every time you update the token signing certificates, you mu
 ### Step 1: Ensure that AD FS has new token signing certificates
 **Non-default configuration**
 
-If you are using a non-default configuration of AD FS (where **AutoCertificateRollover** is set to **False**), you are probably using custom certificates (not self-signed). For more information about how to renew the AD FS token signing certificates, see [Guidance for customers not using AD FS self-signed certificates](https://msdn.microsoft.com/library/azure/JJ933264.aspx#BKMK_NotADFSCert).
+If you are using a non-default configuration of AD FS (where **AutoCertificateRollover** is set to **False**), you are probably using custom certificates (not self-signed). For more information about how to renew the AD FS token signing certificates, see [Certificate requirements for ferderated servers](/windows-server/identity/ad-fs/design/certificate-requirements-for-federation-servers).
 
 **Federation metadata is not publicly available**
 
@@ -175,4 +183,4 @@ By default, AD FS is configured to generate token signing and token decryption c
 
 Azure AD tries to retrieve a new certificate from your federation service metadata 30 days before the expiry of the current certificate. In case a new certificate is not available at that time, Azure AD will continue to monitor the metadata on regular daily intervals. As soon as the new certificate is available in the metadata, the federation settings for the domain are updated with the new certificate information. You can use `Get-MsolDomainFederationSettings` to verify if you see the new certificate in the NextSigningCertificate / SigningCertificate.
 
-For more information on Token Signing certificates in AD FS see [Obtain and Configure Token Signing and Token Decryption Certificates for AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ts-td-certs-ad-fs)
+For more information on Token Signing certificates in AD FS see [Obtain and Configure Token Signing and Token Decryption Certificates for AD FS](/windows-server/identity/ad-fs/operations/configure-ts-td-certs-ad-fs)

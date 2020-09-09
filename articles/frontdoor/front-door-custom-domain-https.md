@@ -3,7 +3,7 @@ title: Tutorial - Configure HTTPS on a custom domain for Azure Front Door | Micr
 description: In this tutorial, you learn how to enable and disable HTTPS on your Azure Front Door configuration for a custom domain.
 services: frontdoor
 documentationcenter: ''
-author: sharad4u
+author: duongau
 editor: ''
 ms.service: frontdoor
 ms.workload: infrastructure-services
@@ -11,7 +11,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/05/2018
-ms.author: sharadag
+ms.author: duau
 # As a website owner, I want to enable HTTPS on the custom domain in my Front Door so that my users can use my custom domain to access their content securely.
 
 ---
@@ -65,6 +65,9 @@ To enable HTTPS on a custom domain, follow these steps:
 4. Click Save.
 
 5. Proceed to [Validate the domain](#validate-the-domain).
+
+> [!NOTE]
+> For AFD managed certificates, DigiCert’s 64 character limit is enforced. Validation will fail if that limit is exceeded.
 
 
 ### Option 2: Use your own certificate

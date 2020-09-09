@@ -4,22 +4,24 @@ title: A preset for content-aware encoding - Azure Media Services
 description: This article discusses content-aware encoding in Microsoft Azure Media Services v3.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 
 ms.service: media-services
 ms.workload: 
-ms.topic: article
-ms.date: 01/24/2020
-ms.author: juliako
-ms.custom: 
+ms.topic: conceptual
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.custom: devx-track-csharp
 
 ---
 
 # Use the content-aware encoding preset to find the optimal bitrate value for a given resolution
 
-In order to prepare content for delivery by [adaptive bitrate streaming](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming), video needs to be encoded at multiple bit-rates (high to low). This ensures graceful degradation of quality, as the bitrate is lowered so is the resolution of the video. Such multiple bit-rate encoding makes use of a so-called encoding ladder – a table of resolutions and bitrates, see the Media Services [built-in encoding presets](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#encodernamedpreset).
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
+
+In order to prepare content for delivery by [adaptive bitrate streaming](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming), video needs to be encoded at multiple bit-rates (high to low). This ensures graceful degradation of quality, as the bitrate is lowered so is the resolution of the video. Such multiple bit-rate encoding makes use of a so-called encoding ladder – a table of resolutions and bitrates, see the Media Services [built-in encoding presets](/rest/api/media/transforms/createorupdate#encodernamedpreset).
 
 You should be aware of the content you are processing, and customize/tune the encoding ladder to the complexity of the individual video. At each resolution, there is a bitrate beyond which any increase in quality is not perceptive – the encoder operates at this optimal bitrate value. The next level of optimization is to select the resolutions based on the content – for example, a video of a PowerPoint presentation does not benefit from going below 720p. Going further, the encoder can be tasked to optimize the settings for each shot within the video. 
 
@@ -53,9 +55,10 @@ Below are the results for another category of source content, where the encoder 
 
 You can create transforms that use this preset as follows. 
 
-> [!TIP]
-> See the [Next steps](#next-steps) section for tutorials that use tranform outputs. The output asset can be delivered from Media Services streaming endpoints in protocols such as MPEG-DASH and HLS (as shown in the tutorials).
+See the [Next steps](#next-steps) section for tutorials that use tranform outputs. The output asset can be delivered from Media Services streaming endpoints in protocols such as MPEG-DASH and HLS (as shown in the tutorials).
 
+> [!NOTE]
+> Make sure to use the **ContentAwareEncoding** preset not  ContentAwareEncodingExperimental.
 
 ```csharp
 TransformOutput[] output = new TransformOutput[]
@@ -75,7 +78,7 @@ TransformOutput[] output = new TransformOutput[]
 
 > [!NOTE]
 > Encoding jobs using the `ContentAwareEncoding` preset are being billed based on the output minutes. 
-
+  
 ## Next steps
 
 * [Tutorial: Upload, encode, and stream videos with Media Services v3](stream-files-tutorial-with-api.md)

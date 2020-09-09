@@ -2,17 +2,12 @@
 title: 'Tutorial: Configure Lucidchart for automatic user provisioning with Azure Active Directory | Microsoft Docs'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Lucidchart.
 services: active-directory
-documentationcenter: ''
 author: zchia
 writer: zchia
-manager: beatrizd
-
-ms.assetid: d4ca2365-6729-48f7-bb7f-c0f5ffe740a3
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/13/2020
 ms.author: Zhchia
@@ -152,12 +147,13 @@ This operation starts the initial synchronization cycle of all users and groups 
 Once you've configured provisioning, use the following resources to monitor your deployment:
 
 1. Use the [provisioning logs](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) to determine which users have been provisioned successfully or unsuccessfully
-2. Check the [progress bar](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user) to see the status of the provisioning cycle and how close it is to completion
+2. Check the [progress bar](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user) to see the status of the provisioning cycle and how close it is to completion
 3. If the provisioning configuration seems to be in an unhealthy state, the application will go into quarantine. Learn more about quarantine states [here](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).  
 
 ## Change log
 
 * 04/30/2020 - Added support for enterprise extension attribute and custom attribute "CanEdit" for users.
+* 06/15/2020 - Soft deletion of users is enabled (Supporting [active](https://tools.ietf.org/html/rfc7643) attribute).
 
 ## Additional resources
 

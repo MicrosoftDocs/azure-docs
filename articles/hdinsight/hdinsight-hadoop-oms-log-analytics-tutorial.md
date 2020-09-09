@@ -5,9 +5,9 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
-ms.custom: seoapr2020
-ms.date: 04/24/2020
+ms.topic: how-to
+ms.custom: seoapr2020, devx-track-azurecli, devx-track-azurepowershell
+ms.date: 05/13/2020
 ---
 
 # Use Azure Monitor logs to monitor HDInsight clusters
@@ -35,12 +35,14 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
   For the instructions on how to create an HDInsight cluster, see [Get started with Azure HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md).  
 
-* Azure PowerShell Az module.  See [Introducing the new Azure PowerShell Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az). Ensure you have the latest version. If necessary, run `Update-Module -Name Az`.
+* If using PowerShell, you'll need the [Az Module](https://docs.microsoft.com/powershell/azure/). Ensure you have the latest version. If necessary, run `Update-Module -Name Az`.
+
+* If wanting to use Azure CLI and you haven't yet installed it, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 > [!NOTE]  
 > It is recommended to place both the HDInsight cluster and the Log Analytics workspace in the same region for better performance. Azure Monitor logs is not available in all Azure regions.
 
-## Enable Azure Monitor logs by using the portal
+## Enable Azure Monitor using the portal
 
 In this section, you configure an existing HDInsight Hadoop cluster to use an Azure Log Analytics workspace to monitor jobs, debug logs, and so on.
 
@@ -56,7 +58,7 @@ In this section, you configure an existing HDInsight Hadoop cluster to use an Az
 
     ![Enable monitoring for HDInsight clusters](./media/hdinsight-hadoop-oms-log-analytics-tutorial/azure-portal-monitoring.png "Enable monitoring for HDInsight clusters")
 
-## Enable Azure Monitor logs by using Azure PowerShell
+## Enable Azure Monitor using Azure PowerShell
 
 You can enable Azure Monitor logs using the Azure PowerShell Az module [Enable-AzHDInsightMonitoring](https://docs.microsoft.com/powershell/module/az.hdinsight/enable-azhdinsightmonitoring) cmdlet.
 
@@ -94,6 +96,29 @@ To disable, the use the [Disable-AzHDInsightMonitoring](https://docs.microsoft.c
 
 ```powershell
 Disable-AzHDInsightMonitoring -Name "<your-cluster>"
+```
+
+## Enable Azure Monitor using Azure CLI
+
+You can enable Azure Monitor logs using the Azure CLI `[az hdinsight monitor enable`](https://docs.microsoft.com/cli/azure/hdinsight/monitor?view=azure-cli-latest#az-hdinsight-monitor-enable) command.
+
+```azurecli
+# set variables
+export resourceGroup=RESOURCEGROUPNAME
+export cluster=CLUSTERNAME
+export LAW=LOGANALYTICSWORKSPACENAME
+
+# Enable the Azure Monitor logs integration on an HDInsight cluster.
+az hdinsight monitor enable --name $cluster --resource-group $resourceGroup --workspace $LAW
+
+# Get the status of Azure Monitor logs integration on an HDInsight cluster.
+az hdinsight monitor show --name $cluster --resource-group $resourceGroup
+```
+
+To disable, the use the [`az hdinsight monitor disable`](https://docs.microsoft.com/cli/azure/hdinsight/monitor?view=azure-cli-latest#az-hdinsight-monitor-disable) command.
+
+```azurecli
+az hdinsight monitor disable --name $cluster --resource-group $resourceGroup
 ```
 
 ## Install HDInsight cluster management solutions

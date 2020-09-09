@@ -15,7 +15,7 @@ Private Link allows you to create private endpoints for Azure Database for Maria
 For a list to PaaS services that support Private Link functionality, review the Private Link [documentation](https://docs.microsoft.com/azure/private-link/index). A private endpoint is a private IP address within a specific [VNet](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) and Subnet.
 
 > [!NOTE]
-> This feature is available in all Azure regions where Azure Database for MariaDB supports General Purpose and Memory Optimized pricing tiers.
+> The private link feature is only available for Azure Database for MariaDB servers in the General Purpose or Memory Optimized pricing tiers. Ensure the database server is in one of these pricing tiers.
 
 ## Data exfiltration prevention
 
@@ -41,6 +41,10 @@ With Private Link, you can now set up network access controls like NSGs to restr
 When you connect to the public endpoint from on-premises machines, your IP address needs to be added to the IP-based firewall using a server-level firewall rule. While this model works well for allowing access to individual machines for dev or test workloads, it's difficult to manage in a production environment.
 
 With Private Link, you can enable cross-premises access to the private endpoint using [Express Route](https://azure.microsoft.com/services/expressroute/) (ER), private peering or [VPN tunnel](https://docs.microsoft.com/azure/vpn-gateway/). They can subsequently disable all access via public endpoint and not use the IP-based firewall.
+
+> [!NOTE]
+> In some cases the Azure Database for MariaDB and the VNet-subnet are in different subscriptions. In these cases you must ensure the following configurations:
+> - Make sure that both the subscription has the **Microsoft.DBforMariaDB** resource provider registered. For more information refer [resource-manager-registration][resource-manager-portal]
 
 ## Configure Private Link for Azure Database for MariaDB
 
@@ -107,7 +111,7 @@ The following situations and outcomes are possible when you use Private Link in 
 
 If you want to rely completely only on private endpoints for accessing their Azure Database for MariaDB, you can disable setting all public endpoints ([firewall rules](concepts-firewall-rules.md) and [VNet service endpoints](concepts-data-access-security-vnet.md)) by setting the **Deny Public Network Access** configuration on the database server. 
 
-When this setting is set to *YES*, only connections via private endpoints are allowed to your Azure Database for MariaDB. When this setting is set to *NO*, clients can connect to your Azure Database for MariaDB based on your firewall or VNet service endpoint settings. Additionally, once the value of the Private network access is set, you cannot add and/or update existing firewall and VNet service endpoint rules.
+When this setting is set to *YES*, only connections via private endpoints are allowed to your Azure Database for MariaDB. When this setting is set to *NO*, clients can connect to your Azure Database for MariaDB based on your firewall or VNet service endpoint settings. Additionally, once the value of the Private network access is set, customers cannot add and/or update existing 'Firewall rules' and 'VNet service endpoint rules'.
 
 > [!Note]
 > This feature is available in all Azure regions where Azure Database for PostgreSQL - Single server supports General Purpose and Memory Optimized pricing tiers.
@@ -125,3 +129,6 @@ To learn more about Azure Database for MariaDB security features, see the follow
 * To learn how to configure a virtual network service endpoint for your Azure Database for MariaDB, see [Configure access from virtual networks](https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-vnet).
 
 * For an overview of Azure Database for MariaDB connectivity, see [Azure Database for MariaDB Connectivity Architecture](https://docs.microsoft.com/azure/MariaDB/concepts-connectivity-architecture)
+
+<!-- Link references, to text, Within this same GitHub repo. -->
+[resource-manager-portal]: ../azure-resource-manager/management/resource-providers-and-types.md

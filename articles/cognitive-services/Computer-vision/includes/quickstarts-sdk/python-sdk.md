@@ -17,19 +17,17 @@ ms.author: pafarley
 
 ## Prerequisites
 
-* Azure subscription - [Create one for free](https://azure.microsoft.com/free/)
+* An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
 * [Python 3.x](https://www.python.org/)
+* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Create a Computer Vision resource"  target="_blank">create a Computer Vision resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
+    * You will need the key and endpoint from the resource you create to connect your application to the Computer Vision service. You'll paste your key and endpoint into the code below later in the quickstart.
+    * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
+* [Create environment variables](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for the key and endpoint URL, named `COMPUTER_VISION_SUBSCRIPTION_KEY` and `COMPUTER_VISION_ENDPOINT`, respectively.
+
+> [!NOTE]
+> You can download the [full source code for the samples](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/ComputerVision/ComputerVisionQuickstart.py) presented below, and examples of every function available from [ComputerVisionClient](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-python).
 
 ## Setting up
-
-### Create a Computer Vision Azure resource
-
-Azure Cognitive Services are represented by Azure resources that you subscribe to. Create a resource for Computer Vision using the [Azure portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) or [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) on your local machine. You can also:
-
-* Get a [trial key](https://azure.microsoft.com/try/cognitive-services/#decision) valid for seven days for free. After you sign up, it will be available on the [Azure website](https://azure.microsoft.com/try/cognitive-services/my-apis/).  
-* View your resource on the [Azure portal](https://portal.azure.com/)
-
-After you get a key from your trial subscription or resource, [create environment variables](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for the key and endpoint URL, named `COMPUTER_VISION_SUBSCRIPTION_KEY` and `COMPUTER_VISION_ENDPOINT`, respectively.
  
 ### Create a new Python application
 
@@ -157,13 +155,13 @@ Computer Vision can read visible text in an image and convert it to a character 
 
 ### Call the Read API
 
-First, use the following code to call the **batch_read_file** method for the given image. This returns an operation ID and starts an asynchronous process to read the content of the image.
+First, use the following code to call the **read** method for the given image. This returns an operation ID and starts an asynchronous process to read the content of the image.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ComputerVisionQuickstart.py?name=snippet_read_call)]
 
 ### Get Read results
 
-Next, get the operation ID returned from the **batch_read_file** call, and use it to query the service for operation results. The following code checks the operation at one-second intervals until the results are returned. It then prints the extracted text data to the console.
+Next, get the operation ID returned from the **read** call, and use it to query the service for operation results. The following code checks the operation at one-second intervals until the results are returned. It then prints the extracted text data to the console.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ComputerVisionQuickstart.py?name=snippet_read_response)]
 
@@ -191,5 +189,5 @@ In this quickstart, you learned how to use the Computer Vision library for Pytho
 > [!div class="nextstepaction"]
 >[Computer Vision API reference (Python)](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision)
 
-* [What is Computer Vision?](../../Home.md)
+* [What is Computer Vision?](../../overview.md)
 * The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/ComputerVision/ComputerVisionQuickstart.py).

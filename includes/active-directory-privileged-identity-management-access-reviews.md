@@ -5,8 +5,8 @@ services: active-directory
 author: rolyon
 ms.service: active-directory
 ms.topic: include
-ms.date: 04/29/2019
-ms.author: rolyon
+ms.date: 05/26/2020
+ms.author: barclayn
 ms.custom: include file
 ---
 
@@ -31,13 +31,14 @@ ms.custom: include file
     ![Users scope to review role membership of](./media/active-directory-privileged-identity-management-access-reviews/users.png)
 
     > [!NOTE]
-    > Selecting more than one role will create multiple access reviews. For example, selecting five roles will create five separate access reviews.
+    > - Roles selected here include both [permanent and eligible roles](../articles/active-directory/privileged-identity-management/pim-how-to-add-role-to-user.md).
+    > - Selecting more than one role will create multiple access reviews. For example, selecting five roles will create five separate access reviews.
 
-    If you are creating an access review of Azure AD roles, the following shows an example of the Review membership list.
+    If you are creating an access review of **Azure AD roles**, the following shows an example of the Review membership list.
 
     ![Review membership pane listing Azure AD roles you can select](./media/active-directory-privileged-identity-management-access-reviews/review-membership.png)
 
-    If you are creating an access review of Azure resource roles, the following shows an example of the Review membership list.
+    If you are creating an access review of **Azure resource roles**, the following image shows an example of the Review membership list.
 
     ![Review membership pane listing Azure resource roles you can select](./media/active-directory-privileged-identity-management-access-reviews/review-membership-azure-resource-roles.png)
 

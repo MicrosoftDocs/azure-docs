@@ -39,10 +39,10 @@ Over time, the predictive models in the Azure ML scoring experiments need to be 
 1. Create an experiment in [Azure Machine Learning Studio (classic)](https://studio.azureml.net).
 2. When you are satisfied with the model, use Azure Machine Learning Studio (classic) to publish web services for both the **training experiment** and scoring/**predictive experiment**.
 
-The following table describes the web services used in this example.  See [Retrain Machine Learning models programmatically](../../machine-learning/machine-learning-retrain-models-programmatically.md) for details.
+The following table describes the web services used in this example.  See [Retrain Machine Learning Studio (classic) models programmatically](../../machine-learning/studio/retrain-machine-learning-model.md) for details.
 
 - **Training web service** - Receives training data and produces trained models. The output of the retraining is an .ilearner file in an Azure Blob storage. The **default endpoint** is automatically created for you when you publish the training experiment as a web service. You can create more endpoints but the example uses only the default endpoint.
-- **Scoring web service** - Receives unlabeled data examples and makes predictions. The output of prediction could have various forms, such as a .csv file or rows in an Azure SQL database, depending on the configuration of the experiment. The default endpoint is automatically created for you when you publish the predictive experiment as a web service. 
+- **Scoring web service** - Receives unlabeled data examples and makes predictions. The output of prediction could have various forms, such as a .csv file or rows in Azure SQL Database, depending on the configuration of the experiment. The default endpoint is automatically created for you when you publish the predictive experiment as a web service. 
 
 The following picture depicts the relationship between training and scoring endpoints in Azure ML.
 
@@ -53,7 +53,7 @@ You can invoke the **training web service** by using the **Azure ML Batch Execut
 You can invoke the **scoring web service** by using the **Azure ML Update Resource Activity** to update the web service with the newly trained model. The following examples provide linked service definitions: 
 
 ## Scoring web service is a classic web service
-If the scoring web service is a **classic web service**, create the second **non-default and updatable endpoint** by using the Azure portal. See [Create Endpoints](../../machine-learning/machine-learning-create-endpoint.md) article for steps. After you create the non-default updatable endpoint, do the following steps:
+If the scoring web service is a **classic web service**, create the second **non-default and updatable endpoint** by using the Azure portal. See [Create Endpoints](../../machine-learning/studio/create-endpoint.md) article for steps. After you create the non-default updatable endpoint, do the following steps:
 
 * Click **BATCH EXECUTION** to get the URI value for the **mlEndpoint** JSON property.
 * Click **UPDATE RESOURCE** link to get the URI value for the **updateResourceEndpoint** JSON property. The API key is on the endpoint page itself (in the bottom-right corner).

@@ -25,13 +25,17 @@ Use the following procedure to work around the issue:
 
 2. Run the following command to find the application IDs of the interactive jobs started through Livy.
 
-        yarn application –list
+   ```bash
+   yarn application –list
+   ```
 
     The default job names will be Livy if the jobs were started with a Livy interactive session with no explicit names specified. For the Livy session started by [Jupyter Notebook](https://jupyter.org/), the job name starts with `remotesparkmagics_*`.
 
 3. Run the following command to kill those jobs.
 
-        yarn application –kill <Application ID>
+   ```bash
+   yarn application –kill <Application ID>
+   ```
 
 New jobs start running.
 

@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Reviewsnap | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Reviewsnap.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: b00fb373-2b31-4dcf-84ce-abc29e4c639c
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with Reviewsnap
 

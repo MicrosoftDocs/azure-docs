@@ -29,7 +29,7 @@ Like a user in your organization, a device is a core identity you want to protec
 
 This article focuses on hybrid Azure AD join.
 
-Bringing your devices to Azure AD maximizes user productivity through single sign-on (SSO) across your cloud and on-premises resources. You can secure access to your cloud and on-premises resources with [Conditional Access](../active-directory-conditional-access-azure-portal.md) at the same time.
+Bringing your devices to Azure AD maximizes user productivity through single sign-on (SSO) across your cloud and on-premises resources. You can secure access to your cloud and on-premises resources with [Conditional Access](../conditional-access/howto-conditional-access-policy-compliant-device.md) at the same time.
 
 You can deploy a managed environment by using [password hash sync (PHS)](../hybrid/whatis-phs.md) or [pass-through authentication (PTA)](../hybrid/how-to-connect-pta.md) with [seamless single sign-on](../hybrid/how-to-connect-sso.md). These scenarios don't require you to configure a federation server for authentication.
 
@@ -69,9 +69,12 @@ Hybrid Azure AD join requires devices to have access to the following Microsoft 
 - `https://device.login.microsoftonline.com`
 - `https://autologon.microsoftazuread-sso.com` (If you use or plan to use seamless SSO)
 
-If your organization requires access to the internet via an outbound proxy, we recommend [implementing Web Proxy Auto-Discovery (WPAD)](https://docs.microsoft.com/previous-versions/tn-archive/cc995261(v%3dtechnet.10)) to enable Windows 10 computers for device registration with Azure AD. To address issues configuring and managing WPAD, see [Troubleshooting Automatic Detection](/previous-versions/tn-archive/cc302643(v=technet.10)).
+> [!WARNING]
+> If your organization uses proxy servers that intercept SSL traffic for scenarios like data loss prevention or Azure AD tenant restrictions, ensure that traffic to 'https://device.login.microsoftonline.com' is excluded from TLS break-and-inspect. Failure to exclude 'https://device.login.microsoftonline.com' may cause interference with client certificate authentication, causing issues with device registration and device-based Conditional Access.
 
-If you don't use WPAD, you can configure proxy settings on your computer beginning with Windows 10 1709. For more information, see [WinHTTP Proxy Settings deployed by GPO](https://blogs.technet.microsoft.com/netgeeks/2018/06/19/winhttp-proxy-settings-deployed-by-gpo/).
+If your organization requires access to the internet via an outbound proxy, you can use [implementing Web Proxy Auto-Discovery (WPAD)](/previous-versions/tn-archive/cc995261(v=technet.10)) to enable Windows 10 computers for device registration with Azure AD. To address issues configuring and managing WPAD, see [Troubleshooting Automatic Detection](/previous-versions/tn-archive/cc302643(v=technet.10)). In Windows 10 devices prior to 1709 update, WPAD is the only available option to configure a proxy to work with Hybrid Azure AD join. 
+
+If you don't use WPAD, you can configure WinHTTP proxy settings on your computer beginning with Windows 10 1709. For more information, see [WinHTTP Proxy Settings deployed by GPO](/archive/blogs/netgeeks/winhttp-proxy-settings-deployed-by-gpo).
 
 > [!NOTE]
 > If you configure proxy settings on your computer by using WinHTTP settings, any computers that can't connect to the configured proxy will fail to connect to the internet.
@@ -158,7 +161,25 @@ The installer creates a scheduled task on the system that runs in the user conte
 
 ## Verify the registration
 
-Verify the device registration state in your Azure tenant by using **[Get-MsolDevice](/powershell/msonline/v1/get-msoldevice)**. This cmdlet is in the [Azure Active Directory PowerShell module](/powershell/azure/install-msonlinev1?view=azureadps-2.0).
+Here are 3 ways to locate and verify the device state:
+
+### Locally on the device
+
+1. Open Windows PowerShell.
+2. Enter `dsregcmd /status`.
+3. Verify that both **AzureAdJoined** and **DomainJoined** are set to **YES**.
+4. You can use the **DeviceId** and compare the status on the service using either the Azure portal or PowerShell.
+
+### Using the Azure portal
+
+1. Go to the devices page using a [direct link](https://portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/Devices).
+2. Information on how to locate a device can be found in [How to manage device identities using the Azure portal](./device-management-azure-portal.md).
+3. If the **Registered** column says **Pending**, then Hybrid Azure AD Join has not completed.
+4. If the **Registered** column contains a **date/time**, then Hybrid Azure AD Join has completed.
+
+### Using PowerShell
+
+Verify the device registration state in your Azure tenant by using **[Get-MsolDevice](/powershell/module/msonline/get-msoldevice)**. This cmdlet is in the [Azure Active Directory PowerShell module](/powershell/azure/active-directory/install-msonlinev1?view=azureadps-2.0).
 
 When you use the **Get-MSolDevice** cmdlet to check the service details:
 
@@ -166,17 +187,43 @@ When you use the **Get-MSolDevice** cmdlet to check the service details:
 - The value for **DeviceTrustType** is **Domain Joined**. This setting is equivalent to the **Hybrid Azure AD joined** state on the **Devices** page in the Azure AD portal.
 - For devices that are used in Conditional Access, the value for **Enabled** is **True** and **DeviceTrustLevel** is **Managed**.
 
-To check the service details:
-
 1. Open Windows PowerShell as an administrator.
-1. Enter `Connect-MsolService` to connect to your Azure tenant.  
-1. Enter `get-msoldevice -deviceId <deviceId>`.
-1. Verify that **Enabled** is set to **True**.
+2. Enter `Connect-MsolService` to connect to your Azure tenant.
+
+#### Count all Hybrid Azure AD joined devices (excluding **Pending** state)
+
+```azurepowershell
+(Get-MsolDevice -All -IncludeSystemManagedDevices | where {($_.DeviceTrustType -eq 'Domain Joined') -and (([string]($_.AlternativeSecurityIds)).StartsWith("X509:"))}).count
+```
+
+#### Count all Hybrid Azure AD joined devices with **Pending** state
+
+```azurepowershell
+(Get-MsolDevice -All -IncludeSystemManagedDevices | where {($_.DeviceTrustType -eq 'Domain Joined') -and (-not([string]($_.AlternativeSecurityIds)).StartsWith("X509:"))}).count
+```
+
+#### List all Hybrid Azure AD joined devices
+
+```azurepowershell
+Get-MsolDevice -All -IncludeSystemManagedDevices | where {($_.DeviceTrustType -eq 'Domain Joined') -and (([string]($_.AlternativeSecurityIds)).StartsWith("X509:"))}
+```
+
+#### List all Hybrid Azure AD joined devices with **Pending** state
+
+```azurepowershell
+Get-MsolDevice -All -IncludeSystemManagedDevices | where {($_.DeviceTrustType -eq 'Domain Joined') -and (-not([string]($_.AlternativeSecurityIds)).StartsWith("X509:"))}
+```
+
+#### List details of a single device:
+
+1. Enter `get-msoldevice -deviceId <deviceId>` (This is the **DeviceId** obtained locally on the device).
+2. Verify that **Enabled** is set to **True**.
 
 ## Troubleshoot your implementation
 
 If you experience issues completing hybrid Azure AD join for domain-joined Windows devices, see:
 
+- [Troubleshooting devices using dsregcmd command](./troubleshoot-device-dsregcmd.md)
 - [Troubleshooting hybrid Azure Active Directory joined devices](troubleshoot-hybrid-join-windows-current.md)
 - [Troubleshooting hybrid Azure Active Directory joined down-level devices](troubleshoot-hybrid-join-windows-legacy.md)
 

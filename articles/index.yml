@@ -12,7 +12,7 @@ metadata:
   ms.topic: hub-page
   author: rolyon
   ms.author: rolyon
-  ms.date: 02/27/2020
+  ms.date: 07/27/2020
   featureFlags:
   - clicktale
 
@@ -59,8 +59,18 @@ productDirectory:
       imageSrc: https://static.docs.com/ui/media/product/azure/search.svg
       azureCategories:
         - ai-machine-learning
+        - mobile
         - web
       url: search/index.yml
+    # Card
+    - title: Azure Cognitive Services
+      summary: Add smart API capabilities to enable contextual interactions
+      imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
+      azureCategories:
+        - featured
+        - ai-machine-learning
+        - mobile
+      url: cognitive-services/index.yml
     # Card
     - title: Azure Databricks
       summary: Fast, easy, and collaborative Apache Spark-based analytics platform
@@ -68,7 +78,7 @@ productDirectory:
       azureCategories:
         - ai-machine-learning
         - analytics
-      url: azure-databricks/index.yml
+      url: /azure/databricks/
     # Card
     - title: Azure Machine Learning
       summary: Bring AI to everyone with an end-to-end, scalable, trusted platform with experimentation and model management
@@ -84,6 +94,13 @@ productDirectory:
       azureCategories:
         - ai-machine-learning
       url: open-datasets/index.yml
+    # Card
+    - title: Azure RTOS
+      summary: Making embedded IoT development and connectivity easy
+      imageSrc: https://static.docs.com/ui/media/product/azure/rtos.svg
+      azureCategories:
+        - iot
+      url: https://docs.microsoft.com/azure/rtos/
     # Card
     - title: Bing Autosuggest
       summary: Give your app intelligent autosuggest options for searches
@@ -147,14 +164,6 @@ productDirectory:
       azureCategories:
         - ai-machine-learning
       url: cognitive-services/bing-web-search/overview.md
-    # Card
-    - title: Cognitive Services
-      summary: Add smart API capabilities to enable contextual interactions
-      imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
-      azureCategories:
-        - featured
-        - ai-machine-learning
-      url: cognitive-services/index.yml
     # Card
     - title: Computer Vision
       summary: Distill actionable information from images
@@ -228,14 +237,6 @@ productDirectory:
         - ai-machine-learning
       url: cognitive-services/luis/index.yml
     # Card
-    - title: ML Studio (Classic)
-      summary: Easily build, deploy, and manage predictive analytics solutions
-      imageSrc: https://static.docs.com/ui/media/product/azure/machine-learning-studio-service.svg
-      azureCategories:
-        - ai-machine-learning
-        - iot
-      url: machine-learning/studio/index.yml
-    # Card
     - title: Microsoft Genomics
       summary: Power genome sequencing & research insights
       imageSrc: https://static.docs.com/ui/media/product/azure/genomics.svg
@@ -249,6 +250,13 @@ productDirectory:
       azureCategories:
         - ai-machine-learning
       url: cognitive-services/personalizer/index.yml
+    # Card
+    - title: Project Bonsai (Preview)
+      summary: A machine teaching service for creating intelligent industrial control systems using simulations
+      imageSrc: https://static.docs.com/ui/media/product/azure/bonsai.svg
+      azureCategories:
+        - ai-machine-learning
+      url: https://docs.microsoft.com/bonsai/
     # Card
     - title: QnA Maker
       summary: Distill information into conversational, easy-to-navigate answers
@@ -416,13 +424,6 @@ productDirectory:
         - blockchain
       url: blockchain/service/index.yml
     # Card
-    - title: Azure Blockchain Tokens (Preview)
-      summary: Easily define, create, and manage ledger-based tokens
-      imageSrc: https://static.docs.com/ui/media/product/azure/blockchain-token.svg
-      azureCategories:
-        - blockchain
-      url: blockchain/tokens/index.yml
-    # Card
     - title: Azure Blockchain Workbench (Preview)
       summary: Easily prototype blockchain apps in the cloud
       imageSrc: https://static.docs.com/ui/media/product/azure/blockchain-workbench.svg
@@ -454,8 +455,7 @@ productDirectory:
       imageSrc: https://static.docs.com/ui/media/product/azure/api-apps.svg
       azureCategories:
         - compute
-        - containers
-        - mobile
+        - containers        
         - web
       url: app-service/index.yml
     # Card
@@ -464,8 +464,8 @@ productDirectory:
       imageSrc: https://static.docs.com/ui/media/product/azure/app-service.svg
       azureCategories:
         - featured
-        - compute
-        - mobile
+        - compute    
+        - mobile    
         - web
       url: app-service/index.yml
     # Card
@@ -562,13 +562,20 @@ productDirectory:
         - containers
       url: service-fabric/index.yml
     # Card
-    - title: SQL Server on Virtual Machines
+    - title: SQL Server on Azure Virtual Machines
       summary: Host enterprise SQL Server apps in the cloud
       imageSrc: https://static.docs.com/ui/media/product/azure/sql-server-vm.svg
       azureCategories:
         - compute
         - databases
       url: https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json
+    - title: Static Web Apps
+      summary: Build and deploy full stack web apps to Azure from a GitHub repository
+      imageSrc: ./media/index/static-apps.svg
+      azureCategories:
+        - compute
+        - web
+      url: static-web-apps/index.yml
     # Card
     - title: Virtual Machine Scale Sets
       summary: Manage and scale up to thousands of Linux and Windows virtual machines
@@ -582,8 +589,7 @@ productDirectory:
       imageSrc: https://static.docs.com/ui/media/product/azure/app-service.svg
       azureCategories:
         - compute
-        - containers
-        - mobile
+        - containers        
         - web
       url: app-service/index.yml
     # Card
@@ -630,8 +636,7 @@ productDirectory:
       summary: Easily deploy and run containerized web apps that scale with your business
       imageSrc: https://static.docs.com/ui/media/product/azure/web-apps-containers.svg
       azureCategories:
-        - containers
-        - mobile
+        - containers        
         - web
       url: app-service/containers/index.yml
     # Card
@@ -680,22 +685,36 @@ productDirectory:
         - migration
       url: dms/index.yml
     # Card
+    - title: Azure SQL
+      summary: Modern SQL family for migration and app modernization
+      imageSrc:  https://static.docs.com/ui/media/product/azure/sql.svg
+      azureCategories:
+        - featured
+        - hybrid
+        - databases
+      url: azure-sql/index.yml
+    # Card
     - title: Azure SQL Database
       summary: Managed, intelligent SQL in the cloud
       imageSrc: https://static.docs.com/ui/media/product/azure/sql-database.svg
       azureCategories:
-        - featured
         - databases
-        - hybrid
-      url: sql-database/index.yml
+      url: azure-sql/database/index.yml
     # Card
-    - title: Azure SQL Database Edge (Preview)
+    - title: Azure SQL Managed Instance
+      summary: Managed, always up-to-date SQL instance in the cloud
+      imageSrc: https://static.docs.com/ui/media/product/azure/sql-managed-instance.svg
+      azureCategories:
+        - databases
+      url: azure-sql/managed-instance/index.yml
+    # Card
+    - title: Azure SQL Edge (Preview)
       summary: Small-footprint, edge-optimized data engine with built-in AI
       imageSrc: https://static.docs.com/ui/media/product/azure/sql-database-edge.svg
       azureCategories:
         - databases
         - iot
-      url: sql-database-edge/index.yml
+      url: azure-sql-edge/index.yml
     # Card
     - title: Table Storage
       summary: NoSQL key-value store using semi-structured datasets
@@ -710,6 +729,13 @@ productDirectory:
       azureCategories:
         - developer-tools
       url: azure-app-configuration/index.yml
+   # Card
+    - title: Azure Data Studio
+      summary: A lightweight editor that can run on-demand SQL queries and view and save results as text, JSON, or Excel.
+      imageSrc: https://docs.microsoft.com/sql/tools/media/overview-sql-tools/azure-data-studio.svg
+      azureCategories:
+        - developer-tools
+      url: https://docs.microsoft.com/sql/azure-data-studio/
     # Card
     - title: Azure DevOps
       summary: Services for teams to share code, track work, and ship software
@@ -757,7 +783,7 @@ productDirectory:
         - developer-tools
       url: https://code.visualstudio.com/docs
     # Card
-    - title: Visual Studio Online (Preview)
+    - title: Visual Studio Codespaces (Preview)
       summary: Cloud-powered development environments accessible from anywhere
       imageSrc: https://docs.microsoft.com/media/logos/logo_visual-studio.svg
       azureCategories:
@@ -808,6 +834,14 @@ productDirectory:
         - devops
       url: https://docs.microsoft.com/azure/devops/test/
     # Card
+    - title: GitHub Actions for Azure
+      summary: Build, test and deploy any app from GitHub to Azure
+      imageSrc: ./media/index/github-actions-icon.svg
+      azureCategories:
+        - devops
+        - developer-tools
+      url: https://docs.microsoft.com/en-us/azure/developer/github/github-actions
+    # Card
     - title: Azure Active Directory (AD)
       summary: Synchronize on-premises directories and enable single sign-on
       imageSrc: https://static.docs.com/ui/media/product/azure/active-directory.svg
@@ -846,6 +880,13 @@ productDirectory:
       azureCategories:
         - hybrid
       url: https://docs.microsoft.com/azure-stack/
+    # Card
+    - title: Azure Stack HCI solutions
+      summary: Run virtual machines on-premises and easily connect to Azure with a hyperconverged infrastructure (HCI) solution
+      imageSrc: ./media/index/azure-stack-hci.svg
+      azureCategories:
+        - hybrid
+      url: https://docs.microsoft.com/azure-stack/hci/
     # Card
     - title: Security Center
       summary: Unify security management and enable advanced threat protection across hybrid cloud workloads
@@ -1052,7 +1093,7 @@ productDirectory:
         - management-and-governance
       url: azure-resource-manager/index.yml
     # Card
-    - title: Azure Resource Manager templates
+    - title: ARM templates
       summary: Deliver infrastructure as code for all your Azure resources using Resource Manager
       imageSrc: https://static.docs.com/ui/media/product/azure/resource-groups.svg
       azureCategories:
@@ -1164,18 +1205,19 @@ productDirectory:
       url: media-services/latest/index.yml
     # Card
     - title: Data Box
-      summary: Appliances and solutions for data transfer to Azure and edge compute
+      summary: Appliances and solutions for data transfer to Azure
       imageSrc: https://static.docs.com/ui/media/product/azure/data-box.svg
       azureCategories:
         - migration
         - storage
-      url: databox-family/index.md
+      url: databox/index.yml
     # Card
-    - title: Spatial Anchors (Preview)
+    - title: Spatial Anchors
       summary: Create multi-user, spatially aware mixed reality experiences
       imageSrc: https://static.docs.com/ui/media/product/azure/spatial-anchor-accounts.svg
       azureCategories:
         - mixed-reality
+        - mobile
       url: spatial-anchors/index.yml
     # Card
     - title: Remote Rendering (Preview)
@@ -1236,7 +1278,7 @@ productDirectory:
         - networking
       url: firewall/index.yml
     # Card
-    - title: Azure Firewall Manager (Preview)
+    - title: Azure Firewall Manager
       summary: Central network security policy and route management for globally distributed, software-defined perimeters
       imageSrc: https://static.docs.com/ui/media/product/azure/firewall-manager.svg
       azureCategories:
@@ -1279,7 +1321,7 @@ productDirectory:
       url: virtual-network/index.yml
     # Card
     - title: Virtual WAN
-      summary: Optimize and automate branch to branch connectivity through Azure
+      summary: Microsoft-managed hub and spoke service for connectivity and security
       imageSrc: https://static.docs.com/ui/media/product/azure/virtual-wans.svg
       azureCategories:
         - networking
@@ -1361,11 +1403,11 @@ productDirectory:
       imageSrc: https://static.docs.com/ui/media/product/azure/disk-storage.svg
       azureCategories:
         - storage
-      url: virtual-machines/windows/managed-disks-overview.md
+      url: virtual-machines/managed-disks-overview.md
     # Card
-    - title: File Storage
+    - title: Azure Files
       summary: File shares that use the standard SMB 3.0 protocol
-      imageSrc: https://static.docs.com/ui/media/product/azure/storage-accounts.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/storage-azure-files.svg
       azureCategories:
         - storage
       url: storage/files/index.yml
@@ -1375,7 +1417,7 @@ productDirectory:
       imageSrc: https://static.docs.com/ui/media/product/azure/disk.svg
       azureCategories:
         - storage
-      url: virtual-machines/windows/managed-disks-overview.md
+      url: virtual-machines/managed-disks-overview.md
     # Card
     - title: Queue Storage
       summary: Effectively scale apps according to traffic
@@ -1426,7 +1468,7 @@ tools:
     # Card
     - title: JavaScript
       imageSrc: https://docs.microsoft.com/media/logos/logo_js.svg
-      url: https://docs.microsoft.com/azure/javascript/
+      url: https://docs.microsoft.com/azure/developer/javascript/
     # Card
     - title: Java
       imageSrc: https://docs.microsoft.com/media/logos/logo_java.svg
@@ -1470,7 +1512,7 @@ additionalContent:
       items:
         # Card
         - title: Azure Government
-          summary: A dedicated cloud for U.S. government agencies and their partners. 
+          summary: A dedicated cloud for U.S. government agencies and their partners.
           url: azure-government/index.yml
         # Card
         - title: Azure Germany

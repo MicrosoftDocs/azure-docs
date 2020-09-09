@@ -11,8 +11,8 @@ ms.date: 04/20/2020
 # Feature list #
 Here is the list of tested features and unsupported features:
 
-|                                         | TESTED | PARTIALLY TESTED | UNTESTED | UNSUPPORTED | NOTES                                                                                                                |
-|:----------------------------------------|--------|------------------|----------|-------------|:---------------------------------------------------------------------------------------------------------------------|
+| Feature | TESTED | PARTIALLY TESTED | UNTESTED | UNSUPPORTED | NOTES |
+| ------- | ------ | ---------------- | -------- | ----------- | ----- |
 | Playback                                |        |                  |          |             |                                                                                                                      |
 | Basic On-Demand Playback                | X      |                  |          |             | Supports streams from Azure Media Services only                                                                      |
 | Basic Live Playback                     | X      |                  |          |             | Supports streams from Azure Media Services only                                                                      |

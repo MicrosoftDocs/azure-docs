@@ -30,7 +30,7 @@ The following image illustrates a self-asserted sign-up page with two display co
 
  In the [Metadata](self-asserted-technical-profile.md#metadata) section of a [self-asserted technical profile](self-asserted-technical-profile.md), the referenced [ContentDefinition](contentdefinitions.md) needs to have `DataUri` set to page contract version 2.0.0 or higher. For example:
 
-```XML
+```xml
 <ContentDefinition Id="api.selfasserted">
   <LoadUri>~/tenant/default/selfAsserted.cshtml</LoadUri>
   <RecoveryUri>~/common/default_page_error.html</RecoveryUri>
@@ -62,7 +62,7 @@ In a display control, you can use **InputClaims** elements to prepopulate the va
 
 The following example prepopulates the email address to be verified with the address already present.
 
-```XML
+```xml
 <DisplayControl Id="emailControl" UserInterfaceControlType="VerificationControl">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="emailAddress" />
@@ -78,7 +78,7 @@ Similar to the **display claims** defined in a [self-asserted technical profile]
 
 Certain display claims are required for certain types of display control. For example, **VerificationCode** is required for the display control of type **VerificationControl**. Use the attribute **ControlClaimType** to specify which DisplayClaim is designated for that required claim. For example:
 
-```XML
+```xml
 <DisplayClaim ClaimTypeReferenceId="otpCode" ControlClaimType="VerificationCode" Required="true" />
 ```
 
@@ -96,7 +96,7 @@ An action defines a list of **validation technical profiles**. They are used for
 
 The following example sends a code either in email or SMS based on the user's selection of the **mfaType** claim.
 
-```XML
+```xml
 <Action Id="SendCode">
   <ValidationClaimsExchange>
     <ValidationClaimsExchangeTechnicalProfile TechnicalProfileReferenceId="AzureMfa-SendSms">
@@ -127,7 +127,7 @@ Display controls are referenced in the [display claims](self-asserted-technical-
 
 For example:
 
-```XML
+```xml
 <TechnicalProfile Id="SelfAsserted-ProfileUpdate">
   ...
   <DisplayClaims>

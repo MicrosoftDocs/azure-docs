@@ -1,6 +1,6 @@
 ---
 title: How to monitor an Azure Storage account in the Azure portal | Microsoft Docs
-description: Learn how to monitor a storage account in Azure by using the Azure portal.
+description: Learn how to monitor a storage account in Azure by using the Azure portal and Azure Storage Analytics.
 author: normesta
 ms.service: storage
 ms.topic: conceptual
@@ -8,6 +8,7 @@ ms.date: 01/09/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
+ms.custom: monitoring
 ---
 # Monitor a storage account in the Azure portal
 
@@ -134,7 +135,7 @@ You can instruct Azure Storage to save diagnostics logs for read, write, and del
     ![Configure logging in the Azure portal.](./media/storage-monitor-storage-account/enable-diagnostics.png)
 1. Click **Save**.
 
-The diagnostics logs are saved in a blob container named *$logs* in your storage account. You can view the log data using a storage explorer like the [Microsoft Storage Explorer](https://storageexplorer.com), or programmatically using the storage client library or PowerShell.
+The diagnostics logs are saved in a blob container named *$logs* in your storage account. You can view the log data using a storage explorer like the [Microsoft Azure Storage Explorer](https://storageexplorer.com), or programmatically using the storage client library or PowerShell.
 
 For information about accessing the $logs container, see [Storage analytics logging](storage-analytics-logging.md).
 

@@ -6,8 +6,9 @@ ms.author: tisande
 ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 4/29/2020
+ms.date: 05/13/2020
 ms.reviewer: sngun
+ms.custom: devx-track-csharp
 ---
 
 # Change feed processor in Azure Cosmos DB
@@ -32,7 +33,7 @@ To further understand how these four elements of change feed processor work toge
 There are two host instances and the change feed processor is assigning different ranges of partition key values to each instance to maximize compute distribution. 
 Each range is being read in parallel and its progress is maintained separately from other ranges in the lease container.
 
-![Change feed processor example](./media/change-feed-processor/changefeedprocessor.png)
+:::image type="content" source="./media/change-feed-processor/changefeedprocessor.png" alt-text="Change feed processor example" border="false":::
 
 ## Implementing the change feed processor
 
@@ -68,15 +69,21 @@ To prevent your change feed processor from getting "stuck" continuously retrying
 
 In addition, you can use the [change feed estimator](how-to-use-change-feed-estimator.md) to monitor the progress of your change feed processor instances as they read the change feed. In addition to monitoring if the change feed processor gets "stuck" continuously retrying the same batch of changes, you can also understand if your change feed processor is lagging behind due to available resources like CPU, memory, and network bandwidth.
 
+## Deployment unit
+
+A single change feed processor deployment unit consists of one or more instances with the same `processorName` and lease container configuration. You can have many deployment units where each one has a different business flow for the changes and each deployment unit consisting of one or more instances. 
+
+For example, you might have one deployment unit that triggers an external API anytime there is a change in your container. Another deployment unit might move data, in real-time, each time there is a change. When a change happens in your monitored container, all your deployment units will get notified.
+
 ## Dynamic scaling
 
-As mentioned during the introduction, the change feed processor can distribute compute across multiple instances automatically. You can deploy multiple instances of your application using the change feed processor and take advantage of it, the only key requirements are:
+As mentioned before, within a deployment unit you can have one or more instances. To take advantage of the compute distribution within the deployment unit, the only key requirements are:
 
 1. All instances should have the same lease container configuration.
-1. All instances should have the same workflow name.
+1. All instances should have the same `processorName`.
 1. Each instance needs to have a different instance name (`WithInstanceName`).
 
-If these three conditions apply, then the change feed processor will, using an equal distribution algorithm, distribute all the leases in the lease container across all running instances and parallelize compute. One lease can only be owned by one instance at a given time, so the maximum number of instances equals to the number of leases.
+If these three conditions apply, then the change feed processor will, using an equal distribution algorithm, distribute all the leases in the lease container across all running instances of that deployment unit and parallelize compute. One lease can only be owned by one instance at a given time, so the maximum number of instances equals to the number of leases.
 
 The number of instances can grow and shrink, and the change feed processor will dynamically adjust the load by redistributing accordingly.
 
@@ -86,17 +93,30 @@ Moreover, the change feed processor can dynamically adjust to containers scale d
 
 You are charged for RUs consumed, since data movement in and out of Cosmos containers always consumes RUs. You are charged for RUs consumed by the lease container.
 
+## Where to host the change feed processor
+
+The change feed processor can be hosted in any platform that supports long running processes or tasks:
+
+* A continuous running [Azure WebJob](https://docs.microsoft.com/learn/modules/run-web-app-background-task-with-webjobs/).
+* A process in an [Azure Virtual Machine](https://docs.microsoft.com/azure/architecture/best-practices/background-jobs#azure-virtual-machines).
+* A background job in [Azure Kubernetes Service](https://docs.microsoft.com/azure/architecture/best-practices/background-jobs#azure-kubernetes-service).
+* An [ASP.NET hosted service](https://docs.microsoft.com/aspnet/core/fundamentals/host/hosted-services).
+
+While change feed processor can run in short lived environments, because the lease container maintains the state, the start and stop cycle of these environments will add delay to receiving the notifications (due to the overhead of starting the processor every time the environment is started).
+
 ## Additional resources
 
 * [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md)
-* [Usage samples on GitHub](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed)
-* [Additional samples on GitHub](https://github.com/Azure-Samples/cosmos-dotnet-change-feed-processor)
+* [Complete sample application on GitHub](https://github.com/Azure-Samples/cosmos-dotnet-change-feed-processor)
+* [Additional usage samples on GitHub](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed)
+* [Cosmos DB workshop labs for change feed processor](https://azurecosmosdb.github.io/labs/dotnet/labs/08-change_feed_with_azure_functions.html#consume-cosmos-db-change-feed-via-the-change-feed-processor)
 
 ## Next steps
 
 You can now proceed to learn more about change feed processor in the following articles:
 
 * [Overview of change feed](change-feed.md)
+* [Change feed pull model](change-feed-pull-model.md)
 * [How to migrate from the change feed processor library](how-to-migrate-from-change-feed-library.md)
 * [Using the change feed estimator](how-to-use-change-feed-estimator.md)
 * [Change feed processor start time](how-to-configure-change-feed-start-time.md)

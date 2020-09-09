@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Claromentis | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Claromentis.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 7980e0c5-e4d8-4678-afa2-7ec219432114
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/04/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with Claromentis
@@ -89,10 +82,10 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
     In the **Sign-on URL** text box, type a URL using the following pattern:
 
-    | | |
-    |-|-|
-    | `https://<customer_site_url>/login`|
-    | `https://<customer_site_url>/login?no_auto=0`|
+    ```https
+    https://<customer_site_url>/login
+    https://<customer_site_url>/login?no_auto=0
+    ```
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL which is explained later in the turorial.

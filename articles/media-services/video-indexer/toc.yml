@@ -23,8 +23,6 @@
     href: https://github.com/Azure-Samples/media-services-video-indexer
 - name: Concepts
   items:
-  - name: Overview
-    href: video-indexer-concepts.md
   - name: Compare Video Indexer and Media Services presets
     href: compare-video-indexer-with-media-services-presets.md   
   - name: Manage multiple tenants
@@ -104,6 +102,7 @@
   - name: Regional availability
     href: https://azure.microsoft.com/regions/services/
   - name: Regions
+    displayName: location
     href: regions.md
   - name: FAQs
     href: faq.md    

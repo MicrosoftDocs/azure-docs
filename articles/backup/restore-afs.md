@@ -7,7 +7,7 @@ ms.date: 01/12/2020
 
 # Restore Azure file shares
 
-This article explains how to use the Azure portal to restore an entire file share or specific files from a restore point created by [Azure Backup](https://docs.microsoft.com/azure/backup/backup-overview).
+This article explains how to use the Azure portal to restore an entire file share or specific files from a restore point created by [Azure Backup](./backup-overview.md).
 
 In this article, you'll learn how to:
 
@@ -45,41 +45,40 @@ You can use this restore option to restore the complete file share in the origin
 
    ![Select Restore Share](./media/restore-afs/restore-share.png)
 
-1. After you select **Restore Share**, the **Restore** pane opens with a **Restore Point** menu that displays a list of restore points available for the selected file share.
+1. After you select **Restore Share**, the **Restore** pane opens. To select the restore point you want to use for performing the restore operation, choose  the **Select** link text below the **Restore Point** text box.
 
-1. Select the restore point you want to use to perform the restore operation, and select **OK**.
+    ![Select restore point by choosing Select](./media/restore-afs/select-restore-point.png)
+
+1. The **Select Restore Point** context pane opens on the right, listing the restore points available for the selected file share. Select the restore point you want to use to perform the restore operation, and select **OK**.
 
     ![Select restore point](./media/restore-afs/restore-point.png)
 
-1. After you select **OK**, the **Restore** pane menu switches to **Restore Location**. In **Restore Location**, specify where or how to restore the data. Select one of the following two options:
+    >[!NOTE]
+    >By default, the **Select Restore Point** pane lists restore points from the last 30 days. If you want to look at the restore points created during a specific duration, specify the range by selecting the appropriate **Start Time** and **End Time** and select the **Refresh** button.
+
+1. The next step is to choose the **Restore Location**. In the **Recovery Destination** section, specify where or how to restore the data. Select one of the following two options by using the toggle button:
 
     * **Original Location**: Restore the complete file share to the same location as the original source.
     * **Alternate Location**: Restore the complete file share to an alternate location and keep the original file share as is.
 
-#### Restore to the original location
+#### Restore to the original location (full share recovery)
 
-1. Select **Original Location** as the **Recovery Destination**, and select whether to skip or overwrite if there are conflicts. After you make the appropriate selection, select **OK**.
-
-    ![Select Original Location](./media/restore-afs/original-location.png)
+1. Select **Original Location** as the **Recovery Destination**, and select whether to skip or overwrite if there are conflicts, by choosing the appropriate option from the **In case of Conflicts** drop-down list.
 
 1. Select **Restore** to start the restore operation.
 
     ![Select Restore to start](./media/restore-afs/click-restore.png)
 
-#### Restore to an alternate location
+#### Restore to an alternate location (full share recovery)
 
 1. Select **Alternate Location** as the **Recovery Destination**.
 1. Select the destination storage account where you want to restore the backed-up content from the **Storage Account** drop-down list.
 1. The **Select File Share** drop-down list displays the file shares present in the storage account you selected in step 2. Select the file share where you want to restore the backed-up contents.
 1. In the **Folder Name** box, specify a folder name you want to create in the destination file share with the restored contents.
 1. Select whether to skip or overwrite if there are conflicts.
-1. After you enter the appropriate values in all boxes, select **OK**.
+1. After you enter the appropriate values in all boxes, select **Restore** to start the restore operation.
 
     ![Select Alternate Location](./media/restore-afs/alternate-location.png)
-
-1. Select **Restore** to start the restore operation.
-
-    ![Select Restore to start](./media/restore-afs/click-restore.png)
 
 ### Item-level recovery
 
@@ -89,64 +88,57 @@ You can use this restore option to restore individual files or folders in the or
 
     ![Select File Recovery](./media/restore-afs/file-recovery.png)
 
-1. After you select **File Recovery**, the **Restore** pane opens with a **Restore point** menu that displays a list of restore points available for the selected file share.
+1. After you select **File Recovery**, the **Restore** pane opens. To select the restore point you want to use for performing the restore operation, select the **Select** link text below the **Restore Point** text box.
 
-1. Select the restore point you want to use to perform the restore operation, and select **OK**.
+    ![Select restore point by choosing the Select link](./media/restore-afs/select-restore-point.png)
+
+1. The **Select Restore Point** context pane opens on the right, listing the restore points available for the selected file share. Select the restore point you want to use to perform the restore operation, and select **OK**.
 
     ![Select restore point](./media/restore-afs/restore-point.png)
 
-1. After you select **OK**, the restore pane menu switches to **Restore Location**. In **Restore Location**, specify where or how to restore the data. Select one of the following two options:
+1. The next step is to choose the **Restore Location**. In the **Recovery Destination** section, specify where or how to restore the data. Select one of the following two options by using the toggle button:
 
     * **Original Location**: Restore selected files or folders to the same file share as the original source.
     * **Alternate Location**: Restore selected files or folders to an alternate location and keep the original file share contents as is.
 
-#### Restore to the original location
+#### Restore to the original location (item-level recovery)
 
-1. Select **Original Location** as the **Recovery Destination**, and select whether to skip or overwrite if there are conflicts.
+1. Select **Original Location** as the **Recovery Destination**, and select whether to skip or overwrite if there are conflicts by choosing the appropriate option from the **In case of conflicts** drop-down list.
 
     ![Original Location for item-level recovery](./media/restore-afs/original-location-item-level.png)
 
-1. Choose **Select File** to select the files or folders you want to restore.
+1. To select the files or folders you want to restore, select the **Add File** button. This will open a context pane on the right, displaying the contents of the file share recovery point you selected for restore.
 
-    ![Choose Select File](./media/restore-afs/select-file.png)
-
-1. After you choose **Select File**, a file share pane displays the contents of the file share recovery point you selected for restore.
+    ![Choose Add File](./media/restore-afs/add-file.png)
 
 1. Select the check box that corresponds to the file or folder you want to restore, and choose **Select**.
 
     ![Select file or folder](./media/restore-afs/select-file-folder.png)
 
 1. Repeat steps 2 through 4 to select multiple files or folders for restore.
-1. After you select all the items you want to restore, select **OK**.
-
-    ![After selecting all items to restore, select OK](./media/restore-afs/after-selecting-items.png)
-
-1. Select **Restore** to start the restore operation.
+1. After you select all the items you want to restore, select **Restore** to start the restore operation.
 
     ![Select Restore to start](./media/restore-afs/click-restore.png)
 
-#### Restore to an alternate location
+#### Restore to an alternate location (item-level recovery)
 
 1. Select **Alternate Location** as the **Recovery Destination**.
 1. Select the destination storage account where you want to restore the backed-up content from the **Storage Account** drop-down list.
 1. The **Select File Share** drop-down list displays the file shares present in the storage account you selected in step 2. Select the file share where you want to restore the backed-up contents.
 1. In the **Folder Name** box, specify a folder name you want to create in the destination file share with the restored contents.
 1. Select whether to skip or overwrite if there are conflicts.
-1. Choose **Select File** to select the files or folders you want to restore.
+1. To select the files or folders you want to restore, select the **Add File** button. This will open a context pane on the right displaying the contents of the file share recovery point you selected for restore.
 
     ![Select items to restore to alternate location](./media/restore-afs/restore-to-alternate-location.png)
 
-1. When you choose **Select File**, a file share pane displays the contents of the file share recovery point you selected for restore.
 1. Select the check box that corresponds to the file or folder you want to restore, and choose **Select**.
 
     ![Select recovery destination](./media/restore-afs/recovery-destination.png)
 
 1. Repeat steps 6 through 8 to select multiple files or folders for restore.
-1. After you select all the items you want to restore, select **OK**.
+1. After you select all the items you want to restore, select **Restore** to start the restore operation.
 
     ![Select OK after selecting all files](./media/restore-afs/after-selecting-all-items.png)
-
-1. Select **Restore** to start the restore operation.
 
 ## Track a restore operation
 

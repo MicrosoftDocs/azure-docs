@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: overview
-ms.date: 04/14/2020
+ms.date: 08/05/2020
 ms.author: pafarley
 
 #Customer intent: As a developer of content management software, I want to find out whether Azure Content Moderator is the right solution for my moderation needs.

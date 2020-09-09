@@ -18,9 +18,9 @@ ms.subservice: B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-A validation technical profile is an ordinary technical profile from any protocol, such as [Azure Active Directory](active-directory-technical-profile.md) or a [REST API](restful-technical-profile.md). The validation technical profile returns output claims, or returns 4xx HTTP status code, with the following data. For more information, see [returning error message](restful-technical-profile.md#returning-error-message)
+A validation technical profile is an ordinary technical profile from any protocol, such as [Azure Active Directory](active-directory-technical-profile.md) or a [REST API](restful-technical-profile.md). The validation technical profile returns output claims, or returns 4xx HTTP status code, with the following data. For more information, see [returning error message](restful-technical-profile.md#returning-validation-error-message)
 
-```JSON
+```json
 {
     "version": "1.0.0",
     "status": 409,
@@ -83,7 +83,7 @@ Following example uses these validation technical profiles:
 2. The next validation technical profile, doesn't execute if the userType claim does not exist, or if the value of the userType is `Partner`. The validation technical profile tries to read the user profile from the internal customer database and continue if an error occurs, such as REST API service not available, or any internal error.
 3. The last validation technical profile, doesn't execute if the userType claim has not existed, or if the value of the userType is `Customer`. The validation technical profile tries to read the user profile from the internal partner database and continues if an error occurs, such as REST API service not available, or any internal error.
 
-```XML
+```xml
 <ValidationTechnicalProfiles>
   <ValidationTechnicalProfile ReferenceId="login-NonInteractive" ContinueOnError="false" />
   <ValidationTechnicalProfile ReferenceId="REST-ReadProfileFromCustomertsDatabase" ContinueOnError="true" >

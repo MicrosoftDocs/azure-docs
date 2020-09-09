@@ -7,6 +7,7 @@ ms.date: 03/12/2020
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
+ms.custom: devx-track-csharp
 
 ---
 
@@ -27,8 +28,8 @@ Azure Key Vault helps safeguard cryptographic keys and secrets used by cloud app
 ## Prerequisites
 
 * An Azure subscription - [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* The [.NET Core 2.1 SDK or later](https://dotnet.microsoft.com/download/dotnet-core/2.1).
-* [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) or [Azure PowerShell](/powershell/azure/overview)
+* The [.NET Core 3.1 SDK or later](https://dotnet.microsoft.com/download/dotnet-core/3.1).
+* [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) or [Azure PowerShell](/powershell/azure/)
 
 This quickstart assumes you are running `dotnet`, [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest), and Windows commands in a Windows terminal (such as [PowerShell Core](/powershell/scripting/install/installing-powershell-core-on-windows?view=powershell-6), [Windows PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-6), or the [Azure Cloud Shell](https://shell.azure.com/)).
 
@@ -72,111 +73,19 @@ dotnet add package Azure.Identity
 
 ### Create a resource group and key vault
 
-This quickstart uses a pre-created Azure key vault. You can create a key vault by following the steps in the [Azure CLI quickstart](quick-create-cli.md), [Azure PowerShell quickstart](quick-create-powershell.md), or [Azure portal quickstart](quick-create-portal.md). Alternatively, you can simply run the Azure CLI commands below.
-
-> [!Important]
-> Each key vault must have a unique name. Replace <your-unique-keyvault-name> with the name of your key vault in the following examples.
-
-```azurecli
-az group create --name "myResourceGroup" -l "EastUS"
-
-az keyvault create --name <your-unique-keyvault-name> -g "myResourceGroup"
-```
-
-```azurepowershell
-New-AzResourceGroup -Name myResourceGroup -Location EastUS
-
-New-AzKeyVault -Name <your-unique-keyvault-name> -ResourceGroupName myResourceGroup -Location EastUS
-```
+[!INCLUDE [Create a resource group and key vault](../../../includes/key-vault-rg-kv-creation.md)]
 
 ### Create a service principal
 
-The simplest way to authenticate a cloud-based .NET application is with a managed identity; see [Use an App Service managed identity to access Azure Key Vault](../general/managed-identity.md) for details. For the sake of simplicity however, this quickstart creates a .NET console application. Authenticating a desktop application with Azure requires the use of a service principal and an access control policy.
-
-Create a service principle using the Azure CLI [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) command:
-
-```azurecli
-az ad sp create-for-rbac -n "http://mySP" --sdk-auth
-```
-
-This operation will return a series of key / value pairs. 
-
-```console
-{
-  "clientId": "7da18cae-779c-41fc-992e-0527854c6583",
-  "clientSecret": "b421b443-1669-4cd7-b5b1-394d5c945002",
-  "subscriptionId": "443e30da-feca-47c4-b68f-1636b75e16b3",
-  "tenantId": "35ad10f1-7799-4766-9acf-f2d946161b77",
-  "activeDirectoryEndpointUrl": "https://login.microsoftonline.com",
-  "resourceManagerEndpointUrl": "https://management.azure.com/",
-  "sqlManagementEndpointUrl": "https://management.core.windows.net:8443/",
-  "galleryEndpointUrl": "https://gallery.azure.com/",
-  "managementEndpointUrl": "https://management.core.windows.net/"
-}
-```
-
-Create a service principal using Azure PowerShell [New-AzADServicePrincipal](/powershell/module/az.resources/new-azadserviceprincipal) command:
-
-```azurepowershell
-# Create a new service principal
-$spn = New-AzADServicePrincipal -DisplayName "http://mySP"
-
-# Get the tenant ID and subscription ID of the service principal
-$tenantId = (Get-AzContext).Tenant.Id
-$subscriptionId = (Get-AzContext).Subscription.Id
-
-# Get the client ID
-$clientId = $spn.ApplicationId
-
-# Get the client Secret
-$bstr = [System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($spn.Secret)
-$clientSecret = [System.Runtime.InteropServices.Marshal]::PtrToStringAuto($bstr)
-```
-
-For more details about the service principal with Azure PowerShell, refer to [Create an Azure service principal with Azure PowerShell](/powershell/azure/create-azure-service-principal-azureps).
-
-Take note of the clientId, clientSecret, and tenantId, as we will use them in the following steps.
-
+[!INCLUDE [Create a service principal](../../../includes/key-vault-sp-creation.md)]
 
 #### Give the service principal access to your key vault
 
-Create an access policy for your key vault that grants permission to your service principal by passing the clientId to the [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) command. Give the service principal get, list, and set permissions for both keys and secrets.
-
-```azurecli
-az keyvault set-policy -n <your-unique-keyvault-name> --spn <clientId-of-your-service-principal> --secret-permissions list get set delete purge
-```
-
-```azurepowershell
-Set-AzKeyVaultAccessPolicy -VaultName <your-unique-keyvault-name> -ServicePrincipalName <clientId-of-your-service-principal> -PermissionsToSecrets list,get,set,delete,purge
-```
+[!INCLUDE [Give the service principal access to your key vault](../../../includes/key-vault-sp-kv-access.md)]
 
 #### Set environmental variables
 
-The DefaultAzureCredential method in our application relies on three environmental variables: `AZURE_CLIENT_ID`, `AZURE_CLIENT_SECRET`, and `AZURE_TENANT_ID`. use set these variables to the clientId, clientSecret, and tenantId values you noted in the [Create a service principal](#create-a-service-principal) step, above.
-
-You will also need to save your key vault name as an environment variable called `KEY_VAULT_NAME`;
-
-```console
-setx AZURE_CLIENT_ID <your-clientID>
-
-setx AZURE_CLIENT_SECRET <your-clientSecret>
-
-setx AZURE_TENANT_ID <your-tenantId>
-
-setx KEY_VAULT_NAME <your-key-vault-name>
-````
-
-Each time you call `setx`, you should get a response of "SUCCESS: Specified value was saved."
-
-```shell
-AZURE_CLIENT_ID=<your-clientID>
-
-AZURE_CLIENT_SECRET=<your-clientSecret>
-
-AZURE_TENANT_ID=<your-tenantId>
-
-KEY_VAULT_NAME=<your-key-vault-name>
-```
+[!INCLUDE [Set environmental variables](../../../includes/key-vault-set-environmental-variables.md)]
 
 ## Object model
 
@@ -194,7 +103,7 @@ Add the following directives to the top of your code:
 
 ### Authenticate and create a client
 
-Authenticating to your key vault and creating a key vault client depends on the environmental variables in the [Set environmental variables](#set-environmental-variables) step above. The name of your key vault is expanded to the key vault URI, in the format "https://\<your-key-vault-name\>.vault.azure.net".
+Authenticating to your key vault and creating a key vault client depends on the environmental variables in the [Set environmental variables](#set-environmental-variables) step above. The name of your key vault is expanded to the key vault URI, in the format "https://\<your-key-vault-name\>.vault.azure.net". Below code is using  ['DefaultAzureCredential()'](/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet) for authentication to key vault, which is reading environment variables to retrieve access token. 
 
 [!code-csharp[Directives](~/samples-key-vault-dotnet-quickstart/key-vault-console-app/Program.cs?name=authenticate)]
 
@@ -241,6 +150,26 @@ az keyvault secret show --vault-name <your-unique-keyvault-name> --name mySecret
 ## Clean up resources
 
 When no longer needed, you can use the Azure CLI or Azure PowerShell to remove your key vault and the corresponding  resource group.
+
+### Delete a Key Vault
+```azurecli
+az keyvault delete --name <your-unique-keyvault-name>
+```
+
+```powershell
+Remove-AzKeyVault -VaultName <your-unique-keyvault-name>
+```
+
+### Purge a Key Vault
+```azurecli
+az keyvault purge --location eastus --name <your-unique-keyvault-name>
+```
+
+```powershell
+Remove-AzKeyVault -VaultName <your-unique-keyvault-name> -InRemovedState -Location eastus
+```
+
+### Delete a resource group
 
 ```azurecli
 az group delete -g "myResourceGroup"
@@ -308,7 +237,6 @@ In this quickstart you created a key vault, stored a secret, and retrieved that 
 
 To learn more about Key Vault and how to integrate it with your applications, continue on to the articles below.
 
-- Implement [Service-to-service authentication to Azure Key Vault using .NET](../general/service-to-service-authentication.md)
 - Read an [Overview of Azure Key Vault](../general/overview.md)
 - See the [Azure Key Vault developer's guide](../general/developers-guide.md)
 - Review [Azure Key Vault best practices](../general/best-practices.md)

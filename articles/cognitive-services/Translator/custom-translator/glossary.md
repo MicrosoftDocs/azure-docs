@@ -6,7 +6,7 @@ author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 02/21/2019
+ms.date: 08/17/2020
 ms.author: swmachan
 ms.topic: reference
 #Customer intent: As a Custom Translator user, I want to review glossary, so that I can understand the terms in multiple articles.

@@ -1,12 +1,9 @@
 ---
-title: include file
-description: include file
-author: sptramer
-ms.author: sttramer
-manager: carmonm
-ms.date: 06/05/2019
 ms.topic: include
-ms.custom: include file
+ms.date: 06/05/2019
+author: dbradish-microsoft
+ms.author: dbradish
+manager: barbkess
 ---
 > [!IMPORTANT]
 > This article contains content which requires the Azure classic CLI. This is

@@ -3,13 +3,14 @@ title: Speech-to-text API reference (REST) - Speech service
 titleSuffix: Azure Cognitive Services
 description: Learn how to use the speech-to-text REST API. In this article, you'll learn about authorization options, query options, how to structure a request and receive a response.
 services: cognitive-services
-author: yinhew
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 04/23/2020
-ms.author: yinhew
+ms.date: 05/13/2020
+ms.author: trbye
+ms.custom: devx-track-csharp
 ---
 
 # Speech-to-text REST API
@@ -47,9 +48,8 @@ These parameters may be included in the query string of the REST request.
 | Parameter | Description | Required / Optional |
 |-----------|-------------|---------------------|
 | `language` | Identifies the spoken language that is being recognized. See [Supported languages](language-support.md#speech-to-text). | Required |
-| `format` | Specifies the result format. Accepted values are `simple` and `detailed`. Simple results include `RecognitionStatus`, `DisplayText`, `Offset`, and `Duration`. Detailed responses include multiple results with confidence values and four different representations. The default setting is `simple`. | Optional |
+| `format` | Specifies the result format. Accepted values are `simple` and `detailed`. Simple results include `RecognitionStatus`, `DisplayText`, `Offset`, and `Duration`. Detailed responses include four different representations of display text. The default setting is `simple`. | Optional |
 | `profanity` | Specifies how to handle profanity in recognition results. Accepted values are `masked`, which replaces profanity with asterisks, `removed`, which removes all profanity from the result, or `raw`, which includes the profanity in the result. The default setting is `masked`. | Optional |
-| `pronunciationScoreParams` | Specifies the parameters for showing pronunciation scores in recognition results, which assess the pronunciation quality of speech input, with indicators of accuracy, fluency, completeness, etc. This parameter is a base64 encoded json containing multiple detailed parameters. See [Pronunciation assessment parameters](#pronunciation-assessment-parameters) for how to build this parameter. | Optional |
 | `cid` | When using the [Custom Speech portal](how-to-custom-speech.md) to create custom models, you can use custom models via their **Endpoint ID** found on the **Deployment** page. Use the **Endpoint ID** as the argument to the `cid` query string parameter. | Optional |
 
 ## Request headers
@@ -60,6 +60,7 @@ This table lists required and optional headers for speech-to-text requests.
 |------|-------------|---------------------|
 | `Ocp-Apim-Subscription-Key` | Your Speech service subscription key. | Either this header or `Authorization` is required. |
 | `Authorization` | An authorization token preceded by the word `Bearer`. For more information, see [Authentication](#authentication). | Either this header or `Ocp-Apim-Subscription-Key` is required. |
+| `Pronunciation-Assessment` | Specifies the parameters for showing pronunciation scores in recognition results, which assess the pronunciation quality of speech input, with indicators of accuracy, fluency, completeness, etc. This parameter is a base64 encoded json containing multiple detailed parameters. See [Pronunciation assessment parameters](#pronunciation-assessment-parameters) for how to build this header. | Optional |
 | `Content-type` | Describes the format and codec of the provided audio data. Accepted values are `audio/wav; codecs=audio/pcm; samplerate=16000` and `audio/ogg; codecs=opus`. | Required |
 | `Transfer-Encoding` | Specifies that chunked audio data is being sent, rather than a single file. Only use this header if chunking audio data. | Optional |
 | `Expect` | If using chunked transfer, send `Expect: 100-continue`. The Speech service acknowledges the initial request and awaits additional data.| Required if sending chunked audio data. |
@@ -69,10 +70,10 @@ This table lists required and optional headers for speech-to-text requests.
 
 Audio is sent in the body of the HTTP `POST` request. It must be in one of the formats in this table:
 
-| Format | Codec | Bitrate | Sample Rate  |
-|--------|-------|---------|--------------|
-| WAV    | PCM   | 16-bit  | 16 kHz, mono |
-| OGG    | OPUS  | 16-bit  | 16 kHz, mono |
+| Format | Codec | Bit rate | Sample Rate  |
+|--------|-------|----------|--------------|
+| WAV    | PCM   | 256 kbps | 16 kHz, mono |
+| OGG    | OPUS  | 256 kpbs | 16 kHz, mono |
 
 >[!NOTE]
 >The above formats are supported through REST API and WebSocket in the Speech service. The [Speech SDK](speech-sdk.md) currently supports the WAV format with PCM codec as well as [other formats](how-to-use-codec-compressed-audio-input-streams.md).
@@ -101,13 +102,18 @@ Below is an example JSON containing the pronunciation assessment parameters:
 }
 ```
 
-The following sample code shows how to build the pronunciation assessment parameters into the URL query parameter:
+The following sample code shows how to build the pronunciation assessment parameters into the `Pronunciation-Assessment` header:
 
 ```csharp
-var pronunciationScoreParamsJson = $"{{\"ReferenceText\":\"Good morning.\",\"GradingSystem\":\"HundredMark\",\"Granularity\":\"FullText\",\"Dimension\":\"Comprehensive\"}}";
-var pronunciationScoreParamsBytes = Encoding.UTF8.GetBytes(pronunciationScoreParamsJson);
-var pronunciationScoreParams = Convert.ToBase64String(pronunciationScoreParamsBytes);
+var pronAssessmentParamsJson = $"{{\"ReferenceText\":\"Good morning.\",\"GradingSystem\":\"HundredMark\",\"Granularity\":\"FullText\",\"Dimension\":\"Comprehensive\"}}";
+var pronAssessmentParamsBytes = Encoding.UTF8.GetBytes(pronAssessmentParamsJson);
+var pronAssessmentHeader = Convert.ToBase64String(pronAssessmentParamsBytes);
 ```
+
+We strongly recommend streaming (chunked) uploading while posting the audio data, which can significantly reduce the latency. See [sample code in different programming languages](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/PronunciationAssessment) for how to enable streaming.
+
+>[!NOTE]
+>The pronunciation assessment feature is currently only available on `westus`, `eastasia` and `centralindia` regions. And this feature is currently only available on `en-US` language.
 
 ## Sample request
 
@@ -121,6 +127,12 @@ Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY
 Host: westus.stt.speech.microsoft.com
 Transfer-Encoding: chunked
 Expect: 100-continue
+```
+
+To enable pronunciation assessment, you can add below header. See [Pronunciation assessment parameters](#pronunciation-assessment-parameters) for how to build this header.
+
+```HTTP
+Pronunciation-Assessment: eyJSZWZlcm...
 ```
 
 ## HTTP status codes
@@ -195,9 +207,10 @@ The `RecognitionStatus` field may contain these values:
 > [!NOTE]
 > If the audio consists only of profanity, and the `profanity` query parameter is set to `remove`, the service does not return a speech result.
 
-The `detailed` format includes the same data as the `simple` format, along with `NBest`, a list of alternative interpretations of the same recognition result. These results are ranked from most likely to least likely. The first entry is the same as the main recognition result.  When using the `detailed` format, `DisplayText` is provided as `Display` for each result in the `NBest` list.
+The `detailed` format includes additional forms of recognized results.
+When using the `detailed` format, `DisplayText` is provided as `Display` for each result in the `NBest` list.
 
-Each object in the `NBest` list includes:
+The object in the `NBest` list can include:
 
 | Parameter | Description |
 |-----------|-------------|
@@ -206,10 +219,10 @@ Each object in the `NBest` list includes:
 | `ITN` | The inverse-text-normalized ("canonical") form of the recognized text, with phone numbers, numbers, abbreviations ("doctor smith" to "dr smith"), and other transformations applied. |
 | `MaskedITN` | The ITN form with profanity masking applied, if requested. |
 | `Display` | The display form of the recognized text, with punctuation and capitalization added. This parameter is the same as `DisplayText` provided when format is set to `simple`. |
-| `AccuracyScore` | The score indicating the pronunciation accuracy of the given speech. |
-| `FluencyScore` | The score indicating the fluency of the given speech. |
-| `CompletenessScore` | The score indicating the completeness of the given speech by calculating the ratio of pronounced words towards entire input. |
-| `PronScore` | The overall score indicating the pronunciation quality of the given speech. This is calculated from `AccuracyScore`, `FluencyScore` and `CompletenessScore` with weight. |
+| `AccuracyScore` | Pronunciation accuracy of the speech. Accuracy indicates how closely the phonemes match a native speaker's pronunciation. Word and full text level accuracy score is aggregated from phoneme level accuracy score. |
+| `FluencyScore` | Fluency of the given speech. Fluency indicates how closely the speech matches a native speaker's use of silent breaks between words. |
+| `CompletenessScore` | Completeness of the speech, determined by calculating the ratio of pronounced words to reference text input. |
+| `PronScore` | Overall score indicating the pronunciation quality of the given speech. This is aggregated from `AccuracyScore`, `FluencyScore` and `CompletenessScore` with weight. |
 | `ErrorType` | This value indicates whether a word is omitted, inserted or badly pronounced, compared to `ReferenceText`. Possible values are `None` (meaning no error on this word), `Omission`, `Insertion` and `Mispronunciation`. |
 
 ## Sample responses
@@ -239,13 +252,6 @@ A typical response for `detailed` recognition:
         "ITN" : "remind me to buy 5 pencils",
         "MaskedITN" : "remind me to buy 5 pencils",
         "Display" : "Remind me to buy 5 pencils.",
-      },
-      {
-        "Confidence" : "0.54",
-        "Lexical" : "rewind me to buy five pencils",
-        "ITN" : "rewind me to buy 5 pencils",
-        "MaskedITN" : "rewind me to buy 5 pencils",
-        "Display" : "Rewind me to buy 5 pencils.",
       }
   ]
 }
@@ -292,6 +298,6 @@ A typical response for recognition with pronunciation assessment:
 
 ## Next steps
 
-- [Get your Speech trial subscription](https://azure.microsoft.com/try/cognitive-services/)
+- [Create a free Azure account](https://azure.microsoft.com/free/cognitive-services/)
 - [Customize acoustic models](how-to-customize-acoustic-models.md)
 - [Customize language models](how-to-customize-language-model.md)

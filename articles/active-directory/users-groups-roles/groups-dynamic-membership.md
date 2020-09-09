@@ -8,8 +8,8 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.topic: article
-ms.date: 04/29/2020
+ms.topic: overview
+ms.date: 08/13/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 
 # Dynamic membership rules for groups in Azure Active Directory
 
-In Azure Active Directory (Azure AD), you can create complex attribute-based rules to enable dynamic memberships for groups. Dynamic group membership reduces the administrative overhead of adding and removing users. This article details the properties and syntax to create dynamic membership rules for users or devices. You can set up a rule for dynamic membership on security groups or Office 365 groups.
+In Azure Active Directory (Azure AD), you can create complex attribute-based rules to enable dynamic memberships for groups. Dynamic group membership reduces the administrative overhead of adding and removing users. This article details the properties and syntax to create dynamic membership rules for users or devices. You can set up a rule for dynamic membership on security groups or Microsoft 365 groups.
 
 When any attributes of a user or device change, the system evaluates all dynamic group rules in a directory to see if the change would trigger any group adds or removes. If a user or device satisfies a rule on a group, they are added as a member of that group. If they no longer satisfy the rule, they are removed. You can't manually add or remove a member of a dynamic group.
 
@@ -31,7 +31,7 @@ When any attributes of a user or device change, the system evaluates all dynamic
 
 ## Rule builder in the Azure portal
 
-Azure AD provides a rule builder to create and update your important rules more quickly. The rule builder supports the construction up to five expressions. The rule builder makes it easier to form a rule with a few simple expressions, however, it can't be used to reproduce every rule. If the rule builder doesn't support the rule you want to create, you can use the text box.
+Azure AD provides a rule builder to create and update your important rules more quickly. The rule builder supports the construction of up to five expressions. The rule builder makes it easier to form a rule with a few simple expressions, however, it can't be used to reproduce every rule. If the rule builder doesn't support the rule you want to create, you can use the text box.
 
 Here are some examples of advanced rules or syntax for which we recommend that you construct using the text box:
 
@@ -113,7 +113,7 @@ The following are the user properties that you can use to create a single expres
 | streetAddress |Any string value or *null* |(user.streetAddress -eq "value") |
 | surname |Any string value or *null* |(user.surname -eq "value") |
 | telephoneNumber |Any string value or *null* |(user.telephoneNumber -eq "value") |
-| usageLocation |Two lettered country code |(user.usageLocation -eq "US") |
+| usageLocation |Two lettered country/region code |(user.usageLocation -eq "US") |
 | userPrincipalName |Any string value |(user.userPrincipalName -eq "alias@domain") |
 | userType |member guest *null* |(user.userType -eq "Member") |
 
@@ -264,7 +264,7 @@ assignedPlans is a multi-value property that lists all service plans assigned to
 user.assignedPlans -any (assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df-69c6916d9eb0" -and assignedPlan.capabilityStatus -eq "Enabled")
 ```
 
-A rule such as this one can be used to group all users for whom an Office 365 (or other Microsoft Online Service) capability is enabled. You could then apply with a set of policies to the group.
+A rule such as this one can be used to group all users for whom an Microsoft 365 (or other Microsoft Online Service) capability is enabled. You could then apply with a set of policies to the group.
 
 #### Example 2
 
@@ -336,13 +336,13 @@ device.objectId -ne null
 
 ## Extension properties and custom extension properties
 
-Extension attributes and custom extension properties are supported as string properties in dynamic membership rules. [Extension attributes](https://docs.microsoft.com/graph/api/resources/onpremisesextensionattributes?view=graph-rest-1.0) are synced from on-premises Window Server AD and take the format of "ExtensionAttributeX", where X equals 1 - 15. Here's an example of a rule that uses an extension attribute as a property:
+Extension attributes and custom extension properties are supported as string properties in dynamic membership rules. [Extension attributes](/graph/api/resources/onpremisesextensionattributes?view=graph-rest-1.0) are synced from on-premises Window Server AD and take the format of "ExtensionAttributeX", where X equals 1 - 15. Here's an example of a rule that uses an extension attribute as a property:
 
 ```
 (user.extensionAttribute15 -eq "Marketing")
 ```
 
-[Custom extension properties](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-feature-directory-extensions) are synced from on-premises Windows Server AD or from a connected SaaS application and are of the format of `user.extension_[GUID]_[Attribute]`, where:
+[Custom extension properties](../hybrid/how-to-connect-sync-feature-directory-extensions.md) are synced from on-premises Windows Server AD or from a connected SaaS application and are of the format of `user.extension_[GUID]_[Attribute]`, where:
 
 * [GUID] is the unique identifier in Azure AD for the application that created the property in Azure AD
 * [Attribute] is the name of the property as it was created
@@ -379,7 +379,7 @@ The following device attributes can be used.
  deviceManufacturer | any string value | (device.deviceManufacturer -eq "Samsung")
  deviceModel | any string value | (device.deviceModel -eq "iPad Air")
  deviceOwnership | Personal, Company, Unknown | (device.deviceOwnership -eq "Company")
- enrollmentProfileName | Apple Device Enrollment Profile, Device enrollment - Corporate device identifiers (Android - Kiosk), or Windows Autopilot profile name | (device.enrollmentProfileName -eq "DEP iPhones")
+ enrollmentProfileName | Apple Device Enrollment Profile name, Android Enterprise Corporate-owned dedicated device Enrollment Profile name, or Windows Autopilot profile name | (device.enrollmentProfileName -eq "DEP iPhones")
  isRooted | true false | (device.isRooted -eq true)
  managementType | MDM (for mobile devices)<br>PC (for computers managed by the Intune PC agent) | (device.managementType -eq "MDM")
  deviceId | a valid Azure AD device ID | (device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d")
@@ -388,7 +388,7 @@ The following device attributes can be used.
  systemLabels | any string matching the Intune device property for tagging Modern Workplace devices | (device.systemLabels -contains "M365Managed")
 
 > [!Note]  
-> For the deviceOwnership when creating Dynamic Groups for devices you need to set the value equal to "Company". On Intune the device ownership is represented instead as Corporate. Refer to [OwnerTypes](https://docs.microsoft.com/intune/reports-ref-devices#ownertypes) for more details. 
+> For the deviceOwnership when creating Dynamic Groups for devices you need to set the value equal to "Company". On Intune the device ownership is represented instead as Corporate. Refer to [OwnerTypes](/intune/reports-ref-devices#ownertypes) for more details. 
 
 ## Next steps
 

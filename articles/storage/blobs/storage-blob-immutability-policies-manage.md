@@ -5,7 +5,7 @@ services: storage
 author: tamram
 
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/26/2019
 ms.author: tamram
 ms.subservice: blobs
@@ -88,7 +88,7 @@ Register-AzResourceProvider -ProviderNamespace "Microsoft.Storage"
 New-AzResourceGroup -Name $resourceGroup -Location $location
 
 # Create your Azure storage account
-$storageAccount = New-AzStorageAccount -ResourceGroupName $resourceGroup -StorageAccountName `
+$account = New-AzStorageAccount -ResourceGroupName $resourceGroup -StorageAccountName `
     $storageAccount -SkuName Standard_ZRS -Location $location -Kind StorageV2
 
 # Create a new container using the context
@@ -116,7 +116,7 @@ Remove-AzRmStorageContainerLegalHold -ResourceGroupName $resourceGroup `
 Create or update time-based immutability policies:
 
 ```powershell
-# Create a time-based immutablity policy
+# Create a time-based immutability policy
 Set-AzRmStorageContainerImmutabilityPolicy -ResourceGroupName $resourceGroup `
     -StorageAccountName $storageAccount -ContainerName $container -ImmutabilityPeriod 10
 ```
@@ -177,7 +177,7 @@ The feature is included in the following command groups:
 ### [PowerShell](#tab/azure-powershell)
 
 ```powershell
-# Create an immutablity policy with appends allowed
+# Create an immutability policy with appends allowed
 Set-AzRmStorageContainerImmutabilityPolicy -ResourceGroupName $resourceGroup `
     -StorageAccountName $storageAccount -ContainerName $container -ImmutabilityPeriod 10 -AllowProtectedAppendWrite $true
 ```

@@ -124,7 +124,7 @@ Once your errors are resolved, detach the existing virtual hard disk from your t
 
 ## Swap the OS disk for the VM
 
-Azure portal now supports change the OS disk of the VM. To do this, follow these steps:
+Azure portal now supports changing the OS disk of the VM. To do this, follow these steps:
 
 1. Go to [Azure portal](https://portal.azure.com). Select **Virtual machines** from the sidebar, and then select the VM that has problem.
 1. On the left pane, select **Disks**, and then select **Swap OS disk**.

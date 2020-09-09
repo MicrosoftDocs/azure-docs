@@ -11,7 +11,7 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 04/11/2019
 ms.author: jmprieur
-ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
+ms.custom: "devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET"
 #Customer intent: As an application developer, I want to know how to write an ASP.NET web app that can sign in personal accounts, as well as work and school accounts from any Azure Active Directory instance.
 ---
 
@@ -40,7 +40,7 @@ In this quickstart, you use a code sample to learn how an ASP.NET web app to sig
 > 1. Select **New registration**.
 > 1. When the **Register an application** page appears, enter your application's registration information:
 >      - In the **Name** section, enter a meaningful application name that will be displayed to users of the app, for example `ASPNET-Quickstart`.
->      - Add `http://localhost:44368/` in **Redirect URI**, and click **Register**.
+>      - Add `https://localhost:44368/` in **Redirect URI**, and click **Register**.
 >      - From the left navigation pane under the Manage section, select **Authentication**
 >          - Under the **Implicit Grant** sub-section, select **ID tokens**.
 >          - And then select **Save**.
@@ -153,10 +153,10 @@ public void Configuration(IAppBuilder app)
 }
 ```
 
-> |Where  |  |
+> |Where  | Description |
 > |---------|---------|
 > | `ClientId`     | Application ID from the application registered in the Azure portal |
-> | `Authority`    | The STS endpoint for user to authenticate. Usually <https://login.microsoftonline.com/{tenant}/v2.0> for public cloud, where {tenant} is the name of your tenant, your tenant Id, or *common* for a reference to the common endpoint (used for multi-tenant applications) |
+> | `Authority`    | The STS endpoint for user to authenticate. Usually `https://login.microsoftonline.com/{tenant}/v2.0` for public cloud, where {tenant} is the name of your tenant, your tenant Id, or *common* for a reference to the common endpoint (used for multi-tenant applications) |
 > | `RedirectUri`  | URL where users are sent after authentication against Microsoft identity platform endpoint |
 > | `PostLogoutRedirectUri`     | URL where users are sent after signing-off |
 > | `Scope`     | The list of scopes being requested, separated by spaces |

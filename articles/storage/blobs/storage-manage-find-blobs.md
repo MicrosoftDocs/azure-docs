@@ -4,7 +4,7 @@ description: Learn how to use Blob Index tags to categorize, manage, and query t
 author: mhopkins-msft
 
 ms.author: mhopkins
-ms.date: 04/24/2020
+ms.date: 08/01/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
@@ -59,14 +59,14 @@ You can apply multiple tags on your blob to be more descriptive of the data.
 > "Priority" = '01' 
 >
 
-To modify the existing index tag attributes, you must first retrieve the existing tag attributes, modify the tag attributes, and replace with the SetBlobTags operation. To remove all index tags from the blob, call the SetBlobTags operation with no tag attributes specified. As blob index tags are a sub-resource to the blob data contents, SetBlobTags does not modify any underlying content and does not change the blob's last-modified-time.
+To modify the existing index tag attributes, you must first retrieve the existing tag attributes, modify the tag attributes, and replace with the SetBlobTags operation. To remove all index tags from the blob, call the SetBlobTags operation with no tag attributes specified. As blob index tags are a sub-resource to the blob data contents, SetBlobTags does not modify any underlying content and does not change the blob's last-modified-time or eTag (entity tag). You can create or modify index tags for all current base blobs and previous versions; however tags on snapshots or soft deleted blobs cannot be modified. 
 
 The following limits apply to Blob Index tags:
 - Each blob can have up to 10 blob index tags
 - Tag keys must be between 1 to 128 characters
 - Tag values must be between 0 to 256 characters
 - Tag keys and values are case-sensitive
-- Tag keys and values only support string data types; any numbers or special characters will be saved as strings
+- Tag keys and values only support string data types; any numbers, date, times, or special characters will be saved as strings
 - Tag keys and values must adhere to the following naming rules:
   - Alpha numeric characters: a-z, A-Z, 0-9
   - Special characters: space, plus, minus, period, colon, equals, underscore, forward slash
@@ -102,6 +102,13 @@ The below table shows all the valid operators for FindBlobsByTags:
 |     <=     | 	Less than or equal  | "Company" <= 'Contoso' |
 |    AND     | 	Logical and  | "Rank" >= '010' AND "Rank" < '100' |
 | @container |	Scope to a specific container	| @container = 'videofiles' AND "status" = 'done' |
+
+> [!NOTE]
+> Be familiar with lexicographical ordering when setting and querying on tags.
+> - Numbers are sorted before letters. Numbers are sorted based on the first digit.
+> - Uppercase letters are sorted before lowercase letters.
+> - Symbols are not standard. Some symbols are sorted before numeric values. Other symbols are sorted before or after letters.
+>
 
 ## Conditional Blob operations with Blob Index tags
 In REST versions 2019-10-10 and higher, most [blob service APIs](https://docs.microsoft.com/rest/api/storageservices/operations-on-blobs) now support a conditional header, x-ms-if-tags, such that the operation will only succeed if the specified blob index condition is met. If the condition is not met, you will get `error 412: The condition specified using HTTP conditional header(s) is not met`.
@@ -197,7 +204,7 @@ Callers using an [AAD identity](../common/storage-auth-aad.md) may be granted th
 
 |   Blob operations   |  RBAC action   |
 |---------------------|----------------|
-| Find Blobs by Tags  | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/filter |
+| Find Blobs by Tags  | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/filter/action |
 | Set Blob Tags 	    | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write | 
 | Get Blob Tags 	    | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/read |
 
@@ -243,9 +250,11 @@ Blob Index pricing is currently in public preview and subject to change for gene
 
 ## Regional availability and storage account support
 
-Blob Index is currently available with General Purpose v2 (GPv2) accounts only. In the Azure portal, you can upgrade an existing General Purpose (GPv1) account to a GPv2 account. For more information about storage accounts, see [Azure storage account overview](../common/storage-account-overview.md).
+Blob Index is currently only available on General Purpose v2 (GPv2) accounts with hierarchical namespace (HNS) disabled. General Purpose (GPV1) accounts are not supported but you can upgrade any GPv1 account to a GPv2 account. For more information about storage accounts, see [Azure storage account overview](../common/storage-account-overview.md).
 
 In public preview, Blob Index is currently only available in the following select regions:
+- Canada Central
+- Canada East
 - France Central
 - France South
 
@@ -273,7 +282,7 @@ az provider register --namespace 'Microsoft.Storage'
 This section describes known issues and conditions in the current public preview of the Blob Index. As with most previews, this feature should not be used for production workloads until it reaches GA as behaviors may change.
 
 -	For preview, you must first register your subscription before you can use Blob Index for your storage account in the preview regions.
--	Only GPv2 accounts are currently supported in preview. Blob, BlockBlobStorage, and HNS enabled DataLake Gen2 accounts are not currently supported with Blob Index.
+-	Only GPv2 accounts are currently supported in preview. Blob, BlockBlobStorage, and HNS enabled DataLake Gen2 accounts are not currently supported with Blob Index. GPv1 accounts will not be supported.
 -	Uploading page blobs with index tags currently does not persist the tags. You must set the tags after uploading a page blob.
 -	When filtering is scoped to a single container, the @container can only be passed if all the index tags in the filter expression are equality checks (key=value). 
 -	When using the range operator with the AND condition, you can only specify the same index tag key name (Age > ‘013’ AND Age < ‘100’).
@@ -281,6 +290,7 @@ This section describes known issues and conditions in the current public preview
 -	Account failover is currently not supported. The blob index may not update properly after failover.
 -	Lifecycle management currently only supports equality checks with Blob Index Match.
 -	CopyBlob does not copy blob index tags from the source blob to the new destination blob. You can specify the tags you want applied to the destination blob during the copy operation. 
+- CopyBlob (Async copy) from another storage account with applied tags on the destination blob currently causes the blob index engine to not return the blob and its tags in the filter set. It is recommended to use CopyBlob from URL (Sync copy) in the interim.
 -	Tags are persisted on snapshot creation; however promoting a snapshot is currently not supported and may result in an empty tag set.
 
 ## FAQ
@@ -288,10 +298,15 @@ This section describes known issues and conditions in the current public preview
 ### Can Blob Index help me filter and query content inside my blobs? 
 No, Blob Index tags can help you find the blobs that you are looking for. If you need to search within your blobs, use Query Acceleration or Azure Search.
 
+### Are there any special considerations regarding Blob Index tag values?
+Blob Index tags only support string data types and querying returns results with lexicographical ordering. For numbers, it is recommended to zero pad the number. For date and times, it is recommended to store as an ISO 8601 compliant format.
+
 ### Are Blob Index tags and Azure Resource Manager tags related?
 No, Azure Resource Manager tags help organize control plane resources such as subscriptions, resource groups, and storage accounts. Blob Index tags provide object management and discovery on data plane resources such as blobs within a storage account.
 
 ## Next steps
 
-See an example of how to utilize Blob Index. See [Utilize Blob Index to manage and find data](storage-blob-index-how-to.md)
+For an example of how to utilize Blob Index, see [Utilize Blob Index to manage and find data](storage-blob-index-how-to.md).
+
+Learn about [lifecycle management](storage-lifecycle-management-concepts.md) and set a rule with Blob Index match.
 

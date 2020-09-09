@@ -2,7 +2,7 @@
 title: Support matrix for VMware/physical disaster recovery in Azure Site Recovery
 description: Summarizes support for disaster recovery of VMware VMs and physical server to Azure using Azure Site Recovery.
 ms.topic: conceptual
-ms.date: 06/03/2020
+ms.date: 07/14/2020
 ---
 
 # Support matrix for disaster recovery  of VMware VMs and physical servers to Azure
@@ -11,6 +11,9 @@ This article summarizes supported components and settings for disaster recovery 
 
 - [Learn more](vmware-azure-architecture.md) about VMware VM/physical server disaster recovery architecture.
 - Follow our [tutorials](tutorial-prepare-azure.md) to try out disaster recovery.
+
+> [!NOTE]
+> Site Recovery does not move or store customer data out of the target region, in which disaster recovery has been setup for the source machines. Customers may select a Recovery Services Vault from a different region if they so choose. The Recovery Services Vault contains metadata but no actual customer data.
 
 ## Deployment scenarios
 
@@ -25,7 +28,6 @@ Disaster recovery of physical servers | Replication of on-premises Windows/Linux
 --- | --- | ---
 vCenter Server | Version 7.0 & subsequent updates in this version, 6.7, 6.5, 6.0, or 5.5 | We recommend that you use a vCenter server in your disaster recovery deployment.
 vSphere hosts | Version 7.0 & subsequent updates in this version, 6.7, 6.5, 6.0, or 5.5 | We recommend that vSphere hosts and vCenter servers are located in the same network as the process server. By default the process server runs on the configuration server. [Learn more](vmware-physical-azure-config-process-server-overview.md).
-
 
 ## Site Recovery configuration server
 
@@ -45,8 +47,8 @@ Operating system  | Windows Server 2012 R2, or Windows Server 2016 with Desktop 
 Operating system locale | English (en-us)
 [PowerCLI](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1) | Not needed for configuration server version [9.14](https://support.microsoft.com/help/4091311/update-rollup-23-for-azure-site-recovery) or later.
 Windows Server roles | Don't enable Active Directory Domain Services; Internet Information Services (IIS) or Hyper-V.
-Group policies| - Prevent access to the command prompt. <br/> - Prevent access to registry editing tools. <br/> - Trust logic for file attachments. <br/> - Turn on Script Execution. <br/> - [Learn more](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)|
-IIS | Make sure you:<br/><br/> - Don't have a pre-existing default website <br/> - Enable  [anonymous authentication](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br/> - Enable [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) setting  <br/> - Don't have preexisting website/app listening on port 443<br/>
+Group policies| - Prevent access to the command prompt. <br/> - Prevent access to registry editing tools. <br/> - Trust logic for file attachments. <br/> - Turn on Script Execution. <br/> - [Learn more](/previous-versions/windows/it-pro/windows-7/gg176671(v=ws.10))|
+IIS | Make sure you:<br/><br/> - Don't have a pre-existing default website <br/> - Enable  [anonymous authentication](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731244(v=ws.10)) <br/> - Enable [FastCGI](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753077(v=ws.10)) setting  <br/> - Don't have preexisting website/app listening on port 443<br/>
 NIC type | VMXNET3 (when deployed as a VMware VM)
 IP address type | Static
 Ports | 443 used for control channel orchestration<br/>9443 for data transport
@@ -55,14 +57,11 @@ Ports | 443 used for control channel orchestration<br/>9443 for data transport
 
 Site Recovery supports replication of any workload running on a supported machine.
 
-> [!Note]
-> The following table lists the support for machines with BIOS boot. Please refer to [Storage](#storage) section for support on UEFI based machines.
-
 **Component** | **Details**
 --- | ---
 Machine settings | Machines that replicate to Azure must meet [Azure requirements](#azure-vm-requirements).
 Machine workload | Site Recovery supports replication of any workload running on a supported machine. [Learn more](https://aka.ms/asr_workload).
-Machine name | Ensure that the display name of machine does not fall into [Azure reserved resource names](https://docs.microsoft.com/azure/azure-resource-manager/templates/error-reserved-resource-name)<br/><br/> Logical volume names are not case-sensitive. Ensure that no two volumes on a device have same name. Ex: Volumes with names "voLUME1", "volume1" cannot be protected through Azure Site Recovery.
+Machine name | Ensure that the display name of machine does not fall into [Azure reserved resource names](../azure-resource-manager/templates/error-reserved-resource-name.md)<br/><br/> Logical volume names are not case-sensitive. Ensure that no two volumes on a device have same name. Ex: Volumes with names "voLUME1", "volume1" cannot be protected through Azure Site Recovery.
 
 ### For Windows
 
@@ -164,6 +163,9 @@ BTRFS | BTRFS is supported from [Update Rollup 34](https://support.microsoft.com
 Resize disk on replicated VM | Supported on the source VM before failover, directly in the VM properties. No need to disable/re-enable replication.<br/><br/> If you change the source VM after failover, the changes aren't captures.<br/><br/> If you change the disk size on the Azure VM after failover, when you fail back, Site Recovery creates a new VM with the updates.
 Add disk on replicated VM | Not supported.<br/> Disable replication for the VM, add the disk, and then re-enable replication.
 
+> [!NOTE]
+> Any change to disk identity is not supported. For example, if the disk partitioning has been changed from GPT to MBR or vice versa, then this will change the disk identity. In such a scenario, the replication will break and a fresh setup will be required. 
+
 ## Network
 
 **Component** | **Supported**
@@ -178,6 +180,7 @@ Guest/server network IPv6 | No.
 Guest/server network static IP (Windows) | Yes.
 Guest/server network static IP (Linux) | Yes. <br/><br/>VMs are configured to use DHCP on failback.
 Guest/server network multiple NICs | Yes.
+Private link access to Site Recovery service | Yes. [Learn more](hybrid-how-to-enable-replication-private-endpoints.md).
 
 
 ## Azure VM network (after failover)
@@ -223,7 +226,7 @@ Guest/server - exclude disk | Yes
 Guest/server multipath (MPIO) | No
 Guest/server GPT partitions | Five partitions are supported from [Update Rollup 37](https://support.microsoft.com/help/4508614/) (version 9.25 of the Mobility service) onwards. Previously four were supported.
 ReFS | Resilient File System is supported with Mobility service version 9.23 or higher
-Guest/server EFI/UEFI boot | - Supported for Windows Server 2012 or later, SLES 12 SP4 and RHEL 8.0 with mobility agent version 9.30 onwards<br/> - Secure UEFI boot type is not supported.
+Guest/server EFI/UEFI boot | - Supported for all [Azure marketplace UEFI OSes](../virtual-machines/windows/generation-2.md#generation-2-vm-images-in-azure-marketplace) with Site Recovery mobility agent version 9.30 onwards. <br/> - Secure UEFI boot type is not supported. [Learn more.](../virtual-machines/windows/generation-2.md#on-premises-vs-azure-generation-2-vms)
 
 ## Replication channels
 
@@ -245,7 +248,9 @@ Hot storage| No
 Block blobs | No
 Encryption-at-rest (SSE)| Yes
 Encryption-at-rest (CMK)| Yes (via PowerShell Az 3.3.0 module onwards)
+Double Encryption at rest | Yes (via PowerShell Az 3.3.0 module onwards). Learn more on supported regions for [Windows](../virtual-machines/windows/disk-encryption.md) and [Linux](../virtual-machines/linux/disk-encryption.md).
 Premium storage | Yes
+Secure transfer option | Yes
 Import/export service | No
 Azure Storage firewalls for VNets | Yes.<br/> Configured on target storage/cache storage account (used to store replication data).
 General-purpose v2 storage accounts (hot and cool tiers) | Yes (Transaction costs are substantially higher for V2 compared to V1)
@@ -279,7 +284,7 @@ VM name | From 1 to 63 characters.<br/><br/> Restricted to letters, numbers, and
 
 ## Resource group limits
 
-To understand the number of virtual machines that can be protected under a single resource group, refer to the article on [subscription limits and quotas](/azure/azure-resource-manager/management/azure-subscription-service-limits#resource-group-limits).
+To understand the number of virtual machines that can be protected under a single resource group, refer to the article on [subscription limits and quotas](../azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits).
 
 ## Churn limits
 

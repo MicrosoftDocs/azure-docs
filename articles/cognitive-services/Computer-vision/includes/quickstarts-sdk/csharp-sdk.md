@@ -9,6 +9,7 @@ ms.subservice: computer-vision
 ms.topic: include
 ms.date: 12/05/2019
 ms.author: pafarley
+ms.custom: devx-track-csharp
 ---
 
 <a name="HOLTop"></a>
@@ -17,19 +18,14 @@ ms.author: pafarley
 
 ## Prerequisites
 
-* Azure subscription - [Create one for free](https://azure.microsoft.com/free/)
+* An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
 * The latest version of the [.NET Core SDK](https://dotnet.microsoft.com/download/).
+* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Create a Computer Vision resource"  target="_blank">create a Computer Vision resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
+    * You will need the key and endpoint from the resource you create to connect your application to the Computer Vision service. You'll paste your key and endpoint into the code below later in the quickstart.
+    * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
+* [Create environment variables](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for the key and endpoint URL, named `COMPUTER_VISION_SUBSCRIPTION_KEY` and `COMPUTER_VISION_ENDPOINT`, respectively.
 
 ## Setting up
-
-### Create a Computer Vision Azure resource
-
-Azure Cognitive Services are represented by Azure resources that you subscribe to. Create a resource for Computer Vision using the [Azure portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) or [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) on your local machine. You can also:
-
-* Get a [trial key](https://azure.microsoft.com/try/cognitive-services/#decision) valid for seven days for free. After you sign up, it will be available on the [Azure website](https://azure.microsoft.com/try/cognitive-services/my-apis/).  
-* View your resource on the [Azure portal](https://portal.azure.com/).
-
-After you get a key from your trial subscription or resource, [create environment variables](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for the key and endpoint URL, named `COMPUTER_VISION_SUBSCRIPTION_KEY` and `COMPUTER_VISION_ENDPOINT`, respectively.
 
 ### Create a new C# application
 
@@ -70,7 +66,7 @@ In the application's **Program** class, create variables for your resource's Azu
 Within the application directory, install the Computer Vision client library for .NET with the following command:
 
 ```dotnetcli
-dotnet add package Microsoft.Azure.CognitiveServices.Vision.ComputerVision --version 5.0.0
+dotnet add package Microsoft.Azure.CognitiveServices.Vision.ComputerVision --version 6.0.0-preview.1
 ```
 
 If you're using the Visual Studio IDE, the client library is available as a downloadable NuGet package.
@@ -211,7 +207,7 @@ The following code prints information about the type of image&mdash;whether it i
 
 ## Read printed and handwritten text
 
-Computer Vision can read visible text in an image and convert it to a character stream. The code in this section defines a method, `ExtractTextUrl`, which uses the client object to detect and extract printed or handwritten text in the image.
+Computer Vision can read visible text in an image and convert it to a character stream. For more information on text recognition, see the [Optical character recognition (OCR)](../../concept-recognizing-text.md#read-api) conceptual doc. The code in this section uses the latest [Computer Vision SDK release for Read 3.0](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision/6.0.0-preview.1) and defines a method, `BatchReadFileUrl`, which uses the client object to detect and extract text in the image.
 
 Add the method call in your `Main` method.
 
@@ -219,30 +215,30 @@ Add the method call in your `Main` method.
 
 ### Set up test image
 
-In your **Program** class, save a reference the URL of the image you want to extract text from.
+In your **Program** class, save a reference to the URL of the image you want to extract text from. This snippet includes sample images for both printed and handwritten text.
 
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_extracttext_url)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_readtext_url)]
 
 > [!NOTE]
 > You can also extract text from a local image. See the sample code on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ComputerVision/ComputerVisionQuickstart.cs) for scenarios involving local images.
 
 ### Call the Read API
 
-Define the new method for reading text. Add the code below, which calls the **BatchReadFileAsync** method for the given image. This returns an operation ID and starts an asynchronous process to read the content of the image.
+Define the new method for reading text. Add the code below, which calls the **ReadAsync** method for the given image. This returns an operation ID and starts an asynchronous process to read the content of the image.
 
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_extract_call)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_read_url)]
 
 ### Get Read results
 
-Next, get the operation ID returned from the **BatchReadFileAsync** call, and use it to query the service for operation results. The following code checks the operation at one-second intervals until the results are returned. It then prints the extracted text data to the console.
+Next, get the operation ID returned from the **ReadAsync** call, and use it to query the service for operation results. The following code checks the operation until the results are returned. It then prints the extracted text data to the console.
 
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_extract_response)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_read_response)]
 
 ### Display Read results
 
 Add the following code to parse and display the retrieved text data, and finish the method definition.
 
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_extract_display)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_read_display)]
 
 ## Run the application
 
@@ -264,5 +260,5 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 > [!div class="nextstepaction"]
 >[Computer Vision API reference (.NET)](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/computervision?view=azure-dotnet)
 
-* [What is Computer Vision?](../../Home.md)
+* [What is Computer Vision?](../../overview.md)
 * The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ComputerVision/ComputerVisionQuickstart.cs).

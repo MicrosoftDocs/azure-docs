@@ -81,10 +81,12 @@ Once you've queried your data, you can start visualizing it on the line chart. Y
 
   ![Zoom into the data](media/howto-create-analytics/zoom.png)
 
-Under the ellipsis, there are more chart controls to interact with the data.
+Under the ellipsis, there are more chart controls to interact with the data:
 
 - **Display Grid:** Your results are available in a table format, enabling you to view the specific value for each data point.
 
-- **Drop a Marker:** 'Drop Marker' control provides a way to anchor certain data points on the chart. It is useful when you are trying to compare data for multiple lines across different time periods.
+- **Download as CSV:** Your results are available to export as a comma-separated values (CSV) file. The CSV file contains data for each device. Results are exported by using the interval and timeframe specified. 
+
+- **Drop a Marker:** The 'Drop Marker' control provides a way to anchor certain data points on the chart. It is useful when you are trying to compare data for multiple lines across different time periods.
 
   ![Showing the grid view for your analytics](media/howto-create-analytics/additionalchartcontrols.png)

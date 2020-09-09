@@ -2,7 +2,7 @@
 title: Monitor Kubernetes cluster health with Azure Monitor for containers | Microsoft Docs
 description: This article describes how you can view and analyze the health of your AKS and non-AKS clusters with Azure Monitor for containers.
 ms.topic: conceptual
-ms.date: 12/01/2019
+ms.date: 05/18/2020
 ---
 
 # Understand Kubernetes cluster health with Azure Monitor for containers
@@ -10,7 +10,7 @@ ms.date: 12/01/2019
 With Azure Monitor for containers, it monitors and reports health status of the managed infrastructure components and all nodes running on any Kubernetes cluster supported by Azure Monitor for containers. This experience extends beyond the cluster health status calculated and reported on the [multi-cluster view](container-insights-analyze.md#multi-cluster-view-from-azure-monitor), where now you can understand if one or more nodes in the cluster are resource constrained, or a node or pod is unavailable that could impact a running application in the cluster based on curated metrics.
 
 >[!NOTE]
->The Health feature is in public preview at this time.
+>The Health feature is going to transition to a private preview at the end of June 2020. For additional information, review the following [Azure updates announcement](https://azure.microsoft.com/updates/ci-health-limited-preview/).
 >
 
 For information about how to enable Azure Monitor for containers, see [Onboard Azure Monitor for containers](container-insights-onboard.md).
@@ -18,7 +18,7 @@ For information about how to enable Azure Monitor for containers, see [Onboard A
 >[!NOTE]
 >To support AKS Engine clusters, verify it meets the following:
 >- It is using the latest version of the [HELM client](https://helm.sh/docs/using_helm/).
->- The containerized agent version is *microsoft/oms:ciprod11012019*. To upgrade the agent, see [upgrading agent on Kubernetes cluster](container-insights-manage-agent.md#upgrade-agent-on-monitored-kubernetes-cluster).
+>- The containerized agent version is *microsoft/oms:ciprod11012019*. To upgrade the agent, see [upgrading agent on Kubernetes cluster](container-insights-manage-agent.md#how-to-upgrade-the-azure-monitor-for-containers-agent).
 >
 
 ## Overview

@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: overview
-ms.date: 01/17/2020
+ms.date: 07/13/2020
 
 ms.author: iainfou
 author: iainfoulds

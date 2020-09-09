@@ -1,17 +1,17 @@
 ---
-title: Ingest into SQL pool in Azure Synapse Analytics 
+title: Ingest data into a SQL pool 
 description: Learn how to ingest data into a SQL pool in Azure Synapse Analytics
 services: synapse-analytics 
 author: djpmsft
 ms.service: synapse-analytics 
 ms.topic: conceptual
-ms.subservice: 
+ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: daperlov
 ms.reviewer: jrasnick
 ---
 
-# Ingesting data into a SQL pool
+# Ingest data into a SQL pool
 
 In this article you will learn how to ingest data from an Azure Data Lake Gen 2 storage account into a SQL pool using Azure Synapse Analytics.
 
@@ -19,7 +19,7 @@ In this article you will learn how to ingest data from an Azure Data Lake Gen 2 
 
 * **Azure subscription**: If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
 * **Azure storage account**: You use Azure Data Lake Storage Gen 2 as a *source* data store. If you don't have a storage account, see [Create an Azure Storage account](../../storage/blobs/data-lake-storage-quickstart-create-account.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) for steps to create one.
-* **Azure Synapse Analytics**: You use a SQL pool as a *sink* data store. If you don't have an Azure Synapse Analytics instance, see [Create a SQL pool](../../sql-database/sql-database-get-started-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) for steps to create one.
+* **Azure Synapse Analytics**: You use a SQL pool as a *sink* data store. If you don't have an Azure Synapse Analytics instance, see [Create a SQL pool](../../azure-sql/database/single-database-create-quickstart.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) for steps to create one.
 
 ## Create linked services
 
@@ -34,7 +34,7 @@ In Azure Synapse Analytics, a linked service is where you define your connection
 
 ## Create pipeline
 
-A pipeline contains the logical flow for an execution of a set of activities. In this section, you'll create a pipeline containing a copy activity that ingests data from ADLS gen 2 into a SQL pool.
+A pipeline contains the logical flow for an execution of a set of activities. In this section, you'll create a pipeline containing a copy activity that ingests data from ADLS Gen2 into a SQL pool.
 
 1. Go to the **Orchestrate** tab. Click on the plus icon 
 next to the pipelines header and select **Pipeline**.

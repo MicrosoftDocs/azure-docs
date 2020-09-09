@@ -1,6 +1,6 @@
 ---
 title: Troubleshooting network virtual appliance issues in Azure | Microsoft Docs
-description: Learn how to troubleshoot the network virtual appliance issues in Azure.
+description: Troubleshoot Network Virtual Appliance (NVA) issues in Azure and validate basic Azure Platform requirements for NVA configurations.
 services: virtual-network
 documentationcenter: na
 author: genlin
@@ -100,11 +100,15 @@ When using a Standard SKU and Public IPs, there must be an NSG created and an ex
 
     For Windows:
 
-        netstat -an
+    ```console
+   netstat -an
+    ```
 
     For Linux:
 
-        netstat -an | grep -i listen
+    ```console
+   netstat -an | grep -i listen
+    ```
 2. If you don't see the TCP port that's used by the NVA software that's listed in the results you must configure the application on the NVA and VM to listen and respond to traffic that reaches those ports. [Contact the NVA vendor for assistance as needed](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines).
 
 ## Check NVA Performance

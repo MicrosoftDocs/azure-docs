@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with PostBeyond | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and PostBeyond.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 09992f08-ec50-4472-997f-ccbe719039e8
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with PostBeyond
 

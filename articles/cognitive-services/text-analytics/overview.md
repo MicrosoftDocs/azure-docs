@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 03/04/2020
+ms.date: 08/27/2020
 ms.author: aahi
 ---
 
@@ -78,26 +78,7 @@ This section has been moved to a separate article for better discoverability. Re
 
 ## Data limits
 
-All of the Text Analytics API endpoints accept raw text data. The current limit is 5,120 characters for each document; if you need to analyze larger documents, you can break them up into smaller chunks.
-
-| Limit | Value |
-|------------------------|---------------|
-| Maximum size of a single document | 5,120 characters as measured by [`StringInfo.LengthInTextElements`](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo.lengthintextelements). |
-| Maximum size of entire request | 1 MB |
-| Maximum number of documents in a request | 1,000 documents |
-
-Your rate limit will vary with your pricing tier.
-
-| Tier          | Requests per second | Requests per minute |
-|---------------|---------------------|---------------------|
-| S / Multi-service | 1000                | 1000                |
-| S0 / F0         | 100                 | 300                 |
-| S1            | 200                 | 300                 |
-| S2            | 300                 | 300                 |
-| S3            | 500                 | 500                 |
-| S4            | 1000                | 1000                |
-
-Requests are measured for each Text Analytics feature separately. For example, you can send the maximum number of requests for your pricing tier to each feature, at the same time.      
+All of the Text Analytics API endpoints accept raw text data. See the [Data limits](concepts/data-limits.md) article for more information.
 
 ## Unicode encoding
 

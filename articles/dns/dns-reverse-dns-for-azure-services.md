@@ -4,11 +4,9 @@ description: With this learning path, get started configuring reverse DNS lookup
 services: dns
 documentationcenter: na
 author: rohinkoul
-manager: KumudD
-
 ms.service: dns
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2017

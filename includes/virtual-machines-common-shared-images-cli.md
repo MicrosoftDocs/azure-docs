@@ -28,7 +28,7 @@ az sig create --resource-group myGalleryRG --gallery-name myGallery
 
 ## Share the gallery
 
-You can share images across subscriptions using Role-Based Access Control (RBAC). You can share images at the gallery, image definition or image version leve. Any user that has read permissions to an image version, even across subscriptions, will be able to deploy a VM using the image version.
+You can share images across subscriptions using Role-Based Access Control (RBAC). You can share images at the gallery, image definition or image version level. Any user that has read permissions to an image version, even across subscriptions, will be able to deploy a VM using the image version.
 
 We recommend that you share with other users at the gallery level. To get the object ID of your gallery, use [az sig show](/cli/azure/sig#az-sig-show).
 

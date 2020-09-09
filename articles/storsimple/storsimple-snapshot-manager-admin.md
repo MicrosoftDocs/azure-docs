@@ -10,7 +10,7 @@ editor: ''
 ms.assetid: 1cdbb61d-bd16-4be4-ade2-ceab11508acb
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2016

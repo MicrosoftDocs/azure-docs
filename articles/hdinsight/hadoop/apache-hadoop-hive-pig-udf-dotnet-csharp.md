@@ -5,8 +5,8 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
-ms.custom: hdinsightactive
+ms.topic: how-to
+ms.custom: "hdinsightactive, devx-track-csharp"
 ms.date: 12/06/2019
 ---
 

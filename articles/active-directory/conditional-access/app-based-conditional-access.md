@@ -5,7 +5,7 @@ description: Learn how to require approved client apps for cloud app access with
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/04/2020
 
 ms.author: joflore

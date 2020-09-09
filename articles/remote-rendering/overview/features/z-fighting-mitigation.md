@@ -5,11 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/06/2020
 ms.topic: article
+ms.custom: devx-track-csharp
 ---
 
 # Z-fighting mitigation
 
-When two surfaces overlap, it is not clear which one should be rendered on top of the other. The result even varies per pixel, resulting in view-dependent artifacts. Consequently, when the camera or the mesh moves, these patterns flicker noticeably. This artifact is called *z-fighting*. For AR and VR applications, the problem is intensified because head-mounted devices naturally always move. To prevent viewer discomfort z-fighting mitigation functionality is available in Azure Remote Rendering.
+When two surfaces overlap, it is not clear which one should be rendered on top of the other. The result even varies per pixel, resulting in camera view-dependent artifacts. Consequently, when the camera or the mesh moves, these patterns flicker noticeably. This artifact is called *z-fighting*. For AR and VR applications, the problem is intensified because head-mounted devices naturally always move. To prevent viewer discomfort z-fighting mitigation functionality is available in Azure Remote Rendering.
 
 ## Z-fighting mitigation modes
 
@@ -21,7 +22,7 @@ When two surfaces overlap, it is not clear which one should be rendered on top o
 
 The following code enables z-fighting mitigation:
 
-``` cs
+```cs
 void EnableZFightingMitigation(AzureSession session, bool highlight)
 {
     ZFightingMitigationSettings settings = session.Actions.ZFightingMitigationSettings;
@@ -33,6 +34,20 @@ void EnableZFightingMitigation(AzureSession session, bool highlight)
     settings.Highlighting = highlight;
 }
 ```
+
+```cpp
+void EnableZFightingMitigation(ApiHandle<AzureSession> session, bool highlight)
+{
+    ApiHandle<ZFightingMitigationSettings> settings = session->Actions()->GetZFightingMitigationSettings();
+
+    // enabling z-fighting mitigation
+    settings->SetEnabled(true);
+
+    // enabling checkerboard highlighting of z-fighting potential
+    settings->SetHighlighting(highlight);
+}
+```
+
 
 > [!NOTE]
 > Z-fighting mitigation is a global setting that affects all rendered meshes.

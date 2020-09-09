@@ -2,10 +2,10 @@
 author: areddish
 ms.author: areddish
 ms.service: cognitive-services
-ms.date: 04/14/2020
+ms.date: 08/17/2020
 ---
 
-This article shows you how to get started using the Custom Vision SDK with Python to build an object detection model. After it's created, you can add tagged regions, upload images, train the project, obtain the project's published prediction endpoint URL, and use the endpoint to programmatically test an image. Use this example as a template for building your own Python application.
+This article shows you how to get started using the Custom Vision client library with Python to build an object detection model. After it's created, you can add tagged regions, upload images, train the project, obtain the project's published prediction endpoint URL, and use the endpoint to programmatically test an image. Use this example as a template for building your own Python application.
 
 ## Prerequisites
 
@@ -13,9 +13,9 @@ This article shows you how to get started using the Custom Vision SDK with Pytho
 - [pip](https://pip.pypa.io/en/stable/installing/) tool
 - [!INCLUDE [create-resources](../../includes/create-resources.md)]
 
-## Install the Custom Vision SDK
+## Install the Custom Vision client library
 
-To install the Custom Vision service SDK for Python, run the following command in PowerShell:
+To install the Custom Vision service client library for Python, run the following command in PowerShell:
 
 ```powershell
 pip install azure-cognitiveservices-vision-customvision
@@ -35,11 +35,12 @@ Create a new file called *sample.py* in your preferred project directory.
 
 Add the following code to your script to create a new Custom Vision service project. Insert your subscription keys in the appropriate definitions. Also, get your Endpoint URL from the Settings page of the Custom Vision website.
 
-See the [create_project](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.training.custom_vision_training_client.customvisiontrainingclient?view=azure-python#create-project-name--description-none--domain-id-none--classification-type-none--target-export-platforms-none--custom-headers-none--raw-false----operation-config- ) method to specify other options when you create your project (explained in the [Build a detector](../../get-started-build-detector.md) web portal guide).  
+See the [create_project](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.training.operations.customvisiontrainingclientoperationsmixin?view=azure-python#create-project-name--description-none--domain-id-none--classification-type-none--target-export-platforms-none--custom-headers-none--raw-false----operation-config-) method to specify other options when you create your project (explained in the [Build a detector](../../get-started-build-detector.md) web portal guide).  
 
 ```Python
 from azure.cognitiveservices.vision.customvision.training import CustomVisionTrainingClient
-from azure.cognitiveservices.vision.customvision.training.models import ImageFileCreateEntry, Region
+from azure.cognitiveservices.vision.customvision.training.models import ImageFileCreateBatch, ImageFileCreateEntry, Region
+from msrest.authentication import ApiKeyCredentials
 
 ENDPOINT = "<your API endpoint>"
 
@@ -50,7 +51,8 @@ prediction_resource_id = "<your prediction resource id>"
 
 publish_iteration_name = "detectModel"
 
-trainer = CustomVisionTrainingClient(training_key, endpoint=ENDPOINT)
+credentials = ApiKeyCredentials(in_headers={"Training-key": training_key})
+trainer = CustomVisionTrainingClient(ENDPOINT, credentials)
 
 # Find the object detection domain
 obj_detection_domain = next(domain for domain in trainer.get_domains() if domain.type == "ObjectDetection" and domain.name == "General")
@@ -155,7 +157,7 @@ for file_name in scissors_image_regions.keys():
     with open(base_image_url + "images/scissors/" + file_name + ".jpg", mode="rb") as image_contents:
         tagged_images_with_regions.append(ImageFileCreateEntry(name=file_name, contents=image_contents.read(), regions=regions))
 
-upload_result = trainer.create_images_from_files(project.id, images=tagged_images_with_regions)
+upload_result = trainer.create_images_from_files(project.id, ImageFileCreateBatch(images=tagged_images_with_regions))
 if not upload_result.is_batch_successful:
     print("Image batch upload failed.")
     for image in upload_result.images:
@@ -188,10 +190,11 @@ To send an image to the prediction endpoint and retrieve the prediction, add the
 
 ```Python
 from azure.cognitiveservices.vision.customvision.prediction import CustomVisionPredictionClient
+from msrest.authentication import ApiKeyCredentials
 
 # Now there is a trained endpoint that can be used to make a prediction
-
-predictor = CustomVisionPredictionClient(prediction_key, endpoint=ENDPOINT)
+prediction_credentials = ApiKeyCredentials(in_headers={"Prediction-key": prediction_key})
+predictor = CustomVisionPredictionClient(ENDPOINT, prediction_credentials)
 
 # Open the sample image and get back the prediction results.
 with open(base_image_url + "images/Test/test_od_image.jpg", mode="rb") as test_data:

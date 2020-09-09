@@ -5,8 +5,8 @@ description: This article provides examples of how a TLS/SSL certificate can be 
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
-ms.date: 11/14/2019
+ms.topic: how-to
+ms.date: 06/17/2020
 ms.author: absha
 ---
 
@@ -16,10 +16,9 @@ To do end to end TLS, Application Gateway requires the backend instances to be a
 
 In this article, you learn how to:
 
-> [!div class="checklist"]
->
-> - Export authentication certificate from a backend certificate (for v1 SKU)
-> - Export trusted root certificate from a backend certificate (for v2 SKU)
+
+- Export authentication certificate from a backend certificate (for v1 SKU)
+- Export trusted root certificate from a backend certificate (for v2 SKU)
 
 ## Prerequisites
 
@@ -69,11 +68,11 @@ From your TLS/SSL certificate, export the public key .cer file (not the private 
 
 ## Export trusted root certificate (for v2 SKU)
 
-Trusted root certificate is required to whitelist backend instances in application gateway v2 SKU. The root certificate is a Base-64 encoded X.509(.CER) format root certificate from the backend server certificates. In this example, we will use a TLS/SSL certificate for the backend certificate, export its public key and then export the root certificate of the trusted CA from the public key in base64 encoded format to get the trusted root certificate. The intermediate certificate(s) should be bundled with server certificate and installed on the backend server.
+Trusted root certificate is required to allow backend instances in application gateway v2 SKU. The root certificate is a Base-64 encoded X.509(.CER) format root certificate from the backend server certificates. In this example, we will use a TLS/SSL certificate for the backend certificate, export its public key and then export the root certificate of the trusted CA from the public key in base64 encoded format to get the trusted root certificate. The intermediate certificate(s) should be bundled with server certificate and installed on the backend server.
 
 The following steps help you export the .cer file for your certificate:
 
-1. Use the steps 1-9 mentioned in the section **Export authentication certificate from a backend certificate (for v1 SKU)** above to export the public key from your backend certificate.
+1. Use the steps 1 - 8 mentioned in the previous section [Export authentication certificate (for v1 SKU)](#export-authentication-certificate-for-v1-sku) to export the public key from your backend certificate.
 
 2. Once the public key has been exported, open the file.
 
@@ -101,5 +100,5 @@ The following steps help you export the .cer file for your certificate:
 
 ## Next steps
 
-Now you have the authentication certificate/trusted root certificate in Base-64 encoded X.509(.CER) format. You can add this to the application gateway to whitelist your backend servers for end to end TLS encryption. See [Configure end to end TLS by using Application Gateway with PowerShell](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell).
+Now you have the authentication certificate/trusted root certificate in Base-64 encoded X.509(.CER) format. You can add this to the application gateway to allow your backend servers for end to end TLS encryption. See [Configure end to end TLS by using Application Gateway with PowerShell](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell).
 

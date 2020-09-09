@@ -35,13 +35,17 @@ The fully qualified domain name (FQDN) to use when connecting to the cluster fro
 
 Internally, each node in the cluster has a name that is assigned during cluster configuration. To find the cluster names, see the **Hosts** page on the Ambari Web UI. You can also use the following to return a list of hosts from the Ambari REST API:
 
-    curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/hosts" | jq '.items[].Hosts.host_name'
+```console
+curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/hosts" | jq '.items[].Hosts.host_name'
+```
 
 Replace `CLUSTERNAME` with the name of your cluster. When prompted, enter the password for the admin account. This command returns a JSON document that contains a list of the hosts in the cluster. [jq](https://stedolan.github.io/jq/) is used to extract the `host_name` element value for each host.
 
 If you need to find the name of the node for a specific service, you can query Ambari for that component. For example, to find the hosts for the HDFS name node, use the following command:
 
-    curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/HDFS/components/NAMENODE" | jq '.host_components[].HostRoles.host_name'
+```console
+curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/HDFS/components/NAMENODE" | jq '.host_components[].HostRoles.host_name'
+```
 
 This command returns a JSON document describing the service, and then [jq](https://stedolan.github.io/jq/) pulls out only the `host_name` value for the hosts.
 
@@ -102,7 +106,9 @@ For more information, see [Understanding blobs](https://docs.microsoft.com/rest/
 
 When using either Azure Storage or Data Lake Storage, you don't have to do anything special from HDInsight to access the data. For example, the following command lists files in the `/example/data` folder whether it's stored on Azure Storage or Data Lake Storage:
 
-    hdfs dfs -ls /example/data
+```console
+hdfs dfs -ls /example/data
+```
 
 In HDInsight, the data storage resources (Azure Blob Storage and Azure Data Lake Storage) are decoupled from compute resources. You can create HDInsight clusters to do computation as you need, and later delete the cluster when the work is finished. Meanwhile keeping your data files persisted safely in cloud storage as long as you need.
 
@@ -234,7 +240,7 @@ To use a different version of a component, upload the version you need and use i
 > [!IMPORTANT]
 > Components provided with the HDInsight cluster are fully supported and Microsoft Support helps to isolate and resolve issues related to these components.
 >
-> Custom components receive commercially reasonable support to help you to further troubleshoot the issue. This might result in resolving the issue OR asking you to engage available channels for the open source technologies where deep expertise for that technology is found. For example, there are many community sites that can be used, like: [MSDN forum for HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [https://stackoverflow.com](https://stackoverflow.com). Also Apache projects have project sites on [https://apache.org](https://apache.org), for example: [Hadoop](https://hadoop.apache.org/), [Spark](https://spark.apache.org/).
+> Custom components receive commercially reasonable support to help you to further troubleshoot the issue. This might result in resolving the issue OR asking you to engage available channels for the open source technologies where deep expertise for that technology is found. For example, there are many community sites that can be used, like: [Microsoft Q&A question page for HDInsight](https://docs.microsoft.com/answers/topics/azure-hdinsight.html), [https://stackoverflow.com](https://stackoverflow.com). Also Apache projects have project sites on [https://apache.org](https://apache.org), for example: [Hadoop](https://hadoop.apache.org/), [Spark](https://spark.apache.org/).
 
 ## Next steps
 

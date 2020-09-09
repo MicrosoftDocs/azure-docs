@@ -6,6 +6,7 @@ ms.author: banders
 ms.date: 02/12/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
+ms.subservice: cost-management
 ms.reviewer: adwise
 ---
 
@@ -33,7 +34,7 @@ When the support ticket is created, it is added to the support queue. Response t
 
 If you want to create a billing support ticket for Cost Management, under **Problem type**, select **Azure Cost Management**.
 
-To check the status of an incident that you've filed, see [All support requests](../../azure-portal/supportability/how-to-create-azure-support-request.md#all-support-requests).
+To check the status of an incident that you've filed, see [All support requests](../../azure-portal/supportability/how-to-manage-azure-support-request.md#view-support-requests).
 
 If you're a legacy Cloudyn user without an Azure account, you can open a support request at https://support.microsoft.com/oas/default.aspx?prid=16451.
 

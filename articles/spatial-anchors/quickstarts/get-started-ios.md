@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Create an iOS app'
-description: In this quickstart, you learn how to build an iOS app using Spatial Anchors.
+description: Learn to create an iOS app using Azure Spatial Anchors programmatically in either Swift or Objective-C.
 author: craigktreasure
 manager: vriveras
 services: azure-spatial-anchors
@@ -9,6 +9,7 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
+ms.custom: has-adal-ref
 ---
 # Quickstart: Create an iOS app with Azure Spatial Anchors, in either Swift or Objective-C
 
@@ -96,6 +97,8 @@ Locate the `spatialAnchorsAccountKey` field and replace `Set me` with the accoun
 
 Locate the `spatialAnchorsAccountId` field and replace `Set me` with the account identifier.
 
+Locate the `spatialAnchorsAccountDomain` field and replace `Set me` with the account domain.
+
 # [Objective-C](#tab/openproject-objc)
 
 Open `iOS/Objective-C/SampleObjC/BaseViewController.m`.
@@ -103,6 +106,8 @@ Open `iOS/Objective-C/SampleObjC/BaseViewController.m`.
 Locate the `SpatialAnchorsAccountKey` field and replace `Set me` with the account key.
 
 Locate the `SpatialAnchorsAccountId` field and replace `Set me` with the account identifier.
+
+Locate the `SpatialAnchorsAccountDomain` field and replace `Set me` with the account domain.
 
 ---
 

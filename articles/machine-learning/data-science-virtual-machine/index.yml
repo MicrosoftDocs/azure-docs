@@ -30,8 +30,6 @@ landingContent:
         links:
           - text: What is the Data Science Virtual Machine?
             url: overview.md
-          - text: What is the Geo AI Data Science Virtual Machine?
-            url: geo-ai-dsvm-overview.md
           - text: Tools Included on the Data Science Virtual Machine
             url: tools-included.md
           - text: Release Notes
@@ -42,8 +40,6 @@ landingContent:
             url: provision-vm.md
           - text: Create an Ubuntu Data Science Virtual Machine
             url: dsvm-ubuntu-intro.md
-          - text: Create a Geo AI Data Science Virtual Machine
-            url: provision-geo-ai-dsvm.md                        
 
 # SECURITY
   - title: Manage your Data Science Virtual Machine
@@ -66,8 +62,8 @@ landingContent:
     linkLists:
       - linkListType: learn
         links:
-          - text: Azure Machine Learning
-            url: /azure/machine-learning/
+          - text: Azure Machine Learning compute instance
+            url: /azure/machine-learning/concept-compute-instance
           - text: Compare our ML products
             url: https://docs.microsoft.com/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure/machine-learning/studio/context/ml-context
             

@@ -20,10 +20,11 @@ Certain configurations for Azure Red Hat OpenShift 4 clusters can affect your cl
 * All OpenShift Cluster operators must remain in a managed state. The list of cluster operators can be returned by running `oc get clusteroperators`.
 * Don't remove or modify the cluster Prometheus and Alertmanager services.
 * Don't remove Service Alertmanager rules.
-* Don't modify the OpenShift cluster version.
 * Don't remove or modify Azure Red Hat OpenShift service logging (mdsd pods).
 * Don't remove or modify the 'arosvc.azurecr.io' cluster pull secret.
-* All cluster virtual machines must have outbound internet access, at least to the Azure Resource Manager (ARM) and service logging (Geneva) endpoints.
+* All cluster virtual machines must have direct outbound internet access, at least to the Azure Resource Manager (ARM) and service logging (Geneva) endpoints.  No form of HTTPS proxying is supported.
+* Don't modify the DNS configuration of the cluster's virtual network. The default Azure DNS resolver must be used.
+* Don't override any of the cluster's MachineConfig objects (for example, the kubelet configuration) in any way.
 * The Azure Red Hat OpenShift service accesses your cluster via Private Link Service.  Don't remove or modify service access.
 * Non-RHCOS compute nodes aren't supported. For example, you can't use a RHEL compute node.
 
@@ -61,3 +62,11 @@ Azure Red Hat OpenShift 4 supports worker node instances on the following virtua
 |Fsv2|Standard_F8s_v2|8|16|
 |Fsv2|Standard_F16s_v2|16|32|
 |Fsv2|Standard_F32s_v2|32|64|
+
+### Master nodes
+
+|Series|Size|vCPU|Memory: GiB|
+|-|-|-|-|
+|Dsv3|Standard_D8s_v3|8|32|
+|Dsv3|Standard_D16s_v3|16|64|
+|Dsv3|Standard_D32s_v3|32|128|

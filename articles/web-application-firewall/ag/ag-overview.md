@@ -1,25 +1,25 @@
 ---
-title: Introduction to Azure Web Application Firewall
+title: What is Azure Web Application Firewall on Azure Application Gateway?
 titleSuffix: Azure Web Application Firewall
-description: This article provides an overview of web application firewall (WAF) on Application Gateway
+description: This article provides an overview of Web Application Firewall (WAF) on Application Gateway
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 11/14/2019
+ms.date: 08/31/2020
 ms.author: victorh
-ms.topic: overview
+ms.topic: conceptual
 ---
 
-# Azure Web Application Firewall on Azure Application Gateway
+# What is Azure Web Application Firewall on Azure Application Gateway?
 
 Azure Web Application Firewall (WAF) on Azure Application Gateway provides centralized protection of your web applications from common exploits and vulnerabilities. Web applications are increasingly targeted by malicious attacks that exploit commonly known vulnerabilities. SQL injection and cross-site scripting are among the most common attacks.
 
-WAF on Application Gateway is based on [Core Rule Set (CRS)](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3.1, 3.0, or 2.2.9 from the Open Web Application Security Project (OWASP). The WAF automatically updates to include protection against new vulnerabilities, with no additional configuration needed. 
+WAF on Application Gateway is based on [Core Rule Set (CRS)](https://owasp.org/www-project-modsecurity-core-rule-set/) 3.1, 3.0, or 2.2.9 from the Open Web Application Security Project (OWASP). The WAF automatically updates to include protection against new vulnerabilities, with no additional configuration needed. 
 
 All of the WAF features listed below exist inside of a WAF Policy. You can create multiple policies, and they can be associated with an Application Gateway, to individual listeners, or to path-based routing rules on an Application Gateway. This way, you can have separate policies for each site behind your Application Gateway if needed. For more information on WAF Policies, see [Create a WAF Policy](create-waf-policy-ag.md).
 
    > [!NOTE]
-   > Per-site and per-URI WAF Policies are in Public Preview. That means this feature is subject to Microsoft's Supplemental Terms of Use. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+   > Per-URI WAF Policies are in Public Preview. That means this feature is subject to Microsoft's Supplemental Terms of Use. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ![Application Gateway WAF diagram](../media/ag-overview/waf1.png)
 
@@ -67,7 +67,7 @@ This section describes the core benefits that WAF on Application Gateway provide
 - Configurable request size limits with lower and upper bounds.
 - Exclusion lists let you omit certain request attributes from a WAF evaluation. A common example is Active Directory-inserted tokens that are used for authentication or password fields.
 - Create custom rules to suit the specific needs of your applications.
-- Geo-filter traffic to allow or block certain countries from gaining access to your applications. (preview)
+- Geo-filter traffic to allow or block certain countries/regions from gaining access to your applications. (preview)
 - Protect your applications from bots with the bot mitigation ruleset. (preview)
 
 ## WAF Policy
@@ -153,7 +153,7 @@ Microsoft Azure Sentinel is a scalable, cloud-native, security information event
 With the built-in Azure WAF firewall events workbook, you can get an overview of the security events on your WAF. This includes events, matched and blocked rules, and everything else that gets logged in the firewall logs. See more on logging below. 
 
 
-![Sentinel](../media/ag-overview/sentinel.png)
+![Azure WAF firewall events workbook](../media/ag-overview/sentinel.png)
 
 #### Logging
 
@@ -201,10 +201,12 @@ Application Gateway WAF provides detailed reporting on each threat that it detec
 
 The pricing models are different for the WAF_v1 and WAF_v2 SKUs. Please see the [Application Gateway pricing](https://azure.microsoft.com/pricing/details/application-gateway/) page to learn more. 
 
+## What's new
+
+To learn what's new with Azure Web Application Firewall, see [Azure updates](https://azure.microsoft.com/updates/?category=networking&query=Web%20Application%20Firewall).
+
 ## Next steps
 
-- Get started by [Creating a WAF policy](create-waf-policy-ag.md)
 - Learn more about [WAF managed rules](application-gateway-crs-rulegroups-rules.md)
 - Learn more about [Custom Rules](custom-waf-rules-overview.md)
 - Learn about [Web Application Firewall on Azure Front Door](../afds/afds-overview.md)
-

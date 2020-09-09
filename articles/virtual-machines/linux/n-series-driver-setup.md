@@ -2,14 +2,12 @@
 title: Azure N-series GPU driver setup for Linux 
 description: How to set up NVIDIA GPU drivers for N-series VMs running Linux in Azure
 services: virtual-machines-linux
-author: cynthn
-ms.assetid: d91695d0-64b9-4e6b-84bd-18401eaecdde
+author: vikancha-MSFT
 ms.service: virtual-machines-linux
-ms.topic: article
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 01/09/2019
-ms.author: cynthn
-
+ms.author: vikancha
 ---
 
 # Install NVIDIA GPU drivers on N-series VMs running Linux
@@ -18,7 +16,7 @@ To take advantage of the GPU capabilities of Azure N-series VMs backed by NVIDIA
 
 If you choose to install NVIDIA GPU drivers manually, this article provides supported distributions, drivers, and installation and verification steps. Manual driver setup information is also available for [Windows VMs](../windows/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-For N-series VM specs, storage capacities, and disk details, see [GPU Linux VM sizes](sizes-gpu.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
+For N-series VM specs, storage capacities, and disk details, see [GPU Linux VM sizes](../sizes-gpu.md?toc=/azure/virtual-machines/linux/toc.json). 
 
 [!INCLUDE [virtual-machines-n-series-linux-support](../../../includes/virtual-machines-n-series-linux-support.md)]
 
@@ -352,7 +350,7 @@ Then, create an entry for your update script in `/etc/rc.d/rc3.d` so the script 
 ## Troubleshooting
 
 * You can set persistence mode using `nvidia-smi` so the output of the command is faster when you need to query cards. To set persistence mode, execute `nvidia-smi -pm 1`. Note that if the VM is restarted, the mode setting goes away. You can always script the mode setting to execute upon startup.
-* If you updated the NVIDIA CUDA drivers to the latest version and find RDMA connectivity is no longer working, [reinstall the RDMA drivers](https://docs.microsoft.com/azure/virtual-machines/linux/n-series-driver-setup#rdma-network-connectivity) to reestablish that connectivity. 
+* If you updated the NVIDIA CUDA drivers to the latest version and find RDMA connectivity is no longer working, [reinstall the RDMA drivers](#rdma-network-connectivity) to reestablish that connectivity. 
 
 ## Next steps
 

@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Predictix Price Reporting | Microsoft Docs'
 description: In this tutorial, you'll learn how to configure single sign-on between Azure Active Directory and Predictix Price Reporting.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 691d0c43-3aa1-4220-9e46-e7a88db234ad
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with Predictix Price Reporting
 
@@ -107,11 +101,10 @@ To configure Azure AD single sign-on with Predictix Price Reporting, take these 
 
     1. In the **Identifier (Entity ID)** box, enter a URL in this pattern:
 
-        | |
-	    |--|
-	    | `https://<companyname-pricing>.predictix.com` |
-	    | `https://<companyname-pricing>.dev.predictix.com` |
-	    | |
+        ```https
+        https://<companyname-pricing>.predictix.com
+        https://<companyname-pricing>.dev.predictix.com
+        ```
 
 	> [!NOTE]
 	> These values are placeholders. You need to use the actual sign-on URL and identifier. Contact the [Predictix Price Reporting support team](https://www.infor.com/company/customer-center/) to get the values. You can also refer to the patterns shown in the **Basic SAML Configuration** dialog box in the Azure portal.

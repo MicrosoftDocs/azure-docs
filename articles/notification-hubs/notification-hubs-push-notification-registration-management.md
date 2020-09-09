@@ -13,10 +13,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/17/2020
+ms.date: 07/07/2020
 ms.author: sethm
-ms.reviewer: jowargo
+ms.reviewer: thsomasu
 ms.lastreviewed: 04/08/2019
+ms.custom: devx-track-csharp
 ---
 
 # Registration management
@@ -130,73 +131,73 @@ class DeviceInstallation
     public string platform { get; set; }
     public string pushChannel { get; set; }
     public string[] tags { get; set; }
-}
 
-private async Task<HttpStatusCode> CreateOrUpdateInstallationAsync(DeviceInstallation deviceInstallation,
+    private async Task<HttpStatusCode> CreateOrUpdateInstallationAsync(DeviceInstallation deviceInstallation,
         string hubName, string listenConnectionString)
-{
-    if (deviceInstallation.installationId == null)
-        return HttpStatusCode.BadRequest;
-
-    // Parse connection string (https://msdn.microsoft.com/library/azure/dn495627.aspx)
-    ConnectionStringUtility connectionSaSUtil = new ConnectionStringUtility(listenConnectionString);
-    string hubResource = "installations/" + deviceInstallation.installationId + "?";
-    string apiVersion = "api-version=2015-04";
-
-    // Determine the targetUri that we will sign
-    string uri = connectionSaSUtil.Endpoint + hubName + "/" + hubResource + apiVersion;
-
-    //=== Generate SaS Security Token for Authorization header ===
-    // See, https://msdn.microsoft.com/library/azure/dn495627.aspx
-    string SasToken = connectionSaSUtil.getSaSToken(uri, 60);
-
-    using (var httpClient = new HttpClient())
     {
-        string json = JsonConvert.SerializeObject(deviceInstallation);
+        if (deviceInstallation.installationId == null)
+            return HttpStatusCode.BadRequest;
 
-        httpClient.DefaultRequestHeaders.Add("Authorization", SasToken);
+        // Parse connection string (https://msdn.microsoft.com/library/azure/dn495627.aspx)
+        ConnectionStringUtility connectionSaSUtil = new ConnectionStringUtility(listenConnectionString);
+        string hubResource = "installations/" + deviceInstallation.installationId + "?";
+        string apiVersion = "api-version=2015-04";
 
-        var response = await httpClient.PutAsync(uri, new StringContent(json, System.Text.Encoding.UTF8, "application/json"));
-        return response.StatusCode;
+        // Determine the targetUri that we will sign
+        string uri = connectionSaSUtil.Endpoint + hubName + "/" + hubResource + apiVersion;
+
+        //=== Generate SaS Security Token for Authorization header ===
+        // See https://msdn.microsoft.com/library/azure/dn495627.aspx
+        string SasToken = connectionSaSUtil.getSaSToken(uri, 60);
+
+        using (var httpClient = new HttpClient())
+        {
+            string json = JsonConvert.SerializeObject(deviceInstallation);
+
+            httpClient.DefaultRequestHeaders.Add("Authorization", SasToken);
+
+            var response = await httpClient.PutAsync(uri, new StringContent(json, System.Text.Encoding.UTF8, "application/json"));
+            return response.StatusCode;
+        }
     }
-}
 
-var channel = await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
+    var channel = await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
 
-string installationId = null;
-var settings = ApplicationData.Current.LocalSettings.Values;
+    string installationId = null;
+    var settings = ApplicationData.Current.LocalSettings.Values;
 
-// If we have not stored an installation ID in application data, create and store as application data.
-if (!settings.ContainsKey("__NHInstallationId"))
-{
-    installationId = Guid.NewGuid().ToString();
-    settings.Add("__NHInstallationId", installationId);
-}
+    // If we have not stored an installation ID in application data, create and store as application data.
+    if (!settings.ContainsKey("__NHInstallationId"))
+    {
+        installationId = Guid.NewGuid().ToString();
+        settings.Add("__NHInstallationId", installationId);
+    }
 
-installationId = (string)settings["__NHInstallationId"];
+    installationId = (string)settings["__NHInstallationId"];
 
-var deviceInstallation = new DeviceInstallation
-{
-    installationId = installationId,
-    platform = "wns",
-    pushChannel = channel.Uri,
-    //tags = tags.ToArray<string>()
-};
+    var deviceInstallation = new DeviceInstallation
+    {
+        installationId = installationId,
+        platform = "wns",
+        pushChannel = channel.Uri,
+        //tags = tags.ToArray<string>()
+    };
 
-var statusCode = await CreateOrUpdateInstallationAsync(deviceInstallation, 
+    var statusCode = await CreateOrUpdateInstallationAsync(deviceInstallation, 
                     "<HUBNAME>", "<SHARED LISTEN CONNECTION STRING>");
 
-if (statusCode != HttpStatusCode.Accepted)
-{
-    var dialog = new MessageDialog(statusCode.ToString(), "Registration failed. Installation Id : " + installationId);
-    dialog.Commands.Add(new UICommand("OK"));
-    await dialog.ShowAsync();
-}
-else
-{
-    var dialog = new MessageDialog("Registration successful using installation Id : " + installationId);
-    dialog.Commands.Add(new UICommand("OK"));
-    await dialog.ShowAsync();
+    if (statusCode != HttpStatusCode.Accepted)
+    {
+        var dialog = new MessageDialog(statusCode.ToString(), "Registration failed. Installation Id : " + installationId);
+        dialog.Commands.Add(new UICommand("OK"));
+        await dialog.ShowAsync();
+    }
+    else
+    {
+        var dialog = new MessageDialog("Registration successful using installation Id : " + installationId);
+        dialog.Commands.Add(new UICommand("OK"));
+        await dialog.ShowAsync();
+    }
 }
 ```
 

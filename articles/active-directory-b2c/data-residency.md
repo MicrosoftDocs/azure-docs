@@ -8,10 +8,11 @@ manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
-ms.date: 09/26/2019
+ms.topic: reference
+ms.date: 06/06/2020
 ms.author: mimart
 ms.subservice: B2C
+ms.custom: references_regions
 ---
 
 # Azure Active Directory B2C: Region availability & data residency
@@ -36,7 +37,7 @@ Azure AD B2C stores user data in either United States, Europe, or the Asia Pacif
 
 Data residency is determined by the country/region you select when you [create an Azure AD B2C tenant](tutorial-create-tenant.md):
 
-![Screenshot of a preview tenant](./media/data-residency/data-residency-b2c-tenant.png)
+![Screenshot of a Create Tenant form, choosing country or region.](./media/data-residency/data-residency-b2c-tenant.png)
 
 Data resides in the **United States** for the following countries/regions:
 
@@ -64,4 +65,4 @@ If this is the case, you must use your tenant ONLY for development and testing p
 
 There are known issues when you delete a preview B2C tenant and create a production-scale B2C tenant with the same domain name. *You must create a production-scale B2C tenant with a different domain name*.
 
-![Screenshot of a preview tenant](./media/data-residency/preview-b2c-tenant.png)
+![Screenshot of a tenant type, as preview tenant.](./media/data-residency/preview-b2c-tenant.png)

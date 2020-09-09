@@ -7,7 +7,7 @@ ms.service: mysql
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 3/18/2020
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ---
 
 # Quickstart: Create an Azure Database for MySQL using a simple Azure CLI command - az mysql up (preview)
@@ -59,7 +59,7 @@ sku-name | GP_Gen5_2 | The name of the sku. Follows the convention {pricing tier
 backup-retention | 7 | How long a backup should be retained. Unit is days.
 geo-redundant-backup | Disabled | Whether geo-redundant backups should be enabled for this server or not.
 location | westus2 | The Azure location for the server.
-ssl-enforcement | Disabled | Whether SSL should be enabled or not for this server.
+ssl-enforcement | Enabled | Whether SSL should be enabled or not for this server.
 storage-size | 5120 | The storage capacity of the server (unit is megabytes).
 version | 5.7 | The MySQL major version.
 admin-user | System generated | The username for the administrator login.
@@ -70,7 +70,7 @@ admin-password | System generated | The password of the administrator user.
 
 Once your server is created, it comes with the following settings:
 
-- A firewall rule called "devbox" is created. The Azure CLI attempts to detect the IP address of the machine the `az mysql up` command is run from and whitelists that IP address.
+- A firewall rule called "devbox" is created. The Azure CLI attempts to detect the IP address of the machine the `az mysql up` command is run from and allows that IP address.
 - "Allow access to Azure services" is set to ON. This setting configures the server's firewall to accept connections from all Azure resources, including resources not in your subscription.
 - The `wait_timeout` parameter is set to 8 hours
 - An empty database named "sampledb" is created

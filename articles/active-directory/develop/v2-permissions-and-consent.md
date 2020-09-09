@@ -64,7 +64,9 @@ _Effective permissions_ are the permissions that your app will have when making 
 
 ## OpenID Connect scopes
 
-The Microsoft identity platform implementation of OpenID Connect has a few well-defined scopes that do not apply to a specific resource: `openid`, `email`, `profile`, and `offline_access`. The `address` and `phone` OpenID Connect scopes are not supported.
+The Microsoft identity platform implementation of OpenID Connect has a few well-defined scopes that are also hosted on the Microsoft Graph: `openid`, `email`, `profile`, and `offline_access`. The `address` and `phone` OpenID Connect scopes are not supported.
+
+Requesting the OIDC scopes and a token will give you a token to call the [UserInfo endpoint](userinfo.md).
 
 ### openid
 

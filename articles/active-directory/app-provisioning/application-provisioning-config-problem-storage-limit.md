@@ -2,14 +2,14 @@
 title: Problem saving admin credentials configuring Azure AD gallery app
 description: How to troubleshoot common issues faced when configuring user provisioning to an application already listed in the Azure AD Application Gallery
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 02/21/2018
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: arvinh
 ---
 

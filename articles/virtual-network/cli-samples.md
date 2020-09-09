@@ -1,10 +1,10 @@
 ---
 title: Azure CLI samples for virtual network
-description: Azure CLI samples for virtual network.
+description: Learn about various sample scripts you can use for completing tasks in the Azure CLI, including creating a virtual network for multi-tier applications.
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
-manager: twooley
+manager: mtillman
 editor: ''
 tags:
 ms.assetid:
@@ -14,14 +14,15 @@ ms.topic: sample
 ms.tgt_pltfrm:
 ms.workload: infrastructure
 ms.date: 07/15/2019
-ms.author: kumud
+ms.author: kumud 
+ms.custom: devx-track-azurecli
 
 ---
 # Azure CLI samples for virtual network
 
 The following table includes links to bash scripts with Azure CLI commands:
 
-| | |
+| Script | Description |
 |----|----|
 | [Create a virtual network for multi-tier applications](./scripts/virtual-network-cli-sample-multi-tier-application.md) | Creates a virtual network with front-end and back-end subnets. Traffic to the front-end subnet is limited to HTTP and SSH, while traffic to the back-end subnet is limited to MySQL, port 3306. |
 | [Peer two virtual networks](./scripts/virtual-network-cli-sample-peer-two-virtual-networks.md) | Creates and connects two virtual networks in the same region. |

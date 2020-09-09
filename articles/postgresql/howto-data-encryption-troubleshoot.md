@@ -4,7 +4,7 @@ description: Learn how to troubleshoot the data encryption on your Azure Databas
 author: kummanish
 ms.author: manishku
 ms.service: postgresql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/13/2020
 ---
 

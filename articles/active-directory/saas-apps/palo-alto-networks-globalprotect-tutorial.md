@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Palo Alto Networks - GlobalProtect | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Palo Alto Networks - GlobalProtect.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 03bef6f2-3ea2-4eaa-a828-79c5f1346ce5
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 08/23/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with Palo Alto Networks - GlobalProtect
@@ -164,7 +157,5 @@ When you click the Palo Alto Networks - GlobalProtect tile in the Access Panel, 
 - [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
-
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Try Palo Alto Networks - GlobalProtect with Azure AD](https://aad.portal.azure.com/)

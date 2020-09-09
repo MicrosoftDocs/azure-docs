@@ -3,7 +3,7 @@ title: Mount an Azure HPC Cache
 description: How to connect clients to an Azure HPC Cache service
 author: ekpgh
 ms.service: hpc-cache
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/15/2020
 ms.author: v-erkel
 ---
@@ -110,7 +110,7 @@ For a robust client mount, pass these settings and arguments in your mount comma
 
 > mount -o hard,proto=tcp,mountproto=tcp,retry=30 ${CACHE_IP_ADDRESS}:/${NAMESPACE_PATH} ${LOCAL_FILESYSTEM_MOUNT_POINT}
 
-| Recommended mount command settings | |
+| Recommended mount command settings | Description |
 --- | ---
 ``hard`` | Soft mounts to Azure HPC Cache are associated with application failures and possible data loss.
 ``proto=tcp`` | This option supports appropriate handling of NFS network errors.

@@ -1,6 +1,6 @@
 ---
 title: How to use named values in Azure API Management policies
-description: Learn how to use named values in Azure API Management policies.
+description: Learn how to use named values in Azure API Management policies. Named values can contain literal strings and policy expressions.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -30,7 +30,7 @@ Each API Management service instance has a collection of key/value pairs, which 
 
 ![Named values](./media/api-management-howto-properties/named-values.png)
 
-Named values can contain literal strings and [policy expressions](/azure/api-management/api-management-policy-expressions). For example, the value of `Expression` is a policy expression that returns a string containing the current date and time. The named value `Credential` is marked as a secret, so its value is not displayed by default.
+Named values can contain literal strings and [policy expressions](./api-management-policy-expressions.md). For example, the value of `Expression` is a policy expression that returns a string containing the current date and time. The named value `Credential` is marked as a secret, so its value is not displayed by default.
 
 | Name       | Value                      | Secret | Tags          |
 | ---------- | -------------------------- | ------ | ------------- |
@@ -55,16 +55,12 @@ Named values can contain literal strings and [policy expressions](/azure/api-man
 
 Once the named value is created, you can edit it by clicking on it. If you change the named value name, any policies that reference that named value are automatically updated to use the new name.
 
-For information on editing a named value using the REST API, see [Edit a named value using the REST API](/rest/api/apimanagement/2019-12-01/property?patch).
-
 ## To delete a named value
 
 To delete a named value, click **Delete** beside the named value to delete.
 
 > [!IMPORTANT]
 > If the named value is referenced by any policies, you will be unable to successfully delete it until you remove the named value from all policies that use it.
-
-For information on deleting a named value using the REST API, see [Delete a named value using the REST API](/rest/api/apimanagement/2019-12-01/property/delete).
 
 ## To search and filter named values
 
@@ -110,8 +106,8 @@ While named values can contain policy expressions, they can't contain other name
 
 -   Learn more about working with policies
     -   [Policies in API Management](api-management-howto-policies.md)
-    -   [Policy reference](/azure/api-management/api-management-policies)
-    -   [Policy expressions](/azure/api-management/api-management-policy-expressions)
+    -   [Policy reference](./api-management-policies.md)
+    -   [Policy expressions](./api-management-policy-expressions.md)
 
 [api-management-send-results]: ./media/api-management-howto-properties/api-management-send-results.png
 [api-management-properties-filter]: ./media/api-management-howto-properties/api-management-properties-filter.png

@@ -3,7 +3,7 @@ title: Change a VMs availability set
 description: Learn how to change the availability set for your virtual machine using Azure PowerShell.
 ms.service: virtual-machines
 author: cynthn
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/31/2020
 ms.author: cynthn
 #pmcontact: 
@@ -13,7 +13,9 @@ The following steps describe how to change the availability set of a VM using Az
 
 This article applies to both Linux and Windows VMs.
 
-This article was last tested on 2/12/2019 using the [Azure Cloud Shell](https://shell.azure.com/powershell) and the [Az PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps) version 1.2.0.
+This article was last tested on 2/12/2019 using the [Azure Cloud Shell](https://shell.azure.com/powershell) and the [Az PowerShell module](/powershell/azure/install-az-ps) version 1.2.0.
+
+This example does not check to see if the VM is attached to a load balancer. If your VM is attached to a load balancer, you will need to update the script to handle that case. 
 
 
 ## Change the availability set 
@@ -100,4 +102,3 @@ The following script provides an example of gathering the required information, 
 ## Next steps
 
 Add additional storage to your VM by adding an additional [data disk](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-

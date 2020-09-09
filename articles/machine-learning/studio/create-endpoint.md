@@ -1,11 +1,10 @@
 ---
-title: Create web service endpoints
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (classic): Create web service endpoints - Azure'
 description: Create web service endpoints in Azure Machine Learning Studio (classic). Each endpoint in the web service is independently addressed, throttled, and managed.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 
 author: likebupt
 ms.author: keli19
@@ -14,7 +13,8 @@ ms.date: 02/15/2019
 ---
 # Create endpoints for deployed Azure Machine Learning Studio (classic) web services
 
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
+**APPLIES TO:**  ![yes](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic)   ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+
 
 > [!NOTE]
 > This topic describes techniques applicable to a **Classic** Machine Learning web service.

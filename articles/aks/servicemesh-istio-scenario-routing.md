@@ -446,7 +446,7 @@ You can explore additional scenarios using the [Istio Bookinfo Application examp
 [istio-docs-concepts]: https://istio.io/docs/concepts/what-is-istio/
 [istio-requirements-pods-and-services]: https://istio.io/docs/setup/kubernetes/prepare/requirements/
 [istio-reference-gateway]: https://istio.io/docs/reference/config/networking/v1alpha3/gateway/
-[istio-reference-policy]: https://istio.io/docs/reference/config/istio.authentication.v1alpha1/#Policy
+[istio-reference-policy]: https://istio.io/docs/reference/config/istio.mesh.v1alpha1/#AuthenticationPolicy
 [istio-reference-virtualservice]: https://istio.io/docs/reference/config/networking/v1alpha3/virtual-service/
 [istio-reference-destinationrule]: https://istio.io/docs/reference/config/networking/v1alpha3/destination-rule/
 [istio-bookinfo-example]: https://istio.io/docs/examples/bookinfo/

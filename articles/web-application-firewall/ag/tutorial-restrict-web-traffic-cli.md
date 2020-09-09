@@ -4,9 +4,10 @@ description: Learn how to restrict web traffic with a Web Application Firewall o
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 08/21/2019
+ms.date: 08/31/2020
 ms.author: victorh
-ms.topic: overview
+ms.topic: how-to 
+ms.custom: devx-track-azurecli
 ---
 
 # Enable Web Application Firewall using the Azure CLI
@@ -15,11 +16,10 @@ You can restrict traffic on an application gateway with a [Web Application Firew
 
 In this article, you learn how to:
 
-> [!div class="checklist"]
-> * Set up the network
-> * Create an application gateway with WAF enabled
-> * Create a virtual machine scale set
-> * Create a storage account and configure diagnostics
+ * Set up the network
+ * Create an application gateway with WAF enabled
+ * Create a virtual machine scale set
+ * Create a storage account and configure diagnostics
 
 ![Web Application Firewall example](../media/tutorial-restrict-web-traffic-cli/scenario-waf.png)
 
@@ -147,7 +147,7 @@ az storage account create \
   --resource-group myResourceGroupAG \
   --location eastus \
   --sku Standard_LRS \
-  --encryption blob
+  --encryption-services blob
 ```
 
 ### Configure diagnostics

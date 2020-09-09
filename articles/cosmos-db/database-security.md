@@ -20,7 +20,7 @@ Encryption at rest is now available for documents and backups stored in Azure Co
 
 Data security is a shared responsibility between you, the customer, and your database provider. Depending on the database provider you choose, the amount of responsibility you carry can vary. If you choose an on-premises solution, you need to provide everything from end-point protection to physical security of your hardware - which is no easy task. If you choose a PaaS cloud database provider such as Azure Cosmos DB, your area of concern shrinks considerably. The following image, borrowed from Microsoft's [Shared Responsibilities for Cloud Computing](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91) white paper, shows how your responsibility decreases with a PaaS provider like Azure Cosmos DB.
 
-![Customer and database provider responsibilities](./media/database-security/nosql-database-security-responsibilities.png)
+:::image type="content" source="./media/database-security/nosql-database-security-responsibilities.png" alt-text="Customer and database provider responsibilities":::
 
 The preceding diagram shows high-level cloud security components, but what items do you need to worry about specifically for your database solution? And how can you compare solutions to each other?
 
@@ -75,7 +75,7 @@ Let's dig into each one in detail.
 |Security and data protection certifications| For the most up-to-date list of certifications see the overall [Azure Compliance site](https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings) as well as the latest [Azure Compliance Document](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) with all certifications (search for Cosmos). For a more focused read check out the April 25, 2018 post [Azure #CosmosDB: Secure, private, compliant that includes SOCS 1/2 Type 2, HITRUST, PCI DSS Level 1, ISO 27001, HIPAA, FedRAMP High, and many others.
 
 The following screenshot shows how you can use audit logging and activity logs to monitor your account: 
-![Activity logs for Azure Cosmos DB](./media/database-security/nosql-database-security-application-logging.png)
+:::image type="content" source="./media/database-security/nosql-database-security-application-logging.png" alt-text="Activity logs for Azure Cosmos DB":::
 
 ## Next steps
 

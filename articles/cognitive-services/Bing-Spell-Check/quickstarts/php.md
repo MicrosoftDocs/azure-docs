@@ -9,12 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 12/16/2019
+ms.date: 05/21/2020
 ms.author: aahi
 ---
 # Quickstart: Check spelling with the Bing Spell Check REST API and PHP
 
-Use this quickstart to make your first call to the Bing Spell Check REST API. This simple PHP application sends a request to the API and returns a list of suggested corrections. While this application is written in PHP, the API is a RESTful Web service compatible with most programming languages.
+Use this quickstart to make your first call to the Bing Spell Check REST API. This simple PHP application sends a request to the API and returns a list of suggested corrections. 
+
+Although this application is written in PHP, the API is a RESTful Web service compatible with most programming languages.
 
 ## Prerequisites
 
@@ -23,12 +25,12 @@ Use this quickstart to make your first call to the Bing Spell Check REST API. Th
 [!INCLUDE [cognitive-services-bing-spell-check-signup-requirements](../../../../includes/cognitive-services-bing-spell-check-signup-requirements.md)]
 
 
-## Get Spell Check results
+## Get Bing Spell Check REST API results
 
 1. Create a new PHP project in your favorite IDE.
 2. Add the code provided below.
 3. Replace the `subscriptionKey` value with an access key valid for your subscription.
-4. You can use the global endpoint below, or the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
+4. You can use the global endpoint in the following code, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 5. Run the program.
     
     ```php
@@ -135,7 +137,7 @@ A successful response is returned in JSON, as shown in the following example:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create a single page web-app](../tutorials/spellcheck.md)
+> [Create a single-page web app](../tutorials/spellcheck.md)
 
 - [What is the Bing Spell Check API?](../overview.md)
-- [Bing Spell Check API v7 Reference](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)
+- [Bing Spell Check API v7 reference](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)

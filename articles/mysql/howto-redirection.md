@@ -4,8 +4,8 @@ description: This article describes how you can configure you application to con
 author: ajlam
 ms.author: andrela
 ms.service: mysql
-ms.topic: conceptual
-ms.date: 03/16/2020
+ms.topic: how-to
+ms.date: 6/8/2020
 ---
 
 # Connect to Azure Database for MySQL with redirection
@@ -13,9 +13,13 @@ ms.date: 03/16/2020
 This topic explains how to connect an application your Azure Database for MySQL server with redirection mode. Redirection aims to reduce network latency between client applications and MySQL servers by allowing applications to connect directly to backend server nodes.
 
 ## Before you begin
-Sign in to the [Azure portal](https://portal.azure.com). Create an Azure Database for MySQL server with engine version 5.6, 5.7, or 8.0. For details, refer to [How to create Azure Database for MySQL server from Portal](quickstart-create-mysql-server-database-using-azure-portal.md) or [How to create Azure Database for MySQL server using CLI](quickstart-create-mysql-server-database-using-azure-cli.md).
+Sign in to the [Azure portal](https://portal.azure.com). Create an Azure Database for MySQL server with engine version 5.6, 5.7, or 8.0. 
 
-Redirection is currently only supported when **SSL is enabled** on your Azure Database for MySQL server. For details on how to configure SSL, see [Using SSL with Azure Database for MySQL](howto-configure-ssl.md#step-3--enforcing-ssl-connections-in-azure).
+For details, refer to how to create an Azure Database for MySQL server using the [Azure portal](quickstart-create-mysql-server-database-using-azure-portal.md) or [Azure CLI](quickstart-create-mysql-server-database-using-azure-cli.md).
+
+## Enable redirection
+
+On your Azure Database for MySQL server, configure the `redirect_enabled` parameter to `ON` to allow connections with redirection mode. To update this server parameter, use the [Azure portal](howto-server-parameters.md) or [Azure CLI](howto-configure-server-parameters-using-cli.md).
 
 ## PHP
 
@@ -38,8 +42,8 @@ If you are using an older version of the mysqlnd_azure extension (version 1.0.0-
 |**mysqlnd_azure.enableRedirect value**| **Behavior**|
 |----------------------------------------|-------------|
 |`off` or `0`|Redirection will not be used. |
-|`on` or `1`|- If SSL is not enabled on the Azure Database for MySQL server, no connection will be made. The following error will be returned: *"mysqlnd_azure.enableRedirect is on, but SSL option is not set in connection string. Redirection is only possible with SSL."*<br>- If SSL is enabled on the MySQL server, but redirection is not supported on the server, the first connection is aborted and the following error is returned: *"Connection aborted because redirection is not enabled on the MySQL server or the network package doesn't meet redirection protocol."*<br>- If the MySQL server supports redirection, but the redirected connection failed for any reason, also abort the first proxy connection. Return the error of the redirected connection.|
-|`preferred` or `2`<br> (default value)|- mysqlnd_azure will use redirection if possible.<br>- If the connection does not use SSL, the server does not support redirection, or the redirected connection fails to connect for any non-fatal reason while the proxy connection is still a valid one, it will fall back to the first proxy connection.|
+|`on` or `1`|- If the connection does not use SSL on the driver side, no connection will be made. The following error will be returned: *"mysqlnd_azure.enableRedirect is on, but SSL option is not set in connection string. Redirection is only possible with SSL."*<br>- If SSL is used on the driver side, but redirection is not supported on the server, the first connection is aborted and the following error is returned: *"Connection aborted because redirection is not enabled on the MySQL server or the network package doesn't meet redirection protocol."*<br>- If the MySQL server supports redirection, but the redirected connection failed for any reason, also abort the first proxy connection. Return the error of the redirected connection.|
+|`preferred` or `2`<br> (default value)|- mysqlnd_azure will use redirection if possible.<br>- If the connection does not use SSL on the driver side, the server does not support redirection, or the redirected connection fails to connect for any non-fatal reason while the proxy connection is still a valid one, it will fall back to the first proxy connection.|
 
 The subsequent sections of the document will outline how to install the `mysqlnd_azure` extension using PECL and set the value of this parameter.
 
@@ -49,7 +53,7 @@ The subsequent sections of the document will outline how to install the `mysqlnd
 - PHP versions 7.2.15+ and 7.3.2+
 - PHP PEAR 
 - php-mysql
-- Azure Database for MySQL server with SSL enabled
+- Azure Database for MySQL server
 
 1. Install [mysqlnd_azure](https://github.com/microsoft/mysqlnd_azure) with [PECL](https://pecl.php.net/package/mysqlnd_azure). It is recommended to use version 1.1.0+.
 
@@ -87,7 +91,7 @@ The subsequent sections of the document will outline how to install the `mysqlnd
 #### Prerequisites 
 - PHP versions 7.2.15+ and 7.3.2+
 - php-mysql
-- Azure Database for MySQL server with SSL enabled
+- Azure Database for MySQL server
 
 1. Determine if you are running a x64 or x86 version of PHP by running the following command:
 

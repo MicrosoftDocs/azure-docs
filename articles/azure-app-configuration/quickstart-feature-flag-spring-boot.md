@@ -6,6 +6,7 @@ ms.service: azure-app-configuration
 ms.topic: quickstart
 ms.date: 04/18/2020
 ms.author: lcozzens
+ms.custom: devx-track-java
 
 #Customer intent: As an Spring Boot developer, I want to use feature flags to control feature availability quickly and confidently.
 ---
@@ -59,13 +60,13 @@ Use the [Spring Initializr](https://start.spring.io/) to create a new Spring Boo
     ```xml
     <dependency>
         <groupId>com.microsoft.azure</groupId>
-        <artifactId>spring-cloud-azure-appconfiguration-config</artifactId>
-        <version>1.1.2</version>
+        <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>
+        <version>1.1.5</version>
     </dependency>
     <dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>spring-cloud-azure-feature-management-web</artifactId>
-        <version>1.1.2</version>
+        <version>1.1.5</version>
     </dependency>
     <dependency>
         <groupId>org.springframework.boot</groupId>
@@ -78,13 +79,13 @@ Use the [Spring Initializr](https://start.spring.io/) to create a new Spring Boo
     ```xml
     <dependency>
         <groupId>com.microsoft.azure</groupId>
-        <artifactId>spring-cloud-azure-appconfiguration-config</artifactId>
-        <version>1.2.2</version>
+        <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>
+        <version>1.2.7</version>
     </dependency>
     <dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>spring-cloud-azure-feature-management-web</artifactId>
-        <version>1.2.2</version>
+        <version>1.2.7</version>
     </dependency>
     <dependency>
         <groupId>org.springframework.boot</groupId>
@@ -93,7 +94,7 @@ Use the [Spring Initializr](https://start.spring.io/) to create a new Spring Boo
     ```
 
 > [!Note]
-> There is a non-web Feature Management Library that doesn't have a dependency on spring-web. Refer to GitHub's [documentation](https://github.com/microsoft/spring-cloud-azure/tree/master/spring-cloud-azure-feature-management) for differences.
+> There is a non-web Feature Management Library that doesn't have a dependency on spring-web. Refer to GitHub's [documentation](https://github.com/microsoft/spring-cloud-azure) for differences.
 
 ## Connect to an App Configuration store
 
@@ -175,7 +176,7 @@ Use the [Spring Initializr](https://start.spring.io/) to create a new Spring Boo
 
         @GetMapping("/welcome")
         public String mainWithParam(Model model) {
-            model.addAttribute("Beta", featureManager.isEnabledAsync("Beta").block());
+            model.addAttribute("Beta", featureManager.isEnabledAsync("featureManagement.Beta").block());
             return "welcome";
         }
     }

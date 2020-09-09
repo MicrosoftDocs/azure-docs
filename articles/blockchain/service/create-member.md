@@ -1,9 +1,10 @@
 ---
 title: Create an Azure Blockchain Service member - Azure portal
 description: Create an Azure Blockchain Service member for a blockchain consortium using the Azure portal.
-ms.date: 03/30/2020
+ms.date: 07/16/2020
 ms.topic: quickstart
 ms.reviewer: ravastra
+ms.custom: references_regions
 #Customer intent: As a network operator, I want use Azure Blockchain Service so that I can create a managed ledger on Azure.
 ---
 
@@ -31,7 +32,7 @@ An Azure Blockchain Service member is a blockchain node in a private consortium 
     --------|------------
     Subscription | Select the Azure subscription that you want to use for your service. If you have multiple subscriptions, choose the subscription in which you get billed for the resource.
     Resource group | Create a new resource group name or choose an existing one from your subscription.
-    Region | Choose a region to create the member. All members of the consortium must be in the same location.
+    Region | Choose a region to create the member. All members of the consortium must be in the same location. Features may not be available in some regions. Azure Blockchain Data Manager is available in the following Azure regions: East US and West Europe.
     Protocol | Currently, Azure Blockchain Service Preview supports the Quorum protocol.
     Consortium | For a new consortium, enter a unique name. If joining a consortium through an invite, choose the consortium you are joining. For more information on consortia, see [Azure Blockchain Service consortium](consortium.md).
     Name | Choose a unique name for the Azure Blockchain Service member. The blockchain member name can only contain lowercase letters and numbers. The first character must be a letter. The value must be between 2 and 20 characters long.

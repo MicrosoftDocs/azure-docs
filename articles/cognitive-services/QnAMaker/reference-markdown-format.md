@@ -2,7 +2,7 @@
 title: Markdown format - QnA Maker
 description: Following is the list of markdown formats that you can use in QnA Maker's answer text.
 ms.topic: reference
-ms.date: 01/09/2020
+ms.date: 03/19/2020
 ---
 
 # Markdown format supported in QnA Maker answer text
@@ -10,6 +10,12 @@ ms.date: 01/09/2020
 QnA Maker stores answer text as markdown. There are many flavors of markdown. In order to make sure the answer text is returned and displayed correctly, use this reference.
 
 Use the **[CommonMark](https://commonmark.org/help/tutorial/index.html)** tutorial to validate your Markdown. The tutorial has a **Try it** feature for quick copy/paste validation.
+
+## When to use rich-text editing versus markdown
+
+[Rich-text editing](How-To/edit-knowledge-base.md#add-an-editorial-qna-set) of answers allows you, as the author, to use a formatting toolbar to quickly select and format text.
+
+Markdown is a better tool when you need to autogenerate content to create knowledge bases to be imported as part of a CI/CD pipeline or for [batch testing](Quickstarts/batch-testing.md).
 
 ## Supported markdown format
 

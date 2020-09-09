@@ -8,7 +8,7 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 11/07/2018
-ms.custom: mqtt
+ms.custom: [mqtt, 'Role: Cloud Development', 'Role: IoT Device']
 ---
 
 # Upload files with IoT Hub

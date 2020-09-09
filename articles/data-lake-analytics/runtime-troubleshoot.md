@@ -2,9 +2,7 @@
 title: How to troubleshoot the Azure Data Lake Analytics U-SQL runtime failures
 description: 'Learn how to troubleshoot U-SQL runtime failures.'
 services: data-lake-analytics
-author: guyhay
-ms.author: guyhay
-ms.reviewer: jasonwhowell
+ms.reviewer: jasonh
 ms.service: data-lake-analytics
 ms.topic: troubleshooting
 ms.workload: big-data
@@ -42,11 +40,6 @@ release_YYYYMMDD_adl_buildno[_modifier]
 
 For example, release_20190318_adl_3394512_2 means the second version of the build 3394512 of the runtime release of March 18 2019 and release_20190318_adl_3394512_private means a private build of the same release. Note: The date is related to when the last check-in has been taken for that release and not necessarily the official release date.
 
-The following are the currently available runtime versions.
-
-- release_20190318_adl_3394512
-- release_20190318_adl_5832669 the current default
-- release_20190703_adl_4713356
 
 ## Troubleshooting U-SQL runtime version issues
 

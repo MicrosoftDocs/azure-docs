@@ -5,6 +5,7 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/07/2020
 ms.topic: article
+ms.custom: devx-track-csharp
 ---
 
 # Sky reflections
@@ -34,7 +35,7 @@ For more information on the lighting model, see the [materials](../../concepts/m
 
 To change the environment map, all you need to do is [load a texture](../../concepts/textures.md) and change the session's `SkyReflectionSettings`:
 
-``` cs
+```cs
 LoadTextureAsync _skyTextureLoad = null;
 void ChangeEnvironmentMap(AzureSession session)
 {
@@ -59,6 +60,30 @@ void ChangeEnvironmentMap(AzureSession session)
             }
         };
 }
+```
+
+```cpp
+void ChangeEnvironmentMap(ApiHandle<AzureSession> session)
+{
+    LoadTextureFromSASParams params;
+    params.TextureType = TextureType::CubeMap;
+    params.TextureUrl = "builtin://VeniceSunset";
+    ApiHandle<LoadTextureAsync> skyTextureLoad = *session->Actions()->LoadTextureFromSASAsync(params);
+
+    skyTextureLoad->Completed([&](ApiHandle<LoadTextureAsync> res)
+        {
+            if (res->GetIsRanToCompletion())
+            {
+                ApiHandle<SkyReflectionSettings> settings = session->Actions()->GetSkyReflectionSettings();
+                settings->SetSkyReflectionTexture(res->GetResult());
+            }
+            else
+            {
+                printf("Texture loading failed!");
+            }
+        });
+}
+
 ```
 
 Note that the `LoadTextureFromSASAsync` variant is used above because a built-in texture is loaded. In case of loading from [linked blob storages](../../how-tos/create-an-account.md#link-storage-accounts), use the `LoadTextureAsync` variant.

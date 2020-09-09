@@ -4,8 +4,9 @@ description: Learn about Azure Reservations and pricing to save on your virtual 
 author: yashesvi
 ms.reviewer: yashar
 ms.service: cost-management-billing
-ms.topic: conceptual
-ms.date: 04/30/2020
+ms.subservice: reservations
+ms.topic: overview
+ms.date: 08/04/2020
 ms.author: banders
 ---
 
@@ -15,7 +16,7 @@ Azure Reservations help you save money by committing to one-year or three-year p
 
 You can pay for a reservation up front or monthly. The total cost of up-front and monthly reservations is the same and you don't pay any extra fees when you choose to pay monthly. Monthly payment is available for Azure reservations, not third-party products.
 
-You can buy a reservation in the Azure portal at [https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade).
+You can buy a reservation in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade).
 
 ## Why buy a reservation?
 
@@ -105,7 +106,6 @@ Software plans:
 
 For Windows virtual machines and SQL Database, the reservation discount doesn't apply to the software costs. You can cover the licensing costs with [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
-
 ## Need help? Contact us.
 
 If you have questions or need help,  [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
@@ -122,7 +122,8 @@ If you have questions or need help,  [create a support request](https://go.micro
 - Learn more about reservations for service plans:
     - [Virtual Machines with Azure Reserved VM Instances](../../virtual-machines/windows/prepay-reserved-vm-instances.md)
     - [Azure Cosmos DB resources with Azure Cosmos DB reserved capacity](../../cosmos-db/cosmos-db-reserved-capacity.md)
-    - [SQL Database compute resources with Azure SQL Database reserved capacity](../../sql-database/sql-database-reserved-capacity.md)
+    - [SQL Database compute resources with Azure SQL Database reserved capacity](../../azure-sql/database/reserved-capacity-overview.md)
+    - [Azure Cache for Redis resources with Azure Cache for Redis reserved capacity](../../azure-cache-for-redis/cache-reserved-pricing.md)
 Learn more about reservations for software plans:
     - [Red Hat software plans from Azure Reservations](../../virtual-machines/linux/prepay-rhel-software-charges.md)
     - [SUSE software plans from Azure Reservations](../../virtual-machines/linux/prepay-suse-software-charges.md)

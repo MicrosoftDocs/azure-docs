@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 08/27/2019
+ms.date: 07/10/2020
 ms.author: alkohli
 ---
 # Azure Data Box limits
@@ -20,8 +20,9 @@ Consider these limits as you deploy and operate your Microsoft Azure Data Box. T
 
 ## Data Box limits
 
-- Data Box can store a maximum of 500 million files.
+- Data Box can store a maximum of 500 million files for both import and export.
 - Data Box supports a maximum of 512 containers or shares in the cloud. The top-level directories within the user share become containers or Azure file shares in the cloud. 
+- Data Box usage capacity may be less than 80 TB because of ReFS metadata space consumption.
 
 ## Azure storage limits
 
@@ -29,7 +30,25 @@ Consider these limits as you deploy and operate your Microsoft Azure Data Box. T
 
 ## Data upload caveats
 
+
+### For import order
+
+Data Box caveats for an import order include:
+
 [!INCLUDE [data-box-data-upload-caveats](../../includes/data-box-data-upload-caveats.md)]
+
+## For export order
+
+Data Box caveats for an export order include:
+
+- Data Box is a Windows based device and doesn’t support case sensitive file names. For example, you may have two different files in Azure with names that just differ in casing. Do not use Data box to export such files as these will be overwritten on the device.
+- If you have duplicate tags in input files or tags referring to the same data, Data Box export might skip or overwrite the files. Number of files and the size of data shown on the Azure portal might differ from the actual size of data present on the device. 
+- Data Box exports data to Windows based system over SMB and is limited by SMB limitations for files and folders. Files and folders with unsupported names are not exported.
+- There is a 1:1 mapping from prefix to container.
+- Maximum filename size is 1024 characters files, filenames that exceed this length are not exported.
+- Duplicate prefixes in the *xml* file (uploaded during order creation) are exported. Duplicate prefixes are not ignored.
+- Page blobs and container names are case sensitive, so if the casing is mismatched, the blob and/or container will not be found.
+ 
 
 ## Azure storage account size limits
 

@@ -1,9 +1,8 @@
 ---
 title: Schedule your jobs
 description: Use job scheduling to manage your tasks.
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/20/2020
-ms.author: labrenne
 ms.custom: seodec18
 ---
 
@@ -63,7 +62,7 @@ After you select **Save**, if you go to **Job schedules** in the left navigation
 
 ## For more information
 
-To manage a job using the Azure CLI, see [az batch job-schedule](https://docs.microsoft.com/cli/azure/batch/job-schedule?view=azure-cli-latest).
+To manage a job using the Azure CLI, see [az batch job-schedule](/cli/azure/batch/job-schedule).
 
 ## Next steps
 

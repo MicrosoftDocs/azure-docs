@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
-ms.date: 12/27/2019
+ms.date: 07/08/2020
 # As a data scientist, I want to understand the purpose of a workspace for Azure Machine Learning.
 ---
 
@@ -31,7 +31,7 @@ The diagram shows the following components of a workspace:
 
 + A workspace can contain [Azure Machine Learning compute instances](concept-compute-instance.md), cloud resources configured with the Python environment necessary to run Azure Machine Learning.
 
-+ [User roles](how-to-assign-roles.md) enable you to share your workspace with other users, teams or projects.
++ [User roles](how-to-assign-roles.md) enable you to share your workspace with other users, teams, or projects.
 + [Compute targets](concept-azure-machine-learning-architecture.md#compute-targets) are used to run your experiments.
 + When you create the workspace, [associated resources](#resources) are also created for you.
 + [Experiments](concept-azure-machine-learning-architecture.md#experiments) are training runs you use to build your models.  
@@ -44,12 +44,19 @@ The diagram shows the following components of a workspace:
 
 You can interact with your workspace in the following ways:
 
+> [!IMPORTANT]
+> Tools marked (preview) below are currently in public preview.
+> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 + On the web:
     + [Azure Machine Learning studio ](https://ml.azure.com) 
     + [Azure Machine Learning designer (preview)](concept-designer.md) - Available only in [Enterprise edition](overview-what-is-azure-ml.md#sku) workspaces.
 + In any Python environment with the [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
-+ In any R environment with the [Azure Machine Learning SDK for R](https://azure.github.io/azureml-sdk-for-r/reference/index.html).
++ In any R environment with the [Azure Machine Learning SDK for R (preview)](https://azure.github.io/azureml-sdk-for-r/reference/index.html).
 + On the command line using the Azure Machine Learning [CLI extension](https://docs.microsoft.com/azure/machine-learning/reference-azure-machine-learning-cli)
++ [Azure Machine Learning VS Code Extension](how-to-manage-resources-vscode.md#workspaces)
+
 
 ## Machine learning with a workspace
 
@@ -67,27 +74,27 @@ Machine learning tasks read and/or write artifacts to your workspace.
 
 You can also perform the following workspace management tasks:
 
-| Workspace management task   | Portal              | Studio | Python SDK / R SDK       | CLI        |
-|---------------------------|---------|---------|------------|------------|
-| Create a workspace        | **&check;**     | | **&check;** | **&check;** |
-| Manage workspace access    | **&check;**   || |  **&check;**    |
-| Upgrade to Enterprise edition    | **&check;** | **&check;**  | |     |
-| Create and manage compute resources    | **&check;**   | **&check;** | **&check;** |  **&check;**   |
-| Create a Notebook VM |   | **&check;** | |     |
+| Workspace management task   | Portal              | Studio | Python SDK / R SDK       | CLI        | VS Code
+|---------------------------|---------|---------|------------|------------|------------|
+| Create a workspace        | **&check;**     | | **&check;** | **&check;** | **&check;** |
+| Manage workspace access    | **&check;**   || |  **&check;**    ||
+| Upgrade to Enterprise edition    | **&check;** | **&check;**  | |     ||
+| Create and manage compute resources    | **&check;**   | **&check;** | **&check;** |  **&check;**   ||
+| Create a Notebook VM |   | **&check;** | |     ||
 
 > [!WARNING]
 > Moving your Azure Machine Learning workspace to a different subscription, or moving the owning subscription to a new tenant, is not supported. Doing so may cause errors.
 
 ## <a name='create-workspace'></a> Create a workspace
 
-When you create a workspace, you decide whether to create it with [Basic or Enterprise edition](overview-what-is-azure-ml.md#sku). The edition determines the features available in the workspace. Among other features, Enterprise edition gives you access to [Azure Machine Learning designer](concept-designer.md) and the studio version of building [automated machine learning experiments](tutorial-first-experiment-automated-ml.md).  For more details and pricing information, see [Azure Machine Learning pricing](https://azure.microsoft.com/pricing/details/machine-learning/).
+When you create a workspace, you decide whether to create it with [Basic or Enterprise edition](overview-what-is-azure-ml.md#sku). The edition determines the features available in the workspace. Among other features, Enterprise edition gives you access to [Azure Machine Learning designer](concept-designer.md) and the studio version of building [automated machine learning experiments](tutorial-first-experiment-automated-ml.md).  For more information and pricing information, see [Azure Machine Learning pricing](https://azure.microsoft.com/pricing/details/machine-learning/).
 
 There are multiple ways to create a workspace:  
 
 * Use the [Azure portal](how-to-manage-workspace.md) for a point-and-click interface to walk you through each step.
 * Use the [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py#workspace) to create a workspace on the fly from Python scripts or Jupiter notebooks
 * Use an [Azure Resource Manager template](how-to-create-workspace-template.md) or the [Azure Machine Learning CLI](reference-azure-machine-learning-cli.md) when you need to automate or customize the creation with corporate security standards.
-* If you work in Visual Studio Code, use the [VS Code extension](tutorial-setup-vscode-extension.md).
+* If you work in Visual Studio Code, use the [VS Code extension](how-to-manage-resources-vscode.md#create-a-workspace).
 
 > [!NOTE]
 > The workspace name is case-insensitive.
@@ -107,6 +114,17 @@ When you create a new workspace, it automatically creates several Azure resource
 
 > [!NOTE]
 > In addition to creating new versions, you can also use existing Azure services.
+
+### Azure storage account
+
+The Azure Storage account created by default with the workspace is a general-purpose v1 account. You can upgrade this to general-purpose v2 after the workspace has been created by following the steps in the [Upgrade to a general-purpose v2 storage account](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade) article.
+
+> [!IMPORTANT]
+> Do not enable hierarchical namespace on the storage account after upgrading to general-purpose v2.
+
+If you want to use an existing Azure Storage account, it cannot be a premium account (Premium_LRS and Premium_GRS). It also cannot have a hierarchical namespace (used with Azure Data Lake Storage Gen2). Neither premium storage or hierarchical namespaces are supported with the _default_ storage account of the workspace. You can use premium storage or hierarchical namespace with _non-default_ storage accounts.
+
+
 
 ## Next steps
 

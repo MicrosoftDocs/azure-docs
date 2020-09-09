@@ -1,6 +1,6 @@
 ---
 title: Trusted Internet Connections guidance for Azure
-description: Trusted Internet Connections guidance for Azure and SaaS services
+description: Learn about Trusted Internet Connections (TIC) guidance for Azure and software-as-a-service (SaaS) services.
 services: azure-government
 author: femila
 
@@ -138,7 +138,7 @@ Services that support deployment of dedicated instances into a virtual network o
 |Azure Data Lake                | Private preview  |
 |Azure Database for PostgreSQL  | Private preview  |
 |Azure Database for MySQL       | Private preview  |
-|Azure SQL Data Warehouse       | Public preview   |
+|Azure Synapse Analytics       | Public preview   |
 |Azure SQL Database             | General availability (GA) |
 |Azure Storage                  | GA               |
 
@@ -146,7 +146,7 @@ Services that support deployment of dedicated instances into a virtual network o
 
 |Service                               |Availability      |
 |--------------------------------------|------------------|
-|Azure SQL Database Managed Instance   | Public preview   |
+|Azure SQL Managed Instance   | Public preview   |
 |Azure Kubernetes Service (AKS)        | Public preview   |
 |Azure Service Fabric                  | GA               |
 |Azure API Management                  | GA               |
@@ -243,10 +243,10 @@ You can easily configure access for Microsoft Azure, Office 365, and Dynamics 36
 | Web and mobile | API applications | | App Service Environment | |
 | Containers | Azure Container Service | | | Yes |
 | Containers | Azure Kubernetes Service (AKS) \* | | | Yes |
-| Database | Azure SQL Database | | Azure SQL Database Managed Instance \* | Azure SQL |
+| Database | Azure SQL Database | | Azure SQL Managed Instance \* | Azure SQL |
 | Database | Azure Database for MySQL | | | Yes |
 | Database | Azure Database for PostgreSQL | | | Yes |
-| Database | Azure SQL Data Warehouse | | | Yes |
+| Database | Azure Synapse Analytics | | | Yes |
 | Database | Azure Cosmos DB | | | Yes |
 | Database | Azure Cache for Redis | | Yes | |
 | Storage | Azure Blob storage | Yes | | |

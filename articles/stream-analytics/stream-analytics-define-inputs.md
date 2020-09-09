@@ -128,7 +128,7 @@ The default timestamp of Blob storage events in Stream Analytics is the timestam
 
 If a blob is uploaded to a storage account container at 13:00, and the Azure Stream Analytics job is started using *Custom Time* at 13:00 or earlier, the blob will be picked up as its modified time falls inside the job run period.
 
-If an Azure Stream Analytics job is started using *Now* at 13:00, and a blob is uploaded to the storage account container at 13:01, Azure Stream Analytics will pick up the blob.
+If an Azure Stream Analytics job is started using *Now* at 13:00, and a blob is uploaded to the storage account container at 13:01, Azure Stream Analytics will pick up the blob. The timestamp assigned to each blob is based only on `BlobLastModifiedTime`. The folder the blob is in has no relation to the the timestamp assigned. For example, if there is a blob *2019/10-01/00/b1.txt* with a `BlobLastModifiedTime` of 2019-11-11, then the timestamp assigned to this blob is 2019-11-11.
 
 To process the data as a stream using a timestamp in the event payload, you must use the [TIMESTAMP BY](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference) keyword. A Stream Analytics job pulls data from Azure Blob storage input every second if the blob file is available. If the blob file is unavailable, there is an exponential backoff with a maximum time delay of 90 seconds.
 
@@ -137,7 +137,7 @@ CSV-formatted inputs require a header row to define fields for the data set, and
 > [!NOTE]
 > Stream Analytics does not support adding content to an existing blob file. Stream Analytics will view each file only once, and any changes that occur in the file after the job has read the data are not processed. Best practice is to upload all the data for a blob file at once and then add additional newer events to a different, new blob file.
 
-Uploading a very large number of blobs at once might cause Stream Analytics to skip reading few blobs in rare cases. It is recommended to upload blobs at least 2 seconds apart to Blob storage. If this option is not feasible, you can use Event Hubs to stream large volumes of events. 
+In scenarios where many blobs are continously added and Stream Analytics is processing the blobs as they are added, it's possible for some blobs to be skipped in rare cases due to the granularity of the `BlobLastModifiedTime`. You can mitigate this by uploading blobs at least two seconds apart. If this option is not feasible, you can use Event Hubs to stream large volumes of events.
 
 ### Configure Blob storage as a stream input 
 
@@ -151,7 +151,7 @@ The following table explains each property in the **New input** page in the Azur
 | **Storage account key** | The secret key associated with the storage account. This option is automatically populated in unless you select the option to provide the Blob storage settings manually. |
 | **Container** | The container for the blob input. Containers provide a logical grouping for blobs stored in the Microsoft Azure Blob service. When you upload a blob to the Azure Blob storage service, you must specify a container for that blob. You can choose either **Use existing** container or  **Create new** to have a new container created.|
 | **Path pattern** (optional) | The file path used to locate the blobs within the specified container. If you want to read blobs from the root of the container, do not set a path pattern. Within the path, you can specify one or more instances of the following three variables: `{date}`, `{time}`, or `{partition}`<br/><br/>Example 1: `cluster1/logs/{date}/{time}/{partition}`<br/><br/>Example 2: `cluster1/logs/{date}`<br/><br/>The `*` character is not an allowed value for the path prefix. Only valid <a HREF="https://msdn.microsoft.com/library/azure/dd135715.aspx">Azure blob characters</a> are allowed. Do not include container names or file names. |
-| **Date format** (optional) | If you use the date variable in the path, the date format in which the files are organized. Example: `YYYY/MM/DD` |
+| **Date format** (optional) | If you use the date variable in the path, the date format in which the files are organized. Example: `YYYY/MM/DD` <br/><br/> When blob input has `{date}` or `{time}` in its path, the folders are looked at in ascending time order.|
 | **Time format** (optional) |  If you use the time variable in the path, the time format in which the files are organized. Currently the only supported value is `HH` for hours. |
 | **Partition key** | If your input is partitioned by a property, you can add the name of this property. Partition keys are optional and is used to improve the performance of your query if it includes a PARTITION BY or GROUP BY clause on this property. |
 | **Event serialization format** | The serialization format (JSON, CSV, Avro, or [Other (Protobuf, XML, proprietary...)](custom-deserializer.md)) of the incoming data stream.  Ensure the JSON format aligns with the specification and doesn’t include leading 0 for decimal numbers. |

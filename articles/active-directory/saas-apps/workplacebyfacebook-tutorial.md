@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Workplace by Facebook | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Workplace by Facebook.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 30f2ee64-95d3-44ef-b832-8a0a27e2967c
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 03/03/2020
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with Workplace by Facebook
@@ -206,7 +200,7 @@ In this section, a user called B.Simon is created in Workplace by Facebook. Work
 There is no action for you in this section. If a user doesn't exist in Workplace by Facebook, a new one is created when you attempt to access Workplace by Facebook.
 
 >[!Note]
->If you need to create a user manually, Contact [Workplace by Facebook Client support team](https://workplace.fb.com/faq/)
+>If you need to create a user manually, Contact [Workplace by Facebook Client support team](https://www.workplace.com/help/work/)
 
 ## Test SSO 
 

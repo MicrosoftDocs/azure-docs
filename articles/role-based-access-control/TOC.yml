@@ -11,15 +11,15 @@
   items:
   - name: View access for a user
     href: check-access.md
+  - name: ARM template
+    displayName: Resource Manager
+    href: quickstart-role-assignments-template.md
 - name: Tutorials
   items:
   - name: Grant a user access - Portal
     href: quickstart-assign-role-user-portal.md
   - name: Grant a user access - PowerShell
     href: tutorial-role-assignments-user-powershell.md
-  - name: Grant a user access - Resource Manager Template
-    displayName: ARM, resource manager template
-    href: tutorial-role-assignments-user-template.md
   - name: Grant a group access - PowerShell
     href: tutorial-role-assignments-group-powershell.md
   - name: Create a custom role - PowerShell
@@ -32,6 +32,11 @@
     href: best-practices.md
   - name: Conditional Access for Azure management
     href: conditional-access-azure-management.md
+  - name: Security
+    items:
+    - name: Security controls by Azure Policy
+      displayName: regulatory, compliance, standards, domains
+      href: ./security-controls-policy.md
 - name: How-to guides
   items:
   - name: List role definitions
@@ -62,7 +67,8 @@
       href: role-assignments-cli.md
     - name: REST API
       href: role-assignments-rest.md
-    - name: Template
+    - name: ARM template
+      displayName: Resource Manager
       href: role-assignments-template.md
   - name: List deny assignments
     items:
@@ -86,12 +92,17 @@
       href: custom-roles-cli.md
     - name: REST API
       href: custom-roles-rest.md
+    - name: ARM template
+      displayName: Resource Manager
+      href: custom-roles-template.md
   - name: View activity logs
     href: change-history-report.md
   - name: Elevate access
     href: elevate-access-global-admin.md
   - name: Classic administrators
     href: classic-administrators.md
+  - name: Transfer subscription to different directory (Preview)
+    href: transfer-subscription.md
   - name: Troubleshoot
     href: troubleshooting.md
 - name: Reference
@@ -108,13 +119,16 @@
     href: /cli/azure/role?view=azure-cli-latest
   - name: REST API
     href: /rest/api/authorization/
-  - name: Resource Manager templates
-    displayName: ARM
+  - name: ARM templates
+    displayName: Resource Manager
     items:
     - name: Role Assignments
       href: /azure/templates/microsoft.authorization/roleassignments
     - name: Role Definitions
       href: /azure/templates/microsoft.authorization/roledefinitions
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-reference.md
 - name: Resources
   items:
   - name: Build your skills with Microsoft Learn

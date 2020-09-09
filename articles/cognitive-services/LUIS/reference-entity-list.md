@@ -2,7 +2,7 @@
 title: List entity type - LUIS
 description: List entities represent a fixed, closed set of related words along with their synonyms. LUIS does not discover additional values for list entities. Use the Recommend feature to see suggestions for new words based on the current list.
 ms.topic: reference
-ms.date: 03/12/2020
+ms.date: 04/14/2020
 ---
 # List entity
 
@@ -126,4 +126,7 @@ This is the JSON if `verbose=true` is set in the query string:
 
 ## Next steps
 
-In this [tutorial](tutorial-list-entity.md), learn how to use a **list entity** to extract exact matches of text from a list of known items.
+Learn more about entities:
+
+* [Concepts](luis-concept-entity-types.md)
+* [How to create](luis-how-to-add-entities.md)

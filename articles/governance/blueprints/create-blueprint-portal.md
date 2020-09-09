@@ -1,16 +1,16 @@
 ---
 title: "Quickstart: Create a blueprint in the portal"
 description: In this quickstart, you use Azure Blueprints to create, define, and deploy artifacts through the Azure portal.
-ms.date: 03/25/2020
+ms.date: 08/27/2020
 ms.topic: quickstart
 ---
 # Quickstart: Define and assign a blueprint in the portal
 
 When you learn how to create and assign blueprints, you can define common patterns to develop
-reusable and rapidly deployable configurations based on Azure Resource Manager templates, policy,
-security, and more. In this tutorial, you learn to use Azure Blueprints to do some of the common
-tasks related to creating, publishing, and assigning a blueprint within your organization. These
-tasks include:
+reusable and rapidly deployable configurations based on Azure Resource Manager templates (ARM
+templates), policy, security, and more. In this tutorial, you learn to use Azure Blueprints to do
+some of the common tasks related to creating, publishing, and assigning a blueprint within your
+organization. These tasks include:
 
 ## Prerequisites
 
@@ -75,8 +75,8 @@ Manager template and role assignment on the new resource group.
 
    1. Change **Type** to **Built-in**. In **Search**, enter **tag**.
 
-   1. Click out of **Search** for the filtering to occur. Select **Append tag and its default value
-      to resource groups**.
+   1. Change focus out of **Search** for the filtering to occur. Select **Append tag and its default
+      value to resource groups**.
 
    1. Select **Add** to add this artifact to the blueprint.
 
@@ -106,10 +106,10 @@ Manager template and role assignment on the new resource group.
    1. Select **Azure Resource Manager template** for **Artifact type**, set **Artifact display
       name** to **StorageAccount**, and leave **Description** blank.
 
-   1. On the **Template** tab in the editor box, paste the following Resource Manager template.
-      After you paste the template, select the **Parameters** tab and note that the template
-      parameters **storageAccountType** and **location** were detected. Each parameter was
-      automatically detected and populated, but configured as a dynamic parameter.
+   1. On the **Template** tab in the editor box, paste the following ARM template. After you paste
+      the template, select the **Parameters** tab and note that the template parameters
+      **storageAccountType** and **location** were detected. Each parameter was automatically
+      detected and populated, but configured as a dynamic parameter.
 
       > [!IMPORTANT]
       > If you're importing the template, ensure that the file is only JSON and doesn't include
@@ -167,8 +167,8 @@ Manager template and role assignment on the new resource group.
       ```
 
    1. Clear the **storageAccountType** check box and note that the drop-down list contains only
-      values included in the Resource Manager template under **allowedValues**. Select the box to
-      set it back to a dynamic parameter.
+      values included in the ARM template under **allowedValues**. Select the box to set it back to
+      a dynamic parameter.
 
    1. Select **Add** to add this artifact to the blueprint.
 
@@ -254,8 +254,8 @@ is saved to a subscription, it can only be assigned to that subscription.
    subscriptions that you want to deploy this blueprint to.
 
    If there are supported Enterprise offerings available from
-   [Azure Billing](../../billing/index.md), a **Create new** link is activated under the
-   **Subscription** box. Follow these steps:
+   [Azure Billing](../../cost-management-billing/index.yml), a **Create new** link is activated
+   under the **Subscription** box. Follow these steps:
 
    1. Select the **Create new** link to create a new subscription instead of selecting existing
       ones.
@@ -311,8 +311,8 @@ is saved to a subscription, it can only be assigned to that subscription.
    > Artifacts that either don't take parameters or have no parameters to be defined at assignment
    > are listed only for contextual information.
 
-1. On the Azure Resource Manager template **StorageAccount**, select **Standard_GRS** for the
-   **storageAccountType** parameter.
+1. On the ARM template **StorageAccount**, select **Standard_GRS** for the **storageAccountType**
+   parameter.
 
 1. Read the information box at the bottom of the page, and then select **Assign**.
 
@@ -333,8 +333,8 @@ Now that the blueprint has been assigned to a subscription, verify the progress 
    :::image type="content" source="./media/create-blueprint-portal/view-assignment-details.png" alt-text="View assignment details from the Assigned blueprints page" border="false":::
 
 1. On the **Blueprint assignment** page, validate that all artifacts were successfully deployed and
-   that there were no errors during the deployment. If errors occurred, see [Troubleshooting blueprints](./troubleshoot/general.md)
-   for steps to determine what went wrong.
+   that there were no errors during the deployment. If errors occurred, see
+   [Troubleshooting blueprints](./troubleshoot/general.md) for steps to determine what went wrong.
 
 ## Clean up resources
 

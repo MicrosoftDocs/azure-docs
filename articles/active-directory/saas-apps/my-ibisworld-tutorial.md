@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with My IBISWorld | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and My IBISWorld.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 4b420540-bc72-4bc0-afaa-d5a7e4f0eaa4
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 04/27/2020
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with My IBISWorld
@@ -94,14 +88,14 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. In addition to above, My IBISWorld application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirements.
 	
-	| Name |   |  Source Attribute|
-	| ---------------| --------------- | --------- |
-	| department |  | user.department |
-	| language |  | user.preferredlanguage |
-	| phone |  | user.telephonenumber |
-	| title |  | user.jobtitle |
-    | userid |  | user.employeeid |
-    | country |  | user.country |
+	| Name | Source Attribute|
+	| --------------- | --------- |
+	| department | user.department |
+	| language | user.preferredlanguage |
+	| phone | user.telephonenumber |
+	| title | user.jobtitle |
+    | userid | user.employeeid |
+    | country | user.country |
 
 1. On the **Set up single sign-on with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 

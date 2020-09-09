@@ -8,7 +8,7 @@ ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.custom: 
+ms.custom: devx-track-javascript
 ---
 
 # Migrate a web app from Google Maps
@@ -190,7 +190,7 @@ Find detailed documentation on how to set up and use the Azure Maps map control 
 
 ### Localizing the map
 
-If your audience is spread across multiple countries or speak different languages, localization is important.
+If your audience is spread across multiple countries/regions or speak different languages, localization is important.
 
 **Before: Google Maps**
 
@@ -1595,7 +1595,7 @@ In Azure Maps, GeoJSON is the main data format used in the web SDK, additional s
             map = new atlas.Map('myMap', {
                 view: 'Auto',
 
-				//Add your Azure Maps subscription key to the map SDK. Get an Azure Maps key at https://azure.com/maps
+                //Add your Azure Maps subscription key to the map SDK. Get an Azure Maps key at https://azure.com/maps
                 authOptions: {
                     authType: 'subscriptionKey',
                     subscriptionKey: '<Your Azure Maps Key>'
@@ -1604,7 +1604,7 @@ In Azure Maps, GeoJSON is the main data format used in the web SDK, additional s
 
             //Wait until the map resources are ready.
             map.events.add('ready', function () {
-			
+            
                 //Create a data source and add it to the map.
                 datasource = new atlas.source.DataSource();
                 map.sources.add(datasource);

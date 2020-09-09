@@ -23,7 +23,7 @@ Azure Data Science Virtual Machines (DSVMs) include a comprehensive set of sampl
 
 ## Prerequisites
 
-In order to run these samples, you must have provisioned a Data Science Virtual Machine. See the quickstarts for [Windows](./provision-vm.md) and [Ubuntu](./dsvm-ubuntu-intro.md).
+In order to run these samples, you must have provisioned an [Ubuntu Data Science Virtual Machine](./dsvm-ubuntu-intro.md).
 
 ## Available samples
 | Samples category | Description | Locations |

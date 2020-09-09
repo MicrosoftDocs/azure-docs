@@ -2,7 +2,7 @@
   href: index.yml
 - name: Overview
   items: 
-  - name: About Azure Bastion
+  - name: What is Azure Bastion?
     href: bastion-overview.md
 - name: Quickstarts
   items:
@@ -33,7 +33,7 @@
   - name: Connect to a virtual machine scale set
     href: bastion-connect-vm-scale-set.md
   - name: Connect to DevTest Labs virtual machines
-    href: ../lab-services/enable-browser-connection-lab-virtual-machines.md?toc=%2fazure%2fbastion%2ftoc.json
+    href: ../devtest-labs/enable-browser-connection-lab-virtual-machines.md?toc=%2fazure%2fbastion%2ftoc.json
   - name: Work with a virtual machine session
     items:
     - name: Copy and paste
@@ -64,8 +64,8 @@
     href: https://azure.microsoft.com/roadmap/?category=networking
   - name: Blog
     href: https://azure.microsoft.com/blog/topics/networking
-  - name: Forum
-    href: https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork
+  - name: Microsoft Q&A question page
+    href: https://docs.microsoft.com/en-us/answers/topics/azure-virtual-network.html
   - name: Preview SLA
     href: https://azure.microsoft.com/support/legal/preview-supplemental-terms
   - name: SLA

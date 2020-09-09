@@ -4,7 +4,7 @@ description: Threat Protection detects anomalous database activities indicating 
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 3/18/2020
 ---
 # Advanced Threat Protection for Azure Database for MariaDB

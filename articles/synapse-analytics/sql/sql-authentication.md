@@ -39,12 +39,12 @@ The **Server admin** and **Azure AD admin** accounts have the following characte
 - Are the only accounts that can automatically connect to any SQL Database on the server. (To connect to a user database, other accounts must either be the owner of the database, or have a user account in the user database.)
 - These accounts enter user databases as the `dbo` user and they have all the permissions in the user databases. (The owner of a user database also enters the database as the `dbo` user.)
 - Do not enter the `master` database as the `dbo` user, and have limited permissions in master.
-- Are **not** members of the standard SQL Server `sysadmin` fixed server role, which is not available in SQL database.  
+- Are **not** members of the standard SQL Server `sysadmin` fixed server role, which is not available in SQL Database.  
 - Can create, alter, and drop databases, logins, users in master, and server-level IP firewall rules.
 - Can add and remove members to the `dbmanager` and `loginmanager` roles.
 - Can view the `sys.sql_logins` system table.
 
-## SQL on-demand (preview)
+## [SQL on-demand (preview)](#tab/serverless)
 
 To manage the users having access to SQL on-demand, you can use the instructions below.
 
@@ -66,7 +66,7 @@ CREATE USER [mike@contoso.com] FROM EXTERNAL PROVIDER;
 
 Once login and user are created, you can use the regular SQL Server syntax to grant rights.
 
-## SQL Pool
+## [SQL pool](#tab/provisioned)
 
 ### Administrator access path
 
@@ -96,7 +96,7 @@ To create a database, the user must be a user based on a SQL Server login in the
 
    To improve performance, logins (server-level principals) are temporarily cached at the database level. To refresh the authentication cache, see [DBCC FLUSHAUTHCACHE](/sql/t-sql/database-console-commands/dbcc-flushauthcache-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
 
-3. In the `master` database, create a user by using the [CREATE USER](/sql/t-sql/statements/create-user-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) statement. The user can be an Azure Active Directory authentication contained database user (if you have configured your environment for Azure AD authentication), or a SQL Server authentication contained database user, or a SQL Server authentication user based on a SQL Server authentication login (created in the previous step.) Sample statements:
+3. Create a databases user by using the [CREATE USER](/sql/t-sql/statements/create-user-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) statement. The user can be an Azure Active Directory authentication contained database user (if you have configured your environment for Azure AD authentication), or a SQL Server authentication contained database user, or a SQL Server authentication user based on a SQL Server authentication login (created in the previous step.) Sample statements:
 
    ```sql
    CREATE USER [mike@contoso.com] FROM EXTERNAL PROVIDER; -- To create a user with Azure Active Directory
@@ -104,11 +104,11 @@ To create a database, the user must be a user based on a SQL Server login in the
    CREATE USER Mary FROM LOGIN Mary;  -- To create a SQL Server user based on a SQL Server authentication login
    ```
 
-4. Add the new user, to the **dbmanager** database role in `master` using the [ALTER ROLE](/sql/t-sql/statements/alter-role-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) statement. Sample statements:
+4. Add the new user, to the **dbmanager** database role in `master` using the [sp_addrolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=azure-sqldw-latest) procedure (note that [ALTER ROLE](/sql/t-sql/statements/alter-role-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) statement is not supported in SQL provisioned). Sample statements:
 
    ```sql
-   ALTER ROLE dbmanager ADD MEMBER Mary;
-   ALTER ROLE dbmanager ADD MEMBER [mike@contoso.com];
+   EXEC sp_addrolemember 'dbmanager', 'Mary'; 
+   EXEC sp_addrolemember 'dbmanager', 'mike@contoso.com]'; 
    ```
 
    > [!NOTE]
@@ -121,6 +121,8 @@ Now the user can connect to the `master` database and can create new databases. 
 ### Login managers
 
 The other administrative role is the login manager role. Members of this role can create new logins in the master database. If you wish, you can complete the same steps (create a login and user, and add a user to the **loginmanager** role) to enable a user to create new logins in the master. Usually logins are not necessary as Microsoft recommends using contained database users, which authenticate at the database-level instead of using users based on logins. For more information, see [Contained Database Users - Making Your Database Portable](/sql/relational-databases/security/contained-database-users-making-your-database-portable?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
+
+---
 
 ## Non-administrator users
 
@@ -143,7 +145,7 @@ GRANT ALTER ANY USER TO Mary;
 
 To give additional users full control of the database, make them a member of the **db_owner** fixed database role.
 
-In Azure SQL Database, use the `ALTER ROLE` statement.
+In Azure SQL Database or synapse serverless, use the `ALTER ROLE` statement.
 
 ```sql
 ALTER ROLE db_owner ADD MEMBER Mary;
@@ -156,9 +158,9 @@ EXEC sp_addrolemember 'db_owner', 'Mary';
 ```
 
 > [!NOTE]
-> One common reason to create a database user based on a SQL Database server login is for users that need access to multiple databases. Since contained database users are individual entities, each database maintains its own user and its own password. This can cause overhead as the user must then remember each password for each database, and it can become untenable when having to change multiple passwords for many databases. However, when using SQL Server Logins and high availability (active geo-replication and failover groups), the SQL Server logins must be set manually at each server. Otherwise, the database user will no longer be mapped to the server login after a failover occurs, and will not be able to access the database post failover. 
+> One common reason to create a database user based on a server login is for users that need access to multiple databases. Since contained database users are individual entities, each database maintains its own user and its own password. This can cause overhead as the user must then remember each password for each database, and it can become untenable when having to change multiple passwords for many databases. However, when using SQL Server Logins and high availability (active geo-replication and failover groups), the SQL Server logins must be set manually at each server. Otherwise, the database user will no longer be mapped to the server login after a failover occurs, and will not be able to access the database post failover. 
 
-For more information on configuring logins for geo-replication, please see  [Configure and manage Azure SQL Database security for geo-restore or failover](../../sql-database/sql-database-geo-replication-security-config.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+For more information on configuring logins for geo-replication, please see  [Configure and manage Azure SQL Database security for geo-restore or failover](../../azure-sql/database/active-geo-replication-security-configure.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
 ### Configuring the database-level firewall
 

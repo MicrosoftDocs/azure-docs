@@ -9,6 +9,7 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/22/2020
+ms.custom: devx-track-csharp
 ---
 
 # How to filter by language in Azure Cognitive Search 
@@ -30,14 +31,14 @@ In Azure Cognitive Search, queries target a single index. Developers who want to
 
 The following example is from the [real-estate sample](search-get-started-portal.md) which has several string fields containing content in different languages. Notice the language analyzer assignments for the fields in this index. Fields that contain strings perform better in full text search when paired with an analyzer engineered to handle the linguistic rules of the target language.
 
-  ![](./media/search-filters-language/lang-fields.png)
+  ![Screenshot showing the Fields screen of the real-estate sample. A group of fields are highlighted to point out how the language analyzer assignments correspond to the languages for the highlighted fields.](./media/search-filters-language/lang-fields.png)
 
 > [!Note]
-> For code examples showing field definitions with languages analyzers, see [Define an index (.NET)](https://docs.microsoft.com/azure/search/search-create-index-dotnet) and [Define an index (REST)](search-create-index-rest-api.md).
+> For code examples showing field definitions with languages analyzers, see [Define an index (.NET)](./search-get-started-dotnet.md) and [Define an index (REST)](./search-get-started-powershell.md).
 
 ## Build and load an index
 
-An intermediate (and perhaps obvious) step is that you have to [build and populate the index](https://docs.microsoft.com/azure/search/search-create-index-dotnet) before formulating a query. We mention this step here for completeness. One way to determine whether the index is available is by checking the indexes list in the [portal](https://portal.azure.com).
+An intermediate (and perhaps obvious) step is that you have to [build and populate the index](./search-get-started-dotnet.md) before formulating a query. We mention this step here for completeness. One way to determine whether the index is available is by checking the indexes list in the [portal](https://portal.azure.com).
 
 ## Constrain the query and trim results
 
@@ -59,7 +60,6 @@ parameters =
 ## See also
 
 + [Filters in Azure Cognitive Search](search-filters.md)
-+ [Language analyzers](https://docs.microsoft.com/rest/api/searchservice/language-support)
++ [Language analyzers](/rest/api/searchservice/language-support)
 + [How full text search works in Azure Cognitive Search](search-lucene-query-architecture.md)
-+ [Search Documents REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents)
-
++ [Search Documents REST API](/rest/api/searchservice/search-documents)

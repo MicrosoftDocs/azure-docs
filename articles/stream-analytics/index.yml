@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
 title: Azure Stream Analytics documentation
-summary: Azure Stream Analytics is a fully managed, real-time analytics service designed to help you analyze and process fast moving streams of data that can be used to trigger alerts and actions. Learn how to use Azure Stream Analytics with our quickstarts, tutorials, and samples.
+summary: Azure Stream Analytics is a fully managed, real-time analytics service designed to help you analyze and process fast moving streams of data that can be used to get insights, build reports or trigger alerts and actions. Learn how to use Azure Stream Analytics with our quickstarts, tutorials, and samples.
 
 metadata:
   title: Azure Stream Analytics documentation
-  description: Azure Stream Analytics is a fully managed, real-time analytics service designed to help you analyze and process fast moving streams of data that can be used to trigger alerts and actions. Learn how to use Azure Stream Analytics with our quickstarts, tutorials, and samples.
+  description: Azure Stream Analytics is a fully managed, real-time analytics service designed to help you analyze and process fast moving streams of data that can be used to get insights, build reports or trigger alerts and actions. Learn how to use Azure Stream Analytics with our quickstarts, tutorials, and samples.
   services: service
   ms.service: stream-analytics
   ms.topic: landing-page

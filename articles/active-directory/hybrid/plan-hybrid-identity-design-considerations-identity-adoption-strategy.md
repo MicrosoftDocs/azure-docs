@@ -57,7 +57,7 @@ The strategy that you use will dictate the user sign-in experience.  The followi
 
 **Doman-joined and private network applications**:
 
-|  | Synchronized Identity | Federated Identity |
+| Application | Synchronized Identity | Federated Identity |
 | --- | --- | --- |
 | Web Browsers |Forms-based authentication |single sign-on, sometimes required to supply organization ID |
 | Outlook |Prompt for credentials |Prompt for credentials |
@@ -67,7 +67,7 @@ The strategy that you use will dictate the user sign-in experience.  The followi
 
 **External or untrusted  sources**:
 
-|  | Synchronized Identity | Federated Identity |
+| Application | Synchronized Identity | Federated Identity |
 | --- | --- | --- |
 | Web Browsers |Forms-based authentication |Forms-based authentication |
 | Outlook, Skype for Business (Lync), OneDrive for Business, Office subscription |Prompt for credentials |Prompt for credentials |

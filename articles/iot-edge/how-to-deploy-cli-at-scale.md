@@ -7,7 +7,8 @@ manager: philmea
 ms.author: kgremban
 ms.date: 4/14/2020
 ms.topic: conceptual
-ms.service: iot-edge
+ms.service: iot-edge 
+ms.custom: devx-track-azurecli
 services: iot-edge
 ---
 # Deploy and monitor IoT Edge modules at scale using the Azure CLI
@@ -176,7 +177,7 @@ For more information about device twins and tags, see [Understand and use device
 
 You deploy modules to your target devices by creating a deployment that consists of the deployment manifest as well as other parameters.
 
-Use the [az iot edge deployment create](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/edge/deployment?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-edge-deployment-create) command to create a deployment:
+Use the [az iot edge deployment create](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/edge/deployment?view=azure-cli-latest#ext-azure-iot-az-iot-edge-deployment-create) command to create a deployment:
 
 ```cli
 az iot edge deployment create --deployment-id [deployment id] --hub-name [hub name] --content [file path] --labels "[labels]" --target-condition "[target query]" --priority [int]
@@ -209,7 +210,7 @@ If you update the target condition, the following updates occur:
 
 You cannot update the content of a deployment, which includes the modules and routes defined in the deployment manifest. If you want to update the content of a deployment, you do so by creating a new deployment that targets the same devices with a higher priority. You can modify certain properties of an existing module, including the target condition, labels, metrics, and priority.
 
-Use the [az iot edge deployment update](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/edge/deployment?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-edge-deployment-update) command to update a deployment:
+Use the [az iot edge deployment update](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/edge/deployment?view=azure-cli-latest#ext-azure-iot-az-iot-edge-deployment-update) command to update a deployment:
 
 ```cli
 az iot edge deployment update --deployment-id [deployment id] --hub-name [hub name] --set [property1.property2='value']
@@ -230,7 +231,7 @@ The deployment update command takes the following parameters:
 
 When you delete a deployment, any devices take on their next highest priority deployment. If your devices don't meet the target condition of any other deployment, then the modules are not removed when the deployment is deleted.
 
-Use the [az iot edge deployment delete](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/edge/deployment?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-edge-deployment-delete) command to delete a deployment:
+Use the [az iot edge deployment delete](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/edge/deployment?view=azure-cli-latest#ext-azure-iot-az-iot-edge-deployment-delete) command to delete a deployment:
 
 ```cli
 az iot edge deployment delete --deployment-id [deployment id] --hub-name [hub name]

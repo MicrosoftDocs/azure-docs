@@ -3,7 +3,7 @@ title: Send telemetry to Azure IoT Hub (CLI) quickstart
 description: This quickstart shows developers new to IoT Hub how to get started by using the Azure CLI to create an IoT hub,  send telemetry, and view messages between a device and the hub.
 ms.service: iot-hub
 ms.topic: quickstart
-ms.custom: [iot-send-telemetry-cli, iot-p0-scenario]
+ms.custom: [iot-send-telemetry-cli, iot-p0-scenario,'Role: Cloud Development', devx-track-azurecli]
 ms.author: timlt
 author: timlt
 ms.date: 11/06/2019
@@ -84,7 +84,7 @@ In this section, you use the Azure CLI to create a resource group and an IoT Hub
 In this section, you create a simulated device in the first CLI session. The simulated device sends device telemetry to your IoT hub. In the second CLI session, you monitor events and telemetry, and send a cloud-to-device message to the simulated device.
 
 To create and start a simulated device:
-1. Run the [az iot hub device-identity create](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-device-identity-create) command in the first CLI session. This creates the simulated device identity. 
+1. Run the [az iot hub device-identity create](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub/device-identity?view=azure-cli-latest#ext-azure-iot-az-iot-hub-device-identity-create) command in the first CLI session. This creates the simulated device identity. 
 
     *YourIotHubName*. Replace this placeholder below with the name you chose for your IoT hub. 
 
@@ -94,7 +94,7 @@ To create and start a simulated device:
     az iot hub device-identity create --device-id simDevice --hub-name {YourIoTHubName} 
     ```
 
-1. Run the [az iot device simulate](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/device?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-device-simulate) command in the first CLI session.  This starts the simulated device. The device sends telemetry to your IoT hub and receives messages from it.  
+1. Run the [az iot device simulate](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/device?view=azure-cli-latest#ext-azure-iot-az-iot-device-simulate) command in the first CLI session.  This starts the simulated device. The device sends telemetry to your IoT hub and receives messages from it.  
 
     *YourIotHubName*. Replace this placeholder below with the name you chose for your IoT hub. 
 
@@ -103,7 +103,7 @@ To create and start a simulated device:
     ```
 
 To monitor a device:
-1. In the second CLI session, run the [az iot hub monitor-events](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-monitor-events) command. This starts monitoring the simulated device. The output shows telemetry that the simulated device sends to the IoT hub.
+1. In the second CLI session, run the [az iot hub monitor-events](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub?view=azure-cli-latest#ext-azure-iot-az-iot-hub-monitor-events) command. This starts monitoring the simulated device. The output shows telemetry that the simulated device sends to the IoT hub.
 
     *YourIotHubName*. Replace this placeholder below with the name you chose for your IoT hub. 
 
@@ -126,7 +126,7 @@ In this section, you use the second CLI session to send a message to the simulat
     az iot device simulate -d simDevice -n {YourIoTHubName}
     ```
 
-1. In the second CLI session, run the [az iot device c2d-message send](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/device/c2d-message?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-device-c2d-message-send) command. This sends a cloud-to-device message from your IoT hub to the simulated device. The message includes a string and two key-value pairs.  
+1. In the second CLI session, run the [az iot device c2d-message send](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/device/c2d-message?view=azure-cli-latest#ext-azure-iot-az-iot-device-c2d-message-send) command. This sends a cloud-to-device message from your IoT hub to the simulated device. The message includes a string and two key-value pairs.  
 
     *YourIotHubName*. Replace this placeholder below with the name you chose for your IoT hub. 
 

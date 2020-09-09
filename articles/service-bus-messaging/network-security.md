@@ -1,19 +1,8 @@
 ---
 title: Network security for Azure Service Bus
 description: This article describes network security features such as service tags, IP firewall rules, service endpoints, and private endpoints. 
-services: service-bus-messaging
-documentationcenter: .net
-author: axisc
-editor: spelluru
-
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/13/2020
-ms.author: aschhab
-
+ms.date: 06/23/2020
 ---
 
 
@@ -36,6 +25,9 @@ You can use service tags to define network access controls on [network security 
 | --- | -------- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | **ServiceBus** | Azure Service Bus traffic that uses the Premium service tier. | Outbound | Yes | Yes |
 
+
+> [!NOTE]
+> You can use service tags only for **premium** namespaces. If you are using a **standard** namespace, use the IP address that you see when you run the following command: `nslookup <host name for the namespace>`. For example: `nslookup contosons.servicebus.windows.net`. 
 
 ## IP firewall 
 By default, Service Bus namespaces are accessible from internet as long as the request comes with valid authentication and authorization. With IP firewall, you can restrict it further to only a set of IPv4 addresses or IPv4 address ranges in [CIDR (Classless Inter-Domain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) notation.

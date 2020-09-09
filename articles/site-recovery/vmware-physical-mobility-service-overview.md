@@ -103,7 +103,7 @@ During a push installation of the Mobility service, the following steps are perf
 
   ```cmd
   cd C:\Temp
-  ren Microsoft-ASR_UA_version_Windows_GA_date_release.exe MobilityServiceInstaller.exe
+  ren Microsoft-ASR_UA*Windows*release.exe MobilityServiceInstaller.exe
   MobilityServiceInstaller.exe /q /x:C:\Temp\Extracted
   cd C:\Temp\Extracted
   ```
@@ -182,8 +182,8 @@ Syntax | `cd /usr/local/ASR/Vx/bin<br/><br/> UnifiedAgentConfigurator.sh -i \<CS
 
 ## Azure Virtual Machine agent
 
-- **Windows VMs**: From version 9.7.0.0 of the Mobility service, the [Azure VM agent](/azure/virtual-machines/extensions/features-windows#azure-vm-agent) is installed by the Mobility service installer. This ensures that when the machine fails over to Azure, the Azure VM meets the agent installation prerequisite for using any VM extension.
-- **Linux VMs**: The  [WALinuxAgent](/azure/virtual-machines/extensions/update-linux-agent) must be installed manually on the Azure VM after failover.
+- **Windows VMs**: From version 9.7.0.0 of the Mobility service, the [Azure VM agent](../virtual-machines/extensions/features-windows.md#azure-vm-agent) is installed by the Mobility service installer. This ensures that when the machine fails over to Azure, the Azure VM meets the agent installation prerequisite for using any VM extension.
+- **Linux VMs**: The  [WALinuxAgent](../virtual-machines/extensions/update-linux-agent.md) must be installed manually on the Azure VM after failover.
 
 ## Locate installer files
 

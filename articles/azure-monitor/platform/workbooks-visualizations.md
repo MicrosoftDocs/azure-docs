@@ -47,7 +47,7 @@ Workbooks support charts for both logs and metric data sources.
 1. Switch the workbook to edit mode by clicking on the **Edit** toolbar item.
 2. Use the **Add query** link to add a log query control to the workbook.
 3. Select the query type as **Log**, resource type (for example, Application Insights) and the resources to target.
-4. Use the Query editor to enter the [KQL](https://docs.microsoft.com/azure/kusto/query/) for your analysis (for example, trend of requests).
+4. Use the Query editor to enter the [KQL](/azure/kusto/query/) for your analysis (for example, trend of requests).
 5. Set the visualization to one of: **Area**, **Bar**, **Bar (categorical)**, **Line**, **Pie**, **Scatter**, or **Time**.
 6. Set other parameters if needed - like time range, visualization, size, color palette and legend.
 

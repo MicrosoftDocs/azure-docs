@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 06/03/2019
+ms.date: 07/22/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge so I can use it to transfer data to Azure. 
 ---
@@ -20,12 +20,13 @@ You need administrator privileges to complete the setup and configuration proces
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
+>
 > * Create a new resource
 > * Get the activation key
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-### Get started
+## Get started
 
 To deploy Azure Stack Edge, refer to the following tutorials in the prescribed sequence.
 
@@ -47,36 +48,39 @@ Following are the configuration prerequisites for your Azure Stack Edge resource
 
 Before you begin, make sure that:
 
-- Your Microsoft Azure subscription is enabled for a Azure Stack Edge resource. Pay-as-you-go subscriptions are not supported.
-- You have owner or contributor access at resource group level for the Azure Stack Edge / Data Box Gateway, IoT Hub, and Azure Storage resources.
+* Your Microsoft Azure subscription is enabled for an Azure Stack Edge resource. Make sure that you used a supported subscription such as [Microsoft Enterprise Agreement (EA)](https://azure.microsoft.com/overview/sales-number/), [Cloud Solution Provider (CSP)](https://docs.microsoft.com/partner-center/azure-plan-lp), or [Microsoft Azure Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/). Pay-as-you-go subscriptions are not supported.
 
-    - To create any Azure Stack Edge / Data Box Gateway resource, you should have permissions as a contributor (or higher) scoped at resource group level. You also need to make sure that the `Microsoft.DataBoxEdge` provider is registered. For information on how to register, go to [Register resource provider](azure-stack-edge-manage-access-power-connectivity-mode.md#register-resource-providers).
-    - To create any IoT Hub resource, make sure that Microsoft.Devices provider is registered. For information on how to register, go to [Register resource provider](azure-stack-edge-manage-access-power-connectivity-mode.md#register-resource-providers).
-    - To create a Storage account resource, again you need contributor or higher access scoped at the resource group level. Azure Storage is by default a registered resource provider.
-- You have admin or user access to Azure Active Directory Graph API. For more information, see [Azure Active Directory Graph API](https://docs.microsoft.com/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-).
-- You have your Microsoft Azure storage account with access credentials.
+* You have owner or contributor access at resource group level for the Azure Stack Edge / Data Box Gateway, IoT Hub, and Azure Storage resources.
+
+  * You should be an **Owner** at the subscription level to grant contributor access. To give contributor access to someone else, in Azure portal, go to **All Services** > **Subscriptions** > **Access control (IAM)** > **+Add** > **Add role assignment**. For more information, see [Tutorial: Grant a user access to Azure resources using the Azure portal](https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal).
+
+  * To create any Azure Stack Edge / Data Box Gateway resource, you should have permissions as a contributor (or higher) scoped at resource group level. You also need to make sure that the `Microsoft.DataBoxEdge` resource provider is registered. For information on how to register a resource provider, see [Register resource provider](azure-stack-edge-manage-access-power-connectivity-mode.md#register-resource-providers).
+  * To create any IoT Hub resource, make sure that Microsoft.Devices provider is registered. For information on how to register, go to [Register resource provider](azure-stack-edge-manage-access-power-connectivity-mode.md#register-resource-providers).
+  * To create a Storage account resource, again you need contributor or higher access scoped at the resource group level. Azure Storage is by default a registered resource provider.
+* You have admin or user access to Azure Active Directory Graph API. For more information, see [Azure Active Directory Graph API](https://docs.microsoft.com/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-).
+* You have your Microsoft Azure storage account with access credentials.
+* You are not blocked by any Azure policy set up by your system administrator. For more information about policies, see [Quickstart: Create a policy assignment to identify non-compliant resources](https://docs.microsoft.com/azure/governance/policy/assign-policy-portal).
 
 ### For the Azure Stack Edge device
 
 Before you deploy a physical device, make sure that:
 
-- You've reviewed the safety information that was included in the shipment package.
-- You have a 1U slot available in a standard 19" rack in your datacenter for rack mounting the device.
-- You have access to a flat, stable, and level work surface where the device can rest safely.
-- The site where you intend to set up the device has standard AC power from an independent source or a rack power distribution unit (PDU) with an uninterruptible power supply (UPS).
-- You have access to a physical device.
-
+* You've reviewed the safety information that was included in the shipment package.
+* You have a 1U slot available in a standard 19" rack in your datacenter for rack mounting the device.
+* You have access to a flat, stable, and level work surface where the device can rest safely.
+* The site where you intend to set up the device has standard AC power from an independent source or a rack power distribution unit (PDU) with an uninterruptible power supply (UPS).
+* You have access to a physical device.
 
 ### For the datacenter network
 
 Before you begin, make sure that:
 
-- The network in your datacenter is configured per the networking requirements for your Azure Stack Edge device. For more information, see [Azure Stack Edge System Requirements](azure-stack-edge-system-requirements.md).
+* The network in your datacenter is configured per the networking requirements for your Azure Stack Edge device. For more information, see [Azure Stack Edge System Requirements](azure-stack-edge-system-requirements.md).
 
-- For normal operating conditions of your Azure Stack Edge, you have:
+* For normal operating conditions of your Azure Stack Edge, you have:
 
-    - A minimum of 10-Mbps download bandwidth to ensure the device stays updated.
-    - A minimum of 20-Mbps dedicated upload and download bandwidth to transfer files.
+  * A minimum of 10-Mbps download bandwidth to ensure the device stays updated.
+  * A minimum of 20-Mbps dedicated upload and download bandwidth to transfer files.
 
 ## Create a new resource
 
@@ -85,7 +89,7 @@ If you have an existing Azure Stack Edge resource to manage your physical device
 To create a Azure Stack Edge resource, take the following steps in the Azure portal.
 
 1. Use your Microsoft Azure credentials to sign in to 
-    
+
     - The Azure portal at this URL: [https://portal.azure.com](https://portal.azure.com).
     - Or, the Azure Government portal at this URL: [https://portal.azure.us](https://portal.azure.us). For more details, go to [Connect to Azure Government using the portal](https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-portal).
 
@@ -150,14 +154,16 @@ After the Azure Stack Edge resource is up and running, you'll need to get the ac
     ![Get activation key](media/azure-stack-edge-deploy-prep/get-activation-key.png)
 
 > [!IMPORTANT]
-> - The activation key expires three days after it is generated.
-> - If the key has expired, generate a new key. The older key is not valid.
+>
+> * The activation key expires three days after it is generated.
+> * If the key has expired, generate a new key. The older key is not valid.
 
 ## Next steps
 
 In this tutorial, you learned about Azure Stack Edge topics such as:
 
 > [!div class="checklist"]
+>
 > * Create a new resource
 > * Get the activation key
 
@@ -165,6 +171,3 @@ Advance to the next tutorial to learn how to install Azure Stack Edge.
 
 > [!div class="nextstepaction"]
 > [Install Azure Stack Edge](./azure-stack-edge-deploy-install.md)
-
-
-

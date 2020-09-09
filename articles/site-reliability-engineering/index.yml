@@ -53,11 +53,13 @@ productDirectory:
          - url: https://myignite.techcommunity.microsoft.com/sessions/83001  
            text: "Preparing for growth: capacity planning and scaling"
      # Card
-     - title: Introduction to SRE online course
+     - title: SRE online courses
        imageSrc: ./media/index/learn.svg
        links:
          - url: https://docs.microsoft.com/learn/modules/intro-to-site-reliability-engineering/
-           text: Learn the basics of SRE in a free online course
+           text: Introduction to site reliability engineering
+         - url: https://docs.microsoft.com/learn/paths/improve-reliability-modern-operations/
+           text: Improve your reliability with modern operations practices  
      # Card
      - title: SRE resources
        imageSrc: ./media/index/reference.svg
@@ -66,6 +68,8 @@ productDirectory:
            text: Books
          - url: resources/events.md
            text: Events
+         - url: articles/code.md
+           text: "FAQ: SRE and coding"
          - url: articles/devops.md
            text: "FAQ: SRE and DevOps"
          - url: resources/links.md
@@ -152,7 +156,7 @@ conceptualContent:
         - url: https://docs.microsoft.com/azure/azure-monitor/app/distributed-tracing
           itemType: get-started
           text: Distributed Tracing with Azure Monitor
-
+          
       # footerLink (optional)
       footerLink:
         url: https://docs.microsoft.com/en-us/azure/azure-monitor/

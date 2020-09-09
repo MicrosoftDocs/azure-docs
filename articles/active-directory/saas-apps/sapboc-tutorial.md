@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with SAP Analytics Cloud | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and SAP Analytics Cloud.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 6c5e44f0-4e52-463f-b879-834d80a55cdf
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 07/17/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Integrate SAP Analytics Cloud with Azure Active Directory
@@ -82,17 +75,13 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
     a. In the **Sign on URL** text box, type a URL using the following pattern:
 
-    | |
-	|-|-|
-	| `https://<sub-domain>.sapanalytics.cloud/` |
-	| `https://<sub-domain>.sapbusinessobjects.cloud/` |
+    - `https://<sub-domain>.sapanalytics.cloud/`
+    - `https://<sub-domain>.sapbusinessobjects.cloud/`
 
     b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
-	
-    | |
-	|-|-|
-	| `<sub-domain>.sapbusinessobjects.cloud` |
-	| `<sub-domain>.sapanalytics.cloud` |
+
+    - `<sub-domain>.sapbusinessobjects.cloud`
+    - `<sub-domain>.sapanalytics.cloud`
 
 	> [!NOTE] 
 	> The values in these URLs are for demonstration only. Update the values with the actual sign-on URL and identifier URL. To get the sign-on URL, contact the [SAP Analytics Cloud Client support team](https://help.sap.com/viewer/product/SAP_BusinessObjects_Cloud/release/). You can get the identifier URL by downloading the SAP Analytics Cloud metadata from the admin console. This is explained later in the tutorial.

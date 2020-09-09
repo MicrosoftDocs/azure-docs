@@ -12,7 +12,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 07/17/2017
 ms.subservice: hybrid
 ms.author: billmath
@@ -52,7 +52,7 @@ history data](#delete-run-history-data) step.
 5. If it is not running, try to start the service. If the service starts successfully, skip [Shrink the database](#shrink-the-database) step and go to [Delete run history data](#delete-run-history-data) step. Otherwise, continue with [Shrink the database](#shrink-the-database) step.
 
 ### Shrink the database
-Use the Shrink operation to free up enough DB space to start the Synchronization Service. It frees up DB space by removing whitespaces in the database. This step is best-effort as it is not guaranteed that you can always recover space. To learn more about Shrink operation, read this article [Shrink a database](https://msdn.microsoft.com/library/ms189035.aspx).
+Use the Shrink operation to free up enough DB space to start the Synchronization Service. It frees up DB space by removing whitespaces in the database. This step is best-effort as it is not guaranteed that you can always recover space. To learn more about Shrink operation, read this article [Shrink a database](/sql/relational-databases/databases/shrink-a-database?view=sql-server-ver15).
 
 > [!IMPORTANT]
 > Skip this step if you can get the Synchronization Service to run. It is not recommended to shrink the SQL DB as it can lead to poor performance due to increased fragmentation.
@@ -97,8 +97,8 @@ This step is to reduce the likelihood of running into the 10-GB limit issue afte
 
 ## Long-term solution – Migrate to full SQL
 In general, the issue is indicative that 10-GB database size is no longer sufficient for Azure AD Connect to synchronize your on-premises Active Directory to Azure AD. It is recommended that you switch to using the full version of SQL server. You cannot directly replace the LocalDB of an existing Azure AD Connect deployment with the database of the full version of SQL. Instead, you must deploy a new Azure AD Connect server with the full version of SQL. It is recommended that you do a swing migration where the new Azure AD Connect server (with SQL DB) is deployed as a staging server, next to the existing Azure AD Connect server (with LocalDB). 
-* For instruction on how to configure remote SQL with Azure AD Connect, refer to article [Custom installation of Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-get-started-custom).
-* For instructions on swing migration for Azure AD Connect upgrade, refer to article [Azure AD Connect: Upgrade from a previous version to the latest](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-upgrade-previous-version#swing-migration).
+* For instruction on how to configure remote SQL with Azure AD Connect, refer to article [Custom installation of Azure AD Connect](./how-to-connect-install-custom.md).
+* For instructions on swing migration for Azure AD Connect upgrade, refer to article [Azure AD Connect: Upgrade from a previous version to the latest](./how-to-upgrade-previous-version.md#swing-migration).
 
 ## Next steps
 Learn more about [Integrating your on-premises identities with Azure Active Directory](whatis-hybrid-identity.md).

@@ -63,6 +63,8 @@
       href: ./ag/policy-overview.md
     - name: Bot protection overview
       href: ./ag/bot-protection-overview.md
+    - name: FAQ
+      href: ./ag/application-gateway-waf-faq.md
   - name: Front Door
     items:
     - name: Custom rules
@@ -75,6 +77,8 @@
       href: ./afds/waf-front-door-geo-filtering.md
     - name: FAQ
       href: ./afds/waf-faq.md
+  - name: WAF and Azure Policy
+    href: ./shared/waf-azure-policy.md
 - name: How-to guides
   items:
   - name: Application Gateway
@@ -160,7 +164,7 @@
     - name: Front Door
       href: https://docs.microsoft.com/rest/api/frontdoorservice/webapplicationfirewall/policies
     - name: Application Gateway
-      href: https://docs.microsoft.com/rest/api/virtualnetwork/webapplicationfirewallpolicies
+      href: https://docs.microsoft.com/azure/web-application-firewall/ag/ag-overview#waf-policy
   - name: .NET
     href: /dotnet/api
   - name: Java

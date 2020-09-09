@@ -5,8 +5,8 @@ author: b-juche
 ms.author: b-juche
 ms.service: azure-netapp-files
 ms.workload: storage
-ms.topic: conceptual
-ms.date: 04/30/2020
+ms.topic: how-to
+ms.date: 08/28/2020
 ---
 # Mount or unmount a volume for Windows or Linux virtual machines 
 
@@ -20,9 +20,11 @@ You can mount or unmount a volume for Windows or Linux virtual machines as neces
 
     ![Mount instructions NFS](../media/azure-netapp-files/azure-netapp-files-mount-instructions-nfs.png)
 
-    ![Mount instructions SMB](../media/azure-netapp-files/azure-netapp-files-mount-instructions-smb.png)
-    
-    If you are using NFSv4.1, use the following command to mount your file system:  `sudo mount -t nfs -o rw,hard,rsize=65536,wsize=65536,vers=4.1,tcp,sec=sys $MOUNTTARGETIPADDRESS:/$VOLUMENAME $MOUNTPOINT`  
+    ![Mount instructions SMB](../media/azure-netapp-files/azure-netapp-files-mount-instructions-smb.png)  
+    * If you are mounting an NFS volume, ensure that you use the `vers` option in the `mount` command to specify the NFS protocol version that corresponds to the volume you want to mount. 
+    * If you are using NFSv4.1, use the following command to mount your file system:  `sudo mount -t nfs -o rw,hard,rsize=65536,wsize=65536,vers=4.1,tcp,sec=sys $MOUNTTARGETIPADDRESS:/$VOLUMENAME $MOUNTPOINT`  
+        > [!NOTE]
+        > If you use NFSv4.1, ensure that all VMs mounting the export use unique hostnames.
 
 3. If you want to have an NFS volume automatically mounted when an Azure VM is started or rebooted, add an entry to the `/etc/fstab` file on the host. 
 
@@ -37,9 +39,12 @@ You can mount or unmount a volume for Windows or Linux virtual machines as neces
     a. Mount the volume onto a Unix or Linux VM first.  
     b. Run a `chmod 777` or `chmod 775` command against the volume.  
     c. Mount the volume via the NFS client on Windows.
+    
+5. If you want to mount an NFS Kerberos volume, see [Configure NFSv4.1 Kerberos encryption](configure-kerberos-encryption.md) for additional details. 
 
 ## Next steps
 
 * [Configure NFSv4.1 default domain for Azure NetApp Files](azure-netapp-files-configure-nfsv41-domain.md)
 * [NFS FAQs](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-faqs#nfs-faqs)
 * [Network File System overview](https://docs.microsoft.com/windows-server/storage/nfs/nfs-overview)
+* [Mount an NFS Kerberos volume](configure-kerberos-encryption.md#kerberos_mount)

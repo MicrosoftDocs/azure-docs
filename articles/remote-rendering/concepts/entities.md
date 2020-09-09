@@ -5,6 +5,7 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/03/2020
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ---
 
 # Entities
@@ -21,6 +22,33 @@ An entity is uniquely owned by its parent, meaning that when the parent is destr
 
 Entities are created when the server loads content or when the user wants to add an object to the scene. For example, if a user wants to add a cut plane to visualize the interior of a mesh, the user can create an entity where the plane should exist and then add the cut plane component to it.
 
+## Create an entity
+
+To add a new entity to the scene, for example to pass it as a root object for loading models or to attach components to it, use the following code:
+
+```cs
+Entity CreateNewEntity(AzureSession session)
+{
+    Entity entity = session.Actions.CreateEntity();
+    entity.Position = new LocalPosition(1, 2, 3);
+    return entity;
+}
+```
+
+```cpp
+ApiHandle<Entity> CreateNewEntity(ApiHandle<AzureSession> session)
+{
+    ApiHandle<Entity> entity(nullptr);
+    if (auto entityRes = session->Actions()->CreateEntity())
+    {
+        entity = entityRes.value();
+        entity->SetPosition(Double3{ 1, 2, 3 });
+        return entity;
+    }
+    return entity;
+}
+```
+
 ## Query functions
 
 There are two types of query functions on entities: synchronous and asynchronous calls. Synchronous queries can only be used for data that is present on the client and does not involve much computation. Examples are querying for components, relative object transforms, or parent/child relationships. Asynchronous queries are used for data that only resides on the server or involves extra computation that would be too expensive to run on the client. Examples are spatial bounds queries or meta data queries.
@@ -36,6 +64,13 @@ CutPlaneComponent cutplane = (CutPlaneComponent)entity.FindComponentOfType(Objec
 CutPlaneComponent cutplane = entity.FindComponentOfType<CutPlaneComponent>();
 ```
 
+```cpp
+ApiHandle<CutPlaneComponent> cutplane = entity->FindComponentOfType(ObjectType::CutPlaneComponent)->as<CutPlaneComponent>();
+
+// or alternatively:
+ApiHandle<CutPlaneComponent> cutplane = entity->FindComponentOfType<CutPlaneComponent>();
+```
+
 ### Querying transforms
 
 Transform queries are synchronous calls on the object. It is important to note that transforms queried through the API are local space transforms, relative to the object's parent. Exceptions are root objects, for which local space and world space are identical.
@@ -48,6 +83,13 @@ Transform queries are synchronous calls on the object. It is important to note t
 Double3 translation = entity.Position;
 Quaternion rotation = entity.Rotation;
 ```
+
+```cpp
+// local space transform of the entity
+Double3 translation = entity->GetPosition();
+Quaternion rotation = entity->GetRotation();
+```
+
 
 ### Querying spatial bounds
 
@@ -72,6 +114,21 @@ metaDataQuery.Completed += (MetadataQueryAsync query) =>
         // ...
     }
 };
+```
+
+```cpp
+ApiHandle<MetadataQueryAsync> metaDataQuery = *entity->QueryMetaDataAsync();
+metaDataQuery->Completed([](const ApiHandle<MetadataQueryAsync>& query)
+    {
+        if (query->GetIsRanToCompletion())
+        {
+            ApiHandle<ObjectMetaData> metaData = query->GetResult();
+            ApiHandle<ObjectMetaDataEntry> entry = *metaData->GetMetadataByName("MyInt64Value");
+            int64_t intValue = *entry->GetAsInt64();
+
+            // ...
+        }
+    });
 ```
 
 The query will succeed even if the object does not hold any metadata.

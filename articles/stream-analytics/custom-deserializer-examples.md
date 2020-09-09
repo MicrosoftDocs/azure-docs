@@ -7,6 +7,7 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 1/28/2020
+ms.custom: devx-track-csharp
 ---
 
 # Read input in any format using .NET custom deserializers
@@ -107,7 +108,7 @@ message MessageBodyProto {
 }
 ```
 
-Running `protoc.exe` from the **Google.Protobuf.Tools** NuGet generates a .cs file with the definition. The generated file is not shown here.
+Running `protoc.exe` from the **Google.Protobuf.Tools** NuGet generates a .cs file with the definition. The generated file is not shown here. You must ensure that the version of Protobuf Nuget you use in your Stream Analytics project matches the Protobuf version that was used to generate the input. 
 
 The following code snippet is the deserializer implementation assuming the generated file is included in the project. This implementation is just a thin wrapper over the generated file.
 

@@ -1,12 +1,12 @@
 ---
 title: Azure Multi-Factor Authentication data residency
-description: Learn what personal and organizational data Azure Multi-Factor Authentication stores about you and your users and what data remains within the country of origin.
+description: Learn what personal and organizational data Azure Multi-Factor Authentication stores about you and your users and what data remains within the country/region of origin.
 
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 04/13/2020
+ms.date: 07/14/2020
 
 ms.author: iainfou
 author: iainfoulds

@@ -37,7 +37,7 @@ These attributes are beneficial in web, mobile, gaming, and IoT applications tha
 ## IoT and telematics
 IoT use cases commonly share some patterns in how they ingest, process, and store data.  First, these systems need to ingest bursts of data from device sensors of various locales. Next, these systems process and analyze streaming data to derive real-time insights. The data is then archived to cold storage for batch analytics. Microsoft Azure offers rich services that can be applied for IoT use cases including Azure Cosmos DB, Azure Event Hubs, Azure Stream Analytics, Azure Notification Hub, Azure Machine Learning, Azure HDInsight, and Power BI. 
 
-![Azure Cosmos DB IoT reference architecture](./media/use-cases/iot.png)
+:::image type="content" source="./media/use-cases/iot.png" alt-text="Azure Cosmos DB IoT reference architecture" border="false":::
 
 Bursts of data can be ingested by Azure Event Hubs as it offers high throughput data ingestion with low latency. Data ingested that needs to be processed for real-time insight can be funneled to Azure Stream Analytics for real-time analytics. Data can be loaded into Azure Cosmos DB for adhoc querying. Once the data is loaded into Azure Cosmos DB, the data is ready to be queried. In addition, new data and changes to existing data can be read on change feed. Change feed is a persistent, append only log that stores changes to Cosmos containers in sequential order. The all data or just changes to data in Azure Cosmos DB can be used as reference data as part of real-time analytics. In addition, data can further be refined and processed by connecting Azure Cosmos DB data to HDInsight for Pig, Hive, or Map/Reduce jobs.  Refined data is then loaded back to Azure Cosmos DB for reporting.   
 
@@ -52,11 +52,11 @@ Catalog data usage scenarios involve storing and querying a set of attributes fo
 
 Consider an example of a product catalog for an automotive parts supplier. Every part may have its own attributes in addition to the common attributes that all parts share. Furthermore, attributes for a specific part can change the following year when a new model is released. Azure Cosmos DB supports flexible schemas and hierarchical data, and thus it is well suited for storing product catalog data.
 
-![Azure Cosmos DB retail catalog reference architecture](./media/use-cases/product-catalog.png)
+:::image type="content" source="./media/use-cases/product-catalog.png" alt-text="Azure Cosmos DB retail catalog reference architecture" border="false":::
 
 Azure Cosmos DB is often used for event sourcing to power event driven architectures using its [change feed](change-feed.md) functionality. The change feed provides downstream microservices the ability to reliably and incrementally read inserts and updates (for example, order events) made to an Azure Cosmos DB. This functionality can be leveraged to provide a persistent event store as a message broker for state-changing events and drive order processing workflow between many microservices (which can be implemented as [serverless Azure Functions](https://azure.com/serverless)).
 
-![Azure Cosmos DB ordering pipeline reference architecture](./media/use-cases/event-sourcing.png)
+:::image type="content" source="./media/use-cases/event-sourcing.png" alt-text="Azure Cosmos DB ordering pipeline reference architecture" border="false":::
 
 In addition, data stored in Azure Cosmos DB can be integrated with HDInsight for big data analytics via Apache Spark jobs. For details on the Spark Connector for Azure Cosmos DB, see [Run a Spark job with Cosmos DB and HDInsight](spark-connector.md).
 
@@ -71,7 +71,7 @@ Azure Cosmos DB is used by games like [The Walking Dead: No Man's Land](https://
 * Social features including in-game chat messages, player guild memberships, challenges completed, high-score leaderboards, and social graphs are easier to implement with a flexible schema.
 * Azure Cosmos DB as a managed platform-as-a-service (PaaS) required minimal setup and management work to allow for rapid iteration, and reduce time to market.
 
-![Azure Cosmos DB gaming reference architecture](./media/use-cases/gaming.png)
+:::image type="content" source="./media/use-cases/gaming.png" alt-text="Azure Cosmos DB gaming reference architecture" border="false":::
 
 ## Web and mobile applications
 Azure Cosmos DB is commonly used within web and mobile applications, and is well suited for modeling social interactions, integrating with third-party services, and for building rich personalized experiences. The Cosmos DB SDKs can be used build rich iOS and Android applications using the popular [Xamarin framework](mobile-apps-with-xamarin.md).  
@@ -83,14 +83,14 @@ Applications that integrate with third-party social networks must respond to cha
 
 Many of the social applications run at global scale and can exhibit unpredictable usage patterns. Flexibility in scaling the data store is essential as the application layer scales to match usage demand.  You can scale out by adding additional data partitions under a Cosmos DB account.  In addition, you can also create additional Cosmos DB accounts across multiple regions. For Cosmos DB service region availability, see [Azure Regions](https://azure.microsoft.com/regions/#services).
 
-![Azure Cosmos DB web app reference architecture](./media/use-cases/apps-with-global-reach.png)
+:::image type="content" source="./media/use-cases/apps-with-global-reach.png" alt-text="Azure Cosmos DB web app reference architecture" border="false":::
 
 ### Personalization
 Nowadays, modern applications come with complex views and experiences. These are typically dynamic, catering to user preferences or moods and branding needs. Hence, applications need to be able to retrieve personalized settings effectively to render UI elements and experiences quickly. 
 
 JSON, a format supported by Cosmos DB, is an effective format to represent UI layout data as it is not only lightweight, but also can be easily interpreted by JavaScript. Cosmos DB offers tunable consistency levels that allow fast reads with low latency writes. Hence, storing UI layout data including personalized settings as JSON documents in Cosmos DB is an effective means to get this data across the wire.
 
-![Azure Cosmos DB web app reference architecture](./media/use-cases/personalization.png)
+:::image type="content" source="./media/use-cases/personalization.png" alt-text="Azure Cosmos DB web app reference architecture" border="false":::
 
 ## Next steps
 

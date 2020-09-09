@@ -1,6 +1,6 @@
 ﻿---
 title: 'Quickstart: Get started with Azure Sentinel'
-description: Azure Sentinel Quickstart - Get started with Azure Sentinel
+description: Use this quickstart to learn how to quickly view and monitor what's happening across your environment by using Azure Sentinel. 
 services: sentinel
 author: yelevin
 manager: rkarlin
@@ -49,7 +49,7 @@ The main body of the overview page gives insight at a glance into the security s
 
 ## Use built-in workbooks<a name="dashboards"></a>
 
-Built-in workbooks provide integrated data from your connected data sources to let you deep dive into the events generated in those services. The built-in workbooks include Azure AD, Azure activity events, and on-premises, which can be data from Windows Events from servers, from first party alerts, from any third-party including firewall traffic logs, Office 365, and insecure protocols based on Windows events. The workbooks are based on Azure Monitor Workbooks to provide you with enhanced customizability and flexibility in designing your own workbook. For more information, see [Workbooks](../azure-monitor/app/usage-workbooks.md).
+Built-in workbooks provide integrated data from your connected data sources to let you deep dive into the events generated in those services. The built-in workbooks include Azure AD, Azure activity events, and on-premises, which can be data from Windows Events from servers, from first party alerts, from any third-party including firewall traffic logs, Office 365, and insecure protocols based on Windows events. The workbooks are based on Azure Monitor Workbooks to provide you with enhanced customizability and flexibility in designing your own workbook. For more information, see [Workbooks](../azure-monitor/platform/workbooks-overview.md).
 
 1. Under **Settings**, select **Workbooks**. Under **Installed**, you can see all your installed workbook. Under **All**, you can see the whole gallery of built-in workbooks that are available for installation. 
 2. Search for a specific workbook to see the whole list and description of what each offers. 
@@ -87,23 +87,26 @@ You can create a new workbook from scratch or use a built-in workbook as the bas
 
 The following sample query enables you to compare trends of traffic across weeks. You can easily switch which device vendor and data source you run the query on. This example uses SecurityEvent from Windows, you can switch it to run on AzureActivity or CommonSecurityLog on any other firewall.
 
-     |where DeviceVendor == "Palo Alto Networks":
-      // week over week query
-      SecurityEvent
-      | where TimeGenerated > ago(14d)
-      | summarize count() by bin(TimeGenerated, 1d)
-      | extend Week = iff(TimeGenerated>ago(7d), "This Week", "Last Week"), TimeGenerated = iff(TimeGenerated>ago(7d), TimeGenerated, TimeGenerated + 7d)
-
+```console
+ |where DeviceVendor == "Palo Alto Networks":
+  // week over week query
+  SecurityEvent
+  | where TimeGenerated > ago(14d)
+  | summarize count() by bin(TimeGenerated, 1d)
+  | extend Week = iff(TimeGenerated>ago(7d), "This Week", "Last Week"), TimeGenerated = iff(TimeGenerated>ago(7d), TimeGenerated, TimeGenerated + 7d)
+```
 
 You might want to create a query that incorporates data from multiples sources. You can create a query that looks at Azure Active Directory audit logs for new users that were just created, and then checks your Azure logs to see if the user started making role assignment changes within 24 hours of creation. That suspicious activity would show up on this dashboard:
 
-    AuditLogs
-    | where OperationName == "Add user"
-    | project AddedTime = TimeGenerated, user = tostring(TargetResources[0].userPrincipalName)
-    | join (AzureActivity
-    | where OperationName == "Create role assignment"
-    | project OperationName, RoleAssignmentTime = TimeGenerated, user = Caller) on user
-    | project-away user1
+```console
+AuditLogs
+| where OperationName == "Add user"
+| project AddedTime = TimeGenerated, user = tostring(TargetResources[0].userPrincipalName)
+| join (AzureActivity
+| where OperationName == "Create role assignment"
+| project OperationName, RoleAssignmentTime = TimeGenerated, user = Caller) on user
+| project-away user1
+```
 
 You can create different workbooks based on role of person looking at the data and what they're looking for. For example, you can create a workbook for your network admin that includes the firewall data. You can also create workbooks based on how frequently you want to look at them, whether there are things you want to review daily, and others items you want to check once an hour, for example, you might want to look at your Azure AD sign-ins every hour to search for anomalies. 
 

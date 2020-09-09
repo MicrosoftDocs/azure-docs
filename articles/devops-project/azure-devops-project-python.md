@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 03/24/2020
 ms.author: mlearned
-ms.custom: mvc
+ms.custom: mvc, devx-track-python
 ---
 
 # Create a CI/CD pipeline for Python with Azure DevOps Starter

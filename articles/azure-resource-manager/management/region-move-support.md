@@ -4,7 +4,7 @@ description: Lists the Azure resource types that can be moved across Azure regio
 author: rayne-wiselman
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 01/20/2020
+ms.date: 08/25/2020
 ms.author: raynew
 ---
 
@@ -116,6 +116,7 @@ Jump to a resource provider namespace:
 > - [Microsoft.RecoveryServices](#microsoftrecoveryservices)
 > - [Microsoft.Relay](#microsoftrelay)
 > - [Microsoft.ResourceGraph](#microsoftresourcegraph)
+> - [Microsoft.Resources](#microsoftresources)
 > - [Microsoft.SaaS](#microsoftsaas)
 > - [Microsoft.Scheduler](#microsoftscheduler)
 > - [Microsoft.Search](#microsoftsearch)
@@ -181,7 +182,7 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Region move | 
 > | ------------- | ----------- |
-> | service |  Yes | 
+> | service |  Yes (using template) <br/><br/> [Move API Management across regions](../../api-management/api-management-howto-migrate.md). | 
 
 ## Microsoft.AppConfiguration
 
@@ -195,7 +196,7 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Region move | 
 > | ------------- | ----------- |
-> | apiapps | No | 
+> | apiapps | Yes (using template)<br/><br/> [Move an App Service app to another region](../../app-service/manage-move-across-regions.md) | 
 > | appidentities | No | 
 > | gateways | No | 
 
@@ -212,7 +213,7 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Region move | 
 > | ------------- | ----------- |
-> | automationaccounts | No | 
+> | automationaccounts | Yes (using template) <br/><br/> [Using geo-replication](../../automation/automation-managing-data.md#geo-replication-in-azure-automation) |  
 > | automationaccounts / configurations | No | 
 > | automationaccounts / runbooks | No | 
 
@@ -244,14 +245,14 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Region move | 
 > | ------------- | ----------- |
-> | batchaccounts | No |
+> | batchaccounts |  Batch accounts can't be moved directly from one region to another, but you can use a template to export a template, modify it, and deploy the template to the new region. <br/><br/> Learn about [moving a Batch account across regions](../../batch/best-practices.md#moving-batch-accounts-across-regions) |
 
 ## Microsoft.BatchAI
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Region move | 
 > | ------------- | ----------- |
-> | clusters | No | 
+> | clusters | No <br/><br/> The Azure Batch AI service is [retired](/previous-versions/azure/batch-ai/overview-what-happened-batch-ai).
 > | fileservers | No | 
 > | jobs | No | 
 > | workspaces | No | 
@@ -275,7 +276,7 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Region move | 
 > | ------------- | ----------- |
-> | blockchainmembers | No |
+> | blockchainmembers | No <br/><br/> The blockchain network can't have nodes in different regions. 
 > | watchers | No | 
 
 ## Microsoft.Blueprint
@@ -322,7 +323,7 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Region move | 
 > | ------------- | ----------- |
-> | domainnames | No |  
+> | domainnames | No work is planned for classic services.
 > | virtualmachines | No | 
 
 
@@ -332,7 +333,7 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Region move | 
 > | ------------- | ----------- |
-> | networksecuritygroups | No |
+> | networksecuritygroups | No work is planned for classic services.
 > | reservedips | No | 
 > | virtualnetworks | No | 
 
@@ -350,6 +351,7 @@ Jump to a resource provider namespace:
 > | Resource type | Region move | 
 > | ------------- | ----------- |
 > | accounts | No | 
+> | Cognitive Search | Supported with manual steps.<br/><br/> Learn about [moving your Azure Cognitive Search service to another region](../../search/search-howto-move-across-regions.md)
 
 ## Microsoft.Compute
 
@@ -404,7 +406,7 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Region move | 
 > | ------------- | ----------- |
-> | containerservices | No | 
+> | containerservices | No.<br/><br/> Service is [retired](https://azure.microsoft.com/updates/azure-container-service-will-retire-on-january-31-2020/).
 > | managedclusters | No | 
 > | openshiftmanagedclusters | No | 
 
@@ -537,14 +539,14 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Region move | 
 > | ------------- | ----------- |
-> | servers | No |  
+> | servers | You can use a cross-region read replica to move an existing server. [Learn more](../../postgresql/howto-move-regions-portal.md).<br/><br/> If the service is provisioned with geo-redundant backup storage, you can use geo-restore to restore in other regions. [Learn more](../../mariadb/concepts-business-continuity.md#recover-from-an-azure-regional-data-center-outage).
 
 ## Microsoft.DBforMySQL
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Region move | 
 > | ------------- | ----------- |
-> | servers | No |  
+> | servers | You can use a cross-region read replica to move an existing server. [Learn more](../../mysql/howto-move-regions-portal.md).
 
 ## Microsoft.DBforPostgreSQL
 
@@ -552,7 +554,7 @@ Jump to a resource provider namespace:
 > | Resource type | Region move | 
 > | ------------- | ----------- |
 > | servergroups | No | 
-> | servers | No |  
+> | servers | You can use a cross-region read replica to move an existing server. [Learn-more](../../postgresql/howto-move-regions-portal.md).
 > | serversv2 | No | 
 
 ## Microsoft.DeploymentManager
@@ -572,9 +574,9 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Region move | 
 > | ------------- | ----------- |
-> | elasticpools | No | 
-> | elasticpools / iothubtenants | No | 
-> | iothubs | Yes | 
+> | elasticpools | No. Resource isn't exposed.
+> | elasticpools / iothubtenants | No. Resource isn't exposed.
+> | iothubs | Yes. [Learn more](../../iot-hub/iot-hub-how-to-clone.md)
 > | provisioningservices | No | 
 
 ## Microsoft.DevSpaces
@@ -583,6 +585,7 @@ Jump to a resource provider namespace:
 > | Resource type | Region move | 
 > | ------------- | ----------- |
 > | controllers | No | 
+> | AKS cluster | No<br/><br/> [Learn more](../../dev-spaces/faq.md#can-i-migrate-my-aks-cluster-with-azure-dev-spaces-to-another-region) about moving to another region.
 
 ## Microsoft.DevTestLab
 
@@ -631,7 +634,7 @@ Jump to a resource provider namespace:
 > | Resource type | Region move | 
 > | ------------- | ----------- |
 > | clusters | No |  
-> | namespaces | No | 
+> | namespaces | Yes (with template)<br/><br/> [Move an Event Hub namespace to another region](../../event-hubs/move-across-regions.md) | 
 
 ## Microsoft.Genomics
 
@@ -708,7 +711,15 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Region move | 
 > | ------------- | ----------- |
-> | iotapps |  No |  
+> | checknameavailability |  No.<br/><br/> IoT Central works with geographies, and not regions.
+> | graph | No
+
+## Microsoft.IoTHub
+
+> [!div class="mx-tableFixed"]
+> | Resource type | Region move | 
+> | ------------- | ----------- |
+> |  iothub |  Yes (clone hub) <br/><br/> [Clone an IoT hub to another region](../../iot-hub/iot-hub-how-to-clone.md)
 
 ## Microsoft.IoTSpaces
 
@@ -753,7 +764,7 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Region move | 
 > | ------------- | ----------- |
-> | accounts | No | 
+> | accounts | No, it's a global service.
 
 ## Microsoft.Logic
 
@@ -827,14 +838,14 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Region move | 
 > | ------------- | ----------- |
-> | accounts |  No |  
+> | accounts |  No, Azure Maps is a geospatial service. 
 
 ## Microsoft.MarketplaceApps
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Region move | 
 > | ------------- | ----------- |
-> | classicdevservices | No | 
+> | classicdevservices | No work is planned for classic services 
 
 ## Microsoft.Media
 
@@ -892,7 +903,7 @@ Jump to a resource provider namespace:
 > | expressrouteports | No | 
 > | frontdoors | No | 
 > | frontdoorwebapplicationfirewallpolicies | No | 
-> | loadbalancers | Yes - Basic SKU<br>No - Standard SKU | Yes - Basic SKU<br> -Yes Standard SKU |
+> | loadbalancers | Yes <br/><br/> You can export the existing configuration as a template, and deploy the template in the new region. Learn how to move an [external](../..//load-balancer/move-across-regions-external-load-balancer-portal.md) or [internal](../../load-balancer/move-across-regions-internal-load-balancer-portal.md) load balancer. |
 > | localnetworkgateways |  No | 
 > | natgateways |  No | 
 > | networkintentpolicies |  No | 
@@ -908,7 +919,7 @@ Jump to a resource provider namespace:
 > | privatednszones / virtualnetworklinks |  No |  
 > | privateendpoints | No | 
 > | privatelinkservices | No | 
-> | publicipaddresses | Yes - Basic SKU<br>No - Standard SKU | Yes - Basic SKU<br>No - Standard SKU |
+> | publicipaddresses | Yes<br/><br/> You can export the existing public IP address configuration as a template, and deploy the template in the new region. [Learn more](../../virtual-network/move-across-regions-publicip-portal.md) about moving a public IP address. |
 > | publicipprefixes | No | 
 > | routefilters | No | 
 > | routetables |  No | 
@@ -996,7 +1007,7 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Region move | 
 > | ------------- | ----------- |
-> | vaults | No. [Disable vault and recreate](https://docs.microsoft.com/azure/site-recovery/move-vaults-across-regions) for Site Recovery  | 
+> | vaults | No.<br/><br/> Moving Recovery Services vaults for Azure Backup across Azure regions isn't supported.<br/><br/> In Recovery Services vaults for Azure Site Recovery, you can [disable and recreate the vault](../../site-recovery/move-vaults-across-regions.md) in the target region. | 
 
 
 ## Microsoft.Relay
@@ -1012,6 +1023,14 @@ Jump to a resource provider namespace:
 > | Resource type | Region move | 
 > | ------------- | ----------- |
 > | queries |  No |  
+
+## Microsoft.Resources
+
+> [!div class="mx-tableFixed"]
+> | Resource type | Region move |
+> | ------------- | ----------- |
+> | deploymentScripts |  Yes<br/><br/>[Move Microsoft.Resources resources to new region](microsoft-resources-move-regions.md) |
+> | templateSpecs |  Yes<br/><br/>[Move Microsoft.Resources resources to new region](microsoft-resources-move-regions.md) |  
 
 ## Microsoft.SaaS
 
@@ -1137,7 +1156,7 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Region move | 
 > | ------------- | ----------- |
-> | storageaccounts | Yes | 
+> | storageaccounts | Yes<br/><br/> [Move an Azure Storage account to another region](../../storage/common/storage-account-move.md) | 
 
 ## Microsoft.StorageCache
 
