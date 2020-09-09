@@ -14,11 +14,15 @@
   expanded: true
   items:
   - name: Deploy SQL Edge
-    href: deploy-portal.md 
+    href: deploy-portal.md
+  - name: Deploy with Docker
+    href: disconnected-deployment.md
   - name: Deploy ONNX Models on SQL Edge
     href: deploy-onnx.md 
 - name: Tutorials
   items:
+  - name: Deploy in Kubernetes
+    href: deploy-kubernetes.md
   - name: Sync data with Azure Data Factory
     href: tutorial-sync-data-factory.md
   - name: Sync data with SQL Data Sync
@@ -53,6 +57,8 @@
     href: onnx-overview.md
   - name: Backup and restore
     href: backup-restore.md
+  - name: High availability for containers
+    href: high-availability-sql-edge-containers.md
   - name: Data Streaming in SQL Edge
     items:
     - name: Stream data
