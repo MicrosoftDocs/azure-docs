@@ -31,7 +31,7 @@ Learn how to troubleshoot and solve, or work around, common Docker deployment er
 
 When deploying a model in Azure Machine Learning, the system performs a number of tasks.
 
-The recommended approach for model deployment is via the [Model.deploy()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) API using an [Environment](how-to-use-environments.md) object as an input parameter. In this case, the service creates a base docker image during deployment stage and mounts the required models all in one call. The basic deployment tasks are:
+The recommended approach for model deployment is via the [Model.deploy()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py#&preserve-view=truedeploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) API using an [Environment](how-to-use-environments.md) object as an input parameter. In this case, the service creates a base docker image during deployment stage and mounts the required models all in one call. The basic deployment tasks are:
 
 1. Register the model in the workspace model registry.
 
@@ -47,7 +47,7 @@ Learn more about this process in the [Model Management](concept-model-management
 
 If you run into any issue, the first thing to do is to break down the deployment task (previous described) into individual steps to isolate the problem.
 
-Assuming you are using the new/recommended deployment method via [Model.deploy()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) API with an [Environment](how-to-use-environments.md) object as an input parameter, your code can be broken down into three major steps:
+Assuming you are using the new/recommended deployment method via [Model.deploy()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py#&preserve-view=truedeploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) API with an [Environment](how-to-use-environments.md) object as an input parameter, your code can be broken down into three major steps:
 
 1. Register the model. Here is some sample code:
 
@@ -158,7 +158,7 @@ print(service.run(input_data=test_sample))
 > [!NOTE]
 > The script is reloaded from the location specified by the `InferenceConfig` object used by the service.
 
-To change the model, Conda dependencies, or deployment configuration, use [update()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#update--args-). The following example updates the model used by the service:
+To change the model, Conda dependencies, or deployment configuration, use [update()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#&preserve-view=trueupdate--args-). The following example updates the model used by the service:
 
 ```python
 service.update([different_model], inference_config, deployment_config)
@@ -166,7 +166,7 @@ service.update([different_model], inference_config, deployment_config)
 
 ### Delete the service
 
-To delete the service, use [delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#delete--).
+To delete the service, use [delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#&preserve-view=truedelete--).
 
 ### <a id="dockerlog"></a> Inspect the Docker log
 
@@ -196,7 +196,7 @@ Use the info in the [Inspect the Docker log](#dockerlog) section to check the lo
 
 ## Function fails: get_model_path()
 
-Often, in the `init()` function in the scoring script, [Model.get_model_path()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#get-model-path-model-name--version-none---workspace-none-) function is called to locate a model file or a folder of model files in the container. If the model file or folder cannot be found, the function fails. The easiest way to debug this error is to run the below Python code in the Container shell:
+Often, in the `init()` function in the scoring script, [Model.get_model_path()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#&preserve-view=trueget-model-path-model-name--version-none---workspace-none-) function is called to locate a model file or a folder of model files in the container. If the model file or folder cannot be found, the function fails. The easiest way to debug this error is to run the below Python code in the Container shell:
 
 ```python
 from azureml.core.model import Model
