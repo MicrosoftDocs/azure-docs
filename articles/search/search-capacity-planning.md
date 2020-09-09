@@ -30,9 +30,11 @@ Capacity is expressed in *search units* that can be allocated in combinations of
 |*Partition* | Physical storage and I/O for read/write operations (for example, when rebuilding or refreshing an index). Each partition has a slice of the total index. If you allocate three partitions, your index is divided into thirds. |
 |*Shard* | A chunk of an index. Azure Cognitive Search divides each index into shards to make the process of adding partitions faster (by moving shards to new search units).|
 
-In the top-left quadrant, the first search unit is a combination of one replica and one partition, the minimum baseline for creating a service. An additional unit to the side or below adds a single replica or a single partition. If you want two of each, you will need four search units, as captured in the entirety of the following diagram. Combinations of up to 36 search units are possible.
+The following diagram shows the relationship between replicas, partitions, shards, and search units. It shows an example of how a single index is spanned across four search units in a service with two replicas and two partitions. Each of the four search units stores only half of the shards of the index. The search units in the left column store the first half of the shards, comprising the first partition, while those in the right column store the second half of the shards, comprising the second partition. Since there are two replicas, there are two copies of each index shard. The search units in the top row store one copy, comprising the first replica, while those in the bottom row store another copy, comprising the second replica.
 
 :::image type="content" source="media/search-capacity-planning/shards.png" alt-text="Search indexes are sharded across partitions.":::
+
+The diagram above is only one example. Many combinations of partitions and replicas are possible, up to a maximum of 36 total search units.
 
 In Cognitive Search, shard management is an implementation detail and non-configurable, but knowing that an index is sharded helps to understand the occasional anomalies in ranking and autocomplete behaviors:
 
