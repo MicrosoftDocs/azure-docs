@@ -274,7 +274,7 @@ Do the following steps in the Azure portal to order a device.
    > [!NOTE]
    > Enabling this option could make order processing and data copy take longer. You can't change this option after you create your order.
 
-   :::image type="content" source="media/data-box-deploy-ordered/select-data-box-import-07c.png" alt-text="Security option for managed disk":::
+   ![Security screen for data box import, double encryption](media/data-box-deploy-ordered/select-data-box-import-07c.png)
 
    Select **Next: Contact details** to continue.
 
