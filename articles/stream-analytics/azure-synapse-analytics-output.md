@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 08/25/2020
 ---
 
-# Azure Synapse Analytics output from Azure Stream Analytics (Preview)
+# Azure Synapse Analytics output from Azure Stream Analytics
 
 [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics) (formerly SQL Data Warehouse) is a limitless analytics service that brings together enterprise data warehousing and Big Data analytics. 
 
