@@ -93,7 +93,7 @@ Protecting workloads with Azure Backup Server has many nuances. The [protection 
 > - A computer running as a domain controller
 > - A computer on which the Application Server role is installed
 > - A computer on which Exchange Server is running
-> - A computer that is a node of a cluster
+> - A computer that's a node of a cluster
 
 Always join Azure Backup Server to a domain. If you need to move Azure Backup Server to a different domain, first install Azure Backup Server, then join it to the new domain. Once you deploy Azure Backup Server, you can't move it to a new domain.
 
@@ -101,7 +101,7 @@ Always join Azure Backup Server to a domain. If you need to move Azure Backup Se
 
 ### Set Storage Replication
 
-The Recovery Services vault storage replication option allows you to choose between geo-redundant storage and locally redundant storage. By default, Recovery Services vaults use geo-redundant storage. If this vault is your primary vault, leave the storage option set to geo-redundant storage. Choose locally redundant storage if you want a cheaper option that is less durable. Read more about [geo-redundant](../storage/common/storage-redundancy.md) and [locally redundant](../storage/common/storage-redundancy.md) storage options in the [Azure Storage replication overview](../storage/common/storage-redundancy.md).
+The Recovery Services vault storage replication option allows you to choose between geo-redundant storage and locally redundant storage. By default, Recovery Services vaults use geo-redundant storage. If this vault is your primary vault, leave the storage option set to geo-redundant storage. Choose locally redundant storage if you want a cheaper option that's less durable. Read more about [geo-redundant](../storage/common/storage-redundancy.md) and [locally redundant](../storage/common/storage-redundancy.md) storage options in the [Azure Storage replication overview](../storage/common/storage-redundancy.md).
 
 To edit the storage replication setting:
 

@@ -9,6 +9,7 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
+ms.custom: devx-track-csharp
 ---
 # How to process and extract information from images in AI enrichment scenarios
 

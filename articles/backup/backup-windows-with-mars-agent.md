@@ -10,7 +10,7 @@ ms.date: 03/03/2020
 
 This article explains how to back up Windows machines by using the [Azure Backup](backup-overview.md) service and the Microsoft Azure Recovery Services (MARS) agent. MARS is also known as the Azure Backup agent.
 
-In this article, you will learn how to:
+In this article, you'll learn how to:
 
 > [!div class="checklist"]
 >

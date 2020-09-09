@@ -8,7 +8,7 @@ author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/12/2020
+ms.date: 08/26/2020
 ---
 # Synonyms in Azure Cognitive Search
 
@@ -87,6 +87,21 @@ Explicit mapping is denoted by an arrow "=>". When specified, a term sequence of
 
 ```
 Washington, Wash., WA => WA
+```
+
+If you need to define synonyms that contain commas, you can escape them with a backslash, like in this example:
+
+```
+WA\, USA, WA, Washington
+```
+
+Since backslash is itself a special character in other languages like JSON and C#, you will probably need to double-escape it. For example, the JSON sent to the REST API for the above synonym map would look like this:
+
+```json
+    {
+       "format":"solr",
+       "synonyms": "WA\\, USA, WA, Washington"
+    }
 ```
 
 #### List synonym maps under your service.

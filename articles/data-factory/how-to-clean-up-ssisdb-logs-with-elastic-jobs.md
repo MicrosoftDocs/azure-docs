@@ -9,7 +9,8 @@ ms.date: 07/09/2020
 author: swinarko
 ms.author: sawinark
 manager: mflasko
-ms.reviewer: douglasl
+ms.reviewer: douglasl 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Clean up SSISDB logs with Azure Elastic Database Jobs

@@ -30,7 +30,7 @@ If you've used [Back up an SAP HANA database in Azure using CLI](tutorial-sap-ha
 * backed-up database/item named *saphanadatabase;hxe;hxe*
 * resources in the *westus2* region
 
-Azure CLI makes it easy to manage an SAP HANA database running on an Azure VM that is backed-up using Azure Backup. This tutorial details each of the management operations.
+Azure CLI makes it easy to manage an SAP HANA database running on an Azure VM that's backed-up using Azure Backup. This tutorial details each of the management operations.
 
 ## Monitor backup and restore jobs
 

@@ -8,6 +8,7 @@ ms.author: normesta
 ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
+ms.custom: devx-track-csharp
 ---
 
 # Use .NET to manage directories, files, and ACLs in Azure Data Lake Storage Gen2

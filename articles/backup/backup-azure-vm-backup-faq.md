@@ -65,7 +65,7 @@ If you lock the resource group created by the Azure Backup Service, backups will
 
 Remove the lock, and clear the restore point collection from that resource group to make the future backups successful. [Follow these steps](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#clean-up-restore-point-collection-from-azure-portal) to remove the restore point collection.
 
-### Does Azure backup support standard SSD-managed disks?
+### Does Azure Backup support standard SSD-managed disks?
 
 Yes, Azure Backup supports [standard SSD managed disks](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/).
 
@@ -189,8 +189,8 @@ Yes, there's a limit of 100 VMs that can be associated to the same backup policy
 
 ### How can I view the retention settings for my backups?
 
-Currently, you can view retention settings at a backup item (VM) level based on the backup policy that is assigned to the VM.
+Currently, you can view retention settings at a backup item (VM) level based on the backup policy that's assigned to the VM.
 
-One way to view the retention settings for your backups, is to navigate to the backup item [dashboard](https://docs.microsoft.com/azure/backup/backup-azure-manage-vms#view-vms-on-the-dashboard) for your VM, in the Azure portal. Clicking on the link to its backup policy helps you view the retention duration of all the daily, weekly, monthly and yearly retention points associated with the VM.
+One way to view the retention settings for your backups, is to navigate to the backup item [dashboard](https://docs.microsoft.com/azure/backup/backup-azure-manage-vms#view-vms-on-the-dashboard) for your VM, in the Azure portal. Selecting the link to its backup policy helps you view the retention duration of all the daily, weekly, monthly and yearly retention points associated with the VM.
 
 You can also use [Backup Explorer](https://docs.microsoft.com/azure/backup/monitor-azure-backup-with-backup-explorer) to view the retention settings for all your VMs within a single pane of glass. Navigate to Backup Explorer from any Recovery Services vault, go to the **Backup Items** tab and select the Advanced View to see detailed retention information for each VM.
