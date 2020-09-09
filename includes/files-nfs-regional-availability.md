@@ -5,7 +5,7 @@ services: storage
 author: roygara
 ms.service: storage
 ms.topic: "include"
-ms.date: 08/27/2020
+ms.date: 09/09/2020
 ms.author: rogarana
 ms.custom: "include file"
 ---
@@ -14,5 +14,4 @@ ms.custom: "include file"
 - East US 2
 - Southeast Asia
 - UK South
-- West Europe
 - West US 2

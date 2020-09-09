@@ -23,8 +23,6 @@ ms.subservice: files
 
 ## Prerequisites
 
-You must have already created a virtual machine and a virtual network.
-
 - [Create an NFS share](storage-files-how-to-create-nfs-shares.md).
 
 > [!IMPORTANT]
@@ -45,11 +43,11 @@ You must have already created a virtual machine and a virtual network.
 
 1. Once the file share is created, select the share and select **Connect from Linux**.
 1. Enter the mount path you'd like to use, then copy the script.
-1. Remote into your VM and use the provided mounting script.
+1. Connect to your client and use the provided mounting script.
 
     :::image type="content" source="media/storage-files-how-to-create-mount-nfs-shares/mount-nfs-file-share-script.png" alt-text="Screenshot of file share connect blade":::
 
-You have now mounted your NFS share to your VM.
+You have now mounted your NFS share.
 
 ## Next steps
 

@@ -4,7 +4,7 @@ description: How to enable nfs
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/27/2020
+ms.date: 09/09/2020
 ms.author: rogarana
 ms.subservice: files
 ---
@@ -22,8 +22,6 @@ Azure file shares using NFS are currently only available on premium file shares.
 [!INCLUDE [files-nfs-regional-availability](../../../includes/files-nfs-regional-availability.md)]
 
 ## Prerequisites
-
-You must have already created a virtual machine and a virtual network.
 
 - Create a [FileStorage account](storage-how-to-create-premium-fileshare.md).
 
