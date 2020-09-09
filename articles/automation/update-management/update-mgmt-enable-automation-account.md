@@ -8,7 +8,7 @@ ms.custom: mvc
 ---
 # Enable Update Management from an Automation account
 
-This article describes how you can use your Automation account to enable the [Update Management](update-mgmt-overview.md) feature for VMs in your environment, including machines or servers registered with [Azure Arc enabled servers](../../azure-arc/servers/overview.md). To enable Azure VMs at scale, you must enable an existing Azure VM using Update Management.
+This article describes how you can use your Automation account to enable the [Update Management](update-mgmt-overview.md) feature for VMs in your environment, including machines or servers registered with [Azure Arc enabled servers](../../azure-arc/servers/overview.md) (preview). To enable Azure VMs at scale, you must enable an existing Azure VM using Update Management.
 
 > [!NOTE]
 > When enabling Update Management, only certain regions are supported for linking a Log Analytics workspace and an Automation account. For a list of the supported mapping pairs, see [Region mapping for Automation account and Log Analytics workspace](../how-to/region-mappings.md).
@@ -17,7 +17,7 @@ This article describes how you can use your Automation account to enable the [Up
 
 * Azure subscription. If you don't have one yet, you can [activate your MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [Automation account](../index.yml) to manage machines.
-* An [Azure virtual machine](../../virtual-machines/windows/quick-create-portal.md), or VM or server registered with Arc enabled servers. Non-Azure VMs or servers need to have the [Log Analytics agent](../../azure-monitor/platform/log-analytics-agent.md) for Windows or Linux installed and reporting to the workspace linked to the Automation account Update Management is enabled in.
+* An [Azure virtual machine](../../virtual-machines/windows/quick-create-portal.md), or VM or server registered with Arc enabled servers (preview). Non-Azure VMs or servers need to have the [Log Analytics agent](../../azure-monitor/platform/log-analytics-agent.md) for Windows or Linux installed and reporting to the workspace linked to the Automation account Update Management is enabled in.
 
 ## Sign in to Azure
 
