@@ -1,6 +1,6 @@
 ---
-title: What to do if an Azure service disruption affects Azure Key Vault - Azure Key Vault | Microsoft Docs
-description: Learn what to do of an Azure service disruption affects Azure Key Vault.
+title: Azure Key Vault availability and redundancy - Azure Key Vault | Microsoft Docs
+description: Learn about Azure Key Vault availability and redundancy.
 services: key-vault
 author: ShaneBala-keyvault
 manager: ravijan
