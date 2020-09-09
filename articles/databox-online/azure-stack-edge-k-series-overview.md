@@ -25,17 +25,17 @@ Azure Stack Edge Mini R has the following capabilities:
 
 |Capability |Description  |
 |---------|---------|
-|Accelerated AI inferencing| Enabled by the built-in VPU.|
-|Edge compute workloads    |Allows analysis, processing, filtering of data. Supports VMs and Kubernetes clusters.|
+|Rugged hardware| Rugged hardware designed for harsh environmental conditions.|
 |Portable| Portable, battery-operated form factor.|
+|Cloud-managed|Device and service are managed via the Azure portal.|
+|Edge compute workloads|Allows analysis, processing, filtering of data. Supports VMs and Kubernetes clusters.|
+|Accelerated AI inferencing| Enabled by the Intel Movidius Myriad X VPU.|
 |Wired and wireless | Allows wired and wireless data transfers.|
 |Data access     | Direct data access from Azure Storage Blobs and Azure Files using cloud APIs for additional data processing in the cloud. Local cache on the device is used for fast access of most recently used files.|
-|Cloud-managed    |Device and service are managed via the Azure portal.|
 |Disconnected mode| Device and service are managed via Azure Stack. <br> Disconnected mode supports offline upload scenarios.|
-|Rugged hardware| Rugged hardware designed for harsh environmental conditions.|
 |Supported protocols     |Supports standard SMB, NFS, and REST protocols for data ingestion. <br> For more information on supported versions, go to [Azure Stack Edge Mini R system requirements](azure-stack-edge-gpu-system-requirements.md).|
 |Data refresh     | Ability to refresh local files with the latest from cloud.|
-|Dual encryption    | Use of self-encrypting drive provides the first layer of encryption. VPN provides the second layer of encryption. BitLocker support to locally encrypt data and secure data transfer to cloud over *https* .|
+|Double encryption    | Use of self-encrypting drive provides the first layer of encryption. VPN provides the second layer of encryption. BitLocker support to locally encrypt data and secure data transfer to cloud over *https* .|
 |Bandwidth throttling| Throttle to limit bandwidth usage during peak hours.|
 
 ## Use cases

@@ -274,7 +274,7 @@
     - name: What is Azure Stack Edge Pro R?
       href: azure-stack-edge-j-series-overview.md
 
-- name: Azure Stack Edge Mini
+- name: Azure Stack Edge Mini R
   items:
   - name: Overview
     items:

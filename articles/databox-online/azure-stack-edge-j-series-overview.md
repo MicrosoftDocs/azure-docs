@@ -18,23 +18,22 @@ The Azure Stack Edge Pro R is a Hardware-as-a-service solution. Microsoft ships 
 
 This article provides you an overview of the Azure Stack Edge Pro R solution, key capabilities, and the scenarios where you can deploy this device.
 
-
 ## Key capabilities
 
 Azure Stack Edge Pro R has the following capabilities:
 
 |Capability |Description  |
 |---------|---------|
-|Accelerated AI inferencing| Enabled by an Nvidia T4 GPU.|
+|Rugged hardware| Rugged server class hardware designed for harsh environmental conditions.|
+|Cloud-managed     |Device and service are managed via the Azure portal.|
 |Edge compute workloads   |Allows analysis, processing, filtering of data. Supports VMs and Kubernetes clusters.|
+|Accelerated AI inferencing| Enabled by an Nvidia T4 GPU.|
 |High performance | High performance compute and data transfers.|
 |Data access     | Direct data access from Azure Storage Blobs and Azure Files using cloud APIs for additional data processing in the cloud. Local cache on the device is used for fast access of most recently used files.|
-|Cloud-managed     |Device and service are managed via the Azure portal.|
 |Disconnected mode| Device and service are managed via Azure Stack. <br> Disconnected mode supports offline upload scenarios.|
-|Rugged hardware| Rugged hardware designed for harsh environmental conditions.|
 |Supported protocols     |Support for standard SMB, NFS, and REST protocols for data ingestion. <br> For more information on supported versions, go to [Azure Stack Edge Pro R system requirements](azure-stack-edge-gpu-system-requirements.md).|
 |Data refresh     | Ability to refresh local files with the latest from cloud.|
-|Dual encryption    | Use of self-encrypting drives provides the first layer of encryption. VPN provides the second layer of encryption. BitLocker support to locally encrypt data and secure data transfer to cloud over *https* .|
+|Double encryption    | Use of self-encrypting drives provides the first layer of encryption. VPN provides the second layer of encryption. BitLocker support to locally encrypt data and secure data transfer to cloud over *https* .|
 |Bandwidth throttling| Throttle to limit bandwidth usage during peak hours.|
 
 <!--|Scale out file server| Available as 1-node and 4-node cluster configurations|-->
