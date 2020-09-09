@@ -192,13 +192,17 @@ condition triggers evaluation of the existence condition for the related resourc
 For example, assume that you have a resource group – ContsoRG, with some storage accounts
 (highlighted in red) that are exposed to public networks.
 
-:::image type="content" source="../media/getting-compliance-data/resource-group01.png" alt-text="Storage accounts exposed to public networks" border="false":::
+:::image type="complex" source="../media/getting-compliance-data/resource-group01.png" alt-text="Diagram of storage accounts exposed to public networks in the Contoso R G resource group." border="false":::
+   Diagram showing images for five storage accounts in the Contoso R G resource group.  Storage accounts one and three are blue, while storage accounts two, four, and five are red.
+:::image-end:::
 
 In this example, you need to be wary of security risks. Now that you've created a policy assignment,
 it's evaluated for all storage accounts in the ContosoRG resource group. It audits the three
 non-compliant storage accounts, consequently changing their states to **Non-compliant.**
 
-:::image type="content" source="../media/getting-compliance-data/resource-group03.png" alt-text="Audited non-compliant storage accounts" border="false":::
+:::image type="complex" source="../media/getting-compliance-data/resource-group03.png" alt-text="Diagram of storage account compliance in the Contoso R G resource group." border="false":::
+   Diagram showing images for five storage accounts in the Contoso R G resource group. Storage accounts one and three now have green checkmarks beneath them, while storage accounts two, four, and five now have red warning signs beneath them.
+:::image-end:::
 
 Besides **Compliant** and **Non-compliant**, policies and resources have three other states:
 
@@ -220,7 +224,7 @@ divided by the sum of all distinct resources. In the image below, there are 20 d
 that are applicable and only one is **Non-compliant**. The overall resource compliance is 95% (19
 out of 20).
 
-:::image type="content" source="../media/getting-compliance-data/simple-compliance.png" alt-text="Example of policy compliance from Compliance page" border="false":::
+:::image type="content" source="../media/getting-compliance-data/simple-compliance.png" alt-text="Screenshot of policy compliance details from Compliance page." border="false":::
 
 > [!NOTE]
 > Regulatory Compliance in Azure Policy is a Preview feature. Compliance properties from SDK and
@@ -236,14 +240,14 @@ and count per assignment, it contains a chart showing compliance over the last s
 **Compliance** page contains much of this same information (except the chart), but provide
 additional filtering and sorting options.
 
-:::image type="content" source="../media/getting-compliance-data/compliance-page.png" alt-text="Example of Azure Policy Compliance page" border="false":::
+:::image type="content" source="../media/getting-compliance-data/compliance-page.png" alt-text="Screenshot of Compliance page, filtering options, and details." border="false":::
 
 Since a policy or initiative can be assigned to different scopes, the table includes the scope for
 each assignment and the type of definition that was assigned. The number of non-compliant resources
-and non-compliant policies for each assignment are also provided. Clicking on a policy or initiative
-in the table provides a deeper look at the compliance for that particular assignment.
+and non-compliant policies for each assignment are also provided. Selecting on a policy or
+initiative in the table provides a deeper look at the compliance for that particular assignment.
 
-:::image type="content" source="../media/getting-compliance-data/compliance-details.png" alt-text="Example of Azure Policy Compliance Details page" border="false":::
+:::image type="content" source="../media/getting-compliance-data/compliance-details.png" alt-text="Screenshot of Compliance Details page, including counts and resource compliant details." border="false":::
 
 The list of resources on the **Resource compliance** tab shows the evaluation status of existing
 resources for the current assignment. The tab defaults to **Non-compliant**, but can be filtered.
@@ -253,7 +257,7 @@ the **Events** tab.
 > [!NOTE]
 > For an AKS Engine policy, the resource shown is the resource group.
 
-:::image type="content" source="../media/getting-compliance-data/compliance-events.png" alt-text="Example of Azure Policy Compliance events" border="false":::
+:::image type="content" source="../media/getting-compliance-data/compliance-events.png" alt-text="Screenshot of the Events tab on Compliance Details page." border="false":::
 
 For [Resource Provider mode](../concepts/definition-structure.md#resource-provider-modes) resources,
 on the **Resource compliance** tab, selecting the resource or right-clicking on the row and
@@ -261,14 +265,14 @@ selecting **View compliance details** opens the component compliance details. Th
 tabs to see the policies that are assigned to this resource, events, component events, and change
 history.
 
-:::image type="content" source="../media/getting-compliance-data/compliance-components.png" alt-text="Example of Azure Policy Component compliance details" border="false":::
+:::image type="content" source="../media/getting-compliance-data/compliance-components.png" alt-text="Screenshot of Component Compliance tab and compliance details for a Resource Provider mode assignment." border="false":::
 
 Back on the resource compliance page, right-click on the row of the event you would like to gather
 more details on and select **Show activity logs**. The activity log page opens and is pre-filtered
 to the search showing details for the assignment and the events. The activity log provides
 additional context and information about those events.
 
-:::image type="content" source="../media/getting-compliance-data/compliance-activitylog.png" alt-text="Example of Azure Policy Compliance Activity Log" border="false":::
+:::image type="content" source="../media/getting-compliance-data/compliance-activitylog.png" alt-text="Screenshot of the Activity Log for Azure Policy activities and evaluations." border="false":::
 
 ### Understand non-compliance
 
@@ -763,7 +767,7 @@ your subscription, you can also view non-compliance results from the evaluation 
 Kusto queries and the `AzureActivity` table. With details in Azure Monitor logs, alerts can be
 configured to watch for non-compliance.
 
-:::image type="content" source="../media/getting-compliance-data/compliance-loganalytics.png" alt-text="Azure Policy Compliance using Azure Monitor logs" border="false":::
+:::image type="content" source="../media/getting-compliance-data/compliance-loganalytics.png" alt-text="Screenshot of Azure Monitor logs showing Azure Policy actions in the AzureActivity table." border="false":::
 
 ## Next steps
 
