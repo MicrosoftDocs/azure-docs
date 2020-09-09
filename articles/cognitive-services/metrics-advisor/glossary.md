@@ -98,7 +98,7 @@ You can additionally refine the configuration by applying tuning parameters on a
 * Configurations applied to a specific series will overwrite configurations for a group
 * Configurations for a group will overwrite configurations applied to the whole metric.
 
-Metrics Advisor provides several [detection methods](how-tos/configure-metrics#anomaly-detection-methods), and you can combine them using logical operators.
+Metrics Advisor provides several [detection methods](how-tos/configure-metrics.md#anomaly-detection-methods), and you can combine them using logical operators.
 
 ### Smart detection
 
@@ -211,5 +211,5 @@ There are two roles to manage data feed permissions: *Administrator*, and *Viewe
 
 ## Next Steps
 - [Metrics Advisor overview](overview.md)
-- [Try the demo site](quickstarts/explore-demo.md)
+- [Try the demo site](quickstarts/explore-the-demo.md)
 - [Use the web portal](quickstarts/web-portal.md)

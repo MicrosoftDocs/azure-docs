@@ -56,7 +56,7 @@ Create an **Authentication Entity** and use it for authenticating to your data s
 
     2. Copy the Application ID generated into **Application ID** field in Metrics Advisor. 
     
-    For more detail, please refer to [this](https://docs.microsoft.com/azure/bot-service/bot-service-resources-app-insights-keys?view=azure-bot-service-4.0#application-id).
+    See the [Azure Bot Service documentation](https://docs.microsoft.com/azure/bot-service/bot-service-resources-app-insights-keys#application-id) for more information.
 
 * **API Key**: API keys are used by applications outside the browser to access this resource. To get the API key, do the following:
 

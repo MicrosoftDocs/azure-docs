@@ -129,4 +129,4 @@ After creating a hook, an alert setting determines how and which alert notificat
 - [Onboard and manage data feeds](../how-tos/manage-data-feeds.md)
     - [Configurations for different data sources](../data-feeds-from-different-sources.md)
 - [Use the REST API or Client libraries](rest-api-and-client-library.md)
-- [Configure metrics and fine tune detecting configuration](configure-metrics.md)
+- [Configure metrics and fine tune detecting configuration](../how-tos/configure-metrics.md)
