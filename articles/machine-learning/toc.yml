@@ -309,6 +309,9 @@
             - name: Tune hyperparameters
               displayName: parameter
               href: how-to-tune-hyperparameters.md
+        - name: Work with MLflow
+          displayName: log, monitor, deploy, metrics, Databricks, model registry, register
+          href: how-to-use-mlflow.md
         - name: Scikit-learn
           href: how-to-train-scikit-learn.md
         - name: TensorFlow
@@ -330,9 +333,6 @@
             - name: View logs
               displayName: troubleshoot, log, files, tracing
               href: how-to-monitor-view-training-logs.md
-            - name: Track experiments with MLflow
-              displayName: log, monitor, metrics, Databricks
-              href: how-to-use-mlflow.md
             - name: Visualize runs with TensorBoard
               displayName: log, monitor, metrics
               href: how-to-monitor-tensorboard.md
