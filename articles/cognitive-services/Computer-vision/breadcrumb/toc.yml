@@ -6,6 +6,6 @@
     tocHref: /DocsLegal/computer-vision    # Destination doc set route
     topicHref: /azure/cognitive-services/Computer-vision/index      # Original doc set route
     items:
-    - name: Compliance, privacy, and security               # Destination doc set name
+    - name: Computer Vision spatial analysis               # Destination doc set name
       tocHref: /DocsLegal/cognitive-services/computer-vision/      # Destination doc set route
       topicHref: /azure/cognitive-services/Computer-vision/index    # Original doc set route
