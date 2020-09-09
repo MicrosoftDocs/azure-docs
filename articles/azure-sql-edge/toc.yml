@@ -85,6 +85,10 @@
       href: imputing-missing-values.md
     - name: Date_Bucket (Transact-SQL)
       href: date-bucket-tsql.md
+    - name: FIRST_VALUE (Transact-SQL)
+      href: first-value-transact-sql.md
+    - name: LAST_VALUE (Transact-SQL)
+      href: last-value-transact-sql.md
     - name: Date retention and cleanup
       items:
       - name: Data retention overview
