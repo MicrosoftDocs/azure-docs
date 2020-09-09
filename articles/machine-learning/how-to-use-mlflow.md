@@ -23,7 +23,7 @@ With Azure Machine Learning native support for MLflow you can,
 
 + Submit training jobs with MLflow Projects with Azure Machine Learning backend support (preview). You can submit jobs locally with Azure Machine Learning tracking or migrate your runs to the cloud like via an [Azure Machine Learning Compute](https://docs.microsoft.com/azure/machine-learning/how-to-create-attach-compute-sdk#amlcompute).
 
-+ Track and manage models in MLflow and Azure ML model registry.
++ Track and manage models in MLflow and Azure Machine Learning model registry.
 
 + Deploy your MLflow experiments as an Azure Machine Learning web service. By deploying as a web service, you can apply the Azure Machine Learning monitoring and data drift detection functionalities to your production models. 
 
@@ -136,19 +136,19 @@ with mlflow.start_run():
     mlflow.log_metric('example', 1.23)
 ```
 
-With this compute and training run configuration, use the `Experiment.submit('train.py')` method to submit a run. This method automatically sets the MLflow tracking URI and directs the logging from MLflow to your Workspace.
+With this compute and training run configuration, use the `Experiment.submit()` method to submit a run. This method automatically sets the MLflow tracking URI and directs the logging from MLflow to your Workspace.
 
 ```Python
 run = exp.submit(src)
 ```
 
-## Train with MLflow Projects (preview)
+## Train with MLflow Projects
 
-[MLflow Projects](https://mlflow.org/docs/latest/projects.html) are a convention for organizing and describing your code to let other data scientists (or automated tools) run it. MLflow Projects with Azure Machine Learning enables you to track and manage your training runs in your workspace. 
+[MLflow Projects](https://mlflow.org/docs/latest/projects.html) allow for you to organize and describe your code to let other data scientists (or automated tools) run it. MLflow Projects with Azure Machine Learning enables you to track and manage your training runs in your workspace. 
 
 This example shows how to submit MLflow projects locally with Azure Machine Learning tracking.
 
-As mentioned in the previous sections, install the `azureml-mlflow` package to use MLflow Tracking with Azure Machine Learning on your experiments locally run in a Jupyter Notebook or code editor.
+Install the `azureml-mlflow` package to use MLflow Tracking with Azure Machine Learning on your experiments locally. Your experiments can run via a Jupyter notebook or code editor.
 
 ```shell
 pip install azureml-mlflow
@@ -165,7 +165,7 @@ ws = Workspace.from_config()
 mlflow.set_tracking_uri(ws.get_mlflow_tracking_uri())
 ```
 
-Set the MLflow experiment name with `set_experiment()` and start your training run with `start_run()`. Then use `log_metric()` to activate the MLflow logging API and begin logging your training run metrics.
+Set the MLflow experiment name with `set_experiment()` and start your training run with `start_run()`. Then, use `log_metric()` to activate the MLflow logging API and begin logging your training run metrics.
 
 ```Python
 experiment_name = 'experiment-with-mlflow-projects'
@@ -174,12 +174,12 @@ mlflow.set_experiment(experiment_name)
 
 Create the backend configuration object to store necessary information for the integration such as, the compute target and which type of managed environment to use.
 
-```
+```python
 backend_config = {"USE_CONDA": False}
 ```
 Add the `azureml-mlflow` package as a pip dependency to your environment configuration file in order to track metrics and key artifacts in your workspace. 
 
-```
+``` shell
 name: mlflow-example
 channels:
   - defaults
@@ -195,7 +195,7 @@ dependencies:
 ```
 Submit it the local run and ensure you set the parameter `backend = "azureml" `. View your runs and metrics in the [Azure Machine Learning studio](overview-what-is-machine-learning-studio.md). 
 
-```
+```python
 local_env_run = mlflow.projects.run(uri=".", 
                                     parameters={"alpha":0.3},
                                     backend = "azureml",
@@ -289,37 +289,44 @@ run.get_metrics()
 ws.get_details()
 ```
 
-## Register and track your models in the AzureML model registry 
-AzureML model registry supports the MLflow model registry. AzureML models are aligned with the MLflow model schema making it easy to export and import these models across different workflows. The MLflow related metadata such as run id is also tagged with the registered model for traceability. Users can submit training runs and register and deploy models produced from MLflow runs. To register a model from a run, use the following steps:
+## Manage models 
 
-Once the run is complete call the following method
+Register and track your models with the [Azure Machine Learning model registry](concept-model-management-and-deployment.md#register-package-and-deploy-models-from-anywhere) which supports the MLflow model registry. Azure Machine Learning models are aligned with the MLflow model schema making it easy to export and import these models across different workflows. The MLflow related metadata such as, run id is also tagged with the registered model for traceability. Users can submit training runs, register, and deploy models produced from MLflow runs. 
 
-```python
-# the model folder produced from the run will be registered. This includes the MLmodel file, model.pkl and the conda.yaml.
-run.register_model(model_name = 'my-model', model_path = 'model')
-```
-You can view the registered in your workspace with MLflow tracking metadata tagged. 
+If you want to deploy and register your production ready model in one step, see [Deploy and register MLflow models](#deploy-and-register-mlflow-models).
 
-![registered-mlflow-model](.media/...)
+To register and view a model from a run, use the following steps:
 
-When you select the artifacts tab at the top, you can see all the model files that align with the MLflow model schema (conda.yaml, MLmodel, model.pkl).
+1. Once the run is complete call the `register_model()` method.
 
-![model-schema](.media/...)
+    ```python
+    # the model folder produced from the run is registered. This includes the MLmodel file, model.pkl and the conda.yaml.
+    run.register_model(model_name = 'my-model', model_path = 'model')
+    ```
 
-Here you can see an example MLmodel file that was generated by the run.
+1. View the registered model in your workspace with [Azure Machine Learning studio](overview-what-is-machine-learning-studio.md).
 
-![MLmodel-schema](.media/..)
+    In the following example the registered model, `my-model` has MLflow tracking metadata tagged. 
+
+    ![registered-mlflow-model](./media/how-to-use-mlflow/registered-mlflow-model.png)
+
+1. Select the **Artifacts** tab to see all the model files that align with the MLflow model schema (conda.yaml, MLmodel, model.pkl).
+
+    ![model-schema](./media/how-to-use-mlflow/mlflow-model-schema.png)
+
+1. Select MLmodel to see the MLmodel file generated by the run.
+
+    ![MLmodel-schema](./media/how-to-use-mlflow/mlmodel-view.png)
 
 
-To deploy and register a model in one step, refer to the section below. 
 
 ## Deploy and register MLflow models 
 
 Deploying your MLflow experiments as an Azure Machine Learning web service allows you to leverage and apply the Azure Machine Learning model management and data drift detection capabilities to your production models.
 
-To do so,
+To do so, you need to
 
-1. [Save your model](#save-your-model).
+1. Register your model.
 1. Determine which deployment configuration you want to use for your scenario.
 
     1. [Azure Container Instance (ACI)](#deploy-to-aci) is a suitable choice for a quick dev-test deployment.
