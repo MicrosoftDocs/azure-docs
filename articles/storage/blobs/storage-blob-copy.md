@@ -18,11 +18,11 @@ This article demonstrates how to copy a blob in an Azure Storage account. It als
 
 ## About copying blobs
 
-When you copy a blob within the same storage account, it is a synchronous operation. When you copy across accounts it is an asynchronous operation.
+When you copy a blob within the same storage account, it's a synchronous operation. When you copy across accounts it's an asynchronous operation.
 
 The source blob for a copy operation may be a block blob, an append blob, a page blob, or a snapshot. If the destination blob already exists, it must be of the same blob type as the source blob. An existing destination blob will be overwritten.
 
-The destination blob can't be modified while a copy operation is in progress. A destination blob can only have one outstanding copy blob operation. In other words, a blob can't be the destination for multiple pending copy operations.
+The destination blob can't be modified while a copy operation is in progress. A destination blob can only have one outstanding copy operation. In other words, a blob can't be the destination for multiple pending copy operations.
 
 The entire source blob or file is always copied. Copying a range of bytes or set of blocks is not supported.
 
@@ -30,11 +30,11 @@ When a blob is copied, it's system properties are copied to the destination blob
 
 A copy operation can take any of the following forms:
 
-- You can copy a source blob to a destination blob with a different name. The destination blob can be an existing blob of the same blob type (block, append, or page), or can be a new blob created by the copy operation.
-- You can copy a source blob to a destination blob with the same name, effectively replacing the destination blob. Such a copy operation removes any uncommitted blocks and overwrites the destination blob's metadata.
-- You can copy a source file in the Azure File service to a destination blob. The destination blob can be an existing block blob, or can be a new block blob created by the copy operation. Copying from files to page blobs or append blobs is not supported.
-- You can copy a snapshot over its base blob. By promoting a snapshot to the position of the base blob, you can restore an earlier version of a blob.
-- You can copy a snapshot to a destination blob with a different name. The resulting destination blob is a writeable blob and not a snapshot.
+- Copy a source blob to a destination blob with a different name. The destination blob can be an existing blob of the same blob type (block, append, or page), or can be a new blob created by the copy operation.
+- Copy a source blob to a destination blob with the same name, effectively replacing the destination blob. Such a copy operation removes any uncommitted blocks and overwrites the destination blob's metadata.
+- Copy a source file in the Azure File service to a destination blob. The destination blob can be an existing block blob, or can be a new block blob created by the copy operation. Copying from files to page blobs or append blobs is not supported.
+- Copy a snapshot over its base blob. By promoting a snapshot to the position of the base blob, you can restore an earlier version of a blob.
+- Copy a snapshot to a destination blob with a different name. The resulting destination blob is a writeable blob and not a snapshot.
 
 ## Copy a blob
 
@@ -131,17 +131,17 @@ The following code example gets a [BlobClient](/azure/developer/python/sdk/stora
 
 ---
 
-## Abort a blob copy operation
+## Abort a copy operation
 
-Aborting a copy operation results in a destination blob of zero length for block blobs, append blobs, and page blobs. However, the metadata for the destination blob will have the new values copied from the source blob or set explicitly during the copy operation. To keep the original metadata from before the copy, make a snapshot of the destination blob before calling one of the copy methods.
+Aborting a copy operation results in a destination blob of zero length. However, the metadata for the destination blob will have the new values copied from the source blob or set explicitly during the copy operation. To keep the original metadata from before the copy, make a snapshot of the destination blob before calling one of the copy methods.
 
 # [.NET v12](#tab/dotnet)
 
 Check the [BlobProperties.CopyStatus](/dotnet/api/azure.storage.blobs.models.blobproperties.copystatus) property on the destination blob to get the status of the copy operation. The final blob will be committed when the copy completes.
 
-When you abort a blob copy operation, the destination blob's copy status is set to [CopyStatus.Aborted](/dotnet/api/microsoft.azure.storage.blob.copystatus).
+When you abort a copy operation, the destination blob's copy status is set to [CopyStatus.Aborted](/dotnet/api/microsoft.azure.storage.blob.copystatus).
 
-The [AbortCopyFromUri](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.abortcopyfromuri) and [AbortCopyFromUriAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.abortcopyfromuriasync) methods cancel an ongoing blob copy operation.
+The [AbortCopyFromUri](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.abortcopyfromuri) and [AbortCopyFromUriAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.abortcopyfromuriasync) methods cancel an ongoing copy operation.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CopyBlob.cs" id="Snippet_StopBlobCopy":::
 
@@ -149,9 +149,9 @@ The [AbortCopyFromUri](/dotnet/api/azure.storage.blobs.specialized.blobbaseclien
 
 Check the [CopyState.Status](/dotnet/api/microsoft.azure.storage.blob.copystate.status) property on the destination blob to get the status of the copy operation. The final blob will be committed when the copy completes.
 
-When you abort a blob copy operation, the destination blob's copy status is set to [CopyStatus.Aborted](/dotnet/api/microsoft.azure.storage.blob.copystatus).
+When you abort a copy operation, the destination blob's copy status is set to [CopyStatus.Aborted](/dotnet/api/microsoft.azure.storage.blob.copystatus).
 
-The [AbortCopy](/dotnet/api/microsoft.azure.storage.blob.cloudblob.abortcopy) and [AbortCopyAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.abortcopyasync) methods cancel an ongoing blob copy operation.
+The [AbortCopy](/dotnet/api/microsoft.azure.storage.blob.cloudblob.abortcopy) and [AbortCopyAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.abortcopyasync) methods cancel an ongoing copy operation.
 
 ```csharp
 // Fetch the destination blob's properties before checking the copy state.
@@ -169,9 +169,9 @@ if (destBlob.CopyState.Status == CopyStatus.Pending)
 
 Check the "copy_status" entry in the [CopyProperties](/azure/developer/python/sdk/storage/azure-storage-blob/azure.storage.blob.copyproperties) dictionary returned by [start_copy_from_url](/azure/developer/python/sdk/storage/azure-storage-blob/azure.storage.blob.blobclient#start-copy-from-url-source-url--metadata-none--incremental-copy-false----kwargs-) method the to get the status of the copy operation. The final blob will be committed when the copy completes.
 
-When you abort a blob copy operation, the [copy_status](/azure/developer/python/sdk/storage/azure-storage-blob/azure.storage.blob.copyproperties) is set to "aborted".
+When you abort a copy operation, the [copy_status](/azure/developer/python/sdk/storage/azure-storage-blob/azure.storage.blob.copyproperties) is set to "aborted".
 
-The [abort_copy](/azure/developer/python/sdk/storage/azure-storage-blob/azure.storage.blob.blobclient#abort-copy-copy-id----kwargs-) method cancels an ongoing blob copy operation.
+The [abort_copy](/azure/developer/python/sdk/storage/azure-storage-blob/azure.storage.blob.blobclient#abort-copy-copy-id----kwargs-) method cancels an ongoing copy operation.
 
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/python-v12/copy_blob.py" id="Snippet_StopBlobCopy":::
 
