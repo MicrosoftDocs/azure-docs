@@ -73,15 +73,9 @@ We have metrics on Azure that provides insight on how your virtual machines and 
 - **Disk Write Bytes/Sec** – The number of Bytes that are written in a second from all disks attached to a VM.
 - **Disk Write Operations/Sec** – The number of output operations that are written in a second from all disks attached to a VM.
 
-## Storage Performance Utilization Metrics
-Metrics that help diagnose disk performance capping:
-- **Data Disk IOPS Consumed Percentage** - the percentage calculated by the data disk IOPs completed over the provisioned data disk IOPs. If this amount is at 100%, your application running will be performance capped from your data disk's IOPS limit.
-- **Data Disk Bandwidth Consumed Percentage** - the percentage calculated by the data disk throughput completed over the provisioned data disk throughput. If this amount is at 100%, your application running will be performance capped from your data disk's Bandwidth limit.
-- **OS Disk IOPS Consumed Percentage** - the percentage calculated by the OS disk IOPs completed over the provisioned OS disk IOPs. If this amount is at 100%, you'll your application running will be performance capped from your OS disk's IOPS limit.
-- **OS Disk Bandwidth Consumed Percentage** - the percentage calculated by the OS disk throughput completed over the provisioned OS disk throughput. If this amount is at 100%, your application running will be performance capped from your OS disk's Bandwidth limit.
-
-Metrics that help diagnose virtual machine storage performance capping:
-- **VM Cached IOPS Consumed Percentage** - the percentage calculated by the total IOPS completed over the provisioned cached virtual machine IOPS limit. If this amount is at 100%, your application running will be performance capped from your VM's cached IOPS limit.
-- **VM Cached Bandwidth Consumed Percentage** - the percentage calculated by the total disk throughput completed over the cached provisioned virtual machine throughput. If this amount is at 100%, your application running will be performance capped from your VM's cached throughput limit.
-- **VM UnCached IOPS Consumed Percentage** - the percentage calculated by the total IOPS on a virtual machine completed over the uncached provisioned virtual machine IOPS limit. If this amount is at 100%, your application running will be performance capped from your VM's uncached IOPS limit. 
-- **VM UnCached Bandwidth Consumed Percentage** - the percentage calculated by the total disk throughput on a virtual machine completed over the uncached provisioned virtual machine throughput. If this amount is at 100%, your application running will be performance capped your VM's uncached throughput limit.
+## Storage IO Utilization Metrics
+Metrics that help diagnose disk IO capping:
+- **Data Disk IOPS Consumed Percentage** - the percentage calculated by the data disk IOPs completed over the provisioned data disk IOPs. If this amount is at 100%, your application running will be IO capped from your data disk's IOPS limit.
+- **Data Disk Bandwidth Consumed Percentage** - the percentage calculated by the data disk throughput completed over the provisioned data disk throughput. If this amount is at 100%, your application running will be IO capped from your data disk's Bandwidth limit.
+- **OS Disk IOPS Consumed Percentage** - the percentage calculated by the OS disk IOPs completed over the provisioned OS disk IOPs. If this amount is at 100%, you'll your application running will be IO capped from your OS disk's IOPS limit.
+- **OS Disk Bandwidth Consumed Percentage** - the percentage calculated by the OS disk throughput completed over the provisioned OS disk throughput. If this amount is at 100%, your application running will be IO capped from your OS disk's Bandwidth limit.
