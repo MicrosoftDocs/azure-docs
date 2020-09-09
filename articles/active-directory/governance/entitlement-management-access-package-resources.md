@@ -76,7 +76,7 @@ You can select any [Azure AD security group or Microsoft 365 Group](../fundament
 - Azure AD cannot change the membership of a group that was synchronized from Windows Server Active Directory using Azure AD Connect, or that was created in Exchange Online as a distribution group.  
 - The membership of dynamic groups cannot be updated by adding or removing a member, so dynamic group memberships are not suitable for use with entitlement management.
 
-For more information, see [Compare groups](/Microsoft 365/admin/create-groups/compare-groups) and [Microsoft 365 Groups and Microsoft Teams](/microsoftteams/office-365-groups).
+For more information, see [Compare groups](/office365/admin/create-groups/compare-groups) and [Microsoft 365 Groups and Microsoft Teams](/microsoftteams/office-365-groups).
 
 1. On the **Add resource roles to access package** page, click **Groups and Teams** to open the Select groups pane.
 
