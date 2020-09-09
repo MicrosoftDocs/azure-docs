@@ -83,23 +83,16 @@ The following  table provides links to more recent SDK versions.
 
 | SDK version | Status | Description |
 |-------------|--------|------------------------------|
-| [Azure.Search.Documents 11.0](https://www.nuget.org/packages/Azure.Search.Documents/1.0.0-preview.4) | Stable | New client library from Azure .NET SDK, released July 2020. Targets the Search REST api-version=2020-06-30 REST API but does not yet support, geo-filters, or [FieldBuilder](/dotnet/api/microsoft.azure.search.fieldbuilder?view=azure-dotnet). |
+| [Azure.Search.Documents 11.0](/dotnet/api/overview/azure/search.documents-readme) | Stable | New client library from Azure .NET SDK, released July 2020. Targets the Search REST api-version=2020-06-30 REST API but does not yet support, geo-filters, or [FieldBuilder](/dotnet/api/microsoft.azure.search.fieldbuilder). |
 | [Microsoft.Azure.Search 10.0](https://www.nuget.org/packages/Microsoft.Azure.Search/) | Stable | Released May 2019. Targets the Search REST api-version=2019-05-06.|
-| [Microsoft.Azure.Search 8.0-preview](https://www.nuget.org/packages/Microsoft.Azure.Search/8.0.0-preview) | Preview | released April 2019. Targets the Search REST api-version=2019-05-06-Preview.|
-<<<<<<< HEAD
-| [Microsoft.Azure.Management.Search 4.0.0](https://docs.microsoft.com/dotnet/api/overview/azure/search/management?view=azure-dotnet) | Stable | Targets the Management REST api-version=2020-08-91.  |
+| [Microsoft.Azure.Management.Search 4.0.0](/dotnet/api/overview/azure/search/management) | Stable | Targets the Management REST api-version=2020-08-91.  |
 | Microsoft.Azure.Management.Search 3.0.0 | Stable | Targets the Management REST api-version=2015-08-19.  |
-=======
-| [Microsoft.Azure.Management.Search 3.0.0](/dotnet/api/overview/azure/search/management?view=azure-dotnet) | Stable | Targets the Management REST api-version=2015-08-19.  |
-
-For more information about earlier releases of Microsoft.Azure.Search, go a [NuGet package page](https://www.nuget.org/packages/Microsoft.Azure.Search/) for any release, scroll down to **Version History**, and expand the section to view the full list of releases.
->>>>>>> 332fd0da877d7c79eff50987e9dacec6f012c7ff
 
 ## Azure SDK for Java
 
 | SDK version | Status | Description  |
 |-------------|--------|------------------------------|
-| [Java azure-search-documents 11](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-search-documents/11.0.0/index.html) | Stable | New client library from Azure .NET SDK, released July 2020. Targets the Search REST api-version=2019-05-06. |
+| [Java azure-search-documents 11](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-search-documents) | Stable | New client library from Azure .NET SDK, released July 2020. Targets the Search REST api-version=2019-05-06. |
 | [Java Management Client 1.35.0](/java/api/overview/azure/search/management?view=azure-java-stable) | Stable | Targets the Management REST api-version=2015-08-19. |
 
 ## Azure SDK for JavaScript
@@ -113,5 +106,5 @@ For more information about earlier releases of Microsoft.Azure.Search, go a [NuG
 
 | SDK version | Status | Description  |
 |-------------|--------|------------------------------|
-| [Python azure-search-documents 11.0](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-search-documents/11.0.0/index.html) | Stable | New client library from Azure .NET SDK, released July 2020. Targets the Search REST api-version=2019-05-06. |
-| [Python azure-mgmt-search 1.0](/python/api/overview/azure/search?view=azure-python) | Stable | Targets the Management REST api-version=2015-08-19. |
+| [Python azure-search-documents 11.0](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-search-documents) | Stable | New client library from Azure .NET SDK, released July 2020. Targets the Search REST api-version=2019-05-06. |
+| [Python azure-mgmt-search 1.0](/python/api/overview/azure/search) | Stable | Targets the Management REST api-version=2015-08-19. |
