@@ -163,6 +163,8 @@ The following lists alternative partners that can help with migration as well:
    :::column span="":::
       [:::image type="content" source="../../media/migration-partners/Zen3-logo-220.png" alt-text="Zen3":::](https://zen3tech.com/)
    :::column-end:::
+   :::column span="":::
+   :::column-end:::
 :::row-end:::
 
 
