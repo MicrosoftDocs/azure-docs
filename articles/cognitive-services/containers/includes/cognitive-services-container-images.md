@@ -53,6 +53,9 @@ See [How to run and install Anomaly detector containers](../../anomaly-detector/
 
 **Speech Service**
 
+> [!NOTE]
+> To use Speech containers, you will need to complete an [online request form](aka.ms/csgate).
+
 | Container | Container Registry / Repository / Image Name |
 |--|--|
 | [Speech-to-text](../../speech-service/speech-container-howto.md?tab=stt) | `mcr.microsoft.com/azure-cognitive-services/speechservices/speech-to-text` |
@@ -71,7 +74,7 @@ The following preview containers are available publicly. The Microsoft Container
 
 #### "Gated" preview
 
-Previously, gated preview containers were hosted on the `containerpreview.azurecr.io` repository. Starting September 22nd 2020, these containers are hosted on the Microsoft Container Registry (MCR), and downloading them doesn't require using the docker login command. To use the container you will need to:
+Previously, gated preview containers were hosted on the `containerpreview.azurecr.io` repository. Starting September 22nd 2020, these containers (except Text Analytics for health) are hosted on the Microsoft Container Registry (MCR), and downloading them doesn't require using the docker login command. To use the container you will need to:
 
 1. Complete a [request form](https://aka.ms/csgate) with your Azure Subscription ID and user scenario. 
 2. Upon approval, download the container from the MCR. 
@@ -79,8 +82,8 @@ Previously, gated preview containers were hosted on the `containerpreview.azurec
 
 | Service | Container | Container Registry / Repository / Image Name |
 |--|--|--|
-| [Computer Vision](../../Computer-vision/computer-vision-how-to-install-containers.md) | Read v3.0 | `mcr.microsoft.com/azure-cognitive-services/vision/read-3.0` |
-| [Computer Vision](../../Computer-vision/computer-vision-how-to-install-containers.md) | Read v3.1 | `mcr.microsoft.com/azure-cognitive-services/vision/read-3.1` |
+| [Computer Vision](../../Computer-vision/computer-vision-how-to-install-containers.md) | Read v3.0 | `mcr.microsoft.com/azure-cognitive-services/vision/read:3.0` |
+| [Computer Vision](../../Computer-vision/computer-vision-how-to-install-containers.md) | Read v3.1 | `mcr.microsoft.com/azure-cognitive-services/vision/read:3.1` |
 | [Computer Vision](../../Computer-vision/computer-vision-how-to-install-containers.md) | Spatial Analysis | `mcr.microsoft.com/azure-cognitive-services/vision/spatial-analysis` |
 | [Speech Service API](../../speech-service/speech-container-howto.md?tab=ctts) | Custom Text-to-speech | `mcr.microsoft.com/azure-cognitive-services/speechservices/custom-text-to-speech` |
 | [Speech Service API](../../speech-service/speech-container-howto.md?tab=lid) | Language Detection | `mcr.microsoft.com/azure-cognitive-services/speechservices/language-detection` |
