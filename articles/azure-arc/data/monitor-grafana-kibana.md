@@ -35,6 +35,7 @@ To retrieve the cluster ip address use the following command:
 kubectl cluster-info
 ```
 
+
 ### AKS or other load balanced cluster
 
 To monitor your environment in AKS or other load balanced cluster, you need to get the ip address of the management proxy service. Use this command to retrieve the **external ip** address:
@@ -109,6 +110,15 @@ The relevant dashboards are:
 * "Host Node Metrics"
 * "Host Pods Metrics"
 
-## Next Steps
+## Next steps
+- Try [Upload metrics and logs to Azure Monitor](upload-metrics-and-logs-to-azure-monitor.md)
+- Read about Grafana:
+   - [Getting started](https://grafana.com/docs/grafana/latest/getting-started/getting-started)
+   - [Grafana fundamentals](https://grafana.com/tutorials/grafana-fundamentals/#1)
+   - [Grafana tutorials](https://grafana.com/tutorials/grafana-fundamentals/#1)
+- Read about Kibana
+   - [Introduction](https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video)
+   - [Kibana guide](https://www.elastic.co/guide/en/kibana/current/index.html)
+   - [Introduction to dashboard drilldowns with data visualizations in Kibana](https://www.elastic.co/webinars/dashboard-drilldowns-with-data-visualizations-in-kibana/)
+   - [How to build Kibana dashboards](https://www.elastic.co/webinars/how-to-build-kibana-dashboards/)
 
-Try [Upload metrics and logs to Azure Monitor](upload-metrics-and-logs-to-azure-monitor.md).
