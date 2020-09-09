@@ -42883,6 +42883,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-monitor/platform/log-standard-properties.md",
+      "redirect_url": "/azure/azure-monitor/platform/log-standard-columns",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/advisor/advisor-alerts.md",
       "redirect_url": "/azure/advisor/advisor-alerts-portal",
       "redirect_document_id": false
