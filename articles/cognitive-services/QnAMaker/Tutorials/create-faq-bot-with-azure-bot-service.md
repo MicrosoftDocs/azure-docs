@@ -42,7 +42,7 @@ When you make changes to the knowledge base and republish, you don't need to tak
         * Change bot handle - if it is not unique.
         * Select SDK Language. Once the bot is created, you can download the code to your local development environment and continue the development process.
     * **Don't**
-        * change the following settings in the Azure portal when creating the bot. They are pre-populated for your existing knowledge base:
+        * Change the following settings in the Azure portal when creating the bot. They are pre-populated for your existing knowledge base:
            * QnA Auth Key
            * App service plan and location
 
