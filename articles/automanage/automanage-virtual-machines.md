@@ -8,6 +8,7 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 09/04/2020
 ms.author: deanwe
+ms.custom: references_regions
 ---
 
 # Azure Automanage for virtual machines
