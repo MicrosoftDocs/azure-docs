@@ -20,25 +20,25 @@ This benchmark focuses on cloud-centric control areas. These controls are consis
 
 The following controls are included in the Azure Security Benchmark:
 
-- **Network security (NS)**: Network security focuses on the recommended common security controls to secure and protect Azure networks. This includes securing virtual network, establishing private connection, preventing and mitigating external attacks, securing DNS, and logging and monitoring Azure network traffic.  
+- **[Network security (NS)](security-benchmark-v2-network-security.md)**: Network security focuses on the recommended common security controls to secure and protect Azure networks. This includes securing virtual network, establishing private connection, preventing and mitigating external attacks, securing DNS, and logging and monitoring Azure network traffic.  
 
 - **[Identity Management (IM)](security-benchmark-v2-identity-management.md)**: Identity management focuses on the recommended security controls to establish a secure identity management practice using Azure Active Directory. This includes the use of managed identities (and service principles) for applications, sign sign-on, strong authentications, conditional access, and account anomalies monitoring.  
 
-- **Privileged Access (PA)**: Privileged access focuses on the recommended security controls to manage the privileged access in Azure. This includes limiting privileged roles and accounts, emergency access setup, periodic review and reconciliation of user access, and use of specialized access workstation for privileged tasks.  
+- **[Privileged Access (PA)](security-benchmark-v2-privileged-access.md)**: Privileged access focuses on the recommended security controls to manage the privileged access in Azure. This includes limiting privileged roles and accounts, emergency access setup, periodic review and reconciliation of user access, and use of specialized access workstation for privileged tasks.  
 
 - **[Data Protection (DP)](security-benchmark-v2-data-protection.md)**: Data protection focuses on the recommended security controls to discover, label and classify sensitive data assets, using access control, encryption, and audit logging for data protection during its use, storage, and transit in Azure. 
 
 - **Asset Management (AM)**:  Asset Management focuses on the recommended security controls to actively managing (inventory, track, and correct) all Azure resources so that only authorized resources are given access, and unauthorized and unmanaged resources are identified and removed. 
 
-- **Logging and Threat Detection (LT)**: Logging and threat detection focuses on the recommended practices related to enabling, collecting, and storing audit logs for Azure services. This includes the use of Azure services’ native threat detection capability or use Azure Monitor, and Azure Sentinel to build a custom threat detection capability using logs collected from different sources.  
+- **[Logging and Threat Detection (LT)](security-benchmark-v2-logging-threat-detection.md)**: Logging and threat detection focuses on the recommended practices related to enabling, collecting, and storing audit logs for Azure services. This includes the use of Azure services’ native threat detection capability or use Azure Monitor, and Azure Sentinel to build a custom threat detection capability using logs collected from different sources.  
 
 - **Posture and Vulnerability Management (PV)**: Posture and Vulnerability Management focus on the recommended practices in managing Azure security posture related to vulnerability and security configuration management. This includes the vulnerability scanning, penetration testing and remediation, as well as the security configuration tracking, reporting, correction in Azure resources.
 
-- **Endpoint Security (ES)**: Endpoint security focuses on the recommended controls in endpoint detection and response. This includes   automation of malware defense, threat monitoring and analysis in endpoint environment.
+- **[Endpoint Security (ES)](security-benchmark-v2-endpoint-security.md)**: Endpoint security focuses on the recommended controls in endpoint detection and response. This includes   automation of malware defense, threat monitoring and analysis in endpoint environment.
 
 - **Backup and Recovery (BR)**: Backup and recovery focuses on the recommended common controls to ensure data and configurations backup at the different service tiers are performed, validated and protected.
 
-- **Incident Response (IR)**: Incident response focuses on activities related to the preparation, detection and analysis, containment and post incident activities in the incident response life cycle. This includes using different services such as Azure Security Center and Sentinel to automate the process.  
+- **[Incident Response (IR)](security-benchmark-v2-incident-response.md)**: Incident response focuses on activities related to the preparation, detection and analysis, containment and post incident activities in the incident response life cycle. This includes using different services such as Azure Security Center and Sentinel to automate the process.  
 
 - **Governance and Strategy (GS)**: Governance and strategy summarizes the common prerequisite and process level controls at the enterprise level before adopting the technical security controls in Azure. This includes establishing role and responsibilities responsible for the different cloud security functions, policy and procedures required to execute process-oriented controls, and education and awareness for personnel security in an organization.  
 

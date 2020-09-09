@@ -15,8 +15,8 @@
     href: security-benchmark-v2-privileged-access.md
   - name: Data protection
     href: security-benchmark-v2-data-protection.md
-  - name: Logging and threat protection
-    href: security-benchmark-v2-logging-threat-protection.md
+  - name: Logging and threat detection
+    href: security-benchmark-v2-logging-threat-detection.md
   - name: Incident response
     href: security-benchmark-v2-incident-response.md
   - name: Endpoint security
