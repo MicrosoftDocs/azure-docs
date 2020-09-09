@@ -26,7 +26,7 @@ When you deploy an Azure file share within a storage account, your file share is
 
 In many customer environments, an initial mount of the Azure file share on your on-premises workstation will fail, even though mounts from Azure VMs succeed. The reason for this is that many organizations and internet service providers (ISPs) block the port that SMB uses to communicate, port 445. NFS shares do not have this issue. This practice originates from security guidance about legacy and deprecated versions of the SMB protocol. Although SMB 3.0 is an internet-safe protocol, older versions of SMB, especially SMB 1.0 are not. Azure file shares may only be externally accessed via SMB 3.0 and the FileREST protocol (which is also an internet safe protocol) via the public endpoint.
 
-Since the easiest way to access your Azure file share from on-premises is to open your on-premises network to port 445, Microsoft recommends the following steps to remove SMB 1.0 from your environment:
+Since the easiest way to access your Azure SMB file share from on-premises is to open your on-premises network to port 445, Microsoft recommends the following steps to remove SMB 1.0 from your environment:
 
 1. Ensure that SMB 1.0 is removed or disabled on your organization's devices. All currently supported versions of Windows and Windows Server support removing or disabling SMB 1.0, and starting with Windows 10, version 1709, SMB 1.0 is not installed on the Windows by default. To learn more about how to disable SMB 1.0, see our OS-specific pages:
     - [Securing Windows/Windows Server](storage-how-to-use-files-windows.md#securing-windowswindows-server)
@@ -34,7 +34,7 @@ Since the easiest way to access your Azure file share from on-premises is to ope
 1. Ensure that no products within your organization require SMB 1.0 and remove the ones that do. We maintain an [SMB1 Product Clearinghouse](https://aka.ms/stillneedssmb1), which contains all the first and third-party products known to Microsoft to require SMB 1.0. 
 1. (Optional) Use a third-party firewall with your organization's on-premises network to prevent SMB 1.0 traffic from leaving your organizational boundary.
 
-If your organization requires port 445 to be blocked per policy or regulation, or your organization requires traffic to Azure to follow a deterministic path, you can use Azure VPN Gateway or ExpressRoute to tunnel traffic to your Azure file shares.
+If your organization requires port 445 to be blocked per policy or regulation, or your organization requires traffic to Azure to follow a deterministic path, you can use Azure VPN Gateway or ExpressRoute to tunnel traffic to your Azure file shares. NFS shares do not require any of this, as they do not need port 445.
 
 > [!Important]  
 > Even if you decide use an alternate method to access your Azure file shares, Microsoft still recommends removing SMB 1.0 from your environment.

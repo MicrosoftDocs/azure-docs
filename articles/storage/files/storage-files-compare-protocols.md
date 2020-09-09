@@ -47,14 +47,12 @@ Mounting Azure file shares with SMB is our more mature offering, it has more ava
 - Soft delete
 - Encryption-in-transit and encryption-at-rest
 
-### Use cases
+### Best suited
 
 SMB with Azure Files is ideal for:
 
-- Customers that require any of the features listed in [Features](#features)
 - Production environments
-
-Do not use SMB if you need Unix style permissions (UID/GID), case sensitivity, or POSIX delete behavior.
+- Customers that require any of the features listed in [Features](#features)
 
 ## NFS shares (preview)
 
@@ -72,8 +70,7 @@ Mounting Azure file shares with NFS is our newer offering, and is currently in p
 
 NFS with Azure Files is ideal for:
 
-- Workloads that require POSIX-compliant file shares.
-- SAP.
+- Workloads that require POSIX-compliant file shares, case sensitivity, or Unix style permissions(UID/GID).
 - Linux-centric workloads that do not require SMB access.
 - A workload that necessitates frequent random access.
 
@@ -82,27 +79,16 @@ NFS with Azure Files is ideal for:
 
 File shares using the NFS protocol currently only have encryption-at-rest, not encryption-in-transit. Due to this, to ensure only secure connections are established to your storage account, you must use one of the following supported network connections:
 
-- A VNet that was configured for your storage account. 
+- [A private endpoint](storage-files-networking-overview.md#private-endpoints)
+- [Azure VPN Gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md)
+    - [Point-to-site (P2S) VPN](../../vpn-gateway/point-to-site-about.md)
+    - [Site-to-Site](https://docs.microsoft.com/azure/vpn-gateway/design#s2smulti)
+- [ExpressRoute](../../expressroute/expressroute-introduction.md)
+- [A restricted public endpoint](storage-files-networking-overview.md#storage-account-firewall-settings)
 
-  For the purpose of this article, we'll refer to that VNet as the *primary VNet*. To learn more, see [Grant access from a virtual network](../common/storage-network-security.md#grant-access-from-a-virtual-network).
-
-- A peered VNet in the same region as the primary VNet.
-
-  You'll have to configure your storage account to allow access to this peered VNet. To learn more, see [Grant access from a virtual network](../common/storage-network-security.md#grant-access-from-a-virtual-network).
-
-- An on-premises network that is connected to your primary VNet by using [VPN Gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) or an [ExpressRoute gateway](https://docs.microsoft.com/azure/expressroute/expressroute-howto-add-gateway-portal-resource-manager). 
-
-  To learn more, see [Configuring access from on-premises networks](../common/storage-network-security.md#configuring-access-from-on-premises-networks).
-
-- An on-premises network that is connected to a peered network.
-
-  This can be done by using [VPN Gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) or an [ExpressRoute gateway](https://docs.microsoft.com/azure/expressroute/expressroute-howto-add-gateway-portal-resource-manager) along with [Gateway transit](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/vnet-peering#gateway-transit). 
-
-> [!IMPORTANT]
-> If you're connecting from an on-premises network, make sure that your client allows outgoing communication through port 2049. The NFS 4.1 protocol uses this port.
-
+For more details on the available networking options, see [Azure Files networking considerations](storage-files-networking-overview.md).
 
 ## Next steps
 
 - [Create an NFS file share](storage-files-how-to-create-nfs-shares.md)
-- Create an SMB file share
+- [Create an SMB file share](storage-how-to-create-file-share.md)
