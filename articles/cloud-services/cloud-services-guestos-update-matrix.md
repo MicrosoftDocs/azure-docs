@@ -36,6 +36,9 @@ Unsure about how to update your Guest OS? Check [this][cloud updates] out.
 
 ## News updates
 
+###### **September 5, 2020**
+The August Guest OS has released. 
+
 ###### **August 17, 2020**
 The July Guest OS has released. 
 

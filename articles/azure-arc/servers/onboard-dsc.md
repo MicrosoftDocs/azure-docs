@@ -78,7 +78,7 @@ After you install the agent and configure it to connect to Azure Arc enabled ser
 
 This resource can be added to existing DSC configurations to represent an end-to-end configuration for a machine. For example, you might wish to add this resource to a configuration that sets secure operating system settings.
 
-The [CompsiteResource](https://www.powershellgallery.com/packages/compositeresource/0.4.0) module from the PowerShell Gallery can be used to create a [composite resource](/powershell/scripting/dsc/resources/authoringResourceComposite?view=powershell-7) of the example configuration, to further simplify combining configurations.
+The [CompositeResource](https://www.powershellgallery.com/packages/compositeresource/0.4.0) module from the PowerShell Gallery can be used to create a [composite resource](/powershell/scripting/dsc/resources/authoringResourceComposite?view=powershell-7) of the example configuration, to further simplify combining configurations.
 
 ## Next steps
 

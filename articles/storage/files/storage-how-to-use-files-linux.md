@@ -109,6 +109,7 @@ You can mount the same Azure file share to multiple mount points if desired.
 1. **Use the mount command to mount the Azure file share**. In the example below, the local Linux file and folder permissions default 0755, which means read, write, and execute for the owner (based on the file/directory Linux owner), read and execute for users in owner group, and read and execute for others on the system. You can use the `uid` and `gid` mount options to set the user ID and group ID for the mount. You can also use `dir_mode` and `file_mode` to set custom permissions as desired. For more information on how to set permissions, see [UNIX numeric notation](https://en.wikipedia.org/wiki/File_system_permissions#Numeric_notation) on Wikipedia. 
 
     ```bash
+    # This command assumes you have logged in with az login
     httpEndpoint=$(az storage account show \
         --resource-group $resourceGroupName \
         --name $storageAccountName \
@@ -171,6 +172,7 @@ When you are done using the Azure file share, you may use `sudo umount $mntPath`
 1. **Use the following command to append the following line to `/etc/fstab`**: In the example below, the local Linux file and folder permissions default 0755, which means read, write, and execute for the owner (based on the file/directory Linux owner), read and execute for users in owner group, and read and execute for others on the system. You can use the `uid` and `gid` mount options to set the user ID and group ID for the mount. You can also use `dir_mode` and `file_mode` to set custom permissions as desired. For more information on how to set permissions, see [UNIX numeric notation](https://en.wikipedia.org/wiki/File_system_permissions#Numeric_notation) on Wikipedia.
 
     ```bash
+    # This command assumes you have logged in with az login
     httpEndpoint=$(az storage account show \
         --resource-group $resourceGroupName \
         --name $storageAccountName \
