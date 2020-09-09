@@ -9,7 +9,7 @@ ms.date: 09/09/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
-ms.custom: devx-track-csharp
+ms.custom: "devx-track-csharp, devx-track-python"
 ---
 
 # Copy a blob with Azure Storage APIs
