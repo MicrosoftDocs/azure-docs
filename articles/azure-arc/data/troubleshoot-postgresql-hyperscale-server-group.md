@@ -76,4 +76,7 @@ View the output from the execution of the code cells for any potential issues.
 We'll add more details to the notebook over time about how to recognize common problems and how to solve them.
 
 ## Next step
-You can create your own notebooks to meet your needs.
+- Read about [getting logs for Azure Arc enabled data services](troubleshooting-get-logs.md)
+- Read about [searching logs with Kibana](monitor-grafana-kibana.md)
+- Read about [monitoring with Grafana](monitor-grafana-kibana.md)
+- Create your own notebooks
