@@ -76,7 +76,7 @@ In this quickstart, you use a code sample to learn how an ASP.NET Core web app c
 > > [!NOTE]
 > > `Enter_the_Supported_Account_Info_Here`
 > [!div renderon="docs"]
-> #### Step 3: Run your ASP.NET Core project
+> #### Step 3: Configure your ASP.NET Core project
 > 1. Extract the .zip archive into a local folder near the root of your drive. For example, into *C:\Azure-Samples*.
 > 1. Open the solution in Visual Studio 2019.
 > 1. In the **NuGet Package Manager**, select the [Include prerelease](/nuget/consume-packages/install-use-packages-visual-studio#manage-packages-for-the-solution) check box to include prerelease NuGet packages.
@@ -87,16 +87,19 @@ In this quickstart, you use a code sample to learn how an ASP.NET Core web app c
 >    "TenantId": "Enter_the_Tenant_Info_Here"
 >    ```
 >
->     Where:
->
->     - `Enter_the_Application_Id_here` - is the **Application (client) ID** for the application you registered in the Azure portal. You can find **Application (client) ID** in the app's **Overview** page.
->     - `Enter_the_Tenant_Info_Here` - is one of the following options:
->       - If your application supports **Accounts in this organizational directory only**, replace this value with the **Tenant ID** or **Tenant name** (for example, contoso.microsoft.com)
+>    - Replace `Enter_the_Application_Id_here` with the **Application (client) ID** of the application you registered in the Azure portal. You can find **Application (client) ID** in the app's **Overview** page.
+>    - Replace `Enter_the_Tenant_Info_Here` with one of the following:
+>       - If your application supports **Accounts in this organizational directory only**, replace this value with the **Directory (tenant) ID** (a GUID) or **tenant name** (for example, `contoso.onmicrosoft.com`).
 >       - If your application supports **Accounts in any organizational directory**, replace this value with `organizations`
 >       - If your application supports **All Microsoft account users**, replace this value with `common`
 >
 >     > [!TIP]
->     > To find the values of **Application (client) ID**, **Directory (tenant) ID**, and **Supported account types**, go to the app's **Overview** page in the Azure portal.
+>     > You can find the **Application (client) ID** and **Directory (tenant) ID** on the app's **Overview** page in the Azure portal.
+>
+> #### Step 4: Build and run the application
+>
+> > [!WARNING]
+> > WIP TODO WIP TODO WIP TODO WIP TODO WIP TODO WIP TODO WIP TODO WIP TODO WIP TODO WIP TODO WIP TODO WIP TODO WIP TODO WIP TODO WIP TODO
 
 ## More information
 
