@@ -99,24 +99,17 @@ You produce a run when you submit a script to train a model. A run can have zero
 
 [Workspace](#workspace) > [Experiments](#experiments) > [Run](#runs) > **Run configuration**
 
-A run configuration is a set of instructions that defines how a script should be run in a specified compute target. The configuration includes a wide set of behavior definitions, such as whether to use an existing Python environment or to use a Conda environment that's built from a specification.
+A run configuration defines how a script should be run in a specified compute target. You use the configuration to specify the script, the compute target and Azure ML environment to run on, any distributed job-specific configurations, and some additional properties. For more information on the full set of configurable options for runs, see [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py).
 
 A run configuration can be persisted into a file inside the directory that contains your training script.   Or it can be constructed as an in-memory object and used to submit a run.
 
 For example run configurations, see [Use a compute target to train your model](how-to-set-up-training-targets.md).
-
-### Estimators
-
-To facilitate model training with popular frameworks, the estimator class allows you to easily construct run configurations. You can create and use a generic [Estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py&preserve-view=true) to submit training scripts that use any learning framework you choose (such as scikit-learn).
-
-For more information about estimators, see [Train ML models with estimators](how-to-train-ml-models.md).
 
 ### Snapshots
 
 [Workspace](#workspace) > [Experiments](#experiments) > [Run](#runs) > **Snapshot**
 
 When you submit a run, Azure Machine Learning compresses the directory that contains the script as a zip file and sends it to the compute target. The zip file is then extracted, and the script is run there. Azure Machine Learning also stores the zip file as a snapshot as part of the run record. Anyone with access to the workspace can browse a run record and download the snapshot.
-
 
 ### Logging
 
