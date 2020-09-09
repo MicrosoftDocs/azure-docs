@@ -3,7 +3,7 @@ title: Use Python to create a function in Azure to respond to HTTP
 description: Learn how to create a function from the command line using Python, then publish the local project to serverless hosting in Azure Functions.
 ms.date: 09/14/2020
 ms.topic: quickstart
-ms.custom: devx-track-python
+ms.custom: [devx-track-python, devx-track-azurecli]
 ---
 
 # Quickstart: Create a function in Azure using Python that responds to HTTP requests
