@@ -70,7 +70,9 @@ This template contains several parameters that are predefined for your convenien
 
 ### Deploy the template
 
-The following code creates a resource group, an App Service plan, and a app. A default resource group, App Service plan, and location have been set for you. Replace `<app-name>` with a globally unique app name (valid characters are `a-z`, `0-9`, and `-`).
+Azure CLI is used here to deploy the template. You can also use the Azure portal, Azure PowerShell, and REST API. To learn other deployment methods, see [Deploy templates](../azure-resource-manager/templates/deploy-powershell.md). 
+
+The following code creates a resource group, an App Service plan, and a web app. A default resource group, App Service plan, and location have been set for you. Replace `<app-name>` with a globally unique app name (valid characters are `a-z`, `0-9`, and `-`).
 
 ::: zone pivot="platform-windows"
 Run the code below to deploy a .NET framework app on Windows.
@@ -78,7 +80,7 @@ Run the code below to deploy a .NET framework app on Windows.
 ```azurecli-interactive
 az group create --name myResourceGroup --location "southcentralus" &&
 az deployment group create --resource-group myResourceGroup \
---parameters language=".NET" sample="true" webAppName="<app-name>" \
+--parameters language=".net" sample="true" webAppName="<app-name>" \
 --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-app-service-docs-windows/azuredeploy.json"
 ::: zone-end
 ::: zone pivot="platform-linux"
@@ -103,8 +105,6 @@ To deploy a different language stack, update `linuxFxVersion` with appropriate v
 
 ---
 ::: zone-end
-
-Azure CLI is used here to deploy the template. You can also use the Azure portal, Azure PowerShell, and REST API. To learn other deployment methods, see [Deploy templates](../azure-resource-manager/templates/deploy-powershell.md).
 
 > [!NOTE]
 > You can find more [Azure App Service template samples here](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Sites).
