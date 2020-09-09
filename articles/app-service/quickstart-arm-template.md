@@ -23,10 +23,8 @@ Get started with [Azure App Service](overview.md) by deploying a web app to the 
 
 ### Review the template
 
-The template used in this quickstart is from [Azure Quickstart templates](https://github.com/Azure/azure-quickstart-templates/).
-
 ::: zone pivot="platform-windows"
-This template is compatible with .NET Core, .NET Framework, PHP, Node.js, and Static HTML apps. To deploy a Java app, see [Create Java app](app-service-web-get-started-java.md). This template deploys an App Service Plan and a .NET App on Windows.
+The template used in this quickstart is from [Azure Quickstart templates](https://github.com/Azure/azure-quickstart-templates/). It deploys an App Service Plan and an App Service web app on Windows. It's compatible with .NET Core, .NET Framework, PHP, Node.js, and Static HTML apps. For Java, see [Create Java app](app-service-web-get-started-java.md). 
 
 [!code-json[<Azure Resource Manager template App Service Windows app>](~/quickstart-templates/101-app-service-docs-windows/azuredeploy.json)]
 
@@ -47,7 +45,7 @@ This template contains several parameters that are predefined for your convenien
 | repoUrl    | string  | " "                          | External Git repo (optional) |
 ::: zone-end
 ::: zone pivot="platform-linux"
-The template is compatible with all supported programming languages on App Service. This template deploys an App Service Plan and a Python App on Linux.
+The template used in this quickstart is from [Azure Quickstart templates](https://github.com/Azure/azure-quickstart-templates/). It deploys an App Service Plan and an App Service web app on Linux. It's compatible with all supported programming languages on App Service.
 
 [!code-json[<Azure Resource Manager template App Service Linux app>](~/quickstart-templates/101-app-service-docs-linux/azuredeploy.json)]
 
@@ -63,7 +61,7 @@ This template contains several parameters that are predefined for your convenien
 | webAppName | string  | "webApp-**[`<uniqueString>`](/azure/azure-resource-manager/templates/template-functions-string#uniquestring)**" | Web app name |
 | location   | string  | "[[resourceGroup().location](/azure/azure-resource-manager/templates/template-functions-resource#resourcegroup)]" | Web app region |
 | sku        | string  | "F1"                         | Instance size (F1 = Free Tier) |
-| linuxFxVersion   | string  | "DOTNETCORE|3.0        | "Programming language stack | Version" |
+| linuxFxVersion   | string  | "DOTNETCORE&#124;3.0        | "Programming language stack &#124; Version" |
 | repoUrl    | string  | " "                          | External Git repo (optional) |
 
 ---
