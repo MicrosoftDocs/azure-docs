@@ -134,6 +134,9 @@ There are two approaches to restricting access to a storage account to a virtual
 - Create one or more private endpoints for the storage account and restrict all access to the public endpoint. This ensures that only traffic originating from within the desired virtual networks can access the Azure file shares within the storage account.
 - Restrict the public endpoint to one or more virtual networks. This works by using a capability of the virtual network called *service endpoints*. When you restrict the traffic to a storage account via a service endpoint, you are still accessing the storage account via the public IP address.
 
+> [!NOTE]
+> NFS shares cannot access the storage account's public endpoint via the public IP address, they can only access the storage account's public endpoint using virtual networks. NFS shares may also access the storage account using private endpoints.
+
 To learn more about how to configure the storage account firewall, see [configure Azure storage firewalls and virtual networks](../common/storage-network-security.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
 ## Encryption in transit

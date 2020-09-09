@@ -30,7 +30,7 @@ Azure Files offers two protocols for connecting and mounting your Azure file sha
 |Deleting or modifying open files     |Supported         |Not supported         |
 |Locking     |Byte-range advisory network lock manager         |Supported         |
 |Public IP safe listing | Not supported | Supported|
-|Protocol interop| Not supported | File-REST|
+|Protocol interop| Not supported | FileREST|
 
 ## NFS shares (preview)
 
