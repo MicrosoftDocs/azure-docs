@@ -3,7 +3,7 @@ title: Windows Virtual Desktop partner integrations - Azure
 description: Learn about Windows Virtual Desktop's partners and access documentation about how to integrate with them.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 07/17/2020
+ms.date: 09/10/2020
 ms.author: helohr
 manager: lizross
 ---
@@ -40,6 +40,7 @@ As a Windows Virtual Desktop approved provider, VMware can help customers that w
 
 10ZiG's world-market leadership in Thin and Zero Client endpoint devices and management software for virtual desktops is exemplified by how they work for their customers. Its Thin Client hardware comes with thoughtfully constructed benefit features and options designed to ensure customers receive the right Client devices based on their needs. 10ZiG customizes its devices to fit into customer environments with Windows-based and Linux-based Clients that provide the best possible performance in virtual desktops, both inside and outside the cloud.
 
+- [See the joint solution brief](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4FaeR).
 - [Go to the partner website](https://www.10zig.com/about/microsoft-windows-virtual-desktop).
 
 ## Automai
@@ -95,7 +96,7 @@ When used with Windows Virtual Desktop, ControlUp provides additional capabiliti
 
 Dell Technologies' thin clients are optimized to access Microsoft Azure and Windows Virtual Desktop services. Capable of meeting the needs from collaborative knowledge workers up to graphics-intensive power users, Wyse thin clients deliver a high-quality computing experience to take full advantage of the growing number of apps and content. Ideal for space-constrained environments, Wyse thin clients adapt to the way people work with versatile form factors and a wide array of choices for mounting options.
 
-Wyse thin clients are designed with security in mind with limited attack surface, support for security compliance standards, and advanced multi-factor authentication solutions. Deploy highly secure thin clients with Dell-exclusive Wyse ThinOS, or experience secure access to cloud applications and virtual workspaces from hardened Wyse ThinLinux with a commercial proven design and Windows 10 IoT Enterprise with Dell-added security features. With secure, HTTPS-based communications and active directory authentication for role-based administration, Wyse Management Suite keeps Wyse endpoints always up to date, and the mobile app for WMS Pro allows IT to view critical alerts and send real-time commands with one tap at any time.
+Wyse thin clients are designed with security in mind with limited attack surfaces, support for security compliance standards, and advanced multi-factor authentication solutions. Deploy highly secure thin clients with Windows 10 IoT Enterprise and Dell-added security features. Given secure, HTTPS-based communications and active directory authentication for role-based administration, Wyse Management Suite keeps Wyse endpoints always up to date, and the mobile app for WMS Pro allows IT to view critical alerts and send real-time commands with one tap at any time.
 
 - [Go to the partner website](https://www.delltechnologies.com/en-us/wyse/index.htm#scroll=off&overlay=//www.dellemc.com/en-us/collaterals/unauth/brochures/products/thin-clients/Wyse_Windows_Embedded_Standard_thin_clients_brochure.pdf).
 
@@ -184,6 +185,14 @@ Lakeside Software's digital experience monitoring solution, SysTrack, can help p
 - [See the joint solution brief](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3oL8Q).
 - [Go to the partner website](https://www.lakesidesoftware.com/assessments/wvd).
 
+## Lenovo
+
+![Lenovo Logo](./media/partners/lenovo.png)
+
+Lenovo Thin Clients give your network the flexibility of a client computer running from your server, but with native PC capability and power. Lenovo Thin Clients give Windows Virtual Desktop deployments blazing performance and intuitive manageability, elevating your company's network to the next level of reliability. Each Thin Client is equipped with a Lenovo Terminal Manager license at no additional cost giving organizations seamless and cost-effective hardware management and deployment options. They're also small and versatile, making them easy to add to existing Lenovo deployments.
+
+- [See the joint solution brief](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4FnaB).
+
 ## Liquidware
 
 ![Liquidware Logo](./media/partners/liquidware.png)
@@ -214,6 +223,17 @@ Login VSI is a Windows Virtual Desktop value-added services provider and Microso
 
 - [Go to the partner website](https://www.loginvsi.com/use-cases-initiatives/windows-virtual-desktop).
 
+## Nasuni
+
+![Nasuni Logo](./media/partners/nasuni.png)
+
+Nasuni Corp., the leading provider of cloud file services and a top Azure global ISV partner, offers the Nasuni software-as-a-service platform as the modern file storage solution for modern virtual desktops. Nasuni, when combined with Azure Blob Storage, consolidates primary file storage (NAS), file backup, disaster recovery, and cross-region file synchronization in one unified solution. With Nasuni, enterprises can deploy Windows Virtual Desktops for more use cases and in more Azure regions, simplify administration, and ensure business continuity. 
+
+Being a modern cloud VDI solution, Windows Virtual Desktop requires modern cloud file storage. Traditionally, VDI file storage has been based on Network-Attached Storage (NAS) and file server hardware located on-premises, and the accompanying required technology to provide file backups, restoration, and disaster recovery. These traditional approaches are expensive, complex to maintain and administer, and don’t scale easily. They also introduce latency if used with a modern cloud VDI solution like Windows Virtual Desktop due to the physical distance and the slower WAN connections between the desktops based in Azure and the file storage based on-premises. Nasuni, a file services platform built specifically for Azure, offers unlimited file storage capacity and high-performance file access. Nasuni can be co-located with Windows Virtual Desktop in the same Azure regions to deliver economical, high-performance file access to a single global namespace. Nasuni offers Windows Virtual Desktop file storage at a fraction of the cost of traditional NAS and Windows file servers and includes built-in backups and disaster recovery to further reduce costs and free up IT resources.
+
+- [Go to the partner website](https://www.nasuni.com/partner/microsoft/#wvd).
+- [See the joint solution brief](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4FaeS).
+
 ## Nerdio
 
 ![Nerdio Logo](./media/partners/nerdio.png)
@@ -232,6 +252,9 @@ Nerdio extends the value of Windows Virtual Desktop by making it easy to provisi
 Nexthink is a Windows Virtual Desktop value-added provider that helps organizations confidently measure, manage, and improve their employees’ digital experience and productivity. With a constant read on the pulse of digital employee experience, IT can continuously improve technology’s ability to engage, empower, and delight people, no matter where they work. 
 
 By providing solutions with visible workplace resources, Nexthink gives you context and insight into your user base. Nexthink’s powerful experience management platform helps IT teams ensure that migrations to Windows Virtual Desktop are planned and put into action in a timely and successful manner.
+
+- [Go to the partner website](https://www.nexthink.com/initiative/desktop-virtualization/).
+- [See the joint solution brief](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4FaeT).
 
 ## Numecent
 
@@ -294,7 +317,7 @@ Rimo3 enhances the Windows Virtual Desktop experience by accelerating deployment
 Rimo3 offers an easy-to-use, scalable, automated application testing platform. This platform includes capabilities for all three application testing fundamentals: compatibility, functionality, and performance. It allows organizations, leaders, and teams to improve business continuity, adopt change faster, and optimize user experience.
 
 - [See the joint solution brief](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4yj7B).
-- [Go to the partner website](https://rimo3.com/outcomes/).
+- [Go to the partner website](https://rimo3.com/windows-virtual-desktop/).
 
 ## sepago
 
@@ -313,7 +336,7 @@ SSH2 is a Windows Virtual Desktop value-added services provider that equips your
 
 appCURE captures application details from running applications to ensure all points that may impact your end-user’s applications are understood. appCURE then updates and delivers them to your new Windows Virtual Desktop. By capturing all application integration points in your current environment, appCURE provides the speed to optimize IT resources and plan for your migrations better and quicker than ever before thus enabling organisations to get to production faster.
 
-- [See the joint solution brief]().
+- [See the joint solution brief](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4Fs38).
 - [Go to the partner page](https://www.ssh2.xyz/partners/).
 
 ## ThinPrint
@@ -345,6 +368,7 @@ vast limits, the uberAgent company, provides visibility in Windows Virtual Deskt
 
 uberAgent is a monitoring and analytics product designed for end-user computing that doesn't just collect data—it gives customers the information that matters. uberAgent has its own metrics, covering key aspects of user experience, application performance, and endpoint security, telling you everything you need to know about your Windows Virtual Desktop VMs without affecting your systems' user density. uberAgent simplifies troubleshooting, helps with sizing, and provides rich information vital for information security.
 
+- [See the joint solution brief](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4Fs39).
 - [Go to the partner website](https://uberagent.com/docs/uberagent/latest/about-uberagent/system-requirements/#windows-virtual-desktop).
 
 ## Workspace 365
