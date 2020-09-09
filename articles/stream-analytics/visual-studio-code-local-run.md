@@ -16,7 +16,7 @@ You can use Azure Stream Analytics tools for Visual Studio Code to test your Str
 
 * Install [.NET core SDK](https://dotnet.microsoft.com/download) and restart Visual Studio Code.
 
-* Use this [quickstart](quick-create-vs-code.md) to learn how to create a Stream Analytics job using Visual Studio Code.
+* Use this [quickstart](quick-create-visual-studio-code.md) to learn how to create a Stream Analytics job using Visual Studio Code.
 
 ## Prepare sample data
 
@@ -26,17 +26,17 @@ You need to prepare sample input data files first. If you already have some samp
 
 2. Once the data is shown, click **Save as** to save the data to a local file.
 
- ![Preview live input](./media/quick-create-vs-code/preview-live-input.png)
+ ![Preview live input](./media/quick-create-visual-studio-code/preview-live-input.png)
 
 ## Define a local input
 
 1. Click **input.json** under Inputs folder in your Stream Analytics project. Then select **Add local input** from the top line.
 
-    ![Add local input from project](./media/quick-create-vs-code/add-input-from-project.png)
+    ![Add local input from project](./media/quick-create-visual-studio-code/add-input-from-project.png)
 
     You can also use **Ctrl+Shift+P** to open the command palette and enter **ASA: Add Input**.
 
-   ![Add Stream Analytics input in VS Code](./media/quick-create-vs-code/add-input.png)
+   ![Add Stream Analytics input in VS Code](./media/quick-create-visual-studio-code/add-input.png)
 
 2. Select **Local Input**.
 

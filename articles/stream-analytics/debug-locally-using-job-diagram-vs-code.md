@@ -22,7 +22,7 @@ An Azure Stream Analytics script is used to transform input data to output data.
 
 ### Start local testing
 
-Use this [Quickstart](quick-create-vs-code.md) to learn how to create a Stream Analytics job using Visual Studio Code or [export an existing job to a local project](visual-studio-code-explore-jobs.md). Credentials for inputs and outputs are automatically populated for exported jobs.
+Use this [Quickstart](quick-create-visual-studio-code.md) to learn how to create a Stream Analytics job using Visual Studio Code or [export an existing job to a local project](visual-studio-code-explore-jobs.md). Credentials for inputs and outputs are automatically populated for exported jobs.
 
 If you want to test the query with local input data, follow these [instructions](visual-studio-code-local-run.md). If you want to test with live input, [configure your input](stream-analytics-add-inputs.md) move to the next step. 
 
@@ -103,7 +103,7 @@ Select **Job Summary** at the top-right of the job diagram to see properties and
 
 ## Next steps
 
-* [Quickstart: Create a Stream Analytics job using Visual Studio Code](quick-create-vs-code.md)
+* [Quickstart: Create a Stream Analytics job using Visual Studio Code](quick-create-visual-studio-code.md)
 * [Explore Azure Stream Analytics with Visual Studio Code](visual-studio-code-explore-jobs.md)
 * [Test Stream Analytics queries locally with sample data using Visual Studio Code](visual-studio-code-local-run.md)
 * [Test Azure Stream Analytics jobs locally with live input using Visual Studio Code](visual-studio-code-local-run-live-input.md)

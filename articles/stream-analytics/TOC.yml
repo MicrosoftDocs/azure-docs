@@ -23,7 +23,7 @@
     - name: Visual Studio
       href: stream-analytics-quick-create-vs.md
     - name: Visual Studio Code
-      href: quick-create-vs-code.md
+      href: quick-create-visual-studio-code.md
 - name: Tutorials
   items:
   - name: 1 - Create / manage a job

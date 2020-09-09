@@ -18,7 +18,7 @@ For more information about deploying with Powershell, see [deploy with a Resourc
 
 ## Build the VS Code project
 
-You can enable continuous integration and deployment for Azure Stream Analytics jobs using the **asa-streamanalytics-cicd** npm package. The npm package provides the tools to generate Azure Resource Manager templates of [Stream Analytics Visual Studio Code projects](quick-create-vs-code.md). It can be used on Windows, macOS, and Linux without installing Visual Studio Code.
+You can enable continuous integration and deployment for Azure Stream Analytics jobs using the **asa-streamanalytics-cicd** npm package. The npm package provides the tools to generate Azure Resource Manager templates of [Stream Analytics Visual Studio Code projects](quick-create-visual-studio-code.md). It can be used on Windows, macOS, and Linux without installing Visual Studio Code.
 
 You can [download the package](https://www.npmjs.com/package/azure-streamanalytics-cicd) directly, or install it [globally](https://docs.npmjs.com/downloading-and-installing-packages-globally) via the `npm install -g azure-streamanalytics-cicd` command. This is the recommended approach, which can also be used in a PowerShell or Azure CLI script task of a build pipeline in **Azure Pipelines**.
 
@@ -185,6 +185,6 @@ To use Managed Identity for Azure Data Lake Store Gen1 as output sink, you need 
 
 ## Next steps
 
-* [Quickstart: Create an Azure Stream Analytics cloud job in Visual Studio Code (Preview)](quick-create-vs-code.md)
+* [Quickstart: Create an Azure Stream Analytics cloud job in Visual Studio Code (Preview)](quick-create-visual-studio-code.md)
 * [Test Stream Analytics queries locally with Visual Studio Code (Preview)](visual-studio-code-local-run.md)
 * [Explore Azure Stream Analytics with Visual Studio Code (Preview)](visual-studio-code-explore-jobs.md)
