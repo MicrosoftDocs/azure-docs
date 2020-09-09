@@ -26,40 +26,29 @@ In this tutorial, you learn how to create Java applications to send messages to 
 Create a Java project using Eclipse or a tool of your choice. 
 
 ## Configure your application to use Service Bus
-Make sure you have installed the [Azure SDK for Java][Azure SDK for Java] before building this sample. 
+Make sure you've installed the [Azure SDK for Java][Azure SDK for Java] before building this sample. 
 
-If you are using Eclipse, you can install the [Azure Toolkit for Eclipse][Azure Toolkit for Eclipse] that includes the Azure SDK for Java. You can then add the **Microsoft Azure Libraries for Java** to your project. If you are using IntelliJ, see [Install the Azure Toolkit for IntelliJ](/azure/developer/java/toolkit-for-intellij/installation). 
-
-![Add Microsoft Azure Libraries for Java to your Eclipse project](./media/service-bus-java-how-to-use-queues/eclipse-azure-libraries-java.png)
+If you're using Eclipse, you can install the [Azure Toolkit for Eclipse][Azure Toolkit for Eclipse] that includes the Azure SDK for Java. You can then add the **Microsoft Azure Libraries for Java** to your project. If you're using IntelliJ, see [Install the Azure Toolkit for IntelliJ](/azure/developer/java/toolkit-for-intellij/installation). 
 
 
 ## Add a reference to Azure Service Bus library
 The Java client library for Service Bus is available in the [Maven Central Repository](https://search.maven.org/search?q=a:azure-messaging-servicebus). You can reference this library using the following dependency declaration inside your Maven project file:
 
 ```xml
-<dependency>
-    <groupId>com.azure</groupId>
-    <artifactId>azure-messaging-servicebus</artifactId>
-    <version>7.0.0</version>
-</dependency>
+    <dependency>
+      <groupId>com.azure</groupId>
+      <artifactId>azure-messaging-servicebus</artifactId>
+      <version>7.0.0-beta.4</version>
+    </dependency>
 ```
 
 ## Add the import statements
 Add the following `import` statements at the topic of the Java file. 
 
 ```java
-import com.azure.core.util.IterableStream;
 import com.azure.messaging.servicebus.*;
 import com.azure.messaging.servicebus.models.*;
-
 import reactor.core.Disposable;
-import reactor.core.publisher.Mono;
-
-import static java.nio.charset.StandardCharsets.UTF_8;
-
-import java.nio.charset.StandardCharsets;
-import java.time.Duration;
-import java.util.*;
 import java.util.concurrent.TimeUnit;
 ```
 
@@ -85,11 +74,11 @@ public class QueueClient {
         ServiceBusMessageBatch currentBatch = senderClient.createBatch(new CreateBatchOptions().setMaximumSizeInBytes(1024)).block();
         currentBatch.tryAdd(new ServiceBusMessage("First message"));
         currentBatch.tryAdd(new ServiceBusMessage("Second message"));
-        currentBatch.tryAdd(new ServiceBusMessage("Thrid message"));
+        currentBatch.tryAdd(new ServiceBusMessage("Third message"));
        
         // send the batch of messages
         senderClient.sendMessages(currentBatch).subscribe(
-                unused -> System.out.println("Sent a bath of three messages to the queue:" + queueName),
+                unused -> System.out.println("Sent a batc    h of three messages to the queue:" + queueName),
                 error -> System.err.println("Error occurred while publishing message: " + error),
                 () -> System.out.println("Send complete."));        
       
@@ -99,6 +88,7 @@ public class QueueClient {
         //close the client
         senderClient.close();        
 	}
+}
 ```
 
 ## Receive messages from a queue
@@ -152,10 +142,29 @@ Add the method for processing messages. This method just returns true, but you c
     }
 ```
 
-## Next Steps
-Now that you've learned the basics of Service Bus queues, see [Queues, topics, and subscriptions][Queues, topics, and subscriptions] for more information.
+## Test the application
+When you run the application, you see the following messages in the console window. 
 
-For more information, see the [Java Developer Center](https://azure.microsoft.com/develop/java/).
+```console
+Send complete.
+Received Message: First message
+Received Message: Second message
+Received Message: Third message
+```
+
+On the **Overview** page for the Service Bus namespace in the Azure portal, you see **incoming** and **outgoing** message count. You may need to wait for a minute or so and then refresh the page to see the latest values. 
+
+:::image type="content" source="./media/service-bus-java-how-to-use-queues/overview-incoming-outgoing-messages.png" alt-text="Incoming and outgoing message count":::
+
+You can select the queue on this **Overview** page to navigate to the **Service Bus Queue** page. You see the **incoming** and **outgoing** message count, and also other information such as the **current size** of the queue, **maximum size**, **active message count**, and so on. 
+
+:::image type="content" source="./media/service-bus-java-how-to-use-queues/queue-details.png" alt-text="Queue details":::
+
+In this example, there are three active messages in the queue that haven't been received and completed yet. The size of the queue is 0.5 KB. There are nine incoming messages and six outgoing messages. Other three messages haven't been received by a receiver yet. 
+
+
+## Next Steps
+See [more samples on GitHub](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/servicebus/azure-messaging-servicebus). 
 
 [Azure SDK for Java]: /azure/developer/java/sdk/java-sdk-azure-get-started
 [Azure Toolkit for Eclipse]: /azure/developer/java/toolkit-for-eclipse/installation
