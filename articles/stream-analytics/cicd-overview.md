@@ -34,9 +34,9 @@ Follow the steps in this guide to create a CI/CD pipeline for Stream Analytics.
 
 ## Auto build, test, and deploy
 
-You can use the command line and [Azure Stream Analytics CI/CD tools](cicd-tools.md) to auto build, test, and deploy. You can also set up a CI/CD pipeline in [Azure Pipelines](setup-cicd-pipeline.md). Azure Pipelines to enable more advanced capabilities, such as pipeline management, visualization, and triggers.
+You can use the command line and [Azure Stream Analytics CI/CD tools](cicd-tools.md) to auto build, test, and deploy. You can also set up a CI/CD pipeline in [Azure Pipelines](set-up-cicd-pipeline.md). Azure Pipelines to enable more advanced capabilities, such as pipeline management, visualization, and triggers.
 
 ## Next steps
 
 * [Automate builds, tests and deployments of an Azure Stream Analytics job using CI/CD tools](cicd-tools.md)
-* [Setup a CI/CD pipeline for Stream Analytics job using Azure Pipelines](setup-cicd-pipeline.md)
+* [Set up a CI/CD pipeline for Stream Analytics job using Azure Pipelines](set-up-cicd-pipeline.md)

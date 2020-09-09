@@ -241,7 +241,7 @@
     - name: Build, test, and deploy
       href: cicd-tools.md
     - name: Set up CI/CD pipeline
-      href: setup-cicd-pipeline.md
+      href: set-up-cicd-pipeline.md
   - name: Visual Studio
     items:
     - name: Install tools

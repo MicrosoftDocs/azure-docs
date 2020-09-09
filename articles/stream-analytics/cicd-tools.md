@@ -12,7 +12,7 @@ ms.date: 09/10/2020
 
 # Automate builds, tests, and deployments of an Azure Stream Analytics job using CI/CD tools
 
-You can use the Azure Stream Analytics CI/CD npm package to automatically build, test, and deploy your Azure Stream Analytics Visual Studio Code or Visual Studio projects. The projects can be created using development tools or they can be exported from existing Stream Analytics jobs. This article describes how to use the npm package with any CI/CD system. For deployment with Azure Pipelines, see [Use Azure DevOps to create a CI/CD pipeline for a Stream Analytics job](setup-cicd-pipeline.md).
+You can use the Azure Stream Analytics CI/CD npm package to automatically build, test, and deploy your Azure Stream Analytics Visual Studio Code or Visual Studio projects. The projects can be created using development tools or they can be exported from existing Stream Analytics jobs. This article describes how to use the npm package with any CI/CD system. For deployment with Azure Pipelines, see [Use Azure DevOps to create a CI/CD pipeline for a Stream Analytics job](set-up-cicd-pipeline.md).
 
 ## Installation
 
@@ -236,4 +236,4 @@ You can use the Azure Resource Manager template and parameter files generated fr
 ## Next Steps
 
 * [Continuous integration and Continuous deployment for Azure Stream Analytics](cicd-overview.md)
-* [Setup CI/CD pipeline for Stream Analytics job using Azure Pipelines](setup-cicd-pipeline.md)
+* [Set up CI/CD pipeline for Stream Analytics job using Azure Pipelines](set-up-cicd-pipeline.md)

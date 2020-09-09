@@ -28,13 +28,13 @@ In this section, you learn how to create a build pipeline. You can reference thi
 
 1. Under **Pipelines** in the left navigation menu, select **Builds**. Then, select **New pipeline**.
 
-   :::image type="content" source="media/setup-cicd-pipeline/new-pipeline.png" alt-text="Create new Azure Pipeline":::
+   :::image type="content" source="media/set-up-cicd-pipeline/new-pipeline.png" alt-text="Create new Azure Pipeline":::
 
 1. Select **Use the classic editor** to create a pipeline without YAML.
 
 1. Select your source type, team project, and repository. Then, select **Continue**.
 
-   :::image type="content" source="media/setup-cicd-pipeline/select-repo.png" alt-text="Select Azure Stream Analytics project":::
+   :::image type="content" source="media/set-up-cicd-pipeline/select-repo.png" alt-text="Select Azure Stream Analytics project":::
 
 1. On the **Choose a template** page, select **Empty job**.
 
@@ -42,7 +42,7 @@ In this section, you learn how to create a build pipeline. You can reference thi
 
 1. On the **Tasks** page, select the plus sign next to **Agent job 1**. Enter *npm* in the task search and select **npm**.
 
-   :::image type="content" source="media/setup-cicd-pipeline/search-npm.png" alt-text="Select npm task":::
+   :::image type="content" source="media/set-up-cicd-pipeline/search-npm.png" alt-text="Select npm task":::
 
 2. Give the task a **Display name**. Change the **Command** option to *custom* and enter the following command in **Command and arguments**. Leave the remaining default options.
 
@@ -50,7 +50,7 @@ In this section, you learn how to create a build pipeline. You can reference thi
    install -g azure-streamanalytics-cicd
    ```
 
-   :::image type="content" source="media/setup-cicd-pipeline/npm-config.png" alt-text="Enter configurations for npm task":::
+   :::image type="content" source="media/set-up-cicd-pipeline/npm-config.png" alt-text="Enter configurations for npm task":::
 
 ## Add a Build task
 
@@ -72,7 +72,7 @@ In this section, you learn how to create a build pipeline. You can reference thi
 
    The image below uses a Stream Analytics Visual Studio Code project as an example.
 
-   :::image type="content" source="media/setup-cicd-pipeline/commandline-config-build.png" alt-text="Enter configurations for command-line task visual studio code":::
+   :::image type="content" source="media/set-up-cicd-pipeline/command-line-config-build.png" alt-text="Enter configurations for command-line task visual studio code":::
 
 ## Add a Test task
 
@@ -82,7 +82,7 @@ In this section, you learn how to create a build pipeline. You can reference thi
    |-|-|
    |testPath|Test|
 
-   :::image type="content" source="media/setup-cicd-pipeline/pipeline-variables-test.png" alt-text="Add pipeline variables":::
+   :::image type="content" source="media/set-up-cicd-pipeline/pipeline-variables-test.png" alt-text="Add pipeline variables":::
 
 2. On the **Tasks** page, select the plus sign next to **Agent job 1**. Search for **Command line**.
 
@@ -94,7 +94,7 @@ In this section, you learn how to create a build pipeline. You can reference thi
    azure-streamanalytics-cicd test -project $(projectRootPath)/asaproj.json -outputpath $(projectRootPath)/$(outputPath)/$(testPath) -testConfigPath $(projectRootPath)/test/testConfig.json 
    ```
 
-   :::image type="content" source="media/setup-cicd-pipeline/commandline-config-test.png" alt-text="Enter configurations for command-line task":::
+   :::image type="content" source="media/set-up-cicd-pipeline/command-line-config-test.png" alt-text="Enter configurations for command-line task":::
 
 ## Add a Copy files task
 
@@ -111,7 +111,7 @@ You need to add a copy file task to copy the test summary file and Azure Resourc
 
 2. Expand **Control Options**. Select **Even if a previous task has failed, unless the build was canceled** in **Run this task**.
 
-   :::image type="content" source="media/setup-cicd-pipeline/copy-config.png" alt-text="Enter configurations for copy task":::
+   :::image type="content" source="media/set-up-cicd-pipeline/copy-config.png" alt-text="Enter configurations for copy task":::
 
 ## Add a Publish build artifacts task
 
@@ -119,7 +119,7 @@ You need to add a copy file task to copy the test summary file and Azure Resourc
 
 2. Expand **Control Options**. Select **Even if a previous task has failed, unless the build was canceled** in **Run this task**.
 
-   :::image type="content" source="media/setup-cicd-pipeline/publish-config.png" alt-text="Enter configurations for publish task":::
+   :::image type="content" source="media/set-up-cicd-pipeline/publish-config.png" alt-text="Enter configurations for publish task":::
 
 ## Save and run
 
@@ -129,9 +129,9 @@ Once you have finished adding the npm package, command line, copy files, and pub
 
 The test summary file and Azure Resource Manager Template files can be found in **Published** folder.
 
-   :::image type="content" source="media/setup-cicd-pipeline/check-build-test-result.png" alt-text="Check build and test result":::
+   :::image type="content" source="media/set-up-cicd-pipeline/check-build-test-result.png" alt-text="Check build and test result":::
 
-   :::image type="content" source="media/setup-cicd-pipeline/check-drop-folder.png" alt-text="Check artifacts":::
+   :::image type="content" source="media/set-up-cicd-pipeline/check-drop-folder.png" alt-text="Check artifacts":::
 
 ## Release with Azure Pipelines
 
@@ -145,7 +145,7 @@ Open a web browser and navigate to your Azure Stream Analytics Visual Studio Cod
 
 3. In the **Artifacts** box, select **+ Add an artifact**. Under **Source**, select the build pipeline you created and select **Add**.
 
-   :::image type="content" source="media/setup-cicd-pipeline/build-artifact.png" alt-text="Enter build pipeline artifact":::
+   :::image type="content" source="media/set-up-cicd-pipeline/build-artifact.png" alt-text="Enter build pipeline artifact":::
 
 4. Change the name of **Stage 1** to **Deploy job to test environment**.
 
@@ -191,7 +191,7 @@ Open a web browser and navigate to your Azure Stream Analytics Visual Studio Cod
 
 To create a release, select **Create release** in the top-right corner.
 
-:::image type="content" source="media/setup-cicd-pipeline/create-release.png" alt-text="Create a release using Azure Pipelines":::
+:::image type="content" source="media/set-up-cicd-pipeline/create-release.png" alt-text="Create a release using Azure Pipelines":::
 
 ## Next Steps
 
