@@ -107,7 +107,7 @@ Use the following instructions to lock a RHEL 7.x VM to a particular minor relea
     ```
 
     >[!NOTE]
-    > The above instruction will lock the RHEL minor release to the current minor release. Enter a specific minor release if you are looking to upgrade and lock to a later minor release that is not the latest. For example, `echo 7.5 > /etc/yum/vars/releasever` will lock your RHEL version to RHEL 7.5
+    > The above instruction will lock the RHEL minor release to the current minor release. Enter a specific minor release if you are looking to upgrade and lock to a later minor release that is not the latest. For example, `echo 7.5 > /etc/yum/vars/releasever` will lock your RHEL version to RHEL 7.5.
 
 1. Update your RHEL VM
     ```bash
@@ -141,10 +141,10 @@ Use the following instructions to lock a RHEL 8.x VM to a particular minor relea
     ```
 
     >[!NOTE]
-    > The above instruction will lock the RHEL minor release to the current minor release. Enter a specific minor release if you are looking to upgrade and lock to a later minor release that is not the latest. For example, `echo 8.1 > /etc/yum/vars/releasever` will lock your RHEL version to RHEL 8.1
+    > The above instruction will lock the RHEL minor release to the current minor release. Enter a specific minor release if you are looking to upgrade and lock to a later minor release that is not the latest. For example, `echo 8.1 > /etc/yum/vars/releasever` will lock your RHEL version to RHEL 8.1.
 
     >[!NOTE]
-    > If there are permission issues to access the releasever, you can edit the file using 'nano /etc/yum/vars/releaseve' and add the image version details and save ('Ctrl+o' then press enter and then 'Ctrl+x')  
+    > If there are permission issues to access the releasever, you can edit the file using 'nano /etc/yum/vars/releaseve' and add the image version details and save ('Ctrl+o' then press enter and then 'Ctrl+x').  
 
 1. Update your RHEL VM
     ```bash
