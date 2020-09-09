@@ -20,7 +20,7 @@ ms.custom: contperfq4, tracking-python
 
 In this article, you learn how to secure training environments with a virtual network in Azure Machine Learning.
 
-This article is part three of a five-part series that walks you through securing a virtual network. We highly recommend that you read through [Part one: VNet overview](how-to-network-security-overview.md) to understand the overall architecture first. 
+This article is part three of a five-part series that walks you through securing an Azure Machine Learning workflow. We highly recommend that you read through [Part one: VNet overview](how-to-network-security-overview.md) to understand the overall architecture first. 
 
 See the other articles in this series:
 

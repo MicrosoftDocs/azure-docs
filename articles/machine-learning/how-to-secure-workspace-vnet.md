@@ -17,10 +17,10 @@ ms.custom: how-to, contperfq4, tracking-python
 # Secure an Azure Machine Learning workspace with virtual networks
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-In this article, you learn how to secure an Azure Machine Learning workspace and its associated resouces in a virtual network.
+In this article, you learn how to secure an Azure Machine Learning workspace and its associated resources in a virtual network.
 
 
-This article is part two of a five-part series that walks you through securing a virtual network. We highly recommend that you read through [Part one: VNet overview](how-to-network-security-overview.md) to understand the overall architecture first. 
+This article is part two of a five-part series that walks you through securing an Azure Machine Learning workflow. We highly recommend that you read through [Part one: VNet overview](how-to-network-security-overview.md) to understand the overall architecture first. 
 
 See the other articles in this series:
 
@@ -33,7 +33,6 @@ In this article you learn how to enable the following workspaces resources in a 
 > - Azure Machine Learning datastores and datasets
 > - Azure Key Vault
 > - Azure Container Registry
-> - Azure Container Instances
 
 ## Prerequisites
 
@@ -58,11 +57,12 @@ For more information on setting up a Private Link workspace, see [How to configu
 
 ## Secure Azure storage accounts
 
+In this section, you learn how to secure an Azure storage account using service endpoints. However, you can also use private endpoints to secure Azure storage. For more information, see [Use private endpoints for Azure Storage](../storage/common/storage-private-endpoints.md).
+
 > [!IMPORTANT]
 > You can place the both the _default storage account_ for Azure Machine Learning, or _non-default storage accounts_ in a virtual network.
 >
-> The default storage account is
-> automatically provisioned when you create a workspace.
+> The default storage account is automatically provisioned when you create a workspace.
 >
 > For non-default storage accounts, the `storage_account` parameter in the [`Workspace.create()` function](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) allows you to specify a custom storage account by Azure resource ID.
 
@@ -94,7 +94,7 @@ To use an Azure storage account for the workspace in a virtual network, use the 
 
 ## Secure datastores and datasets
 
-In this section you learn how to use datastore and dataset usage for the SDK experience in a virtual network. For more information on the studio experience, see [Use Azure Machine Learning studio in a virtual network](how-to-enable-studio-virtual-network.md).
+In this section, you learn how to use datastore and dataset usage for the SDK experience in a virtual network. For more information on the studio experience, see [Use Azure Machine Learning studio in a virtual network](how-to-enable-studio-virtual-network.md).
 
 ### Disable data validation
 
@@ -169,9 +169,7 @@ To use Azure Container Registry inside a virtual network, you must meet the foll
 
 * Your Azure Machine Learning workspace must be Enterprise edition. For information on upgrading, see [Upgrade to Enterprise edition](how-to-manage-workspace.md#upgrade).
 
-* Your Azure Machine Learning workspace region should be [privated link enabled region](https://docs.microsoft.com/azure/private-link/private-link-overview#availability). 
-
-* Your Azure Container Registry must be Premium version . For more information on upgrading, see [Changing SKUs](/azure/container-registry/container-registry-skus#changing-skus).
+* Your Azure Container Registry must be Premium version. For more information on upgrading, see [Changing SKUs](/azure/container-registry/container-registry-skus#changing-skus).
 
 * Your Azure Container Registry must be in the same virtual network and subnet as the storage account and compute targets used for training or inference.
 
@@ -267,26 +265,6 @@ Once those requirements are fulfilled, use the following steps to enable Azure C
     ]
     }
     ```
-
-
-## Enable Azure Container Instances (ACI)
-
-Azure Container Instances are dynamically created when deploying a model. To enable Azure Machine Learning to create ACI inside the virtual network, you must enable __subnet delegation__ for the subnet used by the deployment.
-
-> [!WARNING]
-> When using Azure Container Instances in a virtual network, the virtual network must be in the same resource group as your Azure Machine Learning workspace.
->
-> When using Azure Container Instances inside the virtual network, the Azure Container Registry (ACR) for your workspace cannot also be in the virtual network.
-
-To use ACI in a virtual network to your workspace, use the following steps:
-
-1. To enable subnet delegation on your virtual network, use the information in the [Add or remove a subnet delegation](../virtual-network/manage-subnet-delegation.md) article. You can enable delegation when creating a virtual network, or add it to an existing network.
-
-    > [!IMPORTANT]
-    > When enabling delegation, use `Microsoft.ContainerInstance/containerGroups` as the __Delegate subnet to service__ value.
-
-2. Deploy the model using [AciWebservice.deploy_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice?view=azure-ml-py#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none--vnet-name-none--subnet-name-none-), use the `vnet_name` and `subnet_name` parameters. Set these parameters to the virtual network name and subnet where you enabled delegation.
-
 
 ## Next steps
 

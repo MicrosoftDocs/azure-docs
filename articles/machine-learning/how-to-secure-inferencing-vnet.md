@@ -20,7 +20,7 @@ ms.custom: contperfq4, tracking-python
 
 In this article, you learn how to secure inferencing environments with a virtual network in Azure Machine Learning.
 
-This article is part four of a five-part series that walks you through securing a virtual network. We highly recommend that you read through [Part one: VNet overview](how-to-network-security-overview.md) to understand the overall architecture first. 
+This article is part four of a five-part series that walks you through securing an Azure Machine Learning workflow. We highly recommend that you read through [Part one: VNet overview](how-to-network-security-overview.md) to understand the overall architecture first. 
 
 See the other articles in this series:
 
@@ -30,6 +30,7 @@ In this article you learn how to secure the following inferencing resources in a
 > [!div class="checklist"]
 > - Default Azure Kubernetes Service (AKS) cluster
 > - Private AKS cluster
+> - Azure Container Instances (ACI)
 
 
 ## Prerequisites
@@ -107,9 +108,15 @@ When the creation process is completed, you can run inference, or model scoring,
 
 ## Private AKS cluster
 
-By default, a public IP address is assigned to AKS deployments. When using AKS inside a virtual network, you can use a private IP address instead. Private IP addresses are only accessible from inside the virtual network or joined networks.
+By default, AKS clusters have a control plane, or API server, with public IP addresses. You can configure AKS to use a private control plane by creating a private AKS cluster. For more information, see [Create a private Azure Kubernetes Service cluster](../aks/private-clusters.md).
 
-A private IP address is enabled by configuring AKS to use an _internal load balancer_. 
+After you create the private AKS cluster, [attach the cluster to the virtual network](how-to-deploy-azure-kubernetes-service.md#attach-an-existing-aks-cluster) to use with Azure Machine Learning.
+
+## Internal AKS load balancer
+
+By default, AKS deployments use a [public load balancer](../aks/load-balancer-standard.md). In this section, you learn how to configure AKS to use an internal load balancer. An internal (or private) load balancer is used where only private IPs are allowed as frontend. Internal load balancers are used to load balance traffic inside a virtual network
+
+A private load balancer is enabled by configuring AKS to use an _internal load balancer_. 
 
 ### Network contributor role
 
@@ -143,7 +150,7 @@ A private IP address is enabled by configuring AKS to use an _internal load bala
     ```
 For more information on using the internal load balancer with AKS, see [Use internal load balancer with Azure Kubernetes Service](/azure/aks/internal-lb).
 
-### Enable private IP
+### Enable private load balancer
 
 > [!IMPORTANT]
 > You cannot enable private IP when creating the Azure Kubernetes Service cluster. It must be enabled as an update to an existing cluster.
@@ -234,6 +241,25 @@ aks_target.update(update_config)
 # Wait for the operation to complete
 aks_target.wait_for_completion(show_output = True)
 ```
+
+## Enable Azure Container Instances (ACI)
+
+Azure Container Instances are dynamically created when deploying a model. To enable Azure Machine Learning to create ACI inside the virtual network, you must enable __subnet delegation__ for the subnet used by the deployment.
+
+> [!WARNING]
+> When using Azure Container Instances in a virtual network, the virtual network must be in the same resource group as your Azure Machine Learning workspace.
+>
+> When using Azure Container Instances inside the virtual network, the Azure Container Registry (ACR) for your workspace cannot also be in the virtual network.
+
+To use ACI in a virtual network to your workspace, use the following steps:
+
+1. To enable subnet delegation on your virtual network, use the information in the [Add or remove a subnet delegation](../virtual-network/manage-subnet-delegation.md) article. You can enable delegation when creating a virtual network, or add it to an existing network.
+
+    > [!IMPORTANT]
+    > When enabling delegation, use `Microsoft.ContainerInstance/containerGroups` as the __Delegate subnet to service__ value.
+
+2. Deploy the model using [AciWebservice.deploy_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice?view=azure-ml-py#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none--vnet-name-none--subnet-name-none-), use the `vnet_name` and `subnet_name` parameters. Set these parameters to the virtual network name and subnet where you enabled delegation.
+
 
 ## Next steps
 
