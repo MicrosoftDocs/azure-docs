@@ -77,7 +77,7 @@ Below is the schema of the network sessions table, versioned 1.0.0
 | EventSeverity | String | Low | If the activity reported has a security impact, denotes the severity of the impact. | Event |
 | EventOriginalUid | String | af6ae8fe-ff43-4a4c-b537-8635976a2b51 | The record id from the reporting device. | Event |
 | EventStartTime | Date/Time | See “data types” | The time in which the event stated | Event |
-| TimeGenerated | Date/Time | See “data types” | The time the event occurred, as reported by reporting source. | Custom field, Sentinel-specific |
+| TimeGenerated | Date/Time | See “data types” | The time the event occurred, as reported by reporting source. | Custom field |
 | EventTimeIngested | Date/Time | See “data types” | The time the event was ingested to Azure Sentinel. Will be added by Azure Sentinel. | Event |
 | EventUid | Guid (String) | 516a64e3-8360-4f1e-a67c-d96b3d52df54 | Unique identifier used by Sentinel to mark a row. | Event |
 | NetworkApplicationProtocol | String | HTTPS | The application layer protocol used by the connection or session. | Network |
@@ -171,8 +171,8 @@ Below is the schema of the network sessions table, versioned 1.0.0
 | UrlCategory | String | Search engines | The defined grouping of a URL (or could be just based on the domain in the URL) related to what it is (i.e.: adult, news, advertising, parked domains, etc.) | url |
 | UrlOriginal | String | https:// contoso.com/fo/?k=v&q=u#f | The HTTP request URL for HTTP/HTTPS network sessions. | Url |
 | UrlHostName | String | contoso.com | The domain part of an HTTP request URL for HTTP/HTTPS network sessions. | Url |
-| ThreatCategory | String | Trojan | The category of a threat identified by a security system such as Web Security Gateway of an IPS and is associated with this network session. | Custom attribute |
-| ThreatId | String | Tr.124 | The ID of a threat identified by a security system such as Web Security Gateway of an IPS and is associated with this network session. | Custom attribute |
-| ThreatName | String | EICAR Test File | The name of the threat or malware identified | Custom attribute |
-| EventAdditionalFields | Dynamic (JSON bag) | {<br>Property1: “val1”,<br>Property2: “val2”<br>} | When no respective column in the schema matches, additional fields can be stored in a JSON bag.<br>For query-time parsing it’s recommended to not use this method as packing data into a JSON will degrade query performance. Instead, it is recommended to promote additional columns.<br>For future ingestion-time parsing scenarios, additional data will of course be collected into this JSON bag column. | Event |
+| ThreatCategory | String | Trojan | The category of a threat identified by a security system such as Web Security Gateway of an IPS and is associated with this network session. | Custom field |
+| ThreatId | String | Tr.124 | The ID of a threat identified by a security system such as Web Security Gateway of an IPS and is associated with this network session. | Custom field |
+| ThreatName | String | EICAR Test File | The name of the threat or malware identified | Custom field |
+| EventAdditionalFields | Dynamic (JSON bag) | {<br>Property1: “val1”,<br>Property2: “val2”<br>} | When no respective column in the schema matches, additional fields can be stored in a JSON bag.<br>For query-time parsing it’s recommended to not use this method as packing data into a JSON will degrade query performance. Instead, it is recommended to promote additional columns.<br>For future ingestion-time parsing scenarios, additional data will of course be collected into this JSON bag column. | Custom field |
 | 
