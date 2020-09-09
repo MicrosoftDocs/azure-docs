@@ -27,7 +27,7 @@ See the [example route file](#example-route-file) for details.
 
 The _routes.json_ file must exist at the root of app's build artifact folder. If your web app includes a build step that copies built files from a specific folder to your build artifact folder, then the _routes.json_ file needs to exist in that specific folder.
 
-The following table lists the appropriate location to put your _routes.json_ file for a number of front-end JavaScript frameworks and libraries.
+The following table lists the appropriate location to put your _routes.json_ file for a number of front-end frameworks and libraries.
 
 |Framework / library | Location  |
 |---------|----------|
