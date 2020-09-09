@@ -139,11 +139,11 @@ You can also store service principal key in Azure Key Vault.
 
 ```json
 {
-    "name": "AzureBlobStorageLinkedService",
+    "name": "AzureDataLakeStorageGen2LinkedService",
     "properties": {
-        "type": "AzureBlobStorage",
-        "typeProperties": {            
-            "serviceEndpoint": "https://<accountName>.blob.core.windows.net/",
+        "type": "AzureBlobFS",
+        "typeProperties": {
+            "url": "https://<accountname>.dfs.core.windows.net", 
             "servicePrincipalId": "<service principal id>",
             "servicePrincipalCredentialType": "ServicePrincipalKey",
             "servicePrincipalCredential": {
@@ -163,11 +163,11 @@ You can also store service principal key in Azure Key Vault.
 **Example: using service principal certificate authentication**
 ```json
 {
-    "name": "AzureBlobStorageLinkedService",
+    "name": "AzureDataLakeStorageGen2LinkedService",
     "properties": {
-        "type": "AzureBlobStorage",
-        "typeProperties": {            
-            "serviceEndpoint": "https://<accountName>.blob.core.windows.net/",
+        "type": "AzureBlobFS",
+        "typeProperties": {
+            "url": "https://<accountname>.dfs.core.windows.net", 
             "servicePrincipalId": "<service principal id>",
             "servicePrincipalCredentialType": "ServicePrincipalCert",
             "servicePrincipalCredential": { 
