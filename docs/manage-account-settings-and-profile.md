@@ -18,7 +18,7 @@ If you have not already done so, you (or your organization's administrator) shou
 
 To access your account settings in Partner Center, select the gear icon (near the upper right corner of the dashboard) and then select **Account settings**. 
 
-On the **Organization profile** -> **Legal** -> **Developer tab** page, you can view your:
+On the **Organization profile** -> **Legal** -> **Developer** tab, you can view your:
 - Account details, including account type and account status
 - Publisher IDs, including Seller ID, User ID, and Azure AD tenants
 - Contact info, including Publisher display name, Seller contact name, email, phone, and address
