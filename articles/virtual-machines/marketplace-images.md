@@ -9,7 +9,7 @@ ms.workload: infrastructure
 ms.date: 07/07/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-
+ 
 ---
 
 # Supply Azure Marketplace purchase plan information when creating images
