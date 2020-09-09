@@ -28,7 +28,7 @@ You can copy or back up your deployed Azure Stream Analytics jobs using Visual S
 
 2. To export a job to a local project, locate the job you wish to export in the **Stream Analytics Explorer** in Visual Studio Code. Then select a folder for your project.
 
-    ![Export ASA job in Visual Studio Code](./media/vscode-explore-jobs/export-job.png)
+    ![Locate ASA job in Visual Studio Code](./media/vscode-explore-jobs/export-job.png)
 
     The project is exported to the folder you select and added to your current workspace.
 
