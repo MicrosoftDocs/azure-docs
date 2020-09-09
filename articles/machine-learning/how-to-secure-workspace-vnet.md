@@ -96,6 +96,8 @@ To use an Azure storage account for the workspace in a virtual network, use the 
 
 In this section, you learn how to use datastore and dataset usage for the SDK experience in a virtual network. For more information on the studio experience, see [Use Azure Machine Learning studio in a virtual network](how-to-enable-studio-virtual-network.md).
 
+To access the data using SDK, you must use the authentication method required by the individual service that the data is stored in. For example, if you register a datastore to access Azure Data Lake Store Gen2, you must still use a service principal as documented in [Connect to Azure storage services](how-to-access-data.md#azure-data-lake-storage-generation-2).
+
 ### Disable data validation
 
 By default, Azure Machine Learning performs data validity and credential checks when you attempt to access data using the SDK. If the data is behind a virtual network, Azure Machine Learning can't complete these checks. To avoid this, you must create datastores and datasets that skip validation.
