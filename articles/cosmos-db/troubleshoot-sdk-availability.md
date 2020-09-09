@@ -18,6 +18,7 @@ All Azure Cosmos SDKs give users the option to customize the regional preference
 * [ConnectionPolicy.PreferredLocations](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.connectionpolicy.preferredlocations) in .NET V2 SDK.
 * [CosmosClientOptions.ApplicationRegion](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.applicationregion) or [CosmosClientOptions.ApplicationPreferredRegions](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.applicationpreferredregions) in .NET V3 SDK.
 * [CosmosClientBuilder.preferredRegions](https://docs.microsoft.com/java/api/com.azure.cosmos.cosmosclientbuilder.preferredregions) in Java V4 SDK.
+* [CosmosClient.preferred_locations](https://docs.microsoft.com/python/api/azure-cosmos/azure.cosmos.cosmos_client.cosmosclient) in Python SDK.
 
 For single-master accounts, all write operations will always go to the write region, so the preference list applies for read operations. For multi-master accounts, the preference list affects read and write operations.
 
