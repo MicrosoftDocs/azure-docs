@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/29/2020
+ms.date: 09/08/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common
@@ -88,7 +88,9 @@ When you are confident that traffic from clients using older versions of TLS is 
 To configure the minimum TLS version for a storage account, set the **MinimumTlsVersion** version for the account. This property is available for all storage accounts that are created with the Azure Resource Manager deployment model. For more information about the Azure Resource Manager deployment model, see [Storage account overview](storage-account-overview.md).
 
 > [!NOTE]
-> The **minimumTlsVersion** property is not set by default and does not return a value until you explicitly set it. The storage account permits requests sent with TLS version 1.0 or greater if the property value is **null**.
+> The **MinimumTlsVersion** property is not set by default and does not return a value until you explicitly set it. The storage account permits requests sent with TLS version 1.0 or greater if the property value is **null**.
+>
+> The **MinimumTlsVersion** property is currently available only for storage accounts in the Azure public cloud.
 
 # [Portal](#tab/portal)
 

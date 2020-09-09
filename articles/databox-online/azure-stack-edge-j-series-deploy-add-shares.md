@@ -11,7 +11,7 @@ ms.date: 08/28/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to add and connect to shares on Azure Stack Edge so I can use it to transfer data to Azure.
 ---
-# Tutorial: Transfer data via shares with Azure Stack Edge
+# Tutorial: Transfer data via shares with Azure Stack Edge GPU
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 

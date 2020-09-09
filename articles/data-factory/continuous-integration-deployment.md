@@ -10,7 +10,7 @@ ms.author: daperlov
 ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
-ms.date: 04/30/2020
+ms.date: 08/31/2020
 ---
 
 # Continuous integration and delivery in Azure Data Factory
@@ -330,6 +330,16 @@ Below is the current default parameterization template. If you need to add only 
 
 ```json
 {
+    "Microsoft.DataFactory/factories": {
+        "properties": {
+            "globalParameters": {
+                "*": {
+                    "value": "="
+                }
+            }
+        },
+        "location": "="
+    },
     "Microsoft.DataFactory/factories/pipelines": {
     },
     "Microsoft.DataFactory/factories/dataflows": {
@@ -385,7 +395,6 @@ Below is the current default parameterization template. If you need to add only 
             "typeProperties": {
                 "scope": "="
             }
-
         }
     },
     "Microsoft.DataFactory/factories/linkedServices": {
@@ -422,7 +431,8 @@ Below is the current default parameterization template. If you need to add only 
                     "aadResourceId": "=",
                     "sasUri": "|:-sasUri:secureString",
                     "sasToken": "|",
-                    "connectionString": "|:-connectionString:secureString"
+                    "connectionString": "|:-connectionString:secureString",
+                    "hostKeyFingerprint": "="
                 }
             }
         },
@@ -445,8 +455,8 @@ Below is the current default parameterization template. If you need to add only 
                     "fileName": "="
                 }
             }
-        }}
-}
+        }
+    }
 ```
 
 ### Example: parameterizing an existing Azure Databricks interactive cluster ID
@@ -455,6 +465,16 @@ The following example shows how to add a single value to the default parameteriz
 
 ```json
 {
+    "Microsoft.DataFactory/factories": {
+        "properties": {
+            "globalParameters": {
+                "*": {
+                    "value": "="
+                }
+            }
+        },
+        "location": "="
+    },
     "Microsoft.DataFactory/factories/pipelines": {
     },
     "Microsoft.DataFactory/factories/dataflows": {
@@ -613,6 +633,8 @@ If you're using Git integration with your data factory and have a CI/CD pipeline
 -   **Integration runtimes and sharing**. Integration runtimes don't change often and are similar across all stages in your CI/CD. So Data Factory expects you to have the same name and type of integration runtime across all stages of CI/CD. If you want to share integration runtimes across all stages, consider using a ternary factory just to contain the shared integration runtimes. You can use this shared factory in all of your environments as a linked integration runtime type.
 
 -   **Key Vault**. When you use linked services whose connection information is stored in Azure Key Vault, it is recommended to keep separate key vaults for different environments. You can also configure separate permission levels for each key vault. For example, you might not want your team members to have permissions to production secrets. If you follow this approach, we recommend that you to keep the same secret names across all stages. If you keep the same secret names, you don't need to parameterize each connection string across CI/CD environments because the only thing that changes is the key vault name, which is a separate parameter.
+
+-  **Resource naming** Do to ARM template constraint, issues in deployment may arise if your resources contain spaces in the name. The Azure Data Factory team recommends using '_' or '-' characters instead of spaces for resources. For example, 'Pipeline_1' would be a preferable name over 'Pipeline 1'.
 
 ## Unsupported features
 

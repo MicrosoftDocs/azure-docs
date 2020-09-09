@@ -29,7 +29,7 @@ When creating a data factory, a managed identity can be created along with facto
 Managed identity for Data Factory benefits the following features:
 
 - [Store credential in Azure Key Vault](store-credentials-in-key-vault.md), in which case data factory managed identity is used for Azure Key Vault authentication.
-- Connectors including [Azure Blob storage](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure SQL Database](connector-azure-sql-database.md), and [Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md).
+- Connectors including [Azure Blob storage](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure SQL Database](connector-azure-sql-database.md), and [Azure Synapse Analytics (formerly SQL Data Warehouse)](connector-azure-sql-data-warehouse.md).
 - [Web activity](control-flow-web-activity.md).
 
 ## Generate managed identity

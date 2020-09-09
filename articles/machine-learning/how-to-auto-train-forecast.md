@@ -15,7 +15,7 @@ ms.date: 08/20/2020
 # Auto-train a time-series forecast model
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-In this article, you learn how to configure and train a time-series forecasting regression model using automated machine learning, AutoML, in the [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py). 
+In this article, you learn how to configure and train a time-series forecasting regression model using automated machine learning, AutoML, in the [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py&preserve-view=true). 
 
 For a low code experience, see the [Tutorial: Forecast demand with automated machine learning](tutorial-automated-ml-forecast.md) for a time-series forecasting example using automated machine learning in the [Azure Machine Learning studio](https://ml.azure.com/).
 
@@ -88,12 +88,7 @@ test_labels = test_data.pop(label).values
 ```
 
 > [!IMPORTANT]
-> When training a model for forecasting future values, ensure all the features used in
-> training can be used when running predictions for your intended horizon. For example, when
-> creating a demand forecast, including a feature for current stock price could massively
-> increase training accuracy. However, if you intend to forecast with a long horizon, you may
-> not be able to accurately predict future stock values corresponding to future time-series
-> points, and model accuracy could suffer.
+> When training a model for forecasting future values, ensure all the features used in training can be used when running predictions for your intended horizon. <br> <br>For example, when creating a demand forecast, including a feature for current stock price could massively increase training accuracy. However, if you intend to forecast with a long horizon, you may not be able to accurately predict future stock values corresponding to future time-series points, and model accuracy could suffer.
 
 <a name="config"></a>
 
@@ -101,11 +96,11 @@ test_labels = test_data.pop(label).values
 
 You can specify separate train and validation sets directly in the `AutoMLConfig` object.   Learn more about the [AutoMLConfig](#configure-experiment).
 
-For time series forecasting, **Rolling Origin Cross Validation (ROCV)** is automatically used when you pass the training and validation data together, and set the number of cross validation folds with the `n_cross_validations` parameter in your `AutoMLConfig`. ROCV divides the series into training and validation data using an origin time point. Sliding the origin in time generates the cross-validation folds. This strategy preserves the time series data integrity and eliminates the risk of data leakage
+For time series forecasting, only **Rolling Origin Cross Validation (ROCV)** is  used for validation by default. Pass the training and validation data together, and set the number of cross validation folds with the `n_cross_validations` parameter in your `AutoMLConfig`. ROCV divides the series into training and validation data using an origin time point. Sliding the origin in time generates the cross-validation folds. This strategy preserves the time series data integrity and eliminates the risk of data leakage
 
 ![alt text](./media/how-to-auto-train-forecast/ROCV.svg)
 
-For other cross validation and data split options, see [Configure data splits and cross-validation in AutoML](how-to-configure-cross-validation-data-splits.md).
+You can also bring your own validation data, learn more in [Configure data splits and cross-validation in AutoML](how-to-configure-cross-validation-data-splits.md#provide-validation-data).
 
 
 ```python
@@ -118,7 +113,7 @@ automl_config = AutoMLConfig(task='forecasting',
 Learn more about how AutoML applies cross validation to [prevent over-fitting models](concept-manage-ml-pitfalls.md#prevent-over-fitting).
 
 ## Configure experiment
-The [`AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py) object defines the settings and data necessary for an automated machine learning task. Configuration for a forecasting model is similar to the setup of a standard regression model, but certain featurization steps and configuration options exist specifically for time-series data. 
+The [`AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py&preserve-view=true) object defines the settings and data necessary for an automated machine learning task. Configuration for a forecasting model is similar to the setup of a standard regression model, but certain featurization steps and configuration options exist specifically for time-series data. 
 
 ### Featurization steps
 
@@ -166,13 +161,13 @@ featurization_config.add_transformer_params('Imputer', ['Quantity'], {"strategy"
 featurization_config.add_transformer_params('Imputer', ['INCOME'], {"strategy": "median"})
 ```
 
-If you're using the Azure Machine Learning studio for your experiment, see the [how-to article](how-to-use-automated-ml-for-ml-models.md#customize-featurization).
+If you're using the Azure Machine Learning studio for your experiment, see [how to customize featurization in the studio](how-to-use-automated-ml-for-ml-models.md#customize-featurization).
 
 ### Configuration settings
 
 Similar to a regression problem, you define standard training parameters like task type, number of iterations, training data, and number of cross-validations. For forecasting tasks, there are additional parameters that must be set that affect the experiment. 
 
-The following table summarizes these additional parameters. See the [reference documentation](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py) for syntax design patterns.
+The following table summarizes these additional parameters. See the [reference documentation](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py&preserve-view=true) for syntax design patterns.
 
 | Parameter&nbsp;name | Description | Required |
 |-------|-------|-------|
@@ -340,5 +335,8 @@ See the [forecasting sample notebooks](https://github.com/Azure/MachineLearningN
 
 ## Next steps
 
-* Follow the [tutorial](tutorial-auto-train-models.md) to learn how to create experiments with automated machine learning.
-* View the [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) reference documentation.
+* Learn more about [how and where to deploy a model](how-to-deploy-and-where.md).
+* Learn about [Interpretability: model explanations in automated machine learning (preview)](how-to-machine-learning-interpretability-automl.md). 
+* Learn how to train multiple models with AutoML in the [Many Models Solution Accelerator](https://aka.ms/many-models).
+* Follow the [tutorial](tutorial-auto-train-models.md) for an end to end example for creating experiments with automated machine learning.
+

@@ -20,7 +20,9 @@ ms.author: juliako
 
 ---
 
-# Manage streaming endpoints with the Azure portal 
+# Manage streaming endpoints with the Azure portal
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 This article shows  how to use the Azure portal to manage streaming endpoints. 
 

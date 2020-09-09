@@ -33,7 +33,7 @@ In this article, using PowerShell, you learn how to perform the following manage
     > [!NOTE]
     > No additional Azure AD directory role assignments required.
 
-    - [Virtual Machine Contributor](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) to enable and remove system-assigned managed identity from a virtual machine scale set.
+    - [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) to enable and remove system-assigned managed identity from a virtual machine scale set.
 
 ## System-assigned managed identity
 

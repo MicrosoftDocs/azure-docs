@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.date: 08/27/2020
 ms.author: alkohli
 ---
-# Kubernetes storage management on your Azure Stack Edge device
+# Kubernetes storage management on your Azure Stack Edge GPU device
 
 On your Azure Stack Edge device, a Kubernetes cluster is created when you configure compute role. Once the Kubernetes cluster is created, then containerized applications can be deployed on the Kubernetes cluster in pods. There are distinct ways to provide storage to pods in your Kubernetes cluster. 
 
