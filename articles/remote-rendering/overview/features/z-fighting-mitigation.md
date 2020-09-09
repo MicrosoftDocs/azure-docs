@@ -16,9 +16,9 @@ When two surfaces overlap, it is not clear which one should be rendered on top o
 
 |Situation                        | Result                               |
 |---------------------------------|:-------------------------------------|
-|Regular z-fighting               |![Z-fighting](./media/zfighting-0.png)|
-|Z-fighting mitigation enabled    |![Z-fighting](./media/zfighting-1.png)|
-|Checkerboard highlighting enabled|![Z-fighting](./media/zfighting-2.png)|
+|Regular z-fighting               |![No deterministic precedence between red and green quads](./media/zfighting-0.png)|
+|Z-fighting mitigation enabled    |![Red quad has precedence](./media/zfighting-1.png)|
+|Checkerboard highlighting enabled|![Red and green quad toggle preference in checkerboard pattern](./media/zfighting-2.png)|
 
 The following code enables z-fighting mitigation:
 

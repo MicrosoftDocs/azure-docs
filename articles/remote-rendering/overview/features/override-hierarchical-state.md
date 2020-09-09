@@ -26,18 +26,18 @@ The fixed set of states that can be overridden are:
 * **`Hidden`**: Respective meshes in the scene graph are hidden or shown.
 * **`Tint color`**: A rendered object can be color-tinted with its individual tint color and tint weight. The image below shows color tinting the rim of a wheel.
   
-  ![Color Tint](./media/color-tint.png)
+  ![Tint color used to turn an object green](./media/color-tint.png)
 
 * **`See-through`**: The geometry is rendered semi-transparently, for example to reveal the inner parts of an object. The following image shows the entire car being rendered in see-through mode, except for the red brake caliper:
 
-  ![See-Through](./media/see-through.png)
+  ![See-through mode used to make selected objects transparent](./media/see-through.png)
 
   > [!IMPORTANT]
   > The see-through effect only works when the *TileBasedComposition* [rendering mode](../../concepts/rendering-modes.md) is used.
 
 * **`Selected`**: The geometry is rendered with a [selection outline](outlines.md).
 
-  ![Selection Outline](./media/selection-outline.png)
+  ![Outline option used to highlight a selected part](./media/selection-outline.png)
 
 * **`DisableCollision`**: The geometry is exempt from [spatial queries](spatial-queries.md). The **`Hidden`** flag doesn't affect the collision state flag, so these two flags are often set together.
 
