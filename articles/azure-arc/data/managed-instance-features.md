@@ -24,14 +24,14 @@ Azure Arc enabled SQL Managed Instance share a common code base with the latest 
 
 ## Features of Azure Arc enabled SQL Managed Instance
 
-###  <a name="RDBMSHA"></a> RDBMS high availability  
+###  <a name="RDBMSHA"></a> RDBMS High Availability  
   
 |Feature|Azure Arc enabled SQL Managed Instance|
 |-------------|----------------|
 |Log shipping|Yes| 
 |Backup compression|Yes|
 |Database snapshot|Yes|
-|Always On failover cluster instance<sup>1</sup>| N/A. Equal is possible with Pod and storage class/remote storage.|
+|Always On failover cluster instance<sup>1</sup>| Not Applicable. Similar capabilities available |
 |Always On availability groups<sup>2</sup>|HA capabilities are planned.|
 |Basic availability groups <sup>2</sup>|HA capabilities are planned.|
 |Minimum replica commit availability group <sup>2</sup>|HA capabilities are planned.|
@@ -46,11 +46,11 @@ Azure Arc enabled SQL Managed Instance share a common code base with the latest 
 |Encrypted backup|Yes|
 |Hybrid backup to Azure (backup to URL)|Yes|
 
-<sup>1</sup> Note on FCI 
+<sup>1</sup> In the scenario where there is pod failure, a new SQL Managed Instance will start up and re-attach to the persistent volume containing your data. [Learn more about Kubernetes persistent volumes here](https://kubernetes.io/docs/concepts/storage/persistent-volumes).
 
 <sup>2</sup> Future releases will provide AG capabilities 
 
-###  <a name="RDBMSSP"></a> RDBMS scalability and performance  
+###  <a name="RDBMSSP"></a> RDBMS Scalability and Performance  
 
 |Feature|Azure Arc enabled SQL Managed Instance|
 |-------------|----------------|
@@ -72,7 +72,7 @@ Azure Arc enabled SQL Managed Instance share a common code base with the latest 
 |Interleaved Execution for Multi-Statement Table Valued Functions|	Yes|
 |Bulk insert improvements	|Yes|
 
-###  <a name="RDBMSS"></a> RDBMS security  
+###  <a name="RDBMSS"></a> RDBMS Security  
 |Feature|Azure Arc enabled SQL Managed Instance|
 |-------------|----------------|
 |Row-level security|	Yes|
@@ -86,7 +86,7 @@ Azure Arc enabled SQL Managed Instance share a common code base with the latest 
 |Contained databases|	Yes|
 |Encryption for backups|	Yes|
 
-###  <a name="RDBMSM"></a> RDBMS manageability  
+###  <a name="RDBMSM"></a> RDBMS Manageability  
 
 |Feature|Azure Arc enabled SQL Managed Instance|
 |-------------|----------------|
@@ -143,11 +143,10 @@ Azure Arc enabled SQL Managed Instance support various data tools that can help 
 | [SQL Server PowerShell](/sql/relational-databases/scripting/sql-server-powershell) | Yes |
 | [SQL Server Profiler](/sql/tools/sql-server-profiler/sql-server-profiler) | Yes |
 
-<sup>1</sup> Read-only
+<sup>1</sup> The Azure portal is only used to view Azure Arc enabled SQL Managed Instances in read-only mode during preview.
 
 
-
-### <a name="Unsupported"></a> Unsupported features & services
+### <a name="Unsupported"></a> Unsupported Features & Services
 
 The following features and services are not available for Azure Arc enabled SQL Managed Instance. The support of these features will be increasingly enabled over time.
 
