@@ -29,7 +29,7 @@
             href: create-first-function-vs-code-powershell.md
           - name: Python
             href: create-first-function-vs-code-python.md
-          - name: Typescript
+          - name: TypeScript
             href: create-first-function-vs-code-typescript.md
         - name: Visual Studio
           href: functions-create-your-first-function-visual-studio.md
