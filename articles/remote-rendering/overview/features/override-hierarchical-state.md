@@ -41,7 +41,7 @@ The fixed set of states that can be overridden are:
 
 * **`DisableCollision`**: The geometry is exempt from [spatial queries](spatial-queries.md). The **`Hidden`** flag doesn't affect the collision state flag, so these two flags are often set together.
 
-* **`UseCutPlaneFilterMask`**: Use an individual filter bit mask to control the cut plane selection. This flag determines whether the the individual filter mask should be used or inherited from parent. The filter bit mask itself is set via the `CutPlaneFilterMask` property. For more information about how the filtering works, refer to the [Selective cut planes paragraph](cut-planes.md#selective-cut-planes).
+* **`UseCutPlaneFilterMask`**: Use an individual filter bit mask to control the cut plane selection. This flag determines whether the individual filter mask should be used or inherited from its parent. The filter bit mask itself is set via the `CutPlaneFilterMask` property. For detailed information about how the filtering works, refer to the [Selective cut planes paragraph](cut-planes.md#selective-cut-planes).
 ![Selective cut planes](./media/selective-cutplanes.png)
 
 

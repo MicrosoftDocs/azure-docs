@@ -61,28 +61,27 @@ It is possible to configure individual cut planes so that they only affect speci
 
 ![Selective cut planes](./media/selective-cutplanes.png)
 
-The filtering works through **logical bit mask comparison** between a bit mask on the cut plane side and a second bit mask that is set on the geometry. If the result of a logical AND operation between the masks is not zero, the cut plane will affect the geometry.
+The filtering works through **logical bit mask comparison** between a bit mask on the cut plane side and a second bit mask that is set on the geometry. If the result of a logical `AND` operation between the masks is not zero, the cut plane will affect the geometry.
 
 * The bit mask on the cut plane component is set via its `ObjectFilterMask` property
 * The bit mask on a sub hierarchy of geometry is set via the [HierarchicalStateOverrideComponent](override-hierarchical-state.md#features)
 
 Examples:
 
-| Cut plane filter mask | Geometry filter mask  | Result of logical AND | Cut plane affects geometry?  |
+| Cut plane filter mask | Geometry filter mask  | Result of logical `AND` | Cut plane affects geometry?  |
 |--------------------|-------------------|-------------------|:----------------------------:|
 | (0000 0001) == 1   | (0000 0001) == 1  | (0000 0001) == 1  | Yes |
 | (1111 0000) == 240 | (0001 0001) == 17 | (0001 0000) == 16 | Yes |
 | (0000 0001) == 1   | (0000 0010) == 2  | (0000 0000) == 0  | No |
 | (0000 0011) == 3   | (0000 1000) == 8  | (0000 0000) == 0  | No |
 
-
 >[!TIP]
-> Setting a cut plane's `ObjectFilterMask` to 0 means it won't affect any geometry because the result of logical AND can never be non-null. The rendering system won't consider those planes in the first place, so this is a lightweight method to disable individual cut planes. These cut planes also do not count against the limit of 8 active planes.
+> Setting a cut plane's `ObjectFilterMask` to 0 means it won't affect any geometry because the result of logical `AND` can never be non-null. The rendering system won't consider those planes in the first place, so this is a lightweight method to disable individual cut planes. These cut planes also don't count against the limit of 8 active planes.
 
 ## Limitations
 
-* Azure Remote Rendering supports a **maximum of eight active cut planes**. You may create more cut plane components, but if you try to enable more simultaneously, it will ignore the activation. Disable other planes first if you want to switch which component should affect the scene.
-* Cut planes are purely a visual feature, they don't affect the outcome of [spatial queries](spatial-queries.md). If you do want to ray cast into a cut-open mesh, you can adjust the starting point of the ray to be on the cut plane. This way the ray can only hit visible parts.
+* Azure Remote Rendering supports a **maximum of eight active cut planes**. You may create more cut plane components, but if you try to enable more simultaneously, it will ignore the activation. Disable other planes first if you want to switch which components should affect the scene.
+* Cut planes are a purely visual feature, they don't affect the outcome of [spatial queries](spatial-queries.md). If you do want to ray cast into a cut-open mesh, you can adjust the starting point of the ray to be on the cut plane. This way the ray can only hit visible parts.
 
 ## Performance considerations
 
