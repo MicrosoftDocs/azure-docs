@@ -50,7 +50,7 @@ You can interact with your workspace in the following ways:
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 + On the web:
-    + [Azure Machine Learning studio ](https://ml.azure.com) 
+    + [Azure Machine Learning studio ](https://ml.azure.com) ?view=azure-ml-py&preserve-view=true)
     + [Azure Machine Learning designer (preview)](concept-designer.md) - Available only in [Enterprise edition](overview-what-is-azure-ml.md#sku) workspaces.
 + In any Python environment with the [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 + In any R environment with the [Azure Machine Learning SDK for R (preview)](https://azure.github.io/azureml-sdk-for-r/reference/index.html).
