@@ -113,7 +113,7 @@ namespace CSharpUDFProject
 
 3. In the C# function configuration, select **Choose library project path** to choose your C# project from the dropdown list and select **Build project** to build your project. Then choose **Select class** and **Select method** to select the related class and method name from the dropdown list. To refer to the methods, types, and functions in the Stream Analytics query, the classes must be defined as *public* and the objects must be defined as *static public*.
 
-   :::image type="content" source="media/stream-analytics-edge-csharp-udf-methods/vs-code-csharp-udf-choose-project.png" alt-text="Stream Analytics C sharp function configuration":::
+   :::image type="content" source="media/stream-analytics-edge-csharp-udf-methods/vs-code-csharp-udf-choose-project.png" alt-text="Stream Analytics C sharp function configuration VS Code":::
 
     If you want to use the C# UDF from a DLL, select **Choose library dll path** to choose the DLL. Then choose **Select class** and **Select method** to select the related class and method name from the dropdown list.
 
