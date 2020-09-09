@@ -116,6 +116,7 @@ This is achieved by translating the leaf properties of the operational data into
 For example, let’s take the following sample document in the transactional store:
 
 ```json
+{
 name: "John Doe",
 age: 32,
 profession: "Doctor",
