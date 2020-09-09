@@ -61,7 +61,7 @@ The `install-updates-schedule-reboots` script accepts two numeric parameters, as
 > You must mark a script as persisted after you apply it to an existing cluster. Otherwise, any new nodes created through scaling operations will use the default patching schedule. If you apply the script as part of the cluster creation process, it's persisted automatically.
 
 > [!NOTE]
-> Scheduled Restart option does an automated rolling restart of the patched cluster nodes over a period of 12-24 hours taking into account high availability , update domain and fault domain considerations. Scheduled Restart does not terminate running workloads but may take away cluster capacity in the interim because of nodes being unavailable, which may lead to longer processing times. 
+> The Scheduled Restart option does an automated rolling restart of the patched cluster nodes over a period of 12 to 24 hours and takes into account high availability, update domain, and fault domain considerations. Scheduled Restart does not terminate running workloads but may take away cluster capacity in the interim when nodes are unavailable, leading to longer processing times. 
 
 ## Next steps
 
