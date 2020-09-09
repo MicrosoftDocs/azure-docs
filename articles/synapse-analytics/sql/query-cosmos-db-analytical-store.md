@@ -1,6 +1,6 @@
 ---
-title: Query Azure Cosmos DB analytical storage using Synapse SQL on-demand (preview)
-description: In this article, you'll learn how to query Azure Cosmos DB analytical store using Synapse SQL Link for Azure Cosmos DB and SQL on-demand (preview).
+title: Query Azure Cosmos DB data using SQL on-demand in Azure Synapse Link (preview)
+description: In this article, you'll learn how to query Azure Cosmos DB using SQL on-demand in Azure Synapse Link (preview).
 services: synapse analytics
 author: jovanpop-msft
 ms.service: synapse-analytics
@@ -11,23 +11,23 @@ ms.author: jovanpop
 ms.reviewer: jrasnick
 ---
 
-# Query Azure Cosmos DB data using SQL on-demand with Azure Synapse Link (preview)
+# Query Azure Cosmos DB data using SQL on-demand in Azure Synapse Link (preview)
 
-SQL on-demand (preview) allows you to analyze data in your Azure Cosmos DB containers that are enabled with [Azure Synapse Link](/azure/cosmos-db/synapse-link?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) in near real-time without impacting the performance of your transactional workloads. It offers a familiar T-SQL syntax to query data from the [analytical store](../cosmos-db/analytical-store-introduction.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) and an integrated connectivity to a wide range of BI and ad-hoc querying tools via the T-SQL interface. 
+SQL on-demand (preview) allows you to analyze data in your Azure Cosmos DB containers that are enabled with [Azure Synapse Link](../../cosmos-db/synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) in near real-time without impacting the performance of your transactional workloads. It offers a familiar T-SQL syntax to query data from the [analytical store](../../cosmos-db/analytical-store-introduction.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) and integrated connectivity to a wide range of BI and ad-hoc querying tools via the T-SQL interface. 
 
 > [!NOTE]
 > SQL on-demand does not support querying Azure Cosmos DB transactional store.
 
-For querying Azure Cosmos DB, the full [SELECT](/sql/t-sql/queries/select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) surface area is supported through [OPENROWSET](develop-openrowset.md) function, including majority of [SQL functions and operators](overview-features.md). You can also store results of the query that reads data from Azure Cosmos DB along with data in Azure Blob Storage or Azure Data Lake Storage using [create external table as select](develop-tables-cetas#cetas-in-sql-on-demand).
+For querying Azure Cosmos DB, the full [SELECT](./sql/t-sql/queries/select-transact-sql.md?view=sql-server-ver15) surface area is supported through [OPENROWSET](develop-openrowset.md) function, including majority of [SQL functions and operators](overview-features.md). You can also store results of the query that reads data from Azure Cosmos DB along with data in Azure Blob Storage or Azure Data Lake Storage using [create external table as select](develop-tables-cetas#cetas-in-sql-on-demand).
 
 > [!NOTE]
-> Storing SQL on-demand query results to Azure Cosmos DB using using [CETAS](develop-tables-cetas#cetas-in-sql-on-demand) is currently not supported.
+> You can't currently store SQL on-demand query results to Azure Cosmos DB using [CETAS](develop-tables-cetas.md#cetas-in-sql-on-demand).
 
 ## Overview
 
 To support querying and analyzing data in Azure Cosmos DB analytical store, SQL on-demand uses the following `OPENROWSET` syntax:
 
-```syntaxsql
+```sql
 OPENROWSET( 
        'CosmosDB',
        '<Azure Cosmos DB connection string>',
@@ -35,14 +35,14 @@ OPENROWSET(
     )  [ < with clause > ]
 ```
 
-The Azure Cosmos DB connection string specifies the Azure Cosmos DB account name, database name, database account master key, and optional region name to `OPENROWSET` function and follows the pattern of:
-```syntaxsql
+The Azure Cosmos DB connection string specifies the Azure Cosmos DB account name, database name, database account master key, and an optional region name to `OPENROWSET` function. The connection string has the following format:
+```sql
 'account=<database account name>;database=<database name>;region=<region name>;key=<database account master key>'
 ```
 
-If the Azure Cosmos DB container name has any special characters (e.g., a dash '-'), it should in box brackets in the `OPENROWSET` syntax.
+If the Azure Cosmos DB container name has any special characters (e.g., a dash '-'), the name should be wrapped within the `[]` (square brackets) in the `OPENROWSET` syntax.
 
-In this article, you'll learn how to write a query using SQL on-demand (preview) that will query data from Azure Cosmos DB containers that are Synapse Link enabled. You can then learn more about building SQL on-demand views over Azure Cosmos DB containers and connecting them to Power BI models in [this](../tutorial/TODO) tutorial. 
+In this article, you'll learn how to write a query using SQL on-demand (preview) that will query data from Azure Cosmos DB containers that are Synapse Link enabled. You can then learn more about building SQL on-demand views over Azure Cosmos DB containers and connecting them to Power BI models in [this](./tutorial-data-analyst.md) tutorial. 
 
 ## Sample data set
 
@@ -50,11 +50,14 @@ The examples in this article are based on data from [European Centre for Disease
 
 You can see the license and the structure of data on these pages, and download sample data for [ECDC](https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/ecdc_cases/latest/ecdc_cases.json) and [Cord19](https://azureopendatastorage.blob.core.windows.net/covid19temp/comm_use_subset/pdf_json/000b7d1517ceebb34e1e3e817695b6de03e2fa78.json) data sets.
 
-It is assumed in the rest of this article that you have created an Azure Cosmos DB database account that is [Synpase Link enabled](../../cosmos-db/configure-synapse-link.md) and have created Azure Cosmos DB containers named `EcdcCases` and `Cord19` (under an Azure Cosmos DB database named `covid`) with above sample data sets loaded.
+To follow along this article showcasing how to query Cosmos DB data with SQL on-demand, make sure that you create the following resources:
+* An Azure Cosmos DB database account that is [Synpase Link enabled](../../cosmos-db/configure-synapse-link.md)
+* An Azure Cosmos DB database named `covid`
+* Two Azure Cosmos DB containers named `EcdcCases` and `Cord19` with above sample data sets loaded.
 
 ## Explore Azure Cosmos DB data with automatic schema inference
 
-The easiest way to explore data in Cosmos DB is by leveraging the automatic schema inference capability. By omittting the WITH clause from the `OPENROWSET` statement, you can instruct SQL on-demand to auto detech (infer) the schema of the analytical store of the Azure Cosmos DB container.
+The easiest way to explore data in Azure Cosmos DB is by leveraging the automatic schema inference capability. By omitting the `WITH` clause from the `OPENROWSET` statement, you can instruct SQL on-demand to auto detech (infer) the schema of the analytical store of the Azure Cosmos DB container.
 
 ```sql
 SELECT TOP 10 *
@@ -112,7 +115,7 @@ Look at the [rules for Cosmos DB to SQL type mappings](#azure-cosmos-db-to-sql-t
 
 ## Querying nested objects and arrays
 
-Azure Cosmos DB allows developers to represent more complex data models by composing them as nested objects or arrays. The auto-sync capability of Synapse Link for Azure Cosmos DB manages the schema representation in the analytical store out-of-the-box which, includes handling nested data types allowing for rich querying from SQL on-demand.
+Azure Cosmos DB allows you to represent more complex data models by composing them as nested objects or arrays. The auto-sync capability of Synapse Link for Azure Cosmos DB manages the schema representation in the analytical store out-of-the-box which, includes handling nested data types allowing for rich querying from SQL on-demand.
 
 For example, the [CORD-19](https://azure.microsoft.com/services/open-datasets/catalog/covid-19-open-research/) data set has JSON documents following the following structure:
 
@@ -251,11 +254,11 @@ choose SQL types that match these JSON types if you are using `WITH` clause in `
 > [!IMPORTANT]
 > Make sure that you have set [UTF8 collation of the database](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-database-collation#to-change-the-database-collation) using some SQL statement like `ALTER DATABASE MyLdw COLLATE LATIN1_GENERAL_100_CI_AS_SC_UTF8`.
 
-For querying Azure Cosmos DB accounts of Mongo DB API kind, you can learn more about the full fidelity schema representation in the analytical store and the extended property names to be used [here](../../cosmos-db/analytical-store-introduction.md#automatically-handle-schema-updates).
+For querying Azure Cosmos DB accounts of Mongo DB API kind, you can learn more about the full fidelity schema representation in the analytical store and the extended property names to be used [here](../../cosmos-db/analytical-store-introduction.md#analytical-schema).
 
 ## Next steps
 
 For more information, see the following articles:
 
 - [How-to create and use views in SQL on-demand](create-use-views.md) 
-- [Tutorial on building SQL on-demand views over Azure Cosmos DB and connecting them to Power BI models via DirectQuery](../tutorial/TODO) 
+- [Tutorial on building SQL on-demand views over Azure Cosmos DB and connecting them to Power BI models via DirectQuery](./tutorial-data-analyst.md)
