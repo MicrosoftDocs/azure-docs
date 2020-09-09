@@ -207,6 +207,8 @@ Extension execution output is logged to the following file:
 | 19 | OMI package installation failure | 
 | 20 | SCX package installation failure |
 | 51 | This extension is not supported on the VM's operation system | |
+| 52 | This extension failed due to a missing dependency | Check the output and logs for more information on which dependency is missing. |
+| 53 | This extension failed due to missing or wrong configuration parameters | Check the output and logs for more information as to what went wrong. Additionally, check the correctness of the workspace ID, and verify the machine is connected to the internet. |
 | 55 | Cannot connect to the Azure Monitor service or required packages missing or dpkg package manager is locked| Check that the system either has Internet access, or that a valid HTTP proxy has been provided. Additionally, check the correctness of the workspace ID, and verify curl and tar utilities are installed. |
 
 Additional troubleshooting information can be found on the [Log Analytics-Agent-for-Linux Troubleshooting Guide](../../azure-monitor/platform/vmext-troubleshoot.md).
