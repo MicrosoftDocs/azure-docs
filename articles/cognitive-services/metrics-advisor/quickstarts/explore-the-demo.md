@@ -19,7 +19,7 @@ ms.author: aahi
 
 Use this article to quickly start exploring the key features in Metrics Advisor. We provide a demo site with sample data and preset configurations, for you to get familiar with the fully featured Web portal.
 
-Click [this link](https://anomaly-detector.azurewebsites.net/) to go to the demo site.
+Click [this link](https://aka.ms/MetricsAdvisor/Demo) to go to the demo site.
 
 ## View the available sample data
 
