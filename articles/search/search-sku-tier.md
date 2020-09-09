@@ -1,5 +1,5 @@
 ---
-title: Choose a tier or SKU 
+title: Choose a pricing tier or SKU 
 titleSuffix: Azure Cognitive Search
 description: 'Azure Cognitive Search can be provisioned in these SKUs: Free, Basic, and Standard, and Standard is available in various resource configurations and capacity levels.'
 

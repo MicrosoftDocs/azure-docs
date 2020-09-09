@@ -21,22 +21,22 @@ When modifying the allocation of replicas and partitions, we recommend using the
 
 ## Concepts: search units, replicas, partitions, shards
 
-Capacity is expressed in *search units* that can be articulated in combinations of *partitions* and *replicas*, using an underlying *sharding* mechanism to support flexible configurations:
+Capacity is expressed in *search units* that can be allocated in combinations of *partitions* and *replicas*, using an underlying *sharding* mechanism to support flexible configurations:
 
 | Concept  | Definition|
 |----------|-----------|
 |*Search unit* | A single increment of total available capacity (36 units). It is also the billing unit for an Azure Cognitive Search service. A minimum of one unit is required to run the service.|
 |*Replica* | Instances of the search service, used primarily to load balance query operations. Each replica hosts one copy of an index. If you allocate three replicas, you'll have three copies of an index available for servicing query requests.|
 |*Partition* | Physical storage and I/O for read/write operations (for example, when rebuilding or refreshing an index). Each partition has a slice of the total index. If you allocate three partitions, your index is divided into thirds. |
-|*Shard* | A chunk of an index. Within a partition, a search service further divides an index into shards to make the process of adding partitions faster (by moving a shard to a new search unit). |
+|*Shard* | A chunk of an index. Azure Cognitive Search divides each index into shards to make the process of adding partitions faster (by moving shards to new search units).|
 
-In the top-left quadrant, the first search unit is a combination of one replica and one partition, resulting in a minimally viable service. An additional unit to the side or below adds a single replica or a single partition. If you want two of each, you will need four search units, as captured in the entirety of the following diagram.
+In the top-left quadrant, the first search unit is a combination of one replica and one partition, the minimum baseline for creating a service. An additional unit to the side or below adds a single replica or a single partition. If you want two of each, you will need four search units, as captured in the entirety of the following diagram.
 
 :::image type="content" source="media/search-capacity-planning/shards.png" alt-text="Search indexes are sharded across partitions.":::
 
 In Cognitive Search, shard management is an implementation detail and non-configurable, but knowing that an index is sharded helps to understand the occasional anomalies in ranking and autocomplete behaviors:
 
-+ Ranking anomalies: Search scores are computed at the shard level first, and then aggregated up into a single result set. Depending on the characteristics of shard content, matches from one shard might be ranked higher than matches in another one. If you notice un-intuitive rankings in search results, it is most likely due to the effects of sharding, especially if indexes are small. You can [override shard-specific rankings](index-similarity-and-scoring.md#scoring-statistics-and-sticky-sessions) by scoping the computation to the entire index, but doing so will incur a slight performance penalty.
++ Ranking anomalies: Search scores are computed at the shard level first, and then aggregated up into a single result set. Depending on the characteristics of shard content, matches from one shard might be ranked higher than matches in another one. If you notice unintuitive rankings in search results, it is most likely due to the effects of sharding, especially if indexes are small. You can avoid these ranking anomalies by choosing to [compute scores globally across the entire index](index-similarity-and-scoring.md#scoring-statistics-and-sticky-sessions), but doing so will incur a performance penalty.
 
 + Autocomplete anomalies: Autocomplete queries, where matches are made on the first several characters of a partially entered term, accept a fuzzy parameter that forgives small deviations in spelling. For autocomplete, fuzzy matching is constrained to terms within the current shard. For example, if a shard contains "Microsoft" and a partial term of "micor" is entered, the search engine will match on "Microsoft" in that shard, but not in other shards that hold the remaining parts of the index.
 
