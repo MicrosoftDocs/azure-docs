@@ -72,7 +72,7 @@ To use Managed Identity for Azure Data Lake Store Gen1 as an output sink, you ne
 
 ## Local run
 
-If your project has specified local input files, you can run a Stream Analytics script locally by using the *localrun* command.
+If your project has specified local input files, you can run a Stream Analytics script locally by using the `localrun` command.
 
 ```powershell
 azure-streamanalytics-cicd localrun -project <projectFullPath> [-outputPath <outputPath>] [-customCodeZipFilePath <zipFilePath>]
@@ -82,7 +82,7 @@ azure-streamanalytics-cicd localrun -project <projectFullPath> [-outputPath <out
 |---|---|
 | -project | The path of the **asaproj.json** file for your Visual Studio Code project or **[Your project name].asaproj** for Visual Studio project. |
 | -outputPath | The path of the output folder. If it is not specified, the output result files will be placed in the current directory. |
-| -customCodeZipFilePath | The path of the zip file for C# custom code (UDF, deserializer, etc) if they are used. Package the DLLs into a zip file and specify this path. |
+| -customCodeZipFilePath | The path of the zip file for C# custom code, such as a UDF or deserializer, if they are used. Package the DLLs into a zip file and specify this path. |
 
 ### VS Code project example
 
@@ -132,8 +132,6 @@ If the test configuration file is empty, the following content is written into t
 
 If you want the test validation to ignore a certain output, set the **Required** field of that expected output to **false**.
 
-### testConfig.json
-
 ```json
 {
   "Script": "",
@@ -163,7 +161,7 @@ If you want the test validation to ignore a certain output, set the **Required**
 
 ### Run a unit test
 
-You can use the following command to run multiple test cases for your project. A summary of test results is gernerated in the output folder. The process exits with code **0** for all tests passed; **-1** for exception occurred; **-2** for tests failed.
+You can use the following command to run multiple test cases for your project. A summary of test results is generated in the output folder. The process exits with code **0** for all tests passed; **-1** for exception occurred; **-2** for tests failed.
 
 ```powershell
 azure-streamanalytics-cicd test -project <projectFullPath> [-testConfigPath <testConfigFileFullPath>] [-outputPath <outputPath>] [-customCodeZipFilePath <zipFilePath>]
@@ -174,11 +172,9 @@ azure-streamanalytics-cicd test -project <projectFullPath> [-testConfigPath <tes
 | -project | The path of the **asaproj.json** file for your Visual Studio Code project or **[Your project name].asaproj** for Visual Studio project. |
 | -testConfigPath | The path to the test configuration file. If it is not specified, the file will be searched in **\test** under the current directory of the **asaproj.json** file, with default file name **testConfig.json**.
 | -outputPath | The path of the test result output folder. If it is not specified, the output result files will be placed in the current directory. |
-| -customCodeZipFilePath | The path of the zip file for custom code (UDF, deserializer, etc) if they are used. |
+| -customCodeZipFilePath | The path of the zip file for custom code such as a UDF or deserializer, if they are used. |
 
 When all tests are finished, a summary of the test results in JSON format is generated in the output folder. The summary file is named **testResultSummary.json**.
-
-### testResultSummary.json
 
 ```json
 {

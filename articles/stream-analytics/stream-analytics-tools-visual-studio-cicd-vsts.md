@@ -25,7 +25,8 @@ In this tutorial, you learn how to:
 > The CI/CD NuGet is being deprecated. For information on how to migrate to the latest npm, see the [Continuous integration and deployment overview](cicd-overview.md)
 
 ## Prerequisites
-Before you start, make sure you have the following:
+
+Before you start, make sure you have done the following steps:
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Install [Visual Studio](stream-analytics-tools-for-visual-studio-install.md) and the **Azure development** or **Data Storage and Processing** workloads.
@@ -119,7 +120,7 @@ Open a web browser and navigate to the project you just created in [Azure DevOps
     |Resource Group  |  Enter a resource group name.   |
     |Template  | [Your solution path]\bin\Debug\Deploy\\[Your project name].JobTemplate.json   |
     |Template parameters  | [Your solution path]\bin\Debug\Deploy\\[Your project name].JobTemplate.parameters.json   |
-    |Override template parameters  | Type the template parameters to override in the textbox. Example, –storageName fabrikam –adminUsername $(vmusername) -adminPassword $(password) –azureKeyVaultName $(fabrikamFibre). This property is optional, but your build will result in errors if key parameters are not overridden.    |
+    |Override template parameters  | Type the template parameters to override in the textbox. Example, `–storageName fabrikam –adminUsername $(vmusername) -adminPassword $(password) –azureKeyVaultName $(fabrikamFibre)`. This property is optional, but your build will result in errors if key parameters are not overridden.    |
     
     ![Set properties for Azure Resource Group Deployment](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-deployment-properties.png)
 
@@ -149,14 +150,14 @@ Pushing the changes to Azure DevOps Services automatically triggers a build.  Wh
 
 ## Clean up resources
 
-When no longer needed, delete the resource group, the streaming job, and all related resources. Deleting the job avoids billing the streaming units consumed by the job. If you're planning to use the job in future, you can stop it and re-start it later when you need. If you are not going to continue to use this job, delete all resources created by this tutorial by using the following steps:
+When no longer needed, delete the resource group, the streaming job, and all related resources. Deleting the job avoids billing the streaming units consumed by the job. If you're planning to use the job in future, you can stop it and restart it later when you need. If you are not going to continue to use this job, delete all resources created by this tutorial by using the following steps:
 
 1. From the left-hand menu in the Azure portal, click **Resource groups** and then click the name of the resource you created.  
 2. On your resource group page, click **Delete**, type the name of the resource to delete in the text box, and then click **Delete**.
 
 ## Next steps
 
-To learn more about using Azure Stream Analytics tools for Visual Studio to set up a continuous integration and deployment process, continue to the set up CI/CD pipeline article:
+To learn more about using Azure Stream Analytics tools for Visual Studio to set up a continuous integration and deployment process, continue to the setup CI/CD pipeline article:
 
 > [!div class="nextstepaction"]
 > [Continuously integrate and develop with Stream Analytics tools](stream-analytics-tools-for-visual-studio-cicd.md)
