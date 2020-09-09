@@ -128,7 +128,7 @@ Otherwise, you'll see a list of your recent automated machine learning experimen
 1. (Optional) View addition configuration settings: additional settings you can use to better control the training job. Otherwise, defaults are applied based on experiment selection and data. 
 
     Additional configurations|Description
-    ------|------
+    ------|------?view=azure-ml-py&preserve-view=true)
     Primary metric| Main metric used for scoring your model. [Learn more about model metrics](how-to-configure-auto-train.md#primary-metric).
     Explain best model | Select to enable or disable, in order to show explainability of the recommended best model.
     Blocked algorithm| Select algorithms you want to exclude from the training job. <br><br> Allowing algorithms is only available for [SDK experiments](how-to-configure-auto-train.md#supported-models). <br> See the [supported models for each task type](https://docs.microsoft.com/python/api/azureml-automl-core/azureml.automl.core.shared.constants.supportedmodels?view=azure-ml-py).
