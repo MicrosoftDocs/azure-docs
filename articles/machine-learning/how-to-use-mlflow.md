@@ -21,7 +21,7 @@ With Azure Machine Learning native support for MLflow you can,
 
 + Track and log experiment metrics and artifacts in your [Azure Machine Learning workspace](https://docs.microsoft.com/azure/machine-learning/concept-azure-machine-learning-architecture#workspaces). If you already use MLflow Tracking for your experiments, the workspace provides a centralized, secure, and scalable location to store training metrics and models.
 
-+ Submit training jobs with MLflow Projects with Azure Machine Learning backend support (preview). You can submit jobs locally with Azure Machine Learning tracking or migrate your runs to the cloud like via an [Azure Machine Learning Compute](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-create-attach-compute-sdk#amlcompute).
++ Submit training jobs with MLflow Projects with Azure Machine Learning backend support (preview). You can submit jobs locally with Azure Machine Learning tracking or migrate your runs to the cloud like via an [Azure Machine Learning Compute](https://docs.microsoft.com/azure/machine-learning/how-to-create-attach-compute-sdk#amlcompute).
 
 + Track and manage models in MLflow and Azure ML model registry.
 
@@ -217,11 +217,11 @@ From here, import your experiment notebook, attach it to your Azure Databricks c
 
 To install libraries on your cluster, navigate to the **Libraries** tab and click **Install New**
 
- ![mlflow with azure machine learning diagram](./media/how-to-use-mlflow/azure-databricks-cluster-libraries.png)
+ ![mlflow with azure databricks](./media/how-to-use-mlflow/azure-databricks-cluster-libraries.png)
 
 In the **Package** field, type azureml-mlflow and then click install. Repeat this step as necessary to install other additional packages to your cluster for your experiment.
 
- ![mlflow with azure machine learning diagram](./media/how-to-use-mlflow/install-libraries.png)
+ ![Azure DB install mlflow library](./media/how-to-use-mlflow/install-libraries.png)
 
 ### Set up your notebook and workspace
 
@@ -317,7 +317,7 @@ To do so,
 
 The following diagram demonstrates that with the MLflow deploy API you can deploy your existing MLflow models as an Azure Machine Learning web service, despite their frameworks--PyTorch, Tensorflow, scikit-learn, ONNX, etc., and manage your production models in your workspace.
 
-![mlflow with azure machine learning diagram](./media/how-to-use-mlflow/mlflow-diagram-deploy.png)
+![ deploy mlflow models with azure machine learning](./media/how-to-use-mlflow/mlflow-diagram-deploy.png)
 
 
 ### Deploy to ACI
