@@ -17,13 +17,19 @@
   items: 
     - name: Python SDK
       expanded: true
-      items: 
-        - name: Create first ML experiment
-          items: 
-            - name: 1. Set up workspace & dev environment
+      items:
+        - name: Get started (day 1)
+          items:
+            - name: "1a. Setup: Use your computer"
+              href: tutorial-1st-experiment-sdk-setup-local.md         
+            - name: "1b. Setup: Use a remote VM"
               href: tutorial-1st-experiment-sdk-setup.md
-            - name: 2. Train your first model
+            - name: 2. Hello Azure
+              href: tutorial-1st-experiment-hello-azure.md
+            - name: 3. Train a model
               href: tutorial-1st-experiment-sdk-train.md
+            - name: 4. Bring your own data
+              href: tutorial-1st-experiment-bring-data.md
         - name: Image classification (MNIST data)
           items: 
             - name: 1. Train a model
