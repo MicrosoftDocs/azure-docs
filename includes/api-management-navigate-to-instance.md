@@ -11,7 +11,7 @@ ms.author: vlvinogr
 
    ![Select API Management services](media/api-management-navigate-to-instance/view-apim1.png)
 
-1. On the **API Management** page, select your API Management instance.
+1. On the **API Management services** page, select your API Management instance.
 
    ![Select your API Management instance](media/api-management-navigate-to-instance/view-apim2.png)
 

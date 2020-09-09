@@ -10,11 +10,11 @@ ms.date: 09/08/2020
 ms.author: apimpm
 ---
 
-# Quickstart: Create a new Azure API Management service instance
+# Quickstart: Create a new Azure API Management service instance by using the Azure portal
 
 Azure API Management (APIM) helps organizations publish APIs to external, partner, and internal developers to unlock the potential of their data and services. API Management provides the core competencies to ensure a successful API program through developer engagement, business insights, analytics, security, and protection. APIM enables you to create and manage modern API gateways for existing backend services hosted anywhere. For more information, see the [Overview](api-management-key-concepts.md).
 
-This quickstart describes the steps for creating a new API Management service using the Azure portal.
+This quickstart describes the steps for creating a new API Management instance using the Azure portal.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -45,7 +45,8 @@ Sign in to the [Azure portal](https://portal.azure.com).
    | **Subscription**          | The subscription under which this new service instance will be created.   |
    | **Resource group**      |  Select a new or existing resource group. A resource group is a logical container into which Azure resources are deployed and managed. |
    | **Location**          | Select a geographic region near you from the available API Management service locations. | 
-   | **Organization name**   | The name of your organization. This name is used in a number of places, including the title of the developer portal and sender of notification emails.                                                               | **Administrator email** | The email address to which all the notifications from **API Management** will be sent.   |  
+   | **Organization name**   | The name of your organization. This name is used in a number of places, including the title of the developer portal and sender of notification emails. |                                                         
+   | **Administrator email** | The email address to which all the notifications from **API Management** will be sent.   |  
    | **Pricing tier**        | Select **Developer** tier to evaluate the service. This tier isn't for production use. For more information about scaling the API Management tiers, see [upgrade and scale](upgrade-and-scale.md). |
 
 3. Select **Create**.
@@ -55,10 +56,11 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 [!INCLUDE [api-management-navigate-to-instance](../../includes/api-management-navigate-to-instance.md)]
 
-:::image type="content" source="media/get-started-create-service-instance/get-started-create-service-instance-created.png" alt-text="API Management instance":::
+1. Review the properties of your service on the overview page.
 
+   :::image type="content" source="media/get-started-create-service-instance/get-started-create-service-instance-created.png" alt-text="API Management instance":::
 
-When your API Management service instance is online, you're ready to use it. Go to the tutorials to [import and publish your first API](import-and-publish.md).
+When your API Management service instance is online, you're ready to use it. Start with the tutorial to [import and publish your first API](import-and-publish.md).
 
 ## Clean up resources
 
