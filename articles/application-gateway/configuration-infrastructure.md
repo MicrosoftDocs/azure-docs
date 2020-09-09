@@ -11,7 +11,7 @@ ms.author: surajmb
 
 # Application Gateway infrastructure configuration
 
-The application gateway infracture includes the virtual network, subnets, network security groups, and user defined routes.
+The application gateway infrastructure includes the virtual network, subnets, network security groups, and user defined routes.
 
 ## Virtual network and dedicated subnet
 
