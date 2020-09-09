@@ -402,7 +402,7 @@ Currently, one instance of Ingress Controller can only be associated to one Appl
 
 ### Why is my AKS cluster with kubenet not working with AGIC?
 
-AGIC tries to automatically associate the route table resource to the Application Gateway subnet but may fail to do so due to lack of permissions from the AGIC. If AGIC is unable to associate the route table to the Application Gateway subnet, there will be an error in the AGIC logs saying so, in which case you'll have to manually associate the route table created by the AKS cluster to the Application Gateway's subnet. For more information, see instructions [here](configuration-overview.md#user-defined-routes-supported-on-the-application-gateway-subnet).
+AGIC tries to automatically associate the route table resource to the Application Gateway subnet but may fail to do so due to lack of permissions from the AGIC. If AGIC is unable to associate the route table to the Application Gateway subnet, there will be an error in the AGIC logs saying so, in which case you'll have to manually associate the route table created by the AKS cluster to the Application Gateway's subnet. For more information, see [Supported user-defined routes](configuration-infrastructure.md#supported-user-defined-routes).
 
 ### Can I connect my AKS cluster and Application Gateway in separate virtual networks? 
 
