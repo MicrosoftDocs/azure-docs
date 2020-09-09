@@ -5,7 +5,7 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 07/30/2020
+ms.date: 09/09/2020
 ms.author: surajmb
 ---
 
