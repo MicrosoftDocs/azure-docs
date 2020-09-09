@@ -17,7 +17,9 @@ ms.date: 03/19/2019
 ms.author: juliako
 
 ---
-# Analyze your media using the Azure portal 
+# Analyze your media using the Azure portal
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!IMPORTANT]
 > Review the [retirement plans](media-services-analytics-overview.md#retirement-plans) of some media processors.

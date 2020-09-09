@@ -32,10 +32,6 @@ Azure Accelerated Networking is not enabled at this time, but will as we progres
 
 To prevent low-level hardware access that can result in security vulnerabilities, Queue Pair 0 is not accessible to guest VMs. This should only affect actions typically associated with administration of the ConnectX-5 NIC, and running some InfiniBand diagnostics like ibdiagnet, but not end-user applications themselves.
 
-## UD Transport
-
-At launch, the HB- and HC-series do not support Dynamically Connected Transport (DCT). Support for DCT will be implemented over time. Reliable Connection (RC) and Unreliable Datagram (UD) transports are supported.
-
 ## GSS Proxy
 
 GSS Proxy has a known bug in CentOS/RHEL 7.5 that can manifest as a significant performance and responsiveness penalty when used with NFS. This can be mitigated with:

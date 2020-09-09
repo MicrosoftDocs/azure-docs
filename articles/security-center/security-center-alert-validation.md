@@ -15,7 +15,7 @@ ms.date:  11/04/2019
 ms.author: memildin
 
 ---
-# Alert validation (EICAR test file) in Azure Security Center
+# Alert validation in Azure Security Center
 This document helps you learn how to verify if your system is properly configured for Azure Security Center alerts.
 
 ## What are security alerts?

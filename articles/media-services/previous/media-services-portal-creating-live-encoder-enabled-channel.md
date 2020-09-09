@@ -17,7 +17,10 @@ ms.date: 04/01/2019
 ms.author: juliako
 
 ---
-# Perform live streaming using Media Services to create multi-bitrate streams with Azure portal  
+# Perform live streaming using Media Services to create multi-bitrate streams with Azure portal
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
 > * [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)

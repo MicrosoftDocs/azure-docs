@@ -7,6 +7,7 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 05/17/2019
 ms.author: girobins
+ms.custom: devx-track-csharp
 
 ---
 # Get SQL query execution metrics and analyze query performance using .NET SDK

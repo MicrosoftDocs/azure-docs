@@ -11,6 +11,7 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: how-to
 ms.date: 03/28/2017
+ms.custom: devx-track-csharp
 ---
 # Deploy Azure Machine Learning Studio (classic) web services that use Data Import and Data Export modules
 

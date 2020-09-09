@@ -96,7 +96,7 @@ Image Builder creates a VM using a D1v2 VM size, and the storage, and networking
 Azure Image Builder will distribute the image to your chosen regions, which might incur network egress charges.
 
 ## Hyper-V generation
-Image Builder currently on supports Hyper-V generation 1 images and VMs.
+Image Builder currently only natively supports creating Hyper-V generation (Gen1) 1 images to the Azure Shared Image Gallery (SIG) or Managed Image. If you want to create Gen2 images, then you need to use a source Gen2 image, and distribute to VHD. After, you will then need to create a Managed Image from the VHD, and inject it into the SIG as a Gen2 image.
  
 ## Next steps 
  

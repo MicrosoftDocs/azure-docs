@@ -1,11 +1,11 @@
 ---
-title: "Tutorial: Create a content library to deploy VMs in Azure VMware Solution (AVS)"
-description: In this Azure VMware Solution (AVS) tutorial, you create a content library to deploy a VM in an AVS private cloud.
+title: "Tutorial: Create a content library to deploy VMs in Azure VMware Solution"
+description: In this Azure VMware Solution tutorial, you create a content library to deploy a VM in an Azure VMware Solution private cloud.
 ms.topic: tutorial
 ms.date: 07/16/2020
 ---
 
-# Tutorial: Create a content library to deploy VMs in Azure VMware Solution (AVS)
+# Tutorial: Create a content library to deploy VMs in Azure VMware Solution
 
 A content library stores and manages content in the form of library items. A single library item consists of one or more files you use to deploy virtual machines (VMs). 
  
@@ -17,7 +17,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-An NSX-T logical switch segment and a managed DHCP service are required to complete this tutorial.  See the [How to manage DHCP in Azure VMware Solution (AVS) Preview](manage-dhcp.md) for details.
+An NSX-T logical switch segment and a managed DHCP service are required to complete this tutorial.  See the [How to manage DHCP in Azure VMWare Solution Preview](manage-dhcp.md) for details.
 
 ## Create a content library
 

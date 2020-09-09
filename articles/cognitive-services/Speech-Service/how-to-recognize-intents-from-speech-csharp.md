@@ -10,6 +10,7 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/10/2020
 ms.author: trbye
+ms.custom: devx-track-csharp
 ---
 
 # How to recognize intents from speech using the Speech SDK for C#
