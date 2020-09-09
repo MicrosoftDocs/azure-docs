@@ -19,7 +19,7 @@ The Hub and Spoke scenario assume a hybrid cloud environment with workloads on:
 
 The *Hub* is an Azure Virtual Network that acts as a central point of connectivity to your on-premises and Azure VMware Solution private cloud. The *Spokes* are virtual networks peered with the Hub to enable cross-virtual network communication.
 
-Traffic between the on-premises datacenter, Azure VMware Solution private cloud, and the Hub goes through ExpressRoute connections. Spoke virtual networks usually contain IaaS based workloads but can have PaaS services like [App Service Environment](../app-service/environment/intro.md), which has direct integration with Virtual Network, or other PaaS services with [Azure Private Link](../private-link/index.yml) enabled.
+Traffic between the on-premises datacenter, Azure VMware Solution private cloud, and the Hub goes through Azure ExpressRoute connections. Spoke virtual networks usually contain IaaS based workloads but can have PaaS services like [App Service Environment](../app-service/environment/intro.md), which has direct integration with Virtual Network, or other PaaS services with [Azure Private Link](../private-link/index.yml) enabled.
 
 The diagram shows an example of a Hub and Spoke deployment in Azure connected to on-premises and Azure VMware Solution through ExpressRoute Global Reach.
 
@@ -37,7 +37,7 @@ The architecture has the following main components:
 
 
   > [!NOTE]
-  > **S2S VPN considerations:** For Azure VMware Solution production deployments, Azure S2S VPN is not supported due to network requirements for HCX. However, it can be used for a PoC deployment.
+  > **S2S VPN considerations:** For Azure VMware Solution production deployments, Azure S2S VPN isn't supported due to network requirements for VMware HCX. However, it can be used for a PoC deployment.
 
 
 -   **Hub virtual network:** Acts as the central point of connectivity to your on-premises network and Azure VMware Solution private cloud.
@@ -56,7 +56,7 @@ The architecture has the following main components:
 
 ExpressRoute connections enable traffic to flow between on-premises, Azure VMware Solution, and the Azure network fabric. Azure VMware Solution uses [ExpressRoute Global Reach](../expressroute/expressroute-global-reach.md) to implement this connectivity.
 
-On-premises connectivity must use ExpressRoute Global Reach as well in order to be able to communicate the on-premises vSphere environment with AVS since an ExpressRoute Gateway does not provide transitive routing between its connected circuits. 
+Because an ExpressRoute gateway doesn't provide transitive routing between its connected circuits, on-premises connectivity also must use ExpressRoute Global Reach to communicate between the on-premises vSphere environment and Azure VMware Solution. 
 
 * **On-premises to Azure VMware Solution traffic flow**
 
@@ -88,10 +88,8 @@ Set routes for specific networks on the corresponding route table. For example, 
 
 A second level of traffic segmentation using the network security groups within the Spokes and the Hub to create a more granular traffic policy.
 
-
 > [!NOTE]
-> **Traffic from on-premises to AVS:** Trafficc between on-premises workloads, either vSphere based ones or other, will be enabled thanks to Global Reach, but that traffic will not go through Azure Firewall on the hub. Therefore customer must implement traffic segmentation mechanisms either on-premises or on AVS.
-
+> **Traffic from on-premises to Azure VMware Solution:** Traffic between on-premises workloads, either vSphere-based or others, are enabled by Global Reach, but the traffic doesn't go through Azure Firewall on the hub. In this scenario, you must implement traffic segmentation mechanisms either on-premises or in Azure VMware Solution.
 
 ### Application Gateway
 
