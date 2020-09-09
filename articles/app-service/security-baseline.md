@@ -35,7 +35,10 @@ For more information, see [Azure Security Baselines overview](../security/benchm
 **Guidance**: 
 An App Service Environment (ASE) refers to a deployment of Microsoft Azure App Service into a subnet within an Azure Virtual Network. 
 
-Secure an ASE with network security groups which will block inbound and outbound traffic to resources in the virtual network, such as restricting access to the apps on an ASE. By default, network security groups include an implicit deny rule at the lowest priority to deny everything at the Azure portal. Any allow rules need to be built. No access is available to the VMs being used to host the ASE as they're in a Microsoft-managed subscription.
+Use network security groups to secure an ASE by blocking inbound and outbound traffic to resources in the virtual network, or restricting access to the apps on an ASE. 
+
+Any allow rules need to be built, as network security groups include an implicit deny rule at the lowest priority to deny everything at the Azure portal. 
+No access is available to the VMs being used to host the ASE as they're in a Microsoft-managed subscription.
 
 A network security group that's applied to an integration subnet is in effect regardless of any routes applied to the integration subnet. Two types of ASE exist, an External ASE, and ILB (Internal Load Balancer) ASE.
 
@@ -49,7 +52,7 @@ Access Restrictions: a series of allow or deny rules that control inbound access
 Service Endpoints: enable you to secure traffic to originating from a set of virtual networks or subnets
 Private Endpoints: expose your app on an address in your Virtual Network. With these enabled on your app, it is no longer internet accessible.
 
-Network security groups and route tables (UDR) can be used when using Virtual Network integration with virtual networks in the same region. Route tables (UDRs) can be placed on the integration subnet to send outbound traffic where intended.
+Use network security groups and route tables (UDR) when using Virtual Network integration with virtual networks in the same region. UDRs can be placed on the integration subnet to send outbound traffic where intended.
 
 You can combine access restrictions and service endpoints but you cannot use Private Endpoints in conjunction with access restrictions and service endpoints.  
 
@@ -148,17 +151,13 @@ To secure an internet accessible app in the multi-tenant App Service:
 
 •	Use access restrictions to secure inbound traffic to the application gateway 
 
-Use the virtual network integration feature to restrict incoming source IP addresses with network security groups. This allows placing many Azure resources in a non-internet, routable network access restrictions and controls.
+Use the virtual network integration feature to restrict incoming source IP addresses based on need, or if deemed malicious, with network security groups. This process allows placing many Azure resources in a non-internet-routable with network access restrictions and controls.
 
 For the Multi-tenant App Service, use a public internet facing endpoint to allow traffic only from a specific subnet within an Azure Virtual Network and block everything else. 
 
-Use Access Restrictions to configure network ACLs (IP Restrictions) to lock down allowed inbound traffic. Define a priority ordered allow/deny list that controls network access to your app with Access Restrictions. The list can include IP addresses or Virtual Network subnets. When there are one or more entries, there is then an implicit "deny all" that exists at the end of the list.
+Use Access Restrictions to configure network ACLs (IP Restrictions) to lock down allowed inbound traffic. Define priority among the ordered allow/deny list to control network access to your app with Access Restrictions. This list can include IP addresses or Virtual Network subnets. An implicit "deny all" rule exists at the end of the list when it contains one or more entries. This capability works with all App Service hosted work loads including, Web Apps, API apps, Linux apps, Linux container apps, and Functions. The ability to restrict access to your web app from an Azure Virtual Network is called service endpoint. 
 
-The Access Restrictions capability works with all App Service hosted work loads including, Web Apps, API apps, Linux apps, Linux container apps, and Functions. The ability to restrict access to your web app from an Azure Virtual Network is called service endpoint. 
-
-You can define a list of IP addresses in an allowed list for App Service on Windows that can access your app. The allowed list can include individual IP addresses, or a range of IP addresses defined by a subnet mask. 
-
-Service endpoints enable you to restrict access to a multi-tenant service from selected subnets. It must be enabled on both the networking side as well as the service that it is being enabled with. It does not work to restrict traffic to apps that are hosted in an App Service Environment. If you are in an ASE, you can control access to your app with IP address rules.
+Service endpoints enable you to restrict access to a multi-tenant App Service from selected subnets. It must be enabled on both the networking side as well as the service that it is being enabled. Note that this does not work to restrict traffic to apps that are hosted in an App Service Environment. If you are in an ASE, you can control access to your app with IP address rules.
 
 - [Azure App Service Static IP Restrictions](app-service-ip-restrictions.md)
 
@@ -278,9 +277,9 @@ You can allow or deny the traffic for the corresponding service by specifying th
 
 **Guidance**: Define and implement standard security configurations for network settings related to your App Service Web Apps. 
 
-You can maintain config using policy. Use Azure Policy aliases in the "Microsoft.Web" and "Microsoft.Network" namespaces to create custom policies to audit or enforce the network configuration of your App Service Web Apps. 
+Maintain security configurations using Azure Policy aliases in the "Microsoft.Web" and "Microsoft.Network" namespaces. Create custom policies to audit or enforce the network configuration of your App Service Web Apps. 
 
-You may also make use of built-in policy definitions for App Service, such as:
+Use built-in policy definitions for App Service, such as:
 
 •	App Service should use a virtual network service endpoint
 
@@ -301,11 +300,9 @@ You may also make use of built-in policy definitions for App Service, such as:
 
 **Guidance**: Use tags for the network security groups and other resources related to network security and traffic flow in App Service Web Apps.
 
-Use the "Description" field to specify business need and/or duration and so on for any rules that allow traffic to/from a network for individual network security groups rules.
+Specify business need, duration, and so on, with the "Description" field  or any rules which allow traffic to or from a network for individual network security groups rules.
 
-Use any of the built-in Azure Policy definitions related to tagging, such as "Require tag and its value" effects to ensure that all resources are created with tags and to notify you of existing untagged resources. 
-
-Use Azure PowerShell or Azure CLI to look-up or perform actions on resources based on their tags.
+Apply any of the built-in Azure Policy definitions related to tagging, such as "Require tag and its value", effects to ensure that all resources are created with tags and to notify you of any existing untagged resources. Use Azure PowerShell or Azure CLI to look-up or perform actions on resources based on their tags.
 
 - [How to create and use tags](/azure/azure-resource-manager/resource-group-using-tags)
 
@@ -320,9 +317,9 @@ Use Azure PowerShell or Azure CLI to look-up or perform actions on resources bas
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4447).
 
-**Guidance**: Use Azure Activity Log to monitor network resource configurations and detect changes for network settings and resources related to your App Service resources. 
+**Guidance**: Use Azure Activity Log to monitor network resource configurations and detect changes for network settings and resources related to App Service resources. 
 
-Use one of several Azure Policy built-in policy definitions for App Service. For example, a policy audits any App Service app not configured to use an Virtual Network endpoint service. Create alerts within Azure Monitor, which will trigger when changes to critical network settings or resources takes place. 
+Use one of the several Azure Policy built-in definitions for App Service. For example, a policy which audits any app not configured to use virtual network endpoint service. Create alerts within Azure Monitor to trigger when changes to critical network settings or resources takes place. 
 
 View Security Center generated detailed security alerts and recommendations in the portal or through programmatic tools. Export this information or send it to other monitoring tools in your environment. Tools are available to export alerts and recommendations either manually or in an ongoing, continuous fashion. Using these tools, you can:
 
@@ -362,16 +359,18 @@ View Security Center generated detailed security alerts and recommendations in t
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4449).
 
-**Guidance**: Deploy central security log management for App Service with Azure Sentinel or a SIEM available in the Azure marketplace. 
+**Guidance**: Deploy central security log management for App Service with Azure Sentinel or a SIEM available in the Azure Marketplace. 
+
+Integrate your App Service Environment (ASE) with Azure Monitor to send logs about the ASE to Azure Storage, Azure Event Hubs, or Log Analytics which can be forwarded to an SIEM.
+Enable Azure Activity Log diagnostic settings for control plane audit logging.
 
 Security alerts produced by Security Center are published to the Azure Activity log. 
-Enable Azure Activity Log diagnostic settings for control plane audit logging and send the logs to a Log Analytics workspace, Azure event hub, or Azure storage account. 
 
-App Service is fully integrated with Azure Monitor for logging and analytics. 
-Azure Monitor enables you to get your Activity log data to an Event Hub where it can be read by a SIEM. Security Center must be configured in your Azure subscription before deploying App Service.
+Audit Azure Activity Log data which let’s you determine the "what, who, and when" for any write operations (PUT, POST, DELETE) performed at the control plane level for Azure App Service and other Azure resources. 
 
-Azure Activity Log data let’s you determine the "what, who, and when" for any write operations (PUT, POST, DELETE) performed at the control plane level for Azure App Service and other Azure resources. Integrate your App Service Environment (ASE) with Azure Monitor to send logs about the ASE to Azure Storage, Azure Event Hubs, or Log Analytics. You can save your queries for future use, pin query results to Azure Dashboards, and create log alerts.
-Additionally, the Data access REST API in Application Insights lets you access your telemetry programmatically.
+Save your queries for future use, pin query results to Azure Dashboards, and create log alerts. Also, use the Data access REST API in Application Insights to access your telemetry programmatically.
+
+Use Microsoft Azure Sentinel, a scalable, cloud-native, security information event management (SIEM) available to connect to various data sources and connectors, as based on business requirements. Optionally, you may enable and on-board data a third-party SIEM like Barracuda in Azure Marketplace
 
 - [Logging ASE Activity](environment/using-an-ase.md#logging)
 
@@ -541,11 +540,11 @@ Optionally, you may enable and on-board data to Azure Sentinel or a third-party 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4459).
 
-**Guidance**: Azure Active Directory (Azure AD) does not have the concept of default passwords. Control plane access to App Service is controlled through Azure AD. 
+**Guidance**: Azure Active Directory (Azure AD) does not have the concept of default passwords. Azure AD provides control plane access to App Service.
 
-Avoid implementing default passwords for user access when building your own apps. Use one of the identity providers available by default for App Service, such as Azure AD, Microsoft Account, Facebook, Google, or Twitter.
+Generally, avoid implementing default passwords for user access when building your own apps. Use one of the identity providers available by default for App Service, such as Azure AD, Microsoft Account, Facebook, Google, or Twitter.
 
-Disable anonymous access, unless anonymous requests are supported. 
+Disable anonymous access, unless you support anonymous requests. 
 
 - [Identity providers available by default in Azure App Service](overview-authentication-authorization.md#identity-providers)
 
@@ -579,7 +578,7 @@ Additionally, to help you keep track of dedicated administrative accounts, you m
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4461).
 
-**Guidance**: Authenticate App Service through Azure Active Directory (Azure AD). Azure AD provides an OAuth 2.0 service for your identity provider. OAuth 2.0 focuses on client developer simplicity while providing specific authorization flows for web applications, desktop applications, and mobile phones. Azure AD uses OAuth 2.0 to enable you to authorize access to mobile and web applications. 
+**Guidance**: Authenticate App Service through Azure Active Directory (Azure AD). Azure AD provides an OAuth 2.0 service for your identity provider and enables authorized access to mobile and web applications. 
 
 App Service apps use federated identity, in which a third-party identity provider manages the user identities and authentication flow for you. Five identity providers are available by default:
 
@@ -744,7 +743,7 @@ Use Azure Active Directory (Azure AD) Identity's Protection and risk detection f
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4470).
 
-**Guidance**: Not yet available; Customer Lockbox is not yet supported for Azure App Service.
+**Guidance**: Not available for App Service. Customer Lockbox is not supported for Azure App Service.
 
 - [List of Customer Lockbox-supported services](../security/fundamentals/customer-lockbox-overview.md#supported-services-and-scenarios-in-general-availability)
 
@@ -910,7 +909,7 @@ Locally attached disks can optionally be used as temporary storage by websites, 
 
 **Guidance**: Adopt a DevSecOps practice to ensure your App Service Web Apps are secure and remain as secure as possible throughout the duration of their life-cycle. DevSecOps incorporates your organization's security team and their capabilities into your DevOps practices making security a responsibility of everyone on the team.
 
-Follow recommendations from Security Center to help secure your App Service apps.
+Follow recommendations from Security Center to secure your App Service apps.
 
 - [How to add continuous security validation to your CI/CD pipeline](https://docs.microsoft.com/azure/devops/migrate/security-validation-cicd-pipeline?view=azure-devops)
 
