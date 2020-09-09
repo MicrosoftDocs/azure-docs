@@ -14,7 +14,7 @@ ms.author: aahi
 
 # Install and run the Spatial Analysis container (Preview)
 
-The spatial analysis container enables you to analyze real-time streaming video to understand spatial relationships between people, their identities, activities, and interactions with objects in your own environment. Containers are great for specific security and data governance requirements.
+The spatial analysis container enables you to analyze real-time streaming video to understand spatial relationships between people, their movement, and interactions with objects in your own environment. Containers are great for specific security and data governance requirements.
 
 ## Prerequisites
 
@@ -325,7 +325,7 @@ Once the deployment is complete and the container is running, the **host compute
 
 ## Configure the operations performed by spatial analysis
 
-You will need to use [spatial analysis operations](spatial-analysis-operations.md) to configure the container to use connected cameras, enable video recording, and more. For each camera device you configure, the operations for spatial analysis will generate an output stream of JSON messages, sent to your instance of Azure IoT Hub.
+You will need to use [Spatial Analysis operations](spatial-analysis-operations.md) to configure the container to use connected cameras, configure the operations, and more. For each camera device you configure, the operations for spatial analysis will generate an output stream of JSON messages, sent to your instance of Azure IoT Hub.
 
 ## Redeploy or delete the deployment
 
@@ -378,7 +378,7 @@ If you encounter issues when starting or running the container, see [telemetry a
 
 ## Billing
 
-The spatial analysis container sends billing information to Azure, using a Computer Vision resource on your Azure account.
+The spatial analysis container sends billing information to Azure, using a Computer Vision resource on your Azure account. The use of spatial analysis in public preview is currently free. 
 
 Azure Cognitive Services containers aren't licensed to run without being connected to the metering / billing endpoint. You must enable the containers to communicate billing information with the billing endpoint at all times. Cognitive Services containers don't send customer data, such as the video or image that's being analyzed, to Microsoft.
 
@@ -387,7 +387,7 @@ Azure Cognitive Services containers aren't licensed to run without being connect
 
 In this article, you learned concepts and workflow for downloading, installing, and running the Project Archon  container for spatial analysis. In summary:
 
-* The spatial analysis container is a Linux container for Docker.
-* Container images are downloaded from the container registry in Azure.
+* spatial analysis is a Linux container for Docker.
+* Container images are downloaded from the Microsoft Container Registry.
 * Container images run as IoT Modules in Azure IoT Edge.
 * How to configure the container and deploy it on a host machine.

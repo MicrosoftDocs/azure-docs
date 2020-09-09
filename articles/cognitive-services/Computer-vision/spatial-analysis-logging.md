@@ -18,7 +18,7 @@ spatial analysis includes a set of features to monitor the health of the system 
 
 ## Enable video frame and JSON output visualization on the host computer
 
-To enable a visualization of spatial events in a video frame, you need to use the `.Debug` version of a [spatial analysis Operation](spatial-analysis-operations.md). There are two Debug skills available: `Microsoft.ComputerVision.PersonCrossingLine.Debug` and `Microsoft.ComputerVision.PersonCrossingPolygon.Debug`.
+To enable a visualization of spatial events in a video frame, you need to use the `.Debug` version of a [Spatial Analysis Operation](spatial-analysis-operations.md). There are four Debug skills available: `Microsoft.ComputerVision.PersonCount.Debug`, `Microsoft.ComputerVision.PersonCrossingLine.Debug`, `Microsoft.ComputerVision.PersonCrossingPolygon.Debug`, and `Microsoft.ComputerVision.PersonDistance.Debug`.
 
 Edit the deployment manifest to use the correct value for the `DISPLAY` environment variable. It needs to match the `$DISPLAY` variable on the host computer. After updating the deployment manifest, redeploy the container.
 
@@ -34,7 +34,7 @@ xhost +
 
 ## Collecting System Health Telemetry with Telegraf
 
-Telegraf is open source and the image takes the following inputs, and sends them to Azure Monitor. The telegraf module can be built with desired custom Inputs and Outputs by the end user. The Telegraf module in spatial analysis is part of the deployment manifest. This module is optional and can be removed from the manifest if you don't need it. 
+Telegraf is open source and created by the Spatial Analysis team. It takes the following inputs sends them to Azure Monitor. The spatial-analysis-telegraf module can be built with desired custom Inputs and Outputs by the end user. The spatial-analysis-telegraf module in Spatial Analysis is part of the deployment manifest. This module is optional and can be removed from the manifest if you don't need it. 
 
 Inputs: 
 1. spatial analysis Metrics
