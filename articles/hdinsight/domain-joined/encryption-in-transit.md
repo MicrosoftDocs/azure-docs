@@ -9,9 +9,9 @@ ms.topic: conceptual
 ms.date: 08/24/2020
 ---
 
-# Encryption in transit for Azure HDInsight
+# IPSec Encryption in transit for Azure HDInsight
 
-This article discusses the implementation of encryption in transit for all communication between Azure HDInsight cluster nodes.
+This article discusses the implementation of encryption in transit for communication between Azure HDInsight cluster nodes.
 
 > [!Note]
 > Encryption in transit is currently enabled for the following regions: East US, South Central US, West US2. 
