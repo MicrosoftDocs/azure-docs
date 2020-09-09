@@ -5,7 +5,7 @@ author: Microsoft-BradleyWright
 ms.author: brwrigh
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/17/2020
 ---
 
