@@ -9,7 +9,7 @@ ms.author: baanders
 
 ### Functional limits
 
-The table below lists the functional limits of Azure Digital Twins in the current preview.
+The table below lists the functional limits of Azure Digital Twins.
 
 | Area | Capability | Default limit | Adjustable? |
 | --- | --- | --- | --- |
@@ -35,7 +35,7 @@ This table reflects the rate limits of different APIs.
 | API | Capability | Default limit | Adjustable? |
 | --- | --- | --- | --- |
 | Models API | Number of requests per second | 100 | Yes |
-| Digital Twins API | Number of requests per second | 1,000 | Yes |
+| Digital Twins API | Number of requests per second | 2,000 | Yes |
 | Query API | Number of requests per second | 500 | Yes |
 | Query API | [Query Units](../articles/digital-twins/concepts-query-units.md) per second | 4,000 | Yes |
 | Event Routes API | Number of requests per second | 100 | Yes |
@@ -44,4 +44,4 @@ This table reflects the rate limits of different APIs.
 
 Limits on data types and fields within DTDL documents for Azure Digital Twins models can be found within its spec documentation in GitHub: [*Digital Twins Definition Language (DTDL) - version 2*](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md).
  
-Query latency details and other guidelines on writing queries during preview can be found in [*How-to: Query the twin graph*](../articles/digital-twins/how-to-query-graph.md).
+Query latency details and other query limitations can be found in [*How-to: Query the twin graph*](../articles/digital-twins/how-to-query-graph.md).
