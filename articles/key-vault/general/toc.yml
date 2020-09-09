@@ -99,7 +99,7 @@
         href: assign-access-policy-powershell.md
       - name: Portal
         href: assign-access-policy-portal.md
-    - name: Use an Azure role-based access control (preview)
+    - name: Use an Azure RBAC for managing access to keys, secrets, and certificates (preview)
       href: rbac-guide.md
     - name: Troubleshoot access issues
       href: troubleshooting-access-issues.md

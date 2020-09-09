@@ -3,14 +3,14 @@ title: Azure Front Door - URL Redirect | Microsoft Docs
 description: This article helps you understand how Azure Front Door supports URL redirection for their routes, if configured.
 services: front-door
 documentationcenter: ''
-author: sharad4u
+author: duongau
 ms.service: frontdoor
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/08/2019
-ms.author: sharadag
+ms.author: duau
 ---
 
 # URL redirect

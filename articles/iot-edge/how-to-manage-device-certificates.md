@@ -43,7 +43,7 @@ You should use your own certificate authority to create the following files:
 In this article, what we refer to as the *root CA* is not the topmost certificate authority for an organization. It's the topmost certificate authority for the IoT Edge scenario, which the IoT Edge hub module, user modules, and any downstream devices use to establish trust between each other.
 
 > [!NOTE]
-> Currently, a limitation in libiothsm prevents the use of certificates that expire on or after January 1, 2050.
+> Currently, a limitation in libiothsm prevents the use of certificates that expire on or after January 1, 2038.
 
 To see an example of these certificates, review the scripts that create demo certificates in [Managing test CA certificates for samples and tutorials](https://github.com/Azure/iotedge/tree/master/tools/CACertificates).
 
