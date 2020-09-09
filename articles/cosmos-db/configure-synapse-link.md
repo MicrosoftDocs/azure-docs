@@ -21,7 +21,8 @@ Use the following steps to run analytical queries with the Synapse Link for Azur
 * [Enable Synapse Link for your Azure Cosmos accounts](#enable-synapse-link)
 * [Create an analytical store enabled Azure Cosmos container](#create-analytical-ttl)
 * [Connect your Azure Cosmos database to a Synapse workspace](#connect-to-cosmos-database)
-* [Query the analytical store using Synapse Spark](#query-analytical-store)
+* [Query the analytical store using Synapse Spark](#query-analytical-store-spark)
+* [Query the analytical store using SQL on-demand](#query-analytical-store-sql-on-demand)
 
 ## <a id="enable-synapse-link"></a>Enable Azure Synapse Link for Azure Cosmos accounts
 

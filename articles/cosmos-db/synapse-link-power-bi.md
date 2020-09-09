@@ -1,10 +1,10 @@
 ---
-title: 
-description: 
+title: Use SQL on-demand to analyze Azure Cosmos DB data with Synapse Link
+description: learn how to build a SQL on-demand database and views over Synapse Link for Azure Cosmos DB, query the Azure Cosmos containers and then build a model with Power BI over those views.
 author: Rodrigossz
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 08/31/2020
+ms.date: 09/22/2020
 ms.author: rosouz
 ---
 
@@ -12,7 +12,7 @@ ms.author: rosouz
 
 In this article, you learn how to build a SQL on-demand database and views over Synapse Link for Azure Cosmos DB. You will query the Azure Cosmos containers and then build a model with Power BI over those views to reflect that query.
 
-In this scenario, you will use dummy data about Surface product sales in a partner retail store. You will analyze the revenue per store based on the proximity to large households and the impact of advertising for a specific week. In this article, you create two views named **RetailSales** and **StoreDemographics** and a query between them.
+In this scenario, you will use dummy data about Surface product sales in a partner retail store. You will analyze the revenue per store based on the proximity to large households and the impact of advertising for a specific week. In this article, you create two views named **RetailSales** and **StoreDemographics** and a query between them. You can get the sample product data from this [GitHub](https://github.com/Azure-Samples/Synapse/tree/master/Notebooks/PySpark/Synapse%20Link%20for%20Cosmos%20DB%20samples/Retail/RetailData) repo.
 
 ## Prerequisites
 
@@ -24,7 +24,7 @@ Make sure to create the following resources before you start:
 
 * [Create a Synapse workspace](../synapse-analytics/quickstart-create-workspace.md) named **SynapseLinkBI**.
 
-* Connect the Azure Cosmos database to the ‘SynapseLinkBI’ Synapse workspace.
+* Connect the Azure Cosmos database to the "SynapseLinkBI" Synapse workspace.
 
 ## Create a database and views
 
@@ -39,7 +39,7 @@ Every workspace comes with a SQL on-demand endpoint. After creating a SQL script
 Create a new database, named **RetailCosmosDB**, and a SQL view over the Synapse Link enabled containers. The following command shows how to create a database:
 
 ```sql
--- Create database 
+-- Create database
 Create database  RetailCosmosDB
 ```
 
@@ -52,13 +52,15 @@ The following scripts show how to create views on each container. For simplicity
 
 ```sql
 -- Create view for RetailSales container
-CREATE VIEW  RetailSales 
+CREATE VIEW  RetailSales
 AS  
 SELECT  *
 FROM OPENROWSET (
-    'CosmosDB', N'account=CosmosDBSales;database=surfaceSalesDB;region=<Insert your CosmosDB Region>;key=<Insert your CosmosDB key here>',RetailSales)
+    'CosmosDB', N'account=CosmosDBSales;database=surfaceSalesDB;region=<Insert your Azure Cosmos DB Region>;key=<Insert your Azure Cosmos DB key here>',RetailSales)
 AS q1
 ```
+
+Make sure to insert your Azure Cosmos DB region and the primary key in the previous SQL script. All the characters in the region name should be in lower case without spaces. Unlike the other parameters of the `OPENROWSET` command, the container name parameter should be specified without quotes around it.
 
 **StoreDemographics view**:
 
@@ -68,7 +70,7 @@ CREATE VIEW StoreDemographics
 AS  
 SELECT  *
 FROM OPENROWSET (
-    'CosmosDB', N'account=CosmosDBSales ;database=surfaceSalesDB;region=<Insert your CosmosDB Region>;key=<Insert your CosmosDB key here>', StoreDemographics)
+    'CosmosDB', N'account=CosmosDBSales ;database=surfaceSalesDB;region=<Insert your Azure Cosmos DB Region>;key=<Insert your Azure Cosmos DB key here>', StoreDemographics)
 AS q1
 ```
 
@@ -98,21 +100,19 @@ Select **Run** that gives the following table as result:
 
 Next open the Power BI desktop and connect to the SQL on-demand endpoint by using the following steps:
 
-1. Select **Get Data** in Power BI desktop and select **more**.
+1. Open the Power BI Desktop application. Select **Get data** and select **more**.
 
 1. Choose **Azure Synapse Analytics (SQL DW)** from the list of connection options.
 
-1. Enter the SQL endpoint: `SynapseLinkBI-ondemand.sql.azuresynapse.net` within the **Server** field. In this example,  **SynapseLinkBI** is  name of the workspace. Replace it if you have given a different name to your workspace. Select **Direct Query** for data connectivity mode.
+1. Enter the name of the SQL endpoint where the database is located. Enter `SynapseLinkBI-ondemand.sql.azuresynapse.net` within the **Server** field. In this example,  **SynapseLinkBI** is  name of the workspace. Replace it if you have given a different name to your workspace. Select **Direct Query** for data connectivity mode and then **OK**.
 
-1. Use **Active Directory – Integrated**.
+1. Select the preferred authentication method such as Active Directory integrated **Microsoft account**.
 
-1. Select the **RetailCosmosDB** database.
-
-1. Select the **RetailSales** and **StoreDemographics** views.
+1. Select the **RetailCosmosDB** database and the **RetailSales**, **StoreDemographics** views.
 
 1. Select **Load** to load the two views into the direct query mode.
 
-1. Select **Model**   to create a relationship between the two views through the **storeId** column.
+1. Select **Model** to create a relationship between the two views through the **storeId** column.
 
 1. Drag the **StoreId** column from the **RetailSales** view towards the **StoreId** column in the **StoreDemographics** view.
 
