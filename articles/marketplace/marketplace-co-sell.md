@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: palanis-MSFT
 ms.author: palanis
-ms.date: 09/02/2020
+ms.date: 09/09/2020
 ---
 
 # Co-sell partner engagement
