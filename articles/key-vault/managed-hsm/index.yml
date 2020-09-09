@@ -26,9 +26,17 @@ landingContent:
         links:
           - text: What is Azure Key Vault Managed HSM?
             url: overview.md
+
+
+  # Card
+  - title: Concept
+    linkLists:
+      - linkListType: overview
+        links:
           - text: Managed HSM access control
             url: access-control.md
-
+          - text: Security domain
+            url: security-domain.md
 
   # Card
   - title: Get started
@@ -43,6 +51,10 @@ landingContent:
     linkLists:
       - linkListType: tutorial
         links:
+          - text: Backup and restore
+            url: backup-restore.md
+          - text: Disaster recovery
+            url: disaster-recovery-guide.md
           - text: Import HSM-protected keys (overview)
             url: hsm-protected-keys-byok.md
           - text: Configure logging for your managed HSM pool

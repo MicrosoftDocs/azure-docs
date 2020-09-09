@@ -13,7 +13,7 @@ ms.date: 09/15/2020
 ms.author: ambapat
 # Customer intent: As a developer using Key Vault I want to know the best practices so I can implement them.
 ---
-# Full backup/restore and selective restore
+# Full backup and restore
 
 > [!NOTE]
 > This feature is only available for resource type managed HSM.
@@ -91,12 +91,10 @@ sas=$(az storage container generate-sas -n mhsmdemobackupcontainer --account-nam
 
 #### Backup HSM 
 
+```
 az keyvault restore start --hsm-name mhsmdemo2 --storage-account-name mhsmdemobackup --blob-container-name mhsmdemobackupcontainer --storage-container-SAS-token $sas --backup-folder mhsm-mhsmdemo-2020083120161860
-
-
 ```
 
-## Selective backup and restore
 
 
 
