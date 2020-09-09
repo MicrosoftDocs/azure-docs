@@ -14,7 +14,7 @@ ms.author: aahi
 
 # Install and run the Spatial Analysis container (Preview)
 
-The Spatial Analysis container enables you to analyze real-time streaming video to understand spatial relationships between people, their identities, activities, and interactions with objects in your own environment. Containers are great for specific security and data governance requirements.
+The Spatial Analysis container enables you to analyze real-time streaming video to understand spatial relationships between people, their movement, and interactions with objects in your own environment. Containers are great for specific security and data governance requirements.
 
 ## Prerequisites
 
