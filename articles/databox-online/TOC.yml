@@ -164,9 +164,9 @@
   
   - name: Release notes
     items:
-    - name: 2009 - Release notes
+    - name: 2009 - GA
       href: azure-stack-edge-gpu-2009-release-notes.md 
-    - name: 2008 - Release notes
+    - name: 2008 - Preview
       href: azure-stack-edge-gpu-2008-release-notes.md 
 
   - name: Reference
