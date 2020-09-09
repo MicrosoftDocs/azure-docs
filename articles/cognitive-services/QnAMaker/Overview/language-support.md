@@ -17,7 +17,7 @@ The language determines the relevance of the results QnA Maker provides in respo
 
 ## Single language per resource
 
-QnA Maker considerations for language support:
+Consider the following:
 
 * A QnA Maker service, and all its knowledge bases, support one language only.
 * The language is explicitly set when the first knowledge base of the service is created
