@@ -210,9 +210,16 @@ local_env_run = mlflow.projects.run(uri=".",
 
 ## Track Azure Databricks runs
 
-MLflow Tracking with Azure Machine Learning lets you store the logged metrics and artifacts from your Azure Databricks runs in your Azure Machine Learning workspace.
+MLflow Tracking with Azure Machine Learning lets you store the logged metrics and artifacts from your Azure Databricks runs into all  three of the following areas at once: 
 
-To run your Mlflow experiments with Azure Databricks, you need to first create an [Azure Databricks workspace and cluster](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal). In your cluster, be sure to install the *azureml-mlflow* library from PyPi, to ensure that your cluster has access to the necessary functions and classes.
+* Azure Machine Learning workspace
+* Azure Databricks workspace.
+* MLflow
+
+To run your Mlflow experiments with Azure Databricks, you need to first create an [Azure Databricks workspace and cluster](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal). In your cluster,  install the *azureml-mlflow* library from PyPi, to ensure that your cluster has access to the necessary functions and classes.
+
+> [!NOTE]
+> The `azureml.core` package includes `azureml-mlflow`. If you already installed `azureml.core`, you can skip the `azureml-mlflow` installation step. 
 
 From here, import your experiment notebook, attach it to your Azure Databricks cluster and run your experiment. 
 
@@ -255,33 +262,37 @@ ws = Workspace.get(name=workspace_name,
                    resource_group=resource_group)
 ```
 
-#### Connect your Azure Databricks and Azure Machine Learning workspaces
+### Connect your Azure Databricks and Azure Machine Learning workspaces
 
 On the [Azure portal](https://ms.portal.azure.com), you can link your Azure Databricks (ADB) workspace to a new or existing Azure Machine Learning workspace. To do so, navigate to your ADB workspace and select the **Link Azure Machine Learning workspace** button on the bottom right. Linking your workspaces enables you to track your experiment data in the Azure Machine Learning workspace. 
 
-### Link MLflow tracking to your workspace
+### MLflow tracking in your workspaces
 
-After you instantiate your workspace, set the MLflow tracking URI. By doing so, you link the MLflow tracking to Azure Machine Learning workspace. After linking, all your experiments will land in the managed Azure Machine Learning tracking service.
+After you instantiate your workspace, the MLflow tracking is automatically set to be tracked in 
+all of the following places:
 
-#### Directly set MLflow Tracking in your notebook
+* The linked Azure Machine Learning workspace.
+* Your original ADB workspace. 
+* MLflow. 
+
+All your experiments will land in the managed Azure Machine Learning tracking service.
+
+#### Set MLflow Tracking to only track in your Azure Machine Learning workspace
+
+If you prefer to manage your tracked experiments in a centralized location, you can set MLflow tracking  to **only** track in your Azure Machine Learning workspace. 
+
 
 ```python
 uri = ws.get_mlflow_tracking_uri()
 mlflow.set_tracking_uri(uri)
 ```
 
-In your training script, import mlflow to use the MLflow logging APIs, and start logging your run metrics. The following example, logs the epoch loss metric. 
+In your training script, import `mlflow` to use the MLflow logging APIs, and start logging your run metrics. The following example, logs the epoch loss metric. 
 
 ```python
 import mlflow 
 mlflow.log_metric('epoch_loss', loss.item()) 
 ```
-
-#### Automate setting MLflow Tracking
-
-Instead of manually setting the tracking URI in every subsequent experiment notebook session on your clusters, do so automatically using this [Azure Machine Learning Tracking Cluster Init script](https://github.com/Azure/MachineLearningNotebooks/blob/3ce779063b000e0670bdd1acc6bc3a4ee707ec13/how-to-use-azureml/azure-databricks/linking/README.md).
-
-When configured correctly, you are able to see your MLflow tracking data in the Azure Machine Learning REST API and all clients, and in Azure Databricks via the MLflow user interface or by using the MLflow client.
 
 ## View metrics and artifacts in your workspace
 
