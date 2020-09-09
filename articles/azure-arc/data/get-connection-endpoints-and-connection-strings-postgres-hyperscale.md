@@ -90,11 +90,14 @@ postgres01   Ready   3/3          123.456.789.4:31066      5d20h
 
 ## Form connection strings:
 Use the below table of templates of connections strings for your server group. You can then copy/paste and customize them as further needed:
+
 :::row:::
    :::column span="":::
 **ADO.NET**
    :::column-end:::
-Server=192.168.1.121;Database=postgres;Port=24276;User Id=postgres;Password={your_password_here};Ssl Mode=Require;
+   :::column span="":::
+`Server=192.168.1.121;Database=postgres;Port=24276;User Id=postgres;Password={your_password_here};Ssl Mode=Require;`
+   :::column-end:::
 :::row-end:::
 :::row:::
    :::column span="":::
