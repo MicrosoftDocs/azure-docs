@@ -196,15 +196,15 @@ Users with this role have global permissions within Microsoft Exchange Online, w
 > In the Microsoft Graph API and Azure AD PowerShell, this role is identified as "Exchange Service Administrator." It is "Exchange Administrator" in the [Azure portal](https://portal.azure.com). It is "Exchange Online administrator" in the [Exchange admin center](https://go.microsoft.com/fwlink/p/?LinkID=529144).
 
 
-### [External Id User Flow Administrator](#external-id-user-flow-administrator-permissions)
+### [External ID User Flow Administrator](#external-id-user-flow-administrator-permissions)
 
 Users with this role can create and manage user flows (also called "built-in" policies) in the Azure portal. These users can customize HTML/CSS/JavaScript content, change MFA requirements, select claims in the token, manage API connectors, and configure session settings for all user flows in the Azure AD organization. On the other hand, this role does not include the ability to review user data or make changes to the attributes that are included in the organization schema. Changes to Identity Experience Framework policies (also known as custom policies) are also outside the scope of this role.
 
-### [External Id User Flow Attribute Administrator](#external-id-user-flow-attribute-administrator-permissions)
+### [External ID User Flow Attribute Administrator](#external-id-user-flow-attribute-administrator-permissions)
 
 Users with this role add or delete custom attributes available to all user flows in the Azure AD organization. As such, users with this role can change or add new elements to the end-user schema and impact the behavior of all user flows and indirectly result in changes to what data may be asked of end users and ultimately sent as claims to applications. This role cannot edit user flows.
 
-### [External Identity Provider Administrator](#external-identity-provider-administrator-permissions)
+### [External IDentity Provider Administrator](#external-identity-provider-administrator-permissions)
 
 This administrator manages federation between Azure AD organizations and external identity providers. With this role, users can add new identity providers and configure all available settings (e.g. authentication path, service ID, assigned key containers). This user can enable the Azure AD organization to trust authentications from external identity providers. The resulting impact on end-user experiences depends on the type of organization:
 
@@ -1007,7 +1007,7 @@ Can read & write basic directory information. For granting access to application
 | microsoft.directory/oAuth2PermissionGrants/create | Create oAuth2PermissionGrants in Azure Active Directory. |
 | microsoft.directory/servicePrincipals/synchronizationCredentials/manage | Manage application provisioning secrets and credentials. |
 | microsoft.directory/servicePrincipals/synchronizationJobs/manage | Start, restart, and pause application provisioning synchronization jobs. |
-| microsoft.directory/servicePrincipals/synchronizationSchema/manage | Create and manage application provisioning syncronization jobs and schema. |
+| microsoft.directory/servicePrincipals/synchronizationSchema/manage | Create and manage application provisioning synchronization jobs and schema. |
 | microsoft.directory/users/appRoleAssignments/update | Update users.appRoleAssignments property in Azure Active Directory. |
 | microsoft.directory/users/assignLicense | Manage licenses on users in Azure Active Directory. |
 | microsoft.directory/users/basic/update | Update basic properties on users in Azure Active Directory. |
@@ -1044,7 +1044,7 @@ Can manage all aspects of the Exchange product.
 | microsoft.office365.usageReports/allEntities/read | Read Office 365 usage reports. |
 | microsoft.office365.webPortal/allEntities/basic/read | Read basic properties on all resources in microsoft.office365.webPortal. |
 
-### External Id User Flow Administrator permissions
+### External ID User Flow Administrator permissions
 
 Create and manage all aspects of user flows.
 
@@ -1052,7 +1052,7 @@ Create and manage all aspects of user flows.
 | --- | --- |
 | microsoft.aad.b2c/userFlows/allTasks | Read and configure user flows in  Azure Active Directory B2C. |
 
-### External Id User Flow Attribute Administrator permissions
+### External ID User Flow Attribute Administrator permissions
 
 Create and manage the attribute schema available to all user flows.
 
@@ -1236,7 +1236,7 @@ Enable, deploy, configure, manage, monitor and troubleshoot cloud provisioning a
 
 ### Insights Administrator permissions
 
-Has sdministrative access in the M365 Insights app. 
+Has administrative access in the Microsoft 365 Insights app. 
 
 | **Actions** | **Description** |
 | --- | --- |

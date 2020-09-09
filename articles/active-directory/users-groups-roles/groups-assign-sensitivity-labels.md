@@ -1,6 +1,6 @@
 ---
 title: Assign sensitivity labels to groups - Azure AD | Microsoft Docs
-description: How to create membership rules to automatically populate groups, and a rule reference.
+description: Learn how to assign sensitivity labels to groups. See troubleshooting information and view additional available resources.
 services: active-directory
 documentationcenter: ''
 author: curtand

@@ -118,7 +118,7 @@ If setting multiple approvers, approval completes as soon as one of them approve
 
 # [Previous version](#tab/previous)
 
-## Open role settings
+## Open role settings (previous version)
 
 Follow these steps to open the settings for an Azure AD role.
 
