@@ -3,20 +3,20 @@ title: Payout reports - Microsoft commercial marketplace
 description: The Payout reports show you details about the money you've earned with your offer, including amount of payment and when you'll be paid.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.topic: article
 author: mingshen-ms
 ms.author: mingshen
-ms.date: 04/24/2020
+ms.date: 09/09/2020
 ---
 
 # Payout summaries
 
 The Payout summary shows you details about the money you've earned with Microsoft. It also lets you know when you'll receive payments and how much you'll be paid.
 
-If you sell products in the Azure Marketplace, you'll also see info on successful payouts in the Payout summary. For details, see [Microsoft Azure Marketplace Participation Policies](https://docs.microsoft.com/legal/marketplace/participation-policy) and the [Microsoft Azure Marketplace Publisher Agreement](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4xqkx).
+If you sell products in the Azure Marketplace, you'll also see info on successful payouts in the Payout summary. For more information about Azure Marketplace payment, see [Getting paid in the commercial marketplace](./get-paid.md) and the [Microsoft Publisher Agreement](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4xqkx).
 
 > [!NOTE]
-> To be eligible for payout, your proceeds must reach the [payment threshold](payment-thresholds-methods-timeframes.md) of $50. For details about the payment threshold see this page and review the app developer agreement.
+> To be eligible for payout, your proceeds must reach the payment threshold of $50. For details, see the [Microsoft Publisher Agreement](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4xqkx).
 
 > [!NOTE]
 > If you're looking for support regarding payouts, including configuring payout accounts, missing payouts, putting payouts on hold, or anything else, contact support [here](https://developer.microsoft.com/windows/support).
@@ -236,6 +236,6 @@ Transaction history from before July 1 2019 is handled separately. Statements wi
 | Charges                 | Shows a breakdown of all the charge details aggregated in the Transaction Amount column (only included for Azure Marketplace; not included in **Reserved** CSV file). |
 |||
 
-## Next Step
+## Next step
 
 - [Payout policy details](./payout-policy-details.md)
