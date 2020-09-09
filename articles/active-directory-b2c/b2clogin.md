@@ -31,7 +31,7 @@ Alternatively, the `<policy-name>` may be passed as a query parameter:
 - <code>https://\<tenant-name\>.b2clogin.com/\<tenant-name\>.onmicrosoft.com/oauth2/v2.0/token?<b>p=\<policy-name\></b></code>
 
 > [!IMPORTANT]
-> Endpoints that use the 'policy' parameter must be updated. 
+> Endpoints that use the 'policy' parameter must be update as well as [identity provider redirect URLs](#change-identity-provider-redirect-urls).
 
 Some Azure AD B2C customers use the shared capabilities of  Azure AD enterprise tenants like OAuth 2.0 client credentials grant flow. These features are accessed using Azure AD's login.microsoftonline.com endpoints, *which don't contain a policy parameter*. __These endpoints are not affected__.
 
