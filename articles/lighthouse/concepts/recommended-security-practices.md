@@ -23,7 +23,7 @@ We suggest that you ask your customers to implement Azure Multi-Factor Authentic
 To make management easier, use Azure Active Directory (Azure AD) groups for each role required to manage your customers' resources. This lets you add or remove individual users to the group as needed, rather than assigning permissions directly to each user.
 
 > [!IMPORTANT]
-> In order to add permissions for an Azure AD group, the **Group type** must be **Security** and not **Office 365**. This option is selected when the group is created. For more information, see [Create a basic group and add members using Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
+> In order to add permissions for an Azure AD group, the **Group type** must be set to **Security**. This option is selected when the group is created. For more information, see [Create a basic group and add members using Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
 When creating your permission structure, be sure to follow the principle of least privilege so that users only have the permissions needed to complete their job, helping to reduce the chance of inadvertent errors.
 

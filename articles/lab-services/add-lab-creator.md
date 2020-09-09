@@ -26,7 +26,7 @@ To provide educators the permission to create labs for their classes, add them t
 ## Add a non-Microsoft account user as a lab creator
 To add a user as a lab creator, you use their email accounts. The following types of email accounts might be used:
 
-- An email account that's provided by your university’s Office 365 Azure Active Directory (AAD). 
+- An email account that's provided by your university’s Azure Active Directory (AAD).
 - A Microsoft email account, such as `@outlook.com`, `@hotmail.com`, `@msn.com`, or `@live.com`.
 - A non-Microsoft email account, such as one provided by Yahoo or Google. However, these types of accounts must be linked with a Microsoft account.
 - A GitHub account. This account must be linked with a Microsoft account.

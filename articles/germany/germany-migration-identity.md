@@ -22,7 +22,7 @@ ms.custom: bfmigrate
 
 This article has information that can help you migrate Azure identity resources from Azure Germany to global Azure.
 
-The guidance on identity / tenants is intended for Azure-only customers. If you use common Azure Active Directory (Azure AD) tenants for Azure and O365 (or other Microsoft products), there are complexities in identity migration and you should first contact your Account Manager prior to using this migration guidance.
+The guidance on identity / tenants is intended for Azure-only customers. If you use common Azure Active Directory (Azure AD) tenants for Azure and Microsoft 365 (or other Microsoft products), there are complexities in identity migration and you should first contact your Account Manager prior to using this migration guidance.
 
 ## Azure Active Directory
 
