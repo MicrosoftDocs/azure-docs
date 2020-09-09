@@ -23,6 +23,8 @@ You can migrate SQL Server running on-premises or on:
 - Compute Engine (Google Cloud Provider - GCP)
 - Amazon Relational Database Service (AWS RDS)
 
+For other scenarios, see the [Database Migration Guide](https://datamigration.microsoft.com/). 
+
 ## Overview
 
 Migrate to SQL Server on Azure VMs when you want to use the familiar SQL Server environment with OS control, and want to take advantage of cloud-provided features such as built-in VM high availability, [automated backups](../../windows/automated-backup.md), and [automated patching](../../windows/automated-patching.md). 
@@ -60,7 +62,9 @@ The following table details the available method for the **lift and shift** migr
 
 ## Migrate  
 
-The following table details available methods for and **migrate and upgrade** migration strategies to migrate your SQL Server database to SQL Server on Azure VMs: 
+Due to the ease of setup, the recommended approach to migrate user databases is to take a native SQL Server [backup](/sql/t-sql/statements/backup-transact-sql) locally and then copy the file to Azure. This method  supports larger databases (>1TB) for all versions of SQL Server starting from 2005 and larger database backups (>1TB). However, for databases starting in SQL Server 2014, that are smaller than 1TB, and that have good connectivity to Azure, then [SQL Server backup to URL](/sql/relational-databases/backup-restore/sql-server-backup-to-url?redirectedfrom=MSDN&view=sql-server-ver15) is the better approach. 
+
+The following table details all available methods to migrate your SQL Server database to SQL Server on Azure VMs: 
 <br />
 
 |**Method** | **Minimum source version** | **Minimum target version** | **Source backup size constraint** | **Notes** |
@@ -75,6 +79,16 @@ The following table details available methods for and **migrate and upgrade** mi
 > [!TIP]
 > For large data transfers or for limited to no network options see [Data transfer for large datasets with low or network bandwidth](../../../../storage/common/storage-solution-large-dataset-low-network.md)
 >
+
+### Considerations
+
+The following is a list of key points to consider when reviewing migration methods:
+
+- For optimum data transfer performance, migrate databases and files onto an instance of SQL Server on Azure VM using a compressed backup file. For larger databases, in addition to compression, [split the backup file into smaller files](/sql/relational-databases/backup-restore/back-up-files-and-filegroups-sql-server) for increased performance during backup and transfer. 
+- If migrating from SQL Server 2014 or higher, consider [encrypting the backups](/sql/relational-databases/backup-restore/backup-encryption) to protect data during network transfer.
+- To minimize downtime during database migration, use the Always On availability group option. 
+- To minimize downtime without the overhead of configuring an availability group, use the log shipping option. 
+- For limited to no network options, use offline migration methods such as backup and restore, or [disk transfer services](../../../../storage/common/storage-solution-large-dataset-low-network.md) available in Azure.- To also change the version of SQL Server on a SQL Server on Azure VM, see [change SQL Server edition](../../../virtual-machines/windows/change-sql-server-edition.md).
 
 
 ## Business Intelligence 
@@ -107,7 +121,7 @@ The following table lists alternative partners that can help with migration as w
 
 ## Next steps
 
-To start migrating your SQL Server on SQL Server on Azure VMs, see the [Database Migration Assistant guide](use-database-migration-assistant-guide.md)
+To start migrating your SQL Server on SQL Server on Azure VMs, see the [Individual database migration guide](individual-database-migration-guide.md)
 
 - For a matrix of the Microsoft and third-party services and tools that are available to assist you with various database and data migration scenarios as well as specialty tasks, see the article [Service and tools for data migration.](../../../../dms/dms-tools-matrix.md)
 

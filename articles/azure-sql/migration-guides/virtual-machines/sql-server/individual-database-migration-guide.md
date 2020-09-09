@@ -1,6 +1,6 @@
 ---
 title: SQL Server to SQL Server on Azure VMs (Migration guide)
-description: Follow this guide to migrate your SQL Server databases to SQL Server on Azure Virtual Machines (VMs). 
+description: Follow this guide to migrate your individual SQL Server databases to SQL Server on Azure Virtual Machines (VMs). 
 services: database-migration
 author: markjones-msft
 ms.author: markjon
@@ -12,9 +12,9 @@ ms.topic: article
 ms.date: 7/20/2020
 ---
 
-# Migration guide: SQL Server to SQL Server on Azure VMs
+# Migration guide: SQL Server to SQL Server on Azure VMs (Individual databases)
 
-This migration guide teaches you to Discover, Assess and Migrate your user databases from SQL Server to an instance of SQL Server on Azure Virtual Machines (VMs) by using the [Database Migration Assistant (DMA)](/sql/dma/dma-overview). 
+This migration guide teaches you to **discover**, **assess** and **migrate** your user databases from SQL Server to an instance of SQL Server on Azure Virtual Machines (VMs) by using the [Database Migration Assistant (DMA)](/sql/dma/dma-overview). 
 
 You can migrate SQL Server running on-premises or on:
 
@@ -32,7 +32,7 @@ Migrating to SQL Server on Azure VMs requires the following:
 
 - [Database Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595)
 - An [Azure Migrate project](../../../../migrate/create-manage-projects.md)
-- Create and prepare a target [SQL Server on Azure VM](../../windows/create-sql-vm-portal.md)
+- A prepared target [SQL Server on Azure VM](../../windows/create-sql-vm-portal.md)
 - [Connectivity between Azure and on-premises](../../../../architecture/reference-architectures/hybrid-networking.md)
 
 The Database Migration Assistant supports the following target and source SQL Server versions - the target must be the same or a greater version than the source: 
@@ -109,58 +109,47 @@ It is highly recommended that all DMA fixes are scripted and applied to the targ
 
 After you have completed the pre-migration steps, you are ready to migrate the user databases and components. 
 
-There are several methods for migrating user SQL database(s) to an instance of SQL Server on an Azure VM, which is outlined in the [SQL VM migration overview](to-sql-server-on-azure-vm-overview.md). When migrating SQL Server databases to an instance of SQL Server on Azure VMs, you can perform an offline or an online migration. With an offline migration, application downtime begins when the migration starts. For an online migration, downtime is limited to the time required to cut over to the new environment when the migration completes.
+Migrate your databases using your preferred [migration method](to-sql-server-on-azure-vm-overview.md#migrate).  When migrating SQL Server databases to an instance of SQL Server on Azure VMs, you can perform an offline or an online migration. With an offline migration, application downtime begins when the migration starts. For an online migration, downtime is limited to the time required to cut over to the new environment when the migration completes.
 
-It is recommended that you first review and test an offline migration to determine whether the downtime is acceptable; if not, plan for using an online migration method.
+Review and test an offline migration first to determine whether the downtime is acceptable; if not, plan for using an online migration method.
 
-### Considerations
+The following provides steps for performing offline and online migrations using the native backup and restore method. Once all necessary objects have been migrated, cut the application over to point to the new target. 
 
-The following is a list of key points to consider when reviewing migration methods:
+### Offline Migration
 
-- For optimum data transfer performance, migrate databases and files onto an instance of SQL Server on Azure VM using a compressed backup file. It is also advised that for larger databases, [in addition to compression, the backup is split into smaller files](https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/back-up-files-and-filegroups-sql-server?view=sql-server-ver15) for increased performance during backup and transfer. 
-- If migrating from SQL 2014 or higher, consider [Encrypting SQL Backups](https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/backup-encryption?view=sql-server-ver15) to protect data during network transfer.
-- To minimize downtime during database migration, use the Always On availability group option. 
-- To minimize downtime without the overhead of configuring an availability group, use the log shipping option. 
-- For limited to no network options, use offline migration methods such as backup and restore,  or [disk transfer services](../../../../storage/common/storage-solution-large-dataset-low-network.md) available in Azure.
-- If you are changing the version of an existing SQL Server on Azure VM, please refer to the following [guide](https://docs.microsoft.com/en-us/azure/azure-sql/virtual-machines/windows/change-sql-server-edition).
+To perform an offline migration using backup and restore, follow these steps: 
 
-### Migrate Databases
+1. Setup connectivity to the target SQL Server on Azure VM, based on your requirements. See [Connect to a SQL Server Virtual Machine on Azure (Resource Manager)](../../../virtual-machines/windows/ways-to-connect-to-sql).
+1. Migrate objects outside user databases such as logins, jobs and server-level objects.
+1. Pause/stop any applications that are using databases intended for migration. 
+1. Ensure user database(s) are inactive using [single user mode](/sql/relational-databases/databases/set-a-database-to-single-user-mode). 
+1. Perform a full database backup to an on-premises location.
+1. Copy your on-premises backup file(s) to your VM using remote desktop, [Azure Data Explorer](/data-explorer/data-explorer-overview), or the [AZCopy command line utility](../../../../storage/common/storage-use-azcopy-v10) (>1TB backups recommended).
+1. Restore full database backup(s) to the SQL Server on Azure VM.
 
-Due to the ease of setup, the recommended approach is to perform the migration of user databases using SQL Server native [Backup](https://docs.microsoft.com/en-us/sql/t-sql/statements/backup-transact-sql?view=sql-server-ver15) locally and then copying the file to Azure. This method is recommended as it supports all versions of SQL from 2005 and larger database backups (>1TB), but if you have good connectivity to Azure and are on SQL Server 2014 and databases <1TB, then [SQL Server backup to URL](https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/sql-server-backup-to-url?redirectedfrom=MSDN&view=sql-server-ver15) is also a good option. DMA also provides functionality to migrate Windows and SQL Logins, maintaining existing passwords.
+### Online Migration
 
-> [!TIP] 
-> For large data transfers or for limited to no network options see [Data transfer for large datasets with low or network bandwidth](https://github.com/MashaMSFT/azure-docs-pr/blob/20200713_sqlvmmig/articles/storage/common/storage-solution-large-dataset-low-network.md)
->
+To perform an online migration using backup and restore, follow these steps: 
 
-**Offline Migration**
+1. Setup connectivity to target SQL Server on Azure VM, based on your requirements. See [Connect to a SQL Server Virtual Machine on Azure (Resource Manager)](../../../virtual-machines/windows/ways-to-connect-to-sql).
+1. Migrate objects outside user database (see objects outside user database) such as Logins, Jobs and Server level objects.
+1. Ensure on-premise User Database(s) to be migrated are in full or bulk-logged recovery model.
+1. Perform a full database backup to an on-premises location and modify any existing full database backups to use [COPY_ONLY](/sql/relational-databases/backup-restore/copy-only-backups-sql-server) keyword.
+1. Copy your on-premises backup file(s) to your VM using remote desktop, [Azure Data Explorer](/data-explorer/data-explorer-overview), or the [AZCopy command line utility](../../../../storage/common/storage-use-azcopy-v10.md) (>1TB backups recommended).
+1. Restore Full Database backup(s) on the SQL Server on Azure VM.
+1. Setup [log shipping](/sql/database-engine/log-shipping/configure-log-shipping-sql-server) between on-premise database and target SQL Server on Azure VM. Be sure not to re-initialise the database(s) as this has already been completed in the previous steps.
 
-1. Setup connectivity to target SQL Server on Azure VM, based on your requirements. See [Connect to a SQL Server Virtual Machine on Azure (Resource Manager)](https://docs.microsoft.com/en-us/azure/azure-sql/virtual-machines/windows/ways-to-connect-to-sql).
-2. Migrate objects outside user database (see objects outside user database) such as Logins, Jobs and Server level objects.
-3. Pause/Stop Applications using databases to be migrated.
-4. Ensure User database(s) are inactive using [single user mode](https://docs.microsoft.com/en-us/sql/relational-databases/databases/set-a-database-to-single-user-mode?view=sql-server-ver15). 
-5. Perform a full database backup to an on-premises location.
-6. Copy your on-premises backup file(s) to your VM using remote desktop, [Azure Data Explorer](https://docs.microsoft.com/en-us/azure/data-explorer/data-explorer-overview#:~:text=It%20helps%20you%20handle%20the%20many%20data%20streams,such%20as%20websites,%20applications,%20IoT%20devices,%20and%20more.), or the [AZCopy command line utility](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10) (>1TB backups recommended).
-7. Restore Full Database backup(s) on the SQL Server on Azure VM.
+### Cut-Over
 
-**Online Migration**
+Once databases and objects have been migrated over, perform a cut over of the application using these steps: 
 
-1. Setup connectivity to target SQL Server on Azure VM, based on your requirements. See [Connect to a SQL Server Virtual Machine on Azure (Resource Manager)](https://docs.microsoft.com/en-us/azure/azure-sql/virtual-machines/windows/ways-to-connect-to-sql).
-2. Migrate objects outside user database (see objects outside user database) such as Logins, Jobs and Server level objects.
-3. Ensure on-premise User Database(s) to be migrated are in full or bulk-logged recovery model.
-4. Perform a full database backup to an on-premises location and modify any existing full database backups to use [COPY_ONLY](https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/copy-only-backups-sql-server?view=sql-server-ver15) keyword.
-5. Copy your on-premises backup file(s) to your VM using remote desktop, [Azure Data Explorer](https://docs.microsoft.com/en-us/azure/data-explorer/data-explorer-overview#:~:text=It%20helps%20you%20handle%20the%20many%20data%20streams,such%20as%20websites,%20applications,%20IoT%20devices,%20and%20more.), or the [AZCopy command line utility](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10) (>1TB backups recommended).
-6. Restore Full Database backup(s) on the SQL Server on Azure VM.
-7. Setup [log shipping](https://docs.microsoft.com/en-us/sql/database-engine/log-shipping/configure-log-shipping-sql-server?view=sql-server-ver15) between on-premise database and target SQL Server on Azure VM. Be sure not to re-initialise the database(s) as this has already been completed in the previous steps.
-
-**Cut-Over**
-
-8. Pause/Stop Applications using databases to be migrated.
-9. Ensure User database(s) are inactive using [single user mode](https://docs.microsoft.com/en-us/sql/relational-databases/databases/set-a-database-to-single-user-mode?view=sql-server-ver15). 
-10. When required, perform [controlled fail-over](https://docs.microsoft.com/en-us/sql/database-engine/log-shipping/fail-over-to-a-log-shipping-secondary-sql-server?view=sql-server-ver15) of on-premise database(s) to target SQL Server on Azure VM.
+1. Pause/Stop Applications using databases to be migrated.
+1. Ensure User database(s) are inactive using [single user mode](/sql/relational-databases/databases/set-a-database-to-single-user-mode). 
+1. When required, perform [controlled fail-over](/sql/database-engine/log-shipping/fail-over-to-a-log-shipping-secondary-sql-server) of on-premise database(s) to target SQL Server on Azure VM.
 
 
 
-### Migrating SQL objects outside user database(s)
+### Migrating objects outside user database(s)
 
 There may be additional SQL Server objects that are required for the seamless operation of your user databases post migration. 
 
