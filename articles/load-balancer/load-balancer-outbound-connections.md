@@ -295,11 +295,6 @@ When only inbound NAT rules are used, no outbound NAT is provided.
 
 ## <a name="terms"></a> Terminology
 
-Azure Load Balancer supports the following protocols:
-
-* Transmission Control Protocol (TCP)
-* User Datagram Protocol (UDP)
-
 ### <a name="snat"></a>Source network address translation
 
 | Applicable protocol(s) |
