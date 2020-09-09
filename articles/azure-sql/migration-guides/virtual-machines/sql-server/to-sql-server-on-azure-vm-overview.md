@@ -27,9 +27,9 @@ For other scenarios, see the [Database Migration Guide](https://datamigration.mi
 
 ## Overview
 
-Migrate to SQL Server on Azure VMs when you want to use the familiar SQL Server environment with OS control, and want to take advantage of cloud-provided features such as built-in VM high availability, [automated backups](../../windows/automated-backup.md), and [automated patching](../../windows/automated-patching.md). 
+Migrate to SQL Server on Azure VMs when you want to use the familiar SQL Server environment with OS control, and want to take advantage of cloud-provided features such as built-in VM high availability, [automated backups](../../../virtual-machines/windows/automated-backup.md), and [automated patching](../../../virtual-machines/windows/automated-patching.md). 
 
-Save on costs by bringing your own license with the [Azure Hybrid Benefit licensing model](../../windows/licensing-model-azure-hybrid-benefit-ahb-change.md) or extend support for SQL Server 2008 and SQL Server 2008 R2 by getting [free security updates](../../windows/sql-server-2008-extend-end-of-support.md). 
+Save on costs by bringing your own license with the [Azure Hybrid Benefit licensing model](../../../virtual-machines/windows/licensing-model-azure-hybrid-benefit-ahb-change.md) or extend support for SQL Server 2008 and SQL Server 2008 R2 by getting [free security updates](../../../virtual-machines/windows/sql-server-2008-extend-end-of-support.md). 
 
 There are two migration strategies to migrate your user databases to an instance of SQL Server on Azure VMs: **migrate**, and **lift and shift**. 
 
@@ -103,7 +103,7 @@ These services include:
 
 ## Supported versions
 
-As you prepare for migrating SQL Server databases to SQL Server on Azure VMs, be sure to consider the versions of SQL Server that are supported. For a list of current supported SQL Server versions on Azure VMs, please see [SQL Server on Azure VMs](../../windows/sql-server-on-azure-vm-iaas-what-is-overview.md#get-started-with-sql-server-vms).
+As you prepare for migrating SQL Server databases to SQL Server on Azure VMs, be sure to consider the versions of SQL Server that are supported. For a list of current supported SQL Server versions on Azure VMs, please see [SQL Server on Azure VMs](../../../virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md#get-started-with-sql-server-vms).
 
 ## Partners
 
@@ -127,7 +127,7 @@ To start migrating your SQL Server on SQL Server on Azure VMs, see the [Individu
 
 - To learn more about Azure SQL see:
    - [Deployment options](../../../azure-sql-iaas-vs-paas-what-is-overview.md)
-   - [SQL Server on Azure VMs](../../windows/sql-server-on-azure-vm-iaas-what-is-overview.md)
+   - [SQL Server on Azure VMs](../../../virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md)
    - [Azure total Cost of Ownership Calculator](https://azure.microsoft.com/pricing/tco/calculator/) 
 
 
@@ -136,8 +136,8 @@ To start migrating your SQL Server on SQL Server on Azure VMs, see the [Individu
    -  [Best practices for costing and sizing workloads migrate to Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/migrate-best-practices-costs) 
 
 - For information about licensing, see
-   - [Bring your own license with the Azure Hybrid Benefit](../../windows/licensing-model-azure-hybrid-benefit-ahb-change.md)
-   - [Get free extended support for SQL Server 2008 and SQL Server 2008 R2](../../windows/sql-server-2008-extend-end-of-support.md)
+   - [Bring your own license with the Azure Hybrid Benefit](../../../virtual-machines/windows/licensing-model-azure-hybrid-benefit-ahb-change.md)
+   - [Get free extended support for SQL Server 2008 and SQL Server 2008 R2](../../../virtual-machines/windows/sql-server-2008-extend-end-of-support.md)
 
 
 - To assess the Application access layer, see [Data Access Migration Toolkit (Preview)](https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit)
