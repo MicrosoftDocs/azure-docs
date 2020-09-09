@@ -140,7 +140,11 @@
     items:
     - name: Remediate recommendations
       href: security-center-remediate-recommendations.md
+    - name: Prevent misconfigurations with Enforce/Deny
+      displayName: recommendations
+      href: prevent-misconfigurations.md
     - name: Strengthen security posture
+      displayName: recommendations
       href: security-center-monitoring.md
     - name: Reference list of recommendations
       href: recommendations-reference.md
