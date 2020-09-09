@@ -75,7 +75,7 @@ landingContent:
             url: concept-model-management-and-deployment.md
           - text: How & where to deploy
             url: how-to-deploy-and-where.md
-       - linkListType: reference
+      - linkListType: reference
         links:
           - text: Python SDK
             url: https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py  
