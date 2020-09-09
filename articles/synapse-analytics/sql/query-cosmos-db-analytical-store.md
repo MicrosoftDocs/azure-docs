@@ -54,7 +54,7 @@ To follow along this article showcasing how to query Cosmos DB data with SQL on-
 
 ## Explore Azure Cosmos DB data with automatic schema inference
 
-The easiest way to explore data in Azure Cosmos DB is by leveraging the automatic schema inference capability. By omitting the `WITH` clause from the `OPENROWSET` statement, you can instruct SQL on-demand to auto detech (infer) the schema of the analytical store of the Azure Cosmos DB container.
+The easiest way to explore data in Azure Cosmos DB is by leveraging the automatic schema inference capability. By omitting the `WITH` clause from the `OPENROWSET` statement, you can instruct SQL on-demand to auto detect (infer) the schema of the analytical store of the Azure Cosmos DB container.
 
 ```sql
 SELECT TOP 10 *
@@ -78,7 +78,7 @@ FROM OPENROWSET(
 
 ## Explicitly specify schema
 
-While automatic schema inference capability in `OPENROWSET` provides a simple, easy-to-use querience, your business scenarios may require you to explicity specify the schema to read only relevant properties from the Azure Cosmos DB data.
+While automatic schema inference capability in `OPENROWSET` provides a simple, easy-to-use querience, your business scenarios may require you to explicitly specify the schema to read only relevant properties from the Azure Cosmos DB data.
 
 `OPENROWSET` enables you to explicitly specify what properties you want to read from the data in the container and to specify their data types. 
 Let's imagine that we have imported some data from [ECDC COVID data set](https://azure.microsoft.com/services/open-datasets/catalog/ecdc-covid-19-cases/) with the following structure into Azure Cosmos DB:
