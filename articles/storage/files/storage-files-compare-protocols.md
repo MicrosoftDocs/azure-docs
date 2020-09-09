@@ -20,7 +20,7 @@ Azure Files offers two protocols for connecting and mounting your Azure file sha
 |Access protocols     |NFS 4.1         |SMB 2.1, SMB 3.0         |
 |Supported OS     |Linux kernel version 4.3+         |Windows 2008 R2+, Linux kernel version 4.11+         |
 |Available tiers     |Premium storage         |Premium storage, standard storage         |
-|Replication     |LRS, ZRS         |LRS, ZRS, GRS         |
+|Replication     |LRS         |LRS, ZRS, GRS         |
 |Authentication     |Host-based authentication only        |Identity-based authentication, user-based authentication         |
 |Permissions     |UNIX-style permissions         |NTFS-style permissions         |
 |File system semantics     |POSIX compliant         |Not POSIX compliant         |
@@ -31,6 +31,38 @@ Azure Files offers two protocols for connecting and mounting your Azure file sha
 |Locking     |Byte-range advisory network lock manager         |Supported         |
 |Public IP safe listing | Not supported | Supported|
 |Protocol interop| Not supported | File-REST|
+
+## NFS shares (preview)
+
+Mounting Azure file shares with NFS 4.1 is currently in preview. It offers a tighter integration with Linux. This is a fully POSIX-compliant offer that is a standard across variants of Unix and other *nix based operating systems. This enterprise-grade file storage service scales up to meet your storage needs and can be accessed concurrently by thousands of compute instances.
+
+### Limitations
+
+[!INCLUDE [files-nfs-limitations](../../../includes/files-nfs-limitations.md)]
+
+#### Regional availability
+
+[!INCLUDE [files-nfs-regional-availability](../../../includes/files-nfs-regional-availability.md)]
+
+### Best suited
+
+NFS with Azure Files is ideal for:
+
+- Workloads that require POSIX-compliant file shares, case sensitivity, or Unix style permissions(UID/GID).
+- Linux-centric workloads that do not require SMB access.
+
+### Security
+
+File shares using the NFS protocol currently only have encryption-at-rest, not encryption-in-transit. Due to this, to ensure only secure connections are established to your storage account, you must use one of the following supported network connections:
+
+- [A private endpoint](storage-files-networking-overview.md#private-endpoints)
+- [Azure VPN Gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md)
+    - [Point-to-site (P2S) VPN](../../vpn-gateway/point-to-site-about.md)
+    - [Site-to-Site](https://docs.microsoft.com/azure/vpn-gateway/design#s2smulti)
+- [ExpressRoute](../../expressroute/expressroute-introduction.md)
+- [A restricted public endpoint](storage-files-networking-overview.md#storage-account-firewall-settings)
+
+For more details on the available networking options, see [Azure Files networking considerations](storage-files-networking-overview.md).
 
 ## SMB shares
 
@@ -51,39 +83,6 @@ SMB with Azure Files is ideal for:
 
 - Production environments
 - Customers that require any of the features listed in [Features](#features)
-
-## NFS shares (preview)
-
-Mounting Azure file shares with NFS 4.1 is currently in preview. It has fewer available Azure Files features but offers a tighter integration with Linux. This is a fully POSIX-compliant offer that is a standard across variants of Unix and other *nix based operating systems. This enterprise-grade file storage service scales up to meet your storage needs and can be accessed concurrently by thousands of compute instances.
-
-### Limitations
-
-[!INCLUDE [files-nfs-limitations](../../../includes/files-nfs-limitations.md)]
-
-#### Regional availability
-
-[!INCLUDE [files-nfs-regional-availability](../../../includes/files-nfs-regional-availability.md)]
-
-### Best suited
-
-NFS with Azure Files is ideal for:
-
-- Workloads that require POSIX-compliant file shares, case sensitivity, or Unix style permissions(UID/GID).
-- Linux-centric workloads that do not require SMB access.
-- A workload that necessitates frequent random access.
-
-### Security
-
-File shares using the NFS protocol currently only have encryption-at-rest, not encryption-in-transit. Due to this, to ensure only secure connections are established to your storage account, you must use one of the following supported network connections:
-
-- [A private endpoint](storage-files-networking-overview.md#private-endpoints)
-- [Azure VPN Gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md)
-    - [Point-to-site (P2S) VPN](../../vpn-gateway/point-to-site-about.md)
-    - [Site-to-Site](https://docs.microsoft.com/azure/vpn-gateway/design#s2smulti)
-- [ExpressRoute](../../expressroute/expressroute-introduction.md)
-- [A restricted public endpoint](storage-files-networking-overview.md#storage-account-firewall-settings)
-
-For more details on the available networking options, see [Azure Files networking considerations](storage-files-networking-overview.md).
 
 ## Next steps
 
