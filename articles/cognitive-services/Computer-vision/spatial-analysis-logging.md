@@ -310,7 +310,7 @@ Remotely, connect from a Windows client. After the Kubernetes cluster is created
 
 > [!TIP]
 > * Before you begin, make sure that your Windows client is running Windows PowerShell 5.0 or later.
-> * PowerShell is also [available on Linux](https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-linux?view=powershell-6).
+> * PowerShell is also [available on Linux](https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-linux).
 
 1. Run a Windows PowerShell session as an Administrator. 
     1. Make sure that the Windows Remote Management service is running on your client. At the command prompt, type `winrm quickconfig`.
