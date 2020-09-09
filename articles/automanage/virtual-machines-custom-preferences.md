@@ -40,27 +40,27 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 ## Enable Automanage for VMs on an existing VM
 
-1. In the search bar, search for and select **Automanage – Azure virtual machine best practices**
+1. In the search bar, search for and select **Automanage – Azure virtual machine best practices**.
 
-2. Select the **Enable on existing VM**
+2. Select the **Enable on existing VM**.
 
 3. On the **Select machines** blade:
-    1. Filter the VMs list by your **Subscription** and **Resource group**
-    1. Check the checkbox of each virtual machine you want to onboard
-    1. Click the **Select** button
+    1. Filter the VMs list by your **Subscription** and **Resource group**.
+    1. Check the checkbox of each virtual machine you want to onboard.
+    1. Click the **Select** button.
 
     :::image type="content" source="media\virtual-machine-custom-preferences\existing-vm-select-machine.png" alt-text="Select existing VM from list of available VMs.":::
 
-4. Under **Configuration profile**, click **Browse and change profiles and preferences**
+4. Under **Configuration profile**, click **Browse and change profiles and preferences**.
 
     :::image type="content" source="media\virtual-machine-custom-preferences\existing-vm-quick-create.png" alt-text="Browse and change profiles and preferences.":::
 
-5. On the **Select configuration profile + preferences** blade, select a profile on left hand side: *Dev/Test* for testing, *Prod* for production
+5. On the **Select configuration profile + preferences** blade, select a profile on left hand side: *Dev/Test* for testing, *Prod* for production.
 
     :::image type="content" source="media\virtual-machine-custom-preferences\browse-production-profile.png" alt-text="Browse production configuration profile.":::
 
-6. On the chosen profile, under **Configuration preferences** there is a dropdown where you can adjust for certain services
-    1. Click **Create new preferences**
+6. On the chosen profile, under **Configuration preferences** there is a dropdown where you can adjust for certain services.
+    1. Click **Create new preferences**.
     1. In the **Create a configuration preference** blade, fill out the Basics tab:
         1. Subscription
         1. Resource group
@@ -69,15 +69,15 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
     :::image type="content" source="media\virtual-machine-custom-preferences\create-preference.png" alt-text="Fill out configuration preferences.":::
 
-7. Go to the Preferences tab and adjust the configuration preferences you want
+7. Go to the Preferences tab and adjust the configuration preferences you want.
         
     > [!NOTE]
     > Only adjustments that still fit within our best practices upper and lower bounds will be allowed when changing profile configurations.
 
-8. Review your configuration profile
-9. Click the **Create** button 
+8. Review your configuration profile.
+9. Click the **Create** button.
 
-10. Click the **Enable** button
+10. Click the **Enable** button.
 
 
 ## Disable Automanage for VMs
@@ -86,10 +86,10 @@ Quickly stop using Azure Automanage for virtual machines by disabling automanage
 
 :::image type="content" source="media\virtual-machine-custom-preferences\disable-step-1.png" alt-text="Disabling Automanage on a virtual machine.":::
 
-1. Go to the **Automanage – Azure virtual machine best practices** page that lists all of your auto-managed VMs
-1. Select the checkbox next to the virtual machine you want to disable
-1. Click on the **Disable automanagent** button
-1. Read carefully through the messaging in the resulting pop-up before agreeing to **Disable**
+1. Go to the **Automanage – Azure virtual machine best practices** page that lists all of your auto-managed VMs.
+1. Select the checkbox next to the virtual machine you want to disable.
+1. Click on the **Disable automanagent** button.
+1. Read carefully through the messaging in the resulting pop-up before agreeing to **Disable**.
 
 
 ## Clean up resources
@@ -98,9 +98,9 @@ If you created a new resource group to try Azure Automanage for virtual machines
 
 Azure Automanage creates default resource groups to store resources in. Check resource groups that have the naming convention "DefaultResourceGroupRegionName" and "AzureBackupRGRegionName" to clean up all resources.
 
-1. Select the **Resource group**
-1. On the page for the resource group, select **Delete**
-1. When prompted, confirm the name of the resource group and then select **Delete**
+1. Select the **Resource group**.
+1. On the page for the resource group, select **Delete**.
+1. When prompted, confirm the name of the resource group and then select **Delete**.
 
 
 ## Next steps 

@@ -36,12 +36,11 @@ Lastly, the experience is incredibly simple.
 
 There are several prerequisites to consider before trying to enable Azure Automanage on your virtual machines.
 
-> [!div class="checklist"]
-> * Windows Server VMs only
-> * VMs must be running
-> * Non-scale set VMs only
-> * VMs must be in a supported region
-> * User must have correct permissions
+- Windows Server VMs only
+- VMs must be running
+- Non-scale set VMs only
+- VMs must be in a supported region
+- User must have correct permissions
 
 The following RBAC permission is needed to enable Automanage: **Owner** role or **Contributor** along with **User Access Administrator** roles.
 

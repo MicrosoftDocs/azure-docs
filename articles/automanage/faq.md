@@ -95,3 +95,11 @@ If you see the status as *Failed*, you can troubleshoot the deployment through t
 **How can I get troubleshooting support for Automanage?**
 
 You can file a [technical support case ticket](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). For the **Service** option, search for and select *Automanage* under the *Monitoring and Management* section. 
+
+
+## Next steps 
+
+Try enabling Automanage for virtual machines in the Azure portal.
+
+> [!div class="nextstepaction"]
+> [Enable Automanage for virtual machines in the Azure portal](quick-create-virtual-machines-portal.md)
