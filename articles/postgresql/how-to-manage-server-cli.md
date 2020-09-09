@@ -16,13 +16,13 @@ This article shows you how to manage your Single servers deployed in Azure. Mana
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin. This article requires that you're running the Azure CLI version 2.0 or later locally. To see the version installed, run the `az --version` command. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
-You'll need to log in to your account using the [az login](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login) command. Note the **id** property, which refers to **Subscription ID** for your Azure account.
+You'll need to log in to your account using the [az login](https://docs.microsoft.com/cli/azure/reference-index#az-login) command. Note the **id** property, which refers to **Subscription ID** for your Azure account.
 
 ```azurecli-interactive
 az login
 ```
 
-Select the specific subscription under your account using [az account set](/cli/azure/account) command. Make a note of the **id** value from the **az login** output to use as the value for **subscription** argument in the command. If you have multiple subscriptions, choose the appropriate subscription in which the resource should be billed. To get all your subscription, use [az account list](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-list).
+Select the specific subscription under your account using [az account set](/cli/azure/account) command. Make a note of the **id** value from the **az login** output to use as the value for **subscription** argument in the command. If you have multiple subscriptions, choose the appropriate subscription in which the resource should be billed. To get all your subscription, use [az account list](https://docs.microsoft.com/cli/azure/account#az-account-list).
 
 ```azurecli
 az account set --subscription <subscription id>
@@ -34,7 +34,7 @@ If you have not already created a sever , refer to this [quickstart](quickstart-
 
 ## Scale compute and storage
 
-You can scale up your pricing tier , compute and storage easily using the following command. You can see all the server operation you can perform [az postgres server overview](/cli/azure/mysql/server?view=azure-cli-latest)
+You can scale up your pricing tier , compute and storage easily using the following command. You can see all the server operation you can perform [az postgres server overview](/cli/azure/mysql/server)
 
 ```azurecli-interactive
 az postgres server update --resource-group myresourcegroup --name mydemoserver --sku-name GP_Gen5_4 --storage-size 6144
