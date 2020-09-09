@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Building a static web app with Blazor"
+title: "Tutorial: Building a static web app with Blazor in Azure Static Web Apps"
 description: Learn to build an Azure Static Web Apps website with Blazor.
 services: static-web-apps
 author: craigshoemaker
@@ -9,7 +9,7 @@ ms.date: 09/10/2020
 ms.author: cshoe
 ---
 
-# Tutorial: Building a static web app with Blazor
+# Tutorial: Building a static web app with Blazor in Azure Static Web Apps
 
 Azure Static Web Apps publishes a website to a production environment by building apps from a GitHub repository. In this tutorial, you deploy a web application to Azure Static Web apps using the Azure portal.
 
@@ -59,7 +59,7 @@ The above configuration ensures that requests to any route in the app returns th
 This article uses a GitHub template repository to make it easy for you to get started. The template features a starter app deployed to Azure Static Web Apps.
 
 1. Make sure you're signed in to GitHub and navigate to the following location to create a new repository:
-    1. https://github.com/staticwebdev/blazor-starter/generate
+    - https://github.com/staticwebdev/blazor-starter/generate
 1. Name your repository **my-first-static-blazor-app**
 
 ## Create a static web app
@@ -79,7 +79,7 @@ In the _Basics_ section, begin by configuring your new app and linking it to a G
 1. Select your _Azure subscription_
 1. Select or create a new _Resource Group_
 1. Name the app **my-first-static-blazor-app**
-    1. Valid characters are `a-z` (case insensitive), `0-9`, and `-`.
+    - Valid characters are `a-z` (case insensitive), `0-9`, and `-`.
 1. Select a _Region_ closest to you
 1. Select the **Free** _SKU_
 1. Select the **Sign-in with GitHub** button and authenticate with GitHub
@@ -96,7 +96,7 @@ After you sign in with GitHub, enter the repository information.
 
 1. In the _Build Details_ section, add Blazor-specific configuration details.
 
-    1. Select **Blazor** from the _Build Presets_ dropdown, and keep all the default values.
+    - Select **Blazor** from the _Build Presets_ dropdown, and keep all the default values.
 
 1. Select **Review + create**.
 
