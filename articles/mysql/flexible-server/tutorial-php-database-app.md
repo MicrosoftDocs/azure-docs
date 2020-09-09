@@ -193,7 +193,7 @@ In this step, you connect the PHP application to the MySQL database you created 
 
 ### Configure the database connection
 
-In the repository root, create an _.env.production_ file and copy the following variables into it. Replace the placeholder_&lt;mysql-server-name>_ in both *DB_HOST* and *DB_USERNAME*.
+In the repository root, create an _.env.production_ file and copy the following variables into it. Replace the placeholder _&lt;mysql-server-name>_ in both *DB_HOST* and *DB_USERNAME*.
 
 ```
 APP_ENV=production
@@ -277,7 +277,7 @@ In this step, you deploy the MySQL-connected PHP application to Azure App Servic
 
 FTP and local Git can deploy to an Azure web app by using a deployment user. Once you configure your deployment user, you can use it for all your Azure deployments. Your account-level deployment username and password are different from your Azure subscription credentials.
 
-To configure the deployment user, run the [az webapp deployment user set](https://docs.microsoft.com/cli/azure/webapp/deployment/user#az-webapp-deployment-user-set) command in Azure Cloud Shell. Replace ```<username>``` and ```<password>``` with your deployment user username and password.
+To configure the deployment user, run the [az webapp deployment user set](https://docs.microsoft.com/cli/azure/webapp/deployment/user#az-webapp-deployment-user-set) command in Azure Cloud Shell. Replace _&lt;username>_ and _&lt;password>_ with your deployment user username and password.
 
 The username must be unique within Azure, and for local Git pushes, must not contain the ‘@’ symbol.
 The password must be at least eight characters long, with two of the following three elements: letters, numbers, and symbols.
@@ -299,13 +299,14 @@ az appservice plan create --name myAppServicePlan --resource-group myResourceGro
 
 Create a [web app](https://docs.microsoft.com/azure/app-service/overview#app-service-on-linux) in the myAppServicePlan App Service plan.
 
-In the Cloud Shell, you can use the [az webapp create](https://docs.microsoft.com/cli/azure/webapp#az-webapp-create) command. In the following example, replace ```<app-name>``` with a globally unique app name (valid characters are ```a-z```,``` 0-9```, and ```-```). The runtime is set to ```PHP|7.0```. To see all supported runtimes, run [az webapp list-runtimes --linux](https://docs.microsoft.com/cli/azure/webapp#az-webapp-list-runtimes).
+In the Cloud Shell, you can use the [az webapp create](https://docs.microsoft.com/cli/azure/webapp#az-webapp-create) command. In the following example, replace _&lt;app-name>_ with a globally unique app name (valid characters are `a-z`, `0-9`, and `-`). The runtime is set to `PHP|7.0`. To see all supported runtimes, run [az webapp list-runtimes --linux](https://docs.microsoft.com/cli/azure/webapp#az-webapp-list-runtimes).
 
 ```bash
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app-name> --runtime "PHP|7.3" --deployment-local-git
 ```
 
 When the web app has been created, the Azure CLI shows output similar to the following example:
+
 ```
 Local git is configured with url of 'https://<username>@<app-name>.scm.azurewebsites.net/<app-name>.git'
 {
@@ -376,7 +377,7 @@ For more information, see [Change site root](https://docs.microsoft.com/azure/ap
 
 ### Push to Azure from Git
 
-Back in the local terminal window, add an Azure remote to your local Git repository. Replace *\<deploymentLocalGitUrl-from-create-step>* with the URL of the Git remote that you saved from [Create a web app](#create-a-web-app).
+Back in the local terminal window, add an Azure remote to your local Git repository. Replace _&lt;deploymentLocalGitUrl-from-create-step>_ with the URL of the Git remote that you saved from [Create a web app](#create-a-web-app).
 
 ```bash
 git remote add azure <deploymentLocalGitUrl-from-create-step>
