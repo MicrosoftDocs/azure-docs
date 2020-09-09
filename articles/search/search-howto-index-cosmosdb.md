@@ -18,7 +18,7 @@ ms.date: 07/11/2020
 > SQL API is generally available.
 > MongoDB API, Gremlin API, and Cassandra API support are currently in public preview. Preview functionality is provided without a service level agreement, and is not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 > You can request access to the previews by filling out [this form](https://aka.ms/azure-cognitive-search/indexer-preview). 
-> The [REST API version 2020-06-30-Preview](search-api-preview.md) provides preview features. There is currently limited portal support, and no .NET SDK support.
+> [REST API preview versions](search-api-preview.md) provide these features. There is currently limited portal support, and no .NET SDK support.
 
 > [!WARNING]
 > Only Cosmos DB collections with an [indexing policy](/azure/cosmos-db/index-policy) set to [Consistent](/azure/cosmos-db/index-policy#indexing-mode) are supported by Azure Cognitive Search. Indexing collections with a Lazy indexing policy is not recommended and may result in missing data. Collections with indexing disabled are not supported.
