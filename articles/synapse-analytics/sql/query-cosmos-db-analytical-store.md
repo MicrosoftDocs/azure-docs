@@ -18,7 +18,7 @@ SQL on-demand (preview) allows you to analyze data in your Azure Cosmos DB conta
 > [!NOTE]
 > SQL on-demand does not support querying Azure Cosmos DB transactional store.
 
-For querying Azure Cosmos DB, the full [SELECT](./sql/t-sql/queries/select-transact-sql.md?view=sql-server-ver15) surface area is supported through [OPENROWSET](develop-openrowset.md) function, including majority of [SQL functions and operators](overview-features.md). You can also store results of the query that reads data from Azure Cosmos DB along with data in Azure Blob Storage or Azure Data Lake Storage using [create external table as select](develop-tables-cetas#cetas-in-sql-on-demand).
+For querying Azure Cosmos DB, the full [SELECT](./sql/t-sql/queries/select-transact-sql.md?view=sql-server-ver15) surface area is supported through [OPENROWSET](develop-openrowset.md) function, including majority of [SQL functions and operators](overview-features.md). You can also store results of the query that reads data from Azure Cosmos DB along with data in Azure Blob Storage or Azure Data Lake Storage using [create external table as select](develop-tables-cetas.md#cetas-in-sql-on-demand).
 
 > [!NOTE]
 > You can't currently store SQL on-demand query results to Azure Cosmos DB using [CETAS](develop-tables-cetas.md#cetas-in-sql-on-demand).
@@ -51,7 +51,7 @@ The examples in this article are based on data from [European Centre for Disease
 You can see the license and the structure of data on these pages, and download sample data for [ECDC](https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/ecdc_cases/latest/ecdc_cases.json) and [Cord19](https://azureopendatastorage.blob.core.windows.net/covid19temp/comm_use_subset/pdf_json/000b7d1517ceebb34e1e3e817695b6de03e2fa78.json) data sets.
 
 To follow along this article showcasing how to query Cosmos DB data with SQL on-demand, make sure that you create the following resources:
-* An Azure Cosmos DB database account that is [Synpase Link enabled](../../cosmos-db/configure-synapse-link.md)
+* An Azure Cosmos DB database account that is [Synapse Link enabled](../../cosmos-db/configure-synapse-link.md)
 * An Azure Cosmos DB database named `covid`
 * Two Azure Cosmos DB containers named `EcdcCases` and `Cord19` with above sample data sets loaded.
 
@@ -250,9 +250,6 @@ choose SQL types that match these JSON types if you are using `WITH` clause in `
 | Date time (unix timestamp ) | bigint |
 | Null | `any SQL type` 
 | Nested object or array | varchar(max) (UTF8 database collation), serialized as JSON text |
-
-> [!IMPORTANT]
-> Make sure that you have set [UTF8 collation of the database](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-database-collation#to-change-the-database-collation) using some SQL statement like `ALTER DATABASE MyLdw COLLATE LATIN1_GENERAL_100_CI_AS_SC_UTF8`.
 
 For querying Azure Cosmos DB accounts of Mongo DB API kind, you can learn more about the full fidelity schema representation in the analytical store and the extended property names to be used [here](../../cosmos-db/analytical-store-introduction.md#analytical-schema).
 
