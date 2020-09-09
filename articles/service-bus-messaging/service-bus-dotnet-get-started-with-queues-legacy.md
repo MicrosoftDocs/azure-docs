@@ -11,7 +11,7 @@ ms.custom: devx-track-csharp
 In this tutorial, you create .NET Core console applications to send messages to and receive messages from a Service Bus queue.
 
 > [!WARNING]
-> This quickstart uses the old Microsoft.Azure.ServiceBus package. For a quickstart that uses the latest Azure.Messaging.ServiceBus package, see [Send and receive events using Azure.Messaging.ServiceBus package](service-bus-dotnet-get-started-with-queues.md). To move your application from using the old library to new one, see the [Guide to migrate from Microsoft.Azure.ServiceBus to Azure.Messaging.ServiceBus](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/servicebus/Azure.Messaging.ServiceBus/MigrationGuide.md).
+> This quickstart uses the old Microsoft.Azure.ServiceBus package. For a quickstart that uses the latest Azure.Messaging.ServiceBus package, see [Send and receive events using Azure.Messaging.ServiceBus package](service-bus-dotnet-get-started-with-queues.md). 
 
 ## Prerequisites
 
