@@ -8,7 +8,7 @@ ms.date: 09/08/2020
 ms.topic: how-to
 ms.author: a-sakand
 ---
-# Sign in to LUIS portal
+# Sign Up to LUIS portal
 
 If you are a new user signing up to LUIS, the signup experience will slightly differ due to:
   * Having your account is associated with an Azure subscription
