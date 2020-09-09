@@ -1,32 +1,49 @@
 ---
-title: Microsoft Azure Stack Edge Rugged K-series overview | Microsoft Docs
-description: Describes Azure Stack Edge Rugged K-series, a storage solution for military applications that uses a portable physical device with a battery for transfer over wi-fi into Azure.
+title: Azure Stack Edge Mini R overview | Microsoft Docs
+description: Describes Azure Stack Edge Mini R, a storage solution for military applications that uses a portable physical device with a battery for transfer over wi-fi into Azure.
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 01/27/2019
+ms.date: 09/09/2020
 ms.author: alkohli
-#Customer intent: As an IT admin, I need to understand what Azure Stack Edge is and how it works so I can use it to process and transform data before sending to Azure.
+#Customer intent: As an IT admin, I need to understand what Azure Stack Edge Mini R is and how it works so I can use it to process and transform data before sending to Azure.
 ---
 
-# What is the Rugged Mobile Appliance?
+# What is the Azure Stack Edge Mini R?
 
-The Rugged Mobile Appliance is a part of the Azure Stack Edge Rugged Series. It is a durable, rugged, and portable edge appliance appropriate for use by mounted and dismounted patrols and expeditionary forces, that runs managed compute and storage services and is optimized for AI, analytics, and serverless computing.
+The Azure Stack Edge Mini R is a Hardware-as-a-service solution. Microsoft ships you a rugged, cloud-managed, portable device with a built-in Vision Processing Unit (VPU) that enables accelerated AI-inferencing and has all the capabilities of a network storage gateway. These are durable, rugged, and portable edge devices appropriate for use by mounted and dismounted patrols and expeditionary forces. These devices are optimized for AI, analytics, and serverless computing.
 
-This article provides you an overview of the Azure Stack Edge Rugged K-series solution, benefits, key capabilities, and the scenarios where you can deploy this device.
+This article provides you an overview of the Azure Stack Edge Mini R solution, key capabilities, and the scenarios where you can deploy this device.
 
-Azure Stack Edge Rugged K-series is a Hardware-as-a-service solution. Microsoft ships you a rugged, cloud-managed, portable device with a built-in Vector Processing Unit (VPU) that enables accelerated AI-inferencing and has all the capabilities of a network storage gateway.
 
+## Key capabilities
+
+Azure Stack Edge Mini R has the following capabilities:
+
+|Capability |Description  |
+|---------|---------|
+|Accelerated AI inferencing| Enabled by the built-in VPU.|
+|Edge compute workloads    |Allows analysis, processing, filtering of data. Supports VMs and Kubernetes clusters.|
+|Portable| Portable, battery-operated form factor.|
+|Wired and wireless | Allows wired and wireless data transfers.|
+|Data access     | Direct data access from Azure Storage Blobs and Azure Files using cloud APIs for additional data processing in the cloud. Local cache on the device is used for fast access of most recently used files.|
+|Cloud-managed    |Device and service are managed via the Azure portal.|
+|Disconnected mode| Device and service are managed via Azure Stack. <br> Disconnected mode supports offline upload scenarios.|
+|Rugged hardware| Rugged hardware designed for harsh environmental conditions.|
+|Supported protocols     |Supports standard SMB, NFS, and REST protocols for data ingestion. <br> For more information on supported versions, go to [Azure Stack Edge Mini R system requirements](azure-stack-edge-gpu-system-requirements.md).|
+|Data refresh     | Ability to refresh local files with the latest from cloud.|
+|Dual encryption    | Use of self-encrypting drive provides the first layer of encryption. VPN provides the second layer of encryption. BitLocker support to locally encrypt data and secure data transfer to cloud over *https* .|
+|Bandwidth throttling| Throttle to limit bandwidth usage during peak hours.|
 
 ## Use cases
 
-Here are the various scenarios where Azure Stack Edge can be used for rapid Machine Learning (ML) inferencing at the edge and preprocessing data before sending it to Azure.
+Here are the various scenarios where Azure Stack Edge Mini R can be used for rapid Machine Learning (ML) inferencing at the edge and preprocessing data before sending it to Azure.
 
-- **Inference with Azure Machine Learning** - With Azure Stack Edge, you can run ML models to get quick results that can be acted on before the data is sent to the cloud. The full data set can optionally be transferred to continue to retrain and improve your ML models. For more information on how to use the Azure ML hardware accelerated models on the Azure Stack Edge device, see 
-[Deploy Azure ML hardware accelerated models on Azure Stack Edge](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-fpga-web-service#deploy-to-a-local-edge-server).
+- **Inference with Azure Machine Learning** - With Azure Stack Edge Mini R, you can run ML models to get quick results that can be acted on before the data is sent to the cloud. The full data set can optionally be transferred to continue to retrain and improve your ML models. For more information on how to use the Azure ML hardware accelerated models on the Azure Stack Edge Mini R device, see 
+[Deploy Azure ML hardware accelerated models on Azure Stack Edge Mini R](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-fpga-web-service#deploy-to-a-local-edge-server).
 
 - **Preprocess data** - Transform data before sending it to Azure to create a more actionable dataset. Preprocessing can be used to:
 
@@ -35,60 +52,32 @@ Here are the various scenarios where Azure Stack Edge can be used for rapid Mach
     - Subset data to optimize storage and bandwidth, or for further analysis.
     - Analyze and react to IoT Events.
 
-- **Transfer data over network to Azure** - Use Azure Stack Edge to easily and quickly transfer data to Azure to enable further compute and analytics or for archival purposes.
-
-
-## Key capabilities
-
-Azure Stack Edge Rugged K-series has the following capabilities:
-
-|Capability |Description  |
-|---------|---------|
-|Accelerated AI inferencing| Enabled by the built-in VPU.|
-|Edge compute workloads    |Allows analysis, processing, filtering of data. Supports VMs.|
-|Portable| Portable, battery-operated form factor.|
-|Wired and wireless | Allows wired and wireless data transfers.|
-|Data access     | Direct data access from Azure Storage Blobs and Azure Files using cloud APIs for additional data processing in the cloud. Local cache on the device is used for fast access of most recently used files.|
-|Cloud-managed    |Device and service are managed via the Azure portal.|
-|Disconnected mode| Device and service are managed via Azure Stack. <br> Disconnected mode supports offline upload scenarios.|
-|Rugged hardware| Rugged hardware designed for harsh environmental conditions.|
-|Supported protocols     |Supports standard SMB, NFS, and REST protocols for data ingestion. <br> For more information on supported versions, go to [Azure Stack Edge K-series system requirements](azure-stack-edge-k-series-system-requirements.md).|
-|Data refresh     | Ability to refresh local files with the latest from cloud.|
-|Dual encryption    | Use of self-encrypting drive provides the first layer of encryption. VPN provides the second layer of encryption. BitLocker support to locally encrypt data and secure data transfer to cloud over *https* .|
-|Bandwidth throttling| Throttle to limit bandwidth usage during peak hours.|
-
+- **Transfer data over network to Azure** - Use Azure Stack Edge Mini R to easily and quickly transfer data to Azure to enable further compute and analytics or for archival purposes.
 
 ## Components
 
-The Azure Stack Edge K-series solution comprises of an Azure Stack Edge resource, Azure Stack Edge rugged, K-series physical device, and a local web UI.
+The Azure Stack Edge Mini R solution comprises of an Azure Stack Edge resource, Azure Stack Edge Mini R rugged, portable physical device, and a local web UI.
 
-* **Azure Stack Edge K-series physical device** - A portable device with an onboard battery and a rugged encasing supplied by Microsoft that can be configured to send data to Azure. 
+* **Azure Stack Edge Mini R physical device** - A portable device with an onboard battery and a rugged encasing supplied by Microsoft that can be configured to send data to Azure. 
 
-    ![Azure Stack Edge K-series device](media/azure-stack-edge-k-series-overview/perspective-view-1.png)
+    ![Azure Stack Edge Mini R device](media/azure-stack-edge-k-series-overview/perspective-view-1.png)
 
-* **Azure Stack Edge resource** – A resource in the Azure portal that lets you manage a rugged, Azure Stack Edge K-series device from a web interface that you can access from different geographical locations. Use the Azure Stack Edge resource to create and manage resources, view, and manage devices and alerts, and manage shares.  
+* **Azure Stack Edge resource** – A resource in the Azure portal that lets you manage a rugged, Azure Stack Edge Mini R device from a web interface that you can access from different geographical locations. Use the Azure Stack Edge resource to create and manage resources, view, and manage devices and alerts, and manage shares.  
 
-
-    For more information, go to [Create an order for your Azure Stack Edge K-series device](azure-stack-edge-k-series-deploy-prep.md).
-
-* **Azure Stack Edge local web UI** - Use the local web UI for initial device configuration, to run diagnostics, shut down and restart the Azure Stack Edge device, view copy logs, and contact Microsoft Support to file a service request.
-
-
-    For information about using the web-based UI, go to [Use the web-based UI to administer your Azure Stack Edge](azure-stack-edge-j-series-manage-access-power-connectivity-mode.md).
+* **Azure Stack Edge Mini R local web UI** - Use the local web UI for initial device configuration, to run diagnostics, shut down and restart the Azure Stack Edge Mini R device, view copy logs, and contact Microsoft Support to file a service request.
 
 
 ## Region availability
 
-Azure Stack Edge K-series physical device, Azure resource, and target storage account to which you transfer data do not all have to be in the same region.
+Azure Stack Edge Mini R physical device, Azure resource, and target storage account to which you transfer data do not all have to be in the same region.
 
-- **Resource availability** - For a list of all the regions where the Azure Stack Edge resource is available, go to [Azure products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). Azure Stack Edge can also be deployed in the Azure Government Cloud. For more information, see [What is Azure Government?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome).
+- **Resource availability** - For a list of all the regions where the Azure Stack Edge resource is available, go to [Azure products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). 
 
-- **Destination Storage accounts** - The storage accounts that store the data are available in all Azure regions. The regions where the storage accounts store Azure Stack Edge data should be located close to where the device is located for optimum performance. A storage account located far from the device results in long latencies and slower performance.
+- **Destination Storage accounts** - The storage accounts that store the data are available in all Azure regions. The regions where the storage accounts store Azure Stack Edge Mini R data should be located close to where the device is located for optimum performance. A storage account located far from the device results in long latencies and slower performance.
 
 
 ## Next steps
 
-- Review the [Azure Stack Edge K-series system requirements](azure-stack-edge-j-series-system-requirements.md).
-- Understand the [Azure Stack Edge K-series limits](azure-stack-edge-k-series-limits.md).
-- Deploy [Azure Azure Stack Edge](azure-stack-edge-k-series-deploy-prep.md) in Azure portal.
+- Review the [Azure Stack Edge Mini R system requirements](azure-stack-edge-gpu-system-requirements.md).
+
 
