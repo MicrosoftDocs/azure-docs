@@ -27,9 +27,8 @@ With max spreading, the scale set spreads your VMs across as many fault domains 
 
 **We recommend deploying with max spreading for most workloads**, as this approach provides the best spreading in most cases. If you need replicas to be spread across distinct hardware isolation units, we recommend spreading across Availability Zones and utilize max spreading within each zone.
 
-With max spreading, you only see one fault domain in the scale set VM instance view and in the instance metadata regardless of how many fault domains the VMs are spread across. The spreading within each zone is implicit.
-
-To use max spreading, set *platformFaultDomainCount* to *1*. To use static five fault domain spreading, set *platformFaultDomainCount* to *5*. In API version *2017-12-01*, *platformFaultDomainCount* defaults to *1* for single-zone and cross-zone scale sets. Currently, only static five fault domain spreading is supported for regional (non-zonal) scale sets.
+> [!NOTE]
+> With max spreading, you only see one fault domain in the scale set VM instance view and in the instance metadata regardless of how many fault domains the VMs are spread across. The spreading within each zone is implicit.
 
 ### Placement groups
 
