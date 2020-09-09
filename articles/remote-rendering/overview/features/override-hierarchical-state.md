@@ -10,7 +10,7 @@ ms.custom: devx-track-csharp
 
 # Hierarchical state override
 
-In many cases, it is necessary to dynamically change the appearance of parts of a [model](../../concepts/models.md), for example hiding subgraphs or switching parts to transparent rendering. Changing the materials of each part involved is not practical since it requires to iterate over the whole scene graph, and manage material cloning and assignment on each node.
+In many cases, it is necessary to dynamically change the appearance of parts of a [model](../../concepts/models.md), for example hiding sub graphs or switching parts to transparent rendering. Changing the materials of each part involved is not practical since it requires to iterate over the whole scene graph, and manage material cloning and assignment on each node.
 
 To accomplish this use case with the least possible overhead, use the `HierarchicalStateOverrideComponent`. This component implements hierarchical state updates on arbitrary branches of the scene graph. That means, a state can be defined on any level in the scene graph and it trickles down the hierarchy until it is either overridden by a new state, or applied to a leaf object.
 
@@ -40,6 +40,9 @@ The fixed set of states that can be overridden are:
   ![Selection Outline](./media/selection-outline.png)
 
 * **`DisableCollision`**: The geometry is exempt from [spatial queries](spatial-queries.md). The **`Hidden`** flag doesn't affect the collision state flag, so these two flags are often set together.
+
+> [!TIP]
+As an alternative to turning off the visibility and spatial queries for a full sub graph, the `enabled` state of a game object can be toggled. If a hierarchy is disabled, this has preference over any `HierarchicalStateOverrideComponent`.
 
 ## Hierarchical overrides
 
