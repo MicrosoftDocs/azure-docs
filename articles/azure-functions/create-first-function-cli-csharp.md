@@ -3,7 +3,7 @@ title: Use C# to create a function in Azure to respond to HTTP
 description: Learn how to create a function from the command line using C#, then publish the local project to serverless hosting in Azure Functions.
 ms.date: 09/14/2020
 ms.topic: quickstart
-ms.custom: devx-track-csharp
+ms.custom: [devx-track-csharp, devx-track-azurecli]
 ---
 
 # Quickstart: Create a function in Azure using C# that responds to HTTP requests
