@@ -19,7 +19,7 @@ In this article, you'll learn how to export the data labels from an Azure Machin
 
 ## What are datasets with labels 
 
-Azure Machine Learning datasets with labels are [TabularDatasets](how-to-create-register-datasets.md#dataset-types) with a label property, we will refer to them as labeled datasets. These specific types of TabularDatasets are only created as an output of Azure Machine Learning data labeling projects. Create a data labeling project with [these steps](how-to-create-labeling-projects.md). Machine Learning supports data labeling projects for image classification, either multi-label or multi-class, and object identification together with bounded boxes.
+We refer to Azure Machine Learning datasets with labels as labeled datasets. These specific dataset types of labeled datasets are only created as an output of Azure Machine Learning data labeling projects. Create a data labeling project with [these steps](how-to-create-labeling-projects.md). Machine Learning supports data labeling projects for image classification, either multi-label or multi-class, and object identification together with bounded boxes.
 
 ## Prerequisites
 
