@@ -92,7 +92,7 @@ async function getUser() {
   return clientPrincipal;
 }
 
-console.log(getUser());
+console.log(await getUser());
 ```
 
 # [C#](#tab/csharp)
