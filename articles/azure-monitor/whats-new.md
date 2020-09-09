@@ -11,6 +11,12 @@ ms.date: 07/08/2020
 
 This article provides lists Azure Monitor articles that are either new or have been significantly updated. It will be refreshed the first week of each month to include article updates from the previous month.
 
+## August 2020
+
+### Containers
+
+- [Deployment & HPA metrics with Azure Monitor for containers](insights/container-insights-deployment-hpa-metrics.md) - New article.
+
 ## July 2020
 
 ### General
