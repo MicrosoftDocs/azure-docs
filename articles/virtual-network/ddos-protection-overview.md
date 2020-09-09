@@ -36,6 +36,8 @@ Azure DDoS protection, combined with application design best practices, provide 
 |SLA                                             |Azure Region                          |Application guarantee & cost protection       |
 |Pricing                                         |Free                                  |Monthly & usage based                         |
 
+Azure DDoS protection does not store customer data.
+
 ## Types of DDoS attacks that DDoS Protection Standard mitigates
 
 DDoS Protection Standard can mitigate the following types of attacks:
