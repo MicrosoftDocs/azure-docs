@@ -29,7 +29,7 @@ Both planes use Azure Active Directory (Azure AD) for authentication. For author
 
 When you create a key vault in an Azure subscription, it's automatically associated with the Azure AD tenant of the subscription. All callers in both planes must register in this tenant and authenticate to access the key vault. In both cases, applications can access Key Vault in two ways:
 
-- **Application-only**: The application represents a service or background job. This is the most common scenario for applications that need to access certificates, keys or secrets from the key vault, periodically. For this scenario to work, the `objectId` of the application must be specified in the access policy, and the `applicationId` must _not_ be specified or must be `null`.
+- **Application-only**: The application represents a service or background job. This identity is the most common scenario for applications that need to access certificates, keys, or secrets from the key vault, periodically. For this scenario to work, the `objectId` of the application must be specified in the access policy, and the `applicationId` must _not_ be specified or must be `null`.
 - **User-only**: The user accesses the key vault from any application registered in the tenant. Examples of this type of access include Azure PowerShell and Azure Portal. For this scenario to work, the `objectId` of the user must be specified in the access policy, and the `applicationId` must _not_ be specified or must be `null`.
 - **Application-plus-user** (sometimes referred as _compound identity_): The user is required to access the key vault from a specific application _and_ the application must use the on-behalf-of authentication (OBO) flow to impersonate the user. For this scenario to work, both `applicationId` and `objectId` must be specified in the access policy. The `applicationId` identifies the required application, and the `objectId` identifies the user. This option is currently not available for data plane Azure RBAC (preview)
 
@@ -75,7 +75,7 @@ You can grant data plane access by setting Key Vault access policies for a key v
 
 You grant a user, group, or application access to execute specific operations for keys or secrets in a key vault. Key Vault supports up to 1,024 access policy entries for a key vault. To grant data plane access to several users, create an Azure AD security group and add users to that group.
 
-You can see the full list of vault and secret operations and understand the operations allowed when you configure key vault access policies by viewing the following reference. [Key Vault Operation Reference](https://docs.microsoft.com/rest/api/keyvault/#vault-operations)
+You can see the full list of vault and secret operations here: [Key Vault Operation Reference](https://docs.microsoft.com/rest/api/keyvault/#vault-operations)
 
 <a id="key-vault-access-policies"></a>
 Key Vault access policies grant permissions separately to keys, secrets, and certificate.  Access permissions for keys, secrets, and certificates are at the vault level. 
@@ -165,7 +165,7 @@ The following table summarizes the access permissions for our roles and applicat
 | Developers and&nbsp;operators | Key Vault deploy permission<br><br> **Note**: This permission allows deployed VMs to fetch secrets from a key vault. | None | None |
 | Auditors | None | Certificates: list <br> Keys: list<br>Secrets: list<br><br> **Note**: This permission enables auditors to inspect attributes (tags, activation dates, expiration dates) for keys and secrets not emitted in the logs. | Key Vault Reader (preview) |
 | Azure Storage Account | None | Keys: get, list, wrapKey, unwrapKey <br> | Key Vault Crypto Service Encryption |
-| Application | None | Secrets: get,list <br> Certificates: get, list | Key Vault Reader (preview), Key Vault Secret User (preview) |
+| Application | None | Secrets: get, list <br> Certificates: get, list | Key Vault Reader (preview), Key Vault Secret User (preview) |
 
 The three team roles need access to other resources along with Key Vault permissions. To deploy VMs (or the Web Apps feature of Azure App Service), developers and operators need deploy access. Auditors need read access to the Storage account where the Key Vault logs are stored.
 
