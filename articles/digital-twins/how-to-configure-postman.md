@@ -27,9 +27,9 @@ Through the Postman client, solutions developers can specify the kind of HTTP re
 
 ## Configure Azure Active Directory to use the OAuth 2.0 implicit grant flow
 
-1. Follow the steps in [the Quickstart](quickstart-view-occupancy-dotnet.md#set-permissions-for-your-app) to create and configure an Azure Active Directory application. Alternatively, you can reuse an existing app registration.
+1. Follow the steps in the [*Set up access permissions for client applications*](how-to-set-up-instance-portal.md#set-up-access-permissions-for-client-applications) section of *How-to: Set up an instance and authentication* to create and configure an app registration in Azure Active Directory. Alternatively, you can reuse an existing app registration.
 
-    [![Configure a new Postman Redirect URI](media/how-to-configure-postman/authentication-redirect-uri.png)](media/how-to-configure-postman/authentication-redirect-uri.png#lightbox)
+    :::image type="content" source="media/how-to-configure-postman/authentication-redirect-uri.png" alt-text="Configure a new Postman Redirect URI" lightbox="media/how-to-configure-postman/authentication-redirect-uri.png" :::
 
 1. Now, add a **Redirect URI** to `https://www.getpostman.com/oauth2/callback`.
 
@@ -78,7 +78,7 @@ Set up and configure Postman to obtain an Azure Active Directory token. Afterwar
 
 1. The client should now appear as:
 
-    [![Postman client token example](media/how-to-configure-postman/configure-postman-oauth-token.png)](media/how-to-configure-postman/configure-postman-oauth-token.png#lightbox)
+    :::image type="content" source="media/how-to-configure-postman/configure-postman-oauth-token.png" alt-text="Postman client token example" lightbox="media/how-to-configure-postman/configure-postman-oauth-token.png":::
 
 1. Select **Request Token**.
   
@@ -90,14 +90,14 @@ After completing the previous steps, configure Postman to make an authenticated 
 
 1. Under the **Headers** tab, add an HTTP request header key **Content-Type** with value `multipart/mixed`.
 
-   [![Specify content type multipart/mixed](media/how-to-configure-postman/configure-postman-content-type.png)](media/how-to-configure-postman/configure-postman-content-type.png#lightbox)
+   :::image type="content" source="media/how-to-configure-postman/configure-postman-content-type.png" alt-text="Specify content type multipart/mixed" lightbox="media/how-to-configure-postman/configure-postman-content-type.png":::
 
 1. Serialize non-text data into files. JSON data would be saved as a JSON file.
 1. Under the **Body** tab, select `form-data`. 
 1. Add each file by assigning a **key** name, selecting `File`.
 1. Then, select each file through the **Choose File** button.
 
-   [![Postman client form body example](media/how-to-configure-postman/configure-postman-form-body.png)](media/how-to-configure-postman/configure-postman-form-body.png#lightbox)
+   :::image type="content" source="media/how-to-configure-postman/configure-postman-form-body.png" alt-text="Postman client form body example" lightbox="media/how-to-configure-postman/configure-postman-form-body.png":::
 
    >[!NOTE]
    > * The Postman client does not require that multipart chunks have a manually assigned **Content-Type** or **Content-Disposition**.
@@ -114,8 +114,4 @@ After completing the previous steps, configure Postman to make an authenticated 
 
 ## Next steps
 
-- To learn about the Digital Twins management APIs, and how to use them, read [How to use Azure Digital Twins management APIs](how-to-navigate-apis.md).
-
-- Use multipart requests to [add blobs to Azure Digital Twins' entities](./how-to-add-blobs.md).
-
-- To learn about authenticating with the Management APIs, read [Authenticate with APIs](./security-authenticating-apis.md).
+- To learn about the Digital Twins APIs, and how to use them, read [*How-to: Use the Azure Digital Twins APIs and SDKs](how-to-use-apis-sdks.md).
