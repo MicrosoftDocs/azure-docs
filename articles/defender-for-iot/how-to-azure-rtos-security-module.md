@@ -1,8 +1,8 @@
 ---
 title: Configure and customize Security Module for Azure RTOS
 description: Learn about how to configure and customize your Security Module for Azure RTOS.
-services: asc-for-iot
-ms.service: asc-for-iot
+services: defender-for-iot
+ms.service: defender-for-iot
 documentationcenter: na
 author: mlottner
 manager: rkarlin
@@ -10,10 +10,10 @@ editor: ''
 
 ms.subservice: asc-for-iot
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/06/2020
+ms.date: 09/09/2020
 ms.author: mlottner
 ---
 
@@ -70,7 +70,7 @@ The Security Module for Azure RTOS supports specific security alerts and recomme
 
 ## Log Analytics (optional)
 
-While optional and not required, enabling and configuring Log Analytics can be helpful when you wish to further investigate device events and activities. Read about how to setting up and use [Log Analytics with the Azure Security Center for IoT service](how-to-security-data-access.md#log-analytics) to learn more. 
+While optional and not required, enabling and configuring Log Analytics can be helpful when you wish to further investigate device events and activities. Read about how to setting up and use [Log Analytics with the Defender for IoT service](how-to-security-data-access.md#log-analytics) to learn more. 
 
 ## Next steps
 
