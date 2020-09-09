@@ -17,7 +17,7 @@ This article describes how you can use your Automation account to enable the [Up
 
 * Azure subscription. If you don't have one yet, you can [activate your MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [Automation account](../index.yml) to manage machines.
-* An [Azure virtual machine](../../virtual-machines/windows/quick-create-portal.md), or VM or server registered with Arc enabled servers (preview). Non-Azure VMs or servers need to have the [Log Analytics agent](../../azure-monitor/platform/log-analytics-agent.md) for Windows or Linux installed and reporting to the workspace linked to the Automation account Update Management is enabled in.
+* An [Azure virtual machine](../../virtual-machines/windows/quick-create-portal.md), or VM or server registered with Arc enabled servers (preview). Non-Azure VMs or servers need to have the [Log Analytics agent](../../azure-monitor/platform/log-analytics-agent.md) for Windows or Linux installed and reporting to the workspace linked to the Automation account Update Management is enabled in. The agent can be installed on Arc enabled servers by deploying the [Azure Log Analytics VM extension](../../azure-arc/servers/manage-vm-extensions.md) with Azure Arc.
 
 ## Sign in to Azure
 
