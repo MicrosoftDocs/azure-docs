@@ -25,8 +25,6 @@ LAST_VALUE ( [ scalar_expression ] )
     OVER ( [ partition_by_clause ] order_by_clause rows_range_clause )   
 ```  
   
-[!INCLUDE[sql-server-tsql-previous-offline-documentation](/sql/includes/sql-server-tsql-previous-offline-documentation/)]
-
 ## Arguments
  *scalar_expression*  
  Is the value to be returned. *scalar_expression* can be a column, subquery, or other expression that results in a single value. Other analytic functions are not permitted.  
