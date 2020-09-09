@@ -21,7 +21,7 @@
         displayName: dms, data migration service
 - name: Single Server
   items:
-  - name: Documentation
+  - name: Single Server documentation
     href: single-server/index.yml
   - name: Overview
     href: overview-single-server.md
@@ -376,7 +376,7 @@
         href: howto-move-regions-portal.md
 - name: Flexible Server (Preview)
   items:
-  - name: Documentation
+  - name: Flexible Server documentation
     href: flexible-server/index.yml
   - name: Overview
     href: flexible-server/overview.md
