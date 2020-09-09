@@ -21,7 +21,7 @@ To run the *Key Phrase Extraction* container, execute the following `docker run`
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
-mcr.microsoft.com/azure-cognitive-services/keyphrase \
+mcr.microsoft.com/azure-cognitive-services/textanalytics/keyphrase \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}

@@ -14,7 +14,7 @@ ms.author: aahi
 Fill out and submit the [Cognitive Services containers request form](https://aka.ms/cognitivegate) to request access to the container.
 The form requests information about you, your company, and the user scenario for which you'll use the container. After you've submitted the form, the Azure Cognitive Services team reviews it to ensure that you meet the criteria for access to the private container registry.
 
-> [IMPORTANT]
+> [!IMPORTANT]
 > You must use an email address that's associated with either a Microsoft Account (MSA) or Azure Active Directory (Azure AD) account in the form.
 
 Use the docker login command with credentials provided in your onboarding email to connect to our private container registry for Cognitive Services containers.
