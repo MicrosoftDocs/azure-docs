@@ -1,12 +1,12 @@
 ---
-title: Hyperledger Fabric consortium on Azure Kubernetes Service (AKS)
+title: Deploy Hyperledger Fabric consortium on Azure Kubernetes Service
 description: How to deploy and configure a Hyperledger Fabric consortium network on Azure Kubernetes Service
 ms.date: 08/06/2020
 ms.topic: how-to
 ms.reviewer: ravastra
 ---
 
-# Hyperledger Fabric consortium on Azure Kubernetes Service (AKS)
+# Deploy Hyperledger Fabric consortium on Azure Kubernetes Service
 
 You can use the Hyperledger Fabric on Azure Kubernetes Service (AKS) template to deploy and configure a Hyperledger Fabric consortium network on Azure.
 
