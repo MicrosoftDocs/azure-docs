@@ -102,7 +102,7 @@ In the preceding steps, you configured and associated Rules Engine configuration
 
     :::image type="content" source="./media/front-door-rules-engine/front-door-rule-engine-routing-association.png" alt-text="Associate routing rules":::
 
-1. Un-check all routing rules this Rule Engine configuration is associated to and click save.
+1. Uncheck all routing rules this Rule Engine configuration is associated to and click save.
 
     :::image type="content" source="./media/front-door-rules-engine/front-door-routing-rule-association.png" alt-text="Routing rule association":::
 
