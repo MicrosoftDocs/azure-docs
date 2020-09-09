@@ -108,6 +108,11 @@ A Hit has the following properties:
 * **`HitNormal`:** The world space surface normal of the mesh at the position of the intersection.
 * **`DistanceToHit`:** The distance from the ray starting position to the hit.
 
+## API documentation
+
+* [C# RemoteManager.RayCastQueryAsync()](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanager.raycastqueryasync)
+* [C++ RemoteManager::RayCastQueryAsync()](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#raycastqueryasync)
+
 ## Next steps
 
 * [Object bounds](../../concepts/object-bounds.md)
