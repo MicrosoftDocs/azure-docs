@@ -63,7 +63,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 Select resources you want to move.
 
-- You can select any supported resource type in any resource groups in the selected source region.
+- All supported resource types in resource groups within the selected source region are displayed.
 - You move resources to a target region in the same subscription as the source region. If you want to change the subscription, you can do that after the resources are moved.
 
 1. In the Azure portal, search for *resource mover*. Then, under **Services**, select **Azure Resource Mover**.
@@ -81,7 +81,7 @@ Select resources you want to move.
     ![Page to select source and destination region](./media/tutorial-move-region-virtual-machines/source-target.png)
 
 6. In **Resources to move**, click **Select resources**.
-7. In **Select resources**, select the VM. You can only add resources supported for move. Then click **Done**.
+7. In **Select resources**, select the VM. You can only add [resources supported for move](#check-vm-requirements). Then click **Done**.
 
     ![Page to select VMs to move](./media/tutorial-move-region-virtual-machines/select-vm.png)
 
@@ -185,7 +185,7 @@ With resources prepared, you can now initiate the move.
 > [!NOTE]
 > - For VMs, replica VMs are created in the target region. The source VM is shut down, and some downtime occurs (usually minutes).
 > - Resource Mover recreates other resources using the ARM templates that were prepared. There's usually no downtime.
-> - After preparing resources, they're in an *Commit move pending* state.
+> - After moving resources, they're in an *Commit move pending* state.
 
 ![Page showing resources in *Delete source pending* state](./media/tutorial-move-region-virtual-machines/delete-source-pending.png)
 

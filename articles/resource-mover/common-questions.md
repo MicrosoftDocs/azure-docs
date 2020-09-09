@@ -18,7 +18,7 @@ This article answers common questions about [Azure Resource Mover](overview.md).
 
 ### Is Resource Mover generally available?
 
-Resource Mover is currently in public preview.
+Resource Mover is currently in public preview. Production workloads are supported.
 
 ## Region move
 
