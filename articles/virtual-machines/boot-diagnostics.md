@@ -19,7 +19,7 @@ When creating a VM in Azure portal, Boot Diagnostics is enabled by default. The 
 An alternative Boot Diagnostics experience is to use a user managed storage account. A user can either create a new storage account or use an existing one.
 
 > [!IMPORTANT]
-> Azure customers will not be charged for the storage costs associted with boot diagnostics using a managed storage account through October 2020.
+> Azure customers will not be charged for the storage costs associated with boot diagnostics using a managed storage account through October 2020.
 
 ## Boot diagnostics view
 Located in the virtual machine blade, the boot diagnostics option is under the *Support and Troubleshooting* section in the Azure portal. Selecting boot diagnostics will display a screenshot and serial log information. The serial log contains kernel messaging and the screenshot is a snapshot of your VMs current state. Based on if the VM is running Windows or Linux determines what the expected screenshot would look like. For Windows, users will see a desktop background and for Linux, users will see a login prompt.
