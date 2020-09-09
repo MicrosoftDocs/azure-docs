@@ -93,9 +93,34 @@ When an Azure role is assigned to an Azure AD security principal, Azure grants a
 Key benefits of using Azure RBAC permission over vault access policies are centralized access control management and it's integration with Privileged Identity Management (PIM). Privileged Identity Management provides time-based and approval-based role activation to mitigate the risks of excessive, unnecessary, or misused access permissions on resources that you care about.
 
 
-## Firewall and virtual network
+## Firewalls and virtual networks
+
+For an additional layer of security, you can configure firewalls and virtual network rules. You can configure Key Vault firewalls and virtual networks to deny access to traffic from all networks (including internet traffic) by default. You can grant access to traffic from specific Azure virtual networks and public internet IP address ranges, allowing you to build a secure network boundary for your applications.
+
+Here are some examples of how you might use service endpoints:
+
+* You are using Key Vault to store encryption keys, application secrets, and certificates, and you want to block access to your key vault from the public internet.
+* You want to lock down access to your key vault so that only your application, or a short list of designated hosts, can connect to your key vault.
+* You have an application running in your Azure virtual network, and this virtual network is locked down for all inbound and outbound traffic. Your application still needs to connect to Key Vault to fetch secrets or certificates, or use cryptographic keys.
+
+> [!NOTE]
+> Key Vault firewalls and virtual network rules only apply to the data plane of Key Vault. Key Vault control plane operations (such as create, delete, and modify operations, setting access policies, setting firewalls, and virtual network rules) are not affected by firewalls and virtual network rules.
 
 ## Private endpoint connection
+
+In case of a need of to completely block Key Vault exposure to public, an Azure Private Endpoint can be used. An Azure Private Endpoint is a network interface that connects you privately and securely to a service powered by Azure Private Link. The private endpoint uses a private IP address from your VNet, effectively bringing the service into your VNet. All traffic to the service can be routed through the private endpoint, so no gateways, NAT devices, ExpressRoute or VPN connections, or public IP addresses are needed. Traffic between your virtual network and the service traverses over the Microsoft backbone network, eliminating exposure from the public Internet. You can connect to an instance of an Azure resource, giving you the highest level of granularity in access control.
+
+Common scenarios for using Private Link for Azure services:
+
+- **Privately access services on the Azure platform**: Connect your virtual network to services in Azure without a public IP address at the source or destination. Service providers can render their services in their own virtual network and consumers can access those services in their local virtual network. The Private Link platform will handle the connectivity between the consumer and services over the Azure backbone network. 
+ 
+- **On-premises and peered networks**: Access services running in Azure from on-premises over ExpressRoute private peering, VPN tunnels, and peered virtual networks using private endpoints. There's no need to set up public peering or traverse the internet to reach the service. Private Link provides a secure way to migrate workloads to Azure.
+ 
+- **Protection against data leakage**: A private endpoint is mapped to an instance of a PaaS resource instead of the entire service. Consumers can only connect to the specific resource. Access to any other resource in the service is blocked. This mechanism provides protection against data leakage risks. 
+ 
+- **Global reach**: Connect privately to services running in other regions. The consumer's virtual network could be in region A and it can connect to services behind Private Link in region B.  
+ 
+- **Extend to your own services**: Enable the same experience and functionality to render your service privately to consumers in Azure. By placing your service behind a standard Azure Load Balancer, you can enable it for Private Link. The consumer can then connect directly to your service using a private endpoint in their own virtual network. You can manage the connection requests using an approval call flow. Azure Private Link works for consumers and services belonging to different Azure Active Directory tenants. 
 
 ## Example
 
@@ -152,11 +177,7 @@ Our example describes a simple scenario. Real-life scenarios can be more complex
 
 * [Azure RBAC](../../role-based-access-control/role-assignments-portal.md)
 
-* [Azure built-in roles](../../role-based-access-control/built-in-roles.md)
-
 * [Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md)
-
-* [Key Vault REST APIs](https://https://docs.microsoft.com/rest/api/keyvault/)
 
 ## Next steps
 
