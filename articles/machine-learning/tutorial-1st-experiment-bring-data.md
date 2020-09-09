@@ -196,7 +196,8 @@ datastore.upload(src_dir='./data', target_path='datasets/cifar10', overwrite=Tru
 
 The `target_path` specifies the path on the datastore where the CIFAR10 data will be uploaded.
 
->[!TIP] Whilst you are using AzureML to upload the data, you can use other methods such as `azcopy`, Azure Storage Explorer or Azure Data Factory to ingest your data into Azure.
+>[!TIP] 
+> Whilst you are using AzureML to upload the data, you can use other methods such as `azcopy`, Azure Storage Explorer or Azure Data Factory to ingest your data into Azure.
 
 Run the Python file to upload the data (Note: The run should be quick, less than 15 seconds.)
 
