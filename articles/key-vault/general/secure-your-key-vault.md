@@ -54,7 +54,7 @@ The following table shows the endpoints for the management and data planes.
 
 ## Management plane and Azure RBAC
 
-In the management plane, you use Azure role-based access control (Azure RBAC) to authorize the operations a caller can execute. In the Azure RBAC model, each Azure subscription has an instance of Azure AD. You grant access to users, groups, and applications from this directory. Access is granted to manage resources in the Azure subscription that use the Azure Resource Manager deployment model. To grant access, use the [Azure portal](https://portal.azure.com/), the [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest), [Azure PowerShell](/powershell/azure/), or the [Azure Resource Manager REST APIs](https://msdn.microsoft.com/library/azure/dn906885.aspx).
+In the management plane, you use Azure role-based access control (Azure RBAC) to authorize the operations a caller can execute. In the Azure RBAC model, each Azure subscription has an instance of Azure AD. You grant access to users, groups, and applications from this directory. Access is granted to manage resources in the Azure subscription that use the Azure Resource Manager deployment model.
 
 You create a key vault in a resource group and manage access by using Azure AD. You grant users or groups the ability to manage the key vaults in a resource group. You grant the access at a specific scope level by assigning appropriate Azure roles. To grant access to a user to manage key vaults, you assign a predefined `key vault Contributor` role to the user at a specific scope. The following scopes levels can be assigned to an Azure role:
 
@@ -78,10 +78,11 @@ You grant a user, group, or application access to execute specific operations fo
 You can see the full list of vault and secret operations and understand the operations allowed when you configure key vault access policies by viewing the following reference. [Key Vault Operation Reference](https://docs.microsoft.com/rest/api/keyvault/#vault-operations)
 
 <a id="key-vault-access-policies"></a>
-Key Vault access policies grant permissions separately to keys, secrets, and certificate. You can grant a user access only to keys and not to secrets. Access permissions for keys, secrets, and certificates are at the vault level. Key Vault access policies don't support granular, object-level permissions like a specific key, secret, or certificate. To set access policies for a key vault, use the [Azure portal](https://portal.azure.com/), the [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest), [Azure PowerShell](/powershell/azure/), or the [Key Vault Management REST APIs](https://msdn.microsoft.com/library/azure/mt620024.aspx).
+Key Vault access policies grant permissions separately to keys, secrets, and certificate.  Access permissions for keys, secrets, and certificates are at the vault level. 
 
 > [!IMPORTANT]
 > Key Vault access policies apply at the vault level. When a user is granted permission to create and delete keys, they can perform those operations on all keys in that key vault.
+Key Vault access policies don't support granular, object-level permissions like a specific key, secret, or certificate. 
 >
 
 ## Data plane and Azure RBAC (preview)
@@ -174,8 +175,6 @@ Our example describes a simple scenario. Real-life scenarios can be more complex
 > This example shows how Key Vault access is locked down in production. Developers should have their own subscription or resource group with full permissions to manage their vaults, VMs, and the storage account where they develop the application.
 
 ## Resources
-
-* [Azure RBAC](../../role-based-access-control/role-assignments-portal.md)
 
 * [Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md)
 
