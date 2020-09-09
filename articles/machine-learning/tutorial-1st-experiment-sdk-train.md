@@ -409,8 +409,7 @@ python 04-run-pytorch.py
 This time when you visit the studio, go to the "Metrics" tab where you can now see
 live updates on the model training loss!
 
-![](./media/tutorial-1st-experiment-sdk-train/logging-metrics.png)
-
+:::image type="content" source="media/tutorial-1st-experiment-sdk-train/logging-metrics.png" alt-text="Training loss graph in the Metrics tab":::
 
 ## Clean up resources
 

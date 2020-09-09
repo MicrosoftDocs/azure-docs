@@ -100,7 +100,7 @@ In the top-parent directory - `article` - add a new Python file called `01-creat
 from azureml.core import Workspace
 
 ws = Workspace.create(name='<my_workspace_name>', # provide a name for your workspace
-                      subscription_id='<azure-subscription-id>', # provide your subscription id
+                      subscription_id='<azure-subscription-id>', # provide your subscription ID
                       resource_group='<myresourcegroup>', # provide a resource group name
                       create_resource_group=True,
                       location='<azure-region>' # provide an azure region)
@@ -126,7 +126,7 @@ article
 ```
 
 The file `.azureml/config.json` contains the metadata necessary to connect to your AzureML
-workspace - namely your subscription id, resource group and workspace name. We'll make use
+workspace - namely your subscription ID, resource group and workspace name. We'll make use
 of this as we progress through the article with the following:
 
 ```python
@@ -183,9 +183,9 @@ article
 
 In this setup tutorial you have:
 
-1. Created an Azure ML workspace
-1. Set up your local development environment
-1. Created an AzureML compute cluster.
+- Created an Azure ML workspace
+- Set up your local development environment
+- Created an AzureML compute cluster.
 
 In the next article, you walk through submitting an ML script to the AzureML compute cluster.
 

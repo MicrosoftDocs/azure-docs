@@ -17,9 +17,9 @@ ms.custom: devx-track-python
 
 In this tutorial, you will see how to submit a trivial "hello world" python script to the cloud. By the end of this tutorial you can:
 
-1. Execute python code in the cloud with the AzureML Python SDK
-1. Switch between debugging locally on (say) your laptop, and submitting remote runs
-1. Use the AzureML Studio to monitor and record runs
+- Execute python code in the cloud with the AzureML Python SDK
+- Switch between debugging locally on (say) your laptop, and submitting remote runs
+- Use the AzureML Studio to monitor and record runs
 
 This tutorial introduces you to the core AzureML concepts needed to run your code in the cloud:
 
@@ -91,11 +91,11 @@ if __name__ == "__main__":
 
 ### Understanding the five lines of code
 
-1. **`ws = Workspace.from_config()`** connect to the AzureML workspace. The `Workspace` class allows you to communicate with your AzureML resources. For example, to manage your compute infrastructure, models, data, and much more!
-1. **`experiment = Experiment(workspace=ws, name='hello-world')`** Experiments provide a simple way to organize multiple runs under a single name. Later you can see how experiments make it easy to compare metrics between dozens of runs (for example: when hyperparameter tuning).
-1. **`config = ScriptRunConfig(source_directory='./src', script='hello.py', compute_target='cpu-cluster')`** To create a run in an experiment, you need the `ScriptRunConfig` class to wrap your `hello.py` code and pass it to AzureML. As the name suggests, you can use this class to _configure_ how we want our _script_ to _run_ in AzureML. You can see the compute target is defined to run on the compute cluster you created in the [setup tutorial](tutorial-1st-experiment-sdk-setup-local.md).
-1. **`run = experiment.submit(config)`** Submits your script. We refer to such a submission as a **run**, which encapsulates a single execution of your code. A run can be used to monitor the script progress, capture the output, analyze the results, visualize metrics and more!
-1. **`aml_url = run.get_portal_url()`** The `run` object provides a handle on the execution of our code. We can monitor its progress
+- **`ws = Workspace.from_config()`** connect to the AzureML workspace. The `Workspace` class allows you to communicate with your AzureML resources. For example, to manage your compute infrastructure, models, data, and much more!
+- **`experiment = Experiment(workspace=ws, name='hello-world')`** Experiments provide a simple way to organize multiple runs under a single name. Later you can see how experiments make it easy to compare metrics between dozens of runs (for example: when hyperparameter tuning).
+- **`config = ScriptRunConfig(source_directory='./src', script='hello.py', compute_target='cpu-cluster')`** To create a run in an experiment, you need the `ScriptRunConfig` class to wrap your `hello.py` code and pass it to AzureML. As the name suggests, you can use this class to _configure_ how we want our _script_ to _run_ in AzureML. You can see the compute target is defined to run on the compute cluster you created in the [setup tutorial](tutorial-1st-experiment-sdk-setup-local.md).
+- **`run = experiment.submit(config)`** Submits your script. We refer to such a submission as a **run**, which encapsulates a single execution of your code. A run can be used to monitor the script progress, capture the output, analyze the results, visualize metrics and more!
+- **`aml_url = run.get_portal_url()`** The `run` object provides a handle on the execution of our code. We can monitor its progress
 from the AzureML Studio with the URL that is printed from the python script.
 
 ## Run in the cloud

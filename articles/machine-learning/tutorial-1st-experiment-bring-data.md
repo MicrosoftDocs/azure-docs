@@ -1,5 +1,6 @@
 ---
-title: "Tutorial: Bring your own cata"
+title: "Tutorial: Bring your own data"
+titleSuffix: Azure Machine Learning
 description: Part 4 of the Azure ML Get Started series shows how to use your own data in a remote training run.
 services: machine-learning
 ms.service: machine-learning
@@ -12,7 +13,7 @@ ms.date: 09/09/2020
 ms.custom: tracking-python
 ---
 
-# Tutorial: Bring your own Data
+# Tutorial: Bring your own data
 
 In the previous [Tutorial: Train a model in the cloud](tutorial-1st-experiment-sdk-train.md) article, the CIFAR10 data was downloaded using the inbuilt `torchvision.datasets.CIFAR10` method in the PyTorch API. However, in many cases you are going to want to use your own data in a remote training run. This article focuses on the workflow you can leverage such that you can work with your own data in AzureML. 
 
@@ -167,7 +168,7 @@ quickstart
 If you did not run  locally, you won't have the `data/` directory. In this case, run the `torchvision.datasets.CIFAR10` method locally with
 `download=True` in your `train.py` script.
 
-To run the modified training script locally,** we can call:
+To run the modified training script locally, we can call:
 
 ```bash
 python src/train.py --data_path './data' --learning_rate 0.003 --momentum 0.92
@@ -214,7 +215,7 @@ the target path.
 
 ## Create a control-plane python script
 
-Now let's see how to reference this data in a remote run. Get the datastore associated to the workspace:
+Now let's see how to reference this data in a remote run, by getting the datastore associated to the workspace.
 
 Putting it all together our `run.py` script looks like this:
 
@@ -261,8 +262,6 @@ if __name__ == "__main__":
     print(aml_url)
 ```
 
-
-
 ```python
 datastore = ws.get_default_datastore()
 ```
@@ -307,7 +306,8 @@ config = ScriptRunConfig(
 > the compute target download the data by declaring `.as_download()`.
 
 ## Submit run to Azure Machine Learning
-which, as usual, we can submit with:
+
+Now resubmit the run to use the new configuration:
 
 ```bash
 python run.py

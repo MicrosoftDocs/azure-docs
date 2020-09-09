@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Experiment in Jupyter notebooks (Python)"
-titleSuffix: Machine Learning - Azure 
+titleSuffix: Azure Machine Learning
 description: In this tutorial, you'll to create an Azure Machine Learning workspace, 
 services: machine-learning
 ms.service: machine-learning
