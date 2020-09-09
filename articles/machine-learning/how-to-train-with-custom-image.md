@@ -95,7 +95,7 @@ fastai_env.docker.base_dockerfile = "./Dockerfile"
 ```
 
 ### Create or attach existing AmlCompute
-You will need to create a [compute target](concept-azure-machine-learning-architecture.md#compute-target) for training your model. In this tutorial, you create AmlCompute as your training compute resource.
+You will need to create a [compute target](concept-azure-machine-learning-architecture.md#compute-targets) for training your model. In this tutorial, you create AmlCompute as your training compute resource.
 
 Creation of AmlCompute takes approximately 5 minutes. If the AmlCompute with that name is already in your workspace this code will skip the creation process.
 
@@ -126,7 +126,7 @@ print(compute_target.get_status().serialize())
 ```
 
 ### Create a ScriptRunConfig
-This ScriptRunConfig will configure your job for execution on the desired [compute target](how-to-set-up-training-targets.md#compute-targets-for-training).
+This ScriptRunConfig will configure your job for execution on the desired [compute target](how-to-set-up-training-targets.md).
 
 ```python
 from azureml.core import ScriptRunConfig
