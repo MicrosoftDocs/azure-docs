@@ -18,7 +18,7 @@ Data in Azure Monitor Logs is stored in either a Log Analytics workspace or an A
 > [!IMPORTANT]
 > If you are using a [workspace-based Application Insights resource](../app/create-workspace-resource.md), telemetry is stored in a Log Analytics workspace with all other log data. The tables have been renamed and restructured but have the same information as the tables in the Application Insights application.
 
-Data in both workspaces and applications is organized into tables, each of which stores different kinds of data and has its own unique set of properties. Most [data sources](../platform/data-sources.md) will write to their own tables in a Log Analytics workspace, while Application Insights will write to a predefined set of tables in an Application Insights application. Log queries are very flexible allowing you to easily combine data from multiple tables and even use a cross-resource query to combine data from tables in multiple workspaces or to write queries that combine workspace and application data.
+Data in both workspaces and applications is organized into tables, each of which stores different kinds of data and has its own unique set of columns. Most [data sources](../platform/data-sources.md) will write to their own tables in a Log Analytics workspace, while Application Insights will write to a predefined set of tables in an Application Insights application. Log queries are very flexible allowing you to easily combine data from multiple tables and even use a cross-resource query to combine data from tables in multiple workspaces or to write queries that combine workspace and application data.
 
 The following image shows examples of data sources that write to different tables that are used in sample queries.
 
@@ -27,7 +27,7 @@ The following image shows examples of data sources that write to different table
 ## Log Analytics workspace
 All data collected by Azure Monitor Logs except for Application Insights is stored in a [Log Analytics workspace](../platform/manage-access.md). You can create one or more workspaces depending on your particular requirements. [Data Sources](../platform/data-sources.md) such as activity logs and resource logs from Azure resources, agents on virtual machines, and data from insights and monitoring solutions will write data to one or more workspaces that you configure as part of their onboarding. Other services such as [Azure Security Center](../../security-center/index.yml) and [Azure Sentinel](../../sentinel/index.yml) also use a Log Analytics workspace to store their data so it can be analyzed using log queries along with monitoring data from other sources.
 
-Different kinds of data are stored in different tables in the workspace, and each table has a unique set of properties. A standard set of tables are added to a workspace when it's created, and new tables are added for different data sources, solutions, and services as they're onboarded. You can also create custom tables using the [Data Collector API](../platform/data-collector-api.md).
+Different kinds of data are stored in different tables in the workspace, and each table has a unique set of columns. A standard set of tables are added to a workspace when it's created, and new tables are added for different data sources, solutions, and services as they're onboarded. You can also create custom tables using the [Data Collector API](../platform/data-collector-api.md).
 
 You can browse the tables in a workspace and their schema in the **Schema** tab in Log Analytics for the workspace.
 
@@ -72,8 +72,8 @@ You can view the schema for each table in the **Schema** tab in Log Analytics fo
 
 ![Application schema](media/scope/application-schema.png)
 
-## Standard properties
-While each table in Azure Monitor Logs has its own schema, there are standard properties shared by all tables. See [Standard properties in Azure Monitor Logs](../platform/log-standard-properties.md) for details of each.
+## Standard columns
+While each table in Azure Monitor Logs has its own schema, there are standard columns shared by all tables. See [Standard columns in Azure Monitor Logs](../platform/log-standard-columns.md) for details of each.
 
 | Log Analytics workspace | Application Insights application | Description |
 |:---|:---|:---|
