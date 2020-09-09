@@ -18,7 +18,7 @@ Spatial analysis includes a set of features to monitor the health of the system 
 
 ## Enable video frame and JSON output visualization on the host computer
 
-To enable a visualization of spatial events in a video frame, you need to use the `.Debug` version of a [spatial analysis operation](spatial-analysis-operations.md). There are four Debug skills available: `Microsoft.ComputerVision.PersonCount.Debug`, `Microsoft.ComputerVision.PersonCrossingLine.Debug`, `Microsoft.ComputerVision.PersonCrossingPolygon.Debug`, and `Microsoft.ComputerVision.PersonDistance.Debug`.
+To enable a visualization of AI Insights events in a video frame, you need to use the `.debug` version of a [spatial analysis operation](spatial-analysis-operations.md). There are four debug skills available.
 
 Edit the deployment manifest to use the correct value for the `DISPLAY` environment variable. It needs to match the `$DISPLAY` variable on the host computer. After updating the deployment manifest, redeploy the container.
 

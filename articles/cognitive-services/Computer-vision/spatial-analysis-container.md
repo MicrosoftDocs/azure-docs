@@ -197,7 +197,7 @@ sudo mv /tmp/nvidia-mps.service /etc/systemd/system/
 sudo systemctl --now enable nvidia-mps.service
 ```
 
-## Deploy the spatial analysis container using Azure IoT Hub and Azure IoT Edge
+## Configure Azure IoT Edge on the host computer
 
 To deploy the spatial analysis container on the host computer, create an instance of an [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-create-through-portal) service using the Standard (S1) or Free (F0) pricing tier. If your host computer is an Azure Stack Edge, use the same subscription and resource group that is used by the Azure Stack Edge resource.
 
@@ -291,18 +291,18 @@ The following table shows the various Environment Variables used by the IoT Edge
 | OMP_WAIT_POLICY | PASSIVE | Do not modify|
 | QT_X11_NO_MITSHM | 1 | Do not modify|
 | API_KEY | your API Key| Collect this value from Azure portal from your **spatial analysis** resource _Keys_ page|
-| BILLING_ENDPOINT | your Endpoint URI| Collect this value from Azure portal from your **spatial analysis** resource _Overview_ page|
+| BILLING_ENDPOINT | your Endpoint URI| Collect this value from Azure portal from your **Computer Vision** resource _Overview_ page|
 | EULA | accept | This value needs to be set to *accept* for the container to run |
-| DISPLAY | :1 | This value needs to be same as the output of `echo $DISPLAY` on the host computer|
+| DISPLAY | :1 | This value needs to be same as the output of `echo $DISPLAY` on the host computer. Azure Stack Edge devices do not have a display. This setting is not applicable|
 
 
 > [!IMPORTANT]
 > The `Eula`, `Billing`, and `ApiKey` options must be specified to run the container; otherwise, the container won't start.  For more information, see [Billing](#billing).
 
-Once you update the `deploymentManifest.json` file with your own settings and selection of operations, you can use the below [Azure CLI](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-cli) command to deploy the container on the host computer, as an IoT Edge Module.
+Once you update the sample `DeploymentManifest.json` file with your own settings and selection of operations, you can use the below [Azure CLI](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-cli) command to deploy the container on the host computer, as an IoT Edge Module.
 
 ```azurecli
-az iot edge deployment create --deployment-id "<deployment name>" --hub-name "<IoT Hub name>" --content deployment.json --target-condition "deviceId='<IoT Edge device name>'" -–subscription "<subscriptionId>"
+az iot edge deployment create --deployment-id "<deployment name>" --hub-name "<IoT Hub name>" --content DeploymentManifest.json --target-condition "deviceId='<IoT Edge device name>'" -–subscription "<subscriptionId>"
 ```
 
 |Parameter  |Description  |
