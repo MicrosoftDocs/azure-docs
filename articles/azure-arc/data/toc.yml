@@ -139,6 +139,8 @@
   items:
     - name: Overview
       items:
+        - name: What is Azure Arc enabled SQL Managed Instance
+          name: managed-instance-overview.md
         - name: Features
           href: managed-instance-features.md
     - name: How-to
@@ -149,10 +151,14 @@
           href: create-sql-managed-instance.md
         - name: Create SQL Managed Instance (Azure Data Studio)
           href: create-sql-managed-instance-azure-data-studio.md
+        - name: Connect
+          href: connect-managed-instance.md
         - name: Migrate to SQL Managed Instance (Azure Arc)
           href: migrate-to-managed-instance.md
         - name: Restore AdventureWorks
           href: restore-adventureworks-sample-db.md
+        - name: Delete
+          href: delete-managed-instance.md
 - name: Reference
   items:
   - name: azdata
