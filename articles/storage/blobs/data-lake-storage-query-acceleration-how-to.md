@@ -25,6 +25,10 @@ Query acceleration enables applications and analytics frameworks to dramatically
 
 - Choose a tab to view any SDK-specific prerequisites.
 
+  ### [PowerShell](#tab/azure-powershell)
+
+  Not applicable
+
   ### [.NET](#tab/dotnet)
 
   The [.NET SDK](https://dotnet.microsoft.com/download) 
