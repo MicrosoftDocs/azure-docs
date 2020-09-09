@@ -35,7 +35,7 @@ To complete this tutorial, you must have the following:
 
 * An existing Managed HSM pool that you have been using.  
 * If you choose to install and use the CLI locally, this quickstart requires the Azure CLI version 2.10.1 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli).
-* An existing storage account where you want to store Managed HSM logs. If you don't have one see [](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-create?tabs=azure-cli)
+* An existing storage account where you want to store Managed HSM logs. If you don't have one see [Create a storage account](/azure/storage/common/storage-account-create?tabs=azure-cli)
 * Sufficient storage on Azure for your Managed HSM logs.
 
 
@@ -77,7 +77,7 @@ You might have to specify the subscription that you used to create your Managed 
 
 Although you can use an existing storage account for your logs, we'll create a storage account that will be dedicated to Key Vault logs. For convenience for when we have to specify this later, we'll store the details in a variable named **sa**.
 
-For additional ease of management, we'll also use the same resource group as the one that contains the key vault. From the [getting-started tutorial](key-vault-get-started.md), this resource group is named **ContosoResourceGroup**, and we'll continue to use the East Asia location. Replace these values with your own, as applicable:
+For additional ease of management, we'll also use the same resource group as the one that contains the key vault. This resource group is named **ContosoResourceGroup**, and we'll continue to use the East Asia location. Replace these values with your own, as applicable:
 
 ```azurecli
 ```

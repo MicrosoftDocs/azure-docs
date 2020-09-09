@@ -15,7 +15,8 @@ ms.author: ambapat
 ---
 # Full backup/restore and selective restore
 
-> [!NOTE] This feature is only available for resource type managed HSM.
+> [!NOTE]
+> This feature is only available for resource type managed HSM.
 
 Managed HSM supports creating a full backup of the entire contents of the HSM including all keys, versions, attributes, tags, and role assignments. The backup is encrypted with cryptographic keys associated with the HSM's security domain. 
 
@@ -60,7 +61,8 @@ az keyvault backup start --hsm-name mhsmdemo2 --storage-account-name mhsmdemobac
 
 Full restore allows you to completely restore the contents of the HSM with a previous backup. This includes all keys, versions, attributes, tags, and role assignments. This will effectively wipe out everything currently stored in the HSM and return it to the same state when the source backup was created.
 
-> [!IMPORTANT] Full restore is a very destructive and disruptive operation. Therefore it is mandatory to have completed a full backup within last 30 minutes before a `restore` operation can be performed.
+> [!IMPORTANT]
+> Full restore is a very destructive and disruptive operation. Therefore it is mandatory to have completed a full backup within last 30 minutes before a `restore` operation can be performed.
 
 Restore is a data plane operation. The caller initiating the restore operation must have permission to perform dataAction **Microsoft.KeyVault/managedHsm/restore/start/action**. The source HSM where the backup was created and the destination HSM where the restore will be performed **must** have the same Security Domain. See more [about Managed HSM Security Domain](security-domain.md).
 

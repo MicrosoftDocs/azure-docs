@@ -17,7 +17,8 @@ ms.author: ambapat
 This article covers how to manage roles for a Managed HSM
 
 
-> [!NOTE] Key Vault supports two types of resource: vaults and managed HSMs. This article is about **Managed HSM**. If you want to learn how to manage a vault, please see [Manage Key Vault using the Azure CLI ](../general/manage-with-cli2.md).
+> [!NOTE]
+> Key Vault supports two types of resource: vaults and managed HSMs. This article is about **Managed HSM**. If you want to learn how to manage a vault, please see [Manage Key Vault using the Azure CLI ](../general/manage-with-cli2.md).
 
 For an overview of Managed HSM, see [What is Managed HSM?](overview.md)
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
@@ -56,12 +57,13 @@ You can also read the following articles to get familiar with Azure Resource Man
 
 ```azurecli
 az keyvault role assignment create --managed-hsm-name ContosoMHSM --role "Managed HSM Crypto Officer" --assignee user2@contoso.com  --scope /keys
+```
 
 ### Assign role for a specific key
 
 ```azurecli
 az keyvault role assignment create --managed-hsm-name ContosoMHSM --role "Managed HSM Crypto Officer" --assignee user2@contoso.com  --scope /keys/myrsakey
-
+```
 
 
 

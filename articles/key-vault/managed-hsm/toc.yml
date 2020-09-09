@@ -35,7 +35,7 @@
     - name: Backup and restore
       href: backup-restore.md
     - name: Disaster recovery
-      href: distaster-recovery.md
+      href: disaster-recovery.md
     - name: Import HSM-protected keys to Managed HSM
       href: hsm-protected-keys-byok.md
 

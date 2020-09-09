@@ -64,7 +64,7 @@ The managed HSM pool is now created, but it is not active yet. To activate the m
 
 ## Download security domain to activate your managed HSM
 
-To activate a newly provisioned managed HSM, you must activate it. To activate it, you must initialize the security domain. Downloading the security domain is just one way to activate a managed HSM. For more information on security domain and ways to activate managed HSM, please review [About managed HSM security domain](security-domains.md).
+To activate a newly provisioned managed HSM, you must activate it. To activate it, you must initialize the security domain. Downloading the security domain is just one way to activate a managed HSM. For more information on security domain and ways to activate managed HSM, please review [About managed HSM security domain](security-domain.md).
 
 To activate a security domain you will need to provide following information:
 - **RSA public key file names** - You send the public keys when using the download command. The example below uses 3.

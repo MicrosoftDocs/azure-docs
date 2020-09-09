@@ -54,7 +54,8 @@ az keyvault create --hsm-name "ContosoMHSM" --resource-group "ContosoResourceGro
 ```
 ---
 
-> [!NOTE] Create command can take a few minutes. Once it returns successfully you are ready to activate your HSM.
+> [!NOTE]
+> Create command can take a few minutes. Once it returns successfully you are ready to activate your HSM.
 
 The output of this command shows properties of the Managed HSM that you've created. The two most important properties are:
 
@@ -65,6 +66,7 @@ Your Azure account is now authorized to perform any operations on this Managed H
 
 
 ### Activate the security domain recovery mode
+
 In the normal create process we initialize and download a new Security Domain at this point. However, since we are executing a disaster recovery procedure, we request the HSM to enter Security Domain Recovery Mode and download a Security Domain Exchange Key. This is an RSA public key that will be used to encrypt the security domain before uploading it to the HSM. The corresponding private key is protected inside the HSM, to keep your Security Domain contents safe during the transfer.
 
 # [Azure CLI](#tab/azure-cli)
