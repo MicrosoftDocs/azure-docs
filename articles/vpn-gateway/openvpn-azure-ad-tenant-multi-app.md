@@ -16,7 +16,7 @@ When connecting to your VNet, you can use certificate-based authentication or RA
 
 > [!NOTE]
 > Azure AD authentication is supported only for OpenVPN® protocol connections.
->
+> Azure AD authentication requires the Azure VPN client, which is available only for Windows 10.
 
 [!INCLUDE [create](../../includes/openvpn-azure-ad-tenant-multi-app.md)]
 
