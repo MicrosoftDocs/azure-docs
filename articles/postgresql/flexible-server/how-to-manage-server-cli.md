@@ -18,13 +18,13 @@ This article shows you how to manage your Flexible Server deployed in Azure. Man
 ## Prerequisites
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin. This article requires that you're running the Azure CLI version 2.0 or later locally. To see the version installed, run the `az --version` command. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
-You'll need to log in to your account using the [az login](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login) command. Note the **id** property, which refers to **Subscription ID** for your Azure account.
+You'll need to log in to your account using the [az login](https://docs.microsoft.com/cli/azure/reference-index#az-login) command. Note the **id** property, which refers to **Subscription ID** for your Azure account.
 
 ```azurecli-interactive
 az login
 ```
 
-Select the specific subscription under your account using [az account set](/cli/azure/account) command. Make a note of the **id** value from the **az login** output to use as the value for **subscription** argument in the command. If you have multiple subscriptions, choose the appropriate subscription in which the resource should be billed. To get all your subscription, use [az account list](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-list).
+Select the specific subscription under your account using [az account set](/cli/azure/account) command. Make a note of the **id** value from the **az login** output to use as the value for **subscription** argument in the command. If you have multiple subscriptions, choose the appropriate subscription in which the resource should be billed. To get all your subscription, use [az account list](https://docs.microsoft.com/cli/azure/account#az-account-list).
 
 ```azurecli
 az account set --subscription <subscription id>
@@ -35,7 +35,7 @@ az account set --subscription <subscription id>
 
 ## Scale compute and storage
 
-You can scale up your compute tier, vCores, and storage easily using the following command. You can see all the server operation you can run [az postgres flexible-server server overview](/cli/azure/PostgreSQL/server?view=azure-cli-latest)
+You can scale up your compute tier, vCores, and storage easily using the following command. You can see all the server operation you can run [az postgres flexible-server server overview](/cli/azure/PostgreSQL/server)
 
 ```azurecli-interactive
 az postgres flexible-server update --resource-group myresourcegroup --name mydemoserver --sku-name Standard_D4ds_v3 --storage-size 6144
@@ -50,8 +50,8 @@ resource-group | myresourcegroup | Provide the name of the Azure resource group.
 sku-name|Standard_D4ds_v3|Enter the name of the compute tier and size. Follows the convention Standard_{VM size} in shorthand. See the [pricing tiers](../concepts-pricing-tiers.md) for more information.
 storage-size | 6144 | The storage capacity of the server (unit is megabytes). Minimum 5120 and increases in 1024 increments.
 
-> [!Important]
-> - Storage can be scaled up (however, you cannot scale storage down)
+> [!IMPORTANT]
+> Storage can cannot be scaled down. 
 
 ## Manage PostgreSQL databases on a server
 
@@ -90,16 +90,16 @@ There are a number of applications you can use to connect to your Azure Database
    >
    > Confirm your client's IP is allowed in the firewall rules step above.
 
-2. Create a blank database called "mypgsqldb" at the prompt by typing the following command:
+2. Create a blank database called "postgresdb" at the prompt by typing the following command:
 
     ```bash
-    CREATE DATABASE mypgsqldb;
+    CREATE DATABASE postgresdb;
     ```
 
-3. At the prompt, execute the following command to switch connections to the newly created database **mypgsqldb**:
+3. At the prompt, execute the following command to switch connections to the newly created database **postgresdb**:
 
     ```bash
-    \c mypgsqldb
+    \c postgresdb
     ```
 
 4. Type  `\q`, and then select the Enter key to quit psql.
@@ -112,11 +112,12 @@ You can change the administrator role's password with this command
 az postgres flexible-server update --resource-group myresourcegroup --name mydemoserver --admin-password <new-password>
 ```
 
-> [!Important]
+> [!IMPORTANT]
 > Make sure password is minimum 8 characters and maximum 128 characters.
 > Password must contain characters from three of the following categories: English uppercase letters, English lowercase letters, numbers, and non-alphanumeric characters.
 
 ## Delete a server
+
 If you would just like to delete the PostgreSQL Flexible server, you can run [az postgres flexible-server delete](/cli/azure/PostgreSQL/server#az-PostgreSQL-flexible-server-delete) command.
 
 ```azurecli-interactive
@@ -124,5 +125,6 @@ az postgres flexible-server delete --resource-group myresourcegroup --name mydem
 ```
 
 ## Next steps
-- Understand backup and restore concepts
-- Tune and monitor the server
+
+- [Understand backup and restore concepts](concepts-backup-restore.md)
+- [Tune and monitor the server](concepts-monitoring.md)

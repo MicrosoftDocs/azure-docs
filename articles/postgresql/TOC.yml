@@ -19,7 +19,7 @@
       - name: Minimal-downtime migration with DMS
         href: howto-migrate-online.md
         displayName: dms, data migration service
-- name: Single server
+- name: Single Server
   items:
   - name: Documentation
     href: single-server/index.yml
@@ -212,7 +212,7 @@
         href: howto-create-manage-server-portal.md
         displayName: scale server, reset password
       - name: Azure CLI
-        href: how-to-manage-cli.md
+        href: how-to-manage-server-cli.md
         displayName: scale server, reset password
     - name: Restart server
       items:
@@ -374,7 +374,7 @@
       items:
       - name: Azure portal
         href: howto-move-regions-portal.md
-- name: Flexible server (Preview)
+- name: Flexible Server (Preview)
   items:
   - name: Documentation
     href: flexible-server/index.yml
