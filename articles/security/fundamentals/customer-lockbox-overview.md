@@ -133,8 +133,7 @@ As an example:
 
 We've introduced a new baseline control ([3.13](../benchmarks/security-control-identity-access-control.md#313-provide-microsoft-with-access-to-relevant-customer-data-during-support-scenarios)) in Azure Security benchmark that covers Customer Lockbox applicability. Customers can now leverage benchmark to review Customer Lockbox applicability for a service.
 
-
-## ExclusionsC
+## Exclusions
 
 Customer Lockbox requests aren't triggered in the following engineering support scenarios:
 
