@@ -15,7 +15,7 @@ ms.author: memildin
 
 This page describes how to use Azure Security Center's set of security recommendations dedicated to Kubernetes workload protection.
 
-Learn more about these features in [ Workload protection best-practices using Kubernetes admission control](container-security.md#workload-protection-best-practices-using-kubernetes-admission-control)
+Learn more about these features in [Workload protection best-practices using Kubernetes admission control](container-security.md#workload-protection-best-practices-using-kubernetes-admission-control)
 
 Security Center offers more container security features if you enable Azure Defender. Specifically:
 
