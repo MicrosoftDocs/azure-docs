@@ -1,6 +1,6 @@
 ---
 title: Tutorial to connect to, configure, activate Azure Stack Edge device with GPU in Azure portal | Microsoft Docs
-description: Tutorial to deploy Azure Stack Edge instructs you to connect, set up, and activate your physical device.
+description: Tutorial to deploy Azure Stack Edge GPU instructs you to connect, set up, and activate your physical device.
 services: databox
 author: alkohli
 
@@ -36,11 +36,11 @@ Before you configure and set up your Azure Stack Edge device with GPU, make sure
 
 1. Configure the Ethernet adapter on your computer to connect to the Azure Stack Edge device with a static IP address of 192.168.100.5 and subnet 255.255.255.0.
 
-2. Connect the computer to PORT 1 on your device. Use the following illustration to identify PORT 1 on your device.
+2. Connect the computer to PORT 1 on your device. If connecting the computer to the device directly (without a switch), use a crossover cable or a USB Ethernet adapter. Use the following illustration to identify PORT 1 on your device.
 
     ![Backplane of a cabled device](./media/azure-stack-edge-gpu-deploy-install/ase-two-pci-slots.png)
 
-    The backplane of the device may look slightly different depending on the exact model you have received.
+    The backplane of the device may look slightly different depending on the exact model you have received. For more information, see [Cable your device](azure-stack-edge-gpu-deploy-install.md#cable-the-device).
 
 
 3. Open a browser window and access the local web UI of the device at `https://192.168.100.10`.  

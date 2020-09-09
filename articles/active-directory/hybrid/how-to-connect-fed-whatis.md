@@ -48,5 +48,5 @@ This topic is the home for information on federation-related functionalities for
 
 ## Additional resources
 * [Federating two Azure AD with single AD FS](how-to-connect-fed-single-adfs-multitenant-federation.md)
-* [AD FS deployment in Azure](how-to-connect-fed-azure-adfs.md)
-* [High-availability cross-geographic AD FS deployment in Azure with Azure Traffic Manager](../active-directory-adfs-in-azure-with-azure-traffic-manager.md)
+* [AD FS deployment in Azure](/windows-server/identity/ad-fs/deployment/how-to-connect-fed-azure-adfs)
+* [High-availability cross-geographic AD FS deployment in Azure with Azure Traffic Manager](/windows-server/identity/ad-fs/deployment/active-directory-adfs-in-azure-with-azure-traffic-manager)

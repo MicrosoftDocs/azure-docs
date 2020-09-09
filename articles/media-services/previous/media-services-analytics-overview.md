@@ -18,7 +18,9 @@ ms.author: juliako
 ms.reviewer: milanga; johndeu
 ms.custom: devx-track-csharp
 ---
-# Media Analytics on the Media Services platform 
+# Media Analytics on the Media Services platform
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 ## Retirement plans
 

@@ -1,6 +1,6 @@
 ---
 title: Tutorial to connect to, configure, activate Azure Stack Edge device with GPU in Azure portal | Microsoft Docs
-description: Tutorial to deploy Azure Stack Edge instructs you to connect, set up, and activate your physical device.
+description: Tutorial to deploy Azure Stack Edge GPU instructs you to connect, set up, and activate your physical device.
 services: databox
 author: alkohli
 

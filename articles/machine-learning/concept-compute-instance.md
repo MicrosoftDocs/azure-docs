@@ -66,7 +66,7 @@ These tools and environments are installed on the compute instance:
 |Anaconda Python||
 |Jupyter and extensions||
 |Jupyterlab and extensions||
-[Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)</br>from PyPI|Includes most of the azureml extra packages.  To see the full list, [open a terminal window on your compute instance](how-to-run-jupyter-notebooks.md#terminal) and run <br/> `conda list -n azureml_py36 azureml*` |
+[Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true)</br>from PyPI|Includes most of the azureml extra packages.  To see the full list, [open a terminal window on your compute instance](how-to-run-jupyter-notebooks.md#terminal) and run <br/> `conda list -n azureml_py36 azureml*` |
 |Other PyPI packages|`jupytext`</br>`tensorboard`</br>`nbconvert`</br>`notebook`</br>`Pillow`|
 |Conda packages|`cython`</br>`numpy`</br>`ipykernel`</br>`scikit-learn`</br>`matplotlib`</br>`tqdm`</br>`joblib`</br>`nodejs`</br>`nb_conda_kernels`|
 |Deep learning packages|`PyTorch`</br>`TensorFlow`</br>`Keras`</br>`Horovod`</br>`MLFlow`</br>`pandas-ml`</br>`scrapbook`|
@@ -77,10 +77,10 @@ Python packages are all installed in the **Python 3.6 - AzureML** environment.
 
 ### Installing packages
 
-You can install packages directly in a Jupyter notebook or Rstudio:
+You can install packages directly in Jupyter Notebook or RStudio:
 
 * RStudio Use the **Packages** tab on the bottom right, or the **Console** tab on the top left.  
-* Python: Add install code and execute in a Jupyter notebook cell.
+* Python: Add install code and execute in a Jupyter Notebook cell.
 
 Or you can access a terminal window in any of these ways:
 
