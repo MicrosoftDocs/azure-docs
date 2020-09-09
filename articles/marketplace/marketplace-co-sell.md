@@ -24,10 +24,6 @@ The Co-sell program is available for **software built with your intellectual pro
 
 - **Co-sell incentivized** IP solutions will earn incentives for Microsoft field sellers when they are sold and deployed with Microsoft field sales teams, in addition to the marketplace benefits listed below.</li></ul>
 
-
-
-
-
 ## Marketplace benefits for incentivized offers
 
 Offers that attain **Azure IP Co-sell incentivized** status gain these additional marketplace benefits:
