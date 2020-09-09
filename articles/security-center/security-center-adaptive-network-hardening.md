@@ -19,6 +19,15 @@ ms.author: memildin
 # Adaptive network hardening in Azure Security Center
 Learn how to configure Adaptive Network Hardening in Azure Security Center.
 
+## Availability
+|Aspect|Details|
+|----|:----|
+|Release state:|**Generally Available**|
+|Pricing:|Requires [Azure Defender for servers](defender-for-servers-intro.md)|
+|Required roles and permissions:|Write permissions on the machine’s NSGs|
+|Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![No](./media/icons/no-icon.png) National/Sovereign (US Gov, China Gov, Other Gov)|
+|||
+
 ## What is adaptive network hardening?
 Applying [network security groups (NSG)](https://docs.microsoft.com/azure/virtual-network/security-overview) to filter traffic to and from resources, improves your network security posture. However, there can still be some cases in which the actual traffic flowing through the NSG is a subset of the NSG rules defined. In these cases, further improving the security posture can be achieved by hardening the NSG rules, based on the actual traffic patterns.
 
@@ -33,15 +42,6 @@ For example, let's say the existing NSG rule is to allow traffic from 140.20.30.
 ![Network hardening view](./media/security-center-adaptive-network-hardening/traffic-hardening.png)
 
 
-## Availability
-
-|Aspect|Details|
-|----|:----|
-|Release state:|General availability|
-|Pricing:|Requires [Azure Defender for servers](defender-for-servers-intro.md)|
-|Required roles and permissions:|Write permissions on the machine’s NSGs|
-|Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![No](./media/icons/no-icon.png) National/Sovereign (US Gov, China Gov, Other Gov)|
-|||
 
 
 ## View Adaptive Network Hardening alerts and rules
