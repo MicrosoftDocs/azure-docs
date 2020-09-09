@@ -108,7 +108,7 @@ If you prefer to run Python scripts instead of using the notebooks, open the **T
 Now that you have a development environment set up, continue on to learn more about Azure Machine Learning:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Hello Azure](tutorial-hello-azure.md)
+> [Tutorial: Hello Azure](tutorial-1st-experiment-hello-azure.md)
 
 <a name="stop-compute-instance"></a>
 If you do not plan on following any other tutorials now, you should stop the cloud notebook server VM when you are not using it to reduce cost:
