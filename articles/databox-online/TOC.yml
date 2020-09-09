@@ -267,6 +267,20 @@
     - name: .NET SDK
       href: https://docs.microsoft.com/dotnet/api/overview/azure/databoxedge/databoxgateway?view=azure-dotnet   
 
+- name: Azure Stack Edge Pro R
+  items:
+  - name: Overview
+    items:
+    - name: What is Azure Stack Edge Pro R?
+      href: azure-stack-edge-j-series-overview.md
+
+- name: Azure Stack Edge Mini
+  items:
+  - name: Overview
+    items:
+    - name: What is Azure Stack Edge Mini?
+      href: azure-stack-edge-k-series-overview.md
+
 - name: Data Box Gateway
   items:
   - name: Overview
