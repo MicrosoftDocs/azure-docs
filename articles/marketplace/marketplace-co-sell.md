@@ -13,11 +13,20 @@ ms.date: 09/09/2020
 
 You can use the Co-sell program to work directly with Microsoft sellers on joint selling opportunities and to unlock significant additional commercial and merchandising benefits selling through Commercial Marketplace.
 
-The Co-sell program is available for **software built with your intellectual property (IP) as repeatable, packaged offers** and for **services** with Microsoft technology embedded. Enrolling in the Co-sell program is available for most offer types in commercial marketplace. Offers accepted into the Co-sell program become either **co-sell ready** or **co-sell incentivized**, depending on the requirements they meet.
+The Co-sell program is available for **software built with your intellectual property (IP) as repeatable, packaged offers** and for **services with Microsoft technology embedded**. Enrolling in the Co-sell program is available for most offer types in commercial marketplace. Offers accepted into the Co-sell program become either **co-sell ready** or **co-sell incentivized** depending on the requirements they meet.
+
+- **Co-sell ready** offers are exposed to Microsoft field sellers. When working with Microsoft sellers, the Co-sell program helps you reach a vast community of customers and create new sales opportunities to accelerate your business growth.
+
+<ul>
 
 ![Diagram showing how co-sell happens when sales leads are shared, accepted, and won against Microsoft-managed customers.](./media/marketplace-publishers-guide/marketplace-co-sell.png)
+</ul>
 
-When working with Microsoft sellers, the Co-sell program helps you reach a vast community of customers and create new sales opportunities to accelerate your business growth. Co-sell incentivized IP solutions will further earn incentives for Microsoft sellers when they are sold and deployed with Microsoft field sales teams.
+- **Co-sell incentivized** IP solutions will earn incentives for Microsoft field sellers when they are sold and deployed with Microsoft field sales teams, in addition to the marketplace benefits listed below.</li></ul>
+
+
+
+
 
 ## Marketplace benefits for incentivized offers
 
