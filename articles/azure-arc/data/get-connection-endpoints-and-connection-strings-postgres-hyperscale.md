@@ -95,8 +95,10 @@ Use the below table of templates of connections strings for your server group. Y
    :::column span="":::
 **ADO.NET**
    :::column-end:::
-   :::column span="":::
-`Server=192.168.1.121;Database=postgres;Port=24276;User Id=postgres;Password={your_password_here};Ssl Mode=Require;`
+   :::column span="2":::
+```csharp
+Server=192.168.1.121;Database=postgres;Port=24276;User Id=postgres;Password={your_password_here};Ssl Mode=Require;
+```
    :::column-end:::
 :::row-end:::
 :::row:::
