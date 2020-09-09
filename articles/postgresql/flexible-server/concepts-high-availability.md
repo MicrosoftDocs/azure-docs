@@ -82,28 +82,24 @@ Flexible servers that are configured with high availability, replicate data in r
 
 -   Automatic backups are performed from the primary database server and stored in a zone redundant storage.
 
--   After a failover, a new standby replica is provisioned in the original primary availability zone to continue to provide high availability.
-
 -   Clients always connect to the primary database server.
 
--   Ability to restart both primary and standby servers to pick up any static server parameter changes.
+-   Ability to restart the server to pick up any static server parameter changes.
 
 ## Zone redundant high availability - limitations
 
 -   High availability is not supported in burstable compute tier.
 -   High availability is supported only in regions where multiple zones are available.
--   Due to synchronous replication to another availability zone, primary database server can experience elevated write and commit latency.
+-   Due to synchronous replication to another availability zone, applications can experience elevated write and commit latency.
 
 -   Standby replica cannot be used for read-only queries.
 
--   Depending on the activity on the primary server at the time of failover, it might take up to 2 minutes or longer for the failover
+-   Depending on the activity on the primary server at the time of failover, it might take up to two minutes or longer for the failover
     to complete.
 
 -   Restarting the primary database server to pick up static parameter changes also restarts standby replica.
 
--   Logical decoding is not supported when configured in high availability.
-
--   Configuring read replicas are not supported.
+-   Configuring additional read replicas are not supported.
 
 -   Configuring customer initiated management tasks cannot be scheduled during managed maintenance window.
 
