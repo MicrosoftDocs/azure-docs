@@ -165,7 +165,7 @@ sslmode=require
    :::column span="":::
 **psql**
    :::column-end:::
-   :::column span="":::
+   :::column span="2":::
 ```psql
 psql "host=192.168.1.121 port=24276 dbname=postgres user=postgres password={your_password_here} sslmode=require"
 ```
