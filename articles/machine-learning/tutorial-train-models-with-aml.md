@@ -34,7 +34,7 @@ You learn how to select a model and deploy it in [part two of this tutorial](tut
 If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today.
 
 >[!NOTE]
-> Code in this article was tested with [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) version 1.0.83.
+> Code in this article was tested with [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) version 1.0.83.
 
 ## Prerequisites
 
@@ -384,7 +384,7 @@ You can check the progress of a running job in several ways. This tutorial uses 
 
 ### Jupyter widget
 
-Watch the progress of the run with a [Jupyter widget](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py). Like the run submission, the widget is asynchronous and provides live updates every 10 to 15 seconds until the job finishes:
+Watch the progress of the run with a [Jupyter widget](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py&preserve-view=true). Like the run submission, the widget is asynchronous and provides live updates every 10 to 15 seconds until the job finishes:
 
 ```python
 from azureml.widgets import RunDetails
