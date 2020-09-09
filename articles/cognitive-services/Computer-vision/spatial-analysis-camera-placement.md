@@ -15,7 +15,7 @@ ms.author: aahi
 
 # Camera Placement Guide
 
-This article provides camera placement recommendations for spatial analysis (public preview). It includes general guidelines as well as specific recommendations for height, angle, and camera-to-focal-point-distance for all the included operators (**cognitiveservices.vision.spatialanalysis-personcrossingpolygon**, **cognitiveservices.vision.spatialanalysis-personcrossingline**, **cognitiveservices.vision.spatialanalysis-personcount**, and **cognitiveservices.vision.spatialanalysis-persondistance**). 
+This article provides camera placement recommendations for spatial analysis (public preview). It includes general guidelines as well as specific recommendations for height, angle, and camera-to-focal-point-distance for all the included operators. 
 
 NOTE: This guide is designed for the Axis M3045-V camera. This camera will use resolution 1920x1080, 106 degree horizontal field of view, 59 degree vertical field of view and a fixed 2.8mm focal length. The principles below will apply to all cameras, but specific guidelines around camera height and camera-to-focal-point distance will need to be adjusted for use with other cameras. 
 

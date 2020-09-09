@@ -12,9 +12,9 @@ ms.date: 09/01/2020
 ms.author: aahi
 ---
 
-# Spatial Analysis Operations
+# Spatial analysis Operations
 
-spatial analysis enables the analysis of real-time streaming video from camera devices. For each camera device you configure, the operations for spatial analysis will generate an output stream of JSON messages sent to your instance of Azure IoT Hub. 
+Spatial analysis enables the analysis of real-time streaming video from camera devices. For each camera device you configure, the operations for spatial analysis will generate an output stream of JSON messages sent to your instance of Azure IoT Hub. 
 
 The spatial analysis container implements the following operations:
 
@@ -24,9 +24,8 @@ The spatial analysis container implements the following operations:
 | cognitiveservices.vision.spatialanalysis-personcrossingline | Tracks when a person crosses a designated line in the camera's field of view. <br>Emits a _personLineEvent_ event when the person crosses the line and provides directional info. 
 | cognitiveservices.vision.spatialanalysis-personcrossingpolygon | Tracks when a person crosses a designated line in the camera's field of view. <br> Emits a _personLineEvent_ event when the person crosses the zone and provides directional info. |
 | cognitiveservices.vision.spatialanalysis-persondistance | Tracks when people violate a distance rule. <br> Emits a _personDistanceEvent_ periodically with the location of each distance violation. |
-cognitiveservices.vision.spatialanalysis-videorecorder | This operation enables recording of video streams as being processed into an Azure Blob Storage instance you can deploy on the edge or in the cloud. You are in control of where the data is being stored. The data is not transmitted to Microsoft. |
 
-All above the operations except `cognitiveservices.vision.spatialanalysis-videorecorder` are also available in the `.debug` version, which has the capability to visualize the video frames as being processed. You will need to run `xhost +` on the host computer to enable the visualization of video frames and events.
+All above the operations are also available in the `.debug` version, which has the capability to visualize the video frames as being processed. You will need to run `xhost +` on the host computer to enable the visualization of video frames and events.
 
 | Operation Identifier| Description|
 |---------|---------|
@@ -35,7 +34,7 @@ All above the operations except `cognitiveservices.vision.spatialanalysis-videor
 | cognitiveservices.vision.spatialanalysis-personcrossingpolygon.debug | Tracks when a person crosses a designated line in the camera's field of view. <br> Emits a _personLineEvent_ event when the person crosses the zone and provides directional info. |
 | cognitiveservices.vision.spatialanalysis-persondistance.debug | Tracks when people violate a distance rule. <br> Emits a _personDistanceEvent_ periodically with the location of each distance violation. |
 
-spatial analysis can also be run with [Live Video Analytics](https://azure.microsoft.com/services/media-services/live-video-analytics/) as their Video AI module. 
+Spatial analysis can also be run with [Live Video Analytics](https://azure.microsoft.com/services/media-services/live-video-analytics/) as their Video AI module. 
 
 <!--more details on the setup can be found in the [LVA Setup page](LVA-Setup.md). Below is the list of the operations supported with Live Video Analytics. -->
 
@@ -57,7 +56,7 @@ These are the parameters required by each of these spatial analysis operations.
 |---------|---------|
 | Operation ID | The Operation Identifier from table above.|
 | enabled | Boolean: true or false|
-| VIDEO_URL| The RTSP url for the camera device(Example: `rtsp://username:password@url`). spatial analysis supports H.264 encoded stream either through RTSP or http and in case of file format(container format) should be mp4 |
+| VIDEO_URL| The RTSP url for the camera device(Example: `rtsp://username:password@url`). Spatial analysis supports H.264 encoded stream either through RTSP or mp4 |
 | VIDEO_SOURCE_ID | A friendly name for the camera device or video stream. This will be returned with the event JSON output.|
 | VIDEO_IS_LIVE| True for camera devices; false for recorded videos.|
 | VIDEO_DECODE_GPU_INDEX| Which GPU to decode the video frame. By default it is 0. Should be the same as the `gpu_index` in other node config like `VICA_NODE_CONFIG`, `DETECTOR_NODE_CONFIG`.|
@@ -212,7 +211,7 @@ This is an example of a JSON input for the DETECTOR_NODE_CONFIG parameter that c
 
 See the [camera placement](spatial-analysis-camera-placement.md)  guidelines to learn about zone and line configurations.
 
-## Spatial Analysis Operation Output
+## Spatial analysis Operation Output
 
 The events from each operation are egressed to Azure IoT Hub on JSON format.
 
@@ -636,15 +635,8 @@ Sample JSON for detections output by this operation.
 | `focalLength` | float | The focal length of the camera in pixels. This is inferred from auto-calibration. |
 | `tiltUpAngle` | float | The camera tilt angle from vertical. This is inferred from auto-calibration.|
 
-## Enable Video Recording with the cognitiveservices.vision.spatialanalysis-videorecorder
 
-The cognitiveservices.vision.spatialanalysis-videorecorder was created to enable the recording of the video as it is being processed by the container. The deployment manifest file on [GitHub](https://github.com/Azure-Samples/cognitive-services-rest-api-samples/) has the configuration needed for the cognitiveservices.vision.spatialanalysis-videorecorder operation. The video recording is saved in an Azure Blob Storage that you need to configure. 
-
-<br><br>**The video recording is not sent to Microsoft. Remove this operation if you are not interested in recoding the video.** <br> 
-
-<!--For more details on how to enable video recording please visit this [page](Record-Video.md). -->
-
-## How to consume output generated by Spatial Analysis container
+## How to consume output generated by spatial analysis container
 
 You may want to consume the detections or events generated by the spatial analysis container by integrating these into your application or solution. Here are a few approaches you can investigate to get started: 
 1.	Use the Azure Event Hub SDK for your chosen programming language to connect to the Azure IoT Hub endpoint and receive the events. See [Read device-to-cloud messages from the built-in endpoint](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-read-builtin) for more information. 

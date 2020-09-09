@@ -14,11 +14,11 @@ ms.author: aahi
 
 # Telemetry and troubleshooting
 
-spatial analysis includes a set of features to monitor the health of the system and help with diagnosing issues.
+Spatial analysis includes a set of features to monitor the health of the system and help with diagnosing issues.
 
 ## Enable video frame and JSON output visualization on the host computer
 
-To enable a visualization of spatial events in a video frame, you need to use the `.Debug` version of a [Spatial Analysis Operation](spatial-analysis-operations.md). There are four Debug skills available: `Microsoft.ComputerVision.PersonCount.Debug`, `Microsoft.ComputerVision.PersonCrossingLine.Debug`, `Microsoft.ComputerVision.PersonCrossingPolygon.Debug`, and `Microsoft.ComputerVision.PersonDistance.Debug`.
+To enable a visualization of AI Insights events in a video frame, you need to use the `.debug` version of a [spatial analysis operation](spatial-analysis-operations.md). There are four debug skills available.
 
 Edit the deployment manifest to use the correct value for the `DISPLAY` environment variable. It needs to match the `$DISPLAY` variable on the host computer. After updating the deployment manifest, redeploy the container.
 
@@ -34,7 +34,7 @@ xhost +
 
 ## Collecting System Health Telemetry with Telegraf
 
-Telegraf is open source and created by the Spatial Analysis team. It takes the following inputs sends them to Azure Monitor. The spatial-analysis-telegraf module can be built with desired custom Inputs and Outputs by the end user. The spatial-analysis-telegraf module in Spatial Analysis is part of the deployment manifest. This module is optional and can be removed from the manifest if you don't need it. 
+Telegraf is open source and the spatial-analysis-telegraf image available in Microsoft Container Registry takes the following inputs and sends them to Azure Monitor. The spatial-analysis-telegraf module can be built with desired custom Inputs and Outputs by the end user. The spatial-analysis-telegraf module configuration in spatial analysis is part of the deployment manifest. This module is optional and can be removed from the manifest if you don't need it. 
 
 Inputs: 
 1. spatial analysis Metrics
@@ -46,7 +46,7 @@ Inputs:
 Outputs:
 1. Azure Monitor
 
-The supplied Telegraf module will publish all the telemetry data emitted by the spatial analysis container to Azure Monitor. See the [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) for information on adding Azure monitor to your subscription.
+The supplied spatial-analysis-telegraf module will publish all the telemetry data emitted by the spatial analysis container to Azure Monitor. See the [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) for information on adding Azure monitor to your subscription.
 
 After setting up Azure Monitor, you will need to create credentials that enable the module to send telemetry. You can use the Azure portal to create a new Service Principal, or use the Azure CLI command below to create one.
 
@@ -63,9 +63,16 @@ az iot hub list
 az ad sp create-for-rbac --role="Monitoring Metrics Publisher" --name "<principal name>" --scopes="<resource ID of IoT Hub>"
 ```
 
-In the deployment manifest, look for the *telegraf* module, and replace the following values with the Service Principal information from the previous step and redeploy.
+In the deployment manifest, look for the *spatial-analysis-telegraf* module, and replace the following values with the Service Principal information from the previous step and redeploy.
 
 ```json
+
+"telegraf": { 
+  "settings": {
+  "image":   "mcr.microsoft.com/azure-cognitive-services/spatial-analysis/telegraf:1.0",
+  "createOptions":   "{\"HostConfig\":{\"Runtime\":\"nvidia\",\"NetworkMode\":\"azure-iot-edge\",\"Memory\":33554432,\"Binds\":[\"/var/run/docker.sock:/var/run/docker.sock\"]}}"
+},
+"type": "docker",
 "env": {
     "AZURE_TENANT_ID": {
     	"value": "<Tenant Id>"
@@ -85,7 +92,7 @@ In the deployment manifest, look for the *telegraf* module, and replace the foll
 ...
 ```
 
-Once the telegraf module is deployed, the reported metrics can be accessed either through the Azure Monitor service, or by selecting **Monitoring** in the IoT Hub on the Azure portal.
+Once the spatial-analysis-telegraf module is deployed, the reported metrics can be accessed either through the Azure Monitor service, or by selecting **Monitoring** in the IoT Hub on the Azure portal.
 
 ![Azure Monitor telemetry report](./media/spatial-analytics/iot-hub-telemetry.png)
 
@@ -115,9 +122,9 @@ You can use `iotedge` command line tool to check the status and logs of the runn
 * `iotedge logs <module-name>`
 * `iotedge restart <module-name>` to restart a specific module 
 
-## Collect log files with the penginelogs container
+## Collect log files with the diagnostics container
 
-spatial analysis generates Docker debugging logs that you can use to diagnose runtime issues, or include in support tickets.
+Spatial analysis generates Docker debugging logs that you can use to diagnose runtime issues, or include in support tickets.
 
 To optimize logs uploaded to a remote endpoint, such as Azure Blob Storage, we recommend maintaining a small file size. See the example below for the recommended Docker logs configuration.
 
@@ -163,16 +170,16 @@ It can also be set through the IoT Edge Module Twin document either globally, fo
 ### Collecting Logs
 
 > [!NOTE]
-> the `penginelogs` module does not affect the logging content, it is only assists in collecting, filtering, and uploading existing logs.
+> the `diagnostics` module does not affect the logging content, it is only assists in collecting, filtering, and uploading existing logs.
 > You must have Docker API version 1.40 or higher to use this module.`
 
-The sample deployment manifest file includes a module named `penginelogs` that collects and uploads logs. This module is disabled by default and should be enabled through the IoT Edge module configuration when you need to access logs. 
+The sample deployment manifest file includes a module named `diagnostics` that collects and uploads logs. This module is disabled by default and should be enabled through the IoT Edge module configuration when you need to access logs. 
 
-The `penginelogs` operation is on-demand and controlled via an IoT Edge direct method, and can send logs to an Azure Blob Storage.
+The `diagnostics` collection is on-demand and controlled via an IoT Edge direct method, and can send logs to an Azure Blob Storage.
 
-### Configure penginelogs upload targets
+### Configure diagnostics upload targets
 
-From the IoT Edge portal, select your device and then the **penginelogs** module. In the **Environment Variables** section, add the following information:
+From the IoT Edge portal, select your device and then the **diagnostics** module. In the **Environment Variables** section, add the following information:
 
 **Configure Upload to Azure Blob Storage**
 
@@ -193,7 +200,7 @@ From the IoT Edge portal, select your device and then the **penginelogs** module
 >
 >`"createOptions": "{\"HostConfig\": {\"Binds\": [\"/var/run/docker.sock:/var/run/docker.sock\",\"/usr/bin/docker:/usr/bin/docker\"],\"LogConfig\": {\"Config\": {\"max-size\": \"500m\"}}}}"`
 
-### Uploading Project Archon Logs
+### Uploading spatial analysis Logs
 
 Logs are uploaded on-demand with the `getRTCVLogs` IoT Edge method, in the `penginelogs` module. 
 
@@ -222,7 +229,7 @@ The below table lists the parameters you can use when querying logs.
 | ContainerId | Target container for fetching logs.| `null`, when there is no container ID. The API returns all available containers information with IDs.|
 | DoPost | Perform the upload operation. When this is set to `false`, it performs the requested operation and returns the upload size without performing the upload. When set to `true`, it will initiate the asynchronous upload of the selected logs | `false`, do not upload.|
 | Throttle | Indicate how many lines of logs to upload per batch | `1000`, Use this parameter to adjust post speed. |
-| Filters | Filters logs to be uploaded | `null`, filters can be specified as key value pairs based on the Project-Archon logs structure: `[UTC, LocalTime, LOGLEVEL,PID, CLASS, DATA]`. For example: `{"TimeFilter":[-1,1573255761112]}, {"TimeFilter":[-1,1573255761112]}, {"CLASS":["myNode"]`|
+| Filters | Filters logs to be uploaded | `null`, filters can be specified as key value pairs based on the spatial analysis logs structure: `[UTC, LocalTime, LOGLEVEL,PID, CLASS, DATA]`. For example: `{"TimeFilter":[-1,1573255761112]}, {"TimeFilter":[-1,1573255761112]}, {"CLASS":["myNode"]`|
 
 The following table lists the attributes in the query response.
 
