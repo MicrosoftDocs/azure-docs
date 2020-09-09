@@ -279,7 +279,7 @@ To see what permissions you have in the Azure portal, select the management grou
 
 1. On the menu that opens, select the **Parent management group**.
 
-   :::image type="content" source="./media/move_small_context.png" alt-text="Screenshot of the 'Move' window and options for moving a subscrition to a different management group." border="false":::
+   :::image type="content" source="./media/move_small_context.png" alt-text="Screenshot of the 'Move' window and options for moving a subscription to a different management group." border="false":::
 
 1. Select **Save**.
 
