@@ -110,7 +110,7 @@ When the creation process is completed, you can run inference, or model scoring,
 
 By default, AKS clusters have a control plane, or API server, with public IP addresses. You can configure AKS to use a private control plane by creating a private AKS cluster. For more information, see [Create a private Azure Kubernetes Service cluster](../aks/private-clusters.md).
 
-After you create the private AKS cluster, [attach the cluster to the virtual network](how-to-deploy-azure-kubernetes-service.md#attach-an-existing-aks-cluster) to use with Azure Machine Learning.
+After you create the private AKS cluster, [attach the cluster to the virtual network](how-to-create-attach-kubernetes.md) to use with Azure Machine Learning.
 
 ## Internal AKS load balancer
 
@@ -221,7 +221,7 @@ The contents of the `body.json` file referenced by the command are similar to th
 
 When __attaching an existing cluster__ to your workspace, you must wait until after the attach operation to configure the load balancer.
 
-For information on attaching a cluster, see [Attach an existing AKS cluster](how-to-deploy-azure-kubernetes-service.md#attach-an-existing-aks-cluster).
+For information on attaching a cluster, see [Attach an existing AKS cluster](how-to-create-attach-kubernetes.md).
 
 After attaching the existing cluster, you can then update the cluster to use a private IP.
 
@@ -258,7 +258,7 @@ To use ACI in a virtual network to your workspace, use the following steps:
     > [!IMPORTANT]
     > When enabling delegation, use `Microsoft.ContainerInstance/containerGroups` as the __Delegate subnet to service__ value.
 
-2. Deploy the model using [AciWebservice.deploy_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice?view=azure-ml-py#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none--vnet-name-none--subnet-name-none-), use the `vnet_name` and `subnet_name` parameters. Set these parameters to the virtual network name and subnet where you enabled delegation.
+2. Deploy the model using [AciWebservice.deploy_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice?view=azure-ml-py#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none--vnet-name-none--subnet-name-none-&preserve-view=true), use the `vnet_name` and `subnet_name` parameters. Set these parameters to the virtual network name and subnet where you enabled delegation.
 
 
 ## Next steps

@@ -83,7 +83,7 @@ Use the following steps to secure your workspace and associated resources. These
 1. Create a [Private Link-enabled workspace](how-to-secure-workspace-vnet.md#secure-the-workspace-with-private-endpoint) to enable communication between your VNet and workspace.
 1. Add Azure Key Vault to the virtual network with a [service endpoint](../key-vault/general/overview-vnet-service-endpoints.md) or a [private endpoint](../key-vault/general/private-link-service.md). Set Key Vault to ["Allow trusted Microsoft services to bypass this firewall"](how-to-secure-workspace-vnet.md#secure-azure-key-vault).
 1. Add you Azure storage account to the virtual network with a [service endpoint](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts) or a [private endpoint](../storage/common/storage-private-endpoints.md)
-1. [Configure Azure Container Registry to use a private endpoint](how-to-secure-workspace-vnet.md#enable-azure-container-registry-acr) and [enable subnet delegation in Azure Container Instances](how-to-secure-workspace-vnet.md#enable-azure-container-instances-aci).
+1. [Configure Azure Container Registry to use a private endpoint](how-to-secure-workspace-vnet.md#enable-azure-container-registry-acr) and [enable subnet delegation in Azure Container Instances](how-to-secure-inferencing-vnet.md#enable-azure-container-instances-aci).
 
 ![Architecture diagram showing how the workspace and associated resources communicate to each other over service endpoints or private endpoints inside of a VNet](./media/how-to-network-security-overview/secure-workspace-resources.png)
 
@@ -104,10 +104,6 @@ In this section, you learn how to secure the training environment in Azure Machi
 To secure the training environment, use the following steps:
 
 1. Create an Azure Machine Learning [compute instance and computer cluster in the virtual network](how-to-secure-training-vnet.md#compute-instance) to run the training job.
-
-    > [!NOTE]
-    > Azure automatically creates a public load balancer for managed compute resources. You can also configure your load balancer to use private IP addresses.
-
 1. [Allow inbound communication from Azure Batch Service](how-to-secure-training-vnet.md#mlcports) so that Batch Service can submit jobs to your compute resources. 
 
 ![Architecture diagram showing how to secure managed compute clusters and instances](./media/how-to-network-security-overview/secure-training-environment.png)
