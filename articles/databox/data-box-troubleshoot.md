@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: troubleshooting
-ms.date: 09/08/2020
+ms.date: 09/09/2020
 ms.author: alkohli
 ---
 
