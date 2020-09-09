@@ -24,7 +24,7 @@ When training, it is common to start on your local computer, and later run that 
 All you need to do is define the environment for each compute target within a **script run configuration**.  Then, when you want to run your training experiment on a different compute target, specify the run configuration for that compute.
 
 ## Prerequisites
-
+?view=azure-ml-py&preserve-view=true)
 * If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today
 * The [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)
 * An [Azure Machine Learning workspace](how-to-manage-workspace.md), `ws`
@@ -32,11 +32,11 @@ All you need to do is define the environment for each compute target within a **
   * [Python SDK](how-to-create-attach-compute-sdk.md) 
   * [Azure Machine Learning studio](how-to-create-attach-compute-studio.md)
 
-## <a name="whats-a-run-configuration"></a>What's a script run configuration?
+## <a name="whats-a-run-configuration"></a>What's a script run configuration??view=azure-ml-py&preserve-view=true)
 
 You submit your training experiment with a [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py) object.  This object includes the:
 
-* **source_directory**: The source directory that contains your training script
+* **source_directory**: The source directory that contains your training script?view=azure-ml-py&preserve-view=true)
 * **script**: Identify the training script
 * **run_config**: The [run configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py), which in turn defines where the training will occur. In the `run_config` you specify the compute target and the environment to use when running the training script.  
 
@@ -162,7 +162,7 @@ See these notebooks for examples of training with various compute targets:
 ## Next steps
 
 * [Tutorial: Train a model](tutorial-train-models-with-aml.md) uses a managed compute target to  train a model.
-* Learn how to [efficiently tune hyperparameters](how-to-tune-hyperparameters.md) to build better models.
+* Learn how to [efficiently tune hyperparameters](how-to-tune-hyperparameters.md) to build better models.?view=azure-ml-py&preserve-view=true)
 * Once you have a trained model, learn [how and where to deploy models](how-to-deploy-and-where.md).
 * View the [RunConfiguration class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py) SDK reference.
 * [Use Azure Machine Learning with Azure Virtual Networks](how-to-enable-virtual-network.md)

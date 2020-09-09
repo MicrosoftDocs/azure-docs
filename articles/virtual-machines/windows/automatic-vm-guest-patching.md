@@ -5,7 +5,7 @@ author: mayanknayar
 ms.service: virtual-machines-windows
 ms.workload: infrastructure
 ms.topic: how-to
-ms.date: 08/31/2020
+ms.date: 09/09/2020
 ms.author: manayar
 
 ---
