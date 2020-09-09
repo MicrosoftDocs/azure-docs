@@ -41,53 +41,63 @@ A resource group is a logical container into which Azure resources are deployed 
 az group create --name "ContosoResourceGroup" --location eastus2
 ```
 
+
 ## Create a Managed HSM
 
-Next you will create a Managed HSM in the resource group created in the previous step. You will need to provide some information:
+Creating a managed HSM is a two step process:
+1. provision a Managed HSM resource
+1. activate your Managed HSM by downloading the security domain
 
-- For this quickstart we use **Contoso-mhsm**. You must provide a unique name in your testing.
-- Resource group name **ContosoResourceGroup**.
-- The location **East US 2**.
-- **Object IDs of the administrators** of Managed HSM. We assume that currently logged in user (using the az login command above) will be the administrator.
+### Provision a managed HSM
 
-Optional parameter `--enable-purge-protection` will allow you to enable purge protection that will prevent permanently deleting a key for 7 days, as defined by the `--retention-days` parameter. You must set these two parameters at the time of creating the HSM. These attributes cannot be changed after the HSM is created.
+Use the `az keyvault create` command to create a Managed HSM. This script has three mandatory parameters: a resource group name, an hsm name, and the geographic location.
 
-```azurecli
-adminoid=$(az ad signed-in-user show --query objectId -o tsv)
-az keyvault create --hsm-name "Contoso-Vault2" --resource-group "ContosoResourceGroup" --location eastus2 --administrators $adminoid --enable-purge-protection true --retention-days 7
-```
-
-
-
-The output of this cmdlet shows properties of the newly created managed HSM. Take note of the two properties listed below:
-
-- **Managed HSM Name**: In the example, this is **Contoso-mhsm**. You will use this name for other commands.
-- **Managed HSM URI**: In the example, this is https://contoso-mhsm.managedhsm.azure.net/. Applications that use your managed HSM through its REST API must use this URI.
-
-The managed HSM pool is now created, but it is not active yet. To activate the managed HSM you need to download the security domain. At this point, the list of administrators you provided above are the only authorized administrators who can activate the HSM.
-
-## Download security domain to activate your managed HSM
-
-To activate a newly provisioned managed HSM, you must activate it. To activate it, you must initialize the security domain. Downloading the security domain is just one way to activate a managed HSM. For more information on security domain and ways to activate managed HSM, please review [About managed HSM security domain](security-domain.md).
-
-To activate a security domain you will need to provide following information:
-- **RSA public key file names** - You send the public keys when using the download command. The example below uses 3.
-- **quorum size** - minium number of keys required to decrypt the security domain. Must be equal to or less than the number of wrapping keys you provided with the --sd-wrapping-keys parameter.
-- **security domain file name** - A file name, where the encrypted security domain will be stored.
+You need to provide following inputs to create a Managed HSM resource:
+- name for the HSM
+- resource group where it will be placed in your subscription
+- Azure location
+- a list of initial administrators
+ 
+The example below creates an HSM named **ContosoMHSM**, in the resource group  **ContosoResourceGroup**, residing in the **East US 2** location, with **the current signed in user** as the only administrator.
 
 ```azurecli
-az keyvault security-domain download --hsm-name "Contoso-mhsm" --sd-wrapping-keys sdw_key1.pem sdw_key2.pem sdw_key3.pem --sd-quorum 2 --security-domain-file contoso-mhsm-sd.json
+oid=$(az ad signed-in-user show --query objectId -o tsv)
+az keyvault create --hsm-name "ContosoMHSM" --resource-group "ContosoResourceGroup" --location "East US 2" --administrators $oid
 ```
+> [!NOTE] Create command can take a few minutes. Once it returns successfully you are ready to activate your HSM.
 
-When the security domain is successfully downloaded the managed HSM will enter the active state. Now you are ready to create keys, add new role assignments, create a full backup etc.
+The output of this command shows properties of the Managed HSM that you've created. The two most important properties are:
 
-To verify that the HSM is activated run folowing command:
+* **name**: In the example, the name is ContosoMHSM. You'll use this name for other Key Vault commands.
+* **hsmUri**: In the example, the URI is https://contosohsm.managedhsm.azure.net. Applications that use your hsm through its REST API must use this URI.
+
+Your Azure account is now authorized to perform any operations on this Managed HSM. As of yet, nobody else is authorized.
+
+
+### Activate your managed HSM
+All data plane commands are disabled until the HSM  is activated. You will not be able to create keys or assign roles. Only the designated administrators that were assigned during the create command can activate the HSM.
+
+To activate your HSM you need:
+- Minimum 3 RSA key-pairs (maximum 10)
+- Specify minimum number of keys required to decrypt the security domain (quorum)
+
+To activate the HSM you send at least 3 (maximum 10) RSA public keys to the HSM. The HSM encrypts the security domain with these keys and sends it back. Once this security domain download is successfully completed, your HSM is ready to use. You also need to specify quorum, which is the minimum number of private keys required to decrypt the security domain.
+
+The example below shows how to use  `openssl` to generate a self signed certificate.
 
 ```azurecli
-az keyvault show --hsm-name "Contoso-mhsm"
+openssl req -newkey rsa:2048 -nodes -keyout ./certs/cert_0.key -x509 -days 365 -out ./certs/cert_0.cer
 ```
 
-Now, you have created a Key Vault, stored a secret, and retrieved it.
+Use the `az keyvault security-domain download` command to download the security domain and activate your managed HSM. The example below, uses 3 RSA key pairs (only public keys are needed for this command) and sets the quorum to 2.
+
+```azurecli
+az keyvault security-domain download --hsm-name ContosoMHSM --sd-wrapping-keys ./certs/cert_0.cer ./certs/cert_1.cer ./certs/cert_2.cer --sd-quorum 2 --security-domain-file ContosoMHSM-SD.json
+```
+Please store the security domain file and the RSA key pairs securely. You will need them for disaster recovery or for creating another managed HSM that shares same security domain, so they can share keys.
+
+After successfully downloading the security domain, your HSM will be in active state and ready for you to use.
+
 
 ## Clean up resources
 
