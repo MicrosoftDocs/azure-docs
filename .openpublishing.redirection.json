@@ -652,7 +652,7 @@
     },
     {
       "source_path": "articles/virtual-network/security-overview.md",
-      "redirect_url": "/previous-versions/azure/virtual-network/network-security-groups-overview",
+      "redirect_url": "/azure/virtual-network/network-security-groups-overview",
       "redirect_document_id": false
     },
     {
