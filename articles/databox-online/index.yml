@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: Azure Stack Edge Pro and Azure Data Box Gateway documentation - Online transfer # < 60 chars
-summary: Use Azure Data Box Gateway and Azure Stack Edge Pro devices for over-the-network high performance data transfers. Choose Data Box Gateway to send data for cloud archival, disaster recovery, or to process data at cloud scale. Use compute acceleration hardware equipped Azure Stack Edge Pro devices to filter, analyze, and transform your data before it moves to Azure. Azure Data Box Edge was recently rebranded as Azure Stack Edge. # < 160 chars
+summary: Use Azure Data Box Gateway and Azure Stack Edge Pro devices for over-the-network high performance data transfers. Choose Data Box Gateway to send data for cloud archival, disaster recovery, or to process data at cloud scale. Use compute acceleration hardware equipped Azure Stack Edge Pro devices to filter, analyze, and transform your data before it moves to Azure. # < 160 chars
 
 metadata:
   title: Azure Stack Edge Pro and Azure Data Box Gateway documentation - Online transfer # Required; page title displayed in search results. Include the brand. < 60 chars.
@@ -13,7 +13,7 @@ metadata:
   ms.collection: collection
   author: alkohli #Required; your GitHub user alias, with correct capitalization.
   ms.author: alkohli #Required; microsoft alias of author; optional team alias.
-  ms.date: 09/03/2020 #Required; mm/dd/yyyy format.
+  ms.date: 09/08/2020 #Required; mm/dd/yyyy format.
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -69,6 +69,10 @@ landingContent:
             url: azure-stack-edge-gpu-deploy-prep.md
           - text: Data Box Gateway
             url: data-box-gateway-deploy-prep.md
+          - text: GPU module via Marketplace
+            url: azure-stack-edge-gpu-deploy-sample-module-marketplace.md
+          - text: Kubernetes workload via IoT Edge
+            url: azure-stack-edge-gpu-deploy-stateless-application-iot-edge-module.md
 
   # Card
   - title: Develop
