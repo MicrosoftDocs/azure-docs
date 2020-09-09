@@ -125,7 +125,7 @@ Users in this role can enable, disable, and delete devices in Azure AD and read 
 
 ### [Compliance Administrator](#compliance-administrator-permissions)
 
-Users with this role have permissions to manage compliance-related features in the Microsoft 365 compliance center, Microsoft 365 admin center, Azure, and Office 365 Security & Compliance Center. Assignees can also manage all features within the Exchange admin center and Teams & Skype for Business admin centers and create support tickets for Azure and Microsoft 365. More information is available at [About Office 365 admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
+Users with this role have permissions to manage compliance-related features in the Microsoft 365 compliance center, Microsoft 365 admin center, Azure, and Office 365 Security & Compliance Center. Assignees can also manage all features within the Exchange admin center and Teams & Skype for Business admin centers and create support tickets for Azure and Microsoft 365. More information is available at [About Microsoft 365 admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
 In | Can do
 ----- | ----------
@@ -190,7 +190,7 @@ Users with this role have global permissions within Microsoft Dynamics 365 Onlin
 
 ### [Exchange Administrator](#exchange-service-administrator-permissions)
 
-Users with this role have global permissions within Microsoft Exchange Online, when the service is present. Also has the ability to create and manage all Microsoft 365 groups, manage support tickets, and monitor service health. More information at [About Office 365 admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
+Users with this role have global permissions within Microsoft Exchange Online, when the service is present. Also has the ability to create and manage all Microsoft 365 groups, manage support tickets, and monitor service health. More information at [About Microsoft 365 admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
 > [!NOTE]
 > In the Microsoft Graph API and Azure AD PowerShell, this role is identified as "Exchange Service Administrator." It is "Exchange Administrator" in the [Azure portal](https://portal.azure.com). It is "Exchange Online administrator" in the [Exchange admin center](https://go.microsoft.com/fwlink/p/?LinkID=529144).
@@ -302,7 +302,7 @@ Users in this role can monitor all notifications in the Message Center, includin
 
 ### [Message Center Reader](#message-center-reader-permissions)
 
-Users in this role can monitor notifications and advisory health updates in [Office 365 Message center](https://support.office.com/article/Message-center-in-Office-365-38FB3333-BFCC-4340-A37B-DEDA509C2093) for their organization on configured services such as Exchange, Intune, and Microsoft Teams. Message Center Readers receive weekly email digests of posts, updates, and can share message center posts in Office 365. In Azure AD, users assigned to this role will only have read-only access on Azure AD services such as users and groups. This role has no access to view, create, or manage support tickets.
+Users in this role can monitor notifications and advisory health updates in [Message center](https://support.office.com/article/Message-center-in-Office-365-38FB3333-BFCC-4340-A37B-DEDA509C2093) for their organization on configured services such as Exchange, Intune, and Microsoft Teams. Message Center Readers receive weekly email digests of posts, updates, and can share message center posts in Microsoft 365. In Azure AD, users assigned to this role will only have read-only access on Azure AD services such as users and groups. This role has no access to view, create, or manage support tickets.
 
 ### [Modern Commerce User](#modern-commerce-user-permissions)
 
@@ -323,10 +323,10 @@ If the Modern Commerce User role is unassigned from a user, they lose access to 
 
 ### [Network Administrator](#network-administrator-permissions)
 
-Users in this role can review network perimeter architecture recommendations from Microsoft that are based on network telemetry from their user locations. Network performance for Office 365 relies on careful enterprise customer network perimeter architecture which is generally user location specific. This role allows for editing of discovered user locations and configuration of network parameters for those locations to facilitate improved telemetry measurements and design recommendations
+Users in this role can review network perimeter architecture recommendations from Microsoft that are based on network telemetry from their user locations. Network performance for Microsoft 365 relies on careful enterprise customer network perimeter architecture which is generally user location specific. This role allows for editing of discovered user locations and configuration of network parameters for those locations to facilitate improved telemetry measurements and design recommendations
 ### [Office Apps Administrator](#office-apps-administrator-permissions)
 
-Users in this role can manage Office 365 apps' cloud settings. This includes managing cloud policies, self-service download management and the ability to view Office apps related report. This role additionally grants the ability to manage support tickets, and monitor service health within the main admin center. Users assigned to this role can also manage communication of new features in Office apps. 
+Users in this role can manage Microsoft 365 apps' cloud settings. This includes managing cloud policies, self-service download management and the ability to view Office apps related report. This role additionally grants the ability to manage support tickets, and monitor service health within the main admin center. Users assigned to this role can also manage communication of new features in Office apps. 
 
 ### [Partner Tier1 Support](#partner-tier1-support-permissions)
 
@@ -394,7 +394,7 @@ Users in this role can create, manage, and delete content for Microsoft Search i
 
 ### [Security Administrator](#security-administrator-permissions)
 
-Users with this role have permissions to manage security-related features in the Microsoft 365 security center, Azure Active Directory Identity Protection, Azure Active Directory Authentication, Azure Information Protection, and Office 365 Security & Compliance Center. More information about Office 365 permissions is available at [Permissions in the Office 365 Security & Compliance Center](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
+Users with this role have permissions to manage security-related features in the Microsoft 365 security center, Azure Active Directory Identity Protection, Azure Active Directory Authentication, Azure Information Protection, and Office 365 Security & Compliance Center. More information about Office 365 permissions is available at [Permissions in the Security & Compliance Center](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
 
 In | Can do
 --- | ---
@@ -407,13 +407,13 @@ Windows Defender ATP and EDR | Assign roles<br>Manage machine groups<br>Configur
 [Intune](/intune/role-based-access-control) | Views user, device, enrollment, configuration, and application information<br>Cannot make changes to Intune
 [Cloud App Security](/cloud-app-security/manage-admins) | Add admins, add policies and settings, upload logs and perform governance actions
 [Azure Security Center](../../role-based-access-control/built-in-roles.md) | Can view security policies, view security states, edit security policies, view alerts and recommendations, dismiss alerts and recommendations
-[Office 365 service health](/office365/enterprise/view-service-health) | View the health of Office 365 services
+[Microsoft 365 service health](/office365/enterprise/view-service-health) | View the health of Microsoft 365 services
 [Smart lockout](../authentication/howto-password-smart-lockout.md) | Define the threshold and duration for lockouts when failed sign-in events happen.
 [Password Protection](../authentication/concept-password-ban-bad.md) | Configure custom banned password list or on-premises password protection.
 
 ### [Security operator](#security-operator-permissions)
 
-Users with this role can manage alerts and have global read-only access on security-related features, including all information in Microsoft 365 security center, Azure Active Directory, Identity Protection, Privileged Identity Management and Office 365 Security & Compliance Center. More information about Office 365 permissions is available at [Permissions in the Office 365 Security & Compliance Center](/office365/securitycompliance/permissions-in-the-security-and-compliance-center).
+Users with this role can manage alerts and have global read-only access on security-related features, including all information in Microsoft 365 security center, Azure Active Directory, Identity Protection, Privileged Identity Management and Office 365 Security & Compliance Center. More information about Office 365 permissions is available at [Permissions in the Security & Compliance Center](/office365/securitycompliance/permissions-in-the-security-and-compliance-center).
 
 In | Can do
 --- | ---
@@ -424,11 +424,11 @@ Identity Protection Center | All permissions of the Security Reader role<br>Addi
 Windows Defender ATP and EDR | All permissions of the Security Reader role<br>View, investigate, and respond to security alerts
 [Intune](/intune/role-based-access-control) | All permissions of the Security Reader role
 [Cloud App Security](/cloud-app-security/manage-admins) | All permissions of the Security Reader role
-[Office 365 service health](/office365/enterprise/view-service-health) | View the health of Office 365 services
+[Microsoft 365 service health](/office365/enterprise/view-service-health) | View the health of Microsoft 365 services
 
 ### [Security Reader](#security-reader-permissions)
 
-Users with this role have global read-only access on security-related feature, including all information in Microsoft 365 security center, Azure Active Directory, Identity Protection, Privileged Identity Management, as well as the ability to read Azure Active Directory sign-in reports and audit logs, and in Office 365 Security & Compliance Center. More information about Office 365 permissions is available at [Permissions in the Office 365 Security & Compliance Center](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
+Users with this role have global read-only access on security-related feature, including all information in Microsoft 365 security center, Azure Active Directory, Identity Protection, Privileged Identity Management, as well as the ability to read Azure Active Directory sign-in reports and audit logs, and in Office 365 Security & Compliance Center. More information about Office 365 permissions is available at [Permissions in the Security & Compliance Center](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
 
 In | Can do
 --- | ---
@@ -440,11 +440,11 @@ Windows Defender ATP and EDR | View and investigate alerts. When you turn on rol
 [Intune](/intune/role-based-access-control) | Views user, device, enrollment, configuration, and application information. Cannot make changes to Intune.
 [Cloud App Security](/cloud-app-security/manage-admins) | Has read-only permissions and can manage alerts
 [Azure Security Center](../../role-based-access-control/built-in-roles.md) | Can view recommendations and alerts, view security policies, view security states, but cannot make changes
-[Office 365 service health](/office365/enterprise/view-service-health) | View the health of Office 365 services
+[Microsoft 365 service health](/office365/enterprise/view-service-health) | View the health of Microsoft 365 services
 
 ### [Service Support Administrator](#service-support-administrator-permissions)
 
-Users with this role can open support requests with Microsoft for Azure and Office 365 services, and views the service dashboard and message center in the [Azure portal](https://portal.azure.com) and [Microsoft 365 admin center](https://admin.microsoft.com). More information at [About admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
+Users with this role can open support requests with Microsoft for Azure and Microsoft 365 services, and views the service dashboard and message center in the [Azure portal](https://portal.azure.com) and [Microsoft 365 admin center](https://admin.microsoft.com). More information at [About admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
 > [!NOTE]
 > Previously, this role was called "Service Administrator" in [Azure portal](https://portal.azure.com) and [Microsoft 365 admin center](https://admin.microsoft.com). We have renamed it to "Service Support Administrator" to align with the exsiting name in Microsoft Graph API, Azure AD Graph API, and Azure AD PowerShell.
@@ -587,7 +587,7 @@ Allowed to view, set and reset authentication method information for any non-adm
 | microsoft.office365.webPortal/allEntities/basic/read | Read basic properties on all resources in microsoft.office365.webPortal. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
-| microsoft.directory/users/password/update | Update passwords for all users in the Office 365 organization. See online documentation for more detail. |
+| microsoft.directory/users/password/update | Update passwords for all users in the Microsoft 365 organization. See online documentation for more detail. |
 
 ### Azure DevOps Administrator permissions
 
@@ -784,7 +784,7 @@ Can manage all aspects of Azure AD and Microsoft services that use Azure AD iden
 
 ### Compliance Administrator permissions
 
-Can read and manage compliance configuration and reports in Azure AD and Office 365.
+Can read and manage compliance configuration and reports in Azure AD and Microsoft 365.
 
 > [!NOTE]
 > This role has additional permissions outside of Azure Active Directory. For more information, see role description above.
