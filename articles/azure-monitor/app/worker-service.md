@@ -359,6 +359,22 @@ Commonly used settings in `ApplicationInsightsServiceOptions`
 
 See the [configurable settings in `ApplicationInsightsServiceOptions`](https://github.com/microsoft/ApplicationInsights-dotnet/blob/develop/NETCORE/src/Shared/Extensions/ApplicationInsightsServiceOptions.cs) for the most up-to-date list.
 
+### Configuration Recommendation for [Microsoft.ApplicationInsights.WorkerService SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) 2.15.0-beta3 & above
+
+Starting from [Microsoft.ApplicationInsights.WorkerService SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) version 2.15.0-beta3 we offer an additional option to modify all configuration updates through ASP.NET Core configuration. The recommended approach is to use `services.AddApplicationInsightsTelemetryWorkerService()` and configure everything including instrumentation key using `Microsoft.Extensions.Configuration.IConfiguration`. All settings part of `ApplicationInsightsServiceOptions` is automatically read from users `Microsoft.Extensions.Configuration.IConfiguration`. For example, the following appsettings.json can be used to set instrumentation key, disable adaptive sampling and performance counter collection.
+
+```json
+{
+    "ApplicationInsights": {
+    "InstrumentationKey": "putinstrumentationkeyhere",
+    "EnableAdaptiveSampling": false,
+    "EnablePerformanceCounterCollectionModule": false
+    }
+}
+```
+
+If `services.AddApplicationInsightsTelemetryWorkerService(aiOptions)` is used, this overrides the settings from `Microsoft.Extensions.Configuration.IConfiguration`.
+
 ### Sampling
 
 The Application Insights SDK for Worker Service supports both fixed-rate and adaptive sampling. Adaptive sampling is enabled by default. Configuring sampling for Worker Service is done the same way as for [ASP.NET Core Applications](./sampling.md#configuring-adaptive-sampling-for-aspnet-core-applications).
