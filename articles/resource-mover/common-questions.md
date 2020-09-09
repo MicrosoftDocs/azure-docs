@@ -52,7 +52,7 @@ Yes, both in transit and at rest.
 - A move collection needs a system-assigned identity, with access to the subscription that contains resources you're moving.
 
 - If you move resources across regions in the portal, this process happens automatically.
-- If you move resources using PowerShell, you [run cmdlets](move-region-powershell.md#assign-a-managed-identity) to assign a system-assigned identity to the collection, and then assign a role with the correct subscription permissions to the identity principal. 
+- If you move resources using PowerShell, you run cmdlets to assign a system-assigned identity to the collection, and then assign a role with the correct subscription permissions to the identity principal. 
 
 ### What managed identity permissions does Resource Mover need?
 
@@ -61,7 +61,7 @@ Azure Resource Mover managed identity needs at least these permissions:
 - Permission to write/ create resources in user subscription, available with the *Contributor* role. 
 - Permission to create role assignments. Typically available with the *Owner* or *User Access Administrator* roles, or with a custom role that has the *Microsoft.Authorization/role assignments/write permission* assigned. This permission isn't needed if the data share resource's managed identity is already granted access to the Azure data store. 
  
-When you add resources in the Resource Mover hub in the portal, permissions are handled automatically as long as the user has the permissions described above. If you add resources with PowerShell, you [assign permissions manually](move-region-powershell.md#assign-a-managed-identity).
+When you add resources in the Resource Mover hub in the portal, permissions are handled automatically as long as the user has the permissions described above. If you add resources with PowerShell, you assign permissions manually.
 
 > [!IMPORTANT]
 > We strongly recommend that you don't modify or remove identity role assignments. 
