@@ -12,24 +12,24 @@ ms.author: aahi
 
 This entity category includes financial information and official forms of identification. Available starting with model version `2019-10-01`. Subtypes are listed below. 
 
-### Financial Account Identification
+### Financial account identification
 
 | Subtype name               | Description                                                                |
 |----------------------------|----------------------------------------------------------------------------|
-| ABA Routing Number        | American Banker Association(ABA) transit routing numbers.                  |
+| ABA Routing Number        | American Banker Association (ABA) transit routing numbers.                  |
 | SWIFT Code                 | SWIFT codes for payment instruction information.                           |
 | Credit Card                | Credit card numbers.                                                       |
 | International Banking Account Number (IBAN)                  | IBAN codes for payment instruction information.                            |
 
 
-### Government and country/region specific identification
+### Government and country/region-specific identification
 
 > [!NOTE]
 > The following financial and country-specific entities are not returned with the `domain=phi` parameter:
 > * Passport numbers
 > * Tax IDs
 
-The entities below are grouped and listed by country:
+The following entities are grouped and listed by country:
 
 Argentina
 * Argentina National Identity (DNI) Number
@@ -62,14 +62,14 @@ Bulgaria
 
 Canada
 * Canada Bank Account Number
-* Canada Driver's license Number
+* Canada Driver's License Number
 * Canada Health Service Number
 * Canada Passport Number
 * Canada Personal Health Identification Number (PHIN)
 * Canada Social Insurance Number
 
 Chile
-* Identity card number 
+* Identity Card Number 
 
 China
 * China Resident Identity Card (PRC) Number
@@ -108,10 +108,10 @@ Finland
 France
 * France Driver's License Number
 * France Health Insurance Number
-* France National ID card (CNI)
+* France National ID Card (CNI)
 * France Passport Number
 * France Social Security Number (INSEE)
-* France Tax Identification Number (numéro SPI.)
+* France Tax Identification Number (Numéro SPI)
 * France Value Added Tax Number
 
 Germany
@@ -122,7 +122,7 @@ Germany
 * Germany Value Added Tax Number
 
 Greece 
-* Greece National ID card number
+* Greece National ID Card Number
 * Greece Tax identification Number
 
 Hong Kong
@@ -148,7 +148,7 @@ Israel
 * Israel Bank Account Number
 
 Italy
-* Italy Driver's license ID
+* Italy Driver's License ID
 * Italy Fiscal Code
 * Italy Value Added Tax Number
 
@@ -263,7 +263,7 @@ Ukraine
 * Ukraine Passport Number (International)
 
 United Kingdom
-* U.K. Driver's license Number
+* U.K. Driver's License Number
 * U.K. Electoral Roll Number
 * U.K. National Health Service (NHS) Number
 * U.K. National Insurance Number (NINO)
@@ -275,5 +275,5 @@ United States
 * U.S. Driver's License Number
 * U.S. Passport Number
 * U.S. Individual Taxpayer Identification Number (ITIN)
-* U.S. Drug Enforcement Agency (DEA) number
+* U.S. Drug Enforcement Agency (DEA) Number
 * U.S. Bank Account Number
