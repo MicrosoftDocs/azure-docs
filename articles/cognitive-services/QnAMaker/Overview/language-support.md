@@ -29,7 +29,7 @@ Consider the following:
 
 If you need to support a knowledge base system, which includes several languages, you can:
 
-* Use the [Translation Text service](../../translator/translator-info-overview.md) to translate a question into a single language before sending the question to your knowledge base. This allows you to focus on the quality of a single language and the quality of the alternate questions and answers.
+* Use the [Translator service](../../translator/translator-info-overview.md) to translate a question into a single language before sending the question to your knowledge base. This allows you to focus on the quality of a single language and the quality of the alternate questions and answers.
 * Create a QnA Maker resource, and a knowledge base inside that resource, for every language. This allows you to manage separate alternate questions and answer text that is more nuanced for each language. This gives you much more flexibility but requires a much higher maintenance cost when the questions or answers change across all languages.
 
 Review [languages supported](../overview/language-support.md) for QnA Maker.
