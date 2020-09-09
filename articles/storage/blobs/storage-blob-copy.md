@@ -127,7 +127,7 @@ The **start_copy_from_url** method return a [CopyProperties](/azure/developer/py
 
 The following code example gets a [BlobClient](/azure/developer/python/sdk/storage/azure-storage-blob/azure.storage.blob.blobclient) representing a previously created blob and copies it to a new blob in the same container:
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/python-v12/copy-blob.py" id="Snippet_BlobCopy":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/python-v12/copy_blob.py" id="Snippet_BlobCopy":::
 
 ---
 
@@ -173,7 +173,7 @@ When you abort an ongoing blob copy operation, the [copy_status](/azure/develope
 
 The [abort_copy](/azure/developer/python/sdk/storage/azure-storage-blob/azure.storage.blob.blobclient#abort-copy-copy-id----kwargs-) method cancels an ongoing blob copy operation.
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/python-v12/copy-blob.py" id="Snippet_StopBlobCopy":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/python-v12/copy_blob.py" id="Snippet_StopBlobCopy":::
 
 ---
 
