@@ -55,8 +55,8 @@ To configure and test Azure AD SSO with CyberSolutions MAILBASEΣ\CMSS, complete
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
     1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
     1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
-1. **[Configure CyberSolutions MAILBASE\CMSS SSO](#configure-cybersolutions-mailbase\cmss-sso)** - to configure the single sign-on settings on application side.
-    1. **[Create CyberSolutions MAILBASE\CMSS test user](#create-cybersolutions-mailbase\cmss-test-user)** - to have a counterpart of B.Simon in CyberSolutions MAILBASEΣ\CMSS that is linked to the Azure AD representation of user.
+1. **[Configure CyberSolutions MAILBASE SSO](#configure-cybersolutions-mailbase-sso)** - to configure the single sign-on settings on application side.
+    1. **[Create CyberSolutions MAILBASE test user](#create-cybersolutions-mailbase-test-user)** - to have a counterpart of B.Simon in CyberSolutions MAILBASEΣ\CMSS that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
 ## Configure Azure AD SSO
@@ -117,11 +117,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
 1. In the **Add Assignment** dialog, click the **Assign** button.
 
-## Configure CyberSolutions MAILBASE\CMSS SSO
+## Configure CyberSolutions MAILBASE SSO
 
 To configure single sign-on on **CyberSolutions MAILBASEΣ\CMSS** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [CyberSolutions MAILBASEΣ\CMSS support team](mailto:tech@cybersolutions.co.jp). They set this setting to have the SAML SSO connection set properly on both sides.
 
-### Create CyberSolutions MAILBASE\CMSS test user
+### Create CyberSolutions MAILBASE test user
 
 In this section, you create a user called Britta Simon in CyberSolutions MAILBASEΣ\CMSS. Work with [CyberSolutions MAILBASEΣ\CMSS support team](mailto:tech@cybersolutions.co.jp) to add the users in the CyberSolutions MAILBASEΣ\CMSS platform. Users must be created and activated before you use single sign-on.
 
