@@ -16,13 +16,22 @@ With cloud workloads commonly spanning multiple cloud platforms, cloud security 
 
 Azure Security Center protects workloads in Azure, Amazon Web Services (AWS), and Google Cloud Platform (GCP).
 
-When you onboard your AWS account into Security Center you'll benefit from having a single security solution that provides visibility and protection across all major cloud environments, as well as the following:
+When you onboard your AWS account into Security Center you'll benefit from having a single security solution that provides visibility and protection across all major cloud environments.
 
+**Azure Defender for servers** deploys the Log Analytics agent to your AWS instances. With the help of [Azure Arc](../azure-arc/servers/overview.md), this provides Security Center features such as:
+
+- Automatic agent provisioning
+- Policy management
+- Vulnerability management
+- Embedded Endpoint Detection and Response (EDR)
 - Detection of security misconfigurations
 - A single view showing Security Center recommendations and AWS Security Hub findings
 - Incorporation of your AWS resources into Security Center's secure score calculations
 - Regulatory compliance assessments of your AWS resources
 
+In the screenshot below you can see AWS projects displayed in Security Center's overview dashboard.
+
+:::image type="content" source="./media/quickstart-onboard-aws/aws-account-in-overview.png" alt-text="3 GCP projects listed on Security Center's overview dashboard" lightbox="./media/quickstart-onboard-gcp/gcp-account-in-overview.png":::
 
 ## Availability
 
@@ -34,17 +43,6 @@ When you onboard your AWS account into Security Center you'll benefit from havin
 |Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![No](./media/icons/no-icon.png) National/Sovereign (US Gov, China Gov, Other Gov)|
 |||
 
-
-## What's involved in connecting AWS to Security Center?
-
-Connecting your AWS accounts requires [Azure Defender for servers](defender-for-servers-intro.md). 
-
-**Azure Defender for servers** deploys the Log Analytics agent to your AWS instances. With the help of [Azure Arc](../azure-arc/servers/overview.md), this provides Security Center features such as:
-
-- Automatic agent provisioning
-- Policy management
-- Vulnerability management
-- Embedded Endpoint Detection and Response (EDR)
 
 
 ## Connect your AWS account
@@ -105,7 +103,7 @@ Connecting your AWS accounts requires [Azure Defender for servers](defender-for-
 1. Review the summary and click **Create user**.
 
 
-### Step 4 - Configure SSM
+### Step 4 - Configure the SSM Agent
 
 AWS Systems Manager is required for automating tasks across your AWS resources. If your EC2 instances don't have the SSM Agent, follow the relevant instructions from Amazon:
 
@@ -160,8 +158,9 @@ When the connector is successfully created and AWS Security Hub has been configu
 
 - Security Center scans the environment for AWS EC2 instances, onboarding them to Azure Arc, enabling to install the Log Analytics agent and providing threat protection and security recommendations. 
 - The ASC service scans for new AWS EC2 instances every 6 hours and onboards them according to the configuration.
-- If Security Hub policy is enabled, recommendations will appear in the Security Center portal and the  regulatory compliance dashboard 5-10 minutes after onboard completes.
 - The AWS CIS standard will be shown in the Security Center's regulatory compliance dashboard.
+- If Security Hub policy is enabled, recommendations will appear in the Security Center portal and the  regulatory compliance dashboard 5-10 minutes after onboard completes.
+    :::image type="content" source="./media/quickstart-onboard-aws/aws-resources-in-recommendations.png" alt-text="AWS resources and recommendations in Security Center's recommendations page":::
 
 
 
