@@ -173,18 +173,18 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName `
 
 Read-Host -Prompt "Press [ENTER] to continue ..."
 ```
----
+
 ## View the deployed resources
 
 Follow these steps to verify if your server was created in Azure.
 
-# [Portal](#tab/azure-portal)
+### Azure Portal
 
 1. In the [Azure portal](https://portal.azure.com), search for and select **Azure Database for MySQL servers**.
 
 2. In the database list, select your new server. The **Overview** page for your new Azure Database for MySQL server appears.
 
-# [PowerShell](#tab/PowerShell)
+### PowerShell
 
 You'll have to enter the name of the new server to view the details of your Azure Database for MySQL Flexible server.
 
@@ -194,7 +194,7 @@ Get-AzResource -ResourceType "Microsoft.DBforMySQL/flexibleServers" -Name $serve
 Write-Host "Press [ENTER] to continue..."
 ```
 
-# [CLI](#tab/CLI)
+### CLI
 
 You'll have to enter the name and the resource group of the new server to view details about your Azure Database for MySQL Flexible server.
 
@@ -212,7 +212,7 @@ Keep this resource group, server, and single database if you want to go to the [
 
 To delete the resource group:
 
-# [Portal](#tab/azure-portal)
+### Azure Portal
 
 1. In the [Azure portal](https://portal.azure.com), search for and select **Resource groups**.
 
@@ -222,7 +222,7 @@ To delete the resource group:
 
 4. In the confirmation dialog box, type the name of your resource group, and then select **Delete**.
 
-# [PowerShell](#tab/PowerShell)
+### PowerShell
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
@@ -230,7 +230,7 @@ Remove-AzResourceGroup -Name $resourceGroupName
 Write-Host "Press [ENTER] to continue..."
 ```
 
-# [CLI](#tab/CLI)
+### CLI
 
 ```azurecli-interactive
 echo "Enter the Resource Group name:" &&
