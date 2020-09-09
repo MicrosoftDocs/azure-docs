@@ -33,11 +33,11 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-Before you can complete the steps in this tutorial, you must first create a Front Door. For more information, see [Quickstart: Create a Front Door](quickstart-create-front-door.md).
+* Before you can complete the steps in this tutorial, you must first create a Front Door. For more information, see [Quickstart: Create a Front Door](quickstart-create-front-door.md).
 
-If you do not already have a custom domain, you must first purchase one with a domain provider. For example, see [Buy a custom domain name](https://docs.microsoft.com/azure/app-service/manage-custom-dns-buy-domain).
+* If you do not already have a custom domain, you must first purchase one with a domain provider. For example, see [Buy a custom domain name](https://docs.microsoft.com/azure/app-service/manage-custom-dns-buy-domain).
 
-If you are using Azure to host your [DNS domains](https://docs.microsoft.com/azure/dns/dns-overview), you must delegate the domain provider's domain name system (DNS) to an Azure DNS. For more information, see [Delegate a domain to Azure DNS](https://docs.microsoft.com/azure/dns/dns-delegate-domain-azure-dns). Otherwise, if you are using a domain provider to handle your DNS domain, proceed to [Create a CNAME DNS record](#create-a-cname-dns-record).
+* If you are using Azure to host your [DNS domains](https://docs.microsoft.com/azure/dns/dns-overview), you must delegate the domain provider's domain name system (DNS) to an Azure DNS. For more information, see [Delegate a domain to Azure DNS](https://docs.microsoft.com/azure/dns/dns-delegate-domain-azure-dns). Otherwise, if you are using a domain provider to handle your DNS domain, proceed to [Create a CNAME DNS record](#create-a-cname-dns-record).
 
 
 ## Create a CNAME DNS record
@@ -198,7 +198,11 @@ In the preceding steps, you added a custom domain to a Front Door. If you no lon
 
 In this tutorial, you learned how to:
 
-> [!div class="checklist"]
-> - Create a CNAME DNS record.
-> - Associate the custom domain with your Front Door.
-> - Verify the custom domain.
+* Create a CNAME DNS record.
+* Associate the custom domain with your Front Door.
+* Verify the custom domain.
+
+To learn how to enable HTTPS for your custom domain, continue to the next tutorial.
+
+> [!div class="nextstepaction"]
+> [Enable HTTPS for a custom domain](front-door-custom-domain.md)
