@@ -372,7 +372,6 @@ kubectl logs <pod-name> -n <namespace> --all-containers
 
 ### Useful commands
 
-
 |Command  |Description  |
 |---------|---------|
 |`Get-HcsKubernetesUserConfig -AseUser`     | Generates a Kubernetes configuration file. When using the command, copy the information into a file named *config*. Do not save the file with a file extension.        |
