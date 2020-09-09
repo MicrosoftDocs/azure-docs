@@ -21,14 +21,14 @@ landingContent:
             url: overview.md 
       - linkListType: concept
         links:
-          - text: SDK options
+          - text: Client library options
             url: concepts/sdk-options.md
   - title: Get started
     linkLists:
       - linkListType: quickstart
         links:
           - text: Create a Communication Services resource
-            url: quickstarts/create-a-communication-resource.md
+            url: quickstarts/create-communication-resource.md
           - text: Create and manage user access tokens
             url: quickstarts/user-access-tokens.md
       - linkListType: concept
@@ -49,13 +49,13 @@ landingContent:
         links:
           - text: Add voice and video calling to your app
             url: quickstarts/voice-video-calling/getting-started-with-calling.md
-          - text: Use the calling SDK
+          - text: Use the calling client library
             url: quickstarts/voice-video-calling/calling-client-samples.md
       - linkListType: concept
         links:
           - text: Voice and video concepts
             url: concepts/voice-video-calling/about-call-types.md
-          - text: Calling SDK overview
+          - text: Calling client library overview
             url: concepts/voice-video-calling/calling-sdk-features.md
           - text: Call flows
             url: concepts/call-flows.md
@@ -63,34 +63,34 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Buy a telephone number
-            url: quickstarts/telephony-sms/get-a-phone-number.md
+          - text: Get a telephone number
+            url: quickstarts/telephony-sms/get-phone-number.md
           - text: Send an SMS message
-            url: quickstarts/telephony-sms/send-sms.md
-          - text: Handle SMS events
+            url: quickstarts/telephony-sms/send.md
+          - text: Handle SMS events 
             url: quickstarts/telephony-sms/handle-sms-events.md
       - linkListType: concept
         links:
           - text: SMS concepts
-            url: concepts/telephony-sms/sms-concepts.md
-          - text: SMS SDK overview
-            url: concepts/telephony-sms/sms-sdk-features.md
-          - text: Calling SDK overview
+            url: concepts/telephony-sms/concepts.md
+          - text: SMS client library overview
+            url: concepts/telephony-sms/sdk-features.md
+          - text: Calling overview
             url: concepts/voice-video-calling/calling-sdk-features.md
           - text: Plan your telephony and SMS solution
-            url: concepts/telephony-sms/plan-your-telephony-and-SMS-solution.md
+            url: concepts/telephony-sms/plan-solution.md
   - title: Chat
     linkLists:
       - linkListType: quickstart
         links:
           - text: Add chat to your app
-            url: quickstarts/chat/get-started-with-chat.md
+            url: quickstarts/chat/get-started.md
       - linkListType: concept
         links:
           - text: Chat concepts
             url: concepts/chat/concepts.md
-          - text: Chat SDK overview
-            url: concepts/chat/chat-sdk-features.md
+          - text: Chat client library overview
+            url: concepts/chat/sdk-features.md
   - title: Samples
     linkLists:
       - linkListType: get-started

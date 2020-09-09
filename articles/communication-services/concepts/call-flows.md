@@ -19,9 +19,9 @@ The section below gives an overview of the call flows in Azure Communication Ser
 
 ## About signaling and media protocols
 
-When you establish a peer-to-peer or group call, two protocols used behind the scenes. HTTP REST is used for signaling and SRTCP is used for media transfer. 
+When you establish a peer-to-peer or group call, two protocols used behind the scenes. HTTP REST is used for signaling and SRTP is used for media. 
 
-Signaling between the client SDKs or between client SDKs and Communication Services Signaling Controllers is handled with HTTP REST (TLS). For Real-Time Media Traffic (RTP), the Used Datagram Protocol (UDP) is preferred. If the use of UDP is prevented by your firewall, the Client SDK will use the Transmission Control Protocol (TCP) for media. 
+Signaling between the client libraries or between client libraries and Communication Services Signaling Controllers is handled with HTTP REST (TLS). For Real-Time Media Traffic (RTP), the Used Datagram Protocol (UDP) is preferred. If the use of UDP is prevented by your firewall, the client library will use the Transmission Control Protocol (TCP) for media. 
 
 Let's review the signaling and media protocols in various scenarios. 
 
@@ -29,21 +29,21 @@ Let's review the signaling and media protocols in various scenarios.
 
 ### Case 1: VoIP where a direct connection between two devices is possible
 
-In one-to-one VoIP or video calls, traffic prefers the most direct path. "Direct path" means that if two client SDKs can reach each other directly, they'll establish a direct connection. This is usually possible when two SDKs are in the same subnet (for example, in a subnet 192.168.1.0/24) or two when the devices each live in subnets that can see each other (SDKs in subnet 10.10.0.0/16 and 192.168.1.0/24 can reach out each other).
+In one-to-one VoIP or video calls, traffic prefers the most direct path. "Direct path" means that if two client libraries can reach each other directly, they'll establish a direct connection. This is usually possible when two client libraries are in the same subnet (for example, in a subnet 192.168.1.0/24) or two when the devices each live in subnets that can see each other (client libraries in subnet 10.10.0.0/16 and 192.168.1.0/24 can reach out each other).
 
 ![Direct VOIP](./media/about-voice-case-1.png)
 
 ### Case 2: VoIP where a direct connection between devices is not possible, but where connection between NAT devices is possible
 
-If two devices are located in subnets that can't reach each other (for example, Alice works from a coffee shop and Bob works from his home office) but the connection between the NAT devices is possible, the client side SDKs will establish connectivity via NAT devices. 
+If two devices are located in subnets that can't reach each other (for example, Alice works from a coffee shop and Bob works from his home office) but the connection between the NAT devices is possible, the client side client libraries will establish connectivity via NAT devices. 
 
-For Alice it will be the NAT of the coffee shop and for Bob it will be the NAT of the home office. Alice's device will send the external address of her NAT and Bob's will do the same. The SDKs learn the external addresses from a STUN (Session Traversal Utilities for NAT) service that Azure Communication Services provides free of charge. The logic that handles the handshake between Alice and Bob is embedded within the Azure Communication Services provided client SDKs. (You don't need any additional configuration)
+For Alice it will be the NAT of the coffee shop and for Bob it will be the NAT of the home office. Alice's device will send the external address of her NAT and Bob's will do the same. The client libraries learn the external addresses from a STUN (Session Traversal Utilities for NAT) service that Azure Communication Services provides free of charge. The logic that handles the handshake between Alice and Bob is embedded within the Azure Communication Services provided client libraries. (You don't need any additional configuration)
 
 ![VOIP through STUN connection](./media/about-voice-case-2.png)
 
 ### Case 3: VoIP where neither a direct nor NAT connection is possible
 
-If one or both client devices are behind a symmetric NAT, a separate cloud service to relay the media between the two client SDKs is required. This service is called TURN (Traversal Using Relays around NAT) and is also provided by the Communication Services. Approximately 20% of calls require use of TURN across all our clients. If you use the Communication Services Client SDKs, the request of the keys to use the TURN service happens automatically. Use of Microsoft's TURN service is charged separately. You can disable the use of TURN, but if your SDKs are behind a symmetric NAT, your calls are likely to fail.
+If one or both client devices are behind a symmetric NAT, a separate cloud service to relay the media between the two client libraries is required. This service is called TURN (Traversal Using Relays around NAT) and is also provided by the Communication Services. Approximately 20% of calls require use of TURN across all our clients. If you use the Communication Services client libraries, the request of the keys to use the TURN service happens automatically. Use of Microsoft's TURN service is charged separately. You can disable the use of TURN, but if your client libraries are behind a symmetric NAT, your calls are likely to fail.
 
 ![VOIP through TURN connection](./media/about-voice-case-3.png)
  
@@ -67,7 +67,7 @@ The default real-time protocol (RTP) for group calls is User Datagram Protocol (
 
 ![UDP media processor](./media/about-voice-group-calls.png)
 
-If the client SDK can't use UDP for media due to firewall restrictions, an attempt will be made to use the Transmission Control Protocol (TCP). Note that the Media Processor component requires UDP, so when this happens, the Communication Services TURN service will be added to the group call to translate TCP to UDP. TURN charges will be incurred in this case unless TURN capabilities are manually disabled.
+If the client library can't use UDP for media due to firewall restrictions, an attempt will be made to use the Transmission Control Protocol (TCP). Note that the Media Processor component requires UDP, so when this happens, the Communication Services TURN service will be added to the group call to translate TCP to UDP. TURN charges will be incurred in this case unless TURN capabilities are manually disabled.
 
 ![TCP media processor](./media/about-voice-group-calls-2.png)
 

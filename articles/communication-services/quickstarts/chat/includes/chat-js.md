@@ -1,16 +1,28 @@
-
+---
+title: include file
+description: include file
+services: azure-communication-services
+author: mikben
+manager: mikben
+ms.service: azure-communication-services
+ms.subservice: azure-communication-services
+ms.date: 9/1/2020
+ms.topic: include
+ms.custom: include file
+ms.author: mikben
+---
 
 ## Prerequisites
 Before you get started, make sure to:
 
 - Create an Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - Install [Node.js](https://nodejs.org/en/download/) Active LTS and Maintenance LTS versions (8.11.1 and 10.14.1 recommended).
-- Create an Azure Communication Services resource. For details, see [Create an Azure Communication Resource](../../create-a-communication-resource.md). You'll need to record your resource **endpoint** for this quickstart.
+- Create an Azure Communication Services resource. For details, see [Create an Azure Communication Resource](../../create-communication-resource.md). You'll need to record your resource **endpoint** for this quickstart.
 - Obtain a `User Access Token` to enable the chat client. For details, see [here](../../user-access-tokens.md)
 
-## Setting Up
+## Setting up
 
-### Create a new Node.js Application
+### Create a new Node.js application
 
 First, open your terminal or command window create a new directory for your app, and navigate to it.
 
@@ -43,17 +55,17 @@ npm install @azure/communication-chat --save
 
 The `--save` option lists the library as a dependency in your **package.json** file.
 
-## Object Model 
-The following classes and interfaces handle some of the major features of the Azure Communication Services Chat SDK for JavaScript.
+## Object model 
+The following classes and interfaces handle some of the major features of the Azure Communication Services Chat client library for JavaScript.
 
 | Name                                   | Description                                                                                                                                                                           |
 | -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [ChatClient](../../../references/overview.md) | This class is needed for the Chat functionality. You instantiate it with your subscription information, and use it to create, get and delete threads. |
 | [ChatThreadClient](../../../references/overview.md) | This class is needed for the Chat Thread functionality. You obtain an instance via the ChatClient, and use it to send/receive/update/delete messages, add/remove/get users, send typing notifications and read receipts, subscribe chat events. |
 
-## Create a Chat Client
+## Create a chat client
 
-To create a chat client in your web app, you'll use the Communications Service endpoint and the access token that was generated as part of pre-requisite steps. User access tokens enable you to build client applications that directly authenticate to Azure Communication Services. Once you generate these tokens on your server, pass them back to a client device. You need to use the `CommunicationUserCredential` class from the `Common SDK` to pass the token to your chat client.
+To create a chat client in your web app, you'll use the Communications Service endpoint and the access token that was generated as part of pre-requisite steps. User access tokens enable you to build client applications that directly authenticate to Azure Communication Services. Once you generate these tokens on your server, pass them back to a client device. You need to use the `CommunicationUserCredential` class from the `Common client library` to pass the token to your chat client.
 
 ```JavaScript
 
@@ -68,7 +80,7 @@ let chatClient = new ChatClient(endpointUrl, new CommunicationUserCredential(use
 
 ```
 
-## Get a Chat Thread Client
+## Get a chat thread client
 
 The `getChatThreadClient` method returns a `chatThreadClient` for a thread that already exists. It can be used for performing operations on the created thread: add members, send message, etc. threadId is the unique ID of the existing chat thread.
 
@@ -78,7 +90,7 @@ let chatThreadClient = await chatClient.getChatThreadClient(threadId);
 
 ```
 
-## Start a Chat Thread
+## Start a chat thread
 
 Use the `createThread` method to create a chat thread.
 
@@ -111,7 +123,7 @@ let threadId = chatThreadClient.threadId;
 
 ```
 
-## Send Message to a Chat Thread
+## Send message to a chat thread
 
 Use `sendMessage` method to send a chat message to the thread you just created, identified by threadId.
 
@@ -142,7 +154,7 @@ let messageId = sendChatMessageResult.id;
 
 ```
 
-## Receive Messages from a Chat Thread
+## Receive messages from a chat thread
 
 With real-time signaling, you can subscribe to listen for new incoming messages and update the current messages in memory accordingly. For complete list of events you can subscribe to, see event details [here](../../../concepts/chat/concepts.md#real-time-signaling-events).
 
@@ -184,7 +196,7 @@ For deleted messages `chatMessage.deletedOn` returns a datetime value indicating
 
 For more details, see [Message Types](../../../concepts/chat/concepts.md#message-types).
 
-## Add a user as member to the Chat Thread
+## Add a user as member to the chat thread
 
 Once a chat thread is created, you can then add and remove users from it. By adding users, you give them access to send messages to the chat thread, and add/remove other members. 
 Before calling `addMembers` method, ensure that you have acquired a new access token and identity for that user. The user will need that access token in order to initialize their chat client.
@@ -214,7 +226,7 @@ await chatThreadClient.addMembers(addMembersRequest);
 
 ```
 
-## Remove User from a Chat Thread
+## Remove User from a chat thread
 
 Similar to adding a member, you can remove members from a chat thread. In order to remove, you'll need to track the ids of the members you have added.
 

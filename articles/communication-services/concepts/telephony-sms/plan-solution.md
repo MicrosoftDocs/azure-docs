@@ -104,9 +104,9 @@ Let’s look at the capabilities you can enable for your phone numbers. These ca
 
 ### Quickstarts
 
-- [Get a phone Number](../../quickstarts/telephony-sms/get-a-phone-number.md)
+- [Get a phone Number](../../quickstarts/telephony-sms/get-phone-number.md)
 - [Place a call](../../quickstarts/voice-video-calling/calling-client-samples.md)
-- [Send an SMS](../../quickstarts/telephony-sms/send-sms.md)
+- [Send an SMS](../../quickstarts/telephony-sms/send.md)
 
 ### Conceptual documentation
 

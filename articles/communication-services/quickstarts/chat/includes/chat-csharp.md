@@ -1,10 +1,22 @@
-
+---
+title: include file
+description: include file
+services: azure-communication-services
+author: mikben
+manager: mikben
+ms.service: azure-communication-services
+ms.subservice: azure-communication-services
+ms.date: 9/1/2020
+ms.topic: include
+ms.custom: include file
+ms.author: mikben
+---
 
 ## Prerequisites
 Before you get started, make sure to:
 - Create an Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - Install [Visual Studio](https://visualstudio.microsoft.com/downloads/) 
-- Create an Azure Communication Services resource. For details, see [Create an Azure Communication Resource](../../create-a-communication-resource.md). You'll need to record your resource **endpoint** for this quickstart.
+- Create an Azure Communication Services resource. For details, see [Create an Azure Communication Resource](../../create-communication-resource.md). You'll need to record your resource **endpoint** for this quickstart.
 - Obtain a `User Access Token` to enable the chat client. For details, see [here](../../user-access-tokens.md)
 
 ## Setting Up
@@ -32,18 +44,18 @@ Install the Azure Communication Chat client library for .NET
 dotnet add package Azure.Communication.Chat
 ``` 
 
-## Object Model
+## Object model
 
-The following classes handle some of the major features of the Azure Communication Services Chat SDK for C#.
+The following classes handle some of the major features of the Azure Communication Services Chat client library for C#.
 
 | Name                                  | Description                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
 | [ChatClient](../../../references/overview.md) | This class is needed for the Chat functionality. You instantiate it with your subscription information, and use it to create, get and delete threads. |
 | [ChatThreadClient](../../../references/overview.md) | This class is needed for the Chat Thread functionality. You obtain an instance via the ChatClient, and use it to send/receive/update/delete messages, add/remove/get users, send typing notifications and read receipts. |
 
-## Create a Chat Client
+## Create a chat client
 
-To create a chat client, you'll use the Communications Service endpoint and the access token that was generated as part of pre-requisite steps. User access tokens enable you to build client applications that directly authenticate to Azure Communication Services. Once you generate these tokens on your server, pass them back to a client device. You need to use the CommunicationUserCredential class from the Common SDK to pass the token to your chat client.
+To create a chat client, you'll use the Communications Service endpoint and the access token that was generated as part of pre-requisite steps. User access tokens enable you to build client applications that directly authenticate to Azure Communication Services. Once you generate these tokens on your server, pass them back to a client device. You need to use the CommunicationUserCredential class from the Common client library to pass the token to your chat client.
 ```csharp
 // Your unique Azure Communication service endpoint
 var endpoint = "https://<RESOURCE_NAME>.communcationservices.azure.com";
@@ -51,7 +63,7 @@ CommunicationUserCredential communicationUserCredential = new CommunicationUserC
 ChatClient chatClient = new ChatClient(endpoint, communicationUserCredential);
 ```
 
-## Start a Chat Thread
+## Start a chat thread
 
 Use the `createChatThread` method to create a chat thread.
 - Use `topic` to give a topic to this chat; Topic can be updated after the chat thread is created using the `UpdateThread` function.
@@ -77,7 +89,7 @@ ChatThreadClient chatThreadClient = chatClient.CreateChatThread(topic, members);
 var threadId = chatThreadClient.Id;
 ```
 
-## Get a Chat Thread Client
+## Get a chat thread client
 The `GetChatThreadClient` method returns a thread client for a thread that already exists. It can be used for performing operations on the created thread: add members, send message, etc. threadId is the unique ID of the existing chat thread.
 
 ```csharp
@@ -85,7 +97,7 @@ string threadId = "threadId";
 ChatThreadClient chatThreadClient = chatClient.GetChatThreadClient(threadId);
 ```
 
-## Send a Message to a Chat Thread
+## Send a message to a chat thread
 
 Use `SendMessage` method to send a message to a thread identified by threadId.
 
@@ -104,14 +116,14 @@ SendChatMessageResult sendChatMessageResult = chatThreadClient.SendMessage(conte
 string messageId = sendChatMessageResult.Id;
 ```
 
-## Receive Chat Messages from a Chat Thread
+## Receive chat messages from a chat thread
 
 You can retrieve chat messages by polling the `GetMessages` method on the chat thread client at specified intervals.
 
 ```csharp
 Pageable<ChatMessage> allMessages = chatThreadClient.GetMessages();
 var maxPageSize = 3; // Number of messages per page
-string continuationToken = null; // Opaque url that contains a link to be used by the SDK to retrieve the next page from the API 
+string continuationToken = null; // Opaque url that contains a link to be used by the client library to retrieve the next page from the API 
 
 foreach (Page<ChatMessage> page in allMessages.AsPages(continuationToken, maxPageSize))
 {
@@ -139,7 +151,7 @@ foreach (Page<ChatMessage> page in allMessages.AsPages(continuationToken, maxPag
 For more details, see [Message Types](../../../concepts/chat/concepts.md#message-types).
 
 
-## Add a User as Member to the Chat Thread
+## Add a user as ember to the chat thread
 
 Once a thread is created, you can then add and remove users from it. By adding users, you give them access to be able to send messages to the thread, and add/remove other members. Before calling `AddMembers`, ensure that you have acquired a new access token and identity for that user. The user will need that access token in order to initialize their chat client.
 

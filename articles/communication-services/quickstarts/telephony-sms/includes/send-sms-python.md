@@ -6,7 +6,7 @@ author: Daniel Doolabh
 manager: nimag
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 08/20/2020
+ms.date: 09/03/2020
 ms.topic: include
 ms.custom: include file
 ms.author: dadoolab
@@ -24,8 +24,8 @@ Completing this quickstart incurs a small cost of a few USD cents or less in you
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - [Python](https://www.python.org/downloads/) 2.7, 3.5, or above.
-- An active Communication Services resource and connection string. [Create a Communication Services resource](../../create-a-communication-resource.md).
-- An SMS enabled telephone number. [Get a phone number](../get-a-phone-number.md).
+- An active Communication Services resource and connection string. [Create a Communication Services resource](../../create-communication-resource.md).
+- An SMS enabled telephone number. [Get a phone number](../get-phone-number.md).
 
 ### Prerequisite check
 
@@ -46,9 +46,9 @@ Use a text editor to create a file called **send-sms.py** in the project root di
 
 ```python
 import os
+from azure.communication.sms import PhoneNumber
+from azure.communication.sms import SendSmsOptions
 from azure.communication.sms import SmsClient
-from azure.communication.sms.models import SendSmsOptions
-from azure.communication.sms.models import SendMessageRequest
 
 try:
     # Quickstart code goes here
@@ -62,22 +62,21 @@ except Exception as ex:
 While still in the application directory, install the Azure Communication Services SMS client library for Python package by using the `pip install` command.
 
 ```console
-pip install azure-communication-sms
+pip install azure-communication-sms --pre
 ```
 
 ## Object model
 
-The following classes and interfaces handle some of the major features of the Azure Communication Services SMS SDK for Python.
+The following classes and interfaces handle some of the major features of the Azure Communication Services SMS client library for Python.
 
 | Name                                  | Description                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
 | [SmsClient](../../../references/overview.md) | This class is needed for all SMS functionality. You instantiate it with your subscription information, and use it to send SMS messages. |
 | [SendSmsOptions](../../../references/overview.md) | This class provides options to configure delivery reporting. If enable_delivery_report is set to True, then an event will be emitted when delivery was successful |
-| [SendMessageRequest](../../../references/overview.md) | This class is the model for building the sms request (eg. configure the to and from phone numbers and the sms content) |
 
 ## Authenticate the client
 
-Instantiate an **SmsClient** with your connection string. The code below retrieves the connection string for the resource from an environment variable named `COMMUNICATION_SERVICES_CONNECTION_STRING`. Learn how to [manage you resource's connection string](../../create-a-communication-resource.md#store-your-connection-string).
+Instantiate an **SmsClient** with your connection string. The code below retrieves the connection string for the resource from an environment variable named `COMMUNICATION_SERVICES_CONNECTION_STRING`. Learn how to [manage you resource's connection string](../../create-communication-resource.md#store-your-connection-string).
 
 ```python
 # This code demonstrates how to fetch your connection string
@@ -94,18 +93,12 @@ Send an SMS message by calling the [Send](../../../references/overview.md) metho
 
 ```python
 
-# optional parameter to configure the delivery options
-options = SendSmsOptions(enable_delivery_report=True)
-
-# SendMessageRequest object constructed
-request = SendMessageRequest(
-    from_property="<leased-phone-number>", 
-    to=["<to-phone-number>"], 
-    message="Hello World via SMS", 
-    send_sms_options=options)
-
-# calling send() with constructed request object
-smsresponse = sms_client.send(request)
+# calling send() with sms values
+smsresponse = sms_client.send(
+        from_phone_number=PhoneNumber("<leased-phone-number>"),
+        to_phone_number=[PhoneNumber("<to-phone-number>")],
+        message="Hello World via SMS",
+        send_sms_options=SendSmsOptions(enable_delivery_report=True)) # optional property
 
 ```
 

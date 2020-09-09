@@ -15,7 +15,7 @@ ms.service: azure-communication-services
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
-You can use Azure Communication Services to make and receive voice and video calls, analyze call metadata, record calls, and even build call trees. Your calls can be made to other Internet-connected devices and to plain-old telephones. You can use the Communication Services JavaScript, Android, or iOS client SDKs to build applications that allow your users to speak to one another in private conversations or in group discussions. Azure Communication Services supports calls to and from services or Bots.
+You can use Azure Communication Services to make and receive voice and video calls, analyze call metadata, record calls, and even build call trees. Your calls can be made to other Internet-connected devices and to plain-old telephones. You can use the Communication Services JavaScript, Android, or iOS client libraries to build applications that allow your users to speak to one another in private conversations or in group discussions. Azure Communication Services supports calls to and from services or Bots.
 
 
 
@@ -33,7 +33,7 @@ Any time your users interact with a traditional telephone number, calls are faci
 
 ### One-to-one call
 
-A one-to-one call on Azure Communication Services happens when one of your users connects to another user using one of our client SDKs. The call can be either VoIP or PSTN.
+A one-to-one call on Azure Communication Services happens when one of your users connects to another user using one of our client libraries. The call can be either VoIP or PSTN.
 
 ### Group call
 
@@ -46,5 +46,5 @@ A group call on Azure Communication Services happens when three or more particip
 
 For more information, see the following articles:
 - Familiarize yourself with general [call flows](../call-flows.md)
-- [Plan your PSTN solution](../telephony-sms/plan-your-telephony-and-SMS-solution.md)
-- Learn about the [calling SDK capabilities](../voice-video-calling/calling-sdk-features.md)
+- [Plan your PSTN solution](../telephony-sms/plan-solution.md)
+- Learn about the [calling client library capabilities](../voice-video-calling/calling-sdk-features.md)

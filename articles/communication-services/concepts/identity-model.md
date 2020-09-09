@@ -1,5 +1,5 @@
 ---
-title: Identity Model in Azure Communication Services
+title: Identity model in Azure Communication Services
 description: Learn how entities are represented in Azure Communication Services
 author: arturk
 manager: mariusu
@@ -21,7 +21,6 @@ zone_pivot_groups: acs-js-csharp
 > This document is under construction and needs the following items to be addressed: 
 > - When do we need to create users? Can we initiate conversations without ever creating users?
 > - Can we add a bit of clarity around user access tokens and access keys, per [auth docs](./authentication.md)?
-> - We have a mix of C# and JS here - can we pick a single language, and later add pivots? Or ensure that both are provided in-line?
 
 Azure Communication Services models identity around conversation identifiers. Identifiers are how you can address entities that can participate in conversations. Users, phone numbers, and applications are examples of identifiers. Any entity can initiate a voice, video, or chat conversation with any other entities as long as they're able to discover each other's identifier and have the necessary permission to do so.
 
@@ -58,7 +57,7 @@ const user = await client.createUser();
 ::: zone-end
 
 
-It's possible for the same user to have multiple simultaneous sessions across multiple devices and SDKs. You're encouraged to store a mapping between Communication Services users and the users of your application so you can reissue access tokens for the same user over time. You also have to provide list of scopes to the function below. Scopes are list of strings that determine if a user can use the Azure Communication offerings, such as `"chat"`, `"call"`, `"voip"` etc.
+It's possible for the same user to have multiple simultaneous sessions across multiple devices and client libraries. You're encouraged to store a mapping between Communication Services users and the users of your application so you can reissue access tokens for the same user over time. You also have to provide list of scopes to the function below. Scopes are list of strings that determine if a user can use the Azure Communication offerings, such as `"chat"`, `"call"`, `"voip"` etc.
 
 ::: zone pivot="programming-language-csharp" 
 ```csharp
@@ -133,7 +132,7 @@ It's possible to enumerate the full list of a thread's participants using the `m
 
 ### Calling
 
-Azure Communication Services users can call one another by passing the ID of the user they wish to call to the client calling SDK.
+Azure Communication Services users can call one another by passing the ID of the user they wish to call to the client calling client library.
 
 ::: zone pivot="programming-language-csharp" 
 ```csharp
@@ -159,7 +158,7 @@ When developing an application with Communication Services, you're encouraged to
 
 ## Deleting users
 
-It's possible to delete users via the Administration SDK. When you delete a user, all of the customer content associated with that user, including chat messages and call history, is deleted.
+It's possible to delete users via the Administration client library. When you delete a user, all of the customer content associated with that user, including chat messages and call history, is deleted.
 
 ::: zone pivot="programming-language-csharp" 
 ```csharp
