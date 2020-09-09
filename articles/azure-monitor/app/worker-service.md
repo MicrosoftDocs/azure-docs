@@ -360,7 +360,7 @@ See the [configurable settings in `ApplicationInsightsServiceOptions`](https://g
 
 ### Configuration Recommendation for [Microsoft.ApplicationInsights.WorkerService SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) 2.15.0-beta3 & above
 
-Starting [Microsoft.ApplicationInsights.WorkerService SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) version 2.15.0-beta3 we offer an additional option to modify all configuration updates through ASP.NET Core configuration. The recommended approach is to use `services.AddApplicationInsightsTelemetryWorkerService()` and configure everything including instrumentation key using `Microsoft.Extensions.Configuration.IConfiguration`. All settings part of `ApplicationInsightsServiceOptions` is automatically read from users `Microsoft.Extensions.Configuration.IConfiguration`. For example, the following appsettings.json can be used to set instrumentation key, disable adaptive sampling and performance counter collection. 
+Starting [Microsoft.ApplicationInsights.WorkerService SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) version 2.15.0-beta3 we offer an additional option to modify all configuration updates through ASP.NET Core configuration. The recommended approach is to use `services.AddApplicationInsightsTelemetryWorkerService()` and configure everything including instrumentation key using `Microsoft.Extensions.Configuration.IConfiguration`. All settings part of `ApplicationInsightsServiceOptions` is automatically read from users `Microsoft.Extensions.Configuration.IConfiguration`. For example, the following appsettings.json can be used to set instrumentation key, disable adaptive sampling and performance counter collection.
 
 ```json
     {
@@ -372,7 +372,7 @@ Starting [Microsoft.ApplicationInsights.WorkerService SDK](https://www.nuget.org
     }
 ```
 
-If `services.AddApplicationInsightsTelemetryWorkerService(aiOptions)` is used, this overrides the settings from IConfiguration. 
+If `services.AddApplicationInsightsTelemetryWorkerService(aiOptions)` is used, this overrides the settings from `Microsoft.Extensions.Configuration.IConfiguration`.
 
 ### Sampling
 
