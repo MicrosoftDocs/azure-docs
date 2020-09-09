@@ -107,8 +107,6 @@ An Azure resource group is a logical group in which Azure resources are deployed
 > [!NOTE] 
 > Azure Red Hat OpenShift is not available in all regions where an Azure resource group can be created. See [Available regions](https://docs.openshift.com/aro/4/welcome/index.html#available-regions) for information on where Azure Red Hat OpenShift is supported.
 
-Create a resource group:
-
 ```azurecli-interactive
 az group create \
   --name $RESOURCEGROUP \
