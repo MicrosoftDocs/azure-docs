@@ -15,7 +15,7 @@ You can use [Power BI](https://powerbi.microsoft.com/) as an output for a Stream
 
 Power BI output from Stream Analytics is currently not available in the Azure China 21Vianet and Azure Germany (T-Systems International) regions.
 
-## Ouput configuration
+## Output configuration
 
 The following table lists property names and their descriptions to configure your Power BI output.
 
