@@ -19,7 +19,7 @@ This quickstart describes the steps for creating a new API Management instance u
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-You can use the Azure Cloud Shell or a local installation of the Azure CLI to complete this quickstart. If you'd like to use it locally, version 2.11.1 or later is recommended. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](cli/azure/install-azure-cli).
+You can use the Azure Cloud Shell or a local installation of the Azure CLI to complete this quickstart. If you'd like to use it locally, version 2.11.1 or later is recommended. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
 ## Create a resource group
 
@@ -33,7 +33,9 @@ az group create --name myResourceGroup --location centralus
 
 ## Create a new service
 
-Now that you have a resource group, you can create an API Management service instance. Create one by using the [az apim create](/cli/azure/apim#az-apim-create) command and providing a service name and publisher details. The service name must be unique within Azure. In the following example, *myapim* is used. Update the name to a unique value. Also provide the organization name of the API publisher and the email address for the publisher to receive notifications.
+Now that you have a resource group, you can create an API Management service instance. Create one by using the [az apim create](/cli/azure/apim#az-apim-create) command and provide a service name and publisher details. The service name must be unique within Azure. 
+
+In the following example, *myapim* is used. Update the name to a unique value. Also provide the organization name of the API publisher and the email address to receive notifications.
 
 ```azurecli-interactive
 az apim create --name myapim --resource-group myResourceGroup \
