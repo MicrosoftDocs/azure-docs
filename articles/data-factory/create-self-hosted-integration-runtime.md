@@ -315,6 +315,7 @@ At the corporate firewall level, you need to configure the following domains and
 
 [!INCLUDE [domain-and-outbound-port-requirements](../../includes/domain-and-outbound-port-requirements.md)]
 
+
 At the Windows firewall level or machine level, these outbound ports are normally enabled. If they aren't, you can configure the domains and ports on a self-hosted integration runtime machine.
 
 > [!NOTE]
