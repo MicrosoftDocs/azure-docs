@@ -1,5 +1,5 @@
 ---
-title: Use SQL on-demand to analyze Azure Cosmos DB data with Synapse Link
+title: Use Power BI and SQL on-demand to analyze Azure Cosmos DB data with Synapse Link
 description: learn how to build a SQL on-demand database and views over Synapse Link for Azure Cosmos DB, query the Azure Cosmos containers and then build a model with Power BI over those views.
 author: Rodrigossz
 ms.service: cosmos-db
@@ -8,7 +8,7 @@ ms.date: 09/22/2020
 ms.author: rosouz
 ---
 
-# Use SQL on-demand to analyze Azure Cosmos DB data with Synapse Link (preview)
+# Use Power BI and SQL on-demand to analyze Azure Cosmos DB data with Synapse Link (preview)
 
 In this article, you learn how to build a SQL on-demand database and views over Synapse Link for Azure Cosmos DB. You will query the Azure Cosmos containers and then build a model with Power BI over those views to reflect that query.
 
@@ -116,7 +116,7 @@ Next open the Power BI desktop and connect to the SQL on-demand endpoint by usin
 
 1. Drag the **StoreId** column from the **RetailSales** view towards the **StoreId** column in the **StoreDemographics** view.
 
-1. Select Many to one (*:1) relationship because there are multiple rows with the same store Id in **RetailSales** view but the **StoreDemographics** has only one store Id row (it is a dimension table)
+1. Select Many to one (*:1) relationship because there are multiple rows with the same store ID in **RetailSales** view but the **StoreDemographics** has only one store ID row (it is a dimension table)
 
 Now navigate to the **report** window and create a report to compare the relative importance of household size to the average revenue per store based on the scattered representation of revenue and LargeHH index:
 
