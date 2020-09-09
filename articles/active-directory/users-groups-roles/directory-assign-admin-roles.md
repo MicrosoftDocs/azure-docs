@@ -559,7 +559,7 @@ Can create and manage all aspects of app registrations and enterprise apps.
 | microsoft.directory/servicePrincipals/policies/update | Update servicePrincipals.policies property in Azure Active Directory. |
 | microsoft.directory/signInReports/allProperties/read | Read all properties (including privileged properties) on signInReports in Azure Active Directory. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
-| microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets for directory-level services. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
 
@@ -583,7 +583,7 @@ Allowed to view, set and reset authentication method information for any non-adm
 | microsoft.directory/users/invalidateAllRefreshTokens | Invalidate all user refresh tokens in Azure Active Directory. |
 | microsoft.directory/users/strongAuthentication/update | Update strong authentication properties like MFA credential information. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
-| microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets for directory-level services. |
 | microsoft.office365.webPortal/allEntities/basic/read | Read basic properties on all resources in microsoft.office365.webPortal. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
@@ -615,7 +615,7 @@ Can manage all aspects of the Azure Information Protection service.
 | --- | --- |
 | microsoft.azure.informationProtection/allEntities/allTasks | Manage all aspects of Azure Information Protection. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
-| microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets for directory-level services. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
 
@@ -648,7 +648,7 @@ Can perform common billing related tasks like updating payment information.
 | --- | --- |
 | microsoft.directory/organization/basic/update | Update basic properties on organization in Azure Active Directory. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
-| microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets for directory-level services. |
 | microsoft.commerce.billing/allEntities/allTasks | Manage all aspects of billing. |
 | microsoft.office365.webPortal/allEntities/basic/read | Read basic properties on all resources in microsoft.office365.webPortal. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
@@ -693,7 +693,7 @@ Can create and manage all aspects of app registrations and enterprise apps excep
 | microsoft.directory/servicePrincipals/policies/update | Update servicePrincipals.policies property in Azure Active Directory. |
 | microsoft.directory/signInReports/allProperties/read | Read all properties (including privileged properties) on signInReports in Azure Active Directory. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
-| microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets for directory-level services. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
 
@@ -761,7 +761,7 @@ Can manage all aspects of Azure AD and Microsoft services that use Azure AD iden
 | microsoft.azure.advancedThreatProtection/allEntities/read | Read all resources in microsoft.azure.advancedThreatProtection. |
 | microsoft.azure.informationProtection/allEntities/allTasks | Manage all aspects of Azure Information Protection. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
-| microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets for directory-level services. |
 | microsoft.commerce.billing/allEntities/allTasks | Manage all aspects of billing. |
 | microsoft.intune/allEntities/allTasks | Manage all aspects of Intune. |
 | microsoft.office365.complianceManager/allEntities/allTasks | Manage all aspects of Office 365 Compliance Manager |
@@ -794,7 +794,7 @@ Can read and manage compliance configuration and reports in Azure AD and Office 
 | **Actions** | **Description** |
 | --- | --- |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
-| microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets for directory-level services. |
 | microsoft.office365.complianceManager/allEntities/allTasks | Manage all aspects of Office 365 Compliance Manager |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
@@ -814,7 +814,7 @@ Creates and manages compliance content.
 | microsoft.directory.cloudAppSecurity/allEntities/allTasks | Read and configure Microsoft Cloud App Security. |
 | microsoft.azure.informationProtection/allEntities/allTasks | Manage all aspects of Azure Information Protection. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
-| microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets for directory-level services. |
 | microsoft.office365.complianceManager/allEntities/allTasks | Manage all aspects of Office 365 Compliance Manager |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
@@ -847,7 +847,7 @@ Can manage all aspects of the Dynamics 365 product.
 | **Actions** | **Description** |
 | --- | --- |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
-| microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets for directory-level services. |
 | microsoft.powerApps.dynamics365/allEntities/allTasks | Manage all aspects of Dynamics 365. |
 | microsoft.office365.webPortal/allEntities/basic/read | Read basic properties on all resources in microsoft.office365.webPortal. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
@@ -879,7 +879,7 @@ Can manage the Desktop Analytics and Office Customization & Policy services. For
 | **Actions** | **Description** |
 | --- | --- |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
-| microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets for directory-level services. |
 | microsoft.office365.webPortal/allEntities/basic/read | Read basic properties on all resources in microsoft.office365.webPortal. |
 | microsoft.office365.desktopAnalytics/allEntities/allTasks | Manage all aspects of Desktop Analytics. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
@@ -1030,7 +1030,7 @@ Can manage all aspects of the Exchange product.
 | **Actions** | **Description** |
 | --- | --- |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
-| microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets for directory-level services. |
 | microsoft.directory/groups/unified/appRoleAssignments/update | Update groups.unified property in Azure Active Directory. |
 | microsoft.directory/groups/unified/basic/update | Update basic properties of Microsoft 365 groups. |
 | microsoft.directory/groups/unified/create | Create Microsoft 365 groups. |
@@ -1155,7 +1155,7 @@ Can manage all aspects of groups and group settings like naming and expiration p
 | microsoft.directory/groups/restore | Restore groups in Azure Active Directory. |
 | microsoft.directory/groups/settings/update | Update groups.settings property in Azure Active Directory. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
-| microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets for directory-level services. |
 | microsoft.office365.messageCenter/messages/read | Read messages in microsoft.office365.messageCenter. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
@@ -1186,7 +1186,7 @@ Can reset passwords for non-administrators and Helpdesk Administrators.
 | microsoft.directory/users/invalidateAllRefreshTokens | Invalidate all user refresh tokens in Azure Active Directory. |
 | microsoft.directory/users/password/update | Update passwords for all users in Azure Active Directory. See online documentation for more detail. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
-| microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets for directory-level services. |
 | microsoft.office365.webPortal/allEntities/basic/read | Read basic properties on all resources in microsoft.office365.webPortal. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
@@ -1198,7 +1198,7 @@ Enable, deploy, configure, manage, monitor and troubleshoot cloud provisioning a
 | **Actions** | **Description** |
 | --- | --- |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
-| microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets for directory-level services. |
 | microsoft.directory/applications/audience/update  | Update applications.audience property in Azure Active Directory. |
 | microsoft.directory/applications/authentication/update | Update applications.authentication property in Azure Active Directory.  |
 | microsoft.directory/applications/basic/update | Update basic properties on applications in Azure Active Directory. |
@@ -1241,7 +1241,7 @@ Has sdministrative access in the M365 Insights app.
 | **Actions** | **Description** |
 | --- | --- |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
-| microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets for directory-level services. |
 | microsoft.insights/allEntities/allTasks | Manage all aspects of Insights. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
@@ -1289,7 +1289,7 @@ Can manage all aspects of the Intune product.
 | microsoft.directory/users/appRoleAssignments/update | Update users.appRoleAssignments property in Azure Active Directory. |
 | microsoft.directory/users/basic/update | Update basic properties on users in Azure Active Directory. |
 | microsoft.directory/users/manager/update | Update users.manager property in Azure Active Directory. |
-| microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets for directory-level services. |
 | microsoft.intune/allEntities/allTasks | Manage all aspects of Intune. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
 | microsoft.office365.webPortal/allEntities/basic/read | Read basic properties on all resources in microsoft.office365.webPortal. |
@@ -1333,7 +1333,7 @@ Can manage all aspects of the Skype for Business product.
 | **Actions** | **Description** |
 | --- | --- |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
-| microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets for directory-level services. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
 | microsoft.office365.skypeForBusiness/allEntities/allTasks | Manage all aspects of Skype for Business Online. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
@@ -1409,7 +1409,7 @@ Can manage Office apps' cloud services, including policy and settings management
 | **Actions** | **Description** |
 | --- | --- |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
-| microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets for directory-level services. |
 | microsoft.office365.messageCenter/messages/read | Read messages in microsoft.office365.messageCenter. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
@@ -1444,7 +1444,7 @@ Do not use - not intended for general use.
 | microsoft.directory/users/restore | Restore deleted users in Azure Active Directory. |
 | microsoft.directory/users/userPrincipalName/update | Update users.userPrincipalName property in Azure Active Directory. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
-| microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets for directory-level services. |
 | microsoft.office365.webPortal/allEntities/basic/read | Read basic properties on all resources in microsoft.office365.webPortal. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
@@ -1479,7 +1479,7 @@ Do not use - not intended for general use.
 | microsoft.directory/users/restore | Restore deleted users in Azure Active Directory. |
 | microsoft.directory/users/userPrincipalName/update | Update users.userPrincipalName property in Azure Active Directory. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
-| microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets for directory-level services. |
 | microsoft.office365.webPortal/allEntities/basic/read | Read basic properties on all resources in microsoft.office365.webPortal. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
@@ -1504,7 +1504,7 @@ Can manage all aspects of the Power BI product.
 | **Actions** | **Description** |
 | --- | --- |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
-| microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets for directory-level services. |
 | microsoft.powerApps.powerBI/allEntities/allTasks | Manage all aspects of Power BI. |
 | microsoft.office365.webPortal/allEntities/basic/read | Read basic properties on all resources in microsoft.office365.webPortal. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
@@ -1522,7 +1522,7 @@ Can create and manage all aspects of Microsoft Dynamics 365, PowerApps and Micro
 | **Actions** | **Description** |
 | --- | --- |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
-| microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets for directory-level services. |
 | microsoft.dynamics365/allEntities/allTasks | Manage all aspects of Dynamics 365. |
 | microsoft.flow/allEntities/allTasks | Manage all aspects of Microsoft Flow. |
 | microsoft.powerApps/allEntities/allTasks | Manage all aspects of PowerApps. |
@@ -1567,7 +1567,7 @@ Allowed to view, set and reset authentication method information for any user (a
 | microsoft.directory/users/invalidateAllRefreshTokens | Invalidate all user refresh tokens in Azure Active Directory. |
 | microsoft.directory/users/strongAuthentication/update | Update strong authentication properties like MFA credential information. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
-| microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets for directory-level services. |
 | microsoft.office365.webPortal/allEntities/basic/read | Read basic properties on all resources in microsoft.office365.webPortal. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
@@ -1653,7 +1653,7 @@ Can read security information and reports,and manage configuration in Azure AD a
 | **Actions** | **Description** |
 | --- | --- |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
-| microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets for directory-level services. |
 | microsoft.directory/applications/policies/update | Update applications.policies property in Azure Active Directory. |
 | microsoft.directory/auditLogs/allProperties/read | Read all properties (including privileged properties) on auditLogs in Azure Active Directory. |
 | microsoft.directory/devices/bitLockerRecoveryKeys/read | Read devices.bitLockerRecoveryKeys property in Azure Active Directory. |
@@ -1685,6 +1685,7 @@ Creates and manages security events.
 | **Actions** | **Description** |
 | --- | --- |
 | microsoft.azure.advancedThreatProtection/allEntities/read | Read and configure Azure AD Advanced Threat Protection. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets for directory-level services. |
 | microsoft.directory/cloudAppSecurity/allProperties/allTasks | Read and configure Microsoft Cloud App Security. |
 | microsoft.directory/identityProtection/allProperties/read | Read all resources in microsoft.aad.identityProtection. |
 | microsoft.directory/privilegedIdentityManagement/allProperties/read | Read all resources in microsoft.aad.privilegedIdentityManagement. |
@@ -1727,7 +1728,7 @@ Can read service health information and manage support tickets.
 | **Actions** | **Description** |
 | --- | --- |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
-| microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets for directory-level services. |
 | microsoft.office365.webPortal/allEntities/basic/read | Read basic properties on all resources in microsoft.office365.webPortal. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
@@ -1744,7 +1745,7 @@ Can manage all aspects of the SharePoint service.
 | **Actions** | **Description** |
 | --- | --- |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
-| microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets for directory-level services. |
 | microsoft.directory/groups/unified/appRoleAssignments/update | Update groups.unified property in Azure Active Directory. |
 | microsoft.directory/groups/unified/basic/update | Update basic properties of Microsoft 365 groups. |
 | microsoft.directory/groups/unified/create | Create Microsoft 365 groups. |
@@ -1770,7 +1771,7 @@ Can manage calling and meetings features within the Microsoft Teams service.
 | **Actions** | **Description** |
 | --- | --- |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
-| microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets for directory-level services. |
 | microsoft.office365.webPortal/allEntities/basic/read | Read basic properties on all resources in microsoft.office365.webPortal. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
@@ -1837,7 +1838,7 @@ Can manage the Microsoft Teams service.
 | **Actions** | **Description** |
 | --- | --- |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
-| microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets for directory-level services. |
 | microsoft.directory/groups/hiddenMembers/read | Read groups.hiddenMembers property in Azure Active Directory. |
 | microsoft.directory/groups/unified/appRoleAssignments/update | Update groups.unified property in Azure Active Directory. |
 | microsoft.directory/groups/unified/basic/update | Update basic properties of Microsoft 365 groups. |
@@ -1884,7 +1885,7 @@ Can manage all aspects of users and groups, including resetting passwords for li
 | microsoft.directory/users/restore | Restore deleted users in Azure Active Directory. |
 | microsoft.directory/users/userPrincipalName/update | Update users.userPrincipalName property in Azure Active Directory. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
-| microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets for directory-level services. |
 | microsoft.office365.webPortal/allEntities/basic/read | Read basic properties on all resources in microsoft.office365.webPortal. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
