@@ -13,7 +13,7 @@ ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ---
 
-# Striim Azure SQL DW Marketplace Offering Install Guide
+# Striim Azure Synapse Analytics Marketplace Offering Install Guide
 
 This quickstart assumes that you already have a pre-existing instance of Azure Synapse Analytics.
 

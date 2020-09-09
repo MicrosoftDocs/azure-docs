@@ -2,7 +2,7 @@
 
 title: Azure Arc enabled data services # < 60 chars
 summary: Run Azure data services on-premises, at the edge, and in multi-cloud environments using Kubernetes on the infrastructure of your choice. # < 160 chars
-
+ 
 metadata:
   title: Azure Arc enabled data services # Required; page title displayed in search results. Include the brand. < 60 chars.
   description: Run Azure data services on-premises, at the edge, and in multi-cloud environments using Kubernetes on the infrastructure of your choice. # Required; article description that is displayed in search results. < 160 chars.
@@ -23,7 +23,7 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Azure Arc for data services?
+          - text: What is Azure Arc enabled data services (preview)?
             url: overview.md
       - linkListType: concept
         links:
@@ -43,25 +43,21 @@ landingContent:
             url: install-client-tools.md
 
   # Card (optional)
-  - title: Do with Postgres
+  - title: Azure Arc enabled PostgreSQL Hyperscale
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Create PostgreSQL instance
-            url: create-postgresql-instances.md
-          - text: Extend single node to hyperscale
-            url: postgresql-extend-single-node-to-hyperscale.md
-          - text: Restore sample database
-            url: restore-adventureworks-sample-db-postgresql.md
+          - text: Create PostgreSQL Hyperscale server group
+            url: create-postgresql-hyperscale-server-group.md
 
   # Card (optional)
-  - title: Do with SQL Managed Instance
+  - title: Azure Arc enabled SQL Managed Instance
     linkLists:
       - linkListType: quickstart
         links:
           - text: Create Managed instance
             url: create-sql-managed-instance.md
           - text: Migrate to Managed Instance
-            url: migrate-to-managed-instance-azure-arc.md
+            url: migrate-to-managed-instance.md
           - text: Restore sample database
             url: restore-adventureworks-sample-db.md

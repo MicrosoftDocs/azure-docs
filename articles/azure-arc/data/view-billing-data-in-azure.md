@@ -11,28 +11,23 @@ ms.date: 08/04/2020
 ms.topic: how-to
 ---
 
-# Scenario: Upload billing data to Azure and view it in the Azure portal
+# Upload billing data to Azure and view it in the Azure portal
 
 > [!IMPORTANT] 
->  There is no cost to use Azure Arc enabled data services during the preview period.   Although the billing system works end to end the billing meter is set to $0.  If you follow this scenario, you will see entries in your billing for a service currently named 'hybrid data services' and for resources of a type called 'microsoft.AzureData/sqlmanagedinstances'.  You will be able to see a record for each SQL Managed Instance - Azure Arc that you deploy, but each record will be billed for $0.
+>  There is no cost to use Azure Arc enabled data services during the preview period. Although the billing system works end to end the billing meter is set to $0.  If you follow this scenario, you will see entries in your billing for a service currently named 'hybrid data services' and for resources of a type called 'microsoft.AzureData/sqlmanagedinstances'. You will be able to see a record for each SQL Managed Instance - Azure Arc that you deploy, but each record will be billed for $0.
 
 ## Connectivity Modes - Implications for billing data
 
 In the future, there will be two modes in which you can run your Azure Arc enabled data services:
 
-- **Indirectly connected** - There is no direct connection to Azure.  Data is sent to Azure only through an export/upload process.  All Azure Arc data services deployments work in this mode today in preview.
-- **Directly connected** - In this mode there will be a dependency on the Azure Arc enabled Kubernetes service to provide a direct connection between Azure and the Kubernetes cluster on which the Azure Arc enabled data services are running.  This will enable more capabilities and will also enable you to use the Azure portal and the Azure CLI to manage your Azure Arc enabled data services just like you manage your data services in Azure PaaS.  This connectivity mode is not yet available in preview, but will be coming soon.
+- **Indirectly connected** - There is no direct connection to Azure. Data is sent to Azure only through an export/upload process. All Azure Arc data services deployments work in this mode today in preview.
+- **Directly connected** - In this mode there will be a dependency on the Azure Arc enabled Kubernetes service to provide a direct connection between Azure and the Kubernetes cluster on which the Azure Arc enabled data services are running. This will enable more capabilities and will also enable you to use the Azure portal and the Azure CLI to manage your Azure Arc enabled data services just like you manage your data services in Azure PaaS.  This connectivity mode is not yet available in preview, but will be coming soon.
 
 You can read more about the difference between the [connectivity modes](/docs/connectivity.md).
 
-In the indirectly connected mode, billing data is periodically exported out of the Azure Arc data controller to a secure file and then uploaded to Azure and processed.  In the upcoming directly connected mode, the billing data will be automatically sent to Azure approximately 1/hour to give a near real-time view into the costs of your services.   The process of exporting and uploading the data in the indirectly connected mode can also be automated using scripts or we may build a service that will do it for you.
+In the indirectly connected mode, billing data is periodically exported out of the Azure Arc data controller to a secure file and then uploaded to Azure and processed.  In the upcoming directly connected mode, the billing data will be automatically sent to Azure approximately 1/hour to give a near real-time view into the costs of your services. The process of exporting and uploading the data in the indirectly connected mode can also be automated using scripts or we may build a service that will do it for you.
 
 ## Upload billing data to Azure
-
-> [!NOTE]
->  This process and the commands used to do it are likely to change a little bit in the upcoming releases.
-> [!NOTE]
->  For now billing is only supported for SQL Managed Instance - Azure Arc resources.  We will add billing data collection and upload for PostgreSQL Hyperscale - Azure Arc resources in a future monthly release.
 
 To upload billing data to Azure, the following should happen first:
 
@@ -46,9 +41,9 @@ Run the following command to export out the billing data:
 azdata arc dc export -t usage -p usage.json
 ```
 
-For now, the file is not encrypted so that you can see the contents.  Feel free to open in a text editor and see what the contents look like.
+For now, the file is not encrypted so that you can see the contents. Feel free to open in a text editor and see what the contents look like.
 
-You will notice that there are two sets of data: `resources` and `data`.  The `resources` are the data controller, PostgreSQL Hyperscale server groups, and SQL Managed Instances.  The `resources` records in the data capture the pertinent events in the history of a resource - when it was created, when it was updated, and when it was deleted.  The `data` records capture how many cores were available to be used by a given instance for every hour.
+You will notice that there are two sets of data: `resources` and `data`. The `resources` are the data controller, PostgreSQL Hyperscale server groups, and SQL Managed Instances. The `resources` records in the data capture the pertinent events in the history of a resource - when it was created, when it was updated, and when it was deleted. The `data` records capture how many cores were available to be used by a given instance for every hour.
 
 Example of a `resource` entry:
 
@@ -127,7 +122,7 @@ You can download billing summary data directly from the Azure portal.
 
 ## Export billing data
 
-You can also periodically, automatically export **detailed** usage and billing data to an Azure Storage container by creating a billing export job.  This is useful if you want to see the details of your billing such as how many hours a given instance was billed for in the billing period.
+You can also periodically, automatically export **detailed** usage and billing data to an Azure Storage container by creating a billing export job. This is useful if you want to see the details of your billing such as how many hours a given instance was billed for in the billing period.
 
 Follow these steps to set up a billing export job:
 
