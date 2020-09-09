@@ -76,11 +76,11 @@
           href: troubleshoot-guide.md
         - name: Get logs
           href: troubleshooting-get-logs.md
-- name: Azure Arc enabled PostgreSQL (preview) 
+- name: Azure Arc enabled PostgreSQL Hyperscale (preview) 
   items:
     - name: Overview
       items:
-        - name: What is Azure Arc enabled PostgreSQL Hyperscale (preview)
+        - name: What is Azure Arc enabled PostgreSQL Hyperscale
           href: what-is-azure-arc-enabled-postgres-hyperscale.md
     - name: Concepts
       items:
@@ -135,7 +135,7 @@
               href: restore-adventureworks-sample-db-into-postgresql-hyperscale-server-group.md
         - name: Troubleshoot
           href: troubleshoot-postgresql-hyperscale-server-group.md
-- name: SQL Managed Instance for Azure Arc (preview)
+- name: Azure Arc enabled SQL Managed Instance (preview)
   items:
     - name: Overview
       items:
