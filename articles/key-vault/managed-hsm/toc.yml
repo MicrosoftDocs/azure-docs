@@ -16,28 +16,24 @@
 
 - name: Tutorials 
   items:
-  - name: Logging
-    items:
-    - name: Set up logging for managed HSM pool
-      href: logging.md
-
+  - name: Set up logging for managed HSM pool
+    href: logging.md
+  - name: Disaster recovery
+    href: disaster-recovery.md
+  - name: Import HSM-protected keys to Managed HSM
+    href: hsm-protected-keys-byok.md
+  - name: Backup and restore
+    href: backup-restore.md
 - name: Concepts 
   items:
-    - name: Security domain
-      href: security-domain.md
-    - name: Best practices
-      href: best-practices.md
-    - name: Access Control
-      href: access-control.md
-
+  - name: Security domain
+    href: security-domain.md
+  - name: Best practices
+    href: best-practices.md
+  - name: Access Control
+    href: access-control.md
 - name: How-to guides 
   items:
-    - name: Backup and restore
-      href: backup-restore.md
-    - name: Disaster recovery
-      href: disaster-recovery.md
-    - name: Import HSM-protected keys to Managed HSM
-      href: hsm-protected-keys-byok.md
 
 - name: Reference
   items:
