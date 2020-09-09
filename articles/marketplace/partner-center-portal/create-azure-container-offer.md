@@ -3,7 +3,7 @@ title: Create an Azure container offer - Azure Marketplace
 description: Learn how to create and publish a container offer to Azure Marketplace. 
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.topic: how-to
 author: keferna
 ms.author: keferna
 ms.date: 06/17/2020
