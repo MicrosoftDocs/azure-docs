@@ -431,6 +431,8 @@
       - name: Logs
         href: flexible-server/concepts-logging.md
         displayName: monitor, server logs
+      - name: Audit logs
+        href: flexible-server/concepts-audit.md
     - name: Replication
       href: flexible-server/concepts-logical.md
       displayName: logical decoding
