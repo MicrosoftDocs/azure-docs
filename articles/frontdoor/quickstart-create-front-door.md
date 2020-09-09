@@ -161,5 +161,3 @@ Repeat the procedure for the other two groups.
 Advance to the next article to learn how to add a custom domain to your Front Door.
 > [!div class="nextstepaction"]
 > [Add a custom domain](front-door-custom-domain.md)
-
-To learn more about routing traffic, see [Front Door routing methods](front-door-routing-methods.md).

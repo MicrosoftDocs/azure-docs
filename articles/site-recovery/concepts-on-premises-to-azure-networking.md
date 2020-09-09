@@ -98,12 +98,12 @@ Let's look at an example.
 - Woodgrove is using Site Recovery to replicate on-premises machines to Azure.
 - Their on-premises apps use hard-coded IP addresses, so they want to retain the same IP addresses in Azure.
 - On-premises the machines running the apps are running in three subnets:
-    - 192.168.1.0/24.
+    - 192.168.1.0/24
     - 192.168.2.0/24
     - 192.168.3.0/24
 - Their apps running in Azure are located in the Azure VNet **Azure Network** in two subnets:
-- 172.16.1.0/24
-- 172.16.2.0/24.
+    - 172.16.1.0/24
+    - 172.16.2.0/24
 
 In order to retain the addresses, here's what they do.
 
