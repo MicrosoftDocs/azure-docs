@@ -58,7 +58,6 @@ Below is the schema of the network sessions table, versioned 1.0.0
 
 | Field name | Value type | Example | Description | Associated OSSEM entities |
 |-|-|-|-|-|
-| OperationName | String | File Modified | The activity associated with the record. Possible specific values are determined by the relevant schema. | Operation |
 | EventType | String | Traffic | Type of event being collected | Event |
 | EventSubType | String | Authentication | Additional description of type if applicable | Event |
 | EventCount | Integer  | 10 | The number of events aggregated, if applicable. | Event |
