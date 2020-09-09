@@ -97,7 +97,7 @@ console.log(getUser());
 
 # [C#](#tab/csharp)
 
-In a C# function, the user information can be unpacked from the `x-ms-client-principal` header into a `ClaimsPrincipal` object, or your own custom type. The following code demonstrates how to unpack the header into an intermediary type, `ClientPrincipal`, which is then turned into a `ClaimsPrincipal` instance.
+In a C# function, the user information is available from the `x-ms-client-principal` header which can be deserialized into a `ClaimsPrincipal` object, or your own custom type. The following code demonstrates how to unpack the header into an intermediary type, `ClientPrincipal`, which is then turned into a `ClaimsPrincipal` instance.
 
 ```csharp
   public static class StaticWebAppsAuth

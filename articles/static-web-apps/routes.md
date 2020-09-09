@@ -37,6 +37,8 @@ The following table lists the appropriate location to put your _routes.json_ fil
 | Vue     | _public_ |
 | Blazor  | _wwwroot_ |
 
+The above table is only representative of a few frameworks and libraries compatible with Azure Static Web Apps. Refer to [Configure front-end frameworks and libraries](./front-end-frameworks.md) for more information.
+
 ## Defining routes
 
 Routes are defined in the _routes.json_ file as an array of route rules on the `routes` property. Each rule is composed of a route pattern, along with one or more of the optional rule properties. See the [example route file](#example-route-file) for usage examples.

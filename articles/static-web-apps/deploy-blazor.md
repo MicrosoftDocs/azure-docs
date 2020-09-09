@@ -11,7 +11,7 @@ ms.author: cshoe
 
 # Tutorial: Building a static web app with Blazor
 
-Azure Static Web Apps publishes a website to a production environment by building apps from a GitHub repository. In this tutorial, you deploy a web application to Azure Static Web apps using the portal.
+Azure Static Web Apps publishes a website to a production environment by building apps from a GitHub repository. In this tutorial, you deploy a web application to Azure Static Web apps using the Azure portal.
 
 If you don't have an Azure subscription, [create a free trial account](https://azure.microsoft.com/free).
 
@@ -32,13 +32,13 @@ The app featured in this tutorial is made up from three different Visual Studio 
 
 - **Client**: The front-end Blazor web assembly project. A [fallback route](#fallback-route) is implemented to ensure all routes are served the _index.html_ file.
 
-- **Shared**: Holds common classes referenced by both the Api and Client projects which allows data to flow from the back to the front end. The [`WeatherForecast`](https://github.com/staticwebdev/blazor-starter/blob/main/Shared/WeatherForecast.cs) class is shared among the front-end Blazor web assembly app, and the back-end Azure Functions app.
+- **Shared**: Holds common classes referenced by both the Api and Client projects which allows data to flow from API endpoint to the front-end web app. The [`WeatherForecast`](https://github.com/staticwebdev/blazor-starter/blob/main/Shared/WeatherForecast.cs) class is shared among both apps.
 
-Together, these projects make up the parts required to send data from the backend endpoint to the Blazor web assembly application running in the browser.
+Together, these projects make up the parts required create a Blazor web assembly application running in the browser supported by an API backend.
 
 ## Fallback route
 
-The application exposes URLs like _/counter_ and _/fetchdata_ which map to specific routes of the application. Since this app is implemented as a single page application, each route is served by the single _index.html_. To ensure that request for any path return _index.html_ a [fallback route](./routes.md#fallback-routes) is implemented in the _routes.json_ file found in the _wwwroot_ folder of the Client project.
+The application exposes URLs like _/counter_ and _/fetchdata_ which map to specific routes of the application. Since this app is implemented as a single page application, each route is served the _index.html_ file. To ensure that request for any path return _index.html_ a [fallback route](./routes.md#fallback-routes) is implemented in the _routes.json_ file found in the _wwwroot_ folder of the Client project.
 
 ```json
 {
