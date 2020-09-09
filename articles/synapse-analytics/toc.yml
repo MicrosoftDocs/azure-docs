@@ -480,7 +480,7 @@
         href: ../cosmos-db/configure-synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Connect to Azure Synapse Link for Cosmos DB
         href: ./synapse-link/how-to-connect-synapse-link-cosmos-db.md
-      - name: Query Azure Cosmos DB analytical store with Apache Spark for Azure Synapse Analytics
+      - name: Query Azure Cosmos DB analytical store with Apache Spark
         href: ./synapse-link/how-to-query-analytical-store-spark.md
       - name: Copy data from Synapse Link into a SQL pool using Apache Spark
         href: ./synapse-link/how-to-copy-to-sql-pool.md  
