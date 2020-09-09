@@ -25,7 +25,7 @@ You can use the Azure Cloud Shell or a local installation of the Azure CLI to co
 
 Azure API Management instances, like all Azure resources, must be deployed into a resource group. Resource groups allow you to organize and manage related Azure resources.
 
-First, create a resource group named myResourceGroup in the central location with the following [az group create](/cli/azure/group#az-group-create) command:
+First, create a resource group named *myResourceGroup* in the Central US location with the following [az group create](/cli/azure/group#az-group-create) command:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location centralus
@@ -62,7 +62,7 @@ NAME         RESOURCE GROUP    LOCATION    GATEWAY ADDR    PUBLIC IP    PRIVATE 
 myapim       myResourceGroup   Central US                                             Activating  Developer  1
 ```
 
-After activation, the status in `Online` and the service instance has a gateway address and public IP address. For example:
+After activation, the status is `Online` and the service instance has a gateway address and public IP address. For now, these addresses don't expose any content. For example:
 
 ```console
 NAME         RESOURCE GROUP    LOCATION    GATEWAY ADDR                       PUBLIC IP     PRIVATE IP    STATUS    TIER       UNITS
