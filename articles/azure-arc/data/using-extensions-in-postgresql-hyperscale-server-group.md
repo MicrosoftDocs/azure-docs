@@ -38,11 +38,11 @@ This step is not needed for the extensions that are part of `contrib`.
 The general format of the command to enable extensions is:
 
 #### Enable an extension at the creation time of a server group:
-```terminal
+```console
 azdata arc postgres server create -n <name of your postgresql server group> --extensions <extension names>
 ```
 #### Enable an extension on an instance that already exists:
-```terminal
+```console
 azdata arc postgres server edit -n <name of your postgresql server group> --extensions <extension names>
 ```
 
@@ -50,11 +50,11 @@ azdata arc postgres server edit -n <name of your postgresql server group> --exte
 Run either of the following command.
 
 ##### With azdata
-```terminal
+```console
 azdata arc postgres server show -n <server group name>
 ```
 Scroll in the output and notice the engine\extensions sections in the specifications of your server group. For example:
-```terminal
+```console
 "engine": {
       "extensions": [
         {
@@ -67,11 +67,11 @@ Scroll in the output and notice the engine\extensions sections in the specificat
     },
 ```
 ##### With kubectl
-```terminal
+```console
 kubectl describe postgresql-12s/postgres02
 ```
 Scroll in the output and notice the engine\extensions sections in the specifications of your server group. For example:
-```terminal
+```console
 Engine:
     Extensions:
       Name:  citus
@@ -81,19 +81,19 @@ Engine:
 
 ### Create extensions:
 Connect to your server group with the client tool of your choice and run the standard PostgreSQL query:
-```terminal
+```console
 CREATE EXTENSION <extension name>;
 ```
 
 ### Get the list of extension created in your server group:
 Connect to your server group with the client tool of your choice and run the standard PostgreSQL query:
-```terminal
+```console
 select * from pg_extension;
 ```
 
 ### Drop an extension from your server group:
 Connect to your server group with the client tool of your choice and run the standard PostgreSQL query:
-```terminal
+```console
 drop extension <extension name>;
 ```
 
@@ -104,7 +104,7 @@ drop extension <extension name>;
 We can either enable the PostGIS extension on an existing server group, or create a new one with the extension already enabled:
 
 **Enabling an extension at the creation time of a server group:**
-```terminal
+```console
 azdata arc postgres server create -n <name of your postgresql server group> --extensions <extension names>
 
 #Example:
@@ -112,7 +112,7 @@ azdata arc postgres server create -n pg2 -w 2 --extensions postgis
 ```
 
 **Enabling an extension on an instance that already exists:**
-```terminal
+```console
 azdata arc postgres server edit -n <name of your postgresql server group> --extensions <extension names>
 
 #Example:
@@ -120,20 +120,20 @@ azdata arc postgres server edit --extensions postgis -n pg2
 ```
 
 To verify what extensions are installed, use the below standard PostgreSQL command after connecting to the instance with your favorite PostgreSQL client tool like Azure Data Studio:
-```terminal
+```console
 select * from pg_extension;
 ```
 
 For a PostGIS example, first, get [sample data](http://duspviz.mit.edu/tutorials/intro-postgis/) from the MIT’s Department of Urban Studies & Planning. You may need to run `apt-get install unzip` to install unzip when using the VM for testing.
 
-```terminal
+```console
 wget http://duspviz.mit.edu/_assets/data/intro-postgis-datasets.zip
 unzip intro-postgis-datasets.zip
 ```
 
 Let's connect to our database, and create the PostGIS extension:
 
-```terminal
+```console
 CREATE EXTENSION postgis;
 ```
 
@@ -165,7 +165,7 @@ SELECT create_distributed_table('coffee_shops', 'id');
 
 Let's load some data:
 
-```terminal
+```console
 \copy coffee_shops(id,name,address,city,state,zip,lat,lon) from cambridge_coffee_shops.csv CSV HEADER;
 ```
 
@@ -186,7 +186,7 @@ SELECT name, address FROM coffee_shops ORDER BY geom <-> ST_SetSRID(ST_MakePoint
 
 Let's enable `pg_cron` on our PostgreSQL server group, in addition to PostGIS:
 
-```terminal
+```console
 azdata postgres server update -n pg2 -ns arc --extensions postgis,pg_cron
 ```
 
@@ -221,7 +221,7 @@ And now, once a minute, we'll get a different name:
 SELECT * FROM the_best_coffee_shop;
 ```
 
-```terminal
+```console
       name
 -----------------
  B & B Snack Bar

@@ -18,13 +18,13 @@ This article explains how you can connect to your Azure Arc enabled SQL Managed 
 
 To view the Azure Arc enabled SQL Managed Instance and the external endpoints use the following command:
 
-```terminal
+```console
 azdata arc sql mi list
 ```
 
 Output should look like this:
 
-```terminal
+```console
 Name    Replicas    ExternalEndpoint    State
 ------  ----------  ----------------  -------
 sqldemo 1/1         10.240.0.4:32023  Ready
@@ -55,7 +55,7 @@ For example:
 
 If you are using an Azure virtual machine, then the endpoint IP address will not show the public IP address. To locate the external IP address, use the following command:
 
-```terminal
+```console
 az network public-ip list -g azurearcvm-rg --query "[].{PublicIP:ipAddress}" -o table
 ```
 
@@ -65,7 +65,7 @@ You may also need to expose the port of the sql instance through the network sec
 
 To set a rule you will need to know the name of your NSG which you can find out using the command below:
 
-```terminal
+```console
 az network nsg list -g azurearcvm-rg --query "[].{NSGName:name}" -o table
 ```
 
@@ -73,7 +73,7 @@ Once you have the name of the NSG, you can add a firewall rule using the followi
 
 Replace the value of the `--destination-port-ranges` parameter below with the port number you got from the `azdata sql instance list`F command above.
 
-```terminal
+```console
 az network nsg rule create -n db_port --destination-port-ranges 30913 --source-address-prefixes '*' --nsg-name azurearcvmNSG --priority 500 -g azurearcvm-rg --access Allow --description 'Allow port through for db access' --destination-address-prefixes '*' --direction Inbound --protocol Tcp --source-port-ranges '*'
 ```
 
