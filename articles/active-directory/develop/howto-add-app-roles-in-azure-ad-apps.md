@@ -35,63 +35,26 @@ These application roles are defined in the [Azure portal](https://portal.azure.c
 1. In the **Favorites** or **All Directories** list, choose the Active Directory tenant where you wish to register your application.
 1. In the Azure portal, search for and select **Azure Active Directory**.
 1. In the  **Azure Active Directory** pane, select **App registrations** to view a list of all your applications.
-1. Select the application you want to define app roles in. Then select **Manifest**.
-1. Edit the app manifest by locating the `appRoles` setting and adding all your Application Roles.
+1. Select the application you want to define app roles in. Then select **App roles | Preview** and click the **Create app role** button.
+  :::image type="content" source="media/howto-add-app-roles-in-azure-ad-apps/approles-overview-blade.png" alt-text="An app registration's app roles pane in the Azure portal":::
+1. Fill in the appropriate values for each textbox. Refer the table below to see description and requirements for each field.
+ :::image type="content" source="media/howto-add-app-roles-in-azure-ad-apps/approles-create-contextpane.png" alt-text="An app registration's app roles create context pane in the Azure portal":::
+1. Click **Apply** to save your changes.
+  
+  Use the following table to ensure the values match the requirements for each field.
 
-     > [!NOTE]
-     > Each app role definition in this manifest must have a different valid GUID within the context of the manifest for the `id` property.
-     >
-     > The `value` property of each app role definition should exactly match the strings that are used in the code in the application. The `value` property can't contain spaces. If it does, you'll receive an error when you save the manifest.
+  | Field | Description | Example |
+  |-------|-------------|---------|
+  | **Display name** | Display name for the app role that appears in the admin consent and app assignment experiences. This value may contain spaces.  | `Writer` |
+  | **Allowed member type** | Specifies whether this app role can be assigned to users, applications or both. | `Users/Groups` |
+  | **Value** | Specifies the value of the roles claim that the application should expect in the token. The value should exactly match the strings that are used in the application's code and cannot contain spaces. | `Survey.Create` |
+  | **Description** | A more detailed description of the app role that will show up during admin app assignment and consent experiences. | `Writers can create surveys.` |
+  | **Enabled** | Denotes if an app role is enabled. In order to delete an app role, this flag should be unchecked first before attempting to delete. | `Checked` |
 
-1. Save the manifest.
-
-### Examples
-
-The following example shows the `appRoles` that you can assign to `users`.
-
-> [!NOTE]
->The `id` must be a unique GUID.
-
-```Json
-"appId": "8763f1c4-f988-489c-a51e-158e9ef97d6a",
-"appRoles": [
-    {
-      "allowedMemberTypes": [
-        "User"
-      ],
-      "displayName": "Writer",
-      "id": "d1c2ade8-98f8-45fd-aa4a-6d06b947c66f",
-      "isEnabled": true,
-      "description": "Writers Have the ability to create tasks.",
-      "value": "Writer"
-    }
-  ],
-"availableToOtherTenants": false,
-```
-
-> [!NOTE]
->The `displayName` may contain spaces.
-
-You can define app roles to target `users`, `applications`, or both. When available to `applications`, app roles appear as application permissions under **Manage** section > **API permissions > Add a permission > My APIs > Choose an API > Application permissions**. The following example shows an app role targeted towards an `Application`.
-
-```Json
-"appId": "8763f1c4-f988-489c-a51e-158e9ef97d6a",
-"appRoles": [
-    {
-      "allowedMemberTypes": [
-        "Application"
-      ],
-      "displayName": "ConsumerApps",
-      "id": "47fbb575-859a-4941-89c9-0f7a6c30beac",
-      "isEnabled": true,
-      "description": "Consumer apps have access to the consumer data.",
-      "value": "Consumer"
-    }
-  ],
-"availableToOtherTenants": false,
-```
-
-The number of roles defined affects the limits that the application manifest has. They have been discussed in detail on the [manifest limits](./reference-app-manifest.md#manifest-limits) page.
+>[!Note]
+>You can define app roles to target `users`, `applications`, or both. When available to `applications`, app roles appear as application permissions under **Manage** section > **API permissions > Add a permission > My APIs > Choose an API > Application permissions**.
+>
+>The number of roles defined affects the limits that the application manifest has. They have been discussed in detail on the [manifest limits](./reference-app-manifest.md#manifest-limits) page.
 
 ### Assign users and groups to roles
 
