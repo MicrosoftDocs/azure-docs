@@ -73,7 +73,7 @@ The **PBS Family of Azure VMs** contains Intel Arria 10 FPGAs. It will show as "
 
 ## Deploy models on FPGAs
 
-You can deploy a model as a web service on FPGAs with [Azure Machine Learning Hardware Accelerated Models](https://docs.microsoft.com/python/api/azureml-accel-models/azureml.accel?view=azure-ml-py). Using FPGAs provides ultra-low latency inference, even with a single batch size. Inference, or model scoring, is the phase where the deployed model is used for prediction, most commonly on production data.
+You can deploy a model as a web service on FPGAs with [Azure Machine Learning Hardware Accelerated Models](https://docs.microsoft.com/python/api/azureml-accel-models/azureml.accel?view=azure-ml-py&preserve-view=true). Using FPGAs provides ultra-low latency inference, even with a single batch size. Inference, or model scoring, is the phase where the deployed model is used for prediction, most commonly on production data.
 
 Deploying a model to an FPGA involves the following steps:
 
@@ -116,7 +116,7 @@ In this sample, you create a TensorFlow graph to preprocess the input image, mak
     ```
 ### 1. Define the TensorFlow model
 
-Use the [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) to create a service definition. A service definition is a file describing a pipeline of graphs (input, featurizer, and classifier) based on TensorFlow. The deployment command automatically compresses the definition and graphs into a ZIP file, and uploads the ZIP to Azure Blob storage. The DNN is already deployed to run on the FPGA.
+Use the [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) to create a service definition. A service definition is a file describing a pipeline of graphs (input, featurizer, and classifier) based on TensorFlow. The deployment command automatically compresses the definition and graphs into a ZIP file, and uploads the ZIP to Azure Blob storage. The DNN is already deployed to run on the FPGA.
 
 1. Load Azure Machine Learning workspace
 
