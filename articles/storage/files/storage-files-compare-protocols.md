@@ -84,7 +84,27 @@ NFS with Azure Files is ideal for:
 
 ### Security
 
-NFS offers encryption-at-rest.
+File shares using the NFS protocol currently only have encryption-at-rest, not encryption-in-transit. Due to this, to ensure only secure connections are established to your storage account, you must use one of the following supported network connections:
+
+- A VNet that was configured for your storage account. 
+
+  For the purpose of this article, we'll refer to that VNet as the *primary VNet*. To learn more, see [Grant access from a virtual network](../common/storage-network-security.md#grant-access-from-a-virtual-network).
+
+- A peered VNet in the same region as the primary VNet.
+
+  You'll have to configure your storage account to allow access to this peered VNet. To learn more, see [Grant access from a virtual network](../common/storage-network-security.md#grant-access-from-a-virtual-network).
+
+- An on-premises network that is connected to your primary VNet by using [VPN Gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) or an [ExpressRoute gateway](https://docs.microsoft.com/azure/expressroute/expressroute-howto-add-gateway-portal-resource-manager). 
+
+  To learn more, see [Configuring access from on-premises networks](../common/storage-network-security.md#configuring-access-from-on-premises-networks).
+
+- An on-premises network that is connected to a peered network.
+
+  This can be done by using [VPN Gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) or an [ExpressRoute gateway](https://docs.microsoft.com/azure/expressroute/expressroute-howto-add-gateway-portal-resource-manager) along with [Gateway transit](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/vnet-peering#gateway-transit). 
+
+> [!IMPORTANT]
+> If you're connecting from an on-premises network, make sure that your client allows outgoing communication through port 2049. The NFS 4.1 protocol uses this port.
+
 
 ## Next steps
 
