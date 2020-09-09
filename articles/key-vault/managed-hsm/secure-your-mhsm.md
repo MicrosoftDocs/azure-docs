@@ -79,20 +79,13 @@ The subscription admin assigns the `Managed HSM Contributor`role to the security
 # [Azure CLI](#tab/azure-cli)
 
 ```AzureCLI
-# This role assignment allows Contoso Security Team to create new Managed HSM pools
+# This role assignment allows Contoso Security Team to create new Managed HSMs
 az role assignment create --assignee-object-id $(az ad group show -g 'Contoso Security Team' --query 'objectId' -o tsv) --assignee-principal-type Group --role "Managed HSM Contributor"
 
 # This role assignment allows Contoso Security Team to become administrator of existing Managed HSM pool
-az keyvault role assignment create  --hsm-name contosomhsm --assignee $(az ad group show -g 'Contoso Security Team' --query 'objectId' -o tsv) --scope / --role "Managed HSM Administrator"
+az keyvault role assignment create  --hsm-name ContosoMHSM --assignee $(az ad group show -g 'Contoso Security Team' --query 'objectId' -o tsv) --scope / --role "Managed HSM Administrator"
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
-
-```azurepowershell
-New-AzRoleAssignment -ObjectId (Get-AzADGroup -SearchString 'Contoso Security Team')[0].Id -RoleDefinitionName "Managed HSM Contributor" -ResourceGroupName ContosoAppRG
-```
-
----
 
 The security team sets up logging and assigns roles to auditors and the VM application.
 
@@ -100,30 +93,27 @@ The security team sets up logging and assigns roles to auditors and the VM appli
 
 ```AzureCLI
 # Enable logging
-hsmresource=$(az keyvault show --hsm-name contosomhsm --query id -o tsv)
+hsmresource=$(az keyvault show --hsm-name ContosoMHSM --query id -o tsv)
 storageresource=$(az storage account show --name contosologstorage --query id -o tsv)
 az monitor diagnostic-settings create --name MHSM-Diagnostics --resource $hsmresource --logs    '[{"category": "AuditEvent","enabled": true}]' --storage-account $storageresource
 
-# Grant the Contoso App Auditors group read permissions to MHSM
-az keyvault role assignment create  --hsm-name contosomhsm --assignee $(az ad group show -g 'Contoso App Auditors' --query 'objectId' -o tsv) --scope / --role "Managed HSM Crypto Auditor"
+# Assign the "Crypto Auditor" role to Contoso App Auditors group. It only allows them to read.
+az keyvault role assignment create  --hsm-name ContosoMHSM --assignee $(az ad group show -g 'Contoso App Auditors' --query 'objectId' -o tsv) --scope / --role "Managed HSM Crypto Auditor"
 
-# Grant the Crypto User role to the VM's managed identity
-az keyvault role assignment create  --hsm-name contosomhsm --assignee $(az vm identity show --name "vmname" --resource-group "ContosoAppRG" --query objectId -o tsv) --scope / --role "Managed HSM Crypto Auditor"
+# Grant the "Crypto User" role to the VM's managed identity. It allows to create and use keys. 
+# However it cannot permanently delete (purge) keys
+az keyvault role assignment create  --hsm-name ContosoMHSM --assignee $(az vm identity show --name "vmname" --resource-group "ContosoAppRG" --query objectId -o tsv) --scope / --role "Managed HSM Crypto Auditor"
 
+# Assign "Managed HSM Crypto Service Encryption" role to the Storage account ID
+storage_account_principal=$(az storage account show --id $storageresource --query identity.principalId -o tsv)
+# (if no identity exists), then assign a new one
+[ "$storage_account_principal" ] || storage_account_principal=$(az storage account update --assign-identity --id $storageresource)
+
+az keyvault role assignment create --hsm-name ContosoMHSM --role "Managed HSM Crypto Service Encryption" --assignee $storage_account_principal
 
 ```
 
-
-# [Azure PowerShell](#tab/azure-powershell)
-
-```AzureCLI
-# Create a Managed HSM pool and enable logging
-$sa = Get-AzStorageAccount -ResourceGroup ContosoAppRG -Name contosologstorage
-$kv = Get-AzKeyVault -HSMName ContosoMHSM
-Set-AzDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Category AuditEvent
-```
-
-
+This tutorial only shows actions relevant to the access control for most part. Other actions and operations related to deploying application in your VM, turning on encryption with customer managed key for a storage account, creating managed HSM are not shown here to keep the example focused on access control and role management.
 
 Our example describes a simple scenario. Real-life scenarios can be more complex. You can adjust permissions to your key vault based on your needs. We assumed the security team provides the key and secret references (URIs and thumbprints), which are used by the DevOps staff in their applications. Developers and operators don't require any data plane access. We focused on how to secure your key vault. Give similar consideration when you secure [your VMs](https://azure.microsoft.com/services/virtual-machines/security/), [storage accounts](../../storage/blobs/security-recommendations.md), and other Azure resources.
 
@@ -133,8 +123,6 @@ Our example describes a simple scenario. Real-life scenarios can be more complex
 * [Azure RBAC documentation](../../role-based-access-control/overview.md)
 * [Azure RBAC: Built-in roles](../../role-based-access-control/built-in-roles.md)
 * [Manage Azure RBAC with Azure CLI](../../role-based-access-control/role-assignments-cli.md)
-
-
 
 ## Next steps
 
