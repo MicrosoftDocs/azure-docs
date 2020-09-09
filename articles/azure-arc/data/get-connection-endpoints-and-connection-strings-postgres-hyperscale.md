@@ -96,8 +96,13 @@ Use the below table of templates of connections strings for your server group. Y
 **ADO.NET**
    :::column-end:::
    :::column span="2":::
-```csharp
-Server=192.168.1.121;Database=postgres;Port=24276;User Id=postgres;Password={your_password_here};Ssl Mode=Require;
+```ado.net
+Server=192.168.1.121;
+Database=postgres;
+Port=24276;
+User Id=postgres;
+Password={your_password_here};
+Ssl Mode=Require;
 ```
    :::column-end:::
 :::row-end:::
@@ -105,32 +110,55 @@ Server=192.168.1.121;Database=postgres;Port=24276;User Id=postgres;Password={you
    :::column span="":::
 **C++ (libpq)**
    :::column-end:::
-   :::column span="":::
-host=192.168.1.121 port=24276 dbname=postgres user=postgres password={your_password_here} sslmode=require
+   :::column span="2":::
+```cpp
+host=192.168.1.121 
+port=24276
+dbname=postgres 
+user=postgres 
+password={your_password_here} 
+sslmode=require
+```
    :::column-end:::
 :::row-end:::
 :::row:::
    :::column span="":::
 **JDBC**
    :::column-end:::
-   :::column span="":::
+   :::column span="2":::
+```jdbc
 jdbc:postgresql://192.168.1.121:24276/postgres?user=postgres&password={your_password_here}&sslmode=require
+```
    :::column-end:::
 :::row-end:::
 :::row:::
    :::column span="":::
 **Node.js**
    :::column-end:::
-   :::column span="":::
-host=192.168.1.121 port=24276 dbname=postgres user=postgres password={your_password_here} sslmode=require
+   :::column span="2":::
+```node.js
+host=192.168.1.121 
+port=24276 
+dbname=postgres 
+user=postgres 
+password={your_password_here} 
+sslmode=require
+```
    :::column-end:::
 :::row-end:::
 :::row:::
    :::column span="":::
 **PHP**
    :::column-end:::
-   :::column span="":::
-host=192.168.1.121 port=24276 dbname=postgres user=postgres password={your_password_here} sslmode=require
+   :::column span="2":::
+```php
+host=192.168.1.121 
+port=24276 
+dbname=postgres 
+user=postgres 
+password={your_password_here} 
+sslmode=require
+```
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -138,31 +166,53 @@ host=192.168.1.121 port=24276 dbname=postgres user=postgres password={your_passw
 **psql**
    :::column-end:::
    :::column span="":::
+```psql
 psql "host=192.168.1.121 port=24276 dbname=postgres user=postgres password={your_password_here} sslmode=require"
+```
    :::column-end:::
 :::row-end:::
 :::row:::
    :::column span="":::
 **Python**
    :::column-end:::
-   :::column span="":::
-dbname='postgres' user='postgres' host='192.168.1.121' password='{your_password_here}' port='24276' sslmode='true'
+   :::column span="2":::
+```python
+dbname='postgres' 
+user='postgres' 
+host='192.168.1.121' 
+password='{your_password_here}' 
+port='24276' 
+sslmode='true'
+```
    :::column-end:::
 :::row-end:::
 :::row:::
    :::column span="":::
 **Ruby**
    :::column-end:::
-   :::column span="":::
-host=192.168.1.121; dbname=postgres user=postgres password={your_password_here} port=24276 sslmode=require
+   :::column span="2":::
+```ruby
+xhost=192.168.1.121; 
+dbname=postgres 
+user=postgres 
+password={your_password_here} 
+port=24276 
+sslmode=require
+```
    :::column-end:::
 :::row-end:::
 :::row:::
    :::column span="":::
 **Web App**
    :::column-end:::
-   :::column span="":::
-Database=postgres; Data Source=192.168.1.121; User Id=postgres; Password={your_password_here}
+   :::column span="2":::
+```webapp
+Database=postgres; 
+Data Source=192.168.1.121; 
+User 
+Id=postgres; 
+Password={your_password_here}
+```
    :::column-end:::
 :::row-end:::
 
