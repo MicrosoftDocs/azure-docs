@@ -229,7 +229,7 @@ You could leverage one variable @StartTime in your query:
 
 ## <span id="http">Http Request</span>
 
-* **Request URL**: A HTTP url which can return a JSON. The placeholders %Y,%m,%d,%h,%M are supported: %Y=year in format yyyy, %m=month in format MM, %d=day in format dd, %h=hour in format HH, %M=minute in format mm. For example: http://microsoft.com/ProjectA/%Y/%m/X_%Y-%m-%d-%h-%M.
+* **Request URL**: A HTTP url which can return a JSON. The placeholders %Y,%m,%d,%h,%M are supported: %Y=year in format yyyy, %m=month in format MM, %d=day in format dd, %h=hour in format HH, %M=minute in format mm. For example: `http://microsoft.com/ProjectA/%Y/%m/X_%Y-%m-%d-%h-%M`.
 * **Request HTTP method**: Use GET or POST.
 * **Request header**: Could add basic authentication. 
 * **Request payload**: Only JSON payload is supported. Placeholder @StartTime is supported in the payload. The response should be in the following JSON format: [{"timestamp": "2018-01-01T00:00:00Z", "market":"en-us", "count":11, "revenue":1.23}, {"timestamp": "2018-01-01T00:00:00Z", "market":"zh-cn", "count":22, "revenue":4.56}].(e.g. when data of 2020-06-21T00:00:00Z is ingested, @StartTime = 2020-06-21T00:00:00.0000000+00:00)

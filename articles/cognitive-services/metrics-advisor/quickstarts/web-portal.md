@@ -25,18 +25,18 @@ Within every provisioned service instance, there's a set of APIs and a web-based
 ## Prerequisites
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
-* Once you have your Azure subscription, [create a Metrics Advisor resource](https://go.microsoft.com/fwlink/?linkid=2142156) in the Azure portal to deploy your Metrics Advisor instance.  
+* Once you have your Azure subscription, <a href="https://go.microsoft.com/fwlink/?linkid=2142156"  title="Create a Metrics Advisor resource"  target="_blank">create a Metrics Advisor resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> in the Azure portal to deploy your Metrics Advisor instance.  
 
     
 > [!TIP]
 > * It may 10 to 30 minutes for your Metrics Advisor resource to deploy. Click **Go to resource** once it successfully deploys.
-> * If you'd like to use API to interact with the service, you will need the API key from the resource you create. Please check 'Keys and endpoints' tab in created resource.
+> * If you'd like to use the REST API to interact with the service, you will need the key and endpoint from the resource you create. You can find them in the  **Keys and endpoints** tab in the created resource.
 
 This document uses a SQL Database as an example for creating your first monitor.
 
 ## Onboard time series data
 
-Metrics Advisor provides connectors for different data sources, such as SQL Database, Azure Data Explorer, and Azure Table Storage. The steps for connecting data are similar for different connectors, although some configuration parameters may vary. Please check [connect your data from different sources](../data-feeds-from-different-sources.md) on required parameters for specific data source.
+Metrics Advisor provides connectors for different data sources, such as SQL Database, Azure Data Explorer, and Azure Table Storage. The steps for connecting data are similar for different connectors, although some configuration parameters may vary. See [connect your data from different sources](../data-feeds-from-different-sources.md) for the required parameters for specific data sources.
 
 This quickstart uses a SQL Database as an example. You can also ingest your own data follow the same steps.
 
