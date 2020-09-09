@@ -1,24 +1,15 @@
 ---
-title: 'Service Fabric Cluster Resource Manager: Movement cost | Microsoft Docs'
-description: Overview of movement cost for Service Fabric services
-services: service-fabric
-documentationcenter: .net
+title: 'Service Fabric Cluster Resource Manager: Movement cost'
+description: Learn about the movement cost for Service Fabric services, and how it can be specified to fit any architectural need, including dynamic configuration.
 author: masnider
-manager: timlt
-editor: ''
 
-ms.assetid: f022f258-7bc0-4db4-aa85-8c6c8344da32
-ms.service: Service-Fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-
+ms.custom: devx-track-csharp
 ---
 # Service movement cost
-A factor that the Service Fabric Cluster Resource Manager considers when trying to determine what changes to make to a cluster is the cost of those changes. The notion of "cost" is traded off against how much the cluster can be improved. Cost is factored in when moving services for balancing, defragmentation, and other requirements. The goal is to meet the requirements in the least disruptive or expensive way. 
+A factor that the Service Fabric Cluster Resource Manager considers when trying to determine what changes to make to a cluster is the cost of those changes. The notion of "cost" is traded off against how much the cluster can be improved. Cost is factored in when moving services for balancing, defragmentation, and other requirements. The goal is to meet the requirements in the least disruptive or expensive way.
 
 Moving services costs CPU time and network bandwidth at a minimum. For stateful services, it requires copying the state of those services, consuming additional memory and disk. Minimizing the cost of solutions that the Azure Service Fabric Cluster Resource Manager comes up with helps ensure that the cluster's resources aren't spent unnecessarily. However, you also don’t want to ignore solutions that would significantly improve the allocation of resources in the cluster.
 
@@ -72,9 +63,17 @@ this.Partition.ReportMoveCost(MoveCost.Medium);
 ```
 
 ## Impact of move cost
-MoveCost has four levels: Zero, Low, Medium, and High. MoveCosts are relative to each other, except for Zero. Zero move cost means that movement is free and should not count against the score of the solution. Setting your move cost to High does *not* guarantee that the replica stays in one place.
+MoveCost has five levels: Zero, Low, Medium, High and VeryHigh. The following rules apply:
+
+* MoveCosts are relative to each other, except for Zero and VeryHigh. 
+* Zero move cost means that movement is free and should not count against the score of the solution.
+* Setting your move cost to High or VeryHigh does *not* provide a guarantee that the replica will *never* be moved.
+* Replicas with VeryHigh move cost will be moved only if there is a constraint violation in the cluster that cannot be fixed in any other way (even if it requires moving many other replicas to fix the violation)
+
+
 
 <center>
+
 ![Move cost as a factor in selecting replicas for movement][Image1]
 </center>
 
@@ -83,6 +82,9 @@ MoveCost helps you find the solutions that cause the least disruption overall an
 - The amount of state or data that the service has to move.
 - The cost of disconnection of clients. Moving a primary replica is usually more costly than the cost of moving a secondary replica.
 - The cost of interrupting an in-flight operation. Some operations at the data store level or operations performed in response to a client call are costly. After a certain point, you don’t want to stop them if you don’t have to. So while the operation is going on, you increase the move cost of this service object to reduce the likelihood that it moves. When the operation is done, you set the cost back to normal.
+
+> [!IMPORTANT]
+> Using the VeryHigh move cost should be carefully considered as it significantly restricts the ability of Cluster Resource Manager to find a globally-optimal placement solution in the cluster. Replicas with VeryHigh move cost will be moved only if there is a constraint violation in the cluster that cannot be fixed in any other way (even if it requires moving many other replicas to fix the violation)
 
 ## Enabling move cost in your cluster
 In order for the more granular MoveCosts to be taken into account, MoveCost must be enabled in your cluster. Without this setting, the default mode of counting moves is used for calculating MoveCost, and MoveCost reports are ignored.

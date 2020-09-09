@@ -1,5 +1,5 @@
 ---
-title: Azure Desired State Configuration Extension Handler | Microsoft Docs
+title: Azure Desired State Configuration Extension Handler 
 description: Upload and apply a PowerShell DSC configuration on an Azure VM using DSC Extension
 services: virtual-machines-windows 
 documentationcenter: ''
@@ -8,7 +8,6 @@ manager: carmonm
 editor: ''
 ms.assetid: 
 ms.service: virtual-machines-windows 
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: windows
 ms.workload: 
@@ -27,11 +26,12 @@ The PowerShell DSC Extension for Windows is published and supported by Microsoft
 
 The DSC Extension supports the following OS's
 
-Windows Server 2016, Windows Server 2012R2, Windows Server 2012, Windows Server 2008 R2 SP1, Windows Client 7/8.1
+Windows Server 2019, Windows Server 2016, Windows Server 2012R2, Windows Server 2012, Windows Server 2008 R2 SP1, Windows Client 7/8.1/10
 
 ### Internet connectivity
 
-The DSC extension for Windows requires that the target virtual machine is connected to the internet. 
+The DSC extension for Windows requires that the target virtual machine is able to communicate with Azure
+and the location of the configuration package (.zip file) if it is stored in a location outside of Azure. 
 
 ## Extension schema
 
@@ -41,12 +41,12 @@ The following JSON shows the schema for the settings portion of the DSC Extensio
 {
   "type": "Microsoft.Compute/virtualMachines/extensions",
   "name": "Microsoft.Powershell.DSC",
-  "apiVersion": "2015-06-15",
+  "apiVersion": "2018-10-01",
   "location": "<location>",
   "properties": {
     "publisher": "Microsoft.Powershell",
     "type": "DSC",
-    "typeHandlerVersion": "2.73",
+    "typeHandlerVersion": "2.77",
     "autoUpgradeMinorVersion": true,
     "settings": {
     	"wmfVersion": "latest",
@@ -66,7 +66,7 @@ The following JSON shows the schema for the settings portion of the DSC Extensio
             "dataCollection": "enable"
         },
     	"advancedOptions": {
-			"forcePullAndApply": false
+			"forcePullAndApply": false,
         	"downloadMappings": {
             	"specificDependencyKey": "https://myCustomDependencyLocation"
         	}
@@ -94,10 +94,10 @@ The following JSON shows the schema for the settings portion of the DSC Extensio
 
 | Name | Value / Example | Data Type |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | date |
+| apiVersion | 2018-10-01 | date |
 | publisher | Microsoft.Powershell.DSC | string |
 | type | DSC | string |
-| typeHandlerVersion | 2.73 | int |
+| typeHandlerVersion | 2.77 | int |
 
 ### Settings Property values
 
@@ -110,7 +110,7 @@ The following JSON shows the schema for the settings portion of the DSC Extensio
 | settings.configurationArguments | Collection | Defines any parameters you would like to pass to your DSC configuration. This property will not be encrypted.
 | settings.configurationData.url | string | Specifies the URL from which to download your configuration data (.pds1) file to use as input for your DSC configuration. If the URL provided requires a SAS token for access, you will need to set the protectedSettings.configurationDataUrlSasToken property to the value of your SAS token.
 | settings.privacy.dataEnabled | string | Enables or disables telemetry collection. The only possible values for this property are ‘Enable’, ‘Disable’, ”, or $null. Leaving this property blank or null will enable telemetry
-| settings.advancedOptions.forcePullAndApply | Bool | Enables the DSC Extension to update and enact DSC configurations when the refresh mode is Pull.
+| settings.advancedOptions.forcePullAndApply | Bool | This setting is designed to enhance the experience of working with the extension to register nodes  with Azure Automation DSC.  If the value is `$true`, the extension will wait for the first run of the configuration pulled from the service before returning success/failure.  If the value is set to $false, the status returned by the extension will only refer to whether the node was registered with Azure Automation State Configuration successfully and the node configuration will not be run during the registration.
 | settings.advancedOptions.downloadMappings | Collection | Defines alternate locations to download dependencies such as WMF and .NET
 
 ### Protected Settings Property values
@@ -124,26 +124,10 @@ The following JSON shows the schema for the settings portion of the DSC Extensio
 
 ## Template deployment
 
-Azure VM extensions can be deployed with Azure Resource Manager templates. Templates are ideal when deploying one or more virtual machines that require post deployment configuration. A sample Resource Manager template that includes the OMS Agent VM extension can be found on the [Azure Quick Start Gallery](https://github.com/Azure/azure-quickstart-templates/tree/052db5feeba11f85d57f170d8202123511f72044/dsc-extension-iis-server-windows-vm). 
-
-The JSON configuration for a virtual machine extension can be nested inside the virtual machine resource, or placed at the root or top level of a Resource Manager JSON template. The placement of the JSON configuration affects the value of the resource name and type. 
-
-When nesting the extension resource, the JSON is placed in the `"resources": []` object of the virtual machine. When placing the extension JSON at the root of the template, the resource name includes a reference to the parent virtual machine, and the type reflects the nested configuration.  
-
-
-## Azure CLI deployment
-
-The Azure CLI can be used to deploy the OMS Agent VM extension to an existing virtual machine. Replace the OMS key and OMS ID with those from your OMS workspace. 
-
-```azurecli
-az vm extension set \
-  --resource-group myResourceGroup \
-  --vm-name myVM \
-  --name Microsoft.Powershell.DSC \
-  --publisher Microsoft.Powershell \
-  --version 2.73 --protected-settings '{}' \
-  --settings '{}'
-```
+Azure VM extensions can be deployed with Azure Resource Manager templates.
+Templates are ideal when deploying one or more virtual machines that require post deployment configuration.
+A sample Resource Manager template that includes the DSC extension for Windows can be found on the
+[Azure Quick Start Gallery](https://github.com/Azure/azure-quickstart-templates/blob/master/101-automation-configuration/nested/provisionServer.json#L91).
 
 ## Troubleshoot and support
 
@@ -160,7 +144,7 @@ Extension package is downloaded and deployed to this location on the Azure VM
 C:\Packages\Plugins\{Extension_Name}\{Extension_Version}
 ```
 
-Extension status file contains the sub status and status success/error codes along with the detailed error and desciption for each extension run.
+Extension status file contains the sub status and status success/error codes along with the detailed error and description for each extension run.
 ```
 C:\Packages\Plugins\{Extension_Name}\{Extension_Version}\Status\{0}.Status  -> {0} being the sequence number
 ```

@@ -4,7 +4,7 @@ description: This topic shows how to use .NET to encode an asset and generate th
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.assetid: b8dab73a-1d91-4b6d-9741-a92ad39fc3f7
@@ -13,11 +13,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2017
+ms.date: 03/18/2019
 ms.author: juliako
+ms.custom: devx-track-csharp
 
 ---
 # How to generate thumbnails using Media Encoder Standard with .NET
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 You can use Media Encoder Standard to generate one or more thumbnails from your input video in [JPEG](https://en.wikipedia.org/wiki/JPEG), [PNG](https://en.wikipedia.org/wiki/Portable_Network_Graphics), or [BMP](https://en.wikipedia.org/wiki/BMP_file_format) image file formats. You can submit Tasks that produce only images, or you can combine thumbnail generation with encoding. This article provides a few sample XML and JSON thumbnail presets for such scenarios. At the end of the article, there is a [sample code](#code_sample) that shows how to use the Media Services .NET SDK to accomplish the encoding task.
 
@@ -62,7 +65,7 @@ The following JSON and XML preset can be used to produce a single output PNG fil
 
 ```xml
 	<?xml version="1.0" encoding="utf-16"?>
-	<Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
+	<Preset xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="https://www.windowsazure.com/media/encoding/Preset/2014/03">
 	  <Encoding>
 	    <PngImage Start="{Best}">
 	      <PngLayers>
@@ -121,7 +124,7 @@ The following JSON and XML preset can be used to produce a set of 10 images at t
 	
 ```xml
 	<?xml version="1.0" encoding="utf-16"?>
-	<Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
+	<Preset xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="https://www.windowsazure.com/media/encoding/Preset/2014/03">
 	  <Encoding>
 	    <JpgImage Start="5%" Step="10%" Range="96%">
 	      <JpgLayers>
@@ -180,7 +183,7 @@ The following JSON and XML preset can be used to produce a single JPEG image at 
 ### XML preset
 ```xml
 	<?xml version="1.0" encoding="utf-16"?>
-	<Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
+	<Preset xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="https://www.windowsazure.com/media/encoding/Preset/2014/03">
 	  <Encoding>
 	    <JpgImage Start="00:00:30" Step="00:00:01" Range="00:00:01">
 	      <JpgLayers>
@@ -248,7 +251,7 @@ Note the use of {Resolution} macro in the FileName; it indicates to the encoder 
 ### XML preset
 ```xml
 	<?xml version="1.0" encoding="utf-8"?>
-	<Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
+	<Preset xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="https://www.windowsazure.com/media/encoding/Preset/2014/03">
 	<Encoding>
 	<JpgImage Start="5%" Step="10%" Range="96%"><JpgImage Start="00:00:01" Step="00:00:15">
 	  <JpgLayers>
@@ -278,7 +281,7 @@ Note the use of {Resolution} macro in the FileName; it indicates to the encoder 
 While all of the above examples have discussed how you can submit an encoding task that only produces images, you can also combine video/audio encoding with thumbnail generation. The following JSON and XML preset tell **Media Encoder Standard** to generate a thumbnail during encoding.
 
 ### <a id="json"></a>JSON preset
-For information about schema, see [this](https://msdn.microsoft.com/library/mt269962.aspx) article.
+For information about schema, see [this](./media-services-mes-schema.md) article.
 
 ```json
 	{
@@ -343,11 +346,11 @@ For information about schema, see [this](https://msdn.microsoft.com/library/mt26
 ```
 
 ### <a id="xml"></a>XML preset
-For information about schema, see [this](https://msdn.microsoft.com/library/mt269962.aspx) article.
+For information about schema, see [this](./media-services-mes-schema.md) article.
 
 ```csharp
 	<?xml version="1.0" encoding="utf-16"?>
-	<Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
+	<Preset xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="https://www.windowsazure.com/media/encoding/Preset/2014/03">
 	  <Encoding>
 	    <H264Video>
 	      <KeyFrameInterval>00:00:02</KeyFrameInterval>
@@ -404,9 +407,12 @@ The following code example uses Media Services .NET SDK to perform the following
 * Create an encoding job.
 * Get a reference to the Media Encoder Standard encoder.
 * Load the preset [XML](media-services-dotnet-generate-thumbnail-with-mes.md#xml) or [JSON](media-services-dotnet-generate-thumbnail-with-mes.md#json) that contain the encoding preset as well as information needed to generate thumbnails. You can save this  [XML](media-services-dotnet-generate-thumbnail-with-mes.md#xml) or [JSON](media-services-dotnet-generate-thumbnail-with-mes.md#json) in a file and use the following code to load the file.
-  
-        // Load the XML (or JSON) from the local file.
-        string configuration = File.ReadAllText(fileName);  
+
+    ```csharp
+    // Load the XML (or JSON) from the local file.
+    string configuration = File.ReadAllText(fileName);  
+    ```
+
 * Add a single encoding task to the job. 
 * Specify the input asset to be encoded.
 * Create an output asset that contains the encoded asset.
@@ -570,4 +576,3 @@ You can check the [job progress](media-services-check-job-progress.md) while the
 
 ## See Also
 [Media Services Encoding Overview](media-services-encode-asset.md)
-

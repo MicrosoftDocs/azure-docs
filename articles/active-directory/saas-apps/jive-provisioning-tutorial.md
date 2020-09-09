@@ -2,20 +2,14 @@
 title: 'Tutorial: Configure Jive for automatic user provisioning with Azure Active Directory | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Jive.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-
-ms.assetid: 6fbfdbe7-d66c-4305-9fea-76d6a6a92830
+manager: CelesteDG
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-
 ---
 # Tutorial: Configure Jive for automatic user provisioning
 
@@ -93,7 +87,7 @@ As part of this procedure, you are required to provide a user security token you
 
 It starts the initial synchronization of any users and/or groups assigned to Jive in the Users and Groups section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity logs, which describe all actions performed by the provisioning service on your Jive app.
 
-For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../manage-apps/check-status-user-account-provisioning.md).
+For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## Additional resources
 

@@ -4,17 +4,13 @@ description: This article compares features and provides guidance on developing 
 services: azure-government
 cloud: gov
 documentationcenter: ''
-author: smichelotti 
-manager: zakramer
 
-ms.assetid: 6e04e9aa-1a73-442c-a46c-2e4ff87e58d5
 ms.service: azure-government
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 08/13/2018
-ms.author: stemi
+ms.date: 10/15/2019
 
 ---
 
@@ -34,8 +30,8 @@ The specific areas to understand are:
 The information in this document summarizes the differences between the two services. 
 It supplements the information that's available through the following sources:
 
-* [Azure Government](http://www.azure.com/gov "Azure Government") site 
-* [Microsoft Azure Technical Library](http://msdn.microsoft.com/cloud-app-development-msdn "MSDN") on MSDN
+* [Azure Government](https://www.azure.com/gov "Azure Government") site 
+* [Microsoft Azure Technical Library](https://msdn.microsoft.com/cloud-app-development-msdn "MSDN") on MSDN
 * [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/ "Microsoft Azure Trust Center")
 * [Azure Documentation Center](https://azure.microsoft.com/documentation/)
 * [Azure Blogs](https://azure.microsoft.com/blog/ "Azure Blogs")
@@ -54,11 +50,12 @@ Currently, US DoD East, US DoD Central, US Gov Virginia, US Gov Arizona, US Gov 
 ### Quickstarts
 Navigate through the links below to get started using Azure Government.
 
-* [Login to Azure Government Portal](https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-portal)
-* [Connect with Visual Studio](https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-vs)
-* [Connect with PowerShell](https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-ps)
-* [Connect with CLI](https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-cli)
+* [Login to Azure Government Portal](documentation-government-get-started-connect-with-portal.md)
+* [Connect with PowerShell](documentation-government-get-started-connect-with-ps.md)
+* [Connect with CLI](documentation-government-get-started-connect-with-cli.md)
+* [Connect with Visual Studio](documentation-government-connect-vs.md)
 * [Connect to Azure Storage](documentation-government-get-started-connect-to-storage.md)
+* [Connect with Azure SDK for Python](/azure/python/python-sdk-azure-multi-cloud)
 
 ### Azure Government Video Library 
 The [Azure Government video library](https://channel9.msdn.com/blogs/Azure-Government) contains many helpful videos to get you up and running with Azure Government. 
@@ -71,33 +68,35 @@ For more information on Azure Government Compliance, refer to the [compliance do
 
 ## Endpoint mapping
 
-To learn about mapping global Azure and SQL Database endpoints to Azure Government-specific endpoints, see the following table:
-
-> [!NOTE]
-> The **Active Directory Authority** for Azure Government has changed from https://login-us.microsoftonline.com to https://login.microsoftonline.us.  The original URL will continue to work but all applications should be updated to the new authority URL.
+The following table shows the mapping between some Azure services and Azure Government endpoints.
 
 | Name | Azure Government endpoint | Azure Commercial endpoint |
 | --- | --- | --- |
-| Portal | https://portal.azure.us | https://portal.azure.com |
-| Active Directory Endpoint and Authority | https://login.microsoftonline.us | https://login.microsoftonline.com |
-| Active Directory Graph API | https://graph.windows.net/ | https://graph.windows.net/ |
-| Microsoft Graph API | https://graph.microsoft.com/ | https://graph.microsoft.com/ |
-| Azure API | https://management.usgovcloudapi.net/ | https://management.azure.com/ |
-| SQL Database DNS Suffix | *.database.usgovcloudapi.net | *.database.windows.net |
-| Storage DNS Suffix | *.core.usgovcloudapi.net | *.core.windows.net |
-| Traffic Manager DNS Suffix | *.usgovtrafficmanager.net | *.trafficmanager.net |
-| Key Vault DNS Suffix | *.vault.usgovcloudapi.net | *.vault.azure.net |
-| Service Bus DNS Suffix | *.servicebus.usgovcloudapi.net | *.servicebus.windows.net |
-| Gallery Url | https://gallery.azure.us/ | https://gallery.azure.com/ |
-| Classic Deployment Model Url | https://management.core.usgovcloudapi.net/ | https://management.core.windows.net/ |
-| Publish Settings File Url | https://portal.azure.us#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade | https://portal.azure.com/#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade |
+| Portal | https:\//portal.azure.us | https:\//portal.azure.com |
+| Azure Cloud Shell |  https:\//portal.azure.us | https:\//portal.azure.com |
+| Active Directory Endpoint and Authority | https:\//login.microsoftonline.us | https:\//login.microsoftonline.com <br/> https:\//login.windows.net |
+| Active Directory tenant names | [yourtenantname].onmicrosoft.com | [yourtenantname].onmicrosoft.com |
+| Microsoft Graph API | https:\//graph.microsoft.us/ | https:\//graph.microsoft.com/ |
+| Azure API | https:\//management.usgovcloudapi.net/ | https:\//management.azure.com/ |
+| SQL Database DNS Suffix | \*.database.usgovcloudapi.net | \*.database.windows.net |
+| Storage DNS Suffix | \*.core.usgovcloudapi.net | \*.core.windows.net |
+| Traffic Manager DNS Suffix | \*.usgovtrafficmanager.net | \*.trafficmanager.net |
+| Key Vault DNS Suffix | \*.vault.usgovcloudapi.net | \*.vault.azure.net |
+| Service Bus DNS Suffix | \*.servicebus.usgovcloudapi.net | \*.servicebus.windows.net |
+| API Management | \*.azure-api.us | \*.azure-api.net |
+| Azure Service Fabric cluster | \*.cloudapp.usgovcloudapi.net | \*.cloudapp.azure.com |
+| Container Registry Suffix | \*.azurecr.us | \*.azurecr.io |
+| Gallery Url | https:\//gallery.azure.us/ | https:\//gallery.azure.com/ |
+| Classic Deployment Model Url | https:\//management.core.usgovcloudapi.net/ | https:\//management.core.windows.net/ |
+| Publish Settings File Url | https:\//portal.azure.us#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade | https:\//portal.azure.com/#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade |
+| LUIS Portal | https:\//luis.azure.us | https:\//www.luis.ai/home
 
 ## Next steps
 For more information about Azure Government, see the following resources:
 
-* [Sign up for a trial](https://azuregov.microsoft.com/trial/azuregovtrial)
-* [Acquiring and accessing Azure Government](http://azure.com/gov)
+* [Sign up for a trial](https://azure.microsoft.com/global-infrastructure/government/request/?ReqType=Trial)
+* [Acquiring and accessing Azure Government](https://azure.com/gov)
 * [Ask questions via the azure-gov tag in StackOverflow](https://stackoverflow.com/tags/azure-gov)
 * [Azure Government Overview](documentation-government-welcome.md)
-* [Azure Government Blog](http://blogs.msdn.microsoft.com/azuregov/)
+* [Azure Government Blog](https://blogs.msdn.microsoft.com/azuregov/)
 * [Azure Compliance](https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings)

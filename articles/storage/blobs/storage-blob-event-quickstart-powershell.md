@@ -1,17 +1,17 @@
-﻿---
-title: Route Azure Blob storage events to a custom web endpoint - Powershell | Microsoft Docs
-description: Use Azure Event Grid to subscribe to Blob storage events. 
-services: storage,event-grid 
-author: david-stanford
-
-ms.author: dastanfo
+---
+title: Send Azure Blob storage events to web endpoint - PowerShell | Microsoft Docs
+description: Use Azure Event Grid to subscribe to Blob storage events, trigger an event, and view the result. Use Azure PowerShell to route storage events to a web endpoint.
+author: normesta
+ms.author: normesta
+ms.reviewer: dastanfo
 ms.date: 08/23/2018
 ms.topic: article
 ms.service: storage
-ms.component: blobs
+ms.subservice: blobs 
+ms.custom: devx-track-azurepowershell
 ---
 
-# Route Blob storage events to a custom web endpoint with PowerShell
+# Quickstart: Route storage events to web endpoint with PowerShell
 
 Azure Event Grid is an eventing service for the cloud. In this article, you use Azure PowerShell to subscribe to Blob storage events, trigger an event, and view the result. 
 
@@ -23,14 +23,16 @@ When you're finished, you see that the event data has been sent to the web app.
 
 ## Setup
 
-This article requires that you are running the latest version of Azure PowerShell. If you need to install or upgrade, see [Install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps).
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## Log in to Azure
+This article requires that you're running the latest version of Azure PowerShell. If you need to install or upgrade, see [Install and configure Azure PowerShell](/powershell/azure/install-Az-ps).
 
-Log in to your Azure subscription with the `Connect-AzureRmAccount` command and follow the on-screen directions to authenticate.
+## Sign in to Azure
+
+Sign in to your Azure subscription with the `Connect-AzAccount` command and follow the on-screen directions to authenticate.
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
 
 This example uses **westus2** and stores the selection in a variable for use throughout.
@@ -43,27 +45,27 @@ $location = "westus2"
 
 Event Grid topics are Azure resources, and must be placed in an Azure resource group. The resource group is a logical collection into which Azure resources are deployed and managed.
 
-Create a resource group with the [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) command.
+Create a resource group with the [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) command.
 
 The following example creates a resource group named **gridResourceGroup** in the **westus2** location.  
 
 ```powershell
 $resourceGroup = "gridResourceGroup"
-New-AzureRmResourceGroup -Name $resourceGroup -Location $location
+New-AzResourceGroup -Name $resourceGroup -Location $location
 ```
 
 ## Create a storage account
 
 Blob storage events are available in general-purpose v2 storage accounts and Blob storage accounts. **General-purpose v2** storage accounts  support all features for all storage services, including Blobs, Files, Queues, and Tables. A **Blob storage account** is a specialized storage account for storing your unstructured data as blobs (objects) in Azure Storage. Blob storage accounts are like general-purpose storage accounts and share all the great durability, availability, scalability, and performance features that you use today including 100% API consistency for block blobs and append blobs. For more information, see [Azure storage account overview](../common/storage-account-overview.md).
 
-Create a Blob storage account with LRS replication using [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount), then retrieve the storage account context that defines the storage account to be used. When acting on a storage account, you reference the context instead of repeatedly providing the credentials. This example creates a storage account called **gridstorage** with locally redundant storage (LRS). 
+Create a Blob storage account with LRS replication using [New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount), then retrieve the storage account context that defines the storage account to be used. When acting on a storage account, you reference the context instead of repeatedly providing the credentials. This example creates a storage account called **gridstorage** with locally redundant storage (LRS). 
 
 > [!NOTE]
 > Storage account names are in a global name space so you need to append some random characters to the name provided in this script.
 
 ```powershell
 $storageName = "gridstorage"
-$storageAccount = New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
+$storageAccount = New-AzStorageAccount -ResourceGroupName $resourceGroup `
   -Name $storageName `
   -Location $location `
   -SkuName Standard_LRS `
@@ -82,7 +84,7 @@ Replace `<your-site-name>` with a unique name for your web app. The web app name
 ```powershell
 $sitename="<your-site-name>"
 
-New-AzureRmResourceGroupDeployment `
+New-AzResourceGroupDeployment `
   -ResourceGroupName $resourceGroup `
   -TemplateUri "https://raw.githubusercontent.com/Azure-Samples/azure-event-grid-viewer/master/azuredeploy.json" `
   -siteName $sitename `
@@ -100,10 +102,10 @@ You should see the site with no messages currently displayed.
 You subscribe to a topic to tell Event Grid which events you want to track. The following example subscribes to the storage account you created, and passes the URL from your web app as the endpoint for event notification. The endpoint for your web app must include the suffix `/api/updates/`.
 
 ```powershell
-$storageId = (Get-AzureRmStorageAccount -ResourceGroupName $resourceGroup -AccountName $storageName).Id
+$storageId = (Get-AzStorageAccount -ResourceGroupName $resourceGroup -AccountName $storageName).Id
 $endpoint="https://$sitename.azurewebsites.net/api/updates"
 
-New-AzureRmEventGridSubscription `
+New-AzEventGridSubscription `
   -EventSubscriptionName gridBlobQuickStart `
   -Endpoint $endpoint `
   -ResourceId $storageId
@@ -119,14 +121,14 @@ Now, let's trigger an event to see how Event Grid distributes the message to you
 
 ```powershell
 $containerName = "gridcontainer"
-New-AzureStorageContainer -Name $containerName -Context $ctx
+New-AzStorageContainer -Name $containerName -Context $ctx
 
 echo $null >> gridTestFile.txt
 
-Set-AzureStorageBlobContent -File gridTestFile.txt -Container $containerName -Context $ctx -Blob gridTestFile.txt
+Set-AzStorageBlobContent -File gridTestFile.txt -Container $containerName -Context $ctx -Blob gridTestFile.txt
 ```
 
-You have triggered the event, and Event Grid sent the message to the endpoint you configured when subscribing. View your web app to see the event you just sent.
+You've triggered the event, and Event Grid sent the message to the endpoint you configured when subscribing. View your web app to see the event you just sent.
 
 ```json
 [{
@@ -156,10 +158,10 @@ You have triggered the event, and Event Grid sent the message to the endpoint yo
 ```
 
 ## Clean up resources
-If you plan to continue working with this storage account and event subscription, do not clean up the resources created in this article. If you do not plan to continue, use the following command to delete the resources you created in this article.
+If you plan to continue working with this storage account and event subscription, don't clean up the resources created in this article. If you don't plan to continue, use the following command to delete the resources you created in this article.
 
 ```powershell
-Remove-AzureRmResourceGroup -Name $resourceGroup
+Remove-AzResourceGroup -Name $resourceGroup
 ```
 
 ## Next steps

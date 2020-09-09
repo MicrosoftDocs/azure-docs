@@ -1,30 +1,23 @@
 ---
-title: Introduction to App Service Environment v1
-description: Learn about the App Service Environment v1 feature that provides secure, VNet-joined, dedicated scale units for running all of your apps.
-services: app-service
-documentationcenter: ''
+title: Introduction to ASE v1
+description: Learn about the App Service Environment v1 features. This doc is provided only for customers who use the legacy v1 ASE. 
 author: stefsch
-manager: erikre
-editor: ''
 
 ms.assetid: 78e6d4f5-da46-4eb5-a632-b5fdc17d2394
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
+ms.custom: seodec18
 
 ---
 # Introduction to App Service Environment v1
 
 > [!NOTE]
 > This article is about the App Service Environment v1.  There is a newer version of the App Service Environment that is easier  to use and runs on more powerful infrastructure. To learn more about the new version start with the [Introduction to the App  Service Environment](intro.md).
-> 
 
 ## Overview
-An App Service Environment is a [Premium][PremiumTier] service plan option of [Azure App Service](../app-service-web-overview.md) that provides a fully isolated and dedicated environment for securely running Azure App Service apps at high scale, including Web Apps, Mobile Apps, and API Apps.  
+
+An App Service Environment is a [Premium][PremiumTier] service plan option of [Azure App Service](../overview.md) that provides a fully isolated and dedicated environment for securely running Azure App Service apps at high scale, including Web Apps, Mobile Apps, and API Apps.  
 
 App Service Environments are ideal for application workloads requiring:
 
@@ -41,16 +34,17 @@ For a deep-dive on horizontally scaling using multiple App Service Environments 
 
 To see how the security architecture shown in the AzureCon Deep Dive was configured, see the article on implementing a [layered security architecture](app-service-app-service-environment-layered-security.md) with App Service Environments.
 
-Apps running on App Service Environments can have their access gated by upstream devices such as web application firewalls (WAF).  The article on [configuring a WAF for App Service Environments](app-service-app-service-environment-web-application-firewall.md) covers this scenario. 
+Apps running on App Service Environments can have their access gated by upstream devices such as web application firewalls (WAF).  The article on [configuring a WAF for App Service Environments](app-service-app-service-environment-web-application-firewall.md) covers this scenario.
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## Dedicated Compute Resources
+
 All of the compute resources in an App Service Environment are dedicated exclusively to a single subscription, and an App Service Environment can be configured with up to fifty (50) compute resources for exclusive use by a single application.
 
-An App Service Environment is composed of a front-end compute resource pool, as well as one to three worker compute resource pools. 
+An App Service Environment is composed of a front-end compute resource pool, as well as one to three worker compute resource pools.
 
-The front-end pool contains compute resources responsible for SSL termination as well automatic load balancing of app requests within an App Service Environment. 
+The front-end pool contains compute resources responsible for TLS termination as well automatic load balancing of app requests within an App Service Environment.
 
 Each worker pool contains compute resources allocated to [App Service Plans][AppServicePlan], which in turn contain one or more Azure App Service apps.  Since there can be up to three different worker pools in an App Service Environment, you have the flexibility to choose different compute resources for each worker pool.  
 
@@ -61,6 +55,7 @@ For more details on the quantity of compute resources available to the front-end
 For details on the available compute resource sizes supported in an App Service Environment, consult the [App Service Pricing][AppServicePricing] page and review the available options for App Service Environments in the Premium pricing tier.
 
 ## Virtual Network Support
+
 An App Service Environment can be created in **either** an Azure Resource Manager virtual network, **or** a classic deployment model virtual network ([more info on virtual networks][MoreInfoOnVirtualNetworks]).  Since an App Service Environment always exists in a virtual network, and more precisely within a subnet of a virtual network, you can leverage the security features of virtual networks to control both inbound and outbound network communications.  
 
 An App Service Environment can be either Internet facing with a public IP address, or internal facing with only an Azure Internal Load Balancer (ILB) address.
@@ -72,6 +67,7 @@ Apps also frequently need to access corporate resources such as internal databas
 For more details on how App Service Environments work with virtual networks and on-premises networks consult the following articles on [Network Architecture][NetworkArchitectureOverview], [Controlling Inbound Traffic][ControllingInboundTraffic], and [Securely Connecting to Backends][SecurelyConnectingToBackends]. 
 
 ## Getting started
+
 To get started with App Service Environments, see [How To Create An App Service Environment][HowToCreateAnAppServiceEnvironment]
 
 For an overview of the App Service Environment network architecture, see the [Network Architecture Overview][NetworkArchitectureOverview] article.
@@ -81,23 +77,21 @@ For details on using an App Service Environment with ExpressRoute, see the follo
 [!INCLUDE [app-service-web-try-app-service](../../../includes/app-service-web-try-app-service.md)]
 
 <!-- LINKS -->
-[PremiumTier]: http://azure.microsoft.com/pricing/details/app-service/
-[MoreInfoOnVirtualNetworks]: https://azure.microsoft.com/documentation/articles/virtual-networks-faq/
-[AppServicePlan]: ../azure-web-sites-web-hosting-plans-in-depth-overview.md
+[PremiumTier]: https://azure.microsoft.com/pricing/details/app-service/
+[MoreInfoOnVirtualNetworks]: ../../virtual-network/virtual-networks-faq.md
+[AppServicePlan]: ../overview-hosting-plans.md
 [HowToCreateAnAppServiceEnvironment]: app-service-web-how-to-create-an-app-service-environment.md
-[LogicApps]: http://azure.microsoft.com/documentation/articles/app-service-logic-what-are-logic-apps/
+[LogicApps]: ../../logic-apps/logic-apps-overview.md
 [AzureConDeepDive]:  https://azure.microsoft.com/documentation/videos/azurecon-2015-deploying-highly-scalable-and-secure-web-and-mobile-apps/
 [GeodistributedAppFootprint]:  app-service-app-service-environment-geo-distributed-scale.md
-[NetworkSecurityGroups]: https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/
-[SiteToSite]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-multi-site
-[ExpressRoute]: http://azure.microsoft.com/services/expressroute/
+[NetworkSecurityGroups]: ../../virtual-network/virtual-network-vnet-plan-design-arm.md
+[SiteToSite]: ../../vpn-gateway/vpn-gateway-multi-site.md
+[ExpressRoute]: https://azure.microsoft.com/services/expressroute/
 [HowToConfigureanAppServiceEnvironment]:  app-service-web-configure-an-app-service-environment.md
 [ControllingInboundTraffic]:  app-service-app-service-environment-control-inbound-traffic.md
 [SecurelyConnectingToBackends]:  app-service-app-service-environment-securely-connecting-to-backend-resources.md
 [NetworkArchitectureOverview]:  app-service-app-service-environment-network-architecture-overview.md
 [NetworkConfigDetailsForExpressRoute]:  app-service-app-service-environment-network-configuration-expressroute.md
-[AppServicePricing]: http://azure.microsoft.com/pricing/details/app-service/ 
+[AppServicePricing]: https://azure.microsoft.com/pricing/details/app-service/ 
 
 <!-- IMAGES -->
-
-

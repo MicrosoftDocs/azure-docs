@@ -1,18 +1,9 @@
 ---
-title: Use cloud-init to run a bash script in a Linux VM on Azure | Microsoft Docs
-description: How to use cloud-init to run a bash script in a Linux VM during creation with the Azure CLI 2.0
-services: virtual-machines-linux
-documentationcenter: ''
+title: Use cloud-init to run a bash script in a Linux VM on Azure 
+description: How to use cloud-init to run a bash script in a Linux VM during creation with the Azure CLI
 author: rickstercdn
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-
 ms.service: virtual-machines-linux
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
-ms.devlang: azurecli
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/29/2017
 ms.author: rclaus
 
@@ -32,13 +23,13 @@ To see this functionality in action, create a simple bash script for testing. Li
 echo "this has been written via cloud-init" + $(date) >> /tmp/myScript.txt
 ```
 
-Before deploying this image, you need to create a resource group with the [az group create](/cli/azure/group#az_group_create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. The following example creates a resource group named *myResourceGroup* in the *eastus* location.
+Before deploying this image, you need to create a resource group with the [az group create](/cli/azure/group) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. The following example creates a resource group named *myResourceGroup* in the *eastus* location.
 
 ```azurecli-interactive 
 az group create --name myResourceGroup --location eastus
 ```
 
-Now, create a VM with [az vm create](/cli/azure/vm#az_vm_create) and specify the bash script file with `--custom-data simple_bash.sh` as follows:
+Now, create a VM with [az vm create](/cli/azure/vm) and specify the bash script file with `--custom-data simple_bash.sh` as follows:
 
 ```azurecli-interactive 
 az vm create \

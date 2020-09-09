@@ -1,16 +1,16 @@
 ---
-title: Repeatable copy in Azure Data Factory| Microsoft Docs
+title: Repeatable copy in Azure Data Factory
 description: 'Learn how to avoid duplicates even though a slice that copies data is run more than once.'
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 editor: 
 
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+
+
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
@@ -103,7 +103,7 @@ The copy activity ran the cleanup script to delete the corresponding data for th
 
 ### Mechanism 2: using sliceIdentifierColumnName
 > [!IMPORTANT]
-> Currently, sliceIdentifierColumnName is not supported for Azure SQL Data Warehouse. 
+> Currently, sliceIdentifierColumnName is not supported for Azure Synapse Analytics (formerly SQL Data Warehouse). 
 
 The second mechanism to achieve repeatability is by having a dedicated column (sliceIdentifierColumnName) in the target Table. This column would be used by Azure Data Factory to ensure the source and destination stay synchronized. This approach works when there is flexibility in changing or defining the destination SQL Table schema. 
 
@@ -119,7 +119,7 @@ This column is used by Azure Data Factory for repeatability purposes and in the 
        [Id] [varchar](32) NOT NULL,
        [Name] [nvarchar](256) NOT NULL
 	)
-	```
+    ```
 
 	Destination table: 
 
@@ -129,9 +129,9 @@ This column is used by Azure Data Factory for repeatability purposes and in the 
        [Name] [nvarchar](256) NOT NULL,
        [AdfSliceIdentifier] [binary](32) NULL
 	)
-	```
+    ```
 
-2. Use it in the copy activity as follows:
+1. Use it in the copy activity as follows:
    
     ```json
     "sink":  
@@ -150,5 +150,5 @@ Similar to mechanism 1, Copy Activity automatically cleans up the data for the g
 Review the following connector articles that for complete JSON examples: 
 
 - [Azure SQL Database](data-factory-azure-sql-connector.md)
-- [Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md)
+- [Azure Synapse Analytics](data-factory-azure-sql-data-warehouse-connector.md)
 - [SQL Server](data-factory-sqlserver-connector.md)

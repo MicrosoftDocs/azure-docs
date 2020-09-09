@@ -1,21 +1,12 @@
-﻿---
-title: Configure Azure Service Fabric Reliable Services | Microsoft Docs
-description: Learn about configuring stateful Reliable Services in Azure Service Fabric.
-services: Service-Fabric
-documentationcenter: .net
+---
+title: Configure Azure Service Fabric Reliable Services 
+description: Learn about configuring stateful Reliable Services in an Azure Service Fabric application globally and for a single service.
 author: sumukhs
-manager: timlt
-editor: vturecek
 
-ms.assetid: 9f72373d-31dd-41e3-8504-6e0320a11f0e
-ms.service: Service-Fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 10/02/2017
 ms.author: sumukhs
-
+ms.custom: devx-track-csharp
 ---
 # Configure stateful reliable services
 There are two sets of configuration settings for reliable services. One set is global for all reliable services in the cluster while the other set is specific to a particular reliable service.
@@ -34,13 +25,15 @@ The global reliable service configuration is specified in the cluster manifest f
 
 In Azure ARM or on-premises JSON template, the example below shows how to change the shared transaction log that gets created to back any reliable collections for stateful services.
 
-    "fabricSettings": [{
-        "name": "KtlLogger",
-        "parameters": [{
-            "name": "SharedLogSizeInMB",
-            "value": "4096"
-        }]
+```json
+"fabricSettings": [{
+    "name": "KtlLogger",
+    "parameters": [{
+        "name": "SharedLogSizeInMB",
+        "value": "4096"
     }]
+}]
+```
 
 ### Sample local developer cluster manifest section
 If you want to change this on your local development environment, you need to edit the local clustermanifest.xml file.
@@ -121,6 +114,7 @@ ReplicatorConfig
 | SharedLogPath |Fully qualified path name |"" |Specifies the fully qualified path where the shared log file for this replica will be created. Typically, services should not use this setting. However, if SharedLogPath is specified, then SharedLogId must also be specified. |
 | SlowApiMonitoringDuration |Seconds |300 |Sets the monitoring interval for managed API calls. Example: user provided backup callback function. After the interval has passed, a warning health report will be sent to the Health Manager. |
 | LogTruncationIntervalSeconds |Seconds |0 |Configurable interval at which log truncation will be initiated on each replica. It is used to ensure log is also truncated based on time instead of just log size. This setting also forces purge of deleted entries in reliable dictionary. Hence it can be used to ensure deleted items are purged in a timely manner. |
+| EnableStableReads |Boolean |False |Enabling stable reads restricts secondary replicas to returning values which have been quorum-acked. |
 
 ### Sample configuration via code
 ```csharp
@@ -157,7 +151,7 @@ class MyStatefulService : StatefulService
 ### Sample configuration file
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+<Settings xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">
    <Section Name="ReplicatorConfig">
       <Parameter Name="ReplicatorEndpoint" Value="ReplicatorEndpoint" />
       <Parameter Name="BatchAcknowledgementInterval" Value="0.05"/>
@@ -189,5 +183,4 @@ possible should specify the same shared log. Shared log files should be placed o
 
 ## Next steps
 * [Debug your Service Fabric application in Visual Studio](service-fabric-debugging-your-application.md)
-* [Developer reference for Reliable Services](https://msdn.microsoft.com/library/azure/dn706529.aspx)
-
+* [Developer reference for Reliable Services](/previous-versions/azure/dn706529(v=azure.100))

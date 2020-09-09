@@ -4,16 +4,12 @@ description: Explains how to use the StorSimple Device Manager service Backup Ca
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: timlt
-editor: ''
 
 ms.assetid: 
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
-ms.date: 05/23/2017
+ms.topic: how-to
+ms.date: 07/15/2020
 ms.author: alkohli
 
 ---
@@ -22,8 +18,6 @@ ms.author: alkohli
 ## Overview
 
 This tutorial describes the restore operation performed on a StorSimple 8000 series device using an existing backup set. Use the **Backup catalog** blade to restore a volume from a local or cloud backup. The **Backup catalog** blade displays all the backup sets that are created when manual or automated backups are taken. The restore operation from a backup set brings the volume online immediately while data is downloaded in the background.
-
-An alternate method to start restore is to go to **Devices > [Your device] > Volumes**. In the **Volumes** blade, select a volume, right-click to invoke the context menu, and then select **Restore**.
 
 ## Before you restore
 
@@ -47,7 +41,7 @@ Before you start a restore, review the following caveats:
 
 ## How does restore work
 
-For devices running Update 4 or later, a heatmap-based restore is implemented. As the host requests to access data reach the device, these requests are tracked and a heatmap is created. High request rate results in data chunks with higher heat whereas lower request rate translates to chunks with lower heat. You must access the data atleast twice to be marked as _hot_. A file that is modified is also marked as _hot_. Once you initiate the restore, then proactive hydration of data occurs based on the heatmap. For versions earlier than Update 4, the data is downloaded during restore based on access only.
+For devices running Update 4 or later, a heatmap-based restore is implemented. As the host requests to access data reach the device, these requests are tracked and a heatmap is created. High request rate results in data chunks with higher heat whereas lower request rate translates to chunks with lower heat. You must access the data at least twice to be marked as _hot_. A file that is modified is also marked as _hot_. Once you initiate the restore, then proactive hydration of data occurs based on the heatmap. For versions earlier than Update 4, the data is downloaded during restore based on access only.
 
 The following caveats apply to heatmap-based restores:
 
@@ -67,7 +61,7 @@ In Update 4, Windows PowerShell cmdlets can be used to query running rehydration
 
 For more information on rehydration cmdlets, go to [Windows PowerShell cmdlet reference for StorSimple](https://technet.microsoft.com/library/dn688168.aspx).
 
-With automatic rehdyration, typically higher transient read performance is expected. The actual magniutde of improvements depends on various factors such as access pattern, data churn, and data type. 
+With automatic rehydration, typically higher transient read performance is expected. The actual magnitude of improvements depends on various factors such as access pattern, data churn, and data type. 
 
 To cancel a rehydration job, you can use the PowerShell cmdlet. If you wish to permanently disable rehydration jobs for all the future restores, [contact Microsoft Support](storsimple-8000-contact-microsoft-support.md).
 
@@ -106,9 +100,9 @@ You can use the **Backup Catalog** blade to restore your StorSimple volume from 
    3. In the drop-down list, choose the volume or backup policy for the backup that you wish to select.
    4. Click **Apply** to execute this query.
 
-    The backups associated with the selected volume or backup policy should appear in the list of backup sets.
+      The backups associated with the selected volume or backup policy should appear in the list of backup sets.
    
-    ![Backup set list](./media/storsimple-8000-restore-from-backup-set-u2/bucatalog.png)     
+      ![Backup set list](./media/storsimple-8000-restore-from-backup-set-u2/bucatalog.png)     
      
 3. Expand the backup set to view the associated volumes. These volumes must be taken offline on the host and device before you can restore them. Access the volumes on the **Volumes** blade of your device, and then follow the steps in [Take a volume offline](storsimple-8000-manage-volumes-u2.md#take-a-volume-offline) to take them offline.
    
@@ -123,9 +117,9 @@ You can use the **Backup Catalog** blade to restore your StorSimple volume from 
    
     ![Confirmation page](./media/storsimple-8000-restore-from-backup-set-u2/restorebu2.png)
 
-7.  Click **Restore**. This initiates a restore job that you can view by accessing the **Jobs** page.
+7. Click **Restore**. This initiates a restore job that you can view by accessing the **Jobs** page.
 
-    ![Confirmation page](./media/storsimple-8000-restore-from-backup-set-u2/restorebu5.png)
+   ![Confirmation page](./media/storsimple-8000-restore-from-backup-set-u2/restorebu5.png)
 
 8. After the restore is complete, verify that the contents of your volumes are replaced by volumes from the backup.
 

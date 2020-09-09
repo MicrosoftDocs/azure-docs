@@ -3,17 +3,17 @@ title: Monitoring and troubleshooting from HANA side on SAP HANA on Azure (Large
 description: Monitoring and troubleshooting from HANA side on SAP HANA on an Azure (Large Instances).
 services: virtual-machines-linux
 documentationcenter: 
-author: RicksterCDN
-manager: jeconnoc
+author: msjuergent
+manager: bburns
 editor:
 
 ms.service: virtual-machines-linux
-ms.devlang: NA
+
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/10/2018
-ms.author: rclaus
+ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -59,9 +59,9 @@ The Load graph might show high CPU consumption, or high consumption in the past:
 
 ![The Load graph might show high CPU consumption, or high consumption in the past](./media/troubleshooting-monitoring/image4-load-graph.png)
 
-An alert triggered due to high CPU utilization could be caused by several reasons, including, but not limited to: execution of certain transactions, data loading, hanging of jobs, long running SQL statements, and bad query performance (for example, with BW on HANA cubes).
+An alert triggered due to high CPU utilization could be caused by several reasons, including, but not limited to: execution of certain transactions, data loading, jobs that are not responding, long running SQL statements, and bad query performance (for example, with BW on HANA cubes).
 
-Refer to the [SAP HANA Troubleshooting: CPU Related Causes and Solutions](http://help.sap.com/saphelp_hanaplatform/helpdata/en/4f/bc915462db406aa2fe92b708b95189/content.htm?frameset=/en/db/6ca50424714af8b370960c04ce667b/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=46&amp;show_children=false) site for detailed troubleshooting steps.
+Refer to the [SAP HANA Troubleshooting: CPU Related Causes and Solutions](https://help.sap.com/saphelp_hanaplatform/helpdata/en/4f/bc915462db406aa2fe92b708b95189/content.htm?frameset=/en/db/6ca50424714af8b370960c04ce667b/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=46&amp;show_children=false) site for detailed troubleshooting steps.
 
 ## Operating System
 
@@ -84,7 +84,7 @@ You may observe that the amount of memory allocated by the SAP HANA database is 
 - Memory usage of main storage of Column Store tables (Alert 45)
 - Runtime dump files (Alert 46)
 
-Refer to the [SAP HANA Troubleshooting: Memory Problems](http://help.sap.com/saphelp_hanaplatform/helpdata/en/db/6ca50424714af8b370960c04ce667b/content.htm?frameset=/en/59/5eaa513dde43758b51378ab3315ebb/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=26&amp;show_children=false) site for detailed troubleshooting steps.
+Refer to the [SAP HANA Troubleshooting: Memory Problems](https://help.sap.com/saphelp_hanaplatform/helpdata/en/db/6ca50424714af8b370960c04ce667b/content.htm?frameset=/en/59/5eaa513dde43758b51378ab3315ebb/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=26&amp;show_children=false) site for detailed troubleshooting steps.
 
 ## Network
 
@@ -101,11 +101,11 @@ Refer to [SAP Note #2081065 – Troubleshooting SAP HANA Network](https://launch
 
 Also, use the open source [IPERF](https://iperf.fr/) tool (or similar) to measure real application network performance.
 
-Refer to the [SAP HANA Troubleshooting: Networking Performance and Connectivity Problems](http://help.sap.com/saphelp_hanaplatform/helpdata/en/a3/ccdff1aedc4720acb24ed8826938b6/content.htm?frameset=/en/dc/6ff98fa36541e997e4c719a632cbd8/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=142&amp;show_children=false) site for detailed troubleshooting steps.
+Refer to the [SAP HANA Troubleshooting: Networking Performance and Connectivity Problems](https://help.sap.com/saphelp_hanaplatform/helpdata/en/a3/ccdff1aedc4720acb24ed8826938b6/content.htm?frameset=/en/dc/6ff98fa36541e997e4c719a632cbd8/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=142&amp;show_children=false) site for detailed troubleshooting steps.
 
 ## Storage
 
-From an end-user perspective, an application (or the system as a whole) runs sluggishly, is unresponsive, or can even seem to hang if there are issues with I/O performance. In the **Volumes** tab in SAP HANA Studio, you can see the attached volumes, and what volumes are used by each service.
+From an end-user perspective, an application (or the system as a whole) runs sluggishly, is unresponsive, or can even seem to stop responding if there are issues with I/O performance. In the **Volumes** tab in SAP HANA Studio, you can see the attached volumes, and what volumes are used by each service.
 
 ![In the Volumes tab in SAP HANA Studio, you can see the attached volumes, and what volumes are used by each service](./media/troubleshooting-monitoring/image5-volumes-tab-a.png)
 
@@ -113,7 +113,7 @@ Attached volumes in the lower part of the screen you can see details of the volu
 
 ![Attached volumes in the lower part of the screen you can see details of the volumes, such as files and I/O statistics](./media/troubleshooting-monitoring/image6-volumes-tab-b.png)
 
-Refer to the [SAP HANA Troubleshooting: I/O Related Root Causes and Solutions](http://help.sap.com/saphelp_hanaplatform/helpdata/en/dc/6ff98fa36541e997e4c719a632cbd8/content.htm?frameset=/en/47/4cb08a715c42fe9f7cc5efdc599959/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=55&amp;show_children=false) and [SAP HANA Troubleshooting: Disk Related Root Causes and Solutions](http://help.sap.com/saphelp_hanaplatform/helpdata/en/47/4cb08a715c42fe9f7cc5efdc599959/content.htm?frameset=/en/44/3e1db4f73d42da859008df4f69e37a/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=53&amp;show_children=false) site for detailed troubleshooting steps.
+Refer to the [SAP HANA Troubleshooting: I/O Related Root Causes and Solutions](https://help.sap.com/saphelp_hanaplatform/helpdata/en/dc/6ff98fa36541e997e4c719a632cbd8/content.htm?frameset=/en/47/4cb08a715c42fe9f7cc5efdc599959/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=55&amp;show_children=false) and [SAP HANA Troubleshooting: Disk Related Root Causes and Solutions](https://help.sap.com/saphelp_hanaplatform/helpdata/en/47/4cb08a715c42fe9f7cc5efdc599959/content.htm?frameset=/en/44/3e1db4f73d42da859008df4f69e37a/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=53&amp;show_children=false) site for detailed troubleshooting steps.
 
 ## Diagnostic Tools
 
@@ -155,7 +155,7 @@ Sample outputs:
 
 **HANA\_Services\_Statistics** for SAP HANA service information (CPU, memory, etc.).
 
-![HANA\_Services\_Statistics for SAP HANA service information ](./media/troubleshooting-monitoring/image13-services-statistics.png)
+![HANA\_Services\_Statistics for SAP HANA service information](./media/troubleshooting-monitoring/image13-services-statistics.png)
 
 **HANA\_Configuration\_Overview\_Rev110+** for general information on the SAP HANA instance.
 

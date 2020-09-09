@@ -1,0 +1,102 @@
+### YamlMime:Hub
+
+title: Azure Arc documentation
+summary: Simplify complex and distributed environments across on-premises, edge, and multicloud.
+# brand: aspnet | azure | dotnet | dynamics | m365 | ms-graph | office | power-bi | power-platform | sql | sql-server | vs | visual-studio | windows | xamarin
+brand: azure
+
+metadata:
+  title: Azure Arc
+  description: Learn how to deploy resources to complex and distributed environments across on-premises, edge and multicloud. Azure Arc enables deployment of Azure services anywhere and extends Azure management to any infrastructure.
+  ms.service: azure-arc
+  ms.topic: hub-page
+  author: MGoedtel
+  ms.author: magoedte
+  ms.date: 08/21/2020
+
+# highlightedContent section (optional)
+# Maximum of 8 items
+highlightedContent:
+# itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
+  items:
+    # Card
+    - title: Azure Arc enabled servers (preview)
+      itemType: overview
+      url: ./servers/overview.md
+    # Card
+    - title: Azure Arc enabled Kubernetes (preview)
+      itemType: overview
+      url: ./kubernetes/overview.md
+    # Card
+    - title: About Azure Arc
+      itemType: overview
+      url:  overview.md
+
+# productDirectory section (optional)
+productDirectory:
+  title: Azure Arc enabled services
+  summary: See how to run services anywhere.
+  items: 
+    # Card
+    - title: Azure Arc enabled servers
+      # imageSrc should be square in ratio with no whitespace
+      imageSrc: ./media/manage-450-machines-azure-arc.svg
+      links:
+        - url: ./servers/onboard-portal.md
+          text: Connect machines to Azure Arc from the Azure portal
+        - url: ./servers/onboard-service-principal.md
+          text: Connect machines at scale using a service principal
+        - url: ./servers/onboard-dsc.md
+          text: Connect machines to Azure with PowerShell DSC
+        - url: ./servers/index.yml
+          text: See more...
+    # Card
+    - title: Azure Arc enabled Kubernetes
+      imageSrc: ./media/containers-101-kubernetes-services.svg
+      links:
+        - url: ./kubernetes/connect-cluster.md
+          text: Connect cluster
+        - url: ./kubernetes/use-gitops-connected-cluster.md
+          text: Deploy configurations using GitOps
+        - url: ./kubernetes/index.yml
+          text: See more...
+
+# conceptualContent section (optional)
+conceptualContent:
+# itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
+  title: Get started # < 60 chars (optional)
+  # summary: # < 160 chars (optional)
+  items:
+    # Card
+    - title: Azure Arc enabled servers (preview)
+      links:
+        - url: ./servers/learn/quick-enable-hybrid-vm.md
+          itemType: get-started
+          text: Enable Arc enabled servers agent
+        - url: ./servers/learn/tutorial-enable-vm-insights.md
+          itemType: tutorial
+          text: Monitor a hybrid machine with Azure Monitor for VMs
+        - url: ./servers/policy-samples.md
+          itemType: learn
+          text: Admission control policies using Azure Policy
+        - url: ./servers/manage-vm-extensions.md
+          itemType: how-to-guide
+          text: Manage and use Azure VM extensions
+    # Card
+    - title: Azure Arc enabled Kubernetes (preview)
+      links:
+        - url: ./kubernetes/use-gitops-with-helm.md
+          itemType: deploy
+          text: Deploy Helm charts using GitOps
+        - url: ./kubernetes/use-azure-policy.md
+          itemType: how-to-guide
+          text: Enforce GitOps using Azure Policy
+        - url: ../azure-monitor/insights/container-insights-enable-arc-enabled-clusters.md?toc=/azure/azure-arc/toc.json
+          itemType: tutorial
+          text: Monitor using Azure Monitor for containers
+        - url: ../governance/policy/concepts/policy-for-kubernetes.md?toc=/azure/azure-arc/toc.json
+          itemType: learn
+          text: Admission control policies using Azure Policy
+        - url: ./kubernetes/deploy-azure-iot-edge-workloads.md
+          itemType: deploy
+          text: Deploy Azure IoT edge workloads

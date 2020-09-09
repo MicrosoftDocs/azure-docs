@@ -1,6 +1,6 @@
 ---
 title: Azure Data Lake Storage Gen1 cross-region migration | Microsoft Docs
-description: Learn about cross-region migration for Azure Data Lake Storage Gen1.
+description: Learn what to consider as you plan and complete a migration to Azure Data Lake Storage Gen1 as it becomes available in new regions.
 services: data-lake-store
 documentationcenter: ''
 author: swums
@@ -42,7 +42,7 @@ Other important details to consider when planning your migration are:
 
 * **Bandwidth charges**. [Bandwidth charges](https://azure.microsoft.com/pricing/details/bandwidth/) apply because data is transferred out of an Azure region.
 
-* **ACLs on your data**. Secure your data in the new region by applying ACLs to files and folders. For more information, see [Securing data stored in Azure Data Lake Storage Gen1](data-lake-store-secure-data.md). We recommend that you use the migration to update and adjust your ACLs. You might want to use settings similar to your current settings. You can view the ACLs that are applied to any file by using the Azure portal, [PowerShell cmdlets](/powershell/module/azurerm.datalakestore/get-azurermdatalakestoreitempermission), or SDKs.  
+* **ACLs on your data**. Secure your data in the new region by applying ACLs to files and folders. For more information, see [Securing data stored in Azure Data Lake Storage Gen1](data-lake-store-secure-data.md). We recommend that you use the migration to update and adjust your ACLs. You might want to use settings similar to your current settings. You can view the ACLs that are applied to any file by using the Azure portal, [PowerShell cmdlets](/powershell/module/az.datalakestore/get-azdatalakestoreitempermission), or SDKs.  
 
 * **Location of analytics services**. For best performance, your analytics services, like Azure Data Lake Analytics or Azure HDInsight, should be in the same region as your data.  
 

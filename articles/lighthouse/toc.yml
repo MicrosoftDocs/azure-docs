@@ -1,0 +1,110 @@
+- name: Azure Lighthouse documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: What is Azure Lighthouse?
+    displayName: management at scale, service providers
+    href: overview.md
+- name: Samples
+  items:
+  - name: Index
+    displayName: template, sample
+    href: ./samples/index.md
+- name: Concepts
+  items:
+  - name: Azure delegated resource management
+    displayName: delegation, projection
+    href: ./concepts/azure-delegated-resource-management.md
+  - name: Cross-tenant management experiences
+    displayName: scenarios, supported, enhanced, services, limitations, current
+    href: ./concepts/cross-tenant-management-experience.md
+  - name: Tenants, roles, and users
+    displayName: Azure AD, Azure Active Directory
+    href: ./concepts/tenants-users-roles.md
+  - name: Managed Service offers in Azure Marketplace
+    displayName: azure marketplace, marketplace, managed service, private, plan
+    href: ./concepts/managed-services-offers.md
+  - name: Recommended security practices
+    displayName: mfa, authentication, secure, group
+    href: ./concepts/recommended-security-practices.md
+  - name: Cloud Solution Provider program considerations
+    displayName: csp, aobo, partner
+    href: ./concepts/cloud-solution-provider.md
+  - name: Azure Lighthouse in enterprise scenarios
+    displayName: corporation, IT, consolidate
+    href: ./concepts/enterprise.md
+  - name: Azure Lighthouse and Azure managed applications 
+    displayName: managed apps, ama
+    href: ./concepts/managed-applications.md
+- name: How-to guides
+  items:
+  - name: Onboard a customer to Azure Lighthouse
+    displayName: resource management
+    href: ./how-to/onboard-customer.md
+  - name: Publish Managed Service offers to Azure Marketplace 
+    displayName: managed services offer, azure marketplace, publish, marketplace
+    href: ./how-to/publish-managed-services-offers.md
+  - name: View and manage customers 
+    displayName: my customers
+    href: ./how-to/view-manage-customers.md
+  - name: Link your partner ID
+    displayName: partner earned credit, pec, mpn
+    href: ./how-to/partner-earned-credit.md
+  - name: Remove access to a delegation
+    displayName: delete, undelegate
+    href: ./how-to/remove-delegation.md
+  - name: Azure Monitor integration
+    items:
+    - name: Use Azure Monitor Logs at scale
+      displayName: log, analytics, analyze, activity
+      href: ./how-to/monitor-at-scale.md
+    - name: Monitor delegation changes
+      displayName: activity log
+      href: ./how-to/monitor-delegation-changes.md
+  - name: Azure Policy integration
+    items:
+    - name: Deploy a policy at scale
+      displayName: storage
+      href: ./how-to/policy-at-scale.md
+    - name: Deploy a policy that can be remediated
+      displayName: deployIfNotExists, modify, managed identities, managed identity
+      href: ./how-to/deploy-policy-remediation.md
+  - name: Azure Sentinel integration
+    href: ./how-to/manage-sentinel-workspaces.md
+  - name: Customer actions
+    items:
+    - name: View and manage service providers 
+      displayName: customer, update
+      href: ./how-to/view-manage-service-providers.md
+    - name: View service provider activity
+      displayName: monitor, log
+      href: ./how-to/view-service-provider-activity.md
+- name: Reference
+  items:
+  - name: Azure CLI
+    href: /cli/azure/managedservices
+  - name: Azure PowerShell
+    href: /powershell/module/az.managedservices#managed_services
+  - name: Azure SDK for .NET
+    href: /dotnet/api/Microsoft.Azure.Management.ManagedServices
+  - name: Azure SDK for .NET (NuGet)
+    href: https://www.nuget.org/packages/Microsoft.Azure.Management.ManagedServices/
+  - name: Azure SDK for Python
+    href: /python/api/azure-mgmt-managedservices
+  - name: REST
+    href: /rest/api/managedservices/
+  - name: OpenAPI
+    href: https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managedservices/resource-manager/Microsoft.ManagedServices/preview/2018-06-01-preview
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./samples/policy-reference.md
+- name: Resources
+  items:
+  - name: Microsoft Q&A for Azure Lighthouse
+    href: /answers/topics/azure-lighthouse.html
+  - name: Azure roadmap
+    href: https://azure.microsoft.com/roadmap/
+  - name: Pricing calculator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Product feedback
+    href: https://feedback.azure.com/forums/922753

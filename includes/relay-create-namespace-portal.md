@@ -1,29 +1,34 @@
+---
+author: clemensv
+ms.service: service-bus-relay
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: clemensv
+---
 1. Sign in to the [Azure portal][Azure portal].
-2. In the left menu, select **+ Create a resource**. Then, select **Enterprise Integration** > **Relay**.
-3. Under **Create namespace**, enter a namespace name. The system immediately checks to see if the name is available.
-4. In the **Subscription** box, select an Azure subscription in which to create the namespace.
-5. In the [Resource group](../articles/azure-resource-manager/resource-group-portal.md) box, select an existing resource group in which to place the namespace, or create a new one.  
-6. In **Location**, select the country or region in which your namespace should be hosted.
-   
+1. Select **Create a resource**. Then, select **Integration** > **Relay**. If you don't see **Relay** in the list, select **See All** in the top-right corner.
+1. Select **Create**, and enter a namespace name in the **Name** field. Azure portal checks to see if the name is available.
+1. Choose an Azure subscription in which to create the namespace.
+1. For [Resource group](../articles/azure-resource-manager/management/manage-resource-groups-portal.md), choose an existing resource group in which to place the namespace, or create a new one.  
+1. Select the country or region in which your namespace should be hosted.
+
     ![Create namespace][create-namespace]
-7. Select **Create**. The system creates your namespace and enables it. After a few minutes, the system provisions resources for your account.
+
+1. Select **Create**. The Azure portal creates your namespace and enables it. After a few minutes, the system provisions resources for your account.
 
 ### Get management credentials
 
-1. Select **All resources**, and then select the newly created namespace name.
-2. Under the Relay namespace, select **Shared access policies**.  
-3. Under **Shared access policies**, select **RootManageSharedAccessKey**.
-   
-    ![connection-info][connection-info]
-4. Under **Policy: RootManageSharedAccessKey**, select the **Copy** button next to **Connection string–Primary key**. This copies the connection string to your clipboard for later use. Paste this value into Notepad or some other temporary location.
-   
-    ![connection-string][connection-string]
+1. Select **All resources**, and then choose the newly created namespace name.
+1. Select **Shared access policies**.  
+1. Under **Shared access policies**, select **RootManageSharedAccessKey**.
+1. Under **SAS Policy: RootManageSharedAccessKey**, select the **Copy** button next to **Primary Connection String**. This action copies the connection string to your clipboard for later use. Paste this value into Notepad or some other temporary location.
+1. Repeat the preceding step to copy and paste the value of **Primary key** to a temporary location for later use.  
 
-5. Repeat the preceding step to copy and paste the value of **Primary key** to a temporary location for later use.  
+    ![connection-string][connection-string]
 
 <!--Image references-->
 
-[create-namespace]: ./media/relay-create-namespace-portal/create-namespace.png
+[create-namespace]: ./media/relay-create-namespace-portal/create-namespace-vs2019.png
 [connection-info]: ./media/relay-create-namespace-portal/connection-info.png
-[connection-string]: ./media/relay-create-namespace-portal/connection-string.png
+[connection-string]: ./media/relay-create-namespace-portal/connection-string-vs2019.png
 [Azure portal]: https://portal.azure.com

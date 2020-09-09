@@ -1,20 +1,21 @@
-﻿---
+---
 title: Use a Linux VM user-assigned managed identity to access Azure Resource Manager
 description: A tutorial that walks you through the process of using a user-assigned managed identity on a Linux VM to access Azure Resource Manager.
 services: active-directory
 documentationcenter: ''
-author: daveba
-manager: mtillman
+author: barclayn
+manager: daveba
 editor: daveba
 ms.service: active-directory
-ms.component: msi
+ms.subservice: msi
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/22/2017
-ms.author: daveba
+ms.author: barclayn
 ROBOTS: NOINDEX,NOFOLLOW
+ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Use a user-assigned managed identity on a Linux VM to access Azure Resource Manager
@@ -35,13 +36,11 @@ In this tutorial, you learn how to:
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
-[!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
+- [Sign in to Azure portal](https://portal.azure.com)
 
-[Sign in to Azure portal](https://portal.azure.com)
+- [Create a Linux virtual machine](../../virtual-machines/linux/quick-create-portal.md)
 
-[Create a Linux virtual machine](/azure/virtual-machines/linux/quick-create-portal)
-
-If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
+- If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 ## Create a user-assigned managed identity
 
@@ -81,10 +80,10 @@ The response contains details for the user-assigned managed identity created, si
 
 A user-assigned managed identity can be used by clients on multiple Azure resources. Use the following commands to assign the user-assigned managed identity to a single VM. Use the `Id` property returned in the previous step for the `-IdentityID` parameter.
 
-Assign the user-assigned managed identity to your Linux VM using [az vm assign-identity](/cli/azure/vm#az-vm-assign-identity). Be sure to replace the `<RESOURCE GROUP>` and `<VM NAME>` parameter values with your own values. Use the `id` property returned in the previous step for the `--identities` parameter value.
+Assign the user-assigned managed identity to your Linux VM using [az vm identity assign](/cli/azure/vm). Be sure to replace the `<RESOURCE GROUP>` and `<VM NAME>` parameter values with your own values. Use the `id` property returned in the previous step for the `--identities` parameter value.
 
 ```azurecli-interactive
-az vm assign-identity -g <RESOURCE GROUP> -n <VM NAME> --identities "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<UAMI NAME>"
+az vm identity assign -g <RESOURCE GROUP> -n <VM NAME> --identities "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<UAMI NAME>"
 ```
 
 ## Grant your user-assigned managed identity access to a Resource Group in Azure Resource Manager 
@@ -118,11 +117,11 @@ The response contains details for the role assignment created, similar to the fo
 
 For the remainder of the tutorial, we will work from the VM we created earlier.
 
-To complete these steps, you need an SSH client. If you are using Windows, you can use the SSH client in the [Windows Subsystem for Linux](https://msdn.microsoft.com/commandline/wsl/about). 
+To complete these steps, you need an SSH client. If you are using Windows, you can use the SSH client in the [Windows Subsystem for Linux](/windows/wsl/about). 
 
 1. Sign in to the Azure [portal](https://portal.azure.com).
 2. In the portal, navigate to **Virtual Machines** and go to the Linux virtual machine and in the **Overview**, click **Connect**. Copy the string to connect to your VM.
-3. Connect to the VM with the SSH client of your choice. If you are using Windows, you can use the SSH client in the [Windows Subsystem for Linux](https://msdn.microsoft.com/commandline/wsl/about). If you need assistance configuring your SSH client's keys, see [How to Use SSH keys with Windows on Azure](~/articles/virtual-machines/linux/ssh-from-windows.md), or [How to create and use an SSH public and private key pair for Linux VMs in Azure](~/articles/virtual-machines/linux/mac-create-ssh-keys.md).
+3. Connect to the VM with the SSH client of your choice. If you are using Windows, you can use the SSH client in the [Windows Subsystem for Linux](/windows/wsl/about). If you need assistance configuring your SSH client's keys, see [How to Use SSH keys with Windows on Azure](~/articles/virtual-machines/linux/ssh-from-windows.md), or [How to create and use an SSH public and private key pair for Linux VMs in Azure](~/articles/virtual-machines/linux/mac-create-ssh-keys.md).
 4. In the terminal window, using CURL, make a request to the Azure Instance Metadata Service (IMDS) identity endpoint to get an access token for Azure Resource Manager.  
 
    The CURL request to acquire an access token is shown in the following example. Be sure to replace `<CLIENT ID>` with the `clientId` property returned by the `az identity create` command in [Create a user-assigned managed identity](#create-a-user-assigned-managed-identity): 
@@ -175,5 +174,4 @@ To complete these steps, you need an SSH client. If you are using Windows, you c
 In this tutorial, you learned how to create a user-assigned managed identity and attach it to a Linux virtual machine to access the Azure Resource Manager API.  To learn more about Azure Resource Manager see:
 
 > [!div class="nextstepaction"]
->[Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview)
-
+>[Azure Resource Manager](../../azure-resource-manager/management/overview.md)

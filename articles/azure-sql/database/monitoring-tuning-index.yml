@@ -1,0 +1,133 @@
+### YamlMime:Landing
+
+title: Azure SQL Database and Azure SQL Managed Instance monitoring and performance tuning # < 60 chars
+summary: Azure SQL Database  and Azure SQL Managed Instance provide tools to help you collect metrics and diagnostic information to monitor your database and improve its performance. # < 160 chars
+
+metadata:
+  title: Azure SQL Database  and Azure SQL Managed Instance monitoring and tuning documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
+  description: Learn about Azure SQL Database monitoring and performance tuning tools that help you collect metrics and diagnostics and improve database performance.
+  ms.service: sql-database #Required; service per approved list. service slug assigned to your service by ACOM.
+  ms.subservice: performance # Optional; Remove if no subservice is used.
+  ms.custom: sqldbrb=2
+  ms.topic: landing-page # Required
+  ms.collection: performance # Optional; Remove if no collection is used.
+  author: CarlRabeler #Required; your GitHub user alias, with correct capitalization.
+  ms.author: carlrab #Required; microsoft alias of author; optional team alias.
+  ms.date: 03/10/2020 #Required; mm/dd/yyyy format.
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card (optional)
+  - title: Get started with monitoring and performance tuning
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Monitoring and performance tuning
+            url: monitor-tune-overview.md
+      - linkListType: learn
+        links:
+          - text: Microsoft Azure Database Monitoring Playbook
+            url: https://app.pluralsight.com/library/courses/microsoft-azure-database-playbook-monitoring
+
+  # Card (optional)
+  - title: Azure SQL Database intelligent performance recommendations
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: SQL Database Advisor tuning recommendations
+            url: database-advisor-implement-performance-recommendations.md
+          - text: Automatic tuning
+            url: automatic-tuning-enable.md  
+          - text: Query Performance Insight
+            url: query-performance-insight-use.md
+      - linkListType: video
+        links:
+          - text: Automatic tuning
+            url: https://channel9.msdn.com/Shows/Azure-Friday/Improve-Azure-SQL-Database-Performance-with-Automatic-Tuning/player
+
+  # Card
+  - title: Azure SQL Database and Azure SQL Managed Instance resource limits
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Single database vCore resource limits
+            url: resource-limits-vcore-single-databases.md
+          - text: Single database DTU resource limits
+            url: resource-limits-dtu-single-databases.md
+          - text: Elastic pool vCore resource limits
+            url: resource-limits-vcore-elastic-pools.md
+          - text: Elastic pool DTU resource limits
+            url: resource-limits-dtu-elastic-pools.md
+          - text: SQL Managed Instance resource limits
+            url: ../managed-instance/resource-limits.md
+          - text: Instance pools resource limits
+            url: ../managed-instance/instance-pools-overview.md#resource-limitations
+
+  # Card (optional)
+  - title: Intelligent performance analysis for Azure SQL Database and Azure SQL Managed Instance
+    linkLists:
+      - linkListType: overview
+        links: 
+          - text: Intelligent Insights using AI
+            url: intelligent-insights-overview.md
+      - linkListType: concept
+        links:
+          - text: Metrics and diagnostics logging
+            url: metrics-diagnostic-telemetry-logging-streaming-export-configure.md
+          - text: Understand the performance diagnostics log
+            url: intelligent-insights-use-diagnostics-log.md
+          - text: Azure SQL Analytics
+            url: ../../azure-monitor/insights/azure-sql.md
+          - text: Detectable performance patterns
+            url: intelligent-insights-troubleshoot-performance.md
+          - text: Intelligent query processing
+            url: https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing
+      - linkListType: video
+        links:
+          - text: Intelligent Insights
+            url: https://channel9.msdn.com/Shows/Azure-Friday/Get-Intelligent-Insights-for-Improving-Azure-SQL-Database-Performance/player
+
+  # Card
+  - title: Manual performance tuning for Azure SQL Database and Azure SQL Managed Instance
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Identify query performance issues
+            url: ../identify-query-performance-issues.md
+      - linkListType: concept
+        links:
+          - text: Monitoring using DMVs
+            url: monitoring-with-dmvs.md
+          - text: Application and database tuning
+            url: performance-guidance.md
+          - text: Using Query Store
+            url: https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store
+          - text: Using extended events
+            url: xevent-db-diff-from-svr.md
+          - text: Hyperscale performance diagnostics
+            url: hyperscale-performance-diagnostics.md
+
+  # Card
+  - title: Azure SQL Database and Azure SQL Managed Instance resource scaling
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Dynamically scaling resources
+            url: scale-resources.md
+      - linkListType: concept
+        links:
+          - text: Scaling single database resources
+            url: single-database-scale.md
+          - text: Scaling elastic pool resources
+            url: elastic-pool-scale.md
+          - text: Scaling managed instance resources
+            url: ../managed-instance/sql-managed-instance-paas-overview.md#management-operations
+          - text: Read scale-out
+            url: read-scale-out.md
+      - linkListType: video
+        links:
+          - text: Dynamic scalability
+            url: https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-dynamically-scale-up-or-scale-down/player  

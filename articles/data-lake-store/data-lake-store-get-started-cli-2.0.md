@@ -1,31 +1,28 @@
 ---
-title: Use Azure command-line 2.0 interface to get started with Azure Data Lake Storage Gen1 | Microsoft Docs
-description: Use Azure cross-platform command line 2.0 to create a Data Lake Storage Gen1 account and perform basic operations
-services: data-lake-store
-documentationcenter: ''
-author: nitinme
-manager: jhubbard
+title: Manage Azure Data Lake Storage Gen1 account - Azure CLI
+description: Use the Azure CLI to create a Data Lake Storage Gen1 account and perform basic operations.
 
+author: twooley
 ms.service: data-lake-store
-ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/27/2018
-ms.author: nitinme
+ms.author: twooley
 
 ---
-# Get started with Azure Data Lake Storage Gen1 using Azure CLI 2.0
-> [!div class="op_single_selector"]
-> * [Portal](data-lake-store-get-started-portal.md)
-> * [PowerShell](data-lake-store-get-started-powershell.md)
-> * [Azure CLI 2.0](data-lake-store-get-started-cli-2.0.md)
->
-> 
+# Get started with Azure Data Lake Storage Gen1 using the Azure CLI
 
 [!INCLUDE [data-lake-storage-gen1-rename-note.md](../../includes/data-lake-storage-gen1-rename-note.md)]
 
-Learn how to use Azure CLI 2.0 to create an Azure Data Lake Storage Gen1 account and perform basic operations such as create folders, upload and download data files, delete your account, etc. For more information about Data Lake Storage Gen1, see [Overview of Data Lake Storage Gen1](data-lake-store-overview.md).
+> [!div class="op_single_selector"]
+> * [Portal](data-lake-store-get-started-portal.md)
+> * [PowerShell](data-lake-store-get-started-powershell.md)
+> * [Azure CLI](data-lake-store-get-started-cli-2.0.md)
+>
+> 
 
-The Azure CLI 2.0 is Azure's new command-line experience for managing Azure resources. It can be used on macOS, Linux, and Windows. For more information, see [Overview of Azure CLI 2.0](https://docs.microsoft.com/cli/azure). You can also look at the [Azure Data Lake Storage Gen1 CLI 2.0 reference](https://docs.microsoft.com/cli/azure/dls) for a complete list of commands and syntax.
+Learn how to use the Azure CLI to create an Azure Data Lake Storage Gen1 account and perform basic operations such as create folders, upload and download data files, delete your account, etc. For more information about Data Lake Storage Gen1, see [Overview of Data Lake Storage Gen1](data-lake-store-overview.md).
+
+The Azure CLI is Azure's command-line experience for managing Azure resources. It can be used on macOS, Linux, and Windows. For more information, see [Overview of Azure CLI](https://docs.microsoft.com/cli/azure). You can also look at the [Azure Data Lake Storage Gen1 CLI reference](https://docs.microsoft.com/cli/azure/dls) for a complete list of commands and syntax.
 
 
 ## Prerequisites
@@ -33,7 +30,7 @@ Before you begin this article, you must have the following:
 
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 
-* **Azure CLI 2.0** - See [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) for instructions.
+* **Azure CLI** - See [Install Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) for instructions.
 
 ## Authentication
 
@@ -109,23 +106,25 @@ az dls fs list --account mydatalakestoragegen1 --path /mynewfolder
 
 The output of this should be similar to the following:
 
-	[
-		{
-			"accessTime": 1491323529542,
-			"aclBit": false,
-			"blockSize": 268435456,
-			"group": "1808bd5f-62af-45f4-89d8-03c5e81bac20",
-			"length": 1589881,
-			"modificationTime": 1491323531638,
-			"msExpirationTime": 0,
-			"name": "mynewfolder/vehicle1_09142014.csv",
-			"owner": "1808bd5f-62af-45f4-89d8-03c5e81bac20",
-			"pathSuffix": "vehicle1_09142014.csv",
-			"permission": "770",
-			"replication": 1,
-			"type": "FILE"
-		}
-	]
+```output
+[
+	{
+		"accessTime": 1491323529542,
+		"aclBit": false,
+		"blockSize": 268435456,
+		"group": "1808bd5f-62af-45f4-89d8-03c5e81bac20",
+		"length": 1589881,
+		"modificationTime": 1491323531638,
+		"msExpirationTime": 0,
+		"name": "mynewfolder/vehicle1_09142014.csv",
+		"owner": "1808bd5f-62af-45f4-89d8-03c5e81bac20",
+		"pathSuffix": "vehicle1_09142014.csv",
+		"permission": "770",
+		"replication": 1,
+		"type": "FILE"
+	}
+]
+```
 
 ## Rename, download, and delete data from a Data Lake Storage Gen1 account 
 
@@ -160,7 +159,7 @@ The output of this should be similar to the following:
 
 ## Work with permissions and ACLs for a Data Lake Storage Gen1 account
 
-In this section you learn about how to manage ACLs and permissions using Azure CLI 2.0. For a detailed discussion on how ACLs are implemented in Azure Data Lake Storage Gen1, see [Access control in Azure Data Lake Storage Gen1](data-lake-store-access-control.md).
+In this section you learn about how to manage ACLs and permissions using the Azure CLI. For a detailed discussion on how ACLs are implemented in Azure Data Lake Storage Gen1, see [Access control in Azure Data Lake Storage Gen1](data-lake-store-access-control.md).
 
 * **To update the owner of a file/folder**, use the following command:
 
@@ -182,17 +181,19 @@ In this section you learn about how to manage ACLs and permissions using Azure C
 
 	The output should be similar to the following:
 
-		{
-			"entries": [
-			"user::rwx",
-			"group::rwx",
-			"other::---"
-		  ],
-		  "group": "1808bd5f-62af-45f4-89d8-03c5e81bac20",
-		  "owner": "1808bd5f-62af-45f4-89d8-03c5e81bac20",
-		  "permission": "770",
-		  "stickyBit": false
-		}
+    ```output
+	{
+		"entries": [
+		"user::rwx",
+		"group::rwx",
+		"other::---"
+		],
+		"group": "1808bd5f-62af-45f4-89d8-03c5e81bac20",
+		"owner": "1808bd5f-62af-45f4-89d8-03c5e81bac20",
+		"permission": "770",
+		"stickyBit": false
+	}
+    ```
 
 * **To set an entry for an ACL**, use the following command:
 

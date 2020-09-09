@@ -1,0 +1,287 @@
+- name: Azure Policy documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: What is Azure Policy?
+    displayName: rbac, assign, initiative, parameters, count
+    href: overview.md
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: Assign a policy - Portal
+    displayName: assign, compliance
+    href: ./assign-policy-portal.md
+  - name: Assign a policy - Azure CLI
+    displayName: assign, compliance
+    href: ./assign-policy-azurecli.md
+  - name: Assign a policy - Azure PowerShell
+    displayName: assign, compliance
+    href: ./assign-policy-powershell.md
+  - name: Assign a policy - Python
+    displayName: assign, compliance
+    href: ./assign-policy-python.md
+  - name: Assign a policy - REST
+    displayName: armclient, postman
+    href: ./assign-policy-rest-api.md
+  - name: Assign a policy - ARM template
+    displayName: assign, compliance, resource manager
+    href: ./assign-policy-template.md
+- name: Tutorials
+  items:
+  - name: Create and manage Azure Policy
+    displayName: assign, definition, compliance, exempt, exclusion
+    href: ./tutorials/create-and-manage.md
+  - name: Create a custom policy definition
+    displayName: disabled, parameters, rule, mode
+    href: ./tutorials/create-custom-policy-definition.md
+  - name: Manage tag governance
+    displayName: modify, append, effects
+    href: ./tutorials/govern-tags.md
+- name: Samples
+  items:
+  - name: Index
+    displayName: list, builtins
+    href: ./samples/index.md
+  - name: Built-in policies
+    href: ./samples/built-in-policies.md
+  - name: Built-in initiatives
+    href: ./samples/built-in-initiatives.md
+  - name: Patterns of use
+    items:
+    - name: Logical operators
+      href: ./samples/pattern-logical-operators.md
+    - name: Fields
+      href: ./samples/pattern-fields.md
+    - name: Parameters
+      href: ./samples/pattern-parameters.md
+    - name: Effect details
+      href: ./samples/pattern-effect-details.md
+    - name: Tags
+      href: ./samples/pattern-tags.md
+    - name: Value operator
+      href: ./samples/pattern-value-operator.md
+    - name: Count operator
+      href: ./samples/pattern-count-operator.md
+    - name: Group into initiative
+      href: ./samples/pattern-group-with-initiative.md
+    - name: Deploy resources
+      href: ./samples/pattern-deploy-resources.md
+  - name: Regulatory Compliance built-ins
+    items:
+    - name: Azure Security Benchmark
+      href: ./samples/azure-security-benchmark.md
+    - name: CIS Microsoft Azure Foundations Benchmark 1.1.0
+      href: ./samples/cis-azure-1-1-0.md
+    - name: HIPAA HITRUST 9.2
+      href: ./samples/hipaa-hitrust-9-2.md
+    - name: NIST SP 800-53 R4
+      href: ./samples/nist-sp-800-53-r4.md
+    - name: NIST SP 800-171 R2
+      href: ./samples/nist-sp-800-171-r2.md
+- name: Concepts
+  items:
+  - name: Definition structure
+    displayName: parameters, location, rule, alias, initiatives
+    href: ./concepts/definition-structure.md
+  - name: Understand effects
+    displayName: order, evaluation
+    href: ./concepts/effects.md
+  - name: Initiative structure
+    displayName: parameters, groups, domains, policies
+    href: ./concepts/initiative-definition-structure.md
+  - name: Assignment structure
+    displayName: parameters, enforcementmode, policyDefinitionId
+    href: ./concepts/assignment-structure.md
+  - name: Evaluate the impact of a new policy
+    displayName: audit, enforcementmode, compliance
+    href: ./concepts/evaluate-impact.md
+  - name: Recommended policies
+    displayName: VMs, virtual machines
+    href: ./concepts/recommended-policies.md
+  - name: Regulatory Compliance
+    displayName: standards, domains, controls
+    href: ./concepts/regulatory-compliance.md
+  - name: Design Policy as Code workflows
+    displayName: devops, infrastructure as code, iac, release, continuous, delivery, deploy
+    href: ./concepts/policy-as-code.md
+  - name: Kubernetes integration
+    items:
+    - name: Azure Policy for Kubernetes (preview)
+      displayName: aks, engine, k8s, rego, opa, open policy agent, gatekeeper, v3, crd, constraints, arc
+      href: ./concepts/policy-for-kubernetes.md
+    - name: Secure pods with Azure Policy (preview)
+      displayName: aks, psp, rego, opa
+      href: ../../aks/use-pod-security-on-azure-policy.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
+  - name: Audit VMs with Guest Configuration
+    displayName: provider, tools, definition
+    href: ./concepts/guest-configuration.md
+  - name: Security
+    items:
+    - name: Security baseline for Azure Security Benchmark
+      href: ./concepts/azure-security-benchmark-baseline.md
+- name: How-to guides
+  items:
+  - name: Azure Policy extension for VS Code
+    displayName: visual studio code
+    href: ./how-to/extension-for-vscode.md
+  - name: Programmatically create policies
+    displayName: assign, definition
+    href: ./how-to/programmatically-create.md
+  - name: Author policies for array properties
+    displayName: array property, alias, aliases, in, notIn, type, defaultValue
+    href: ./how-to/author-policies-for-arrays.md
+  - name: Guest Configuration
+    items:
+    - name: Create a Guest Configuration policy on Windows
+      displayName: powershell, dsc, chef, windows
+      href: ./how-to/guest-configuration-create.md
+    - name: Create a Guest Configuration policy on Linux
+      displayName: powershell, dsc, chef, linux
+      href: ./how-to/guest-configuration-create-linux.md
+    - name: Create a Guest Configuration policy from Group Policy
+      displayName: powershell, dsc, grouppolicy, windows
+      href: ./how-to/guest-configuration-create-group-policy.md
+  - name: Get compliance data
+    displayName: evaluation, scan, summarize, query, events, log analytics
+    href: ./how-to/get-compliance-data.md
+  - name: Determine causes of non-compliance
+    displayName: reasons, compliance details
+    href: ./how-to/determine-non-compliance.md
+  - name: Remediate non-compliant resources
+    displayName: managed identity, task, definition, roleDefinitionIds
+    href: ./how-to/remediate-resources.md
+  - name: Azure Key Vault integration
+    items:
+    - name: Integrate Key Vault with Azure Policy
+      displayName: key vault, certificate, key
+      href: ../../key-vault/general/azure-policy.md?bc=/azure/governance/policy/breadcrumb/toc.json&toc=/azure/governance/policy/toc.json
+  - name: Azure Lighthouse integration
+    items:
+    - name: Deploy a policy at scale
+      displayName: lighthouse, scale, deploy
+      href: ../../lighthouse/how-to/policy-at-scale.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
+    - name: Deploy a policy that can be remediated
+      displayName: lighthouse, scale, remediate
+      href: ../../lighthouse/how-to/deploy-policy-remediation.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
+  - name: Azure Monitor integration
+    items:
+    - name: Deploy Azure Monitor at scale
+      displayName: monitor, diagnostic settings, dependency agent
+      href: ../../azure-monitor/deploy-scale.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
+    - name: Enable Azure Monitor for VMs (preview)
+      displayName: monitor, insights, log analytics, builtin
+      href: ../../azure-monitor/insights/vminsights-enable-policy.md?bc=%2fazure%2fgovernance%2fpolicy%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fgovernance%2fpolicy%2ftoc.json
+- name: Troubleshoot
+  items:
+  - name: Common issues
+    href: ./troubleshoot/general.md
+  - name: Known issues
+    href: https://github.com/azure/azure-policy#known-issues
+- name: Reference
+  items:
+  - name: Azure CLI
+    href: /cli/azure/policy
+  - name: Azure PowerShell
+    items:
+    - name: Policy
+      href: /powershell/module/az.resources/#policies
+    - name: Policy Insights
+      href: /powershell/module/az.policyinsights#policy_insights
+    - name: Guest Configuration
+      href: https://www.powershellgallery.com/packages/Az.GuestConfiguration
+  - name: Azure SDK for .NET
+    items:
+    - name: Assignments
+      href: /dotnet/api/microsoft.azure.management.resourcemanager.models.policyassignment
+    - name: Policy Definitions
+      href: /dotnet/api/microsoft.azure.management.resourcemanager.models.policydefinition
+  - name: Azure SDK for Java
+    items:
+    - name: Assignments
+      href: /java/api/com.microsoft.azure.management.resources.policyassignment
+    - name: Policy Definitions
+      href: /java/api/com.microsoft.azure.management.resources.PolicyDefinitions
+  - name: Azure SDK for JavaScript
+    items:
+    - name: Policy
+      href: /javascript/api/@azure/arm-policy
+    - name: Policy Insights
+      href: /javascript/api/@azure/arm-policyinsights
+  - name: Azure SDK for Python
+    items:
+    - name: Policy
+      href: /python/api/azure-mgmt-resource/azure.mgmt.resource.policy
+    - name: Policy client
+      href: /python/api/azure-mgmt-resource/azure.mgmt.resource.policyclient
+    - name: Policy Insights
+      href: /python/api/azure-mgmt-policyinsights/azure.mgmt.policyinsights
+  - name: REST
+    items:
+    - name: Events
+      href: /rest/api/policy-insights/policyevents
+    - name: States
+      href: /rest/api/policy-insights/policystates
+    - name: Assignments
+      href: /rest/api/resources/policyassignments
+    - name: Policy Definitions
+      href: /rest/api/resources/policydefinitions
+    - name: Initiatives Definitions
+      href: /rest/api/resources/policysetdefinitions
+    - name: Policy Tracked Resources
+      href: /rest/api/policy-insights/policytrackedresources
+    - name: Remediations
+      href: /rest/api/policy-insights/remediations
+    - name: Guest Configuration
+      href: /rest/api/guestconfiguration/
+  - name: Resource Manager templates
+    items:
+    - name: Assignments
+      href: /azure/templates/microsoft.authorization/policyassignments
+    - name: Policy Definitions
+      href: /azure/templates/microsoft.authorization/policydefinitions
+    - name: Initiatives Definitions
+      href: /azure/templates/microsoft.authorization/policysetdefinitions
+- name: Resources
+  items:
+  - name: GitHub - Azure Policy samples
+    href: https://github.com/Azure/azure-policy
+  - name: Community tools
+    items:
+    - name: GitHub - Community Policy repo
+      href: https://github.com/Azure/Community-Policy
+    - name: GitHub Action for Azure Policy Compliance Scan
+      href: https://github.com/marketplace/actions/azure-policy-compliance-scan
+    - name: CCO Azure Governance Dashboard
+      href: https://github.com/Azure/ccodashboard/blob/master/README.md#cco-azure-governance-dashboard-report-pages
+    - name: AzAdvertizer
+      href: https://www.azadvertizer.net/
+    - name: Azure Governance Visualizer
+      href: https://github.com/julianhayward/azure-mg-sub-governance-reporting
+  - name: Feedback and support
+    items:
+    - name: Microsoft Q&A for Azure Policy
+      href: /answers/topics/azure-policy.html
+    - name: Azure support ticket
+      href: https://azure.microsoft.com/support/create-ticket/
+    - name: UserVoice
+      href: https://feedback.azure.com/forums/915958-azure-governance?category_id=345055
+  - name: Videos
+    items:
+    - name: Governance YouTube Channel
+      href: https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ
+    - name: Video - Ignite 2019
+      href: https://myignite.techcommunity.microsoft.com/sessions/81584?source=sessions
+    - name: Guest Configuration videos
+      items:
+      - name: Getting Started
+        href: https://www.youtube.com/watch?v=mjJw9_EIyHo
+      - name: Understanding Initiatives
+        href: https://www.youtube.com/watch?v=4JZH3kuG8bI
+      - name: Assign Policy
+        href: https://www.youtube.com/watch?v=fbZBaxcjA-Y
+      - name: Remediation Task
+        href: https://www.youtube.com/watch?v=URE4DUYMgmg
+  - name: Azure roadmap
+    href: https://azure.microsoft.com/roadmap/
+  - name: Pricing calculator
+    href: https://azure.microsoft.com/pricing/calculator/

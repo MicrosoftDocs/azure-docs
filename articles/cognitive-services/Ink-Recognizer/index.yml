@@ -1,0 +1,66 @@
+### YamlMime:Landing
+title: Ink Recognizer API documentation (Retiring)
+summary: The Ink Recognizer API has ended its preview on August 26, 2020. If you have existing Ink Recognizer resources, you can continue using them until the service is fully retired on January 31, 2021. Learn how to use the ink recognizer API to bring digital ink recognition to your apps and services. The API is a cloud-based service that uses machine learning to recognize handwritten shapes and text in any context. 
+
+metadata:
+  title: Ink Recognizer API - Tutorials, quickstarts, API reference
+  titleSuffix: Azure Cognitive Services
+  description: Digital inking refers to the technologies that enable digital representations of input such as handwriting and drawings. As devices continue to enable rich digital inking experiences, artificial intelligence and machine learning enables the recognition of written shapes and text in any context. The Ink Recognizer API is a cloud-based service that enables you to send ink strokes and get detailed information about them. 
+  services: cognitive-services
+  author: aahill
+  manager: nitinme
+  ms.service: cognitive-services
+  ms.subservice: ink-recognizer
+  ms.topic: landing-page
+  ms.date: 09/23/2019
+  ms.author: aahi
+
+
+landingContent:
+- title: About the Ink Recognizer API
+  linkLists:
+    - linkListType: overview
+      links:
+        - text: What is the Ink Recognizer API?
+          url: overview.md
+
+- title: Recognize digital ink strokes
+  linkLists:
+    - linkListType: quickstart
+      links:
+        - text: Using C#
+          url: quickstarts/csharp.md
+        - text: Using Java
+          url: quickstarts/java.md
+        - text: Using Javascript
+          url: quickstarts/javascript.md
+    - linkListType: concept
+      links:
+        - text: Send ink stroke data to the API
+          url: concepts/send-ink-data.md
+
+- title: Reference
+  linkLists:
+    - linkListType: reference
+      links:
+        - text: REST API
+          url: https://go.microsoft.com/fwlink/?linkid=2089907
+        - text: Azure PowerShell
+          url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services
+        - text: Azure CLI
+          url: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az-cognitiveservices-list
+
+- title: Samples
+  linkLists:
+    - linkListType: learn
+      links:
+        - text: C# and Universal Windows Platform (UWP)
+          url: https://go.microsoft.com/fwlink/?linkid=2089803
+        - text: C# and Windows Presentation Foundation (WPF)
+          url: https://go.microsoft.com/fwlink/?linkid=2089804
+        - text: Javascript web-browser app
+          url: https://go.microsoft.com/fwlink/?linkid=2089908
+        - text: Java and Android mobile app
+          url: https://go.microsoft.com/fwlink/?linkid=2089906
+        - text: Swift and iOS mobile app
+          url: https://go.microsoft.com/fwlink/?linkid=2089805

@@ -4,7 +4,7 @@ description: This article gives a brief overview of how you can manage speed and
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.assetid: 676313f8-a158-4e3a-a99b-2c29a341ecc9
@@ -13,11 +13,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/10/2017
+ms.date: 03/18/2019
 ms.author: juliako
 
 ---
 #  Manage speed and concurrency of your encoding
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)] 
 
 This article gives a brief overview of how you can manage speed and concurrency of your encoding jobs/tasks.
 

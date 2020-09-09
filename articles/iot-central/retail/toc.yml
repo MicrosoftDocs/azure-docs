@@ -1,0 +1,164 @@
+- name: Azure IoT Central for Retail Documentation
+  href: index.yml
+- name: Overview
+  items:
+    - name: Building retail solutions with Azure IoT Central
+      href: overview-iot-central-retail.md
+- name: Tutorials
+  items:
+  - name : In-store analytics checkout
+    items:
+    - name: 1- Create a retail application
+      href: tutorial-in-store-analytics-create-app.md
+    - name: 2 - Customize the operator dashboard
+      href: tutorial-in-store-analytics-customize-dashboard.md
+    - name: 3 - Export data and visualize insights
+      href: tutorial-in-store-analytics-export-data-visualize-insights.md
+  - name : Smart inventory management
+    items:
+    - name: Create a smart inventory management application
+      href: tutorial-iot-central-smart-inventory-management.md
+  - name : Connected logistics
+    items:    
+    - name: Create a connected logistics application
+      href: tutorial-iot-central-connected-logistics.md
+  - name : Digital distribution center
+    items:    
+    - name: Create a digital distribution center application
+      href: tutorial-iot-central-digital-distribution-center.md 
+  - name : Micro-fulfillment center 
+    items:    
+    - name: Create a micro-fulfillment center application
+      href: tutorial-micro-fulfillment-center.md 
+  - name : Video analytics - object and motion detection
+    items:
+    - name: 0 - Deploy object and motion detection application
+      href: tutorial-video-analytics-deploy.md
+    - name: 1 - Create a video analytics application
+      href: tutorial-video-analytics-create-app.md
+    - name: 2 - Configure an IoT Edge device
+      items:
+      - name: Create video analytics device on the edge (Linux VM)
+        href: tutorial-video-analytics-iot-edge-vm.md
+      - name: Create video analytics device on the edge (Intel NUC)
+        href: tutorial-video-analytics-iot-edge-nuc.md
+    - name: 3 -Monitor and manage a video analytics application
+      href: tutorial-video-analytics-manage.md
+    - name: 4 - Modify and build the live video analytics gateway modules
+      href: tutorial-video-analytics-build-module.md
+- name: Concepts
+  items:
+    - name: Connected logistics app template architecture
+      href: architecture-connected-logistics.md
+    - name: Digital distribution center app template architecture
+      href: architecture-digital-distribution-center.md 
+    - name: Smart inventory management app template architecture
+      href: architecture-smart-inventory-management.md 
+    - name: Store analytics architecture
+      href: store-analytics-architecture.md 
+    - name: Micro-fulfillment center app template architecture
+      href: architecture-micro-fulfillment-center.md
+    - name: Video analytics app template architecture
+      href: architecture-video-analytics.md
+    - name: Connectivity
+      href: ../core/concepts-get-connected.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
+    - name: What are application templates?
+      href: ../core/concepts-app-templates.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
+- name: How-to guides
+  items:
+    - name: Connect devices
+      items:
+        - name: Prepare and connect a Rigado Cascade 500
+          href: ../core/howto-connect-rigado-cascade-500.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
+        - name: Prepare and connect a RuuviTag device
+          href: ../core/howto-connect-ruuvi.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
+        - name: Monitor device connectivity using Azure CLI
+          href: ../core/howto-monitor-devices-azure-cli.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
+    - name: Manage devices
+      items:
+        - name: Manage your devices
+          href: ../core/howto-manage-devices.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
+        - name: Run a job
+          href: ../core/howto-run-a-job.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
+        - name: Version device template
+          href: ../core/howto-version-device-template.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
+    - name: Monitoring and analytics
+      items:
+        - name: Analyze your device data
+          href: ../core/howto-create-analytics.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
+        - name: Create webhooks on rules
+          href: ../core/howto-create-webhooks.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
+
+    - name: Actions and extensibility
+      items:
+        - name: Configure continuous data export
+          href: ../core/howto-export-data.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
+        - name: Create custom rules
+          href: ../core/howto-create-custom-rules.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
+        - name: Create custom analytics with Databricks
+          href: ../core/howto-create-custom-analytics.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
+
+    - name: Administration
+      items:
+        - name: Change application settings
+          href: ../core/howto-administer.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
+        - name: Export your application
+          href: ../core/howto-use-app-templates.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
+        - name: Manage users and roles
+          href: ../core/howto-manage-users-roles.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
+        - name: Manage your bill
+          href: ../core/howto-view-bill.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
+        - name: Customize application UI
+          href: ../core/howto-customize-ui.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
+        - name: Add tiles to your dashboard
+          href: ../core/howto-add-tiles-to-your-dashboard.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
+        - name: Manage from the Azure portal
+          href: ../core/howto-manage-iot-central-from-portal.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
+        - name: Manage from Azure CLI
+          href: ../core/howto-manage-iot-central-from-cli.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
+        - name: Manage from Azure PowerShell
+          href: ../core/howto-manage-iot-central-from-powershell.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
+        - name: Manage from CSP portal
+          href: ../core/howto-create-and-manage-applications-csp.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
+    - name: Personalization
+      items:
+        - name: Create Azure IoT Central personal dashboards
+          href: ../core/howto-create-personal-dashboards.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
+        - name: Manage your personal preferences
+          href: ../core/howto-manage-preferences.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
+        - name: Toggle live chat
+          href: ../core/howto-show-hide-chat.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
+- name: Resources
+  items:
+    - name: Support and help options
+      href: /azure/iot-fundamentals/iot-support-help
+    - name: Azure IoT services
+      items:
+      - name: IoT Hub
+        href: /azure/iot-hub
+      - name: IoT Hub Device Provisioning Service
+        href: /azure/iot-dps
+      - name: IoT Central
+        href: https://docs.microsoft.com/microsoft-iot-central/
+      - name: IoT Edge
+        href: /azure/iot-edge
+      - name: IoT solution accelerators
+        href: /azure/iot-accelerators
+      - name: IoT Plug and Play
+        href: /azure/iot-pnp
+      - name: Azure Maps
+        href: /azure/azure-maps
+      - name: Time Series Insights
+        href: /azure/time-series-insights
+    - name: Azure IoT SDKs
+      items:
+      - name: IoT Service SDKs
+        href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
+      - name: IoT Device SDKs
+        href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
+    - name: Customer data requests
+      href: ../core/iot-central-customer-data-requests.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
+    - name: Supported browsers
+      href: ../core/iot-central-supported-browsers.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
+    - name: Azure IoT Central (legacy templates)
+      href: https://docs.microsoft.com/previous-versions/azure/iot-central/core/overview-iot-central

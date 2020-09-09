@@ -1,13 +1,12 @@
 ---
-title: Use a U-SQL database project to develop a U-SQL database for Azure Data Lake
+title: Develop a U-SQL database project - Azure Data Lake
 description: Learn how to develop a U-SQL database using Azure Data Lake Tools for Visual Studio.
-services: data-lake-analytics
-author: yanancai
-ms.author: yanacai
-ms.reviewer: jasonwhowell
+author: liudan66
+ms.author: liud
+ms.reviewer: jasonh
 ms.assetid: 66dd58b1-0b28-46d1-aaae-43ee2739ae0a
 ms.service: data-lake-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: big-data
 ms.date: 07/03/2018
 ---
@@ -15,7 +14,7 @@ ms.date: 07/03/2018
 
 U-SQL database provides structured views over unstructured data and managed structured data in tables. It also provides a general metadata catalog system for organizing your structured data and custom code. The database is the concept that groups these related objects together.
 
-Learn more about [U-SQL database and Data Definition Language (DDL)](https://msdn.microsoft.com/azure/data-lake-analytics/u-sql/data-definition-language-ddl-statements-u-sql). 
+Learn more about [U-SQL database and Data Definition Language (DDL)](/u-sql/data-definition-language-ddl-statements). 
 
 The U-SQL database project is a project type in Visual Studio that helps developers develop, manage, and deploy their U-SQL databases quickly and easily.
 
@@ -51,7 +50,7 @@ For an assembly object, the tool provides a user-friendly UI editor that helps y
 
 The build output for a U-SQL database project is a U-SQL database deployment package, named with the suffix `.usqldbpack`. The `.usqldbpack` package is a .zip file that includes all DDL statements in a single U-SQL script in the **DDL** folder, and all DLLs and additional files for assemblies in the **Temp** folder.
 
-Learn more about [how to build a U-SQL database project with the MSBuild command line and a Azure DevOps Services build task](data-lake-analytics-cicd-overview.md).
+Learn more about [how to build a U-SQL database project with the MSBuild command line and an Azure DevOps Services build task](data-lake-analytics-cicd-overview.md).
 
 ## Deploy a U-SQL database
 

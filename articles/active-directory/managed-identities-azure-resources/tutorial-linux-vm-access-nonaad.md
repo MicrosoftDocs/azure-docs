@@ -1,27 +1,28 @@
-﻿---
-title: Use a Linux VM system-assigned managed identity to access Azure Key Vault 
+---
+title: Tutorial`:` Use a managed identity to access Azure Key Vault - Linux - Azure AD 
 description: A tutorial that walks you through the process of using a Linux VM system-assigned managed identity to access Azure Resource Manager.
 services: active-directory
 documentationcenter: ''
-author: daveba
-manager: mtillman
+author: barclayn
+manager: daveba
 editor: daveba
 
 ms.service: active-directory
-ms.component: msi
+ms.subservice: msi
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
-ms.author: daveba
+ms.author: barclayn
+ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Use a Linux VM system-assigned managed identity to access Azure Key Vault 
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-This tutorial shows you how to to use a system-assigned managed identity for a Linux virtual machine (VM) to access Azure Key Vault. Serving as a bootstrap, Key Vault makes it possible for your client application to then use the secret to access resources not secured by Azure Active Directory (AD). Managed identities for Azure resources are automatically managed by Azure and enable you to authenticate to services that support Azure AD authentication, without needing to insert credentials into your code. 
+This tutorial shows you how to use a system-assigned managed identity for a Linux virtual machine (VM) to access Azure Key Vault. Serving as a bootstrap, Key Vault makes it possible for your client application to then use the secret to access resources not secured by Azure Active Directory (AD). Managed identities for Azure resources are automatically managed by Azure and enable you to authenticate to services that support Azure AD authentication, without needing to insert credentials into your code. 
 
 You learn how to:
 
@@ -31,15 +32,7 @@ You learn how to:
  
 ## Prerequisites
 
-[!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
-
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
-
-- [Sign in to Azure portal](https://portal.azure.com)
-
-- [Create a Linux virtual machine](/azure/virtual-machines/linux/quick-create-portal)
-
-- [Enable system-assigned managed identity on your virtual machine](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
 
 ## Grant your VM access to a Secret stored in a Key Vault  
 
@@ -69,7 +62,7 @@ Next, add a secret to the Key Vault, so that later you can retrieve the secret u
  
 ## Get an access token using the VM's identity and use it to retrieve the secret from the Key Vault  
 
-To complete these steps, you need an SSH client.  If you are using Windows, you can use the SSH client in the [Windows Subsystem for Linux](https://msdn.microsoft.com/commandline/wsl/about). If you need assistance configuring your SSH client's keys, see [How to Use SSH keys with Windows on Azure](../../virtual-machines/linux/ssh-from-windows.md), or [How to create and use an SSH public and private key pair for Linux VMs in Azure](../../virtual-machines/linux/mac-create-ssh-keys.md).
+To complete these steps, you need an SSH client.  If you are using Windows, you can use the SSH client in the [Windows Subsystem for Linux](/windows/wsl/about). If you need assistance configuring your SSH client's keys, see [How to Use SSH keys with Windows on Azure](../../virtual-machines/linux/ssh-from-windows.md), or [How to create and use an SSH public and private key pair for Linux VMs in Azure](../../virtual-machines/linux/mac-create-ssh-keys.md).
  
 1. In the portal, navigate to your Linux VM and in the **Overview**, click **Connect**. 
 2. **Connect** to the VM with the SSH client of your choice. 
@@ -113,8 +106,4 @@ Once you’ve retrieved the secret from the Key Vault, you can use it to authent
 In this tutorial, you learned how to use a Linux VM system-assigned managed identity to access Azure Key Vault.  To learn more about Azure Key Vault see:
 
 > [!div class="nextstepaction"]
->[Azure Key Vault](/azure/key-vault/key-vault-whatis)
-
-
-
-
+>[Azure Key Vault](../../key-vault/general/overview.md)

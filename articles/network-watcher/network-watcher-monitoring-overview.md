@@ -3,10 +3,9 @@ title: Azure Network Watcher | Microsoft Docs
 description: Learn about Azure Network Watcher's monitoring, diagnostics, metrics, and logging capabilities for resources in a virtual network.
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
-editor:
-Customer intent: As someone with basic Azure network experience, I want to understand how Azure Network Watcher can help me resolve some of the network-related problems I've encountered and provide insight into how I use Azure networking. 
+author: damendo
+
+Customer intent: As someone with basic Azure network experience, I want to understand how Azure Network Watcher can help me resolve some of the network-related problems I've encountered and provide insight into how I use Azure networking.
 
 ms.assetid: 14bc2266-99e3-42a2-8d19-bd7257fec35e
 ms.service: network-watcher
@@ -15,13 +14,13 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/24/2018
-ms.author: jdial
+ms.author: damendo
 ms.custom: mvc
 ---
 
 # What is Azure Network Watcher?
 
-Azure Network Watcher provides tools to monitor, diagnose, view metrics, and enable or disable logs for resources in an Azure virtual network.
+Azure Network Watcher provides tools to monitor, diagnose, view metrics, and enable or disable logs for resources in an Azure virtual network. Network Watcher is designed to monitor and repair the network health of IaaS (Infrastructure-as-a-Service) products which includes Virtual Machines, Virtual Networks, Application Gateways, Load balancers, etc. Note: It is not intended for and will not work for PaaS monitoring or Web analytics. 
 
 ## Monitoring
 
@@ -33,7 +32,7 @@ If an endpoint becomes unreachable, connection troubleshoot informs you of the r
 
 Connection monitor also provides the minimum, average, and maximum latency observed over time. After learning the latency for a connection, you may find that you're able to decrease the latency by moving your Azure resources to different Azure regions. Learn more about determining [relative latencies between Azure regions and internet service providers](#determine-relative-latencies-between-azure-regions-and-internet-service-providers) and how to monitor communication between a VM and an endpoint with [connection monitor](connection-monitor.md). If you'd rather test a connection at a point in time, rather than monitor the connection over time, like you do with connection monitor, use the [connection troubleshoot](#connection-troubleshoot) capability.
 
-Network performance monitor is a cloud-based hybrid network monitoring solution that helps you monitor network performance between various points in your network infrastructure. It also helps you monitor network connectivity to service and application endpoints and monitor the performance of Azure ExpressRoute. Network performance monitor detects network issues like traffic blackholing, routing errors, and issues that conventional network monitoring methods aren't able to detect. The solution generates alerts and notifies you when a threshold is breached for a network link. It also ensures timely detection of network performance issues and localizes the source of the problem to a particular network segment or device. Learn more about [network performance monitor](../log-analytics/log-analytics-network-performance-monitor.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+Network performance monitor is a cloud-based hybrid network monitoring solution that helps you monitor network performance between various points in your network infrastructure. It also helps you monitor network connectivity to service and application endpoints and monitor the performance of Azure ExpressRoute. Network performance monitor detects network issues like traffic blackholing, routing errors, and issues that conventional network monitoring methods aren't able to detect. The solution generates alerts and notifies you when a threshold is breached for a network link. It also ensures timely detection of network performance issues and localizes the source of the problem to a particular network segment or device. Learn more about [network performance monitor](../azure-monitor/insights/network-performance-monitor.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 
 ### View resources in a virtual network and their relationships
 
@@ -75,7 +74,7 @@ The effective security rules for a network interface are a combination of all se
 
 ## Metrics
 
-There are [limits](../azure-subscription-service-limits.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#azure-resource-manager-virtual-networking-limits) to the number of network resources that you can create within an Azure subscription and region. If you meet the limits, you're unable to create more resources within the subscription or region. The *network subscription limit* capability provides a summary of how many of each network resource you have deployed in a subscription and region, and what the limit is for the resource. The following picture shows the partial output for network resources deployed in the East US region for an example subscription:
+There are [limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#azure-resource-manager-virtual-networking-limits) to the number of network resources that you can create within an Azure subscription and region. If you meet the limits, you're unable to create more resources within the subscription or region. The *network subscription limit* capability provides a summary of how many of each network resource you have deployed in a subscription and region, and what the limit is for the resource. The following picture shows the partial output for network resources deployed in the East US region for an example subscription:
 
 ![Subscription limits](./media/network-watcher-monitoring-overview/subscription-limit.png)
 
@@ -93,7 +92,10 @@ Learn more about NSG flow logs by completing the [Log network traffic to and fro
 
 ### View diagnostic logs for network resources
 
-You can enable diagnostic logging for Azure networking resources such as network security groups, public IP addresses, load balancers, virtual network gateways, and application gateways. The *Diagnostic logs* capability provides a single interface to enable and disable network resource diagnostic logs for any existing network resource that generates a diagnostic log. You can view diagnostic logs using tools such as Microsoft Power BI and Azure Log Analytics. To learn more about analyzing Azure network diagnostic logs, see [Azure network solutions in Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+You can enable diagnostic logging for Azure networking resources such as network security groups, public IP addresses, load balancers, virtual network gateways, and application gateways. The *Diagnostic logs* capability provides a single interface to enable and disable network resource diagnostic logs for any existing network resource that generates a diagnostic log. You can view diagnostic logs using tools such as Microsoft Power BI and Azure Monitor logs. To learn more about analyzing Azure network diagnostic logs, see [Azure network solutions in Azure Monitor logs](../azure-monitor/insights/azure-networking-analytics.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+
+## Network Watcher automatic enablement
+When you create or update a virtual network in your subscription, Network Watcher will be enabled automatically in your Virtual Network's region. There is no impact to your resources or associated charge for automatically enabling Network Watcher. For more information, see [Network Watcher create](network-watcher-create.md).
 
 ## Next steps
 

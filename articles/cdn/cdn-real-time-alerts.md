@@ -8,11 +8,11 @@ manager: erikre
 editor: ''
 
 ms.assetid: 1e85b809-e1a9-4473-b835-69d1b4ed3393
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: mazha
 
@@ -61,7 +61,7 @@ This document explains real-time alerts in Microsoft Azure CDN. This functionali
    > 
 8. Create an **Expression** to monitor by selecting a **Metric**, **Operator**, and **Trigger value**.
    
-   * For **Metric**, select the type of condition you want monitored.  **Bandwidth Mbps** is the amount of bandwidth usage in megabits per second.  **Total Connections** is the number of concurrent HTTP connections to our edge servers.  For definitions of the various cache statuses and status codes, see [Azure CDN Cache Status Codes](https://msdn.microsoft.com/library/mt759237.aspx) and [Azure CDN HTTP Status Codes](https://msdn.microsoft.com/library/mt759238.aspx)
+   * For **Metric**, select the type of condition you want monitored.  **Bandwidth Mbps** is the amount of bandwidth usage in megabits per second.  **Total Connections** is the number of concurrent HTTP connections to our edge servers.  For definitions of the various cache statuses and status codes, see [Azure CDN Cache Status Codes](/previous-versions/azure/mt759237(v=azure.100)) and [Azure CDN HTTP Status Codes](/previous-versions/azure/mt759238(v=azure.100))
    * **Operator** is the mathematical operator that establishes the relationship between the metric and the trigger value.
    * **Trigger Value** is the threshold value that must be met before a notification is sent.
      

@@ -2,13 +2,9 @@
 title: Kubernetes on Azure tutorial  - Prepare an application
 description: In this Azure Kubernetes Service (AKS) tutorial, you learn how to prepare and build a multi-container app with Docker Compose that you can then deploy to AKS.
 services: container-service
-author: iainfoulds
-manager: jeconnoc
-
-ms.service: container-service
 ms.topic: tutorial
-ms.date: 08/14/2018
-ms.author: iainfou
+ms.date: 12/19/2018
+
 ms.custom: mvc
 
 #Customer intent: As a developer, I want to learn how to build a container-based application so that I can deploy the app to Azure Kubernetes Service.
@@ -27,7 +23,7 @@ Once completed, the following application runs in your local development environ
 
 ![Image of Kubernetes cluster on Azure](./media/container-service-tutorial-kubernetes-prepare-app/azure-vote.png)
 
-In subsequent tutorials, the container image is uploaded to an Azure Container Registry, and then deployed into an AKS cluster.
+In additional tutorials, the container image is uploaded to an Azure Container Registry, and then deployed into an AKS cluster.
 
 ## Before you begin
 
@@ -47,7 +43,7 @@ Use [git][] to clone the sample application to your development environment:
 git clone https://github.com/Azure-Samples/azure-voting-app-redis.git
 ```
 
-Change directories so that you are working from the cloned directory.
+Change into the cloned directory.
 
 ```console
 cd azure-voting-app-redis
@@ -88,7 +84,7 @@ b68fed4b66b6        redis             "docker-entrypoint..."   57 seconds ago   
 
 ## Test application locally
 
-To see the running application, enter http://localhost:8080 in a local web browser. The sample application loads, as shown in the following example:
+To see the running application, enter `http://localhost:8080` in a local web browser. The sample application loads, as shown in the following example:
 
 ![Image of Kubernetes cluster on Azure](./media/container-service-tutorial-kubernetes-prepare-app/azure-vote.png)
 
@@ -102,7 +98,7 @@ Stop and remove the container instances and resources with the [docker-compose d
 docker-compose down
 ```
 
-When the local application has been removed, you have a Docker image that contains the Azure Vote application, *azure-front-front*, for use with the next tutorial.
+When the local application has been removed, you have a Docker image that contains the Azure Vote application, *azure-vote-front*, for use with the next tutorial.
 
 ## Next steps
 

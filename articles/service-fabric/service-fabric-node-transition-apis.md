@@ -1,21 +1,12 @@
 ---
-title: Start and stop cluster nodes to test Azure Service Fabric apps | Microsoft Docs
+title: Start and stop cluster nodes
 description: Learn how to use fault injection to test a Service Fabric application by starting and stopping cluster nodes.
-services: service-fabric
-documentationcenter: .net
 author: LMWF
-manager: rsinha
-editor: ''
 
-ms.assetid: f4e70f6f-cad9-4a3e-9655-009b4db09c6d
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 6/12/2017
 ms.author: lemai
-
+ms.custom: devx-track-csharp
 ---
 
 # Replacing the Start Node and Stop node APIs with the Node Transition API
@@ -158,7 +149,7 @@ When using the Node Transition API to stop a node, one of the required parameter
             }
             while (!wasSuccessful);
 
-            // Now call StartNodeTransitionProgressAsync() until hte desired state is reached.
+            // Now call StartNodeTransitionProgressAsync() until the desired state is reached.
             await WaitForStateAsync(fc, guid, TestCommandProgressState.Completed).ConfigureAwait(false);
         }
 ```
@@ -201,7 +192,7 @@ When using the Node Transition API to stop a node, one of the required parameter
             }
             while (!wasSuccessful);
 
-            // Now call StartNodeTransitionProgressAsync() until hte desired state is reached.
+            // Now call StartNodeTransitionProgressAsync() until the desired state is reached.
             await WaitForStateAsync(fc, guid, TestCommandProgressState.Completed).ConfigureAwait(false);
         }
 ```
@@ -279,11 +270,11 @@ When using the Node Transition API to stop a node, one of the required parameter
         }
 ```
 
-[stopnode]: https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.faultmanagementclient?redirectedfrom=MSDN#System_Fabric_FabricClient_FaultManagementClient_StopNodeAsync_System_String_System_Numerics_BigInteger_System_Fabric_CompletionMode_
-[stopnodeps]: https://msdn.microsoft.com/library/mt125982.aspx
-[startnode]: https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.faultmanagementclient?redirectedfrom=MSDN#System_Fabric_FabricClient_FaultManagementClient_StartNodeAsync_System_String_System_Numerics_BigInteger_System_String_System_Int32_System_Fabric_CompletionMode_System_Threading_CancellationToken_
-[startnodeps]: https://msdn.microsoft.com/library/mt163520.aspx
-[nodequery]: https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient#System_Fabric_FabricClient_QueryClient_GetNodeListAsync_System_String_
-[nodequeryps]: https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricnode
-[snt]: https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.testmanagementclient#System_Fabric_FabricClient_TestManagementClient_StartNodeTransitionAsync_System_Fabric_Description_NodeTransitionDescription_System_TimeSpan_System_Threading_CancellationToken_
-[gntp]: https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.testmanagementclient#System_Fabric_FabricClient_TestManagementClient_GetNodeTransitionProgressAsync_System_Guid_System_TimeSpan_System_Threading_CancellationToken_
+[stopnode]: /dotnet/api/system.fabric.fabricclient.faultmanagementclient
+[stopnodeps]: /previous-versions/azure/mt125982(v=azure.100)
+[startnode]: /dotnet/api/system.fabric.fabricclient.faultmanagementclient
+[startnodeps]: /previous-versions/azure/mt163520(v=azure.100)
+[nodequery]: /dotnet/api/system.fabric.fabricclient.queryclient
+[nodequeryps]: /powershell/module/servicefabric/get-servicefabricnode
+[snt]: /dotnet/api/system.fabric.fabricclient.testmanagementclient
+[gntp]: /dotnet/api/system.fabric.fabricclient.testmanagementclient

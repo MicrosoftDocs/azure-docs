@@ -2,20 +2,14 @@
 title: 'Tutorial: Configure Concur for automatic user provisioning with Azure Active Directory| Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Concur.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-
-ms.assetid: df47f55f-a894-4e01-a82e-0dbf55fc8af1
+manager: CelesteDG
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-
 ---
 # Tutorial: Configure Concur for automatic user provisioning
 

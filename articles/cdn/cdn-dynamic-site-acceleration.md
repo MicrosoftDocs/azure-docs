@@ -3,18 +3,18 @@ title: Dynamic site acceleration via Azure CDN
 description: Azure CDN supports dynamic site acceleration (DSA) optimization for files with dynamic content.
 services: cdn
 documentationcenter: ''
-author: dksimpson    
-manager: akucer
+author: asudbring
+manager: danielgi
 editor: ''
 
 ms.assetid:
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 03/01/2018
-ms.author: rli; v-deasim
+ms.topic: how-to
+ms.date: 03/25/2019
+ms.author: allensu
 ---
 # Dynamic site acceleration via Azure CDN
 
@@ -22,7 +22,7 @@ With the explosion of social media, electronic commerce, and the hyper-personali
 
 Standard content delivery network (CDN) capability includes the ability to cache files closer to end users to speed up delivery of static files. However, with dynamic web applications, caching that content in edge locations isn't possible because the server generates the content in response to user behavior. Speeding up the delivery of such content is more complex than traditional edge caching and requires an end-to-end solution that finely tunes each element along the entire data path from inception to delivery. With Azure CDN dynamic site acceleration (DSA) optimization, the performance of web pages with dynamic content is measurably improved.
 
-**Azure CDN from Akamai** and **Azure CDN from Verizon** both offer DSA optimization through the **Optimized for** menu during endpoint creation.
+**Azure CDN from Akamai** and **Azure CDN from Verizon** both offer DSA optimization through the **Optimized for** menu during endpoint creation. Dynamic site acceleration from Microsoft is offered via [Azure Front Door Service](https://docs.microsoft.com/azure/frontdoor/front-door-overview).
 
 > [!Important]
 > For **Azure CDN from Akamai** profiles, you are allowed to change the optimization of a CDN endpoint after it has been created.

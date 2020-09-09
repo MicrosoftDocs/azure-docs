@@ -1,62 +1,121 @@
 ---
-title: Migration of web resources from Azure Germany to global Azure
-description: This article provides help for migrating web resources from Azure Germany to global Azure
+title: Migrate Azure web resources from Azure Germany to global Azure
+description: This article provides information about migrating your Azure web resources from Azure Germany to global Azure.
 author: gitralf
 services: germany
 cloud: Azure Germany
 ms.author: ralfwi 
 ms.service: germany
-ms.date: 8/15/2018
+ms.date: 07/02/2020
 ms.topic: article
 ms.custom: bfmigrate
 ---
 
-# Migration of web resources from Azure Germany to global Azure
-
-This article will provide you some help for the migration of Azure Web resources from Azure Germany to global Azure.
-
-## App Service - Web Apps
-
-The migration of App Services from Azure Germany to global Azure isn't supported at this time. The recommended approach is to export as Resource Manager template and redeploy after changing the location property to the new destination region.
+# Migrate web resources to global Azure
 
 > [!IMPORTANT]
-> Change location, Key Vault secrets, certs, and other GUIDs to be consistent with the new region.
+> Since [August 2018](https://news.microsoft.com/europe/2018/08/31/microsoft-to-deliver-cloud-services-from-new-datacentres-in-germany-in-2019-to-meet-evolving-customer-needs/), we have not been accepting new customers or deploying any new features and services into the original Microsoft Cloud Germany locations.
+>
+> Based on the evolution in customers' needs, we recently [launched](https://azure.microsoft.com/blog/microsoft-azure-available-from-new-cloud-regions-in-germany/) two new datacenter regions in Germany, offering customer data residency, full connectivity to Microsoft's global cloud network, as well as market competitive pricing. 
+>
+> Take advantage of the breadth of functionality, enterprise-grade security, and comprehensive features available in our new German datacenter regions by [migrating](germany-migration-main.md) today.
 
-### Next steps
+This article has information that can help you migrate Azure web resources from Azure Germany to global Azure.
 
-- Refresh your knowledge about App Services by following these [Step-by-Step tutorials](https://docs.microsoft.com/azure/app-service/#step-by-step-tutorials).
-- Make yourself familiar how to [export an Azure Resource Manager template](../azure-resource-manager/resource-manager-export-template.md) or read the overview about [the Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
+## Web Apps
 
-### References
+Migrating apps that you created by using the Web Apps feature of Azure App Service from Azure Germany to global Azure isn't supported at this time. We recommend that you export a web app as an Azure Resource Manager template. Then, redeploy after you change the location property to the new destination region.
 
-- [App Service Overview](../app-service/app-service-web-overview.md)
-- [Export a Resource Manager template using PowerShell](../azure-resource-manager/resource-manager-export-template-powershell.md#export-resource-group-as-template)
-- [Overview of Azure locations](https://azure.microsoft.com/global-infrastructure/locations/)
-- [Redeploy a template](../azure-resource-manager/resource-group-template-deploy.md)
+> [!IMPORTANT]
+> Change location, Azure Key Vault secrets, certificates, and other GUIDs to be consistent with the new region.
 
+### Migrate Web App resource
 
+1. [Export Web App and App Service plan as a template](../azure-resource-manager/templates/export-template-portal.md) from your Azure Germany subscription. Select the resources you want to migrate in your web app resource group and export as a template.
+1. Download the template as a zip file. 
+1. Edit the location property in the **template.json** file to the target Azure global region. For example, the following JSON file has a target location of *West US*.
 
+    ```json
+        "resources": [
+        {
+            "type": "Microsoft.Web/serverfarms",
+            "apiVersion": "2018-02-01",
+            "name": "[parameters('serverfarms_myappservice_name')]",
+            "location": "West US",
 
+    ```
+1. Deploy the modified template to Azure global. For example, you can use PowerShell to deploy.
 
+    ```powershell
+    az deployment group create --name "<web app name>" \
+        --resource-group "<resource group name>" \
+        --template-file "<path of your template.json file>"
+    ```
 
+### Migrate Web App content
 
+1. In the Azure Germany portal, select your Web App.
+1. Select **Development Tools > Advanced Tools**.
+1. From the top menu, select **Debug console** then choose **PowerShell**.
+1. Select **site**.
+1. Select the **download icon** beside the **wwwroot** folder. The downloaded zip file contains source code of your web app.
+1. Deploy the web root to the migrated Azure global web app. For example, you can use the following PowerShell script.
 
+    ``` powershell
+    az webapp deployment source config-zip \
+        --resource-group "<resource group name>" \
+        --name "<web App name>" \
+        --src "path to webroot folder zip file"
+    ```
 
+For more information:
 
-
+- Refresh your knowledge by completing the [App Service tutorials](https://docs.microsoft.com/azure/app-service/tutorial-dotnetcore-sqldb-app).
+- Get information about how to [export Azure Resource Manager templates](../azure-resource-manager/templates/export-template-portal.md).
+- Review the [Azure Resource Manager overview](../azure-resource-manager/management/overview.md).
+- Review the [App Service overview](../app-service/overview.md).
+- Get an [overview of Azure locations](https://azure.microsoft.com/global-infrastructure/locations/).
+- Learn how to [redeploy a template](../azure-resource-manager/templates/deploy-powershell.md).
 
 ## Notification Hubs
 
-To migrate settings from one Notification Hub to another, you can export and import all registration tokens along with tags. Here's how:
+To migrate settings from one Azure Notification Hubs instance to another instance, export and import all registration tokens with their tags:
 
-- [Export the existing Hub registrations](https://msdn.microsoft.com/library/azure/dn790624.aspx) into an Azure Blob Storage container.
-- Create a new Notification Hub in the target environment
-- [Import your Registration Tokens](https://msdn.microsoft.com/library/azure/dn790624.aspx) from Azure Blob Storage to your new Hub
+1. [Export the existing notification hub registrations](/previous-versions/azure/azure-services/dn790624(v=azure.100)) to an Azure Blob storage container.
+1. Create a new notification hub in the target environment.
+1. [Import your registration tokens](/previous-versions/azure/azure-services/dn790624(v=azure.100)) from Blob storage to your new notification hub.
 
-### Next Steps
+For more information:
 
-Refresh your knowledge about Notification Hubs by following these [Step-by-Step tutorials](https://docs.microsoft.com/azure/notification-hubs/#step-by-step-tutorials).
+- Refresh your knowledge by completing the [Notification Hubs tutorials](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-android-push-notification-google-fcm-get-started).
+- Review the [Notification Hubs overview](../notification-hubs/notification-hubs-push-notification-overview.md).
 
-### References
+## Event Hubs
 
-- [Notification Hubs overview](../notification-hubs/notification-hubs-push-notification-overview.md)
+To migrate an Azure Event Hub, you export the Event Hub resource template from Azure Germany then deploy the template to global Azure.
+
+1. [Export Event Hub as a template](../azure-resource-manager/templates/export-template-portal.md) from your Azure Germany subscription.
+1. [Deploy Event Hub template as a custom template](../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template) to your global Azure subscription. Load and deploy the template you exported from your Azure Germany subscription.
+
+For more information:
+
+- Review the [Event Hubs overview](../event-hubs/event-hubs-about.md).
+- Review the [Azure Resource Manager overview](../azure-resource-manager/management/overview.md).
+- Get information about how to [export Azure Resource Manager templates](../azure-resource-manager/templates/export-template-portal.md).
+- Learn how to [redeploy a template](../azure-resource-manager/templates/deploy-powershell.md).
+
+## Next steps
+
+Learn about tools, techniques, and recommendations for migrating resources in the following service categories:
+
+- [Compute](./germany-migration-compute.md)
+- [Networking](./germany-migration-networking.md)
+- [Storage](./germany-migration-storage.md)
+- [Databases](./germany-migration-databases.md)
+- [Analytics](./germany-migration-analytics.md)
+- [IoT](./germany-migration-iot.md)
+- [Integration](./germany-migration-integration.md)
+- [Identity](./germany-migration-identity.md)
+- [Security](./germany-migration-security.md)
+- [Management tools](./germany-migration-management-tools.md)
+- [Media](./germany-migration-media.md)

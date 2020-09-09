@@ -1,0 +1,108 @@
+- name: Form Recognizer Documentation
+  href: index.yml
+- name: Overview
+  expanded: true
+  items:
+  - name: What is Form Recognizer?
+    href: overview.md
+  - name: What's new
+    href: whats-new.md
+- name: Quickstarts
+  expaned: true
+  items:
+  - name: Using client library
+    href: quickstarts/client-library.md
+  - name: Using the sample labeling tool
+    items:
+    - name: Train custom model with labels
+      href: quickstarts/label-tool.md
+  - name: Using the REST API
+    items:
+    - name: Train and use custom model without labels
+      items:
+      - name: cURL
+        href: quickstarts/curl-train-extract.md
+      - name: Python
+        href: quickstarts/python-train-extract.md
+    - name: Train and use custom model with labels
+      items:
+      - name: Python
+        href: quickstarts/python-labeled-data.md
+    - name: Use prebuilt receipt model
+      items:
+      - name: cURL
+        href: quickstarts/curl-receipts.md
+      - name: Python
+        href: quickstarts/python-receipts.md
+    - name: Use prebuilt business card model
+      items:
+      - name: Python
+        href: quickstarts/python-business-cards.md
+    - name: Get text layout information
+      items:
+      - name: Python
+        href: quickstarts/python-layout.md
+- name: Tutorials
+  items:
+  - name: Use Form Recognizer with Cognitive Search
+    href: https://docs.microsoft.com/azure/search/cognitive-search-custom-skill-form
+  - name: Use Form Recognizer with AI Builder
+    href: tutorial-ai-builder.md
+- name: Concepts
+  items:
+  - name: Receipts
+    href: concept-receipts.md
+  - name: Business cards
+    href: concept-business-cards.md
+- name: How-to guides
+  items:
+  - name: Build a training data set
+    href: build-training-data-set.md
+  - name: Deploy the sample labeling tool
+    href: deploy-label-tool.md
+  - name: Use containers
+    items:
+    - name: Install and run containers
+      displayName: docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull
+      href: form-recognizer-container-howto.md
+    - name: Configure containers
+      href: form-recognizer-container-configuration.md
+      displayName: docker, container, run, billing, apikey, logging
+    - name: Use container instances
+      href: deploy-form-recognizer-on-container-instances.md
+  - name: Back up and recover models
+    href: disaster-recovery.md
+- name: Reference
+  items:
+  - name: Form Recognizer API v2.1 preview
+    href: https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeBusinessCardAsync
+  - name: Form Recognizer API v2.0
+    href: https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm
+  - name: SDKs
+    items:
+    - name: .NET
+      href: https://docs.microsoft.com/dotnet/api/overview/azure/ai.formrecognizer-readme-pre
+    - name: Python
+      href: https://docs.microsoft.com/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer
+    - name: Java
+      href: https://docs.microsoft.com/java/api/overview/azure/ai-formrecognizer-readme-pre
+    - name: JavaScript
+      href: https://docs.microsoft.com/javascript/api/overview/azure/ai-form-recognizer-readme-pre
+- name: Resources
+  items:
+  - name: Pricing and limits
+    href: https://azure.microsoft.com/en-us/pricing/details/cognitive-services/form-recognizer/
+  - name: UserVoice
+    href: https://go.microsoft.com/fwlink/?linkid=2090535
+  - name: Stack Overflow
+    href: https://go.microsoft.com/fwlink/?linkid=2087186
+  - name: Azure roadmap
+    href: https://azure.microsoft.com/updates/?product=cognitive-services
+  - name: Regional availability
+    href: https://go.microsoft.com/fwlink/?linkid=2087185
+  - name: Language support
+    href: language-support.md
+  - name: Compliance
+    href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
+  - name: Encryption
+    href: form-recognizer-encryption-of-data-at-rest.md

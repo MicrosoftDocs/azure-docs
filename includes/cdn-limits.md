@@ -1,11 +1,17 @@
+---
+author: mdgattuso
+ms.service: cdn
+ms.topic: include
+ms.date: 04/29/2019    
+ms.author: magattus
+---
 
-| Resource | Default limit | Maximum limit | 
-| --- | --- | --- |
-| CDN profiles |25 |25 |
-| CDN endpoints per profile |10 |25 |
-| Custom domains per endpoint |10 |25 |
+| Resource | Limit |
+| --- | --- |
+| Azure Content Delivery Network profiles |25 |
+| Content Delivery Network endpoints per profile |25 |
+| Custom domains per endpoint |25 |
 
-A CDN subscription can contain one or more CDN profiles and a CDN profile can contain one or more CDN endpoints. You may wish to use multiple profiles to organize your CDN endpoints by internet domain, web application, or some other criteria. 
+A Content Delivery Network subscription can contain one or more Content Delivery Network profiles. A Content Delivery Network profile can contain one or more Content Delivery Network endpoints. You might want to use multiple profiles to organize your Content Delivery Network endpoints by internet domain, web application, or some other criteria. 
 
-To request an update to your subscription's default limits, open a support ticket. 
 

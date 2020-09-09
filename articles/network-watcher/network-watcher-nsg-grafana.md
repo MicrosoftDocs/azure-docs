@@ -1,21 +1,21 @@
 ---
-title: Manage Network Security Group Flow Logs using Network Watcher and Grafana | Microsoft Docs
+title: Manage NSG Flow Logs using Grafana
+titleSuffix: Azure Network Watcher
 description: Manage and analyze Network Security Group Flow Logs in Azure using Network Watcher and Grafana.
 services: network-watcher
 documentationcenter: na
-author: mattreatMSFT
-manager: vitinnan
-editor: ''
+author: damendo
+
 tags: azure-resource-manager
 
 ms.assetid: 
 ms.service: network-watcher
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/15/2017
-ms.author: mareat
+ms.author: damendo
 
 ---
 # Manage and analyze Network Security Group flow logs using Network Watcher and Grafana
@@ -101,6 +101,11 @@ You use Logstash to flatten the JSON formatted flow logs to a flow tuple level.
           "protocol" => "%{[records][properties][flows][flows][flowTuples][5]}"
           "trafficflow" => "%{[records][properties][flows][flows][flowTuples][6]}"
           "traffic" => "%{[records][properties][flows][flows][flowTuples][7]}"
+	  "flowstate" => "%{[records][properties][flows][flows][flowTuples][8]}"
+	  "packetsSourceToDest" => "%{[records][properties][flows][flows][flowTuples][9]}"
+	  "bytesSentSourceToDest" => "%{[records][properties][flows][flows][flowTuples][10]}"
+	  "packetsDestToSource" => "%{[records][properties][flows][flows][flowTuples][11]}"
+	  "bytesSentDestToSource" => "%{[records][properties][flows][flows][flowTuples][12]}"
         }
         add_field => {
           "time" => "%{[records][time]}"
@@ -175,7 +180,7 @@ sudo dpkg -i grafana_4.5.1_amd64.deb
 sudo service grafana-server start
 ```
 
-For additional installation information, see [Installing on Debian / Ubuntu](http://docs.grafana.org/installation/debian/).
+For additional installation information, see [Installing on Debian / Ubuntu](https://docs.grafana.org/installation/debian/).
 
 #### Add the ElasticSearch server as a data source
 

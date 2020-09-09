@@ -1,24 +1,18 @@
 ---
-title: Deployment stage of the Team Data Science Process lifecycle - Azure | Microsoft Docs
+title: Deployment stage of the Team Data Science Process lifecycle
 description: The goals, tasks, and deliverables for the deployment stage of your data-science projects
 services: machine-learning
-documentationcenter: ''
-author: deguhath
-manager: cgronlun
-editor: cgronlun
-
-ms.assetid: 
+author: marktab
+manager: marktab
+editor: marktab
 ms.service: machine-learning
-ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/04/2017
-ms.author: deguhath
-
+ms.date: 01/10/2020
+ms.author: tdsp
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
-# Deployment
+# Deployment stage of the Team Data Science Process lifecycle
 
 This article outlines the goals, tasks, and deliverables associated with the deployment of the Team Data Science Process (TDSP). This process provides a recommended lifecycle that you can use to structure your data-science projects. The lifecycle outlines the major stages that projects typically execute, often iteratively:
 
@@ -50,7 +44,7 @@ After you have a set of models that perform well, you can operationalize them fo
    * Line-of-business applications 
    * Back-end applications 
 
-For examples of model operationalization with an Azure Machine Learning web service, see [Deploy an Azure Machine Learning web service](../studio/publish-a-machine-learning-web-service.md). It is a best practice to build telemetry and monitoring into the production model and the data pipeline that you deploy. This practice helps with subsequent system status reporting and troubleshooting.  
+For examples of model operationalization with an Azure Machine Learning web service, see [Deploy an Azure Machine Learning web service](../studio/deploy-a-machine-learning-web-service.md). It is a best practice to build telemetry and monitoring into the production model and the data pipeline that you deploy. This practice helps with subsequent system status reporting and troubleshooting.  
 
 ## Artifacts
 
@@ -69,6 +63,6 @@ Here are links to each step in the lifecycle of the TDSP:
    4. [Deployment](lifecycle-deployment.md)
    5. [Customer acceptance](lifecycle-acceptance.md)
 
-We provide full end-to-end walkthroughs that demonstrate all the steps in the process for specific scenarios. The [Example walkthroughs](walkthroughs.md) article provides a list of the scenarios with links and thumbnail descriptions. The walkthroughs illustrate how to combine cloud, on-premises tools, and services into a workflow or pipeline to create an intelligent application. 
+We provide full walkthroughs that demonstrate all the steps in the process for specific scenarios. The [Example walkthroughs](walkthroughs.md) article provides a list of the scenarios with links and thumbnail descriptions. The walkthroughs illustrate how to combine cloud, on-premises tools, and services into a workflow or pipeline to create an intelligent application. 
 
-For examples of how to execute steps in TDSPs that use Azure Machine Learning Studio, see [Use the TDSP with Azure Machine Learning](http://aka.ms/datascienceprocess).
+For examples of how to execute steps in TDSPs that use Azure Machine Learning Studio, see [Use the TDSP with Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).

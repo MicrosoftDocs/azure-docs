@@ -1,22 +1,25 @@
 ---
-title: Use the Standard Encoder in Azure Media Services to encode videos using an auto-generated bitrate ladder | Microsoft Docs
-description: This topic shows how to use the Standard Encoder in Media Services to encode an input video with an auto-generated bitrate ladder, based on the input resolution and bitrate. The input resolution and bitrate will never be exceeded. For example, if the input is 720p at 3Mbps, output will remain 720p at best, and will start at rates lower than 3Mbps.
+title: Encode videos with Standard Encoder in Media Services - Azure | Microsoft Docs
+description: This topic shows how to use the Standard Encoder in Media Services to encode an input video with an auto-generated bitrate ladder, based on the input resolution and bitrate. 
 services: media-services
 documentationcenter: ''
-author: Juliako
-manager: cfowler
+author: IngridAtMicrosoft
+manager: femila
 editor: ''
 
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 03/19/2018
-ms.author: juliako
+ms.topic: conceptual
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.custom: seodec18
 
 ---
 #  Encode with an auto-generated bitrate ladder
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 ## Overview
 

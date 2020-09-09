@@ -1,40 +1,44 @@
 ---
 title: Operating system backup and restore of SAP HANA on Azure (Large Instances) type II SKUs| Microsoft Docs
-description: Perform Operatign system backup and restore for SAP HANA on Azure (Large Instances) Type II SKUs
+description: Perform Operating system backup and restore for SAP HANA on Azure (Large Instances) Type II SKUs
 services: virtual-machines-linux
 documentationcenter:
 author: saghorpa
-manager: jeconnoc
+manager: juergent
 editor:
 
 ms.service: virtual-machines-linux
-ms.devlang: NA
+
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/27/2018
-ms.author: saghorpa
+ms.date: 07/12/2019
+ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
 ---
-# OS backup and restore for Type II SKUs
+# OS backup and restore for Type II SKUs of Revision 3 stamps
 
-This document describes the steps to perform an operating system file level backup and restore for the **Type II  SKUs** of the HANA Large Instances. 
+This document describes the steps to perform an operating system file level backup and restore for the **Type II  SKUs** of the HANA Large Instances of Revision 3. 
+
+>[!Important]
+> **This article does not apply to Type II SKU deployments in Revision 4 HANA Large Instance stamps.** Boot LUNS of Type II HANA Large Instance units which are deployed in Revision 4 HANA Large Instance stamps can be backed up with storage snapshots as this is the case with Type I SKUs already in Revision 3 stamps
+
 
 >[!NOTE]
 >The OS backup scripts uses the ReaR software, which is pre-installed in the server.  
 
-After the provisioning is complete by the Microsoft Service Management team, by default, the server is configured with two backups schedule to back up the file system level back up of operating system. You can check the schedule of the backup job by using the following command:
+After the provisioning is complete by the Microsoft `Service Management` team, by default, the server is configured with two backup schedules to back up the file system level back of the operating system. You can check the schedules of the backup jobs by using the following command:
 ```
 #crontab –l
 ```
-You can change the backup schedule any time using the following command:
+You can change the backup schedule anytime using the following command:
 ```
 #crontab -e
 ```
 ## How to take a manual backup?
 
-The operating system file system backup is scheduled using a **cron job** already. However, you can perform the operating system file level backup manually as well. To perform a manual backup, run the following command:
+The OS file system backup is scheduled using a **cron job** already. However, you can perform the operating system file level backup manually as well. To perform a manual backup, run the following command:
 
 ```
 #rear -v mkbackup
@@ -60,7 +64,7 @@ The following command shows the restore of a file */etc/fstabfrom* the backup fi
 >[!NOTE] 
 >You need to copy the file to desired location after it is restored from the backup.
 
-The following screen shot shows the restore of a complete backup:
+The following screenshot shows the restore of a complete backup:
 
 ![HowtoRestoreaBackup.PNG](media/HowToHLI/OSBackupTypeIISKUs/HowtoRestoreaBackup.PNG)
 
@@ -92,5 +96,5 @@ EXCLUDE_VG=( vgHANA-data-HC2 vgHANA-data-HC3 vgHANA-log-HC2 vgHANA-log-HC3 vgHAN
 BACKUP_PROG_EXCLUDE=("${BACKUP_PROG_EXCLUDE[@]}" '/media' '/var/tmp/*' '/var/crash' '/hana' '/usr/sap'  ‘/proc’)
 ```
 
-The following screen shot shows the restore of a complete backup:
+The following screenshot shows the restore of a complete backup:
 ![RearToolConfiguration.PNG](media/HowToHLI/OSBackupTypeIISKUs/RearToolConfiguration.PNG)

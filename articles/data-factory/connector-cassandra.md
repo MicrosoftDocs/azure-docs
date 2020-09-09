@@ -1,18 +1,18 @@
 ---
-title: Copy data from Cassandra using Azure Data Factory | Microsoft Docs
+title: Copy data from Cassandra using Azure Data Factory 
 description: Learn how to copy data from Cassandra to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+
+
 ms.topic: conceptual
-ms.date: 06/07/2018
+ms.date: 08/12/2019
 ms.author: jingwang
 
 ---
@@ -21,9 +21,16 @@ ms.author: jingwang
 > * [Version 1](v1/data-factory-onprem-cassandra-connector.md)
 > * [Current version](connector-cassandra.md)
 
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data from a Cassandra database. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
 ## Supported capabilities
+
+This Cassandra connector is supported for the following activities:
+
+- [Copy activity](copy-activity-overview.md) with [supported source/sink matrix](copy-activity-overview.md)
+- [Lookup activity](control-flow-lookup-activity.md)
 
 You can copy data from Cassandra database to any supported sink data store. For a list of data stores that are supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
@@ -37,7 +44,9 @@ Specifically, this Cassandra connector supports:
 
 ## Prerequisites
 
-To copy data from a Cassandra database that is not publicly accessible, you need to set up a Self-hosted Integration Runtime. See [Self-hosted Integration Runtime](create-self-hosted-integration-runtime.md) article to learn details. The Integration Runtime provides a built-in Cassandra driver, therefore you don't need to manually install any driver when copying data from/to Cassandra.
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
+
+The Integration Runtime provides a built-in Cassandra driver, therefore you don't need to manually install any driver when copying data from/to Cassandra.
 
 ## Getting started
 
@@ -57,10 +66,10 @@ The following properties are supported for Cassandra linked service:
 | authenticationType | Type of authentication used to connect to the Cassandra database.<br/>Allowed values are: **Basic**, and **Anonymous**. |Yes |
 | username |Specify user name for the user account. |Yes, if authenticationType is set to Basic. |
 | password |Specify password for the user account. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |Yes, if authenticationType is set to Basic. |
-| connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Self-hosted Integration Runtime or Azure Integration Runtime (if your data store is publicly accessible). If not specified, it uses the default Azure Integration Runtime. |No |
+| connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. If not specified, it uses the default Azure Integration Runtime. |No |
 
 >[!NOTE]
->Currently connection to Cassandra using SSL is not supported.
+>Currently connection to Cassandra using TLS is not supported.
 
 **Example:**
 
@@ -88,7 +97,7 @@ The following properties are supported for Cassandra linked service:
 
 ## Dataset properties
 
-For a full list of sections and properties available for defining datasets, see the datasets article. This section provides a list of properties supported by Cassandra dataset.
+For a full list of sections and properties available for defining datasets, see the [datasets](concepts-datasets-linked-services.md) article. This section provides a list of properties supported by Cassandra dataset.
 
 To copy data from Cassandra, set the type property of the dataset to **CassandraTable**. The following properties are supported:
 
@@ -105,13 +114,14 @@ To copy data from Cassandra, set the type property of the dataset to **Cassandra
     "name": "CassandraDataset",
     "properties": {
         "type": "CassandraTable",
-        "linkedServiceName": {
-            "referenceName": "<Cassandra linked service name>",
-            "type": "LinkedServiceReference"
-        },
         "typeProperties": {
             "keySpace": "<keyspace name>",
             "tableName": "<table name>"
+        },
+        "schema": [],
+        "linkedServiceName": {
+            "referenceName": "<Cassandra linked service name>",
+            "type": "LinkedServiceReference"
         }
     }
 }
@@ -129,7 +139,7 @@ To copy data from Cassandra, set the source type in the copy activity to **Cassa
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to: **CassandraSource** | Yes |
-| query |Use the custom query to read data. |SQL-92 query or CQL query. See [CQL reference](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html). <br/><br/>When using SQL query, specify **keyspace name.table name** to represent the table you want to query. |No (if "tableName" and "keyspace" in dataset are specified). |
+| query |Use the custom query to read data. SQL-92 query or CQL query. See [CQL reference](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html). <br/><br/>When using SQL query, specify **keyspace name.table name** to represent the table you want to query. |No (if "tableName" and "keyspace" in dataset are specified). |
 | consistencyLevel |The consistency level specifies how many replicas must respond to a read request before returning data to the client application. Cassandra checks the specified number of replicas for data to satisfy the read request. See [Configuring data consistency](https://docs.datastax.com/en/cassandra/2.1/cassandra/dml/dml_config_consistency_c.html) for details.<br/><br/>Allowed values are: **ONE**, **TWO**, **THREE**, **QUORUM**, **ALL**, **LOCAL_QUORUM**, **EACH_QUORUM**, and **LOCAL_ONE**. |No (default is `ONE`) |
 
 **Example:**
@@ -255,5 +265,9 @@ The following tables show the virtual tables that renormalize the data from the 
 | 3 |A |
 | 3 |E |
 
+## Lookup activity properties
+
+To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
+
 ## Next steps
-For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md##supported-data-stores-and-formats).
+For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

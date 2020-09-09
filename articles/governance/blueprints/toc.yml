@@ -1,0 +1,285 @@
+- name: Azure Blueprints documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: What is Azure Blueprints?
+    displayName: templates, policy, definition, assignment, rbac
+    href: ./overview.md
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: Create a blueprint - Portal
+    displayName: publish, assign, track, unassign, delete
+    href: ./create-blueprint-portal.md
+  - name: Create a blueprint - Azure PowerShell
+    displayName: publish, assign, track, unassign, delete
+    href: ./create-blueprint-powershell.md
+  - name: Create a blueprint - Azure CLI
+    displayName: publish, assign, track, unassign, delete
+    href: ./create-blueprint-azurecli.md
+  - name: Create a blueprint - REST API
+    displayName: publish, assign, track, unassign, delete
+    href: create-blueprint-rest-api.md
+  - name: Create a blueprint - ARM template
+    displayName: assign, compliance, resource manager
+    href: ../../azure-resource-manager/templates/deploy-to-subscription.md?toc=/azure/governance/blueprints/toc.json&bc=/azure/governance/blueprints/breadcrumb/toc.json#azure-blueprints
+- name: Tutorials
+  items:
+  - name: Create from a blueprint sample
+    displayName: template, resource group, rbac, role assignment
+    href: ./tutorials/create-from-sample.md
+  - name: Protect new resources with blueprint resource locks
+    displayName: read only, do not delete, lock assignment
+    href: ./tutorials/protect-new-resources.md
+- name: Samples
+  items:
+  - name: Index
+    displayName: list, examples
+    href: ./samples/index.md
+  - name: Azure Security Benchmark
+    displayName: standards, azure, benchmark
+    href: ./samples/azure-security-benchmark.md
+  - name: Australian Government ISM PROTECTED
+    items:
+    - name: Control mapping
+      displayName: standards, Australian, Government, ISM, PROTECTED
+      href: ./samples/ism-protected/control-mapping.md
+  - name: Canada Federal PBMM
+    items:
+    - name: Overview
+      displayName: standards, canada, federal, pbmm
+      href: ./samples/canada-federal-pbmm/index.md
+    - name: Control mapping
+      displayName: standards, canada, federal, pbmm
+      href: ./samples/canada-federal-pbmm/control-mapping.md
+    - name: Steps to deploy
+      displayName: standards, canada, federal, pbmm
+      href: ./samples/canada-federal-pbmm/deploy.md
+  - name: CIS Microsoft Azure Foundations Benchmark
+    displayName: standards, cis
+    href: ./samples/cis-azure-1-1-0.md
+  - name: DoD Impact Level 4
+    items:
+    - name: Overview
+      displayName: standards, DoD, IL4
+      href: ./samples/dod-impact-level-4/index.md
+    - name: Control mapping
+      displayName: standards, DoD, IL4
+      href: ./samples/dod-impact-level-4/control-mapping.md
+    - name: Steps to deploy
+      displayName: standards, DoD, IL4
+      href: ./samples/dod-impact-level-4/deploy.md
+  - name: DoD Impact Level 5
+    items:
+    - name: Overview
+      displayName: standards, DoD, IL5
+      href: ./samples/dod-impact-level-5/index.md
+    - name: Control mapping
+      displayName: standards, DoD, IL5
+      href: ./samples/dod-impact-level-5/control-mapping.md
+    - name: Steps to deploy
+      displayName: standards, DoD, IL5
+      href: ./samples/dod-impact-level-5/deploy.md
+  - name: FedRAMP Moderate
+    items:
+    - name: Overview
+      displayName: standards, fedramp, moderate
+      href: ./samples/fedramp-m/index.md
+    - name: Control mapping
+      displayName: standards, fedramp, moderate
+      href: ./samples/fedramp-m/control-mapping.md
+    - name: Steps to deploy
+      displayName: standards, fedramp, moderate
+      href: ./samples/fedramp-m/deploy.md
+  - name: FedRAMP High
+    items:
+    - name: Overview
+      displayName: standards, fedramp, high
+      href: ./samples/fedramp-h/index.md
+    - name: Control mapping
+      displayName: standards, fedramp, high
+      href: ./samples/fedramp-h/control-mapping.md
+    - name: Steps to deploy
+      displayName: standards, fedramp, high
+      href: ./samples/fedramp-h/deploy.md
+  - name: HIPAA HITRUST 9.2
+    displayName: standards, HIPAA HITRUST
+    href: ./samples/hipaa-hitrust-9-2.md
+  - name: IRS 1075
+    items:
+    - name: Overview
+      displayName: standards, irs, 1075
+      href: ./samples/irs-1075/index.md
+    - name: Control mapping
+      displayName: standards, irs, 1075
+      href: ./samples/irs-1075/control-mapping.md
+    - name: Steps to deploy
+      displayName: standards, irs, 1075
+      href: ./samples/irs-1075/deploy.md
+  - name: ISO 27001
+    items:
+    - name: Overview
+      displayName: standards, iso, 27001
+      href: ./samples/iso27001/index.md
+    - name: Control mapping
+      displayName: standards, iso, 27001
+      href: ./samples/iso27001/control-mapping.md
+    - name: Steps to deploy
+      displayName: standards, iso, 27001
+      href: ./samples/iso27001/deploy.md
+  - name: ISO 27001 - Shared Services
+    items:
+    - name: Overview
+      displayName: standards, iso, 27001, shared services
+      href: ./samples/iso27001-shared/index.md
+    - name: Control mapping
+      displayName: standards, iso, 27001
+      href: ./samples/iso27001-shared/control-mapping.md
+    - name: Steps to deploy
+      displayName: standards, iso, 27001
+      href: ./samples/iso27001-shared/deploy.md
+  - name: ISO 27001 - ASE/SQL Workload
+    items:
+    - name: Overview
+      displayName: standards, iso, 27001, shared services
+      href: ./samples/iso27001-ase-sql-workload/index.md
+    - name: Control mapping
+      displayName: standards, iso, 27001
+      href: ./samples/iso27001-ase-sql-workload/control-mapping.md
+    - name: Steps to deploy
+      displayName: standards, iso, 27001
+      href: ./samples/iso27001-ase-sql-workload/deploy.md
+  - name: Media   
+    items:
+    - name: Overview
+      displayName: standards, Media MPAA
+      href: ./samples/media/index.md
+    - name: Control mapping
+      displayName: standards, Media
+      href: ./samples/media/control-mapping.md
+    - name: Steps to deploy
+      displayName: standards, Media
+      href: ./samples/media/deploy.md
+  - name: NIST SP 800-53 R4
+    displayName: standards, nist, 800-53, rev 4
+    href: ./samples/nist-sp-800-53-r4.md
+  - name: NIST SP 800-171 R2
+    displayName: standards, nist, 800-171, rev 2
+    href: ./samples/nist-sp-800-171-r2.md
+  - name: PCI-DSS v3.2.1
+    items:
+    - name: Overview
+      displayName: standards, Payment Card Industry Data Security Standard
+      href: ./samples/pci-dss-3.2.1/index.md
+    - name: Control mapping
+      displayName: standards, Payment Card Industry Data Security Standard
+      href: ./samples/pci-dss-3.2.1/control-mapping.md
+    - name: Steps to deploy
+      displayName: standards, Payment Card Industry Data Security Standard
+      href: ./samples/pci-dss-3.2.1/deploy.md
+  - name: SWIFT CSP v2020   
+    items:
+    - name: Overview
+      displayName: standards, SWIFT CSP-CSCF v2020
+      href: ./samples/swift-2020/index.md
+    - name: Control mapping
+      displayName: standards, SWIFT CSP-CSCF v2020
+      href: ./samples/swift-2020/control-mapping.md
+    - name: Steps to deploy
+      displayName: standards, SWIFT CSP-CSCF v2020
+      href: ./samples/swift-2020/deploy.md
+  - name: UK OFFICIAL and UK NHS
+    items:
+    - name: Overview
+      displayName: standards, uk official, uk nhs
+      href: ./samples/ukofficial/index.md
+    - name: Control mapping
+      displayName: standards, uk official, uk nhs
+      href: ./samples/ukofficial/control-mapping.md
+    - name: Steps to deploy
+      displayName: standards, uk official, uk nhs
+      href: ./samples/ukofficial/deploy.md
+  - name: CAF Foundation
+    items:
+    - name: Overview
+      displayName: caf, foundation
+      href: ./samples/caf-foundation/index.md
+    - name: Steps to deploy
+      displayName: caf, foundation, deploy
+      href: ./samples/caf-foundation/deploy.md
+  - name: CAF Migrate landing zone
+    items:
+    - name: Overview
+      displayName: caf, migrate, landing zone
+      href: ./samples/caf-migrate-landing-zone/index.md
+    - name: Steps to deploy
+      displayName: caf, migrate, landing zone, deploy
+      href: ./samples/caf-migrate-landing-zone/deploy.md
+- name: Concepts
+  items:
+  - name: Lifecycle of a blueprint
+    displayName: publish, edit, delete, assignments
+    href: ./concepts/lifecycle.md
+  - name: Stages of a blueprint deployment
+    displayName: assign, managed identity
+    href: ./concepts/deployment-stages.md
+  - name: Dynamic parameters in a blueprint
+    displayName: secureString, secureObject, static
+    href: ./concepts/parameters.md
+  - name: Sequencing order of blueprint deployment
+    displayName: customize
+    href: ./concepts/sequencing-order.md
+  - name: Resource locking in Azure Blueprints
+    displayName: mode, state, read only, edit, denyAssignments
+    href: ./concepts/resource-locking.md
+- name: How-to guides
+  items:
+  - name: Manage assignments with PowerShell
+    displayName: create, update, remove
+    href: ./how-to/manage-assignments-ps.md
+  - name: Import and export with PowerShell
+    displayName: import, export, folders
+    href: ./how-to/import-export-ps.md
+  - name: Update existing assignments from the portal
+    displayName: lock, errors
+    href: ./how-to/update-existing-assignments.md
+  - name: Configure your environment for a Blueprint Operator
+    displayName: rbac, user-assigned, managed, identity, management group
+    href: ./how-to/configure-for-blueprint-operator.md
+  - name: Manage Blueprints as Code (community)
+    href: https://github.com/Azure/azure-blueprints/blob/master/README.md
+- name: Troubleshoot
+  displayName: errors, violation
+  href: ./troubleshoot/general.md
+- name: Reference
+  items:
+  - name: Azure CLI
+    href: /cli/azure/ext/blueprint/blueprint
+  - name: Azure PowerShell
+    href: /powershell/module/az.blueprint/#blueprint
+  - name: Azure SDK for .NET
+    href: /dotnet/api/overview/azure/blueprints/management
+  - name: REST
+    href: /rest/api/blueprints/
+  - name: PSGallery (Az.Blueprint module)
+    href: https://www.powershellgallery.com/packages/Az.Blueprint
+  - name: PSGallery (community module)
+    href: https://www.powershellgallery.com/packages/Manage-AzureRMBlueprint
+  - name: Blueprint functions
+    href: ./reference/blueprint-functions.md
+- name: Resources
+  items:
+  - name: GitHub - Azure Blueprints samples
+    href: https://github.com/Azure/azure-blueprints
+  - name: Microsoft Q&A for Azure Blueprints
+    href: /answers/topics/azure-blueprints.html
+  - name: Governance YouTube Channel
+    href: https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ
+  - name: Azure Friday - Azure Blueprints Overview
+    href: https://channel9.msdn.com/Shows/Azure-Friday/An-overview-of-Azure-Blueprints
+  - name: Azure roadmap
+    href: https://azure.microsoft.com/roadmap/
+  - name: Pricing calculator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: UserVoice
+    href: https://feedback.azure.com/forums/915958-azure-governance?category_id=345058

@@ -1,162 +1,245 @@
 ---
-title: Use entity linking with the Text Analytics API 
+title: Use entity recognition with the Text Analytics API
 titleSuffix: Azure Cognitive Services
-description: Learn how to identify and resolve entities using the Text Analytics REST API.
+description: Learn how to identify and disambiguate the identity of an entity found in text with the Text Analytics REST API.
 services: cognitive-services
-author: ashmaka
+author: aahill
 
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: text-analytics
+ms.subservice: text-analytics
 ms.topic: article
-ms.date: 09/12/2018
-ms.author: ashmaka
+ms.date: 05/13/2020
+ms.author: aahi
 ---
 
-# How to identify linked entities in Text Analytics (Preview)
+# How to use Named Entity Recognition in Text Analytics
 
-The [Entity Linking API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634) takes unstructured text, and for each JSON document, returns a list of disambiguated entities with links to more information on the web (Wikipedia and Bing). 
+The Text Analytics API lets you takes unstructured text and returns a list of disambiguated entities, with links to more information on the web. The API supports both named entity recognition (NER) and entity linking.
 
-## Entity Linking vs. Named Entity Recognition
+### Entity Linking
 
-In natural language processing, the concepts of entity linking and named entity recognition (NER) can easily be confused. In the preview version of Text Analytics' `entities` endpoint, only entity linking is supported.
-
-Entity linking is the ability to identify and disambiguate the identity of an entity found in text (e.g. determining whether the "Mars" is being used as the planet or as the Roman god of war). This process requires the presence of a knowledge base to which recognized entities are linked - Wikipedia is used as the knowledge base for the `entities` endpoint Text Analytics.
-
-### Language support
-
-Using entity linking in various languages requires using a corresponding knowledge base in each language. For entity linking in Text Analytics, this means each language that is supported by the `entities` endpoint will link to the corresponding Wikipedia corpus in that language. Since the size of corpora varies between languages, it is expected that the entity linking functionality's recall will also vary.
+Entity linking is the ability to identify and disambiguate the identity of an entity found in text (for example, determining whether an occurrence of the word "Mars" refers to the planet, or to the Roman god of war). This process requires the presence of a knowledge base in an appropriate language, to link recognized entities in text. Entity Linking uses [Wikipedia](https://www.wikipedia.org/) as this knowledge base.
 
 
-## Preparation
+### Named Entity Recognition (NER)
 
-You must have JSON documents in this format: id, text, language
+Named Entity Recognition (NER) is the ability to identify different entities in text and categorize them into pre-defined classes or types such as: person, location, event, product and organization.  
 
-For currently supported languages, please see [this list](../text-analytics-supported-languages.md).
+## Named Entity Recognition versions and features
 
-Document size must be under 5,000 characters per document, and you can have up to 1,000 items (IDs) per collection. The collection is submitted in the body of the request. The following example is an illustration of content you might submit to the entity linking end.
+[!INCLUDE [v3 region availability](../includes/v3-region-availability.md)]
 
-```
-{"documents": [{"id": "1",
-				"language": "en",
-                "text": "I really enjoy the new XBox One S. It has a clean look, it has 4K/HDR resolution and it is affordable."
-				},
-               {"id": "2",
-            	"language": "en",
-                "text": "The Seattle Seahawks won the Super Bowl in 2014."
-                }
-               ]
-}
-```    
-    
-## Step 1: Structure the request
+| Feature                                                         | NER v3.0 | NER v3.1-preview.1 |
+|-----------------------------------------------------------------|--------|----------|
+| Methods for single, and batch requests                          | X      | X        |
+| Expanded entity recognition across several categories           | X      | X        |
+| Separate endpoints for sending entity linking and NER requests. | X      | X        |
+| Recognition of personal (`PII`) and health (`PHI`) information entities        |        | X        |
 
-Details on request definition can be found in [How to call the Text Analytics API](text-analytics-how-to-call-api.md). The following points are restated for convenience:
+See [language support](../language-support.md) for information.
 
-+ Create a **POST** request. Review the API documentation for this request: [Entity Linking API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634)
+### Entity types
 
-+ Set the HTTP endpoint for key phrase extraction. It must include the `/entities` resource: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/entities`
+Named Entity Recognition v3 provides expanded detection across multiple types. Currently, NER v3.0 can recognize entities in the [general entity category](../named-entity-types.md).
 
-+ Set a request header to include the access key for Text Analytics operations. For more information, see [How to find endpoints and access keys](text-analytics-how-to-access-key.md).
+Named Entity Recognition v3.1-preview.1 includes the detection capabilities of v3.0, and the ability to detect personal information (`PII`) using the `v3.1-preview.1/entities/recognition/pii` endpoint. You can use the optional `domain=phi` parameter to detect confidential health information (`PHI`). See the [entity categories](../named-entity-types.md) article, and [request endpoints](#request-endpoints) section below for more information.
 
-+ In the request body, provide the JSON documents collection you prepared for this analysis
 
-> [!Tip]
-> Use [Postman](text-analytics-how-to-call-api.md) or open the **API testing console** in the [documentation](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634) to structure a request and POST it to the service.
+## Sending a REST API request
 
-## Step 2: Post the request
+### Preparation
 
-Analysis is performed upon receipt of the request. The service accepts up to 100 requests per minute. Each request can be a maximum of 1 MB.
+You must have JSON documents in this format: ID, text, language.
 
-Recall that the service is stateless. No data is stored in your account. Results are returned immediately in the response.
+Each document must be under 5,120 characters, and you can have up to 1,000 items (IDs) per collection. The collection is submitted in the body of the request.
 
-## Step 3: View results
+### Structure the request
 
-All POST requests return a JSON formatted response with the IDs and detected properties.
+Create a POST request. You can [use Postman](text-analytics-how-to-call-api.md) or the **API testing console** in the following links to quickly structure and send one. 
 
-Output is returned immediately. You can stream the results to an application that accepts JSON or save the output to a file on the local system, and then import it into an application that allows you to sort, search, and manipulate the data.
+> [!NOTE]
+> You can find your key and endpoint for your Text Analytics resource on the azure portal. They will be located on the resource's **Quick start** page, under **resource management**. 
 
-An example of the output for entity linking is shown next:
 
-```
+### Request endpoints
+
+#### [Version 3.0](#tab/version-3)
+
+Named Entity Recognition v3 uses separate endpoints for NER and entity linking requests. Use a URL format below based on your request:
+
+Entity linking
+* `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/entities/linking`
+
+NER
+* `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/entities/recognition/general`
+
+#### [Version 3.1-preview.1](#tab/version-3-preview)
+
+Named Entity Recognition `v3.1-preview.1` uses separate endpoints for NER and entity linking requests. Use a URL format below based on your request:
+
+Entity linking
+* `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.1/entities/linking`
+
+NER
+* General entities - `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.1/entities/recognition/general`
+
+* Personal (`PII`) information - `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.1/entities/recognition/pii`
+
+You can also use the optional `domain=phi` parameter to detect health (`PHI`) information in text. 
+
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.1/entities/recognition/pii?domain=phi`
+
+---
+
+Set a request header to include your Text Analytics API key. In the request body, provide the JSON documents you prepared.
+
+### Example NER request 
+
+The following is an example of content you might send to the API. The request format is the same for both versions of the API.
+
+```json
 {
-    "documents": [
+  "documents": [
+    {
+        "id": "1",
+        "language": "en",
+        "text": "Our tour guide took us up the Space Needle during our trip to Seattle last week."
+    }
+  ]
+}
+
+```
+
+## Post the request
+
+Analysis is performed upon receipt of the request. See the [data limits](../overview.md#data-limits) section in the overview for information on the size and number of requests you can send per minute and second.
+
+The Text Analytics API is stateless. No data is stored in your account, and results are returned immediately in the response.
+
+## View results
+
+All POST requests return a JSON formatted response with the IDs and detected entity properties.
+
+Output is returned immediately. You can stream the results to an application that accepts JSON or save the output to a file on the local system, and then import it into an application that allows you to sort, search, and manipulate the data. Due to multilingual and emoji support, the response may contain text offsets. See [how to process text offsets](../concepts/text-offsets.md) for more information.
+
+### Example v3 responses
+
+Version 3 provides separate endpoints for NER and entity linking. The responses for both operations are below. 
+
+#### Example NER response
+
+```json
+{
+  "documents": [
+    {
+      "id": "1",
+      "entities": [
         {
-            "id": "1",
-            "entities": [
-                {
-                    "name": "Xbox One",
-                    "matches": [
-                        {
-                            "text": "XBox One",
-                            "offset": 23,
-                            "length": 8
-                        }
-                    ],
-                    "wikipediaLanguage": "en",
-                    "wikipediaId": "Xbox One",
-                    "wikipediaUrl": "https://en.wikipedia.org/wiki/Xbox_One",
-                    "bingId": "446bb4df-4999-4243-84c0-74e0f6c60e75"
-                },
-                {
-                    "name": "Ultra-high-definition television",
-                    "matches": [
-                        {
-                            "text": "4K",
-                            "offset": 63,
-                            "length": 2
-                        }
-                    ],
-                    "wikipediaLanguage": "en",
-                    "wikipediaId": "Ultra-high-definition television",
-                    "wikipediaUrl": "https://en.wikipedia.org/wiki/Ultra-high-definition_television",
-                    "bingId": "7ee02026-b6ec-878b-f4de-f0bc7b0ab8c4"
-                }
-            ]
+          "text": "tour guide",
+          "category": "PersonType",
+          "offset": 4,
+          "length": 10,
+          "confidenceScore": 0.45
         },
         {
-            "id": "2",
-            "entities": [
-                {
-                    "name": "2013 Seattle Seahawks season",
-                    "matches": [
-                        {
-                            "text": "Seattle Seahawks",
-                            "offset": 4,
-                            "length": 16
-                        }
-                    ],
-                    "wikipediaLanguage": "en",
-                    "wikipediaId": "2013 Seattle Seahawks season",
-                    "wikipediaUrl": "https://en.wikipedia.org/wiki/2013_Seattle_Seahawks_season",
-                    "bingId": "eb637865-4722-4eca-be9e-0ac0c376d361"
-                }
-            ]
+          "text": "Space Needle",
+          "category": "Location",
+          "offset": 30,
+          "length": 12,
+          "confidenceScore": 0.38
+        },
+        {
+          "text": "trip",
+          "category": "Event",
+          "offset": 54,
+          "length": 4,
+          "confidenceScore": 0.78
+        },
+        {
+          "text": "Seattle",
+          "category": "Location",
+          "subcategory": "GPE",
+          "offset": 62,
+          "length": 7,
+          "confidenceScore": 0.78
+        },
+        {
+          "text": "last week",
+          "category": "DateTime",
+          "subcategory": "DateRange",
+          "offset": 70,
+          "length": 9,
+          "confidenceScore": 0.8
         }
-    ],
-    "errors": []
+      ],
+      "warnings": []
+    }
+  ],
+  "errors": [],
+  "modelVersion": "2020-04-01"
 }
 ```
 
-When available, the response includes the Wikipedia ID, Wikipedia URL, and Bing ID for each detected entity. These can be used to further enhance your application with information regarding the linked entity.
+
+#### Example entity linking response
+
+```json
+{
+  "documents": [
+    {
+      "id": "1",
+      "entities": [
+        {
+          "name": "Space Needle",
+          "matches": [
+            {
+              "text": "Space Needle",
+              "offset": 30,
+              "length": 12,
+              "confidenceScore": 0.4
+            }
+          ],
+          "language": "en",
+          "id": "Space Needle",
+          "url": "https://en.wikipedia.org/wiki/Space_Needle",
+          "dataSource": "Wikipedia"
+        },
+        {
+          "name": "Seattle",
+          "matches": [
+            {
+              "text": "Seattle",
+              "offset": 62,
+              "length": 7,
+              "confidenceScore": 0.25
+            }
+          ],
+          "language": "en",
+          "id": "Seattle",
+          "url": "https://en.wikipedia.org/wiki/Seattle",
+          "dataSource": "Wikipedia"
+        }
+      ],
+      "warnings": []
+    }
+  ],
+  "errors": [],
+  "modelVersion": "2020-02-01"
+}
+```
 
 
 ## Summary
 
 In this article, you learned concepts and workflow for entity linking using Text Analytics in Cognitive Services. In summary:
 
-+ [Entity Linking API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634) is available for selected languages.
-+ JSON documents in the request body include an id, text, and language code.
-+ POST request is to a `/entities` endpoint, using a personalized [access key and an endpoint](text-analytics-how-to-access-key.md) that is valid for your subscription.
-+ Response output, which consists of linked entities (including confidence scores, offsets, and web links, for each document ID) can be used in any application
-
-## See also 
-
- [Text Analytics overview](../overview.md)  
- [Frequently asked questions (FAQ)](../text-analytics-resource-faq.md)</br>
- [Text Analytics product page](//go.microsoft.com/fwlink/?LinkID=759712) 
+* JSON documents in the request body include an ID, text, and language code.
+* POST requests are sent to one or more endpoints, using a personalized [access key and an endpoint](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) that is valid for your subscription.
+* Response output, which consists of linked entities (including confidence scores, offsets, and web links, for each document ID) can be used in any application
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Text Analytics API](//westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6)
+* [Text Analytics overview](../overview.md)
+* [Using the Text Analytics client library](../quickstarts/text-analytics-sdk.md)
+* [What's new](../whats-new.md)

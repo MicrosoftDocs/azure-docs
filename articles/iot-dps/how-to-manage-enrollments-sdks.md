@@ -1,13 +1,13 @@
 ---
-title: Manage device enrollments using Azure Device Provisioning Service SDKs | Microsoft Docs
-description: How to manage device enrollments in the IoT Hub Device Provisioning Service using the Service SDKs
-author: yzhong94
-ms.author: yizhon
-ms.date: 04/04/18
+title: Manage device enrollments using Azure DPS SDKs
+description: How to manage device enrollments in the IoT Hub Device Provisioning Service (DPS) using the Service SDKs
+author: robinsh
+ms.author: robinsh
+ms.date: 04/04/2018
 ms.topic: conceptual
 ms.service: iot-dps
+ms.custom: fasttrack-edit, iot
 services: iot-dps
-manager: arjmands
 ---
 
 # How to manage device enrollments with Azure Device Provisioning Service SDKs
@@ -20,7 +20,7 @@ A *device enrollment* creates a record of a single device or a group of devices 
         * Individual enrollment: Registration ID and TPM Endorsement Key from a physical device or from TPM Simulator.
         * Enrollment group does not apply to TPM attestation.
     * [**X.509**](/azure/iot-dps/concepts-security):
-        * Individual enrollment: The [Leaf certificate](/azure/iot-dps/concepts-security#leaf-certificate) from physical device or from the SDK [DICE](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) Emulator.
+        * Individual enrollment: The [Leaf certificate](/azure/iot-dps/concepts-security) from physical device or from the SDK [DICE](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) Emulator.
         * Enrollment group: The [CA/root certificate](/azure/iot-dps/concepts-security#root-certificate) or the [intermediate certificate](/azure/iot-dps/concepts-security#intermediate-certificate), used to produce device certificate on a physical device.  It can also be generated from the SDK DICE emulator.
 * Exact API calls may be different due to language differences. Please review the samples provided on GitHub for details:
    * [Java Provisioning Service Client samples](https://github.com/Azure/azure-iot-sdk-java/tree/master/provisioning/provisioning-samples)
@@ -35,7 +35,7 @@ There are two ways you can enroll your devices with the provisioning service:
     You can create an enrollment group with the SDKs following this workflow:
 
     1. For enrollment group, the attestation mechanism uses X.509 root certificate.  Call Service SDK API ```X509Attestation.createFromRootCertificate``` with root certificate to create attestation for enrollment.  X.509 root certificate is provided in either a PEM file or as a string.
-    1. Create a new ```EnrollmentGroup``` variable using the ```attestation``` created and a unique ```enrollmentGroupId```.  Optionally, you can set parameters like ```Device ID```, ```IoTHubHostName```, ```ProvisioningStatus```.
+    1. Create a new ```EnrollmentGroup``` variable using the ```attestation``` created and a unique ```enrollmentGroupId```.  Optionally, you can set parameters like ```IoTHubHostName```, ```ProvisioningStatus```.
     2. Call Service SDK API ```createOrUpdateEnrollmentGroup``` in your backend application with ```EnrollmentGroup``` to create an enrollment group.
 
 * An **Individual enrollment** is an entry for a single device that may register. Individual enrollments may use either X.509 certificates or SAS tokens (from a physical or virtual TPM) as attestation mechanisms. We recommend using individual enrollments for devices that require unique initial configurations, or for devices which can only use SAS tokens via TPM or virtual TPM as the attestation mechanism. Individual enrollments may have the desired IoT hub device ID specified.

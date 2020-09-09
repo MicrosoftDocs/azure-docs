@@ -4,11 +4,11 @@ description: Establish high availability for SAP HANA on Azure (Large Instances)
 services: virtual-machines-linux
 documentationcenter:
 author: saghorpa
-manager: jeconnoc
+manager: juergent
 editor:
 
 ms.service: virtual-machines-linux
-ms.devlang: NA
+
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
@@ -259,7 +259,7 @@ Run the command *crm_mon* to ensure **both** the nodes are online. You can run i
 crm_mon
 ```
 ![crm-mon.png](media/HowToHLI/HASetupWithStonith/crm-mon.png)
-You can also log in to hawk to check the cluster status *https://<node IP>:7630*. The default user is hacluster and the password is linux. If needed, you can change the password using *passwd* command.
+You can also log in to hawk to check the cluster status *https://\<node IP>:7630*. The default user is hacluster and the password is linux. If needed, you can change the password using *passwd* command.
 
 ## 7. Configure Cluster Properties and Resources 
 This section describes the steps to configure the cluster resources.
@@ -298,8 +298,7 @@ Add resource STONITH. Create the file and add the text as following.
 # vi crm-sbd.txt
 # enter the following to crm-sbd.txt
 primitive stonith-sbd stonith:external/sbd \
-params pcmk_delay_max="15" \
-op monitor interval="15" timeout="15"
+params pcmk_delay_max="15"
 ```
 Add the configuration to the cluster.
 ```
@@ -325,7 +324,7 @@ crm configure load update crm-vip.txt
 When you run command *crm_mon*, you can see the two resources there.
 ![crm_mon_command.png](media/HowToHLI/HASetupWithStonith/crm_mon_command.png)
 
-Also, you can see the status at *https://<node IP address>:7630/cib/live/state*
+Also, you can see the status at *https://\<node IP address>:7630/cib/live/state*
 
 ![hawlk-status-page.png](media/HowToHLI/HASetupWithStonith/hawlk-status-page.png)
 
@@ -336,11 +335,12 @@ Service pacemaker stop
 ```
 Now, stop the pacemaker service on **node2** and resources failed over to **node1**
 
-**Before failover**
-![Before-failover.png](media/HowToHLI/HASetupWithStonith/Before-failover.png)
-**After failover**
-![after-failover.png](media/HowToHLI/HASetupWithStonith/after-failover.png)
-![crm-mon-after-failover.png](media/HowToHLI/HASetupWithStonith/crm-mon-after-failover.png)
+**Before failover**  
+![Before-failover.png](media/HowToHLI/HASetupWithStonith/Before-failover.png)  
+
+**After failover**  
+![after-failover.png](media/HowToHLI/HASetupWithStonith/after-failover.png)  
+![crm-mon-after-failover.png](media/HowToHLI/HASetupWithStonith/crm-mon-after-failover.png)  
 
 
 ## 9. Troubleshooting
@@ -485,7 +485,7 @@ Sep 28 21:48:27 sapprdhdb95 corosync[68812]: [MAIN  ] Corosync Cluster Engine ex
 Sep 28 21:48:27 sapprdhdb95 systemd[1]: Dependency failed for Pacemaker High Availability Cluster Manager
 -- Subject: Unit pacemaker.service has failed
 -- Defined-By: systemd
--- Support: http://lists.freedesktop.org/mailman/listinfo/systemd-devel
+-- Support: https://lists.freedesktop.org/mailman/listinfo/systemd-devel
 --
 -- Unit pacemaker.service has failed.
 --

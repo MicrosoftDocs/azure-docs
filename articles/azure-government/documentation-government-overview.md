@@ -4,8 +4,6 @@ description: This provides a comparision of features and guidance on developing 
 services: azure-government
 cloud: gov
 documentationcenter: ''
-author: ryansoc
-manager: zakramer
 
 ms.assetid: 56d84e26-947e-4f3b-8e33-18247f1c7944
 ms.service: azure-government
@@ -14,14 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
 ms.date: 01/10/2017
-ms.author: ryansoc
 
 ---
 # Azure Government Documentation Overview
 ## Introduction to Azure Government Documentation
 This site describes the capabilities of [Microsoft Azure Government](https://azure.microsoft.com/features/gov/) services, and provides general guidance applicable to all customers. Before including regulated data in your Azure Government subscription, you should familiarize yourself with the Azure Government capabilities and consult your account team if you have any questions.
 
-Refer to the [Microsoft Azure Trust Center Compliance Page](http://www.microsoft.com/en-us/TrustCenter/Compliance/default.aspx) for current information on the Azure Government services covered under specific accreditations and regulations. Additional Microsoft services might also be available, but are not within the scope of the Azure Government covered services and are not addressed by this document. Azure Government services might also permit you to use a variety of additional resources, applications, or services that are provided by third parties—or by Microsoft under separate terms of use and privacy policies—which are not included in the scope of this document. You are responsible for reviewing the terms of all such “add-on” offerings, such as Marketplace offerings, so that they meet your needs regarding compliance.
+Refer to the [Microsoft Azure Trust Center Compliance Page](https://www.microsoft.com/en-us/TrustCenter/Compliance/default.aspx) for current information on the Azure Government services covered under specific accreditations and regulations. Additional Microsoft services might also be available, but are not within the scope of the Azure Government covered services and are not addressed by this document. Azure Government services might also permit you to use a variety of additional resources, applications, or services that are provided by third parties—or by Microsoft under separate terms of use and privacy policies—which are not included in the scope of this document. You are responsible for reviewing the terms of all such “add-on” offerings, such as Marketplace offerings, so that they meet your needs regarding compliance.
 
 Azure Government is available to entities that handle data that is subject to certain government regulations and requirements (such as NIST 800.171 (DIB), ITAR, IRS 1075, DoD L4, and CJIS) where use of Azure Government is required to comply with regulations. Azure Government customers are subject to validation of eligibility.
 

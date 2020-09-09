@@ -2,27 +2,21 @@
 title: 'Tutorial: Configure Box for automatic user provisioning with Azure Active Directory | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Box .
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-
-ms.assetid: 1c959595-6e57-4954-9c0d-67ba03ee212b
+manager: CelesteDG
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2017
+ms.date: 07/20/2020
 ms.author: jeedes
-
 ---
 # Tutorial: Configure Box for automatic user provisioning
 
 The objective of this tutorial is to show the steps you need to perform in Box and Azure AD to automatically provision and de-provision user accounts from Azure AD to Box.
 
 > [!NOTE]
-> This tutorial describes a connector built on top of the Azure AD User Provisioning Service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../manage-apps/user-provisioning.md).
+> This tutorial describes a connector built on top of the Azure AD User Provisioning Service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md).
 
 ## Prerequisites
 
@@ -33,6 +27,9 @@ To configure Azure AD integration with Box, you need the following items:
 
 > [!NOTE]
 > When you test the steps in this tutorial, we recommend that you do *not* use a production environment.
+
+> [!NOTE]
+> Apps need to be enabled in the Box application first.
 
 To test the steps in this tutorial, follow these recommendations:
 
@@ -51,7 +48,7 @@ Before configuring and enabling the provisioning service, you need to decide wha
 The **Box > Users and Groups** tab in the Azure portal allows you to specify which users and groups should be granted access to Box. Assignment of a user or group causes the following things to occur:
 
 * Azure AD permits the assigned user (either by direct assignment or group membership) to authenticate to Box. If a user is not assigned, then Azure AD does not permit them to sign in to Box and returns an error on the Azure AD sign-in page.
-* An app tile for Box is added to the user's [application launcher](../manage-apps/what-is-single-sign-on.md#deploying-azure-ad-integrated-applications-to-users).
+* An app tile for Box is added to the user's [application launcher](../manage-apps/end-user-experiences.md).
 * If automatic provisioning is enabled, then the assigned users and/or groups are added to the provisioning queue to be automatically provisioned.
   
   * If only user objects were configured to be provisioned, then all directly assigned users are placed in the provisioning queue, and all users that are members of any assigned groups are placed in the provisioning queue. 
@@ -118,7 +115,7 @@ The objective of this section is to outline how to enable provisioning of Active
 
 That starts the initial synchronization of any users and/or groups assigned to Box in the Users and Groups section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity logs, which describe all actions performed by the provisioning service on your Box app.
 
-For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../manage-apps/check-status-user-account-provisioning.md).
+For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../app-provisioning/check-status-user-account-provisioning.md).
 
 In your Box tenant, synchronized users are listed under **Managed Users** in the **Admin Console**.
 

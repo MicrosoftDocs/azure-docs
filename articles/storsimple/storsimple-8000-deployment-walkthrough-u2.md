@@ -1,23 +1,16 @@
 ---
-title: Deploy your StorSimple 8000 series device in Azure portal | Microsoft Docs
+title: Deploy your StorSimple 8000 series device in Azure portal
 description: Describes the steps and best practices for deploying the StorSimple 8000 series device running Update 3 and later, and StorSimple Device Manager service.
-services: storsimple
-documentationcenter: NA
 author: alkohli
-manager: jeconnoc
-editor: ''
-
-ms.assetid:
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: hero-article
-ms.tgt_pltfrm: NA
-ms.workload: NA
+ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: alkohli
 
 ---
 # Deploy your on-premises StorSimple device (Update 3 and later)
+
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
 
 ## Overview
 Welcome to Microsoft Azure StorSimple device deployment. These deployment tutorials apply to StorSimple 8000 Series Update 3 or later. This series of tutorials includes a configuration checklist, configuration prerequisites, and detailed configuration steps for your StorSimple device.
@@ -62,7 +55,7 @@ Perform these required steps to configure your StorSimple device and connect it 
 ## Deployment configuration checklist
 Before you deploy your device, you need to collect information to configure the software on your StorSimple device. Preparing some of this information ahead of time helps streamline the process of deploying the StorSimple device in your environment. Download and use this checklist to note down the configuration details as you deploy your device.
 
-* [Download StorSimple deployment configuration checklist](http://www.microsoft.com/download/details.aspx?id=49159)
+* [Download StorSimple deployment configuration checklist](https://www.microsoft.com/download/details.aspx?id=49159)
 
 ## Deployment prerequisites
 The following sections explain the configuration prerequisites for your StorSimple Device Manager service and your StorSimple device.

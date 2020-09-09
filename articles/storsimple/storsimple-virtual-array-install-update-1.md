@@ -10,7 +10,7 @@ editor: ''
 ms.assetid: 
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 11/02/2017
@@ -25,6 +25,7 @@ This article describes the steps required to install Update 1.0 on your StorSimp
 You apply the software updates or hotfixes to keep your StorSimple Virtual Array up-to-date. Before you apply an update, we recommend that you take the volumes or shares offline on the host first and then the device. This minimizes any possibility of data corruption. After the volumes or shares are offline, you should also take a manual backup of the device.
 
 > [!IMPORTANT]
+>
 > - Update 1.0 corresponds to **10.0.10296.0** software version on your device. For information on what is new in this update, go to [Release notes for Update 1.0](storsimple-virtual-array-update-1-release-notes.md).
 >
 > - Keep in mind that installing an update or hotfix restarts your device. Given that the StorSimple Virtual Array is a single node device, any I/O in progress is disrupted and your device experiences downtime.
@@ -61,7 +62,7 @@ If your virtual array is running Update 0.6, perform the following steps to down
 
 #### To download the update or the hotfix
 
-1. Start Internet Explorer and navigate to [http://catalog.update.microsoft.com](http://catalog.update.microsoft.com).
+1. Start Internet Explorer and navigate to [https://catalog.update.microsoft.com](https://catalog.update.microsoft.com).
 
 2. If you are using the Microsoft Update Catalog for the first time on this computer, click **Install** when prompted to install the Microsoft Update Catalog add-on.
 

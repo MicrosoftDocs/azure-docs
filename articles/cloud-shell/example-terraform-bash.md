@@ -1,9 +1,9 @@
 ---
-title: Deploy with Terraform from Bash in Azure Cloud Shell | Microsoft Docs
-description: Deploy with Terraform from Bash in Azure Cloud Shell
+title: Deploy with Terraform from Azure Cloud Shell | Microsoft Docs
+description: Deploy with Terraform from Azure Cloud Shell
 services: Azure
 documentationcenter: ''
-author: tomarcher
+author: tomarchermsft
 manager: routlaw
 tags: azure-cloud-shell
 
@@ -14,17 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: tarcher
+ms.custom: devx-track-terraform
 ---
 
 # Deploy with Terraform from Bash in Azure Cloud Shell
-This article walks you through creating a resource group with the [Terraform AzureRM provider](https://www.terraform.io/docs/providers/azurerm/index.html). 
+This article walks you through creating a resource group with the [Terraform AzureRM provider](https://www.terraform.io/docs/providers/azurerm/index.html).
 
-[Hashicorp Terraform](https://www.terraform.io/) is an open source tool that codifies APIs into declarative configuration files that can be shared amongst team members to be edited, reviewed, and versioned. The Microsoft AzureRM provider is used to interact with resources supported by Azure Resource Manager via the AzureRM APIs. 
+[Hashicorp Terraform](https://www.terraform.io/) is an open source tool that codifies APIs into declarative configuration files that can be shared amongst team members to be edited, reviewed, and versioned. The Microsoft AzureRM provider is used to interact with resources supported by Azure Resource Manager via the AzureRM APIs.
 
 ## Automatic authentication
-Terraform is installed in Bash in Cloud Shell by default. Additionally, Cloud Shell automatically authenticates your default Azure CLI 2.0 subscription to deploy resources through the Terraform Azure modules.
+Terraform is installed in Bash in Cloud Shell by default. Additionally, Cloud Shell automatically authenticates your default Azure CLI subscription to deploy resources through the Terraform Azure modules.
 
-Terraform uses the default Azure CLI 2.0 subscription that is set. To update default subscriptions, run:
+Terraform uses the default Azure CLI subscription that is set. To update default subscriptions, run:
 
 ```azurecli-interactive
 az account set --subscription mySubscriptionName
@@ -140,10 +141,10 @@ Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
 
 The [terraform apply command](https://www.terraform.io/docs/commands/apply.html) is used to apply the changes required to reach the desired state of the configuration.
 
-### Verify deployment with Azure CLI 2.0
+### Verify deployment with Azure CLI
 Run `az group show -n myRgName` to verify the resource has succeeded provisioning.
 
-```azcliinteractive
+```azurecli-interactive
 az group show -n myRgName
 ```
 

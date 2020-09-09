@@ -1,6 +1,7 @@
 ---
-title: Manage developer accounts using groups in Azure API Management | Microsoft Docs
-description: Learn how to manage developer accounts using groups in Azure API Management
+title: Manage developer accounts using groups in Azure API Management
+titleSuffix: Azure API Management
+description: Learn how to manage developer accounts using groups in Azure API Management. Create groups, and then associate them with products or developers.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -10,12 +11,12 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: apimpm
 ---
 # How to create and use groups to manage developer accounts in Azure API Management
+
 In API Management, groups are used to manage the visibility of products to developers. Products are first made visible to groups, and then developers in those groups can view and subscribe to the products that are associated with the groups. 
 
 API Management has the following immutable system groups:
@@ -28,7 +29,9 @@ In addition to these system groups, administrators can create custom groups or [
 
 This guide shows how administrators of an API Management instance can add new groups and associate them with products and developers.
 
-In addition to creating and managing groups in the publisher portal, you can create and manage your groups using the API Management REST API [Group](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-group-entity) entity.
+In addition to creating and managing groups in the publisher portal, you can create and manage your groups using the API Management REST API [Group](/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-group-entity) entity.
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## Prerequisites
 
@@ -90,7 +93,7 @@ Once the association is added between the developer and the group, you can view 
 ## <a name="next-steps"> </a>Next steps
 
 * Once a developer is added to a group, they can view and subscribe to the products associated with that group. For more information, see [How create and publish a product in Azure API Management][How create and publish a product in Azure API Management],
-* In addition to creating and managing groups in the publisher portal, you can create and manage your groups using the API Management REST API [Group](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-group-entity) entity.
+* In addition to creating and managing groups in the publisher portal, you can create and manage your groups using the API Management REST API [Group](/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-group-entity) entity.
 
 [Create a group]: #create-group
 [Associate a group with a product]: #associate-group-product

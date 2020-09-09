@@ -1,10 +1,17 @@
+---
+author: spelluru
+ms.service: service-bus-messaging
+ms.topic: include
+ms.date: 11/25/2018
+ms.author: spelluru
+---
 ### Install via Composer
 1. Create a file named **composer.json** in the root of your project and add the following code to it:
    
     ```json
     {
       "require": {
-        "microsoft/azure-storage": "*"
+        "microsoft/windowsazure": "*"
       }
     }
     ```
@@ -15,9 +22,7 @@
     php composer.phar install
     ```
 
-Alternatively go to the [Azure Storage PHP Client Library][php-sdk-github] on GitHub to clone the source code.
-
 [php-sdk-github]: https://github.com/Azure/azure-storage-php
 [install-git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
-[download-SDK-PHP]: ../articles/php-download-sdk.md
+[download-SDK-PHP]: https://github.com/Azure/azure-sdk-for-php
 [composer-phar]: http://getcomposer.org/composer.phar

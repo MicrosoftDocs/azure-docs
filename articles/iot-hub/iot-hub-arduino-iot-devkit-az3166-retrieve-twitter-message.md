@@ -9,6 +9,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 03/07/2018
 ms.author: liydu
+ms.custom: devx-track-csharp
 ---
 
 # Shake, Shake for a Tweet -- Retrieve a Twitter message with Azure Functions
@@ -171,9 +172,9 @@ For testing purposes, this sample project uses a pre-configured Twitter bearer t
 
    ```csharp
    string authHeader = "Bearer " + "[your own token]";
-  ```
+   ```
   
-  ![twitter-token](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/twitter-token.png)
+   ![twitter-token](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/twitter-token.png)
 
 6. Save the file and click **Run**.
 
@@ -193,12 +194,10 @@ Or, when running the code, there are some blips that cause a restarting of the a
 
    ![azure-function-restart](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/azure-function-restart.png)
 
-### Feedback
-
 If you experience other problems, refer to the [IoT DevKit FAQ](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/) or contact us using the following channels:
 
-* [Gitter.im](http://gitter.im/Microsoft/azure-iot-developer-kit)
-* [Stackoverflow](https://stackoverflow.com/questions/tagged/iot-devkit)
+* [Gitter.im](https://gitter.im/Microsoft/azure-iot-developer-kit)
+* [Stack Overflow](https://stackoverflow.com/questions/tagged/iot-devkit)
 
 ## Next steps
 

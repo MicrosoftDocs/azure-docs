@@ -21,3 +21,5 @@ You can restart the simulated devices when you're ready to start the next tutori
 If you no longer need the solution accelerator, delete it from the [Provisioned solutions](https://www.azureiotsolutions.com/Accelerators#dashboard) page:
 
 ![Delete solution](media/iot-accelerators-tutorial-cleanup/deletesolution.png)
+
+![Delete solution](media/iot-accelerators-tutorial-cleanup/deletesolution-provision.png)

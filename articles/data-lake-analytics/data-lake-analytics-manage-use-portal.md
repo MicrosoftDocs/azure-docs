@@ -3,12 +3,9 @@ title: Manage Azure Data Lake Analytics by using the Azure portal
 description: This article describes how to use the Azure portal to manage Data Lake Analytics accounts, data sources, users, & jobs.
 services: data-lake-analytics
 ms.service: data-lake-analytics
-author: saveenr
-ms.author: saveenr
-
-ms.reviewer: jasonwhowell
+ms.reviewer: jasonh
 ms.assetid: a0e045f1-73d6-427f-868d-7b55c10f811b
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/05/2016
 ---
 # Manage Azure Data Lake Analytics using the Azure portal
@@ -92,7 +89,7 @@ You can use the **Add User Wizard** to easily provision new Data Lake users.
 
 Like other Azure services, you can use Role-Based Access Control (RBAC) to control how users interact with the service.
 
-The standard RBAC roles have the following capabilities:
+The standard Azure roles have the following capabilities:
 * **Owner**: Can submit jobs, monitor jobs, cancel jobs from any user, and configure the account.
 * **Contributor**: Can submit jobs, monitor jobs, cancel jobs from any user, and configure the account.
 * **Reader**: Can monitor jobs.
@@ -106,7 +103,7 @@ Use the Data Lake Analytics Developer role to enable U-SQL developers to use the
 ### Add users or security groups to a Data Lake Analytics account
 
 1. In the Azure portal, go to your Data Lake Analytics account.
-2. Click **Access control (IAM)** > **Add**.
+2. Click **Access control (IAM)** > **Add role assignment**.
 3. Select a role.
 4. Add a user.
 5. Click **OK**.
@@ -160,4 +157,4 @@ To view a list of U-SQL jobs that are recurring:
 
 * [Overview of Azure Data Lake Analytics](data-lake-analytics-overview.md)
 * [Manage Azure Data Lake Analytics by using Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
-* [Manage Azure Data Lake Analytics using policies](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-policies)
+* [Manage Azure Data Lake Analytics using policies](data-lake-analytics-account-policies.md)

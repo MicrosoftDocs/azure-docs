@@ -1,0 +1,111 @@
+﻿- name: IoT Plug and Play Documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: What is IoT Plug and Play?
+    href: overview-iot-plug-and-play.md
+  - name: Preview refresh updates
+    href: overview-iot-plug-and-play-preview-updates.md
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: Connect a device to IoT Hub
+    items:
+      - name: C
+        href: quickstart-connect-device-c.md
+      - name: Node.js
+        href: quickstart-connect-device-node.md
+      - name: Python
+        href: quickstart-connect-device-python.md
+      - name: C#
+        href: quickstart-connect-device-csharp.md
+      - name: Java
+        href: quickstart-connect-device-java.md
+  - name: Interact with a device from your solution
+    items:
+      - name: Node.js
+        href: quickstart-service-node.md
+      - name: Python
+        href: quickstart-service-python.md
+- name: Tutorials
+  items:
+  - name: Connect a multiple component device (C)
+    href: tutorial-multiple-components-c.md
+  - name: Connect a multiple component device (C#)
+    href: tutorial-multiple-components-csharp.md
+  - name: Connect a multiple component device (Java)
+    href: tutorial-multiple-components-java.md
+  - name: Connect a multiple component device (Node.js)
+    href: tutorial-multiple-components-node.md
+  - name: Connect a multiple component device (Python)
+    href: tutorial-multiple-components-python.md
+  - name: Use MQTT to connect a device
+    href: tutorial-use-mqtt.md
+- name: Concepts
+  items:
+  - name: Architecture
+    href: concepts-architecture.md
+  - name: Developer guide
+    href: concepts-developer-guide.md
+  - name: Components
+    href: concepts-components.md
+  - name: IoT Plug and Play conventions
+    href: concepts-convention.md
+  - name: Digital twins
+    href: concepts-digital-twin.md
+  - name: Model repository
+    href: concepts-model-repository.md
+  - name: Use models in a solution
+    href: concepts-model-discovery.md
+  - name: Model parser
+    href: concepts-model-parser.md
+  - name: Limits and quotas
+    href: concepts-limits-quotas.md
+  - name: Glossary
+    href: iot-plug-and-play-glossary.md
+- name: How-to guides
+  items:
+  - name: Install and use IoT explorer
+    href: howto-use-iot-explorer.md
+  - name: Install and use Azure IoT CLI extension
+    href: howto-use-iot-pnp-cli.md
+  - name: Manage digital twins
+    href: howto-manage-digital-twin.md
+  - name: Certify a device
+    href: howto-certify-device.md
+- name: Reference
+  items:
+  - name: Libraries and SDKs
+    href: libraries-sdks.md
+  - name: Digital Twin REST API
+    href: https://aka.ms/iot-pnp-preview-rest
+  - name: Azure CLI
+    href: /cli/azure/azure-cli-reference-for-IoT
+- name: Resources
+  items:
+  - name: Support and help options
+    href: /azure/iot-fundamentals/iot-support-help
+  - name: Azure IoT services
+    items:
+    - name: IoT Hub
+      href: /azure/iot-hub
+    - name: IoT Hub Device Provisioning Service
+      href: /azure/iot-dps
+    - name: IoT Central
+      href: https://docs.microsoft.com/microsoft-iot-central/
+    - name: IoT Edge
+      href: /azure/iot-edge
+    - name: IoT solution accelerators
+      href: /azure/iot-accelerators
+    - name: IoT Plug and Play
+      href: /azure/iot-pnp
+    - name: Azure Maps
+      href: /azure/azure-maps
+    - name: Time Series Insights
+      href: /azure/time-series-insights
+  - name: Azure IoT SDKs
+    items:
+    - name: IoT Service SDKs
+      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
+    - name: IoT Device SDKs
+      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks

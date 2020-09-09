@@ -1,12 +1,12 @@
 ---
 title: Remote Monitoring solution accelerator overview - Azure | Microsoft Docs
-description: An overview of the Remote Monitoring solution accelerator.
+description: This article provides an overview of some of the key elements of the Remote Monitoring solution to enable you to understand how it works. 
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: conceptual
-ms.date: 11/10/2017
+ms.date: 03/08/2019
 ms.author: dobett
 ---
 
@@ -19,6 +19,11 @@ This article walks you through some of the key elements of the Remote Monitoring
 * Troubleshoot issues in the solution.
 * Plan how to customize to the solution to meet your own specific requirements.
 * Design your own IoT solution that uses Azure services.
+
+The Remote Monitoring solution accelerator code is available on GitHub:
+
+* [.NET](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet)
+* [Java](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java)
 
 ## Logical architecture
 
@@ -37,11 +42,11 @@ Cloud architecture has evolved since Microsoft released the first solution accel
 
 The solution includes the following components in the device connectivity part of the logical architecture:
 
-### Physical devices
+### Real devices
 
-You can connect physical devices to the solution. You can implement the behavior of your simulated devices using the Azure IoT device SDKs.
+You can connect real devices to the solution. You can implement the behavior of your simulated devices using the Azure IoT device SDKs.
 
-You can provision physical devices from the dashboard in the solution portal.
+You can provision real devices from the dashboard in the solution portal.
 
 ### Device simulation microservice
 
@@ -56,7 +61,7 @@ You can provision simulated devices from the dashboard in the solution portal.
 
 ### IoT Hub
 
-The [IoT hub](../iot-hub/index.yml) ingests telemetry sent from both the physical and simulated devices into the cloud. The IoT hub makes the telemetry available to the services in the IoT solution backend for processing.
+The [IoT hub](../iot-hub/index.yml) ingests telemetry sent from both the real and simulated devices into the cloud. The IoT hub makes the telemetry available to the services in the IoT solution backend for processing.
 
 The IoT hub in the solution also:
 
@@ -96,7 +101,7 @@ The service provides a RESTful endpoint for CRUD operations on key-value pairs. 
 
 ### Azure Cosmos DB
 
-Solution accelerator deployments use [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/) to store rules, alarms, configuration settings, and all other cold storage.
+Solution accelerator deployments use [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/) to store rules, alerts, configuration settings, and all other cold storage.
 
 ### Azure Stream Analytics manager microservice
 
@@ -116,16 +121,13 @@ The ASA jobs deliver the telemetry from the connected devices to Time Series Ins
 
 [Azure Time Series Insights](https://docs.microsoft.com/azure/time-series-insights/) stores the telemetry from the devices connected to the solution accelerator. It also enables visualizing and querying device telemetry in the solution web UI.
 
-> [!NOTE]
-> Time Series Insights is not currently available in the Azure China cloud. New Remote Monitoring solution accelerator deployments in the Azure China cloud use Cosmos DB for all storage.
-
 ### Configuration microservice
 
 The [configuration microservice](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/config) provides a RESTful endpoint for CRUD operations on device groups, solution settings, and user-settings in the solution accelerator. It works with the storage adapter microservice to persist the configuration data.
 
 ### Authentication and authorization microservice
 
-The [authentication and authorization microservice](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/auth) manages the users authorized to access the solution accelerator. User management can be done using any identity service provider that supports [OpenId Connect](http://openid.net/connect/).
+The [authentication and authorization microservice](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/auth) manages the users authorized to access the solution accelerator. User management can be done using any identity service provider that supports [OpenId Connect](https://openid.net/connect/).
 
 ### Azure Active Directory
 

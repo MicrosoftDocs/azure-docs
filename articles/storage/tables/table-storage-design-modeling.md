@@ -1,13 +1,13 @@
 ---
-title: Modeling relationships in Azure storage table design | Microsoft Docs
-description: Understand the modeling process when designing your table storage solution.
+title: Modeling relationships in Azure Table storage design | Microsoft Docs
+description: Understand the modeling process when designing your Azure Table storage solution. Read about one-to-many, one-to-one, and inheritance relationships.
 services: storage
-author: MarkMcGeeAtAquent
 ms.service: storage
+author: tamram
+ms.author: tamram
 ms.topic: article
 ms.date: 04/23/2018
-ms.author: sngun
-ms.component: tables
+ms.subservice: tables
 ---
 # Modeling relationships
 This article discusses the modeling process to help you design your Azure Table storage solutions.
@@ -45,7 +45,7 @@ The following table summarizes the pros and cons of each of the approaches outli
 <td>
 <ul>
 <li>You can update a department entity with a single operation.</li>
-<li>You can use an EGT to maintain consistency if you have a requirement to modify a department entity whenever you update/insert/delete an employee entity. For example, if you maintain a departmental employee count for each department.</li>
+<li>You can use an Entity Group Transaction* (EGT) to maintain consistency if you have a requirement to modify a department entity whenever you update/insert/delete an employee entity. For example, if you maintain a departmental employee count for each department.</li>
 </ul>
 </td>
 <td>
@@ -87,6 +87,9 @@ The following table summarizes the pros and cons of each of the approaches outli
 </tr>
 </table>
 
+*for more information, see [Entity Group Transactions](table-storage-design.md#entity-group-transactions)  
+
+
 How you choose between these options, and which of the pros and cons are most significant, depends on your specific application scenarios. For example, how often do you modify department entities; do all your employee queries need the additional departmental information; how close are you to the scalability limits on your partitions or your storage account?  
 
 ## One-to-one relationships
@@ -95,7 +98,7 @@ Domain models may include one-to-one relationships between entities. If you need
 There are also implementation considerations that might lead you to implement one-to-one relationships in the Table service:  
 
 * Handling large entities (for more information, see [Large Entities Pattern](table-storage-design-patterns.md#large-entities-pattern)).  
-* Implementing access controls (for more information, see [Controlling access with Shared Access Signatures](#controlling-access-with-shared-access-signatures)).  
+* Implementing access controls (for more information, see Controlling access with Shared Access Signatures).  
 
 ## Join in the client
 Although there are ways to model relationships in the Table service, you should not forget that the two prime reasons for using the Table service are scalability and performance. If you find you are modeling many relationships that compromise the performance and scalability of your solution, you should ask yourself if it is necessary to build all the data relationships into your table design. You may be able to simplify the design and improve the scalability and performance of your solution if you let your client application perform any necessary joins.  
@@ -111,7 +114,7 @@ You can persist instances of the two concrete classes in the Table service using
 
 ![Person table](media/storage-table-design-guide/storage-table-design-IMAGE04.png)
 
-For more information about working with multiple entity types in the same table in client code, see the section [Working with heterogeneous entity types](#working-with-heterogeneous-entity-types) later in this guide. This provides examples of how to recognize the entity type in client code.  
+For more information about working with multiple entity types in the same table in client code, see the section Working with heterogeneous entity types later in this guide. This provides examples of how to recognize the entity type in client code.  
 
 
 ## Next steps

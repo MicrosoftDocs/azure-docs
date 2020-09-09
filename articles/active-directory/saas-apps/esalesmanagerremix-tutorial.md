@@ -1,22 +1,16 @@
-﻿---
+---
 title: 'Tutorial: Azure Active Directory integration with E Sales Manager Remix | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and E Sales Manager Remix.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
-
-ms.assetid: 89b5022c-0d5b-4103-9877-ddd32b6e1c02
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/12/2018
 ms.author: jeedes
-
 ---
 # Integrate Azure Active Directory with E Sales Manager Remix
 
@@ -153,7 +147,7 @@ Enable Azure AD single sign-on in the Azure portal and configure single sign-on 
 	
 	b. In the **Collaboration item** section, in the drop-down list, select **email**.
 
-	c. In the **Collaboration item** box, paste the claim value that you copied earlier from the Azure portal (that is, **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**).
+	c. In the **Collaboration item** box, paste the claim value that you copied earlier from the Azure portal (that is, **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`**).
 
 	d. In the **Issuer (entity ID)** box, paste the identifier value that you copied earlier from the **E Sales Manager Remix Domain and URLs** section of the Azure portal.
 

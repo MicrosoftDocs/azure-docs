@@ -1,3 +1,10 @@
+---
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: cynthn
+---
 
 
 
@@ -14,10 +21,12 @@ This template includes the following tags: *Department*, *Application*, and *Cre
 
 As you can see, the tags are defined as key/value pairs, separated by a colon (:). The tags must be defined in this format:
 
-        “tags”: {
-            “Key1” : ”Value1”,
-            “Key2” : “Value2”
-        }
+```config
+"tags": {
+    "Key1" : "Value1",
+    "Key2" : "Value2"
+}
+```
 
 Save the template file after you finish editing it with the tags of your choice.
 
