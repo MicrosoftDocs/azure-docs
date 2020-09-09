@@ -175,11 +175,11 @@ It can also be set through the IoT Edge Module Twin document either globally, fo
 
 The sample deployment manifest file includes a module named `diagnostics` that collects and uploads logs. This module is disabled by default and should be enabled through the IoT Edge module configuration when you need to access logs. 
 
-The `penginelogs` operation is on-demand and controlled via an IoT Edge direct method, and can send logs to an Azure Blob Storage.
+The `diagnostics` collection is on-demand and controlled via an IoT Edge direct method, and can send logs to an Azure Blob Storage.
 
-### Configure penginelogs upload targets
+### Configure diagnostics upload targets
 
-From the IoT Edge portal, select your device and then the **penginelogs** module. In the **Environment Variables** section, add the following information:
+From the IoT Edge portal, select your device and then the **diagnostics** module. In the **Environment Variables** section, add the following information:
 
 **Configure Upload to Azure Blob Storage**
 
@@ -200,7 +200,7 @@ From the IoT Edge portal, select your device and then the **penginelogs** module
 >
 >`"createOptions": "{\"HostConfig\": {\"Binds\": [\"/var/run/docker.sock:/var/run/docker.sock\",\"/usr/bin/docker:/usr/bin/docker\"],\"LogConfig\": {\"Config\": {\"max-size\": \"500m\"}}}}"`
 
-### Uploading Project Archon Logs
+### Uploading spatial analysis Logs
 
 Logs are uploaded on-demand with the `getRTCVLogs` IoT Edge method, in the `penginelogs` module. 
 
@@ -229,7 +229,7 @@ The below table lists the parameters you can use when querying logs.
 | ContainerId | Target container for fetching logs.| `null`, when there is no container ID. The API returns all available containers information with IDs.|
 | DoPost | Perform the upload operation. When this is set to `false`, it performs the requested operation and returns the upload size without performing the upload. When set to `true`, it will initiate the asynchronous upload of the selected logs | `false`, do not upload.|
 | Throttle | Indicate how many lines of logs to upload per batch | `1000`, Use this parameter to adjust post speed. |
-| Filters | Filters logs to be uploaded | `null`, filters can be specified as key value pairs based on the Project-Archon logs structure: `[UTC, LocalTime, LOGLEVEL,PID, CLASS, DATA]`. For example: `{"TimeFilter":[-1,1573255761112]}, {"TimeFilter":[-1,1573255761112]}, {"CLASS":["myNode"]`|
+| Filters | Filters logs to be uploaded | `null`, filters can be specified as key value pairs based on the spatial analysis logs structure: `[UTC, LocalTime, LOGLEVEL,PID, CLASS, DATA]`. For example: `{"TimeFilter":[-1,1573255761112]}, {"TimeFilter":[-1,1573255761112]}, {"CLASS":["myNode"]`|
 
 The following table lists the attributes in the query response.
 
