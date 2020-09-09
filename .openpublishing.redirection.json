@@ -651,6 +651,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/virtual-network/security-overview.md",
+      "redirect_url": "/azure/virtual-network/network-security-groups-overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-network/virtual-networks-create-vnet-classic-pportal.md",
       "redirect_url": "/previous-versions/azure/virtual-network/virtual-networks-create-vnet-classic-pportal",
       "redirect_document_id": false
