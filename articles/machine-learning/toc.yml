@@ -18,7 +18,7 @@
     - name: Python SDK
       expanded: true
       items: 
-        - Get started (day 1)
+        - name: Get started (day 1)
           items:
             - name: 1a. Setup: Use your computer
               href: tutorial-1st-experiment-sdk-setup-local.md         
