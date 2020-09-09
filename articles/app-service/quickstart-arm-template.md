@@ -11,9 +11,9 @@ zone_pivot_groups: app-service-platform-windows-linux
 ---
 # Create App Service web app using an Azure Resource Manager template
 
-[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service.  This quickstart tutorial shows how to create a web app to Azure App Service using an Azure Resource Manager template and [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) in Cloud Shell.
+Get started with [Azure App Service](overview.md) by deploying a web app to the cloud using an Azure Resource Manager template and [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) in Cloud Shell. Because you use a free App Service tier, you incur no costs to complete this quickstart.
 
-[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+ [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 ## Prerequisites
 
@@ -26,7 +26,7 @@ zone_pivot_groups: app-service-platform-windows-linux
 The template used in this quickstart is from [Azure Quickstart templates](https://github.com/Azure/azure-quickstart-templates/).
 
 ::: zone pivot="platform-windows"
-This template deploys an App Service Plan and an App Service App on Windows.
+This template is compatible with .NET Core, .NET Framework, PHP, Node.js, and Static HTML apps. To deploy a Java app, see [Create Java app](app-service-web-get-started-java.md). This template deploys an App Service Plan and a .NET App on Windows.
 
 [!code-json[<Azure Resource Manager template App Service Windows app>](~/quickstart-templates/101-app-service-docs-windows/azuredeploy.json)]
 
@@ -47,9 +47,14 @@ This template contains several parameters that are predefined for your convenien
 | repoUrl    | string  | " "                          | External Git repo (optional) |
 ::: zone-end
 ::: zone pivot="platform-linux"
-This template deploys an App Service Plan and an App Service App on Linux.
+The template is compatible with all supported programming languages on App Service. This template deploys an App Service Plan and a Python App on Linux.
 
 [!code-json[<Azure Resource Manager template App Service Linux app>](~/quickstart-templates/101-app-service-docs-linux/azuredeploy.json)]
+
+Two Azure resources are defined in the template:
+
+* [**Microsoft.Web/serverfarms**](/azure/templates/microsoft.web/serverfarms): create an Azure App Service Plan.
+* [**Microsoft.Web/sites**](/azure/templates/microsoft.web/sites): create an Azure App Service web app.
 
 This template contains several parameters that are predefined for your convenience. See the table below for parameter defaults and their descriptions:
 
@@ -58,8 +63,7 @@ This template contains several parameters that are predefined for your convenien
 | webAppName | string  | "webApp-**[`<uniqueString>`](/azure/azure-resource-manager/templates/template-functions-string#uniquestring)**" | Web app name |
 | location   | string  | "[[resourceGroup().location](/azure/azure-resource-manager/templates/template-functions-resource#resourcegroup)]" | Web app region |
 | sku        | string  | "F1"                         | Instance size (F1 = Free Tier) |
-| language   | string  | ".net"                       | Programming language stack (.net, php, node, html) |
-| helloWorld | boolean | False                        | True = Deploy "Hello World" app |
+| linuxFxVersion   | string  | "DOTNETCORE|3.0        | "Programming language stack | Version" |
 | repoUrl    | string  | " "                          | External Git repo (optional) |
 
 ---
@@ -71,7 +75,7 @@ This template contains several parameters that are predefined for your convenien
 The following code creates a resource group, an App Service Plan, and a web app. A default resource group, App Service Plan, and location have been set for you. Replace `<app-name>` with a globally unique app name (valid characters are `a-z`, `0-9`, and `-`).
 
 ::: zone pivot="platform-windows"
-The template is compatible with .NET Core, .NET Framework, PHP, Node.js, and Static HTML apps. To deploy a Java app, see [Create Java app](app-service-web-get-started-java.md). Run the code below to deploy a .NET framework app on Windows.
+Run the code below to deploy a .NET framework app on Windows.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location "southcentralus" &&
@@ -80,7 +84,7 @@ az deployment group create --resource-group myResourceGroup \
 --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-app-service-docs-windows/azuredeploy.json"
 ::: zone-end
 ::: zone pivot="platform-linux"
-The template is compatible with all supported programming languages on App Service. Run the code below to create a Python web app on Linux. 
+Run the code below to create a Python web app on Linux. 
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location "southcentralus" &&
@@ -88,7 +92,7 @@ az deployment group create --resource-group myResourceGroup --parameters webAppN
 --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-app-service-docs-linux/azuredeploy.json"
 ```
 
-To deploy a different language, update `linuxFxVersion` with appropriate values. Samples are shown below.
+To deploy a different language stack, update `linuxFxVersion` with appropriate values. Samples are shown below.
 
 | Language    | Example                                              |
 |-------------|------------------------------------------------------|
